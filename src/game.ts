@@ -8,6 +8,7 @@ import { daylight, type Daylight } from './env/daylight';
 import { nightUniform } from './env/night';
 import { GameAudio } from './env/audio';
 import { PostFX } from './env/post';
+import { facadeSky } from './worlds/osm/facades';
 import { CharacterController } from './player/controller';
 import { Character } from './player/character';
 import { FollowCamera } from './player/camera';
@@ -194,6 +195,9 @@ export class Game {
     this.backdropHemi.color.copy(d.hemiSky);
     this.renderer.toneMappingExposure = d.exposure;
     this.post?.setNight(d.night);
+    facadeSky.top.value.copy(d.hemiSky).multiplyScalar(0.8);
+    facadeSky.horizon.value.copy(d.fogColor);
+    facadeSky.ground.value.copy(d.hemiGround);
     this.updateEnvironment(d);
     // Gece gökyüzü rengi (Sky shader'ı gizlendiğinde görünür)
     this.renderer.setClearColor(0x0a1224);

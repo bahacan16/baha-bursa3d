@@ -190,22 +190,42 @@ export function createFacadeAtlas(size: number): THREE.CanvasTexture {
  * Cephe malzemesi: uv metre cinsinden; atlas karosu shader'da `fract` ile tekrarlanır.
  * Mip seçimi için textureGrad sürekli türevlerle çağrılır (karo sınırında dikiş olmasın).
  */
-export function createFacadeMaterial(atlas: THREE.Texture): THREE.MeshStandardMaterial {
+/** Gökyüzü yansıması renkleri (cam için), Game her zaman değişiminde günceller. */
+export const facadeSky = {
+  top: { value: new THREE.Color(0x6f9bd1) },
+  horizon: { value: new THREE.Color(0xd6e2ea) },
+  ground: { value: new THREE.Color(0x5a5850) },
+};
+
+export function createFacadeMaterial(
+  atlas: THREE.Texture,
+  plaster?: { map: THREE.Texture; normalMap: THREE.Texture | null; avg: { value: THREE.Color } },
+): THREE.MeshStandardMaterial {
   const mat = new THREE.MeshStandardMaterial({
     map: atlas,
     roughness: 0.85,
     metalness: 0,
     vertexColors: true,
   });
+  if (plaster?.normalMap) {
+    mat.normalMap = plaster.normalMap;
+    mat.normalScale.setScalar(0.45);
+  }
   mat.onBeforeCompile = (sh) => {
     sh.uniforms.uNight = nightUniform;
+    sh.uniforms.uPlaster = { value: plaster?.map ?? null };
+    sh.uniforms.uPlasterAvg = plaster?.avg ?? { value: new THREE.Color(0.5, 0.5, 0.5) };
+    sh.uniforms.uSkyTop = facadeSky.top;
+    sh.uniforms.uSkyHorizon = facadeSky.horizon;
+    sh.uniforms.uSkyGround = facadeSky.ground;
+    if (plaster) sh.defines = { ...(sh.defines ?? {}), USE_PLASTER: '' };
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\nattribute vec4 facade;\nvarying vec4 vFacade;')
       .replace('#include <uv_vertex>', '#include <uv_vertex>\nvFacade = facade;');
     sh.fragmentShader = sh.fragmentShader
       .replace(
         '#include <common>',
-        '#include <common>\nvarying vec4 vFacade;\nuniform float uNight;\nvec4 facadeTexel = vec4(0.0);\nvec3 facadeCell = vec3(0.0);',
+        '#include <common>\nvarying vec4 vFacade;\nuniform float uNight;\nuniform sampler2D uPlaster;\nuniform vec3 uPlasterAvg;\nuniform vec3 uSkyTop;\nuniform vec3 uSkyHorizon;\nuniform vec3 uSkyGround;\nvec4 facadeTexel = vec4(0.0);\nvec3 facadeCell = vec3(0.0);\nfloat facadeGlass = 0.0;',
       )
       .replace(
         '#include <map_fragment>',
@@ -239,16 +259,54 @@ export function createFacadeMaterial(atlas: THREE.Texture): THREE.MeshStandardMa
   vec2 gx = dFdx(q) / G;
   vec2 gy = dFdy(q) / G;
   vec4 sampledDiffuseColor = textureGrad(map, auv, gx, gy);
-  diffuseColor *= sampledDiffuseColor;
   facadeTexel = sampledDiffuseColor;
+  {
+    vec3 t = sampledDiffuseColor.rgb;
+    float lum = dot(t, vec3(0.3, 0.59, 0.11));
+    facadeGlass = step(lum, 0.42) * step(t.r + 0.02, t.b);
+  }
+  {
+    // Perdeler: bazı pencerelerde açık renk perde (camın alt kısmı), bazılarında jaluzi
+    float ch = fract(sin(dot(vec3(floor(q.x * 2.0), floor(q.y), variant + floor(m.x / 40.0)), vec3(7.13, 157.1, 113.7))) * 43758.5);
+    vec3 curtain = ch < 0.33 ? vec3(0.78, 0.72, 0.62) : ch < 0.5 ? vec3(0.62, 0.64, 0.66) : sampledDiffuseColor.rgb;
+    float cmask = facadeGlass * step(ch, 0.5) * (0.55 + 0.25 * fract(ch * 17.0));
+    sampledDiffuseColor.rgb = mix(sampledDiffuseColor.rgb, curtain * 0.8, cmask);
+  }
+#ifdef USE_PLASTER
+  // Gerçek sıva dokusu (yalnızca parlaklık) — cam dışı pikseller
+  float pl = dot(texture2D(uPlaster, m / 2.0).rgb / max(uPlasterAvg, vec3(0.02)), vec3(0.3333));
+  sampledDiffuseColor.rgb *= mix(1.0, clamp(pl, 0.6, 1.4), 0.7 * (1.0 - facadeGlass));
+#endif
+  // Zemine yakın kirlenme ve bina bazında hafif ton farkı
+  float grime = 0.82 + 0.18 * smoothstep(0.0, 1.4, m.y);
+  float bh = fract(sin(dot(vec2(variant, floor(vFacade.z * 3.0)), vec2(12.9898, 78.233))) * 43758.5453);
+  sampledDiffuseColor.rgb *= mix(1.0, grime, 1.0 - facadeGlass) * (0.94 + 0.12 * bh);
+  diffuseColor *= sampledDiffuseColor;
   // Pencere kimliği: kat + bölme (+ bina varyantı)
   facadeCell = vec3(floor(q.x * 2.0), floor(q.y), variant + shop * 7.0);
 }
 #endif`,
       )
       .replace(
+        '#include <roughnessmap_fragment>',
+        '#include <roughnessmap_fragment>\nroughnessFactor = mix(roughnessFactor, 0.12, facadeGlass);',
+      )
+      .replace(
         '#include <emissivemap_fragment>',
         /* glsl */ `#include <emissivemap_fragment>
+{
+  // Cam: gökyüzü yansıması (Fresnel). Görünüm uzayında dünya "yukarı" vektörü.
+  vec3 V = normalize(vViewPosition);
+  vec3 N = normalize(normal);
+  vec3 R = reflect(-V, N);
+  vec3 up = normalize((viewMatrix * vec4(0.0, 1.0, 0.0, 0.0)).xyz);
+  float ry = dot(R, up);
+  vec3 sky = ry > 0.0 ? mix(uSkyHorizon, uSkyTop, pow(ry, 0.6)) : mix(uSkyHorizon, uSkyGround, pow(-ry, 0.5));
+  // Pencere başına farklılık: perde/jaluzi rengi, yansıma gücü
+  float wh = fract(sin(dot(facadeCell + floor(vMapUv.x / 40.0), vec3(39.34, 11.13, 83.17))) * 24634.63);
+  float fres = (0.18 + 0.7 * pow(1.0 - max(dot(N, V), 0.0), 4.0)) * (0.55 + 0.9 * wh);
+  totalEmissiveRadiance += sky * fres * facadeGlass * (1.0 - uNight * 0.85) * 0.5;
+}
 if (uNight > 0.01) {
   vec3 t = facadeTexel.rgb;
   float lum = dot(t, vec3(0.3, 0.59, 0.11));
@@ -261,6 +319,6 @@ if (uNight > 0.01) {
 }`,
       );
   };
-  mat.customProgramCacheKey = () => 'facade-v3';
+  mat.customProgramCacheKey = () => `facade-v5${plaster ? '-p' : ''}`;
   return mat;
 }

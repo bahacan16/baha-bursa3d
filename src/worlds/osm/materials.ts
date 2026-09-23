@@ -49,7 +49,8 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
   const roofTiles = P('roof');
   const grassT = P('grass');
   const dirtT = P('dirt');
-  const pbrSets = [asphalt, paving, concrete, roofTiles, grassT, dirtT];
+  const plasterT = P('plaster');
+  const pbrSets = [asphalt, paving, concrete, roofTiles, grassT, dirtT, plasterT];
   const atlas = createFacadeAtlas(quality === 'low' ? 1024 : 2048);
   // Beyaz tabanlı hafif gren: köşe renklerini çarpar (vertex color).
   const grain = canvasTexture(256, (ctx, s) => speckle(ctx, s, '#ffffff', 0.5));
@@ -102,7 +103,7 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
     });
 
   const byKey: Record<MatKey, THREE.Material> = {
-    wall: createFacadeMaterial(atlas),
+    wall: createFacadeMaterial(atlas, plasterT),
     roof: detailMaterial(concrete, { key: 'roof', roughness: 1, normalScale: 0.6 }),
     roofTile: detailMaterial(roofTiles, { key: 'roofTile', roughness: 1, normalScale: 1 }),
     detail: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0.05 }),
