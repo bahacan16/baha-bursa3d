@@ -104,6 +104,10 @@ export interface OsmWorldData {
   crossings: Pt[];
   lamps: Pt[];
   shops: Pt[];
+  /** amenity=bench (gerçek konumlar) */
+  benches: Pt[];
+  /** amenity=shelter / otobüs durağı */
+  shelters: Pt[];
 }
 
 export const LEVEL_HEIGHT = 3.1;
@@ -397,6 +401,8 @@ export function parseOsm(d: SimpleOsm): OsmWorldData {
     crossings: [],
     lamps: [],
     shops: [],
+    benches: [],
+    shelters: [],
   };
 
   for (const n of d.nodes) {
@@ -404,6 +410,8 @@ export function parseOsm(d: SimpleOsm): OsmWorldData {
     if (t.natural === 'tree') out.trees.push([n.x, n.z]);
     if (t.highway === 'crossing') out.crossings.push([n.x, n.z]);
     if (t.highway === 'street_lamp') out.lamps.push([n.x, n.z]);
+    if (t.amenity === 'bench') out.benches.push([n.x, n.z]);
+    if (t.amenity === 'shelter' || t.highway === 'bus_stop') out.shelters.push([n.x, n.z]);
     if (t.shop || (t.amenity && /^(cafe|restaurant|fast_food|bank|pharmacy|bakery|pub|bar)$/.test(t.amenity)))
       out.shops.push([n.x, n.z]);
     if (t.name) {

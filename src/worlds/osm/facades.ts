@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { ATLAS_GRID, SHOP_BASE, SHOP_H, TILE_H, TILE_W } from './chunks';
+import { nightUniform } from '../../env/night';
 
 /**
  * Prosedürel cephe doku atlası (canvas). Türk apartman tonları: krem, bej, açık somon, kırık beyaz, açık gri, toprak.
@@ -197,11 +198,15 @@ export function createFacadeMaterial(atlas: THREE.Texture): THREE.MeshStandardMa
     vertexColors: true,
   });
   mat.onBeforeCompile = (sh) => {
+    sh.uniforms.uNight = nightUniform;
     sh.vertexShader = sh.vertexShader
       .replace('#include <common>', '#include <common>\nattribute vec4 facade;\nvarying vec4 vFacade;')
       .replace('#include <uv_vertex>', '#include <uv_vertex>\nvFacade = facade;');
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nvarying vec4 vFacade;')
+      .replace(
+        '#include <common>',
+        '#include <common>\nvarying vec4 vFacade;\nuniform float uNight;\nvec4 facadeTexel = vec4(0.0);\nvec3 facadeCell = vec3(0.0);',
+      )
       .replace(
         '#include <map_fragment>',
         /* glsl */ `
@@ -235,10 +240,27 @@ export function createFacadeMaterial(atlas: THREE.Texture): THREE.MeshStandardMa
   vec2 gy = dFdy(q) / G;
   vec4 sampledDiffuseColor = textureGrad(map, auv, gx, gy);
   diffuseColor *= sampledDiffuseColor;
+  facadeTexel = sampledDiffuseColor;
+  // Pencere kimliği: kat + bölme (+ bina varyantı)
+  facadeCell = vec3(floor(q.x * 2.0), floor(q.y), variant + shop * 7.0);
 }
 #endif`,
+      )
+      .replace(
+        '#include <emissivemap_fragment>',
+        /* glsl */ `#include <emissivemap_fragment>
+if (uNight > 0.01) {
+  vec3 t = facadeTexel.rgb;
+  float lum = dot(t, vec3(0.3, 0.59, 0.11));
+  // Cam: koyu ve mavimsi pikseller
+  float glass = step(lum, 0.42) * step(t.r + 0.02, t.b);
+  float h = fract(sin(dot(facadeCell + floor(vMapUv.x / 40.0), vec3(12.9898, 78.233, 37.719))) * 43758.5453);
+  float lit = step(h, 0.36);
+  vec3 warm = mix(vec3(1.0, 0.62, 0.3), vec3(0.75, 0.82, 1.0), step(0.82, fract(h * 7.0))) * (0.5 + 0.5 * fract(h * 13.0));
+  totalEmissiveRadiance += warm * glass * lit * uNight * 0.55;
+}`,
       );
   };
-  mat.customProgramCacheKey = () => 'facade-v2';
+  mat.customProgramCacheKey = () => 'facade-v3';
   return mat;
 }

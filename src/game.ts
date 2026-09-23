@@ -4,6 +4,8 @@ import { DesktopInput, InputState, type Action } from './core/input';
 import type { Settings } from './core/settings';
 import { createSky, type SkyRig } from './env/sky';
 import { createLighting, type LightRig } from './env/lighting';
+import { daylight, type Daylight } from './env/daylight';
+import { nightUniform } from './env/night';
 import { CharacterController } from './player/controller';
 import { Character } from './player/character';
 import { FollowCamera } from './player/camera';
@@ -120,20 +122,33 @@ export class Game {
     }
   }
 
+  /** Coğrafi merkez (gerçek saat modunda güneş konumu için). */
+  geoCenter = { lat: 40.2180548, lon: 28.9073262 };
+  daylight: Daylight | null = null;
+  private daylightTimer = 0;
+
   applyTimeOfDay(): void {
-    const t = this.settings.timeOfDay;
-    this.sky.setTime(t);
-    this.lights.setTime(t);
-    const fogColor = t === 'day' ? 0xc4d3de : t === 'sunset' ? 0xd9a988 : 0x1a2230;
+    const d = (this.daylight = daylight(this.settings.timeOfDay, this.geoCenter));
+    this.sky.apply(d);
+    this.lights.apply(d);
+    nightUniform.value = d.night;
     // Mod A'da şehir uzakta da görünsün (tile'lar kendi LOD'unu yönetir).
     const [near, far] = this.world?.kind === 'google' ? [1500, 26000] : FOG[this.settings.quality];
-    this.scene.fog = new THREE.Fog(fogColor, near, far);
-    this.backdrop.fog = new THREE.Fog(fogColor, near, far);
-    this.backdropSun.position.copy(this.sky.sunDir).multiplyScalar(1000);
-    this.backdropSun.intensity = this.lights.sun.intensity * 0.8;
-    this.backdropSun.color.copy(this.lights.sun.color);
-    this.backdropHemi.intensity = this.lights.hemi.intensity;
-    this.renderer.toneMappingExposure = t === 'night' ? 0.7 : 0.9;
+    if (!(this.scene.fog instanceof THREE.Fog)) this.scene.fog = new THREE.Fog(d.fogColor, near, far);
+    if (!(this.backdrop.fog instanceof THREE.Fog)) this.backdrop.fog = new THREE.Fog(d.fogColor, near, far);
+    for (const f of [this.scene.fog, this.backdrop.fog] as THREE.Fog[]) {
+      f.color.copy(d.fogColor);
+      f.near = near;
+      f.far = far;
+    }
+    this.backdropSun.position.copy(d.lightDir).multiplyScalar(1000);
+    this.backdropSun.intensity = d.sunIntensity * 0.8;
+    this.backdropSun.color.copy(d.sunColor);
+    this.backdropHemi.intensity = d.hemiIntensity;
+    this.backdropHemi.color.copy(d.hemiSky);
+    this.renderer.toneMappingExposure = d.exposure;
+    // Gece gökyüzü rengi (Sky shader'ı gizlendiğinde görünür)
+    this.renderer.setClearColor(0x0a1224);
   }
 
   private get viewDistanceSafe(): number {
@@ -220,7 +235,14 @@ export class Game {
     this.renderPos.lerpVectors(c.prevPosition, c.position, alpha);
     this.character.update(dt, this.renderPos, c.heading, c.horizontalSpeed, c.onGround);
     this.follow.update(this.renderPos, dt, this.world?.collision ?? null);
-    this.lights.follow(this.renderPos, this.sky.sunDir);
+    this.lights.follow(this.renderPos, this.daylight?.lightDir ?? this.sky.sunDir);
+    if (this.settings.timeOfDay === 'real') {
+      this.daylightTimer -= dt;
+      if (this.daylightTimer <= 0) {
+        this.daylightTimer = 20;
+        this.applyTimeOfDay();
+      }
+    }
     this.world?.update(this.camera, this.renderPos, dt);
     this.hooks.onFrame?.(this, dt);
     // Arka plan: aynı konum/yön, uzun menzil
@@ -230,6 +252,7 @@ export class Game {
     bc.fov = this.camera.fov;
     bc.updateProjectionMatrix();
     this.sky.sky.position.copy(bc.position);
+    this.sky.stars.position.copy(bc.position);
     const r = this.renderer;
     r.autoClear = false;
     r.clear();

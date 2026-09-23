@@ -1,12 +1,13 @@
 import * as THREE from 'three';
-import type { Quality, TimeOfDay } from '../core/settings';
+import type { Quality } from '../core/settings';
+import type { Daylight } from './daylight';
 
 export interface LightRig {
   sun: THREE.DirectionalLight;
   hemi: THREE.HemisphereLight;
   /** Gölge kamerasını oyuncuya göre konumlar (±60 m). */
   follow(target: THREE.Vector3, sunDir: THREE.Vector3): void;
-  setTime(t: TimeOfDay): void;
+  apply(d: Daylight): void;
 }
 
 const SHADOW_EXTENT = 60;
@@ -38,27 +39,16 @@ export function createLighting(scene: THREE.Scene, quality: Quality): LightRig {
     const tx = Math.round(target.x / texel) * texel;
     const tz = Math.round(target.z / texel) * texel;
     sun.target.position.set(tx, target.y, tz);
-    const d = sunDir.y > 0.05 ? sunDir : new THREE.Vector3(0.3, 0.6, 0.3).normalize();
+    const d = sunDir.y > 0.08 ? sunDir : new THREE.Vector3(sunDir.x, 0.08, sunDir.z).normalize();
     sun.position.set(tx + d.x * 200, target.y + d.y * 200, tz + d.z * 200);
   };
 
-  const setTime = (t: TimeOfDay) => {
-    if (t === 'day') {
-      sun.intensity = 2.6;
-      sun.color.set(0xfff2dd);
-      hemi.intensity = 1.2;
-      hemi.color.set(0xcfe3ff);
-    } else if (t === 'sunset') {
-      sun.intensity = 1.6;
-      sun.color.set(0xffb070);
-      hemi.intensity = 0.7;
-      hemi.color.set(0xffd0b0);
-    } else {
-      sun.intensity = 0.25;
-      sun.color.set(0x8aa0ff);
-      hemi.intensity = 0.25;
-      hemi.color.set(0x445577);
-    }
+  const apply = (d: Daylight) => {
+    sun.intensity = d.sunIntensity;
+    sun.color.copy(d.sunColor);
+    hemi.intensity = d.hemiIntensity;
+    hemi.color.copy(d.hemiSky);
+    hemi.groundColor.copy(d.hemiGround);
   };
-  return { sun, hemi, follow, setTime };
+  return { sun, hemi, follow, apply };
 }

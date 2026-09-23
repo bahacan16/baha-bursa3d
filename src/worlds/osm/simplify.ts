@@ -128,7 +128,7 @@ export function dataQuery(c: LatLonLite, half = DATA_HALF): string {
     'node["shop"]',
     'way["shop"]',
     'way["barrier"~"^(wall|fence|retaining_wall|hedge|city_wall)$"]',
-    'node["highway"~"^(crossing|street_lamp)$"]',
+    'node["highway"~"^(crossing|street_lamp|bus_stop)$"]',
     'node["railway"~"^(station|stop|halt|tram_stop)$"]',
     'node["public_transport"="station"]',
     'node["name"]',

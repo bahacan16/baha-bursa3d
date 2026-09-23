@@ -1,5 +1,5 @@
 export type Quality = 'low' | 'medium' | 'high';
-export type TimeOfDay = 'day' | 'sunset' | 'night';
+export type TimeOfDay = 'day' | 'sunset' | 'night' | 'real';
 
 export interface Settings {
   quality: Quality;

@@ -9,6 +9,7 @@ import type { SimpleOsm } from './simplify';
 import type { Quality } from '../../core/settings';
 import type { GridData } from '../../env/terrain';
 import { setTerrain } from './height';
+import { buildProps, type PropsPayload } from './props';
 
 export interface BuildOptions {
   quality: Quality;
@@ -21,6 +22,7 @@ export interface BuildOptions {
 export interface BuildResult {
   chunks: ChunkPayload[];
   trees: TreePayload;
+  props: PropsPayload;
   strips: RaisedStrip[];
   carriageways: Carriageway[];
   piers: Pier[];
@@ -60,12 +62,14 @@ export function buildWorld(
   const maxTrees = opts.quality === 'low' ? 5000 : opts.quality === 'medium' ? 12000 : 25000;
   const density = opts.quality === 'low' ? 0.5 : opts.quality === 'medium' ? 0.8 : 1;
   const trees = placeTrees(d.trees, d.treeRows, d.areas, d.roads, d.buildings, { maxTrees, density });
+  const props = buildProps(d);
   progress(0.9, 'Geometri birleştiriliyor');
   const chunks = geo.toPayload();
   const tris = chunks.reduce((s, c) => s + c.index.length / 3, 0);
   return {
     chunks,
     trees: treesToPayload(trees),
+    props,
     strips: [...roads.strips, ...rails.gradeStrips.map((g) => ({ ...g, inner: 0, outer: g.half }))],
     carriageways: roads.carriageways,
     piers: rails.piers,
@@ -88,5 +92,6 @@ export function transferables(r: BuildResult): Transferable[] {
     if (c.facade) t.push(c.facade.buffer);
   }
   for (const c of r.trees.chunks) t.push(c.data.buffer);
+  t.push(r.props.lamps.buffer, r.props.benches.buffer, r.props.shelters.buffer);
   return t;
 }

@@ -42,6 +42,7 @@ async function run(mode: Mode, key: string): Promise<void> {
         );
         if (terrain?.far && settings.quality !== 'low')
           game.setBackdropObject(createFarTerrain(terrain.far, terrain.near.half + 200));
+        game.geoCenter = data.center;
         game.setWorld(world);
         const hud = new Hud(game, world.data);
         if (debug) (window as unknown as { __hud: Hud }).__hud = hud;

@@ -13,6 +13,8 @@ import type { Carriageway, RaisedStrip } from './roads';
 import type { GridData, TerrainData } from '../../env/terrain';
 import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
+import { StreetProps } from './streetprops';
+import { nightUniform } from '../../env/night';
 
 const SHADOW_CASTERS: MatKey[] = ['wall', 'roof', 'detail', 'barrier', 'rail'];
 const SHADOW_RECEIVERS: MatKey[] = [
@@ -131,6 +133,7 @@ export class OsmWorld implements IWorld {
   private treeGeos: THREE.BufferGeometry[] = [];
   private stat: Record<string, number> = {};
   private viewDist: number;
+  private props!: StreetProps;
 
   private constructor(
     readonly data: OsmWorldData,
@@ -239,6 +242,15 @@ export class OsmWorld implements IWorld {
     }
     for (const p of res.piers) this.collision.addBox(p.x, p.z, p.size, p.size, 40, H(p.x, p.z) - 1);
 
+    this.props = new StreetProps(res.props, quality);
+    this.object.add(this.props.group);
+    this.props.forEach((x, y, z) => this.collision.addBox(x, z, 0.25, 0.25, 7, y - 0.5));
+    for (let i = 0; i < res.props.benches.length; i += 4) {
+      const b = res.props.benches;
+      // Bank: üzerinden zıplanabilir alçak engel
+      this.collision.addBox(b[i], b[i + 2], 1.2, 1.2, 0.5, b[i + 1] - 0.3);
+    }
+
     const ground2 = new GroundIndex(res.strips, res.carriageways);
     this.collision.ground = (x, z) => H(x, z) + ground2.height(x, z);
 
@@ -297,7 +309,8 @@ export class OsmWorld implements IWorld {
     return { x: x0, z: z0 };
   }
 
-  update(camera: THREE.PerspectiveCamera): void {
+  update(camera: THREE.PerspectiveCamera, player: THREE.Vector3, dt: number): void {
+    this.props.update(player, nightUniform.value, dt);
     const cx = camera.position.x;
     const cz = camera.position.z;
     const lim = this.viewDist + CHUNK_SIZE * 0.75;
@@ -312,7 +325,7 @@ export class OsmWorld implements IWorld {
   }
 
   stats(): Record<string, number | string> {
-    return { ...this.stat, collisionSegs: this.collision.segmentCount };
+    return { ...this.stat, collisionSegs: this.collision.segmentCount, lamps: this.props.lampCount };
   }
 
   dispose(): void {
@@ -321,6 +334,7 @@ export class OsmWorld implements IWorld {
       if (m.isMesh && !this.treeGeos.includes(m.geometry)) m.geometry.dispose();
     });
     for (const g of this.treeGeos) g.dispose();
+    this.props.dispose();
     this.materials.dispose();
   }
 }
