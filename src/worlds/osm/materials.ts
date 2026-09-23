@@ -93,7 +93,7 @@ export function createOsmMaterials(quality: Quality): OsmMaterials {
   const byKey: Record<MatKey, THREE.Material> = {
     wall: createFacadeMaterial(atlas),
     roof: flat(grain, 0, 0.9),
-    detail: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.5, metalness: 0.25 }),
+    detail: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0.05 }),
     landLow: flat(grain, -1),
     landHigh: flat(grain, -2),
     pitch: flat(pitchTex, -3, 0.9),
@@ -181,7 +181,7 @@ export function createTreeGeometries(): THREE.BufferGeometry[] {
   const leaf3 = new THREE.Color(0x6a8a3a);
   const round = merge([
     colorize(new THREE.CylinderGeometry(0.14, 0.22, 3, 6).translate(0, 1.5, 0), trunkC),
-    colorize(new THREE.IcosahedronGeometry(2.3, 1).scale(1, 0.85, 1).translate(0, 4.4, 0), leaf1),
+    colorize(new THREE.IcosahedronGeometry(2.3, 0).scale(1, 0.85, 1).translate(0, 4.4, 0), leaf1),
   ]);
   const cone = merge([
     colorize(new THREE.CylinderGeometry(0.1, 0.16, 1.2, 5).translate(0, 0.6, 0), trunkC),
@@ -189,7 +189,7 @@ export function createTreeGeometries(): THREE.BufferGeometry[] {
   ]);
   const oval = merge([
     colorize(new THREE.CylinderGeometry(0.12, 0.2, 2.2, 6).translate(0, 1.1, 0), trunkC),
-    colorize(new THREE.IcosahedronGeometry(1.6, 1).scale(1, 2.0, 1).translate(0, 5, 0), leaf3),
+    colorize(new THREE.IcosahedronGeometry(1.6, 0).scale(1, 2.0, 1).translate(0, 5, 0), leaf3),
   ]);
   return [round, cone, oval];
 }

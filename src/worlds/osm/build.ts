@@ -54,7 +54,8 @@ export function buildWorld(
   if (opts.landuseMeshes) buildAreas(geo, d.areas);
   buildBarriers(geo, d.barriers);
   progress(0.72, 'Raylar');
-  const rails = buildRails(geo, d.rails, { sleepers: opts.quality !== 'low' });
+  // KARAR: Travers geometrisi gerçek veride ~180k üçgen tutuyordu; kapalı.
+  const rails = buildRails(geo, d.rails, { sleepers: false });
   progress(0.8, 'Ağaçlar');
   const maxTrees = opts.quality === 'low' ? 5000 : opts.quality === 'medium' ? 12000 : 25000;
   const density = opts.quality === 'low' ? 0.5 : opts.quality === 'medium' ? 0.8 : 1;

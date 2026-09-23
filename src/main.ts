@@ -5,6 +5,8 @@ import { Hud } from './hud/hud';
 import { BoxesWorld } from './worlds/boxes';
 import { DataError, loadOsmData } from './worlds/osm/data';
 import { OsmWorld } from './worlds/osm/world';
+import { loadTerrain } from './env/terrain';
+import { createFarTerrain } from './env/backdrop';
 import { LoadingScreen, showError, showStartScreen, webglAvailable, type Mode } from './ui/screens';
 
 const app = document.getElementById('app')!;
@@ -23,14 +25,23 @@ async function run(mode: Mode, key: string): Promise<void> {
       game.setWorld(new BoxesWorld());
       new Hud(game, null);
     } else {
-      const data = await loadOsmData(base, (f, l) => loading.set(f * 0.4, l));
+      const [data, terrain] = await Promise.all([
+        loadOsmData(base, (f, l) => loading.set(f * 0.4, l)),
+        mode === 'google' ? Promise.resolve(null) : loadTerrain(base),
+      ]);
       if (mode === 'google') {
         const { startGoogle } = await import('./worlds/google/start');
         await startGoogle(game, data, key, loading);
       } else {
-        const world = await OsmWorld.create(data, settings.quality, game.viewDistance, (f, l) =>
-          loading.set(0.4 + f * 0.58, l),
+        const world = await OsmWorld.create(
+          data,
+          settings.quality,
+          game.viewDistance,
+          (f, l) => loading.set(0.4 + f * 0.58, l),
+          terrain,
         );
+        if (terrain?.far && settings.quality !== 'low')
+          game.setBackdropObject(createFarTerrain(terrain.far, terrain.near.half + 200));
         game.setWorld(world);
         const hud = new Hud(game, world.data);
         if (debug) (window as unknown as { __hud: Hud }).__hud = hud;

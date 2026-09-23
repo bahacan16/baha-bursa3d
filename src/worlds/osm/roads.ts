@@ -183,7 +183,7 @@ function upQuad(b: Bucket, i0: number, i1: number, i2: number, i3: number): void
 }
 
 /** Yatay disk (kavşak dolgusu / yol ucu kapakları). */
-function disc(b: Bucket, x: number, z: number, r: number, y: number, c: Rgb, seg = 12): void {
+function disc(b: Bucket, x: number, z: number, r: number, y: number, c: Rgb, seg = 8): void {
   const center = b.v(x, y + H(x, z), z, 0, 1, 0, x, z, c);
   const ring: number[] = [];
   for (let i = 0; i < seg; i++) {

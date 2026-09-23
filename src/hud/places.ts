@@ -1,4 +1,4 @@
-import type { OsmWorldData, Pt } from '../worlds/osm/parse';
+import { ringCentroid, type OsmWorldData, type Pt } from '../worlds/osm/parse';
 
 export interface Place {
   label: string;
@@ -28,7 +28,7 @@ const KNOWN: Known[] = [
   { label: 'Uğur Mumcu Bulvarı', must: ['uğur mumcu'], kind: 'road' },
   { label: 'Bursaspor Özlüce Tesisleri', must: ['bursaspor'], kind: 'any' },
   { label: 'Tarabya Sitesi', must: ['tarabya'], kind: 'any' },
-  { label: 'Mertkent 3 Sitesi', must: ['mertkent'], kind: 'any' },
+  { label: 'Mertkent 3 Sitesi', must: ['mertkent 3'], kind: 'any' },
   { label: 'Doğan Avcıoğlu Caddesi', must: ['doğan avcıoğlu'], kind: 'road' },
   { label: 'Ahmet Taner Kışlalı Bulvarı', must: ['kışlalı'], kind: 'road' },
 ];
@@ -41,25 +41,32 @@ export function findPlaces(d: OsmWorldData, maxR = 1000): Place[] {
   for (const k of KNOWN) {
     const match = (name: string | undefined) => !!name && k.must.every((m) => norm(name).includes(m));
     let best: Pt | null = null;
+    let bestName = '';
     let bestD = Infinity;
-    const consider = (p: Pt) => {
+    const consider = (p: Pt, name: string) => {
       const dd = Math.hypot(p[0], p[1]);
       if (inRange(p) && dd < bestD) {
         bestD = dd;
         best = p;
+        bestName = name;
       }
     };
     if (k.kind === 'road') {
-      for (const r of d.roads) if (match(r.name)) for (const p of r.pts) consider(p);
+      for (const r of d.roads) if (match(r.name)) for (const p of r.pts) consider(p, r.name!);
     } else {
       for (const p of d.pois) {
         if (!match(p.name)) continue;
         if (k.kind === 'station' && !STATION_KINDS.has(p.kind)) continue;
-        consider([p.x, p.z]);
+        consider([p.x, p.z], p.name);
       }
-      if (!best && k.kind === 'any') for (const a of d.areas) if (match(a.name)) consider(a.outer[0]);
+      if (!best && k.kind === 'any')
+        for (const a of d.areas) if (match(a.name)) consider(ringCentroid(a.outer), a.name!);
     }
-    if (best) out.push({ label: k.label, x: (best as Pt)[0], z: (best as Pt)[1] });
+    // Etiket OSM'deki gerçek addır (uydurma/eşleştirilmiş ad gösterilmez).
+    if (best) {
+      const label = k.kind === 'station' ? `${bestName} (Bursaray)` : bestName;
+      if (!out.some((o) => o.label === label)) out.push({ label, x: (best as Pt)[0], z: (best as Pt)[1] });
+    }
   }
   return out;
 }

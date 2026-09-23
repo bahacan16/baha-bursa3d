@@ -4,6 +4,14 @@ import { DEFAULT_CENTER_LITE, simplifyOverpass, type OverpassJson } from '../../
 
 /** Ağ gerektirmeyen testler için: data/osm.json isteğini sentetik fixture ile karşıla. */
 export async function serveFixture(page: Page): Promise<void> {
+  // Yazılımsal GPU'da hızlı olsun: Düşük kalite
+  await page.addInitScript(() => {
+    try {
+      localStorage.setItem('nilufer-walk.settings', JSON.stringify({ quality: 'low' }));
+    } catch {
+      /* yoksay */
+    }
+  });
   const raw = JSON.parse(readFileSync('tests/fixtures/osm-small.json', 'utf8')) as OverpassJson;
   const body = JSON.stringify(simplifyOverpass(raw, DEFAULT_CENTER_LITE, 'fixture'));
   await page.route('**/data/osm.json', (r) => r.fulfill({ body, contentType: 'application/json' }));

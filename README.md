@@ -48,9 +48,10 @@ Yerel geliştirmede `.env.local` dosyasına `VITE_GOOGLE_MAPS_KEY=...` yazarsan 
 
 ## GitHub Pages'te yayınlama
 
-1. GitHub'da repo → **Settings → Pages → Source: GitHub Actions**.
-2. `main` dalına push et (veya Actions sekmesinden _Deploy to GitHub Pages_ → _Run workflow_).
-3. İş akışı: bağımlılıklar → **OSM verisini Overpass'tan çeker** (`npm run fetch-data`) → lint + testler → build → Pages'e yükler. Veri çekme başarısız olursa commit edilmiş `public/data` kullanılır; o da yoksa oyun veriyi çalışırken tarayıcıdan Overpass'a sorar.
+1. `main` dalına push et (veya Actions sekmesinden _Deploy to GitHub Pages_ → _Run workflow_). İş akışı derlenmiş siteyi `gh-pages` dalına yayınlar.
+2. GitHub'da repo → **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `gh-pages` / `(root)`** (çoğu zaman GitHub bunu `gh-pages` dalı oluşunca kendisi açar; açmadıysa bu ayarı bir kez yap).
+3. Site adresi: `https://<kullanıcı-adın>.github.io/<repo-adı>/`
+4. İş akışı: bağımlılıklar → **OSM + arazi verisini çeker** (`npm run fetch-data`, `scripts/fetch-terrain.mjs`) → lint + testler → build → `gh-pages`. Veri çekme başarısız olursa commit edilmiş `public/data` kullanılır; o da yoksa oyun veriyi çalışırken tarayıcıdan Overpass'a sorar.
 
 ## Veri
 

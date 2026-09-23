@@ -2,7 +2,8 @@
  * 200 m × 200 m chunk'lar; her chunk'ta malzeme başına tek birleştirilmiş geometri.
  * KARAR: Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer, daha az bellek kopyası).
  */
-export const CHUNK_SIZE = 200;
+// KARAR: Gerçek veride 200 m chunk ~440 draw call veriyordu; 400 m ile hedef < 300.
+export const CHUNK_SIZE = 400;
 
 export type MatKey =
   | 'wall'
@@ -135,7 +136,9 @@ export class ChunkedGeometry {
     return [Math.floor(x / CHUNK_SIZE), Math.floor(z / CHUNK_SIZE)];
   }
 
-  get(x: number, z: number, mat: MatKey): Bucket {
+  get(x: number, z: number, mat0: MatKey): Bucket {
+    // Küçük "donatı" malzemeleri (çatı detayı, ray, duvar/çit) tek malzemede birleşir.
+    const mat: MatKey = mat0 === 'rail' || mat0 === 'barrier' ? 'detail' : mat0;
     const [cx, cz] = ChunkedGeometry.chunkOf(x, z);
     const key = `${cx},${cz}`;
     let ch = this.map.get(key);

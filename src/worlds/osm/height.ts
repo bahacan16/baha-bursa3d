@@ -23,7 +23,7 @@ export function terrainIsFlat(): boolean {
 }
 
 /** Arazide takip için polyline'ı `step` metrede bir sıklaştırır (düz arazide aynen döner). */
-export function densify<T extends readonly [number, number]>(pts: T[], step = 6): [number, number][] {
+export function densify<T extends readonly [number, number]>(pts: T[], step = 12): [number, number][] {
   if (flat || pts.length < 2) return pts.map((p) => [p[0], p[1]]);
   const out: [number, number][] = [[pts[0][0], pts[0][1]]];
   for (let i = 1; i < pts.length; i++) {

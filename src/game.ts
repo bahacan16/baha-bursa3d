@@ -16,11 +16,21 @@ export interface GameHooks {
   onAction?(game: Game, a: Action): boolean | void;
 }
 
-const VIEW_DIST: Record<Settings['quality'], number> = { low: 450, medium: 700, high: 1100 };
+// Görüş mesafesi (chunk kırpma) ve sis — ana sahne ile arka plan (uzak arazi) aynı sisi kullanır, geçiş dikişsiz olur.
+// KARAR: Düşük kalitede yoğun sis + kısa görüş (mobil), yüksekte uzak Uludağ silüeti görünür.
+const VIEW_DIST: Record<Settings['quality'], number> = { low: 650, medium: 2000, high: 4000 };
+const FOG: Record<Settings['quality'], [number, number]> = {
+  low: [120, 650],
+  medium: [500, 7000],
+  high: [900, 26000],
+};
 
 export class Game {
   readonly renderer: THREE.WebGLRenderer;
   readonly scene = new THREE.Scene();
+  /** Gökyüzü + uzak arazi (uzun menzilli kamera ile önce çizilir). */
+  readonly backdrop = new THREE.Scene();
+  readonly backdropCamera = new THREE.PerspectiveCamera(62, 1, 20, 120000);
   readonly camera: THREE.PerspectiveCamera;
   readonly input = new InputState();
   readonly desktop: DesktopInput;
@@ -67,7 +77,9 @@ export class Game {
     this.viewDistance = VIEW_DIST[settings.quality];
     this.camera = new THREE.PerspectiveCamera(62, 1, 0.1, 20000);
     this.follow = new FollowCamera(this.camera);
-    this.sky = createSky(this.scene);
+    this.sky = createSky(this.backdrop);
+    this.sky.sky.scale.setScalar(50000);
+    this.backdropLights();
     this.lights = createLighting(this.scene, settings.quality);
     this.applyTimeOfDay();
 
@@ -91,14 +103,36 @@ export class Game {
     window.visualViewport?.addEventListener('resize', () => this.resize());
   }
 
+  private backdropSun = new THREE.DirectionalLight(0xffffff, 2);
+  private backdropHemi = new THREE.HemisphereLight(0xcfe3ff, 0x5a5448, 1);
+
+  private backdropLights(): void {
+    this.backdrop.add(this.backdropSun, this.backdropHemi);
+  }
+
+  /** Uzak arka plan nesnesi (ör. Uludağ silüeti). */
+  setBackdropObject(o: THREE.Object3D | null): void {
+    const old = this.backdrop.getObjectByName('backdrop-object');
+    if (old) this.backdrop.remove(old);
+    if (o) {
+      o.name = 'backdrop-object';
+      this.backdrop.add(o);
+    }
+  }
+
   applyTimeOfDay(): void {
     const t = this.settings.timeOfDay;
     this.sky.setTime(t);
     this.lights.setTime(t);
     const fogColor = t === 'day' ? 0xc4d3de : t === 'sunset' ? 0xd9a988 : 0x1a2230;
     // Mod A'da şehir uzakta da görünsün (tile'lar kendi LOD'unu yönetir).
-    const far = this.world?.kind === 'google' ? 9000 : this.viewDistanceSafe;
-    this.scene.fog = new THREE.Fog(fogColor, far * 0.35, far);
+    const [near, far] = this.world?.kind === 'google' ? [1500, 26000] : FOG[this.settings.quality];
+    this.scene.fog = new THREE.Fog(fogColor, near, far);
+    this.backdrop.fog = new THREE.Fog(fogColor, near, far);
+    this.backdropSun.position.copy(this.sky.sunDir).multiplyScalar(1000);
+    this.backdropSun.intensity = this.lights.sun.intensity * 0.8;
+    this.backdropSun.color.copy(this.lights.sun.color);
+    this.backdropHemi.intensity = this.lights.hemi.intensity;
     this.renderer.toneMappingExposure = t === 'night' ? 0.7 : 0.9;
   }
 
@@ -113,6 +147,8 @@ export class Game {
     this.renderer.setSize(w, h, false);
     this.camera.aspect = w / Math.max(1, h);
     this.camera.updateProjectionMatrix();
+    this.backdropCamera.aspect = this.camera.aspect;
+    this.backdropCamera.updateProjectionMatrix();
   }
 
   setWorld(world: IWorld): void {
@@ -124,10 +160,8 @@ export class Game {
     this.scene.add(world.object);
     this.controller.world = world.collision;
     // Google modunda gökyüzü/sis mesafesi daha geniş olabilir; Mod B'de görüş mesafesi sisle sınırlı.
-    this.camera.far = world.kind === 'google' ? 20000 : this.viewDistanceSafe * 1.1;
+    this.camera.far = world.kind === 'google' ? 20000 : Math.min(5000, this.viewDistanceSafe * 1.1);
     this.camera.updateProjectionMatrix();
-    // Sky kutusu kameraya bağlı; köşeleri far düzleminin içinde kalmalı.
-    this.sky.sky.scale.setScalar(this.camera.far * 0.5);
     this.applyTimeOfDay();
     this.teleport(world.spawn.x, world.spawn.y, world.spawn.z);
   }
@@ -187,10 +221,21 @@ export class Game {
     this.character.update(dt, this.renderPos, c.heading, c.horizontalSpeed, c.onGround);
     this.follow.update(this.renderPos, dt, this.world?.collision ?? null);
     this.lights.follow(this.renderPos, this.sky.sunDir);
-    this.sky.sky.position.copy(this.camera.position);
     this.world?.update(this.camera, this.renderPos, dt);
     this.hooks.onFrame?.(this, dt);
-    this.renderer.render(this.scene, this.camera);
+    // Arka plan: aynı konum/yön, uzun menzil
+    const bc = this.backdropCamera;
+    bc.position.copy(this.camera.position);
+    bc.quaternion.copy(this.camera.quaternion);
+    bc.fov = this.camera.fov;
+    bc.updateProjectionMatrix();
+    this.sky.sky.position.copy(bc.position);
+    const r = this.renderer;
+    r.autoClear = false;
+    r.clear();
+    r.render(this.backdrop, bc);
+    r.clearDepth();
+    r.render(this.scene, this.camera);
 
     this.frameCount++;
     this.fpsTime += dt;
