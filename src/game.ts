@@ -7,6 +7,7 @@ import { createLighting, type LightRig } from './env/lighting';
 import { daylight, type Daylight } from './env/daylight';
 import { nightUniform } from './env/night';
 import { GameAudio } from './env/audio';
+import { PostFX } from './env/post';
 import { CharacterController } from './player/controller';
 import { Character } from './player/character';
 import { FollowCamera } from './player/camera';
@@ -45,6 +46,11 @@ export class Game {
   readonly lights: LightRig;
   readonly loop: GameLoop;
   readonly audio = new GameAudio();
+  /** Son işleme (Düşük kalitede yok; ?nopost=1 ile kapatılabilir). */
+  post: PostFX | null = null;
+  private pmrem: THREE.PMREMGenerator;
+  private envRT: THREE.WebGLRenderTarget | null = null;
+  envScale = Number(new URLSearchParams(location.search).get('env') ?? 0.06);
   /** Fotoğraf modu: HUD gizli, serbest kamera, oyuncu donuk. */
   photoMode = false;
   private photo = { pos: new THREE.Vector3(), yaw: 0, pitch: 0 };
@@ -69,7 +75,8 @@ export class Game {
     this.isTouch = isTouchDevice();
     this.audio.setEnabled(settings.sound);
     const r = (this.renderer = new THREE.WebGLRenderer({
-      antialias: settings.quality !== 'low',
+      // Son işleme açıkken MSAA yerine SMAA kullanılır
+      antialias: false,
       powerPreference: 'high-performance',
       preserveDrawingBuffer: new URLSearchParams(location.search).has('debug'),
     }));
@@ -87,12 +94,16 @@ export class Game {
     this.viewDistance = VIEW_DIST[settings.quality];
     this.camera = new THREE.PerspectiveCamera(62, 1, 0.1, 20000);
     this.follow = new FollowCamera(this.camera);
+    this.pmrem = new THREE.PMREMGenerator(r);
     this.sky = createSky(this.backdrop);
     this.sky.sky.scale.setScalar(50000);
     this.backdropLights();
     this.lights = createLighting(this.scene, settings.quality);
     this.applyTimeOfDay();
 
+    const noPost = new URLSearchParams(location.search).has('nopost');
+    if (settings.quality !== 'low' && !noPost)
+      this.post = new PostFX(r, this.scene, this.camera, settings.quality);
     this.desktop = new DesktopInput(this.input, r.domElement);
     this.touch = this.isTouch ? new TouchControls(container, this.input) : null;
 
@@ -135,6 +146,33 @@ export class Game {
   daylight: Daylight | null = null;
   private daylightTimer = 0;
 
+  /**
+   * Gökyüzünden ortam haritası (PMREM): cam/araç yansımaları ve yumuşak ortam ışığı.
+   * KARAR: Yarım küre ışığı ortam haritasıyla birlikte azaltılır (çift ortam ışığı olmasın).
+   */
+  private updateEnvironment(d: Daylight): void {
+    if (this.settings.quality === 'low') return;
+    const stars = this.sky.stars.visible;
+    this.sky.stars.visible = false;
+    this.sky.sky.position.set(0, 0, 0);
+    const far = this.backdrop.getObjectByName('backdrop-object');
+    const farVis = far?.visible ?? false;
+    if (far) far.visible = false;
+    const u = this.sky.sky.material.uniforms;
+    const disc = u.showSunDisc?.value ?? 1;
+    if (u.showSunDisc) u.showSunDisc.value = 0; // güneş diski ortam haritasını patlatır
+    const old = this.envRT;
+    this.envRT = this.pmrem.fromScene(this.backdrop, 0, 1, 100000);
+    if (u.showSunDisc) u.showSunDisc.value = disc;
+    old?.dispose();
+    if (far) far.visible = farVis;
+    this.sky.stars.visible = stars;
+    this.scene.environment = this.envRT.texture;
+    // Sky shader'ı HDR (çok parlak) üretir: ortam katkısı düşük ölçekli
+    this.scene.environmentIntensity = this.envScale * (1 - d.night * 0.7);
+    this.lights.hemi.intensity = d.hemiIntensity * 0.75;
+  }
+
   applyTimeOfDay(): void {
     const d = (this.daylight = daylight(this.settings.timeOfDay, this.geoCenter));
     this.sky.apply(d);
@@ -155,6 +193,8 @@ export class Game {
     this.backdropHemi.intensity = d.hemiIntensity;
     this.backdropHemi.color.copy(d.hemiSky);
     this.renderer.toneMappingExposure = d.exposure;
+    this.post?.setNight(d.night);
+    this.updateEnvironment(d);
     // Gece gökyüzü rengi (Sky shader'ı gizlendiğinde görünür)
     this.renderer.setClearColor(0x0a1224);
   }
@@ -172,6 +212,7 @@ export class Game {
     this.camera.updateProjectionMatrix();
     this.backdropCamera.aspect = this.camera.aspect;
     this.backdropCamera.updateProjectionMatrix();
+    this.post?.setSize(w, h);
   }
 
   setWorld(world: IWorld): void {
@@ -332,10 +373,17 @@ export class Game {
     this.sky.stars.position.copy(bc.position);
     const r = this.renderer;
     r.autoClear = false;
+    r.info.autoReset = false;
+    r.info.reset();
+    if (this.post) r.setRenderTarget(this.post.target);
     r.clear();
     r.render(this.backdrop, bc);
     r.clearDepth();
     r.render(this.scene, this.camera);
+    if (this.post) {
+      r.setRenderTarget(null);
+      this.post.render(dt);
+    }
     if (this.pendingShot) {
       this.pendingShot = false;
       // Aynı karede (çizim tamponu temizlenmeden) al
