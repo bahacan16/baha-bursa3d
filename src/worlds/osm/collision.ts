@@ -78,7 +78,7 @@ export class PolygonCollisionWorld implements ICollisionWorld {
     }
   }
 
-  addBox(cx: number, cz: number, w: number, d: number, h = 1000): void {
+  addBox(cx: number, cz: number, w: number, d: number, h = 1000, base = 0): void {
     const hw = w / 2;
     const hd = d / 2;
     this.addRing(
@@ -88,8 +88,8 @@ export class PolygonCollisionWorld implements ICollisionWorld {
         [cx + hw, cz + hd],
         [cx - hw, cz + hd],
       ],
-      0,
-      h,
+      base,
+      base + h,
     );
   }
 

@@ -23,25 +23,33 @@ const outDir = join(root, 'public', 'data');
 
 async function overpass(query) {
   let lastErr;
-  for (const url of OVERPASS_ENDPOINTS) {
-    for (let attempt = 0; attempt < 2; attempt++) {
-      try {
-        console.log(`→ ${url} (deneme ${attempt + 1})`);
-        const res = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'nilufer-walk/0.1' },
-          body: 'data=' + encodeURIComponent(query),
-          signal: AbortSignal.timeout(180_000),
-        });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return await res.json();
-      } catch (err) {
-        lastErr = err;
-        console.warn(`  başarısız: ${err.message}`);
-        await new Promise((r) => setTimeout(r, 3000 * (attempt + 1)));
+  // Overpass sunucuları yoğunlukta 429/504 döner: tüm aynaları 3 tur dene.
+  for (let round = 0; round < 3; round++)
+    for (const url of OVERPASS_ENDPOINTS) {
+      for (let attempt = 0; attempt < 1; attempt++) {
+        try {
+          console.log(`→ ${url} (tur ${round + 1})`);
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              'User-Agent': 'nilufer-walk/0.1',
+            },
+            body: 'data=' + encodeURIComponent(query),
+            signal: AbortSignal.timeout(180_000),
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const json = await res.json();
+          if (!Array.isArray(json.elements)) throw new Error('geçersiz yanıt');
+          if (json.remark && /runtime error|timed out/i.test(json.remark)) throw new Error(json.remark);
+          return json;
+        } catch (err) {
+          lastErr = err;
+          console.warn(`  başarısız: ${err.message}`);
+          await new Promise((r) => setTimeout(r, 5000 * (round + 1)));
+        }
       }
     }
-  }
   throw lastErr;
 }
 
@@ -64,6 +72,10 @@ async function main() {
 
   const raw = await overpass(dataQuery(center, DATA_HALF));
   const data = simplifyOverpass(raw, center, centerSource, DATA_HALF);
+  const counts = countFeatures(data);
+  // Kısmi/boş yanıtları kaydetme (bölgede binlerce bina var).
+  if (counts.buildings < 200 || counts.roads < 200)
+    throw new Error(`şüpheli az veri: ${JSON.stringify(counts)}`);
   const json = JSON.stringify(data);
   const meta = {
     center,
@@ -71,7 +83,7 @@ async function main() {
     fetchedAt: new Date().toISOString(),
     bbox: bboxString(center, DATA_HALF),
     half: DATA_HALF,
-    counts: countFeatures(data),
+    counts,
     attribution: '© OpenStreetMap contributors (ODbL)',
   };
   await mkdir(outDir, { recursive: true });

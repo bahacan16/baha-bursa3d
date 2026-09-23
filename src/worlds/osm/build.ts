@@ -7,9 +7,15 @@ import { placeTrees, treesToPayload, type TreePayload } from './vegetation';
 import { parseOsm, type OsmWorldData } from './parse';
 import type { SimpleOsm } from './simplify';
 import type { Quality } from '../../core/settings';
+import type { GridData } from '../../env/terrain';
+import { setTerrain } from './height';
 
 export interface BuildOptions {
   quality: Quality;
+  /** Yakın arazi ızgarası (yoksa düz). */
+  terrain?: GridData | null;
+  /** Alan kullanımını ayrı mesh olarak üret (varsayılan: hayır — arazi dokusuna boyanır). */
+  landuseMeshes?: boolean;
 }
 
 export interface BuildResult {
@@ -31,6 +37,7 @@ export function buildWorld(
   parsed?: OsmWorldData,
 ): BuildResult {
   const t0 = Date.now();
+  setTerrain(opts.terrain);
   const d = parsed ?? parseOsm(simple);
   progress(0.05, 'Veri ayrıştırıldı');
   const geo = new ChunkedGeometry();
@@ -44,7 +51,7 @@ export function buildWorld(
   progress(0.5, 'Yollar');
   const roads = buildRoads(geo, d.roads, d.crossings);
   progress(0.65, 'Alanlar');
-  buildAreas(geo, d.areas);
+  if (opts.landuseMeshes) buildAreas(geo, d.areas);
   buildBarriers(geo, d.barriers);
   progress(0.72, 'Raylar');
   const rails = buildRails(geo, d.rails, { sleepers: opts.quality !== 'low' });

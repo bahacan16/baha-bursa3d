@@ -1,5 +1,6 @@
 import { ChunkedGeometry, type Bucket, type MatKey, type Rgb } from './chunks';
 import type { Pt, Road } from './parse';
+import { H, densify } from './height';
 
 export const SIDEWALK_W = 2;
 export const CURB_H = 0.15;
@@ -161,10 +162,10 @@ function ribbon(geo: ChunkedGeometry, mat: MatKey, pts: Pt[], half: number, y: n
     const mz = (pts[i][1] + pts[i + 1][1]) / 2;
     const b = geo.get(mx, mz, mat);
     const d = Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]);
-    const a0 = b.v(L[i][0], y, L[i][1], 0, 1, 0, 0, v, c);
-    const b0 = b.v(R[i][0], y, R[i][1], 0, 1, 0, half * 2, v, c);
-    const a1 = b.v(L[i + 1][0], y, L[i + 1][1], 0, 1, 0, 0, v + d, c);
-    const b1 = b.v(R[i + 1][0], y, R[i + 1][1], 0, 1, 0, half * 2, v + d, c);
+    const a0 = b.v(L[i][0], y + H(L[i][0], L[i][1]), L[i][1], 0, 1, 0, 0, v, c);
+    const b0 = b.v(R[i][0], y + H(R[i][0], R[i][1]), R[i][1], 0, 1, 0, half * 2, v, c);
+    const a1 = b.v(L[i + 1][0], y + H(L[i + 1][0], L[i + 1][1]), L[i + 1][1], 0, 1, 0, 0, v + d, c);
+    const b1 = b.v(R[i + 1][0], y + H(R[i + 1][0], R[i + 1][1]), R[i + 1][1], 0, 1, 0, half * 2, v + d, c);
     v += d;
     // Sol = +normal (−dz, dx). Yukarıdan saat yönü tersi için sırayı çapraz çarpımla belirle.
     upQuad(b, a0, b0, b1, a1);
@@ -183,13 +184,13 @@ function upQuad(b: Bucket, i0: number, i1: number, i2: number, i3: number): void
 
 /** Yatay disk (kavşak dolgusu / yol ucu kapakları). */
 function disc(b: Bucket, x: number, z: number, r: number, y: number, c: Rgb, seg = 12): void {
-  const center = b.v(x, y, z, 0, 1, 0, x, z, c);
+  const center = b.v(x, y + H(x, z), z, 0, 1, 0, x, z, c);
   const ring: number[] = [];
   for (let i = 0; i < seg; i++) {
     const a = (i / seg) * Math.PI * 2;
     const px = x + Math.cos(a) * r;
     const pz = z + Math.sin(a) * r;
-    ring.push(b.v(px, y, pz, 0, 1, 0, px, pz, c));
+    ring.push(b.v(px, y + H(px, pz), pz, 0, 1, 0, px, pz, c));
   }
   for (let i = 0; i < seg; i++) {
     // a artarken (cos, sin) x-z düzleminde yukarıdan bakınca saat yönünde → ters sırala
@@ -211,10 +212,12 @@ function vstrip(b: Bucket, p: Pt, q: Pt, y0: number, y1: number, c: Rgb, towards
     nx = -nx;
     nz = -nz;
   }
-  const a = b.v(p[0], y0, p[1], nx, 0, nz, 0, 0, c);
-  const bb = b.v(q[0], y0, q[1], nx, 0, nz, l, 0, c);
-  const cc = b.v(q[0], y1, q[1], nx, 0, nz, l, y1 - y0, c);
-  const d = b.v(p[0], y1, p[1], nx, 0, nz, 0, y1 - y0, c);
+  const hp = H(p[0], p[1]);
+  const hq = H(q[0], q[1]);
+  const a = b.v(p[0], y0 + hp, p[1], nx, 0, nz, 0, 0, c);
+  const bb = b.v(q[0], y0 + hq, q[1], nx, 0, nz, l, 0, c);
+  const cc = b.v(q[0], y1 + hq, q[1], nx, 0, nz, l, y1 - y0, c);
+  const d = b.v(p[0], y1 + hp, p[1], nx, 0, nz, 0, y1 - y0, c);
   // normal = (dz, −dx) iken ön yüz sırası (a, d, cc, bb) — duvarlarla aynı kural
   if (flip) b.quad(a, bb, cc, d);
   else b.quad(a, d, cc, bb);
@@ -229,10 +232,11 @@ function sidewalk(geo: ChunkedGeometry, pts: Pt[], half: number, side: 1 | -1, s
     const mz = (pts[i][1] + pts[i + 1][1]) / 2;
     const b = geo.get(mx, mz, 'sidewalk');
     const d = Math.hypot(pts[i + 1][0] - pts[i][0], pts[i + 1][1] - pts[i][1]);
-    const i0 = b.v(inner[i][0], CURB_H, inner[i][1], 0, 1, 0, 0, 0, SIDEWALK);
-    const i1 = b.v(outer[i][0], CURB_H, outer[i][1], 0, 1, 0, SIDEWALK_W, 0, SIDEWALK);
-    const i2 = b.v(outer[i + 1][0], CURB_H, outer[i + 1][1], 0, 1, 0, SIDEWALK_W, d, SIDEWALK);
-    const i3 = b.v(inner[i + 1][0], CURB_H, inner[i + 1][1], 0, 1, 0, 0, d, SIDEWALK);
+    const Y = (p: Pt) => CURB_H + H(p[0], p[1]);
+    const i0 = b.v(inner[i][0], Y(inner[i]), inner[i][1], 0, 1, 0, 0, 0, SIDEWALK);
+    const i1 = b.v(outer[i][0], Y(outer[i]), outer[i][1], 0, 1, 0, SIDEWALK_W, 0, SIDEWALK);
+    const i2 = b.v(outer[i + 1][0], Y(outer[i + 1]), outer[i + 1][1], 0, 1, 0, SIDEWALK_W, d, SIDEWALK);
+    const i3 = b.v(inner[i + 1][0], Y(inner[i + 1]), inner[i + 1][1], 0, 1, 0, 0, d, SIDEWALK);
     upQuad(b, i0, i1, i2, i3);
     // Bordür (yola bakan) ve dış kenar yüzleri
     const road: Pt = [pts[i][0], pts[i][1]];
@@ -280,10 +284,12 @@ function dashes(geo: ChunkedGeometry, pts: Pt[], on: number, off: number, w: num
         const b = geo.get(ax, az, 'marking');
         const nx = -uz * (w / 2);
         const nz = ux * (w / 2);
-        const i0 = b.v(ax + nx, y, az + nz, 0, 1, 0, 0, 0, WHITE);
-        const i1 = b.v(ax - nx, y, az - nz, 0, 1, 0, 1, 0, WHITE);
-        const i2 = b.v(bx - nx, y, bz - nz, 0, 1, 0, 1, 1, WHITE);
-        const i3 = b.v(bx + nx, y, bz + nz, 0, 1, 0, 0, 1, WHITE);
+        const ya = y + H(ax, az);
+        const yb = y + H(bx, bz);
+        const i0 = b.v(ax + nx, ya, az + nz, 0, 1, 0, 0, 0, WHITE);
+        const i1 = b.v(ax - nx, ya, az - nz, 0, 1, 0, 1, 0, WHITE);
+        const i2 = b.v(bx - nx, yb, bz - nz, 0, 1, 0, 1, 1, WHITE);
+        const i3 = b.v(bx + nx, yb, bz + nz, 0, 1, 0, 0, 1, WHITE);
         upQuad(b, i0, i1, i2, i3);
       }
       s += on + off;
@@ -310,10 +316,11 @@ function zebra(geo: ChunkedGeometry, at: Pt, dir: Pt, width: number): void {
     const hz = nz * (stripe / 2);
     const lx = ux * (len / 2);
     const lz = uz * (len / 2);
-    const i0 = b.v(cx - hx - lx, Y_MARK, cz - hz - lz, 0, 1, 0, 0, 0, WHITE);
-    const i1 = b.v(cx + hx - lx, Y_MARK, cz + hz - lz, 0, 1, 0, 1, 0, WHITE);
-    const i2 = b.v(cx + hx + lx, Y_MARK, cz + hz + lz, 0, 1, 0, 1, 1, WHITE);
-    const i3 = b.v(cx - hx + lx, Y_MARK, cz - hz + lz, 0, 1, 0, 0, 1, WHITE);
+    const Y = (x: number, z: number) => Y_MARK + H(x, z);
+    const i0 = b.v(cx - hx - lx, Y(cx - hx - lx, cz - hz - lz), cz - hz - lz, 0, 1, 0, 0, 0, WHITE);
+    const i1 = b.v(cx + hx - lx, Y(cx + hx - lx, cz + hz - lz), cz + hz - lz, 0, 1, 0, 1, 0, WHITE);
+    const i2 = b.v(cx + hx + lx, Y(cx + hx + lx, cz + hz + lz), cz + hz + lz, 0, 1, 0, 1, 1, WHITE);
+    const i3 = b.v(cx - hx + lx, Y(cx - hx + lx, cz - hz + lz), cz - hz + lz, 0, 1, 0, 0, 1, WHITE);
     upQuad(b, i0, i1, i2, i3);
   }
 }
@@ -339,7 +346,8 @@ export function buildRoads(geo: ChunkedGeometry, roads: Road[], crossings: Pt[])
   for (const r of sorted) {
     const st = roadStyle(r);
     const half = r.width / 2;
-    ribbon(geo, st.mat, r.pts, half, st.y, st.color);
+    const dense = densify(r.pts);
+    ribbon(geo, st.mat, dense, half, st.y, st.color);
     // Uç kapakları (kavşak dolgusu)
     for (const p of [r.pts[0], r.pts[r.pts.length - 1]])
       disc(geo.get(p[0], p[1], st.mat), p[0], p[1], half, st.y, st.color);
@@ -361,7 +369,7 @@ export function buildRoads(geo: ChunkedGeometry, roads: Road[], crossings: Pt[])
         });
     }
     // Orta çizgi: primary ve üstü kesikli beyaz
-    if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, r.pts, 3, 6, 0.15, Y_MARK);
+    if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, dense, 3, 6, 0.15, Y_MARK);
   }
 
   // Kaldırımlar: kavşak düğümlerinde parçalara böl ve kırp
@@ -379,8 +387,9 @@ export function buildRoads(geo: ChunkedGeometry, roads: Road[], crossings: Pt[])
       };
       const trimmed = trimPolyline(piece, trimFor(startKey), trimFor(endKey));
       if (trimmed) {
-        if (r.sidewalkLeft) sidewalk(geo, trimmed, half, 1, strips);
-        if (r.sidewalkRight) sidewalk(geo, trimmed, half, -1, strips);
+        const dense = densify(trimmed);
+        if (r.sidewalkLeft) sidewalk(geo, dense, half, 1, strips);
+        if (r.sidewalkRight) sidewalk(geo, dense, half, -1, strips);
       }
     };
     for (let i = 1; i < r.pts.length; i++) {

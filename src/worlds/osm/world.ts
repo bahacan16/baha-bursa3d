@@ -10,6 +10,9 @@ import { barrierThickness } from './landuse';
 import { parseOsm, pointInPolygon, type OsmWorldData } from './parse';
 import type { SimpleOsm } from './simplify';
 import type { Carriageway, RaisedStrip } from './roads';
+import type { GridData, TerrainData } from '../../env/terrain';
+import { H, ringBase, setTerrain } from './height';
+import { drawGroundTexture } from './groundtex';
 
 const SHADOW_CASTERS: MatKey[] = ['wall', 'roof', 'detail', 'barrier', 'rail'];
 const SHADOW_RECEIVERS: MatKey[] = [
@@ -33,6 +36,7 @@ export type BuildProgress = (fraction: number, label: string) => void;
 async function buildInWorker(
   data: SimpleOsm,
   quality: Quality,
+  terrain: GridData | null,
   progress: BuildProgress,
 ): Promise<BuildResult> {
   try {
@@ -53,12 +57,12 @@ async function buildInWorker(
         worker.terminate();
         reject(new Error(e.message || 'worker hatası'));
       };
-      worker.postMessage({ data, opts: { quality } });
+      worker.postMessage({ data, opts: { quality, terrain } });
     });
   } catch (err) {
     console.warn('Worker kullanılamadı, ana iş parçacığında üretiliyor:', err);
     await new Promise((r) => setTimeout(r, 0));
-    return buildWorld(data, { quality }, progress);
+    return buildWorld(data, { quality, terrain }, progress);
   }
 }
 
@@ -133,20 +137,16 @@ export class OsmWorld implements IWorld {
     res: BuildResult,
     quality: Quality,
     viewDist: number,
+    readonly terrain: TerrainData | null,
   ) {
     this.viewDist = viewDist;
     this.object.name = 'osm-world';
     this.materials = createOsmMaterials(quality);
     this.stat = res.stats;
 
-    const ground = new THREE.Mesh(
-      new THREE.PlaneGeometry(2600, 2600).rotateX(-Math.PI / 2),
-      this.materials.ground,
-    );
-    const uv = ground.geometry.attributes.uv as THREE.BufferAttribute;
-    for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) * 2600, uv.getY(i) * 2600);
+    setTerrain(terrain?.near ?? null);
+    const ground = createTerrainMesh(terrain?.near ?? null, data, this.materials.ground, quality);
     ground.receiveShadow = quality !== 'low';
-    ground.name = 'ground';
     this.object.add(ground);
 
     const shadows = quality !== 'low';
@@ -181,13 +181,17 @@ export class OsmWorld implements IWorld {
         const z = t.data[i * 5 + 1];
         const s = t.data[i * 5 + 2];
         q.setFromAxisAngle(up, t.data[i * 5 + 3]);
-        mtx.compose(new THREE.Vector3(x, 0, z), q, new THREE.Vector3(s, s * (0.9 + (i % 5) * 0.05), s));
+        mtx.compose(
+          new THREE.Vector3(x, H(x, z) - 0.1, z),
+          q,
+          new THREE.Vector3(s, s * (0.9 + (i % 5) * 0.05), s),
+        );
         im.setMatrixAt(i, mtx);
         const sh = t.data[i * 5 + 4];
         col.setRGB(sh, sh * (0.95 + (i % 3) * 0.04), sh * 0.9);
         im.setColorAt(i, col);
         // Gövde çarpışması
-        this.collision.addBox(x, z, 0.4 * s, 0.4 * s, 3);
+        this.collision.addBox(x, z, 0.4 * s, 0.4 * s, 3, H(x, z) - 0.5);
       }
       im.computeBoundingSphere();
       im.castShadow = shadows;
@@ -198,37 +202,45 @@ export class OsmWorld implements IWorld {
 
     // Çarpışma: binalar, duvarlar, köprü ayakları
     for (const b of data.buildings) {
-      this.collision.addRing(orient(b.outer, true), b.minHeight, b.height);
-      for (const h of b.holes) this.collision.addRing(h, b.minHeight, b.height);
+      const base = ringBase(b.outer);
+      const bottom = b.minHeight > 0.5 ? b.minHeight + base : base - 1;
+      this.collision.addRing(orient(b.outer, true), bottom, b.height + base);
+      for (const h of b.holes) this.collision.addRing(h, bottom, b.height + base);
     }
     for (const br of data.barriers) {
       const t = barrierThickness(br.kind) / 2;
-      // Kalın duvarlar için iki kenar
-      if (t > 0.1) {
-        const pts = br.pts;
-        for (let i = 0; i + 1 < pts.length; i++) {
-          const dx = pts[i + 1][0] - pts[i][0];
-          const dz = pts[i + 1][1] - pts[i][1];
+      const pts = br.pts;
+      for (let i = 0; i + 1 < pts.length; i++) {
+        const p0 = pts[i];
+        const p1 = pts[i + 1];
+        const h0 = H(p0[0], p0[1]);
+        const h1 = H(p1[0], p1[1]);
+        const bottom = Math.min(h0, h1) - 1;
+        const top = Math.max(h0, h1) + br.height;
+        if (t > 0.1) {
+          // Kalın duvarlar için iki kenar
+          const dx = p1[0] - p0[0];
+          const dz = p1[1] - p0[1];
           const l = Math.hypot(dx, dz) || 1;
           const nx = (-dz / l) * t;
           const nz = (dx / l) * t;
           this.collision.addRing(
             [
-              [pts[i][0] + nx, pts[i][1] + nz],
-              [pts[i + 1][0] + nx, pts[i + 1][1] + nz],
-              [pts[i + 1][0] - nx, pts[i + 1][1] - nz],
-              [pts[i][0] - nx, pts[i][1] - nz],
+              [p0[0] + nx, p0[1] + nz],
+              [p1[0] + nx, p1[1] + nz],
+              [p1[0] - nx, p1[1] - nz],
+              [p0[0] - nx, p0[1] - nz],
             ],
-            0,
-            br.height,
+            bottom,
+            top,
           );
-        }
-      } else this.collision.addPolyline(br.pts, 0, br.height);
+        } else this.collision.addPolyline([p0, p1], bottom, top);
+      }
     }
-    for (const p of res.piers) this.collision.addBox(p.x, p.z, p.size, p.size, 6);
+    for (const p of res.piers) this.collision.addBox(p.x, p.z, p.size, p.size, 40, H(p.x, p.z) - 1);
 
     const ground2 = new GroundIndex(res.strips, res.carriageways);
-    this.collision.ground = (x, z) => ground2.height(x, z);
+    this.collision.ground = (x, z) => H(x, z) + ground2.height(x, z);
 
     this.findSpawn();
   }
@@ -238,11 +250,12 @@ export class OsmWorld implements IWorld {
     quality: Quality,
     viewDist: number,
     progress: BuildProgress,
+    terrain: TerrainData | null = null,
   ): Promise<OsmWorld> {
     const parsed = parseOsm(simple);
-    const res = await buildInWorker(simple, quality, progress);
+    const res = await buildInWorker(simple, quality, terrain?.near ?? null, progress);
     progress(0.95, 'Sahne kuruluyor');
-    return new OsmWorld(parsed, res, quality, viewDist);
+    return new OsmWorld(parsed, res, quality, viewDist, terrain);
   }
 
   private chunkGroup(cx: number, cz: number): THREE.Group {
@@ -275,7 +288,7 @@ export class OsmWorld implements IWorld {
         const x = x0 + Math.cos(a) * r;
         const z = z0 + Math.sin(a) * r;
         if (Math.hypot(x, z) > 995 || inside(x, z)) continue;
-        p.set(x, 0, z);
+        p.set(x, H(x, z), z);
         this.collision.resolve(p, 0.5);
         if (Math.hypot(p.x - x, p.z - z) > 0.01) continue;
         return { x, z };
@@ -310,4 +323,52 @@ export class OsmWorld implements IWorld {
     for (const g of this.treeGeos) g.dispose();
     this.materials.dispose();
   }
+}
+
+/** Arazi mesh'i (yakın ızgara) + alan kullanımı dokusu. Arazi yoksa düz 2.6 km kare. */
+function createTerrainMesh(
+  g: GridData | null,
+  data: OsmWorldData,
+  mat: THREE.MeshStandardMaterial,
+  quality: Quality,
+): THREE.Mesh {
+  const half = g ? g.half : 1300;
+  const n = g ? g.n : 2;
+  const cell = g ? g.cell : half * 2;
+  const pos = new Float32Array(n * n * 3);
+  const uv = new Float32Array(n * n * 2);
+  for (let j = 0; j < n; j++)
+    for (let i = 0; i < n; i++) {
+      const k = j * n + i;
+      const x = -half + i * cell;
+      const z = -half + j * cell;
+      pos.set([x, g ? g.h[k] : 0, z], k * 3);
+      uv.set([i / (n - 1), 1 - j / (n - 1)], k * 2);
+    }
+  const idx = new Uint32Array((n - 1) * (n - 1) * 6);
+  let o = 0;
+  for (let j = 0; j + 1 < n; j++)
+    for (let i = 0; i + 1 < n; i++) {
+      const a = j * n + i;
+      const b = a + 1;
+      const c = a + n;
+      const d = c + 1;
+      idx.set([a, c, b, b, c, d], o);
+      o += 6;
+    }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute('uv', new THREE.BufferAttribute(uv, 2));
+  geo.setIndex(new THREE.BufferAttribute(idx, 1));
+  geo.computeVertexNormals();
+  geo.computeBoundingSphere();
+  const canvas = drawGroundTexture(data, quality === 'low' ? 2048 : 4096, half);
+  const tex = new THREE.CanvasTexture(canvas);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 8;
+  mat.map = tex;
+  mat.needsUpdate = true;
+  const m = new THREE.Mesh(geo, mat);
+  m.name = 'ground';
+  return m;
 }

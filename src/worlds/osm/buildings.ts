@@ -2,6 +2,7 @@ import earcut from 'earcut';
 import { ChunkedGeometry, hashString, parseColour, rng, type Bucket, type Rgb, type V3 } from './chunks';
 import { pointInPolygon, distToRing, ringCentroid, signedArea, type Building, type Ring } from './parse';
 import { FACADE_VARIANTS, SHOP_VARIANTS, SHOP_BASE } from './chunks';
+import { ringBase, terrainIsFlat } from './height';
 
 const PARAPET = 0.8;
 
@@ -44,6 +45,7 @@ export function addWalls(
   color: Rgb,
   fac: readonly number[],
   inward = false,
+  vOff = 0,
 ): void {
   const n = ring.length;
   for (let i = 0; i < n; i++) {
@@ -62,10 +64,10 @@ export function addWalls(
     const uLen = wallU(len);
     const u0 = uLen === 0 ? 0.1 : 0;
     const u1 = uLen === 0 ? 0.1 : uLen;
-    const a = b.v(p[0], y0, p[1], nx, 0, nz, u0, y0, color, fac);
-    const c = b.v(q[0], y0, q[1], nx, 0, nz, u1, y0, color, fac);
-    const d = b.v(q[0], y1, q[1], nx, 0, nz, u1, y1, color, fac);
-    const e = b.v(p[0], y1, p[1], nx, 0, nz, u0, y1, color, fac);
+    const a = b.v(p[0], y0, p[1], nx, 0, nz, u0, y0 - vOff, color, fac);
+    const c = b.v(q[0], y0, q[1], nx, 0, nz, u1, y0 - vOff, color, fac);
+    const d = b.v(q[0], y1, q[1], nx, 0, nz, u1, y1 - vOff, color, fac);
+    const e = b.v(p[0], y1, p[1], nx, 0, nz, u0, y1 - vOff, color, fac);
     if (inward) b.quad(a, c, d, e);
     else b.quad(a, e, d, c);
   }
@@ -143,6 +145,7 @@ function addPitchedRoof(
   rc: Rgb,
   tint: Rgb,
   fac: readonly number[],
+  vOff = 0,
 ): void {
   const y0 = bd.wallTop;
   const y1 = bd.height;
@@ -172,9 +175,9 @@ function addPitchedRoof(
         const nx = dz / l;
         const nz = -dx / l;
         const u = wallU(l);
-        const i0 = walls.v(p[0], y0, p[1], nx, 0, nz, 0, y0, tint, fac);
-        const i1 = walls.v(q[0], y0, q[1], nx, 0, nz, u, y0, tint, fac);
-        const i2 = walls.v(m[0], y1, m[1], nx, 0, nz, u / 2, y1, tint, fac);
+        const i0 = walls.v(p[0], y0, p[1], nx, 0, nz, 0, y0 - vOff, tint, fac);
+        const i1 = walls.v(q[0], y0, q[1], nx, 0, nz, u, y0 - vOff, tint, fac);
+        const i2 = walls.v(m[0], y1, m[1], nx, 0, nz, u / 2, y1 - vOff, tint, fac);
         walls.tri(i0, i2, i1);
       }
       return;
@@ -371,10 +374,17 @@ function addRoofDetails(b: Bucket, bd: Building, outer: Ring, y: number, r: () =
   }
 }
 
-/** Bir binayı chunk kovalarına yazar. */
-export function buildBuilding(geo: ChunkedGeometry, bd: Building, opts: BuildingOptions): void {
-  const outer = orient(bd.outer, true);
+/** Bir binayı chunk kovalarına yazar. Arazi varsa en düşük köşenin kotundan başlar. */
+export function buildBuilding(geo: ChunkedGeometry, bd0: Building, opts: BuildingOptions): void {
+  const outer = orient(bd0.outer, true);
   if (outer.length < 3) return;
+  const base = ringBase(outer);
+  const bd: Building = {
+    ...bd0,
+    minHeight: bd0.minHeight + base,
+    height: bd0.height + base,
+    wallTop: bd0.wallTop + base,
+  };
   const holes = bd.holes.map((h) => orient(h, false)).filter((h) => h.length >= 3);
   const c = ringCentroid(outer);
   const seed = hashString(bd.id);
@@ -385,22 +395,24 @@ export function buildBuilding(geo: ChunkedGeometry, bd: Building, opts: Building
   const flat = bd.roofShape === 'flat';
   const small = Math.abs(signedArea(outer)) < 25 || bd.levels <= 1;
   const variant = small ? FACADE_VARIANTS - 1 : seed % (FACADE_VARIANTS - 1);
-  const hasShop = bd.height - bd.levels * 3.1 > 1.5 || bd.kind === 'retail' || bd.kind === 'commercial';
-  const shop = hasShop && bd.minHeight < 0.5 ? SHOP_BASE + ((seed >>> 8) % SHOP_VARIANTS) : -1;
+  const hasShop = bd0.height - bd0.levels * 3.1 > 1.5 || bd.kind === 'retail' || bd.kind === 'commercial';
+  const shop = hasShop && bd0.minHeight < 0.5 ? SHOP_BASE + ((seed >>> 8) % SHOP_VARIANTS) : -1;
   const parapet = flat && !small ? PARAPET : 0;
   const top = flat ? bd.height : bd.wallTop;
-  const fac = [variant, shop, top, parapet];
+  // Cephe shader'ı göreli kotla (taban = 0) çalışır.
+  const fac = [variant, shop, top - base, parapet];
   const tint = wallTint(bd, r);
   const rc = roofColor(bd, r);
+  // Eğimli arazide temel boşluk kalmasın diye duvarı biraz gömeriz.
+  const bottom = bd0.minHeight < 0.5 ? bd.minHeight - (terrainIsFlat() ? 0 : 0.6) : bd.minHeight;
 
-  addWalls(walls, outer, bd.minHeight, top, tint, fac);
-  for (const h of holes) addWalls(walls, h, bd.minHeight, top, tint, fac);
+  addWalls(walls, outer, bottom, top, tint, fac, false, base);
+  for (const h of holes) addWalls(walls, h, bottom, top, tint, fac, false, base);
   // Havada duran parçaların alt yüzü
-  if (bd.minHeight > 0.5) {
+  if (bd0.minHeight > 0.5) {
     const under = geo.get(c[0], c[1], 'roof');
     const tmp = under.vertexCount;
     addFlatPolygon(under, outer, holes, bd.minHeight, [0.5, 0.5, 0.5]);
-    // normali aşağı çevir
     for (let i = tmp; i < under.vertexCount; i++) under.nor[i * 3 + 1] = -1;
     for (let i = under.idx.length - 1; i >= 0 && under.idx[i] >= tmp; i -= 3) {
       const t = under.idx[i];
@@ -413,14 +425,13 @@ export function buildBuilding(geo: ChunkedGeometry, bd: Building, opts: Building
     const roofY = top - parapet;
     addFlatPolygon(roof, outer, holes, roofY, rc);
     if (parapet > 0) {
-      addWalls(walls, outer, roofY, top, tint, fac, true);
-      for (const h of holes) addWalls(walls, h, roofY, top, tint, fac, true);
+      addWalls(walls, outer, roofY, top, tint, fac, true, base);
+      for (const h of holes) addWalls(walls, h, roofY, top, tint, fac, true, base);
     }
     if (opts.roofDetails && bd.levels >= 2)
       addRoofDetails(geo.get(c[0], c[1], 'detail'), bd, outer, roofY, r);
   } else {
-    // Saçak altını kapat
     addFlatPolygon(roof, outer, holes, top, rc);
-    addPitchedRoof(roof, walls, outer, bd, rc, tint, fac);
+    addPitchedRoof(roof, walls, outer, bd, rc, tint, fac, base);
   }
 }

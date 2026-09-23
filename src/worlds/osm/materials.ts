@@ -65,18 +65,19 @@ export function createOsmMaterials(quality: Quality): OsmMaterials {
     ctx.fillRect(0, 0, s / 2, s);
   });
   pitchTex.repeat.set(0.1, 0.1);
-  const groundTex = canvasTexture(512, (ctx, s) => {
-    speckle(ctx, s, '#8a8474', 0.6, 3);
+  // Arazi: alan kullanımı dokusu (world.ts atar) × yakın mesafe gren detayı
+  const detailTex = canvasTexture(256, (ctx, sz) => {
+    speckle(ctx, sz, '#ffffff', 1.2, 3);
     let x = 5;
     const r = () => (x = (x * 16807) % 2147483647) / 2147483647;
-    for (let i = 0; i < 40; i++) {
-      ctx.fillStyle = r() < 0.5 ? 'rgba(90,110,60,0.18)' : 'rgba(120,100,80,0.15)';
+    for (let i = 0; i < 60; i++) {
+      ctx.fillStyle = `rgba(0,0,0,${0.04 + r() * 0.06})`;
       ctx.beginPath();
-      ctx.arc(r() * s, r() * s, 10 + r() * 50, 0, Math.PI * 2);
+      ctx.arc(r() * sz, r() * sz, 3 + r() * 14, 0, Math.PI * 2);
       ctx.fill();
     }
   });
-  groundTex.repeat.set(1 / 16, 1 / 16);
+  detailTex.colorSpace = THREE.NoColorSpace;
 
   const flat = (map: THREE.Texture | null, offset: number, roughness = 0.95) =>
     new THREE.MeshStandardMaterial({
@@ -111,7 +112,23 @@ export function createOsmMaterials(quality: Quality): OsmMaterials {
     rail: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0.1 }),
     barrier: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9 }),
   };
-  const ground = new THREE.MeshStandardMaterial({ map: groundTex, roughness: 1 });
+  const ground = new THREE.MeshStandardMaterial({ roughness: 1 });
+  ground.onBeforeCompile = (sh) => {
+    sh.uniforms.detailMap = { value: detailTex };
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', '#include <common>\nuniform sampler2D detailMap;')
+      .replace(
+        '#include <map_fragment>',
+        `#include <map_fragment>
+#ifdef USE_MAP
+  // ~0.6 m ve ~5 m ölçekte iki kat gren (doku alanı 2.6 km)
+  float dA = texture2D(detailMap, vMapUv * 4000.0).r;
+  float dB = texture2D(detailMap, vMapUv * 520.0).r;
+  diffuseColor.rgb *= 0.78 + 0.22 * dA * (0.85 + 0.3 * dB);
+#endif`,
+      );
+  };
+  ground.customProgramCacheKey = () => 'ground-detail-v1';
   const trees = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, flatShading: true });
   return {
     byKey,
@@ -121,7 +138,8 @@ export function createOsmMaterials(quality: Quality): OsmMaterials {
       for (const m of Object.values(byKey)) m.dispose();
       ground.dispose();
       trees.dispose();
-      for (const t of [atlas, grain, sidewalkTex, pitchTex, groundTex]) t.dispose();
+      for (const t of [atlas, grain, sidewalkTex, pitchTex, detailTex]) t.dispose();
+      ground.map?.dispose();
     },
   };
 }

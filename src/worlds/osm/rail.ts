@@ -2,6 +2,7 @@ import { ChunkedGeometry, type Rgb } from './chunks';
 import { addBox } from './buildings';
 import { offsetPolyline } from './roads';
 import type { Pt, Rail } from './parse';
+import { H, terrainIsFlat } from './height';
 
 const BALLAST: Rgb = [0.45, 0.42, 0.38];
 const STEEL: Rgb = [0.55, 0.56, 0.58];
@@ -67,7 +68,7 @@ function densify(pts: Pt[], hs: number[], step: number): { pts: Pt[]; hs: number
     const p = pts[i - 1];
     const q = pts[i];
     const d = Math.hypot(q[0] - p[0], q[1] - p[1]);
-    const n = hs[i] !== hs[i - 1] ? Math.max(1, Math.ceil(d / step)) : 1;
+    const n = hs[i] !== hs[i - 1] || !terrainIsFlat() ? Math.max(1, Math.ceil(d / step)) : 1;
     for (let k = 1; k <= n; k++) {
       const t = k / n;
       op.push([p[0] + (q[0] - p[0]) * t, p[1] + (q[1] - p[1]) * t]);
@@ -102,10 +103,12 @@ export function buildRails(
       const mx = (p[0] + q[0]) / 2;
       const mz = (p[1] + q[1]) / 2;
       const b = geo.get(mx, mz, 'rail');
-      const y0 = hs[i];
-      const y1 = hs[i + 1];
+      const g0 = H(p[0], p[1]);
+      const g1 = H(q[0], q[1]);
+      const y0 = hs[i] + g0;
+      const y1 = hs[i + 1] + g1;
       const seg = Math.hypot(q[0] - p[0], q[1] - p[1]);
-      const elevated = y0 > 0.5 || y1 > 0.5;
+      const elevated = hs[i] > 0.5 || hs[i + 1] > 0.5;
       // Balast üst yüzü
       const t0 = y0 + BALLAST_H;
       const t1 = y1 + BALLAST_H;
@@ -116,8 +119,8 @@ export function buildRails(
       // L = sol (+normal). Yukarı bakan sıra:
       b.quad(a0, a1, b1, b0);
       // Yan yüzler (dolgu / köprü tabliyesi)
-      const bottom0 = r.bridge ? y0 - 1.0 : 0;
-      const bottom1 = r.bridge ? y1 - 1.0 : 0;
+      const bottom0 = r.bridge ? y0 - 1.0 : g0 - 0.2;
+      const bottom1 = r.bridge ? y1 - 1.0 : g1 - 0.2;
       const sideColor = elevated ? CONCRETE : BALLAST;
       for (const [E, sgn] of [
         [L, 1],
@@ -146,13 +149,21 @@ export function buildRails(
           const t = (nextPier - acc) / seg;
           const px = p[0] + (q[0] - p[0]) * t;
           const pz = p[1] + (q[1] - p[1]) * t;
-          const h = y0 + (y1 - y0) * t - 1.0;
-          addBox(b, px, h / 2, pz, 1.4, h, 1.4, 0, CONCRETE);
+          const g = H(px, pz);
+          const h = y0 + (y1 - y0) * t - 1.0 - g;
+          addBox(b, px, g + h / 2 - 0.2, pz, 1.4, h + 0.4, 1.4, 0, CONCRETE);
           piers.push({ x: px, z: pz, size: 1.4 });
           nextPier += 30;
         }
       } else if (!elevated) {
-        gradeStrips.push({ ax: p[0], az: p[1], bx: q[0], bz: q[1], half: BALLAST_W / 2, height: BALLAST_H });
+        gradeStrips.push({
+          ax: p[0],
+          az: p[1],
+          bx: q[0],
+          bz: q[1],
+          half: BALLAST_W / 2,
+          height: BALLAST_H + Math.max(0, hs[i]),
+        });
       }
       // Raylar
       const yaw = Math.atan2(-(q[1] - p[1]), q[0] - p[0]);

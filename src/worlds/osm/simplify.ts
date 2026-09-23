@@ -62,6 +62,8 @@ export interface OverpassJson {
 export const OVERPASS_ENDPOINTS = [
   'https://overpass-api.de/api/interpreter',
   'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass.private.coffee/api/interpreter',
+  'https://maps.mail.ru/osm/tools/overpass/api/interpreter',
 ];
 
 export const DEFAULT_CENTER_LITE: LatLonLite = { lat: 40.218262, lon: 28.909611 };

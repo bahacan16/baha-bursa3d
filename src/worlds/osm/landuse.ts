@@ -1,5 +1,6 @@
 import { ChunkedGeometry, type MatKey, type Rgb } from './chunks';
 import { addFlatPolygon, orient, addBox } from './buildings';
+import { H } from './height';
 import { ringCentroid, signedArea, type Area, type AreaKind, type Barrier, type Pt } from './parse';
 
 const COLORS: Record<AreaKind, Rgb> = {
@@ -101,10 +102,15 @@ export function buildBarriers(geo: ChunkedGeometry, barriers: Barrier[]): void {
       const mz = (p[1] + q[1]) / 2;
       const yaw = Math.atan2(-dz, dx);
       const b = geo.get(mx, mz, 'barrier');
+      // Eğimde: en düşük uçtan başla, en yüksek uca göre yükseklik ekle
+      const hp = H(p[0], p[1]);
+      const hq = H(q[0], q[1]);
+      const g = Math.min(hp, hq) - 0.2;
+      const top = Math.max(hp, hq) + br.height;
       // Köşelerde boşluk kalmasın diye kalınlık kadar uzat
-      addBox(b, mx, br.height / 2, mz, l + t, br.height, t, yaw, c);
+      addBox(b, mx, (g + top) / 2, mz, l + t, top - g, t, yaw, c);
       if (br.kind === 'wall')
-        addBox(b, mx, br.height + 0.04, mz, l + t + 0.06, 0.08, t + 0.08, yaw, [0.85, 0.83, 0.78]);
+        addBox(b, mx, top + 0.04, mz, l + t + 0.06, 0.08, t + 0.08, yaw, [0.85, 0.83, 0.78]);
     }
   }
 }
