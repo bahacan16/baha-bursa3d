@@ -96,8 +96,9 @@ export class Game {
     this.sky.setTime(t);
     this.lights.setTime(t);
     const fogColor = t === 'day' ? 0xc4d3de : t === 'sunset' ? 0xd9a988 : 0x1a2230;
-    const near = this.viewDistanceSafe * 0.35;
-    this.scene.fog = new THREE.Fog(fogColor, near, this.viewDistanceSafe);
+    // Mod A'da şehir uzakta da görünsün (tile'lar kendi LOD'unu yönetir).
+    const far = this.world?.kind === 'google' ? 9000 : this.viewDistanceSafe;
+    this.scene.fog = new THREE.Fog(fogColor, far * 0.35, far);
     this.renderer.toneMappingExposure = t === 'night' ? 0.7 : 0.9;
   }
 
@@ -127,6 +128,7 @@ export class Game {
     this.camera.updateProjectionMatrix();
     // Sky kutusu kameraya bağlı; köşeleri far düzleminin içinde kalmalı.
     this.sky.sky.scale.setScalar(this.camera.far * 0.5);
+    this.applyTimeOfDay();
     this.teleport(world.spawn.x, world.spawn.y, world.spawn.z);
   }
 

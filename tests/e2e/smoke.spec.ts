@@ -99,3 +99,17 @@ test.describe('mobil', () => {
     await expect(page.getByTestId('minimap')).toBeVisible();
   });
 });
+
+test('Mod A: geçersiz anahtar (403) anlaşılır hata verir', async ({ page }) => {
+  await serveFixture(page);
+  await page.route('https://tile.googleapis.com/**', (r) =>
+    r.fulfill({ status: 403, body: '{"error":{"code":403}}', contentType: 'application/json' }),
+  );
+  await page.goto('/?debug=1');
+  await expect(page.getByTestId('mode-google')).toBeDisabled();
+  await page.locator('[data-key]').fill('AIza-test-not-a-real-key-000');
+  await page.locator('[data-act="save"]').click();
+  await expect(page.getByTestId('mode-google')).toBeEnabled();
+  await page.getByTestId('mode-google').click();
+  await expect(page.getByTestId('error')).toContainText('403', { timeout: 30_000 });
+});

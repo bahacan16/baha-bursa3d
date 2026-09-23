@@ -69,15 +69,29 @@ export const CENTER_STREET = '502. Sokak';
 export const DATA_HALF = 1200;
 export const SEARCH_HALF = 1500;
 
-const R = 6378137;
+const WGS84_A = 6378137;
+const WGS84_E2 = (1 / 298.257223563) * (2 - 1 / 298.257223563);
 const DEG = Math.PI / 180;
 
+/**
+ * Merkez enlemindeki WGS84 yerel yarıçapları: M (meridyen, kuzey-güney), N (birinci düşey, doğu-batı).
+ * KARAR: Spec'teki tek yarıçaplı (R = 6378137) formül kuzey-güney yönünde ~%0.25 hata veriyor (1 km'de ~2.5 m);
+ * Google 3D Tiles (gerçek WGS84) ile hizalama için elipsoid yarıçapları kullanılır.
+ */
+export function localRadii(latDeg: number): { M: number; N: number } {
+  const s = Math.sin(latDeg * DEG);
+  const w = 1 - WGS84_E2 * s * s;
+  return { M: (WGS84_A * (1 - WGS84_E2)) / (w * Math.sqrt(w)), N: WGS84_A / Math.sqrt(w) };
+}
+
 export function project(lat: number, lon: number, c: LatLonLite): [number, number] {
-  return [(lon - c.lon) * Math.cos(c.lat * DEG) * R * DEG, -(lat - c.lat) * R * DEG];
+  const { M, N } = localRadii(c.lat);
+  return [(lon - c.lon) * Math.cos(c.lat * DEG) * N * DEG, -(lat - c.lat) * M * DEG];
 }
 
 export function unproject(x: number, z: number, c: LatLonLite): LatLonLite {
-  return { lat: c.lat - z / (R * DEG), lon: c.lon + x / (Math.cos(c.lat * DEG) * R * DEG) };
+  const { M, N } = localRadii(c.lat);
+  return { lat: c.lat - z / (M * DEG), lon: c.lon + x / (Math.cos(c.lat * DEG) * N * DEG) };
 }
 
 /** Overpass bbox dizgesi (güney,batı,kuzey,doğu). */

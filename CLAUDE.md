@@ -302,7 +302,7 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 | 1 Oyuncu/kontroller | ✅ | RobotExpressive (CC0) + AnimationMixer, kinematik kontrolcü (60 Hz sabit adım), omuz üstü kamera + duvar raycast, V ile 1. şahıs, Pointer Lock (+sürükleme yedeği), dokunmatik joystick/butonlar (Zıpla uzun basış = hayalet adım). Test dünyası: `?world=boxes`. Gerçek telefonda elle test edilmedi (headless mobil viewport ile doğrulandı). |
 | 2 OSM dünyası | 🟡 | Kod tamam: fetch-osm.mjs (Overpass, merkez doğrulama), sentetik fixture (`tests/fixtures/make-fixture.mjs`), binalar (yükseklik kuralları, multipolygon delikleri, building:part outline kuralı, eğik çatılar, parapet, çatı detayları), cephe atlası (shader'da fract+textureGrad), yollar/kaldırım (kavşakta kırpma, bordür), zebra, orta çizgi, alanlar, Poisson ağaçlar (InstancedMesh/chunk), Bursaray (köprü+rampa+ayak), duvar/çit, 200 m chunk, Worker'da üretim, poligon çarpışma + kaldırım zemini. **Gerçek veriyle doğrulanamadı** (bu ortamda Overpass 403) — CI'da üretilecek; kabul kriteri (502. Sokak'ta doğma, bina konum/yükseklik) ilk Pages dağıtımında kontrol edilmeli. Sentetik 4249 binalık stres testinde göz hizasında ~170–230 draw call. |
 | 3 HUD | ✅ | Dönen dairesel mini harita (kuzey işareti, sınır çemberi), büyük harita (kaydır/yakınlaştır, sokak adları, tıkla+onayla ışınlan), GTA tarzı sokak adı (yol / site-park adı, kavşakta geniş yol öncelikli), 950 m sınır uyarısı + 1000 m yumuşak duvar, T ışınlanma menüsü (bilinen yerler OSM'de adla aranır), Esc duraklat/ayarlar (zaman, kalite, FPS, HUD, koşu hızı), H HUD, atıf satırı, başlangıç/yükleme/hata ekranları. Işınlanma listesi gerçek veride hangi yerlerin bulunduğuna bağlı. |
-| 4 Google 3D | ⬜ | |
+| 4 Google 3D | 🟡 | Kod tamam: TilesRenderer + GoogleCloudAuthPlugin (core/plugins), GLTFExtensions+Draco (yerel `public/draco`), Reorientation (lat/lon **radyan**; kütüphane çerçevesi X batı/Z kuzey → Y'de 180° çevrildi, birim testle doğrulandı), Fade/Compression/UpdateOnChange, errorTarget ayarı, mobil LRU sınırları, BVH çarpışma (150 m aktif liste, tembel BVH, diz/göğüs ray, 2 m üstten zemin ray, >45° duvar), spawn dondurma + kapsam kontrolü, 403 hata ekranı, atıflar, `?gcal=` kalibrasyon. **Gerçek anahtarla test edilemedi** (bu ortamda tile.googleapis.com ve politika sayfası erişilemez); resmî Google logo görseli yerine yazı logosu — politika sayfasından doğrulanmalı. OSM–Google hizası sahada kontrol edilmeli (gerekirse `?gcal=dx,dz`). |
 | 5 Cila | ⬜ | |
 
 ## 18b. Kararlar (KARAR notları)
@@ -312,6 +312,8 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 - Yol köprüleri yükseltilmez (rampa/çarpışma karmaşası); ray köprüleri 7 m + 140 m rampa.
 - Mobilde mini harita sol üste taşınır (joystick alanı).
 - Düşük kalitede gölge ve çatı detayları kapalı.
+- Projeksiyon WGS84 yerel yarıçaplarıyla (M, N) yapılır; spec'teki tek R formülü kuzey-güneyde ~%0.25 hata veriyordu (Google hizası için). Mesafe testi Vincenty ile ±0.5 m; haversine yalnızca kaba kontrol.
+- Mod A'da Google logosu görsel değil yazı (marka dosyası paketlenmedi).
 
 ## 19. Kullanıcının yapması gerekenler (README'de de olsun)
 
