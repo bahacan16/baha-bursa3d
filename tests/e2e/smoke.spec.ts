@@ -1,60 +1,64 @@
-import { expect, test, type Page } from '@playwright/test';
+import { expect, test } from '@playwright/test';
+import { canvasNotBlank, playerPos, serveFixture, waitForWorld, type GameDebug } from './helpers';
 
-type GameDebug = {
-  controller: { position: { x: number; y: number; z: number } };
-  renderer: { info: { render: { calls: number } } };
-};
-
-async function playerPos(page: Page) {
-  return page.evaluate(() => {
-    const g = (window as unknown as { __game: GameDebug }).__game;
-    const p = g.controller.position;
-    return { x: p.x, y: p.y, z: p.z };
-  });
-}
-
-async function canvasNotBlank(page: Page) {
-  return page.evaluate(() => {
-    const c = document.querySelector('canvas.game') as HTMLCanvasElement;
-    const tmp = document.createElement('canvas');
-    tmp.width = 64;
-    tmp.height = 36;
-    const ctx = tmp.getContext('2d')!;
-    ctx.drawImage(c, 0, 0, 64, 36);
-    const d = ctx.getImageData(0, 0, 64, 36).data;
-    const first = [d[0], d[1], d[2]];
-    let distinct = 0;
-    for (let i = 0; i < d.length; i += 4) {
-      if (Math.abs(d[i] - first[0]) + Math.abs(d[i + 1] - first[1]) + Math.abs(d[i + 2] - first[2]) > 30)
-        distinct++;
-    }
-    return distinct > 50;
-  });
-}
-
-test('test dünyası: render eder, W ile yürünür, kutuya çarpılır', async ({ page }) => {
-  await page.goto('/?debug=1&world=boxes');
-  await page.waitForFunction(() => !!(window as unknown as { __game?: unknown }).__game);
+test('Mod B (fixture): render eder, W ile yürünür, binaya girilemez', async ({ page }) => {
+  await serveFixture(page);
+  await page.goto('/?debug=1');
+  await waitForWorld(page);
   await page.waitForTimeout(1500);
   expect(await canvasNotBlank(page)).toBe(true);
+  const calls = await page.evaluate(
+    () => (window as unknown as { __game: GameDebug }).__game.renderer.info.render.calls,
+  );
+  expect(calls).toBeLessThan(300);
+
   const before = await playerPos(page);
   await page.keyboard.down('KeyW');
   await page.waitForTimeout(2000);
-  const mid = await playerPos(page);
-  expect(mid.z).toBeLessThan(before.z - 1);
-  await page.keyboard.down('ShiftLeft');
-  await page.waitForTimeout(3500);
-  await page.keyboard.up('ShiftLeft');
   await page.keyboard.up('KeyW');
   const after = await playerPos(page);
-  // (0, -12) merkezli 4 m derinlikte kutu: ön yüz z = −10
-  expect(after.z).toBeGreaterThan(-10);
+  expect(Math.hypot(after.x - before.x, after.z - before.z)).toBeGreaterThan(1);
+
+  // Kuzeydeki binaya (x=−24, z∈[−28,−16]) doğru koş: ön yüz z=−16'yı geçememeli
+  await page.evaluate(() => {
+    const g = (window as unknown as { __game: GameDebug }).__game;
+    g.teleport(-24, 0, -8);
+    g.follow.yaw = 0;
+  });
+  await page.keyboard.down('ShiftLeft');
+  await page.keyboard.down('KeyW');
+  await page.waitForTimeout(3000);
+  await page.keyboard.up('KeyW');
+  await page.keyboard.up('ShiftLeft');
+  const blocked = await playerPos(page);
+  expect(blocked.z).toBeGreaterThan(-16);
+  expect(blocked.z).toBeLessThan(-14.5);
+});
+
+test('test dünyası: kutuya çarpılır', async ({ page }) => {
+  await page.goto('/?debug=1&world=boxes');
+  await waitForWorld(page);
+  await page.keyboard.down('ShiftLeft');
+  await page.keyboard.down('KeyW');
+  await page.waitForTimeout(4000);
+  await page.keyboard.up('KeyW');
+  await page.keyboard.up('ShiftLeft');
+  expect((await playerPos(page)).z).toBeGreaterThan(-10);
+});
+
+test('veri yoksa anlaşılır hata ekranı', async ({ page }) => {
+  await page.route('**/data/osm.json', (r) => r.fulfill({ status: 404, body: '' }));
+  await page.route(/overpass/, (r) => r.abort());
+  await page.goto('/?debug=1');
+  await expect(page.getByText('Harita verisi bulunamadı', { exact: false })).toBeVisible({ timeout: 30_000 });
 });
 
 test.describe('mobil', () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
   test('joystick görünür', async ({ page }) => {
-    await page.goto('/?debug=1&world=boxes');
+    await serveFixture(page);
+    await page.goto('/?debug=1');
+    await waitForWorld(page);
     await expect(page.getByTestId('joystick')).toBeVisible();
   });
 });

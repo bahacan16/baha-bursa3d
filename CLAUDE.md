@@ -300,10 +300,18 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 |---|---|---|
 | 0 İskelet | ✅ | Vite+TS, ESLint+Prettier, Vitest, Playwright, sky sahnesi, deploy.yml. Overpass bu geliştirme ortamından erişilemiyor (proxy 403) → fixture ile ilerleniyor. |
 | 1 Oyuncu/kontroller | ✅ | RobotExpressive (CC0) + AnimationMixer, kinematik kontrolcü (60 Hz sabit adım), omuz üstü kamera + duvar raycast, V ile 1. şahıs, Pointer Lock (+sürükleme yedeği), dokunmatik joystick/butonlar (Zıpla uzun basış = hayalet adım). Test dünyası: `?world=boxes`. Gerçek telefonda elle test edilmedi (headless mobil viewport ile doğrulandı). |
-| 2 OSM dünyası | ⬜ | |
+| 2 OSM dünyası | 🟡 | Kod tamam: fetch-osm.mjs (Overpass, merkez doğrulama), sentetik fixture (`tests/fixtures/make-fixture.mjs`), binalar (yükseklik kuralları, multipolygon delikleri, building:part outline kuralı, eğik çatılar, parapet, çatı detayları), cephe atlası (shader'da fract+textureGrad), yollar/kaldırım (kavşakta kırpma, bordür), zebra, orta çizgi, alanlar, Poisson ağaçlar (InstancedMesh/chunk), Bursaray (köprü+rampa+ayak), duvar/çit, 200 m chunk, Worker'da üretim, poligon çarpışma + kaldırım zemini. **Gerçek veriyle doğrulanamadı** (bu ortamda Overpass 403) — CI'da üretilecek; kabul kriteri (502. Sokak'ta doğma, bina konum/yükseklik) ilk Pages dağıtımında kontrol edilmeli. Sentetik 4249 binalık stres testinde göz hizasında ~170–230 draw call. |
 | 3 HUD | ⬜ | |
 | 4 Google 3D | ⬜ | |
 | 5 Cila | ⬜ | |
+
+## 18b. Kararlar (KARAR notları)
+
+- Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer).
+- Etiketsiz araç yollarına iki yanlı kaldırım; zemin katında dükkan varsa +0.9 m.
+- Yol köprüleri yükseltilmez (rampa/çarpışma karmaşası); ray köprüleri 7 m + 140 m rampa.
+- Mobilde mini harita sol üste taşınır (joystick alanı).
+- Düşük kalitede gölge ve çatı detayları kapalı.
 
 ## 19. Kullanıcının yapması gerekenler (README'de de olsun)
 

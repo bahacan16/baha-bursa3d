@@ -1,0 +1,84 @@
+import { ChunkedGeometry, type ChunkPayload } from './chunks';
+import { buildBuilding } from './buildings';
+import { buildRoads, type Carriageway, type RaisedStrip } from './roads';
+import { buildAreas, buildBarriers } from './landuse';
+import { buildRails, type Pier } from './rail';
+import { placeTrees, treesToPayload, type TreePayload } from './vegetation';
+import { parseOsm, type OsmWorldData } from './parse';
+import type { SimpleOsm } from './simplify';
+import type { Quality } from '../../core/settings';
+
+export interface BuildOptions {
+  quality: Quality;
+}
+
+export interface BuildResult {
+  chunks: ChunkPayload[];
+  trees: TreePayload;
+  strips: RaisedStrip[];
+  carriageways: Carriageway[];
+  piers: Pier[];
+  stats: Record<string, number>;
+}
+
+export type ProgressFn = (fraction: number, label: string) => void;
+
+/** Tüm Mod B geometrisini üretir (Worker içinde ya da ana iş parçacığında). */
+export function buildWorld(
+  simple: SimpleOsm,
+  opts: BuildOptions,
+  progress: ProgressFn = () => {},
+  parsed?: OsmWorldData,
+): BuildResult {
+  const t0 = Date.now();
+  const d = parsed ?? parseOsm(simple);
+  progress(0.05, 'Veri ayrıştırıldı');
+  const geo = new ChunkedGeometry();
+  const roofDetails = opts.quality !== 'low';
+
+  const n = d.buildings.length;
+  for (let i = 0; i < n; i++) {
+    buildBuilding(geo, d.buildings[i], { roofDetails });
+    if (i % 250 === 0) progress(0.05 + 0.45 * (i / Math.max(1, n)), `Binalar (${i}/${n})`);
+  }
+  progress(0.5, 'Yollar');
+  const roads = buildRoads(geo, d.roads, d.crossings);
+  progress(0.65, 'Alanlar');
+  buildAreas(geo, d.areas);
+  buildBarriers(geo, d.barriers);
+  progress(0.72, 'Raylar');
+  const rails = buildRails(geo, d.rails, { sleepers: opts.quality !== 'low' });
+  progress(0.8, 'Ağaçlar');
+  const maxTrees = opts.quality === 'low' ? 5000 : opts.quality === 'medium' ? 12000 : 25000;
+  const density = opts.quality === 'low' ? 0.5 : opts.quality === 'medium' ? 0.8 : 1;
+  const trees = placeTrees(d.trees, d.treeRows, d.areas, d.roads, d.buildings, { maxTrees, density });
+  progress(0.9, 'Geometri birleştiriliyor');
+  const chunks = geo.toPayload();
+  const tris = chunks.reduce((s, c) => s + c.index.length / 3, 0);
+  return {
+    chunks,
+    trees: treesToPayload(trees),
+    strips: [...roads.strips, ...rails.gradeStrips.map((g) => ({ ...g, inner: 0, outer: g.half }))],
+    carriageways: roads.carriageways,
+    piers: rails.piers,
+    stats: {
+      buildings: n,
+      roads: d.roads.length,
+      trees: trees.length,
+      chunks: new Set(chunks.map((c) => `${c.cx},${c.cz}`)).size,
+      meshes: chunks.length,
+      triangles: tris,
+      ms: Date.now() - t0,
+    },
+  };
+}
+
+export function transferables(r: BuildResult): Transferable[] {
+  const t: Transferable[] = [];
+  for (const c of r.chunks) {
+    t.push(c.position.buffer, c.normal.buffer, c.uv.buffer, c.color.buffer, c.index.buffer);
+    if (c.facade) t.push(c.facade.buffer);
+  }
+  for (const c of r.trees.chunks) t.push(c.data.buffer);
+  return t;
+}

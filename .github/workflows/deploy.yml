@@ -24,10 +24,12 @@ jobs:
           node-version: lts/*
           cache: npm
       - run: npm ci
-      - name: Fetch OSM data
-        # Başarısız olursa commit edilmiş public/data ile devam et.
-        continue-on-error: true
-        run: echo "fetch step not implemented yet (Faz 2)"
+      - name: Fetch OSM data (Overpass)
+        # Başarısız olursa commit edilmiş public/data ile devam et (yoksa uygulama tarayıcıdan Overpass'a sorar).
+        run: |
+          if ! npm run fetch-data; then
+            echo "::warning::OSM verisi alınamadı; commit edilmiş public/data kullanılacak."
+          fi
       - run: npm run lint
       - run: npm run test
       - run: npm run build

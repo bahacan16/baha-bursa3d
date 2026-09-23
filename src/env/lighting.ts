@@ -28,7 +28,7 @@ export function createLighting(scene: THREE.Scene, quality: Quality): LightRig {
   cam.near = 1;
   cam.far = 400;
   sun.shadow.bias = -0.0005;
-  sun.shadow.normalBias = 0.05;
+  sun.shadow.normalBias = 0.12;
   scene.add(sun);
   scene.add(sun.target);
 
