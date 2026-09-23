@@ -1,0 +1,45 @@
+name: Fetch map data
+
+# Gerçek OSM (ve Faz 5'te arazi) verisini indirip public/data'ya commit eder.
+# Geliştirme ortamı Overpass'a erişemediği için veri Actions'ta üretilir.
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/fetch-*.mjs'
+      - 'src/worlds/osm/simplify.ts'
+      - '.github/workflows/fetch-data.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-data-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - name: OSM (Overpass)
+        run: npm run fetch-data
+      - name: Arazi (Terrarium)
+        if: hashFiles('scripts/fetch-terrain.mjs') != ''
+        run: node scripts/fetch-terrain.mjs
+      - name: Özet
+        run: cat public/data/meta.json && ls -la public/data
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data
+          if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
+          git commit -m "data: update OSM/terrain data from Overpass [skip ci]"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
