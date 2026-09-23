@@ -134,7 +134,7 @@ describe('bina geometrisi', () => {
     for (const roofShape of ['gabled', 'hipped', 'pyramidal'] as const) {
       buildBuilding(geo, { ...base, id: roofShape, roofShape }, { roofDetails: false });
     }
-    const roof = geo.get(1, 1, 'roof');
+    const roof = geo.get(1, 1, 'roofTile');
     const ys = roof.pos.filter((_, i) => i % 3 === 1);
     expect(Math.max(...ys)).toBeCloseTo(8.7);
     for (let t = 0; t < roof.idx.length / 3; t++) expect(triNormal(roof, t)[1]).toBeGreaterThanOrEqual(-1e-9);
