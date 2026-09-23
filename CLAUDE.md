@@ -299,7 +299,7 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 | Faz | Durum | Notlar |
 |---|---|---|
 | 0 İskelet | ✅ | Vite+TS, ESLint+Prettier, Vitest, Playwright, sky sahnesi, deploy.yml. Overpass bu geliştirme ortamından erişilemiyor (proxy 403) → fixture ile ilerleniyor. |
-| 1 Oyuncu/kontroller | ⬜ | |
+| 1 Oyuncu/kontroller | ✅ | RobotExpressive (CC0) + AnimationMixer, kinematik kontrolcü (60 Hz sabit adım), omuz üstü kamera + duvar raycast, V ile 1. şahıs, Pointer Lock (+sürükleme yedeği), dokunmatik joystick/butonlar (Zıpla uzun basış = hayalet adım). Test dünyası: `?world=boxes`. Gerçek telefonda elle test edilmedi (headless mobil viewport ile doğrulandı). |
 | 2 OSM dünyası | ⬜ | |
 | 3 HUD | ⬜ | |
 | 4 Google 3D | ⬜ | |

@@ -1,0 +1,600 @@
+:root {
+  --bg: #0e1216;
+  --panel: rgba(14, 18, 22, 0.86);
+  --panel-solid: #151b21;
+  --line: rgba(255, 255, 255, 0.14);
+  --text: #f3f1ea;
+  --muted: #a9b0b6;
+  --accent: #f2b233;
+  --accent-2: #5fbf6a;
+  --danger: #e04848;
+  --font: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --shadow-text: 0 2px 0 rgba(0, 0, 0, 0.75), 0 0 6px rgba(0, 0, 0, 0.5);
+  --safe-b: env(safe-area-inset-bottom, 0px);
+  --safe-l: env(safe-area-inset-left, 0px);
+  --safe-r: env(safe-area-inset-right, 0px);
+  --safe-t: env(safe-area-inset-top, 0px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  touch-action: none;
+}
+
+#app canvas.game {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ---------- Ekranlar (başlangıç/yükleme/hata/duraklat) ---------- */
+.screen {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  overflow-y: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: calc(24px + var(--safe-t)) 16px calc(24px + var(--safe-b));
+  background:
+    radial-gradient(ellipse at 70% 0%, rgba(242, 178, 51, 0.18), transparent 60%),
+    linear-gradient(180deg, #1a232b 0%, #0e1216 100%);
+  touch-action: pan-y;
+}
+
+.screen.overlay {
+  background: rgba(8, 10, 12, 0.72);
+  backdrop-filter: blur(4px);
+  align-items: center;
+}
+
+.screen-inner {
+  width: 100%;
+  max-width: 880px;
+  margin: auto 0;
+}
+
+.title {
+  font-size: clamp(40px, 9vw, 76px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+  margin: 0 0 6px;
+  text-shadow: var(--shadow-text);
+}
+
+.title span {
+  color: var(--accent);
+}
+
+.subtitle {
+  color: var(--muted);
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.modes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.mode-card {
+  text-align: left;
+  border: 2px solid var(--line);
+  background: var(--panel-solid);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 18px;
+  cursor: pointer;
+  font: inherit;
+  transition:
+    border-color 0.15s,
+    transform 0.15s;
+}
+
+.mode-card:hover:not(:disabled) {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.mode-card:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.mode-card h3 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.mode-card .tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+}
+
+.mode-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.mode-card .play {
+  margin-top: 12px;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.panel {
+  background: var(--panel-solid);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.panel h4 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.field {
+  flex: 1 1 220px;
+  min-width: 0;
+  background: #0c1014;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font: inherit;
+  font-size: 15px;
+}
+
+.btn {
+  background: #26313a;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background: var(--accent);
+  color: #1a1206;
+  border-color: transparent;
+}
+
+.btn:hover {
+  filter: brightness(1.12);
+}
+
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.seg button {
+  background: transparent;
+  color: var(--text);
+  border: 0;
+  padding: 9px 14px;
+  font: inherit;
+  cursor: pointer;
+}
+
+.seg button.on {
+  background: var(--accent);
+  color: #1a1206;
+  font-weight: 800;
+}
+
+.note {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.note a {
+  color: var(--accent);
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 12px;
+  font-size: 14px;
+}
+
+kbd {
+  display: inline-block;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: #0c1014;
+}
+
+.loading-box {
+  max-width: 420px;
+  margin: auto;
+  text-align: center;
+}
+
+.progress {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  margin: 14px 0 8px;
+}
+
+.progress > div {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width 0.2s;
+}
+
+.error-box {
+  max-width: 520px;
+  margin: auto;
+}
+
+.error-box h2 {
+  color: var(--danger);
+  margin-top: 0;
+}
+
+/* ---------- HUD ---------- */
+.hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+  font-weight: 800;
+  text-shadow: var(--shadow-text);
+}
+
+.hud-off .hud-el {
+  display: none !important;
+}
+
+.minimap {
+  position: absolute;
+  left: calc(18px + var(--safe-l));
+  bottom: calc(18px + var(--safe-b));
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 3px solid rgba(0, 0, 0, 0.65);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+  background: #3a4046;
+  overflow: hidden;
+}
+
+.minimap canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.streetname {
+  position: absolute;
+  right: calc(22px + var(--safe-r));
+  bottom: calc(40px + var(--safe-b));
+  text-align: right;
+  opacity: 0;
+  transform: translateX(20px);
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}
+
+.streetname.show {
+  opacity: 1;
+  transform: none;
+}
+
+.streetname .area {
+  font-size: 15px;
+  color: #e9e3cf;
+  letter-spacing: 0.02em;
+}
+
+.streetname .street {
+  font-size: 30px;
+  line-height: 1.05;
+  color: #fff;
+  font-style: italic;
+  letter-spacing: -0.01em;
+}
+
+.attribution {
+  position: absolute;
+  right: calc(6px + var(--safe-r));
+  bottom: calc(4px + var(--safe-b));
+  font-size: 10px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px #000;
+  max-width: 60vw;
+  text-align: right;
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  justify-content: flex-end;
+}
+
+.attribution a {
+  color: inherit;
+}
+
+.attribution img {
+  height: 16px;
+  display: block;
+}
+
+.boundary-vignette {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  box-shadow: inset 0 0 140px 40px rgba(220, 30, 30, 0.75);
+}
+
+.boundary-msg {
+  position: absolute;
+  top: calc(18% + var(--safe-t));
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 22px;
+  color: #ffdede;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+
+.fps {
+  position: absolute;
+  top: calc(8px + var(--safe-t));
+  left: calc(8px + var(--safe-l));
+  font:
+    600 12px ui-monospace,
+    monospace;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 4px 6px;
+  border-radius: 4px;
+  text-shadow: none;
+  white-space: pre;
+}
+
+.toast {
+  position: absolute;
+  top: calc(14px + var(--safe-t));
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  text-shadow: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.toast.show {
+  opacity: 1;
+}
+
+.hud-top-right {
+  position: absolute;
+  top: calc(10px + var(--safe-t));
+  right: calc(10px + var(--safe-r));
+  display: flex;
+  gap: 6px;
+  pointer-events: auto;
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 18px;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+/* ---------- Büyük harita ---------- */
+.bigmap {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  background: rgba(8, 10, 12, 0.9);
+  display: flex;
+  flex-direction: column;
+}
+
+.bigmap canvas {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.bigmap-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: calc(8px + var(--safe-t)) 12px 8px;
+  flex-wrap: wrap;
+}
+
+.bigmap-bar .spacer {
+  flex: 1;
+}
+
+/* ---------- Işınlanma menüsü ---------- */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+.list button {
+  text-align: left;
+}
+
+/* ---------- Dokunmatik ---------- */
+.touch-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 12;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.joystick {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  background: rgba(0, 0, 0, 0.18);
+  pointer-events: none;
+}
+
+.joystick.idle {
+  left: calc(90px + var(--safe-l));
+  top: auto;
+  bottom: calc(30px + var(--safe-b));
+  margin: 0 0 0 -60px;
+  opacity: 0.45;
+}
+
+.joystick .knob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  transform: translate(-50%, -50%);
+}
+
+.touch-buttons {
+  position: absolute;
+  right: calc(14px + var(--safe-r));
+  bottom: calc(96px + var(--safe-b));
+  display: grid;
+  grid-template-columns: repeat(2, 64px);
+  gap: 10px;
+}
+
+.tbtn {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  font: 700 13px var(--font);
+  touch-action: none;
+}
+
+.tbtn.pressed,
+.tbtn.on {
+  background: rgba(242, 178, 51, 0.75);
+  color: #1a1206;
+}
+
+/* KARAR: Dokunmatik cihazlarda mini harita sol üste taşınır (sol alt joystick alanı). */
+.is-touch .minimap {
+  left: calc(10px + var(--safe-l));
+  top: calc(10px + var(--safe-t));
+  bottom: auto;
+  width: 124px;
+  height: 124px;
+}
+
+.is-touch .streetname {
+  bottom: auto;
+  top: calc(12px + var(--safe-t));
+  right: calc(60px + var(--safe-r));
+}
+
+.is-touch .streetname .street {
+  font-size: 22px;
+}
+
+.is-touch .fps {
+  top: auto;
+  bottom: calc(160px + var(--safe-b));
+}
+
+@media (max-width: 520px) {
+  .streetname .street {
+    font-size: 22px;
+  }
+}
