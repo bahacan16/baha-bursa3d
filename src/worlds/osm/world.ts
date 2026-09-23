@@ -18,13 +18,15 @@ import { Pedestrians } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
 import { nightUniform } from '../../env/night';
 
-const SHADOW_CASTERS: MatKey[] = ['wall', 'roof', 'detail', 'barrier', 'rail'];
+const SHADOW_CASTERS: MatKey[] = ['wall', 'roof', 'roofTile', 'detail', 'barrier', 'rail'];
 const SHADOW_RECEIVERS: MatKey[] = [
   'landLow',
   'landHigh',
   'pitch',
   'roadMinor',
   'roadMajor',
+  'footway',
+  'roofTile',
   'sidewalk',
   'wall',
   'roof',

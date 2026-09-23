@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import type { MatKey } from './chunks';
 import { createFacadeAtlas, createFacadeMaterial } from './facades';
+import { detailMaterial, loadPbr, type PbrRole } from './pbr';
 import type { Quality } from '../../core/settings';
 
 function canvasTexture(
@@ -38,7 +39,17 @@ export interface OsmMaterials {
   dispose(): void;
 }
 
-export function createOsmMaterials(quality: Quality): OsmMaterials {
+export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE_URL): OsmMaterials {
+  // Gerçek foto-taramalı dokular (CC0). Düşük kalitede yalnızca renk dokusu (bellek).
+  const maps = quality !== 'low';
+  const P = (r: PbrRole) => loadPbr(base, r, maps);
+  const asphalt = P('asphalt');
+  const paving = P('paving');
+  const concrete = P('concrete');
+  const roofTiles = P('roof');
+  const grassT = P('grass');
+  const dirtT = P('dirt');
+  const pbrSets = [asphalt, paving, concrete, roofTiles, grassT, dirtT];
   const atlas = createFacadeAtlas(quality === 'low' ? 1024 : 2048);
   // Beyaz tabanlı hafif gren: köşe renklerini çarpar (vertex color).
   const grain = canvasTexture(256, (ctx, s) => speckle(ctx, s, '#ffffff', 0.5));
@@ -92,7 +103,8 @@ export function createOsmMaterials(quality: Quality): OsmMaterials {
 
   const byKey: Record<MatKey, THREE.Material> = {
     wall: createFacadeMaterial(atlas),
-    roof: flat(grain, 0, 0.9),
+    roof: detailMaterial(concrete, { key: 'roof', roughness: 1, normalScale: 0.6 }),
+    roofTile: detailMaterial(roofTiles, { key: 'roofTile', roughness: 1, normalScale: 1 }),
     detail: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0.05 }),
     landLow: flat(grain, -1),
     landHigh: flat(grain, -2),
@@ -105,30 +117,46 @@ export function createOsmMaterials(quality: Quality): OsmMaterials {
       polygonOffsetFactor: -3,
       polygonOffsetUnits: -3,
     }),
-    roadMinor: flat(grain, -4),
-    roadMajor: flat(grain, -5, 0.9),
+    roadMinor: detailMaterial(asphalt, { key: 'roadMinor', polygonOffset: -4, normalScale: 0.8 }),
+    roadMajor: detailMaterial(asphalt, { key: 'roadMajor', polygonOffset: -5, normalScale: 0.8 }),
+    footway: detailMaterial(paving, { key: 'footway', polygonOffset: -4, normalScale: 1 }),
     marking: flat(null, -7, 0.7),
-    sidewalk: flat(sidewalkTex, 0, 0.9),
+    sidewalk: detailMaterial(paving, { key: 'sidewalk', normalScale: 1 }),
     rail: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0.1 }),
     barrier: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9 }),
   };
   const ground = new THREE.MeshStandardMaterial({ roughness: 1 });
   ground.onBeforeCompile = (sh) => {
     sh.uniforms.detailMap = { value: detailTex };
+    sh.uniforms.grassMap = { value: grassT.map };
+    sh.uniforms.dirtMap = { value: dirtT.map };
+    sh.uniforms.grassAvg = grassT.avg;
+    sh.uniforms.dirtAvg = dirtT.avg;
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <common>', '#include <common>\nuniform sampler2D detailMap;')
+      .replace(
+        '#include <common>',
+        '#include <common>\nuniform sampler2D detailMap;\nuniform sampler2D grassMap;\nuniform sampler2D dirtMap;\nuniform vec3 grassAvg;\nuniform vec3 dirtAvg;',
+      )
       .replace(
         '#include <map_fragment>',
         `#include <map_fragment>
 #ifdef USE_MAP
-  // ~0.6 m ve ~5 m ölçekte iki kat gren (doku alanı 2.6 km)
-  float dA = texture2D(detailMap, vMapUv * 4000.0).r;
-  float dB = texture2D(detailMap, vMapUv * 520.0).r;
-  diffuseColor.rgb *= 0.78 + 0.22 * dA * (0.85 + 0.3 * dB);
+  // Yakın mesafe: gerçek çim / toprak foto dokusu (alan rengi yeşilse çim), uzakta sönümlenir.
+  // Doku alanı 2.6 km → uv * 2600 = metre
+  vec2 wm = vMapUv * 2600.0;
+  vec3 base = diffuseColor.rgb;
+  float green = clamp((base.g - max(base.r, base.b)) * 12.0, 0.0, 1.0);
+  vec3 gT = texture2D(grassMap, wm / 3.0).rgb / max(grassAvg, vec3(0.02));
+  vec3 dT = texture2D(dirtMap, wm / 1.3).rgb / max(dirtAvg, vec3(0.02));
+  // Yalnızca parlaklık detayı (renk alan dokusundan gelir) — fotoğraftaki renk sapmaları lekelenme yapmasın
+  vec3 detail = vec3(dot(mix(dT, gT, green), vec3(0.3333)));
+  float dB = texture2D(detailMap, wm / 5.0).r;
+  float fade = clamp(1.0 - length(vViewPosition) / 250.0, 0.0, 1.0);
+  diffuseColor.rgb *= mix(vec3(0.92 + 0.08 * dB), clamp(detail, 0.0, 2.0) * (0.9 + 0.1 * dB), fade * 0.85);
 #endif`,
       );
   };
-  ground.customProgramCacheKey = () => 'ground-detail-v1';
+  ground.customProgramCacheKey = () => 'ground-detail-v3';
   const trees = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, flatShading: true });
   return {
     byKey,
@@ -139,6 +167,7 @@ export function createOsmMaterials(quality: Quality): OsmMaterials {
       ground.dispose();
       trees.dispose();
       for (const t of [atlas, grain, sidewalkTex, pitchTex, detailTex]) t.dispose();
+      for (const p of pbrSets) for (const t of [p.map, p.normalMap, p.roughnessMap]) t?.dispose();
       ground.map?.dispose();
     },
   };

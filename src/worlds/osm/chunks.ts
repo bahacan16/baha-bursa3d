@@ -8,6 +8,7 @@ export const CHUNK_SIZE = 400;
 export type MatKey =
   | 'wall'
   | 'roof'
+  | 'roofTile'
   | 'detail'
   | 'landLow'
   | 'landHigh'
@@ -15,6 +16,7 @@ export type MatKey =
   | 'water'
   | 'roadMinor'
   | 'roadMajor'
+  | 'footway'
   | 'marking'
   | 'sidewalk'
   | 'rail'
@@ -23,6 +25,7 @@ export type MatKey =
 export const MAT_KEYS: MatKey[] = [
   'wall',
   'roof',
+  'roofTile',
   'detail',
   'landLow',
   'landHigh',
@@ -30,6 +33,7 @@ export const MAT_KEYS: MatKey[] = [
   'water',
   'roadMinor',
   'roadMajor',
+  'footway',
   'marking',
   'sidewalk',
   'rail',

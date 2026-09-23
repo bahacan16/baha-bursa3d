@@ -390,9 +390,9 @@ export function buildBuilding(geo: ChunkedGeometry, bd0: Building, opts: Buildin
   const seed = hashString(bd.id);
   const r = rng(seed);
   const walls = geo.get(c[0], c[1], 'wall');
-  const roof = geo.get(c[0], c[1], 'roof');
-
   const flat = bd.roofShape === 'flat';
+  // Eğik çatılar kiremit dokusu, düz çatılar beton
+  const roof = geo.get(c[0], c[1], flat ? 'roof' : 'roofTile');
   const small = Math.abs(signedArea(outer)) < 25 || bd.levels <= 1;
   const variant = small ? FACADE_VARIANTS - 1 : seed % (FACADE_VARIANTS - 1);
   const hasShop = bd0.height - bd0.levels * 3.1 > 1.5 || bd.kind === 'retail' || bd.kind === 'commercial';

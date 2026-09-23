@@ -83,4 +83,6 @@ npm run build
 - Harita verisi © [OpenStreetMap](https://www.openstreetmap.org/copyright) katkıcıları, ODbL.
 - Mod A: Google Photorealistic 3D Tiles — Google ve veri sağlayıcılarının koşullarına tabidir.
 - Karakter: **RobotExpressive** — Tomás Laulhé, CC0 (değişiklikler: Don McCurdy); three.js örneklerinden.
+- Dokular (asfalt, kilitli parke, beton, sıva, kiremit, çim, toprak, ağaç kabuğu): [Poly Haven](https://polyhaven.com), **CC0**; yazarlar `public/textures/manifest.json`'da. `scripts/fetch-textures.mjs` ile Actions'ta indirilir.
+- Ortam gölgelemesi: [N8AO](https://github.com/N8python/n8ao) (MIT).
 - Draco çözücü: Google, Apache-2.0 (three.js ile gelir).

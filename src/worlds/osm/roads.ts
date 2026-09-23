@@ -12,10 +12,10 @@ const Y_MARK = 0.05;
 
 const ASPHALT: Rgb = [0.24, 0.245, 0.25];
 const ASPHALT_SERVICE: Rgb = [0.3, 0.3, 0.3];
-const PAVER: Rgb = [0.62, 0.58, 0.52];
+const PAVER: Rgb = [0.52, 0.47, 0.42];
 const PATH: Rgb = [0.6, 0.53, 0.42];
 const CYCLE: Rgb = [0.55, 0.3, 0.27];
-const SIDEWALK: Rgb = [0.66, 0.64, 0.6];
+const SIDEWALK: Rgb = [0.5, 0.45, 0.42];
 const CURB: Rgb = [0.78, 0.77, 0.74];
 const WHITE: Rgb = [0.92, 0.92, 0.9];
 
@@ -61,7 +61,8 @@ function roadStyle(r: Road): { mat: MatKey; color: Rgb; y: number } {
     case 'bridleway':
       return { mat: 'roadMinor', color: PATH, y: Y_MINOR };
     default:
-      return { mat: 'roadMinor', color: PAVER, y: Y_MINOR };
+      // Yaya yolları: kilitli parke taşı dokusu
+      return { mat: 'footway', color: PAVER, y: Y_MINOR };
   }
 }
 
