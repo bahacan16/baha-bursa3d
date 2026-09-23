@@ -29,6 +29,8 @@ export class PolygonCollisionWorld implements ICollisionWorld {
   private stamp: Uint32Array = new Uint32Array(0);
   private stampId = 0;
   ground: GroundFn = () => 0;
+  /** Hareketli engeller (yayalar, araçlar): her karede güncellenen daireler [x, z, r]. */
+  dynamic: number[] = [];
 
   get segmentCount(): number {
     return this.segs.length;
@@ -171,7 +173,21 @@ export class PolygonCollisionWorld implements ICollisionWorld {
           bnz = nz;
         }
       }
-      if (best < 0) return;
+      // Hareketli engeller
+      const D = this.dynamic;
+      for (let k = 0; k < D.length; k += 3) {
+        const dx = pos.x - D[k];
+        const dz = pos.z - D[k + 1];
+        const rr = radius + D[k + 2];
+        const d = Math.hypot(dx, dz);
+        if (d < rr && rr - d > radius - bestD) {
+          best = -2;
+          bestD = radius - (rr - d);
+          bnx = d > 1e-6 ? dx / d : 1;
+          bnz = d > 1e-6 ? dz / d : 0;
+        }
+      }
+      if (best === -1) return;
       const push = radius - bestD + 1e-4;
       pos.x += bnx * push;
       pos.z += bnz * push;

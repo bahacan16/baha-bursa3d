@@ -36,6 +36,8 @@ export interface Road {
   tunnel: boolean;
   area: boolean;
   vehicular: boolean;
+  /** 1 = yalnızca çizim yönünde, −1 = ters yönde, 0 = çift yön */
+  oneway: number;
 }
 
 export interface Rail {
@@ -463,6 +465,8 @@ export function parseOsm(d: SimpleOsm): OsmWorldData {
         tunnel: (!!t.tunnel && t.tunnel !== 'no') || t.location === 'underground',
         area: false,
         vehicular,
+        oneway:
+          t.oneway === 'yes' || t.oneway === '1' || t.oneway === 'true' ? 1 : t.oneway === '-1' ? -1 : 0,
       });
       continue;
     }

@@ -14,6 +14,8 @@ import type { GridData, TerrainData } from '../../env/terrain';
 import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
 import { StreetProps } from './streetprops';
+import { Pedestrians } from '../../sim/pedestrians';
+import { Traffic } from '../../sim/traffic';
 import { nightUniform } from '../../env/night';
 
 const SHADOW_CASTERS: MatKey[] = ['wall', 'roof', 'detail', 'barrier', 'rail'];
@@ -134,6 +136,8 @@ export class OsmWorld implements IWorld {
   private stat: Record<string, number> = {};
   private viewDist: number;
   private props!: StreetProps;
+  private peds!: Pedestrians;
+  private traffic!: Traffic;
 
   private constructor(
     readonly data: OsmWorldData,
@@ -255,6 +259,9 @@ export class OsmWorld implements IWorld {
     this.collision.ground = (x, z) => H(x, z) + ground2.height(x, z);
 
     this.findSpawn();
+    this.peds = new Pedestrians(data.roads, quality);
+    this.traffic = new Traffic(data.roads, quality);
+    this.object.add(this.peds.group, this.traffic.group);
   }
 
   static async create(
@@ -311,6 +318,12 @@ export class OsmWorld implements IWorld {
 
   update(camera: THREE.PerspectiveCamera, player: THREE.Vector3, dt: number): void {
     this.props.update(player, nightUniform.value, dt);
+    this.peds.update(dt, player);
+    this.traffic.update(dt, player, nightUniform.value);
+    const dyn = this.collision.dynamic;
+    dyn.length = 0;
+    this.peds.obstacles(dyn, player.x, player.z);
+    this.traffic.obstacles(dyn, player.x, player.z);
     const cx = camera.position.x;
     const cz = camera.position.z;
     const lim = this.viewDist + CHUNK_SIZE * 0.75;
@@ -325,7 +338,13 @@ export class OsmWorld implements IWorld {
   }
 
   stats(): Record<string, number | string> {
-    return { ...this.stat, collisionSegs: this.collision.segmentCount, lamps: this.props.lampCount };
+    return {
+      ...this.stat,
+      collisionSegs: this.collision.segmentCount,
+      lamps: this.props.lampCount,
+      pedestrians: this.peds.count,
+      cars: this.traffic.count,
+    };
   }
 
   dispose(): void {
@@ -335,6 +354,8 @@ export class OsmWorld implements IWorld {
     });
     for (const g of this.treeGeos) g.dispose();
     this.props.dispose();
+    this.peds.dispose();
+    this.traffic.dispose();
     this.materials.dispose();
   }
 }
