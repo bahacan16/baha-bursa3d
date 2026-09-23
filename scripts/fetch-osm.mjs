@@ -2,7 +2,7 @@
 // Overpass → public/data/osm.json + meta.json
 // Kullanım: node scripts/fetch-osm.mjs
 // Not: Bu script ağ erişimi ister. Başarısız olursa sahte veri ÜRETMEZ; çıkış kodu 1 döner.
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -76,6 +76,17 @@ async function main() {
   // Kısmi/boş yanıtları kaydetme (bölgede binlerce bina var).
   if (counts.buildings < 200 || counts.roads < 200)
     throw new Error(`şüpheli az veri: ${JSON.stringify(counts)}`);
+  // Bazı Overpass aynaları eksik yanıt döndürebiliyor: mevcut veriden belirgin azsa kaydetme.
+  let prev = null;
+  try {
+    prev = JSON.parse(await readFile(join(outDir, 'meta.json'), 'utf8'));
+  } catch {
+    /* ilk çalıştırma */
+  }
+  for (const k of ['buildings', 'roads', 'nodes']) {
+    if (prev?.counts?.[k] && counts[k] < prev.counts[k] * 0.8)
+      throw new Error(`eksik yanıt: ${k} ${counts[k]} < önceki ${prev.counts[k]} × 0.8`);
+  }
   const json = JSON.stringify(data);
   const meta = {
     center,
