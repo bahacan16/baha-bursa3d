@@ -31,7 +31,8 @@ export class InputState {
   }
 
   push(a: Action): void {
-    this.actions.push(a);
+    // Yalnızca fizik adımında tüketilen eylemler kuyruğa girer; diğerleri dinleyicilere gider.
+    if (a === 'jump' && !this.actions.includes('jump')) this.actions.push(a);
     for (const l of this.listeners) l(a);
   }
 

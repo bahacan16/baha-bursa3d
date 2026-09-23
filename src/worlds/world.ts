@@ -12,6 +12,8 @@ export interface IWorld {
   update(camera: THREE.PerspectiveCamera, player: THREE.Vector3, dt: number): void;
   /** Oyuncu nerede? Spawn için zemin hazır mı? (Mod A tile yüklenmesi) */
   isGroundReady?(x: number, z: number): boolean;
+  /** Işınlanma: verilen noktaya en yakın boş (bina dışı) nokta. */
+  findFreeSpot?(x: number, z: number): { x: number; z: number };
   /** Ekrandaki atıf metni (HTML). */
   attributionHtml(): string;
   /** debug göstergeleri için */

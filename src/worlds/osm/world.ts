@@ -260,23 +260,28 @@ export class OsmWorld implements IWorld {
 
   /** Merkezde (502. Sokak orta noktası) doğ; bina içindeyse spiral arama ile boş yer bul. */
   private findSpawn(): void {
+    const p = this.findFreeSpot(0, 0);
+    this.spawn.set(p.x, this.collision.ground(p.x, p.z, 0) ?? 0, p.z);
+  }
+
+  findFreeSpot(x0: number, z0: number): { x: number; z: number } {
     const inside = (x: number, z: number) =>
-      this.data.buildings.some((b) => pointInPolygon(x, z, b.outer, b.holes));
+      this.data.buildings.some((b) => b.minHeight < 2 && pointInPolygon(x, z, b.outer, b.holes));
     const p = new THREE.Vector3();
     for (let r = 0; r < 200; r += 2) {
       const steps = Math.max(1, Math.floor((r * Math.PI * 2) / 2));
       for (let i = 0; i < steps; i++) {
         const a = (i / steps) * Math.PI * 2;
-        const x = Math.cos(a) * r;
-        const z = Math.sin(a) * r;
-        if (inside(x, z)) continue;
+        const x = x0 + Math.cos(a) * r;
+        const z = z0 + Math.sin(a) * r;
+        if (Math.hypot(x, z) > 995 || inside(x, z)) continue;
         p.set(x, 0, z);
         this.collision.resolve(p, 0.5);
         if (Math.hypot(p.x - x, p.z - z) > 0.01) continue;
-        this.spawn.set(x, this.collision.ground(x, z, 0) ?? 0, z);
-        return;
+        return { x, z };
       }
     }
+    return { x: x0, z: z0 };
   }
 
   update(camera: THREE.PerspectiveCamera): void {

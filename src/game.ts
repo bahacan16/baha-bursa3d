@@ -40,6 +40,7 @@ export class Game {
   private fpsTime = 0;
   fps = 0;
   readonly isTouch: boolean;
+  readonly debug = new URLSearchParams(location.search).has('debug');
   readonly viewDistance: number;
 
   constructor(

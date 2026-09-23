@@ -1,9 +1,11 @@
 import './hud/hud.css';
 import { loadSettings } from './core/settings';
 import { Game } from './game';
+import { Hud } from './hud/hud';
 import { BoxesWorld } from './worlds/boxes';
-import { loadOsmData } from './worlds/osm/data';
+import { DataError, loadOsmData } from './worlds/osm/data';
 import { OsmWorld } from './worlds/osm/world';
+import { LoadingScreen, showError, showStartScreen, webglAvailable, type Mode } from './ui/screens';
 
 const app = document.getElementById('app')!;
 const settings = loadSettings();
@@ -11,35 +13,54 @@ const params = new URLSearchParams(location.search);
 const debug = params.has('debug');
 const base = import.meta.env.BASE_URL;
 
-const loading = document.createElement('div');
-loading.className = 'screen';
-loading.innerHTML = `<div class="loading-box"><h2>Dünya yükleniyor…</h2><div class="progress"><div></div></div><div class="note" data-label></div></div>`;
-app.appendChild(loading);
-const bar = loading.querySelector<HTMLDivElement>('.progress > div')!;
-const label = loading.querySelector<HTMLDivElement>('[data-label]')!;
-const progress = (f: number, l: string) => {
-  bar.style.width = `${Math.round(f * 100)}%`;
-  label.textContent = l;
-};
-
-async function start() {
+async function run(mode: Mode, key: string): Promise<void> {
+  const loading = new LoadingScreen(app);
   const game = new Game(app, settings);
   if (debug) (window as unknown as { __game: Game }).__game = game;
-  void game.character.load(`${base}models/RobotExpressive.glb`);
-  if (params.get('world') === 'boxes') {
-    game.setWorld(new BoxesWorld());
-  } else {
-    const data = await loadOsmData(base, (f, l) => progress(f * 0.4, l));
-    const world = await OsmWorld.create(data, settings.quality, game.viewDistance, (f, l) =>
-      progress(0.4 + f * 0.6, l),
-    );
-    game.setWorld(world);
+  const charReady = game.character.load(`${base}models/RobotExpressive.glb`);
+  try {
+    if (params.get('world') === 'boxes') {
+      game.setWorld(new BoxesWorld());
+      new Hud(game, null);
+    } else {
+      const data = await loadOsmData(base, (f, l) => loading.set(f * 0.4, l));
+      if (mode === 'google') {
+        const { startGoogle } = await import('./worlds/google/start');
+        await startGoogle(game, data, key, loading);
+      } else {
+        const world = await OsmWorld.create(data, settings.quality, game.viewDistance, (f, l) =>
+          loading.set(0.4 + f * 0.58, l),
+        );
+        game.setWorld(world);
+        const hud = new Hud(game, world.data);
+        if (debug) (window as unknown as { __hud: Hud }).__hud = hud;
+      }
+    }
+    await Promise.race([charReady, new Promise((r) => setTimeout(r, 4000))]);
+    loading.remove();
+    game.start();
+  } catch (err) {
+    console.error(err);
+    loading.remove();
+    game.renderer.domElement.remove();
+    const msg = (err as Error).message ?? String(err);
+    showError(app, err instanceof DataError ? 'Harita verisi yok' : 'Hata', msg);
   }
-  loading.remove();
-  game.start();
 }
 
-start().catch((err) => {
-  console.error(err);
-  loading.innerHTML = `<div class="error-box"><h2>Hata</h2><p>${(err as Error).message}</p></div>`;
-});
+async function main(): Promise<void> {
+  if (!webglAvailable()) {
+    showError(
+      app,
+      'WebGL desteklenmiyor',
+      'Bu tarayıcı/cihaz WebGL 2 desteklemiyor. Güncel Chrome, Safari veya Firefox deneyin.',
+    );
+    return;
+  }
+  const auto = params.get('mode');
+  if (auto === 'b' || params.get('world') === 'boxes') return run('osm', '');
+  const choice = await showStartScreen(app, settings);
+  await run(choice.mode, choice.key);
+}
+
+void main();

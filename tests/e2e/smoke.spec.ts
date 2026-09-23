@@ -4,6 +4,7 @@ import { canvasNotBlank, playerPos, serveFixture, waitForWorld, type GameDebug }
 test('Mod B (fixture): render eder, W ile yürünür, binaya girilemez', async ({ page }) => {
   await serveFixture(page);
   await page.goto('/?debug=1');
+  await page.getByTestId('mode-osm').click();
   await waitForWorld(page);
   await page.waitForTimeout(1500);
   expect(await canvasNotBlank(page)).toBe(true);
@@ -35,6 +36,41 @@ test('Mod B (fixture): render eder, W ile yürünür, binaya girilemez', async (
   expect(blocked.z).toBeLessThan(-14.5);
 });
 
+test('HUD: sokak adı, mini harita, ışınlanma menüsü', async ({ page }) => {
+  await serveFixture(page);
+  await page.goto('/?debug=1&mode=b');
+  await waitForWorld(page);
+  await expect(page.getByTestId('street-name')).toHaveText('502. Sokak', { timeout: 10_000 });
+  const minimapDrawn = await page.evaluate(() => {
+    const c = document.querySelector('.minimap canvas') as HTMLCanvasElement;
+    const d = c.getContext('2d')!.getImageData(0, 0, c.width, c.height).data;
+    let white = 0;
+    for (let i = 0; i < d.length; i += 4) if (d[i] > 220 && d[i + 1] > 220 && d[i + 2] > 220) white++;
+    return white > 50; // yollar beyaz
+  });
+  expect(minimapDrawn).toBe(true);
+  await expect(page.getByTestId('attribution')).toContainText('OpenStreetMap');
+
+  // Doğan Avcıoğlu Caddesi'ne ışınlan → sokak adı değişir
+  await page.keyboard.press('KeyT');
+  await page.getByRole('button', { name: 'Doğan Avcıoğlu Caddesi' }).click();
+  await expect(page.getByTestId('street-name')).toHaveText('Doğan Avcıoğlu Caddesi', { timeout: 10_000 });
+  const p = await playerPos(page);
+  expect(Math.abs(p.x - 160)).toBeLessThan(8);
+
+  // Büyük harita açılır/kapanır
+  await page.keyboard.press('KeyM');
+  await expect(page.locator('.bigmap')).toBeVisible();
+  await page.keyboard.press('KeyM');
+  await expect(page.locator('.bigmap')).toBeHidden();
+});
+
+test('başlangıç ekranı: anahtarsız Mod A pasif', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByTestId('mode-google')).toBeDisabled();
+  await expect(page.getByTestId('mode-osm')).toBeEnabled();
+});
+
 test('test dünyası: kutuya çarpılır', async ({ page }) => {
   await page.goto('/?debug=1&world=boxes');
   await waitForWorld(page);
@@ -49,7 +85,7 @@ test('test dünyası: kutuya çarpılır', async ({ page }) => {
 test('veri yoksa anlaşılır hata ekranı', async ({ page }) => {
   await page.route('**/data/osm.json', (r) => r.fulfill({ status: 404, body: '' }));
   await page.route(/overpass/, (r) => r.abort());
-  await page.goto('/?debug=1');
+  await page.goto('/?debug=1&mode=b');
   await expect(page.getByText('Harita verisi bulunamadı', { exact: false })).toBeVisible({ timeout: 30_000 });
 });
 
@@ -57,8 +93,9 @@ test.describe('mobil', () => {
   test.use({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
   test('joystick görünür', async ({ page }) => {
     await serveFixture(page);
-    await page.goto('/?debug=1');
+    await page.goto('/?debug=1&mode=b');
     await waitForWorld(page);
     await expect(page.getByTestId('joystick')).toBeVisible();
+    await expect(page.getByTestId('minimap')).toBeVisible();
   });
 });
