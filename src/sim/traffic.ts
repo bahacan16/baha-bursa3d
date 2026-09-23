@@ -153,6 +153,12 @@ export class Traffic {
     };
   }
 
+  nearest(x: number, z: number): number {
+    let d = Infinity;
+    for (const c of this.cars) d = Math.min(d, Math.hypot(c.x - x, c.z - z));
+    return d;
+  }
+
   obstacles(out: number[], px: number, pz: number): void {
     for (const c of this.cars) {
       if (Math.abs(c.x - px) > 25 || Math.abs(c.z - pz) > 25) continue;

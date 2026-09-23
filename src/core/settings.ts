@@ -8,6 +8,7 @@ export interface Settings {
   walkSpeed: number;
   runSpeed: number;
   googleErrorTarget: number;
+  sound: boolean;
 }
 
 const KEY = 'nilufer-walk.settings';
@@ -29,6 +30,7 @@ export function defaultSettings(): Settings {
     walkSpeed: 1.6,
     runSpeed: 5.5,
     googleErrorTarget: mobile ? 12 : 6,
+    sound: true,
   };
 }
 

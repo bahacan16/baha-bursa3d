@@ -112,6 +112,17 @@ export class GroundIndex {
     const tc = Math.max(0, Math.min(1, t));
     return { t, d: Math.hypot(x - (s.ax + ex * tc), z - (s.az + ez * tc)) };
   }
+  /** Araç yolu veya kaldırım üzerinde mi? */
+  onPaved(x: number, z: number): boolean {
+    const k = this.k(x, z);
+    for (const r of this.roads.get(k) ?? []) if (GroundIndex.proj(x, z, r).d < r.half) return true;
+    for (const s of this.strips.get(k) ?? []) {
+      const p = GroundIndex.proj(x, z, s);
+      if (p.t >= 0 && p.t <= 1 && p.d >= s.inner && p.d <= s.outer) return true;
+    }
+    return false;
+  }
+
   height(x: number, z: number): number {
     const k = this.k(x, z);
     for (const r of this.roads.get(k) ?? []) if (GroundIndex.proj(x, z, r).d < r.half) return 0;
@@ -136,6 +147,7 @@ export class OsmWorld implements IWorld {
   private stat: Record<string, number> = {};
   private viewDist: number;
   private props!: StreetProps;
+  private groundIdx!: GroundIndex;
   private peds!: Pedestrians;
   private traffic!: Traffic;
 
@@ -255,7 +267,7 @@ export class OsmWorld implements IWorld {
       this.collision.addBox(b[i], b[i + 2], 1.2, 1.2, 0.5, b[i + 1] - 0.3);
     }
 
-    const ground2 = new GroundIndex(res.strips, res.carriageways);
+    const ground2 = (this.groundIdx = new GroundIndex(res.strips, res.carriageways));
     this.collision.ground = (x, z) => H(x, z) + ground2.height(x, z);
 
     this.findSpawn();
@@ -331,6 +343,64 @@ export class OsmWorld implements IWorld {
       const c = g.userData.center as THREE.Vector2;
       g.visible = Math.hypot(c.x - cx, c.y - cz) < lim;
     }
+  }
+
+  private soft = new Set(['park', 'grass', 'wood', 'scrub', 'pitch', 'cemetery', 'farmland']);
+
+  audioInfo(x: number, z: number): { surface: 'hard' | 'soft' | 'gravel'; nearestCar: number } {
+    let surface: 'hard' | 'soft' | 'gravel' = 'soft';
+    if (this.groundIdx.onPaved(x, z)) surface = 'hard';
+    else {
+      const a = this.areaAt(x, z);
+      if (a === 'playground' || a === 'construction') surface = 'gravel';
+      else if (a && !this.soft.has(a)) surface = 'hard';
+    }
+    return { surface, nearestCar: this.traffic.nearest(x, z) };
+  }
+
+  private areaGrid: Map<string, number[]> | null = null;
+  private areaAt(x: number, z: number): string | null {
+    const C = 50;
+    if (!this.areaGrid) {
+      this.areaGrid = new Map();
+      this.data.areas.forEach((a, i) => {
+        let minX = Infinity;
+        let maxX = -Infinity;
+        let minZ = Infinity;
+        let maxZ = -Infinity;
+        for (const p of a.outer) {
+          minX = Math.min(minX, p[0]);
+          maxX = Math.max(maxX, p[0]);
+          minZ = Math.min(minZ, p[1]);
+          maxZ = Math.max(maxZ, p[1]);
+        }
+        for (let gx = Math.floor(minX / C); gx <= Math.floor(maxX / C); gx++)
+          for (let gz = Math.floor(minZ / C); gz <= Math.floor(maxZ / C); gz++) {
+            const k = `${gx},${gz}`;
+            let arr = this.areaGrid!.get(k);
+            if (!arr) this.areaGrid!.set(k, (arr = []));
+            arr.push(i);
+          }
+      });
+    }
+    let best: string | null = null;
+    let bestSize = Infinity;
+    for (const i of this.areaGrid.get(`${Math.floor(x / C)},${Math.floor(z / C)}`) ?? []) {
+      const a = this.data.areas[i];
+      if (!pointInPolygon(x, z, a.outer, a.holes)) continue;
+      const size = Math.abs(
+        a.outer.reduce(
+          (s, p, k) =>
+            s + p[0] * a.outer[(k + 1) % a.outer.length][1] - a.outer[(k + 1) % a.outer.length][0] * p[1],
+          0,
+        ),
+      );
+      if (size < bestSize) {
+        bestSize = size;
+        best = a.kind;
+      }
+    }
+    return best;
   }
 
   attributionHtml(): string {

@@ -58,6 +58,12 @@ test('HUD: sokak adı, mini harita, ışınlanma menüsü', async ({ page }) => 
   const p = await playerPos(page);
   expect(Math.abs(p.x - 160)).toBeLessThan(8);
 
+  // Fotoğraf modu: HUD gizlenir, P ile çıkılır
+  await page.keyboard.press('KeyP');
+  await expect(page.locator('.hud')).toBeHidden();
+  await page.keyboard.press('KeyP');
+  await expect(page.locator('.hud')).toBeVisible();
+
   // Büyük harita açılır/kapanır
   await page.keyboard.press('KeyM');
   await expect(page.locator('.bigmap')).toBeVisible();

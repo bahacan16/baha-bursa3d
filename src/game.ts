@@ -6,6 +6,7 @@ import { createSky, type SkyRig } from './env/sky';
 import { createLighting, type LightRig } from './env/lighting';
 import { daylight, type Daylight } from './env/daylight';
 import { nightUniform } from './env/night';
+import { GameAudio } from './env/audio';
 import { CharacterController } from './player/controller';
 import { Character } from './player/character';
 import { FollowCamera } from './player/camera';
@@ -43,6 +44,12 @@ export class Game {
   readonly sky: SkyRig;
   readonly lights: LightRig;
   readonly loop: GameLoop;
+  readonly audio = new GameAudio();
+  /** Fotoğraf modu: HUD gizli, serbest kamera, oyuncu donuk. */
+  photoMode = false;
+  private photo = { pos: new THREE.Vector3(), yaw: 0, pitch: 0 };
+  private pendingShot = false;
+  onPhotoChange: (on: boolean) => void = () => {};
   world: IWorld | null = null;
   hooks: GameHooks = {};
   /** HUD/menü açıkken oyuncu girdisi kapalı. */
@@ -60,6 +67,7 @@ export class Game {
     readonly settings: Settings,
   ) {
     this.isTouch = isTouchDevice();
+    this.audio.setEnabled(settings.sound);
     const r = (this.renderer = new THREE.WebGLRenderer({
       antialias: settings.quality !== 'low',
       powerPreference: 'high-performance',
@@ -200,7 +208,34 @@ export class Game {
     return this.blocked > 0;
   }
 
+  setPhotoMode(on: boolean): void {
+    if (on === this.photoMode) return;
+    this.photoMode = on;
+    this.controller.hold = on;
+    if (on) {
+      this.photo.pos.copy(this.camera.position);
+      this.photo.yaw = this.follow.yaw;
+      this.photo.pitch = this.follow.pitch;
+    } else this.follow.snap();
+    this.onPhotoChange(on);
+  }
+
+  /** Bir sonraki karede ekran görüntüsünü PNG olarak indir. */
+  takeScreenshot(): void {
+    this.pendingShot = true;
+  }
+
   private handleAction(a: Action): void {
+    if (a === 'photo' && !this.inputBlocked) {
+      this.setPhotoMode(!this.photoMode);
+      return;
+    }
+    if (this.photoMode) {
+      if (a === 'pause' || a === 'camera') this.setPhotoMode(false);
+      else if (a === 'shot' || a === 'jump') this.takeScreenshot();
+      return;
+    }
+    if (a === 'shot') return;
     if (this.hooks.onAction?.(this, a)) return;
     if (this.inputBlocked) return;
     if (a === 'camera') {
@@ -216,6 +251,27 @@ export class Game {
   }
 
   private fixedUpdate(dt: number): void {
+    if (this.photoMode) {
+      const look = this.input.takeLook();
+      const ph = this.photo;
+      ph.yaw -= look.dx * 0.0025;
+      ph.pitch = THREE.MathUtils.clamp(ph.pitch - look.dy * 0.0025, -1.5, 1.5);
+      const m = this.input.move;
+      const sp = (this.input.running ? 25 : 6) * dt;
+      const cp = Math.cos(ph.pitch);
+      const fx = -Math.sin(ph.yaw) * cp;
+      const fy = Math.sin(ph.pitch);
+      const fz = -Math.cos(ph.yaw) * cp;
+      const rx = Math.cos(ph.yaw);
+      const rz = -Math.sin(ph.yaw);
+      ph.pos.x += (fx * m.y + rx * m.x) * sp;
+      ph.pos.y += (fy * m.y + this.input.vertical) * sp;
+      ph.pos.z += (fz * m.y + rz * m.x) * sp;
+      const g = this.world?.collision.groundHeight(ph.pos.x, ph.pos.z, ph.pos.y) ?? 0;
+      if (g !== null && ph.pos.y < g + 0.3) ph.pos.y = g + 0.3;
+      this.input.consume('jump');
+      return;
+    }
     const look = this.input.takeLook();
     if (!this.inputBlocked) this.follow.look(look.dx, look.dy);
     const m = this.inputBlocked ? { x: 0, y: 0 } : this.input.move;
@@ -234,7 +290,16 @@ export class Game {
     const c = this.controller;
     this.renderPos.lerpVectors(c.prevPosition, c.position, alpha);
     this.character.update(dt, this.renderPos, c.heading, c.horizontalSpeed, c.onGround);
-    this.follow.update(this.renderPos, dt, this.world?.collision ?? null);
+    if (this.photoMode) {
+      const ph = this.photo;
+      const cp = Math.cos(ph.pitch);
+      this.camera.position.copy(ph.pos);
+      this.camera.lookAt(
+        ph.pos.x - Math.sin(ph.yaw) * cp,
+        ph.pos.y + Math.sin(ph.pitch),
+        ph.pos.z - Math.cos(ph.yaw) * cp,
+      );
+    } else this.follow.update(this.renderPos, dt, this.world?.collision ?? null);
     this.lights.follow(this.renderPos, this.daylight?.lightDir ?? this.sky.sunDir);
     if (this.settings.timeOfDay === 'real') {
       this.daylightTimer -= dt;
@@ -245,6 +310,18 @@ export class Game {
     }
     this.world?.update(this.camera, this.renderPos, dt);
     this.hooks.onFrame?.(this, dt);
+    const ai = this.world?.audioInfo?.(this.renderPos.x, this.renderPos.z) ?? {
+      surface: 'hard' as const,
+      nearestCar: Infinity,
+    };
+    this.audio.update(
+      dt,
+      c.horizontalSpeed,
+      c.onGround && !c.frozen,
+      ai.surface,
+      ai.nearestCar,
+      this.daylight?.night ?? 0,
+    );
     // Arka plan: aynı konum/yön, uzun menzil
     const bc = this.backdropCamera;
     bc.position.copy(this.camera.position);
@@ -259,6 +336,18 @@ export class Game {
     r.render(this.backdrop, bc);
     r.clearDepth();
     r.render(this.scene, this.camera);
+    if (this.pendingShot) {
+      this.pendingShot = false;
+      // Aynı karede (çizim tamponu temizlenmeden) al
+      r.domElement.toBlob((b) => {
+        if (!b) return;
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(b);
+        a.download = `nilufer-walk-${new Date().toISOString().replace(/[:.]/g, '-')}.png`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 5000);
+      }, 'image/png');
+    }
 
     this.frameCount++;
     this.fpsTime += dt;

@@ -14,20 +14,26 @@ Siteyi aç → başlangıç ekranında modu seç:
 
 ### Kontroller
 
-| Masaüstü               |                                                 |
-| ---------------------- | ----------------------------------------------- |
-| `W A S D` / ok tuşları | Yürü (kamera yönüne göre)                       |
-| Fare                   | Bak — ekrana tıklayınca fare kilitlenir         |
-| `Shift`                | Koş                                             |
-| `Space`                | Zıpla                                           |
-| `V`                    | 1. şahıs ↔ 3. şahıs kamera                      |
-| `M`                    | Büyük harita (tıkla → "Buraya ışınlan")         |
-| `T`                    | Işınlanma menüsü (bilinen yerler)               |
-| `Esc`                  | Duraklat / ayarlar                              |
-| `H`                    | HUD aç/kapa                                     |
-| `Ctrl`                 | Hayalet adım: çarpışmasız 1 m ileri (sıkışınca) |
+| Masaüstü               |                                                                              |
+| ---------------------- | ---------------------------------------------------------------------------- |
+| `W A S D` / ok tuşları | Yürü (kamera yönüne göre)                                                    |
+| Fare                   | Bak — ekrana tıklayınca fare kilitlenir                                      |
+| `Shift`                | Koş                                                                          |
+| `Space`                | Zıpla                                                                        |
+| `V`                    | 1. şahıs ↔ 3. şahıs kamera                                                   |
+| `M`                    | Büyük harita (tıkla → "Buraya ışınlan")                                      |
+| `T`                    | Işınlanma menüsü (bilinen yerler)                                            |
+| `Esc`                  | Duraklat / ayarlar                                                           |
+| `H`                    | HUD aç/kapa                                                                  |
+| `P`                    | Fotoğraf modu (serbest kamera, `Q`/`E` alçal/yüksel, `Space`/`F` PNG kaydet) |
+| `Ctrl`                 | Hayalet adım: çarpışmasız 1 m ileri (sıkışınca)                              |
 
 **Telefon:** ekranın sol yarısına dokun → joystick orada belirir (sonuna kadar itersen koşar). Sağ yarıda sürükle → kamera. Sağ alttaki butonlar: Zıpla (uzun bas = hayalet adım), Koş, Kamera, Harita. Yatay tutmak daha rahattır ama dikeyde de çalışır. Telefonda grafik kalitesi olarak **Düşük** önerilir.
+
+### Neler gerçek, neler yaklaşık?
+
+- **Gerçek (OpenStreetMap + açık yükseklik verisi):** bina konumları, taban şekilleri ve (etiketliyse) kat sayıları; tüm yollar ve adları; parklar, sahalar, site alanları, su; Bursaray hattı; işaretli ağaçlar, banklar, duraklar; arazinin eğimi ve uzaktaki Uludağ silüeti.
+- **Yaklaşık / prosedürel:** bina cepheleri (renk, pencere, balkon — OSM'de bu bilgi yok), kat bilgisi olmayan binalarda varsayılan 5 kat, park içlerine dağıtılan ağaçlar, sokak lambalarının konumu, yayalar ve araçlar.
 
 ## Mod A: Google API anahtarı
 

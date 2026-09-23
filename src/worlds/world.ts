@@ -14,6 +14,8 @@ export interface IWorld {
   isGroundReady?(x: number, z: number): boolean;
   /** Işınlanma: verilen noktaya en yakın boş (bina dışı) nokta. */
   findFreeSpot?(x: number, z: number): { x: number; z: number };
+  /** Ses için: ayak altındaki zemin ve en yakın araç mesafesi. */
+  audioInfo?(x: number, z: number): { surface: 'hard' | 'soft' | 'gravel'; nearestCar: number };
   /** Ekrandaki atıf metni (HTML). */
   attributionHtml(): string;
   /** debug göstergeleri için */

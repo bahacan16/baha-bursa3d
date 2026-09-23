@@ -1,5 +1,5 @@
 /** Klavye/fare/dokunmatik → soyut girdi durumu. */
-export type Action = 'camera' | 'map' | 'teleport' | 'pause' | 'hud' | 'ghost' | 'jump';
+export type Action = 'camera' | 'map' | 'teleport' | 'pause' | 'hud' | 'ghost' | 'jump' | 'photo' | 'shot';
 
 export class InputState {
   /** Klavye hareket ekseni: x sağ, y ileri, [-1, 1]. */
@@ -7,6 +7,8 @@ export class InputState {
   /** Dokunmatik joystick: x sağ, y ileri, büyüklük [0, 1]. */
   stickMove = { x: 0, y: 0 };
   runHeld = false;
+  /** Fotoğraf modunda dikey hareket: E yukarı, Q aşağı */
+  vertical = 0;
   runToggle = false;
   jumpHeld = false;
   /** Biriken bakış deltası (piksel). */
@@ -75,6 +77,8 @@ const KEYMAP: Record<string, Action> = {
   KeyT: 'teleport',
   Escape: 'pause',
   KeyH: 'hud',
+  KeyP: 'photo',
+  KeyF: 'shot',
   ControlLeft: 'ghost',
   ControlRight: 'ghost',
   Space: 'jump',
@@ -167,6 +171,7 @@ export class DesktopInput {
       (p.has('KeyD') || p.has('ArrowRight') ? 1 : 0) - (p.has('KeyA') || p.has('ArrowLeft') ? 1 : 0);
     this.state.runHeld = p.has('ShiftLeft') || p.has('ShiftRight');
     this.state.jumpHeld = p.has('Space');
+    this.state.vertical = (p.has('KeyE') ? 1 : 0) - (p.has('KeyQ') ? 1 : 0);
   }
 
   setEnabled(v: boolean): void {

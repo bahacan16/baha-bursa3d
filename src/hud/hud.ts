@@ -91,6 +91,19 @@ export class Hud {
     this.renderPause();
 
     game.hooks.onAction = (_g, a) => this.handle(a);
+    const photoHint = document.createElement('div');
+    photoHint.className = 'toast photo-hint';
+    photoHint.textContent = game.isTouch
+      ? 'Fotoğraf modu — joystick: uç · sürükle: bak · Zıpla: kaydet · Kam: çık'
+      : 'Fotoğraf modu — WASD/fare: uç · Q/E: alçal/yüksel · Shift: hızlı · Space/F: kaydet · P/Esc: çık';
+    parent.appendChild(photoHint);
+    game.onPhotoChange = (on) => {
+      this.game.container.classList.toggle('hud-off', on || !this.hudVisible);
+      this.root.style.display = on ? 'none' : '';
+      // Dokunmatikte joystick fotoğraf modunda da gerekli (uçmak için)
+      photoHint.classList.toggle('show', on);
+      if (on) setTimeout(() => photoHint.classList.remove('show'), 5000);
+    };
     // Pointer Lock'tan Esc ile çıkılınca (tarayıcı Esc tuşunu iletmez) duraklat.
     let wasLocked = false;
     document.addEventListener('pointerlockchange', () => {
@@ -202,6 +215,7 @@ export class Hud {
     el.innerHTML = `<div class="screen-inner" style="max-width:520px"><div class="panel">
       <h4>Duraklatıldı</h4>
       <div class="row" style="margin-bottom:12px"><button class="btn primary" data-act="resume">Devam et</button>
+      <button class="btn" data-act="photo">Fotoğraf modu (P)</button>
       <button class="btn" data-act="menu">Ana menü</button></div>
       <h4>Zaman</h4>${seg(
         'time',
@@ -226,12 +240,17 @@ export class Hud {
       <div class="row">
         <label><input type="checkbox" data-opt="fps" ${s.showFps ? 'checked' : ''}/> FPS sayacı</label>
         <label><input type="checkbox" data-opt="hud" ${this.hudVisible ? 'checked' : ''}/> HUD (H)</label>
+        <label><input type="checkbox" data-opt="sound" ${s.sound ? 'checked' : ''}/> Ses</label>
       </div>
       <h4 style="margin-top:12px">Koşu hızı: <span data-run>${s.runSpeed.toFixed(1)}</span> m/s</h4>
       <input type="range" min="3" max="9" step="0.5" value="${s.runSpeed}" data-opt="run" style="width:100%"/>
-      <p class="note" style="margin-top:12px"><kbd>WASD</kbd> yürü · <kbd>Shift</kbd> koş · <kbd>Space</kbd> zıpla · <kbd>V</kbd> kamera · <kbd>M</kbd> harita · <kbd>T</kbd> ışınlan · <kbd>H</kbd> HUD · <kbd>Ctrl</kbd> hayalet adım</p>
+      <p class="note" style="margin-top:12px"><kbd>WASD</kbd> yürü · <kbd>Shift</kbd> koş · <kbd>Space</kbd> zıpla · <kbd>V</kbd> kamera · <kbd>M</kbd> harita · <kbd>T</kbd> ışınlan · <kbd>H</kbd> HUD · <kbd>P</kbd> fotoğraf modu · <kbd>Ctrl</kbd> hayalet adım</p>
       </div></div>`;
     el.querySelector('[data-act="resume"]')!.addEventListener('click', () => this.close());
+    el.querySelector('[data-act="photo"]')!.addEventListener('click', () => {
+      this.close();
+      this.game.setPhotoMode(true);
+    });
     el.querySelector('[data-act="menu"]')!.addEventListener('click', () => {
       location.href = location.pathname + (location.search.includes('debug') ? '?debug=1' : '');
     });
@@ -256,6 +275,11 @@ export class Hud {
     el.querySelector<HTMLInputElement>('[data-opt="fps"]')!.addEventListener('change', (e) => {
       s.showFps = (e.target as HTMLInputElement).checked;
       this.fpsEl.style.display = s.showFps ? '' : 'none';
+      saveSettings(s);
+    });
+    el.querySelector<HTMLInputElement>('[data-opt="sound"]')!.addEventListener('change', (e) => {
+      s.sound = (e.target as HTMLInputElement).checked;
+      this.game.audio.setEnabled(s.sound);
       saveSettings(s);
     });
     el.querySelector<HTMLInputElement>('[data-opt="hud"]')!.addEventListener('change', (e) => {
