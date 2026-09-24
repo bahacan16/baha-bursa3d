@@ -13,6 +13,7 @@ import type { Carriageway, RaisedStrip } from './roads';
 import type { GridData, TerrainData } from '../../env/terrain';
 import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
+import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { StreetProps } from './streetprops';
 import { Pedestrians } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
@@ -44,6 +45,7 @@ async function buildInWorker(
   data: SimpleOsm,
   quality: Quality,
   terrain: GridData | null,
+  roofColors: RoofColorMap | undefined,
   progress: BuildProgress,
 ): Promise<BuildResult> {
   try {
@@ -64,12 +66,12 @@ async function buildInWorker(
         worker.terminate();
         reject(new Error(e.message || 'worker hatası'));
       };
-      worker.postMessage({ data, opts: { quality, terrain } });
+      worker.postMessage({ data, opts: { quality, terrain, roofColors } });
     });
   } catch (err) {
     console.warn('Worker kullanılamadı, ana iş parçacığında üretiliyor:', err);
     await new Promise((r) => setTimeout(r, 0));
-    return buildWorld(data, { quality, terrain }, progress);
+    return buildWorld(data, { quality, terrain, roofColors }, progress);
   }
 }
 
@@ -161,6 +163,7 @@ export class OsmWorld implements IWorld {
     quality: Quality,
     viewDist: number,
     readonly terrain: TerrainData | null,
+    aerial: HTMLImageElement | null = null,
   ) {
     this.viewDist = viewDist;
     this.object.name = 'osm-world';
@@ -168,7 +171,7 @@ export class OsmWorld implements IWorld {
     this.stat = res.stats;
 
     setTerrain(terrain?.near ?? null);
-    const ground = createTerrainMesh(terrain?.near ?? null, data, this.materials.ground, quality);
+    const ground = createTerrainMesh(terrain?.near ?? null, data, this.materials.ground, quality, aerial);
     ground.receiveShadow = quality !== 'low';
     this.object.add(ground);
 
@@ -292,9 +295,12 @@ export class OsmWorld implements IWorld {
     terrain: TerrainData | null = null,
   ): Promise<OsmWorld> {
     const parsed = parseOsm(simple);
-    const res = await buildInWorker(simple, quality, terrain?.near ?? null, progress);
+    progress(0.02, 'Hava fotoğrafı yükleniyor');
+    const aerial = await loadAerial(import.meta.env.BASE_URL, quality === 'low' ? 2048 : 4096);
+    const roofColors = aerial ? sampleRoofColors(aerial, parsed.buildings) : undefined;
+    const res = await buildInWorker(simple, quality, terrain?.near ?? null, roofColors, progress);
     progress(0.95, 'Sahne kuruluyor');
-    return new OsmWorld(parsed, res, quality, viewDist, terrain);
+    return new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);
   }
 
   private chunkGroup(cx: number, cz: number): THREE.Group {
@@ -446,6 +452,7 @@ function createTerrainMesh(
   data: OsmWorldData,
   mat: THREE.MeshStandardMaterial,
   quality: Quality,
+  aerial: HTMLImageElement | null = null,
 ): THREE.Mesh {
   const half = g ? g.half : 1300;
   const n = g ? g.n : 2;
@@ -477,8 +484,11 @@ function createTerrainMesh(
   geo.setIndex(new THREE.BufferAttribute(idx, 1));
   geo.computeVertexNormals();
   geo.computeBoundingSphere();
-  const canvas = drawGroundTexture(data, quality === 'low' ? 2048 : 4096, half);
-  const tex = new THREE.CanvasTexture(canvas);
+  // Gerçek hava fotoğrafı varsa onu, yoksa OSM alan kullanımından boyanmış dokuyu kullan
+  const tex = aerial
+    ? new THREE.Texture(aerial)
+    : new THREE.CanvasTexture(drawGroundTexture(data, quality === 'low' ? 2048 : 4096, half));
+  tex.needsUpdate = true;
   tex.colorSpace = THREE.SRGBColorSpace;
   tex.anisotropy = 8;
   mat.map = tex;

@@ -307,6 +307,10 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 
 ## 18b. Kararlar (KARAR notları)
 
+- **Proje kişisel/hobi amaçlı, repo private olacak** (kullanıcı): lisans kısıtlarına takılmadan açık/erişilebilir kaynaklar kullanılabilir (ör. Esri hava fotoğrafı). Atıflar yine gösterilir.
+- Hava fotoğrafı (Esri World Imagery z18, `scripts/fetch-aerial.mjs`, Actions'ta): arazi dokusu olarak kullanılır; çatılara doğrudan yapıştırılmaz (eğiklik), her binanın çatı rengi fotoğraftan örneklenir; kiremit rengi görülen düz çatılı binalara kırma çatı verilir (OSM'de çatı şekli yok).
+- Gece çalışması (görsel gerçekçilik): IBL + N8AO + bloom + SMAA, CC0 PBR detay dokuları, cam yansıması/perde farklılığı, sıva + kir, park etmiş araçlar, sedan modeli, hava fotoğrafı, kırma çatılar.
+
 - Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer).
 - Etiketsiz araç yollarına iki yanlı kaldırım; zemin katında dükkan varsa +0.9 m.
 - Yol köprüleri yükseltilmez (rampa/çarpışma karmaşası); ray köprüleri 7 m + 140 m rampa.

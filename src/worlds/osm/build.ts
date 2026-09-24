@@ -17,6 +17,7 @@ export interface BuildOptions {
   terrain?: GridData | null;
   /** Alan kullanımını ayrı mesh olarak üret (varsayılan: hayır — arazi dokusuna boyanır). */
   landuseMeshes?: boolean;
+  roofColors?: Record<string, readonly number[]>;
 }
 
 export interface BuildResult {
@@ -47,7 +48,13 @@ export function buildWorld(
 
   const n = d.buildings.length;
   for (let i = 0; i < n; i++) {
-    buildBuilding(geo, d.buildings[i], { roofDetails });
+    let b = d.buildings[i];
+    // Fotoğrafta kiremit görülen düz çatılı bina → kırma çatı (duvar üstü aynı kalır, çatı eklenir)
+    if (opts.roofColors?.[b.id]?.[3] && b.roofShape === 'flat' && !b.isPart && b.levels <= 12) {
+      const rh = 2.8;
+      b = { ...b, roofShape: 'hipped', roofHeight: rh, wallTop: b.height, height: b.height + rh };
+    }
+    buildBuilding(geo, b, { roofDetails, roofColors: opts.roofColors });
     if (i % 250 === 0) progress(0.05 + 0.45 * (i / Math.max(1, n)), `Binalar (${i}/${n})`);
   }
   progress(0.5, 'Yollar');

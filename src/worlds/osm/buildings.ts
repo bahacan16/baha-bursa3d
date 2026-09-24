@@ -21,6 +21,8 @@ const TILE_ROOF_COLORS: Rgb[] = [
 
 export interface BuildingOptions {
   roofDetails: boolean;
+  /** Hava fotoğrafından örneklenmiş çatı renkleri (bina id → doğrusal RGB) */
+  roofColors?: Record<string, readonly number[]>;
 }
 
 /** Halkayı istenen yöne çevirir: dış halka pozitif alan, delik negatif alan. */
@@ -107,9 +109,13 @@ export function addFlatPolygon(
   }
 }
 
-function roofColor(bd: Building, r: () => number): Rgb {
+function roofColor(bd: Building, r: () => number, sampled?: Rgb): Rgb {
   const tagged = parseColour(bd.roofColour);
   if (tagged) return tagged;
+  if (sampled) {
+    r();
+    return sampled;
+  }
   const pal = bd.roofShape === 'flat' ? FLAT_ROOF_COLORS : TILE_ROOF_COLORS;
   return pal[Math.floor(r() * pal.length)];
 }
@@ -198,6 +204,23 @@ function addPitchedRoof(
       return;
     }
   }
+  // Genel kırma çatı: tabanı içe daralt + yükselt (her şekilde çalışır); olmazsa piramit
+  if (bd.roofShape === 'hipped') {
+    const slope = (y1 - y0) / 4.5; // ~32° eğim
+    let d = Math.min(4.5, (y1 - y0) / slope);
+    for (let t = 0; t < 4; t++, d *= 0.55) {
+      const inner = insetRing(outer, d);
+      if (!inner) continue;
+      const top = y0 + d * slope;
+      for (let i = 0; i < outer.length; i++) {
+        const j = (i + 1) % outer.length;
+        roof.flatTri(V(outer[i], y0), V(outer[j], y0), V(inner[j], top), rc, true);
+        roof.flatTri(V(outer[i], y0), V(inner[j], top), V(inner[i], top), rc, true);
+      }
+      addFlatPolygon(roof, inner, [], top, rc);
+      return;
+    }
+  }
   // Piramit (ve dikdörtgen olmayan şekillerde yedek)
   const c = ringCentroid(outer);
   for (let i = 0; i < outer.length; i++) {
@@ -205,6 +228,51 @@ function addPitchedRoof(
     const q = outer[(i + 1) % outer.length];
     roof.flatTri(V(p, y0), V(q, y0), V(c, y1), rc, true);
   }
+}
+
+/**
+ * Halkayı (pozitif alanlı) `d` metre içe daraltır (gönye). Geçersizse (kendini keser, dışarı taşar) null.
+ */
+export function insetRing(r: Ring, d: number): Ring | null {
+  const n = r.length;
+  const out: Ring = [];
+  for (let i = 0; i < n; i++) {
+    const p = r[(i - 1 + n) % n];
+    const c = r[i];
+    const q = r[(i + 1) % n];
+    const e1x = c[0] - p[0];
+    const e1z = c[1] - p[1];
+    const e2x = q[0] - c[0];
+    const e2z = q[1] - c[1];
+    const l1 = Math.hypot(e1x, e1z) || 1;
+    const l2 = Math.hypot(e2x, e2z) || 1;
+    // İç normal (pozitif alan): (−dz, dx)
+    const n1x = -e1z / l1;
+    const n1z = e1x / l1;
+    const n2x = -e2z / l2;
+    const n2z = e2x / l2;
+    let mx = n1x + n2x;
+    let mz = n1z + n2z;
+    const ml = Math.hypot(mx, mz);
+    if (ml < 1e-6) return null;
+    mx /= ml;
+    mz /= ml;
+    const cos = mx * n1x + mz * n1z;
+    if (cos < 0.35) return null; // çok sivri iç açı
+    out.push([c[0] + (mx * d) / cos, c[1] + (mz * d) / cos]);
+  }
+  // Doğrulama: yön korunmalı, her kenar kısalmalı ya da eşit kalmalı, noktalar içeride olmalı
+  if (signedArea(out) <= 0 || signedArea(out) > signedArea(r)) return null;
+  for (let i = 0; i < n; i++) {
+    const a = r[i];
+    const b = r[(i + 1) % n];
+    const ia = out[i];
+    const ib = out[(i + 1) % n];
+    const dot = (b[0] - a[0]) * (ib[0] - ia[0]) + (b[1] - a[1]) * (ib[1] - ia[1]);
+    if (dot <= 0) return null; // kenar ters döndü → kendini kesiyor
+    if (!pointInPolygon(ia[0], ia[1], r, [])) return null;
+  }
+  return out;
 }
 
 /** Box (eksen hizalı değil, yaw açılı) ekler. */
@@ -402,7 +470,8 @@ export function buildBuilding(geo: ChunkedGeometry, bd0: Building, opts: Buildin
   // Cephe shader'ı göreli kotla (taban = 0) çalışır.
   const fac = [variant, shop, top - base, parapet];
   const tint = wallTint(bd, r);
-  const rc = roofColor(bd, r);
+  const hint = opts.roofColors?.[bd0.id];
+  const rc = roofColor(bd, r, hint ? [hint[0], hint[1], hint[2]] : undefined);
   // Eğimli arazide temel boşluk kalmasın diye duvarı biraz gömeriz.
   const bottom = bd0.minHeight < 0.5 ? bd.minHeight - (terrainIsFlat() ? 0 : 0.6) : bd.minHeight;
 
