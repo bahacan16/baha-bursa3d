@@ -7,6 +7,8 @@ export interface PropsPayload {
   lamps: Float32Array;
   benches: Float32Array;
   shelters: Float32Array;
+  /** Park etmiş araçlar [x, y, z, yaw, renkIndeksi]* */
+  parked: Float32Array;
 }
 
 const LAMP_SPACING = 32;
@@ -112,6 +114,47 @@ export function buildProps(d: OsmWorldData): PropsPayload {
       if (acc < 0) acc += LAMP_SPACING;
     }
   }
+  // Park etmiş araçlar: konut sokaklarında kaldırım kenarı (konumlar yaklaşık, gerçek değil)
+  // KARAR: Dar (< 8 m) yollarda tek taraf, araçlar bordüre ~0.35 m taşar (bölgede yaygın).
+  const parked: number[] = [];
+  const crossings = d.crossings;
+  let seed = 4242;
+  const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const PARK_KINDS = new Set(['residential', 'unclassified', 'living_street', 'tertiary']);
+  for (const r of d.roads) {
+    if (!PARK_KINDS.has(r.kind) || r.tunnel || r.bridge) continue;
+    const sides = r.width >= 8 ? [1, -1] : [-1];
+    for (const side of sides) {
+      const off = (r.width / 2 - 0.55) * side;
+      let acc = 3;
+      for (let i = 0; i + 1 < r.pts.length; i++) {
+        const a = r.pts[i];
+        const b = r.pts[i + 1];
+        const dx = b[0] - a[0];
+        const dz = b[1] - a[1];
+        const len = Math.hypot(dx, dz);
+        if (len < 0.1) continue;
+        const nx = -dz / len;
+        const nz = dx / len;
+        for (let s2 = acc; s2 < len - 2.5; s2 += 5.6) {
+          if (rnd() > 0.5) continue;
+          const cx = a[0] + (dx * s2) / len;
+          const cz = a[1] + (dz * s2) / len;
+          const x = cx + nx * off;
+          const z = cz + nz * off;
+          const nearNode = [a, b].some(
+            (p) => (nodeUse.get(`${p[0]},${p[1]}`) ?? 0) > 1 && Math.hypot(p[0] - cx, p[1] - cz) < 13,
+          );
+          if (nearNode || crossings.some((c) => Math.abs(c[0] - cx) < 7 && Math.abs(c[1] - cz) < 7)) continue;
+          if (inBuilding(x, z)) continue;
+          const yaw = Math.atan2(dx, dz) + (side < 0 ? 0 : Math.PI) + (rnd() - 0.5) * 0.06;
+          parked.push(x, H(x, z) + 0.04, z, yaw, Math.floor(rnd() * 1000));
+        }
+        acc = 2.8;
+      }
+    }
+  }
+
   const benches: number[] = [];
   for (const [x, z] of d.benches) benches.push(x, H(x, z), z, facingRoad(x, z, hash));
   const shelters: number[] = [];
@@ -120,5 +163,6 @@ export function buildProps(d: OsmWorldData): PropsPayload {
     lamps: new Float32Array(lamps),
     benches: new Float32Array(benches),
     shelters: new Float32Array(shelters),
+    parked: new Float32Array(parked),
   };
 }

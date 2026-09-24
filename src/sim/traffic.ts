@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { mergeGeometries } from 'three/examples/jsm/utils/BufferGeometryUtils.js';
+import { CAR_COLORS, createCarGeometries } from './carmodel';
 import { buildGraph, pointOn, type Graph } from './graph';
 import type { Road } from '../worlds/osm/parse';
 import type { Quality } from '../core/settings';
@@ -19,11 +19,6 @@ interface Car {
   /** Sonraki kenar (kavşakta önceden seçilir) */
   lane: number;
 }
-
-const CAR_COLORS = [
-  0xf2f2f0, 0xd9d9d6, 0x1c1c1e, 0x8f969c, 0x5d6066, 0x9b1d20, 0x1f3f75, 0xc9b27c, 0x2d4a36, 0xe8e8e8,
-  0x3a3a3c,
-];
 
 /**
  * Hareketli araçlar: araç yolu grafiği, sağ şerit takibi, tek yön kuralı,
@@ -52,26 +47,7 @@ export class Traffic {
     let seed = 99;
     this.rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
     const n = this.graph.edges.length ? (quality === 'high' ? 40 : quality === 'medium' ? 24 : 10) : 0;
-    // Sedan: gövde + kabin (+Z = ön)
-    const body = mergeGeometries([
-      new THREE.BoxGeometry(1.78, 0.62, 4.4).translate(0, 0.58, 0),
-      new THREE.BoxGeometry(1.6, 0.18, 4.1).translate(0, 0.98, -0.05),
-    ]);
-    const glass = new THREE.BoxGeometry(1.52, 0.5, 2.1).translate(0, 1.3, -0.25);
-    const wheel = mergeGeometries(
-      [
-        [-0.82, 1.38],
-        [0.82, 1.38],
-        [-0.82, -1.38],
-        [0.82, -1.38],
-      ].map(([x, z]) =>
-        new THREE.CylinderGeometry(0.33, 0.33, 0.24, 10).rotateZ(Math.PI / 2).translate(x, 0.33, z),
-      ),
-    );
-    const lights = mergeGeometries([
-      new THREE.BoxGeometry(0.35, 0.12, 0.05).translate(-0.6, 0.7, 2.21),
-      new THREE.BoxGeometry(0.35, 0.12, 0.05).translate(0.6, 0.7, 2.21),
-    ]);
+    const { body, glass, wheels: wheel, lights } = createCarGeometries();
     this.geos.push(body, glass, wheel, lights);
     const bodyMat = new THREE.MeshStandardMaterial({ roughness: 0.35, metalness: 0.4 });
     const glassMat = new THREE.MeshStandardMaterial({ color: 0x1b2229, roughness: 0.1, metalness: 0.6 });
@@ -221,7 +197,8 @@ export class Traffic {
       const p = pointOn(e, c.s);
       const dir = c.fwd ? 1 : -1;
       // Sağ şerit (Türkiye: sağdan akış). Tek yönde yol ortası.
-      const lane = e.road.oneway ? 0 : Math.min(e.road.width / 4, 2.2);
+      // Dar yollarda (park eden araçlar var) yol ortasına yakın
+      const lane = e.road.oneway ? 0 : e.road.width < 8 ? 0.95 : Math.min(e.road.width / 4, 2.2);
       // İleri f = (dx, dz)·dir; sağ = (−fz, fx)  (kuzey → doğu)
       const rx = -p.dz * dir;
       const rz = p.dx * dir;

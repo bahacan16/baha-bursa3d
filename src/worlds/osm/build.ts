@@ -92,6 +92,6 @@ export function transferables(r: BuildResult): Transferable[] {
     if (c.facade) t.push(c.facade.buffer);
   }
   for (const c of r.trees.chunks) t.push(c.data.buffer);
-  t.push(r.props.lamps.buffer, r.props.benches.buffer, r.props.shelters.buffer);
+  t.push(r.props.lamps.buffer, r.props.benches.buffer, r.props.shelters.buffer, r.props.parked.buffer);
   return t;
 }

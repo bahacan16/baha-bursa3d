@@ -16,6 +16,7 @@ import { drawGroundTexture } from './groundtex';
 import { StreetProps } from './streetprops';
 import { Pedestrians } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
+import { ParkedCars } from '../../sim/parked';
 import { nightUniform } from '../../env/night';
 
 const SHADOW_CASTERS: MatKey[] = ['wall', 'roof', 'roofTile', 'detail', 'barrier', 'rail'];
@@ -152,6 +153,7 @@ export class OsmWorld implements IWorld {
   private groundIdx!: GroundIndex;
   private peds!: Pedestrians;
   private traffic!: Traffic;
+  private parked!: ParkedCars;
 
   private constructor(
     readonly data: OsmWorldData,
@@ -269,6 +271,10 @@ export class OsmWorld implements IWorld {
       this.collision.addBox(b[i], b[i + 2], 1.2, 1.2, 0.5, b[i + 1] - 0.3);
     }
 
+    this.parked = new ParkedCars(res.props.parked, quality);
+    this.object.add(this.parked.group);
+    this.parked.forEachBox((c, y) => this.collision.addRing(c, y - 0.5, y + 1.5));
+
     const ground2 = (this.groundIdx = new GroundIndex(res.strips, res.carriageways));
     this.collision.ground = (x, z) => H(x, z) + ground2.height(x, z);
 
@@ -333,6 +339,7 @@ export class OsmWorld implements IWorld {
   update(camera: THREE.PerspectiveCamera, player: THREE.Vector3, dt: number): void {
     this.props.update(player, nightUniform.value, dt);
     this.peds.update(dt, player);
+    this.parked.update(player, dt);
     this.traffic.update(dt, player, nightUniform.value);
     const dyn = this.collision.dynamic;
     dyn.length = 0;
@@ -428,6 +435,7 @@ export class OsmWorld implements IWorld {
     this.props.dispose();
     this.peds.dispose();
     this.traffic.dispose();
+    this.parked.dispose();
     this.materials.dispose();
   }
 }
