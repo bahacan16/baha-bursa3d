@@ -1,0 +1,51 @@
+name: Fetch Street View (pilot)
+
+# Seçilen sitenin bina cephelerini gören Street View karelerini indirip public/streetview'a commit eder.
+# Anahtar: repo → Settings → Secrets and variables → Actions → GOOGLE_STREETVIEW_KEY
+on:
+  workflow_dispatch:
+    inputs:
+      area:
+        description: 'OSM alan adı (landuse name)'
+        default: 'Mertkent 2. Etap'
+      max:
+        description: 'En fazla yeni ücretli kare'
+        default: '900'
+  push:
+    paths:
+      - 'scripts/fetch-streetview.mjs'
+      - 'scripts/sv-common.mjs'
+      - '.github/workflows/fetch-streetview.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-streetview-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - name: Street View
+        env:
+          GOOGLE_STREETVIEW_KEY: ${{ secrets.GOOGLE_STREETVIEW_KEY }}
+          SV_AREA: ${{ inputs.area || 'Mertkent 2. Etap' }}
+          SV_MAX: ${{ inputs.max || '900' }}
+        run: node scripts/fetch-streetview.mjs
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/streetview
+          if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
+          git commit -m "data: Street View pilot images"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
