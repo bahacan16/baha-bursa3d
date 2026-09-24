@@ -14,6 +14,7 @@ import type { GridData, TerrainData } from '../../env/terrain';
 import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
+import { loadStreetViewFacades } from './streetview';
 import { StreetProps } from './streetprops';
 import { createDetailedTrees } from './treemesh';
 import { Pedestrians } from '../../sim/pedestrians';
@@ -349,7 +350,19 @@ export class OsmWorld implements IWorld {
       progress,
     );
     progress(0.95, 'Sahne kuruluyor');
-    return new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);
+    const world = new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);
+    // Pilot: Street View'dan bake edilmiş gerçek cepheler
+    try {
+      // Bake gerçek OSM verisinin koordinatlarına göre; sentetik fixture'da yüklenmez
+      const sv =
+        simple.centerSource === 'fixture' || new URLSearchParams(location.search).has('nosv')
+          ? null
+          : await loadStreetViewFacades(import.meta.env.BASE_URL);
+      if (sv) world.object.add(sv);
+    } catch (e) {
+      console.warn('Street View cepheleri yüklenemedi', e);
+    }
+    return world;
   }
 
   private chunkGroup(cx: number, cz: number): THREE.Group {

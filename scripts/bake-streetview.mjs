@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { parseTerrain, sampleGrid } from '../src/env/terrain.ts';
 import { Occluders, outwardNormal, pilotArea } from './sv-common.mjs';
+import { refineBuilding } from './sv-refine.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SLUG = process.env.SV_SLUG || 'mertkent-2-etap';
@@ -18,6 +19,8 @@ const SHARP = Number(process.env.SV_SHARP ?? 8); // en iyi kareye ağırlık kes
 const OFS = [Number(process.env.SV_DX ?? 0), Number(process.env.SV_DZ ?? 0)]; // kalibrasyon
 const CAM_DH = Number(process.env.SV_DH ?? 0);
 const HEAD_OFS = Number(process.env.SV_DHEAD ?? 0);
+const REFINE = process.env.SV_REFINE === '1';
+const MAXD = Number(process.env.SV_MAXD ?? 35);
 
 const svDir = join(root, 'public', 'streetview', SLUG);
 
@@ -28,7 +31,7 @@ async function main() {
   const terrain = parseTerrain(tbuf.buffer.slice(tbuf.byteOffset, tbuf.byteOffset + tbuf.byteLength));
   const H = (x, z) => sampleGrid(terrain.near, x, z);
   const { all, targets } = pilotArea(osm, index.area, 45);
-  const occ = new Occluders(all);
+  let occ = new Occluders(all);
   const S = index.size;
   const half = S / 2;
   const focal = half / Math.tan(((index.panos[0]?.views[0]?.fov ?? 90) * Math.PI) / 360);
@@ -60,6 +63,37 @@ async function main() {
     if (imgCache.size > 160) imgCache.delete(imgCache.keys().next().value);
     imgCache.set(cam.file, data);
     return data;
+  }
+
+  // Çok-görüş tutarlılığıyla taban izlerini düzelt
+  const grayCache = new Map();
+  async function gray(cam) {
+    if (!grayCache.has(cam.file))
+      grayCache.set(
+        cam.file,
+        sharp(join(svDir, cam.file))
+          .greyscale()
+          .blur(1.2)
+          .raw()
+          .toBuffer()
+          .then((b) => new Uint8Array(b)),
+      );
+    return grayCache.get(cam.file);
+  }
+  const refined = {};
+  if (REFINE) {
+    for (const b of targets) {
+      const r = b.ring;
+      let base = Infinity;
+      for (let i = 0; i < r.length; i += 2) base = Math.min(base, H(r[i], r[i + 1]));
+      console.log(`bina ${b.id}:`);
+      const res = await refineBuilding(b, base, cams, gray, occ, focal, S, (m) => console.log(m));
+      b.ring = res.ring;
+      refined[b.id] = { ring: res.ring, offsets: res.offsets, scores: res.scores };
+    }
+    occ = new Occluders(all);
+    grayCache.clear();
+    if (process.env.SV_ONLYREFINE === '1') return;
   }
 
   // Duvarları topla ve raf (shelf) yerleşimi yap
@@ -105,11 +139,41 @@ async function main() {
     // Bu duvarı dışarıdan gören kameralar
     const mx = (w.a[0] + w.e[0]) / 2;
     const mz = (w.a[1] + w.e[1]) / 2;
-    const cand = cams.filter((c) => {
+    const near = cams.filter((c) => {
       const dx = c.c[0] - mx;
       const dz = c.c[2] - mz;
-      return dx * nx + dz * nz > 0.5 && Math.hypot(dx, dz) < 70;
+      const d = Math.hypot(dx, dz);
+      return (dx * nx + dz * nz) / d > 0.45 && d < MAXD;
     });
+    // KARAR: duvar başına tek panorama (aynı merkezden çekilmiş kareler paralaksız birleşir; farklı
+    // panoramaları karıştırmak OSM geometri hatasında hayalet görüntü yapıyordu). Puan: dik bakış × yakınlık × görünür oran.
+    const byPano = new Map();
+    for (const c of near) {
+      if (!byPano.has(c.pano)) byPano.set(c.pano, []);
+      byPano.get(c.pano).push(c);
+    }
+    let bestPano = null;
+    let bestScore = 0;
+    for (const [id, list] of byPano) {
+      const c0 = list[0];
+      let vis = 0;
+      for (let k = 0; k < 9; k++) {
+        const t = 0.1 + (0.8 * k) / 8;
+        const wx = w.a[0] + (w.e[0] - w.a[0]) * t + nx * 0.05;
+        const wz = w.a[1] + (w.e[1] - w.a[1]) * t + nz * 0.05;
+        if (!occ.blocked(c0.c[0], c0.c[2], wx, wz, [w.b.id, w.i])) vis++;
+      }
+      const dx = c0.c[0] - mx;
+      const dz = c0.c[2] - mz;
+      const d = Math.hypot(dx, dz);
+      const sc = Math.pow((dx * nx + dz * nz) / d, 2) * (1 / (1 + d / 10)) * (vis / 9);
+      if (sc > bestScore) {
+        bestScore = sc;
+        bestPano = id;
+      }
+    }
+    const cand = bestPano ? byPano.get(bestPano) : [];
+    w.pano = bestPano;
     for (const c of cand) c.img = await img(c);
     const [rx, ry, rw, rh] = w.rect;
     for (let px = 0; px < rw; px++) {
@@ -200,6 +264,23 @@ async function main() {
         }
       }
     w.cover = +(c / (rw * rh)).toFixed(3);
+    // Gökyüzü testi: duvar dokusunda belirgin mavi gök varsa geometri tutmuyor → duvarı reddet
+    let sky = 0;
+    for (let py = 0; py < rh; py++)
+      for (let px = 0; px < rw; px++) {
+        const o = (ry + py) * ATLAS_W + rx + px;
+        if (!cov[o]) continue;
+        const R = out[o * 3];
+        const G = out[o * 3 + 1];
+        const B = out[o * 3 + 2];
+        if (B > 140 && B > R + 25 && B > G + 5) sky++;
+      }
+    w.sky = c ? +(sky / c).toFixed(3) : 0;
+    if (w.sky > 0.06) {
+      for (let py = 0; py < rh; py++) for (let px = 0; px < rw; px++) cov[(ry + py) * ATLAS_W + rx + px] = 0;
+      w.cover = 0;
+      c = 0;
+    }
     w.mean = c ? mean.map((v) => v / c) : null;
   }
   const bMean = new Map();
@@ -238,6 +319,9 @@ async function main() {
     area: index.area,
     atlas: [ATLAS_W, atlasH],
     ppm: PPM,
+    buildings: Object.fromEntries(
+      targets.map((b) => [b.id, { ring: b.ring, height: b.height, refined: !!refined[b.id] }]),
+    ),
     walls: walls.map((w) => ({
       b: w.b.id,
       a: w.a,
@@ -246,6 +330,9 @@ async function main() {
       y1: +w.y1.toFixed(3),
       rect: w.rect,
       cover: w.cover,
+      pano: w.pano,
+      sky: w.sky,
+      n: w.n.map((v) => +v.toFixed(4)),
     })),
     attribution: index.attribution,
   };
