@@ -32,6 +32,9 @@ jobs:
       - name: Arazi (Terrarium)
         if: hashFiles('scripts/fetch-terrain.mjs') != ''
         run: node scripts/fetch-terrain.mjs
+      - name: Hava fotoğrafı (Esri World Imagery)
+        continue-on-error: true
+        run: node scripts/fetch-aerial.mjs
       - name: CC0 PBR dokular (Poly Haven)
         continue-on-error: true
         run: node scripts/fetch-textures.mjs
