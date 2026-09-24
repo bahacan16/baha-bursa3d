@@ -1,5 +1,9 @@
 // Street View pilotu için ortak geometri yardımcıları (indirme + cephe bake).
 // Koordinatlar oyunun yerel ENU metre uzayı: +X doğu, −Z kuzey.
+import { parseOsm } from '../src/worlds/osm/parse.ts';
+
+const SIDEWALK_W = 2; // src/worlds/osm/roads.ts ile aynı
+export const FENCE_H = 2.4;
 
 /** Nokta-poligon testi (düz [x,z,x,z,...] dizisi). */
 export function inside(p, x, z) {
@@ -127,11 +131,16 @@ export function pilotArea(osm, areaName, buffer) {
   const all = osm.ways
     .filter((w) => w.t && w.t.building && w.p.length >= 6)
     .map((w) => ({ id: w.i, ring: ring(w.p), tags: w.t, height: buildingHeight(w.t) }));
-  const targets = all.filter((b) => {
+  const core = all.filter((b) => {
     const [cx, cz] = centroid(b.ring);
     return inside(poly, cx, cz);
   });
-  return { area, poly, bbox, all, targets };
+  // Hedef: sitenin kendisi + çevresi (kutu içindeki tüm binalar)
+  const targets = all.filter((b) => {
+    const [cx, cz] = centroid(b.ring);
+    return cx >= bbox[0] && cx <= bbox[2] && cz >= bbox[1] && cz <= bbox[3];
+  });
+  return { area, poly, bbox, all, targets, core };
 }
 
 /** Bir hedef kenarın dış normali (poligonun dışına bakan). */
@@ -152,4 +161,71 @@ export function outwardNormal(r, i) {
     nz = -nz;
   }
   return [nx, nz];
+}
+
+/**
+ * Site çitleri: OSM'de çizilmemiş; araç yollarının kaldırım dış kenarı boyunca, konut/park alanına bakan
+ * taraflara yerleştirilir (gerçekte çit + çalı tam orada). Dönüş: [[ax,az,bx,bz], ...] parçaları.
+ */
+export function siteFences(osm, bbox) {
+  const data = parseOsm(osm);
+  const zones = osm.ways
+    .filter((w) => w.t && (w.t.landuse === 'residential' || w.t.leisure === 'park') && w.p.length >= 6)
+    .map((w) => ring(w.p));
+  const blds = osm.ways.filter((w) => w.t && w.t.building).map((w) => ring(w.p));
+  const inZone = (x, z) => zones.some((p) => inside(p, x, z));
+  const inBld = (x, z) => blds.some((p) => inside(p, x, z));
+  const inBox = (x, z) => x >= bbox[0] && x <= bbox[2] && z >= bbox[1] && z <= bbox[3];
+  // Giriş boşlukları: yaya/servis yolları çiti keser
+  const gates = data.roads.filter((r) => !r.vehicular || r.kind === 'service');
+  const nearGate = (x, z) =>
+    gates.some((g) => {
+      for (let i = 0; i + 1 < g.pts.length; i++) {
+        const [ax, az] = g.pts[i];
+        const [bx, bz] = g.pts[i + 1];
+        const dx = bx - ax;
+        const dz = bz - az;
+        const L2 = dx * dx + dz * dz || 1;
+        const t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / L2));
+        if (Math.hypot(x - ax - dx * t, z - az - dz * t) < g.width / 2 + 1.2) return true;
+      }
+      return false;
+    });
+  const segs = [];
+  for (const r of data.roads) {
+    if (!r.vehicular || r.area || r.tunnel || r.bridge) continue;
+    for (const side of [1, -1]) {
+      const sw = side === 1 ? r.sidewalkRight : r.sidewalkLeft;
+      const off = r.width / 2 + (sw ? SIDEWALK_W : 0) + 0.25;
+      for (let i = 0; i + 1 < r.pts.length; i++) {
+        const [ax, az] = r.pts[i];
+        const [bx, bz] = r.pts[i + 1];
+        const L = Math.hypot(bx - ax, bz - az);
+        if (L < 1) continue;
+        // Sağ taraf (çizim yönüne göre): (−dz, dx)·(−1) → oyundaki offsetPolyline işaretiyle uyumlu
+        const nx = (-(bz - az) / L) * side;
+        const nz = ((bx - ax) / L) * side;
+        const n = Math.max(1, Math.round(L / 4));
+        for (let k = 0; k < n; k++) {
+          const t0 = k / n;
+          const t1 = (k + 1) / n;
+          const x0 = ax + (bx - ax) * t0 + nx * off;
+          const z0 = az + (bz - az) * t0 + nz * off;
+          const x1 = ax + (bx - ax) * t1 + nx * off;
+          const z1 = az + (bz - az) * t1 + nz * off;
+          const mx = (x0 + x1) / 2;
+          const mz = (z0 + z1) / 2;
+          if (!inBox(mx, mz)) continue;
+          // Çitin arkası (yoldan uzağa 1.5 m) site/park içinde olmalı, çit bina içinde olmamalı
+          // OSM site sınırları çoğu zaman kaldırımdan birkaç metre içeride çizilmiş: 1.5–9 m arası ara
+          if (inBld(mx, mz) || nearGate(mx, mz)) continue;
+          let z = false;
+          for (let dd = 1.5; dd <= 9 && !z; dd += 1.5) z = inZone(mx + nx * dd, mz + nz * dd);
+          if (!z) continue;
+          segs.push([x0, z0, x1, z1, nx, nz]);
+        }
+      }
+    }
+  }
+  return segs;
 }

@@ -9,13 +9,22 @@ import { readFile, writeFile, mkdir, access } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_CENTER_LITE, project, unproject } from '../src/worlds/osm/simplify.ts';
-import { Occluders, centroid, headingOf, outwardNormal, pilotArea } from './sv-common.mjs';
+import {
+  FENCE_H,
+  Occluders,
+  centroid,
+  headingOf,
+  outwardNormal,
+  pilotArea,
+  siteFences,
+} from './sv-common.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const KEY = process.env.GOOGLE_STREETVIEW_KEY;
 const AREA = process.env.SV_AREA || 'Mertkent 2. Etap';
-const BUFFER = Number(process.env.SV_BUFFER ?? 45);
-const MAX = Number(process.env.SV_MAX ?? 900);
+const BUFFER = Number(process.env.SV_BUFFER ?? 60);
+const MAX = Number(process.env.SV_MAX ?? 2000);
+const GROUND = process.env.SV_GROUND !== '0'; // yere bakan kareler (asfalt/kaldırım dokusu)
 const DRY = process.env.SV_DRY === '1';
 const CAM_H = 2.5; // Google aracı kamera yüksekliği (yaklaşık)
 const FOV = 90;
@@ -123,6 +132,8 @@ async function main() {
 
   // 2) Her panorama için gereken yön/eğim kareleri
   const occ = new Occluders(all);
+  const fences = siteFences(osm, bbox);
+  console.log(`${targets.length} bina, ${fences.length} çit parçası`);
   const jobs = [];
   for (const pano of panos.values()) {
     const need = new Map(); // heading → maxPitchNeeded
@@ -148,7 +159,32 @@ async function main() {
         }
       }
     }
+    // Site çitleri (yola bakan yüz)
+    for (const f of fences) {
+      const nx = -f[4];
+      const nz = -f[5];
+      for (const t of [0.2, 0.8]) {
+        const wx = f[0] + (f[2] - f[0]) * t;
+        const wz = f[1] + (f[3] - f[1]) * t;
+        const dx = pano.x - wx;
+        const dz = pano.z - wz;
+        const d = Math.hypot(dx, dz);
+        if (d < 2 || d > 30) continue;
+        if ((dx * nx + dz * nz) / d < 0.2) continue;
+        if (occ.blocked(pano.x, pano.z, wx, wz, null)) continue;
+        const h = headingOf(wx - pano.x, wz - pano.z);
+        const bin = (Math.round(h / HEAD_STEP) * HEAD_STEP) % 360;
+        const elev = (Math.atan2(FENCE_H - CAM_H, d) * 180) / Math.PI;
+        need.set(bin, Math.max(need.get(bin) ?? 0, elev));
+      }
+    }
     pano.views = [];
+    if (GROUND)
+      for (const h of [0, 90, 180, 270]) {
+        const file = `${pano.id}_${h}_-50.jpg`;
+        pano.views.push({ h, p: -50, fov: FOV, file, ground: true });
+        jobs.push({ pano, h, p: -50, file });
+      }
     for (const [h, elev] of need) {
       const pitches = elev > 40 ? [0, 40] : [0];
       for (const p of pitches) {

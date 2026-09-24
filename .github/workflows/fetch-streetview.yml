@@ -10,7 +10,7 @@ on:
         default: 'Mertkent 2. Etap'
       max:
         description: 'En fazla yeni ücretli kare'
-        default: '900'
+        default: '2000'
   push:
     paths:
       - 'scripts/fetch-streetview.mjs'
@@ -38,7 +38,7 @@ jobs:
         env:
           GOOGLE_STREETVIEW_KEY: ${{ secrets.GOOGLE_STREETVIEW_KEY }}
           SV_AREA: ${{ inputs.area || 'Mertkent 2. Etap' }}
-          SV_MAX: ${{ inputs.max || '900' }}
+          SV_MAX: ${{ inputs.max || '2000' }}
         run: node scripts/fetch-streetview.mjs
       - name: Commit
         run: |
