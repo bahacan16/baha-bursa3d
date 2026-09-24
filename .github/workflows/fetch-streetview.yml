@@ -1,6 +1,6 @@
 name: Fetch Street View (pilot)
 
-# Seçilen sitenin bina cephelerini gören Street View karelerini indirip public/streetview'a commit eder.
+# Seçilen sitenin Street View karelerini indirip streetview-src'ye commit eder (bake: scripts/bake-streetview.mjs).
 # Anahtar: repo → Settings → Secrets and variables → Actions → GOOGLE_STREETVIEW_KEY
 on:
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/streetview
+          git add streetview-src
           if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
           git commit -m "data: Street View pilot images"
           git pull --rebase origin "${GITHUB_REF_NAME}"

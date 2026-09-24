@@ -357,7 +357,9 @@ export class OsmWorld implements IWorld {
       const sv =
         simple.centerSource === 'fixture' || new URLSearchParams(location.search).has('nosv')
           ? null
-          : await loadStreetViewFacades(import.meta.env.BASE_URL);
+          : await loadStreetViewFacades(import.meta.env.BASE_URL, (ring, b, t) =>
+              world.collision.addRing(ring, b, t),
+            );
       if (sv) world.object.add(sv);
     } catch (e) {
       console.warn('Street View cepheleri yüklenemedi', e);

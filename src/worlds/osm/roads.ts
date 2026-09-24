@@ -10,12 +10,13 @@ const Y_MINOR = 0.03;
 const Y_MAJOR = 0.04;
 const Y_MARK = 0.05;
 
-const ASPHALT: Rgb = [0.24, 0.245, 0.25];
+// Renkler Mertkent çevresi Street View karelerinden ölçüldü (asfalt sRGB≈145,146,143; parke≈211,193,167)
+const ASPHALT: Rgb = [0.26, 0.265, 0.26];
 const ASPHALT_SERVICE: Rgb = [0.3, 0.3, 0.3];
-const PAVER: Rgb = [0.52, 0.47, 0.42];
+const PAVER: Rgb = [0.6, 0.5, 0.38];
 const PATH: Rgb = [0.6, 0.53, 0.42];
 const CYCLE: Rgb = [0.55, 0.3, 0.27];
-const SIDEWALK: Rgb = [0.5, 0.45, 0.42];
+const SIDEWALK: Rgb = [0.6, 0.5, 0.38];
 const CURB: Rgb = [0.78, 0.77, 0.74];
 const WHITE: Rgb = [0.92, 0.92, 0.9];
 

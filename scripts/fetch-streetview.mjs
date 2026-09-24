@@ -36,7 +36,7 @@ const slug = AREA.toLowerCase()
   .replace(/[çğıöşü]/g, (c) => ({ ç: 'c', ğ: 'g', ı: 'i', ö: 'o', ş: 's', ü: 'u' })[c])
   .replace(/[^a-z0-9]+/g, '-')
   .replace(/^-|-$/g, '');
-const outDir = join(root, 'public', 'streetview', slug);
+const outDir = join(root, 'streetview-src', slug); // ham kareler (public dışında: sitede yayınlanmaz)
 
 async function exists(p) {
   try {
@@ -240,7 +240,7 @@ async function main() {
     attribution: '© Google Street View',
   };
   await writeFile(join(outDir, 'index.json'), JSON.stringify(index, null, 1));
-  console.log(`✓ ${done} kare indirildi → public/streetview/${slug}/`);
+  console.log(`✓ ${done} kare indirildi → streetview-src/${slug}/`);
 }
 
 main().catch((e) => {
