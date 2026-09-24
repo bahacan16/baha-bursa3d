@@ -33,7 +33,8 @@ Siteyi aç → başlangıç ekranında modu seç:
 ### Neler gerçek, neler yaklaşık?
 
 - **Gerçek (OpenStreetMap + açık yükseklik verisi):** bina konumları, taban şekilleri ve (etiketliyse) kat sayıları; tüm yollar ve adları; parklar, sahalar, site alanları, su; Bursaray hattı; işaretli ağaçlar, banklar, duraklar; arazinin eğimi ve uzaktaki Uludağ silüeti.
-- **Yaklaşık / prosedürel:** bina cepheleri (renk, pencere, balkon — OSM'de bu bilgi yok), kat bilgisi olmayan binalarda varsayılan 5 kat, park içlerine dağıtılan ağaçlar, sokak lambalarının konumu, yayalar ve araçlar.
+- **Hava fotoğrafından (Esri World Imagery):** zemin dokusu, her binanın çatı rengi (kiremit görülen binalara kırma çatı) ve ağaçların konumu (fotoğraftaki yeşil taçlardan otomatik tespit — yaklaşık).
+- **Yaklaşık / prosedürel:** bina cepheleri (renk, pencere, balkon — OSM'de bu bilgi yok), kat bilgisi olmayan binalarda varsayılan 5 kat, ağaç türü/boyu, sokak lambalarının konumu, yayalar ve araçlar.
 
 ## Mod A: Google API anahtarı
 

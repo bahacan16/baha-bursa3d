@@ -309,7 +309,10 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 
 - **Proje kişisel/hobi amaçlı, repo private olacak** (kullanıcı): lisans kısıtlarına takılmadan açık/erişilebilir kaynaklar kullanılabilir (ör. Esri hava fotoğrafı). Atıflar yine gösterilir.
 - Hava fotoğrafı (Esri World Imagery z18, `scripts/fetch-aerial.mjs`, Actions'ta): arazi dokusu olarak kullanılır; çatılara doğrudan yapıştırılmaz (eğiklik), her binanın çatı rengi fotoğraftan örneklenir; kiremit rengi görülen düz çatılı binalara kırma çatı verilir (OSM'de çatı şekli yok).
-- Gece çalışması (görsel gerçekçilik): IBL + N8AO + bloom + SMAA, CC0 PBR detay dokuları, cam yansıması/perde farklılığı, sıva + kir, park etmiş araçlar, sedan modeli, hava fotoğrafı, kırma çatılar.
+- Gece çalışması (görsel gerçekçilik): IBL + N8AO + bloom + SMAA, CC0 PBR detay dokuları, cam yansıması/perde farklılığı, sıva + kir, park etmiş araçlar, sedan modeli, hava fotoğrafı, kırma çatılar, hava fotoğrafından gerçek ağaç konumları. Önce/sonra görselleri: `docs/compare/`.
+- Ağaç konumları hava fotoğrafındaki taç tespitinden (`scripts/detect-trees.mjs`: yeşillik + doku varyansı, ~53k aday; kaliteye göre en yakın 4k/10k/16k). Yaklaşık — tek tek ağaç değil taç kümeleri; çim yanlış pozitifleri varyans şartıyla azaltıldı.
+- Ağaç LOD ağaç başına: 110 m içi ayrıntılı model (tek InstancedMesh/tür), uzak kopya sıfır ölçekle gizlenir.
+- Gündüz bloom kapalı (HDR gökyüzü sahneye mavi perde yayıyordu); yalnızca akşam/gece açık.
 
 - Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer).
 - Etiketsiz araç yollarına iki yanlı kaldırım; zemin katında dükkan varsa +0.9 m.

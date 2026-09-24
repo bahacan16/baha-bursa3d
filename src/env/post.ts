@@ -48,6 +48,8 @@ export class PostFX {
   }
 
   setNight(n: number): void {
+    // KARAR: gündüz bloom kapalı — HDR gökyüzü eşiği aşıp ağaç/bina silüetlerine mavi bir perde yayıyordu.
+    this.bloom.enabled = n > 0.15;
     this.bloom.strength = 0.12 + 0.55 * n;
     this.bloom.threshold = n > 0.5 ? 0.6 : 0.9;
   }
