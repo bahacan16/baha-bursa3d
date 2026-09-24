@@ -18,6 +18,7 @@ export interface BuildOptions {
   /** Alan kullanımını ayrı mesh olarak üret (varsayılan: hayır — arazi dokusuna boyanır). */
   landuseMeshes?: boolean;
   roofColors?: Record<string, readonly number[]>;
+  aerialTrees?: Float32Array | number[];
 }
 
 export interface BuildResult {
@@ -66,9 +67,13 @@ export function buildWorld(
   // KARAR: Travers geometrisi gerçek veride ~180k üçgen tutuyordu; kapalı.
   const rails = buildRails(geo, d.rails, { sleepers: false });
   progress(0.8, 'Ağaçlar');
-  const maxTrees = opts.quality === 'low' ? 5000 : opts.quality === 'medium' ? 12000 : 25000;
+  const maxTrees = opts.quality === 'low' ? 4000 : opts.quality === 'medium' ? 10000 : 16000;
   const density = opts.quality === 'low' ? 0.5 : opts.quality === 'medium' ? 0.8 : 1;
-  const trees = placeTrees(d.trees, d.treeRows, d.areas, d.roads, d.buildings, { maxTrees, density });
+  const trees = placeTrees(d.trees, d.treeRows, d.areas, d.roads, d.buildings, {
+    maxTrees,
+    density,
+    aerialTrees: opts.aerialTrees,
+  });
   const props = buildProps(d);
   progress(0.9, 'Geometri birleştiriliyor');
   const chunks = geo.toPayload();

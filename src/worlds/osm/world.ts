@@ -15,6 +15,7 @@ import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { StreetProps } from './streetprops';
+import { createDetailedTrees } from './treemesh';
 import { Pedestrians } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
 import { ParkedCars } from '../../sim/parked';
@@ -46,6 +47,7 @@ async function buildInWorker(
   quality: Quality,
   terrain: GridData | null,
   roofColors: RoofColorMap | undefined,
+  aerialTrees: number[] | undefined,
   progress: BuildProgress,
 ): Promise<BuildResult> {
   try {
@@ -66,12 +68,12 @@ async function buildInWorker(
         worker.terminate();
         reject(new Error(e.message || 'worker hatası'));
       };
-      worker.postMessage({ data, opts: { quality, terrain, roofColors } });
+      worker.postMessage({ data, opts: { quality, terrain, roofColors, aerialTrees } });
     });
   } catch (err) {
     console.warn('Worker kullanılamadı, ana iş parçacığında üretiliyor:', err);
     await new Promise((r) => setTimeout(r, 0));
-    return buildWorld(data, { quality, terrain, roofColors }, progress);
+    return buildWorld(data, { quality, terrain, roofColors, aerialTrees }, progress);
   }
 }
 
@@ -141,6 +143,9 @@ export class GroundIndex {
   }
 }
 
+const TREE_NEAR_R = 110;
+const TREE_NEAR_MAX = 1500;
+
 export class OsmWorld implements IWorld {
   readonly kind = 'osm' as const;
   readonly object = new THREE.Group();
@@ -149,6 +154,17 @@ export class OsmWorld implements IWorld {
   private chunkGroups = new Map<string, THREE.Group>();
   private materials: OsmMaterials;
   private treeGeos: THREE.BufferGeometry[] = [];
+  private treeGeosHi: THREE.BufferGeometry[] = [];
+  private treeMatHi = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85 });
+  private treeMeshes: {
+    im: THREE.InstancedMesh;
+    type: number;
+    c: THREE.Vector2;
+    mats: Float32Array;
+    hi: Uint8Array;
+  }[] = [];
+  private treeNear: THREE.InstancedMesh[] = [];
+  private treeLodAt = new THREE.Vector2(1e9, 1e9);
   private stat: Record<string, number> = {};
   private viewDist: number;
   private props!: StreetProps;
@@ -195,6 +211,7 @@ export class OsmWorld implements IWorld {
 
     // Ağaçlar: chunk × tür başına InstancedMesh
     this.treeGeos = createTreeGeometries();
+    this.treeGeosHi = quality === 'low' ? [] : createDetailedTrees();
     const mtx = new THREE.Matrix4();
     const q = new THREE.Quaternion();
     const up = new THREE.Vector3(0, 1, 0);
@@ -223,7 +240,25 @@ export class OsmWorld implements IWorld {
       im.castShadow = shadows;
       im.receiveShadow = false;
       im.name = `trees${t.type}@${t.cx},${t.cz}`;
+      this.treeMeshes.push({
+        im,
+        type: t.type,
+        c: new THREE.Vector2((t.cx + 0.5) * CHUNK_SIZE, (t.cz + 0.5) * CHUNK_SIZE),
+        mats: (im.instanceMatrix.array as Float32Array).slice(),
+        hi: new Uint8Array(n),
+      });
       this.chunkGroup(t.cx, t.cz).add(im);
+    }
+
+    // Yakın ağaçlar: tür başına tek ayrıntılı InstancedMesh (her karede değil, oyuncu hareket ettikçe doldurulur)
+    for (let k = 0; k < this.treeGeosHi.length; k++) {
+      const im = new THREE.InstancedMesh(this.treeGeosHi[k], this.treeMatHi, TREE_NEAR_MAX);
+      im.count = 0;
+      im.frustumCulled = false;
+      im.castShadow = shadows;
+      im.name = `treesNear${k}`;
+      this.treeNear.push(im);
+      this.object.add(im);
     }
 
     // Çarpışma: binalar, duvarlar, köprü ayakları
@@ -298,7 +333,21 @@ export class OsmWorld implements IWorld {
     progress(0.02, 'Hava fotoğrafı yükleniyor');
     const aerial = await loadAerial(import.meta.env.BASE_URL, quality === 'low' ? 2048 : 4096);
     const roofColors = aerial ? sampleRoofColors(aerial, parsed.buildings) : undefined;
-    const res = await buildInWorker(simple, quality, terrain?.near ?? null, roofColors, progress);
+    let aerialTrees: number[] | undefined;
+    try {
+      const r = await fetch(`${import.meta.env.BASE_URL}data/trees-aerial.json`);
+      if (r.ok) aerialTrees = ((await r.json()) as { trees: number[] }).trees;
+    } catch {
+      /* yoksa rastgele dağıtım */
+    }
+    const res = await buildInWorker(
+      simple,
+      quality,
+      terrain?.near ?? null,
+      roofColors,
+      aerialTrees,
+      progress,
+    );
     progress(0.95, 'Sahne kuruluyor');
     return new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);
   }
@@ -353,11 +402,53 @@ export class OsmWorld implements IWorld {
     this.traffic.obstacles(dyn, player.x, player.z);
     const cx = camera.position.x;
     const cz = camera.position.z;
+    if (this.treeNear.length && this.treeLodAt.distanceTo(new THREE.Vector2(cx, cz)) > 8)
+      this.updateTreeLod(cx, cz);
     const lim = this.viewDist + CHUNK_SIZE * 0.75;
     for (const g of this.chunkGroups.values()) {
       const c = g.userData.center as THREE.Vector2;
       g.visible = Math.hypot(c.x - cx, c.y - cz) < lim;
     }
+  }
+
+  /**
+   * Ağaç LOD'u ağaç başına: TREE_NEAR_R içindekiler ayrıntılı modelle çizilir, uzak kopyası sıfır ölçekle gizlenir.
+   * KARAR: chunk başına LOD 400 m chunk'larda ~1.8M üçgen ediyordu; ağaç başına ~150k.
+   */
+  private updateTreeLod(cx: number, cz: number): void {
+    this.treeLodAt.set(cx, cz);
+    const counts = this.treeNear.map(() => 0);
+    const r2 = TREE_NEAR_R * TREE_NEAR_R;
+    const zero = new Float32Array(16);
+    const col = new THREE.Color();
+    for (const t of this.treeMeshes) {
+      const far = Math.max(Math.abs(t.c.x - cx), Math.abs(t.c.y - cz)) > CHUNK_SIZE / 2 + TREE_NEAR_R;
+      const arr = t.im.instanceMatrix.array as Float32Array;
+      const near = this.treeNear[t.type];
+      let changed = false;
+      for (let i = 0; i < t.hi.length; i++) {
+        const o = i * 16;
+        const dx = t.mats[o + 12] - cx;
+        const dz = t.mats[o + 14] - cz;
+        const hi = !far && dx * dx + dz * dz < r2 && counts[t.type] < TREE_NEAR_MAX ? 1 : 0;
+        if (hi) {
+          near.instanceMatrix.array.set(t.mats.subarray(o, o + 16), counts[t.type] * 16);
+          t.im.getColorAt(i, col);
+          near.setColorAt(counts[t.type]++, col);
+        }
+        if (hi !== t.hi[i]) {
+          t.hi[i] = hi;
+          arr.set(hi ? zero : t.mats.subarray(o, o + 16), o);
+          changed = true;
+        }
+      }
+      if (changed) t.im.instanceMatrix.needsUpdate = true;
+    }
+    this.treeNear.forEach((im, k) => {
+      im.count = counts[k];
+      im.instanceMatrix.needsUpdate = true;
+      if (im.instanceColor) im.instanceColor.needsUpdate = true;
+    });
   }
 
   private soft = new Set(['park', 'grass', 'wood', 'scrub', 'pitch', 'cemetery', 'farmland']);
@@ -435,9 +526,11 @@ export class OsmWorld implements IWorld {
   dispose(): void {
     this.object.traverse((o) => {
       const m = o as THREE.Mesh;
-      if (m.isMesh && !this.treeGeos.includes(m.geometry)) m.geometry.dispose();
+      if (m.isMesh && !this.treeGeos.includes(m.geometry) && !this.treeGeosHi.includes(m.geometry))
+        m.geometry.dispose();
     });
-    for (const g of this.treeGeos) g.dispose();
+    for (const g of [...this.treeGeos, ...this.treeGeosHi]) g.dispose();
+    this.treeMatHi.dispose();
     this.props.dispose();
     this.peds.dispose();
     this.traffic.dispose();

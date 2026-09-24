@@ -42,6 +42,8 @@ class SpatialHash<T> {
 export interface VegetationOptions {
   maxTrees: number;
   density: number;
+  /** Hava fotoğrafından tespit edilmiş ağaçlar [x, z, taçYarıçapı]* — varsa rastgele dağıtımın yerine geçer */
+  aerialTrees?: Float32Array | number[];
 }
 
 /**
@@ -128,6 +130,25 @@ export function placeTrees(
       carry = (carry - d) % 7;
       if (carry < 0) carry += 7;
     }
+  }
+  // 3a) Hava fotoğrafı ağaçları (gerçek konumlar)
+  const A = opts.aerialTrees;
+  if (A && A.length) {
+    for (let i = 0; i < A.length; i += 3) {
+      const x = A[i];
+      const z = A[i + 1];
+      if (Math.hypot(x, z) > 1180) continue;
+      if (tooClose(x, z, 3.5) || blocked(x, z)) continue;
+      const seed = hashString(`a${x},${z}`);
+      const r = rng(seed);
+      const t = r();
+      const type = t < 0.14 ? 1 : t < 0.86 ? 0 : 2;
+      const scale = Math.max(0.6, Math.min(1.6, A[i + 2] / 2.3));
+      out.push({ x, z, type, scale, rot: r() * Math.PI * 2, shade: 0.8 + r() * 0.35 });
+      placed.insertBox(x, z, x, z, [x, z]);
+      if (out.length >= opts.maxTrees) break;
+    }
+    return out.slice(0, opts.maxTrees);
   }
   // 3) Poligon içi Poisson disk (dart throwing)
   const spec: Partial<Record<Area['kind'], { minD: number; cover: number; cypress: number }>> = {
