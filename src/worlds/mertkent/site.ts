@@ -32,7 +32,12 @@ function facing(a: V2, e: V2, n: V2): [V2, V2] {
   return -dz * n[0] + dx * n[1] >= 0 ? [a, e] : [e, a];
 }
 
-export function buildFence(b: Builder, segs: FenceSeg[], gates: V2[], collide?: Collide): void {
+export function buildFence(
+  b: Builder,
+  segs: FenceSeg[],
+  gates: { c: V2; half: number }[],
+  collide?: Collide,
+): void {
   let pillarRun = 0;
   for (const s of segs) {
     const [nx, nz] = s.n;
@@ -44,9 +49,9 @@ export function buildFence(b: Builder, segs: FenceSeg[], gates: V2[], collide?: 
     // Kapı açıklığı: bu parça bir kapı konumunu kesiyorsa o aralığı boş bırak (kapı ayrı çizilir)
     const cuts: [number, number][] = [];
     for (const g of gates) {
-      const u = (g[0] - s.a[0]) * t[0] + (g[1] - s.a[1]) * t[1];
-      const v = Math.abs((g[0] - s.a[0]) * nx + (g[1] - s.a[1]) * nz);
-      if (v < 2.5 && u > -1.25 && u < len + 1.25) cuts.push([u - 1.25, u + 1.25]);
+      const u = (g.c[0] - s.a[0]) * t[0] + (g.c[1] - s.a[1]) * t[1];
+      const v = Math.abs((g.c[0] - s.a[0]) * nx + (g.c[1] - s.a[1]) * nz);
+      if (v < 2.5 && u > -g.half && u < len + g.half) cuts.push([u - g.half, u + g.half]);
     }
     const pieces: [number, number][] = [];
     let cur = 0;
@@ -159,4 +164,28 @@ export function buildGate(b: Builder, c: V2, n: V2, y0: number): void {
   // Eşik
   const ep = P(0, 0.1);
   b.box('stone', [ep[0], y0 + 0.03, ep[1]], [1.7, 0.06, 0.5], yaw);
+}
+
+/**
+ * Araç girişi: iki kolon arasında siyah sürgülü parmaklık kapı (kapalı), üstte sarı-siyah uyarı bandı yok —
+ * sade site kapısı. c: açıklık merkezi, n: sokak yönü, w: açıklık genişliği.
+ */
+export function buildDriveGate(b: Builder, c: V2, n: V2, y0: number, w: number): void {
+  const t: V2 = [n[1], -n[0]];
+  const yaw = Math.atan2(-t[1], t[0]);
+  const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
+  for (const u of [-w / 2 - 0.2, w / 2 + 0.2]) {
+    const p = P(u, -0.15);
+    b.box('ochre', [p[0], y0 + 0.85, p[1]], [0.4, 1.7, 0.4], yaw);
+    b.box('capDark', [p[0], y0 + 1.73, p[1]], [0.46, 0.06, 0.46], yaw);
+    b.sphere('globe', [p[0], y0 + 1.92, p[1]], 0.14, 10);
+  }
+  const a = P(-w / 2, -0.15);
+  const e = P(w / 2, -0.15);
+  b.wall('ironBars', a, e, y0 + 0.08, y0 + 1.6, [0, 0, w / 0.12, 1]);
+  b.wall('ironBars', e, a, y0 + 0.08, y0 + 1.6, [0, 0, w / 0.12, 1]);
+  for (const y of [0.1, 0.85, 1.58]) {
+    const m = P(0, -0.15);
+    b.box('iron', [m[0], y0 + y, m[1]], [w, 0.06, 0.05], yaw);
+  }
 }

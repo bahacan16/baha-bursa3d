@@ -103,7 +103,47 @@ function orientCCW(r: V2[]): V2[] {
   return a > 0 ? [...r].reverse() : r;
 }
 
-export function buildGrounds(b: Builder, o: GroundsInput): GroundsResult {
+/** Çoklu çizgiyi poligon içinde kalan en uzun parçaya kırp (kapıdan dışarı taşan yol uçları) */
+function trimTo(pts: V2[], ring: V2[]): V2[] {
+  const runs: V2[][] = [];
+  let cur: V2[] = [];
+  const push = (p: V2) => {
+    if (insidePoly(ring, p[0], p[1])) cur.push(p);
+    else if (cur.length) {
+      runs.push(cur);
+      cur = [];
+    }
+  };
+  push(pts[0]);
+  for (let i = 0; i + 1 < pts.length; i++) {
+    const a = pts[i];
+    const e = pts[i + 1];
+    const n = Math.max(1, Math.ceil(Math.hypot(e[0] - a[0], e[1] - a[1]) / 0.25));
+    for (let k = 1; k <= n; k++) push([a[0] + ((e[0] - a[0]) * k) / n, a[1] + ((e[1] - a[1]) * k) / n]);
+  }
+  if (cur.length) runs.push(cur);
+  const best = runs.reduce((m, c) => (c.length > m.length ? c : m), [] as V2[]);
+  if (best.length < 2) return [];
+  // Doğrusal ara örnekleri at
+  const out: V2[] = [best[0]];
+  for (let i = 1; i + 1 < best.length; i++) {
+    const p = out[out.length - 1];
+    const q = best[i];
+    const r = best[i + 1];
+    const cr = (q[0] - p[0]) * (r[1] - q[1]) - (q[1] - p[1]) * (r[0] - q[0]);
+    if (Math.abs(cr) > 0.002) out.push(q);
+  }
+  out.push(best[best.length - 1]);
+  return out;
+}
+
+export function buildGrounds(b: Builder, o0: GroundsInput): GroundsResult {
+  const inner = offsetRing(o0.site, 0.35);
+  const o: GroundsInput = {
+    ...o0,
+    paths: o0.paths.map((p) => trimTo(p, inner)).filter((p) => p.length >= 2),
+    drives: o0.drives.map((p) => trimTo(p, inner)).filter((p) => p.length >= 2),
+  };
   const H = o.H;
   let seed = o.seed ?? 77;
   const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
@@ -117,8 +157,8 @@ export function buildGrounds(b: Builder, o: GroundsInput): GroundsResult {
     pathSegs.some((q) => distSeg(x, z, q) < PATH_W / 2 + 0.15) ||
     driveSegs.some((q) => distSeg(x, z, q) < DRIVE_W / 2 + 0.2);
 
-  // ── Çim (site tamamı, havuz delikli) ──
-  b.drape('lawn', o.site, pool ? [pool] : [], H, 0.035, 1, 2.5);
+  // ── Çim (site tamamı + çit hattına kadar 2.6 m taşma; dışarıda kalan kısım kaldırım altında) ──
+  b.drape('lawn', offsetRing(o.site, 0.3), pool ? [pool] : [], H, 0.035, 1, 2.5);
 
   // ── Blok çevresi kilit taşı döşeme (kenar başına şerit; örtüşmeler aynı dokuyla görünmez) ──
   for (const r0 of o.buildings) {
@@ -356,7 +396,8 @@ export function buildGrounds(b: Builder, o: GroundsInput): GroundsResult {
       const side = Math.floor(u / 11) % 2 ? 1 : -1;
       const off = side * (PATH_W / 2 + 0.45);
       const p: V2 = [s.a[0] + s.t[0] * u + s.n[0] * off, s.a[1] + s.t[1] * u + s.n[1] * off];
-      if (o.buildings.some((r) => insidePoly(r, p[0], p[1]))) continue;
+      if (o.buildings.some((r) => nearRing(r, p[0], p[1], 0.6))) continue;
+      if (!insidePoly(o.site, p[0], p[1]) || distToRingEdge(o.site, p[0], p[1]) < 1) continue;
       gardenLamp(b, [p[0], H(p[0], p[1]), p[1]]);
     }
     acc = 5;
@@ -436,6 +477,25 @@ export function buildGrounds(b: Builder, o: GroundsInput): GroundsResult {
     driveSegs.some((s) => distSeg(x, z, s) < DRIVE_W / 2 + 3) ||
     o.buildings.some((r) => insidePoly(r, x, z) || nearRing(r, x, z, APRON + 0.5));
   return { holes, noTree };
+}
+
+/** Basit gönyeli dışa öteleme (dışbükeye yakın poligonlar için) */
+export function offsetRing(r0: V2[], d: number): V2[] {
+  const r = orientCCW(r0);
+  const n = r.length;
+  const out: V2[] = [];
+  for (let i = 0; i < n; i++) {
+    const a = seg(r[(i - 1 + n) % n], r[i]);
+    const b = seg(r[i], r[(i + 1) % n]);
+    let nx = a.n[0] + b.n[0];
+    let nz = a.n[1] + b.n[1];
+    const l = Math.hypot(nx, nz) || 1;
+    nx /= l;
+    nz /= l;
+    const cos = Math.max(0.35, nx * b.n[0] + nz * b.n[1]);
+    out.push([r[i][0] + (nx * d) / cos, r[i][1] + (nz * d) / cos]);
+  }
+  return out;
 }
 
 function centroid(r: V2[]): V2 {

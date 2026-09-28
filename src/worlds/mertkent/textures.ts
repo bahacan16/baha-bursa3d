@@ -144,7 +144,7 @@ export function entryDoorTexture(): THREE.Texture {
   return tex(c, false);
 }
 
-export function windowTexture(variant: number): THREE.Texture {
+export function windowTexture(variant: number, frame = '#f4f4f1'): THREE.Texture {
   const W = 128;
   const H = 160;
   const [c, g] = canvas(W, H);
@@ -174,7 +174,7 @@ export function windowTexture(variant: number): THREE.Texture {
     g.fillRect(8, 8 + (H - 16) * blind, (W - 16) * (0.3 + r() * 0.4), (H - 16) * (1 - blind));
   }
   // Çerçeve: dış kasa + orta kayıt + kanat
-  g.fillStyle = '#f4f4f1';
+  g.fillStyle = frame;
   g.fillRect(0, 0, W, 8);
   g.fillRect(0, H - 10, W, 10);
   g.fillRect(0, 0, 8, H);
@@ -705,4 +705,114 @@ export function rippleNormalTexture(): THREE.Texture {
     }
   g.putImageData(img, 0, 0);
   return tex(c, true, false);
+}
+
+/** Klinker tuğla (kiremit kırmızısı, 25×6.5 cm, açık derz), 1 m karo */
+export function brickTexture(): THREE.Texture {
+  const S = 512;
+  const [c, g] = canvas(S, S);
+  const r = rng(41);
+  g.fillStyle = '#cbbfae';
+  g.fillRect(0, 0, S, S);
+  const rows = 14;
+  const rh = S / rows;
+  const bw = S / 4;
+  for (let row = 0; row < rows; row++) {
+    const off = (row % 2) * (bw / 2);
+    for (let k = -1; k < 5; k++) {
+      const l = 30 + r() * 10;
+      g.fillStyle = `hsl(${8 + r() * 8},${45 + r() * 15}%,${l}%)`;
+      g.fillRect(k * bw + off + 2, row * rh + 2, bw - 4, rh - 4);
+      g.fillStyle = `rgba(0,0,0,${r() * 0.12})`;
+      g.fillRect(k * bw + off + 2, row * rh + rh - 6, bw - 4, 4);
+    }
+  }
+  return tex(c);
+}
+
+/** Dikey demir parmaklık (alfa): 12 cm'de bir 2 cm çubuk */
+export function ironBarsTexture(): THREE.Texture {
+  const [c, g] = canvas(32, 8);
+  g.clearRect(0, 0, 32, 8);
+  g.fillStyle = '#1b1c1d';
+  g.fillRect(12, 0, 7, 8);
+  const t = tex(c);
+  t.wrapT = THREE.ClampToEdgeWrapping;
+  return t;
+}
+
+/** Tuğla kırmızısı kompozit panel (kulübe kaplaması) */
+export function panelTexture(base: string): THREE.Texture {
+  const [c, g] = canvas(256, 256);
+  g.fillStyle = base;
+  g.fillRect(0, 0, 256, 256);
+  g.fillStyle = 'rgba(0,0,0,0.3)';
+  for (let x = 0; x < 256; x += 64) g.fillRect(x, 0, 2, 256);
+  for (let y = 0; y < 256; y += 128) g.fillRect(0, y, 256, 2);
+  return tex(c);
+}
+
+/** Görme engelli kılavuz şeridi (sarı, kabartma çizgili), 30 cm genişlik → doku v yönünde */
+export function tactileTexture(): THREE.Texture {
+  const [c, g] = canvas(64, 64);
+  g.fillStyle = '#d9b62c';
+  g.fillRect(0, 0, 64, 64);
+  g.fillStyle = 'rgba(0,0,0,0.18)';
+  for (let x = 4; x < 64; x += 16) g.fillRect(x, 0, 5, 64);
+  g.fillStyle = 'rgba(255,255,255,0.18)';
+  for (let x = 2; x < 64; x += 16) g.fillRect(x, 0, 2, 64);
+  return tex(c);
+}
+
+/** Trafik levhası (şeffaf zemin): 'curve' = tehlikeli viraj (sola-sağa), 'limit30' = azami hız 30 */
+export function roadSignTexture(kind: 'curve' | 'limit30'): THREE.Texture {
+  const S = 256;
+  const [c, g] = canvas(S, S);
+  g.clearRect(0, 0, S, S);
+  if (kind === 'curve') {
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.moveTo(S / 2, 10);
+    g.lineTo(S - 8, S - 22);
+    g.lineTo(8, S - 22);
+    g.closePath();
+    g.fill();
+    g.fillStyle = '#f7f7f5';
+    g.beginPath();
+    g.moveTo(S / 2, 52);
+    g.lineTo(S - 44, S - 42);
+    g.lineTo(44, S - 42);
+    g.closePath();
+    g.fill();
+    // Çift viraj simgesi
+    g.strokeStyle = '#111';
+    g.lineWidth = 11;
+    g.lineCap = 'round';
+    g.beginPath();
+    g.moveTo(S / 2 + 8, S - 58);
+    g.bezierCurveTo(S / 2 + 40, S - 95, S / 2 - 40, S - 110, S / 2 - 6, S - 140);
+    g.bezierCurveTo(S / 2 + 20, S - 162, S / 2 + 18, S - 170, S / 2 + 6, S - 176);
+    g.stroke();
+    g.fillStyle = '#111';
+    g.beginPath();
+    g.moveTo(S / 2 - 12, S - 172);
+    g.lineTo(S / 2 + 8, S - 196);
+    g.lineTo(S / 2 + 22, S - 168);
+    g.fill();
+  } else {
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#f7f7f5';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 36, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#111';
+    g.font = 'bold 118px Arial, sans-serif';
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    g.fillText('30', S / 2, S / 2 + 6);
+  }
+  return tex(c, false);
 }

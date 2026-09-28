@@ -26,7 +26,23 @@ export interface ApartmentOptions {
   name?: string;
   /** Blok adı levhasının malzeme anahtarı */
   signKey?: string;
+  style?: ApartmentStyle;
 }
+
+/** Farklı sitelerin cephe dili (malzeme anahtarı eşlemesi + biçim seçenekleri) */
+export interface ApartmentStyle {
+  /** Varsayılan anahtar → bu stilin anahtarı (ör. plaster → slPlaster, win → slWin) */
+  keys?: Record<string, string>;
+  /** Pencere sütunlarını çevreleyen dikey şeritler (Mertkent) */
+  strips?: boolean;
+  /** Her n. pencere sütununun arkası vurgu renginde (plasterGrey anahtarı) */
+  accentEvery?: number;
+  roof?: 'hipped' | 'flat';
+  solar?: boolean;
+}
+
+let KMAP: Record<string, string> = {};
+const K = (k: string) => KMAP[k] ?? k;
 
 export const FLOOR_H = 2.95;
 const PLINTH = 0.45;
@@ -176,6 +192,9 @@ const UP = new THREE.Vector3(0, 1, 0);
 const DISH_POLE = new THREE.Vector3(-0.293, -0.643, -0.708).normalize();
 
 export function buildApartment(b: Builder, o: ApartmentOptions): { top: number } {
+  KMAP = o.style?.keys ?? {};
+  const strips = o.style?.strips ?? true;
+  const accentEvery = o.style?.accentEvery ?? 0;
   const floors = o.floors ?? 7;
   const FH = o.floorH ?? FLOOR_H;
   const r = cleanRing(orientOutward(o.ring));
@@ -375,7 +394,7 @@ export function buildApartment(b: Builder, o: ApartmentOptions): { top: number }
     const { a, e, len, t } = E[i];
     if (len < 0.05) continue;
     const yaw = Math.atan2(-t[1], t[0]);
-    b.wall('plinth', a, e, y0, yG, [0, 0, len, PLINTH + 0.6]);
+    b.wall(K('plinth'), a, e, y0, yG, [0, 0, len, PLINTH + 0.6]);
     const openings: Opening[] = [];
     const cl = claims[i];
     // Balkon arkası: her katta kapı (+ yer varsa pencere)
@@ -390,7 +409,7 @@ export function buildApartment(b: Builder, o: ApartmentOptions): { top: number }
           s1: dc + DOOR_W / 2,
           y0: yF(k) + 0.02,
           y1: yF(k) + DOOR_H,
-          key: `win${Math.floor(rnd() * 4)}`,
+          key: `${K('win')}${Math.floor(rnd() * 4)}`,
           sill: false,
         });
         if (hasWin) {
@@ -400,13 +419,14 @@ export function buildApartment(b: Builder, o: ApartmentOptions): { top: number }
             s1: wc + WIN_W / 2,
             y0: yF(k) + SILL,
             y1: yF(k) + SILL + WIN_H,
-            key: `win${Math.floor(rnd() * 4)}`,
+            key: `${K('win')}${Math.floor(rnd() * 4)}`,
             sill: false,
           });
         }
       }
     }
     // Pencere bölgeleri
+    const accents: Claim[] = [];
     const free = freeIntervals(len, cl);
     for (const [u0, u1] of free) {
       const L = u1 - u0;
@@ -418,12 +438,14 @@ export function buildApartment(b: Builder, o: ApartmentOptions): { top: number }
         const s = u0 + ((c + 0.5) / nCols) * L;
         const isEntry = i === entryEdge && Math.abs(s - entryS) < COL_PITCH / 2;
         // Şeritler: dar bölgelerde her sütunda, geniş bölgelerde dönüşümlü
-        if (nCols <= 2 || c % 2 === 0) {
+        if (accentEvery && c % accentEvery === 0 && L > 5)
+          accents.push({ s0: Math.max(u0, s - 1.25), s1: Math.min(u1, s + 1.25), balcony: false });
+        if (strips && (nCols <= 2 || c % 2 === 0)) {
           for (const side of [-1, 1]) {
             const sx = s + side * (ww / 2 + STRIP_OFF);
             if (sx < 0.15 || sx > len - 0.15) continue;
             const p = P(i, sx, 0.035);
-            b.box('ochre', [p[0], (yG + top - 0.25) / 2, p[1]], [0.2, top - 0.25 - yG, 0.07], yaw);
+            b.box(K('ochre'), [p[0], (yG + top - 0.25) / 2, p[1]], [0.2, top - 0.25 - yG, 0.07], yaw);
           }
         }
         const shutterCol = rnd() < 0.3;
@@ -434,7 +456,7 @@ export function buildApartment(b: Builder, o: ApartmentOptions): { top: number }
             s1: s + ww / 2,
             y0: yF(k) + SILL,
             y1: yF(k) + SILL + WIN_H,
-            key: `win${Math.floor(rnd() * 4)}`,
+            key: `${K('win')}${Math.floor(rnd() * 4)}`,
             sill: true,
             shutter: shutterCol && rnd() < 0.7,
             juliet: k === floors - 1 && rnd() < 0.5,
@@ -456,12 +478,22 @@ export function buildApartment(b: Builder, o: ApartmentOptions): { top: number }
       buildEntrance(b, P, i, entryS, o.base, yG, yaw, o.signKey);
     }
     // Duvar yüzeyi (açıklıkları dışarıda bırakarak), balkon arkası açık gri
-    wallWithOpenings(b, i, P, len, yG, top, FH, openings, cl);
+    wallWithOpenings(b, i, P, len, yG, top, FH, openings, [...cl, ...accents]);
     for (const op of openings) addOpening(b, P, i, op, yaw);
     // Çatı saçağı alın bandı (koyu gri), duvardan 0.35 m dışarıda
-    const ea = P(i, -0.35, 0.35);
-    const ee = P(i, len + 0.35, 0.35);
-    b.wall('eave', ea, ee, top - 0.05, top + 0.4);
+    if ((o.style?.roof ?? 'hipped') === 'hipped') {
+      const ea = P(i, -0.35, 0.35);
+      const ee = P(i, len + 0.35, 0.35);
+      b.wall(K('eave'), ea, ee, top - 0.05, top + 0.4);
+    } else {
+      // Düz çatı: korkuluk duvarı (dış + iç yüz) ve harpuşta
+      const pa = P(i, 0);
+      const pe = P(i, len);
+      b.wall(K('plaster'), pa, pe, top, top + 0.9, [0, 0, len / 2, 0.3]);
+      b.wall(K('plaster'), P(i, len, -0.2), P(i, 0, -0.2), top, top + 0.9, [0, 0, len / 2, 0.3]);
+      const pc = P(i, len / 2, -0.1);
+      b.box(K('fascia'), [pc[0], top + 0.93, pc[1]], [len + 0.2, 0.06, 0.34], yaw);
+    }
   }
 
   // ── Yağmur boruları: iç köşeler + bazı dış köşeler ──
@@ -481,7 +513,9 @@ export function buildApartment(b: Builder, o: ApartmentOptions): { top: number }
   for (const bl of bals) buildBalcony(b, bl, floors, yF, FH, rnd);
 
   // ── Çatı ──
-  const roofTop = buildRoof(b, r, top, rnd);
+  const flat = (o.style?.roof ?? 'hipped') === 'flat';
+  const roofTop = flat ? buildFlatRoof(b, r, top, rnd) : buildRoof(b, r, top, rnd, o.style?.solar ?? true);
+  KMAP = {};
   return { top: roofTop };
 }
 
@@ -550,7 +584,7 @@ function wallWithOpenings(
         if (sb - sa < 1e-4) continue;
         const mid = (sa + sb) / 2;
         const grey = cl.some((c) => mid > c.s0 && mid < c.s1);
-        b.wall(grey ? 'plasterGrey' : 'plaster', P(i, sa), P(i, sb), ya, yb, [
+        b.wall(grey ? K('plasterGrey') : K('plaster'), P(i, sa), P(i, sb), ya, yb, [
           sa / 2,
           (ya - Y0) / FH,
           sb / 2,
@@ -569,17 +603,17 @@ function addOpening(b: Builder, P: PFn, i: number, o: Opening, yaw: number): voi
   const b0 = P(i, o.s0, -R);
   const b1 = P(i, o.s1, -R);
   // Söveler, lento, iç denizlik
-  b.wall('reveal', a0, b0, o.y0, o.y1, [0, 0, R, o.y1 - o.y0]);
-  b.wall('reveal', b1, a1, o.y0, o.y1, [0, 0, R, o.y1 - o.y0]);
-  b.quad('reveal', V(b0, o.y1), V(b1, o.y1), V(a1, o.y1), V(a0, o.y1));
-  b.quad('revealSill', V(a0, o.y0), V(a1, o.y0), V(b1, o.y0), V(b0, o.y0));
+  b.wall(K('reveal'), a0, b0, o.y0, o.y1, [0, 0, R, o.y1 - o.y0]);
+  b.wall(K('reveal'), b1, a1, o.y0, o.y1, [0, 0, R, o.y1 - o.y0]);
+  b.quad(K('reveal'), V(b0, o.y1), V(b1, o.y1), V(a1, o.y1), V(a0, o.y1));
+  b.quad(K('revealSill'), V(a0, o.y0), V(a1, o.y0), V(b1, o.y0), V(b0, o.y0));
   // Doğrama + cam
   b.wall(o.key, b0, b1, o.y0, o.y1);
   const w = o.s1 - o.s0;
   const sm = (o.s0 + o.s1) / 2;
   if (o.sill) {
     const ps = P(i, sm, 0.04);
-    b.box('sill', [ps[0], o.y0 - 0.025, ps[1]], [w + 0.12, 0.05, 0.16], yaw);
+    b.box(K('sill'), [ps[0], o.y0 - 0.025, ps[1]], [w + 0.12, 0.05, 0.16], yaw);
   }
   if (o.shutter) {
     // Panjur kutusu (lentonun hemen üstünde, duvar yüzünde)
@@ -592,11 +626,11 @@ function addOpening(b: Builder, P: PFn, i: number, o: Opening, yaw: number): voi
   if (o.juliet) {
     for (const h of [0.35, 0.65, 0.95]) {
       const pr = P(i, sm, 0.06);
-      b.box('rail', [pr[0], o.y0 + h, pr[1]], [w + 0.05, 0.025, 0.025], yaw);
+      b.box(K('rail'), [pr[0], o.y0 + h, pr[1]], [w + 0.05, 0.025, 0.025], yaw);
     }
     for (const s of [o.s0 + 0.02, o.s1 - 0.02]) {
       const pr = P(i, s, 0.06);
-      b.box('rail', [pr[0], o.y0 + 0.5, pr[1]], [0.03, 1.0, 0.03], yaw);
+      b.box(K('rail'), [pr[0], o.y0 + 0.5, pr[1]], [0.03, 1.0, 0.03], yaw);
     }
   }
 }
@@ -668,11 +702,11 @@ function buildBalcony(
   cz /= bl.slab.length;
   for (let k = 0; k <= floors; k++) {
     const ys = k === floors ? yF(k) + 0.05 : yF(k);
-    b.polygon('slabTop', bl.slab, ys + 0.02, true, 0.5);
-    b.polygon('slabBottom', bl.slab, ys - SLAB_T, false, 0.5);
+    b.polygon(K('slabTop'), bl.slab, ys + 0.02, true, 0.5);
+    b.polygon(K('slabBottom'), bl.slab, ys - SLAB_T, false, 0.5);
     // Alın bandı
     for (let j = 0; j + 1 < bl.rail.length; j++)
-      b.wall('fascia', bl.rail[j], bl.rail[j + 1], ys - FASCIA_H + 0.02, ys + 0.03);
+      b.wall(K('fascia'), bl.rail[j], bl.rail[j + 1], ys - FASCIA_H + 0.02, ys + 0.03);
     // Tavan spotu (bir alttaki balkonun tavanı = bu döşemenin altı)
     if (k > 0) {
       const g = new THREE.CircleGeometry(0.07, 10)
@@ -685,23 +719,23 @@ function buildBalcony(
     if (bl.enclosed[k]) {
       for (let j = 0; j + 1 < bl.rail.length; j++) {
         const s = seg(bl.rail[j], bl.rail[j + 1]);
-        b.wall('glazing', bl.rail[j], bl.rail[j + 1], ys + 0.03, yTop, [0, 0, Math.max(1, s.L / 0.75), 1]);
+        b.wall(K('glazing'), bl.rail[j], bl.rail[j + 1], ys + 0.03, yTop, [0, 0, Math.max(1, s.L / 0.75), 1]);
         // Alt dolu panel (alüminyum)
-        b.wall('fascia', bl.rail[j], bl.rail[j + 1], ys + 0.03, ys + 0.12);
+        b.wall(K('fascia'), bl.rail[j], bl.rail[j + 1], ys + 0.03, ys + 0.12);
       }
     } else {
       for (let j = 0; j + 1 < bl.rail.length; j++) {
         const p = bl.rail[j];
         const q = bl.rail[j + 1];
         const s = seg(p, q);
-        b.wall('glass', p, q, ys + 0.1, ys + 0.98);
-        b.box('rail', [s.m[0], ys + 1.0, s.m[1]], [s.L, 0.045, 0.05], s.yaw);
-        b.box('rail', [s.m[0], ys + 0.09, s.m[1]], [s.L, 0.03, 0.03], s.yaw);
+        b.wall(K('glass'), p, q, ys + 0.1, ys + 0.98);
+        b.box(K('rail'), [s.m[0], ys + 1.0, s.m[1]], [s.L, 0.045, 0.05], s.yaw);
+        b.box(K('rail'), [s.m[0], ys + 0.09, s.m[1]], [s.L, 0.03, 0.03], s.yaw);
         const np = Math.max(1, Math.round(s.L / 1.2));
         for (let u = 0; u <= np; u++) {
           const f = u / np;
           b.box(
-            'rail',
+            K('rail'),
             [p[0] + (q[0] - p[0]) * f, ys + 0.55, p[1] + (q[1] - p[1]) * f],
             [0.04, 0.92, 0.04],
             s.yaw,
@@ -716,7 +750,7 @@ function buildBalcony(
         dish.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(UP, DISH_POLE));
         dish.translate(q[0] - bl.wallN[0] * 0.25, ys + 1.25, q[1] - bl.wallN[1] * 0.25);
         b.geometry('dish', dish);
-        b.box('rail', [q[0] - bl.wallN[0] * 0.2, ys + 1.05, q[1] - bl.wallN[1] * 0.2], [0.04, 0.35, 0.04]);
+        b.box(K('rail'), [q[0] - bl.wallN[0] * 0.2, ys + 1.05, q[1] - bl.wallN[1] * 0.2], [0.04, 0.35, 0.04]);
       }
     }
     // Klima dış ünitesi (balkon zemininde, duvar dibinde)
@@ -741,7 +775,25 @@ function buildBalcony(
 }
 
 /** Kırma kiremit çatı + güneye bakan yüzde güneş enerjili su ısıtıcıları */
-function buildRoof(b: Builder, r: V2[], top: number, rnd: () => number): number {
+/** Düz çatı: su yalıtım membranı, merdiven/asansör kulesi, birkaç klima ünitesi */
+function buildFlatRoof(b: Builder, r: V2[], top: number, rnd: () => number): number {
+  b.polygon('roofFlat', r, top + 0.05, true, 0.5);
+  const bx = obb(r);
+  const ax = bx.ax;
+  const nx: V2 = [-ax[1], ax[0]];
+  const yaw = Math.atan2(-ax[1], ax[0]);
+  const C = (u: number, v: number): V2 => [bx.c[0] + ax[0] * u + nx[0] * v, bx.c[1] + ax[1] * u + nx[1] * v];
+  const tower = C(-bx.w * 0.15, 0);
+  b.box(K('plaster'), [tower[0], top + 1.35, tower[1]], [3.6, 2.6, 4.2], yaw);
+  b.box(K('fascia'), [tower[0], top + 2.7, tower[1]], [3.8, 0.1, 4.4], yaw);
+  for (let k = 0; k < 6; k++) {
+    const p = C((rnd() - 0.5) * bx.w * 0.7, (rnd() - 0.5) * bx.d * 0.6);
+    b.box('ac', [p[0], top + 0.35, p[1]], [0.8, 0.6, 0.3], yaw + (rnd() < 0.5 ? 0 : Math.PI / 2));
+  }
+  return top + 2.75;
+}
+
+function buildRoof(b: Builder, r: V2[], top: number, rnd: () => number, solar = true): number {
   const bx = obb(r);
   const ax = bx.ax;
   const nx: V2 = [-ax[1], ax[0]];
@@ -804,7 +856,7 @@ function buildRoof(b: Builder, r: V2[], top: number, rnd: () => number): number 
     [p11, p01],
     [p01, p00],
   ] as [V2, V2][])
-    b.wall('eave', q1, q0, yr - 0.22, yr + 0.02);
+    b.wall(K('eave'), q1, q0, yr - 0.22, yr + 0.02);
   // Güneye (+z) en çok bakan uzun yüz
   const cand = faces.map(([q0, q1, q2, q3]) => {
     const e = [q1[0] - q0[0], q1[1] - q0[1]];
@@ -817,7 +869,7 @@ function buildRoof(b: Builder, r: V2[], top: number, rnd: () => number): number 
     return { q0, q1, e, m, rm, south: dz / l, run: l };
   });
   const f = cand.reduce((p, q) => (q.south > p.south ? q : p));
-  if (f.south > 0.3) {
+  if (solar && f.south > 0.3) {
     const el = Math.hypot(f.e[0], f.e[1]);
     const ex = f.e[0] / el;
     const ez = f.e[1] / el;

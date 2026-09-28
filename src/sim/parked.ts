@@ -85,11 +85,16 @@ export class ParkedCars {
     const R2 = 240 * 240;
     const N2 = this.nearR * this.nearR;
     for (const t of [...this.near, ...this.far]) t.n = 0;
+    // Yarıçap içindekileri uzaklığa göre sırala: en yakınlar ayrıntılı modeli alır
+    const cand: [number, number][] = [];
     for (let i = 0; i < this.count; i++) {
       const dx = d[i * 5] - player.x;
       const dz = d[i * 5 + 2] - player.z;
       const r2 = dx * dx + dz * dz;
-      if (r2 > R2) continue;
+      if (r2 <= R2) cand.push([r2, i]);
+    }
+    cand.sort((p, q) => p[0] - q[0]);
+    for (const [r2, i] of cand) {
       const seed = d[i * 5 + 4];
       const kind = carKindOf(seed);
       let t = r2 < N2 ? this.near[kind] : this.far[kind];
