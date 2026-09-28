@@ -537,12 +537,12 @@ class Body {
   }
 }
 
-function stations(s: Spec, step: number, extra: number[]): number[] {
+function stations(s: Spec, step: number, extra: number[], lod: 0 | 1 = 0): number[] {
   const zs = new Set<number>();
   for (let z = s.zMin; z < s.zMax; z += step) zs.add(+z.toFixed(4));
   zs.add(s.zMax);
   // Uçlarda yuvarlatma için sık istasyon
-  for (const f of [0.015, 0.04, 0.08, 0.13]) {
+  for (const f of lod ? [0.04, 0.13] : [0.015, 0.04, 0.08, 0.13]) {
     zs.add(+(s.zMin + f).toFixed(4));
     zs.add(+(s.zMax - f).toFixed(4));
   }
@@ -552,7 +552,8 @@ function stations(s: Spec, step: number, extra: number[]): number[] {
     zs.add(+(zc + ra).toFixed(4));
     zs.add(+(zc - ra + 0.003).toFixed(4));
     zs.add(+(zc + ra - 0.003).toFixed(4));
-    for (let k = -5; k <= 5; k++) zs.add(+(zc + (k / 6) * ra).toFixed(4));
+    const ka = lod ? 2 : 5;
+    for (let k = -ka; k <= ka; k++) zs.add(+(zc + (k / (ka + 1)) * ra).toFixed(4));
   }
   for (const z of extra) zs.add(+z.toFixed(4));
   return [...zs].filter((z) => z >= s.zMin && z <= s.zMax).sort((a, b) => a - b);
@@ -654,7 +655,7 @@ function boxAt(acc: Acc, m: CarMat, c: V3, s: V3, rotY = 0, rotX = 0, col?: V3):
 /** Tek teker (merkez orijinde, dış yüz +X): lastik + jant. lod 1 = basit. */
 function wheelParts(acc: Acc, R: number, W: number, mtx: THREE.Matrix4, lod: 0 | 1): void {
   const Rr = R * 0.64;
-  const seg = lod ? 10 : 16;
+  const seg = lod ? 8 : 12;
   const h = W / 2;
   const prof = lod
     ? [
@@ -749,7 +750,7 @@ export function buildCar(kind: CarKind, lod: 0 | 1, wheelsInTrim: boolean): CarM
   const trim = new Acc();
   const g = s.gh;
   const extra = [g.zA, g.zF, g.zB, g.zC, ...g.pillars.flatMap((p) => [p - 0.05, p + 0.05]), ...g.side.flat()];
-  const zs = stations(s, lod ? 0.28 : 0.1, extra);
+  const zs = stations(s, lod ? 0.45 : 0.1, lod ? [g.zA, g.zF, g.zB, g.zC] : extra, lod);
   // --- Alt gövde ---
   const segMat = (k: number): CarMat => (k < 4 ? 'dark' : k === 4 && s.clad ? 'dark' : 'paint');
   for (let i = 0; i + 1 < zs.length; i++) {

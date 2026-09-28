@@ -407,6 +407,7 @@ export class OsmWorld implements IWorld {
         world.object.add(mk.group);
         fenceSkip = mk.fenceSkip;
         if (mk.noTree) world.removeTrees(mk.noTree);
+        if (mk.cars.length) world.addParkedCars(mk.cars);
       } catch (e) {
         console.warn('Mertkent el modeli kurulamadı', e);
       }
@@ -549,6 +550,12 @@ export class OsmWorld implements IWorld {
         if (im.instanceColor) im.instanceColor.needsUpdate = true;
       }
     });
+  }
+
+  /** El modeli otoparklarına araç ekle (çizim + çarpışma) */
+  addParkedCars(cars: number[]): void {
+    const [a, b] = this.parked.addCars(cars);
+    this.parked.forEachBox((c, y) => this.collision.addRing(c, y - 0.5, y + 1.5), a, b);
   }
 
   /** El modeli bölgesinde (havuz, yol, bina) kalan ağaçları kaldır: çizim + gövde çarpışması */

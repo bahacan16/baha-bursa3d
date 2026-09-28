@@ -23,7 +23,7 @@ interface Tier {
  */
 export class ParkedCars {
   readonly group = new THREE.Group();
-  readonly count: number;
+  count: number;
   private mats = new CarMaterials();
   private models: CarModel[] = [];
   private near: Tier[] = [];
@@ -32,17 +32,20 @@ export class ParkedCars {
   private nearR: number;
   private farMax: number;
   private nearMax: number;
+  private farR: number;
 
   constructor(
-    readonly data: Float32Array,
+    public data: Float32Array,
     quality: Quality,
   ) {
     this.group.name = 'parked-cars';
     const n = (this.count = data.length / 5);
     // KARAR: binlerce park eden araç var; yalnızca oyuncuya yakın olanlar çizilir (çarpışma hepsinde)
-    this.farMax = quality === 'high' ? 260 : quality === 'medium' ? 160 : 70;
-    this.nearMax = quality === 'high' ? 70 : quality === 'medium' ? 40 : 18;
-    this.nearR = quality === 'high' ? 75 : quality === 'medium' ? 55 : 35;
+    this.farMax = quality === 'high' ? 200 : quality === 'medium' ? 130 : 60;
+    // KARAR: ayrıntılı araç ~5k üçgen; yakın halka 50/35/20 m (uzakta kaba model farkı görünmüyor)
+    this.nearMax = quality === 'high' ? 40 : quality === 'medium' ? 24 : 10;
+    this.nearR = quality === 'high' ? 50 : quality === 'medium' ? 35 : 20;
+    this.farR = quality === 'high' ? 240 : quality === 'medium' ? 180 : 110;
     const shadows = quality !== 'low';
     const mk = (m: CarModel, cap: number, detail: boolean): Tier => {
       const trimGeo = m.trim.clone();
@@ -50,6 +53,8 @@ export class ParkedCars {
       trimGeo.setAttribute('plateId', plate);
       const body = new THREE.InstancedMesh(m.body, this.mats.list(m.bodyMats), cap);
       const trim = new THREE.InstancedMesh(trimGeo, this.mats.list(m.trimMats), cap);
+      body.name = `parkedBody${detail ? 'Hi' : 'Lo'}`;
+      trim.name = `parkedTrim${detail ? 'Hi' : 'Lo'}`;
       for (const im of [body, trim]) {
         im.count = 0;
         im.frustumCulled = false;
@@ -82,7 +87,7 @@ export class ParkedCars {
     if (this.timer > 0) return;
     this.timer = 0.4;
     const d = this.data;
-    const R2 = 240 * 240;
+    const R2 = this.farR * this.farR;
     const N2 = this.nearR * this.nearR;
     for (const t of [...this.near, ...this.far]) t.n = 0;
     // Yarıçap içindekileri uzaklığa göre sırala: en yakınlar ayrıntılı modeli alır
@@ -117,10 +122,22 @@ export class ParkedCars {
     }
   }
 
+  /** Sonradan araç ekle (el modeli otoparkları); yeni araçların indeks aralığını döndürür */
+  addCars(extra: number[]): [number, number] {
+    const start = this.count;
+    const d = new Float32Array(this.data.length + extra.length);
+    d.set(this.data);
+    d.set(extra, this.data.length);
+    this.data = d;
+    this.count = d.length / 5;
+    this.timer = 0;
+    return [start, this.count];
+  }
+
   /** Çarpışma kutuları için: her araç yönlendirilmiş kutu köşeleri. */
-  forEachBox(cb: (corners: [number, number][], y: number) => void): void {
+  forEachBox(cb: (corners: [number, number][], y: number) => void, from = 0, to = this.count): void {
     const d = this.data;
-    for (let i = 0; i < this.count; i++) {
+    for (let i = from; i < to; i++) {
       const x = d[i * 5];
       const z = d[i * 5 + 2];
       const yaw = d[i * 5 + 3];
