@@ -50,12 +50,14 @@ export interface StreetPlan {
   street?: { kind: string; x: number; z: number; h?: number; text?: string; rot?: number; note?: string }[];
 }
 
-const PLANS = import.meta.glob('./data/{site,street}-plan.json', {
+const PLANS = import.meta.glob('./data/{site,street,park}-plan.json', {
   eager: true,
   import: 'default',
 }) as Record<string, SitePlan & StreetPlan>;
 export const SITE_PLAN: SitePlan = PLANS['./data/site-plan.json'] ?? {};
 export const STREET_PLAN: StreetPlan = PLANS['./data/street-plan.json'] ?? {};
+/** Komşu parklar (kuzey park, Nato Parkı): site planıyla aynı şema */
+export const PARK_PLAN: SitePlan = PLANS['./data/park-plan.json'] ?? {};
 
 function speciesType(s?: string, note?: string): number {
   const t = `${s ?? ''} ${note ?? ''}`.toLowerCase();
@@ -71,21 +73,28 @@ function flat(r: V2[]): number[] {
 }
 
 /** Ağaç sistemi için: ölçülmüş ağaçlar [x, z, tür, ölçek]* + otomatik ağaç konmayacak bölgeler */
-export function surveyVegetation(): { fixedTrees: number[]; excludeZones: number[][] } {
+export function surveyVegetation(): {
+  fixedTrees: number[];
+  excludeZones: number[][];
+  noSidewalkZones: number[][];
+} {
   const fixedTrees: number[] = [];
   const add = (x: number, z: number, r: number | undefined, h: number | undefined, type: number) => {
     const byR = (r ?? 2.3) / 2.3;
     const byH = h ? h / 8 : byR;
-    const s = Math.max(0.35, Math.min(1.9, (byR + byH) / 2));
+    // Yalnızca boy verilmişse (sokak fidanları, ardıçlar) boya göre; küçük bitkiler de küçük kalsın
+    const s =
+      r == null && h ? Math.max(0.18, Math.min(1.9, byH)) : Math.max(0.35, Math.min(1.9, (byR + byH) / 2));
     fixedTrees.push(x, z, type, s);
   };
-  for (const p of SITE_PLAN.points ?? [])
+  for (const p of [...(SITE_PLAN.points ?? []), ...(PARK_PLAN.points ?? [])])
     if (p.kind === 'tree') add(p.x, p.z, p.r, p.h, speciesType(p.species, p.note));
   for (const p of STREET_PLAN.street ?? [])
     if (p.kind === 'tree')
       add(p.x, p.z, undefined, p.h, speciesType(undefined, `${p.text ?? ''} ${p.note ?? ''}`));
   const excludeZones: number[][] = [];
-  for (const a of SITE_PLAN.areas ?? []) if (a.poly?.length >= 3) excludeZones.push(flat(a.poly));
+  for (const a of [...(SITE_PLAN.areas ?? []), ...(PARK_PLAN.areas ?? [])])
+    if (a.poly?.length >= 3) excludeZones.push(flat(a.poly));
   // Sokak kaldırımları (bordürden içeri w) + 1.5 m pay
   for (const s of STREET_PLAN.sidewalks ?? []) {
     for (let i = 0; i + 1 < s.pts.length; i++) {
@@ -108,7 +117,39 @@ export function surveyVegetation(): { fixedTrees: number[]; excludeZones: number
       );
     }
   }
-  return { fixedTrees, excludeZones };
+  // OSM kaldırım üretiminin kapatılacağı bantlar: ölçülmüş bordürün yol tarafına 1.5 m, kaldırım tarafına w + 4 m
+  const noSidewalkZones: number[][] = [];
+  for (const s of STREET_PLAN.sidewalks ?? []) {
+    for (let i = 0; i + 1 < s.pts.length; i++) {
+      const a = s.pts[i];
+      const e = s.pts[i + 1];
+      const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      if (L < 0.1) continue;
+      const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
+      const n = sideNormal(t, s.side);
+      const A: V2 = [a[0] - t[0] * 2, a[1] - t[1] * 2];
+      const E: V2 = [e[0] + t[0] * 2, e[1] + t[1] * 2];
+      const W = s.w + 4;
+      noSidewalkZones.push(
+        flat([
+          [A[0] - n[0] * 1.5, A[1] - n[1] * 1.5],
+          [E[0] - n[0] * 1.5, E[1] - n[1] * 1.5],
+          [E[0] + n[0] * W, E[1] + n[1] * W],
+          [A[0] + n[0] * W, A[1] + n[1] * W],
+        ]),
+      );
+    }
+  }
+  return { fixedTrees, excludeZones, noSidewalkZones };
+}
+
+/**
+ * Kaldırımın bordür hattına göre yönü: polyline yönünde 'left' / 'right' (+x doğu, +z güney: doğuya giderken sol =
+ * kuzey). Bilinmiyorsa null.
+ */
+export function sideNormal(t: V2, side?: string): V2 {
+  if (side === 'left') return [t[1], -t[0]];
+  return [-t[1], t[0]];
 }
 
 function insidePoly(r: V2[], x: number, z: number): boolean {

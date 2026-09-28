@@ -22,6 +22,8 @@ export interface BuildOptions {
   /** Elle ölçülmüş ağaçlar ve otomatik ağaçsız bölgeler (vegetation.ts) */
   fixedTrees?: number[];
   excludeZones?: number[][];
+  /** OSM kaldırımı üretilmeyecek bölgeler (ölçülmüş sokak planı, düz [x,z,...] halkalar) */
+  noSidewalkZones?: number[][];
 }
 
 export interface BuildResult {
@@ -62,7 +64,7 @@ export function buildWorld(
     if (i % 250 === 0) progress(0.05 + 0.45 * (i / Math.max(1, n)), `Binalar (${i}/${n})`);
   }
   progress(0.5, 'Yollar');
-  const roads = buildRoads(geo, d.roads, d.crossings);
+  const roads = buildRoads(geo, d.roads, d.crossings, opts.noSidewalkZones);
   progress(0.65, 'Alanlar');
   if (opts.landuseMeshes) buildAreas(geo, d.areas);
   buildBarriers(geo, d.barriers);

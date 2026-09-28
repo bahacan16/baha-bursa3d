@@ -23,6 +23,10 @@ export interface FenceSpec {
   screen?: [number, number, string][];
   /** Varsayılan perde türü */
   screenDefault?: string;
+  /** Ölçülmüş kolon konumları (polyline boyunca U, metre); yoksa pillarEvery aralıkla */
+  pillarsU?: number[];
+  /** false: son noktadaki kolonu çizme (bir sonraki çit hattının ilk kolonu) */
+  endPillar?: boolean;
 }
 
 export interface GateGap {
@@ -32,7 +36,8 @@ export interface GateGap {
 
 type Collide = (ring: [number, number][], bottom: number, top: number) => void;
 
-const MODULE = 1.73;
+/** Prekast panel genişliği (kolon aralığında 3 panel, derz dikmeleriyle) */
+const PANEL = 2.13;
 const WALL_T = 0.2;
 const POST_EVERY = 2.5;
 
@@ -82,8 +87,31 @@ export function buildMertkentFence(
     if (best.d < 2.5) gapsU.push([best.U - g.w / 2, best.U + g.w / 2]);
   }
   const inGap = (U: number) => gapsU.some(([a, e]) => U > a && U < e);
-
-  let pillarNext = 0;
+  // Kolonlar (global U): ölçülmüş ya da düzenli; kapı kenarlarına kolon (yakındaki ölçülmüş kolonun yerine)
+  const pil: number[] = [];
+  if (f.pillarsU?.length) pil.push(...f.pillarsU);
+  else for (let U = 0; U <= total + 1e-6; U += pEvery) pil.push(U);
+  for (const g of gapsU)
+    for (const U of g) {
+      if (U < -0.01 || U > total + 0.01) continue;
+      const k = pil.findIndex((q) => Math.abs(q - U) < 0.6);
+      if (k >= 0) pil.splice(k, 1);
+      pil.push(U);
+    }
+  pil.sort((p, q) => p - q);
+  /** Duvar paneli dokusu u: kolon aralığı tam sayıda panele bölünür (derzler kolonlarla hizalı) */
+  const bayOf = (U: number) => {
+    let k = 0;
+    while (k + 2 < pil.length && pil[k + 1] <= U) k++;
+    const a = pil[k] ?? 0;
+    const e = pil[k + 1] ?? total;
+    const n = Math.max(1, Math.round((e - a) / PANEL));
+    return { a, e, n };
+  };
+  const waveU = (U: number, ref: number) => {
+    const { a, e, n } = bayOf(ref);
+    return ((U - a) / Math.max(0.01, e - a)) * n;
+  };
   for (let i = 0; i + 1 < pts.length; i++) {
     const a = pts[i];
     const e = pts[i + 1];
@@ -118,12 +146,20 @@ export function buildMertkentFence(
       if (pq) b.wall(key, p, q, ya, yb, [uvA, v0, uvE, v1]);
       else b.wall(key, q, p, ya, yb, [uvE, v0, uvA, v1]);
     };
-    // Parçalar: kapı boşluklarını at, ~2 m'lik dilimler (zemin kotu izlenir)
-    const step = 2;
-    const nS = Math.max(1, Math.ceil(L / step));
-    for (let k = 0; k < nS; k++) {
-      const u0 = (L * k) / nS;
-      const u1 = (L * (k + 1)) / nS;
+    // Parçalar: kolon/kapı kenarlarında kesilir, aralar ~2 m'lik dilimler (zemin kotu izlenir)
+    const cuts = [0, L];
+    for (const U of pil) if (U > cum[i] + 0.01 && U < cum[i + 1] - 0.01) cuts.push(U - cum[i]);
+    for (const g of gapsU)
+      for (const U of g) if (U > cum[i] + 0.01 && U < cum[i + 1] - 0.01) cuts.push(U - cum[i]);
+    cuts.sort((p, q) => p - q);
+    const pieces: [number, number][] = [];
+    for (let c = 0; c + 1 < cuts.length; c++) {
+      const len = cuts[c + 1] - cuts[c];
+      if (len < 0.01) continue;
+      const nS = Math.max(1, Math.ceil(len / 2));
+      for (let k = 0; k < nS; k++) pieces.push([cuts[c] + (len * k) / nS, cuts[c] + (len * (k + 1)) / nS]);
+    }
+    for (const [u0, u1] of pieces) {
       const U0 = cum[i] + u0;
       const U1 = cum[i] + u1;
       const mid = (U0 + U1) / 2;
@@ -131,7 +167,7 @@ export function buildMertkentFence(
       const pm = P((u0 + u1) / 2, 0);
       const y0 = H(pm[0], pm[1]) + 0.15; // kaldırım kotu
       // Duvar ön yüzü (dalga paneli dokusu), arka yüz düz beyaz
-      face('mkWave', u0, u1, 0, y0 - 0.15, y0 + wallH, U0 / MODULE, U1 / MODULE, -0.15 / wallH, 1, 1);
+      face('mkWave', u0, u1, 0, y0 - 0.15, y0 + wallH, waveU(U0, mid), waveU(U1, mid), -0.15 / wallH, 1, 1);
       face('mkWallBack', u0, u1, WALL_T, y0 - 0.1, y0 + wallH, U0, U1, 0, wallH, -1);
       // Harpuşta (turuncu)
       const cc = P((u0 + u1) / 2, WALL_T / 2 - 0.01);
@@ -227,14 +263,24 @@ export function buildMertkentFence(
         ring.translate(p[0], y0 + wallH + meshH + 0.28, p[1]);
         b.geometry('wire', ring);
       }
-    // Kolonlar: aralıkla + köşe noktaları + kapı kenarları
-    const pillarsHere: number[] = [];
-    while (pillarNext <= cum[i + 1] + 1e-6) {
-      if (pillarNext >= cum[i] - 1e-6) pillarsHere.push(pillarNext - cum[i]);
-      pillarNext += pEvery;
+    // Panel derz dikmeleri (beyaz, sokak yüzünden 2 cm taşkın)
+    for (let k = 0; k + 1 < pil.length; k++) {
+      const a0 = pil[k];
+      const e0 = pil[k + 1];
+      const n0 = Math.max(1, Math.round((e0 - a0) / PANEL));
+      for (let j = 1; j < n0; j++) {
+        const U = a0 + ((e0 - a0) * j) / n0;
+        if (U < cum[i] || U >= cum[i + 1] || inGap(U)) continue;
+        const p = P(U - cum[i], WALL_T / 2 - 0.02);
+        const y0 = H(p[0], p[1]) + 0.15;
+        b.box('mkWallBack', [p[0], y0 + wallH / 2 - 0.05, p[1]], [0.11, wallH + 0.1, WALL_T + 0.04], yaw);
+      }
     }
-    for (const g of gapsU)
-      for (const U of g) if (U >= cum[i] && U <= cum[i + 1]) pillarsHere.push(U - cum[i]);
+    // Kolonlar: ölçülmüş/düzenli + kapı kenarları (köşe kolonu iki kenarda bir kez)
+    const pillarsHere: number[] = [];
+    for (const U of pil)
+      if (U >= cum[i] - 1e-6 && (U < cum[i + 1] - 1e-6 || i + 2 === pts.length))
+        if (f.endPillar !== false || U < total - 0.05) pillarsHere.push(U - cum[i]);
     for (const u of pillarsHere) {
       const U = cum[i] + u;
       if (inGap(U + 0.01) && inGap(U - 0.01)) continue;
@@ -253,12 +299,11 @@ export function buildMertkentFence(
       );
     }
   }
-  void total;
 }
 
 function pillar(b: Builder, p: V2, y0: number, w: number, h: number, yaw: number, lamp: boolean): void {
   b.box('mkPillar', [p[0], y0 + h / 2 - 0.1, p[1]], [w, h + 0.2, w], yaw);
-  b.box('mkPillar', [p[0], y0 + h + 0.035, p[1]], [w + 0.08, 0.07, w + 0.08], yaw);
+  b.box('mkPillar', [p[0], y0 + h + 0.035, p[1]], [w + 0.09, 0.07, w + 0.09], yaw);
   if (!lamp) return;
   b.cylinder('capDark', [p[0], y0 + h + 0.07, p[1]], 0.05, 0.12, 8);
   b.cylinder('capDark', [p[0], y0 + h + 0.19, p[1]], 0.08, 0.03, 8);

@@ -103,7 +103,8 @@ export function daylight(t: TimeOfDay, center: { lat: number; lon: number }, now
     hemiGround,
     hemiIntensity: 0.7 + 0.5 * day,
     fogColor,
-    exposure: 0.95 - 0.05 * day,
+    // Neutral ton eşleme (ACES'in içindeki 1/0.6 kazancı yok) için ölçekli
+    exposure: (0.95 - 0.05 * day) * 1.5,
     night,
     turbidity: 1.8 + golden * 6.7,
     rayleigh: 0.3 + day * 0.55 + golden * 1.85,

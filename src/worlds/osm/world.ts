@@ -53,7 +53,7 @@ async function buildInWorker(
   roofColors: RoofColorMap | undefined,
   aerialTrees: number[] | undefined,
   progress: BuildProgress,
-  veg: { fixedTrees?: number[]; excludeZones?: number[][] } = {},
+  veg: { fixedTrees?: number[]; excludeZones?: number[][]; noSidewalkZones?: number[][] } = {},
 ): Promise<BuildResult> {
   try {
     const worker = new Worker(new URL('./build.worker.ts', import.meta.url), { type: 'module' });

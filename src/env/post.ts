@@ -19,8 +19,8 @@ const GradeShader = {
   name: 'CameraGrade',
   uniforms: {
     tDiffuse: { value: null },
-    uShadowTint: { value: new THREE.Vector3(0.95, 0.985, 1.05) },
-    uHighlightTint: { value: new THREE.Vector3(1.025, 1.0, 0.975) },
+    uShadowTint: { value: new THREE.Vector3(0.98, 0.995, 1.02) },
+    uHighlightTint: { value: new THREE.Vector3(1.04, 1.0, 0.96) },
     uSaturation: { value: 1.04 },
   },
   vertexShader: VS,
@@ -118,6 +118,14 @@ export class PostFX {
     if (q.has('sat')) this.grade.uniforms.uSaturation.value = Number(q.get('sat'));
     if (q.has('con')) this.finish.uniforms.uContrast.value = Number(q.get('con'));
     if (q.has('vig')) this.finish.uniforms.uVignette.value = Number(q.get('vig'));
+    if (q.has('wb')) {
+      const [r, g, b] = (q.get('wb') ?? '').split(',').map(Number);
+      this.grade.uniforms.uHighlightTint.value.set(r, g, b);
+    }
+    if (q.has('wbs')) {
+      const [r, g, b] = (q.get('wbs') ?? '').split(',').map(Number);
+      this.grade.uniforms.uShadowTint.value.set(r, g, b);
+    }
     if (q.has('ao')) c.intensity = Number(q.get('ao'));
     if (q.has('aor')) c.aoRadius = Number(q.get('aor'));
   }

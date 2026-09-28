@@ -225,11 +225,37 @@ function vstrip(b: Bucket, p: Pt, q: Pt, y0: number, y1: number, c: Rgb, towards
   else b.quad(a, d, cc, bb);
 }
 
+/** Düz [x,z,...] halka içinde mi */
+function inFlatRing(r: number[], x: number, z: number): boolean {
+  let c = false;
+  for (let i = 0, j = r.length - 2; i < r.length; j = i, i += 2) {
+    const xi = r[i];
+    const zi = r[i + 1];
+    const xj = r[j];
+    const zj = r[j + 1];
+    if (zi > z !== zj > z && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) c = !c;
+  }
+  return c;
+}
+
 /** Kaldırım: yolun bir yanında, iç kenar `half`, dış kenar `half + SIDEWALK_W`. */
-function sidewalk(geo: ChunkedGeometry, pts: Pt[], half: number, side: 1 | -1, strips: RaisedStrip[]): void {
+function sidewalk(
+  geo: ChunkedGeometry,
+  pts: Pt[],
+  half: number,
+  side: 1 | -1,
+  strips: RaisedStrip[],
+  skip?: (x: number, z: number) => boolean,
+): void {
   const inner = offsetPolyline(pts, side * half);
   const outer = offsetPolyline(pts, side * (half + SIDEWALK_W));
+  const skipped = (i: number) =>
+    !!skip?.(
+      (inner[i][0] + outer[i][0] + inner[i + 1][0] + outer[i + 1][0]) / 4,
+      (inner[i][1] + outer[i][1] + inner[i + 1][1] + outer[i + 1][1]) / 4,
+    );
   for (let i = 0; i + 1 < pts.length; i++) {
+    if (skipped(i)) continue;
     const mx = (pts[i][0] + pts[i + 1][0]) / 2;
     const mz = (pts[i][1] + pts[i + 1][1]) / 2;
     const b = geo.get(mx, mz, 'sidewalk');
@@ -257,6 +283,7 @@ function sidewalk(geo: ChunkedGeometry, pts: Pt[], half: number, side: 1 | -1, s
   }
   // Uç yüzleri
   for (const k of [0, pts.length - 1]) {
+    if (skipped(k === 0 ? 0 : pts.length - 2)) continue;
     const b = geo.get(pts[k][0], pts[k][1], 'sidewalk');
     const j = k === 0 ? 1 : pts.length - 2;
     vstrip(b, inner[k], outer[k], 0, CURB_H, CURB, [2 * pts[k][0] - pts[j][0], 2 * pts[k][1] - pts[j][1]]);
@@ -340,7 +367,13 @@ function zebra(geo: ChunkedGeometry, at: Pt, dir: Pt, width: number): void {
 }
 
 /** Tüm yolları, kaldırımları, çizgileri ve yaya geçitlerini üretir. */
-export function buildRoads(geo: ChunkedGeometry, roads: Road[], crossings: Pt[]): RoadBuildResult {
+export function buildRoads(
+  geo: ChunkedGeometry,
+  roads: Road[],
+  crossings: Pt[],
+  noSidewalk: number[][] = [],
+): RoadBuildResult {
+  const skipWalk = (x: number, z: number) => noSidewalk.some((r) => inFlatRing(r, x, z));
   const strips: RaisedStrip[] = [];
   const carriageways: Carriageway[] = [];
   const visible = roads.filter((r) => !r.tunnel);
@@ -407,8 +440,8 @@ export function buildRoads(geo: ChunkedGeometry, roads: Road[], crossings: Pt[])
       const trimmed = trimPolyline(piece, trimFor(startKey), trimFor(endKey));
       if (trimmed) {
         const dense = densify(trimmed);
-        if (r.sidewalkLeft) sidewalk(geo, dense, half, 1, strips);
-        if (r.sidewalkRight) sidewalk(geo, dense, half, -1, strips);
+        if (r.sidewalkLeft) sidewalk(geo, dense, half, 1, strips, skipWalk);
+        if (r.sidewalkRight) sidewalk(geo, dense, half, -1, strips, skipWalk);
       }
     };
     for (let i = 1; i < r.pts.length; i++) {

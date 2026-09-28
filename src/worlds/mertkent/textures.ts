@@ -849,6 +849,133 @@ export function ironBarsTexture(): THREE.Texture {
   return t;
 }
 
+/** Ferforje süs bandı (alfa): 0.5 m modülde karşılıklı C kıvrımları + dikey çubuk (araç kapısı alt bandı) */
+export function ornBandTexture(): THREE.Texture {
+  const S = 128;
+  const [c, g] = canvas(S, S);
+  g.clearRect(0, 0, S, S);
+  g.strokeStyle = '#1b1c1d';
+  g.lineCap = 'round';
+  g.lineWidth = 5;
+  // Orta dikey çubuk ve kenar çubukları
+  for (const x of [2, S / 2, S - 2]) {
+    g.beginPath();
+    g.moveTo(x, 0);
+    g.lineTo(x, S);
+    g.stroke();
+  }
+  // Dört C kıvrımı (merkez çubuğa simetrik)
+  for (const sx of [-1, 1])
+    for (const sy of [-1, 1]) {
+      g.beginPath();
+      const cx = S / 2 + sx * 30;
+      const cy = S / 2 + sy * 26;
+      g.arc(cx, cy, 20, 0, Math.PI * 2 * 0.8);
+      g.stroke();
+      g.beginPath();
+      g.arc(cx + sx * 6, cy + sy * 4, 7, 0, Math.PI * 2);
+      g.stroke();
+    }
+  const t = tex(c);
+  t.wrapT = THREE.ClampToEdgeWrapping;
+  return t;
+}
+
+/**
+ * Budanmış leylandi çit yüzü (2 m × 1 m, tekrarlı): Street View'daki açık sarımsı yeşil, ince pullu dal uçları,
+ * koyu boşluklar ve kabarık/çukur bölgeler. Renkler 42 blok güney çit karesinden ölçüldü (aydınlık ~#6c8743).
+ */
+export function leylandiiTexture(): THREE.Texture {
+  const W = 1024;
+  const Hh = 512;
+  const [c, g] = canvas(W, Hh);
+  const r = rng(71);
+  g.fillStyle = '#465b31';
+  g.fillRect(0, 0, W, Hh);
+  const wrap = (x: number, y: number, m: number, fn: (X: number, Y: number) => void) => {
+    for (const dx of [-W, 0, W])
+      for (const dy of [-Hh, 0, Hh]) {
+        const X = x + dx;
+        const Y = y + dy;
+        if (X > -m && X < W + m && Y > -m && Y < Hh + m) fn(X, Y);
+      }
+  };
+  // Kabarık (açık) ve çukur (koyu) bölgeler
+  for (let i = 0; i < 140; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const rad = 25 + r() * 70;
+    const dark = r() < 0.45;
+    wrap(x, y, rad, (X, Y) => {
+      const gr = g.createRadialGradient(X, Y, 0, X, Y, rad);
+      gr.addColorStop(0, dark ? 'rgba(28,40,14,0.5)' : 'rgba(150,176,78,0.32)');
+      gr.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = gr;
+      g.fillRect(X - rad, Y - rad, 2 * rad, 2 * rad);
+    });
+  }
+  // Pullu dal uçları (çoğu yukarı-yana), yan filizlerle
+  const pal = ['#6c8a40', '#7b9947', '#89a950', '#97b659', '#a4c066', '#5c7936', '#b0c872', '#839f4b'];
+  g.lineCap = 'round';
+  for (let i = 0; i < 11000; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const ang = -Math.PI / 2 + (r() - 0.5) * 2.4;
+    const len = 7 + r() * 16;
+    const col = pal[Math.floor(r() * pal.length)];
+    const lw = 2 + r() * 2.2;
+    const sides = [0, 1, 2].map(() => [0.7 + r() * 0.5, 0.7 + r() * 0.5]);
+    wrap(x, y, 30, (X, Y) => {
+      g.strokeStyle = col;
+      g.lineWidth = lw;
+      const ex = X + Math.cos(ang) * len;
+      const ey = Y + Math.sin(ang) * len;
+      g.beginPath();
+      g.moveTo(X, Y);
+      g.lineTo(ex, ey);
+      g.stroke();
+      g.lineWidth = lw * 0.65;
+      for (let k = 0; k < 3; k++) {
+        const t = (k + 1) / 4;
+        const px = X + (ex - X) * t;
+        const py = Y + (ey - Y) * t;
+        const l2 = len * 0.38 * (1 - t * 0.5);
+        for (const [sd, sa] of [
+          [-1, sides[k][0]],
+          [1, sides[k][1]],
+        ]) {
+          const a2 = ang + sd * sa;
+          g.beginPath();
+          g.moveTo(px, py);
+          g.lineTo(px + Math.cos(a2) * l2, py + Math.sin(a2) * l2);
+          g.stroke();
+        }
+      }
+    });
+  }
+  // Güneşte parlayan taze uçlar ve derin boşluklar
+  for (let i = 0; i < 6000; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const s = 1.5 + r() * 2.5;
+    const col = r() < 0.5 ? '#c4d676' : '#aec660';
+    wrap(x, y, 4, (X, Y) => {
+      g.fillStyle = col;
+      g.fillRect(X, Y, s, s);
+    });
+  }
+  for (let i = 0; i < 3500; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const s = 2 + r() * 3;
+    wrap(x, y, 6, (X, Y) => {
+      g.fillStyle = 'rgba(22,32,12,0.55)';
+      g.fillRect(X, Y, s, s * 1.4);
+    });
+  }
+  return tex(c);
+}
+
 /** Tuğla kırmızısı kompozit panel (kulübe kaplaması) */
 export function panelTexture(base: string): THREE.Texture {
   const [c, g] = canvas(256, 256);
