@@ -1,0 +1,41 @@
+name: Fetch Street View extra frames
+
+# Elle modelleme için ek referans kareleri (scripts/sv-extra.json) → streetview-src/extra
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/sv-extra.json'
+      - 'scripts/fetch-streetview-extra.mjs'
+      - '.github/workflows/fetch-streetview-extra.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-streetview-extra-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+      - run: npm ci
+      - name: Street View ek kareler
+        env:
+          GOOGLE_STREETVIEW_KEY: ${{ secrets.GOOGLE_STREETVIEW_KEY }}
+        run: node scripts/fetch-streetview-extra.mjs
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add streetview-src
+          if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
+          git commit -m "data: Street View extra reference frames"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

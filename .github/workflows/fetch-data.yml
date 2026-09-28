@@ -8,6 +8,7 @@ on:
     paths:
       - 'scripts/fetch-*.mjs'
       - '!scripts/fetch-streetview.mjs'
+      - '!scripts/fetch-streetview-extra.mjs'
       - 'src/worlds/osm/simplify.ts'
       - '.github/workflows/fetch-data.yml'
 
