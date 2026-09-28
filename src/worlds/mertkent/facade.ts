@@ -605,7 +605,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   const stripHex = (blk.colors as Record<string, string | undefined>).strip ?? '#d98a45';
   const sc = new THREE.Color(stripHex);
   const hsl = { h: 0, s: 0, l: 0 };
-  sc.getHSL(hsl);
+  sc.getHSL(hsl, THREE.SRGBColorSpace);
   const roundStrip = hsl.s > 0.3 && hsl.h > 0.03 && hsl.h < 0.14;
   for (let i = 0; i < N; i++)
     for (const it of items(i)) {
@@ -783,7 +783,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       eave,
       pitchDeg: blk.roof.pitch ?? 26,
       gableEdges: blk.roof.kind === 'gable' ? gables : [],
-      terraceInset: flat ? 0.001 : rf.terrace ? (rf.terraceInset ?? 5) : undefined,
+      terraceInset: flat ? 0.001 : rf.terrace ? (rf.terraceInset ?? 7) : undefined,
       keys: {
         roof: K('mkTile'),
         soffit: K('mkSoffit'),

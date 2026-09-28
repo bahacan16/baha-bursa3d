@@ -6,7 +6,7 @@
   "floorH": 3,
   "roof": {
     "kind": "gable",
-    "eave": 1,
+    "eave": 1.2,
     "fasciaH": 0.95,
     "pitch": 10.5,
     "gables": [
@@ -20,13 +20,13 @@
   },
   "colors": {
     "plaster": "#d9ccb8",
-    "plaster2": "#ecebdf",
-    "strip": "#8f7a78",
-    "fascia": "#eeede3",
+    "plaster2": "#f1efe6",
+    "strip": "#b59f96",
+    "fascia": "#ebe8dc",
     "soffit": "#e3dccb",
-    "railGlass": "#3a4a66",
-    "frame": "#6b4b3a",
-    "tile": "#9a6a5c",
+    "railGlass": "#3b4a63",
+    "frame": "#6e4f40",
+    "tile": "#9b7468",
     "plinth": "#9d978c"
   },
   "edges": [
@@ -175,6 +175,13 @@
           ],
           "kind": "shop",
           "split": 4
+        },
+        {
+          "t": "entrance",
+          "u0": 18.4,
+          "u1": 20,
+          "kind": "lobby",
+          "canopy": false
         },
         {
           "t": "win",
@@ -949,14 +956,6 @@
         {
           "t": "panel",
           "u0": 28.85,
-          "u1": 30.57,
-          "y0": 13.46,
-          "y1": 13.88,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 28.85,
           "u1": 30.58,
           "y0": 10.97,
           "y1": 12.71,
@@ -975,7 +974,7 @@
           "u0": 28.85,
           "u1": 36.31,
           "y0": 12.71,
-          "y1": 13.46,
+          "y1": 13.45,
           "color": "plaster2"
         },
         {
@@ -992,14 +991,6 @@
           "u1": 36.31,
           "y0": 10.02,
           "y1": 10.06,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 34.03,
-          "u1": 36.31,
-          "y0": 13.46,
-          "y1": 13.88,
           "color": "plaster2"
         },
         {
@@ -1069,42 +1060,41 @@
       "ref": "1479658783_1_57pX1ME_.jpg",
       "cal": {
         "u": [
-          0.8,
+          0.9,
           20.85
         ],
         "head": [
           [
-            1,
-            6.44
+            3,
+            12.5
           ],
           [
-            7,
-            24.55
+            6,
+            21.53
           ]
         ]
       },
       "items": [
         {
           "t": "win",
-          "u0": 8.51,
-          "u1": 10.26,
-          "y0": 5.24,
-          "y1": 6.46,
+          "u0": 8.62,
+          "u1": 10.5,
+          "y0": 4.7,
+          "y1": 6.42,
           "k": 1,
           "s": [
             1,
             1
           ],
           "kind": "french",
-          "rail": true,
           "split": 2
         },
         {
           "t": "win",
-          "u0": 11.54,
-          "u1": 12.5,
-          "y0": 5.1,
-          "y1": 6.46,
+          "u0": 11.55,
+          "u1": 12.8,
+          "y0": 5.05,
+          "y1": 6.42,
           "k": 1,
           "s": [
             1,
@@ -1114,10 +1104,10 @@
         },
         {
           "t": "win",
-          "u0": 14.9,
-          "u1": 15.89,
-          "y0": 5.1,
-          "y1": 6.46,
+          "u0": 14.8,
+          "u1": 16.05,
+          "y0": 5.05,
+          "y1": 6.42,
           "k": 1,
           "s": [
             1,
@@ -1126,52 +1116,36 @@
           "split": 2
         },
         {
-          "t": "win",
-          "u0": 10.92,
-          "u1": 11.9,
-          "y0": 8.25,
-          "y1": 9.46,
-          "k": 2,
+          "t": "bal",
+          "u0": 8.1,
+          "u1": 10.61,
+          "d": 0.4,
           "s": [
-            2,
-            2
+            1,
+            1
           ],
-          "split": 2
+          "sides": "open"
         },
         {
           "t": "win",
-          "u0": 13.96,
-          "u1": 14.95,
-          "y0": 8.25,
-          "y1": 9.46,
-          "k": 2,
-          "s": [
-            2,
-            2
-          ],
-          "split": 2
-        },
-        {
-          "t": "win",
-          "u0": 8.5,
-          "u1": 10.2,
-          "y0": 11.25,
-          "y1": 12.37,
+          "u0": 8.6,
+          "u1": 10.5,
+          "y0": 10.3,
+          "y1": 12.5,
           "k": 3,
           "s": [
             3,
             3
           ],
           "kind": "french",
-          "rail": true,
           "split": 2
         },
         {
           "t": "win",
-          "u0": 11.48,
-          "u1": 12.49,
-          "y0": 11,
-          "y1": 12.34,
+          "u0": 11.51,
+          "u1": 12.84,
+          "y0": 11.12,
+          "y1": 12.5,
           "k": 3,
           "s": [
             3,
@@ -1181,10 +1155,10 @@
         },
         {
           "t": "win",
-          "u0": 14.7,
-          "u1": 15.72,
-          "y0": 11,
-          "y1": 12.34,
+          "u0": 14.87,
+          "u1": 16.17,
+          "y0": 11.12,
+          "y1": 12.5,
           "k": 3,
           "s": [
             3,
@@ -1193,37 +1167,48 @@
           "split": 2
         },
         {
+          "t": "bal",
+          "u0": 7.81,
+          "u1": 10.56,
+          "d": 0.5,
+          "s": [
+            3,
+            3
+          ],
+          "sides": "open"
+        },
+        {
           "t": "win",
-          "u0": 11.3,
-          "u1": 12.25,
-          "y0": 17.14,
-          "y1": 18.39,
+          "u0": 11.55,
+          "u1": 12.85,
+          "y0": 17.1,
+          "y1": 18.5,
           "k": 5,
           "s": [
-            4,
+            5,
             6
           ],
           "split": 2
         },
         {
           "t": "win",
-          "u0": 13.9,
-          "u1": 14.95,
-          "y0": 17.14,
-          "y1": 18.39,
+          "u0": 14.75,
+          "u1": 16.05,
+          "y0": 17.1,
+          "y1": 18.5,
           "k": 5,
           "s": [
-            4,
+            5,
             6
           ],
           "split": 2
         },
         {
           "t": "win",
-          "u0": 11.18,
-          "u1": 12.06,
-          "y0": 23.67,
-          "y1": 24.55,
+          "u0": 8.47,
+          "u1": 9.8,
+          "y0": 23.29,
+          "y1": 24.29,
           "k": 7,
           "s": [
             7,
@@ -1233,10 +1218,23 @@
         },
         {
           "t": "win",
-          "u0": 14.03,
-          "u1": 16.08,
-          "y0": 23.47,
-          "y1": 24.55,
+          "u0": 11.45,
+          "u1": 12.85,
+          "y0": 23.29,
+          "y1": 24.29,
+          "k": 7,
+          "s": [
+            7,
+            7
+          ],
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 14.4,
+          "u1": 16.4,
+          "y0": 23.2,
+          "y1": 24.3,
           "k": 7,
           "s": [
             7,
@@ -1248,10 +1246,10 @@
         },
         {
           "t": "win",
-          "u0": 11.96,
-          "u1": 13.02,
-          "y0": 1.35,
-          "y1": 2.9,
+          "u0": 14.22,
+          "u1": 15.52,
+          "y0": 1.83,
+          "y1": 3.55,
           "k": 0,
           "s": [
             0,
@@ -1261,44 +1259,44 @@
         },
         {
           "t": "bal",
-          "u0": 1.04,
-          "u1": 7.29,
+          "u0": 1.1,
+          "u1": 7.35,
           "d": 0,
           "s": [
             1,
             1
           ],
-          "inset": 1.3,
+          "inset": 1.4,
           "sides": "wall"
         },
         {
           "t": "bal",
-          "u0": 3.85,
+          "u0": 3.95,
           "u1": 17.75,
           "d": 0,
           "s": [
             2,
             2
           ],
-          "inset": 1,
+          "inset": 1.4,
           "sides": "wall"
         },
         {
           "t": "bal",
-          "u0": 0.76,
+          "u0": 0.95,
           "u1": 7.94,
           "d": 0,
           "s": [
             3,
             3
           ],
-          "inset": 1.3,
+          "inset": 1.4,
           "sides": "wall"
         },
         {
           "t": "bal",
-          "u0": 1.1,
-          "u1": 8.16,
+          "u0": 4,
+          "u1": 17.7,
           "d": 0,
           "s": [
             4,
@@ -1309,38 +1307,26 @@
         },
         {
           "t": "bal",
-          "u0": 10.9,
-          "u1": 16.9,
-          "d": 0,
-          "s": [
-            4,
-            4
-          ],
-          "inset": 0.9,
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": 0.8,
-          "u1": 8.16,
+          "u0": 4,
+          "u1": 11,
           "d": 0,
           "s": [
             5,
             5
           ],
-          "inset": 1.3,
+          "inset": 1.4,
           "sides": "wall"
         },
         {
           "t": "bal",
-          "u0": 1.75,
-          "u1": 8.16,
+          "u0": 4,
+          "u1": 11,
           "d": 0,
           "s": [
             6,
             6
           ],
-          "inset": 1.3,
+          "inset": 1.4,
           "sides": "wall",
           "glazed": [
             6
@@ -1351,296 +1337,280 @@
         },
         {
           "t": "bal",
-          "u0": 1,
-          "u1": 7.37,
+          "u0": 0.95,
+          "u1": 7.4,
           "d": 0,
           "s": [
             7,
             7
           ],
-          "inset": 1.3,
+          "inset": 1.4,
           "sides": "wall"
         },
         {
           "t": "ac",
           "u": 4.2,
           "s": 2,
-          "y": 9.74
+          "y": 9.1
         },
         {
           "t": "panel",
-          "u0": 7.31,
-          "u1": 8.43,
-          "y0": 5.19,
-          "y1": 6.51,
+          "u0": 7.35,
+          "u1": 8.54,
+          "y0": 4.65,
+          "y1": 6.47,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.31,
-          "u1": 11.46,
-          "y0": 5.05,
-          "y1": 5.19,
+          "u0": 7.35,
+          "u1": 14.14,
+          "y0": 3.45,
+          "y1": 3.6,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.31,
+          "u0": 7.35,
+          "u1": 17.72,
+          "y0": 3.6,
+          "y1": 4.65,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 7.35,
+          "u1": 17.72,
+          "y0": 6.47,
+          "y1": 7.23,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 10.58,
+          "u1": 11.47,
+          "y0": 5,
+          "y1": 6.47,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 10.58,
+          "u1": 17.72,
+          "y0": 4.65,
+          "y1": 5,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 12.88,
+          "u1": 14.72,
+          "y0": 5,
+          "y1": 6.47,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 15.6,
+          "u1": 17.72,
+          "y0": 3.45,
+          "y1": 3.6,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 16.13,
+          "u1": 17.72,
+          "y0": 5,
+          "y1": 6.47,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 7.94,
+          "u1": 8.52,
+          "y0": 10.25,
+          "y1": 12.55,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 7.94,
           "u1": 17.76,
-          "y0": 3.48,
-          "y1": 5.05,
+          "y0": 12.55,
+          "y1": 13.25,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.31,
+          "u0": 10.58,
+          "u1": 11.43,
+          "y0": 11.07,
+          "y1": 12.55,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 10.58,
           "u1": 17.76,
-          "y0": 6.51,
-          "y1": 7.19,
+          "y0": 10.25,
+          "y1": 11.07,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 10.34,
-          "u1": 11.46,
-          "y0": 5.19,
-          "y1": 6.51,
+          "u0": 12.92,
+          "u1": 14.79,
+          "y0": 11.07,
+          "y1": 12.55,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 12.58,
-          "u1": 14.82,
-          "y0": 5.05,
-          "y1": 6.51,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 15.97,
+          "u0": 16.25,
           "u1": 17.76,
-          "y0": 5.05,
-          "y1": 6.51,
+          "y0": 11.07,
+          "y1": 12.55,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.94,
-          "u1": 8.42,
-          "y0": 11.2,
-          "y1": 12.42,
+          "u0": 7.4,
+          "u1": 8.39,
+          "y0": 23.24,
+          "y1": 24.34,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.94,
-          "u1": 11.4,
-          "y0": 10.95,
-          "y1": 11.2,
+          "u0": 7.4,
+          "u1": 14.32,
+          "y0": 23.15,
+          "y1": 23.24,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.94,
-          "u1": 17.33,
-          "y0": 10.21,
-          "y1": 10.95,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 7.94,
-          "u1": 17.33,
-          "y0": 12.42,
-          "y1": 13.23,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 10.28,
-          "u1": 11.4,
-          "y0": 11.2,
-          "y1": 12.39,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 10.28,
-          "u1": 17.33,
-          "y0": 12.39,
-          "y1": 12.42,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 12.57,
-          "u1": 14.62,
-          "y0": 10.95,
-          "y1": 12.39,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 15.8,
-          "u1": 17.33,
-          "y0": 10.95,
-          "y1": 12.39,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 7.37,
-          "u1": 11.1,
-          "y0": 23.62,
-          "y1": 24.6,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 7.37,
-          "u1": 13.95,
-          "y0": 23.42,
-          "y1": 23.62,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 7.37,
-          "u1": 18.06,
+          "u0": 7.4,
+          "u1": 17.7,
           "y0": 22.28,
-          "y1": 23.42,
+          "y1": 23.15,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.37,
-          "u1": 18.06,
-          "y0": 24.6,
-          "y1": 25.31,
+          "u0": 7.4,
+          "u1": 17.7,
+          "y0": 24.35,
+          "y1": 25.35,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 8.16,
-          "u1": 18.06,
-          "y0": 21.86,
+          "u0": 9.88,
+          "u1": 11.37,
+          "y0": 23.24,
+          "y1": 24.34,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 11,
+          "u1": 17.7,
+          "y0": 21.9,
           "y1": 22.28,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 12.14,
-          "u1": 13.95,
-          "y0": 23.62,
-          "y1": 24.6,
+          "u0": 12.93,
+          "u1": 14.32,
+          "y0": 23.24,
+          "y1": 24.34,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 16.16,
-          "u1": 18.06,
-          "y0": 23.42,
-          "y1": 24.6,
+          "u0": 16.48,
+          "u1": 17.7,
+          "y0": 23.15,
+          "y1": 24.34,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 8.16,
-          "u1": 10.9,
-          "y0": 13.24,
-          "y1": 16.25,
+          "u0": 11,
+          "u1": 11.47,
+          "y0": 17.05,
+          "y1": 18.55,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 8.16,
-          "u1": 11.22,
-          "y0": 17.09,
-          "y1": 18.44,
+          "u0": 11,
+          "u1": 11.47,
+          "y0": 20.06,
+          "y1": 21.56,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 8.16,
-          "u1": 11.22,
-          "y0": 20.11,
-          "y1": 21.46,
+          "u0": 11,
+          "u1": 17.4,
+          "y0": 16.26,
+          "y1": 17.05,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 8.16,
-          "u1": 17.35,
-          "y0": 16.25,
-          "y1": 17.09,
+          "u0": 11,
+          "u1": 17.4,
+          "y0": 18.55,
+          "y1": 20.06,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 8.16,
-          "u1": 17.35,
-          "y0": 18.44,
-          "y1": 20.11,
+          "u0": 11,
+          "u1": 17.4,
+          "y0": 21.56,
+          "y1": 21.9,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 8.16,
-          "u1": 17.35,
-          "y0": 21.46,
-          "y1": 21.86,
+          "u0": 12.93,
+          "u1": 14.67,
+          "y0": 17.05,
+          "y1": 18.55,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 12.33,
-          "u1": 13.82,
-          "y0": 17.09,
-          "y1": 18.44,
+          "u0": 12.93,
+          "u1": 14.67,
+          "y0": 20.06,
+          "y1": 21.56,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 12.33,
-          "u1": 13.82,
-          "y0": 20.11,
-          "y1": 21.46,
+          "u0": 16.13,
+          "u1": 17.4,
+          "y0": 17.05,
+          "y1": 18.55,
           "color": "strip"
         },
         {
           "t": "panel",
-          "u0": 15.03,
-          "u1": 17.35,
-          "y0": 17.09,
-          "y1": 18.44,
+          "u0": 16.13,
+          "u1": 17.4,
+          "y0": 20.06,
+          "y1": 21.56,
           "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 15.03,
-          "u1": 17.35,
-          "y0": 20.11,
-          "y1": 21.46,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 16.9,
-          "u1": 17.35,
-          "y0": 13.24,
-          "y1": 16.25,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 17.6,
-          "u1": 18.6,
-          "y0": 1.2,
-          "y1": 3.2,
-          "color": "plaster2"
         }
       ],
-      "note": "GERÇEK koordinat: EbG3+57pX stereo ile (u, derinlik) çözüldü. Zarf = balkon önleri / K1-K3-K7 beyaz kutular (+0.3); GD balkon yığınının arka duvarı ve GD taupe paye ~1.3 m, bordo kaplama ~1.2 m, KD taupe paye ~0.6–1.5 m içeride. K7 beyaz kutu bordo duvardan ~0.8 m konsol. K4 GD balkonunda beyaz güvenlik filesi (K4–K5 arası)."
+      "note": "GERÇEK koordinat (EbG3+57pX, derinlik düzlemlerine kaydırılmış ortofotolarda iki pano uyuşturularak). Derinlikler (taban izi = 0, dışarı +): K1/K7 beyaz kutular ve GD balkon önleri +0.2…+0.45, K3 kutusu −0.5, bordo kaplama ve balkon arka duvarları −1.2…−1.3, GD taupe paye −1.2 (2.0–4.0), KD taupe kule −0.6…−1.4 (17.75–20.85). Balkon önleri taban izinde olduğundan balkonlar loca olarak yazıldı; K2 uzun balkonu (3.95–17.75) arkasında 3 pencere var (8.64–10.5 fransız, 11.56–12.81, 14.79–16.1; −1.27), K4 terasında bordo pencereler (11.55–12.85, 14.75–16.05) — loca içinde kaldıkları için üretici bunları kendi kapı/penceresiyle değiştirir. K4–K6 GD yığını 4.0’dan başlar (0.8–2.0 arası boşluk, 2.0–4.0 taupe paye); K1/K3/K7 balkonları köşeye (0.95) uzanır. K0 girişi (18.9–20.7, cam lobi + beyaz tabela panosu) tahmini."
     },
     {
       "edge": 2,
@@ -1648,7 +1618,7 @@
       "seen": "partial",
       "copyOf": 0,
       "items": [],
-      "note": "Kuzey cephe yalnızca eski 90° karelerde (_-ul, 0Pe2) çok eğik ve Özhan binasının arkasından görülüyor. Bina nokta simetrik: KD köşede GB kulenin aynısı (beyaz çerçeveli fransız pencereler), yanında cam balkon kolonu, ortada kademeli balkonlar + büyük cam balkonlar (K5–K7), lacivert cam kule, KB köşede GD cumbanın aynısı (4 kanatlı pencereler, K3/K7 beyaz kutular). copyOf 0 (mirror yok: 180° dönüşte u korunur). Farklar: KB köşe K0 = \"KALE KİLİT\" çilingir dükkanı (tabela, vitrin) + üstünde beyaz K1 kutusu; orta balkonların bir kısmı cam balkon."
+      "note": "Kuzey cephe yalnızca eski 90° karelerde (_-ul KD’dan, 0Pe2 KB’den; çok eğik, Özhan binası önünde) görülüyor. Bina nokta simetrik: KD köşede GB kulenin aynısı (beyaz çerçeveli, koyu cam korkuluklu fransız pencereler K1–K6), yanında cam balkon kolonu, ortada kademeli balkonlar + geniş cam balkonlar (K5–K7), lacivert cam merdiven kulesi, KB köşede GD cumbanın aynısı (4 kanatlı pencereler; K1 ve K7 önünde beyaz kutu). copyOf 0 (mirror yok: 180° dönüşte kenar yönü de döner, u korunur). Farklar: KB köşe K0 = \"KALE KİLİT\" çilingir dükkanı (lacivert tabela, vitrin)."
     },
     {
       "edge": 3,
@@ -1657,27 +1627,27 @@
       "ref": "1479658783_3_lyr3BzCu.jpg",
       "cal": {
         "u": [
-          -0.3,
+          0,
           20.1
         ],
         "head": [
           [
             1,
-            6.85
+            6.68
           ],
           [
-            4,
-            15.85
+            7,
+            24.8
           ]
         ]
       },
       "items": [
         {
           "t": "win",
-          "u0": 1.83,
-          "u1": 4.85,
+          "u0": 1,
+          "u1": 4.6,
           "y0": 1.3,
-          "y1": 3.82,
+          "y1": 3.8,
           "k": 0,
           "s": [
             0,
@@ -1689,9 +1659,9 @@
         {
           "t": "win",
           "u0": 4.6,
-          "u1": 5.85,
-          "y0": 5.55,
-          "y1": 6.85,
+          "u1": 5.9,
+          "y0": 5.3,
+          "y1": 6.68,
           "k": 1,
           "s": [
             1,
@@ -1701,10 +1671,10 @@
         },
         {
           "t": "win",
-          "u0": 7.95,
-          "u1": 9.1,
-          "y0": 5.55,
-          "y1": 6.85,
+          "u0": 7.94,
+          "u1": 9.2,
+          "y0": 5.3,
+          "y1": 6.68,
           "k": 1,
           "s": [
             1,
@@ -1714,10 +1684,10 @@
         },
         {
           "t": "win",
-          "u0": 10.45,
-          "u1": 12.3,
-          "y0": 5,
-          "y1": 6.85,
+          "u0": 10.58,
+          "u1": 12.4,
+          "y0": 4.85,
+          "y1": 6.68,
           "k": 1,
           "s": [
             1,
@@ -1729,11 +1699,11 @@
         },
         {
           "t": "win",
-          "u0": 10.6,
-          "u1": 11.85,
-          "y0": 14.6,
-          "y1": 15.75,
-          "k": 4,
+          "u0": 10.7,
+          "u1": 11.97,
+          "y0": 11.35,
+          "y1": 12.72,
+          "k": 3,
           "s": [
             2,
             4
@@ -1742,11 +1712,11 @@
         },
         {
           "t": "win",
-          "u0": 13.95,
-          "u1": 15.2,
-          "y0": 14.6,
-          "y1": 15.75,
-          "k": 4,
+          "u0": 14.08,
+          "u1": 15.44,
+          "y0": 11.35,
+          "y1": 12.72,
+          "k": 3,
           "s": [
             2,
             4
@@ -1755,10 +1725,25 @@
         },
         {
           "t": "win",
-          "u0": 11.19,
-          "u1": 12.48,
-          "y0": 17.78,
-          "y1": 18.85,
+          "u0": 7.88,
+          "u1": 9.69,
+          "y0": 17,
+          "y1": 18.8,
+          "k": 5,
+          "s": [
+            5,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 10.74,
+          "u1": 12.02,
+          "y0": 17.55,
+          "y1": 18.8,
           "k": 5,
           "s": [
             5,
@@ -1768,10 +1753,10 @@
         },
         {
           "t": "win",
-          "u0": 14.51,
-          "u1": 15.8,
-          "y0": 17.78,
-          "y1": 18.85,
+          "u0": 14.11,
+          "u1": 15.42,
+          "y0": 17.55,
+          "y1": 18.8,
           "k": 5,
           "s": [
             5,
@@ -1781,10 +1766,10 @@
         },
         {
           "t": "win",
-          "u0": 8,
-          "u1": 9.2,
-          "y0": 23.75,
-          "y1": 24.85,
+          "u0": 8.11,
+          "u1": 9.38,
+          "y0": 23.73,
+          "y1": 24.8,
           "k": 7,
           "s": [
             7,
@@ -1793,88 +1778,109 @@
           "split": 2
         },
         {
-          "t": "bal",
-          "u0": 13.3,
-          "u1": 15.3,
-          "d": 0,
-          "s": [
-            1,
-            1
-          ],
-          "inset": 1,
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": 2.3,
-          "u1": 10.45,
-          "d": 0,
-          "s": [
-            2,
-            2
-          ],
-          "inset": 1.25,
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": 2.3,
-          "u1": 10.45,
-          "d": 0,
-          "s": [
-            3,
-            4
-          ],
-          "inset": 1.25,
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": -0.3,
-          "u1": 7.7,
-          "d": 0,
-          "s": [
-            5,
-            5
-          ],
-          "inset": 1.3,
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": 7.9,
-          "u1": 10,
-          "d": 0,
-          "s": [
-            5,
-            5
-          ],
-          "inset": 1.6,
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": 2.3,
-          "u1": 16.98,
-          "d": 0,
-          "s": [
-            6,
-            6
-          ],
-          "inset": 1.3,
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": 2.2,
-          "u1": 5.5,
-          "d": 0,
+          "t": "win",
+          "u0": 10.8,
+          "u1": 12.03,
+          "y0": 23.73,
+          "y1": 24.8,
+          "k": 7,
           "s": [
             7,
             7
           ],
-          "inset": 1.2,
-          "sides": "wall",
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 13.62,
+          "u1": 15.67,
+          "y0": 23.6,
+          "y1": 24.8,
+          "k": 7,
+          "s": [
+            7,
+            7
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "bal",
+          "u0": 13.01,
+          "u1": 20.12,
+          "d": 1.65,
+          "s": [
+            1,
+            1
+          ],
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 1.23,
+          "u1": 12.89,
+          "d": 1.65,
+          "s": [
+            2,
+            2
+          ],
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 1.29,
+          "u1": 9.44,
+          "d": 1.65,
+          "s": [
+            3,
+            4
+          ],
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": -1.99,
+          "u1": 6.53,
+          "d": 1.2,
+          "s": [
+            5,
+            5
+          ],
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 1.43,
+          "u1": 9.39,
+          "d": 1.6,
+          "s": [
+            6,
+            6
+          ],
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 9.71,
+          "u1": 17.26,
+          "d": 0.9,
+          "s": [
+            6,
+            6
+          ],
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 1.27,
+          "u1": 4.96,
+          "d": 1.65,
+          "s": [
+            7,
+            7
+          ],
+          "sides": "end-wall",
           "glazed": [
             7
           ],
@@ -1884,171 +1890,222 @@
         },
         {
           "t": "ac",
-          "u": 16.66,
+          "u": 3.6,
+          "s": 3,
+          "y": 12.6
+        },
+        {
+          "t": "ac",
+          "u": 15.94,
           "s": 6,
           "onBal": true
         },
         {
           "t": "ac",
-          "u": 17.58,
+          "u": 17.02,
           "s": 6,
-          "onBal": true
-        },
-        {
-          "t": "ac",
-          "u": 1.62,
-          "s": 4,
           "onBal": true
         },
         {
           "t": "panel",
-          "u0": -0.3,
+          "u0": 0.03,
+          "u1": 3.05,
+          "y0": 3.95,
+          "y1": 7.08,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 3.05,
           "u1": 4.52,
-          "y0": 5.5,
-          "y1": 6.9,
+          "y0": 5.25,
+          "y1": 6.73,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": -0.3,
-          "u1": 10.37,
-          "y0": 4.95,
-          "y1": 5.5,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": -0.3,
-          "u1": 13.3,
-          "y0": 4.1,
-          "y1": 4.95,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": -0.3,
-          "u1": 13.3,
-          "y0": 6.9,
-          "y1": 7.35,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 5.93,
-          "u1": 7.87,
-          "y0": 5.5,
-          "y1": 6.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 9.18,
-          "u1": 10.37,
-          "y0": 5.5,
-          "y1": 6.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 12.38,
-          "u1": 13.3,
-          "y0": 4.95,
-          "y1": 6.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 15.3,
-          "u1": 19,
-          "y0": 4.1,
-          "y1": 7.35,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 10.01,
-          "u1": 11.11,
-          "y0": 17.73,
-          "y1": 18.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 10.01,
-          "u1": 16.98,
-          "y0": 16.6,
-          "y1": 17.73,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 10.01,
-          "u1": 16.98,
-          "y0": 18.9,
-          "y1": 19.6,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 10.45,
-          "u1": 16.98,
-          "y0": 16.28,
-          "y1": 16.6,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 12.56,
-          "u1": 14.43,
-          "y0": 17.73,
-          "y1": 18.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 15.88,
-          "u1": 16.98,
-          "y0": 17.73,
-          "y1": 18.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 5.5,
-          "u1": 7.92,
-          "y0": 23.7,
-          "y1": 24.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 5.5,
+          "u0": 3.05,
           "u1": 10.5,
-          "y0": 22.6,
-          "y1": 23.7,
+          "y0": 4.8,
+          "y1": 5.25,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 5.5,
-          "u1": 10.5,
-          "y0": 24.9,
-          "y1": 25.6,
+          "u0": 3.05,
+          "u1": 13.15,
+          "y0": 3.95,
+          "y1": 4.8,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 3.05,
+          "u1": 13.15,
+          "y0": 6.73,
+          "y1": 7.44,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 5.98,
+          "u1": 7.86,
+          "y0": 5.25,
+          "y1": 6.73,
           "color": "plaster2"
         },
         {
           "t": "panel",
           "u0": 9.28,
           "u1": 10.5,
-          "y0": 23.7,
-          "y1": 24.9,
+          "y0": 5.25,
+          "y1": 6.73,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 12.48,
+          "u1": 13.15,
+          "y0": 4.8,
+          "y1": 6.73,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 13.15,
+          "u1": 20.1,
+          "y0": 3.95,
+          "y1": 7.44,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 7.6,
+          "u1": 7.8,
+          "y0": 16.95,
+          "y1": 18.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 7.6,
+          "u1": 17.06,
+          "y0": 16.04,
+          "y1": 16.95,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 7.6,
+          "u1": 17.06,
+          "y0": 18.85,
+          "y1": 19.52,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 9.77,
+          "u1": 10.66,
+          "y0": 17.5,
+          "y1": 18.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 9.77,
+          "u1": 17.06,
+          "y0": 16.95,
+          "y1": 17.5,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 12.1,
+          "u1": 14.03,
+          "y0": 17.5,
+          "y1": 18.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 15.5,
+          "u1": 17.06,
+          "y0": 17.5,
+          "y1": 18.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 6.3,
+          "u1": 8.03,
+          "y0": 23.68,
+          "y1": 24.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 6.3,
+          "u1": 13.54,
+          "y0": 23.55,
+          "y1": 23.68,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 6.3,
+          "u1": 16.9,
+          "y0": 22.14,
+          "y1": 23.55,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 6.3,
+          "u1": 16.9,
+          "y0": 24.85,
+          "y1": 25.6,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 9.46,
+          "u1": 10.72,
+          "y0": 23.68,
+          "y1": 24.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 12.11,
+          "u1": 13.54,
+          "y0": 23.68,
+          "y1": 24.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 15.75,
+          "u1": 16.9,
+          "y0": 23.55,
+          "y1": 24.85,
           "color": "plaster2"
         }
       ],
-      "note": "GERÇEK koordinat: ev6x+lyr3, zarf (+2.45) ve duvar (+0.8) düzlemlerine kaydırılmış ortofotolardan okundu. Zarf = K1 beyaz kutu + balkon önleri; taupe duvar 1.65 m, KB paye 1.25 m, GB paye ~2.4 m içeride (GB köşe güney cephedeki GB kule ile tam örtüşmüyor — kenarlar ayrı ayrı ize oturtuldu). K0 KB köşede \"HAS KİLİT\" çilingir dükkanı (kırmızı tabela + marka logoları)."
+      "note": "GERÇEK koordinat (ev6x+lyr3, +2.45 / +1.65 / +0.8 düzlemlerine kaydırılmış ortofotolardan). Bu cephe taban izinin DIŞINDA: ana taupe duvar +0.8, KB paye +1.2…+1.6, K5 kutusu +1.65, K1/K7 beyaz kutular ve balkon önleri +2.45 (taban izi batı kenarı gerçek cepheden ~0.8–2.45 m içeride). Ana duvar taban izine oturtulup balkonlar d≈1.65 çıkma yazıldı; beyaz kutular (K1 3.05–13.15, K5 7.6–17.06, K7 5.45–16.9) düz pano (gerçekte 0.85–1.7 m çıkıntılı hacimler). K7 pencereleri kısmen yalnız ev6x’te (güneş parlaması). K1 GB balkonu (13.2–19.3) ağaç arkasında, iki panoda farklı parçaları görülüyor — tahmini."
     }
   ],
   "notes": [
-    "taslak"
+    "Salusvizyon Sitesi apartmanı (OSM 1479658783, Cavit Orhan Tütengil Cd.): Mertkent bloklarından tamamen farklı dil — turuncu şerit YOK. Ana sıva sıcak taupe/bej (plaster), üstüne yığılmış parlak beyaz sıvalı kutular/çerçeveler (plaster2), balkon döşeme alınları kalın beyaz bant + koyu lacivert-füme cam korkuluk (fascia/railGlass), pencere doğramaları kahverengi (ahşap görünümlü PVC).",
+    "Kat sayısı: K0 (yüksek zemin kat, döşeme sokaktan ~1.4 m; GB/KB köşede çilingir dükkanları, güney ortada lobi camı) + K1–K7 = 8 normal kat; üstte K8 çatı katı tonoz (yay) çatının içinde. Kat yüksekliği 3.0 m (güney 2.99, doğu 3.01, batı 3.02 ölçüldü). K8 döşemesinde (~25.0–26.6) tüm cepheyi saran kalın krem korniş bandı; üstündeki K8 cephesi beyaz, 1 m'lik küçük pencereli (k=8 öğeleri bilgi amaçlı; S=8 olduğundan üretici çizmez).",
+    "Çatı: GERÇEKTE kuzey-güney eksenli basık TONOZ (yay) — güney ve kuzey cephede kemerli alınlık (u −1…37.5 arasında 26.8'den ~30.2'ye yükselen yay, kahve-bakır rengi yuvarlak saçak alnı), doğu/batıda ~1.2 m+ saçak; kahverengi-kırmızı kiremit/kenet kaplama. Şemada 'gable' (alınlık kenar 0 ve 2, eğim 10.5°) ile yaklaşıldı; alınlık içinde 2 çatı terası locası (güney u≈9.5–12.5, 13.5–17.5).",
+    "Köşe kuleleri (nokta simetrik): GB ve KD köşede dikey 'kule' — iki yanda yatay derzli (≈0.5 m aralık) taupe paye, ortada beyaz çerçeveli sütun: her katta koyu cam korkuluklu fransız pencere, altında beyaz raf, üstünde beyaz başlık (K2–K6). GD ve KB köşede cumba: beyaz çerçeveli 4 kanatlı pencereler, K3 ve K7'de beyaz çıkma kutu (K3 kutusunun damı K4 terası), K1 önünde beyaz tente.",
+    "Taupe payeler/kuleler yatay taş derzli (her ~0.5 m bir koyu derz çizgisi) — sıva dokusunda yatay çizgi olarak verilirse gerçeğe yaklaşır.",
+    "Lacivert cam giydirme merdiven/asansör kulesi güney cephede u≈25.95–28.1 (K0'dan çatıya), içinde her katta beyaz çerçeveli küçük pencere ve 2 beyaz tente; ana duvardan ~0.4 m daha içeride. Kuzeyde simetriği var.",
+    "Balkon dili: tüm balkonlar gerçekte konsol (uçları açık, alt yüzde yuvarlak spot lambalar), ön yüz kalın beyaz döşeme alnı (~0.5 m) + ~0.6 m koyu cam korkuluk; güney orta yığının sağ ucu pahlı (K2/K3/K6'da sağ 3 m ~0.6 m geri basamaklı). Güney ve doğuda balkon önleri taban izi hattında (duvarlar 1.2–2 m içeride) → loca (d:0+inset) yazıldı; batıda cephe taban izinin dışında → çıkma (d≈1.65).",
+    "Cam balkonlar (koyu, dar alüminyum kayıtlı katlanır cam): güney GB bölgede K2/K4 (u 4.1–5.9), K2–K4 (8.1–10.7), K5 (4.05–10.6), K6 (4.1–5.9, 6.3–11.1), K7 (−0.3–5.9); doğu K6 (4.0–11.0, sol ucunda beyaz PVC kasalı köşe); batı K7 (3.1–6.3). Doğu K4 GD balkonunda korkuluk üstünde beyaz güvenlik filesi.",
+    "Doğu cephe: K4–K6 arası u 11.0–17.4'te bordo-kahve (mor-kahve) kompozit panel kaplama (renk 'strip' anahtarına yazıldı; bu binada turuncu şerit olmadığı için strip = bordo kaplama). Batı ve doğu K1/K3/K5/K7'de beyaz çıkma kutular (düz pano olarak).",
+    "Taban izi uyumsuzluğu: güney cephe kule önleri taban izinin ~0.4 m, orta duvar ~2 m içinde; doğuda balkon önleri +0.3, duvarlar −1.2; batıda ana duvar +0.8, balkon önleri/beyaz kutular +2.45 DIŞINDA (batı kenar ~1–2 m içeride). Öğeler gerçek (pano çerçevesi) u'da; cal.u gerçek köşeleri taban izi uçlarına eşler.",
+    "Kuzey cephe (kenar 2) fotoğrafla ölçülemedi (yalnız eski 90° eğik kareler): güneyin nokta simetriği kabul edilip copyOf 0. KB köşe K0'da 'KALE KİLİT' dükkanı, batı KB köşe K0'da 'HAS KİLİT' dükkanı (kırmızı tabela + Yale/Kale/Desi logoları).",
+    "Renkler güneşli yüzeylerden: taupe #d9ccb8 (#d6cbbb–#e4d7c5), beyaz #f1efe6 (#f5f5fa–#fafaf2), korniş #e0dbcd, bordo güneşte #cdbaac / gölgede #6b626a → #b59f96, cam korkuluk #3b4a63, kiremit hava fotoğrafından #9d807b."
   ]
 }

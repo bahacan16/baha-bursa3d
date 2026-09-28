@@ -447,7 +447,8 @@ export const TREE_SPECIES: {
     cardSize: 1.1,
     leaf: 'aspen',
     bark: 'birch',
-    tint: 0xe0e8bc,
+    // Doku sonbahar sarısı (~#c39637); Eylül Street View karelerinde tüm ağaçlar yeşil → yeşile çekilir
+    tint: 0x60c090,
     opts: {
       seed: 18020,
       type: 'deciduous',

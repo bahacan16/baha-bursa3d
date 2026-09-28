@@ -194,7 +194,8 @@ function areaKey(a: SiteArea): string {
       if (/gri|grey|gray/.test(m)) return 'spRubberGrey';
       return 'spRubberRed';
     case 'court':
-      return /yeşil|green/.test(m) ? 'spCourtGreen' : 'spCourtBeige';
+      // Yalnızca zemin malzemesi metni (notlarda çevre çitinin rengi geçebiliyor)
+      return /yeşil|green/.test((a.material ?? '').toLowerCase()) ? 'spCourtGreen' : 'spCourtBeige';
     case 'bed':
       return 'spMulch';
     case 'gravel':

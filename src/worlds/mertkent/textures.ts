@@ -307,7 +307,7 @@ export function roofTileTexture(base = '#9c4a2c'): THREE.Texture {
   const r = rng(21);
   const bc = new THREE.Color(base);
   const hsl = { h: 0, s: 0, l: 0 };
-  bc.getHSL(hsl);
+  bc.getHSL(hsl, THREE.SRGBColorSpace);
   const H0 = hsl.h * 360;
   const S0 = hsl.s * 100;
   const L0 = hsl.l * 100;

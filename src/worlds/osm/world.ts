@@ -182,8 +182,8 @@ export class GroundIndex {
 const TREE_NEAR_R = 110;
 const TREE_NEAR_MAX = 1500;
 /** Dallı-yapraklı (ez-tree) ağaç yarıçapı / tür başına üst sınır — ağaç başı ~2–4k üçgen. */
-const TREE_EZ_R = { low: 0, medium: 45, high: 70 } as const;
-const TREE_EZ_MAX = 350;
+const TREE_EZ_R = { low: 0, medium: 65, high: 100 } as const;
+const TREE_EZ_MAX = 600;
 
 export class OsmWorld implements IWorld {
   readonly kind = 'osm' as const;
