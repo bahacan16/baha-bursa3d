@@ -55,6 +55,8 @@ export class Game {
   /** Fotoğraf modu: HUD gizli, serbest kamera, oyuncu donuk. */
   photoMode = false;
   private photo = { pos: new THREE.Vector3(), yaw: 0, pitch: 0 };
+  /** Hata ayıklama: Street View karesiyle birebir karşılaştırma için sabit kamera (heading/pitch derece, pusula). */
+  debugCam: { x: number; y: number; z: number; heading: number; pitch: number; fov: number } | null = null;
   private pendingShot = false;
   onPhotoChange: (on: boolean) => void = () => {};
   world: IWorld | null = null;
@@ -335,7 +337,18 @@ export class Game {
     const c = this.controller;
     this.renderPos.lerpVectors(c.prevPosition, c.position, alpha);
     this.character.update(dt, this.renderPos, c.heading, c.horizontalSpeed, c.onGround);
-    if (this.photoMode) {
+    if (this.debugCam) this.character.root.visible = false;
+    if (this.debugCam) {
+      const d = this.debugCam;
+      const h = (d.heading * Math.PI) / 180;
+      const p = (d.pitch * Math.PI) / 180;
+      this.camera.position.set(d.x, d.y, d.z);
+      this.camera.lookAt(d.x + Math.sin(h) * Math.cos(p), d.y + Math.sin(p), d.z - Math.cos(h) * Math.cos(p));
+      if (this.camera.fov !== d.fov) {
+        this.camera.fov = d.fov;
+        this.camera.updateProjectionMatrix();
+      }
+    } else if (this.photoMode) {
       const ph = this.photo;
       const cp = Math.cos(ph.pitch);
       this.camera.position.copy(ph.pos);

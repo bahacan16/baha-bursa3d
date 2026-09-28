@@ -97,7 +97,11 @@ async function json<T>(url: string): Promise<T | null> {
  * - cepheler: bake edilmiş atlas, ilgili duvarların 5 cm önünde ince kabuk (fotoğraf + aynı binadan döşenmiş)
  * - site çitleri: bordür + fotoğraf dokulu çalı/panel çit kutusu (çarpışmalı)
  */
-export async function loadStreetViewFacades(base: string, collide?: Collider): Promise<THREE.Group | null> {
+export async function loadStreetViewFacades(
+  base: string,
+  collide?: Collider,
+  opts: { skipBuilding?: (id: number) => boolean; skipFence?: (x: number, z: number) => boolean } = {},
+): Promise<THREE.Group | null> {
   const group = new THREE.Group();
   group.name = 'streetview';
   const loader = new THREE.TextureLoader();
@@ -105,7 +109,7 @@ export async function loadStreetViewFacades(base: string, collide?: Collider): P
     const dir = `${base}streetview/${slug}/`;
     const bake = await json<FacadeBake>(`${dir}facades.json`);
     if (bake) {
-      const walls = bake.walls.filter((w) => w.cover >= MIN_COVER);
+      const walls = bake.walls.filter((w) => w.cover >= MIN_COVER && !opts.skipBuilding?.(w.b));
       const tex = await loader.loadAsync(`${dir}facades.jpg`);
       tex.colorSpace = THREE.SRGBColorSpace;
       tex.anisotropy = 8;
@@ -147,6 +151,7 @@ export async function loadStreetViewFacades(base: string, collide?: Collider): P
       const cq = new QuadBuilder();
       let run = 0;
       for (const s of fences.segs) {
+        if (opts.skipFence?.((s.a[0] + s.e[0]) / 2, (s.a[1] + s.e[1]) / 2)) continue;
         // n: yola bakan yön; çalı kutusu çit hattından içeri (−n) doğru HEDGE_D derinlikte
         const [nx, nz] = s.n;
         const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);

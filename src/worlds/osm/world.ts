@@ -15,6 +15,7 @@ import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
+import { buildMertkent, HANDMADE_IDS } from '../mertkent';
 import { StreetProps } from './streetprops';
 import { createDetailedTrees } from './treemesh';
 import { Pedestrians } from '../../sim/pedestrians';
@@ -341,8 +342,14 @@ export class OsmWorld implements IWorld {
     } catch {
       /* yoksa rastgele dağıtım */
     }
+    // Elle modellenmiş bölge (Mertkent 2 + Özhan): OSM'den otomatik bina üretilmez
+    const real = simple.centerSource !== 'fixture';
+    const handmade = real && !new URLSearchParams(location.search).has('nohand');
+    const simpleBuild = handmade
+      ? { ...simple, ways: simple.ways.filter((w) => !HANDMADE_IDS.has(w.i)) }
+      : simple;
     const res = await buildInWorker(
-      simple,
+      simpleBuild,
       quality,
       terrain?.near ?? null,
       roofColors,
@@ -351,15 +358,33 @@ export class OsmWorld implements IWorld {
     );
     progress(0.95, 'Sahne kuruluyor');
     const world = new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);
-    // Pilot: Street View'dan bake edilmiş gerçek cepheler
+    const collide = (ring: [number, number][], b: number, t: number) => world.collision.addRing(ring, b, t);
+    let fenceSkip: ((x: number, z: number) => boolean) | undefined;
+    if (handmade) {
+      try {
+        const mk = await buildMertkent({
+          simple,
+          base: import.meta.env.BASE_URL,
+          H,
+          shadows: quality !== 'low',
+          collide,
+        });
+        world.object.add(mk.group);
+        fenceSkip = mk.fenceSkip;
+      } catch (e) {
+        console.warn('Mertkent el modeli kurulamadı', e);
+      }
+    }
+    // Street View'dan bake edilmiş cepheler (el modeli olmayan binalar) ve site çitleri
     try {
       // Bake gerçek OSM verisinin koordinatlarına göre; sentetik fixture'da yüklenmez
       const sv =
-        simple.centerSource === 'fixture' || new URLSearchParams(location.search).has('nosv')
+        !real || new URLSearchParams(location.search).has('nosv')
           ? null
-          : await loadStreetViewFacades(import.meta.env.BASE_URL, (ring, b, t) =>
-              world.collision.addRing(ring, b, t),
-            );
+          : await loadStreetViewFacades(import.meta.env.BASE_URL, collide, {
+              skipBuilding: handmade ? (id) => HANDMADE_IDS.has(id) : undefined,
+              skipFence: fenceSkip,
+            });
       if (sv) world.object.add(sv);
     } catch (e) {
       console.warn('Street View cepheleri yüklenemedi', e);

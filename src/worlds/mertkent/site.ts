@@ -1,0 +1,131 @@
+import * as THREE from 'three';
+import { Builder, type V2 } from './builder';
+
+/**
+ * Mertkent site sınırı (Street View): yatay oluklu beyaz taş kaplı alçak duvar (0.65 m), ince bej harpuşta,
+ * ~3 m arayla turuncu kare kolonlar ve üstünde beyaz küre lamba, duvar üstünde yeşil panel çit,
+ * arkasında sık leylandi çitı, üstte jiletli tel.
+ */
+export interface FenceSeg {
+  a: V2;
+  e: V2;
+  y0: number;
+  /** yola bakan birim normal */
+  n: V2;
+}
+
+const WALL_H = 0.8;
+const WALL_T = 0.3;
+const PANEL_H = 1.1;
+const PILLAR = 0.3;
+const PILLAR_H = 1.3;
+const HEDGE_D = 0.9;
+const HEDGE_H = 2.0;
+const PILLAR_STEP = 4.6;
+
+type Collide = (ring: [number, number][], bottom: number, top: number) => void;
+
+/** a→e kenarını, ön yüz normali n olacak şekilde döndür. */
+function facing(a: V2, e: V2, n: V2): [V2, V2] {
+  const dx = e[0] - a[0];
+  const dz = e[1] - a[1];
+  return -dz * n[0] + dx * n[1] >= 0 ? [a, e] : [e, a];
+}
+
+export function buildFence(b: Builder, segs: FenceSeg[], gates: V2[], collide?: Collide): void {
+  let pillarRun = 0;
+  for (const s of segs) {
+    const [nx, nz] = s.n;
+    const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);
+    if (len < 0.2) continue;
+    const t: V2 = [(s.e[0] - s.a[0]) / len, (s.e[1] - s.a[1]) / len];
+    const yaw = Math.atan2(-t[1], t[0]);
+    const y0 = s.y0;
+    // Kapı açıklığı: bu parça bir kapı konumunu kesiyorsa o aralığı boş bırak (kapı ayrı çizilir)
+    const cuts: [number, number][] = [];
+    for (const g of gates) {
+      const u = (g[0] - s.a[0]) * t[0] + (g[1] - s.a[1]) * t[1];
+      const v = Math.abs((g[0] - s.a[0]) * nx + (g[1] - s.a[1]) * nz);
+      if (v < 2.5 && u > -1.6 && u < len + 1.6) cuts.push([u - 1.6, u + 1.6]);
+    }
+    const pieces: [number, number][] = [];
+    let cur = 0;
+    for (const [c0, c1] of cuts.sort((p, q) => p[0] - q[0])) {
+      if (c0 > cur) pieces.push([cur, Math.min(c0, len)]);
+      cur = Math.max(cur, c1);
+    }
+    if (cur < len) pieces.push([cur, len]);
+    for (const [u0, u1] of pieces) {
+      if (u1 - u0 < 0.1) continue;
+      const P = (u: number, off: number): V2 => [s.a[0] + t[0] * u - nx * off, s.a[1] + t[1] * u - nz * off];
+      const L = u1 - u0;
+      // Duvar: ön (yola bakan), arka, üst harpuşta
+      const [fa, fe] = facing(P(u0, 0), P(u1, 0), s.n);
+      b.wall('stone', fa, fe, y0 - 0.3, y0 + WALL_H, [0, 0, L, (WALL_H + 0.3) / 0.8]);
+      const [ba, be] = facing(P(u0, WALL_T), P(u1, WALL_T), [-nx, -nz]);
+      b.wall('stone', ba, be, y0 - 0.3, y0 + WALL_H, [0, 0, L, (WALL_H + 0.3) / 0.8]);
+      const mc = P((u0 + u1) / 2, WALL_T / 2);
+      b.box('cap', [mc[0], y0 + WALL_H + 0.025, mc[1]], [L, 0.05, WALL_T + 0.06], yaw);
+      // Panel çit (duvar ekseninde)
+      const pa = P(u0, WALL_T / 2);
+      const pe = P(u1, WALL_T / 2);
+      b.wall('panel', pa, pe, y0 + WALL_H + 0.05, y0 + WALL_H + 0.05 + PANEL_H, [0, 0, L / 2.5, 1]);
+      // Çalı kutusu (arkada)
+      const hc = P((u0 + u1) / 2, WALL_T + HEDGE_D / 2 + 0.05);
+      b.box('hedge', [hc[0], y0 + HEDGE_H / 2, hc[1]], [L, HEDGE_H, HEDGE_D], yaw, 0.7, 0b111111 & ~0b100000);
+      // Jiletli tel (çalının üstünde, halkalar)
+      for (let u = u0 + 0.15; u < u1; u += 0.32) {
+        const p = P(u, WALL_T + 0.3);
+        const ring = new THREE.TorusGeometry(0.26, 0.008, 3, 14);
+        ring.rotateY(yaw + Math.PI / 2 + 0.35);
+        ring.translate(p[0], y0 + HEDGE_H + 0.22, p[1]);
+        b.geometry('wire', ring);
+      }
+      // Kolonlar + küre lamba
+      for (let u = u0; u <= u1 + 1e-6; u += 0.1) {
+        pillarRun += 0.1;
+        if (pillarRun < PILLAR_STEP && u > u0) continue;
+        pillarRun = 0;
+        const p = P(Math.min(u, u1), WALL_T / 2);
+        b.box('ochre', [p[0], y0 + PILLAR_H / 2 - 0.15, p[1]], [PILLAR, PILLAR_H + 0.3, PILLAR], yaw);
+        b.box('capDark', [p[0], y0 + PILLAR_H + 0.03, p[1]], [PILLAR + 0.06, 0.06, PILLAR + 0.06], yaw);
+        b.cylinder('capDark', [p[0], y0 + PILLAR_H + 0.06, p[1]], 0.05, 0.08, 6);
+        b.sphere('globe', [p[0], y0 + PILLAR_H + 0.24, p[1]], 0.13, 10);
+      }
+      const r0 = P(u0, -0.02);
+      const r1 = P(u1, -0.02);
+      const r2 = P(u1, WALL_T + HEDGE_D);
+      const r3 = P(u0, WALL_T + HEDGE_D);
+      collide?.([r0, r1, r2, r3], y0 - 1, y0 + HEDGE_H);
+    }
+  }
+}
+
+/**
+ * Site giriş kapısı: siyah kutu portal, üstünde "MERTKENT / Sitesi 2.Etap" yazılı siyah başlık,
+ * altın desenli siyah kapı kanadı, yanlarda altın baklava süslü siyah kolonlar.
+ */
+export function buildGate(b: Builder, c: V2, n: V2, y0: number): void {
+  const t: V2 = [n[1], -n[0]];
+  const yaw = Math.atan2(-t[1], t[0]);
+  const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
+  // Kolonlar
+  for (const u of [-1.35, 1.35]) {
+    const p = P(u, 0);
+    b.box('black', [p[0], y0 + 1.25, p[1]], [0.5, 2.5, 0.5], yaw);
+    const f = P(u, 0.26);
+    const [fa, fe] = facing(P(u - 0.2, 0.26), P(u + 0.2, 0.26), n);
+    void f;
+    b.wall('gateOrn', fa, fe, y0 + 1.1, y0 + 1.6, [0.35, 0.05, 0.65, 0.25]);
+  }
+  // Başlık kutusu + yazı
+  const h = P(0, 0.05);
+  b.box('black', [h[0], y0 + 2.8, h[1]], [3.3, 0.6, 0.6], yaw);
+  const [sa, se] = facing(P(-1.6, 0.36), P(1.6, 0.36), n);
+  b.wall('gateSign', sa, se, y0 + 2.55, y0 + 3.05);
+  // Kapı kanadı (hafif içeride)
+  const [ga, ge] = facing(P(-1.1, -0.05), P(1.1, -0.05), n);
+  b.wall('gate', ga, ge, y0, y0 + 2.4);
+  const [gb, gc] = facing(P(-1.1, -0.08), P(1.1, -0.08), [-n[0], -n[1]]);
+  b.wall('gate', gb, gc, y0, y0 + 2.4);
+}
