@@ -5,6 +5,7 @@ import {
   bonePrefix,
   firstSkinned,
   loadGltf,
+  measureModel,
   normalizeModel,
   xbotSource,
 } from '../player/people';
@@ -28,6 +29,8 @@ interface Template {
   idle: THREE.AnimationClip;
   keep?: RegExp;
   tint?: RegExp;
+  /** Aktarım öncesi dinlenme duruşu ölçüsü */
+  size: [number, number];
 }
 
 const SHIRTS = [
@@ -54,6 +57,7 @@ export class HumanPool {
       const scene = cloneSkinned(g.scene);
       const sk = firstSkinned(scene);
       if (!sk) return;
+      const size = measureModel(scene);
       const prefix = bonePrefix(scene);
       const map = (n: string) => `mixamorig${n.slice(prefix.length)}`;
       templates.push({
@@ -62,6 +66,7 @@ export class HumanPool {
         idle: bakeRetarget(sk, src.mesh, src.clips.get('Idle')!, 'Idle', map),
         keep,
         tint,
+        size,
       });
     };
     await make(`${base}models/people/Michelle.glb`);
@@ -102,7 +107,7 @@ export class HumanPool {
       walk.time = rnd() * t.walk.duration;
       idle.play();
       idle.setEffectiveWeight(0);
-      const holder = normalizeModel(scene, 1.62 + rnd() * 0.2);
+      const holder = normalizeModel(scene, 1.62 + rnd() * 0.2, t.size);
       const obj = new THREE.Group();
       obj.add(holder);
       obj.visible = false;

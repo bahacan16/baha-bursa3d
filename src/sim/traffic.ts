@@ -1,5 +1,13 @@
 import * as THREE from 'three';
-import { CAR_COLORS, createCarGeometries } from './carmodel';
+import {
+  buildCar,
+  CAR_COLORS,
+  CAR_KINDS,
+  CarMaterials,
+  carKindOf,
+  PLATE_COUNT,
+  type CarModel,
+} from './carmodel';
 import { buildGraph, pointOn, type Graph } from './graph';
 import type { Road } from '../worlds/osm/parse';
 import type { Quality } from '../core/settings';
@@ -16,30 +24,38 @@ interface Car {
   y: number;
   z: number;
   yaw: number;
-  /** Sonraki kenar (kavşakta önceden seçilir) */
   lane: number;
+  /** Tür ve tür içindeki instance sırası */
+  kind: number;
+  slot: number;
+  spin: number;
+}
+
+interface KindMesh {
+  model: CarModel;
+  body: THREE.InstancedMesh;
+  trim: THREE.InstancedMesh;
+  wheels: THREE.InstancedMesh;
 }
 
 /**
  * Hareketli araçlar: araç yolu grafiği, sağ şerit takibi, tek yön kuralı,
- * kavşakta kısa bekleme, öndeki araca ve oyuncuya çarpmadan durma.
+ * kavşakta kısa bekleme, öndeki araca ve oyuncuya çarpmadan durma. Tekerler dönerek ilerler.
  */
 export class Traffic {
   readonly group = new THREE.Group();
   private graph: Graph;
   private cars: Car[] = [];
-  private body: THREE.InstancedMesh;
-  private glass: THREE.InstancedMesh;
-  private wheels: THREE.InstancedMesh;
-  private lightsMesh: THREE.InstancedMesh;
+  private kinds: KindMesh[] = [];
   private rnd: () => number;
-  private geos: THREE.BufferGeometry[] = [];
-  private mats: THREE.Material[] = [];
+  private mats = new CarMaterials();
   private m = new THREE.Matrix4();
+  private w = new THREE.Matrix4();
+  private r = new THREE.Matrix4();
   private q = new THREE.Quaternion();
   private v = new THREE.Vector3();
   private one = new THREE.Vector3(1, 1, 1);
-  lightsMat: THREE.MeshStandardMaterial;
+  private flip = new THREE.Matrix4().makeRotationY(Math.PI);
 
   constructor(roads: Road[], quality: Quality) {
     this.group.name = 'traffic';
@@ -47,33 +63,40 @@ export class Traffic {
     let seed = 99;
     this.rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
     const n = this.graph.edges.length ? (quality === 'high' ? 40 : quality === 'medium' ? 24 : 10) : 0;
-    const { body, glass, wheels: wheel, lights } = createCarGeometries();
-    this.geos.push(body, glass, wheel, lights);
-    const bodyMat = new THREE.MeshStandardMaterial({ roughness: 0.35, metalness: 0.4 });
-    const glassMat = new THREE.MeshStandardMaterial({ color: 0x1b2229, roughness: 0.1, metalness: 0.6 });
-    const wheelMat = new THREE.MeshStandardMaterial({ color: 0x111111, roughness: 0.9 });
-    this.lightsMat = new THREE.MeshStandardMaterial({
-      color: 0xeeeeee,
-      emissive: 0xfff1cc,
-      emissiveIntensity: 0,
+    const shadows = quality !== 'low';
+    const perKind = [0, 0, 0, 0];
+    const kindOf: number[] = [];
+    for (let i = 0; i < n; i++) {
+      const k = carKindOf(i * 13 + 5);
+      kindOf.push(k);
+      perKind[k]++;
+    }
+    CAR_KINDS.forEach((kind, k) => {
+      const model = buildCar(kind, 0, false);
+      const cap = Math.max(1, perKind[k]);
+      const trimGeo = model.trim.clone();
+      const plate = new THREE.InstancedBufferAttribute(new Float32Array(cap), 1);
+      trimGeo.setAttribute('plateId', plate);
+      const body = new THREE.InstancedMesh(model.body, this.mats.list(model.bodyMats), cap);
+      const trim = new THREE.InstancedMesh(trimGeo, this.mats.list(model.trimMats), cap);
+      const wheels = new THREE.InstancedMesh(model.wheel, this.mats.list(model.wheelMats), cap * 4);
+      body.castShadow = shadows;
+      body.receiveShadow = shadows;
+      for (const im of [body, trim, wheels]) {
+        im.count = perKind[k] * (im === wheels ? 4 : 1);
+        im.frustumCulled = false;
+        this.group.add(im);
+      }
+      for (let i = 0; i < cap; i++) plate.setX(i, Math.floor(this.rnd() * PLATE_COUNT));
+      this.kinds.push({ model, body, trim, wheels });
     });
-    this.mats.push(bodyMat, glassMat, wheelMat, this.lightsMat);
-    const mk = (g: THREE.BufferGeometry, m: THREE.Material, shadow: boolean) => {
-      const im = new THREE.InstancedMesh(g, m, Math.max(1, n));
-      im.count = n;
-      im.frustumCulled = false;
-      im.castShadow = shadow && quality !== 'low';
-      this.group.add(im);
-      return im;
-    };
-    this.body = mk(body, bodyMat, true);
-    this.glass = mk(glass, glassMat, false);
-    this.wheels = mk(wheel, wheelMat, false);
-    this.lightsMesh = mk(lights, this.lightsMat, false);
+    const used = [0, 0, 0, 0];
     const col = new THREE.Color();
     for (let i = 0; i < n; i++) {
-      this.body.setColorAt(i, col.set(CAR_COLORS[Math.floor(this.rnd() * CAR_COLORS.length)]));
-      this.cars.push(this.spawn(0, 0, 400, true));
+      const k = kindOf[i];
+      const slot = used[k]++;
+      this.kinds[k].body.setColorAt(slot, col.set(CAR_COLORS[Math.floor(this.rnd() * CAR_COLORS.length)]));
+      this.cars.push({ ...this.spawn(0, 0, 400, true), kind: k, slot, spin: 0 });
     }
   }
 
@@ -87,7 +110,12 @@ export class Traffic {
     return e.road.oneway === 0 || (e.road.oneway === 1 ? fwd : !fwd);
   }
 
-  private spawn(px: number, pz: number, radius: number, anywhere: boolean): Car {
+  private spawn(
+    px: number,
+    pz: number,
+    radius: number,
+    anywhere: boolean,
+  ): Omit<Car, 'kind' | 'slot' | 'spin'> {
     const E = this.graph.edges;
     let edge = 0;
     let s0 = 0;
@@ -148,7 +176,7 @@ export class Traffic {
   update(dt: number, player: THREE.Vector3, night: number): void {
     const E = this.graph.edges;
     const N = this.graph.nodes;
-    this.lightsMat.emissiveIntensity = night * 3;
+    this.mats.lights.emissiveIntensity = 0.15 + night * 3;
     for (let i = 0; i < this.cars.length; i++) {
       const c = this.cars[i];
       let e = E[c.edge];
@@ -204,29 +232,38 @@ export class Traffic {
       const rz = p.dx * dir;
       c.x = p.x + rx * lane;
       c.z = p.z + rz * lane;
-      c.y = H(c.x, c.z) + 0.04;
+      c.y = H(c.x, c.z) + 0.02;
       const ty = Math.atan2(p.dx * dir, p.dz * dir);
       let dy = ty - c.yaw;
       dy = Math.atan2(Math.sin(dy), Math.cos(dy));
       c.yaw += dy * Math.min(1, dt * 8);
       if (Math.hypot(c.x - player.x, c.z - player.z) > 450) {
-        Object.assign(this.cars[i], this.spawn(player.x, player.z, 380, false));
+        Object.assign(c, this.spawn(player.x, player.z, 380, false));
         continue;
       }
+      const km = this.kinds[c.kind];
+      c.spin = (c.spin + (c.speed * dt) / km.model.wheelPos[0][1]) % (Math.PI * 2);
       this.q.setFromAxisAngle(this.v.set(0, 1, 0), c.yaw);
       this.m.compose(this.v.set(c.x, c.y, c.z), this.q, this.one);
-      this.body.setMatrixAt(i, this.m);
-      this.glass.setMatrixAt(i, this.m);
-      this.wheels.setMatrixAt(i, this.m);
-      this.lightsMesh.setMatrixAt(i, this.m);
+      km.body.setMatrixAt(c.slot, this.m);
+      km.trim.setMatrixAt(c.slot, this.m);
+      km.model.wheelPos.forEach((wp, k) => {
+        this.w.copy(this.m).multiply(this.r.makeTranslation(wp[0], wp[1], wp[2]));
+        if (wp[0] < 0) this.w.multiply(this.flip).multiply(this.r.makeRotationX(-c.spin));
+        else this.w.multiply(this.r.makeRotationX(c.spin));
+        km.wheels.setMatrixAt(c.slot * 4 + k, this.w);
+      });
     }
-    for (const im of [this.body, this.glass, this.wheels, this.lightsMesh])
-      im.instanceMatrix.needsUpdate = true;
-    if (this.body.instanceColor) this.body.instanceColor.needsUpdate = true;
+    for (const k of this.kinds) {
+      for (const im of [k.body, k.trim, k.wheels]) im.instanceMatrix.needsUpdate = true;
+      if (k.body.instanceColor) k.body.instanceColor.needsUpdate = true;
+    }
   }
 
   dispose(): void {
-    for (const g of this.geos) g.dispose();
-    for (const m of this.mats) m.dispose();
+    for (const k of this.kinds) {
+      for (const g of [k.model.body, k.model.trim, k.model.wheel, k.trim.geometry]) g.dispose();
+    }
+    this.mats.dispose();
   }
 }

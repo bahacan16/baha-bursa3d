@@ -65,7 +65,8 @@ export function retarget(clip: THREE.AnimationClip, prefix: string, name: string
 }
 
 /** Modeli hedef boya ölçekle, ayakları y=0'a oturt; +Z'ye bakan modeli oyunun −Z yönüne çevir. */
-export function normalizeModel(model: THREE.Object3D, height: number): THREE.Group {
+/** Dinlenme duruşunda boy ölçümü (kemiklerden; yoksa kutudan): [boy, taban] */
+export function measureModel(model: THREE.Object3D): [number, number] {
   model.updateMatrixWorld(true);
   // KARAR: boy, iskelet varsa kemiklerden (ayak–baş) ölçülür; skinned mesh kutuları bazı modellerde güvenilmez
   let minY = Infinity;
@@ -78,16 +79,21 @@ export function normalizeModel(model: THREE.Object3D, height: number): THREE.Gro
       maxY = Math.max(maxY, v.y);
     }
   });
-  let h: number;
-  let floor: number;
-  if (Number.isFinite(minY) && maxY - minY > 1e-6) {
-    h = (maxY - minY) * 1.07; // baş kemiği tepeden biraz aşağıda
-    floor = minY;
-  } else {
-    const box = new THREE.Box3().setFromObject(model);
-    h = box.max.y - box.min.y;
-    floor = box.min.y;
-  }
+  if (Number.isFinite(minY) && maxY - minY > 1e-6) return [(maxY - minY) * 1.07, minY]; // baş kemiği tepeden biraz aşağıda
+  const box = new THREE.Box3().setFromObject(model);
+  return [box.max.y - box.min.y, box.min.y];
+}
+
+/**
+ * Modeli hedef boya ölçekle, tabanı y=0'a oturt, yüzünü +Z'ye çevir.
+ * `measured`: klip aktarımı kemikleri bozmadan önce alınmış ölçü (şablondan kopyalarda).
+ */
+export function normalizeModel(
+  model: THREE.Object3D,
+  height: number,
+  measured?: [number, number],
+): THREE.Group {
+  const [h, floor] = measured ?? measureModel(model);
   const s = h > 1e-6 ? height / h : 1;
   model.scale.multiplyScalar(s);
   model.position.y -= floor * s;
@@ -112,6 +118,23 @@ export function normalizeModel(model: THREE.Object3D, height: number): THREE.Gro
 }
 
 /**
+ * Dinlenme duruşuna dön. KARAR: `skeleton.pose()` kullanılmaz — kök kemiğin ebeveyni ölçekliyse (Michelle: 0.01)
+ * bağlama matrisini yerel dönüşüm sanıp modeli 100 kat küçültüyordu. İlk görüldüğündeki yerel dönüşümler saklanır.
+ */
+const restCache = new WeakMap<THREE.Bone, [THREE.Vector3, THREE.Quaternion, THREE.Vector3]>();
+export function restPose(mesh: THREE.SkinnedMesh): void {
+  for (const b of mesh.skeleton.bones) {
+    const r = restCache.get(b);
+    if (!r) restCache.set(b, [b.position.clone(), b.quaternion.clone(), b.scale.clone()]);
+    else {
+      b.position.copy(r[0]);
+      b.quaternion.copy(r[1]);
+      b.scale.copy(r[2]);
+    }
+  }
+}
+
+/**
  * Dünya uzayında dinlenme-duruşu farkıyla klip aktarımı (kemik eksenleri farklı iskeletler için):
  *   ΔR_src(t) = R_src_world(t) · R_src_world_rest⁻¹
  *   R_tgt_world(t) = ΔR_src(t) · R_tgt_world_rest
@@ -130,8 +153,8 @@ export function bakeRetarget(
   const sb = new Map(source.skeleton.bones.map((b) => [b.name, b]));
   const sRoot = source.skeleton.bones[0].parent ?? source;
   // Dinlenme duruşları
-  source.skeleton.pose();
-  target.skeleton.pose();
+  restPose(source);
+  restPose(target);
   sRoot.updateMatrixWorld(true);
   tb[0].parent?.updateMatrixWorld(true);
   const q = new THREE.Quaternion();
@@ -241,7 +264,8 @@ export function bakeRetarget(
   );
   // KARAR: kalça konum izi eklenmez (ölçek dönüşümü modele göre değişiyor; dönüşler yürümeyi zaten taşıyor)
   void hipY;
-  target.skeleton.pose();
+  restPose(source);
+  restPose(target);
   return new THREE.AnimationClip(name, clip.duration, tracks);
 }
 

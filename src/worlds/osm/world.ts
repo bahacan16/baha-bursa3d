@@ -18,6 +18,7 @@ import { loadStreetViewFacades } from './streetview';
 import { buildMertkent, HANDMADE_IDS } from '../mertkent';
 import { StreetProps } from './streetprops';
 import { createDetailedTrees } from './treemesh';
+import { createEzTrees, windTime, type EzTreeKind } from './eztree';
 import { Pedestrians } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
 import { ParkedCars } from '../../sim/parked';
@@ -147,6 +148,9 @@ export class GroundIndex {
 
 const TREE_NEAR_R = 110;
 const TREE_NEAR_MAX = 1500;
+/** Dallı-yapraklı (ez-tree) ağaç yarıçapı / tür başına üst sınır — ağaç başı ~2–4k üçgen. */
+const TREE_EZ_R = { low: 0, medium: 45, high: 70 } as const;
+const TREE_EZ_MAX = 350;
 
 export class OsmWorld implements IWorld {
   readonly kind = 'osm' as const;
@@ -166,6 +170,9 @@ export class OsmWorld implements IWorld {
     hi: Uint8Array;
   }[] = [];
   private treeNear: THREE.InstancedMesh[] = [];
+  private ezKinds: EzTreeKind[] = [];
+  private treeEz: { branches: THREE.InstancedMesh; leaves: THREE.InstancedMesh }[] = [];
+  private ezR = 0;
   private treeLodAt = new THREE.Vector2(1e9, 1e9);
   private stat: Record<string, number> = {};
   private viewDist: number;
@@ -261,6 +268,29 @@ export class OsmWorld implements IWorld {
       im.name = `treesNear${k}`;
       this.treeNear.push(im);
       this.object.add(im);
+    }
+    // En yakın ağaçlar: gerçek dal + yaprak kartlı (ez-tree) model
+    this.ezR = TREE_EZ_R[quality];
+    if (this.ezR > 0 && this.treeGeosHi.length) {
+      this.ezKinds = createEzTrees(import.meta.env.BASE_URL);
+      for (const k of this.ezKinds) {
+        const mk = (g: THREE.BufferGeometry, m: THREE.Material, name: string) => {
+          const im = new THREE.InstancedMesh(g, m, TREE_EZ_MAX);
+          im.count = 0;
+          im.frustumCulled = false;
+          im.castShadow = shadows;
+          im.receiveShadow = shadows;
+          im.name = name;
+          im.setColorAt(0, new THREE.Color(1, 1, 1));
+          this.object.add(im);
+          return im;
+        };
+        const i = this.treeEz.length;
+        this.treeEz.push({
+          branches: mk(k.branches, k.bark, `treesEzBark${i}`),
+          leaves: mk(k.leaves, k.leaf, `treesEzLeaf${i}`),
+        });
+      }
     }
 
     // Çarpışma: binalar, duvarlar, köprü ayakları
@@ -442,7 +472,8 @@ export class OsmWorld implements IWorld {
     this.traffic.obstacles(dyn, player.x, player.z);
     const cx = camera.position.x;
     const cz = camera.position.z;
-    if (this.treeNear.length && this.treeLodAt.distanceTo(new THREE.Vector2(cx, cz)) > 8)
+    windTime.value += dt;
+    if (this.treeNear.length && this.treeLodAt.distanceTo(new THREE.Vector2(cx, cz)) > 4)
       this.updateTreeLod(cx, cz);
     const lim = this.viewDist + CHUNK_SIZE * 0.75;
     for (const g of this.chunkGroups.values()) {
@@ -458,23 +489,38 @@ export class OsmWorld implements IWorld {
   private updateTreeLod(cx: number, cz: number): void {
     this.treeLodAt.set(cx, cz);
     const counts = this.treeNear.map(() => 0);
+    const ezCounts = this.treeEz.map(() => 0);
     const r2 = TREE_NEAR_R * TREE_NEAR_R;
+    const e2 = this.ezR * this.ezR;
     const zero = new Float32Array(16);
     const col = new THREE.Color();
     for (const t of this.treeMeshes) {
       const far = Math.max(Math.abs(t.c.x - cx), Math.abs(t.c.y - cz)) > CHUNK_SIZE / 2 + TREE_NEAR_R;
       const arr = t.im.instanceMatrix.array as Float32Array;
       const near = this.treeNear[t.type];
+      const ez = this.treeEz[t.type];
       let changed = false;
       for (let i = 0; i < t.hi.length; i++) {
         const o = i * 16;
         const dx = t.mats[o + 12] - cx;
         const dz = t.mats[o + 14] - cz;
-        const hi = !far && dx * dx + dz * dz < r2 && counts[t.type] < TREE_NEAR_MAX ? 1 : 0;
-        if (hi) {
+        const d2 = far ? Infinity : dx * dx + dz * dz;
+        let hi = 0;
+        if (ez && d2 < e2 && ezCounts[t.type] < TREE_EZ_MAX) {
+          const k = ezCounts[t.type]++;
+          ez.branches.instanceMatrix.array.set(t.mats.subarray(o, o + 16), k * 16);
+          ez.leaves.instanceMatrix.array.set(t.mats.subarray(o, o + 16), k * 16);
+          t.im.getColorAt(i, col);
+          // Uzak modelin gölge tonu (≈0.6–1.0) yaprağa hafif varyasyon olarak
+          col.multiplyScalar(1.15);
+          ez.leaves.setColorAt(k, col);
+          ez.branches.setColorAt(k, col.setScalar(0.9 + ((i * 7) % 5) * 0.04));
+          hi = 1;
+        } else if (d2 < r2 && counts[t.type] < TREE_NEAR_MAX) {
           near.instanceMatrix.array.set(t.mats.subarray(o, o + 16), counts[t.type] * 16);
           t.im.getColorAt(i, col);
           near.setColorAt(counts[t.type]++, col);
+          hi = 1;
         }
         if (hi !== t.hi[i]) {
           t.hi[i] = hi;
@@ -488,6 +534,13 @@ export class OsmWorld implements IWorld {
       im.count = counts[k];
       im.instanceMatrix.needsUpdate = true;
       if (im.instanceColor) im.instanceColor.needsUpdate = true;
+    });
+    this.treeEz.forEach((e, k) => {
+      for (const im of [e.branches, e.leaves]) {
+        im.count = ezCounts[k];
+        im.instanceMatrix.needsUpdate = true;
+        if (im.instanceColor) im.instanceColor.needsUpdate = true;
+      }
     });
   }
 
@@ -571,6 +624,12 @@ export class OsmWorld implements IWorld {
     });
     for (const g of [...this.treeGeos, ...this.treeGeosHi]) g.dispose();
     this.treeMatHi.dispose();
+    for (const k of this.ezKinds)
+      for (const m of [k.bark, k.leaf]) {
+        m.map?.dispose();
+        m.normalMap?.dispose();
+        m.dispose();
+      }
     this.props.dispose();
     this.peds.dispose();
     this.traffic.dispose();

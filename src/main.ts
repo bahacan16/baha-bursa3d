@@ -21,6 +21,7 @@ async function run(mode: Mode, key: string): Promise<void> {
   if (debug) {
     (window as unknown as { __game: Game }).__game = game;
     void import('./player/people').then((m) => ((window as unknown as { __people: unknown }).__people = m));
+    void import('three').then((m) => ((window as unknown as { __THREE: unknown }).__THREE = m));
   }
   // KARAR: oyuncu gerçekçi insan avatarı (readyplayer.me, three.js örnekleri); ?robot=1 eski robot
   const charUrl = new URLSearchParams(location.search).has('robot')
