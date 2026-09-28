@@ -360,7 +360,7 @@ transformed.z += ws * (0.08 * cos(uWind * 0.9 + wph.y) + 0.035 * sin(uWind * 4.3
         .replace('#include <common>', '#include <common>\nvarying float vCrown;')
         .replace(
           '#include <color_fragment>',
-          '#include <color_fragment>\ndiffuseColor.rgb *= 0.55 + 0.5 * vCrown;',
+          '#include <color_fragment>\ndiffuseColor.rgb *= 0.8 + 0.52 * vCrown;',
         );
     };
     leaf.customProgramCacheKey = () => 'eztree-leaf-v1';
@@ -387,7 +387,7 @@ export const TREE_SPECIES: {
     cardSize: 1.25,
     leaf: 'ash',
     bark: 'oak',
-    tint: 0xc8d2b0,
+    tint: 0xe6f0c2,
     opts: {
       seed: 36330,
       type: 'deciduous',
@@ -413,7 +413,7 @@ export const TREE_SPECIES: {
     cardSize: 0.9,
     leaf: 'pine',
     bark: 'pine',
-    tint: 0x8fa088,
+    tint: 0xa9ba9a,
     opts: {
       seed: 13977,
       type: 'evergreen',
@@ -439,7 +439,7 @@ export const TREE_SPECIES: {
     cardSize: 1.1,
     leaf: 'aspen',
     bark: 'birch',
-    tint: 0xc4cca8,
+    tint: 0xe0e8bc,
     opts: {
       seed: 18020,
       type: 'deciduous',

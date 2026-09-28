@@ -1118,6 +1118,8 @@ function entrance(
 ): void {
   const s = (it.u0 + it.u1) / 2;
   const W = Math.max(1.4, it.u1 - it.u0);
+  // KARAR: zemin kat yüksekse (yarı bodrum) giriş kapısı zemin kotunda, merdiven içeride (ölçümde görüldü)
+  if (y0 - base > 1.2 && it.steps == null) y0 = base + 0.15;
   const rise = Math.max(0, y0 - base);
   const steps = it.steps ?? Math.max(0, Math.round(rise / 0.16));
   for (let k = 0; k < steps; k++) {

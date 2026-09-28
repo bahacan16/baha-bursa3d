@@ -1,13 +1,810 @@
 {
   "id": 1540901796,
   "storeys": 6,
+  "groundRaise": 2.3,
   "floorH": 2.8,
   "roof": {
-    "kind": "hipped",
-    "eave": 0.3,
-    "fasciaH": 0.3
+    "kind": "gable",
+    "eave": 0.05,
+    "fasciaH": 1.1,
+    "pitch": 25,
+    "terrace": true,
+    "gables": [
+      6,
+      13,
+      27
+    ],
+    "eaveY": {
+      "edge": 18,
+      "y": 18.2
+    }
+  },
+  "colors": {
+    "plaster": "#dfdfd5",
+    "plaster2": "#bcbfbb",
+    "strip": "#e6a96c",
+    "fascia": "#acaba1",
+    "soffit": "#d2cbb6",
+    "railGlass": "#d5dfd5",
+    "frame": "#eeeeea",
+    "tile": "#a0634f",
+    "plinth": "#8e8e88"
   },
   "edges": [
+    {
+      "edge": 0,
+      "len": 3.19,
+      "seen": "partial",
+      "ref": "1540901796_0_Oh3BP1hy.jpg",
+      "cal": {
+        "u": [
+          -1.5,
+          1.62
+        ],
+        "head": [
+          [
+            0,
+            5.03
+          ],
+          [
+            5,
+            18.28
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -1.5,
+          "u1": 1.62,
+          "d": 0,
+          "inset": 1.8,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "clear",
+            "2": "clear",
+            "3": "dark",
+            "4": "dark"
+          },
+          "cap": true,
+          "sides": "end-wall"
+        },
+        {
+          "t": "pipe",
+          "u": 1.55,
+          "off": 0.1
+        }
+      ],
+      "note": "Kuzey cam balkon köşe yığınının (kenar 27 batı ucu) BATI yüzü; çok eğik (Oh3B) çekim, alt katlar ağaç arkasında. Camlama kuzey yüzüyle aynı (K0 açık cam, K1 açık, K2 açık cam, K3–K4 koyu cam, K5 açık) → cam balkon köşeyi sarıyor. Güney ucunda kenar 1 duvarına dayanıyor (iç köşede beyaz boru). Ortofotoda u>1.7 görülen şerit+pencere sütunu kenar 1’e ait."
+    },
+    {
+      "edge": 1,
+      "len": 4.43,
+      "seen": "photo",
+      "ref": "1540901796_1_7xGSfPRn.jpg",
+      "cal": {
+        "u": [
+          -0.76,
+          4
+        ],
+        "head": [
+          [
+            0,
+            4.58
+          ],
+          [
+            5,
+            18.07
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": -0.6,
+          "w": 0.2,
+          "y0": 0.4,
+          "y1": 10.1
+        },
+        {
+          "t": "strip",
+          "u": 0.95,
+          "w": 0.2,
+          "y0": 0.4,
+          "y1": 10.1
+        },
+        {
+          "t": "strip",
+          "u": -0.6,
+          "w": 0.2,
+          "y0": 11.4,
+          "y1": 19.8
+        },
+        {
+          "t": "strip",
+          "u": 0.95,
+          "w": 0.2,
+          "y0": 11.4,
+          "y1": 19.8
+        },
+        {
+          "t": "win",
+          "u0": -0.44,
+          "u1": 0.77,
+          "y0": 3.5,
+          "y1": 4.58,
+          "k": 0,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 2.73,
+          "u1": 3.98,
+          "y0": 3.5,
+          "y1": 4.58,
+          "k": 0,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "panel",
+          "u0": -0.76,
+          "u1": 4,
+          "y0": 10.7,
+          "y1": 19.85,
+          "color": "plaster2"
+        }
+      ],
+      "note": "Kuzey girinti (niş) arka duvarı, kenar 27 çizgisinin ≈3.2 m gerisinde (ortofoto kat aralığı oranıyla doğrulandı). Doğuda şeritli dar pencere sütunu (pencereler ≈1.1 m yüksek, normalden kısa), batıda şeritsiz pencere sütunu (KB balkon yığınının hemen doğusunda; KB balkonları görüntüde kısmen önüne biniyor). Duvar üstü ≈1.7 m K5 lentosunun üstünde (düz parapet). Köşeler doğrudan görünmüyor: doğu köşe cam yığın arkasında, batı köşe KB yığını ucunda → cal.u tahmini (±0.3)."
+    },
+    {
+      "edge": 2,
+      "len": 1.23,
+      "seen": "none",
+      "items": [],
+      "note": "KB köşe balkon yığınının DOĞU ucu (kenar 1 duvarından 1.23 m taşan açık uç: döşeme + korkuluk dönüşü; K5 cam balkonu buraya da dönüyor). Ayrı öğe yok: köşe loca boşluğu (kenar 3/4) bu kenarı kapsar."
+    },
+    {
+      "edge": 3,
+      "len": 3.6,
+      "seen": "photo",
+      "ref": "1540901796_3_7xGSfPRn.jpg",
+      "cal": {
+        "u": [
+          -0.9,
+          2.8
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            18.13
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.9,
+          "u1": 2.8,
+          "d": 0,
+          "inset": 1.23,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          },
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "KB köşe balkon yığınının KUZEY ön yüzü (parapet kenar çizgisinde, arka duvar kenar 1 düzleminde ≈1.23 m içeride). Sadece K5 camlı (koyu). Batı ucunda ≈0.5 m 45° pah (KD/GD ile aynı). Üstte kalın gri şapka (≈1.1 m). Arka duvarda pencere/kapılar ve K3–K4’te klimalar (4RYu 155). K3 arka duvarda beyaz dolap/şofben kutusu."
+    },
+    {
+      "edge": 4,
+      "len": 3.8,
+      "seen": "partial",
+      "ref": "1540901796_4_Oh3BP1hy.jpg",
+      "cal": {
+        "u": [
+          -0.2,
+          3.3
+        ],
+        "head": [
+          [
+            0,
+            4.91
+          ],
+          [
+            5,
+            18.41
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.2,
+          "u1": 0.93,
+          "d": 0,
+          "inset": 1.23,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          },
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 0.93,
+          "u1": 3.3,
+          "d": 0,
+          "inset": 1.3,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          },
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "ac",
+          "u": 1.6,
+          "s": 4,
+          "y": 15.25
+        },
+        {
+          "t": "ac",
+          "u": -0.1,
+          "s": 3,
+          "y": 12.3
+        }
+      ],
+      "note": "KB köşe balkon yığınının BATI ön yüzü; çok eğik (Oh3B, ≈50°) ve alt yarısı ağaç arkasında. K5 camlı (kuzeyden dönüyor), K3 ve K4 arka duvarda klima. cal.u ve inset tahmini."
+    },
+    {
+      "edge": 5,
+      "len": 0.86,
+      "seen": "none",
+      "items": [],
+      "note": "KB balkon yığınının GÜNEY ucu (kenar 6 duvarından 0.86 m taşan açık uç). Görülmedi; ayrı öğe yok (kenar 4 loca boşluğu kapsar)."
+    },
+    {
+      "edge": 6,
+      "len": 7.84,
+      "seen": "partial",
+      "ref": "1540901796_6_Oh3BP1hy.jpg",
+      "cal": {
+        "u": [
+          0.45,
+          7.7
+        ],
+        "head": [
+          [
+            2,
+            10.69
+          ],
+          [
+            5,
+            19.08
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 0.74,
+          "w": 0.25,
+          "y0": 0.4,
+          "y1": 11
+        },
+        {
+          "t": "strip",
+          "u": 3.4,
+          "w": 0.28,
+          "y0": 0.4,
+          "y1": 11
+        },
+        {
+          "t": "strip",
+          "u": 0.74,
+          "w": 0.25,
+          "y0": 11.4,
+          "y1": 23.5
+        },
+        {
+          "t": "strip",
+          "u": 3.35,
+          "w": 0.28,
+          "y0": 11.4,
+          "y1": 23.5
+        },
+        {
+          "t": "strip",
+          "u": 5.25,
+          "w": 0.25,
+          "y0": 0.4,
+          "y1": 11
+        },
+        {
+          "t": "strip",
+          "u": 6.88,
+          "w": 0.28,
+          "y0": 0.4,
+          "y1": 11
+        },
+        {
+          "t": "strip",
+          "u": 5.25,
+          "w": 0.25,
+          "y0": 11.4,
+          "y1": 23.5
+        },
+        {
+          "t": "strip",
+          "u": 6.88,
+          "w": 0.28,
+          "y0": 11.4,
+          "y1": 23.5
+        },
+        {
+          "t": "win",
+          "u0": 1.1,
+          "u1": 2.98,
+          "y0": 9.4,
+          "y1": 10.69,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 1,
+          "u1": 3.08,
+          "y0": 17.3,
+          "y1": 19.08,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3
+        },
+        {
+          "t": "win",
+          "u0": 5.48,
+          "u1": 6.52,
+          "y0": 17.85,
+          "y1": 19.1,
+          "k": 5,
+          "s": [
+            0,
+            5
+          ],
+          "kind": "small"
+        },
+        {
+          "t": "panel",
+          "u0": 0.45,
+          "u1": 7.7,
+          "y0": 11.2,
+          "y1": 23.5,
+          "color": "plaster2"
+        }
+      ],
+      "note": "Batı ana duvarı, üçgen alınlıklı (çatı kenarı ortofotonun üst sınırına kadar yükseliyor; tepe ≈ orta). İki pencere sütunu: kuzeyde geniş (K0–K2 ≈1.9 m iki kanat?, K3–K5 3 bölmeli fransız + yatay çelik korkuluk) ve güneyde dar (≈1.0 m, tüm katlarda) — her birinin iki yanında şerit (alt/üst çift aynı hizada, K3 döşemesinde ≈0.4 m ara). Çok eğik (Oh3B ≈55°) ve alt katlar ağaç arkasında: alt pencere tipi ve cal.u (±0.4) belirsiz."
+    },
+    {
+      "edge": 7,
+      "len": 0.58,
+      "seen": "none",
+      "items": [],
+      "note": "GB köşe balkon yığınının KUZEY ucu (kenar 6 duvarından 0.58 m taşan açık uç, cam balkon dönüşü). Görülmedi; ayrı öğe yok (kenar 8 loca boşluğu kapsar)."
+    },
+    {
+      "edge": 8,
+      "len": 4.26,
+      "seen": "partial",
+      "ref": "1540901796_8_Oh3BP1hy.jpg",
+      "cal": {
+        "u": [
+          -0.3,
+          3.8
+        ],
+        "head": [
+          [
+            0,
+            4.76
+          ],
+          [
+            5,
+            18.86
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.3,
+          "u1": 3.8,
+          "d": 0,
+          "inset": 1.2,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "2": "dark",
+            "3": "dark",
+            "4": "dark",
+            "5": "dark"
+          },
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "GB köşe balkon yığınının BATI ön yüzü; K2–K5 çerçeveli koyu cam balkon (K0–K1 ağaç arkasında, görülmedi). Çok eğik (Oh3B ≈60°); cal.u ve inset tahmini."
+    },
+    {
+      "edge": 9,
+      "len": 2.98,
+      "seen": "partial",
+      "ref": "1540901796_9_XRdOu03s.jpg",
+      "cal": {
+        "u": [
+          -0.45,
+          2.45
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.93
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.45,
+          "u1": 0.72,
+          "d": 0,
+          "inset": 1.2,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "2": "clear",
+            "3": "clear",
+            "4": "clear",
+            "5": "clear"
+          },
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 0.72,
+          "u1": 2.45,
+          "d": 0,
+          "inset": 1.07,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "2": "clear",
+            "3": "clear",
+            "4": "clear",
+            "5": "clear"
+          },
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "dish",
+          "u": 1.1,
+          "s": 4,
+          "y": 14,
+          "onBal": false
+        }
+      ],
+      "note": "GB köşe balkon yığınının GÜNEY ön yüzü; tek ortofoto aşırı eğik (XRdO ≈66°) → yatay ölçüler kaba. K2–K5 çerçeveli cam balkon (batı yüzüyle sürekli), K4 korkulukta çanak. Arka duvar kenar 11 düzleminde (inset = kenar 10 = 1.07 m)."
+    },
+    {
+      "edge": 10,
+      "len": 1.07,
+      "seen": "none",
+      "items": [],
+      "note": "GB balkon yığınının DOĞU ucu (kenar 11 duvarından 1.07 m taşan açık uç). Görülmedi; ayrı öğe yok (kenar 9 loca boşluğu kapsar)."
+    },
+    {
+      "edge": 11,
+      "len": 4.98,
+      "seen": "none",
+      "copyOf": 1,
+      "mirror": true,
+      "items": [],
+      "note": "Güney girinti (niş) arka duvarı; hiçbir panoramadan görünmüyor. Kuzeydeki simetrik nişin arka duvarı (kenar 1) kopyalandı (ayna: doğu ucu cam yığına bitişik). G8RU’da güney dar cam yığınının arkasında turuncu şerit görülüyor → doğu ucunda şeritli sütun olması tutarlı."
+    },
+    {
+      "edge": 12,
+      "len": 2.42,
+      "seen": "none",
+      "ref": "1540901796_13_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          2.42
+        ],
+        "head": [
+          [
+            0,
+            4.63
+          ],
+          [
+            5,
+            18.28
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 2.42,
+          "d": 0,
+          "inset": 1.75,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            1,
+            2,
+            3
+          ],
+          "tint": {
+            "1": "clear",
+            "2": "dark",
+            "3": "dark"
+          },
+          "cap": true,
+          "sides": "start-wall"
+        }
+      ],
+      "note": "Güney dar cam balkon köşe yığınının (kenar 13 batı ucu) BATI yüzü; görülmedi. Kenar 0’ın güney simetriği; camlama güney yüzünden (kenar 13) alındı. u gerçek metre, yükseklikler kenar 13 çerçevesinde."
+    },
+    {
+      "edge": 13,
+      "len": 9.82,
+      "seen": "photo",
+      "ref": "1540901796_13_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          -0.25,
+          8.55
+        ],
+        "head": [
+          [
+            0,
+            4.63
+          ],
+          [
+            5,
+            18.28
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 3.14,
+          "w": 0.25,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 4.66,
+          "w": 0.25,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 5.84,
+          "w": 0.24,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 7.39,
+          "w": 0.26,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 3.03,
+          "w": 0.25,
+          "y0": 11.3,
+          "y1": 21.5
+        },
+        {
+          "t": "strip",
+          "u": 4.57,
+          "w": 0.26,
+          "y0": 11.3,
+          "y1": 22.2
+        },
+        {
+          "t": "strip",
+          "u": 5.78,
+          "w": 0.25,
+          "y0": 11.3,
+          "y1": 22.85
+        },
+        {
+          "t": "strip",
+          "u": 7.39,
+          "w": 0.26,
+          "y0": 11.3,
+          "y1": 22.9
+        },
+        {
+          "t": "win",
+          "u0": 3.35,
+          "u1": 4.48,
+          "y0": 3.3,
+          "y1": 4.63,
+          "k": 0,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 6.05,
+          "u1": 7.2,
+          "y0": 3.3,
+          "y1": 4.63,
+          "k": 0,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "bal",
+          "u0": -0.25,
+          "u1": 1.39,
+          "d": 0,
+          "inset": 2.42,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            1,
+            2,
+            3
+          ],
+          "tint": {
+            "1": "clear",
+            "2": "dark",
+            "3": "dark"
+          },
+          "cap": true,
+          "sides": "end-wall"
+        },
+        {
+          "t": "panel",
+          "u0": 1.39,
+          "u1": 8.55,
+          "y0": 10.65,
+          "y1": 23,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 3.57,
+          "u1": 4.27,
+          "y0": 1.75,
+          "y1": 2.1,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "small"
+        },
+        {
+          "t": "win",
+          "u0": 6.28,
+          "u1": 6.98,
+          "y0": 1.75,
+          "y1": 2.1,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "small"
+        }
+      ],
+      "note": "Güney ana duvarı, üçgen alınlık (tepe u≈6.7, y≈23.0; eğim ≈25°). İki pencere sütunu (tüm katlar aynı 2 kanatlı ≈1.2×1.35 m), her birinin iki yanında şerit; şerit çiftleri alt/üst aynı hizada, K3 döşemesinde (y 10.2–11.3) ara, üst şeritler alınlık kenarına kadar çıkıyor. Batı ucunda dar köşe cam balkon yığını (K1 açık cam, K2–K3 koyu cam, K0/K4/K5 açık; arka duvarda şerit görünüyor), iç köşede beyaz boru. Güneşte üst gri sıva çok açık görünüyor (#eaeae4)."
+    },
+    {
+      "edge": 14,
+      "len": 1.64,
+      "seen": "none",
+      "items": [],
+      "note": "GD köşe balkon yığınının BATI ucu (kenar 13 duvarından 1.64 m taşan açık uç: döşeme + korkuluk dönüşü; K1/K3 uçta çanak — kenar 15’te). Ayrı öğe yok: kenar 15 loca boşluğu (inset 1.64) bu kenarı kapsar."
+    },
     {
       "edge": 15,
       "len": 3.74,
@@ -35,6 +832,7 @@
           "u0": 0.25,
           "u1": 4.35,
           "d": 0,
+          "inset": 1.64,
           "s": [
             0,
             5
@@ -47,23 +845,24 @@
           "u": 0.35,
           "s": 1,
           "y": 6.35,
-          "onBal": true
+          "onBal": false
         },
         {
           "t": "dish",
           "u": 0.25,
           "s": 3,
           "y": 11.8,
-          "onBal": true
+          "onBal": false
         },
         {
           "t": "dish",
           "u": 3.2,
           "s": 5,
           "y": 17.35,
-          "onBal": true
+          "onBal": false
         }
-      ]
+      ],
+      "note": "GD köşe balkon yığınının GÜNEY ön yüzü (G8RU, ≈40° eğik; kgyF teyit). Camlama yok. Batı ucunda K1 ve K3 korkulukta çanak, doğu uçta (pah yanında) K5 çanak. Doğu uçta ≈0.55 m 45° pah (u 3.3–4.05 görünür). Arka duvar kenar 13 düzleminde (inset = kenar 14 = 1.64 m). Üstte kalın şapka, dış alnı alınlık eğimini sürdürüyor."
     },
     {
       "edge": 16,
@@ -90,8 +889,22 @@
         {
           "t": "bal",
           "u0": 1.35,
+          "u1": 2.5,
+          "d": 0,
+          "inset": 1.64,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": 2.5,
           "u1": 4.3,
           "d": 0,
+          "inset": 1.3,
           "s": [
             0,
             5
@@ -105,7 +918,15 @@
           "s": 2,
           "y": 8.6
         }
-      ]
+      ],
+      "note": "GD köşe balkon yığınının DOĞU ön yüzü (zvj önden; czGR teyit). Camlama yok; K2 arka duvarda klima; arka duvarda her katta balkon kapısı + pencere (u≈2.8–3.4 görünen). Güney uçta pah + güney ön yüz (sol 0.4–1.8 kısmı güney yüzün kısalmış görüntüsü). Parapet ön yüzü kenar 18 duvarının ≈0.9 m önünde, arka duvar ≈0.5–0.8 m gerisinde (kat aralığı oranı) → inset ≈1.3."
+    },
+    {
+      "edge": 17,
+      "len": 0.67,
+      "seen": "none",
+      "items": [],
+      "note": "GD köşe balkon yığınının KUZEY ucu: doğu ön yüzün kenar 18 duvarına dönen kısa açık uç (czGR kenar 18 ortofotosunda yandan görülüyor). İç köşede beyaz yağmur borusu (kenar 18 u=1.56). Ayrı öğe yok (kenar 16 loca boşluğu kapsar)."
     },
     {
       "edge": 18,
@@ -202,7 +1023,89 @@
           "y1": 18.2,
           "color": "plaster2"
         }
-      ]
+      ],
+      "note": "Doğu çıkma duvarı: ortada tek pencere sütunu (simetrik; zvj’de sol köşe görünür, sağ köşe loggia kutusu arkasında → cal.u[1] simetriden). K0–K2 dar 2 kanat + yakın şerit çifti (üst uçlar y≈9.5), K3–K5 3 bölmeli fransız (orta geniş) + yatay çelik korkuluk + geniş şerit çifti (y 10.2 → parapet üstü 18.25). Her iki iç köşede beyaz yağmur borusu. Duvar üstü düz parapet y≈18.2; sağ şerit üstünde küçük beşik kapak."
+    },
+    {
+      "edge": 19,
+      "len": 1.2,
+      "seen": "none",
+      "ref": "1540901796_20_czGRfic_.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.2
+        ],
+        "head": [
+          [
+            0,
+            4.31
+          ],
+          [
+            5,
+            16.51
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.2,
+          "y0": 2.1,
+          "y1": 2.65,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.2,
+          "y0": 4.55,
+          "y1": 5.1,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.2,
+          "y0": 7,
+          "y1": 7.55,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.2,
+          "y0": 9.4,
+          "y1": 9.95,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.2,
+          "y0": 11.8,
+          "y1": 12.35,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.2,
+          "y0": 14.3,
+          "y1": 14.85,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.2,
+          "y0": 17.55,
+          "y1": 17.92,
+          "color": "fascia"
+        }
+      ],
+      "note": "Loggia kutusunun GÜNEY yan duvarı (düz sıva, beyaz alt/gri üst); her katta döşeme alnı (gri bant) ve üstte şapka alnı köşeyi dönüyor. Pencere yok. u gerçek metre, yükseklikler kenar 20 çerçevesinde. İç köşede (kenar 18 ile) beyaz boru."
     },
     {
       "edge": 20,
@@ -228,9 +1131,10 @@
       "items": [
         {
           "t": "bal",
-          "u0": 1.33,
-          "u1": 4.15,
+          "u0": 1.72,
+          "u1": 4.05,
           "d": 0,
+          "inset": 1.4,
           "s": [
             0,
             5
@@ -250,9 +1154,10 @@
         },
         {
           "t": "bal",
-          "u0": 4.15,
-          "u1": 6.88,
+          "u0": 4.25,
+          "u1": 6.6,
           "d": 0,
+          "inset": 1.4,
           "s": [
             0,
             5
@@ -272,12 +1177,94 @@
         },
         {
           "t": "dish",
-          "u": 6.85,
+          "u": 6.55,
           "s": 1,
           "y": 6.1,
-          "onBal": true
+          "onBal": false
         }
-      ]
+      ],
+      "note": "Loggia kutusunun ön yüzü (czGR önden; cn-4 teyit): iki loggia, orta ayak u≈4.05–4.25; parapet (gri alın + kısa buzlu cam) kenar çizgisinde, arka duvar ≈1.4 m içeride (kenar 18/22 düzleminin biraz gerisi), yanlar 19/21 duvarları. K1 sağ loggia korkuluğunda çanak. Orta ayakta K0–K1 beyaz dolap/şofben kutuları. Şapka alın y 17.55–17.92 (koyu gri), altında 16.9–17.45 düz gri bant."
+    },
+    {
+      "edge": 21,
+      "len": 1.17,
+      "seen": "none",
+      "ref": "1540901796_20_czGRfic_.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.17
+        ],
+        "head": [
+          [
+            0,
+            4.31
+          ],
+          [
+            5,
+            16.51
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.17,
+          "y0": 2.1,
+          "y1": 2.65,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.17,
+          "y0": 4.55,
+          "y1": 5.1,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.17,
+          "y0": 7,
+          "y1": 7.55,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.17,
+          "y0": 9.4,
+          "y1": 9.95,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.17,
+          "y0": 11.8,
+          "y1": 12.35,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.17,
+          "y0": 14.3,
+          "y1": 14.85,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "u0": 0,
+          "u1": 1.17,
+          "y0": 17.55,
+          "y1": 17.92,
+          "color": "fascia"
+        }
+      ],
+      "note": "Loggia kutusunun KUZEY yan duvarı (cn-4 ortofotolarında yandan görülüyor): düz sıva, her katta gri döşeme alnı bandı. İç köşede (kenar 22 ile) beyaz boru."
     },
     {
       "edge": 22,
@@ -374,7 +1361,15 @@
           "y1": 18.2,
           "color": "plaster2"
         }
-      ]
+      ],
+      "note": "Doğu çıkma duvarı (18’in simetriği): pencere sütunu ortada; czGR’de sağ iç köşe (boru) görünür, sol köşe loggia arkasında → cal.u[0] simetriden (cn-4’te sol köşe u≈1.95 görünüyor). Üst çift şerit ile fransız pencereler alt diziye göre ≈0.15 m sola kayık (ortofoto eğikliği). Sol iç köşe borusu cn-4’te görülüyor."
+    },
+    {
+      "edge": 23,
+      "len": 0.94,
+      "seen": "none",
+      "items": [],
+      "note": "KD köşe balkon yığınının GÜNEY ucu (açık uç: döşeme + korkuluk dönüşü; czGR kenar 22 ortofotosunda görülüyor). İç köşede beyaz boru (kenar 22 u=4.42). Ayrı öğe yok (kenar 24 loca boşluğu kapsar)."
     },
     {
       "edge": 24,
@@ -403,6 +1398,7 @@
           "u0": 1.72,
           "u1": 5.2,
           "d": 0,
+          "inset": 1.45,
           "s": [
             0,
             5
@@ -422,7 +1418,220 @@
           "s": 5,
           "y": 15.35
         }
-      ]
+      ],
+      "note": "KD köşe balkon yığınının DOĞU ön yüzü (cn-4 önden; 77ue teyit): güney ucu kenar 22 iç köşesinde (boru), kuzey uçta ≈0.5 m+ 45° pah (u 4.02–5.12 gölgeli yüz; cal.u[1] = sanal köşe). Camlama yok; K4 ve K5 arka duvarda güney uca yakın klima; arka duvarda her katta kapı+pencere (u≈2.2–2.7). inset ≈1.45 (kenar 23 + arka duvarın 22 düzleminin ≈0.5 m gerisinde olması)."
+    },
+    {
+      "edge": 25,
+      "len": 4.77,
+      "seen": "photo",
+      "ref": "1540901796_25_2ydcI-zC.jpg",
+      "cal": {
+        "u": [
+          -1.5,
+          2.2
+        ],
+        "head": [
+          [
+            0,
+            4.41
+          ],
+          [
+            5,
+            17.96
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -1.5,
+          "u1": -0.375,
+          "d": 0,
+          "inset": 1.45,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "bal",
+          "u0": -0.375,
+          "u1": 2.2,
+          "d": 0,
+          "inset": 1.57,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "KD köşe balkon yığınının KUZEY ön yüzü (parapet kenar çizgisinde); arka duvar kenar 27 düzleminde (≈1.57 m içeride; arka duvar pencerelerinin kat aralığı kenar 27 pencereleriyle aynı). Camlama yok. Doğu köşede ≈0.5–0.6 m 45° pah. Şapka: kuzey alnı yamuk (üst kenarı batıya doğru çatı eğimiyle yükseliyor, kuzey alınlığın doğu eğimini sürdürüyor). K0–K1 ağaç arkasında."
+    },
+    {
+      "edge": 26,
+      "len": 1.57,
+      "seen": "none",
+      "items": [],
+      "note": "KD balkon yığınının BATI ucu (kenar 27 duvarından 1.57 m taşan açık uç; 2ydc 183 karelerinde görülüyor). Ayrı öğe yok (kenar 25 loca boşluğu kapsar)."
+    },
+    {
+      "edge": 27,
+      "len": 9.37,
+      "seen": "photo",
+      "ref": "1540901796_27_7xGSfPRn.jpg",
+      "cal": {
+        "u": [
+          -1.53,
+          8
+        ],
+        "head": [
+          [
+            0,
+            4.57
+          ],
+          [
+            5,
+            17.98
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 0.26,
+          "w": 0.24,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 1.8,
+          "w": 0.25,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 2.9,
+          "w": 0.23,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 4.52,
+          "w": 0.26,
+          "y0": 0.4,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 0.29,
+          "w": 0.2,
+          "y0": 11.2,
+          "y1": 22.55
+        },
+        {
+          "t": "strip",
+          "u": 1.8,
+          "w": 0.2,
+          "y0": 11.2,
+          "y1": 22.45
+        },
+        {
+          "t": "strip",
+          "u": 2.87,
+          "w": 0.2,
+          "y0": 11.2,
+          "y1": 21.75
+        },
+        {
+          "t": "strip",
+          "u": 4.5,
+          "w": 0.22,
+          "y0": 11.2,
+          "y1": 21.05
+        },
+        {
+          "t": "win",
+          "u0": 0.43,
+          "u1": 1.68,
+          "y0": 3.24,
+          "y1": 4.57,
+          "k": 0,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 3.05,
+          "u1": 4.36,
+          "y0": 3.24,
+          "y1": 4.57,
+          "k": 0,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "bal",
+          "u0": 6.21,
+          "u1": 7.99,
+          "d": 0,
+          "inset": 3.19,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "clear",
+            "2": "clear",
+            "3": "dark",
+            "4": "dark"
+          },
+          "cap": true,
+          "sides": "start-wall"
+        },
+        {
+          "t": "panel",
+          "u0": -1.53,
+          "u1": 8,
+          "y0": 10.7,
+          "y1": 22.7,
+          "color": "plaster2"
+        }
+      ],
+      "note": "Kuzey ana duvarı (502. Sokak cephesi), üçgen alınlık: tepe u≈0.8 (doğu uca yakın), y≈22.7; alınlığın doğu eğimi KD şapkasının üstünde sürüyor. İki pencere sütunu (tüm katlar 2 kanat ≈1.25×1.33 m), her birinin iki yanında şerit; alt çift (K0–K2) üst uçları y≈10.2, üst çift K3 döşemesinden (y≈11.2) alınlık kenarına kadar. u 4.84–6.2 arası düz sıva ayak; batı uçta köşe cam balkon yığını (loggia: ön yüz kenar çizgisinde, arka duvar niş duvarı hizasında ≈3.2 m içeride; batı yüzü = kenar 0). Yığının üstünde kalın şapka (y 18.0–19.5, alınlıktan alçak). Doğu köşe (26/27) ortofoto sol sınırında (2ydc karesinden ≈1.9 m düz duvar) → cal.u[0] tahmini."
     }
+  ],
+  "notes": [
+    "Kat: 6 normal kat (K0–K5) + yarı gömülü bodrum. K0 = çalının hemen üstündeki en alt pencere/balkon sırası (yükseltilmiş zemin, döşeme ≈2.3 m); güneyde (XRdO 309_5) K0 sütunlarının altında küçük yatay bodrum pencereleri var. Her cephede üstten 6 sıra; OSM building:levels=6 ile uyumlu.",
+    "floorH 2.8: ortofoto kat aralığı 2.44–2.74; iki panoramalı stereo ölçekten (kenar 18/20/22) gerçek kat ≈2.7–2.85 m (OSM height 19 m ile uyumlu). Kesin değil.",
+    "İki renkli sıva: K0–K2 kırık beyaz (plaster), K3 döşemesinden yukarı (K3–K5 + alınlıklar) açık gri (plaster2) — panel öğeleri; sınır ≈K3 döşeme çizgisi, balkon arka duvarlarında da aynı.",
+    "Taban izi köşe/çıkma parçaları balkon yığınlarının DIŞ hattı: GD (14–17), KD (23–26), KB (2–5), GB (7–10) köşe yığınları ve doğu loggia kutusu (19–21). Parapet kenar çizgisinde (d=0), arka duvar inset kadar içeride. Kısa basamaklar (14,17,23,26,2,5,7,10) balkon uçları (açık uç, korkuluk dönüşü); 19/21 loggia yan duvarları.",
+    "Köşe yığınları L biçiminde iki yüzü sarar, köşede ≈0.5–0.6 m 45° pah; fotoğrafta ön yüzler taban izinden ~%20 kısa (GD doğu ≈2.7 m, KD doğu ≈3.7 m) — cal.u yığını tüm kenara yayar. Cam balkonlar köşeyi sarar (iki yüzde aynı katlar).",
+    "Doğu cephe (Doğan Avcıoğlu Cad.) simetrik: GD yığını – pencere sütunlu çıkma (18) – iki loggia (20) – pencere sütunlu çıkma (22) – KD yığını. 18/22: K0–K2 dar pencere + yakın şerit çifti, K3–K5 3 bölmeli fransız pencere + yatay çelik korkuluk + geniş şerit çifti.",
+    "Kuzey (502. Sokak, 27) ve güney (13) ana duvarları ve batı (6) üçgen alınlıklı; 27/13’te iki pencere sütunu (tüm katlar aynı 2 kanat), dört şerit alınlık kenarına kadar. Alınlık tepeleri doğu yarıda (K–G sırt). Doğu çıkma duvarlarının üstü düz parapet (y≈18.2), arkada kırma çatı uçları. Hava fotoğrafında çatı ortasında parapetli düz teras.",
+    "Şapkalar: köşe yığınları, loggia ve niş cam yığınlarının üstünde kalın gri şapka (alın ≈0.4–1.5 m, altı açık renk tavan); KD/GD şapkalarının dış alnı yamuk (üst kenar alınlık eğimini sürdürüyor).",
+    "Nişler: kuzeyde 27 ile KB yığını arasında ≈3.2 m derin niş (arka duvar 1); nişin doğu köşesinde cam balkonlu köşe loggia (27 batı ucu + 0 batı yüzü; K0 açık cam, K2 açık cam, K3–K4 koyu cam). Güneyde simetriği (13 batı ucu + 12; arka duvar 11 görülmedi, 1’den ayna kopya).",
+    "Yağmur boruları beyaz/açık gri, iç köşelerde. Bazı şeritlerin tepesinde küçük beşik kapaklı baca şapkası. Doğu çıkmalarda her kat döşeme hizasında ince koyu derz. Loggia orta ayağında K0–K1’de beyaz şofben/dolap kutuları.",
+    "Panorama/taban izi kayması: stereo ile doğu duvarları taban izinin ≈1–1.5 m gerisinde ve ~1.3 m kuzeyde görünüyor; cal.u yatayda telafi eder, derinlik farkı taban izinde.",
+    "Batı cephe (4–8) ve 9 yalnız çok eğik karelerden + ağaç arkasında: ölçüler kaba. Bina girişi (lobi/kanopi/blok levhası) hiçbir karede görülmedi (muhtemelen nişlerden birinde çalı arkasında).",
+    "Renkler doğu cephenin güneşli yüzünden; kiremit soluk hava fotoğrafından (gerçekte daha doygun kırmızı-kahve), subasman gölgeli bodrum duvarından.",
+    "Loca/köşe yığınlarında klima ve dolap kutuları arka duvarda (inset kadar içeride); çanaklar loca korkuluğunda (kenar çizgisinde, onBal=false yazıldı). Şapkalar (kalın gri alın ≈1 m) için roof.fasciaH=1.1: doğu çıkma duvarları da K5 tavanından ≈1.2 m yükselip düz parapetle biter, saçak taşması yok."
   ]
 }

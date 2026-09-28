@@ -89,8 +89,11 @@ function flatten(img, radius, target = 0) {
   return { data: o, w, h };
 }
 
-async function save(img, name, W, H) {
-  await sharp(img.data, { raw: { width: img.w, height: img.h, channels: 3 } })
+async function save(img, name, W, H, median = 0, mod = null) {
+  let sh = sharp(img.data, { raw: { width: img.w, height: img.h, channels: 3 } });
+  if (median) sh = sh.median(median);
+  if (mod) sh = sh.modulate(mod);
+  await sh
     .resize(W, H, { fit: 'fill' })
     .jpeg({ quality: 88, mozjpeg: true })
     .toFile(join(out, name));
@@ -151,7 +154,8 @@ async function main() {
     img = flatten(img, 50, 128);
     img = tileX(img, 80);
     img = mirrorY(img);
-    await save(img, 'mk-hedge.jpg', 1024, 512);
+    // İnce tel çit (önde) medyan süzgeçle silinir; renk gerçek ortalamaya yaklaştırılır
+    await save(img, 'mk-hedge.jpg', 1024, 512, 5, { saturation: 0.85, brightness: 0.92 });
   }
 }
 

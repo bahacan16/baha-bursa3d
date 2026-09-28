@@ -3,7 +3,7 @@ import type { SimpleOsm } from '../osm/simplify';
 import { Builder, type V2 } from './builder';
 import { buildApartment, insidePoly, type ApartmentStyle } from './apartment';
 import { buildFacadeBlock, type CompiledBlock } from './facade';
-import { camGlassMaterial, granularMaterial, windowGlassMaterial } from './facadeMats';
+import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
 import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
 import { buildMertkentFence, type FenceSpec } from './fence2';
@@ -246,7 +246,7 @@ function materials(base: string): Record<string, THREE.Material> {
     mkAc: std({ color: 0xeceeec, roughness: 0.5 }),
     mkAcFront: std({ map: T.acTexture(), roughness: 0.5 }),
     mkDish: std({ color: 0xeeeeea, roughness: 0.45, side: DS }),
-    mkFlag: std({ color: 0xd11f24, roughness: 0.8, side: DS }),
+    mkFlag: std({ map: flagTexture(), color: 0xffffff, roughness: 0.8, side: DS }),
     mkDownlight: nightLamp(0xfff2d8, 2.5),
     mkStep: std({ color: 0xc9c3b6, roughness: 0.7 }),
     mkEntryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
@@ -346,12 +346,13 @@ function materials(base: string): Record<string, THREE.Material> {
       return std({ map, roughness: 0.75, side: DS });
     })(),
     mkHedge: (() => {
-      const map = new THREE.TextureLoader().load(`${base}textures/mk/mk-hedge.jpg`);
+      // Leylandi: yapay panel yaprak dokusu daha açık/sarımsı ve iri ölçekte (foto karelerinde tel önde kalıyordu)
+      const map = new THREE.TextureLoader().load(`${base}textures/mk/mk-foliage.jpg`);
       map.colorSpace = THREE.SRGBColorSpace;
       map.wrapS = map.wrapT = THREE.RepeatWrapping;
-      map.repeat.set(1 / 1.95, 1 / 1.8);
+      map.repeat.set(1 / 1.5, 1 / 0.9);
       map.anisotropy = 8;
-      return std({ map, roughness: 0.95, side: DS });
+      return std({ map, roughness: 0.95, side: DS, color: 0xe2f5a8 });
     })(),
     mkCanopyGlass: std({
       color: 0x9fb8bc,
@@ -447,7 +448,7 @@ function materials(base: string): Record<string, THREE.Material> {
     gardenGlobe: nightLamp(0xfff3dc, 3),
     boxwood: std({ map: T.hedgeTexture(9), roughness: 0.95, color: 0x8fa872 }),
     boxLeaf: leafMat(base, 'ash_color.png', 0x9cb878),
-    hedgeLeaf: leafMat(base, 'pine_color.png', 0xe0f0a0),
+    hedgeLeaf: leafMat(base, 'pine_color.png', 0xb4c890),
     wood: std({ color: 0x8a6240, roughness: 0.7 }),
     plinth: std({ color: 0x8c8e8d }),
     sill: std({ color: 0xbdb9b0, roughness: 0.5 }),
@@ -947,7 +948,13 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       ...GATES.map((g) => ({ c: g.c, w: 2.5 })),
       ...DRIVE_GATES.map((g) => ({ c: g.c, w: g.w + 0.9 })),
     ];
-    const mkFences = (STREET_PLAN.fence ?? []).filter((f) => f.kind === 'mertkent');
+    const plen = (pts: V2[]) =>
+      pts.reduce((a, p, i) => (i ? a + Math.hypot(p[0] - pts[i - 1][0], p[1] - pts[i - 1][1]) : 0), 0);
+    const mkAll = (STREET_PLAN.fence ?? []).filter((f) => f.kind === 'mertkent' && f.pts?.length >= 2);
+    // Ölçüm tamamlanmamışsa (çevrenin %70'inden azı) OSM sınırından çit
+    const covered =
+      mkAll.reduce((a, f) => a + plen(f.pts), 0) / Math.max(1, plen([...siteRing, siteRing[0]]));
+    const mkFences = covered > 0.7 ? mkAll : [];
     if (OLD_FENCE)
       buildFence(
         b,
@@ -979,7 +986,10 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     noTree = (x, z) => (nt ? nt(x, z) : false) || insidePoly(oz, x, z) || distToRing(oz, x, z) < 7;
   }
   const salusRing = ringOf(o.simple, SALUS_SITE);
+  // KARAR: ölçülmüş bölgede (street-plan) Street View'dan tahmin edilmiş çit kabukları çizilmez
   const fenceSkip = (x: number, z: number) =>
-    nearSite(x, z) || (!!salusRing && (insidePoly(salusRing, x, z) || distToRing(salusRing, x, z) < 8));
+    (x > -142 && x < 28 && z > -222 && z < 4) ||
+    nearSite(x, z) ||
+    (!!salusRing && (insidePoly(salusRing, x, z) || distToRing(salusRing, x, z) < 8));
   return { group, fenceSkip, noTree, cars };
 }

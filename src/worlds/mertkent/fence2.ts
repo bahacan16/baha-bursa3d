@@ -198,9 +198,9 @@ export function buildMertkentFence(
             y0 + hh,
             hedgeD,
             n,
-            5,
+            2.2,
             Math.floor(U0 * 37) + 11,
-            0.42,
+            0.3,
           );
       }
       collide?.(

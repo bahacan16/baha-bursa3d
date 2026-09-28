@@ -65,9 +65,9 @@ function trunk(h: number, r0: number, r1: number, col: THREE.Color): THREE.Buffe
 /** Yakın mesafe için ayrıntılı ağaçlar: [yapraklı (çınar/ıhlamur), selvi, kavak/fıstık çamı]. */
 export function createDetailedTrees(): THREE.BufferGeometry[] {
   const bark = new THREE.Color(0x5d4634);
-  const leafA = new THREE.Color(0x4d7a33);
-  const leafB = new THREE.Color(0x2c5530);
-  const leafC = new THREE.Color(0x5f8a3a);
+  const leafA = new THREE.Color(0x6a9a42);
+  const leafB = new THREE.Color(0x467538);
+  const leafC = new THREE.Color(0x80a44c);
   const round = mergeGeometries([
     trunk(3.2, 0.24, 0.15, bark),
     blob(1.9, 0, 4.6, 0, 0.85, leafA, 1),

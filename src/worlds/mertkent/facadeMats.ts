@@ -262,9 +262,9 @@ totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(2.6, 2.1, 1.5));`,
 export function camGlassMaterial(): THREE.MeshStandardMaterial {
   const m = new THREE.MeshStandardMaterial({
     color: 0xffffff,
-    roughness: 0.05,
+    roughness: 0.03,
     metalness: 0.0,
-    envMapIntensity: 1.8,
+    envMapIntensity: 2.4,
     side: THREE.DoubleSide,
   });
   m.onBeforeCompile = (sh) => {
@@ -292,34 +292,73 @@ float seed = vAux.x;
 float tint = vAux.y; // 0 açık, 1 yeşil, 2 koyu, 3 perdeli
 float x = vWUv.x;
 float y = vWUv.y;
-// Derzler (panel kenarları, ~0.72 m)
-float joint = smoothstep(0.012, 0.0, abs(fract(x / 0.72) - 0.5) - 0.488);
-vec3 inside = mix(vec3(0.12, 0.125, 0.12), vec3(0.24, 0.24, 0.23), smoothstep(0.0, 1.0, y));
+float panel = floor(x / 0.72);
+// Derzler (çerçevesiz panel kenarları ~0.72 m) + alt/üst alüminyum profil
+float joint = smoothstep(0.02, 0.0, abs(fract(x / 0.72) - 0.5) - 0.475);
+float prof = step(y, 0.035) + step(0.965, y);
+// Balkon içi: tavan açık, zemin koyu; paneller arası hafif ton farkı (katlanır camların açısı)
+vec3 inside = mix(vec3(0.16, 0.165, 0.16), vec3(0.34, 0.34, 0.33), smoothstep(0.0, 1.0, y));
+inside *= 0.9 + 0.2 * h1(panel + seed);
 if (tint > 2.5) {
-  // Zebra / stor perde
-  float band = step(0.5, fract(y * 6.0 + h1(seed)));
-  inside = mix(vec3(0.62, 0.6, 0.56), vec3(0.78, 0.77, 0.73), band);
+  // Zebra / stor perde (açık yeşil-beyaz bantlar)
+  float band = step(0.5, fract(y * 7.0 + h1(seed)));
+  inside = mix(vec3(0.5, 0.58, 0.52), vec3(0.72, 0.76, 0.7), band);
 } else if (tint > 0.5 && tint < 1.5) {
-  inside = inside * vec3(0.75, 1.1, 0.95) + vec3(0.02, 0.07, 0.05);
+  // Yeşil camlı: yansıyan ağaçlar + cam kenar tonu
+  inside = inside * vec3(0.72, 1.05, 0.9) + vec3(0.02, 0.09, 0.06);
 } else if (tint > 1.5) {
   inside *= 0.55;
 } else {
-  // Açık: balkon eşyası / tül lekeleri
-  float cur = step(0.55, h1(floor(x / 0.72) + seed * 3.0));
-  inside = mix(inside, vec3(0.7, 0.69, 0.66), cur * 0.6);
+  // Açık: tül / eşya lekeleri
+  float cur = step(0.55, h1(panel + seed * 3.0));
+  inside = mix(inside, vec3(0.62, 0.62, 0.6), cur * 0.55);
 }
-diffuseColor.rgb = mix(inside, vec3(0.08, 0.085, 0.09), joint);`,
+// Sahte gökyüzü yansıması (yukarı bakan camlarda güçlü)
+inside += vec3(0.07, 0.085, 0.1) * (0.6 + 0.4 * y);
+vec3 frameCol = vec3(0.62, 0.64, 0.66);
+diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
       )
       .replace(
         '#include <emissivemap_fragment>',
         `#include <emissivemap_fragment>
-totalEmissiveRadiance += diffuseColor.rgb * (0.18 + uNight * step(0.5, h1(seed * 13.7)) * 1.6);`,
+totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 1.6);`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-camglass-v1';
+  m.customProgramCacheKey = () => 'mk-camglass-v2';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   return m;
+}
+
+/** Türk bayrağı (kırmızı, beyaz ay-yıldız) */
+export function flagTexture(): THREE.Texture | null {
+  if (!hasDom) return null;
+  const [c, g] = canvas(300, 200);
+  g.fillStyle = '#d21f26';
+  g.fillRect(0, 0, 300, 200);
+  g.fillStyle = '#ffffff';
+  g.beginPath();
+  g.arc(100, 100, 50, 0, Math.PI * 2);
+  g.fill();
+  g.fillStyle = '#d21f26';
+  g.beginPath();
+  g.arc(112.5, 100, 40, 0, Math.PI * 2);
+  g.fill();
+  g.fillStyle = '#ffffff';
+  g.beginPath();
+  for (let k = 0; k < 10; k++) {
+    const r = k % 2 ? 10 : 25;
+    const a = (k / 10) * Math.PI * 2 - Math.PI / 2;
+    const x = 165 + Math.cos(a + Math.PI / 2) * r;
+    const y = 100 + Math.sin(a + Math.PI / 2) * r;
+    if (k) g.lineTo(x, y);
+    else g.moveTo(x, y);
+  }
+  g.closePath();
+  g.fill();
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
 }
 
 const paverCache = new Map<string, { map: THREE.Texture; normalMap: THREE.Texture }>();
