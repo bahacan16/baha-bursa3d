@@ -1,12 +1,20 @@
 import * as THREE from 'three';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import {
+  bakeRetarget,
+  bonePrefix,
+  firstSkinned,
+  loadGltf,
+  normalizeModel,
+  xbotSource,
+  type Gait,
+} from './people';
 
 const TARGET_HEIGHT = 1.75;
 
 type State = 'idle' | 'walk' | 'run';
 
 /**
- * glTF karakter (RobotExpressive, CC0 — Tomás Laulhé) + AnimationMixer.
+ * glTF insan karakteri + AnimationMixer. Modelde yürüme klipleri yoksa Xbot kliplerinden aktarılır (people.ts).
  * Model yüklenemezse basit kapsül yedeği kullanılır.
  */
 export class Character {
@@ -32,33 +40,46 @@ export class Character {
     this.root.add(fallback);
   }
 
-  async load(url: string): Promise<void> {
+  async load(url: string, base = './'): Promise<void> {
     try {
-      const gltf = await new GLTFLoader().loadAsync(url);
+      const gltf = await loadGltf(url);
       const model = gltf.scene;
-      model.updateMatrixWorld(true);
-      const box = new THREE.Box3().setFromObject(model, true);
-      const h = box.max.y - box.min.y;
-      const s = h > 0.1 && h < 100 ? TARGET_HEIGHT / h : TARGET_HEIGHT / 4.4;
-      model.scale.setScalar(s);
-      model.position.y = h > 0.1 && h < 100 ? -box.min.y * s : 0;
       model.traverse((o) => {
         const m = o as THREE.Mesh;
         if (m.isMesh) {
           m.castShadow = true;
           m.frustumCulled = false;
           this.meshes.push(m);
+          // KARAR: oyuncu avatarının bej takımı ten rengine çok yakın; gündelik koyu tonlar
+          if (/Outfit_Top/.test(m.name) || /Outfit_Bottom/.test(m.name)) {
+            const mat = (m.material as THREE.MeshStandardMaterial).clone();
+            mat.color.set(/Top/.test(m.name) ? 0x3c434d : 0x2a3446);
+            m.material = mat;
+          }
         }
       });
-      // Model +Z'ye bakar; oyunda yaw 0 = −Z.
-      const holder = new THREE.Group();
-      holder.rotation.y = Math.PI;
-      holder.add(model);
-      this.root.getObjectByName('fallback')?.removeFromParent();
-      this.root.add(holder);
-
       this.mixer = new THREE.AnimationMixer(model);
       for (const clip of gltf.animations) this.actions.set(clip.name, this.mixer.clipAction(clip));
+      // Aktarım, model döndürülüp ölçeklenmeden önce (her iki model de glTF dünyasında +Z'ye bakarken) yapılır
+      if (!this.actions.has('Walking')) {
+        const prefix = bonePrefix(model);
+        const src = await xbotSource(base);
+        const tgt = firstSkinned(model);
+        if (tgt)
+          for (const [gait, clip] of src.clips) {
+            const baked = bakeRetarget(
+              tgt,
+              src.mesh,
+              clip,
+              gait,
+              (n) => `mixamorig${n.slice(prefix.length)}`,
+            );
+            this.actions.set(gait, this.mixer.clipAction(baked));
+          }
+      }
+      const holder = normalizeModel(model, TARGET_HEIGHT);
+      this.root.getObjectByName('fallback')?.removeFromParent();
+      this.root.add(holder);
       const jump = this.actions.get('Jump');
       if (jump) {
         jump.setLoop(THREE.LoopOnce, 1);
@@ -77,7 +98,7 @@ export class Character {
   }
 
   private clipFor(s: State): THREE.AnimationAction | null {
-    const name = s === 'idle' ? 'Idle' : s === 'walk' ? 'Walking' : 'Running';
+    const name: Gait = s === 'idle' ? 'Idle' : s === 'walk' ? 'Walking' : 'Running';
     return this.actions.get(name) ?? null;
   }
 
@@ -119,8 +140,8 @@ export class Character {
     if (!jumping && onGround) {
       const walk = this.actions.get('Walking');
       const run = this.actions.get('Running');
-      if (walk && s === 'walk') walk.setEffectiveTimeScale(THREE.MathUtils.clamp(speed / 1.6, 0.5, 1.8));
-      if (run && s === 'run') run.setEffectiveTimeScale(THREE.MathUtils.clamp(speed / 5.5, 0.6, 1.4));
+      if (walk && s === 'walk') walk.setEffectiveTimeScale(THREE.MathUtils.clamp(speed / 1.45, 0.5, 1.8));
+      if (run && s === 'run') run.setEffectiveTimeScale(THREE.MathUtils.clamp(speed / 4.6, 0.6, 1.5));
     }
     this.mixer.update(dt);
   }

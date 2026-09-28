@@ -18,8 +18,15 @@ const base = import.meta.env.BASE_URL;
 async function run(mode: Mode, key: string): Promise<void> {
   const loading = new LoadingScreen(app);
   const game = new Game(app, settings);
-  if (debug) (window as unknown as { __game: Game }).__game = game;
-  const charReady = game.character.load(`${base}models/RobotExpressive.glb`);
+  if (debug) {
+    (window as unknown as { __game: Game }).__game = game;
+    void import('./player/people').then((m) => ((window as unknown as { __people: unknown }).__people = m));
+  }
+  // KARAR: oyuncu gerçekçi insan avatarı (readyplayer.me, three.js örnekleri); ?robot=1 eski robot
+  const charUrl = new URLSearchParams(location.search).has('robot')
+    ? `${base}models/RobotExpressive.glb`
+    : `${base}models/people/readyplayer.me.glb`;
+  const charReady = game.character.load(charUrl, base);
   try {
     if (params.get('world') === 'boxes') {
       game.setWorld(new BoxesWorld());

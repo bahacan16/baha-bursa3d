@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { HumanPool } from './humans';
 import { buildGraph, pointOn, type Graph } from './graph';
 import type { Road } from '../worlds/osm/parse';
 import type { Quality } from '../core/settings';
@@ -36,9 +37,12 @@ interface Walker {
 
 /**
  * Yaya NPC'ler: yaya/yol grafiğinde rastgele rota, araç yollarında kaldırım üzerinde.
- * KARAR: İskeletli karakter kopyaları çok draw call ettiğinden kutu parçalı basit insan figürleri (InstancedMesh, 6 draw call).
+ * KARAR: en yakın K yaya iskeletli insan modeliyle (HumanPool), uzaktakiler kutu parçalı basit figürle (InstancedMesh, 6 draw call).
  */
 export class Pedestrians {
+  private humans: HumanPool;
+  private movingFlags: boolean[] = [];
+  private hidden = new THREE.Matrix4().makeScale(0, 0, 0);
   readonly group = new THREE.Group();
   private graph: Graph;
   private walkers: Walker[] = [];
@@ -63,6 +67,11 @@ export class Pedestrians {
     this.rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
     const n = this.graph.edges.length ? (quality === 'high' ? 60 : quality === 'medium' ? 36 : 16) : 0;
     this.mat = new THREE.MeshStandardMaterial({ roughness: 0.85 });
+    this.humans = new HumanPool(n ? (quality === 'high' ? 14 : quality === 'medium' ? 8 : 4) : 0);
+    this.group.add(this.humans.group);
+    void this.humans
+      .init(import.meta.env.BASE_URL, quality !== 'low')
+      .catch((e) => console.warn('Yaya modelleri yüklenemedi', e));
     // Parçalar: gövde, baş, sol/sağ bacak, sol/sağ kol (pivot üstte)
     const torso = new THREE.BoxGeometry(0.42, 0.62, 0.24).translate(0, 1.2, 0);
     const head = new THREE.SphereGeometry(0.12, 8, 6).translate(0, 1.65, 0);
@@ -187,8 +196,11 @@ export class Pedestrians {
         Object.assign(w, this.spawn(player.x, player.z, 130, false));
         return;
       }
+      this.movingFlags[i] = moving;
       this.pose(i, w, moving);
     });
+    const used = this.humans.assign(this.walkers, this.movingFlags, player, dt);
+    for (const i of used) for (const p of this.parts) p.setMatrixAt(i, this.hidden);
     for (const p of this.parts) {
       p.instanceMatrix.needsUpdate = true;
       if (p.instanceColor) p.instanceColor.needsUpdate = true;
