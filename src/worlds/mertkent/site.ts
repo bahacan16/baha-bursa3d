@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Builder, type V2 } from './builder';
+import { Builder, leafFringe, type V2 } from './builder';
 
 /**
  * Mertkent site sınırı (Street View): yatay oluklu beyaz taş kaplı alçak duvar (0.65 m), ince bej harpuşta,
@@ -46,7 +46,7 @@ export function buildFence(b: Builder, segs: FenceSeg[], gates: V2[], collide?: 
     for (const g of gates) {
       const u = (g[0] - s.a[0]) * t[0] + (g[1] - s.a[1]) * t[1];
       const v = Math.abs((g[0] - s.a[0]) * nx + (g[1] - s.a[1]) * nz);
-      if (v < 2.5 && u > -1.6 && u < len + 1.6) cuts.push([u - 1.6, u + 1.6]);
+      if (v < 2.5 && u > -1.25 && u < len + 1.25) cuts.push([u - 1.25, u + 1.25]);
     }
     const pieces: [number, number][] = [];
     let cur = 0;
@@ -73,6 +73,25 @@ export function buildFence(b: Builder, segs: FenceSeg[], gates: V2[], collide?: 
       // Çalı kutusu (arkada)
       const hc = P((u0 + u1) / 2, WALL_T + HEDGE_D / 2 + 0.05);
       b.box('hedge', [hc[0], y0 + HEDGE_H / 2, hc[1]], [L, HEDGE_H, HEDGE_D], yaw, 0.7, 0b111111 & ~0b100000);
+      // Leylandi dokusu: sokağa bakan yüz + üst, yaprak kartları (düz kutu silüetini kırar)
+      {
+        const off = WALL_T + 0.05;
+        const fa = P(u0, off);
+        const fe = P(u1, off);
+        leafFringe(
+          b,
+          'hedgeLeaf',
+          fa,
+          fe,
+          y0 + WALL_H + 0.1,
+          y0 + HEDGE_H,
+          HEDGE_D,
+          [nx, nz],
+          9,
+          Math.floor(u0 * 31 + s.a[0] * 7) + 3,
+          0.55,
+        );
+      }
       // Jiletli tel (çalının üstünde, halkalar)
       for (let u = u0 + 0.15; u < u1; u += 0.32) {
         const p = P(u, WALL_T + 0.3);
@@ -109,23 +128,35 @@ export function buildGate(b: Builder, c: V2, n: V2, y0: number): void {
   const t: V2 = [n[1], -n[0]];
   const yaw = Math.atan2(-t[1], t[0]);
   const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
-  // Kolonlar
-  for (const u of [-1.35, 1.35]) {
+  // Kolonlar (Street View: kapıdan biraz geniş, altın madalyonlu)
+  const PX = 1.0;
+  for (const u of [-PX, PX]) {
     const p = P(u, 0);
-    b.box('black', [p[0], y0 + 1.25, p[1]], [0.5, 2.5, 0.5], yaw);
-    const f = P(u, 0.26);
-    const [fa, fe] = facing(P(u - 0.2, 0.26), P(u + 0.2, 0.26), n);
-    void f;
-    b.wall('gateOrn', fa, fe, y0 + 1.1, y0 + 1.6, [0.35, 0.05, 0.65, 0.25]);
+    b.box('black', [p[0], y0 + 1.25, p[1]], [0.42, 2.5, 0.42], yaw);
+    const [fa, fe] = facing(P(u - 0.16, 0.215), P(u + 0.16, 0.215), n);
+    b.wall('gateOrn', fa, fe, y0 + 1.15, y0 + 1.55, [0.35, 0.05, 0.65, 0.25]);
   }
   // Başlık kutusu + yazı
-  const h = P(0, 0.05);
-  b.box('black', [h[0], y0 + 2.8, h[1]], [3.3, 0.6, 0.6], yaw);
-  const [sa, se] = facing(P(-1.6, 0.36), P(1.6, 0.36), n);
-  b.wall('gateSign', sa, se, y0 + 2.55, y0 + 3.05);
-  // Kapı kanadı (hafif içeride)
-  const [ga, ge] = facing(P(-1.1, -0.05), P(1.1, -0.05), n);
-  b.wall('gate', ga, ge, y0, y0 + 2.4);
-  const [gb, gc] = facing(P(-1.1, -0.08), P(1.1, -0.08), [-n[0], -n[1]]);
-  b.wall('gate', gb, gc, y0, y0 + 2.4);
+  const h = P(0, 0.04);
+  b.box('black', [h[0], y0 + 2.78, h[1]], [2.5, 0.62, 0.52], yaw);
+  const [sa, se] = facing(P(-1.18, 0.305), P(1.18, 0.305), n);
+  b.wall('gateSign', sa, se, y0 + 2.52, y0 + 3.04);
+  // Kapı kanadı (hafif içeride), iki yüzlü
+  const [ga, ge] = facing(P(-0.79, -0.04), P(0.79, -0.04), n);
+  b.wall('gate', ga, ge, y0 + 0.02, y0 + 2.45);
+  const [gb, gc] = facing(P(-0.79, -0.07), P(0.79, -0.07), [-n[0], -n[1]]);
+  b.wall('gate', gb, gc, y0 + 0.02, y0 + 2.45);
+  // Kapı kasası
+  for (const u of [-0.8, 0.8]) {
+    const p = P(u, -0.055);
+    b.box('black', [p[0], y0 + 1.24, p[1]], [0.05, 2.46, 0.08], yaw);
+  }
+  const tp = P(0, -0.055);
+  b.box('black', [tp[0], y0 + 2.46, tp[1]], [1.65, 0.05, 0.08], yaw);
+  // Kapı kolu + kilit
+  const kp = P(0.62, 0.0);
+  b.box('gold', [kp[0], y0 + 1.05, kp[1]], [0.14, 0.03, 0.05], yaw);
+  // Eşik
+  const ep = P(0, 0.1);
+  b.box('stone', [ep[0], y0 + 0.03, ep[1]], [1.7, 0.06, 0.5], yaw);
 }

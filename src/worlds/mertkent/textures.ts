@@ -30,7 +30,7 @@ function tex(c: HTMLCanvasElement | OffscreenCanvas, repeat = true, srgb = true)
 }
 
 /** Hafif lekeli ince sıva (tekrarlı, 2 m) — beyaz cephe */
-export function plasterTexture(base: string, seed = 1): THREE.Texture {
+export function plasterTexture(base: string, seed = 1, groove = false): THREE.Texture {
   const [c, g] = canvas(256, 256);
   g.fillStyle = base;
   g.fillRect(0, 0, 256, 256);
@@ -49,13 +49,101 @@ export function plasterTexture(base: string, seed = 1): THREE.Texture {
     g.fillStyle = grd;
     g.fillRect(x, 0, 3 + r() * 6, 256);
   }
+  // Kat derzi (doku yüksekliği = 1 kat): alt kenarda ince gölgeli çizgi
+  if (groove) {
+    g.fillStyle = 'rgba(0,0,0,0.16)';
+    g.fillRect(0, 252, 256, 2);
+    g.fillStyle = 'rgba(255,255,255,0.2)';
+    g.fillRect(0, 254, 256, 1);
+  }
   return tex(c);
 }
 
-/**
- * Pencere (bir kanat seti): beyaz PVC çerçeve, cam, yarı inik gri jaluzi / perde.
- * variant: jaluzi yüksekliği ve perde rengi farkı için.
- */
+/** Klima dış ünitesi ön yüzü: beyaz kasa, dairesel fan ızgarası, sağda servis kapağı */
+export function acTexture(): THREE.Texture {
+  const [c, g] = canvas(128, 96);
+  g.fillStyle = '#eceeec';
+  g.fillRect(0, 0, 128, 96);
+  g.fillStyle = '#2b2e30';
+  g.beginPath();
+  g.arc(48, 48, 36, 0, Math.PI * 2);
+  g.fill();
+  g.strokeStyle = '#8d9396';
+  g.lineWidth = 1.5;
+  for (let r = 8; r < 36; r += 6) {
+    g.beginPath();
+    g.arc(48, 48, r, 0, Math.PI * 2);
+    g.stroke();
+  }
+  for (let a = 0; a < 8; a++) {
+    g.beginPath();
+    g.moveTo(48, 48);
+    g.lineTo(48 + Math.cos((a * Math.PI) / 4) * 36, 48 + Math.sin((a * Math.PI) / 4) * 36);
+    g.stroke();
+  }
+  g.fillStyle = '#d6d9d8';
+  g.fillRect(96, 10, 24, 76);
+  g.fillStyle = 'rgba(0,0,0,0.25)';
+  g.fillRect(0, 90, 128, 6);
+  return tex(c, false);
+}
+
+/** Plastik panjur lameli (yatay, açık gri) */
+export function shutterTexture(): THREE.Texture {
+  const [c, g] = canvas(32, 32);
+  g.fillStyle = '#d4d6d5';
+  g.fillRect(0, 0, 32, 32);
+  g.fillStyle = 'rgba(0,0,0,0.18)';
+  g.fillRect(0, 28, 32, 4);
+  g.fillStyle = 'rgba(255,255,255,0.3)';
+  g.fillRect(0, 2, 32, 3);
+  return tex(c);
+}
+
+/** Güneş enerjili su ısıtıcısı paneli: koyu mavi cam, alüminyum çerçeve, boru ızgarası */
+export function solarTexture(): THREE.Texture {
+  const [c, g] = canvas(64, 128);
+  const grd = g.createLinearGradient(0, 0, 64, 128);
+  grd.addColorStop(0, '#2a3f5c');
+  grd.addColorStop(1, '#16202e');
+  g.fillStyle = grd;
+  g.fillRect(0, 0, 64, 128);
+  g.strokeStyle = 'rgba(160,180,200,0.35)';
+  g.lineWidth = 1;
+  for (let x = 6; x < 64; x += 6) {
+    g.beginPath();
+    g.moveTo(x, 4);
+    g.lineTo(x, 124);
+    g.stroke();
+  }
+  g.strokeStyle = '#b8bec4';
+  g.lineWidth = 4;
+  g.strokeRect(2, 2, 60, 124);
+  return tex(c, false);
+}
+
+/** Apartman giriş kapısı: alüminyum çift kanat, buzlu cam, yatay kol */
+export function entryDoorTexture(): THREE.Texture {
+  const [c, g] = canvas(128, 160);
+  g.fillStyle = '#3d4246';
+  g.fillRect(0, 0, 128, 160);
+  const grd = g.createLinearGradient(0, 0, 0, 160);
+  grd.addColorStop(0, '#8fa2ac');
+  grd.addColorStop(1, '#46535a');
+  g.fillStyle = grd;
+  g.fillRect(8, 8, 52, 120);
+  g.fillRect(68, 8, 52, 120);
+  g.fillStyle = 'rgba(230,235,238,0.35)';
+  g.fillRect(8, 60, 52, 16);
+  g.fillRect(68, 60, 52, 16);
+  g.fillStyle = '#c9ccd0';
+  g.fillRect(50, 82, 6, 30);
+  g.fillRect(72, 82, 6, 30);
+  g.fillStyle = '#50565a';
+  g.fillRect(8, 134, 112, 20);
+  return tex(c, false);
+}
+
 export function windowTexture(variant: number): THREE.Texture {
   const W = 128;
   const H = 160;
@@ -510,4 +598,111 @@ export function slatTexture(): THREE.Texture {
   g.fillRect(0, 0, 4, 128);
   g.fillRect(124, 0, 4, 128);
   return tex(c);
+}
+
+/** Kilit taşı / parke (1 m karo): 20×10 cm dikdörtgen taşlar, şaşırtmalı sıra, derz ve ton farkı */
+export function cobbleTexture(base: string, alt: string, seed = 11): THREE.Texture {
+  const S = 512;
+  const [c, g] = canvas(S, S);
+  const r = rng(seed);
+  g.fillStyle = '#6d6a64';
+  g.fillRect(0, 0, S, S);
+  const rows = 10;
+  const rh = S / rows;
+  const bw = S / 5;
+  for (let row = 0; row < rows; row++) {
+    const off = (row % 2) * (bw / 2);
+    for (let k = -1; k < 6; k++) {
+      const x = k * bw + off;
+      g.fillStyle = r() < 0.3 ? alt : base;
+      g.fillRect(x + 2, row * rh + 2, bw - 4, rh - 4);
+      // Taş yüzü hafif ton oynaması
+      g.fillStyle = `rgba(${r() < 0.5 ? '0,0,0' : '255,255,255'},${0.03 + r() * 0.06})`;
+      g.fillRect(x + 2, row * rh + 2, bw - 4, rh - 4);
+      // Kenar pahı
+      g.fillStyle = 'rgba(0,0,0,0.12)';
+      g.fillRect(x + 2, row * rh + rh - 5, bw - 4, 3);
+    }
+  }
+  for (let i = 0; i < 4000; i++) {
+    g.fillStyle = `rgba(0,0,0,${r() * 0.05})`;
+    g.fillRect(r() * S, r() * S, 1 + r() * 2, 1 + r() * 2);
+  }
+  return tex(c);
+}
+
+/** Travertin güverte taşı (1.2 m'lik karo içinde 60×40 cm plakalar) */
+export function travertineTexture(): THREE.Texture {
+  const S = 512;
+  const [c, g] = canvas(S, S);
+  const r = rng(31);
+  g.fillStyle = '#bdb4a3';
+  g.fillRect(0, 0, S, S);
+  const cols = 2;
+  const rows = 3;
+  const w = S / cols;
+  const h = S / rows;
+  for (let j = 0; j < rows; j++)
+    for (let i = 0; i < cols; i++) {
+      const l = 82 + r() * 6;
+      g.fillStyle = `hsl(${36 + r() * 6},${22 + r() * 8}%,${l}%)`;
+      g.fillRect(i * w + 2, j * h + 2, w - 4, h - 4);
+      for (let k = 0; k < 40; k++) {
+        g.fillStyle = `rgba(150,130,100,${0.05 + r() * 0.08})`;
+        g.fillRect(i * w + r() * w, j * h + r() * h, 3 + r() * 20, 1 + r() * 2);
+      }
+    }
+  const t = tex(c);
+  t.repeat.set(1 / 1.2, 1 / 1.2);
+  return t;
+}
+
+/** Havuz mozaiği (2.5 cm karolar, 1 m karo) */
+export function mosaicTexture(a: string, b: string): THREE.Texture {
+  const S = 512;
+  const [c, g] = canvas(S, S);
+  const r = rng(a.length * 13 + 7);
+  g.fillStyle = '#e8eef0';
+  g.fillRect(0, 0, S, S);
+  const n = 40;
+  const s = S / n;
+  for (let j = 0; j < n; j++)
+    for (let i = 0; i < n; i++) {
+      g.fillStyle = r() < 0.35 ? b : a;
+      g.fillRect(i * s + 1, j * s + 1, s - 2, s - 2);
+    }
+  return tex(c);
+}
+
+/** Su yüzeyi dalga normali (döşenebilir, tam sayılı frekanslı sinüs toplamı) */
+export function rippleNormalTexture(): THREE.Texture {
+  const S = 256;
+  const [c, g] = canvas(S, S);
+  const img = g.createImageData(S, S);
+  const r = rng(99);
+  const waves = Array.from({ length: 9 }, () => ({
+    kx: Math.round((r() - 0.5) * 14),
+    ky: Math.round((r() - 0.5) * 14),
+    a: 0.01 + r() * 0.02,
+    p: r() * Math.PI * 2,
+  })).filter((w) => w.kx || w.ky);
+  for (let y = 0; y < S; y++)
+    for (let x = 0; x < S; x++) {
+      let dx = 0;
+      let dy = 0;
+      for (const w of waves) {
+        const ph = 2 * Math.PI * ((w.kx * x) / S + (w.ky * y) / S) + w.p;
+        const cph = Math.cos(ph) * w.a * 2 * Math.PI;
+        dx += cph * w.kx;
+        dy += cph * w.ky;
+      }
+      const l = Math.hypot(dx, dy, 1);
+      const o = (y * S + x) * 4;
+      img.data[o] = Math.round(((-dx / l) * 0.5 + 0.5) * 255);
+      img.data[o + 1] = Math.round(((-dy / l) * 0.5 + 0.5) * 255);
+      img.data[o + 2] = Math.round(((1 / l) * 0.5 + 0.5) * 255);
+      img.data[o + 3] = 255;
+    }
+  g.putImageData(img, 0, 0);
+  return tex(c, true, false);
 }
