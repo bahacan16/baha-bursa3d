@@ -105,7 +105,7 @@ export function daylight(t: TimeOfDay, center: { lat: number; lon: number }, now
     fogColor,
     exposure: 0.95 - 0.05 * day,
     night,
-    turbidity: 2.5 + golden * 6,
-    rayleigh: 0.3 + day * 0.9 + golden * 1.5,
+    turbidity: 1.8 + golden * 6.7,
+    rayleigh: 0.3 + day * 0.55 + golden * 1.85,
   };
 }

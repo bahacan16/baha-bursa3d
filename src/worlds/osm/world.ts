@@ -15,6 +15,7 @@ import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
+import { surveyVegetation } from '../mertkent/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../mertkent';
 import { StreetProps } from './streetprops';
 import { createDetailedTrees } from './treemesh';
@@ -52,6 +53,7 @@ async function buildInWorker(
   roofColors: RoofColorMap | undefined,
   aerialTrees: number[] | undefined,
   progress: BuildProgress,
+  veg: { fixedTrees?: number[]; excludeZones?: number[][] } = {},
 ): Promise<BuildResult> {
   try {
     const worker = new Worker(new URL('./build.worker.ts', import.meta.url), { type: 'module' });
@@ -71,12 +73,12 @@ async function buildInWorker(
         worker.terminate();
         reject(new Error(e.message || 'worker hatası'));
       };
-      worker.postMessage({ data, opts: { quality, terrain, roofColors, aerialTrees } });
+      worker.postMessage({ data, opts: { quality, terrain, roofColors, aerialTrees, ...veg } });
     });
   } catch (err) {
     console.warn('Worker kullanılamadı, ana iş parçacığında üretiliyor:', err);
     await new Promise((r) => setTimeout(r, 0));
-    return buildWorld(data, { quality, terrain, roofColors, aerialTrees }, progress);
+    return buildWorld(data, { quality, terrain, roofColors, aerialTrees, ...veg }, progress);
   }
 }
 
@@ -390,6 +392,7 @@ export class OsmWorld implements IWorld {
       roofColors,
       aerialTrees,
       progress,
+      handmade ? surveyVegetation() : {},
     );
     progress(0.95, 'Sahne kuruluyor');
     const world = new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);

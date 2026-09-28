@@ -145,6 +145,11 @@ export interface Bal {
   cap?: boolean;
   /** Yan kapanış: open (iki yan açık), wall (iki yanda duvar/girinti), start-wall / end-wall (tek yan) */
   sides?: 'open' | 'wall' | 'start-wall' | 'end-wall';
+  /**
+   * İçe gömük (loca) balkon: d = 0 ve arka duvarın taban izinden içeri çekilme derinliği (m). Köşe locası iki
+   * kenarda yazılırsa derinlikler birbirinin genişliğinden otomatik çıkarılır.
+   */
+  inset?: number;
 }
 
 /** Yağmur borusu (tam boy, koyu gri) */

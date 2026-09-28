@@ -19,6 +19,9 @@ export interface BuildOptions {
   landuseMeshes?: boolean;
   roofColors?: Record<string, readonly number[]>;
   aerialTrees?: Float32Array | number[];
+  /** Elle ölçülmüş ağaçlar ve otomatik ağaçsız bölgeler (vegetation.ts) */
+  fixedTrees?: number[];
+  excludeZones?: number[][];
 }
 
 export interface BuildResult {
@@ -73,6 +76,8 @@ export function buildWorld(
     maxTrees,
     density,
     aerialTrees: opts.aerialTrees,
+    fixedTrees: opts.fixedTrees,
+    excludeZones: opts.excludeZones,
   });
   const props = buildProps(d);
   progress(0.9, 'Geometri birleştiriliyor');

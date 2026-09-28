@@ -7,6 +7,13 @@ import { camGlassMaterial, granularMaterial, windowGlassMaterial } from './facad
 import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
 import { buildMertkentFence, type FenceSpec } from './fence2';
+import { buildSitePlan, SITE_PLAN } from './siteplan';
+import { paverTextures } from './facadeMats';
+
+/** Ölçülmüş site planı varsa eski kural tabanlı zemin yerine o kullanılır (?oldgrounds=1 eskisi) */
+const USE_PLAN =
+  (SITE_PLAN.areas?.length ?? 0) > 0 &&
+  !(typeof location !== 'undefined' && new URLSearchParams(location.search).has('oldgrounds'));
 
 /** Ölçülmüş sokak planı (street-plan.json, ajan ölçümü) — yoksa OSM site sınırından çit */
 const STREET_PLAN = (Object.values(
@@ -173,6 +180,25 @@ function nightLamp(color: number, strength: number): THREE.Material {
   return m;
 }
 
+/** Kilit parke malzemesi (2 m × 1 m doku; drape UV = dünya metre) */
+function paverMat(palette: string[], seed: number, off: number): THREE.Material {
+  if (typeof document === 'undefined') return new THREE.MeshStandardMaterial({ color: palette[0] });
+  const t = paverTextures(palette, { seed });
+  const map = t.map.clone();
+  const nm = t.normalMap.clone();
+  map.repeat.set(0.5, 1);
+  nm.repeat.set(0.5, 1);
+  return new THREE.MeshStandardMaterial({
+    map,
+    normalMap: nm,
+    normalScale: new THREE.Vector2(0.6, 0.6),
+    roughness: 0.88,
+    polygonOffset: true,
+    polygonOffsetFactor: off,
+    polygonOffsetUnits: off,
+  });
+}
+
 function materials(base: string): Record<string, THREE.Material> {
   const std = (p: THREE.MeshStandardMaterialParameters) =>
     new THREE.MeshStandardMaterial({ roughness: 0.85, ...p });
@@ -224,6 +250,67 @@ function materials(base: string): Record<string, THREE.Material> {
     mkDownlight: nightLamp(0xfff2d8, 2.5),
     mkStep: std({ color: 0xc9c3b6, roughness: 0.7 }),
     mkEntryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
+    spPaverGrey: paverMat(['#aaa69f', '#b4b0a8', '#9f9b94', '#a8a39a'], 21, -5),
+    spPaverRed: paverMat(['#9b6a5d', '#a77668', '#8f6155', '#a07061'], 22, -5),
+    spRubberRed: std({
+      color: 0x7e4a3f,
+      roughness: 0.95,
+      polygonOffset: true,
+      polygonOffsetFactor: -6,
+      polygonOffsetUnits: -6,
+    }),
+    spRubberPurple: std({
+      color: 0x6f5a6c,
+      roughness: 0.95,
+      polygonOffset: true,
+      polygonOffsetFactor: -6,
+      polygonOffsetUnits: -6,
+    }),
+    spRubberGrey: std({
+      color: 0x505356,
+      roughness: 0.95,
+      polygonOffset: true,
+      polygonOffsetFactor: -6,
+      polygonOffsetUnits: -6,
+    }),
+    spCourtBeige: std({
+      color: 0xc4b294,
+      roughness: 0.8,
+      polygonOffset: true,
+      polygonOffsetFactor: -6,
+      polygonOffsetUnits: -6,
+    }),
+    spCourtGreen: std({
+      color: 0x4f7a55,
+      roughness: 0.8,
+      polygonOffset: true,
+      polygonOffsetFactor: -6,
+      polygonOffsetUnits: -6,
+    }),
+    spMulch: std({
+      color: 0x5a4838,
+      roughness: 1,
+      polygonOffset: true,
+      polygonOffsetFactor: -5,
+      polygonOffsetUnits: -5,
+    }),
+    spGravel: std({
+      color: 0xb9ad98,
+      roughness: 1,
+      polygonOffset: true,
+      polygonOffsetFactor: -5,
+      polygonOffsetUnits: -5,
+    }),
+    spPaint: std({
+      color: 0xeeeeea,
+      roughness: 0.6,
+      polygonOffset: true,
+      polygonOffsetFactor: -8,
+      polygonOffsetUnits: -8,
+    }),
+    spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
+    spPlayYellow: std({ color: 0xe8b830, roughness: 0.5 }),
+    poolTileLight: std({ map: T.mosaicTexture('#9fd8e6', '#8ccbdc'), roughness: 0.3 }),
     mkWave: (() => {
       const map = new THREE.TextureLoader().load(`${base}textures/mk/mk-wave.jpg`);
       map.colorSpace = THREE.SRGBColorSpace;
@@ -633,6 +720,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const group = new THREE.Group();
   group.name = 'mertkent (el modeli)';
   const b = new Builder();
+  const extraMats: Record<string, THREE.Material> = {};
   const ringBase = (r: V2[]) => Math.min(...r.map((p) => o.H(p[0], p[1])));
   // Bloklar: adlar kuzeybatıdan başlayarak (kuzey→güney, batı→doğu)
   const FACADES = facadesData as unknown as Record<string, CompiledBlock>;
@@ -654,9 +742,34 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const lv = Number(w?.t?.['building:levels']);
     const name = BLOCK_NAMES[bi];
     const fac = FACADES[id];
-    if (fac && !NO_SURVEY)
-      buildFacadeBlock(b, fac, base, { seed: id % 100000, collide: o.collide, signKey: `blockSign${name}` });
-    else
+    if (fac && !NO_SURVEY) {
+      // Blok paleti (ölçümde örneklenen renkler; güneşli yüzden alındığı için hafif koyulaştırılır)
+      const keys: Record<string, string> = {};
+      const pal: [string, string, number, (c: string) => THREE.Material][] = [
+        ['plaster', 'mkPlaster', 0.97, (c) => granularMaterial(c, 3)],
+        ['strip', 'mkStrip', 0.95, (c) => granularMaterial(c, 6, { roughness: 0.85 }, { mottle: 0.06 })],
+        [
+          'fascia',
+          'mkFascia',
+          0.95,
+          (c) => granularMaterial(c, 7, { side: THREE.DoubleSide, roughness: 0.9 }),
+        ],
+      ];
+      for (const [ck, mk, f, mat] of pal) {
+        const c = fac.colors?.[ck];
+        if (!c || !/^#[0-9a-f]{6}$/i.test(c)) continue;
+        const col = new THREE.Color(c).multiplyScalar(f);
+        const k = `${mk}_${id}`;
+        extraMats[k] = mat(`#${col.getHexString()}`);
+        keys[mk] = k;
+      }
+      buildFacadeBlock(b, fac, base, {
+        seed: id % 100000,
+        collide: o.collide,
+        signKey: `blockSign${name}`,
+        keys,
+      });
+    } else
       buildApartment(b, {
         ring: r,
         base,
@@ -717,18 +830,26 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       const l = pool[pool.length - 1];
       if (f[0] === l[0] && f[1] === l[1]) pool.pop();
     }
-    const g = buildGrounds(b, {
-      site: siteRing,
-      buildings: blocks.map((x) => x.r),
-      pool,
-      paths,
-      drives,
-      H: o.H,
-      collide: o.collide,
-    });
-    holes.push(...g.holes);
-    noTree = g.noTree;
-    addBays(g.bays);
+    if (!USE_PLAN) {
+      const g = buildGrounds(b, {
+        site: siteRing,
+        buildings: blocks.map((x) => x.r),
+        pool,
+        paths,
+        drives,
+        H: o.H,
+        collide: o.collide,
+      });
+      holes.push(...g.holes);
+      noTree = g.noTree;
+      addBays(g.bays);
+    }
+  }
+  if (USE_PLAN) {
+    // Ölçülmüş site planı (Mertkent + Salusvizyon iç alanları)
+    const sp = buildSitePlan(b, SITE_PLAN, o.H, o.collide);
+    holes.push(...sp.holes);
+    cars.push(...sp.cars);
   }
   // ── Salusvizyon ──
   const salusSite = ringOf(o.simple, SALUS_SITE);
@@ -749,35 +870,39 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       base + 25,
     );
     const pool = ringOf(o.simple, SALUS_POOL);
-    const g = buildGrounds(b, {
-      site: salusSite,
-      buildings: [salusB],
-      pool,
-      paths: [
-        [
-          [-82.2, -172.1],
-          [-84.2, -172.1],
-        ],
-        [
-          [-95.5, -158],
-          [-99.6, -155],
-        ],
-      ],
-      drives: [
-        [
-          [-81.5, -163.4],
-          [-95.5, -163.2],
-          [-95.8, -136.5],
-        ],
-      ],
-      H: o.H,
-      collide: o.collide,
-      seed: 5,
-    });
-    holes.push(...g.holes);
-    addBays(g.bays);
-    const nt = noTree;
-    noTree = (x, z) => (nt ? nt(x, z) : false) || g.noTree(x, z);
+    const g = USE_PLAN
+      ? null
+      : buildGrounds(b, {
+          site: salusSite,
+          buildings: [salusB],
+          pool,
+          paths: [
+            [
+              [-82.2, -172.1],
+              [-84.2, -172.1],
+            ],
+            [
+              [-95.5, -158],
+              [-99.6, -155],
+            ],
+          ],
+          drives: [
+            [
+              [-81.5, -163.4],
+              [-95.5, -163.2],
+              [-95.8, -136.5],
+            ],
+          ],
+          H: o.H,
+          collide: o.collide,
+          seed: 5,
+        });
+    if (g) {
+      holes.push(...g.holes);
+      addBays(g.bays);
+      const nt = noTree;
+      noTree = (x, z) => (nt ? nt(x, z) : false) || g.noTree(x, z);
+    }
     // Sokak yüzlerinde tuğla çit (kuzey kenarı Özhan otoparkına, güney kenar yeşil alana bakar)
     const c = salusSite.reduce(
       (a, p) => [a[0] + p[0] / salusSite.length, a[1] + p[1] / salusSite.length],
@@ -847,7 +972,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   for (const g of GATES) buildGate(b, g.c, g.n, o.H(g.c[0], g.c[1]));
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
   signPole(b, [-31.3, -145.8], [-0.95, -0.31], o.H(-31.3, -145.8), ['signCurve', 'sign30']);
-  b.build(materials(o.base), group, o.shadows);
+  b.build({ ...materials(o.base), ...extraMats }, group, o.shadows);
   // Özhan önünde (vitrin, otopark) ağaç yok
   if (oz) {
     const nt = noTree;

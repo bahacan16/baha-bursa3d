@@ -94,7 +94,7 @@ async function main() {
       const sU = len(s.edge) / (s.cal.u[1] - s.cal.u[0]);
       if (len(s.edge) >= 6) fhs.push({ fh: pitch * sU, w: len(s.edge) });
     }
-    const FH = sv.floorH_fixed ?? (fhs.length ? median(fhs.map((q) => q.fh)) : (sv.floorH ?? 2.95));
+    const FH = sv.floorH ?? (fhs.length ? median(fhs.map((q) => q.fh)) : 2.95);
     // 2) Kenar dönüşümleri + zemin kat kotu tahmini
     const gRs = [];
     const conv = new Map();
@@ -116,7 +116,7 @@ async function main() {
       if (!unseen) gRs.push(Yabs(y1) - k1 * FH - HEAD);
       conv.set(s.edge, { U, Ud, rel, headApp, sY, L, Yabs, k1, y1 });
     }
-    const gR = sv.groundRaise_fixed ?? (gRs.length ? median(gRs) : (sv.groundRaise ?? 0.6));
+    const gR = sv.groundRaise ?? (gRs.length ? median(gRs) : 0.6);
     const storeysArr = (s, except = []) => {
       const a = [];
       for (let k = s[0]; k <= s[1]; k++) if (!except.includes(k)) a.push(k);
@@ -166,6 +166,7 @@ async function main() {
               tint: it.tint ?? {},
               cap: !!it.cap,
               sides: it.sides ?? 'open',
+              inset: it.inset ?? null,
             });
             break;
           }
