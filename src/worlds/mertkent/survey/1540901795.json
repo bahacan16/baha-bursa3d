@@ -26,8 +26,8 @@
       "note": "Kuzey orta çıkıntı (0.8-0.9 m) = koyu gri kutu; her katta iki içe gömük loca, K0-K5 hepsi cam balkon (koyu cam; K5 sağ bölmede beyaz tül → 'blinds' olabilir); aradaki pilastrda boru. Kutu üst saçak alnına kadar çıkar, üstünde iki çatı penceresi (gablet). En alt kat camlarında ferforje. DİKKAT: kutu bu ortoda taban izine göre ~0.8 m batıda (u 0.81-7.25 görünen).",
       "items": [
         {"t": "panel", "u0": 0.81, "u1": 7.25, "y0": 2.8, "y1": 20.5, "color": "fascia"},
-        {"t": "bal", "u0": 1.0, "u1": 3.87, "d": 0.2, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "sides": "wall"},
-        {"t": "bal", "u0": 4.12, "u1": 7.12, "d": 0.2, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "sides": "wall"},
+        {"t": "bal", "u0": 1.0, "u1": 3.87, "d": 0.2, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "sides": "wall", "inset": 1.0},
+        {"t": "bal", "u0": 4.12, "u1": 7.12, "d": 0.2, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "sides": "wall", "inset": 1.0},
         {"t": "pipe", "u": 4.0}
       ]
     },

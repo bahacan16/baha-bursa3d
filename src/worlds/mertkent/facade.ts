@@ -554,7 +554,17 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       // Pano pencere/kapı açıklıklarını örtmez: açıklıkların u/y kenarlarından ızgaraya bölünüp boş hücreler çizilir
       const Y0 = base + it.y0;
       const Y1 = base + it.y1;
-      const ops = openings[i].filter((op) => op.u1 > u0 && op.u0 < u1 && op.y1 > Y0 && op.y0 < Y1);
+      // Açıklıklar + gömük loca ağızları (kat döşemesinden bir üst döşemeye)
+      const locas = voidsAll
+        .filter((v) => v.edge === i)
+        .flatMap((v) =>
+          v.it.storeys
+            .filter((k) => k >= 0 && k < S)
+            .map((k) => ({ u0: v.u0, u1: v.u1, y0: floorY(k), y1: floorY(k + 1) - SLAB })),
+        );
+      const ops = [...openings[i], ...locas].filter(
+        (op) => op.u1 > u0 && op.u0 < u1 && op.y1 > Y0 && op.y0 < Y1,
+      );
       const us = [u0, u1, ...ops.flatMap((op) => [op.u0, op.u1])]
         .filter((u) => u >= u0 && u <= u1)
         .sort((p, q) => p - q);
