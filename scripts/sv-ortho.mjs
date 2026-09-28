@@ -12,10 +12,23 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PX = Number(process.env.PX_PER_M ?? 40);
 const MARGIN = Number(process.env.MARGIN ?? 1.5);
 const TOP = Number(process.env.SURVEY_TOP ?? 23.5);
+/** Kenar → düzlem ofseti (dış normal boyunca, m): "binaId:kenar=δ,..." veya tek sayı */
+const DELTA = process.env.DELTA ?? '';
+const OUT = process.env.SURVEY_OUT ?? '';
+const ONLY_EDGE = process.env.EDGES ? new Set(process.env.EDGES.split(',').map(Number)) : null;
 const CAM_H = 2.5;
 const S = 640;
 const ONLY = process.argv[2] ? new Set(process.argv[2].split(',').map(Number)) : null;
-const outDir = join(root, 'docs', 'survey');
+const outDir = join(root, 'docs', 'survey', OUT);
+function deltaOf(b, e) {
+  if (!DELTA) return 0;
+  if (!DELTA.includes('=')) return Number(DELTA);
+  for (const kv of DELTA.split(',')) {
+    const [k, v] = kv.split('=');
+    if (k === `${b}:${e}`) return Number(v);
+  }
+  return 0;
+}
 
 const exists = (p) =>
   access(p).then(
@@ -60,9 +73,25 @@ async function main() {
     }
     return cache.get(file);
   };
+  // Düzeltilmiş taban izleri (sv-footprint-fit.mjs): CORRECTED=1 → kenar uçları düzeltilmiş halkadan
+  let fp = null;
+  if (process.env.CORRECTED) {
+    fp = JSON.parse(
+      await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+    );
+  }
   let made = 0;
-  for (const s of cfg.survey ?? []) {
+  for (const s0 of cfg.survey ?? []) {
+    let s = s0;
+    if (fp) {
+      const f = fp[s0.building];
+      if (!f) continue;
+      const R = f.ring;
+      s = { ...s0, a: R[s0.edge], e: R[(s0.edge + 1) % R.length] };
+    }
     if (ONLY && !ONLY.has(s.building)) continue;
+    if (ONLY_EDGE && !ONLY_EDGE.has(s.edge)) continue;
+    const dl = deltaOf(s.building, s.edge);
     const p = pos.get(s.pano);
     if (!p) continue;
     const cy = H(p.x, p.z) + CAM_H;
@@ -73,11 +102,12 @@ async function main() {
       tiles.push({ cam: camOf(p.x, cy, p.z, t.h, t.p, 40), data: await img(file) });
     }
     if (!tiles.length) continue;
-    const [ax, az] = s.a;
-    const [ex, ez] = s.e;
-    const len = Math.hypot(ex - ax, ez - az);
-    const tx = (ex - ax) / len;
-    const tz = (ez - az) / len;
+    const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);
+    const tx = (s.e[0] - s.a[0]) / len;
+    const tz = (s.e[1] - s.a[1]) / len;
+    // Düzlemi dış normal (−tz, tx) boyunca δ kaydır
+    const ax = s.a[0] - tz * dl;
+    const az = s.a[1] + tx * dl;
     const W = Math.round((len + MARGIN * 2) * PX);
     const Hh = Math.round((TOP + 1) * PX);
     const out = Buffer.alloc(W * Hh * 3, 0);
@@ -143,7 +173,7 @@ async function main() {
     }
     for (const xm of [MARGIN, len + MARGIN])
       svg += `<line x1="${xm * PX}" y1="0" x2="${xm * PX}" y2="${Hh}" stroke="#ffe000" stroke-width="3" stroke-dasharray="12 8"/>`;
-    svg += `<text x="10" y="24" font-size="20" fill="#ffe000" font-family="sans-serif">${name} len=${len.toFixed(2)}m dist=${s.dist}m</text></svg>`;
+    svg += `<text x="10" y="24" font-size="20" fill="#ffe000" font-family="sans-serif">${name} len=${len.toFixed(2)}m dist=${s.dist}m δ=${dl}</text></svg>`;
     await base
       .clone()
       .composite([{ input: Buffer.from(svg), left: 0, top: 0 }])
