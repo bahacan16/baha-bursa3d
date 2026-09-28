@@ -170,7 +170,7 @@ export function buildStreetPlan(
         }
       }
       // Bordürle OSM asfaltı arası boşluk kalmasın: yol tarafına asfalt dolgu (OSM yolunun altında kalır)
-      strip(-3, 0.02, 'drive', 0.018);
+      strip(-1.2, 0.02, 'roadFill', 0.028);
       const full: V2[] = [q(0, 0), q(L, 0), q(L, sw.w), q(0, sw.w)];
       polys.push(full);
     }

@@ -47,7 +47,8 @@ export interface Daylight {
 
 // KARAR: gündüz güneşi Street View çekimleriyle aynı (Eylül, ~10:30: doğu/güney cepheler güneşte)
 const PRESET: Record<Exclude<TimeOfDay, 'real'>, { elevation: number; azimuth: number }> = {
-  day: { elevation: 42, azimuth: 128 },
+  // Street View çekim saati: gölgelerden (batı cepheler gölgede, doğu-güney aydınlık, sokak aydınlık)
+  day: { elevation: 48, azimuth: 165 },
   sunset: { elevation: 2, azimuth: 262 },
   night: { elevation: -18, azimuth: 300 },
 };

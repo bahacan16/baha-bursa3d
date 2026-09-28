@@ -61,7 +61,7 @@ export class Game {
   post: PostFX | null = null;
   private pmrem: THREE.PMREMGenerator;
   private envRT: THREE.WebGLRenderTarget | null = null;
-  envScale = Number(new URLSearchParams(location.search).get('env') ?? 0.12);
+  envScale = Number(new URLSearchParams(location.search).get('env') ?? 0.085);
   /** Fotoğraf modu: HUD gizli, serbest kamera, oyuncu donuk. */
   photoMode = false;
   private photo = { pos: new THREE.Vector3(), yaw: 0, pitch: 0 };

@@ -1,7 +1,7 @@
 {
   "id": 1480041300,
   "storeys": 5,
-  "groundRaise": 2.4,
+  "groundRaise": 2.6,
   "floorH": 2.9,
   "roof": {
     "kind": "hipped",
@@ -1222,5 +1222,12 @@
       "note": "KB köşe yığınının kuzey ön yüzü (d:0, içeri e14 kadar; 1301/e1 gibi). Tüm genişlik balkon (ayak yok), K1–K4 çerçevesiz koyu mavi cam balkon, K0 çit arkasında. Üstte koyu gri şapka (y ~17.3–18.5)."
     }
   ],
-  "notes": []
+  "notes": [
+    "1480041301'in ayna ikizi (aynı proje), 5 kat: K0–K4. Doğu (e8) ve kuzey (e11, e13) cephelerde 5 pencere sırası; batı (e0) ve kuzey (e11) alınlıklarında K4 üstünde çatı arası pencereleri (k=5) var — kat sayılmadı. OSM building:levels=6. K0 döşemesi sokaktan ~2.3–2.7 m yukarıda (yükseltilmiş bahçe + bodrum).",
+    "Tasarım dili 1301 ile aynı: açık gri sıva, koyu gri düz pilastrlar, kiremit rengi ara dolgular, K2/K3 arası pilastr kesintisi; üst katlarda (K3–K4) geniş aks + korkuluklu fransız pencere (e8, e0 kuzey aksı), diğer akslarda dar pencere. Köşe/orta balkon yığınları gri, çoğu katta çerçevesiz koyu mavi cam balkon (KB yığın K1–K4 tamamen camlı).",
+    "Doğu uzun cephe (e8, 502. Sokak'a bakıyor): orta yığın ~0.75 m, köşe yığınları ~0.35 m taşar; orta yığında iki yarım arasında boru + küçük aplik lambalar; çatıda kuzey aks üstünde çanak anten.",
+    "Kuzey cephe (Mertkent sitesine bakan sokak): e15 KB köşe yığını tam genişlik camlı (ayak yok), e13 girinti dibinde tek aks, e11 doğu kanadı iki aks + batı ucunda locası; e9 (KD yığın) ağaç arkasında → 1301/e7 aynası varsayıldı.",
+    "Güney cephe (e1–e7) görülmedi → kuzeyin aynası (copyOf+mirror).",
+    "Belirsizlikler: floorH 2.9 (kenarlar 2.84–3.0 arası); e8 kuzey ucu ortofoto dışında (cal.u simetriden); e0 S66M karesinde site tabelası üst kısmı örtüyor, 6eol referans."
+  ]
 }

@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { unionRoof } from './roof';
 import * as pcNs from 'polygon-clipping';
 import { Builder, type V2, type V3, type V4 } from './builder';
 
@@ -11,6 +12,9 @@ import { Builder, type V2, type V3, type V4 } from './builder';
 
 type Pc = typeof pcNs;
 const pc: Pc = (pcNs as unknown as { default?: Pc }).default ?? pcNs;
+
+/** ?oldroof=1 → eski sınır kutusu çatısı (karşılaştırma) */
+const OLD_ROOF = typeof location !== 'undefined' && new URLSearchParams(location.search).has('oldroof');
 
 export interface CWin {
   t: 'win';
@@ -547,12 +551,45 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       const off = Math.max(0.006, it.proud);
       const u0 = Math.max(0, it.u0);
       const u1 = Math.min(E[i].len, it.u1);
-      b.wall(key, P(i, u0, off), P(i, u1, off), base + it.y0, base + it.y1, [
-        E[i].s0 + u0,
-        it.y0,
-        E[i].s0 + u1,
-        it.y1,
-      ]);
+      // Pano pencere/kapı açıklıklarını örtmez: açıklıkların u/y kenarlarından ızgaraya bölünüp boş hücreler çizilir
+      const Y0 = base + it.y0;
+      const Y1 = base + it.y1;
+      const ops = openings[i].filter((op) => op.u1 > u0 && op.u0 < u1 && op.y1 > Y0 && op.y0 < Y1);
+      const us = [u0, u1, ...ops.flatMap((op) => [op.u0, op.u1])]
+        .filter((u) => u >= u0 && u <= u1)
+        .sort((p, q) => p - q);
+      const ys = [Y0, Y1, ...ops.flatMap((op) => [op.y0, op.y1])]
+        .filter((y) => y >= Y0 && y <= Y1)
+        .sort((p, q) => p - q);
+      for (let a = 0; a + 1 < us.length; a++) {
+        const ua = us[a];
+        const ub = us[a + 1];
+        if (ub - ua < 1e-3) continue;
+        // Dikey hücreleri birleştir (açıklıksız ardışık hücreler tek dörtgen)
+        let yStart: number | null = null;
+        const flush = (yEnd: number) => {
+          if (yStart == null || yEnd - yStart < 1e-3) return;
+          b.wall(key, P(i, ua, off), P(i, ub, off), yStart, yEnd, [
+            E[i].s0 + ua,
+            yStart - base,
+            E[i].s0 + ub,
+            yEnd - base,
+          ]);
+        };
+        for (let c = 0; c + 1 < ys.length; c++) {
+          const ya = ys[c];
+          const yb = ys[c + 1];
+          if (yb - ya < 1e-3) continue;
+          const um = (ua + ub) / 2;
+          const ym = (ya + yb) / 2;
+          const hole = ops.some((op) => um > op.u0 && um < op.u1 && ym > op.y0 && ym < op.y1);
+          if (hole) {
+            flush(ya);
+            yStart = null;
+          } else if (yStart == null) yStart = ya;
+        }
+        flush(ys[ys.length - 1]);
+      }
       if (it.proud > 0.02) {
         b.quad(
           key,
@@ -564,11 +601,22 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       }
     }
 
-  // ── Turuncu yuvarlak şeritler ──
+  // ── Turuncu yuvarlak şeritler (Mertkent); turuncu olmayan renkte düz pilastır (komşu bloklar) ──
+  const stripHex = (blk.colors as Record<string, string | undefined>).strip ?? '#d98a45';
+  const sc = new THREE.Color(stripHex);
+  const hsl = { h: 0, s: 0, l: 0 };
+  sc.getHSL(hsl);
+  const roundStrip = hsl.s > 0.3 && hsl.h > 0.03 && hsl.h < 0.14;
   for (let i = 0; i < N; i++)
     for (const it of items(i)) {
       if (it.t !== 'strip') continue;
       if (voids.some((v) => v.edge === i && it.u > v.u0 + 0.1 && it.u < v.u1 - 0.1)) continue;
+      if (!roundStrip) {
+        const w = Math.max(0.18, Math.min(0.5, it.w));
+        const p = P(i, it.u, 0.03);
+        b.box(K('mkStrip'), [p[0], base + (it.y0 + it.y1) / 2, p[1]], [w, it.y1 - it.y0, 0.06], E[i].yaw);
+        continue;
+      }
       const w = Math.max(0.2, Math.min(0.4, it.w * 1.15));
       const r = w / 2;
       const Lc = Math.max(0.01, it.y1 - it.y0 - w);
@@ -727,7 +775,24 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   }
   const gables = (blk.roof as { gables?: number[] }).gables ?? [];
   let top: number;
-  if (blk.roof.kind === 'gable' && gables.length) {
+  if (!OLD_ROOF) {
+    // Taban izine oturan birleşik kırma çatı (+ alınlıklar, düz teras) — hava fotoğrafındaki çatı biçimi
+    const rf = blk.roof as { terrace?: boolean; terraceInset?: number };
+    const flat = blk.roof.kind === 'flat';
+    top = unionRoof(b, ring, wallTop + fH - 0.02, {
+      eave,
+      pitchDeg: blk.roof.pitch ?? 26,
+      gableEdges: blk.roof.kind === 'gable' ? gables : [],
+      terraceInset: flat ? 0.001 : rf.terrace ? (rf.terraceInset ?? 5) : undefined,
+      keys: {
+        roof: K('mkTile'),
+        soffit: K('mkSoffit'),
+        fascia: K('mkFascia'),
+        gable: K('mkPlaster'),
+        terrace: 'roofFlat',
+      },
+    });
+  } else if (blk.roof.kind === 'gable' && gables.length) {
     // Mahya, alınlık duvarlarına dik: alınlık kenarlarının ortalama doğrultusu
     let gx = 0;
     let gz = 0;

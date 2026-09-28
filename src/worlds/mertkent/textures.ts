@@ -297,23 +297,61 @@ export function hedgeTexture(seed = 5): THREE.Texture {
 }
 
 /** Kiremit (kırma çatı) — yatay 0.3 m sıra, 2 m tekrar */
-export function roofTileTexture(): THREE.Texture {
-  const [c, g] = canvas(256, 256);
+/**
+ * Kiremit (Marsilya tipi): doku 2 m (u) × 1.5 m (eğim, v) — 10 sütun × 6 sıra (~20 × 25 cm). `base`: ölçülmüş çatı
+ * rengi (hava fotoğrafı / Street View); yaşlanma lekeleri ve sıra gölgeleriyle.
+ */
+export function roofTileTexture(base = '#9c4a2c'): THREE.Texture {
+  const S = 512;
+  const [c, g] = canvas(S, S);
   const r = rng(21);
-  g.fillStyle = '#9c4a2c';
-  g.fillRect(0, 0, 256, 256);
-  for (let row = 0; row < 16; row++) {
-    const y = row * 16;
-    for (let col = 0; col < 12; col++) {
-      const x = col * 22 + (row % 2) * 11;
-      const l = 30 + r() * 12;
-      g.fillStyle = `hsl(${14 + r() * 8},${48 + r() * 12}%,${l}%)`;
+  const bc = new THREE.Color(base);
+  const hsl = { h: 0, s: 0, l: 0 };
+  bc.getHSL(hsl);
+  const H0 = hsl.h * 360;
+  const S0 = hsl.s * 100;
+  const L0 = hsl.l * 100;
+  g.fillStyle = `hsl(${H0},${S0 * 0.8}%,${L0 * 0.55}%)`;
+  g.fillRect(0, 0, S, S);
+  const rows = 6;
+  const cols = 10;
+  const rh = S / rows;
+  const cw = S / cols;
+  for (let row = 0; row < rows; row++) {
+    const y = row * rh;
+    for (let col = -1; col <= cols; col++) {
+      const x = col * cw + (row % 2) * (cw / 2);
+      const l = L0 * (0.86 + r() * 0.26);
+      g.fillStyle = `hsl(${H0 - 3 + r() * 6},${S0 * (0.85 + r() * 0.25)}%,${l}%)`;
+      // Tek kiremit: üstte yuvarlak omuz, altta dalga
       g.beginPath();
-      g.ellipse(x + 11, y + 8, 11, 9, 0, 0, Math.PI);
+      g.moveTo(x + 2, y + rh);
+      g.lineTo(x + 2, y + rh * 0.25);
+      g.quadraticCurveTo(x + cw / 2, y - rh * 0.05, x + cw - 2, y + rh * 0.25);
+      g.lineTo(x + cw - 2, y + rh);
+      g.closePath();
       g.fill();
+      // Orta oluk gölgesi + tepe parlaması
+      g.fillStyle = 'rgba(0,0,0,0.16)';
+      g.fillRect(x + cw * 0.42, y + rh * 0.2, cw * 0.16, rh * 0.8);
+      g.fillStyle = 'rgba(255,240,220,0.1)';
+      g.fillRect(x + cw * 0.18, y + rh * 0.2, cw * 0.14, rh * 0.8);
     }
-    g.fillStyle = 'rgba(0,0,0,0.25)';
-    g.fillRect(0, y + 14, 256, 2);
+    // Sıra altı gölge (bindirme)
+    g.fillStyle = 'rgba(0,0,0,0.3)';
+    g.fillRect(0, y + rh - 5, S, 5);
+  }
+  // Yaşlanma: koyu is/yosun ve açık solma lekeleri
+  for (let i = 0; i < 90; i++) {
+    const x = r() * S;
+    const y = r() * S;
+    const rad = 10 + r() * 45;
+    const gr = g.createRadialGradient(x, y, 0, x, y, rad);
+    const dark = r() < 0.6;
+    gr.addColorStop(0, dark ? 'rgba(40,35,25,0.18)' : 'rgba(230,215,195,0.12)');
+    gr.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = gr;
+    g.fillRect(x - rad, y - rad, rad * 2, rad * 2);
   }
   return tex(c);
 }
@@ -890,7 +928,7 @@ export function leylandiiTexture(): THREE.Texture {
   const Hh = 512;
   const [c, g] = canvas(W, Hh);
   const r = rng(71);
-  g.fillStyle = '#465b31';
+  g.fillStyle = '#566b40';
   g.fillRect(0, 0, W, Hh);
   const wrap = (x: number, y: number, m: number, fn: (X: number, Y: number) => void) => {
     for (const dx of [-W, 0, W])
@@ -915,7 +953,7 @@ export function leylandiiTexture(): THREE.Texture {
     });
   }
   // Pullu dal uçları (çoğu yukarı-yana), yan filizlerle
-  const pal = ['#6c8a40', '#7b9947', '#89a950', '#97b659', '#a4c066', '#5c7936', '#b0c872', '#839f4b'];
+  const pal = ['#84a05a', '#92ac64', '#9fb86e', '#adc379', '#bacd86', '#76914f', '#c4d491', '#8da760'];
   g.lineCap = 'round';
   for (let i = 0; i < 11000; i++) {
     const x = r() * W;
@@ -958,7 +996,7 @@ export function leylandiiTexture(): THREE.Texture {
     const x = r() * W;
     const y = r() * Hh;
     const s = 1.5 + r() * 2.5;
-    const col = r() < 0.5 ? '#c4d676' : '#aec660';
+    const col = r() < 0.5 ? '#d2e08e' : '#c0d27a';
     wrap(x, y, 4, (X, Y) => {
       g.fillStyle = col;
       g.fillRect(X, Y, s, s);

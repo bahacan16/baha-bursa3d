@@ -191,7 +191,7 @@ export class OsmWorld implements IWorld {
   readonly collision = new PolygonCollisionWorld();
   readonly spawn = new THREE.Vector3();
   private chunkGroups = new Map<string, THREE.Group>();
-  private materials: OsmMaterials;
+  readonly materials: OsmMaterials;
   private treeGeos: THREE.BufferGeometry[] = [];
   private treeGeosHi: THREE.BufferGeometry[] = [];
   private treeMatHi = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85 });
@@ -437,6 +437,7 @@ export class OsmWorld implements IWorld {
           H,
           shadows: quality !== 'low',
           collide,
+          roadMaterial: world.materials.roadFill,
         });
         world.object.add(mk.group);
         fenceSkip = mk.fenceSkip;

@@ -34,6 +34,8 @@ function speckle(ctx: CanvasRenderingContext2D, s: number, base: string, amount:
 
 export interface OsmMaterials {
   byKey: Record<MatKey, THREE.Material>;
+  /** Araç yolu asfaltının köşe rengi olmadan (el modeli dolguları için) */
+  roadFill: THREE.MeshStandardMaterial;
   ground: THREE.MeshStandardMaterial;
   trees: THREE.MeshStandardMaterial;
   dispose(): void;
@@ -173,12 +175,17 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
   };
   ground.customProgramCacheKey = () => 'ground-detail-v4';
   const trees = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, flatShading: true });
+  const roadFill = detailMaterial(asphalt, { key: 'roadFill', polygonOffset: -5, normalScale: 0.8 });
+  roadFill.vertexColors = false;
+  roadFill.color.setRGB(0.26, 0.265, 0.26);
   return {
     byKey,
+    roadFill,
     ground,
     trees,
     dispose() {
       for (const m of Object.values(byKey)) m.dispose();
+      roadFill.dispose();
       ground.dispose();
       trees.dispose();
       for (const t of [atlas, grain, sidewalkTex, pitchTex, detailTex]) t.dispose();

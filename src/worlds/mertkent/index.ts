@@ -222,6 +222,13 @@ function paletteKeys(
     ['strip', 'mkStrip', 0.95, (c) => granularMaterial(c, 6, { roughness: 0.85 }, { mottle: 0.06 })],
     ['fascia', 'mkFascia', 0.95, (c) => granularMaterial(c, 7, { side: THREE.DoubleSide, roughness: 0.9 })],
     [
+      'tile',
+      'mkTile',
+      1,
+      (c) =>
+        new THREE.MeshStandardMaterial({ map: T.roofTileTexture(c), side: THREE.DoubleSide, roughness: 0.8 }),
+    ],
+    [
       'soffit',
       'mkSoffit',
       1,
@@ -309,8 +316,9 @@ function materials(base: string): Record<string, THREE.Material> {
     mkDownlight: nightLamp(0xfff2d8, 2.5),
     mkStep: std({ color: 0xc9c3b6, roughness: 0.7 }),
     mkEntryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
-    spPaverGrey: paverMat(['#aaa69f', '#b4b0a8', '#9f9b94', '#a8a39a'], 21, -5),
-    spPaverRed: paverMat(['#9b6a5d', '#a77668', '#8f6155', '#a07061'], 22, -5),
+    // Street View'da güneşte ~#c0b19c (sıcak bej-gri), kiremit bant solgun
+    spPaverGrey: paverMat(['#b6ab99', '#bfb4a2', '#aca190', '#b9ae9c'], 21, -5),
+    spPaverRed: paverMat(['#a87a6c', '#b28476', '#9d7064', '#ad7e70'], 22, -5),
     spRubberRed: std({
       color: 0x7e4a3f,
       roughness: 0.95,
@@ -370,7 +378,7 @@ function materials(base: string): Record<string, THREE.Material> {
     spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
     // Bisiklet şeridi boyası (502. Sk. Street View: soluk mavi, yer yer aşınmış)
     spBike: std({
-      color: 0x86aac4,
+      color: 0x93b1c4,
       roughness: 0.85,
       polygonOffset: true,
       polygonOffsetFactor: -6,
@@ -400,6 +408,7 @@ function materials(base: string): Record<string, THREE.Material> {
       });
     })(),
     mkWallBack: granularMaterial('#e3e2de', 9),
+    mkTile: std({ map: T.roofTileTexture('#a0654f'), side: DS, roughness: 0.8 }),
     mkCoping: granularMaterial('#d7843a', 10, { roughness: 0.8 }),
     mkPillar: granularMaterial('#d98a3e', 11, { roughness: 0.85 }, { mottle: 0.07, bump: 2.2 }),
     mkMesh: std({
@@ -807,6 +816,8 @@ export interface MertkentOptions {
   H: (x: number, z: number) => number;
   shadows: boolean;
   collide?: Collide;
+  /** OSM yol malzemesi (bordür ile OSM asfaltı arasındaki dolgu aynı görünsün) */
+  roadMaterial?: THREE.Material;
 }
 
 /** Elle modellenmiş bölgeyi kurar. fenceSkip: StreetView çit kabuğunun bu bölgede çizilmemesi için. */
@@ -1110,7 +1121,9 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   for (const g of GATES) buildGate(b, g.c, g.n, o.H(g.c[0], g.c[1]) + (SP_GATES.length ? 0.15 : 0));
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
   if (!street) signPole(b, [-31.3, -145.8], [-0.95, -0.31], o.H(-31.3, -145.8), ['signCurve', 'sign30']);
-  b.build({ ...materials(o.base), ...extraMats }, group, o.shadows);
+  const mats = materials(o.base);
+  extraMats.roadFill = o.roadMaterial ?? mats.drive;
+  b.build({ ...mats, ...extraMats }, group, o.shadows);
   // Özhan önünde (vitrin, otopark) ağaç yok
   if (oz) {
     const nt = noTree;

@@ -1,7 +1,7 @@
 {
   "id": 1480041301,
   "storeys": 6,
-  "groundRaise": 1.75,
+  "groundRaise": 1.9,
   "floorH": 2.8,
   "roof": {
     "kind": "hipped",
@@ -1257,5 +1257,13 @@
       "note": "GD köşe yığınının güney ön yüzü; görülmedi → e1 aynası."
     }
   ],
-  "notes": []
+  "notes": [
+    "Mertkent 3 (?) sitesinin batı bloğu; 1480041300 ile ayna ikiz (K–G ekseninde yansıma; bu blok 6 kat, 1300 5 kat). Kat sayısı: K0–K5 (6 normal kat); doğu otoparkta K0 altında bodrum üst pencereleri (zeminden ~0.4–1.1 m) görülüyor, K0 döşemesi otopark zemininden ~1.8–2.1 m yukarıda. OSM building:levels=7 (bodrum dahil) ile uyumlu.",
+    "Tasarım dili: açık gri sıva; pencere aksları iki yanda koyu gri DÜZ (yuvarlak değil) pilastrlarla çerçeveli, pencereler arası kiremit/terrakota rengi dolgu panoları (plaster2). K2 ile K3 arasında ~0.9 m pilastrsız sıva kuşağı; alt aks (K0–K2) dar pencereli, üst aks (K3–K5) çoğunlukla daha geniş + paslanmaz korkuluklu fransız pencere. Pilastrlar strip olarak yazıldı (renk: strip = koyu gri) — üretici kapsül yapıyor, gerçekte ~0.25 m genişlikte düz, ~3–5 cm çıkıntılı.",
+    "Balkon yığınları gri parapet + buzlu cam korkuluk, alt yüzleri bej, tepelerinde koyu gri eğik/kalın 'şapka' (kırma çatı eğimini izler). Köşe yığınları: K/G ön yüzleri taban izi çıkıntısının ön yüzü (d:0 loca, iki yana açık) + uzun cephelerde ~0.4–0.8 m taşan ana balkon; batı cephe orta yığını ~1.1 m taşar (düşey parallaks, c3jX/myU6).",
+    "Çatı: kırma kiremit + her kısa cephede (e0 doğu, e5 kuzey, e11 güney) ortada alınlık: kiremit dolgular ve pilastrlar alınlık tepesine kadar yükselir (e0 tepe ~u 8.9, e5 tepe ~u 6.3). Üretici kırma çatıda bunları çizemez; paneller duvar üstünde kesildi. fasciaH ~0.85 (K5 tavanı ile saçak arası sıva kuşağı).",
+    "Güney cephe (e9–e15) hiçbir karede görülmedi → kuzey cephenin aynası (copyOf+mirror); hava fotoğrafında da benzer girinti/yığın düzeni.",
+    "Site kapısı: 1300 ile 1301 arasındaki otopark girişinde büyük gri portal + 'MERTKENT ...' harfleri (HZb9/S66M karelerinde) — bina cephesi değil, ayrı yapı olarak modellenmeli.",
+    "Belirsizlikler: groundRaise 1.9 doğu otopark tarafına göre (arazi modeli batı yolu 1.35 m yüksek veriyor, fotoğraflar ise batı yolunu otoparktan ~0.6 m alçak gösteriyor); e8 güney ucunda taban izi ~1.5 m uzun; köşe locaların derinliği taban izi çıkıntısından (1.7/1.76 m)."
+  ]
 }

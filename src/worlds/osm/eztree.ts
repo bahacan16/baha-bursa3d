@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { nightUniform } from '../../env/night';
 
 /**
  * Prosedürel dallı ağaç üreteci — ez-tree (Daniel Greenheck, MIT, github.com/dgreenheck/ez-tree) algoritmasının
@@ -337,6 +338,7 @@ export function createEzTrees(base: string): EzTreeKind[] {
     });
     leaf.onBeforeCompile = (sh) => {
       sh.uniforms.uWind = windTime;
+      sh.uniforms.uNight = nightUniform;
       sh.vertexShader = sh.vertexShader
         .replace(
           '#include <common>',
@@ -356,14 +358,20 @@ transformed.x += ws * (0.10 * sin(uWind * 1.1 + wph.x) + 0.035 * sin(uWind * 3.7
 transformed.z += ws * (0.08 * cos(uWind * 0.9 + wph.y) + 0.035 * sin(uWind * 4.3 + position.x * 2.0));`,
         );
       // Tepenin alt/iç kısmı gölgede (sahte ortam kapanması)
+      // Yaprak ışık geçirgenliği: güneşe sırtı dönük yapraklar da gün ışığında parlak yeşil görünür (Street View
+      // karelerinde taçlar aydınlık ~#768646); gece kapanır.
       sh.fragmentShader = sh.fragmentShader
-        .replace('#include <common>', '#include <common>\nvarying float vCrown;')
+        .replace('#include <common>', '#include <common>\nvarying float vCrown;\nuniform float uNight;')
         .replace(
           '#include <color_fragment>',
           '#include <color_fragment>\ndiffuseColor.rgb *= 0.8 + 0.52 * vCrown;',
+        )
+        .replace(
+          '#include <emissivemap_fragment>',
+          '#include <emissivemap_fragment>\ntotalEmissiveRadiance += diffuseColor.rgb * (0.1 + 0.16 * vCrown) * (1.0 - uNight);',
         );
     };
-    leaf.customProgramCacheKey = () => 'eztree-leaf-v1';
+    leaf.customProgramCacheKey = () => 'eztree-leaf-v2';
     const triangles = ((g.branches.index?.count ?? 0) + (g.leaves.index?.count ?? 0)) / 3;
     return { branches: g.branches, leaves: g.leaves, bark, leaf, triangles };
   });
