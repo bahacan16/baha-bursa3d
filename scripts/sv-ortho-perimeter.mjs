@@ -13,7 +13,7 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const S = 640;
 const CAM_H = 2.5;
 const PX = Number(process.env.PX_PER_M ?? 60);
-const outDir = join(root, 'docs', 'survey', 'perim');
+const outDir = join(root, 'docs', 'survey', process.env.PERIM_OUT ?? 'perim');
 
 function camOf(x, y, z, hDeg, pDeg, fov) {
   const h = (hDeg * Math.PI) / 180;
@@ -99,8 +99,10 @@ async function main() {
   const files = new Set(await readdir(join(root, 'streetview-src', 'extra')));
   const rings = [1456487000, 1546816188].map((id) => osm.ways.find((w) => w.i === id).p);
   let made = 0;
+  const ONLY = process.env.PANOS ? process.env.PANOS.split(',') : null;
   for (const p of idx.panos) {
     if (p.date && p.date < '2020') continue;
+    if (ONLY && !ONLY.some((q) => p.id.startsWith(q))) continue;
     const tl = [...files].filter((f) => f.startsWith(`${p.id}_`) && f.endsWith('_40.jpg'));
     const near = tl.filter((f) => {
       const pp = Number(f.slice(p.id.length + 1).split('_')[1]);

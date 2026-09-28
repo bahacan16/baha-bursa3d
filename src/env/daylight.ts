@@ -45,8 +45,9 @@ export interface Daylight {
   rayleigh: number;
 }
 
+// KARAR: gündüz güneşi Street View çekimleriyle aynı (Eylül, ~10:30: doğu/güney cepheler güneşte)
 const PRESET: Record<Exclude<TimeOfDay, 'real'>, { elevation: number; azimuth: number }> = {
-  day: { elevation: 48, azimuth: 200 },
+  day: { elevation: 42, azimuth: 128 },
   sunset: { elevation: 2, azimuth: 262 },
   night: { elevation: -18, azimuth: 300 },
 };
@@ -65,7 +66,13 @@ function dirFrom(elevation: number, azimuth: number, out: THREE.Vector3): THREE.
 
 /** Güneş yüksekliğine göre sürekli aydınlatma durumu. */
 export function daylight(t: TimeOfDay, center: { lat: number; lon: number }, now = new Date()): Daylight {
-  const p = t === 'real' ? sunPosition(now, center.lat, center.lon) : PRESET[t];
+  let p = t === 'real' ? sunPosition(now, center.lat, center.lon) : PRESET[t];
+  // Karşılaştırma için: ?sun=azimut,yükseklik
+  const sp = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('sun') : null;
+  if (sp) {
+    const [az, el] = sp.split(',').map(Number);
+    if (Number.isFinite(az) && Number.isFinite(el)) p = { azimuth: az, elevation: el };
+  }
   const e = p.elevation;
   const day = smooth(-4, 12, e);
   const golden = smooth(-4, 3, e) * (1 - smooth(6, 22, e));

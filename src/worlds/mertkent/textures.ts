@@ -924,3 +924,27 @@ export function roadSignTexture(kind: 'curve' | 'limit30'): THREE.Texture {
   }
   return tex(c, false);
 }
+
+/** 3D panel tel çit: 20 cm × 20 cm karo, dikey teller 5 cm, yatay tel 20 cm (koyu yeşil, alfa) */
+export function meshFenceTexture(): THREE.Texture {
+  const N = 128;
+  const [c, g] = canvas(N, N);
+  g.clearRect(0, 0, N, N);
+  g.strokeStyle = '#1f3a2a';
+  g.lineWidth = 3;
+  for (let k = 0; k < 4; k++) {
+    const x = (k + 0.5) * (N / 4);
+    g.beginPath();
+    g.moveTo(x, 0);
+    g.lineTo(x, N);
+    g.stroke();
+  }
+  g.lineWidth = 3.5;
+  g.beginPath();
+  g.moveTo(0, N * 0.5);
+  g.lineTo(N, N * 0.5);
+  g.stroke();
+  const t = tex(c);
+  t.premultiplyAlpha = false;
+  return t;
+}
