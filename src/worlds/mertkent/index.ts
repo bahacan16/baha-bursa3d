@@ -6,8 +6,9 @@ import { buildFacadeBlock, type CompiledBlock } from './facade';
 import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
 import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
+import { buildStreetPlan } from './street';
 import { buildMertkentFence, type FenceSpec } from './fence2';
-import { buildSitePlan, SITE_PLAN } from './siteplan';
+import { buildSitePlan, SITE_PLAN, STREET_PLAN as STREET_PLAN0, type StreetPlan } from './siteplan';
 import { paverTextures } from './facadeMats';
 
 /** Ölçülmüş site planı varsa eski kural tabanlı zemin yerine o kullanılır (?oldgrounds=1 eskisi) */
@@ -16,9 +17,7 @@ const USE_PLAN =
   !(typeof location !== 'undefined' && new URLSearchParams(location.search).has('oldgrounds'));
 
 /** Ölçülmüş sokak planı (street-plan.json, ajan ölçümü) — yoksa OSM site sınırından çit */
-const STREET_PLAN = (Object.values(
-  import.meta.glob('./data/street-plan.json', { eager: true, import: 'default' }),
-)[0] ?? {}) as { fence?: FenceSpec[]; gates?: { kind: string; c: V2; n: V2; w: number }[] };
+const STREET_PLAN = STREET_PLAN0 as Omit<StreetPlan, 'fence'> & { fence?: FenceSpec[] };
 import { buildBrickFence, buildSalusGate, type BrickSeg } from './salus';
 import { buildDriveGate, buildFence, buildGate, type FenceSeg } from './site';
 import { buildOzhan } from './ozhan';
@@ -58,7 +57,18 @@ const SALUS_SITE = 1546816188;
 const SALUS_POOL = 1479658784;
 /** Street View (pano 17): araç kapısı merkezi, sokağa (doğuya) bakar */
 const SALUS_GATE: { c: V2; n: V2 } = { c: [-82.3, -165.6], n: [1, 0] };
-export const HANDMADE_IDS = new Set([...MERTKENT_BUILDINGS, OZHAN_BUILDING, SALUS_BUILDING]);
+/** Ölçülmüş cephe verisi olan tüm binalar (Mertkent blokları + Salus + komşular) */
+const FACADES_ALL = facadesData as unknown as Record<string, CompiledBlock>;
+/** Ölçülmüş komşu binalar (Mertkent blokları ve Salus dışında) — OSM'den otomatik üretilmez */
+const SURVEYED_EXTRA = Object.keys(FACADES_ALL)
+  .map(Number)
+  .filter((id) => !MERTKENT_BUILDINGS.includes(id) && id !== SALUS_BUILDING);
+export const HANDMADE_IDS = new Set([
+  ...MERTKENT_BUILDINGS,
+  OZHAN_BUILDING,
+  SALUS_BUILDING,
+  ...SURVEYED_EXTRA,
+]);
 
 const SALUS_STYLE: ApartmentStyle = {
   keys: {
@@ -178,6 +188,36 @@ function nightLamp(color: number, strength: number): THREE.Material {
   };
   m.customProgramCacheKey = () => `mk-lamp-${strength}`;
   return m;
+}
+
+/** Blok paleti: ölçümde örneklenen renklerden bloğa özel malzemeler (güneşli yüzden alındığı için hafif koyu) */
+function paletteKeys(
+  fac: CompiledBlock,
+  id: number,
+  extraMats: Record<string, THREE.Material>,
+): Record<string, string> {
+  const keys: Record<string, string> = {};
+  const pal: [string, string, number, (c: string) => THREE.Material][] = [
+    ['plaster', 'mkPlaster', 0.97, (c) => granularMaterial(c, 3)],
+    ['plaster2', 'mkPlaster2', 0.97, (c) => granularMaterial(c, 4)],
+    ['strip', 'mkStrip', 0.95, (c) => granularMaterial(c, 6, { roughness: 0.85 }, { mottle: 0.06 })],
+    ['fascia', 'mkFascia', 0.95, (c) => granularMaterial(c, 7, { side: THREE.DoubleSide, roughness: 0.9 })],
+    [
+      'soffit',
+      'mkSoffit',
+      1,
+      (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.9, side: THREE.DoubleSide }),
+    ],
+  ];
+  for (const [ck, mk, f, mat] of pal) {
+    const c = fac.colors?.[ck];
+    if (!c || !/^#[0-9a-f]{6}$/i.test(c)) continue;
+    const col = new THREE.Color(c).multiplyScalar(f);
+    const k = `${mk}_${id}`;
+    extraMats[k] = mat(`#${col.getHexString()}`);
+    keys[mk] = k;
+  }
+  return keys;
 }
 
 /** Kilit parke malzemesi (2 m × 1 m doku; drape UV = dünya metre) */
@@ -504,6 +544,25 @@ function materials(base: string): Record<string, THREE.Material> {
       emissive: 0x7d8286,
       alphaTest: 0.5,
     }),
+    signP: std({ map: T.roadSignTexture('parking'), alphaTest: 0.5, roughness: 0.4 }),
+    signPBack: std({ color: 0x7d8286, roughness: 0.5 }),
+    signBike: std({ map: T.roadSignTexture('bike'), alphaTest: 0.5, roughness: 0.4 }),
+    signBikeBack: std({
+      map: T.roadSignTexture('bike'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signNoEntry: std({ map: T.roadSignTexture('noentry'), alphaTest: 0.5, roughness: 0.4 }),
+    signNoEntryBack: std({
+      map: T.roadSignTexture('noentry'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    lampHead: std({ color: 0x9aa0a4, roughness: 0.4, metalness: 0.6, emissive: 0x000000 }),
+    concretePole: std({ color: 0xa7a59f, roughness: 0.9 }),
+    hydrant: std({ color: 0xc0282a, roughness: 0.5 }),
     sign30Back: std({
       map: T.roadSignTexture('limit30'),
       color: 0x000000,
@@ -622,19 +681,12 @@ function materials(base: string): Record<string, THREE.Material> {
   return m;
 }
 
-/** Çit dışı kaldırım (kilit taşı, isteğe bağlı sarı kılavuz şerit), sokak kaldırımıyla birleşir; asfalta taşmaz */
-function fenceWalk(
-  b: Builder,
-  o: { simple: SimpleOsm; H: (x: number, z: number) => number },
-  segs: { a: V2; e: V2; n: V2 }[],
-  key: string,
-  tactile: boolean,
-): void {
-  // Yol oluşturucuyla aynı genişlik kuralı (width → lanes × 3.2 → sınıf)
-  const roads = o.simple.ways
+/** Asfalt kenarına (yol ekseni − yarı genişlik) uzaklık; yol oluşturucuyla aynı genişlik kuralı */
+function roadGapFn(simple: SimpleOsm, centre = false): (x: number, z: number) => number {
+  const roads = simple.ways
     .filter((w) => w.t && ROAD_HALF[w.t.highway ?? ''] !== undefined)
-    .map((w) => ({ p: w.p, half: roadWidth(w.t!) / 2 }));
-  const roadGap = (x: number, z: number) => {
+    .map((w) => ({ p: w.p, half: centre ? 0 : roadWidth(w.t!) / 2 }));
+  return (x, z) => {
     let d = Infinity;
     for (const r of roads)
       for (let i = 0; i + 3 < r.p.length; i += 2) {
@@ -648,6 +700,18 @@ function fenceWalk(
       }
     return d;
   };
+}
+
+/** Çit dışı kaldırım (kilit taşı, isteğe bağlı sarı kılavuz şerit), sokak kaldırımıyla birleşir; asfalta taşmaz */
+function fenceWalk(
+  b: Builder,
+  o: { simple: SimpleOsm; H: (x: number, z: number) => number },
+  segs: { a: V2; e: V2; n: V2 }[],
+  key: string,
+  tactile: boolean,
+  skip?: (x: number, z: number) => boolean,
+): void {
+  const roadGap = roadGapFn(o.simple);
   for (const s of segs) {
     const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);
     const t: V2 = [(s.e[0] - s.a[0]) / len, (s.e[1] - s.a[1]) / len];
@@ -667,6 +731,10 @@ function fenceWalk(
       // Bordüre kadar (sokak kaldırımını da örter), en çok 6 m
       const W = Math.min(6, gap - 0.03);
       if (W < 0.3) continue;
+      if (skip) {
+        const m: V2 = [(A[0] + E[0]) / 2 + s.n[0] * W * 0.5, (A[1] + E[1]) / 2 + s.n[1] * W * 0.5];
+        if (skip(m[0], m[1])) continue;
+      }
       b.drape(
         key,
         [A, E, [E[0] + s.n[0] * W, E[1] + s.n[1] * W], [A[0] + s.n[0] * W, A[1] + s.n[1] * W]],
@@ -717,14 +785,22 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   noTree?: (x: number, z: number) => boolean;
   /** Site otoparklarına park etmiş araçlar [x, y, z, yaw, tohum]* */
   cars: number[];
+  /** Yürüme yüksekliği için yükseltilmiş alanlar (ölçülmüş kaldırımlar) */
+  raised: { poly: [number, number][]; h: number }[];
 }> {
   const group = new THREE.Group();
   group.name = 'mertkent (el modeli)';
   const b = new Builder();
   const extraMats: Record<string, THREE.Material> = {};
+  // Ölçülmüş sokak: kaldırım, bordür, sokak eşyası (street-plan.json); varsa eski tahmini kaldırım çizilmez
+  const street =
+    (STREET_PLAN.sidewalks?.length ?? 0) + (STREET_PLAN.street?.length ?? 0) > 0
+      ? buildStreetPlan(b, STREET_PLAN, o.H, roadGapFn(o.simple, true))
+      : null;
+  const walkSkip = street ? street.covers : undefined;
   const ringBase = (r: V2[]) => Math.min(...r.map((p) => o.H(p[0], p[1])));
   // Bloklar: adlar kuzeybatıdan başlayarak (kuzey→güney, batı→doğu)
-  const FACADES = facadesData as unknown as Record<string, CompiledBlock>;
+  const FACADES = FACADES_ALL;
   const FOOT = footprintsData as unknown as Record<string, { ring: V2[] }>;
   const blocks = MERTKENT_BUILDINGS.map((id) => ({
     id,
@@ -743,34 +819,14 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const lv = Number(w?.t?.['building:levels']);
     const name = BLOCK_NAMES[bi];
     const fac = FACADES[id];
-    if (fac && !NO_SURVEY) {
-      // Blok paleti (ölçümde örneklenen renkler; güneşli yüzden alındığı için hafif koyulaştırılır)
-      const keys: Record<string, string> = {};
-      const pal: [string, string, number, (c: string) => THREE.Material][] = [
-        ['plaster', 'mkPlaster', 0.97, (c) => granularMaterial(c, 3)],
-        ['strip', 'mkStrip', 0.95, (c) => granularMaterial(c, 6, { roughness: 0.85 }, { mottle: 0.06 })],
-        [
-          'fascia',
-          'mkFascia',
-          0.95,
-          (c) => granularMaterial(c, 7, { side: THREE.DoubleSide, roughness: 0.9 }),
-        ],
-      ];
-      for (const [ck, mk, f, mat] of pal) {
-        const c = fac.colors?.[ck];
-        if (!c || !/^#[0-9a-f]{6}$/i.test(c)) continue;
-        const col = new THREE.Color(c).multiplyScalar(f);
-        const k = `${mk}_${id}`;
-        extraMats[k] = mat(`#${col.getHexString()}`);
-        keys[mk] = k;
-      }
+    if (fac && !NO_SURVEY)
       buildFacadeBlock(b, fac, base, {
         seed: id % 100000,
         collide: o.collide,
         signKey: `blockSign${name}`,
-        keys,
+        keys: paletteKeys(fac, id, extraMats),
       });
-    } else
+    else
       buildApartment(b, {
         ring: r,
         base,
@@ -786,6 +842,23 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       base + 25,
     );
   });
+  // Ölçülmüş komşu binalar
+  if (!NO_SURVEY)
+    for (const id of SURVEYED_EXTRA) {
+      const fac = FACADES[id];
+      const r = fac.ring.map((p) => [p[0], p[1]] as V2);
+      const base = ringBase(r);
+      buildFacadeBlock(b, fac, base, {
+        seed: id % 100000,
+        collide: o.collide,
+        keys: paletteKeys(fac, id, extraMats),
+      });
+      o.collide?.(
+        r.map((p) => [p[0], p[1]]),
+        base - 1,
+        base + 40,
+      );
+    }
   // Özhan
   const oz = ringOf(o.simple, OZHAN_BUILDING);
   if (oz) buildOzhan(b, oz, ringBase(oz), o.collide);
@@ -856,17 +929,26 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const salusSite = ringOf(o.simple, SALUS_SITE);
   const salusB = ringOf(o.simple, SALUS_BUILDING);
   if (salusSite && salusB) {
-    const base = ringBase(salusB);
-    buildApartment(b, {
-      ring: salusB,
-      base,
-      seed: 4242,
-      floors: 7,
-      inside: [-78, -178],
-      style: SALUS_STYLE,
-    });
+    const salusFac = FACADES[SALUS_BUILDING];
+    const salusRingC = (salusFac?.ring.map((p) => [p[0], p[1]] as V2) ?? salusB) as V2[];
+    const base = ringBase(salusRingC);
+    if (salusFac && !NO_SURVEY)
+      buildFacadeBlock(b, salusFac, base, {
+        seed: 4242,
+        collide: o.collide,
+        keys: paletteKeys(salusFac, SALUS_BUILDING, extraMats),
+      });
+    else
+      buildApartment(b, {
+        ring: salusB,
+        base,
+        seed: 4242,
+        floors: 7,
+        inside: [-78, -178],
+        style: SALUS_STYLE,
+      });
     o.collide?.(
-      salusB.map((p) => [p[0], p[1]]),
+      salusRingC.map((p) => [p[0], p[1]]),
       base - 1,
       base + 25,
     );
@@ -925,7 +1007,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const gt: V2 = [gc.n[1], -gc.n[0]];
     buildBrickFence(b, segs, [{ c: [gc.c[0] + gt[0] * -0.9, gc.c[1] + gt[1] * -0.9], half: 5.4 }], o.collide);
     buildSalusGate(b, gc.c, gc.n, o.H(gc.c[0], gc.c[1]), o.collide);
-    fenceWalk(b, o, segs, 'walkRed', false);
+    fenceWalk(b, o, segs, 'walkRed', false, walkSkip);
   }
   holes.slice(0, 4).forEach((h, i) => groundHoles.value[i].set(h[0], h[1], h[2], h[3]));
   // Çit: site sınırı kenarları (sokağa bakan normal = dışa)
@@ -974,7 +1056,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         o.collide,
       );
     for (const g of DRIVE_GATES) buildDriveGate(b, g.c, g.n, o.H(g.c[0], g.c[1]), g.w);
-    fenceWalk(b, o, segs, 'walk', true);
+    fenceWalk(b, o, segs, 'walk', true, walkSkip);
   }
   for (const g of GATES) buildGate(b, g.c, g.n, o.H(g.c[0], g.c[1]));
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
@@ -991,5 +1073,5 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     (x > -142 && x < 28 && z > -222 && z < 4) ||
     nearSite(x, z) ||
     (!!salusRing && (insidePoly(salusRing, x, z) || distToRing(salusRing, x, z) < 8));
-  return { group, fenceSkip, noTree, cars };
+  return { group, fenceSkip, noTree, cars, raised: street?.raised ?? [] };
 }

@@ -873,7 +873,7 @@ export function tactileTexture(): THREE.Texture {
 }
 
 /** Trafik levhası (şeffaf zemin): 'curve' = tehlikeli viraj (sola-sağa), 'limit30' = azami hız 30 */
-export function roadSignTexture(kind: 'curve' | 'limit30'): THREE.Texture {
+export function roadSignTexture(kind: 'curve' | 'limit30' | 'parking' | 'bike' | 'noentry'): THREE.Texture {
   const S = 256;
   const [c, g] = canvas(S, S);
   g.clearRect(0, 0, S, S);
@@ -907,6 +907,44 @@ export function roadSignTexture(kind: 'curve' | 'limit30'): THREE.Texture {
     g.lineTo(S / 2 + 8, S - 196);
     g.lineTo(S / 2 + 22, S - 168);
     g.fill();
+  } else if (kind === 'parking') {
+    g.fillStyle = '#1f4ea8';
+    g.fillRect(10, 10, S - 20, S - 20);
+    g.strokeStyle = '#f7f7f5';
+    g.lineWidth = 8;
+    g.strokeRect(22, 22, S - 44, S - 44);
+    g.fillStyle = '#f7f7f5';
+    g.font = 'bold 170px Arial, sans-serif';
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    g.fillText('P', S / 2, S / 2 + 10);
+  } else if (kind === 'bike') {
+    g.fillStyle = '#1f5fc0';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.strokeStyle = '#f7f7f5';
+    g.lineWidth = 10;
+    for (const x of [S / 2 - 50, S / 2 + 50]) {
+      g.beginPath();
+      g.arc(x, S / 2 + 30, 34, 0, Math.PI * 2);
+      g.stroke();
+    }
+    g.beginPath();
+    g.moveTo(S / 2 - 50, S / 2 + 30);
+    g.lineTo(S / 2 - 10, S / 2 - 30);
+    g.lineTo(S / 2 + 35, S / 2 - 30);
+    g.lineTo(S / 2 + 50, S / 2 + 30);
+    g.moveTo(S / 2 - 10, S / 2 - 30);
+    g.lineTo(S / 2 + 5, S / 2 + 30);
+    g.stroke();
+  } else if (kind === 'noentry') {
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#f7f7f5';
+    g.fillRect(40, S / 2 - 22, S - 80, 44);
   } else {
     g.fillStyle = '#c8102e';
     g.beginPath();

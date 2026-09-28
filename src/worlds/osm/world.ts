@@ -116,6 +116,35 @@ export class GroundIndex {
     for (const s of strips) this.insert(this.strips, s, s.outer);
     for (const r of roads) this.insert(this.roads, r, r.half);
   }
+  /** Elle ölçülmüş yükseltilmiş alanlar (kaldırım, güverte): çokgen + zeminden yükseklik */
+  private areas = new Map<number, { poly: [number, number][]; h: number }[]>();
+  addArea(poly: [number, number][], h: number): void {
+    const c = GroundIndex.CELL;
+    const xs = poly.map((p) => p[0]);
+    const zs = poly.map((p) => p[1]);
+    const a = { poly, h };
+    for (let x = Math.floor(Math.min(...xs) / c); x <= Math.floor(Math.max(...xs) / c); x++)
+      for (let z = Math.floor(Math.min(...zs) / c); z <= Math.floor(Math.max(...zs) / c); z++) {
+        const k = (x + 32768) * 65536 + (z + 32768);
+        let arr = this.areas.get(k);
+        if (!arr) this.areas.set(k, (arr = []));
+        arr.push(a);
+      }
+  }
+  private areaHeight(x: number, z: number): number | null {
+    let best: number | null = null;
+    for (const a of this.areas.get(this.k(x, z)) ?? []) {
+      let c = false;
+      const r = a.poly;
+      for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+        const [xi, zi] = r[i];
+        const [xj, zj] = r[j];
+        if (zi > z !== zj > z && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) c = !c;
+      }
+      if (c) best = Math.max(best ?? -1e9, a.h);
+    }
+    return best;
+  }
   private static proj(x: number, z: number, s: { ax: number; az: number; bx: number; bz: number }) {
     const ex = s.bx - s.ax;
     const ez = s.bz - s.az;
@@ -136,6 +165,8 @@ export class GroundIndex {
   }
 
   height(x: number, z: number): number {
+    const ah = this.areaHeight(x, z);
+    if (ah !== null) return ah;
     const k = this.k(x, z);
     for (const r of this.roads.get(k) ?? []) if (GroundIndex.proj(x, z, r).d < r.half) return 0;
     let h = 0;
@@ -411,6 +442,7 @@ export class OsmWorld implements IWorld {
         fenceSkip = mk.fenceSkip;
         if (mk.noTree) world.removeTrees(mk.noTree);
         if (mk.cars.length) world.addParkedCars(mk.cars);
+        for (const a of mk.raised ?? []) world.addRaisedArea(a.poly, a.h);
       } catch (e) {
         console.warn('Mertkent el modeli kurulamadı', e);
       }
@@ -553,6 +585,11 @@ export class OsmWorld implements IWorld {
         if (im.instanceColor) im.instanceColor.needsUpdate = true;
       }
     });
+  }
+
+  /** Yükseltilmiş yürüme alanı ekle (ölçülmüş kaldırımlar, güverteler) */
+  addRaisedArea(poly: [number, number][], h: number): void {
+    this.groundIdx.addArea(poly, h);
   }
 
   /** El modeli otoparklarına araç ekle (çizim + çarpışma) */
