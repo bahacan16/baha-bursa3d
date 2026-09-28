@@ -127,6 +127,56 @@ export class Builder {
     }
   }
 
+  /**
+   * Araziye oturan yatay çokgen (delikli): üçgenler küçük parçalara bölünür, her köşe y = H(x,z) + off.
+   * UV = dünya x,−z × uvScale. Normal yukarı (arazi neredeyse düz).
+   */
+  drape(
+    key: string,
+    ring: V2[],
+    holes: V2[][],
+    H: (x: number, z: number) => number,
+    off: number,
+    uvScale = 1,
+    maxEdge = 2,
+  ): void {
+    const all = [...ring, ...holes.flat()];
+    const tris = THREE.ShapeUtils.triangulateShape(
+      ring.map((p) => new THREE.Vector2(p[0], p[1])),
+      holes.map((h) => h.map((p) => new THREE.Vector2(p[0], p[1]))),
+    );
+    const b = this.bucket(key);
+    for (const t of tris) {
+      // Yukarı bakış için sıra: t0, t2, t1
+      const A = all[t[0]];
+      const B = all[t[2]];
+      const C = all[t[1]];
+      const L = Math.max(
+        Math.hypot(B[0] - A[0], B[1] - A[1]),
+        Math.hypot(C[0] - B[0], C[1] - B[1]),
+        Math.hypot(A[0] - C[0], A[1] - C[1]),
+      );
+      const n = Math.max(1, Math.ceil(L / maxEdge));
+      const o = b.pos.length / 3;
+      const idx = (i: number, j: number) => o + (i * (2 * n + 3 - i)) / 2 + j;
+      for (let i = 0; i <= n; i++)
+        for (let j = 0; j <= n - i; j++) {
+          const u = i / n;
+          const v = j / n;
+          const x = A[0] + (B[0] - A[0]) * u + (C[0] - A[0]) * v;
+          const z = A[1] + (B[1] - A[1]) * u + (C[1] - A[1]) * v;
+          b.pos.push(x, H(x, z) + off, z);
+          b.nor.push(0, 1, 0);
+          b.uv.push(x * uvScale, -z * uvScale);
+        }
+      for (let i = 0; i < n; i++)
+        for (let j = 0; j < n - i; j++) {
+          b.idx.push(idx(i, j), idx(i + 1, j), idx(i, j + 1));
+          if (j + 1 < n - i) b.idx.push(idx(i + 1, j), idx(i + 1, j + 1), idx(i, j + 1));
+        }
+    }
+  }
+
   /** Silindir (dikey), segment sayısı az. */
   cylinder(key: string, c: V3, r: number, h: number, seg = 8): void {
     for (let i = 0; i < seg; i++) {
@@ -190,3 +240,79 @@ export class Builder {
 
 export type V2 = [number, number];
 export type V3 = [number, number, number];
+
+/**
+ * Bir bitki yüzeyine (çit gövdesi) yaprak kartları serpiştir: düz dokulu kutu silüetini kırar.
+ * a→e: çit ekseni, n: ön yüz normali (yalnızca bu yüz + üst kaplanır), y0..y1 yükseklik, depth: gövde kalınlığı.
+ */
+export function leafFringe(
+  b: Builder,
+  key: string,
+  a: V2,
+  e: V2,
+  y0: number,
+  y1: number,
+  depth: number,
+  n: V2,
+  perM2: number,
+  seed: number,
+  size = 0.6,
+): void {
+  let s = seed >>> 0 || 1;
+  const rnd = () => {
+    s ^= s << 13;
+    s ^= s >>> 17;
+    s ^= s << 5;
+    return (s >>> 0) / 4294967296;
+  };
+  const dx = e[0] - a[0];
+  const dz = e[1] - a[1];
+  const L = Math.hypot(dx, dz);
+  if (L < 0.2) return;
+  const t: V2 = [dx / L, dz / L];
+  const card = (c: V3, u: V3, v: V3) => {
+    // u: yatay yarı-vektör, v: dikey yarı-vektör
+    b.quad(
+      key,
+      [c[0] - u[0] - v[0], c[1] - u[1] - v[1], c[2] - u[2] - v[2]],
+      [c[0] + u[0] - v[0], c[1] + u[1] - v[1], c[2] + u[2] - v[2]],
+      [c[0] + u[0] + v[0], c[1] + u[1] + v[1], c[2] + u[2] + v[2]],
+      [c[0] - u[0] + v[0], c[1] - u[1] + v[1], c[2] - u[2] + v[2]],
+    );
+  };
+  const h = y1 - y0;
+  // Ön yüz
+  const nFace = Math.round(L * h * perM2);
+  for (let i = 0; i < nFace; i++) {
+    const along = rnd() * L;
+    const y = y0 + 0.1 + rnd() * (h - 0.1);
+    const out = 0.02 + rnd() * 0.08;
+    const c: V3 = [a[0] + t[0] * along + n[0] * out, y, a[1] + t[1] * along + n[1] * out];
+    const sz = size * (0.7 + rnd() * 0.6);
+    const ang = (rnd() - 0.5) * 1.6; // kartın yüzeye göre dönüşü
+    const tilt = (rnd() - 0.5) * 0.9;
+    const ux = t[0] * Math.cos(ang) + n[0] * Math.sin(ang);
+    const uz = t[1] * Math.cos(ang) + n[1] * Math.sin(ang);
+    card(
+      c,
+      [(ux * sz) / 2, 0, (uz * sz) / 2],
+      [n[0] * Math.sin(tilt) * sz * 0.5, (Math.cos(tilt) * sz) / 2, n[1] * Math.sin(tilt) * sz * 0.5],
+    );
+  }
+  // Üst yüz
+  const nTop = Math.round(L * depth * perM2 * 1.2);
+  for (let i = 0; i < nTop; i++) {
+    const along = rnd() * L;
+    const across = (rnd() - 0.2) * depth;
+    const c: V3 = [
+      a[0] + t[0] * along - n[0] * across,
+      y1 + 0.02 + rnd() * 0.12,
+      a[1] + t[1] * along - n[1] * across,
+    ];
+    const sz = size * (0.7 + rnd() * 0.6);
+    const ang = rnd() * Math.PI;
+    const ux = Math.cos(ang);
+    const uz = Math.sin(ang);
+    card(c, [(ux * sz) / 2, 0, (uz * sz) / 2], [((-uz * sz) / 2) * 0.6, sz * 0.35, ((ux * sz) / 2) * 0.6]);
+  }
+}

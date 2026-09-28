@@ -4,7 +4,7 @@ import type { Quality } from '../../core/settings';
 import { PolygonCollisionWorld } from './collision';
 import { CHUNK_SIZE, MAT_KEYS, type MatKey } from './chunks';
 import { buildWorld, type BuildResult } from './build';
-import { createOsmMaterials, createTreeGeometries, type OsmMaterials } from './materials';
+import { createOsmMaterials, createTreeGeometries, groundHalf, type OsmMaterials } from './materials';
 import { orient } from './buildings';
 import { barrierThickness } from './landuse';
 import { parseOsm, pointInPolygon, type OsmWorldData } from './parse';
@@ -168,6 +168,8 @@ export class OsmWorld implements IWorld {
     c: THREE.Vector2;
     mats: Float32Array;
     hi: Uint8Array;
+    /** Ağaç gövdesi çarpışma kutusunun ilk segmenti */
+    seg: Uint32Array;
   }[] = [];
   private treeNear: THREE.InstancedMesh[] = [];
   private ezKinds: EzTreeKind[] = [];
@@ -228,6 +230,7 @@ export class OsmWorld implements IWorld {
     for (const t of res.trees.chunks) {
       const n = t.data.length / 5;
       const im = new THREE.InstancedMesh(this.treeGeos[t.type], this.materials.trees, n);
+      const segStart = new Uint32Array(n);
       for (let i = 0; i < n; i++) {
         const x = t.data[i * 5];
         const z = t.data[i * 5 + 1];
@@ -243,6 +246,7 @@ export class OsmWorld implements IWorld {
         col.setRGB(sh, sh * (0.95 + (i % 3) * 0.04), sh * 0.9);
         im.setColorAt(i, col);
         // Gövde çarpışması
+        segStart[i] = this.collision.segmentCount;
         this.collision.addBox(x, z, 0.4 * s, 0.4 * s, 3, H(x, z) - 0.5);
       }
       im.computeBoundingSphere();
@@ -255,6 +259,7 @@ export class OsmWorld implements IWorld {
         c: new THREE.Vector2((t.cx + 0.5) * CHUNK_SIZE, (t.cz + 0.5) * CHUNK_SIZE),
         mats: (im.instanceMatrix.array as Float32Array).slice(),
         hi: new Uint8Array(n),
+        seg: segStart,
       });
       this.chunkGroup(t.cx, t.cz).add(im);
     }
@@ -401,6 +406,7 @@ export class OsmWorld implements IWorld {
         });
         world.object.add(mk.group);
         fenceSkip = mk.fenceSkip;
+        if (mk.noTree) world.removeTrees(mk.noTree);
       } catch (e) {
         console.warn('Mertkent el modeli kurulamadı', e);
       }
@@ -502,6 +508,7 @@ export class OsmWorld implements IWorld {
       let changed = false;
       for (let i = 0; i < t.hi.length; i++) {
         const o = i * 16;
+        if (t.mats[o + 15] === 0) continue; // kaldırılmış
         const dx = t.mats[o + 12] - cx;
         const dz = t.mats[o + 14] - cz;
         const d2 = far ? Infinity : dx * dx + dz * dz;
@@ -542,6 +549,27 @@ export class OsmWorld implements IWorld {
         if (im.instanceColor) im.instanceColor.needsUpdate = true;
       }
     });
+  }
+
+  /** El modeli bölgesinde (havuz, yol, bina) kalan ağaçları kaldır: çizim + gövde çarpışması */
+  removeTrees(pred: (x: number, z: number) => boolean): number {
+    let n = 0;
+    for (const t of this.treeMeshes) {
+      const arr = t.im.instanceMatrix.array as Float32Array;
+      let changed = false;
+      for (let i = 0; i < t.hi.length; i++) {
+        const o = i * 16;
+        if (t.mats[o + 15] === 0 || !pred(t.mats[o + 12], t.mats[o + 14])) continue;
+        t.mats.fill(0, o, o + 16);
+        arr.fill(0, o, o + 16);
+        this.collision.disableSegments(t.seg[i], 4);
+        changed = true;
+        n++;
+      }
+      if (changed) t.im.instanceMatrix.needsUpdate = true;
+    }
+    this.treeLodAt.set(1e9, 1e9);
+    return n;
   }
 
   private soft = new Set(['park', 'grass', 'wood', 'scrub', 'pitch', 'cemetery', 'farmland']);
@@ -647,6 +675,7 @@ function createTerrainMesh(
   aerial: HTMLImageElement | null = null,
 ): THREE.Mesh {
   const half = g ? g.half : 1300;
+  groundHalf.value = half;
   const n = g ? g.n : 2;
   const cell = g ? g.cell : half * 2;
   const pos = new Float32Array(n * n * 3);

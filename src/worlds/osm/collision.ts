@@ -32,6 +32,14 @@ export class PolygonCollisionWorld implements ICollisionWorld {
   /** Hareketli engeller (yayalar, araçlar): her karede güncellenen daireler [x, z, r]. */
   dynamic: number[] = [];
 
+  /** Segmentleri etkisizleştir (ör. kaldırılan ağaç gövdeleri) */
+  disableSegments(start: number, count: number): void {
+    for (let i = start; i < start + count && i < this.segs.length; i++) {
+      this.segs[i].bottom = 1e9;
+      this.segs[i].top = -1e9;
+    }
+  }
+
   get segmentCount(): number {
     return this.segs.length;
   }

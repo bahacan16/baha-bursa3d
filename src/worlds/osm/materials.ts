@@ -39,6 +39,12 @@ export interface OsmMaterials {
   dispose(): void;
 }
 
+/** Arazide çizilmeyecek dikdörtgenler (minX, minZ, maxX, maxZ) — el modeli havuzları için */
+export const groundHoles = {
+  value: [0, 1, 2, 3].map(() => new THREE.Vector4(1, 1, 0, 0)),
+};
+export const groundHalf = { value: 1300 };
+
 export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE_URL): OsmMaterials {
   // Gerçek foto-taramalı dokular (CC0). Düşük kalitede yalnızca renk dokusu (bellek).
   const maps = quality !== 'low';
@@ -128,6 +134,8 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
   };
   const ground = new THREE.MeshStandardMaterial({ roughness: 1 });
   ground.onBeforeCompile = (sh) => {
+    sh.uniforms.groundHoles = groundHoles;
+    sh.uniforms.groundHalf = groundHalf;
     sh.uniforms.detailMap = { value: detailTex };
     sh.uniforms.grassMap = { value: grassT.map };
     sh.uniforms.dirtMap = { value: dirtT.map };
@@ -136,12 +144,18 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
     sh.fragmentShader = sh.fragmentShader
       .replace(
         '#include <common>',
-        '#include <common>\nuniform sampler2D detailMap;\nuniform sampler2D grassMap;\nuniform sampler2D dirtMap;\nuniform vec3 grassAvg;\nuniform vec3 dirtAvg;',
+        '#include <common>\nuniform vec4 groundHoles[4];\nuniform float groundHalf;\nuniform sampler2D detailMap;\nuniform sampler2D grassMap;\nuniform sampler2D dirtMap;\nuniform vec3 grassAvg;\nuniform vec3 dirtAvg;',
       )
       .replace(
         '#include <map_fragment>',
         `#include <map_fragment>
 #ifdef USE_MAP
+  // El modeli çukurları (havuz): arazi burada çizilmez
+  vec2 wxz = vec2(vMapUv.x, 1.0 - vMapUv.y) * (2.0 * groundHalf) - groundHalf;
+  for (int i = 0; i < 4; i++) {
+    vec4 h = groundHoles[i];
+    if (wxz.x > h.x && wxz.x < h.z && wxz.y > h.y && wxz.y < h.w) discard;
+  }
   // Yakın mesafe: gerçek çim / toprak foto dokusu (alan rengi yeşilse çim), uzakta sönümlenir.
   // Doku alanı 2.6 km → uv * 2600 = metre
   vec2 wm = vMapUv * 2600.0;
@@ -157,7 +171,7 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
 #endif`,
       );
   };
-  ground.customProgramCacheKey = () => 'ground-detail-v3';
+  ground.customProgramCacheKey = () => 'ground-detail-v4';
   const trees = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, flatShading: true });
   return {
     byKey,

@@ -263,6 +263,18 @@ function sidewalk(geo: ChunkedGeometry, pts: Pt[], half: number, side: 1 | -1, s
   }
 }
 
+/** Çoklu çizgiyi sabit mesafe yana kaydır (köşelerde açıortay) */
+function offsetPts(pts: Pt[], d: number): Pt[] {
+  return pts.map((p, i) => {
+    const a = pts[Math.max(0, i - 1)];
+    const b = pts[Math.min(pts.length - 1, i + 1)];
+    const dx = b[0] - a[0];
+    const dz = b[1] - a[1];
+    const l = Math.hypot(dx, dz) || 1;
+    return [p[0] - (dz / l) * d, p[1] + (dx / l) * d] as Pt;
+  });
+}
+
 function dashes(geo: ChunkedGeometry, pts: Pt[], on: number, off: number, w: number, y: number): void {
   let phase = 0;
   for (let i = 0; i + 1 < pts.length; i++) {
@@ -370,8 +382,13 @@ export function buildRoads(geo: ChunkedGeometry, roads: Road[], crossings: Pt[])
           half,
         });
     }
-    // Orta çizgi: primary ve üstü kesikli beyaz
+    // Orta çizgi: primary ve üstü kesikli beyaz; iki yönlü cadde/sokaklarda da kesikli (Street View: Cavit Orhan
+    // Tütengil, Doğan Avcıoğlu, 502. Sokak), caddelerde kenar çizgisi düz beyaz
     if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, dense, 3, 6, 0.15, Y_MARK);
+    else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
+      dashes(geo, dense, 3, 5, 0.12, Y_MARK);
+    if (/^(secondary|tertiary)$/.test(r.kind))
+      for (const sd of [-1, 1]) dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK);
   }
 
   // Kaldırımlar: kavşak düğümlerinde parçalara böl ve kırp
