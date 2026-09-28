@@ -93,10 +93,7 @@ async function save(img, name, W, H, median = 0, mod = null) {
   let sh = sharp(img.data, { raw: { width: img.w, height: img.h, channels: 3 } });
   if (median) sh = sh.median(median);
   if (mod) sh = sh.modulate(mod);
-  await sh
-    .resize(W, H, { fit: 'fill' })
-    .jpeg({ quality: 88, mozjpeg: true })
-    .toFile(join(out, name));
+  await sh.resize(W, H, { fit: 'fill' }).jpeg({ quality: 88, mozjpeg: true }).toFile(join(out, name));
   console.log('✓', name, `${img.w}×${img.h} → ${W}×${H}`);
 }
 
