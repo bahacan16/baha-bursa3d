@@ -221,6 +221,25 @@ function paletteKeys(
     ['plaster2', 'mkPlaster2', 0.97, (c) => granularMaterial(c, 4)],
     ['strip', 'mkStrip', 0.95, (c) => granularMaterial(c, 6, { roughness: 0.85 }, { mottle: 0.06 })],
     ['fascia', 'mkFascia', 0.95, (c) => granularMaterial(c, 7, { side: THREE.DoubleSide, roughness: 0.9 })],
+    ['frame', 'mkFrame', 1, (c) => new THREE.MeshStandardMaterial({ color: c, roughness: 0.35 })],
+    ['plinth', 'mkPlinth', 1, (c) => granularMaterial(c, 5, { roughness: 0.9 })],
+    [
+      'railGlass',
+      'mkRailGlass',
+      1,
+      (c) =>
+        new THREE.MeshStandardMaterial({
+          color: c,
+          transparent: true,
+          // Koyu (renkli) cam korkuluk daha az saydam görünür
+          opacity:
+            new THREE.Color(c).getHSL({ h: 0, s: 0, l: 0 }, THREE.SRGBColorSpace).l < 0.5 ? 0.85 : 0.72,
+          roughness: 0.25,
+          metalness: 0.1,
+          side: THREE.DoubleSide,
+          depthWrite: false,
+        }),
+    ],
     [
       'tile',
       'mkTile',
@@ -1055,7 +1074,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const gt: V2 = [gc.n[1], -gc.n[0]];
     buildBrickFence(b, segs, [{ c: [gc.c[0] + gt[0] * -0.9, gc.c[1] + gt[1] * -0.9], half: 5.4 }], o.collide);
     buildSalusGate(b, gc.c, gc.n, o.H(gc.c[0], gc.c[1]), o.collide);
-    fenceWalk(b, o, segs, 'walkRed', false, walkSkip);
+    // Salus önü kaldırım: Street View'da bej-gri kilit taşı (kırmızı değil)
+    fenceWalk(b, o, segs, 'spPaverGrey', false, walkSkip);
   }
   holes.slice(0, 4).forEach((h, i) => groundHoles.value[i].set(h[0], h[1], h[2], h[3]));
   // Çit: site sınırı kenarları (sokağa bakan normal = dışa)
