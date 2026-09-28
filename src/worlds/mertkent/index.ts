@@ -216,6 +216,13 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetUnits: -6,
     }),
     tactile: std({ map: T.tactileTexture(), roughness: 0.7 }),
+    walkRed: std({
+      map: T.cobbleTexture('#9a5a4c', '#b27a66', 19),
+      roughness: 0.85,
+      polygonOffset: true,
+      polygonOffsetFactor: -6,
+      polygonOffsetUnits: -6,
+    }),
     apron: std({
       map: T.cobbleTexture('#b9b6ae', '#a5a29a', 11),
       roughness: 0.85,
@@ -428,6 +435,67 @@ function materials(base: string): Record<string, THREE.Material> {
   return m;
 }
 
+/** Çit dışı kaldırım (kilit taşı, isteğe bağlı sarı kılavuz şerit), sokak kaldırımıyla birleşir; asfalta taşmaz */
+function fenceWalk(
+  b: Builder,
+  o: { simple: SimpleOsm; H: (x: number, z: number) => number },
+  segs: { a: V2; e: V2; n: V2 }[],
+  key: string,
+  tactile: boolean,
+): void {
+  const roads = o.simple.ways
+    .filter((w) => w.t && ROAD_HALF[w.t.highway ?? ''] !== undefined)
+    .map((w) => ({ p: w.p, half: ROAD_HALF[w.t!.highway!] }));
+  const roadGap = (x: number, z: number) => {
+    let d = Infinity;
+    for (const r of roads)
+      for (let i = 0; i + 3 < r.p.length; i += 2) {
+        const ax = r.p[i];
+        const az = r.p[i + 1];
+        const dx = r.p[i + 2] - ax;
+        const dz = r.p[i + 3] - az;
+        const L2 = dx * dx + dz * dz || 1;
+        const t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / L2));
+        d = Math.min(d, Math.hypot(x - ax - dx * t, z - az - dz * t) - r.half);
+      }
+    return d;
+  };
+  for (const s of segs) {
+    const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);
+    const t: V2 = [(s.e[0] - s.a[0]) / len, (s.e[1] - s.a[1]) / len];
+    const yaw = Math.atan2(-t[1], t[0]);
+    // 3 m'lik parçalar: her parçada asfalta kalan mesafe ayrı (kavşak yakınında daralır)
+    const nP = Math.max(1, Math.ceil(len / 3));
+    for (let k = 0; k < nP; k++) {
+      const u0 = (len * k) / nP;
+      const u1 = (len * (k + 1)) / nP;
+      const A: V2 = [s.a[0] + t[0] * u0, s.a[1] + t[1] * u0];
+      const E: V2 = [s.a[0] + t[0] * u1, s.a[1] + t[1] * u1];
+      const gap = Math.min(
+        roadGap(A[0], A[1]),
+        roadGap(E[0], E[1]),
+        roadGap((A[0] + E[0]) / 2, (A[1] + E[1]) / 2),
+      );
+      // Bordüre kadar (sokak kaldırımını da örter), en çok 6 m
+      const W = Math.min(6, gap - 0.03);
+      if (W < 0.3) continue;
+      b.drape(
+        key,
+        [A, E, [E[0] + s.n[0] * W, E[1] + s.n[1] * W], [A[0] + s.n[0] * W, A[1] + s.n[1] * W]],
+        [],
+        o.H,
+        0.17,
+        1,
+        3,
+      );
+      if (tactile && W > 1.2) {
+        const m: V2 = [(A[0] + E[0]) / 2 + s.n[0] * W * 0.55, (A[1] + E[1]) / 2 + s.n[1] * W * 0.55];
+        b.box('tactile', [m[0], o.H(m[0], m[1]) + 0.18, m[1]], [u1 - u0, 0.012, 0.3], yaw);
+      }
+    }
+  }
+}
+
 /** Galvaniz direk + üst üste levhalar (yüz: face yönü) */
 function signPole(b: Builder, p: V2, face: V2, y0: number, keys: string[]): void {
   b.cylinder('pole', [p[0], y0, p[1]], 0.04, 3.1, 8);
@@ -622,6 +690,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const gt: V2 = [gc.n[1], -gc.n[0]];
     buildBrickFence(b, segs, [{ c: [gc.c[0] + gt[0] * -0.9, gc.c[1] + gt[1] * -0.9], half: 5.4 }], o.collide);
     buildSalusGate(b, gc.c, gc.n, o.H(gc.c[0], gc.c[1]), o.collide);
+    fenceWalk(b, o, segs, 'walkRed', false);
   }
   holes.slice(0, 4).forEach((h, i) => groundHoles.value[i].set(h[0], h[1], h[2], h[3]));
   // Çit: site sınırı kenarları (sokağa bakan normal = dışa)
@@ -650,46 +719,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       o.collide,
     );
     for (const g of DRIVE_GATES) buildDriveGate(b, g.c, g.n, o.H(g.c[0], g.c[1]), g.w);
-    // Çit dışı kaldırım (gri kilit taşı + sarı kılavuz şerit), sokak kaldırımıyla birleşir; asfalta taşmaz
-    const roads = o.simple.ways
-      .filter((w) => w.t && ROAD_HALF[w.t.highway ?? ''] !== undefined)
-      .map((w) => ({ p: w.p, half: ROAD_HALF[w.t!.highway!] }));
-    const roadGap = (x: number, z: number) => {
-      let d = Infinity;
-      for (const r of roads)
-        for (let i = 0; i + 3 < r.p.length; i += 2) {
-          const ax = r.p[i];
-          const az = r.p[i + 1];
-          const dx = r.p[i + 2] - ax;
-          const dz = r.p[i + 3] - az;
-          const L2 = dx * dx + dz * dz || 1;
-          const t = Math.max(0, Math.min(1, ((x - ax) * dx + (z - az) * dz) / L2));
-          d = Math.min(d, Math.hypot(x - ax - dx * t, z - az - dz * t) - r.half);
-        }
-      return d;
-    };
-    for (const s of segs) {
-      const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);
-      let gap = Infinity;
-      for (let k = 0; k <= 4; k++) {
-        const f = k / 4;
-        gap = Math.min(gap, roadGap(s.a[0] + (s.e[0] - s.a[0]) * f, s.a[1] + (s.e[1] - s.a[1]) * f));
-      }
-      const W = Math.min(2.6, gap - 0.12);
-      if (W < 0.3) continue;
-      const ring: V2[] = [
-        s.a,
-        s.e,
-        [s.e[0] + s.n[0] * W, s.e[1] + s.n[1] * W],
-        [s.a[0] + s.n[0] * W, s.a[1] + s.n[1] * W],
-      ];
-      b.drape('walk', ring, [], o.H, 0.17, 1, 3);
-      if (len > 3) {
-        const t: V2 = [(s.e[0] - s.a[0]) / len, (s.e[1] - s.a[1]) / len];
-        const m: V2 = [(s.a[0] + s.e[0]) / 2 + s.n[0] * W * 0.55, (s.a[1] + s.e[1]) / 2 + s.n[1] * W * 0.55];
-        b.box('tactile', [m[0], o.H(m[0], m[1]) + 0.18, m[1]], [len, 0.012, 0.3], Math.atan2(-t[1], t[0]));
-      }
-    }
+    fenceWalk(b, o, segs, 'walk', true);
   }
   for (const g of GATES) buildGate(b, g.c, g.n, o.H(g.c[0], g.c[1]));
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
