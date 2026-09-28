@@ -98,9 +98,9 @@ export function buildFence(
         );
       }
       // Jiletli tel (çalının üstünde, halkalar)
-      for (let u = u0 + 0.15; u < u1; u += 0.32) {
+      for (let u = u0 + 0.15; u < u1; u += 0.36) {
         const p = P(u, WALL_T + 0.3);
-        const ring = new THREE.TorusGeometry(0.26, 0.008, 3, 14);
+        const ring = new THREE.TorusGeometry(0.26, 0.008, 3, 10);
         ring.rotateY(yaw + Math.PI / 2 + 0.35);
         ring.translate(p[0], y0 + HEDGE_H + 0.22, p[1]);
         b.geometry('wire', ring);

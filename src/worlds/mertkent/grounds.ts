@@ -25,6 +25,8 @@ export interface GroundsResult {
   holes: [number, number, number, number][];
   /** Ağaç konmaması gereken yer (havuz, yol, bina) */
   noTree: (x: number, z: number) => boolean;
+  /** Otopark cepleri: merkez ve araç yönü (burun cebe doğru) */
+  bays: { x: number; z: number; yaw: number }[];
 }
 
 const PATH_W = 2.2;
@@ -150,6 +152,7 @@ export function buildGrounds(b: Builder, o0: GroundsInput): GroundsResult {
   const pool = o.pool ? orientCCW(o.pool) : null;
   const pathSegs: Seg[] = [];
   const driveSegs: Seg[] = [];
+  const bays: { x: number; z: number; yaw: number }[] = [];
 
   for (const p of o.paths) for (let i = 0; i + 1 < p.length; i++) pathSegs.push(seg(p[i], p[i + 1]));
   for (const p of o.drives) for (let i = 0; i + 1 < p.length; i++) driveSegs.push(seg(p[i], p[i + 1]));
@@ -233,6 +236,7 @@ export function buildGrounds(b: Builder, o0: GroundsInput): GroundsResult {
             distToRingEdge(o.site, c0[0], c0[1]) > 2.8;
           if (!clear) continue;
           placed++;
+          bays.push({ x: c0[0], z: c0[1], yaw: Math.atan2(s.n[0] * side, s.n[1] * side) });
           const q = (du: number, dn: number): V2 => [
             c0[0] + s.t[0] * du + s.n[0] * side * dn,
             c0[1] + s.t[1] * du + s.n[1] * side * dn,
@@ -476,7 +480,7 @@ export function buildGrounds(b: Builder, o0: GroundsInput): GroundsResult {
     pathSegs.some((s) => distSeg(x, z, s) < PATH_W / 2 + 0.8) ||
     driveSegs.some((s) => distSeg(x, z, s) < DRIVE_W / 2 + 3) ||
     o.buildings.some((r) => insidePoly(r, x, z) || nearRing(r, x, z, APRON + 0.5));
-  return { holes, noTree };
+  return { holes, noTree, bays };
 }
 
 /** Basit gönyeli dışa öteleme (dışbükeye yakın poligonlar için) */

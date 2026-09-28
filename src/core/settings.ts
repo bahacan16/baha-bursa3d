@@ -52,6 +52,14 @@ function safeSet(key: string, value: string | null): void {
 }
 
 export function loadSettings(): Settings {
+  const s = loadStored();
+  // Test/karşılaştırma için: ?q=low|medium|high kaliteyi bu oturumda geçersiz kılar (kaydedilmez)
+  const q = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('q') : null;
+  if (q === 'low' || q === 'medium' || q === 'high') s.quality = q;
+  return s;
+}
+
+function loadStored(): Settings {
   const base = defaultSettings();
   const raw = safeGet(KEY);
   if (!raw) return base;

@@ -501,37 +501,145 @@ export function ozhanBannerTexture(): THREE.Texture {
 
 /** Mertkent giriş kapısı: siyah zemin üzerine altın süsleme (alfa değil) */
 export function gateTexture(): THREE.Texture {
-  // Siyah ferforje kapı: ince altın kıvrımlı (dantel) motif tekrarı
-  const [c, g] = canvas(256, 512);
-  g.fillStyle = '#181a19';
-  g.fillRect(0, 0, 256, 512);
-  g.strokeStyle = '#a8843f';
-  g.lineWidth = 1.2;
-  g.strokeRect(10, 10, 236, 492);
-  for (let y = 24; y < 500; y += 34)
-    for (let x = 24; x < 240; x += 34) {
-      g.beginPath();
-      for (let k = 0; k < 4; k++) {
-        const a = (k * Math.PI) / 2;
-        g.moveTo(x, y);
-        g.quadraticCurveTo(
-          x + Math.cos(a + 0.8) * 16,
-          y + Math.sin(a + 0.8) * 16,
-          x + Math.cos(a) * 15,
-          y + Math.sin(a) * 15,
-        );
-      }
-      g.stroke();
-      g.beginPath();
-      g.arc(x, y, 4, 0, Math.PI * 2);
-      g.stroke();
-    }
-  // Ortada büyük gül motifi
-  g.lineWidth = 1.6;
-  for (let rr = 18; rr <= 54; rr += 12) {
-    g.beginPath();
-    g.arc(128, 256, rr, 0, Math.PI * 2);
+  // Siyah ferforje kapı (Street View kuzey kapı): altın çerçeve, ortada büyük gül madalyonu, dört çeyrekte
+  // simetrik kıvrımlı dallar ve yapraklar, üst/alt panelde küçük madalyonlar. Kabartma hissi: koyu gölge + parlak kenar.
+  const W = 512;
+  const H = 788;
+  const [c, g] = canvas(W, H);
+  g.fillStyle = '#141615';
+  g.fillRect(0, 0, W, H);
+  const gold = (lw: number, fn: () => void) => {
+    g.save();
+    g.lineCap = 'round';
+    g.lineJoin = 'round';
+    g.strokeStyle = 'rgba(0,0,0,0.6)';
+    g.lineWidth = lw + 2;
+    g.translate(1.5, 2);
+    fn();
     g.stroke();
+    g.restore();
+    g.save();
+    g.lineCap = 'round';
+    g.lineJoin = 'round';
+    const grd = g.createLinearGradient(0, 0, W, H);
+    grd.addColorStop(0, '#e2c173');
+    grd.addColorStop(0.5, '#a9843a');
+    grd.addColorStop(1, '#d8b465');
+    g.strokeStyle = grd;
+    g.lineWidth = lw;
+    fn();
+    g.stroke();
+    g.restore();
+  };
+  // Çerçeveler
+  gold(6, () => {
+    g.beginPath();
+    g.rect(14, 14, W - 28, H - 28);
+  });
+  gold(3, () => {
+    g.beginPath();
+    g.rect(34, 34, W - 68, H - 68);
+  });
+  // Yatay bölmeler (üst ve alt panel)
+  gold(3, () => {
+    g.beginPath();
+    g.moveTo(34, 170);
+    g.lineTo(W - 34, 170);
+    g.moveTo(34, H - 170);
+    g.lineTo(W - 34, H - 170);
+  });
+  const cx = W / 2;
+  const cy = H / 2;
+  // Kıvrımlı dallar: bir çeyrek çizilip 4 yöne aynalanır
+  const quarter = () => {
+    g.beginPath();
+    g.moveTo(cx + 70, cy);
+    g.bezierCurveTo(cx + 150, cy - 10, cx + 190, cy - 80, cx + 150, cy - 130);
+    g.bezierCurveTo(cx + 120, cy - 165, cx + 80, cy - 140, cx + 100, cy - 115);
+    g.moveTo(cx, cy - 70);
+    g.bezierCurveTo(cx + 10, cy - 130, cx + 70, cy - 170, cx + 130, cy - 185);
+    g.bezierCurveTo(cx + 180, cy - 195, cx + 200, cy - 150, cx + 170, cy - 150);
+    g.moveTo(cx + 50, cy - 50);
+    g.bezierCurveTo(cx + 95, cy - 80, cx + 95, cy - 110, cx + 70, cy - 120);
+  };
+  const leaves = () => {
+    g.beginPath();
+    for (const [x, y, a] of [
+      [150, -60, 0.6],
+      [115, -150, -0.4],
+      [60, -150, 0.9],
+      [175, -110, 1.2],
+      [95, -95, -0.8],
+    ]) {
+      g.save();
+      g.translate(cx + x, cy + y);
+      g.rotate(a);
+      g.moveTo(0, 0);
+      g.ellipse(0, 0, 14, 5, 0, 0, Math.PI * 2);
+      g.restore();
+    }
+  };
+  for (const [sx, sy] of [
+    [1, 1],
+    [-1, 1],
+    [1, -1],
+    [-1, -1],
+  ]) {
+    g.save();
+    g.translate(cx, cy);
+    g.scale(sx, sy);
+    g.translate(-cx, -cy);
+    gold(4, quarter);
+    gold(2.5, leaves);
+    g.restore();
+  }
+  // Orta madalyon: halkalar + 16 yaprak + göbek
+  gold(5, () => {
+    g.beginPath();
+    g.arc(cx, cy, 66, 0, Math.PI * 2);
+  });
+  gold(2.5, () => {
+    g.beginPath();
+    g.arc(cx, cy, 54, 0, Math.PI * 2);
+    for (let k = 0; k < 16; k++) {
+      const a = (k / 16) * Math.PI * 2;
+      g.moveTo(cx + Math.cos(a) * 18, cy + Math.sin(a) * 18);
+      g.quadraticCurveTo(
+        cx + Math.cos(a + 0.25) * 48,
+        cy + Math.sin(a + 0.25) * 48,
+        cx + Math.cos(a) * 52,
+        cy + Math.sin(a) * 52,
+      );
+      g.quadraticCurveTo(
+        cx + Math.cos(a - 0.25) * 48,
+        cy + Math.sin(a - 0.25) * 48,
+        cx + Math.cos(a) * 18,
+        cy + Math.sin(a) * 18,
+      );
+    }
+  });
+  gold(4, () => {
+    g.beginPath();
+    g.arc(cx, cy, 14, 0, Math.PI * 2);
+  });
+  // Üst/alt panel madalyonları
+  for (const y of [100, H - 100]) {
+    gold(3, () => {
+      g.beginPath();
+      g.arc(cx, y, 36, 0, Math.PI * 2);
+      for (let k = 0; k < 8; k++) {
+        const a = (k / 8) * Math.PI * 2;
+        g.moveTo(cx + Math.cos(a) * 10, y + Math.sin(a) * 10);
+        g.lineTo(cx + Math.cos(a) * 30, y + Math.sin(a) * 30);
+      }
+    });
+    gold(2.5, () => {
+      g.beginPath();
+      g.moveTo(60, y);
+      g.bezierCurveTo(120, y - 40, 170, y + 40, cx - 44, y);
+      g.moveTo(W - 60, y);
+      g.bezierCurveTo(W - 120, y - 40, W - 170, y + 40, cx + 44, y);
+    });
   }
   return tex(c, false);
 }

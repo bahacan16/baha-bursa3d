@@ -207,7 +207,7 @@ function materials(base: string): Record<string, THREE.Material> {
     bellPanel: std({ color: 0x9a9fa3, roughness: 0.3, metalness: 0.7 }),
     entryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
     // Site içi
-    lawn: pbr('grass', 0xd2ea9c, { roughness: 1 }, -2),
+    lawn: pbr('grass', 0xe4ffa8, { roughness: 1 }, -2),
     walk: std({
       map: T.cobbleTexture('#a9a8a3', '#98978f', 17),
       roughness: 0.85,
@@ -232,7 +232,7 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetUnits: -4,
     }),
     curb: std({ color: 0xd4d0c8, roughness: 0.75 }),
-    drive: pbr('asphalt', 0x9a9a9a, { roughness: 0.95 }, -4),
+    drive: pbr('asphalt', 0xd2d2d2, { roughness: 0.95 }, -4),
     bay: std({
       map: T.cobbleTexture('#9fa0a0', '#8b8c8d', 13),
       roughness: 0.85,
@@ -345,7 +345,7 @@ function materials(base: string): Record<string, THREE.Material> {
     ozSiding: std({ map: T.sidingTexture(), roughness: 0.7 }),
     ozDark: std({ color: 0x3a3330 }),
     ozDoor: std({ color: 0x2c3a40, roughness: 0.1, metalness: 0.6 }),
-    ozGlass: std({ color: 0x3a4a52, roughness: 0.08, metalness: 0.7 }),
+    ozGlass: std({ color: 0x55646c, roughness: 0.04, metalness: 0.9, envMapIntensity: 14 }),
     ozPosterOzel: std({ map: T.ozhanPosterTexture('ozel') }),
     ozPosterSahane: std({ map: T.ozhanPosterTexture('sahane') }),
     ozPosterPlain: std({ map: T.ozhanPosterTexture('plain') }),
@@ -459,6 +459,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   group: THREE.Group;
   fenceSkip: (x: number, z: number) => boolean;
   noTree?: (x: number, z: number) => boolean;
+  /** Site otoparklarına park etmiş araçlar [x, y, z, yaw, tohum]* */
+  cars: number[];
 }> {
   const group = new THREE.Group();
   group.name = 'mertkent (el modeli)';
@@ -509,6 +511,15 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // Site içi: çim, döşeme, yollar, havuz
   let noTree: ((x: number, z: number) => boolean) | undefined;
   const holes: [number, number, number, number][] = [];
+  const cars: number[] = [];
+  let carSeed = 7;
+  const addBays = (bays: { x: number; z: number; yaw: number }[]) => {
+    for (const bay of bays) {
+      carSeed = (carSeed * 16807) % 2147483647;
+      if (carSeed % 100 > 64) continue;
+      cars.push(bay.x, o.H(bay.x, bay.z) + 0.1, bay.z, bay.yaw + ((carSeed % 7) - 3) * 0.01, carSeed % 1000);
+    }
+  };
   if (siteRing.length > 2) {
     const inSite = (w: { p: number[] }) => {
       for (let i = 0; i < w.p.length; i += 2) if (insidePoly(siteRing, w.p[i], w.p[i + 1])) return true;
@@ -540,6 +551,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     });
     holes.push(...g.holes);
     noTree = g.noTree;
+    addBays(g.bays);
   }
   // ── Salusvizyon ──
   const salusSite = ringOf(o.simple, SALUS_SITE);
@@ -586,6 +598,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       seed: 5,
     });
     holes.push(...g.holes);
+    addBays(g.bays);
     const nt = noTree;
     noTree = (x, z) => (nt ? nt(x, z) : false) || g.noTree(x, z);
     // Sokak yüzlerinde tuğla çit (kuzey kenarı Özhan otoparkına, güney kenar yeşil alana bakar)
@@ -682,8 +695,13 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
   signPole(b, [-31.3, -145.8], [-0.95, -0.31], o.H(-31.3, -145.8), ['signCurve', 'sign30']);
   b.build(materials(o.base), group, o.shadows);
+  // Özhan önünde (vitrin, otopark) ağaç yok
+  if (oz) {
+    const nt = noTree;
+    noTree = (x, z) => (nt ? nt(x, z) : false) || insidePoly(oz, x, z) || distToRing(oz, x, z) < 7;
+  }
   const salusRing = ringOf(o.simple, SALUS_SITE);
   const fenceSkip = (x: number, z: number) =>
     nearSite(x, z) || (!!salusRing && (insidePoly(salusRing, x, z) || distToRing(salusRing, x, z) < 8));
-  return { group, fenceSkip, noTree };
+  return { group, fenceSkip, noTree, cars };
 }

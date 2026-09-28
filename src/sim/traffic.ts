@@ -82,6 +82,9 @@ export class Traffic {
       const wheels = new THREE.InstancedMesh(model.wheel, this.mats.list(model.wheelMats), cap * 4);
       body.castShadow = shadows;
       body.receiveShadow = shadows;
+      body.name = 'trafficBody';
+      trim.name = 'trafficTrim';
+      wheels.name = 'trafficWheels';
       for (const im of [body, trim, wheels]) {
         im.count = perKind[k] * (im === wheels ? 4 : 1);
         im.frustumCulled = false;
