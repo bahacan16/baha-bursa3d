@@ -26,6 +26,8 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Hava fotoğrafları
+        env:
+          AERIAL_SOURCES: google
         run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
       - name: Commit
         run: |

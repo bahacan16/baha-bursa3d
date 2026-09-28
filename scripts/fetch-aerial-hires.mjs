@@ -31,7 +31,8 @@ function quadkey(x, y, z) {
   return q;
 }
 
-const SOURCES = [
+const ONLY_SRC = process.env.AERIAL_SOURCES ? process.env.AERIAL_SOURCES.split(',') : null;
+const SOURCES_ALL = [
   {
     name: 'google',
     zooms: [21, 20, 19],
@@ -51,15 +52,17 @@ const SOURCES = [
   },
 ];
 
+const SOURCES = SOURCES_ALL.filter((s) => !ONLY_SRC || ONLY_SRC.includes(s.name));
+
 const mercX = (lon, Z) => ((lon + 180) / 360) * 256 * 2 ** Z;
 const mercY = (lat, Z) => {
   const r = (lat * Math.PI) / 180;
   return ((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2) * 256 * 2 ** Z;
 };
 
-async function fetchTile(url) {
+async function fetchTile(url, tries = 3) {
   let last;
-  for (let a = 0; a < 3; a++) {
+  for (let a = 0; a < tries; a++) {
     try {
       const r = await fetch(url, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(30000) });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
@@ -111,18 +114,19 @@ async function grab(src, Z, center) {
   const jobs = [];
   for (let ty = ty0; ty <= ty1; ty++) for (let tx = tx0; tx <= tx1; tx++) jobs.push([tx, ty]);
   let done = 0;
-  let fails = 0;
+  let fails;
   let blanks = 0;
-  const worker = async () => {
+  const failed = [];
+  const worker = async (tries) => {
     for (;;) {
       const j = jobs.shift();
       if (!j) return;
       const [tx, ty] = j;
       let data;
       try {
-        data = await fetchTile(src.url(Z, tx, ty));
+        data = await fetchTile(src.url(Z, tx, ty), tries);
       } catch {
-        fails++;
+        failed.push(j);
         continue;
       }
       if (blank(data)) blanks++;
@@ -133,7 +137,14 @@ async function grab(src, Z, center) {
       if (++done % 100 === 0) console.log(`  ${done}/${tw * th}`);
     }
   };
-  await Promise.all(Array.from({ length: 8 }, worker));
+  await Promise.all(Array.from({ length: 8 }, () => worker(3)));
+  // Başarısız karoları yavaşça yeniden dene
+  for (let round = 0; round < 3 && failed.length; round++) {
+    await new Promise((r) => setTimeout(r, 5000));
+    jobs.push(...failed.splice(0));
+    await Promise.all(Array.from({ length: 2 }, () => worker(6)));
+  }
+  fails = failed.length;
   if (fails > tw * th * 0.2) throw new Error(`${fails} karo alınamadı`);
   if (blanks > tw * th * 0.3) throw new Error(`${blanks} boş karo`);
   // Yerel ızgara: native çözünürlüğe yakın (en fazla 6000 piksel)
