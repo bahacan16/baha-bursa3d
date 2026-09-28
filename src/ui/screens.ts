@@ -82,7 +82,7 @@ export function showStartScreen(
             <span>📱</span><span>Sol yarı: joystick (sona kadar it = koş) · sağ yarı: kamera · butonlar sağ altta</span>
           </div>
         </div>
-        <p class="note">Harita verisi © OpenStreetMap katkıcıları (ODbL). Karakter: RobotExpressive, Tomás Laulhé (CC0).</p>
+        <p class="note">Harita verisi © OpenStreetMap katkıcıları (ODbL). İnsan modelleri: three.js örnekleri (Ready Player Me, Mixamo).</p>
       </div>`;
       const input = el.querySelector<HTMLInputElement>('[data-key]')!;
       el.querySelector('[data-act="show"]')!.addEventListener('click', () => {
