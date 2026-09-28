@@ -8,6 +8,7 @@ import { buildOzhan } from './ozhan';
 import { buildGrounds } from './grounds';
 import { groundHoles } from '../osm/materials';
 import { loadPbr, type PbrRole } from '../osm/pbr';
+import { roadWidth } from '../osm/parse';
 import * as T from './textures';
 import { nightUniform } from '../../env/night';
 import { windTime } from '../osm/eztree';
@@ -443,9 +444,10 @@ function fenceWalk(
   key: string,
   tactile: boolean,
 ): void {
+  // Yol oluşturucuyla aynı genişlik kuralı (width → lanes × 3.2 → sınıf)
   const roads = o.simple.ways
     .filter((w) => w.t && ROAD_HALF[w.t.highway ?? ''] !== undefined)
-    .map((w) => ({ p: w.p, half: ROAD_HALF[w.t!.highway!] }));
+    .map((w) => ({ p: w.p, half: roadWidth(w.t!) / 2 }));
   const roadGap = (x: number, z: number) => {
     let d = Infinity;
     for (const r of roads)
