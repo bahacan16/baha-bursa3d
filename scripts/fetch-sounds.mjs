@@ -234,7 +234,8 @@ function decode(file, ch, at = 0, len = 0) {
   args.push('-i', file);
   if (len > 0) args.push('-t', String(len));
   args.push('-ac', String(ch), '-ar', String(SR), '-f', 'f32le', '-');
-  const buf = execFileSync('ffmpeg', args, { maxBuffer: 1 << 31 });
+  // 1 GiB: `1 << 31` 32 bitte taşıp negatif oluyordu (ERR_OUT_OF_RANGE — ilk Actions çalıştırmasında 29 yuvanın hepsi)
+  const buf = execFileSync('ffmpeg', args, { maxBuffer: 2 ** 30 });
   return deinterleave(buf, ch);
 }
 
