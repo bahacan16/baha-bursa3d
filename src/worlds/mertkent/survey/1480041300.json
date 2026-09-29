@@ -1,0 +1,1233 @@
+{
+  "id": 1480041300,
+  "storeys": 5,
+  "groundRaise": 2.6,
+  "floorH": 2.9,
+  "roof": {
+    "kind": "hipped",
+    "eave": 0.3,
+    "fasciaH": 0.85,
+    "pitch": 25,
+    "gables": [
+      0,
+      5,
+      11
+    ]
+  },
+  "colors": {
+    "plaster": "#c9cacb",
+    "plaster2": "#d0876a",
+    "strip": "#6f7275",
+    "fascia": "#8a8d8e",
+    "soffit": "#cdc3b1",
+    "railGlass": "#a8c2c7",
+    "frame": "#eceeec",
+    "tile": "#a4624e",
+    "plinth": "#8f908d"
+  },
+  "edges": [
+    {
+      "edge": 0,
+      "len": 17.67,
+      "seen": "photo",
+      "ref": "1480041300_0_6eolmCoy.jpg",
+      "cal": {
+        "u": [
+          -1.1,
+          16.1
+        ],
+        "head": [
+          [
+            1,
+            8.27
+          ],
+          [
+            4,
+            16.55
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 4.32,
+          "y0": 2,
+          "y1": 11.1,
+          "w": 0.22
+        },
+        {
+          "t": "strip",
+          "u": 4.32,
+          "y0": 12.45,
+          "y1": 18.1,
+          "w": 0.22
+        },
+        {
+          "t": "strip",
+          "u": 6.68,
+          "y0": 2,
+          "y1": 11.1,
+          "w": 0.22
+        },
+        {
+          "t": "strip",
+          "u": 6.68,
+          "y0": 12.45,
+          "y1": 18.1,
+          "w": 0.22
+        },
+        {
+          "t": "win",
+          "u0": 4.5,
+          "u1": 6.52,
+          "y0": 7,
+          "y1": 8.27,
+          "k": 1,
+          "s": [
+            0,
+            2
+          ],
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 4.5,
+          "u1": 6.52,
+          "y0": 14.9,
+          "y1": 16.55,
+          "k": 4,
+          "s": [
+            3,
+            4
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3
+        },
+        {
+          "t": "panel",
+          "u0": 4.45,
+          "u1": 6.57,
+          "y0": 3.24,
+          "y1": 4.24,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 4.45,
+          "u1": 6.57,
+          "y0": 5.51,
+          "y1": 7,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 4.45,
+          "u1": 6.57,
+          "y0": 8.27,
+          "y1": 9.76,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 4.45,
+          "u1": 6.57,
+          "y0": 13.79,
+          "y1": 14.9,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 4.45,
+          "u1": 6.57,
+          "y0": 16.55,
+          "y1": 17.25,
+          "color": "plaster2"
+        },
+        {
+          "t": "strip",
+          "u": 8.4,
+          "y0": 2,
+          "y1": 11.1,
+          "w": 0.23
+        },
+        {
+          "t": "strip",
+          "u": 8.4,
+          "y0": 12.45,
+          "y1": 18.1,
+          "w": 0.23
+        },
+        {
+          "t": "strip",
+          "u": 10.07,
+          "y0": 2,
+          "y1": 11.1,
+          "w": 0.23
+        },
+        {
+          "t": "strip",
+          "u": 10.07,
+          "y0": 12.45,
+          "y1": 18.1,
+          "w": 0.23
+        },
+        {
+          "t": "win",
+          "u0": 8.55,
+          "u1": 9.95,
+          "y0": 7,
+          "y1": 8.27,
+          "k": 1,
+          "s": [
+            0,
+            4
+          ],
+          "split": 2
+        },
+        {
+          "t": "panel",
+          "u0": 8.53,
+          "u1": 9.97,
+          "y0": 3.24,
+          "y1": 4.24,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 8.53,
+          "u1": 9.97,
+          "y0": 5.51,
+          "y1": 7,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 8.53,
+          "u1": 9.97,
+          "y0": 8.27,
+          "y1": 9.76,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 8.53,
+          "u1": 9.97,
+          "y0": 13.79,
+          "y1": 15.28,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 8.53,
+          "u1": 9.97,
+          "y0": 16.55,
+          "y1": 17.25,
+          "color": "plaster2"
+        },
+        {
+          "t": "bal",
+          "u0": -1.1,
+          "u1": 0.95,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "open",
+          "glazed": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "1": "dark",
+            "2": "clear",
+            "3": "dark",
+            "4": "dark"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 0.95,
+          "u1": 4.05,
+          "d": 0.4,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "glazed": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "1": "dark",
+            "2": "clear",
+            "3": "dark",
+            "4": "dark"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 11.2,
+          "u1": 14.95,
+          "d": 0.4,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "glazed": [
+            1,
+            3,
+            4
+          ],
+          "tint": {
+            "1": "dark",
+            "3": "dark",
+            "4": "dark"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 14.95,
+          "u1": 16.1,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "open",
+          "glazed": [
+            1,
+            3,
+            4
+          ],
+          "tint": {
+            "1": "dark",
+            "3": "dark",
+            "4": "dark"
+          }
+        }
+      ],
+      "note": "Batı alınlık cephesi (otopark / site kapısı tarafı), 6eol (S66M önünde site tabelası). 1301/e0 ile ayna tasarım: kuzey aks geniş, K0–K2 dar / K3–K4 korkuluklu fransız; güney aks tüm katlarda dar pencere; ortada krem ayak. Alınlıkta (K4 üstü) iki aksta çatı arası pencereleri (k=5, ~y 18.1–19.0) ve kiremit dolgular tepeye (~u 7.5, y ~21.5) kadar — üretici kırma çatıda çizemez. Köşe yığınları gri eğik şapkalı; kuzey yığın K1–K4 cam balkon, güney yığın K1/K3/K4 koyu cam, K2 açık. K0 çit arkasında."
+    },
+    {
+      "edge": 1,
+      "len": 3.66,
+      "seen": "none",
+      "copyOf": 15,
+      "mirror": true,
+      "items": [],
+      "note": "GB köşe yığınının güney ön yüzü; görülmedi → e15 aynası (bina K–G simetrik)."
+    },
+    {
+      "edge": 2,
+      "len": 1.79,
+      "seen": "none",
+      "copyOf": 14,
+      "mirror": true,
+      "items": [],
+      "note": "GB yığın yan yüzü; görülmedi → e14 aynası."
+    },
+    {
+      "edge": 3,
+      "len": 3.72,
+      "seen": "none",
+      "copyOf": 13,
+      "mirror": true,
+      "items": [],
+      "note": "Güney girinti dibi; görülmedi → e13 aynası."
+    },
+    {
+      "edge": 4,
+      "len": 3.45,
+      "seen": "none",
+      "copyOf": 12,
+      "mirror": true,
+      "items": [],
+      "note": "Güney girinti doğu yan yüzü; görülmedi → e12 aynası."
+    },
+    {
+      "edge": 5,
+      "len": 9.47,
+      "seen": "none",
+      "copyOf": 11,
+      "mirror": true,
+      "items": [],
+      "note": "Doğu kanadın güney alınlık cephesi; görülmedi → e11 aynası."
+    },
+    {
+      "edge": 6,
+      "len": 1.75,
+      "seen": "none",
+      "copyOf": 10,
+      "mirror": true,
+      "items": [],
+      "note": "GD yığın yan yüzü; görülmedi → e10 aynası."
+    },
+    {
+      "edge": 7,
+      "len": 3.37,
+      "seen": "none",
+      "copyOf": 9,
+      "mirror": true,
+      "items": [],
+      "note": "GD köşe yığınının güney ön yüzü; görülmedi → e9 aynası."
+    },
+    {
+      "edge": 8,
+      "len": 24.21,
+      "seen": "photo",
+      "ref": "1480041300_8_BwVcV68F.jpg",
+      "cal": {
+        "u": [
+          3.5,
+          25.7
+        ],
+        "head": [
+          [
+            0,
+            4.5
+          ],
+          [
+            4,
+            15.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 8.85,
+          "y0": 1.5,
+          "y1": 10.3,
+          "w": 0.3
+        },
+        {
+          "t": "strip",
+          "u": 10.5,
+          "y0": 1.5,
+          "y1": 10.3,
+          "w": 0.3
+        },
+        {
+          "t": "strip",
+          "u": 8.28,
+          "y0": 10.9,
+          "y1": 16.95,
+          "w": 0.3
+        },
+        {
+          "t": "strip",
+          "u": 11.1,
+          "y0": 10.9,
+          "y1": 16.95,
+          "w": 0.3
+        },
+        {
+          "t": "win",
+          "u0": 9.15,
+          "u1": 10.47,
+          "y0": 6.15,
+          "y1": 7.23,
+          "k": 1,
+          "s": [
+            0,
+            2
+          ],
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 8.52,
+          "u1": 10.95,
+          "y0": 13.7,
+          "y1": 15.4,
+          "k": 4,
+          "s": [
+            3,
+            4
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3
+        },
+        {
+          "t": "panel",
+          "u0": 9.15,
+          "u1": 10.47,
+          "y0": 2.43,
+          "y1": 3.43,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 9.15,
+          "u1": 10.47,
+          "y0": 4.5,
+          "y1": 6.15,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 9.15,
+          "u1": 10.47,
+          "y0": 7.23,
+          "y1": 8.88,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 8.52,
+          "u1": 10.95,
+          "y0": 12.68,
+          "y1": 13.7,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 8.52,
+          "u1": 10.95,
+          "y0": 15.4,
+          "y1": 16.1,
+          "color": "plaster2"
+        },
+        {
+          "t": "strip",
+          "u": 18.71,
+          "y0": 1.5,
+          "y1": 10.3,
+          "w": 0.28
+        },
+        {
+          "t": "strip",
+          "u": 20.27,
+          "y0": 1.5,
+          "y1": 10.3,
+          "w": 0.28
+        },
+        {
+          "t": "strip",
+          "u": 18.16,
+          "y0": 10.9,
+          "y1": 16.95,
+          "w": 0.28
+        },
+        {
+          "t": "strip",
+          "u": 20.85,
+          "y0": 10.9,
+          "y1": 16.95,
+          "w": 0.28
+        },
+        {
+          "t": "win",
+          "u0": 18.88,
+          "u1": 20.12,
+          "y0": 6.15,
+          "y1": 7.23,
+          "k": 1,
+          "s": [
+            0,
+            2
+          ],
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 18.3,
+          "u1": 20.7,
+          "y0": 13.7,
+          "y1": 15.4,
+          "k": 4,
+          "s": [
+            3,
+            4
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3
+        },
+        {
+          "t": "panel",
+          "u0": 18.88,
+          "u1": 20.12,
+          "y0": 2.43,
+          "y1": 3.43,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 18.88,
+          "u1": 20.12,
+          "y0": 4.5,
+          "y1": 6.15,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 18.88,
+          "u1": 20.12,
+          "y0": 7.23,
+          "y1": 8.88,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 18.3,
+          "u1": 20.7,
+          "y0": 12.68,
+          "y1": 13.7,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 18.3,
+          "u1": 20.7,
+          "y0": 15.4,
+          "y1": 16.1,
+          "color": "plaster2"
+        },
+        {
+          "t": "bal",
+          "u0": 3.5,
+          "u1": 5.1,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "open",
+          "glazed": [
+            3
+          ],
+          "tint": {
+            "3": "clear"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 4.81,
+          "u1": 7.73,
+          "d": 0.35,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "glazed": [
+            3
+          ],
+          "tint": {
+            "3": "clear"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 11.14,
+          "u1": 14.41,
+          "d": 0.75,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "glazed": [
+            0,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "dark",
+            "2": "clear",
+            "3": "clear",
+            "4": "dark"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 14.41,
+          "u1": 17.59,
+          "d": 0.75,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "glazed": [
+            0,
+            1,
+            2,
+            4
+          ],
+          "tint": {
+            "0": "blinds",
+            "1": "dark",
+            "2": "dark",
+            "4": "dark"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 21.47,
+          "u1": 23.84,
+          "d": 0.35,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true
+        },
+        {
+          "t": "bal",
+          "u0": 23.59,
+          "u1": 25.7,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "open"
+        },
+        {
+          "t": "pipe",
+          "u": 7.8
+        },
+        {
+          "t": "pipe",
+          "u": 11.25
+        },
+        {
+          "t": "pipe",
+          "u": 14.65,
+          "off": 0.75
+        },
+        {
+          "t": "pipe",
+          "u": 17.78
+        },
+        {
+          "t": "pipe",
+          "u": 21.3
+        },
+        {
+          "t": "ac",
+          "u": 6.55,
+          "s": 2,
+          "y": 9.35,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 23.1,
+          "s": 1,
+          "y": 6.7,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 23.1,
+          "s": 0,
+          "y": 4.2,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 19.7,
+          "s": 4,
+          "y": 18
+        }
+      ],
+      "note": "Doğu (502. Sokak) uzun cephesi, BwVc (Qemm ağaç arkasında). 1301/e8 ile aynı düzen ama 5 kat: iki pencere aksı K0–K2 dar pencere / K3–K4 geniş aks + korkuluklu fransız, üstte kiremit dolgu. Orta yığın ~0.75 m, köşe yığınları ~0.35 m taşar (düşey parallaks). Orta yığın iki yarım (arada boru + küçük aplikler): sol K0 koyu, K2/K3 şeffaf, K4 koyu cam; sağ K0 dikey stor, K1/K2/K4 koyu cam. Güney yığında K3 şeffaf cam, K2 klima; kuzey yığında K0/K1 klima. Çatıda kuzey aks üstünde çanak anten. Kuzey uç ortofoto dışında (cal.u simetriden)."
+    },
+    {
+      "edge": 9,
+      "len": 3.45,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          3.45
+        ],
+        "head": [
+          [
+            0,
+            4.65
+          ],
+          [
+            4,
+            16.25
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 2.6,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "open",
+          "inset": 2.3
+        }
+      ],
+      "note": "KD köşe yığınının kuzey ön yüzü; MUMV/aufI karelerinde tamamen ağaç arkasında. 1301/e7 aynası varsayıldı: köşede loca (d:0, içeri e10 kadar), batı ucunda dolu ayak. Cam balkon bilinmiyor (açık)."
+    },
+    {
+      "edge": 10,
+      "len": 2.3,
+      "seen": "none",
+      "items": [],
+      "note": "KD yığının batıya bakan yan yüzü; görülmedi (dolu ayak)."
+    },
+    {
+      "edge": 11,
+      "len": 9.08,
+      "seen": "photo",
+      "ref": "1480041300_11_Wi7UPB2h.jpg",
+      "cal": {
+        "u": [
+          0,
+          9.7
+        ],
+        "head": [
+          [
+            0,
+            5.2
+          ],
+          [
+            4,
+            17.85
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 0.7,
+          "y0": 2.2,
+          "y1": 11.4,
+          "w": 0.25
+        },
+        {
+          "t": "strip",
+          "u": 0.7,
+          "y0": 12.4,
+          "y1": 19.6,
+          "w": 0.25
+        },
+        {
+          "t": "strip",
+          "u": 2.57,
+          "y0": 2.2,
+          "y1": 11.4,
+          "w": 0.28
+        },
+        {
+          "t": "strip",
+          "u": 2.57,
+          "y0": 12.4,
+          "y1": 19.6,
+          "w": 0.28
+        },
+        {
+          "t": "win",
+          "u0": 0.9,
+          "u1": 2.4,
+          "y0": 6.85,
+          "y1": 8.36,
+          "k": 1,
+          "s": [
+            0,
+            4
+          ],
+          "split": 2
+        },
+        {
+          "t": "panel",
+          "u0": 0.84,
+          "u1": 2.45,
+          "y0": 2.49,
+          "y1": 3.69,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.84,
+          "u1": 2.45,
+          "y0": 5.2,
+          "y1": 6.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.84,
+          "u1": 2.45,
+          "y0": 8.36,
+          "y1": 10.01,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.84,
+          "u1": 2.45,
+          "y0": 14.69,
+          "y1": 16.34,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.84,
+          "u1": 2.45,
+          "y0": 17.85,
+          "y1": 18.64,
+          "color": "plaster2"
+        },
+        {
+          "t": "strip",
+          "u": 3.84,
+          "y0": 2.2,
+          "y1": 11.4,
+          "w": 0.25
+        },
+        {
+          "t": "strip",
+          "u": 3.84,
+          "y0": 12.4,
+          "y1": 19.6,
+          "w": 0.25
+        },
+        {
+          "t": "strip",
+          "u": 5.7,
+          "y0": 2.2,
+          "y1": 11.4,
+          "w": 0.25
+        },
+        {
+          "t": "strip",
+          "u": 5.7,
+          "y0": 12.4,
+          "y1": 19.6,
+          "w": 0.25
+        },
+        {
+          "t": "win",
+          "u0": 4.05,
+          "u1": 5.5,
+          "y0": 6.85,
+          "y1": 8.36,
+          "k": 1,
+          "s": [
+            0,
+            4
+          ],
+          "split": 2
+        },
+        {
+          "t": "panel",
+          "u0": 3.99,
+          "u1": 5.55,
+          "y0": 2.49,
+          "y1": 3.69,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 3.99,
+          "u1": 5.55,
+          "y0": 5.2,
+          "y1": 6.85,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 3.99,
+          "u1": 5.55,
+          "y0": 8.36,
+          "y1": 10.01,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 3.99,
+          "u1": 5.55,
+          "y0": 14.69,
+          "y1": 16.34,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 3.99,
+          "u1": 5.55,
+          "y0": 17.85,
+          "y1": 18.64,
+          "color": "plaster2"
+        },
+        {
+          "t": "bal",
+          "u0": 7.72,
+          "u1": 9.7,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "start-wall",
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "clear",
+            "1": "dark",
+            "2": "dark",
+            "3": "clear",
+            "4": "dark"
+          }
+        },
+        {
+          "t": "pipe",
+          "u": 7.76
+        }
+      ],
+      "note": "Doğu kanadın kuzey (sokak/site) alınlık cephesi, Wi7U (çok yakın; aufI ağaç arkasında). İki dar pencere aksı, tüm katlarda aynı pencere, K2/K3 arasında pilastr kesintisi; alınlık doğu aks üstünde (tepe ~u 1.5, y ~23.3), doğu aksta çatı arası penceresi (k=5, y ~19.6–20.8) — kırma çatıda çizilemez. Batı ucunda girintiye açılan loca yığını (K0/K3 şeffaf, K1/K2/K4 koyu cam), üstünde koyu gri eğik şapka; yanında boru."
+    },
+    {
+      "edge": 12,
+      "len": 2.35,
+      "seen": "partial",
+      "cal": {
+        "u": [
+          0,
+          2.35
+        ],
+        "head": [
+          [
+            0,
+            4.65
+          ],
+          [
+            4,
+            16.25
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 1.5,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "open",
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "clear",
+            "1": "dark",
+            "2": "dark",
+            "3": "clear",
+            "4": "dark"
+          }
+        }
+      ],
+      "note": "Girintiye bakan batı yüzü; ortofoto yok, HAXJ karelerinde e11 locasının camlı yan yüzü görülüyor (kuzey ucu). Güney kısmı dolu sıva."
+    },
+    {
+      "edge": 13,
+      "len": 3.86,
+      "seen": "photo",
+      "ref": "1480041300_13_HAXJQ6SO.jpg",
+      "cal": {
+        "u": [
+          -0.05,
+          3.65
+        ],
+        "head": [
+          [
+            1,
+            7.95
+          ],
+          [
+            4,
+            16.6
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 0.12,
+          "y0": 2.2,
+          "y1": 10.7,
+          "w": 0.27
+        },
+        {
+          "t": "strip",
+          "u": 0.12,
+          "y0": 11.6,
+          "y1": 18.2,
+          "w": 0.27
+        },
+        {
+          "t": "strip",
+          "u": 1.83,
+          "y0": 2.2,
+          "y1": 10.7,
+          "w": 0.26
+        },
+        {
+          "t": "strip",
+          "u": 1.83,
+          "y0": 11.6,
+          "y1": 18.2,
+          "w": 0.26
+        },
+        {
+          "t": "win",
+          "u0": 0.3,
+          "u1": 1.65,
+          "y0": 6.8,
+          "y1": 7.95,
+          "k": 1,
+          "s": [
+            0,
+            4
+          ],
+          "split": 2
+        },
+        {
+          "t": "panel",
+          "u0": 0.27,
+          "u1": 1.67,
+          "y0": 2.92,
+          "y1": 3.92,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.27,
+          "u1": 1.67,
+          "y0": 5.07,
+          "y1": 6.8,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.27,
+          "u1": 1.67,
+          "y0": 7.95,
+          "y1": 9.68,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.27,
+          "u1": 1.67,
+          "y0": 13.72,
+          "y1": 15.45,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.27,
+          "u1": 1.67,
+          "y0": 16.6,
+          "y1": 17.33,
+          "color": "plaster2"
+        },
+        {
+          "t": "ac",
+          "u": 1,
+          "s": 0,
+          "y": 4.4
+        }
+      ],
+      "note": "Kuzey girintisinin dibi, HAXJ (BfxM ağaç arkasında). Doğu ucunda tek dar pencere aksı (pilastr + kiremit dolgu, K2/K3 arasında kesinti); batı kısmı düz sıva, yanında KB yığının camlı yan yüzü. K0 penceresi altında klima."
+    },
+    {
+      "edge": 14,
+      "len": 1.47,
+      "seen": "partial",
+      "items": [],
+      "note": "KB yığının girintiye bakan doğu yan yüzü: loca boşluğu (e15) buraya açılıyor → cam balkon yan yüzü (HAXJ karelerinde görülüyor)."
+    },
+    {
+      "edge": 15,
+      "len": 3.84,
+      "seen": "photo",
+      "ref": "1480041300_15_HAXJQ6SO.jpg",
+      "cal": {
+        "u": [
+          -0.25,
+          4.1
+        ],
+        "head": [
+          [
+            1,
+            8.03
+          ],
+          [
+            4,
+            16.88
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.25,
+          "u1": 4.1,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "sides": "open",
+          "glazed": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "1": "dark",
+            "2": "dark",
+            "3": "dark",
+            "4": "dark"
+          }
+        }
+      ],
+      "note": "KB köşe yığınının kuzey ön yüzü (d:0, içeri e14 kadar; 1301/e1 gibi). Tüm genişlik balkon (ayak yok), K1–K4 çerçevesiz koyu mavi cam balkon, K0 çit arkasında. Üstte koyu gri şapka (y ~17.3–18.5)."
+    }
+  ],
+  "notes": [
+    "1480041301'in ayna ikizi (aynı proje), 5 kat: K0–K4. Doğu (e8) ve kuzey (e11, e13) cephelerde 5 pencere sırası; batı (e0) ve kuzey (e11) alınlıklarında K4 üstünde çatı arası pencereleri (k=5) var — kat sayılmadı. OSM building:levels=6. K0 döşemesi sokaktan ~2.3–2.7 m yukarıda (yükseltilmiş bahçe + bodrum).",
+    "Tasarım dili 1301 ile aynı: açık gri sıva, koyu gri düz pilastrlar, kiremit rengi ara dolgular, K2/K3 arası pilastr kesintisi; üst katlarda (K3–K4) geniş aks + korkuluklu fransız pencere (e8, e0 kuzey aksı), diğer akslarda dar pencere. Köşe/orta balkon yığınları gri, çoğu katta çerçevesiz koyu mavi cam balkon (KB yığın K1–K4 tamamen camlı).",
+    "Doğu uzun cephe (e8, 502. Sokak'a bakıyor): orta yığın ~0.75 m, köşe yığınları ~0.35 m taşar; orta yığında iki yarım arasında boru + küçük aplik lambalar; çatıda kuzey aks üstünde çanak anten.",
+    "Kuzey cephe (Mertkent sitesine bakan sokak): e15 KB köşe yığını tam genişlik camlı (ayak yok), e13 girinti dibinde tek aks, e11 doğu kanadı iki aks + batı ucunda locası; e9 (KD yığın) ağaç arkasında → 1301/e7 aynası varsayıldı.",
+    "Güney cephe (e1–e7) görülmedi → kuzeyin aynası (copyOf+mirror).",
+    "Belirsizlikler: floorH 2.9 (kenarlar 2.84–3.0 arası); e8 kuzey ucu ortofoto dışında (cal.u simetriden); e0 S66M karesinde site tabelası üst kısmı örtüyor, 6eol referans."
+  ]
+}

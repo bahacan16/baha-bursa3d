@@ -1,0 +1,1395 @@
+{
+  "id": 1480041343,
+  "storeys": 6,
+  "groundRaise": 2.19,
+  "floorH": 2.72,
+  "roof": {
+    "kind": "hipped",
+    "eave": 0.2,
+    "fasciaH": 0.2,
+    "pitch": 24,
+    "terrace": true,
+    "gables": [
+      0,
+      5,
+      11
+    ],
+    "eaveY": {
+      "edge": 8,
+      "y": 19.8
+    }
+  },
+  "colors": {
+    "plaster": "#dcddd5",
+    "strip": "#d8a371",
+    "fascia": "#9e9f9c",
+    "soffit": "#c9c2b2",
+    "railGlass": "#bfd3d5",
+    "frame": "#e9edec",
+    "tile": "#a0705e",
+    "plinth": "#a9a9a3"
+  },
+  "edges": [
+    {
+      "edge": 0,
+      "len": 16.71,
+      "seen": "none",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          16.71
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 4.75,
+          "w": 0.26,
+          "y0": 2.3,
+          "y1": 9.95
+        },
+        {
+          "t": "strip",
+          "u": 7.48,
+          "w": 0.26,
+          "y0": 2.3,
+          "y1": 9.95
+        },
+        {
+          "t": "strip",
+          "u": 9.13,
+          "w": 0.26,
+          "y0": 2.3,
+          "y1": 9.95
+        },
+        {
+          "t": "strip",
+          "u": 10.73,
+          "w": 0.26,
+          "y0": 2.3,
+          "y1": 9.95
+        },
+        {
+          "t": "strip",
+          "u": 4.75,
+          "w": 0.26,
+          "y0": 10.79,
+          "y1": 21.43
+        },
+        {
+          "t": "strip",
+          "u": 7.48,
+          "w": 0.26,
+          "y0": 10.79,
+          "y1": 22.36
+        },
+        {
+          "t": "strip",
+          "u": 9.13,
+          "w": 0.26,
+          "y0": 11.19,
+          "y1": 22.51
+        },
+        {
+          "t": "strip",
+          "u": 10.73,
+          "w": 0.26,
+          "y0": 11.19,
+          "y1": 21.83
+        },
+        {
+          "t": "win",
+          "u0": 5.09,
+          "u1": 7.34,
+          "y0": 5.81,
+          "y1": 7.11,
+          "k": 1,
+          "s": [
+            0,
+            2
+          ],
+          "split": 3
+        },
+        {
+          "t": "win",
+          "u0": 5.09,
+          "u1": 7.34,
+          "y0": 13.56,
+          "y1": 15.28,
+          "k": 4,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3
+        },
+        {
+          "t": "win",
+          "u0": 9.47,
+          "u1": 10.59,
+          "y0": 11.19,
+          "y1": 12.41,
+          "k": 3,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 6.48,
+          "u1": 7.37,
+          "y0": 1.21,
+          "y1": 1.79,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "small"
+        },
+        {
+          "t": "win",
+          "u0": 9.07,
+          "u1": 9.99,
+          "y0": 1.24,
+          "y1": 1.79,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "small"
+        },
+        {
+          "t": "band",
+          "u0": 4.38,
+          "u1": 11.59,
+          "y0": -0.44,
+          "y1": 2.17,
+          "color": "plinth"
+        },
+        {
+          "t": "bal",
+          "u0": 1.15,
+          "u1": 5.13,
+          "d": 0.6,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "end-wall",
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 12.08,
+          "u1": 15.82,
+          "d": 0.6,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "start-wall",
+          "glazed": [
+            4
+          ],
+          "tint": {
+            "4": "clear"
+          }
+        },
+        {
+          "t": "pipe",
+          "u": 4.36
+        },
+        {
+          "t": "pipe",
+          "u": 11.59
+        }
+      ],
+      "note": "Görülmedi (batı cephe depo/otopark tarafında, hiçbir panoda yok). İkiz blok 1480041342 kenar 0'ın (fotoğraflı) ölçüleri gerçek metreye çevrilip 16.71/17.09 oranında ölçeklendi; köşe balkonlarının cam katları bu bloğun kuzey (K5) ve güney (K4) ön yüzlerinden alındı. u gerçek metre, yükseklikler kenar 8 (G8RU) çerçevesinde."
+    },
+    {
+      "edge": 1,
+      "len": 4.24,
+      "seen": "partial",
+      "ref": "1480041343_1_hoODQJrU.jpg",
+      "cal": {
+        "u": [
+          0,
+          4.24
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            5,
+            18.05
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 1.0,
+          "u1": 5.4,
+          "d": 0,
+          "inset": 1.71,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            4
+          ],
+          "tint": {
+            "4": "clear"
+          },
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "dish",
+          "u": 2.25,
+          "s": 2,
+          "y": 9.6,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 4.4,
+          "s": 3,
+          "y": 12.4,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 2.5,
+          "s": 0,
+          "y": 4.1,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 1.6,
+          "s": 2,
+          "y": 9.65
+        }
+      ],
+      "note": "GB balkon kütlesinin güney ön yüzü; yalnız hoOD'dan (44 m, 42 bloğunun batısından) bulanık görünüyor, h329 karesi ağaçla kapalı. K4 camlı. Şapkanın üstünde korkuluklu çatı terası ve küçük beşik çatılı kulübe (merdiven/çatı çıkışı) var. Köşe fotoğrafta u≈1.0'da (halka köşesinden ~0.9 m içeride)."
+    },
+    {
+      "edge": 2,
+      "len": 1.71,
+      "seen": "none",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.71
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 1.71,
+          "d": 0,
+          "inset": 4.24,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            4
+          ],
+          "tint": {
+            "4": "clear"
+          },
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "Görülmedi. GB balkon kütlesinin doğu yan yüzü (42/kenar 2 eşi); K4 camı ön yüzle tutarlı varsayıldı."
+    },
+    {
+      "edge": 3,
+      "len": 4.3,
+      "seen": "none",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          4.3
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 2.33,
+          "w": 0.28,
+          "y0": 2.2,
+          "y1": 9.86
+        },
+        {
+          "t": "strip",
+          "u": 4.04,
+          "w": 0.28,
+          "y0": 2.2,
+          "y1": 9.86
+        },
+        {
+          "t": "strip",
+          "u": 2.33,
+          "w": 0.28,
+          "y0": 10.7,
+          "y1": 19.75
+        },
+        {
+          "t": "strip",
+          "u": 4.04,
+          "w": 0.28,
+          "y0": 10.7,
+          "y1": 19.75
+        },
+        {
+          "t": "win",
+          "u0": 2.51,
+          "u1": 3.82,
+          "y0": 11.17,
+          "y1": 12.48,
+          "k": 3,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": -0.43,
+          "u1": 0.4,
+          "y0": 11.22,
+          "y1": 12.52,
+          "k": 3,
+          "s": [
+            0,
+            5
+          ],
+          "kind": "small"
+        },
+        {
+          "t": "pipe",
+          "u": 1.24
+        }
+      ],
+      "note": "Görülmedi (42 bloğu arkasında). İkiz 1480041342 kenar 3 (fotoğraflı) gerçek ölçülerinden 4.30/3.96 ölçekle; u gerçek metre."
+    },
+    {
+      "edge": 4,
+      "len": 3.26,
+      "seen": "none",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.26
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0.65,
+          "u1": 3.51,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "inset": 1.4,
+          "cap": true,
+          "sides": "start-wall",
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          }
+        },
+        {
+          "t": "ac",
+          "u": 1.12,
+          "s": 5,
+          "y": 17.56
+        },
+        {
+          "t": "pipe",
+          "u": 0.46
+        }
+      ],
+      "note": "Görülmedi. İkiz 1480041342 kenar 4'ten (iç köşe balkon kütlesi); cam katı bu bloğun 5. kenarında görülen K5 camından. u gerçek metre."
+    },
+    {
+      "edge": 5,
+      "len": 10.95,
+      "seen": "photo",
+      "ref": "1480041343_5_h329R2Bx.jpg",
+      "cal": {
+        "u": [
+          -0.65,
+          10.56
+        ],
+        "head": [
+          [
+            0,
+            4.48
+          ],
+          [
+            5,
+            18.41
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 4.42,
+          "w": 0.3,
+          "y0": 2.3,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 6.02,
+          "w": 0.32,
+          "y0": 2.3,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 7.21,
+          "w": 0.33,
+          "y0": 2.3,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 8.8,
+          "w": 0.31,
+          "y0": 2.3,
+          "y1": 10.2
+        },
+        {
+          "t": "strip",
+          "u": 4.34,
+          "w": 0.3,
+          "y0": 11.36,
+          "y1": 21.6
+        },
+        {
+          "t": "strip",
+          "u": 5.98,
+          "w": 0.33,
+          "y0": 11.36,
+          "y1": 22.4
+        },
+        {
+          "t": "strip",
+          "u": 7.25,
+          "w": 0.33,
+          "y0": 11.36,
+          "y1": 22.96
+        },
+        {
+          "t": "strip",
+          "u": 8.81,
+          "w": 0.32,
+          "y0": 11.36,
+          "y1": 22.96
+        },
+        {
+          "t": "win",
+          "u0": 4.66,
+          "u1": 5.79,
+          "y0": 8.77,
+          "y1": 10.02,
+          "k": 2,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 7.46,
+          "u1": 8.64,
+          "y0": 8.77,
+          "y1": 10.02,
+          "k": 2,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "bal",
+          "u0": 1.0,
+          "u1": 2.7,
+          "d": 0,
+          "inset": 1.4,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          },
+          "cap": true,
+          "sides": "end-wall"
+        },
+        {
+          "t": "pipe",
+          "u": 9.85
+        }
+      ],
+      "note": "h329 (güneydoğudan eğik). Alt katlar ve batı balkon kütlesinin alt kısmı ağaç arkasında; K0 penceresi yalnız doğu sütunda seçiliyor. Duvar doğuda u≈9.9'da bitiyor (GD kütlesi başlıyor)."
+    },
+    {
+      "edge": 6,
+      "len": 1.66,
+      "seen": "none",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.66
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 1.66,
+          "d": 0,
+          "inset": 3.9,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "Görülmedi. GD balkon kütlesinin batı yan yüzü (açık korkuluk dönüşü)."
+    },
+    {
+      "edge": 7,
+      "len": 3.9,
+      "seen": "photo",
+      "ref": "1480041343_7_U-Oz8apj.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.9
+        ],
+        "head": [
+          [
+            0,
+            4.46
+          ],
+          [
+            5,
+            18.06
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0.29,
+          "u1": 4.1,
+          "d": 0,
+          "inset": 1.45,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "win",
+          "u0": 0.0,
+          "u1": 1.8,
+          "y0": 7.62,
+          "y1": 9.72,
+          "k": 2,
+          "s": [
+            0,
+            5
+          ],
+          "kind": "door",
+          "split": 3
+        },
+        {
+          "t": "dish",
+          "u": 0.35,
+          "s": 4,
+          "y": 14.6,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 3.8,
+          "s": 2,
+          "y": 8.65,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 3.8,
+          "s": 5,
+          "y": 16.4
+        },
+        {
+          "t": "ac",
+          "u": 3.8,
+          "s": 1,
+          "y": 6.7
+        }
+      ],
+      "note": "U-Oz8 referans (h329 ile doğrulandı). GD balkon kütlesinin güney ön yüzü; korkuluk halka çizgisinde (±0.3), arka duvar ~1.3–1.6 m geride (kenar 5 hizası). Camsız. Doğu uçta köşeden kenar 8'e döner; klimalar ve bir çanak kütlenin doğu iç yan duvarında."
+    },
+    {
+      "edge": 8,
+      "len": 22.91,
+      "seen": "photo",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0.22,
+          22.79
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 5.14,
+          "w": 0.27,
+          "y0": 10.75,
+          "y1": 19.75
+        },
+        {
+          "t": "strip",
+          "u": 7.72,
+          "w": 0.27,
+          "y0": 10.75,
+          "y1": 19.75
+        },
+        {
+          "t": "strip",
+          "u": 15.16,
+          "w": 0.25,
+          "y0": 10.72,
+          "y1": 19.65
+        },
+        {
+          "t": "strip",
+          "u": 17.8,
+          "w": 0.27,
+          "y0": 10.72,
+          "y1": 19.6
+        },
+        {
+          "t": "strip",
+          "u": 5.67,
+          "w": 0.32,
+          "y0": 2.3,
+          "y1": 10.05
+        },
+        {
+          "t": "strip",
+          "u": 7.22,
+          "w": 0.32,
+          "y0": 2.3,
+          "y1": 10.1
+        },
+        {
+          "t": "strip",
+          "u": 15.7,
+          "w": 0.27,
+          "y0": 2.3,
+          "y1": 10.07
+        },
+        {
+          "t": "strip",
+          "u": 17.28,
+          "w": 0.3,
+          "y0": 2.3,
+          "y1": 10.05
+        },
+        {
+          "t": "win",
+          "u0": 5.93,
+          "u1": 7.06,
+          "y0": 5.89,
+          "y1": 7.11,
+          "k": 1,
+          "s": [
+            0,
+            2
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 15.84,
+          "u1": 17.07,
+          "y0": 5.89,
+          "y1": 7.11,
+          "k": 1,
+          "s": [
+            0,
+            2
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 5.36,
+          "u1": 7.68,
+          "y0": 13.45,
+          "y1": 15.05,
+          "k": 4,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3
+        },
+        {
+          "t": "win",
+          "u0": 15.29,
+          "u1": 17.63,
+          "y0": 13.4,
+          "y1": 15.0,
+          "k": 4,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3
+        },
+        {
+          "t": "bal",
+          "u0": 7.75,
+          "u1": 11.1,
+          "d": 1.25,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            5
+          ],
+          "tint": {
+            "0": "blinds",
+            "1": "blinds",
+            "2": "green",
+            "3": "clear",
+            "5": "dark"
+          },
+          "cap": true
+        },
+        {
+          "t": "bal",
+          "u0": 11.1,
+          "u1": 14.47,
+          "d": 1.25,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            4,
+            5
+          ],
+          "tint": {
+            "0": "dark",
+            "4": "clear",
+            "5": "dark"
+          },
+          "cap": true
+        },
+        {
+          "t": "bal",
+          "u0": 0.79,
+          "u1": 1.42,
+          "d": 0,
+          "inset": 3.9,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "start-wall"
+        },
+        {
+          "t": "bal",
+          "u0": 1.42,
+          "u1": 4.5,
+          "d": 0.5,
+          "inset": 1.0,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "end-wall"
+        },
+        {
+          "t": "bal",
+          "u0": 18.44,
+          "u1": 21.17,
+          "d": 0.4,
+          "inset": 1.1,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "start-wall"
+        },
+        {
+          "t": "bal",
+          "u0": 21.17,
+          "u1": 22.1,
+          "d": 0,
+          "inset": 3.99,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "end-wall"
+        },
+        {
+          "t": "pipe",
+          "u": 11.1,
+          "off": 1.25
+        },
+        {
+          "t": "ac",
+          "u": 11.6,
+          "s": 3,
+          "y": 12.85,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 11.6,
+          "s": 2,
+          "y": 9.9,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 11.6,
+          "s": 1,
+          "y": 7.0,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 4.0,
+          "s": 2,
+          "y": 9.8
+        },
+        {
+          "t": "ac",
+          "u": 4.0,
+          "s": 1,
+          "y": 7.2
+        },
+        {
+          "t": "dish",
+          "u": 1.3,
+          "s": 2,
+          "y": 9.2,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 19.33,
+          "s": 5,
+          "y": 17.5,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 20.0,
+          "s": 4,
+          "y": 14.67,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 18.8,
+          "s": 2,
+          "y": 9.2,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 19.27,
+          "s": 1,
+          "y": 6.44,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 18.65,
+          "s": 0,
+          "y": 3.58,
+          "onBal": true
+        }
+      ],
+      "note": "G8RU referans (ChHr ile doğrulandı). 42/8 ile aynı düzen; simetri merkezi kenar ortasında (11.47). Kat aralığı 2.678 (duvar halkanın ~0.2 m gerisinde). Orta ikiz balkon d≈1.25; köşe kütle ön yüzleri 0.4–0.5 m çıkma (+inset), uçları 0.6–0.9 m geride. Çatıda üç piramit başlıklı baca (u≈4.75, 15.0, 18.5) görünür."
+    },
+    {
+      "edge": 9,
+      "len": 3.99,
+      "seen": "photo",
+      "ref": "1480041343_9__zvjvTn8.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.99
+        ],
+        "head": [
+          [
+            0,
+            4.42
+          ],
+          [
+            5,
+            18.02
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0.0,
+          "u1": 5.3,
+          "d": 0,
+          "inset": 2.16,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "ac",
+          "u": 0.2,
+          "s": 4,
+          "y": 14.8
+        },
+        {
+          "t": "ac",
+          "u": 0.2,
+          "s": 3,
+          "y": 12.6
+        },
+        {
+          "t": "ac",
+          "u": 0.2,
+          "s": 1,
+          "y": 8.35
+        }
+      ],
+      "note": "_zvj referans (czGR ile aynı). KD balkon kütlesinin kuzey ön yüzü, korkuluk halka çizgisinde (+0.13 m); köşe (V ucu) u≈0.25. Ön yüz batıda fotoğrafın sonuna (u≥5.3) kadar sürüyor — halkadaki 3.99 m'den uzun. Camsız. Klimalar kütlenin doğu yan duvarında."
+    },
+    {
+      "edge": 10,
+      "len": 2.16,
+      "seen": "none",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          2.16
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 2.16,
+          "d": 0,
+          "inset": 3.99,
+          "s": [
+            0,
+            5
+          ],
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "Görülmedi. KD balkon kütlesinin batı yan yüzü."
+    },
+    {
+      "edge": 11,
+      "len": 10.49,
+      "seen": "photo",
+      "ref": "1480041343_11__zvjvTn8.jpg",
+      "cal": {
+        "u": [
+          0.91,
+          12.1
+        ],
+        "head": [
+          [
+            0,
+            4.55
+          ],
+          [
+            5,
+            19.05
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "strip",
+          "u": 4.9,
+          "w": 0.33,
+          "y0": 2.3,
+          "y1": 10.7
+        },
+        {
+          "t": "strip",
+          "u": 6.5,
+          "w": 0.35,
+          "y0": 2.3,
+          "y1": 10.7
+        },
+        {
+          "t": "strip",
+          "u": 7.8,
+          "w": 0.35,
+          "y0": 2.3,
+          "y1": 10.7
+        },
+        {
+          "t": "strip",
+          "u": 9.45,
+          "w": 0.38,
+          "y0": 2.3,
+          "y1": 10.7
+        },
+        {
+          "t": "strip",
+          "u": 4.9,
+          "w": 0.33,
+          "y0": 11.9,
+          "y1": 23.84
+        },
+        {
+          "t": "strip",
+          "u": 6.5,
+          "w": 0.35,
+          "y0": 11.9,
+          "y1": 24.04
+        },
+        {
+          "t": "strip",
+          "u": 7.8,
+          "w": 0.35,
+          "y0": 11.9,
+          "y1": 23.33
+        },
+        {
+          "t": "strip",
+          "u": 9.45,
+          "w": 0.38,
+          "y0": 11.9,
+          "y1": 22.54
+        },
+        {
+          "t": "win",
+          "u0": 5.12,
+          "u1": 6.25,
+          "y0": 9.05,
+          "y1": 10.38,
+          "k": 2,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 8.05,
+          "u1": 9.2,
+          "y0": 9.05,
+          "y1": 10.38,
+          "k": 2,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 5.75,
+          "u1": 6.6,
+          "y0": 1.18,
+          "y1": 1.75,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "small"
+        },
+        {
+          "t": "win",
+          "u0": 8.1,
+          "u1": 9.1,
+          "y0": 1.18,
+          "y1": 1.75,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "small"
+        },
+        {
+          "t": "band",
+          "u0": 4.6,
+          "u1": 9.9,
+          "y0": 0.0,
+          "y1": 2.2,
+          "color": "plinth"
+        }
+      ],
+      "note": "_zvj referans, ağaçsız net görünüm (czGR ile doğrulandı). Duvar halkanın ~0.9–1.2 m önünde (kuzeyinde). Bodrum pencereleri otopark tarafında zeminin hemen üstünde. Alınlıkta çatı arası penceresi YOK (42 bloğunda batı sütun üstünde var). Şerit üst uçları alınlık eğimini izler (üst kısmı ortofotonun dışında; czGR ile tahmin)."
+    },
+    {
+      "edge": 12,
+      "len": 2.21,
+      "seen": "none",
+      "copyOf": 4,
+      "mirror": true,
+      "items": [],
+      "note": "Görülmedi; kenar 4'ün kuzey ayna eşi varsayıldı."
+    },
+    {
+      "edge": 13,
+      "len": 4.46,
+      "seen": "none",
+      "copyOf": 3,
+      "mirror": true,
+      "items": [],
+      "note": "Görülmedi; kenar 3'ün kuzey ayna eşi varsayıldı."
+    },
+    {
+      "edge": 14,
+      "len": 1.39,
+      "seen": "none",
+      "ref": "1480041343_8_G8RUKeWd.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.39
+        ],
+        "head": [
+          [
+            0,
+            4.43
+          ],
+          [
+            5,
+            17.82
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 1.39,
+          "d": 0,
+          "inset": 4.43,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          },
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "Görülmedi. KB balkon kütlesinin doğu yan yüzü; K5 camı kuzey ön yüzden."
+    },
+    {
+      "edge": 15,
+      "len": 4.43,
+      "seen": "partial",
+      "ref": "1480041343_15__zvjvTn8.jpg",
+      "cal": {
+        "u": [
+          0,
+          4.43
+        ],
+        "head": [
+          [
+            0,
+            4.42
+          ],
+          [
+            5,
+            18.02
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0.0,
+          "u1": 4.8,
+          "d": 0,
+          "inset": 1.39,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            5
+          ],
+          "tint": {
+            "5": "dark"
+          },
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "KB balkon kütlesinin kuzey ön yüzü, _zvj'den çok eğik ve bulanık. K5 koyu/mavi camlı (42'de aynı kütlede K4 camlıydı)."
+    }
+  ],
+  "notes": [
+    "Kat sayısı 6 (K0–K5) + yarı gömülü bodrum. Kanıt: 42 batı (IXpd) ve 43 kuzey (_zvj) cephelerinde en alt normal pencere sırasının hemen altında, zeminin üstünde küçük bodrum pencereleri (~0.9 × 0.55 m) ve subasman bandı; doğu cephede en alt korkuluk 2.3 m'lik çitin hemen üstünde, altında balkon yok. OSM building:levels=6 ile uyumlu. Zemin kat döşemesi tabandan ~2.2 m yukarıda (yüksek giriş). İlk örnekteki 7 kat / çit arkasında K0 varsayımı hatalıydı; tüm K indisleri 1 azaltıldı (dar pencereler K0–K2, fransız pencereler K3–K5).",
+    "Kat yüksekliği 2.72 m: iki bağımsız cephede görünen lento aralığı 2.714 (kenar 0) ve 2.716 (kenar 8); kenar 0'da iki panolu (IXpd/qhqN) test duvarın ortofoto düzleminde olduğunu gösteriyor. Diğer kenarlarda cal.u, halka köşelerinin gerçek duvar derinliğindeki izdüşümü: a = görünen kat aralığı / 2.72, cal.u = [uF(1−a), uF+(len−uF)a].",
+    "Balkon derinlikleri korkuluk kat aralığının duvar kat aralığına oranından (tek görüntü, pano konumundan bağımsız): orta ikiz çıkma balkonlar d≈1.0–1.25; batı köşe kütleleri 0.6 çıkma; doğu köşe kütlelerinin ön yüzü duvar çizgisinde (0–0.5 m).",
+    "Doğu cephe (8) simetrik: GD köşe kütlesi | şerit çifti + pencere sütunu | orta ikiz çıkma balkon | pencere sütunu | KD köşe kütlesi. Sütunlarda K0–K2 dar (≈1.26 m, 2 kanat) pencere ve pencereye bitişik dar şerit çifti; K3–K5 geniş (≈2.35 m) 3 kanatlı (orta kanat geniş) fransız pencere + paslanmaz yatay borulu korkuluk ve daha geniş şerit çifti. Alt şeritler K2 lentosu hizasında biter, üst şeritler K3 denizliğinin ~0.2 m altından başlayıp duvar üstüne (~0.2 m altına) kadar çıkar.",
+    "Orta ikiz balkonların ayrım çizgisinde, korkuluk önünde tabandan şapka üstüne (~1 m yukarı) çıkan koyu gri metal direk (paratoner/anten direği, üstünde küçük lamba) — 'pipe' (off = balkon derinliği) olarak yazıldı.",
+    "Köşe balkon kütleleri: halkanın köşelerindeki kısa kenarlar (1–2, 6–7, 9–10, 14–15) duvar değil, balkon kütlesinin dış hattı; arkadaki duvar kenar 3/5/11/13 hizasında (inset). Doğu cephede köşe kütlesinin kütleden taşan ~1 m'lik ucu duvar çizgisinin 0.6–0.9 m gerisinde (kademeli ön yüz, iki ayrı bal kaydı; ikincisi d=0 + büyük inset ile yazıldı, overlay'de korkuluk bandı üst katlarda ~0.3 m yüksek kalır). Kütlelerin üstünde kalın düz gri şapka: alın ~0.7 m, overlay'deki şapka bandından ~0.5 m yukarıda.",
+    "Ortofotolar ile halka arasında ~0.5–1.3 m tutarsızlıklar var (pano konum hataları + halka): bazı duvarlar halkanın önünde (42/3 ~0.6 m güneyde, 42/11 ~0.7 m ve 43/11 ~1.0 m kuzeyde); köşe kütlelerinin uçları halka köşelerinden 0.3–1.3 m sapıyor. Değerler görünen koordinatta ölçüldü; halka düzeltmesi gerekebilir.",
+    "Çatı: kırma çatı; 0, 5, 11 kenarlarında duvar üçgen alınlığa yükselir ve şeritler alınlık eğimine kadar çıkar (eğim ~23–25°); hava fotoğrafında çatı ortasında düz teras/merdiven kulesi ve güneş panelli alan; çatıda piramit kiremit başlıklı bacalar (doğu cepheden görünür). Saçak taşması çok küçük: doğu cephede duvar üstü görünüyor, saçak altı görünmüyor.",
+    "Renkler güneşli doğu cepheden (U-Oz8/G8RU); güney/batı cephelerde şeritler aşırı pozlama/gölge nedeniyle bej/kahve görünür, gerçek renk turuncu-somon. Kiremit rengi yalnız hava fotoğrafı ve bir mahya görüntüsünden (#a0705e, belirsiz).",
+    "Giriş (lobi kapısı/kanopi/blok levhası) hiçbir karede görülmedi (büyük olasılıkla batı otopark veya kuzey tarafında, çit/ağaç arkasında) — kaydedilmedi.",
+    "43 = 42 ile aynı proje (aynı taban izi, aynı cephe düzeni, aynı kat yüksekliği; groundRaise 2.19 vs 2.24). Farklar: orta ikiz balkonlar daha derin ölçüldü (1.25); doğu köşe kütle ön yüzleri 0.4–0.5 m çıkma (+inset); alınlıkta çatı arası penceresi yok; GB kütlesinin şapkası üstünde korkuluklu çatı terası ve küçük beşik çatılı kulübe.",
+    "Cam balkonlar: orta sol K0, K1 (zebra stor/yeşil), K2 yeşil, K3 şeffaf, K5 koyu; orta sağ K0 koyu, K4 şeffaf, K5 koyu; KB kütlesi K5, GB kütlesi K4 camlı. Orta sağ balkonlarda K1–K3 klimaları ayrım duvarında; KD köşe kütlesinde her katta çanak (K0, K1, K2, K4, K5); GD kütlesinde K2 çanak ve K1–K2 klimalar kuzey ucundaki ayakta.",
+    "Kenar 0, 3, 4 görülmedi: ikiz 42'nin fotoğraflı kenarlarından gerçek ölçüye çevrilip uzunluk oranıyla ölçeklendi (cam katları bu bloğun görülen ön yüzlerinden); 12, 13 bu bloğun 4, 3 kenarlarının ayna kopyası."
+  ]
+}

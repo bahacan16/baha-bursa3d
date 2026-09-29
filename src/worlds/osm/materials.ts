@@ -34,6 +34,8 @@ function speckle(ctx: CanvasRenderingContext2D, s: number, base: string, amount:
 
 export interface OsmMaterials {
   byKey: Record<MatKey, THREE.Material>;
+  /** Araç yolu asfaltının köşe rengi olmadan (el modeli dolguları için) */
+  roadFill: THREE.MeshStandardMaterial;
   ground: THREE.MeshStandardMaterial;
   trees: THREE.MeshStandardMaterial;
   dispose(): void;
@@ -159,6 +161,11 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
   // Yakın mesafe: gerçek çim / toprak foto dokusu (alan rengi yeşilse çim), uzakta sönümlenir.
   // Doku alanı 2.6 km → uv * 2600 = metre
   vec2 wm = vMapUv * 2600.0;
+  // Hava fotoğrafındaki ağaç taçları/gölgeleri (neredeyse siyah yeşil) zemin değil: 3B ağaçlar ve gölgeleri
+  // zaten var → koyu yeşilimsi pikseller çim tonuna çekilir (Street View'da ağaç altı aydınlık çim/toprak)
+  float lum0 = dot(diffuseColor.rgb, vec3(0.2126, 0.7152, 0.0722));
+  float canopy = (1.0 - smoothstep(0.025, 0.07, lum0)) * step(diffuseColor.r, diffuseColor.g * 1.15);
+  diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.13, 0.19, 0.06), canopy * 0.85);
   vec3 base = diffuseColor.rgb;
   float green = clamp((base.g - max(base.r, base.b)) * 12.0, 0.0, 1.0);
   vec3 gT = texture2D(grassMap, wm / 3.0).rgb / max(grassAvg, vec3(0.02));
@@ -171,14 +178,19 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
 #endif`,
       );
   };
-  ground.customProgramCacheKey = () => 'ground-detail-v4';
+  ground.customProgramCacheKey = () => 'ground-detail-v5';
   const trees = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, flatShading: true });
+  const roadFill = detailMaterial(asphalt, { key: 'roadFill', polygonOffset: -5, normalScale: 0.8 });
+  roadFill.vertexColors = false;
+  roadFill.color.setRGB(0.26, 0.265, 0.26);
   return {
     byKey,
+    roadFill,
     ground,
     trees,
     dispose() {
       for (const m of Object.values(byKey)) m.dispose();
+      roadFill.dispose();
       ground.dispose();
       trees.dispose();
       for (const t of [atlas, grain, sidewalkTex, pitchTex, detailTex]) t.dispose();

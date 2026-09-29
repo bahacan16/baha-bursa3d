@@ -1,0 +1,1332 @@
+{
+ "fence": [
+  {
+   "kind": "mertkent",
+   "id": "east",
+   "street": "502. Sokak",
+   "pts": [
+    [
+     -2.5,
+     -35.8
+    ],
+    [
+     1.9,
+     -131.8
+    ]
+   ],
+   "n": [
+    0.999,
+    0.046
+   ],
+   "wallH": 0.82,
+   "coping": "orange",
+   "pillarW": 0.37,
+   "pillarH": 1.33,
+   "lamp": "globe",
+   "mesh": 1.2,
+   "razor": true,
+   "hedge": {
+    "h": 2.3,
+    "depth": 0.9,
+    "species": "leylandii"
+   },
+   "pillarEvery": 6.44,
+   "pillars": [
+    [
+     -2.5,
+     -35.8
+    ],
+    [
+     -2.2,
+     -42.3
+    ],
+    [
+     -1.9,
+     -48.7
+    ],
+    [
+     -1.6,
+     -55.1
+    ],
+    [
+     -1.3,
+     -61.5
+    ],
+    [
+     -1,
+     -68
+    ],
+    [
+     -0.7,
+     -74.4
+    ],
+    [
+     -0.4,
+     -80.8
+    ],
+    [
+     -0.1,
+     -87.2
+    ],
+    [
+     0.2,
+     -93.7
+    ],
+    [
+     0.5,
+     -100.1
+    ],
+    [
+     0.8,
+     -107.4
+    ],
+    [
+     1.1,
+     -113.8
+    ],
+    [
+     1.4,
+     -120.3
+    ],
+    [
+     1.7,
+     -126.7
+    ],
+    [
+     1.9,
+     -131.8
+    ]
+   ],
+   "pillarsU": [
+    0,
+    6.44,
+    12.87,
+    19.31,
+    25.74,
+    32.18,
+    38.61,
+    45.05,
+    51.48,
+    57.92,
+    64.35,
+    71.65,
+    78.09,
+    84.52,
+    90.96,
+    96.1
+   ],
+   "screen": [
+    [
+     0,
+     22.7,
+     "real"
+    ],
+    [
+     22.7,
+     23.8,
+     "none"
+    ],
+    [
+     23.8,
+     58.5,
+     "real"
+    ],
+    [
+     58.5,
+     64.35,
+     "artificial"
+    ],
+    [
+     64.35,
+     70.3,
+     "none"
+    ],
+    [
+     70.3,
+     78.09,
+     "artificial"
+    ],
+    [
+     78.09,
+     96.1,
+     "real"
+    ]
+   ],
+   "wall": {
+    "h": 0.82,
+    "t": 0.18,
+    "color": "#eceae4",
+    "panelModule": 2.13,
+    "jointPost": "dikey beyaz derz dikmesi ~0.12 m, her ~2.13 m (kolon aralığında 3 panel)",
+    "relief": "yatay dalga kabartma: panel başına 4–5 dalgalı yatay nervür, nervür aralığı ~0.15 m, dalga boyu ~0.9 m, genlik ~3 cm, kabartma derinliği ~1.5 cm; beyaz boyalı prekast beton"
+   },
+   "copingSpec": {
+    "h": 0.06,
+    "w": 0.26,
+    "color": "#d98a3a",
+    "note": "düz turuncu harpuşta (kapak), duvar üstünde kesintisiz"
+   },
+   "pillarSpec": {
+    "w": 0.37,
+    "h": 1.33,
+    "color": "#d88b3c",
+    "render": "kaba, grenli/tırtıklı turuncu sıva (yatay ince oluklar)",
+    "cap": {
+     "w": 0.46,
+     "h": 0.06,
+     "color": "#d98a3a"
+    },
+    "lamp": {
+     "stand": "siyah kısa ayak ~0.10 m, Ø0.08",
+     "globe": "opal beyaz küre/lale Ø0.28, merkez ~1.55 m, üst ~1.72 m"
+    }
+   },
+   "meshSpec": {
+    "h": 1.2,
+    "bottom": 0.85,
+    "color": "#1f4f35",
+    "postEvery": 2.5,
+    "post": "60×40 mm koyu yeşil kutu profil, üstü ~2.05 m",
+    "panel": "koyu yeşil (RAL 6005) kaynaklı panel çit, yatay V-büküm ile"
+   },
+   "razorSpec": {
+    "coil": 0.5,
+    "top": 2.4,
+    "note": "jiletli tel spiral, panel çit dikmelerinin üstünde, çitin tüm boyunca"
+   },
+   "note": "Doğu çiti (502. Sk.). u = GD köşesinden kuzeye. Kolon aralığı 6.44 m (3 prekast panel); araç kapısı 64.35–71.65 arası (G kolon–K kolon). Kapının iki yanındaki birer açıklıkta leylandi yerine düz yapay yaprak panel (koyu, tekdüze yeşil, üst ~1.95 m). 22.7–23.8 arası çitte ~1 m boşluk (bina görünüyor). Kuzeydoğu köşe kolonu u=96.1; oradan çit kuzeybatıya pahlı döner (kuzey kaydına bakınız)."
+  },
+  {
+   "kind": "mertkent",
+   "id": "north",
+   "street": "Doğan Avcıoğlu Caddesi",
+   "pts": [
+    [
+     1.9,
+     -131.8
+    ],
+    [
+     -11,
+     -143.2
+    ],
+    [
+     -63.7,
+     -145.8
+    ],
+    [
+     -69.8,
+     -140.4
+    ]
+   ],
+   "n": [
+    0.05,
+    -1
+   ],
+   "wallH": 0.82,
+   "coping": "orange",
+   "pillarW": 0.37,
+   "pillarH": 1.33,
+   "lamp": "globe",
+   "mesh": 1.2,
+   "razor": true,
+   "hedge": {
+    "h": 2.3,
+    "depth": 0.9,
+    "species": "leylandii"
+   },
+   "pillarEvery": 6.4,
+   "pillars": [
+    [
+     1.9,
+     -131.8
+    ],
+    [
+     -2.4,
+     -135.6
+    ],
+    [
+     -6.7,
+     -139.4
+    ],
+    [
+     -11.1,
+     -143.2
+    ],
+    [
+     -17.4,
+     -143.5
+    ],
+    [
+     -23.8,
+     -143.8
+    ],
+    [
+     -38.2,
+     -144.5
+    ],
+    [
+     -44.6,
+     -144.8
+    ],
+    [
+     -50.9,
+     -145.2
+    ],
+    [
+     -57.3,
+     -145.5
+    ],
+    [
+     -63.7,
+     -145.8
+    ],
+    [
+     -69.8,
+     -140.4
+    ]
+   ],
+   "pillarsU": [
+    0,
+    5.74,
+    11.47,
+    17.27,
+    23.61,
+    30.01,
+    44.41,
+    50.79,
+    57.16,
+    63.54,
+    69.91,
+    78.13
+   ],
+   "screen": [
+    [
+     0,
+     78.13,
+     "real"
+    ]
+   ],
+   "wall": {
+    "h": 0.82,
+    "t": 0.18,
+    "color": "#eceae4",
+    "panelModule": 2.13,
+    "jointPost": "dikey beyaz derz dikmesi ~0.12 m, her ~2.13 m (kolon aralığında 3 panel)",
+    "relief": "yatay dalga kabartma: panel başına 4–5 dalgalı yatay nervür, nervür aralığı ~0.15 m, dalga boyu ~0.9 m, genlik ~3 cm, kabartma derinliği ~1.5 cm; beyaz boyalı prekast beton"
+   },
+   "copingSpec": {
+    "h": 0.06,
+    "w": 0.26,
+    "color": "#d98a3a",
+    "note": "düz turuncu harpuşta (kapak), duvar üstünde kesintisiz"
+   },
+   "pillarSpec": {
+    "w": 0.37,
+    "h": 1.33,
+    "color": "#d88b3c",
+    "render": "kaba, grenli/tırtıklı turuncu sıva (yatay ince oluklar)",
+    "cap": {
+     "w": 0.46,
+     "h": 0.06,
+     "color": "#d98a3a"
+    },
+    "lamp": {
+     "stand": "siyah kısa ayak ~0.10 m, Ø0.08",
+     "globe": "opal beyaz küre/lale Ø0.28, merkez ~1.55 m, üst ~1.72 m"
+    }
+   },
+   "meshSpec": {
+    "h": 1.2,
+    "bottom": 0.85,
+    "color": "#1f4f35",
+    "postEvery": 2.5,
+    "post": "60×40 mm koyu yeşil kutu profil, üstü ~2.05 m",
+    "panel": "koyu yeşil (RAL 6005) kaynaklı panel çit, yatay V-büküm ile"
+   },
+   "razorSpec": {
+    "coil": 0.5,
+    "top": 2.4,
+    "note": "jiletli tel spiral, panel çit dikmelerinin üstünde, çitin tüm boyunca"
+   },
+   "note": "Kuzey çiti: KD pah (17.2 m, ~40°) + Doğan Avcıoğlu cephesi (52.7 m) + KB pah (8.2 m). u = KD köşesinden başlar. Kuzey kapısı (MERTKENT) u≈37.1. KD pahın önünde (sokak tarafında) konik ardıç/servi dikili üçgen yeşil ada var; pah üzerindeki ara kolonlar (1/3, 2/3) varsayım. KB köşesinde çit içinde kırmızı-kahve çatılı dar bir yapı (hava fotoğrafında pah boyunca) görülüyor – site içi."
+  },
+  {
+   "kind": "mertkent",
+   "id": "west",
+   "street": "Cavit Orhan Tütengil Caddesi",
+   "pts": [
+    [
+     -69.8,
+     -140.4
+    ],
+    [
+     -74.1,
+     -38.3
+    ]
+   ],
+   "n": [
+    -1,
+    -0.042
+   ],
+   "wallH": 0.82,
+   "coping": "orange",
+   "pillarW": 0.37,
+   "pillarH": 1.33,
+   "lamp": "globe",
+   "mesh": 1.2,
+   "razor": true,
+   "hedge": {
+    "h": 2.3,
+    "depth": 0.9,
+    "species": "leylandii"
+   },
+   "pillarEvery": 6.35,
+   "pillars": [
+    [
+     -69.8,
+     -140.4
+    ],
+    [
+     -70,
+     -136.8
+    ],
+    [
+     -70.3,
+     -130.4
+    ],
+    [
+     -70.5,
+     -124
+    ],
+    [
+     -70.8,
+     -117.6
+    ],
+    [
+     -71.1,
+     -111.2
+    ],
+    [
+     -71.3,
+     -104.8
+    ],
+    [
+     -71.6,
+     -98.5
+    ],
+    [
+     -71.9,
+     -92.1
+    ],
+    [
+     -72.1,
+     -85.7
+    ],
+    [
+     -72.4,
+     -79.5
+    ],
+    [
+     -72.7,
+     -73.2
+    ],
+    [
+     -73.3,
+     -58.5
+    ],
+    [
+     -73.5,
+     -52.3
+    ],
+    [
+     -73.8,
+     -46.5
+    ],
+    [
+     -74.1,
+     -38.3
+    ]
+   ],
+   "pillarsU": [
+    0,
+    3.6,
+    10,
+    16.4,
+    22.8,
+    29.2,
+    35.6,
+    41.9,
+    48.3,
+    54.7,
+    61,
+    67.3,
+    82,
+    88.2,
+    94,
+    102.2
+   ],
+   "screen": [
+    [
+     0,
+     102.2,
+     "real"
+    ]
+   ],
+   "wall": {
+    "h": 0.82,
+    "t": 0.18,
+    "color": "#eceae4",
+    "panelModule": 2.13,
+    "jointPost": "dikey beyaz derz dikmesi ~0.12 m, her ~2.13 m (kolon aralığında 3 panel)",
+    "relief": "yatay dalga kabartma: panel başına 4–5 dalgalı yatay nervür, nervür aralığı ~0.15 m, dalga boyu ~0.9 m, genlik ~3 cm, kabartma derinliği ~1.5 cm; beyaz boyalı prekast beton"
+   },
+   "copingSpec": {
+    "h": 0.06,
+    "w": 0.26,
+    "color": "#d98a3a",
+    "note": "düz turuncu harpuşta (kapak), duvar üstünde kesintisiz"
+   },
+   "pillarSpec": {
+    "w": 0.37,
+    "h": 1.33,
+    "color": "#d88b3c",
+    "render": "kaba, grenli/tırtıklı turuncu sıva (yatay ince oluklar)",
+    "cap": {
+     "w": 0.46,
+     "h": 0.06,
+     "color": "#d98a3a"
+    },
+    "lamp": {
+     "stand": "siyah kısa ayak ~0.10 m, Ø0.08",
+     "globe": "opal beyaz küre/lale Ø0.28, merkez ~1.55 m, üst ~1.72 m"
+    }
+   },
+   "meshSpec": {
+    "h": 1.2,
+    "bottom": 0.85,
+    "color": "#1f4f35",
+    "postEvery": 2.5,
+    "post": "60×40 mm koyu yeşil kutu profil, üstü ~2.05 m",
+    "panel": "koyu yeşil (RAL 6005) kaynaklı panel çit, yatay V-büküm ile"
+   },
+   "razorSpec": {
+    "coil": 0.5,
+    "top": 2.4,
+    "note": "jiletli tel spiral, panel çit dikmelerinin üstünde, çitin tüm boyunca"
+   },
+   "note": "Batı çiti (Cavit Orhan Tütengil Cd.). u = KB pah ucundan güneye. Kolon aralığı kuzeyde ~6.4, güneyde ~6.0 ölçüldü (Street View konum hatası ±0.5 m). Batı yaya kapısı (MERTKENT) u≈75.2 (site içi yolla hizalı). Tamamı gerçek leylandi, yapay panel yok. GB köşede duvar önünde gri elektrik panosu."
+  },
+  {
+   "kind": "mertkent",
+   "id": "south",
+   "street": "isimsiz tek yön sokak (güney)",
+   "pts": [
+    [
+     -74.1,
+     -38.3
+    ],
+    [
+     -2.5,
+     -35.8
+    ]
+   ],
+   "n": [
+    -0.034,
+    1
+   ],
+   "wallH": 0.82,
+   "coping": "orange",
+   "pillarW": 0.37,
+   "pillarH": 1.33,
+   "lamp": "globe",
+   "mesh": 1.2,
+   "razor": true,
+   "hedge": {
+    "h": 2.3,
+    "depth": 0.9,
+    "species": "leylandii"
+   },
+   "pillarEvery": 6.4,
+   "pillars": [
+    [
+     -74.1,
+     -38.3
+    ],
+    [
+     -68.5,
+     -38.1
+    ],
+    [
+     -62.7,
+     -37.9
+    ],
+    [
+     -56.8,
+     -37.7
+    ],
+    [
+     -51.1,
+     -37.5
+    ],
+    [
+     -43.9,
+     -37.2
+    ],
+    [
+     -37.1,
+     -37
+    ],
+    [
+     -30.5,
+     -36.8
+    ],
+    [
+     -23.8,
+     -36.6
+    ],
+    [
+     -17,
+     -36.3
+    ],
+    [
+     -11.4,
+     -36.1
+    ],
+    [
+     -2.5,
+     -35.8
+    ]
+   ],
+   "pillarsU": [
+    0,
+    5.6,
+    11.45,
+    17.3,
+    23.05,
+    30.25,
+    37,
+    43.65,
+    50.35,
+    57.15,
+    62.8,
+    71.7
+   ],
+   "screen": [
+    [
+     0,
+     23.05,
+     "real"
+    ],
+    [
+     23.05,
+     30.25,
+     "artificial"
+    ],
+    [
+     30.25,
+     37,
+     "none"
+    ],
+    [
+     37,
+     43.65,
+     "artificial"
+    ],
+    [
+     43.65,
+     66.2,
+     "real"
+    ],
+    [
+     66.2,
+     67.2,
+     "none"
+    ],
+    [
+     67.2,
+     71.7,
+     "real"
+    ]
+   ],
+   "wall": {
+    "h": 0.82,
+    "t": 0.18,
+    "color": "#eceae4",
+    "panelModule": 2.13,
+    "jointPost": "dikey beyaz derz dikmesi ~0.12 m, her ~2.13 m (kolon aralığında 3 panel)",
+    "relief": "yatay dalga kabartma: panel başına 4–5 dalgalı yatay nervür, nervür aralığı ~0.15 m, dalga boyu ~0.9 m, genlik ~3 cm, kabartma derinliği ~1.5 cm; beyaz boyalı prekast beton"
+   },
+   "copingSpec": {
+    "h": 0.06,
+    "w": 0.26,
+    "color": "#d98a3a",
+    "note": "düz turuncu harpuşta (kapak), duvar üstünde kesintisiz"
+   },
+   "pillarSpec": {
+    "w": 0.37,
+    "h": 1.33,
+    "color": "#d88b3c",
+    "render": "kaba, grenli/tırtıklı turuncu sıva (yatay ince oluklar)",
+    "cap": {
+     "w": 0.46,
+     "h": 0.06,
+     "color": "#d98a3a"
+    },
+    "lamp": {
+     "stand": "siyah kısa ayak ~0.10 m, Ø0.08",
+     "globe": "opal beyaz küre/lale Ø0.28, merkez ~1.55 m, üst ~1.72 m"
+    }
+   },
+   "meshSpec": {
+    "h": 1.2,
+    "bottom": 0.85,
+    "color": "#1f4f35",
+    "postEvery": 2.5,
+    "post": "60×40 mm koyu yeşil kutu profil, üstü ~2.05 m",
+    "panel": "koyu yeşil (RAL 6005) kaynaklı panel çit, yatay V-büküm ile"
+   },
+   "razorSpec": {
+    "coil": 0.5,
+    "top": 2.4,
+    "note": "jiletli tel spiral, panel çit dikmelerinin üstünde, çitin tüm boyunca"
+   },
+   "note": "Güney çiti. u = GB köşesinden doğuya. Duvar doğrudan yol kenarında (site tarafında kaldırım yok, ~0.3–0.5 m beton şerit). Araç kapısının (u≈30.3–37.0) iki yanındaki birer açıklıkta yapay yaprak panel; yaya kapısı da yapay yaprakla kaplı. GD köşeye ~5 m kala çitte boşluk + panel kapı (yol, siteye giriyor) – belirsiz."
+  },
+  {
+   "kind": "salus",
+   "id": "salus-east",
+   "street": "Cavit Orhan Tütengil Caddesi (batı yakası)",
+   "pts": [
+    [
+     -83.1,
+     -134
+    ],
+    [
+     -82.5,
+     -152
+    ],
+    [
+     -81.9,
+     -178.5
+    ]
+   ],
+   "wallH": 0.45,
+   "coping": "cream",
+   "pillarEvery": 4,
+   "pillarW": 0.35,
+   "pillarH": 1.7,
+   "lamp": "globe",
+   "mesh": 1.2,
+   "razor": false,
+   "hedge": {
+    "h": 2,
+    "depth": 0.8,
+    "species": "thuja"
+   },
+   "bars": {
+    "h": 1.2,
+    "color": "#1b1b1b",
+    "pitch": 0.12,
+    "note": "siyah dikey demir parmaklık, düz üst lama"
+   },
+   "note": "Salusvizyon çiti: alçak kırmızı tuğla duvar (~0.45 m, krem harpuşta), kiremit kırmızısı sıvalı kare kolonlar (~0.35 m, ~1.7 m) üstünde beyaz küre lamba, aralarda siyah dikey demir parmaklık (~1.2 m), arkada tuja/leylandi (yer yer kurumuş kahverengi). Hat OSM site kenarı + hava fotoğrafı, ±1 m; kolon aralığı ölçülmedi (~4 m tahmini)."
+  }
+ ],
+ "gates": [
+  {
+   "kind": "pedestrian",
+   "id": "north-gate",
+   "c": [
+    -30.9,
+    -144.2
+   ],
+   "n": [
+    0.05,
+    -1
+   ],
+   "w": 2.4,
+   "h": 3.1,
+   "note": "MERTKENT Sitesi 2.Etap yaya kapısı (Doğan Avcıoğlu): siyah kutu portal, üst başlıkta beyaz \"MERTKENT / Sitesi 2.Etap\" yazısı, altın desenli siyah kapı kanadı (~1.6 m), yan kolonlarda altın madalyonlar. Önünde tabela direği (viraj + 30)."
+  },
+  {
+   "kind": "pedestrian",
+   "id": "west-gate",
+   "c": [
+    -73,
+    -65.3
+   ],
+   "n": [
+    -1,
+    -0.04
+   ],
+   "w": 2.4,
+   "h": 3.1,
+   "note": "MERTKENT Sitesi 2.Etap yaya kapısı (Cavit Orhan Tütengil): kuzey kapısıyla aynı tip; arkasında palmiye."
+  },
+  {
+   "kind": "vehicle",
+   "id": "east-gate",
+   "c": [
+    0.6,
+    -103.1
+   ],
+   "n": [
+    0.999,
+    0.046
+   ],
+   "w": 5.8,
+   "h": 1.75,
+   "note": "Doğu araç kapısı (502. Sk.): siyah ferforje sürgülü kapı, dikey çubuklar, altta dekoratif kıvrımlı bant (~0.5 m), orta kuşak; üzerinde \"P – YABANCI ARAÇ PARK EDEMEZ\" levhası (~0.30×0.45, ~1.1 m). Güney kolonu u=64.35 (0.5,-100.1), kuzeyde u 70.3–71.45 arası yapay yapraklı sabit panel (siyah çerçeve, ~2.0 m), kuzey kolonu u=71.65 (0.8,-107.4). Önünde bordür indirilmiş (rampa)."
+  },
+  {
+   "kind": "vehicle",
+   "id": "south-gate",
+   "c": [
+    -41.2,
+    -37.2
+   ],
+   "n": [
+    -0.034,
+    1
+   ],
+   "w": 5,
+   "h": 1.75,
+   "note": "Güney araç kapısı: doğudakiyle aynı tip siyah sürgülü ferforje kapı + \"P\" levhası. Kolonlar (-37.2,-37.0) ve (-43.9,-37.3). Arkada havuz/otopark görülüyor."
+  },
+  {
+   "kind": "pedestrian",
+   "id": "south-door",
+   "c": [
+    -38.1,
+    -37.1
+   ],
+   "n": [
+    -0.034,
+    1
+   ],
+   "w": 1.1,
+   "h": 2,
+   "note": "Güney araç kapısının doğu yanında yapay yaprak kaplı yaya kapısı (siyah çerçeve, üzerinde küçük kahverengi levha)."
+  },
+  {
+   "kind": "pedestrian",
+   "id": "south-east-door",
+   "c": [
+    -7.5,
+    -36
+   ],
+   "n": [
+    -0.034,
+    1
+   ],
+   "w": 1,
+   "h": 1.9,
+   "note": "BELİRSİZ: GD köşeye ~5 m kala leylandide boşluk ve içeri giden patika; yeşil panel çit kapı olabilir."
+  },
+  {
+   "kind": "vehicle",
+   "id": "salus-gate",
+   "c": [
+    -82.6,
+    -158
+   ],
+   "n": [
+    1,
+    0
+   ],
+   "w": 5,
+   "h": 1.8,
+   "note": "Salusvizyon araç kapısı: siyah dikey çubuklu sürgülü kapı, arkada güvenlik kulübesi. Konum ±2 m (pano GPS). index.ts SALUS_GATE (-82.3,-165.6) ile karşılaştırılmalı."
+  },
+  {
+   "kind": "pedestrian",
+   "id": "salus-door",
+   "c": [
+    -82.5,
+    -162
+   ],
+   "n": [
+    1,
+    0
+   ],
+   "w": 1.2,
+   "h": 2.2,
+   "note": "Salusvizyon yaya kapısı: siyah çubuklu kapı, kiremit kolonda diyafon paneli, üstte \"✦SALUSVİZYON\" tabelalı kanopi. Konum ±2 m."
+  }
+ ],
+ "sidewalks": [
+  {
+   "id": "east-west-side",
+   "street": "502. Sokak (batı kaldırımı, site tarafı)",
+   "pts": [
+    [
+     -0.5,
+     -39
+    ],
+    [
+     0.5,
+     -60
+    ],
+    [
+     1.4,
+     -80
+    ],
+    [
+     2.3,
+     -100
+    ],
+    [
+     2.8,
+     -110
+    ],
+    [
+     3.7,
+     -130
+    ]
+   ],
+   "w": 1.85,
+   "side": "left",
+   "kerbH": 0.15,
+   "material": "gri beton kilit taşı 10×20 (duvar dibinden ~0.7 m), ortada krem-sarı hissedilebilir kılavuz şerit (~0.5 m, merkez duvardan ~1.0 m), bordüre kadar gri kilit taşı (~0.5 m); gri beton bordür 15×30. Yol tarafında bordüre bitişik mavi boyalı bisiklet şeridi (~1.2 m, beyaz kesikli kenar çizgisi); araçlar bu şeridin üstüne park ediyor.",
+   "note": "Bordür hattı = çit yüzü + 1.85 m (hava foto: çit parlak hattı ile asfalt sınırı; SV: 1.8 m). Araç kapısı önünde (z -100…-106.5) indirilmiş bordür/rampa, GD köşede köşe rampası. Kaldırım boyunca ağaç çukuru yok."
+  },
+  {
+   "id": "east-east-side",
+   "street": "502. Sokak (doğu yakası, karşı site)",
+   "pts": [
+    [
+     5.9,
+     -40
+    ],
+    [
+     6.6,
+     -60
+    ],
+    [
+     7.4,
+     -80
+    ],
+    [
+     8.2,
+     -100
+    ],
+    [
+     8.8,
+     -120
+    ]
+   ],
+   "w": 0.6,
+   "side": "right",
+   "kerbH": 0.15,
+   "material": "dar beton şerit; hemen arkasında karşı sitelerin gri taş alçak duvarı + beyaz kolon + yeşil panel çit + jiletli tel ve yüksek çit (bitki)",
+   "note": "Doğu yakada gerçek kaldırım yok ya da çok dar (SV aracı karşı duvara ~1.5–2 m mesafeden geçiyor). Konum ±1 m."
+  },
+  {
+   "id": "north-south-side",
+   "street": "Doğan Avcıoğlu Caddesi (güney kaldırımı, site tarafı)",
+   "pts": [
+    [
+     -66,
+     -149.3
+    ],
+    [
+     -63,
+     -149.2
+    ],
+    [
+     -55,
+     -148.7
+    ],
+    [
+     -47,
+     -148.3
+    ],
+    [
+     -39,
+     -147.7
+    ],
+    [
+     -29,
+     -147
+    ],
+    [
+     -21,
+     -146.8
+    ],
+    [
+     -15,
+     -147.1
+    ]
+   ],
+   "w": 3,
+   "side": "right",
+   "kerbH": 0.15,
+   "material": "duvar dibinden gri beton kilit taşı 10×20 (~1.5–1.9 m) + krem-sarı kılavuz şerit, bordür boyunca kiremit-kırmızı kilit taşı bant (~1.2–1.4 m); gri beton bordür.",
+   "note": "Genişlik batıda ~3.4 m, doğuda (x≈-25) ~2.4 m. Kuzey kapı önünde tabela direği + e-scooter, x≈-21’de bank ve fidan. Doğuda (x>-15) kaldırım KD köşedeki ardıç adasının çevresinden 502. Sk.’ya döner (bisiklet yolu levhası + yeşil çöp kutusu)."
+  },
+  {
+   "id": "ne-island",
+   "street": "Doğan Avcıoğlu – 502. Sokak kavşağı (KD köşe adası çevresi)",
+   "pts": [
+    [
+     -15,
+     -147.1
+    ],
+    [
+     -8,
+     -147.5
+    ],
+    [
+     -2,
+     -147.2
+    ],
+    [
+     1.5,
+     -145.5
+    ],
+    [
+     3,
+     -142
+    ],
+    [
+     3.4,
+     -136
+    ],
+    [
+     3.5,
+     -131
+    ]
+   ],
+   "w": 2.3,
+   "side": "right",
+   "kerbH": 0.15,
+   "material": "gri beton kilit taşı 10×20 + krem-sarı kılavuz şerit, köşede rampa; iç tarafta konik ardıç/servi dikili üçgen yeşil ada (çitle kaldırım arası)",
+   "note": "Kaldırım kuzey kapısı tarafından köşeyi dönüp 502. Sk. batı kaldırımına bağlanır; bisiklet yolu levhası + yeşil çöp kutusu köşede. Bordür hattı hava fotoğrafından, ±0.7 m."
+  },
+  {
+   "id": "west-east-side",
+   "street": "Cavit Orhan Tütengil Caddesi (doğu kaldırımı, site tarafı)",
+   "pts": [
+    [
+     -78.3,
+     -40
+    ],
+    [
+     -77.4,
+     -60
+    ],
+    [
+     -76.6,
+     -80
+    ],
+    [
+     -75.7,
+     -100
+    ],
+    [
+     -74.9,
+     -120
+    ],
+    [
+     -74.1,
+     -138
+    ]
+   ],
+   "w": 4.2,
+   "side": "right",
+   "kerbH": 0.15,
+   "material": "yol kenarında kiremit-kırmızı kilit taşı döşeli park cebi şeridi 1.5 m (yol kotunda, alçak/düşük bordür, araçlar üstüne park ediyor), iç bordür (h≈0.12, gri beton), sonra duvara kadar gri kilit taşı 10×20 (2.7 m); gri kısmın ortasında (duvardan ~1.6–2.3 m) krem-sarı kılavuz şerit (~0.5 m).",
+   "note": "pts = yol / kırmızı park şeridi sınırı = çit yüzü − 4.2 m (SV iki yöntemle 4.3 m; KB’de gölgesiz hava fotoğrafında ~4.1 m; güneydeki bina gölgeleri hava fotoğrafında sınırı gizliyor). Kaldırımda ~37 m arayla galvaniz sokak lambası (x≈-75.4,z≈-79.4 ve x≈-74.0,z≈-116.3). KB köşede büyük lamba direği + elektrik panosu."
+  },
+  {
+   "id": "south-north-side",
+   "street": "isimsiz güney sokak (kuzey kenarı, site)",
+   "pts": [
+    [
+     -74,
+     -37.9
+    ],
+    [
+     -60,
+     -37.4
+    ],
+    [
+     -46,
+     -36.9
+    ],
+    [
+     -30,
+     -36.4
+    ],
+    [
+     -15,
+     -35.8
+    ],
+    [
+     -4,
+     -35.5
+    ]
+   ],
+   "w": 0.4,
+   "side": "left",
+   "kerbH": 0,
+   "material": "dar beton/kilit taşı şerit, bordürsüz (duvar doğrudan yola bakıyor)",
+   "note": "Site tarafında kaldırım yok; OSM de sidewalk:right=no. Tek şeritli tek yön yol (doğudan batıya), karşı kenarda park cepleri ve park."
+  }
+ ],
+ "street": [
+  {
+   "kind": "sign",
+   "x": -29.4,
+   "z": -146.3,
+   "h": 3.2,
+   "text": "Tehlikeli viraj (sola-sağa) + azami hız 30",
+   "rot": 0,
+   "note": "galvaniz direk Ø0.08, iki levha üst üste, doğuya giden şeride (batıya) bakar; kuzey kapısının 2 m kuzeydoğusu"
+  },
+  {
+   "kind": "scooter",
+   "x": -29.1,
+   "z": -146.1,
+   "h": 1.1,
+   "text": "",
+   "rot": 90,
+   "note": "turkuaz paylaşımlı e-scooter, tabela direğine yaslı"
+  },
+  {
+   "kind": "bench",
+   "x": -20.8,
+   "z": -144.5,
+   "h": 0.8,
+   "text": "",
+   "rot": 0,
+   "note": "ahşap çıtalı, siyah çelik ayaklı bank; çite sırtını verir, kuzeye (yola) bakar. ±1 m"
+  },
+  {
+   "kind": "tree",
+   "x": -19,
+   "z": -144.6,
+   "h": 2.2,
+   "text": "",
+   "note": "fidan (genç yaprak döken ağaç) duvar dibinde"
+  },
+  {
+   "kind": "sign",
+   "x": 1.6,
+   "z": -143.3,
+   "h": 2.8,
+   "text": "Mecburi bisiklet yolu (mavi daire, beyaz bisiklet)",
+   "note": "KD köşe adası, ±1.5 m"
+  },
+  {
+   "kind": "bin",
+   "x": 0.6,
+   "z": -144.6,
+   "h": 1,
+   "text": "",
+   "note": "koyu yeşil belediye çöp kutusu, direk üstünde; ±2 m"
+  },
+  {
+   "kind": "sign",
+   "x": -1.5,
+   "z": -38,
+   "h": 2.8,
+   "text": "Mecburi bisiklet yolu (mavi daire)",
+   "note": "GD köşe kolonunun önünde, kaldırımda"
+  },
+  {
+   "kind": "mirror",
+   "x": -5,
+   "z": -31.5,
+   "h": 2.8,
+   "text": "",
+   "note": "trafik aynası (yuvarlak, turuncu çerçeve) güney sokak ağzı karşısında; ±2 m"
+  },
+  {
+   "kind": "mirror",
+   "x": 9.3,
+   "z": -103,
+   "h": 2.8,
+   "text": "",
+   "note": "trafik aynası, 502. Sk. doğu yakası, araç kapısının karşısı; ±2 m"
+  },
+  {
+   "kind": "bollard",
+   "x": 2.9,
+   "z": -105,
+   "h": 0.75,
+   "text": "",
+   "note": "turuncu esnek dikme (delinatör) bisiklet şeridi kenarında, araç kapısı önü"
+  },
+  {
+   "kind": "lamp-post",
+   "x": -75.4,
+   "z": -79.4,
+   "h": 8,
+   "text": "",
+   "note": "galvaniz sokak lambası, tek kol, Cavit Orhan Tütengil doğu kaldırımı"
+  },
+  {
+   "kind": "lamp-post",
+   "x": -74,
+   "z": -116.3,
+   "h": 8,
+   "text": "",
+   "note": "galvaniz sokak lambası, tek kol"
+  },
+  {
+   "kind": "lamp-post",
+   "x": -64.6,
+   "z": -149.4,
+   "h": 9,
+   "text": "",
+   "note": "KB köşe (Doğan Avcıoğlu–Cavit kavşağı) yüksek lamba direği; dibinde gri pano. ±1 m"
+  },
+  {
+   "kind": "cabinet",
+   "x": -65.4,
+   "z": -149.3,
+   "h": 1.4,
+   "text": "SİNEKLİK – Nilüfer PVC reklamı",
+   "note": "gri metal elektrik dağıtım panosu (~0.9×0.4×1.4 m), üzerinde yapıştırma reklamlar"
+  },
+  {
+   "kind": "cabinet",
+   "x": -73.2,
+   "z": -36.9,
+   "h": 1.3,
+   "text": "",
+   "note": "GB köşede duvar önünde gri elektrik panosu (~1.6×0.5×1.3 m); ±1 m"
+  },
+  {
+   "kind": "sign",
+   "x": 0.6,
+   "z": -100.3,
+   "h": 1.1,
+   "text": "P – YABANCI ARAÇ PARK EDEMEZ",
+   "note": "doğu araç kapısı kanadında"
+  },
+  {
+   "kind": "sign",
+   "x": -40,
+   "z": -37.1,
+   "h": 1.1,
+   "text": "P – YABANCI ARAÇ PARK EDEMEZ",
+   "note": "güney araç kapısı kanadında"
+  },
+  {
+   "kind": "sign",
+   "x": 18,
+   "z": -84.5,
+   "h": 1,
+   "text": "ŞEHR-İ BAHAR EVLERİ",
+   "note": "502/504. Sk. köşesi, karşı sitenin gri taş duvarında yeşil harfler; ±2 m"
+  },
+  {
+   "kind": "tree",
+   "x": -0.5,
+   "z": -135.5,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -2,
+   "z": -137.5,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": 0.5,
+   "z": -138.5,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -3.8,
+   "z": -139.6,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -1.6,
+   "z": -140.4,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": 0.8,
+   "z": -141,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -5.8,
+   "z": -141.6,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -3.6,
+   "z": -142.3,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -1.3,
+   "z": -143,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -8,
+   "z": -143.6,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -5.6,
+   "z": -144.3,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  },
+  {
+   "kind": "tree",
+   "x": -10,
+   "z": -145,
+   "h": 1.6,
+   "text": "",
+   "note": "konik ardıç/servi (h 1.2–1.8, Ø~1.1), KD köşe yeşil adası; yerleşim yaklaşık"
+  }
+ ],
+ "notes": [
+  "Çerçeve: yerel metre, +x doğu, +z güney. Tüm hatlar Google z21 hava fotoğrafına göre (duvarın sokağa bakan yüzü); Street View ile genişlik/boy doğrulandı.",
+  "ÖNEMLİ (kayıt): Güney ve kuzey çit hatları hava fotoğrafı ile footprints.json arasında ≤0.5 m tutarlı. Doğuda hava fotoğrafındaki 1480041342/1480041343 doğu cephe tabanı sarı halkaların ~1–2 m doğusunda görünüyor; SV panoramalarının GPS’i de 502. Sk.’da ~1–2 m kaymış (NCC/kolon üçgenlemesi tutarsız). Bu dosyadaki doğu çiti hava fotoğrafına göredir (çit–bina aralığı hava fotoğrafında ~5 m); binalarla birlikte kurulurken aradaki mesafe kontrol edilmeli.",
+  "Mertkent çiti: beyaz prekast dalgalı duvar h≈0.82 (kalınlık ~0.18), düz turuncu harpuşta; ~2.13 m’de bir dikey beyaz derz dikmesi (kolon aralığında 3 panel); kare turuncu kolonlar 0.37×0.37, h≈1.33, kaba grenli turuncu sıva, 0.46 m kapak, siyah ayak üstünde opal beyaz küre lamba (üst ~1.72 m) — tüm kolonlarda lamba var, birkaçı kırık. Duvar üstünde koyu yeşil panel çit (0.85→2.05 m, dikme 2.5 m), dikme üstünde jiletli tel spiral (Ø~0.5, üst ~2.4 m) tüm çevrede. Arkada leylandi çit h≈2.2–2.4, derinlik ~0.9.",
+  "Kolon aralığı: doğu 6.44 m (GD köşe → araç kapısı 10 açıklık = 64.35 m, köşeden köşeye 96.1 m hava fotoğrafıyla %0.5 uyumlu), kuzey ~6.4, batı ~6.0–6.4, güney ~6.3–6.8. Pano mesafesi 7 m varsayımıyla görünen 6.5 m, gerçek mesafe (kamera h=2.5 ile taban hizası + komşu panoların tutarlılığı) ~7.3 m → ~6.4 m.",
+  "Yapay yaprak paneller (düz, tekdüze koyu yeşil, panel çite bağlı, üst ~1.95 m): yalnızca iki araç kapısının iki yanındaki birer kolon açıklığında (doğu: u 58.5–64.35 ve 70.3–78.1; güney: kapının doğu ve batısındaki açıklıklar) + kapı sabit panelleri/yaya kapısı. Diğer her yer gerçek leylandi (açık, düzensiz, sarımsı yeşil uçlar).",
+  "Yol işaretleri: 502. Sk. batı bordürü boyunca mavi bisiklet şeridi (beyaz kesikli kenar); 502. Sk.–Nato Parkı koşu yolu geçidinde (z≈-22.5, x -5.2…6.2) sarı-beyaz zebra + her iki kenarda turuncu esnek dikmeler; KD köşede (Doğan Avcıoğlu–502 kavşağı) yol üzerinde mavi bisiklet yolu ve bisiklet sembolleri; Doğan Avcıoğlu’nda kesikli orta çizgi.",
+  "502. Sk. doğu yakası: karşı siteler (ör. \"Şehr-i Bahar Evleri\") gri taş alçak duvar + beyaz kolonlar + yeşil panel çit + jiletli tel + kesme çit; kaldırım yok denecek kadar dar. \"PARK KOZA SİTESİ\" tabelası incelenen karelerde bulunamadı.",
+  "Belirsizlikler: kolon konumları ±0.5–1 m (SV konum/yön hataları), KD pah ara kolonları ve KB pah varsayım, güneydoğu küçük kapı belirsiz, Salusvizyon kapı konumları ±2 m, kuzey kolon dizisi kuzey kapısı site içi yoluyla hizalansın diye +0.74 m doğuya kaydırıldı."
+ ]
+}

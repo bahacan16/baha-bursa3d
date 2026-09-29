@@ -170,22 +170,60 @@ export function buildGate(b: Builder, c: V2, n: V2, y0: number): void {
  * Araç girişi: iki kolon arasında siyah sürgülü parmaklık kapı (kapalı), üstte sarı-siyah uyarı bandı yok —
  * sade site kapısı. c: açıklık merkezi, n: sokak yönü, w: açıklık genişliği.
  */
-export function buildDriveGate(b: Builder, c: V2, n: V2, y0: number, w: number): void {
+export function buildDriveGate(b: Builder, c: V2, n: V2, y0: number, w: number, pillars = true): void {
   const t: V2 = [n[1], -n[0]];
   const yaw = Math.atan2(-t[1], t[0]);
   const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
-  for (const u of [-w / 2 - 0.2, w / 2 + 0.2]) {
-    const p = P(u, -0.15);
-    b.box('ochre', [p[0], y0 + 0.85, p[1]], [0.4, 1.7, 0.4], yaw);
-    b.box('capDark', [p[0], y0 + 1.73, p[1]], [0.46, 0.06, 0.46], yaw);
-    b.sphere('globe', [p[0], y0 + 1.92, p[1]], 0.14, 10);
+  if (pillars)
+    for (const u of [-w / 2 - 0.2, w / 2 + 0.2]) {
+      const p = P(u, -0.15);
+      b.box('ochre', [p[0], y0 + 0.85, p[1]], [0.4, 1.7, 0.4], yaw);
+      b.box('capDark', [p[0], y0 + 1.73, p[1]], [0.46, 0.06, 0.46], yaw);
+      b.sphere('globe', [p[0], y0 + 1.92, p[1]], 0.14, 10);
+    }
+  // Siyah ferforje sürgülü kapı (Street View: dikey çubuklar, altta ~0.5 m kıvrımlı süs bandı, orta kuşak)
+  const H0 = 1.75;
+  const a = P(-w / 2 + 0.02, -0.1);
+  const e = P(w / 2 - 0.02, -0.1);
+  b.wall('ironBars', a, e, y0 + 0.62, y0 + H0 - 0.05, [0, 0, w / 0.12, 1]);
+  b.wall('ironBars', e, a, y0 + 0.62, y0 + H0 - 0.05, [0, 0, w / 0.12, 1]);
+  b.wall('gateOrnBand', a, e, y0 + 0.1, y0 + 0.6, [0, 0, w / 0.5, 1]);
+  b.wall('gateOrnBand', e, a, y0 + 0.1, y0 + 0.6, [0, 0, w / 0.5, 1]);
+  for (const y of [0.08, 0.61, H0 - 0.04]) {
+    const m = P(0, -0.1);
+    b.box('iron', [m[0], y0 + y, m[1]], [w - 0.04, 0.05, 0.05], yaw);
   }
-  const a = P(-w / 2, -0.15);
-  const e = P(w / 2, -0.15);
-  b.wall('ironBars', a, e, y0 + 0.08, y0 + 1.6, [0, 0, w / 0.12, 1]);
-  b.wall('ironBars', e, a, y0 + 0.08, y0 + 1.6, [0, 0, w / 0.12, 1]);
-  for (const y of [0.1, 0.85, 1.58]) {
-    const m = P(0, -0.15);
-    b.box('iron', [m[0], y0 + y, m[1]], [w, 0.06, 0.05], yaw);
+  // Kapı kanadı kenar dikmeleri + ray
+  for (const u of [-w / 2 + 0.04, 0, w / 2 - 0.04]) {
+    const p = P(u, -0.1);
+    b.box('iron', [p[0], y0 + H0 / 2, p[1]], [0.06, H0, 0.06], yaw);
   }
+  const r = P(0, -0.1);
+  b.box('darkMetal', [r[0], y0 + 0.01, r[1]], [w + 0.4, 0.03, 0.08], yaw);
+}
+
+/**
+ * Çitteki küçük yaya kapısı (güney araç kapısı yanı): siyah çerçeve, yapay yaprak kaplı kanat.
+ * c: kapı merkezi (çit hattında), n: sokak yönü, w: kanat genişliği.
+ */
+export function buildSideDoor(b: Builder, c: V2, n: V2, y0: number, w: number, h: number): void {
+  const t: V2 = [n[1], -n[0]];
+  const yaw = Math.atan2(-t[1], t[0]);
+  const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
+  for (const u of [-w / 2, w / 2]) {
+    const p = P(u, 0);
+    b.box('iron', [p[0], y0 + h / 2, p[1]], [0.06, h, 0.06], yaw);
+  }
+  const tp = P(0, 0);
+  b.box('iron', [tp[0], y0 + h - 0.02, tp[1]], [w, 0.05, 0.05], yaw);
+  b.box('iron', [tp[0], y0 + 0.04, tp[1]], [w, 0.05, 0.05], yaw);
+  const [fa, fe] = facing(P(-w / 2 + 0.03, 0.02), P(w / 2 - 0.03, 0.02), n);
+  b.wall('mkFoliage', fa, fe, y0 + 0.06, y0 + h - 0.04, [0, 0, w, h]);
+  const [ga, ge] = facing(P(-w / 2 + 0.03, -0.02), P(w / 2 - 0.03, -0.02), [-n[0], -n[1]]);
+  b.wall('mkFoliage', ga, ge, y0 + 0.06, y0 + h - 0.04, [0, 0, w, h]);
+  // Küçük kahverengi levha + kol
+  const lp = P(0, 0.035);
+  b.box('darkMetal', [lp[0], y0 + 1.5, lp[1]], [0.12, 0.08, 0.015], yaw);
+  const kp = P(w / 2 - 0.12, 0.04);
+  b.box('darkMetal', [kp[0], y0 + 1.0, kp[1]], [0.12, 0.03, 0.04], yaw);
 }

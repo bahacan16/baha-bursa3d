@@ -19,6 +19,11 @@ export interface BuildOptions {
   landuseMeshes?: boolean;
   roofColors?: Record<string, readonly number[]>;
   aerialTrees?: Float32Array | number[];
+  /** Elle ölçülmüş ağaçlar ve otomatik ağaçsız bölgeler (vegetation.ts) */
+  fixedTrees?: number[];
+  excludeZones?: number[][];
+  /** OSM kaldırımı üretilmeyecek bölgeler (ölçülmüş sokak planı, düz [x,z,...] halkalar) */
+  noSidewalkZones?: number[][];
 }
 
 export interface BuildResult {
@@ -59,7 +64,7 @@ export function buildWorld(
     if (i % 250 === 0) progress(0.05 + 0.45 * (i / Math.max(1, n)), `Binalar (${i}/${n})`);
   }
   progress(0.5, 'Yollar');
-  const roads = buildRoads(geo, d.roads, d.crossings);
+  const roads = buildRoads(geo, d.roads, d.crossings, opts.noSidewalkZones);
   progress(0.65, 'Alanlar');
   if (opts.landuseMeshes) buildAreas(geo, d.areas);
   buildBarriers(geo, d.barriers);
@@ -73,6 +78,8 @@ export function buildWorld(
     maxTrees,
     density,
     aerialTrees: opts.aerialTrees,
+    fixedTrees: opts.fixedTrees,
+    excludeZones: opts.excludeZones,
   });
   const props = buildProps(d);
   progress(0.9, 'Geometri birleştiriliyor');

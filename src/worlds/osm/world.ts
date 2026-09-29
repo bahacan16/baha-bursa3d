@@ -15,6 +15,7 @@ import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
+import { surveyVegetation } from '../mertkent/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../mertkent';
 import { StreetProps } from './streetprops';
 import { createDetailedTrees } from './treemesh';
@@ -52,6 +53,7 @@ async function buildInWorker(
   roofColors: RoofColorMap | undefined,
   aerialTrees: number[] | undefined,
   progress: BuildProgress,
+  veg: { fixedTrees?: number[]; excludeZones?: number[][]; noSidewalkZones?: number[][] } = {},
 ): Promise<BuildResult> {
   try {
     const worker = new Worker(new URL('./build.worker.ts', import.meta.url), { type: 'module' });
@@ -71,12 +73,12 @@ async function buildInWorker(
         worker.terminate();
         reject(new Error(e.message || 'worker hatası'));
       };
-      worker.postMessage({ data, opts: { quality, terrain, roofColors, aerialTrees } });
+      worker.postMessage({ data, opts: { quality, terrain, roofColors, aerialTrees, ...veg } });
     });
   } catch (err) {
     console.warn('Worker kullanılamadı, ana iş parçacığında üretiliyor:', err);
     await new Promise((r) => setTimeout(r, 0));
-    return buildWorld(data, { quality, terrain, roofColors, aerialTrees }, progress);
+    return buildWorld(data, { quality, terrain, roofColors, aerialTrees, ...veg }, progress);
   }
 }
 
@@ -114,6 +116,35 @@ export class GroundIndex {
     for (const s of strips) this.insert(this.strips, s, s.outer);
     for (const r of roads) this.insert(this.roads, r, r.half);
   }
+  /** Elle ölçülmüş yükseltilmiş alanlar (kaldırım, güverte): çokgen + zeminden yükseklik */
+  private areas = new Map<number, { poly: [number, number][]; h: number }[]>();
+  addArea(poly: [number, number][], h: number): void {
+    const c = GroundIndex.CELL;
+    const xs = poly.map((p) => p[0]);
+    const zs = poly.map((p) => p[1]);
+    const a = { poly, h };
+    for (let x = Math.floor(Math.min(...xs) / c); x <= Math.floor(Math.max(...xs) / c); x++)
+      for (let z = Math.floor(Math.min(...zs) / c); z <= Math.floor(Math.max(...zs) / c); z++) {
+        const k = (x + 32768) * 65536 + (z + 32768);
+        let arr = this.areas.get(k);
+        if (!arr) this.areas.set(k, (arr = []));
+        arr.push(a);
+      }
+  }
+  private areaHeight(x: number, z: number): number | null {
+    let best: number | null = null;
+    for (const a of this.areas.get(this.k(x, z)) ?? []) {
+      let c = false;
+      const r = a.poly;
+      for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+        const [xi, zi] = r[i];
+        const [xj, zj] = r[j];
+        if (zi > z !== zj > z && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) c = !c;
+      }
+      if (c) best = Math.max(best ?? -1e9, a.h);
+    }
+    return best;
+  }
   private static proj(x: number, z: number, s: { ax: number; az: number; bx: number; bz: number }) {
     const ex = s.bx - s.ax;
     const ez = s.bz - s.az;
@@ -134,6 +165,8 @@ export class GroundIndex {
   }
 
   height(x: number, z: number): number {
+    const ah = this.areaHeight(x, z);
+    if (ah !== null) return ah;
     const k = this.k(x, z);
     for (const r of this.roads.get(k) ?? []) if (GroundIndex.proj(x, z, r).d < r.half) return 0;
     let h = 0;
@@ -149,8 +182,8 @@ export class GroundIndex {
 const TREE_NEAR_R = 110;
 const TREE_NEAR_MAX = 1500;
 /** Dallı-yapraklı (ez-tree) ağaç yarıçapı / tür başına üst sınır — ağaç başı ~2–4k üçgen. */
-const TREE_EZ_R = { low: 0, medium: 45, high: 70 } as const;
-const TREE_EZ_MAX = 350;
+const TREE_EZ_R = { low: 0, medium: 65, high: 100 } as const;
+const TREE_EZ_MAX = 600;
 
 export class OsmWorld implements IWorld {
   readonly kind = 'osm' as const;
@@ -158,7 +191,7 @@ export class OsmWorld implements IWorld {
   readonly collision = new PolygonCollisionWorld();
   readonly spawn = new THREE.Vector3();
   private chunkGroups = new Map<string, THREE.Group>();
-  private materials: OsmMaterials;
+  readonly materials: OsmMaterials;
   private treeGeos: THREE.BufferGeometry[] = [];
   private treeGeosHi: THREE.BufferGeometry[] = [];
   private treeMatHi = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85 });
@@ -390,6 +423,7 @@ export class OsmWorld implements IWorld {
       roofColors,
       aerialTrees,
       progress,
+      handmade ? surveyVegetation() : {},
     );
     progress(0.95, 'Sahne kuruluyor');
     const world = new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);
@@ -403,11 +437,13 @@ export class OsmWorld implements IWorld {
           H,
           shadows: quality !== 'low',
           collide,
+          roadMaterial: world.materials.roadFill,
         });
         world.object.add(mk.group);
         fenceSkip = mk.fenceSkip;
         if (mk.noTree) world.removeTrees(mk.noTree);
         if (mk.cars.length) world.addParkedCars(mk.cars);
+        for (const a of mk.raised ?? []) world.addRaisedArea(a.poly, a.h);
       } catch (e) {
         console.warn('Mertkent el modeli kurulamadı', e);
       }
@@ -550,6 +586,11 @@ export class OsmWorld implements IWorld {
         if (im.instanceColor) im.instanceColor.needsUpdate = true;
       }
     });
+  }
+
+  /** Yükseltilmiş yürüme alanı ekle (ölçülmüş kaldırımlar, güverteler) */
+  addRaisedArea(poly: [number, number][], h: number): void {
+    this.groundIdx.addArea(poly, h);
   }
 
   /** El modeli otoparklarına araç ekle (çizim + çarpışma) */

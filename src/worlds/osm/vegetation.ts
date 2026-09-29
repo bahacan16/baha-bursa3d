@@ -44,6 +44,23 @@ export interface VegetationOptions {
   density: number;
   /** Hava fotoğrafından tespit edilmiş ağaçlar [x, z, taçYarıçapı]* — varsa rastgele dağıtımın yerine geçer */
   aerialTrees?: Float32Array | number[];
+  /** Elle ölçülmüş ağaçlar [x, z, tür, ölçek]* (engelleme kontrolü yok, önce yerleşir) */
+  fixedTrees?: number[];
+  /** Otomatik ağaç konmayacak bölgeler (düz [x,z,...] çokgenler) — ölçülmüş alanlar */
+  excludeZones?: number[][];
+}
+
+function inFlat(p: number[], x: number, z: number): boolean {
+  let c = false;
+  const n = p.length / 2;
+  for (let i = 0, j = n - 1; i < n; j = i++) {
+    const xi = p[2 * i];
+    const zi = p[2 * i + 1];
+    const xj = p[2 * j];
+    const zj = p[2 * j + 1];
+    if (zi > z !== zj > z && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) c = !c;
+  }
+  return c;
 }
 
 /**
@@ -110,9 +127,20 @@ export function placeTrees(
     placed.insertBox(x, z, x, z, [x, z]);
   };
 
+  const zones = opts.excludeZones ?? [];
+  const excluded = (x: number, z: number) => zones.some((p) => inFlat(p, x, z));
+  // 0) Elle ölçülmüş ağaçlar (Street View + hava fotoğrafı): aynen
+  const F = opts.fixedTrees ?? [];
+  for (let i = 0; i + 3 < F.length; i += 4) {
+    const x = F[i];
+    const z = F[i + 1];
+    const r = rng(hashString(`f${x},${z}`));
+    out.push({ x, z, type: F[i + 2], scale: F[i + 3], rot: r() * Math.PI * 2, shade: 0.85 + r() * 0.25 });
+    placed.insertBox(x, z, x, z, [x, z]);
+  }
   // 1) Haritalanmış ağaçlar (engellemeden bağımsız, yalnızca bina içi elenir)
   for (const [x, z] of trees) {
-    if (blocked(x, z, false)) continue;
+    if (blocked(x, z, false) || excluded(x, z)) continue;
     add(x, z, hashString(`${x},${z}`), 0.15);
   }
   // 2) Ağaç sıraları: 7 m arayla
@@ -138,7 +166,7 @@ export function placeTrees(
       const x = A[i];
       const z = A[i + 1];
       if (Math.hypot(x, z) > 1180) continue;
-      if (tooClose(x, z, 3.5) || blocked(x, z)) continue;
+      if (tooClose(x, z, 3.5) || blocked(x, z) || excluded(x, z)) continue;
       const seed = hashString(`a${x},${z}`);
       const r = rng(seed);
       const t = r();

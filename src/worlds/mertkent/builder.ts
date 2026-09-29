@@ -2,15 +2,25 @@ import * as THREE from 'three';
 
 /** Malzeme anahtarına göre üçgen biriktirir; sonunda her anahtar için tek mesh üretir (az draw call). */
 export class Builder {
-  private buckets = new Map<string, { pos: number[]; nor: number[]; uv: number[]; idx: number[] }>();
+  private buckets = new Map<
+    string,
+    { pos: number[]; nor: number[]; uv: number[]; idx: number[]; aux: number[] | null }
+  >();
 
   private bucket(key: string) {
     let b = this.buckets.get(key);
     if (!b) {
-      b = { pos: [], nor: [], uv: [], idx: [] };
+      b = { pos: [], nor: [], uv: [], idx: [], aux: null };
       this.buckets.set(key, b);
     }
     return b;
+  }
+
+  /** Köşe başına ek veri (vec4, `aux` özniteliği) — yalnızca kullanan kovalarda tutulur, diğerleri 0 */
+  private pushAux(b: { pos: number[]; aux: number[] | null }, n: number, aux?: V4): void {
+    if (!aux && !b.aux) return;
+    if (!b.aux) b.aux = new Array(((b.pos.length / 3 - n) | 0) * 4).fill(0);
+    for (let k = 0; k < n; k++) b.aux.push(...(aux ?? [0, 0, 0, 0]));
   }
 
   /**
@@ -24,6 +34,7 @@ export class Builder {
     p2: V3,
     p3: V3,
     uv: [number, number, number, number] = [0, 0, 1, 1],
+    aux?: V4,
   ): void {
     const b = this.bucket(key);
     const o = b.pos.length / 3;
@@ -45,11 +56,20 @@ export class Builder {
     const [u0, v0, u1, v1] = uv;
     b.uv.push(u0, v0, u1, v0, u1, v1, u0, v1);
     b.idx.push(o, o + 1, o + 2, o, o + 2, o + 3);
+    this.pushAux(b, 4, aux);
   }
 
   /** Dikey dikdörtgen yüz: a→e yatay (x,z), y0..y1; dışa bakan yön (a→e) × yukarı sağ taraf. */
-  wall(key: string, a: V2, e: V2, y0: number, y1: number, uv?: [number, number, number, number]): void {
-    this.quad(key, [a[0], y0, a[1]], [e[0], y0, e[1]], [e[0], y1, e[1]], [a[0], y1, a[1]], uv);
+  wall(
+    key: string,
+    a: V2,
+    e: V2,
+    y0: number,
+    y1: number,
+    uv?: [number, number, number, number],
+    aux?: V4,
+  ): void {
+    this.quad(key, [a[0], y0, a[1]], [e[0], y0, e[1]], [e[0], y1, e[1]], [a[0], y1, a[1]], uv, aux);
   }
 
   /** Eksen hizalı değil, Y etrafında dönmüş kutu. c: merkez, s: boyut (x=genişlik yön boyunca, z=derinlik). */
@@ -120,6 +140,7 @@ export class Builder {
       b.nor.push(0, up ? 1 : -1, 0);
       b.uv.push(p[0] * uvScale, -p[1] * uvScale);
     }
+    this.pushAux(b, ring.length);
     // ShapeUtils x,y düzleminde CCW → x,z düzleminde (z aşağı) yön ters; yukarı bakış için sırayı çevir
     for (const t of tris) {
       if (up) b.idx.push(o + t[0], o + t[2], o + t[1]);
@@ -168,6 +189,7 @@ export class Builder {
           b.pos.push(x, H(x, z) + off, z);
           b.nor.push(0, 1, 0);
           b.uv.push(x * uvScale, -z * uvScale);
+          this.pushAux(b, 1);
         }
       for (let i = 0; i < n; i++)
         for (let j = 0; j < n - i; j++) {
@@ -212,6 +234,7 @@ export class Builder {
       b.nor.push(n ? n.getX(i) : 0, n ? n.getY(i) : 1, n ? n.getZ(i) : 0);
       b.uv.push(uv ? uv.getX(i) : 0, uv ? uv.getY(i) : 0);
     }
+    this.pushAux(b, p.count);
     if (g.index) for (let i = 0; i < g.index.count; i++) b.idx.push(o + g.index.getX(i));
     else for (let i = 0; i < p.count; i++) b.idx.push(o + i);
     g.dispose();
@@ -226,13 +249,15 @@ export class Builder {
       g.setAttribute('position', new THREE.Float32BufferAttribute(b.pos, 3));
       g.setAttribute('normal', new THREE.Float32BufferAttribute(b.nor, 3));
       g.setAttribute('uv', new THREE.Float32BufferAttribute(b.uv, 2));
+      if (b.aux) g.setAttribute('aux', new THREE.Float32BufferAttribute(b.aux, 4));
       g.setIndex(b.idx);
       g.computeBoundingSphere();
       const m = new THREE.Mesh(g, mat);
       m.name = `mertkent ${key}`;
       const transparent = (mat as THREE.MeshStandardMaterial).transparent;
-      m.castShadow = shadows && !transparent;
-      m.receiveShadow = shadows;
+      m.castShadow = shadows && !transparent && !mat.userData.noCast;
+      // Düz cam yüzeylerde gölge sivilcesi (acne) olmasın diye bazı malzemeler gölge almaz
+      m.receiveShadow = shadows && !mat.userData.noReceive;
       group.add(m);
     }
   }
@@ -240,6 +265,7 @@ export class Builder {
 
 export type V2 = [number, number];
 export type V3 = [number, number, number];
+export type V4 = [number, number, number, number];
 
 /**
  * Bir bitki yüzeyine (çit gövdesi) yaprak kartları serpiştir: düz dokulu kutu silüetini kırar.

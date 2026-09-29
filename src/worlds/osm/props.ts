@@ -55,6 +55,9 @@ function facingRoad(x: number, z: number, hash: SegHash): number {
   return yaw;
 }
 
+/** Street View ile ölçülmüş bölge [x0, z0, x1, z1] (sokak eşyası oradan gelir) */
+const SURVEYED = [-142, -222, 28, 4];
+
 /**
  * Lambalar: OSM'deki highway=street_lamp + araç yollarının kaldırım dış kenarında ~32 m arayla.
  * KARAR: OSM'de bölgede yalnızca birkaç lamba işaretli; yol kenarı lambaları konum olarak yaklaşıktır.
@@ -106,6 +109,8 @@ export function buildProps(d: OsmWorldData): PropsPayload {
         const x = cx + nx * off * side;
         const z = cz + nz * off * side;
         if (nearJunction || onCarriage(x, z) || inBuilding(x, z)) continue;
+        // KARAR: Mertkent 2 çevresi elle ölçüldü (street-plan.json); oradaki tahmini lambalar çizilmez
+        if (x > SURVEYED[0] && x < SURVEYED[2] && z > SURVEYED[1] && z < SURVEYED[3]) continue;
         if (placed.some((p) => Math.abs(p[0] - x) < 12 && Math.abs(p[1] - z) < 12)) continue;
         placed.push([x, z]);
         lamps.push(x, H(x, z), z, Math.atan2(-nx * side, -nz * side));

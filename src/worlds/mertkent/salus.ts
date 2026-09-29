@@ -90,13 +90,13 @@ export function buildBrickFence(
         for (const y of [WALL_H + 0.12, BAR_TOP - 0.05])
           b.box('iron', [m[0], y0 + y, m[1]], [ub - ua, 0.04, 0.04], yaw);
       }
-      // Alev ağacı çiti (içeride), kırmızı/yeşil yaprak kartları
+      // Tuja/leylandi çiti (içeride, ~2.1 m; Street View: parmaklığın üstünden taşar, yer yer kurumuş)
       const ha = P(u0 + 0.2, WALL_T + 0.35);
       const he = P(u1 - 0.2, WALL_T + 0.35);
-      const hc = P((u0 + u1) / 2, WALL_T + 0.7);
-      b.box('boxwood', [hc[0], y0 + 0.9, hc[1]], [L - 0.4, 1.6, 0.7], yaw, 0.8, 0b111111 & ~0b100000);
-      leafFringe(b, 'photGreen', ha, he, y0 + 0.5, y0 + 1.7, 0.7, s.n, 10, Math.floor(u0 * 17) + 5, 0.4);
-      leafFringe(b, 'photRed', ha, he, y0 + 1.1, y0 + 1.85, 0.7, s.n, 7, Math.floor(u0 * 23) + 9, 0.35);
+      const hc = P((u0 + u1) / 2, WALL_T + 0.75);
+      b.box('mkHedge', [hc[0], y0 + 1.05, hc[1]], [L - 0.4, 2.1, 0.8], yaw, 0.5, 0b111111 & ~0b100000);
+      leafFringe(b, 'hedgeLeaf', ha, he, y0 + 1.3, y0 + 2.2, 0.8, s.n, 3, Math.floor(u0 * 17) + 5, 0.3);
+      leafFringe(b, 'photRed', ha, he, y0 + 1.6, y0 + 2.15, 0.7, s.n, 1.5, Math.floor(u0 * 23) + 9, 0.3);
       const r0 = P(u0, -0.02);
       const r1 = P(u1, -0.02);
       const r2 = P(u1, WALL_T + 1.1);

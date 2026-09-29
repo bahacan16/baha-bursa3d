@@ -18,7 +18,8 @@ export function createSky(scene: THREE.Scene): SkyRig {
   const u = sky.material.uniforms;
   u.mieCoefficient.value = 0.004;
   u.mieDirectionalG.value = 0.8;
-  if (u.cloudCoverage) u.cloudCoverage.value = 0.3;
+  // KARAR: Street View çekimlerindeki gibi açık (bulutsuz) gökyüzü
+  if (u.cloudCoverage) u.cloudCoverage.value = 0;
   // Gece: yıldızlar (sabit tohumlu), ufka doğru sönük
   const starGeo = new THREE.BufferGeometry();
   const sp: number[] = [];
@@ -55,6 +56,9 @@ export function createSky(scene: THREE.Scene): SkyRig {
     u.sunPosition.value.copy(d.sunDir);
     u.turbidity.value = d.turbidity;
     u.rayleigh.value = d.rayleigh;
+    const q = typeof location !== 'undefined' ? new URLSearchParams(location.search) : null;
+    if (q?.has('ray')) u.rayleigh.value = Number(q.get('ray'));
+    if (q?.has('tur')) u.turbidity.value = Number(q.get('tur'));
   };
   return { sky, sunDir, apply, stars };
 }

@@ -30,6 +30,16 @@ const FOG: Record<Settings['quality'], [number, number]> = {
   high: [900, 26000],
 };
 
+/** Ortam haritası zemin parlaklığı (?envg=) */
+const ENV_GROUND = Number(
+  new URLSearchParams(typeof location !== 'undefined' ? location.search : '').get('envg') ?? 4,
+);
+/** Pozlama deneme çarpanı (?exp=1.2) */
+const EXPOSURE_TWEAK =
+  typeof location !== 'undefined' && new URLSearchParams(location.search).has('exp')
+    ? Number(new URLSearchParams(location.search).get('exp'))
+    : 1;
+
 export class Game {
   readonly renderer: THREE.WebGLRenderer;
   readonly scene = new THREE.Scene();
@@ -51,7 +61,7 @@ export class Game {
   post: PostFX | null = null;
   private pmrem: THREE.PMREMGenerator;
   private envRT: THREE.WebGLRenderTarget | null = null;
-  envScale = Number(new URLSearchParams(location.search).get('env') ?? 0.06);
+  envScale = Number(new URLSearchParams(location.search).get('env') ?? 0.085);
   /** Fotoğraf modu: HUD gizli, serbest kamera, oyuncu donuk. */
   photoMode = false;
   private photo = { pos: new THREE.Vector3(), yaw: 0, pitch: 0 };
@@ -85,7 +95,15 @@ export class Game {
     }));
     const maxDpr = this.isTouch ? 1.5 : settings.quality === 'high' ? 2 : 1.25;
     r.setPixelRatio(Math.min(devicePixelRatio || 1, maxDpr, settings.quality === 'low' ? 1 : 2));
-    r.toneMapping = THREE.ACESFilmicToneMapping;
+    // KARAR: Neutral ton eşleme — ACES beyaz sıvayı griye, göğü soluk camgöbeğine çekiyordu; Street View
+    // kareleriyle (ölçülmüş renkler) en yakın sonuç Neutral + ~1.5 pozlama ile alındı. ?tm=aces eskisi.
+    const tm = new URLSearchParams(location.search).get('tm');
+    r.toneMapping =
+      tm === 'aces'
+        ? THREE.ACESFilmicToneMapping
+        : tm === 'agx'
+          ? THREE.AgXToneMapping
+          : THREE.NeutralToneMapping;
     r.toneMappingExposure = 0.9;
     r.outputColorSpace = THREE.SRGBColorSpace;
     r.shadowMap.enabled = settings.quality !== 'low';
@@ -127,6 +145,7 @@ export class Game {
     window.visualViewport?.addEventListener('resize', () => this.resize());
   }
 
+  private envGround: THREE.Mesh | null = null;
   private backdropSun = new THREE.DirectionalLight(0xffffff, 2);
   private backdropHemi = new THREE.HemisphereLight(0xcfe3ff, 0x5a5448, 1);
 
@@ -164,8 +183,23 @@ export class Game {
     const u = this.sky.sky.material.uniforms;
     const disc = u.showSunDisc?.value ?? 1;
     if (u.showSunDisc) u.showSunDisc.value = 0; // güneş diski ortam haritasını patlatır
+    // Ortam haritasının alt yarısı: gök shader'ı ufkun altını mavi-camgöbeği verir → duvarlar camgöbeği
+    // görünüyordu. Gerçekte alt yarım küre sıcak gri zemin (asfalt, kilit taşı, çim, cepheler) yansıtır.
+    if (!this.envGround) {
+      this.envGround = new THREE.Mesh(
+        new THREE.CircleGeometry(90000, 48).rotateX(-Math.PI / 2),
+        new THREE.MeshBasicMaterial({ fog: false, side: THREE.DoubleSide }),
+      );
+      this.envGround.position.y = -40;
+      this.backdrop.add(this.envGround);
+    }
+    (this.envGround.material as THREE.MeshBasicMaterial).color
+      .setRGB(0.58, 0.57, 0.54)
+      .multiplyScalar(ENV_GROUND * d.sunIntensity * (1 - d.night));
+    this.envGround.visible = true;
     const old = this.envRT;
     this.envRT = this.pmrem.fromScene(this.backdrop, 0, 1, 100000);
+    this.envGround.visible = false;
     if (u.showSunDisc) u.showSunDisc.value = disc;
     old?.dispose();
     if (far) far.visible = farVis;
@@ -195,7 +229,7 @@ export class Game {
     this.backdropSun.color.copy(d.sunColor);
     this.backdropHemi.intensity = d.hemiIntensity;
     this.backdropHemi.color.copy(d.hemiSky);
-    this.renderer.toneMappingExposure = d.exposure;
+    this.renderer.toneMappingExposure = d.exposure * EXPOSURE_TWEAK;
     this.post?.setNight(d.night);
     facadeSky.top.value.copy(d.hemiSky).multiplyScalar(0.8);
     facadeSky.horizon.value.copy(d.fogColor);

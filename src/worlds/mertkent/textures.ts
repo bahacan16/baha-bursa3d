@@ -297,23 +297,61 @@ export function hedgeTexture(seed = 5): THREE.Texture {
 }
 
 /** Kiremit (kırma çatı) — yatay 0.3 m sıra, 2 m tekrar */
-export function roofTileTexture(): THREE.Texture {
-  const [c, g] = canvas(256, 256);
+/**
+ * Kiremit (Marsilya tipi): doku 2 m (u) × 1.5 m (eğim, v) — 10 sütun × 6 sıra (~20 × 25 cm). `base`: ölçülmüş çatı
+ * rengi (hava fotoğrafı / Street View); yaşlanma lekeleri ve sıra gölgeleriyle.
+ */
+export function roofTileTexture(base = '#9c4a2c'): THREE.Texture {
+  const S = 512;
+  const [c, g] = canvas(S, S);
   const r = rng(21);
-  g.fillStyle = '#9c4a2c';
-  g.fillRect(0, 0, 256, 256);
-  for (let row = 0; row < 16; row++) {
-    const y = row * 16;
-    for (let col = 0; col < 12; col++) {
-      const x = col * 22 + (row % 2) * 11;
-      const l = 30 + r() * 12;
-      g.fillStyle = `hsl(${14 + r() * 8},${48 + r() * 12}%,${l}%)`;
+  const bc = new THREE.Color(base);
+  const hsl = { h: 0, s: 0, l: 0 };
+  bc.getHSL(hsl, THREE.SRGBColorSpace);
+  const H0 = hsl.h * 360;
+  const S0 = hsl.s * 100;
+  const L0 = hsl.l * 100;
+  g.fillStyle = `hsl(${H0},${S0 * 0.8}%,${L0 * 0.55}%)`;
+  g.fillRect(0, 0, S, S);
+  const rows = 6;
+  const cols = 10;
+  const rh = S / rows;
+  const cw = S / cols;
+  for (let row = 0; row < rows; row++) {
+    const y = row * rh;
+    for (let col = -1; col <= cols; col++) {
+      const x = col * cw + (row % 2) * (cw / 2);
+      const l = L0 * (0.86 + r() * 0.26);
+      g.fillStyle = `hsl(${H0 - 3 + r() * 6},${S0 * (0.85 + r() * 0.25)}%,${l}%)`;
+      // Tek kiremit: üstte yuvarlak omuz, altta dalga
       g.beginPath();
-      g.ellipse(x + 11, y + 8, 11, 9, 0, 0, Math.PI);
+      g.moveTo(x + 2, y + rh);
+      g.lineTo(x + 2, y + rh * 0.25);
+      g.quadraticCurveTo(x + cw / 2, y - rh * 0.05, x + cw - 2, y + rh * 0.25);
+      g.lineTo(x + cw - 2, y + rh);
+      g.closePath();
       g.fill();
+      // Orta oluk gölgesi + tepe parlaması
+      g.fillStyle = 'rgba(0,0,0,0.16)';
+      g.fillRect(x + cw * 0.42, y + rh * 0.2, cw * 0.16, rh * 0.8);
+      g.fillStyle = 'rgba(255,240,220,0.1)';
+      g.fillRect(x + cw * 0.18, y + rh * 0.2, cw * 0.14, rh * 0.8);
     }
-    g.fillStyle = 'rgba(0,0,0,0.25)';
-    g.fillRect(0, y + 14, 256, 2);
+    // Sıra altı gölge (bindirme)
+    g.fillStyle = 'rgba(0,0,0,0.3)';
+    g.fillRect(0, y + rh - 5, S, 5);
+  }
+  // Yaşlanma: koyu is/yosun ve açık solma lekeleri
+  for (let i = 0; i < 90; i++) {
+    const x = r() * S;
+    const y = r() * S;
+    const rad = 10 + r() * 45;
+    const gr = g.createRadialGradient(x, y, 0, x, y, rad);
+    const dark = r() < 0.6;
+    gr.addColorStop(0, dark ? 'rgba(40,35,25,0.18)' : 'rgba(230,215,195,0.12)');
+    gr.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = gr;
+    g.fillRect(x - rad, y - rad, rad * 2, rad * 2);
   }
   return tex(c);
 }
@@ -849,6 +887,133 @@ export function ironBarsTexture(): THREE.Texture {
   return t;
 }
 
+/** Ferforje süs bandı (alfa): 0.5 m modülde karşılıklı C kıvrımları + dikey çubuk (araç kapısı alt bandı) */
+export function ornBandTexture(): THREE.Texture {
+  const S = 128;
+  const [c, g] = canvas(S, S);
+  g.clearRect(0, 0, S, S);
+  g.strokeStyle = '#1b1c1d';
+  g.lineCap = 'round';
+  g.lineWidth = 5;
+  // Orta dikey çubuk ve kenar çubukları
+  for (const x of [2, S / 2, S - 2]) {
+    g.beginPath();
+    g.moveTo(x, 0);
+    g.lineTo(x, S);
+    g.stroke();
+  }
+  // Dört C kıvrımı (merkez çubuğa simetrik)
+  for (const sx of [-1, 1])
+    for (const sy of [-1, 1]) {
+      g.beginPath();
+      const cx = S / 2 + sx * 30;
+      const cy = S / 2 + sy * 26;
+      g.arc(cx, cy, 20, 0, Math.PI * 2 * 0.8);
+      g.stroke();
+      g.beginPath();
+      g.arc(cx + sx * 6, cy + sy * 4, 7, 0, Math.PI * 2);
+      g.stroke();
+    }
+  const t = tex(c);
+  t.wrapT = THREE.ClampToEdgeWrapping;
+  return t;
+}
+
+/**
+ * Budanmış leylandi çit yüzü (2 m × 1 m, tekrarlı): Street View'daki açık sarımsı yeşil, ince pullu dal uçları,
+ * koyu boşluklar ve kabarık/çukur bölgeler. Renkler 42 blok güney çit karesinden ölçüldü (aydınlık ~#6c8743).
+ */
+export function leylandiiTexture(): THREE.Texture {
+  const W = 1024;
+  const Hh = 512;
+  const [c, g] = canvas(W, Hh);
+  const r = rng(71);
+  g.fillStyle = '#566b40';
+  g.fillRect(0, 0, W, Hh);
+  const wrap = (x: number, y: number, m: number, fn: (X: number, Y: number) => void) => {
+    for (const dx of [-W, 0, W])
+      for (const dy of [-Hh, 0, Hh]) {
+        const X = x + dx;
+        const Y = y + dy;
+        if (X > -m && X < W + m && Y > -m && Y < Hh + m) fn(X, Y);
+      }
+  };
+  // Kabarık (açık) ve çukur (koyu) bölgeler
+  for (let i = 0; i < 140; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const rad = 25 + r() * 70;
+    const dark = r() < 0.45;
+    wrap(x, y, rad, (X, Y) => {
+      const gr = g.createRadialGradient(X, Y, 0, X, Y, rad);
+      gr.addColorStop(0, dark ? 'rgba(28,40,14,0.5)' : 'rgba(150,176,78,0.32)');
+      gr.addColorStop(1, 'rgba(0,0,0,0)');
+      g.fillStyle = gr;
+      g.fillRect(X - rad, Y - rad, 2 * rad, 2 * rad);
+    });
+  }
+  // Pullu dal uçları (çoğu yukarı-yana), yan filizlerle
+  const pal = ['#84a05a', '#92ac64', '#9fb86e', '#adc379', '#bacd86', '#76914f', '#c4d491', '#8da760'];
+  g.lineCap = 'round';
+  for (let i = 0; i < 11000; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const ang = -Math.PI / 2 + (r() - 0.5) * 2.4;
+    const len = 7 + r() * 16;
+    const col = pal[Math.floor(r() * pal.length)];
+    const lw = 2 + r() * 2.2;
+    const sides = [0, 1, 2].map(() => [0.7 + r() * 0.5, 0.7 + r() * 0.5]);
+    wrap(x, y, 30, (X, Y) => {
+      g.strokeStyle = col;
+      g.lineWidth = lw;
+      const ex = X + Math.cos(ang) * len;
+      const ey = Y + Math.sin(ang) * len;
+      g.beginPath();
+      g.moveTo(X, Y);
+      g.lineTo(ex, ey);
+      g.stroke();
+      g.lineWidth = lw * 0.65;
+      for (let k = 0; k < 3; k++) {
+        const t = (k + 1) / 4;
+        const px = X + (ex - X) * t;
+        const py = Y + (ey - Y) * t;
+        const l2 = len * 0.38 * (1 - t * 0.5);
+        for (const [sd, sa] of [
+          [-1, sides[k][0]],
+          [1, sides[k][1]],
+        ]) {
+          const a2 = ang + sd * sa;
+          g.beginPath();
+          g.moveTo(px, py);
+          g.lineTo(px + Math.cos(a2) * l2, py + Math.sin(a2) * l2);
+          g.stroke();
+        }
+      }
+    });
+  }
+  // Güneşte parlayan taze uçlar ve derin boşluklar
+  for (let i = 0; i < 6000; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const s = 1.5 + r() * 2.5;
+    const col = r() < 0.5 ? '#d2e08e' : '#c0d27a';
+    wrap(x, y, 4, (X, Y) => {
+      g.fillStyle = col;
+      g.fillRect(X, Y, s, s);
+    });
+  }
+  for (let i = 0; i < 3500; i++) {
+    const x = r() * W;
+    const y = r() * Hh;
+    const s = 2 + r() * 3;
+    wrap(x, y, 6, (X, Y) => {
+      g.fillStyle = 'rgba(22,32,12,0.55)';
+      g.fillRect(X, Y, s, s * 1.4);
+    });
+  }
+  return tex(c);
+}
+
 /** Tuğla kırmızısı kompozit panel (kulübe kaplaması) */
 export function panelTexture(base: string): THREE.Texture {
   const [c, g] = canvas(256, 256);
@@ -873,7 +1038,7 @@ export function tactileTexture(): THREE.Texture {
 }
 
 /** Trafik levhası (şeffaf zemin): 'curve' = tehlikeli viraj (sola-sağa), 'limit30' = azami hız 30 */
-export function roadSignTexture(kind: 'curve' | 'limit30'): THREE.Texture {
+export function roadSignTexture(kind: 'curve' | 'limit30' | 'parking' | 'bike' | 'noentry'): THREE.Texture {
   const S = 256;
   const [c, g] = canvas(S, S);
   g.clearRect(0, 0, S, S);
@@ -907,6 +1072,44 @@ export function roadSignTexture(kind: 'curve' | 'limit30'): THREE.Texture {
     g.lineTo(S / 2 + 8, S - 196);
     g.lineTo(S / 2 + 22, S - 168);
     g.fill();
+  } else if (kind === 'parking') {
+    g.fillStyle = '#1f4ea8';
+    g.fillRect(10, 10, S - 20, S - 20);
+    g.strokeStyle = '#f7f7f5';
+    g.lineWidth = 8;
+    g.strokeRect(22, 22, S - 44, S - 44);
+    g.fillStyle = '#f7f7f5';
+    g.font = 'bold 170px Arial, sans-serif';
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    g.fillText('P', S / 2, S / 2 + 10);
+  } else if (kind === 'bike') {
+    g.fillStyle = '#1f5fc0';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.strokeStyle = '#f7f7f5';
+    g.lineWidth = 10;
+    for (const x of [S / 2 - 50, S / 2 + 50]) {
+      g.beginPath();
+      g.arc(x, S / 2 + 30, 34, 0, Math.PI * 2);
+      g.stroke();
+    }
+    g.beginPath();
+    g.moveTo(S / 2 - 50, S / 2 + 30);
+    g.lineTo(S / 2 - 10, S / 2 - 30);
+    g.lineTo(S / 2 + 35, S / 2 - 30);
+    g.lineTo(S / 2 + 50, S / 2 + 30);
+    g.moveTo(S / 2 - 10, S / 2 - 30);
+    g.lineTo(S / 2 + 5, S / 2 + 30);
+    g.stroke();
+  } else if (kind === 'noentry') {
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#f7f7f5';
+    g.fillRect(40, S / 2 - 22, S - 80, 44);
   } else {
     g.fillStyle = '#c8102e';
     g.beginPath();
@@ -923,4 +1126,28 @@ export function roadSignTexture(kind: 'curve' | 'limit30'): THREE.Texture {
     g.fillText('30', S / 2, S / 2 + 6);
   }
   return tex(c, false);
+}
+
+/** 3D panel tel çit: 20 cm × 20 cm karo, dikey teller 5 cm, yatay tel 20 cm (koyu yeşil, alfa) */
+export function meshFenceTexture(): THREE.Texture {
+  const N = 128;
+  const [c, g] = canvas(N, N);
+  g.clearRect(0, 0, N, N);
+  g.strokeStyle = '#1f3a2a';
+  g.lineWidth = 3;
+  for (let k = 0; k < 4; k++) {
+    const x = (k + 0.5) * (N / 4);
+    g.beginPath();
+    g.moveTo(x, 0);
+    g.lineTo(x, N);
+    g.stroke();
+  }
+  g.lineWidth = 3.5;
+  g.beginPath();
+  g.moveTo(0, N * 0.5);
+  g.lineTo(N, N * 0.5);
+  g.stroke();
+  const t = tex(c);
+  t.premultiplyAlpha = false;
+  return t;
 }
