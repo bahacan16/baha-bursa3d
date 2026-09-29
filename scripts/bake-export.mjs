@@ -6,6 +6,7 @@
 //   npx vite build --outDir /tmp/bake-dist && npx vite preview --outDir /tmp/bake-dist --port 4180 --strictPort &
 //   node scripts/bake-export.mjs [--url http://localhost:4180/] [--out bake-work/src] [--texel 0.08]
 //        [--chunks 0_-1,-1_-1]   (yalnız bu parçalar; engelleyiciler bunların çevresinden)
+//        [--chunk 100] [--maxatlas 4096]   (parça kenarı m / atlas kenarı px; ortam: BAKE_CHUNK_M, BAKE_MAX_ATLAS)
 // Ortam: CHROMIUM=/yol/chrome (yoksa /opt/pw-browsers/... ya da Playwright'ın kendi tarayıcısı)
 import { chromium } from '@playwright/test';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -27,6 +28,8 @@ const url = args.url ?? 'http://localhost:4180/';
 const out = args.out ?? 'bake-work/src';
 const texel = Number(args.texel ?? process.env.BAKE_TEXEL ?? 0.08);
 const maxAtlas = Number(args.maxatlas ?? process.env.BAKE_MAX_ATLAS ?? 4096);
+// Parça kenarı (m). 100 m + 4096² atlas pişirmede ~5.5 GB bellek ister; 50 m + 2048² ~¼'ü (küçük CI makinesi)
+const chunkM = Number(args.chunk ?? process.env.BAKE_CHUNK_M ?? 100);
 const only = args.chunks ? new Set(args.chunks.split(',')) : null;
 const MARGIN = 60;
 
@@ -48,7 +51,9 @@ if (existsSync('public/data/osm.json'))
     r.fulfill({ body: readFileSync('public/data/osm.json', 'utf8'), contentType: 'application/json' }),
   );
 const t0 = Date.now();
-await page.goto(`${url}?debug=1&mode=b&q=high&bakeexport=1&texel=${texel}&maxatlas=${maxAtlas}`);
+await page.goto(
+  `${url}?debug=1&mode=b&q=high&bakeexport=1&texel=${texel}&maxatlas=${maxAtlas}&chunk=${chunkM}`,
+);
 await page.waitForFunction(() => window.__bake && window.__game && window.__game.world, null, {
   timeout: 300000,
 });

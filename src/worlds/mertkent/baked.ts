@@ -11,6 +11,7 @@
 import * as THREE from 'three';
 import { reflectiveMaterials, ultraState } from '../../env/ultra';
 import {
+  BAKE_CHUNK,
   BAKE_UV_VERSION,
   chunkSignature,
   splitChunks,
@@ -37,6 +38,8 @@ export interface MatInfo {
 export interface BakeManifest {
   version: number;
   uvVersion: number;
+  /** Parça kenarı (m) */
+  chunkSize?: number;
   srcHash: string;
   createdAt: string;
   blender: string;
@@ -293,7 +296,7 @@ export async function applyBakedLighting(
   const col = collectBakeSources(root);
   if (!col) return 0;
   const t0 = performance.now();
-  const chunks = splitChunks(col.sources);
+  const chunks = splitChunks(col.sources, man.chunkSize ?? BAKE_CHUNK);
   const byId = new Map(chunks.map((c) => [c.id, c]));
   const valid: { c: (typeof chunks)[number]; m: BakeManifest['chunks'][number] }[] = [];
   const stale: string[] = [];

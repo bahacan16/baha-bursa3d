@@ -83,6 +83,8 @@ export function installBakeExport(world: WorldLike): void {
     texel: Number(params.get('texel')) || DEFAULT_UNWRAP.texel,
     maxAtlas: Number(params.get('maxatlas')) || DEFAULT_UNWRAP.maxAtlas,
   };
+  // Parça kenarı (m): küçük pişirme makinesinde (ör. 7 GB'lık CI) 50 m + 2048² atlas → pişirme belleği ¼
+  const CH = Math.round(Number(params.get('chunk')) || BAKE_CHUNK);
   let cache: {
     sources: BakeSource[];
     others: BakeSource[];
@@ -93,7 +95,7 @@ export function installBakeExport(world: WorldLike): void {
     if (!cache) {
       const c = collectBakeSources(world.object);
       if (!c) throw new Error('mertkent grubu yok');
-      cache = { sources: c.sources, others: c.others, info: c.info, chunks: splitChunks(c.sources) };
+      cache = { sources: c.sources, others: c.others, info: c.info, chunks: splitChunks(c.sources, CH) };
     }
     return cache;
   };
@@ -106,14 +108,14 @@ export function installBakeExport(world: WorldLike): void {
         terrainDrop: TERRAIN_DROP,
         uvVersion: BAKE_UV_VERSION,
         srcHash: BAKE_SRC_HASH,
-        chunkSize: BAKE_CHUNK,
+        chunkSize: CH,
         unwrap: opts,
         keys: Object.fromEntries([...info.entries()]),
         chunks: chunks.map((c) => ({
           id: c.id,
           cx: c.cx,
           cz: c.cz,
-          bbox: [c.cx * BAKE_CHUNK, c.cz * BAKE_CHUNK, (c.cx + 1) * BAKE_CHUNK, (c.cz + 1) * BAKE_CHUNK],
+          bbox: [c.cx * CH, c.cz * CH, (c.cx + 1) * CH, (c.cz + 1) * CH],
           sig: chunkSignature(c, sources),
           keys: c.parts.map((p) => sources[p.src].key),
           tris: c.parts.reduce((a, p) => a + p.tris.length, 0),

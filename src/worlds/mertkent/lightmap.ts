@@ -11,7 +11,7 @@
  */
 import type * as THREE from 'three';
 
-/** Parça kenarı (m) */
+/** Varsayılan parça kenarı (m); dışa aktarma `?chunk=` ile değiştirilebilir, manifest `chunkSize` taşır */
 export const BAKE_CHUNK = 100;
 /** Hat sürümü: uv1 algoritması değişirse artır (manifest ile eşleşmeli) */
 export const BAKE_UV_VERSION = 1;
@@ -97,11 +97,11 @@ export function sortSources(s: BakeSource[]): BakeSource[] {
   return [...s].sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0));
 }
 
-/** Üçgenleri ağırlık merkezinin düştüğü 100 m parçaya ata. Sonuç id sırasına göre. */
-export function splitChunks(sources: BakeSource[]): BakeChunk[] {
+/** Üçgenleri ağırlık merkezinin düştüğü parçaya (kenar `size` m, tamsayı) ata. Sonuç id sırasına göre. */
+export function splitChunks(sources: BakeSource[], size = BAKE_CHUNK): BakeChunk[] {
   const map = new Map<string, { cx: number; cz: number; lists: Map<number, number[]> }>();
   const qp = new Int32Array(9);
-  const C = BAKE_CHUNK * Q * 3;
+  const C = Math.round(size) * Q * 3;
   sources.forEach((s, si) => {
     const g = s.geometry;
     const p = g.attributes.position;

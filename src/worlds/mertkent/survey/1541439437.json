@@ -13,7 +13,13 @@
       "color": "#465466",
       "rail": "glassFull",
       "railC": "#c9cdd0",
-      "glassC": "#555a60"
+      "glassC": "#555a60",
+      "railEdges": [
+        0,
+        8,
+        9,
+        10
+      ]
     }
   },
   "colors": {
@@ -29,17 +35,17 @@
   "notes": [
     "KAT SAYISI: 8 normal kat (K0–K7) + çatıda camlı tonoz çatı köşkü (pending). Batı cephede (kenar 10) iki balkon yığınında çitin üstünde 7 balkon sırası (K1–K7) sayıldı; en alttaki görünen parapetin altı (≈4 m) 2.3 m çit + site duvarının arkasında: tek kat (giriş katı K0, girişin 'A' harfli saçağı bu katın tepesinde). Taban izi notundaki '9 kat' kardeş kuleden alınmıştı; bu kulede doğrudan sayım 8 + çatı köşkü verdi (köşk büyük olasılıkla o sayımda 9. kat sayılmış).",
     "KAT YÜKSEKLİĞİ 3.2 m (±0.15) — floorH açıkça verildi: ortofotolardaki görünen kat aralıkları 2.51 (G35, düşeyi basık) / 3.0 / 3.15 / 3.25 / 3.27 / 3.43 / 3.5 / 3.75 (pano konum hataları) medyanı ≈3.2–3.25; PLTC kenar 8 yatay ölçeği 3.30; hava fotoğrafında GD kavisteki balkon şeritleri eğim yönünde 0.9 m arayla (≈3.3 m, eğim oranı 0.266/m varsayımıyla). Zemin kat döşemesi bina dibinden ≈1.05 m (otFK kenar 0 ve G9 kenar 10 kamera yüksekliğinden, iki bağımsız ölçüm 1.03/1.09). Çatı alın üstü ≈27.7 m.",
-    "RENKLER (örneklenmiş): ana sıva güneşte #b3b3aa (güney cephe otFK, sa-WfHt0 #aaaba1–#b5b5ac), batı cephe öğleden sonra güneşinde sıcak #a7a58b, gölgede/kapalı havada #959e9c / #888b82 / #909995. Kat bantları (yatay, döşeme hizasında ~0.72 m, mavimsi gri) güneşte #9fa6a5, gölgede #99a29f. En üst kat (K7) düz duvarlarda koyu antrasit kaplama + çatı alnı: #465466 (gölge #364555, güneş #5a6068, sa-WfHt0 #415166). Balkon parapetleri (dolu, açık krem-gri) güneşte #b4b5ad, gölgede #939da1. Parapetlerdeki füme cam bölmeler #555a60 (#4d5361–#5c5f61). Cam balkon profilleri çok koyu bronz/siyah #171611; bazı katlarda beyaz profil (aşağıda). Çekirdek perde duvar camı #3f5464, dikmeler koyu #1b2523. Çatı (hava fotoğrafı) kahverengi-mor #827173 / tepe #a08582 (tonoz). Açık balkon tavanı yalnız gölgede görüldü (#605a46) — soffit rengi tahmini açık sıva.",
+    "RENKLER (örneklenmiş): ana sıva güneşte #b3b3aa (güney cephe otFK, sa-WfHt0 #aaaba1–#b5b5ac), batı cephe öğleden sonra güneşinde sıcak #a7a58b, gölgede/kapalı havada #959e9c / #888b82 / #909995. Kat bantları (yatay, döşeme hizasında ~0.72 m, mavimsi gri) güneşte #9fa6a5, gölgede #99a29f. En üst kat (K7) düz duvarlarda koyu antrasit kaplama + çatı alnı: #465466 (gölge #364555, güneş #5a6068, sa-WfHt0 #415166). Balkon parapetleri (dolu, açık krem-gri) güneşte #b4b5ad, gölgede #939da1. Parapetlerdeki füme cam bölmeler #555a60 (#4d5361–#5c5f61). Cam balkon profilleri çok koyu bronz/siyah #171611; bazı katlarda beyaz profil (aşağıda). Çekirdek perde duvar camı #3f5464, dikmeler koyu #1b2523. Çatı (hava fotoğrafı) kahverengi-mor #827173 / tepe #a08582 (tonoz). Açık balkon tavanı yalnız gölgede görüldü (#605a46) — soffit rengi tahmini açık sıva. v5: cam balkon profilleri bal.frameC ile kat kat (batı kuzey yığın K6–K7, güney yığın K7, güney kule K7 beyaz #e6e8e6; diğerleri #171611).",
     "BATI CEPHE (kenar 10, Özlüce tarafı yol): iki balkon yığını + ortada camlı merdiven/asansör çekirdeği. Yığınlar taban izi hattında (halka balkon önlerinde); balkonlar içe gömük loca olarak yazıldı (inset 1.1, GD köşedeki yan açıklıktan ≈0.95–1.1 m ölçüldü). Parapetler dolu (döşemeden ≈1.1 m) ve her katta bir ucunda füme cam bölme var: kuzey yığında KUZEY ucta, güney yığında GÜNEY ucta; genişlik kat kat değişir: K1,K3,K5,K7 geniş (yığının ~%50'si), K2,K4,K6 dar (~%25). Bu bölmeler 'panel' (#555a60) olarak parapetin önüne yazıldı (pending #6).",
     "Cam balkon (katlanır cam) durumu kat kat: kuzey yığın K1 koyu, K2 şeffaf, K3 koyu, K4 kahverengi perde, K5 bej stor/perde, K6 şeffaf (beyaz profil), K7 şeffaf (beyaz profil). Güney yığın K1 koyu, K2 koyu, K3 bej perde + ucunda Türk bayrağı, K4 AÇIK (yalnız güney ucunda ~1.2 m cam), K5 bej perde, K6 koyu, K7 şeffaf (beyaz profil).",
     "GÜNEY KULE (kenar 0 sonu, 1, 2, 3): kavisli balkon kulesi; balkon önleri halkada, dolu açık parapet (~1.0 m) + üstünde cam balkon. Batı (kenar 0) tarafta balkon duvardan kıvrılarak çıkar; loca derinliği 1.6 alındı (kenar 0'da duvarın bittiği yer ile köşe arası ≈1.44 m ölçüldü). Kat kat: K1 camlı (gökyüzü yansıması), K2 camlı, K3 camlı (koyu profil), K4 AÇIK, K5 camlı, K6 AÇIK, K7 camlı (beyaz profil) — batı/güney kısım otFK/sa-WfHt0 karelerinden. GD kavis (2, 3): K1–K3 camlı görüldü, K4–K7 hiçbir karede görülmedi (cam/açık bilinmiyor → camsız bırakıldı). Parapetlerde füme cam bölme yok.",
     "DÜZ DUVARLAR (kenar 0, 8, 9, 11): krem-gri sıva, her döşemede ~0.72 m mavimsi gri bant, en üst kat (K7) + parapet koyu antrasit kaplama. Kenar 11 ve 9 penceresiz. Kenar 0'da güney kuleye bitişik tek pencere sütunu (K1–K6 koyu kahverengi/siyah doğrama, ince uzun, döşemeden 1.4–2.8 m; K7'de koyu kaplama içinde beyaz doğramalı pencere). Kenar 8'in kuzey ucunda KB kavisli balkon yığınının yan camı (kahverengi doğrama).",
     "KB KÖŞE (kenar 7 batı ucu + kenar 8 kuzey ucu): kavisli balkon yığını, mavi yansımalı cam balkon (C0o_p0qm'den K4–K7, PLTC'den yan camlar K1–K7). Kuzey cephenin geri kalanı ve KD kavis (5, 6), doğu cephe (4) HİÇ görülmedi (panolar kuzeyde 1435 ve İskele Balık/Delice binalarının arkasında, doğuda pano yok).",
-    "ÇATI: düz; çevresinde çelik küpeşteli füme cam korkuluk; ortada kahverengi kaplamalı camlı tonoz köşk (pending #1). Hava fotoğrafında çatıda 4 beyaz nokta (havalandırma/ışıklık).",
+    "ÇATI: düz; çevresinde çelik küpeşteli füme cam korkuluk (v5 railEdges: yalnız görülen kenarlar 0, 8, 9, 10; kenar 11’de otFK 29_47’de gökyüzüne karşı korkuluk silueti yok, 1–7 görülmedi/belirsiz); ortada kahverengi kaplamalı camlı tonoz köşk (pending #1). Hava fotoğrafında çatıda 4 beyaz nokta (havalandırma/ışıklık).",
     "Tabela: yalnız giriş saçağında beyaz 'A' harfi (blok adı). Dükkân/tente/kepenk YOK (konut bloğu). Pano/levha başka görülmedi.",
     "Kuzeybatıdaki 'Delice / YENİ NESİL MEYHANE / DELICE YENİ NESİL EĞLENCE' ve 'Cevher' tabelaları bu binada değil, önündeki alçak restoran binasında (taban izi dışı).",
     "TABAN İZİ KANITI (düzeltilmedi): (a) G35 cepheden görünüşte batı cephe genişliği/kat aralığı oranı ≈4.9 → 3.2 m katla ≈15.7 m; halkada kenar 10 = 13.22 m. Hava fotoğrafında batı yüzün eğimle izdüşümü z −18.3 … −2.5'e uzanıyor → GB köşe (667.33,−4.9) büyük olasılıkla ~1.5–2.4 m daha güneyde (±1). (b) Üç panodan (otFK, sa-WfHt0, G9) üçgenlenen kenar 0/11 iç köşesi (674.3,−5.4): halkadan ≈1.4 m doğuda (pano konum hataları ±1 m). Ölçümler halkaya göre ölçeklendi (cal.u = görünen köşeler).",
-    "v4 (d078e71): çatı parapeti roof.parapet (0.95 m antrasit + füme cam korkuluk), çatı köşkü volumes, füme cam parapet bölmeleri bölünmüş bal öğeleri, pencere frameC/tint, giriş saçağı proj. Kalan pending: tonoz kemeri, uzun balkon uçları, köşe boruları, dışbükey balkon önleri, GD pencere sütunu, cam balkon doğrama rengi, çekirdek girinti derinliği."
+    "v4 (d078e71): çatı parapeti roof.parapet (0.95 m antrasit + füme cam korkuluk), çatı köşkü volumes, füme cam parapet bölmeleri bölünmüş bal öğeleri, pencere frameC/tint, giriş saçağı proj. Kalan pending: tonoz kemeri, uzun balkon uçları, köşe boruları, dışbükey balkon önleri, GD pencere sütunu, cam balkon doğrama rengi, çekirdek girinti derinliği. v5 (bu tur): cam balkon profil rengi (bal.frameC), çekirdek girintisi (recess 3.25 m), köşe loca çubukları (pipe), çatı korkuluğu kenar bazında (railEdges) çizildi."
   ],
   "edges": [
     {
@@ -212,10 +218,14 @@
             "*": "solid"
           },
           "parapetH": {
-            "*": 1.0
+            "*": 1
           },
           "fasciaC": {
             "*": "#b4b5ad"
+          },
+          "frameC": {
+            "*": "#171611",
+            "K7": "#e6e8e6"
           }
         }
       ],
@@ -267,10 +277,13 @@
             "*": "solid"
           },
           "parapetH": {
-            "*": 1.0
+            "*": 1
           },
           "fasciaC": {
             "*": "#b4b5ad"
+          },
+          "frameC": {
+            "*": "#171611"
           }
         }
       ],
@@ -312,7 +325,7 @@
             "*": "solid"
           },
           "parapetH": {
-            "*": 1.0
+            "*": 1
           },
           "fasciaC": {
             "*": "#b4b5ad"
@@ -368,7 +381,7 @@
           "u0": 4.4,
           "u1": 7.4,
           "d": 0,
-          "inset": 1.0,
+          "inset": 1,
           "s": [
             1,
             7
@@ -396,10 +409,13 @@
             "*": "solid"
           },
           "parapetH": {
-            "*": 1.0
+            "*": 1
           },
           "fasciaC": {
             "*": "#b4b5ad"
+          },
+          "frameC": {
+            "*": "#171611"
           }
         }
       ],
@@ -412,7 +428,7 @@
       "ref": "1541439437_8_PLTC61DJ.jpg",
       "cal": {
         "u": [
-          0.0,
+          0,
           4.1
         ],
         "head": [
@@ -431,7 +447,7 @@
           "t": "band",
           "y0": 3.85,
           "y1": 4.6,
-          "u0": 1.0,
+          "u0": 1,
           "u1": 4.1,
           "color": "#9fa6a5"
         },
@@ -439,7 +455,7 @@
           "t": "band",
           "y0": 7.1,
           "y1": 7.9,
-          "u0": 1.0,
+          "u0": 1,
           "u1": 4.1,
           "color": "#9fa6a5"
         },
@@ -447,7 +463,7 @@
           "t": "band",
           "y0": 10.4,
           "y1": 11.1,
-          "u0": 1.0,
+          "u0": 1,
           "u1": 4.1,
           "color": "#9fa6a5"
         },
@@ -455,7 +471,7 @@
           "t": "band",
           "y0": 13.72,
           "y1": 14.42,
-          "u0": 1.0,
+          "u0": 1,
           "u1": 4.1,
           "color": "#9fa6a5"
         },
@@ -463,15 +479,15 @@
           "t": "band",
           "y0": 16.9,
           "y1": 17.7,
-          "u0": 1.0,
+          "u0": 1,
           "u1": 4.1,
           "color": "#9fa6a5"
         },
         {
           "t": "band",
           "y0": 20.2,
-          "y1": 21.0,
-          "u0": 1.0,
+          "y1": 21,
+          "u0": 1,
           "u1": 4.1,
           "color": "#9fa6a5"
         },
@@ -479,13 +495,13 @@
           "t": "band",
           "y0": 23.5,
           "y1": 24.3,
-          "u0": 1.0,
+          "u0": 1,
           "u1": 4.1,
           "color": "#9fa6a5"
         },
         {
           "t": "panel",
-          "u0": 1.0,
+          "u0": 1,
           "u1": 4.1,
           "y0": 24.35,
           "y1": 33,
@@ -578,9 +594,259 @@
           "y0": 23.87,
           "y1": 31,
           "color": "plaster2"
+        },
+        {
+          "t": "pipe",
+          "u": 5.66,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 11.07,
+          "y1": 13.38,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.48,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 11.07,
+          "y1": 13.38,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.34,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 11.07,
+          "y1": 13.38,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.21,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 11.07,
+          "y1": 13.38,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.1,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 11.07,
+          "y1": 13.38,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.66,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 14.27,
+          "y1": 16.58,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.48,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 14.27,
+          "y1": 16.58,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.34,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 14.27,
+          "y1": 16.58,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.21,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 14.27,
+          "y1": 16.58,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.1,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 14.27,
+          "y1": 16.58,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.66,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 17.47,
+          "y1": 19.78,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.48,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 17.47,
+          "y1": 19.78,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.34,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 17.47,
+          "y1": 19.78,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.21,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 17.47,
+          "y1": 19.78,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.1,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 17.47,
+          "y1": 19.78,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.66,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 20.67,
+          "y1": 22.98,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.48,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 20.67,
+          "y1": 22.98,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.34,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 20.67,
+          "y1": 22.98,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.21,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 20.67,
+          "y1": 22.98,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.1,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 20.67,
+          "y1": 22.98,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.66,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.87,
+          "y1": 26.13,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.48,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.87,
+          "y1": 26.13,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.34,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.87,
+          "y1": 26.13,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.21,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.87,
+          "y1": 26.13,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.1,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.87,
+          "y1": 26.13,
+          "brackets": false
         }
       ],
-      "note": "Batı kanadın kuzey duvarı: yalnız ham karede (C0o_p0qm 120_25, 2025-09) K3–K7 görüldü — penceresiz düz sıva, döşeme bantları, K7 koyu kaplama; alt katlar Delice binası arkasında (bantlar ritimden). Ortofotolar (C0o, OdoTSW84) pano yön hatası yüzünden kenar 8'i gösteriyor (bantlar eğik) → gerçek metreyle yazıldı. Batı ucunda kuzey yığının yan camı + dikey çelik borular (kenar 10 locası açar; pending #7). X1mlQpwo ortofotosu başka bir binayı gösteriyor."
+      "note": "Batı kanadın kuzey duvarı: yalnız ham karede (C0o_p0qm 120_25, 2025-09) K3–K7 görüldü — penceresiz düz sıva, döşeme bantları, K7 koyu kaplama; alt katlar Delice binası arkasında (bantlar ritimden). Ortofotolar (C0o, OdoTSW84) pano yön hatası yüzünden kenar 8'i gösteriyor (bantlar eğik) → gerçek metreyle yazıldı. Batı ucunda kuzey yığının yan camı + dikey çelik borular (kenar 10 locası açar; pending #7). X1mlQpwo ortofotosu başka bir binayı gösteriyor. v5: KB köşe loca yan açıklığındaki dikey çubuklar C0o 120_25’te K3–K7 seçiliyor ama tek tek sayılamıyor → kenar 11’deki (GB köşe, aynı yığın ucu) 5 çubuk düzeni aynalanarak yazıldı (u 5.10–5.66, açıklık 4.89–5.70); K1–K2 Delice binası arkasında, yazılmadı."
     },
     {
       "edge": 10,
@@ -644,6 +910,11 @@
           },
           "glassC": {
             "*": "#555a60"
+          },
+          "frameC": {
+            "*": "#171611",
+            "K6": "#e6e8e6",
+            "K7": "#e6e8e6"
           }
         },
         {
@@ -690,6 +961,11 @@
           },
           "glassC": {
             "*": "#555a60"
+          },
+          "frameC": {
+            "*": "#171611",
+            "K6": "#e6e8e6",
+            "K7": "#e6e8e6"
           }
         },
         {
@@ -732,6 +1008,11 @@
           },
           "glassC": {
             "*": "#555a60"
+          },
+          "frameC": {
+            "*": "#171611",
+            "K6": "#e6e8e6",
+            "K7": "#e6e8e6"
           }
         },
         {
@@ -772,6 +1053,10 @@
           },
           "glassC": {
             "*": "#555a60"
+          },
+          "frameC": {
+            "*": "#171611",
+            "K7": "#e6e8e6"
           }
         },
         {
@@ -816,6 +1101,10 @@
           },
           "glassC": {
             "*": "#555a60"
+          },
+          "frameC": {
+            "*": "#171611",
+            "K7": "#e6e8e6"
           }
         },
         {
@@ -841,10 +1130,10 @@
             "1": "dark",
             "2": "dark",
             "3": "blinds",
+            "4": "clear",
             "5": "blinds",
             "6": "dark",
-            "7": "clear",
-            "4": "clear"
+            "7": "clear"
           },
           "sides": "open",
           "rail": {
@@ -858,23 +1147,11 @@
           },
           "glassC": {
             "*": "#555a60"
+          },
+          "frameC": {
+            "*": "#171611",
+            "K7": "#e6e8e6"
           }
-        },
-        {
-          "t": "panel",
-          "u0": 4.8,
-          "u1": 7.45,
-          "y0": 2.9,
-          "y1": 18.7,
-          "color": "#3f5464"
-        },
-        {
-          "t": "panel",
-          "u0": 4.8,
-          "u1": 7.45,
-          "y0": 18.7,
-          "y1": 20.95,
-          "color": "#1d252b"
         },
         {
           "t": "proj",
@@ -890,10 +1167,10 @@
         },
         {
           "t": "win",
-          "u0": 4.85,
+          "u0": 4.7,
           "u1": 7.4,
-          "y0": 3.68,
-          "y1": 5.91,
+          "y0": 3.65,
+          "y1": 6.13,
           "k": 1,
           "s": [
             1,
@@ -902,7 +1179,11 @@
           "kind": "std",
           "split": 3,
           "tint": "#3f5464",
-          "frameC": "#1b2523"
+          "frameC": "#1b2523",
+          "stair": true,
+          "hbars": [
+            4.89
+          ]
         },
         {
           "t": "sign",
@@ -923,9 +1204,30 @@
           "u": 12.55,
           "s": 3,
           "onBal": true
+        },
+        {
+          "t": "recess",
+          "u0": 4.55,
+          "u1": 7.55,
+          "s": [
+            1,
+            7
+          ],
+          "depth": 3.25,
+          "back": "#4c524e",
+          "side": "plaster"
+        },
+        {
+          "t": "panel",
+          "u0": 4.55,
+          "u1": 7.55,
+          "y0": 21,
+          "y1": 22.1,
+          "color": "#828882",
+          "proud": 0.03
         }
       ],
-      "note": "Batı cephe (Özlüce yolu), cepheden G35dRPhH (2025-09) referans; G9scaTkn, PLTC61DJ, uaWQP1-r ile doğrulandı. Bu ortofoto düşeyde basık (görünen kat aralığı 2.51, yatay ölçek ≈1.0) → floorH açıkça 3.2. cal.u = iki yığının çatı alnı uçları. Kuzey yığın u −0.35…4.5, çekirdek cam u 4.8…7.45 (yığınların iç yan duvarları sağır sıva), güney yığın u 7.55…12.8. Güney yığında K2 ve K4 (belki K6) parapetleri çatı alnının 0.65 m ötesine (u 13.45) uzanıyor (pending #5). Füme cam parapet bölmeleri panel olarak (kuzey yığında kuzey uçta, güney yığında güney uçta; tek katlar geniş, çift katlar dar). Çekirdek: 3 sütunlu koyu mavi-gri perde duvar (kat başına 2 sıra cam, bazı kanatlar açık/koyu), K7 hizasında karanlık girinti, üstünde açık gri kiriş; K0 çitin arkasında. Giriş saçağı + 'A' harfi çekirdeğin dibinde (pending #4). K3'te güney yığının ucunda Türk bayrağı. v4: füme cam uç bölmeleri artık ayrı bal öğeleri (glassFull, cam #555a60): kuzey yığında u −0.45…0.88 tüm katlar, 0.88…2.19 yalnız tek katlar; güney yığında 10.05…11.45 tek katlar, 11.45…12.8 tüm katlar (K4'te bu uç bölüm camlı — fotoğraftaki kısmi cam). Giriş saçağı proj (d 1.2 ÖLÇÜLEMEDİ, ~1–1.5; alın #3f4852, üstünde füme cam korkuluk); 'A' harfi saçak önüne (d 1.24). Çekirdek camı tint #3f5464."
+      "note": "Batı cephe (Özlüce yolu), cepheden G35dRPhH (2025-09) referans; G9scaTkn, PLTC61DJ, uaWQP1-r ile doğrulandı. Bu ortofoto düşeyde basık (görünen kat aralığı 2.51, yatay ölçek ≈1.0) → floorH açıkça 3.2. cal.u = iki yığının çatı alnı uçları. Kuzey yığın u −0.35…4.5, çekirdek cam u 4.8…7.45 (yığınların iç yan duvarları sağır sıva), güney yığın u 7.55…12.8. Güney yığında K2 ve K4 (belki K6) parapetleri çatı alnının 0.65 m ötesine (u 13.45) uzanıyor (pending #5). Füme cam parapet bölmeleri panel olarak (kuzey yığında kuzey uçta, güney yığında güney uçta; tek katlar geniş, çift katlar dar). Çekirdek (v5 `recess` u 4.55–7.55, K1–K7, derinlik 3.25 m): G9 65_32 ve PLTC 106_31 karelerinde yığınların yan duvarlarının görünen genişliği / yığın cephe genişliği oranı → 3.2–3.3 m (PLTC ortosunda güney yan duvar 9.0→7.4 da 3.3 veriyor). Arka duvarda 3 sütunlu koyu mavi-gri perde duvar (cam #3f5464, dikme #1b2523; kat başına tavan-taban cam `stair` + ortada kayıt = kat başına 2 sıra; u derinlik için kamera merkezli düzeltilip 4.7–7.4 yazıldı), K7 hizasında cam yok, arka yüz koyu gri #4c524e (G35; önceki ölçüm #1d252b); üstteki açık gri kiriş = çekirdek önündeki parapet yüzü, panel #828882 (21.0–22.1). K0 çitin arkasında (girinti K1’den). Giriş saçağı + 'A' harfi çekirdeğin dibinde (pending #4). K3'te güney yığının ucunda Türk bayrağı. v4: füme cam uç bölmeleri artık ayrı bal öğeleri (glassFull, cam #555a60): kuzey yığında u −0.45…0.88 tüm katlar, 0.88…2.19 yalnız tek katlar; güney yığında 10.05…11.45 tek katlar, 11.45…12.8 tüm katlar (K4'te bu uç bölüm camlı — fotoğraftaki kısmi cam). Giriş saçağı proj (d 1.2 ÖLÇÜLEMEDİ, ~1–1.5; alın #3f4852, üstünde füme cam korkuluk); 'A' harfi saçak önüne (d 1.24). Çekirdek camı tint #3f5464."
     },
     {
       "edge": 11,
@@ -934,7 +1236,7 @@
       "ref": "1541439437_11_otFK3sk5.jpg",
       "cal": {
         "u": [
-          0.0,
+          0,
           6.54
         ],
         "head": [
@@ -1012,9 +1314,359 @@
           "y0": 27.45,
           "y1": 34,
           "color": "plaster2"
+        },
+        {
+          "t": "pipe",
+          "u": 0.25,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 4.95,
+          "y1": 7.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.46,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 4.95,
+          "y1": 7.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.62,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 4.95,
+          "y1": 7.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.77,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 4.95,
+          "y1": 7.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.9,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 4.95,
+          "y1": 7.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.25,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 8.7,
+          "y1": 11.5,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.46,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 8.7,
+          "y1": 11.5,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.62,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 8.7,
+          "y1": 11.5,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.77,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 8.7,
+          "y1": 11.5,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.9,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 8.7,
+          "y1": 11.5,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.25,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 12.45,
+          "y1": 15.2,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.46,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 12.45,
+          "y1": 15.2,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.62,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 12.45,
+          "y1": 15.2,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.77,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 12.45,
+          "y1": 15.2,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.9,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 12.45,
+          "y1": 15.2,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.25,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 16.15,
+          "y1": 18.9,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.46,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 16.15,
+          "y1": 18.9,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.62,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 16.15,
+          "y1": 18.9,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.77,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 16.15,
+          "y1": 18.9,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.9,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 16.15,
+          "y1": 18.9,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.25,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 19.9,
+          "y1": 22.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.46,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 19.9,
+          "y1": 22.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.62,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 19.9,
+          "y1": 22.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.77,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 19.9,
+          "y1": 22.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.9,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 19.9,
+          "y1": 22.7,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.25,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.65,
+          "y1": 26.45,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.46,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.65,
+          "y1": 26.45,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.62,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.65,
+          "y1": 26.45,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.77,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.65,
+          "y1": 26.45,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.9,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 23.65,
+          "y1": 26.45,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.25,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 27.45,
+          "y1": 30.1,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.46,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 27.45,
+          "y1": 30.1,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.62,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 27.45,
+          "y1": 30.1,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.77,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 27.45,
+          "y1": 30.1,
+          "brackets": false
+        },
+        {
+          "t": "pipe",
+          "u": 0.9,
+          "off": 0.05,
+          "color": "#c9cdd0",
+          "r": 0.02,
+          "y0": 27.45,
+          "y1": 30.1,
+          "brackets": false
         }
       ],
-      "note": "Batı kanadın güney duvarı (otFK3sk5 2025-09; sa-WfHt0 ile doğrulandı). Penceresiz düz sıva, döşeme bantları (K1 bandı çit arkasında, ritimden), K7 koyu kaplama. İç köşe (u=5.59) ortofotoda görünmüyor → cal.u sağ ucu kat aralığından (3.75/3.2 ölçek). Batı ucta (u_app 0–1.1) GB balkon yığınının güney yanı: cam balkon + önünde 5–6 dikey paslanmaz boru, her katta (pending #7)."
+      "note": "Batı kanadın güney duvarı (otFK3sk5 2025-09; sa-WfHt0 ile doğrulandı). Penceresiz düz sıva, döşeme bantları (K1 bandı çit arkasında, ritimden), K7 koyu kaplama. İç köşe (u=5.59) ortofotoda görünmüyor → cal.u sağ ucu kat aralığından (3.75/3.2 ölçek). Batı ucta (u_app 0–1.1) GB balkon yığınının güney yanı: cam balkon + önünde 5–6 dikey paslanmaz boru, her katta (pending #7). v5: GB köşe loca yan açıklığındaki dikey paslanmaz çubuklar `pipe` (Ø4 cm, #c9cdd0, kelepçesiz) kat kat, açıklık içinde (bant üstünden lentoya): görünen u 0.25/0.46/0.62/0.77/0.90 (5 çubuk; çözünürlük sınırında 4–6 arası), K1–K7. Çubukların arkasında cam balkonun yan camı."
     }
   ],
   "pending": [
@@ -1025,7 +1677,7 @@
       "ref": "1541439437_10_G35dRPhH.jpg",
       "u": [
         1.3,
-        11.0
+        11
       ],
       "y": [
         22.1,
@@ -1049,24 +1701,10 @@
       "desc": "K2 ve K4 (K6 belirsiz) dolu parapetleri çatı alnı ucundan ≈0.65 m daha güneye uzanıyor (yuvarlatılmış uç); taban izi dışında kalıyor."
     },
     {
-      "id": 7,
-      "what": "Köşe loca yanlarında dikey paslanmaz borular",
-      "edge": [
-        11,
-        9
-      ],
-      "ref": "1541439437_11_otFK3sk5.jpg",
-      "u": [
-        0.0,
-        1.1
-      ],
-      "desc": "GB köşede (kenar 11 batı ucu) ve KB köşede (kenar 9 batı ucu) batı cephe balkonlarının yan açıklığında, cam balkonun önünde parapetten üst döşemeye 5–6 dikey paslanmaz boru (Ø~4 cm, ~0.2 m ara), K1–K7."
-    },
-    {
       "id": 8,
       "what": "Batı yığınlarının hafif dışbükey (kavisli) balkon önleri",
       "edge": 10,
-      "desc": "Balkon döşeme/parapet önleri planda hafif kavisli (ortası dışarıda, uçları geride; sehim ~0.3–0.5 m, ölçülemedi); kuzey yığının kuzey ucu yuvarlatılmış."
+      "desc": "Balkon döşeme/parapet önleri planda hafif kavisli (ortası dışarıda, uçları geride; sehim ~0.3–0.5 m, ölçülemedi); kuzey yığının kuzey ucu yuvarlatılmış. v5 notu: bulge/round dönüştürülmedi — (1) her yığın füme cam uç bölmeleri yüzünden üç bal öğesine bölünmüş, bulge her öğenin kendi u aralığına uygulanıyor (ortak yay yerine üç tümsek); (2) bu balkonlar gömük loca (d 0, inset 1.1), üretici bulge/round’u yalnız taşan balkonda uyguluyor. İstenen (v6): bal.arc = [u0, u1] ortak parabol açıklığı + inset locada kavisli ön yüz ve yuvarlatılmış uç (kuzey yığının kuzey ucu). otFK 29_47 karesinde de önler belirgin kavisli."
     },
     {
       "id": 9,
@@ -1074,22 +1712,6 @@
       "edge": "2/3/4 (belirsiz)",
       "ref": "streetview-src/extra/otFK3sk5ADIaILmb4DN5fQ_57_25_40.jpg (x 440–500)",
       "desc": "Güney kule kavisinin doğu ucunda ~1 m genişliğinde düz yüz: her katta kahverengi (#706e64 gölgede) iki kanatlı uzun pencere, katlar arasında açık gri çıkıntılı bant. Konum belirlenemedi (kavis bu panodan çok yatık)."
-    },
-    {
-      "id": 10,
-      "what": "Cam balkon profil rengi kat kat",
-      "desc": "Cam balkon (bal) doğrama rengi kat kat: batı kuzey yığın K6–K7, güney yığın K7, güney kule K7 BEYAZ; diğerleri #171611. frameC yalnız pencerelerde var, bal'da yok. (Kenar 0 pencereleri frameC ile yazıldı.)"
-    },
-    {
-      "id": 11,
-      "what": "Çekirdek perde duvar girintisi",
-      "edge": 10,
-      "ref": "1541439437_10_G35dRPhH.jpg",
-      "u": [
-        4.8,
-        7.45
-      ],
-      "desc": "Cam çekirdek yığın önlerinin gerisinde (derinlik ölçülemedi, G9 eğik görünüşte kuzey yığının güney yan duvarı sağır sıva olarak görünüyor). 3 düşey sütun, kat başına 2 sıra cam, koyu dikmeler #1b2523, cam #3f5464; K7 hizasında karanlık girinti (#1d252b) ve üstünde açık gri kiriş (y 20.95–22.1). Şimdilik halka hattında panel + pencere olarak çizildi."
     }
   ],
   "volumes": [

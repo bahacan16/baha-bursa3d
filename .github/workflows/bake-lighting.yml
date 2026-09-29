@@ -18,6 +18,12 @@ on:
       chunks:
         description: 'Yalnız bu parçalar (virgüllü, ör. -1_-2,-1_-1); boş = tümü'
         default: ''
+      chunk:
+        description: 'Parça kenarı (m). 50 + 2048² atlas ≈ 2.5 GB bellek (özel depo koşucusu 7 GB); 100 + 4096² ≈ 6 GB'
+        default: '50'
+      atlas:
+        description: 'Parça atlasının en büyük kenarı (px)'
+        default: '2048'
   # KARAR: yalnız main'e (yayın) itmede ve elle; özellik dalına çok sık itildiği için her itmede pişirme Actions
   # dakikalarını tüketir ve itmelerle yarışır.
   push:
@@ -48,6 +54,8 @@ jobs:
       BAKE_TEXEL: ${{ github.event.inputs.texel || '0.08' }}
       BAKE_METHOD: ${{ github.event.inputs.method || 'ratio' }}
       BAKE_CHUNKS: ${{ github.event.inputs.chunks || '' }}
+      BAKE_CHUNK_M: ${{ github.event.inputs.chunk || '50' }}
+      BAKE_MAX_ATLAS: ${{ github.event.inputs.atlas || '2048' }}
       # Toplam süre bütçesi (s): ilk parçadan kestirilir, aşılırsa örnek düşer / AO'ya geçilir
       BAKE_TIME_BUDGET: '12000'
     steps:

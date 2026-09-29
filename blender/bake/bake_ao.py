@@ -628,6 +628,7 @@ def main():
     man = {
         "version": 1,
         "uvVersion": exp["uvVersion"],
+        "chunkSize": exp.get("chunkSize", 100),
         "srcHash": exp["srcHash"],
         "createdAt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "blender": bpy.app.version_string,
@@ -663,3 +664,8 @@ def main():
 if __name__ == "__main__":
     main()
     sys.stdout.flush()
+    sys.stderr.flush()
+    # bpy modülü yorumlayıcı kapanırken çökebiliyor (çıkış kodu 139) → CI adımı başarısız sayılmasın.
+    # Arayüzlü Blender'da (metin düzenleyiciden çalıştırma) çıkılmaz.
+    if bpy.app.background:
+        os._exit(0)

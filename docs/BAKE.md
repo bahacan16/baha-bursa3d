@@ -27,7 +27,9 @@ Dosyalar: `src/worlds/mertkent/lightmap.ts` (parça bölme, imza, uv1), `bakeexp
 
 1. **Dışa aktarma** (`scripts/bake-export.mjs`, Playwright + başsız oyun `?debug=1&bakeexport=1`): el modeli
    meshleri (`mertkent <anahtar>`) dünya koordinatında, üçgenin ağırlık merkezine göre 100 m × 100 m parçalara
-   bölünür ve `bake-work/src/chunk_<cx>_<cz>.glb` olarak yazılır (mesh adı = malzeme anahtarı). Öznitelikler:
+   (`--chunk 50` ile 50 m; manifest `chunkSize` taşır) bölünür ve `bake-work/src/chunk_<cx>_<cz>.glb` olarak
+   yazılır (mesh adı = malzeme anahtarı), yanında `chunk_<cx>_<cz>.rects.bin` (ada dikdörtgenleri + ada normalinin
+   yukarı bileşeni, float32 × 5). Öznitelikler:
    `position`, `normal`, `uv`, varsa `aux` → `_AUX`, ve **`uv1` → `TEXCOORD_1`** (ışık haritası uv'si, aşağıda).
    Alfa testli yaprak kartları vb. alıcı değildir, engelleyicilere girer. Engelleyiciler `occluders.glb`: arazi
    (bölge + 60 m, **0.3 m aşağıda** — 10 m ızgara üçgenleri çift doğrusal `H`'den birkaç cm sapıp üstüne serilen
@@ -39,17 +41,22 @@ Dosyalar: `src/worlds/mertkent/lightmap.ts` (parça bölme, imza, uv1), `bakeexp
    dokuları** girer, özel öznitelikler (`aux`) ve malzeme gölgelendiricileri aynen kalır, Blender'ın köşe
    yeniden sıralaması/bölmesi sorun olmaz. Algoritma: konumlar mm'ye yuvarlanır (tarayıcıdan bağımsız, yalnız
    IEEE-kesin işlemler), aynı düzlemdeki bitişik üçgenler (konumdan kaynaklanmış kenarlar, normal farkı < ~10°)
-   tek ada; ada düzlemine izdüşüm (yatay adalarda en uzun kenar boyunca); 2 px pay; **4 px ızgarasına hizalı**
-   dikdörtgenler (mip 0–2'de adalar karışmaz); ≤ 2 px adalar 4×4 hücreye esnetilir; raf paketleme; atlas
-   ≤ 4096², sığmazsa yoğunluk %12 adımlarla büyür (yoğun parçalarda 10–14 cm/px). `BAKE_UV_VERSION` algoritma
-   sürümüdür (manifest ile eşleşmeli).
+   tek ada; ada düzlemine izdüşüm (yatay adalarda en uzun kenar boyunca); 1 px pay; **4 px ızgarasına hizalı**
+   dikdörtgenler (mip 0–2'de adalar birbirine karışmaz; gizli temas yüzlerinin siyahı uzakta görünen yüzlere
+   sızmaz); ≤ 2 px adalar 4×4 hücreye esnetilir; raf paketleme. Atlas kenarı iki katına çıkmadan önce yoğunluk
+   hedefin (8 cm/px) 1.25 katına kadar gevşetilir; en büyük atlasta (`maxAtlas`, 4096²) sığmazsa %12 adımlarla büyür
+   (en yoğun 100 m parçalar 8–10 cm/px, doluluk %24–62). `BAKE_UV_VERSION` algoritma sürümüdür (manifest ile
+   eşleşmeli).
 3. **Pişirme** (`blender/bake/bake_ao.py`, bpy 4.2, Cycles CPU): tüm parçalar + engelleyiciler tek sahnede; parça
    başına bir nesne (malzeme yuvaları opaklık sınıfına göre ortak pişirme malzemesine bağlanır: opak yayınık albedo
    0.6; cam/su `opacity×0.8`, yaprak kartı 0.55, ağaç tacı 0.65 opak karışım). Beyaz gökyüzü 1.0, lamba yok,
-   DIFFUSE (DIRECT+INDIRECT, renk yok), 3 sekme. Aynı atlasa NORMAL (nesne = dünya uzayı) pişirilir ve
-   **oran = ışık / E0(n)**, `E0 = (1+n_yukarı)/2 + 0.6·(1−n_yukarı)/2` (düz açık alanda aynı normalin alacağı değer;
-   oyundaki yarım küre/ortam ışığı zaten normale göre gök/zemin ayrımı yapıyor). OIDN (compositor Denoise,
-   ayrı boş Workbench sahnesinde). Kapsanmayan pikseller 1.0. Parça atlasları 8192² **sayfalara** (dörtlü ağaç)
+   DIFFUSE (DIRECT+INDIRECT, renk yok), 3 sekme; 8 bit hedef görüntü, alfa = kapsama maskesi. **Oran = ışık /
+   E0(n)**, `E0 = (1+n_yukarı)/2 + 0.6·(1−n_yukarı)/2` (düz açık alanda aynı normalin alacağı değer; oyundaki yarım
+   küre/ortam ışığı zaten normale göre gök/zemin ayrımı yapıyor); n_yukarı ada dikdörtgenlerinden (`rects.bin`)
+   gelir — ayrı NORMAL pişirmesi (bir sahne eşitlemesi daha) yalnız dosya yoksa. Pişirilen parçadan 60 m'den uzak
+   nesneler Cycles'tan gizlenir (`BAKE_MARGIN_M`). OIDN (compositor Denoise, ayrı boş Workbench sahnesinde) yalnız
+   büyük adalara; küçük adalar (kısa kenar < 12 px) OIDN'e verilmez (komşuya bulaşırdı), 4×4 hücreler kendi
+   ortalamasına indirilir. Kapsanmayan pikseller 1.0. Parça atlasları 8192² **sayfalara** (dörtlü ağaç)
    yerleştirilir: `public/bake/ao_<n>.webp` (gri, WebP). Zemin: bölge dikdörtgeninde arazi vekilinin
    0.25 m üstüne kaldırılmış kopyası (döşemeler engellemesin) üstten pişirilir → `ground_ao.webp` (0.25 m/px).
    Süre bütçesi (`BAKE_TIME_BUDGET`): ilk (en büyük) parçadan toplam kestirilir; aşılırsa örnek sayısı düşürülür,
@@ -70,10 +77,12 @@ rect:[x,y,kenar],meshes}], groundAo:{file,rect:[x0,z0,x1,z1],mpp}, seconds }`. `
    Çarpışma dünyası değişmez. Arazi malzemesine (zincirlenmiş `onBeforeCompile`) dünya xz ile `ground_ao`
    örneklemesi: yalnız `indirectDiffuse`/`indirectSpecular` çarpılır. `bakedLighting.active` dışa açık (ör. SSAO
    şiddetini azaltmak için).
-6. **CI** `.github/workflows/bake-lighting.yml`: `workflow_dispatch` (örnek, yoğunluk, yöntem, parça listesi) +
-   yalnız `main`'e itmede veri/üretici yolları değişince (KARAR: özellik dalı çok sık itiliyor, Actions dakikası);
-   `npm ci` → ayrı klasöre derle → `vite preview` → dışa aktar → `pip install bpy==4.2.0 pillow numpy` → pişir →
-   boyut < 150 MB denetimi → yalnız başarılıysa `public/bake/` commit.
+6. **CI** `.github/workflows/bake-lighting.yml`: `workflow_dispatch` (örnek, yoğunluk, yöntem, parça listesi, parça
+   kenarı, atlas) + yalnız `main`'e itmede veri/üretici yolları değişince (KARAR: özellik dalı çok sık itiliyor,
+   Actions dakikası). Adımlar: `npm ci` → ayrı klasöre derle → `vite preview` → dışa aktar → bpy kur
+   (`pip install bpy==4.2.0 pillow numpy`) → pişir → boyut < 150 MB denetimi → yalnız başarılıysa `public/bake/`
+   commit. KARAR: CI'da 50 m parça + 2048² atlas (özel depoların standart koşucusu 2 çekirdek / 7 GB; 100 m + 4096²
+   pişirme ~5.5 GB tepe bellek ister, 50 m + 2048² ~¼'ü; yoğunluk aynı, yalnız parça başına sabit maliyet ×4).
 
 ### Yerelde tam pişirme
 

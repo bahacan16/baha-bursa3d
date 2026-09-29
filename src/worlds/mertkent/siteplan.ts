@@ -65,7 +65,19 @@ export interface SitePlan {
   points?: SitePoint[];
 }
 export interface StreetPlan {
+  /**
+   * Çitler: kind "mertkent" (Mertkent 2 çiti, fence2.ts), "other" (komşu site çiti, fenceGeneric.ts), "wall"
+   * (serbest duvar — bir site çitine bağlı değil, ör. 504. Sk. kuzey duvarı; aynı alanlar, dolgu verilmezse yok).
+   */
   fence?: unknown[];
+  /**
+   * Kapılar (site.ts PlanGate): kind pedestrian | vehicle, c merkez, n sokak yönü, w net açıklık, h kanat boyu.
+   * `style` HER kapıda uygulanır: mertkent | drive | grey | wrought | bars | slats | leaf | panel (2D tel panel kanat)
+   * | portal (iki kolon + üst kiriş + kiriş yüzünde harfler: `pillars` {w, d, color}, `beam` {top, h, d, color},
+   * `text` {text, fg, font, size, d}, `leaf` wrought | drive | grey | none + `leafH`, `mirror` {side left|right
+   * (sokaktan bakınca), h, r, rim}). color kanat rengi, leaves 1|2, pillars {w, h, color, lamp}. Verilmezse v5
+   * kuralları (da*: notta ferforje → wrought, gri lamel → grey, yoksa drive; diğerleri ≥ 2 m yaya → mertkent).
+   */
   gates?: { kind: string; c: V2; n: V2; w: number; note?: string }[];
   sidewalks?: {
     id?: string;
@@ -80,6 +92,14 @@ export interface StreetPlan {
     /** Bordüre bitişik mavi bisiklet şeridi genişliği (yol kotunda) */
     bike?: number;
   }[];
+  /**
+   * Sokak eşyası ve yol yüzeyi ayrıntısı (street.ts). v6 yol yüzeyi (YALNIZ Street View'da görülen yerlerde):
+   * patch (asfalt yaması: poly + ton color; over: true → yol çizgilerinin üstünde), crack (çatlak / dolgu: pts +
+   * genişlik w m; sealed: true → parlak zift), pothole (çukur: r m ya da poly; color iç, rim kenar tonu), wear
+   * (çizgi aşınması: poly ya da pts + w; amount 0..1 — çizginin o kadarı eksik), delineator (esnek dikme: tek
+   * x/z ya da pts + every dizisi, h, color, bands); crossing.wear (yaya geçidi boyası aşınması 0..1). x, z her
+   * kayıtta zorunlu (çok noktalı kayıtlarda ilk nokta / merkez).
+   */
   street?: {
     kind: string;
     x: number;
