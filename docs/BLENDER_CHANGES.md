@@ -288,7 +288,7 @@
 - **(kamera)** — 1. şahıs görüş açısı 62° → 55° dikey (yumuşak geçiş; geniş açı bozulması), adımla senkron baş
   salınımı (yürüyüş ~1.6 cm, koşu ~3.2 cm; topuk vuruşunda en alçak). `docs/REALISM.md`: gerçekçilik planı.
   Dosya: `src/player/camera.ts`. **Blender:** yok (Blender kamerası için referans: göz 1.65 m, 55° dikey).
-- **(ses)** — Gerçekçi konumlu ses manzarası (yalnız ses): `src/env/sound/*` (HRTF + bina örtmesi, bina taban
+- **6273d2d** — Gerçekçi konumlu ses manzarası (yalnız ses): `src/env/sound/*` (HRTF + bina örtmesi, bina taban
   izlerinden kanyon/avlu/açık alan yankısı, zemine göre ayak sesi — ölçülmüş site/park alanları, rögar/ızgara
   noktaları, kaldırım/araç yolu, hava fotoğrafı rengi; araç başına motor/lastik/Doppler/korna, uzak cadde uğultusu,
   BursaRay geçişleri, kuş/rüzgâr/cırcır/köpek/çocuk, Diyanet vakitlerinde gerçek cami konumlarından ezan), ayarlar
