@@ -9,8 +9,8 @@
     "fasciaH": 0.9
   },
   "colors": {
-    "plaster": "#ecebe4",
-    "plaster2": "#b3aa9c",
+    "plaster": "#dcdcd6",
+    "plaster2": "#b3ad99",
     "strip": "#8a5c48",
     "fascia": "#e9e7df",
     "soffit": "#e6e3da",
@@ -22,7 +22,7 @@
   "edges": [
     {
       "edge": 0,
-      "len": 3.87,
+      "len": 3.76,
       "seen": "partial",
       "ref": "1480163638_0_bw562vqN.jpg",
       "cal": {
@@ -88,7 +88,7 @@
     },
     {
       "edge": 2,
-      "len": 12.61,
+      "len": 14.1,
       "seen": "partial",
       "ref": "1480163638_2_1JmeZhl7.jpg",
       "cal": {
@@ -217,7 +217,7 @@
     },
     {
       "edge": 4,
-      "len": 4.55,
+      "len": 5.13,
       "seen": "partial",
       "ref": "1480163638_4_1JmeZhl7.jpg",
       "cal": {
@@ -260,7 +260,7 @@
     },
     {
       "edge": 5,
-      "len": 19.08,
+      "len": 16.78,
       "seen": "photo",
       "ref": "1480163638_5_agzpWIde.jpg",
       "cal": {
@@ -344,7 +344,14 @@
           "kind": "french",
           "rail": true,
           "split": 3,
-          "box": true
+          "box": true,
+          "curt": {
+            "K1": "zebra",
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
         },
         {
           "t": "win",
@@ -360,7 +367,16 @@
           "kind": "french",
           "rail": true,
           "split": 3,
-          "box": true
+          "box": true,
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "tul-yan",
+            "K4": "tul"
+          },
+          "shut": {
+            "K5": 0.55
+          }
         },
         {
           "t": "win",
@@ -375,7 +391,14 @@
           ],
           "kind": "french",
           "rail": true,
-          "split": 2
+          "split": 2,
+          "curt": {
+            "K1": "tul",
+            "K2": "karanlik",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul-yan"
+          }
         },
         {
           "t": "win",
@@ -390,7 +413,14 @@
           ],
           "kind": "french",
           "rail": true,
-          "split": 2
+          "split": 2,
+          "curt": {
+            "K1": "zebra",
+            "K2": "tul-yan",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
         },
         {
           "t": "panel",
@@ -461,37 +491,47 @@
           "onBal": true
         },
         {
-          "t": "win",
-          "u0": 2.5,
-          "u1": 5.1,
-          "y0": 0.65,
-          "y1": 2,
-          "k": 0,
+          "t": "bal",
+          "u0": 2.3,
+          "u1": 5.3,
+          "d": 0.35,
           "s": [
-            0,
-            0
+            1,
+            5
           ],
-          "split": 2
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c4c8c9",
+          "fasciaC": {
+            "*": "#dcdcd6"
+          }
         },
         {
-          "t": "win",
-          "u0": 11.75,
-          "u1": 14.6,
-          "y0": 0.65,
-          "y1": 2,
-          "k": 0,
+          "t": "bal",
+          "u0": 11.55,
+          "u1": 14.8,
+          "d": 0.35,
           "s": [
-            0,
-            0
+            1,
+            5
           ],
-          "split": 2
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c4c8c9",
+          "fasciaC": {
+            "*": "#dcdcd6"
+          }
         }
       ],
-      "note": "Doğu cephe (Mertkent'e bakan sokak cephesi), agzp (jeMF ile doğrulandı). Beyaz sıvalı iki ayak üzerinde her katta 3 kanatlı fransız pencere + ince döşeme çıkıntılı paslanmaz korkuluk (K5 sağda panjur kapalı), ortada ~0.5–1 m geride gri-bej sıvalı bölüm (iki dar fransız pencere, duvar aplikleri), köşelerde ~0.7–1.6 m geride tüm katları camla kapalı balkon yığınları (klimalı). Üstte kahverengi harpuştalı kemerli (segmental) parapet duvarı, içinde iki çatı arası penceresi (y ~18.6–21; çizilemez). K0 çit arkasında (pencereler varsayıldı). Görünen genişlik taban izinden ~2 m kısa (taban izi K–G uzun) → cal.u gerdirildi."
+      "note": "Doğu cephe (Mertkent'e bakan sokak cephesi), agzp (jeMF ile), 2025-09 sabah güneşli. Beyaz sıvalı (#dadbd8) iki ayak: her katta 3 kanatlı koyu kahve doğramalı fransız pencere, üstünde panjur kutusu, önünde ≈0.35 m beyaz döşeme çıkıntısı + yatay paslanmaz borulu korkuluk (K1–K5 hepsi tube). K5 sağ pencerede dış panjur ~%55 inik. Ortada ≈1.2 m GERİDE gri-bej sıvalı bölüm (jeMF'de kuzey ayağın yan yüzü görünen ≈1.1 m) — iki dar fransız pencere + borulu korkuluk, her katta 2–3 siyah duvar apliki (pending). Köşelerde ≈1.3 m geride K1–K5 camla kapalı yığınlar (yanlarında klimalar). Üstte kahverengi harpuştalı segmental kemerli parapet + iki çatı arası penceresi (sol tül + borulu korkuluk, sağ panjur ~%85 inik) → pending. K0 çit arkasında GÖRÜLMEDİ (eski varsayım pencereleri kaldırıldı). Görünen genişlik taban izinden ~2 m kısa → cal.u gerdirildi."
     },
     {
       "edge": 6,
-      "len": 8.37,
+      "len": 9.34,
       "seen": "photo",
       "ref": "1480163638_6_UmHeaE7d.jpg",
       "cal": {
@@ -537,10 +577,17 @@
           "y1": 5.2,
           "k": 1,
           "s": [
-            0,
+            1,
             5
           ],
-          "split": 2
+          "split": 2,
+          "curt": {
+            "K1": "karanlik",
+            "K2": "tul-yan",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "karanlik"
+          }
         },
         {
           "t": "panel",
@@ -558,19 +605,25 @@
           "y1": 5.3,
           "k": 1,
           "s": [
-            0,
+            1,
             5
           ],
           "kind": "french",
           "rail": true,
-          "split": 2
+          "split": 2,
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "tul-yan",
+            "K4": "tul"
+          }
         }
       ],
-      "note": "Doğu kanadın kuzey yüzü (sokak), UmHe (güneş parlaması). KD köşede camlı balkon yığını, beyaz ayakta küçük pencereler (ayak çatının üstüne merdiven kulesi olarak ~2 m yükselir), koyu kahverengi dikey kaplama bandı, korkuluklu fransız pencere aksı."
+      "note": "Doğu kanadın kuzey yüzü (sokak), UmHe (güneş parlaması). KD köşede camlı balkon yığını, beyaz ayakta küçük pencereler (ayak çatının üstüne merdiven kulesi olarak ~2 m yükselir), koyu kahverengi dikey kaplama bandı, korkuluklu fransız pencere aksı. Retro: K0 çit/ağaç arkasında görülmedi → pencereler K1–K5. Fransız pencerelerde yatay borulu korkuluk (rail). Kahverengi kaplama gölgede #5d4c50. Merdiven kulesi başlığı (çatıdan ~2 m, üstte pencere) → pending."
     },
     {
       "edge": 7,
-      "len": 5.13,
+      "len": 2.85,
       "seen": "partial",
       "ref": "1480163638_7_6RdsTs-3.jpg",
       "cal": {
@@ -616,7 +669,7 @@
     },
     {
       "edge": 8,
-      "len": 4.86,
+      "len": 5.5,
       "seen": "photo",
       "ref": "1480163638_8_UmHeaE7d.jpg",
       "cal": {
@@ -664,7 +717,7 @@
     },
     {
       "edge": 9,
-      "len": 5.28,
+      "len": 2.74,
       "seen": "partial",
       "ref": "1480163638_9_WDsdgaog.jpg",
       "cal": {
@@ -710,7 +763,7 @@
     },
     {
       "edge": 10,
-      "len": 7.78,
+      "len": 8.16,
       "seen": "photo",
       "ref": "1480163638_10_UmHeaE7d.jpg",
       "cal": {
@@ -767,7 +820,7 @@
     },
     {
       "edge": 11,
-      "len": 19,
+      "len": 16.47,
       "seen": "photo",
       "ref": "1480163638_11_uykoFh2S.jpg",
       "cal": {
@@ -853,7 +906,16 @@
           "kind": "french",
           "rail": true,
           "split": 3,
-          "box": true
+          "box": true,
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "jaluzi",
+            "K4": "tul"
+          },
+          "shut": {
+            "K5": 0.65
+          }
         },
         {
           "t": "win",
@@ -869,7 +931,14 @@
           "kind": "french",
           "rail": true,
           "split": 3,
-          "box": true
+          "box": true,
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "karanlik",
+            "K4": "tul",
+            "K5": "tul-yan"
+          }
         },
         {
           "t": "win",
@@ -884,7 +953,14 @@
           ],
           "kind": "french",
           "rail": true,
-          "split": 2
+          "split": 2,
+          "curt": {
+            "K1": "karanlik",
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "zebra",
+            "K5": "karanlik"
+          }
         },
         {
           "t": "win",
@@ -899,7 +975,14 @@
           ],
           "kind": "french",
           "rail": true,
-          "split": 2
+          "split": 2,
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "karanlik",
+            "K4": "tul",
+            "K5": "karanlik"
+          }
         },
         {
           "t": "panel",
@@ -978,11 +1061,47 @@
           "u1": 11.6,
           "y0": 2.8,
           "y1": 3.35,
-          "color": "strip",
+          "color": "#5c4034",
           "proud": 0.15
+        },
+        {
+          "t": "bal",
+          "u0": 4.65,
+          "u1": 7.35,
+          "d": 0.35,
+          "s": [
+            1,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c4c8c9",
+          "fasciaC": {
+            "*": "#dcdcd6"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 12.7,
+          "u1": 15.6,
+          "d": 0.35,
+          "s": [
+            1,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c4c8c9",
+          "fasciaC": {
+            "*": "#dcdcd6"
+          }
         }
       ],
-      "note": "Batı cephe (sokak, bina girişi), uyko (ktmj ağaç arkasında). Doğu cephenin aynısı: iki beyaz ayakta 3 kanatlı fransız pencereler, ortada geri çekilmiş gri-bej bölüm (dar fransız pencereler), köşelerde K1–K5 camla kapalı balkon yığınları (sağda klimalar), üstte kemerli parapet + iki çatı arası penceresi. Zemin katta ortada çift kanatlı koyu giriş kapısı, üstünde kahverengi saçak bandı; iki yanda zemin kat pencereleri. Köşe yığınlarının zemin katı dolu duvar. Görünen genişlik ~16 m (taban izi 19 m) → cal.u gerdirildi."
+      "note": "Batı cephe (sokak, bina girişi), uyko (ktmj ağaç arkasında), 2025-09 sabah GÖLGEDE. Doğu cephenin eşi: iki beyaz ayakta 3 kanatlı fransız pencere + panjur kutusu + ≈0.35 m döşeme çıkıntısı + yatay borulu paslanmaz korkuluk (K1–K5 tube); K5 sol pencerede dış panjur ~%65 inik. Ortada geri çekilmiş gri-bej bölüm (gölgede #757773) iki dar fransız pencere + borulu korkuluk + siyah aplikler; köşelerde K1–K5 camla kapalı yığınlar (sağda klimalar), K0'da dolu beyaz duvar. Zemin katta ortada çift kanatlı koyu kahve giriş kapısı, üstünde koyu kahve saçak bandı (gölgede #483128); iki yanda zemin kat pencereleri. Üstte kemerli parapet + iki çatı arası penceresi (ikisi de panjur tamamen inik) → pending. Görünen genişlik ~16 m (taban izi 16.5 m)."
     }
   ],
   "notes": [
@@ -990,6 +1109,41 @@
     "Renkler: beyaz/kırık beyaz sıva, orta girintide gri-bej sıva (plaster2), koyu kahverengi dikey kaplama bantları/portal çerçeve (strip), koyu kahverengi pencere doğramaları (frame), kemer harpuştası kahverengi.",
     "Köşe yığınları geri çekik (~0.7–1.6 m) ve K1–K5 tamamen camla kapalı (d:0 loca olarak), yanlarında klimalar; ayaklarda her katta 3 kanatlı fransız pencere + ince döşeme çıkıntısı + paslanmaz korkuluk (çıkıntı çizilmedi, rail=true), üstlerinde panjur kutusu.",
     "TABAN İZİ UYARISI: doğu/batı cepheler ~16–17 m (taban izi 19 m), kuzey batı köşesi taban izinden ~2.4 m içeride görünüyor → taban izi büyük; cal.u gerçek köşelere göre (gerdirme).",
-    "Güney (1637'ye bakan) cephe yalnız 1Jme'den çok eğik: kahverengi portal çerçeveli orta bölüm bir kat alçak görünüyor (üstünde teras olabilir) — doğrulanmadı."
+    "Güney (1637'ye bakan) cephe yalnız 1Jme'den çok eğik: kahverengi portal çerçeveli orta bölüm bir kat alçak görünüyor (üstünde teras olabilir) — doğrulanmadı.",
+    "RETRO 2026-09: renkler ham fotoğraftan — beyaz ayak sıvası güneşli #dadbd8 (doğu, agzp) → plaster #dcdcd6; orta girinti gri-bej güneşli kenarda #b3ad99, gölgede #757773–#7e7967 → plaster2 #b3ad99; kahverengi kaplama yalnız gölgede görüldü (#5d4c50) → strip eski #8a5c48 korundu; giriş saçağı koyu kahve (gölgede #483128). Korkuluklar: ayak pencerelerinde K1–K5 yatay borulu paslanmaz (tube, döşeme çıkıntısı ≈0.35 m), orta dar fransız pencerelerde de borulu korkuluk. Doğu cephede K0 görülmedi (eski varsayım pencereleri kaldırıldı)."
+  ],
+  "pending": [
+    {
+      "what": "arched-parapet",
+      "edges": [
+        5,
+        11
+      ],
+      "desc": "Doğu ve batı cephe üstünde segmental kemerli parapet duvarı (K5 üstünden kemer tepesi ≈+5 m, kahverengi #6b4a3e harpuşta ≈0.25 m); içinde iki çatı arası penceresi (doğu: görünen u 5.5–7.6 ve 8.4–10.6, y ≈18.6–21; sol tül + borulu korkuluk, sağ panjur ~%85 inik; batı: ikisi de panjur tamamen inik). Kemerin iki yanında K5 üstünde düz çatı çıkıntıları."
+    },
+    {
+      "what": "recess",
+      "edges": [
+        5,
+        11
+      ],
+      "desc": "Orta gri-bej bölüm beyaz ayaklardan ≈1.2 m geride (jeMF: kuzey ayağın yan yüzü görünen ≈1.1 m). Doğu görünen u 6.1–10.7, batı 7.9–12.0; K0–K5."
+    },
+    {
+      "what": "wall-lamps",
+      "edges": [
+        5,
+        11
+      ],
+      "desc": "Orta girintide her katta 2–3 siyah duvar apliki (spot), dar pencereler arasında ve üstünde."
+    },
+    {
+      "what": "stair-head",
+      "edges": [
+        6,
+        10
+      ],
+      "desc": "Kuzey ayaklarda merdiven kulesi çatıdan ≈2 m yükselir, kuzey yüzünde bir pencere; derinliği görülmedi (volume için çokgen ölçülemedi)."
+    }
   ]
 }

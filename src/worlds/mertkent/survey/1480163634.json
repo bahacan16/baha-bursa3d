@@ -14,20 +14,20 @@
     ]
   },
   "colors": {
-    "plaster": "#e0d0ae",
-    "plaster2": "#eceae2",
-    "strip": "#b88d77",
-    "fascia": "#ece6d8",
-    "soffit": "#e3dac8",
-    "railGlass": "#b3c6cc",
-    "frame": "#f2f1ed",
+    "plaster": "#ebe5ce",
+    "plaster2": "#dcdcd3",
+    "strip": "#dcb99c",
+    "fascia": "#d8dbd3",
+    "soffit": "#dcd8c8",
+    "railGlass": "#d3e3df",
+    "frame": "#efefea",
     "tile": "#5c4d53",
     "plinth": "#b5aa95"
   },
   "edges": [
     {
       "edge": 0,
-      "len": 21.02,
+      "len": 17.82,
       "seen": "photo",
       "ref": "1480163634_0_h329R2Bx.jpg",
       "cal": {
@@ -49,6 +49,17 @@
       "items": [
         {
           "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "glassFull"
+          },
+          "railC": "#c3c7c6",
+          "fasciaC": {
+            "*": "#d8dbd3"
+          },
+          "glassC": {
+            "*": "#d3e3df"
+          },
           "u0": 3.2,
           "u1": 7.5,
           "d": 0,
@@ -56,7 +67,6 @@
             0,
             5
           ],
-          "sides": "open",
           "inset": 1.3,
           "glazed": [
             2
@@ -67,6 +77,17 @@
         },
         {
           "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "glassFull"
+          },
+          "railC": "#c3c7c6",
+          "fasciaC": {
+            "*": "#d8dbd3"
+          },
+          "glassC": {
+            "*": "#d3e3df"
+          },
           "u0": 16.8,
           "u1": 21,
           "d": 0,
@@ -74,7 +95,6 @@
             0,
             5
           ],
-          "sides": "open",
           "inset": 1.3,
           "glazed": [
             3,
@@ -84,6 +104,12 @@
             "3": "dark",
             "5": "clear"
           }
+        },
+        {
+          "t": "ac",
+          "u": 7.2,
+          "s": 1,
+          "y": 7.6
         },
         {
           "t": "win",
@@ -96,7 +122,18 @@
             0,
             3
           ],
-          "split": 2
+          "split": 1,
+          "surround": {
+            "w": 0.14,
+            "d": 0.04,
+            "color": "#8e6c55"
+          },
+          "curt": {
+            "K0": "karanlik",
+            "K1": "stor",
+            "K2": "karanlik",
+            "K3": "jaluzi"
+          }
         },
         {
           "t": "win",
@@ -109,7 +146,18 @@
             0,
             3
           ],
-          "split": 2
+          "split": 1,
+          "surround": {
+            "w": 0.14,
+            "d": 0.04,
+            "color": "#8e6c55"
+          },
+          "curt": {
+            "K0": "tul",
+            "K1": "jaluzi",
+            "K2": "stor",
+            "K3": "stor"
+          }
         },
         {
           "t": "win",
@@ -123,7 +171,13 @@
             3
           ],
           "kind": "small",
-          "split": 1
+          "split": 1,
+          "curt": {
+            "K0": "karanlik",
+            "K1": "stor",
+            "K2": "tul",
+            "K3": "jaluzi"
+          }
         },
         {
           "t": "win",
@@ -137,7 +191,13 @@
             3
           ],
           "kind": "small",
-          "split": 1
+          "split": 1,
+          "curt": {
+            "K0": "tul",
+            "K1": "tul",
+            "K2": "stor",
+            "K3": "stor"
+          }
         },
         {
           "t": "win",
@@ -150,7 +210,16 @@
             4,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.13,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K4": "tul",
+            "K5": "tul"
+          }
         },
         {
           "t": "win",
@@ -163,7 +232,16 @@
             4,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.13,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K4": "karanlik",
+            "K5": "tul"
+          }
         },
         {
           "t": "win",
@@ -176,7 +254,16 @@
             4,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.13,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K4": "karanlik",
+            "K5": "tul"
+          }
         },
         {
           "t": "win",
@@ -189,7 +276,16 @@
             4,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.13,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K4": "karanlik",
+            "K5": "tul"
+          }
         },
         {
           "t": "panel",
@@ -200,12 +296,309 @@
           "color": "plaster2"
         },
         {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 3.2,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 3.67,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 4.14,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 4.61,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 5.08,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 5.55,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 6.02,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 6.49,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 6.96,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 7.43,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 7.9,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 8.37,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 8.84,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 9.31,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 9.78,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 10.25,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 10.72,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 11.19,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 11.66,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 12.13,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 12.6,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 13.07,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 10.3,
+          "u1": 13.5,
+          "y": 13.54,
+          "w": 0.03,
+          "color": "#9a9b96"
+        },
+        {
           "t": "panel",
           "u0": 7.5,
           "u1": 16.8,
           "y0": 13.85,
           "y1": 19.8,
           "color": "strip"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 14.1,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 14.66,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 15.22,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 15.78,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 16.34,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 16.9,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 17.46,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 18.02,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 18.58,
+          "w": 0.03,
+          "color": "#e2d8cf"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.5,
+          "u1": 16.8,
+          "y": 19.14,
+          "w": 0.03,
+          "color": "#e2d8cf"
         },
         {
           "t": "panel",
@@ -216,11 +609,11 @@
           "color": "strip"
         }
       ],
-      "note": "Batı alınlık cephesi (502. Sokak / Mertkent tarafı), h329 (Y11W ile doğrulandı). Krem sıva; ortada K0–K3 boyunca beyaz taş kaplamalı dikey pano (içinde iki dar pencere), yanlarda kahverengi çerçeveli pencere aksları; K4–K5 kahverengi yatay derzli kaplama bandında 4 beyaz çerçeveli pencere (kat çizgisine göre ~0.4 m aşağıda); alınlıkta (K5 üstü, y 20.3–22.8) kahverengi pano içinde iki geniş 3 kanatlı çatı arası penceresi (k=6, çizilemez). Köşelerde yuvarlak spot aydınlatmalı derin balkonlar: ön yüzleri orta duvarla aynı düzlemde (düşey parallaks ~0) → d:0 loca. Kuzey yığın K2 yeşil cam; güney yığın K3 koyu cam, K5 şeffaf cam. DİKKAT: bu cephe ~17.8 m (kuzey köşe taban izi ucundan ~3.2 m güneyde) — taban izi kuzeyde ~3.5 m uzun; cal.u gerdirildi."
+      "note": "Batı alınlık cephesi (502. Sokak / Mertkent tarafı), h329 (Y11W ile). 2025-09 sabah kareleri: cephe GÖLGEDE. Krem sıva; ortada K0–K3 boyunca yatay derzli (≈0.47 m) beyaz taş kaplamalı pano (iki dar beyaz PVC pencere); yanlarda kahverengi söveli (≈0.14 m) tek kanatlı pencereler; K4–K5 kahverengi kaplama bandı (beyaz yatay derzler ≈0.56 m) içinde 4 kalın beyaz söveli çift kanatlı pencere; alınlıkta kahverengi pano + iki 3 kanatlı çatı arası penceresi (pending). Köşe locaları: her katta beyaz döşeme alnı (≈0.3 m) + döşemeden buzlu cam korkuluk, paslanmaz dikme ve küpeşte (glassFull), tavanlarda yuvarlak spot. KB loca K2 yeşil katlanır cam; GB loca K3 koyu, K5 şeffaf cam. KB loca K1 arka duvarında klima; K0/K1 locada çamaşır askısı/eşya (çizilmedi). Perdeler 40° yakın karelerden kat kat."
     },
     {
       "edge": 1,
-      "len": 16.06,
+      "len": 14.7,
       "seen": "photo",
       "ref": "1480163634_1_l4zdb_yQ.jpg",
       "cal": {
@@ -242,14 +635,24 @@
       "items": [
         {
           "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "glassFull"
+          },
+          "railC": "#c3c7c6",
+          "fasciaC": {
+            "*": "#d8dbd3"
+          },
+          "glassC": {
+            "*": "#d3e3df"
+          },
           "u0": -0.3,
-          "u1": 1.1,
+          "u1": 2.25,
           "d": 0,
           "s": [
             0,
             5
           ],
-          "sides": "open",
           "glazed": [
             3,
             5
@@ -260,6 +663,47 @@
           }
         },
         {
+          "t": "pipe",
+          "u": 2.3,
+          "color": "#c4c3b3"
+        },
+        {
+          "t": "panel",
+          "u0": 3.3,
+          "u1": 4.8,
+          "y0": 3.9,
+          "y1": 14.9,
+          "color": "#e4e4dc",
+          "proud": 0.02
+        },
+        {
+          "t": "panel",
+          "u0": 3.45,
+          "u1": 4.65,
+          "y0": 5.55,
+          "y1": 7.18,
+          "color": "strip",
+          "proud": 0.035
+        },
+        {
+          "t": "panel",
+          "u0": 3.45,
+          "u1": 4.65,
+          "y0": 8.63,
+          "y1": 10.26,
+          "color": "strip",
+          "proud": 0.035
+        },
+        {
+          "t": "panel",
+          "u0": 3.45,
+          "u1": 4.65,
+          "y0": 11.71,
+          "y1": 13.34,
+          "color": "strip",
+          "proud": 0.035
+        },
+        {
           "t": "win",
           "u0": 3.45,
           "u1": 4.65,
@@ -268,33 +712,58 @@
           "k": 0,
           "s": [
             0,
+            3
+          ],
+          "split": 2,
+          "curt": {
+            "K0": "zebra",
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 3.45,
+          "u1": 4.65,
+          "y0": 4.1,
+          "y1": 5.5,
+          "k": 0,
+          "s": [
+            4,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.14,
+            "d": 0.04,
+            "color": "#8e6c55"
+          },
+          "curt": {
+            "K4": "zebra",
+            "K5": "tul"
+          }
         },
         {
-          "t": "panel",
-          "u0": 3.3,
-          "u1": 4.8,
-          "y0": 5.55,
-          "y1": 7.18,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 3.3,
-          "u1": 4.8,
-          "y0": 8.63,
-          "y1": 10.26,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 3.3,
-          "u1": 4.8,
-          "y0": 11.71,
-          "y1": 13.34,
-          "color": "strip"
+          "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "glassFull"
+          },
+          "railC": "#c3c7c6",
+          "fasciaC": {
+            "*": "#d8dbd3"
+          },
+          "glassC": {
+            "*": "#d3e3df"
+          },
+          "u0": 6.3,
+          "u1": 8.65,
+          "d": 0.9,
+          "s": [
+            0,
+            4
+          ]
         },
         {
           "t": "bal",
@@ -302,66 +771,444 @@
           "u1": 8.65,
           "d": 0.9,
           "s": [
-            0,
+            5,
             5
-          ]
+          ],
+          "sides": "open",
+          "rail": {
+            "K5": "none"
+          },
+          "fasciaC": {
+            "K5": "#d8dbd3"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 6.5,
+          "u1": 7.25,
+          "y0": 3.1,
+          "y1": 5.5,
+          "k": 0,
+          "s": [
+            0,
+            4
+          ],
+          "kind": "door",
+          "split": 1,
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 7.4,
+          "u1": 8.05,
+          "y0": 4.3,
+          "y1": 5.5,
+          "k": 0,
+          "s": [
+            0,
+            4
+          ],
+          "split": 1,
+          "curt": {
+            "K1": "karanlik",
+            "K2": "karanlik",
+            "K3": "karanlik",
+            "K4": "karanlik"
+          }
         },
         {
           "t": "ac",
-          "u": 8.95,
-          "s": 1
+          "u": 7.25,
+          "s": 5,
+          "y": 19.7
         },
         {
           "t": "ac",
-          "u": 8.95,
-          "s": 2
+          "u": 9.4,
+          "s": 0,
+          "y": 5.5
         },
         {
           "t": "ac",
-          "u": 8.95,
-          "s": 3
+          "u": 9.4,
+          "s": 1,
+          "y": 7.9
         },
         {
           "t": "ac",
-          "u": 8.95,
-          "s": 4
+          "u": 9.4,
+          "s": 2,
+          "y": 10.6
         },
         {
           "t": "ac",
-          "u": 8.95,
-          "s": 5
-        },
-        {
-          "t": "ac",
-          "u": 8.95,
+          "u": 9.4,
           "s": 3,
-          "y": 14.54
+          "y": 13.5
+        },
+        {
+          "t": "ac",
+          "u": 9.4,
+          "s": 3,
+          "y": 14.25
+        },
+        {
+          "t": "ac",
+          "u": 9.4,
+          "s": 4,
+          "y": 17.25
+        },
+        {
+          "t": "win",
+          "u0": 9.77,
+          "u1": 10.5,
+          "y0": 6.4,
+          "y1": 8.9,
+          "k": 1,
+          "s": [
+            0,
+            4
+          ],
+          "kind": "french",
+          "split": 1,
+          "curt": {
+            "K1": "karanlik",
+            "K2": "karanlik",
+            "K3": "karanlik",
+            "K4": "karanlik"
+          }
         },
         {
           "t": "panel",
-          "u0": 9.4,
+          "u0": 10.8,
           "u1": 17.24,
           "y0": 0.8,
           "y1": 22,
           "color": "strip"
         },
         {
-          "t": "win",
-          "u0": 10.7,
-          "u1": 11.6,
-          "y0": 4.1,
-          "y1": 5.5,
-          "k": 0,
-          "s": [
-            0,
-            5
-          ],
-          "split": 2
+          "t": "panel",
+          "u0": 7.7,
+          "u1": 10.8,
+          "y0": 17.9,
+          "y1": 22,
+          "color": "strip"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 1.2,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 1.82,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 2.43,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 3.05,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 3.66,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 4.28,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 4.9,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 5.51,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 6.13,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 6.74,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 7.36,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 7.98,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 8.59,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 9.21,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 9.82,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 10.44,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 11.06,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 11.67,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 12.29,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 12.9,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 13.52,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 14.14,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 14.75,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 15.37,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 15.98,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 16.6,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 17.22,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 17.83,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 18.45,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 19.06,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 19.68,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 20.3,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 20.91,
+          "w": 0.03,
+          "color": "#efe6da"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.7,
+          "u1": 17.24,
+          "y": 21.53,
+          "w": 0.03,
+          "color": "#efe6da"
         },
         {
           "t": "win",
-          "u0": 13.25,
-          "u1": 14.4,
+          "u0": 12.15,
+          "u1": 13.57,
           "y0": 4.1,
           "y1": 5.5,
           "k": 0,
@@ -369,12 +1216,25 @@
             0,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.17,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K0": "tul",
+            "K1": "karanlik",
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
         },
         {
           "t": "win",
-          "u0": 15.9,
-          "u1": 16.8,
+          "u0": 15.07,
+          "u1": 16.49,
           "y0": 4.1,
           "y1": 5.5,
           "k": 0,
@@ -382,14 +1242,50 @@
             0,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.17,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K3": "jaluzi",
+            "K4": "stor"
+          }
+        },
+        {
+          "t": "pipe",
+          "u": 14.95,
+          "color": "#7d6a5c"
+        },
+        {
+          "t": "win",
+          "u0": 9.22,
+          "u1": 10.35,
+          "y0": 18.42,
+          "y1": 20.99,
+          "k": 5,
+          "s": [
+            5,
+            5
+          ],
+          "kind": "french",
+          "split": 2,
+          "surround": {
+            "w": 0.15,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K5": "tul"
+          }
         }
       ],
-      "note": "Güney cephe (l4zd; joDj ağaç arkasında). Batıda GB köşe balkon yığını (K3 koyu, K5 şeffaf cam), krem kısımda K0–K3 kahverengi ara dolgulu pencere aksı (K4–K5 kahverengi çerçeveli), ortada klimalı küçük balkon kolonu, doğu yarısı tam boy kahverengi kaplama + beyaz çerçeveli pencereler. Zemin kotunda bodrum (kapı) görülüyor. Doğu ucu kare dışında (cal.u ölçekten). Kat aralığı görünen 3.08 (kamera yakın)."
+      "note": "Güney cephe (l4zd; joDj ağaç arkasında), 2025-09 GÜNEŞLİ. KÜTLE: doğu yarısı (kahverengi yatay derzli kaplama, beyaz kalın söveli pencereler) krem batı yarısından ≈1.5 m ÖNDE (l4zd'de kat aralığı 3.40 / 3.08 = 1.103 büyük; kütlenin batı yan yüzü görünen u 11.0–12.0 arası eğik görülüyor); K5'te kahverengi kütle batıya köprü gibi uzanır (görünen u ≈7.7–10.8, altında klima nişi) ve önünde boy pencere var. Taban izi dikdörtgen → girinti çizilemez (pending). Kahverengi kütle öğeleri krem düzlemine indirgendi (u' = −3.16 + (u+3.16)/1.103, y' = 2.5 + (y−2.5)/1.103). GB köşe locası: buzlu cam korkuluk her kat, K3 koyu, K5 şeffaf katlanır cam; yanında gri yağmur borusu (u 2.3). Pencere aksı K0–K3 beyaz çerçeve bant içinde kahverengi ara dolgulu, K4–K5 kahverengi söveli. Orta kolon: K0–K4 beyaz döşemeli buzlu camlı küçük balkonlar (balkon kapısı + küçük pencere), K5 korkuluksuz döşeme + klima (köprü altı nişte). Sağında her katta klima (K3'te iki), girinti dibinde koyu boy pencereler. SD köşe (u>16.5) kare dışında: 2. pencere sütununun sağ kenarı görülmedi (genişlik 1. sütunla aynı alındı). Zemin kotunda bodrum kapısı (çit arkasında, çizilmedi)."
     },
     {
       "edge": 2,
-      "len": 21.01,
+      "len": 17.82,
       "seen": "photo",
       "ref": "1480163634_2_sLhp9DRV.jpg",
       "cal": {
@@ -411,6 +1307,17 @@
       "items": [
         {
           "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "solid"
+          },
+          "parapetH": {
+            "*": 1
+          },
+          "fasciaC": {
+            "*": "#d4ad8f"
+          },
+          "railC": "#ecebe6",
           "u0": -1,
           "u1": 3.2,
           "d": 0,
@@ -418,7 +1325,6 @@
             0,
             5
           ],
-          "sides": "open",
           "glazed": [
             0,
             1,
@@ -426,10 +1332,29 @@
             3,
             4,
             5
-          ]
+          ],
+          "tint": {
+            "0": "blinds",
+            "1": "blinds",
+            "2": "dark",
+            "3": "dark",
+            "4": "dark",
+            "5": "dark"
+          }
         },
         {
           "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "solid"
+          },
+          "parapetH": {
+            "*": 1
+          },
+          "fasciaC": {
+            "*": "#d4ad8f"
+          },
+          "railC": "#ecebe6",
           "u0": 12.3,
           "u1": 19.6,
           "d": 0,
@@ -437,7 +1362,6 @@
             0,
             5
           ],
-          "sides": "open",
           "glazed": [
             0,
             1,
@@ -445,7 +1369,51 @@
             3,
             4,
             5
-          ]
+          ],
+          "tint": {
+            "0": "blinds",
+            "1": "clear",
+            "2": "clear",
+            "3": "dark",
+            "4": "blinds",
+            "5": "dark"
+          }
+        },
+        {
+          "t": "panel",
+          "u0": 3.7,
+          "u1": 5.25,
+          "y0": 4.4,
+          "y1": 14.8,
+          "color": "#e4e4dc",
+          "proud": 0.02
+        },
+        {
+          "t": "panel",
+          "u0": 3.85,
+          "u1": 5.1,
+          "y0": 5.9,
+          "y1": 7.63,
+          "color": "strip",
+          "proud": 0.035
+        },
+        {
+          "t": "panel",
+          "u0": 3.85,
+          "u1": 5.1,
+          "y0": 8.78,
+          "y1": 10.51,
+          "color": "strip",
+          "proud": 0.035
+        },
+        {
+          "t": "panel",
+          "u0": 3.85,
+          "u1": 5.1,
+          "y0": 11.66,
+          "y1": 13.39,
+          "color": "strip",
+          "proud": 0.035
         },
         {
           "t": "win",
@@ -456,33 +1424,73 @@
           "k": 0,
           "s": [
             0,
+            3
+          ],
+          "split": 2,
+          "curt": {
+            "K0": "jaluzi",
+            "K1": "tul",
+            "K2": "jaluzi",
+            "K3": "jaluzi"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 3.85,
+          "u1": 5.1,
+          "y0": 4.8,
+          "y1": 5.8,
+          "k": 0,
+          "s": [
+            4,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.14,
+            "d": 0.04,
+            "color": "#8e6c55"
+          },
+          "curt": {
+            "K4": "zebra",
+            "K5": "tul"
+          }
         },
         {
           "t": "panel",
-          "u0": 3.7,
-          "u1": 5.25,
+          "u0": 9.7,
+          "u1": 11.25,
+          "y0": 4.4,
+          "y1": 14.8,
+          "color": "#e4e4dc",
+          "proud": 0.02
+        },
+        {
+          "t": "panel",
+          "u0": 9.85,
+          "u1": 11.1,
           "y0": 5.9,
           "y1": 7.63,
-          "color": "strip"
+          "color": "strip",
+          "proud": 0.035
         },
         {
           "t": "panel",
-          "u0": 3.7,
-          "u1": 5.25,
+          "u0": 9.85,
+          "u1": 11.1,
           "y0": 8.78,
           "y1": 10.51,
-          "color": "strip"
+          "color": "strip",
+          "proud": 0.035
         },
         {
           "t": "panel",
-          "u0": 3.7,
-          "u1": 5.25,
+          "u0": 9.85,
+          "u1": 11.1,
           "y0": 11.66,
           "y1": 13.39,
-          "color": "strip"
+          "color": "strip",
+          "proud": 0.035
         },
         {
           "t": "win",
@@ -493,139 +1501,68 @@
           "k": 0,
           "s": [
             0,
-            5
-          ],
-          "split": 2
-        },
-        {
-          "t": "panel",
-          "u0": 9.7,
-          "u1": 11.25,
-          "y0": 5.9,
-          "y1": 7.63,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 9.7,
-          "u1": 11.25,
-          "y0": 8.78,
-          "y1": 10.51,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 9.7,
-          "u1": 11.25,
-          "y0": 11.66,
-          "y1": 13.39,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 6.1,
-          "u1": 8.5,
-          "y0": 5.3,
-          "y1": 20.7,
-          "color": "strip"
-        },
-        {
-          "t": "win",
-          "u0": 6.5,
-          "u1": 8.2,
-          "y0": 3.6,
-          "y1": 6.25,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small",
-          "split": 1
-        },
-        {
-          "t": "win",
-          "u0": 6.5,
-          "u1": 8.2,
-          "y0": 6.48,
-          "y1": 9.13,
-          "k": 1,
-          "s": [
-            1,
-            1
-          ],
-          "kind": "small",
-          "split": 1
-        },
-        {
-          "t": "win",
-          "u0": 6.5,
-          "u1": 8.2,
-          "y0": 9.36,
-          "y1": 12.01,
-          "k": 2,
-          "s": [
-            2,
-            2
-          ],
-          "kind": "small",
-          "split": 1
-        },
-        {
-          "t": "win",
-          "u0": 6.5,
-          "u1": 8.2,
-          "y0": 12.24,
-          "y1": 14.89,
-          "k": 3,
-          "s": [
-            3,
             3
           ],
-          "kind": "small",
-          "split": 1
+          "split": 2,
+          "curt": {
+            "K1": "jaluzi",
+            "K2": "tul",
+            "K3": "jaluzi"
+          }
         },
         {
           "t": "win",
-          "u0": 6.5,
-          "u1": 8.2,
-          "y0": 15.12,
-          "y1": 17.77,
-          "k": 4,
+          "u0": 9.85,
+          "u1": 11.1,
+          "y0": 4.8,
+          "y1": 5.8,
+          "k": 0,
           "s": [
             4,
-            4
-          ],
-          "kind": "small",
-          "split": 1
-        },
-        {
-          "t": "win",
-          "u0": 6.5,
-          "u1": 8.2,
-          "y0": 18,
-          "y1": 20.65,
-          "k": 5,
-          "s": [
-            5,
             5
           ],
-          "kind": "small",
-          "split": 1
+          "split": 2,
+          "surround": {
+            "w": 0.14,
+            "d": 0.04,
+            "color": "#8e6c55"
+          },
+          "curt": {
+            "K4": "karanlik",
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "proj",
+          "u0": 6.1,
+          "u1": 8.5,
+          "d": 0.15,
+          "y0": 5.3,
+          "y1": 20.7,
+          "color": "#9e7a64",
+          "wins": [
+            {
+              "u0": 6.5,
+              "u1": 8.2,
+              "y0": 5.9,
+              "y1": 20.35,
+              "kind": "glassband"
+            }
+          ]
         },
         {
           "t": "entrance",
-          "u0": 6.5,
-          "u1": 8.2,
+          "u0": 6.6,
+          "u1": 8.3,
           "kind": "lobby",
           "canopy": true
         }
       ],
-      "note": "Doğu alınlık cephesi (site içi / havuz tarafı), sLhp (vupj ile karşılaştırıldı; önünde \"PARKOZA\" site kapısı). Ortada kahverengi çerçeveli sürekli koyu camlı merdiven kulesi, altında saçaklı bina girişi; iki yanında dar pencere aksları (K0–K3 kahverengi ara dolgular); köşelerde tüm katlarda beyaz çerçeveli cam balkonlu yığınlar, parapet bantları kahverengi-bej. Alınlıkta yuvarlak eleman (çanak/oculus)."
+      "note": "Doğu alınlık cephesi (site içi / havuz tarafı), sLhp (vupj ile), 2025-09 sabah GÜNEŞLİ, uzak (29 m). Köşelerde iki cam balkon yığını: her katta ≈1.0 m dolu ten rengi parapet (#d4ad8f) üstünde beyaz çerçeveli katlanır cam (K kat kat tint: güney K0–K1 stor/jaluzi, K2–K5 koyu; kuzey K0 stor, K1–K2 şeffaf, K3 koyu, K4 beyaz dikey jaluzi, K5 koyu). Kuzey yığının güney ucunda yan cam yüzü görülüyor (≈1 m taşıyor olabilir; d ölçülemedi → 0). Ortada koyu kahverengi çerçeveli (#9e7a64) sürekli koyu camlı merdiven kulesi (bazı kanatlar dışa açık), altında ten rengi kalın bina giriş saçağı (pending). İki yanda pencere aksları: K0–K3 beyaz çerçeve bant içinde ten rengi ara dolgulu, K4–K5 kahverengi söveli. Alınlık tepesinde yuvarlak koyu eleman + dikme (pending). Perdeler uzaklık nedeniyle kaba okundu."
     },
     {
       "edge": 3,
-      "len": 16.05,
+      "len": 14.7,
       "seen": "photo",
       "ref": "1480163634_3_-KU85kKj.jpg",
       "cal": {
@@ -654,15 +1591,366 @@
           "color": "strip"
         },
         {
+          "t": "panel",
+          "u0": 5.7,
+          "u1": 6.9,
+          "y0": 11.75,
+          "y1": 13.6,
+          "color": "strip"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 1,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 1.34,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 1.68,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 2.03,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 2.37,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 2.71,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 3.05,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 3.39,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 3.74,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 4.08,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 4.42,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 4.76,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 5.1,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 5.45,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 5.79,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 6.13,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 6.47,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 6.81,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 7.16,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 7.5,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 7.84,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 8.18,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 8.52,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 8.87,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 9.21,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 9.55,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 9.89,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 10.23,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 10.58,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 10.92,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 11.26,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 11.6,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 11.94,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 12.29,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 12.63,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 12.97,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.7,
+          "u1": 5.7,
+          "y": 13.31,
+          "w": 0.03,
+          "color": "#e9e0d6"
+        },
+        {
           "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "glassFull"
+          },
+          "railC": "#c3c7c6",
+          "fasciaC": {
+            "*": "#d8dbd3"
+          },
+          "glassC": {
+            "*": "#c6d3d6"
+          },
           "u0": 1.7,
           "u1": 2.45,
           "d": 0,
           "s": [
             0,
             5
-          ],
-          "sides": "open"
+          ]
         },
         {
           "t": "win",
@@ -675,7 +1963,17 @@
             0,
             5
           ],
-          "split": 2
+          "split": 2,
+          "grille": {
+            "K4": "bars",
+            "K5": "bars"
+          },
+          "grilleC": "#3c3c3c"
+        },
+        {
+          "t": "pipe",
+          "u": 3.55,
+          "color": "#5a4034"
         },
         {
           "t": "win",
@@ -688,7 +1986,20 @@
             0,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.12,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          },
+          "curt": {
+            "K0": "tul",
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
         },
         {
           "t": "win",
@@ -699,10 +2010,59 @@
           "k": 0,
           "s": [
             0,
+            4
+          ],
+          "kind": "small",
+          "split": 1,
+          "curt": {
+            "K3": "stor",
+            "K4": "stor"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 6.05,
+          "u1": 6.45,
+          "y0": 3.55,
+          "y1": 4.4,
+          "k": 0,
+          "s": [
+            5,
             5
           ],
           "kind": "small",
-          "split": 1
+          "split": 1,
+          "surround": {
+            "w": 0.1,
+            "d": 0.05,
+            "color": "#e4e4dc"
+          }
+        },
+        {
+          "t": "pipe",
+          "u": 6.9,
+          "color": "#c9c8c0"
+        },
+        {
+          "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "glassFull"
+          },
+          "railC": "#c3c7c6",
+          "fasciaC": {
+            "*": "#d8dbd3"
+          },
+          "glassC": {
+            "*": "#d3e3df"
+          },
+          "u0": 7.15,
+          "u1": 8.2,
+          "d": 0.6,
+          "s": [
+            0,
+            4
+          ]
         },
         {
           "t": "bal",
@@ -710,9 +2070,16 @@
           "u1": 8.2,
           "d": 0.6,
           "s": [
-            0,
+            5,
             5
-          ]
+          ],
+          "sides": "open",
+          "rail": {
+            "K5": "none"
+          },
+          "fasciaC": {
+            "K5": "#d8dbd3"
+          }
         },
         {
           "t": "ac",
@@ -741,13 +2108,49 @@
         },
         {
           "t": "ac",
-          "u": 7.1,
+          "u": 7.4,
           "s": 5
         },
         {
           "t": "ac",
-          "u": 7.7,
+          "u": 7.9,
           "s": 5
+        },
+        {
+          "t": "panel",
+          "u0": 8.8,
+          "u1": 9.8,
+          "y0": 3.2,
+          "y1": 9.3,
+          "color": "#e4e4dc",
+          "proud": 0.02
+        },
+        {
+          "t": "panel",
+          "u0": 8.9,
+          "u1": 9.7,
+          "y0": 4.45,
+          "y1": 5.26,
+          "color": "strip",
+          "proud": 0.035
+        },
+        {
+          "t": "panel",
+          "u0": 8.9,
+          "u1": 9.7,
+          "y0": 6.16,
+          "y1": 6.97,
+          "color": "strip",
+          "proud": 0.035
+        },
+        {
+          "t": "panel",
+          "u0": 8.9,
+          "u1": 9.7,
+          "y0": 7.87,
+          "y1": 8.68,
+          "color": "strip",
+          "proud": 0.035
         },
         {
           "t": "win",
@@ -758,36 +2161,56 @@
           "k": 0,
           "s": [
             0,
+            3
+          ],
+          "split": 2,
+          "curt": {
+            "K0": "tul",
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "jaluzi"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 8.9,
+          "u1": 9.7,
+          "y0": 3.55,
+          "y1": 4.4,
+          "k": 0,
+          "s": [
+            4,
             5
           ],
-          "split": 2
+          "split": 2,
+          "surround": {
+            "w": 0.14,
+            "d": 0.04,
+            "color": "#8e6c55"
+          },
+          "curt": {
+            "K4": "karanlik",
+            "K5": "karanlik"
+          }
         },
         {
-          "t": "panel",
-          "u0": 8.8,
-          "u1": 9.8,
-          "y0": 4.45,
-          "y1": 5.26,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 8.8,
-          "u1": 9.8,
-          "y0": 6.16,
-          "y1": 6.97,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 8.8,
-          "u1": 9.8,
-          "y0": 7.87,
-          "y1": 8.68,
-          "color": "strip"
+          "t": "pipe",
+          "u": 10.05,
+          "color": "#c9c8c0"
         },
         {
           "t": "bal",
+          "sides": "open",
+          "rail": {
+            "*": "glassFull"
+          },
+          "railC": "#c3c7c6",
+          "fasciaC": {
+            "*": "#d8dbd3"
+          },
+          "glassC": {
+            "*": "#d3e3df"
+          },
           "u0": 10.3,
           "u1": 11.2,
           "d": 0,
@@ -795,7 +2218,6 @@
             0,
             5
           ],
-          "sides": "open",
           "glazed": [
             2
           ],
@@ -811,14 +2233,41 @@
           "onBal": true
         }
       ],
-      "note": "Kuzey cephe (sokak), -KU8 (ChHr ile). Cephe taban izi çizgisinin ~5 m gerisinde (görünen ölçek ~0.6; güney/doğu cepheler tam boy) → taban izinin kuzey kenarı hatalı olabilir. Doğu kısmı tam boy kahverengi kaplama (KD köşede küçük loca balkonlar + bayrak, demir parmaklıklı küçük pencereler, beyaz çerçeveli pencereler), batı kısmı krem: dar pencere + klima kolonu, küçük balkonlar (en üstte kahverengi kutu + iki klima), kahverengi ara dolgulu pencere aksı, KB köşe yığınının yan yüzü (K2 yeşil cam). Düz saçaklı çatı kenarı."
+      "note": "Kuzey cephe (sokak), -KU8 (ChHr ile), 2025-09 GÖLGEDE. Görünen ölçek ≈0.6: krem batı kısmı taban izi hattının gerisinde; kahverengi doğu kütle krem kısımdan ≈0.8 m önde (çatı saçağı daha yüksek görünüyor) → pending. Doğu kısım: kahverengi kaplama (beyaz yatay derzler, görünen ≈0.34 m), KD köşede dar locaların buzlu cam korkulukları (K3'te Atatürk portreli Türk bayrağı), loca yanındaki pencerelerde K4–K5 koyu demir parmaklık, koyu kahverengi yağmur borusu, ortada kalın beyaz söveli pencere aksı (tüm katlar beyaz tül/dantel; K0–K1 pencere önünde saksılar, çizilmedi). K5'te kahverengi kütle batıya köprü gibi taşar (görünen u 5.7–6.9), altı kahverengi saçak altı. Krem kısım: dar pencere + her katta klima, K0–K4 buzlu camlı küçük balkonlar, K5 korkuluksuz döşeme üstünde iki klima; K0–K3 beyaz çerçeveli kahverengi ara dolgulu, K4–K5 kahverengi söveli pencere aksı; iki gri yağmur borusu; KB köşe yığını (K2 yeşil cam). Düz saçaklı çatı kenarı."
     }
   ],
   "notes": [
     "502. Sokak'ın doğusunda, Mertkent'in karşısındaki blok. 6 normal kat (K0–K5) + batı/doğu alınlıklarında çatı arası (geniş pencereler) + güneyde görülen bodrum; K0 döşemesi zeminden ~2.7–3.0 m yukarıda. OSM building:levels=7.",
     "Çatı: beşik (mahya D–B, alınlıklar e0 batı ve e2 doğu), koyu mor-kahve kaplama, büyük saçaklar (~0.9 m); kuzey/güney düz saçaklı.",
-    "Renkler: krem sıva; kahverengi yatay derzli kaplama (strip rengi) üst kat bandında (batı), doğu yarıda tam boy (kuzey/güney), alınlık panosunda; batıda ortada beyaz taş kaplamalı pano (plaster2); pencereler beyaz PVC, alt katlarda kahverengi söve çerçeveli (üretici çizemez).",
-    "TABAN İZİ UYARISI: batı cephe ~17.8 m (kuzey köşe ring[0]'dan ~3.2 m güneyde), kuzey cephe taban izi çizgisinin ~5 m gerisinde görünüyor (-KU8/ChHr ölçek 0.6), ama doğu cephe tam ~21 m → bina kuzeybatıda girintili/taban izi kuzeyde uzun olabilir. cal.u gerçek köşelere göre verildi (öğeler taban izine gerdiriliyor).",
+    "RENKLER (retro 2026-09, ham fotoğraf değerleri): krem sıva güneşli #efebd6 (güney) / #e4e1c8 (doğu), gölgeli #98927b (batı) → plaster #ebe5ce; kahverengi yatay derzli kaplama güneşli #e5c4ab, ara dolgu #d9b594, doğu parapet bantları #d4ad8f, gölgeli #8b7165 → strip #dcb99c; merdiven kulesi çerçevesi #9e7a64; söveler koyu kahve (gölgede #6c5b48) → #8e6c55 tahmini güneşli; beyaz taş pano gölgede #a9aaa6; beyaz söve/çerçeve bantları güneşli #dfe0d6; balkon döşeme alnı beyaz-açık gri (gölgede #818889) → #d8dbd3 (≈0.3 m, eleştirmen notuyla uyumlu: krem değil); buzlu cam korkuluk güneşli #e5eeed–#eefaf6, gölgede #839090 → #d3e3df.",
+    "KORKULUK (kat kat): batı/güney/kuzey balkon ve locaları K0–K5 tümü döşemeden buzlu cam + paslanmaz dikme/küpeşte (glassFull); doğu cam balkon yığınları tümü ≈1 m dolu ten rengi parapet + beyaz çerçeveli katlanır cam; güney ve kuzey orta kolonda K5 korkuluksuz (klima nişi).",
+    "KÜTLE (pending): cephe kahverengi doğu kütle (x≈23–29) ve krem batı kütle olarak ikiye ayrılıyor: doğu kütle güneyde ≈1.5 m, kuzeyde ≈0.8 m daha dışarıda (doğu cephe görünen ölçekle ≈20 m, batı cephe 17.8 m); K5'te doğu kütle her iki cephede batıya köprü gibi uzanıyor. Taban izi dikdörtgen olduğu için çizilemedi.",
     "Köşe balkonları batıda d:0 loca (ön yüz orta duvarla aynı düzlem, yuvarlak spotlu tavanlar); doğuda köşelerde tüm katları beyaz çerçeveli camla kapalı yığınlar; kuzey/güneyde klimalı küçük balkon kolonu."
+  ],
+  "pending": [
+    {
+      "what": "massing",
+      "desc": "Doğu (kahverengi) kütle güney cephede krem batı kısmından ≈1.5 m, kuzeyde ≈0.8 m dışarıda; sınır x≈23.6 (güney görünen u 11.0) / kuzeyde görünen u 5.7; K5 katında köprü uzantısı güneyde görünen u 7.7–10.8, kuzeyde 5.7–6.9 (krem kısmın üstüne ≈1.2–3 m taşar, altı kahverengi saçak altı). Taban izi dikdörtgen: girinti çizilemez; ayrıca batı cephe doğudan ≈2.3 m kısa (öneri: taban izine batı yarısında girinti)."
+    },
+    {
+      "what": "attic-windows",
+      "edge": 0,
+      "desc": "Batı alınlıkta kahverengi pano (görünen u 9–14.9, y 20.3–22.8) içinde iki beyaz çerçeveli 3 kanatlı çatı arası penceresi: u 9.5–11.2 ve 12.4–14.2, y ≈20.9–21.9 (sol pencerenin orta kanadı açık, diğerleri tül). Çatı arası kat penceresi şemada yok."
+    },
+    {
+      "what": "gable-disc",
+      "edge": 2,
+      "desc": "Doğu alınlık tepesinde görünen u ≈7.3, y ≈23.6 merkezli ≈1.4 m çaplı yuvarlak koyu eleman (yatay kollu), altında merdiven kulesine inen dikme (y 20.3–23). Çanak anten ya da yuvarlak menfez (oculus) olabilir; çizilmedi."
+    },
+    {
+      "what": "entrance-canopy",
+      "edge": 2,
+      "desc": "Giriş saçağı: görünen u 5.9–11.0, y ≈5.2–6.0, ten rengi #c2a383, önden yamuk kesitli kalın (≈0.8 m) saçak, ortasında aplik; entrance.canopy yalnız kapı genişliğinde çiziyor."
+    },
+    {
+      "what": "loggia-back-glass",
+      "edge": 3,
+      "desc": "KD köşe dar locaların arka duvarında K3–K5 mavi yansımalı cam; K0–K1 pencere denizliklerinde çiçek saksıları; loca yanında K0–K1 duvarda küçük siyah nesne (kamera ya da aplik, belirsiz)."
+    }
   ]
 }

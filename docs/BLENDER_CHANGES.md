@@ -244,3 +244,44 @@
   cepheler yalnız geometri (perde/afiş kopyalanmaz). Henüz `data/facades.json`'a derlenmedi (diğer retro ajanlarıyla
   birlikte derlenecek) → oyunda değişiklik yok. **Blender:** şimdilik yeniden kurulacak katman yok; derleme sonrası bu
   üç blok.
+- **(bu commit)** — **Cephe / sokak üreticisine yeni öğeler** (eleştirmen + ölçüm ajanlarının `pending` listeleri;
+  şema `survey/schema.ts`, derleme `scripts/survey-compile.mjs`, çizim `facade.ts`, `fenceGeneric.ts`):
+  - `pilaster` (kabartma pilastır: u0..u1 / u+w, y0..y1 ya da kat aralığı `s`, çıkıntı d, renk, başlık/kaide),
+    `pediment` (üçgen alınlık; `apex` ile asimetrik, `h`/`yTop`, balkon yığını önünde `d`, eğik üst yüzler, silme),
+    `recess` (duvar girintisi: ağız boş, içindeki pencere/tabela/menfez arka duvarda; arka/yan/tavan/taban rengi),
+    `mast` (bayrak direği). Bodrum pencereleri: `win.s: [-1,-1]` (subasman kesilir). Merdiven kovası penceresi
+    `win.stair` (kat çizgisine kırpılmaz), yatay kayıtlar `win.hbars`, `split` sınırı 4 → 12 (ölçülmüş 5–8 bölmeli
+    giydirme camlar artık doğru bölmeli: 303738118, 900000101, 1550826982).
+  - Balkon: `bulge` (kavisli ön yüz, d = 0 ile duvardan duvara yay), `round` (köşe yarıçapı), `frameC` (kat kat cam
+    balkon profil rengi), `tint: "frosted"` + `frostC`, `beam` (sarkan kiriş), `railH` (küpeşte boyu), `pots`
+    (korkuluk üstü / döşemede saksı + bitki).
+  - Çatı / hacim parapeti: `edges` (yalnız bu kenarlarda parapet, diğerlerinde saçak alnı), `railEdges`, `railH`
+    (küpeşte ≈0.6 m), `coping` (harpuşta), `band` (alt bant); `proj.topRailH`; `volumes[].glazing.transom`; blok
+    `pergolas` (dikme + kiriş + lamel + örtü).
+  - Boru `color` / `r` / `y0..y1` / `brackets` (ince açık gri PVC boru; en üst katın üstünde havada kalan kelepçe
+    hatası giderildi). Bant `style: "louvre"` (lamelli alüminyum alın). **Kepenk hatası düzeltildi:** kepenk dokusu
+    metrede bir çizgi → düz beyaz kutu görünüyordu; artık 5 cm lamelli, `win.shutC` rengi, kutusu kepenk renginde
+    (üstüne beyaz `box` çizilmiyor), alt profil koyu.
+  - Çitler: `wall.relief` (kabartmalı prekast panel: baklava / madalyon / çerçeve), `pillars.style: "ornate"` +
+    `finial` (top / piramit), 2D kaynaklı tel panel (`infillSpec.welded` ya da tipinde "2D"/"kaynaklı": kalın teller,
+    V kıvrımları, dikmeler — da1-south-site, da2-fence-503-west, da3-fence-east-site artık böyle), aralıklı çalı
+    (`hedge.style: "scattered"` + `gap`), kapı `style: "wrought"` (siyah ferforje, mızrak uçlu; street-plan gates).
+    Kolon listesi dünya noktası başına yinelenmiyor (aynı konumda üst üste kolon hatası).
+  - Derleme: `copyOf` (görülmemiş) kenarlara artık yalnız geometri kopyalanır — tabela, bayrak, klima/çanak/kamera,
+    perde/kepenk/parmaklık durumu, cam balkon tonu, file, saksı, tente yazısı kopyalanmaz (CLAUDE.md §0.1). Bu,
+    yeniden derlemede 13 bloğun kopya kenarlarını değiştirir. Ayrıca balkon `tint` kat anahtarları ("K3" → "3")
+    artık normalize ediliyor: 11 blokta "K"li yazılmış ölçülmüş cam balkon tonları yok sayılıyordu. İkisi de henüz
+    `data/facades.json`'a derlenmedi (ölçüm ajanları derleyecek).
+  - Dosyalar: `src/worlds/mertkent/{facade,fenceGeneric,index,textures}.ts`, `survey/schema.ts`,
+    `scripts/survey-compile.mjs`, `tests/unit/facadeGen.test.ts`. **Blender:** kepenkli açıklıklar (lamel dokusu),
+    borular, 5+ bölmeli giydirme camlar ve üç 2D tel panelli çit yeniden kurulmalı; yeni öğeler ölçümlere girdikçe
+    ilgili bloklar.
+- **(retro-2)** — Eski ölçümler yeni standarda (2. parti, yalnız survey JSON; `data/facades.json`'a henüz
+  derlenmedi → oyunda değişiklik yok): Mertkent-2 blokları 1480041342/43/44/45 (iki tonlu sıva: K0–K2 beyaz, K3+
+  gri; koyu gri balkon alnı + buzlu cam korkuluk; kat kat perde/cam rengi/çerçeve; yağmur boruları; uydurma ikiz
+  kopyalar kaldırıldı), Mertkent 3 blokları 1480041300/01 (palet yeniden örneklendi, pilastır rengi düzeltildi,
+  alınlık/çatı üçgeni modellendi, görülmeyen güney yüzleri yalnız geometri), 1480163634/37/38 (söve, kaplama
+  derzleri, merdiven kulesi çıkması, pembe #dfb9b9), Salusvizyon 1479658783 (kuzey cephesi yeni karelerle yeniden
+  ölçüldü — güneyin kopyası değil; oluklu taş pilastırlar, HAS KİLİT / KALE KİLİT tabelaları, lacivert cam
+  korkuluklar). `scripts/sv-extra.json`: Salus kuzey cephesi ortofoto girdisi. **Blender:** derleme sonrası bu 10
+  blok yeniden kurulacak (şimdilik yok).

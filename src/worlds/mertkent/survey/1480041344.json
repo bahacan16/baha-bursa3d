@@ -9,213 +9,1556 @@
     "fasciaH": 0.95,
     "pitch": 24,
     "terrace": true,
-    "gables": [5, 7, 9, 11],
-    "eaveY": { "edge": 0, "y": 19.9 }
+    "gables": [
+      5,
+      7,
+      9,
+      11
+    ],
+    "eaveY": {
+      "edge": 0,
+      "y": 19.9
+    }
   },
   "colors": {
-    "plaster": "#ece9e2",
-    "plaster2": "#c9ced3",
-    "strip": "#d98a45",
-    "fascia": "#858a90",
-    "soffit": "#e2d8c6",
-    "railGlass": "#c8d6d2",
+    "plaster": "#f1f2ed",
+    "plaster2": "#dde1e1",
+    "strip": "#df8d47",
+    "fascia": "#a6a9a2",
+    "soffit": "#e4e3dd",
+    "railGlass": "#c8d3d0",
     "frame": "#f2f2f0",
     "tile": "#a95a44"
   },
   "edges": [
     {
       "edge": 0,
-      "len": 9.37,
+      "len": 8.64,
       "seen": "photo",
       "ref": "1480041344_0_agzpWIde.jpg",
-      "cal": { "u": [0.4, 9.0], "head": [[0, 5.25], [5, 19.05]] },
+      "cal": {
+        "u": [
+          0.4,
+          9.0
+        ],
+        "head": [
+          [
+            0,
+            5.25
+          ],
+          [
+            5,
+            19.05
+          ]
+        ]
+      },
       "items": [
-        { "t": "strip", "u": 3.92, "y0": 11.72, "y1": 19.72 },
-        { "t": "strip", "u": 6.61, "y0": 11.72, "y1": 19.72 },
-        { "t": "strip", "u": 4.51, "y0": 3.0, "y1": 11.05 },
-        { "t": "strip", "u": 6.11, "y0": 3.0, "y1": 11.05 },
-        { "t": "win", "u0": 4.65, "u1": 5.96, "y0": 9.53, "y1": 10.78, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 4.06, "u1": 6.46, "y0": 17.3, "y1": 19.05, "k": 5, "s": [3, 5], "kind": "french", "rail": true, "split": 3 },
-        { "t": "bal", "u0": 0.4, "u1": 1.85, "d": 0, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "tint": { "2": "blinds" }, "sides": "open" },
-        { "t": "pipe", "u": 1.9 },
-        { "t": "panel", "u0": 1.9, "u1": 9.0, "y0": 11.35, "y1": 19.9, "color": "plaster2" }
+        {
+          "t": "strip",
+          "u": 3.92,
+          "y0": 11.72,
+          "y1": 19.72
+        },
+        {
+          "t": "strip",
+          "u": 6.61,
+          "y0": 11.72,
+          "y1": 19.72
+        },
+        {
+          "t": "strip",
+          "u": 4.51,
+          "y0": 3.0,
+          "y1": 11.05
+        },
+        {
+          "t": "strip",
+          "u": 6.11,
+          "y0": 3.0,
+          "y1": 11.05
+        },
+        {
+          "t": "win",
+          "u0": 4.65,
+          "u1": 5.96,
+          "y0": 9.53,
+          "y1": 10.78,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ],
+          "curt": {
+            "K0": "tul",
+            "K1": "tul",
+            "K2": "tul-yan"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 4.06,
+          "u1": 6.46,
+          "y0": 17.3,
+          "y1": 19.05,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3,
+          "curt": {
+            "K3": "tul-yan",
+            "K4": "tul",
+            "K5": "karanlik"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 0.4,
+          "u1": 1.85,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "0": "clear",
+            "1": "green",
+            "2": "blinds",
+            "3": "clear",
+            "4": "clear",
+            "5": "clear"
+          },
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "pipe",
+          "u": 1.9,
+          "color": "#e8e9e6",
+          "r": 0.04
+        },
+        {
+          "t": "panel",
+          "u0": 1.9,
+          "u1": 9.0,
+          "y0": 11.35,
+          "y1": 19.9,
+          "color": "plaster2"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.9,
+          "u1": 9.0,
+          "y": 6.16,
+          "w": 0.03,
+          "color": "#70757a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.9,
+          "u1": 9.0,
+          "y": 11.35,
+          "w": 0.03,
+          "color": "#70757a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.9,
+          "u1": 9.0,
+          "y": 14.47,
+          "w": 0.03,
+          "color": "#70757a"
+        },
+        {
+          "t": "vent",
+          "u": 2.55,
+          "y": 5.42,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 2.55,
+          "y": 8.16,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 2.55,
+          "y": 11.03,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 2.55,
+          "y": 13.78,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 2.55,
+          "y": 16.81,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 2.55,
+          "y": 19.52,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        }
       ],
-      "note": "Kuzey kanat batı (sokak) cephesi. u 0.4–1.85: KB köşe yığınının (ön yüzü e11) camlı yan yüzü, duvarla aynı düzlemde (d:0). Her katta u≈2.5'te, lentonun ~0.4 m altında kombi baca çıkışı (kısa koyu boru)."
+      "note": "Kuzey kanat batı (sokak) cephesi; agzp (12 m, gölgede) + oQX1 + 40° yakın kareler (agzp 82/98, oQX1 126). u 0.4–1.85: KB köşe yığınının (ön yüzü e11) camlı yan yüzü, duvarla aynı düzlemde (d:0). Kat kat (yığın yanı): her katta koyu gri döşeme alnı + dolu parapet (döşemeden ≈0.58 m) + üstünde ≈0.3 m buzlu cam şerit, üstü çerçevesiz katlanır cam; K2 beyaz yatay stor (zebra), K1 yeşil yansıma, diğerleri şeffaf. Pencereler (perde, kat kat): K0 sol kanat vasistas açık + sağ dantel tül; K1 beyaz tül; K2 sol karanlık + sağ mavi fon perde; K3 mavi fon perde (sol kanat karanlık); K4 dantel tül (ortada toplanmış); K5 perdesiz/karanlık. Üst katlar 3 kanatlı fransız pencere, önünde 3 yatay borulu paslanmaz korkuluk. Her katta u≈2.55'te, tavan hizasında kombi baca çıkışı (kısa gri boru, koyu uç) → vent. Yatay sıva derzleri: y 6.16 (K0/K1 arası), 11.35 (beyaz/gri renk sınırı), 14.47 (K4 döşeme hizası). Yığın–duvar birleşiminde beyaz PVC yağmur borusu (u 1.9). Duvar üstünde ince kablo çizgileri (çizilmedi)."
     },
     {
       "edge": 1,
       "len": 2.79,
       "seen": "photo",
       "ref": "1480041344_1_jeMFFlce.jpg",
-      "cal": { "u": [0, 2.79], "head": [[0, 5.28], [5, 18.55]] },
+      "cal": {
+        "u": [
+          0,
+          2.79
+        ],
+        "head": [
+          [
+            0,
+            5.28
+          ],
+          [
+            5,
+            18.55
+          ]
+        ]
+      },
       "items": [],
-      "note": "Merdiven girintisinin güneye bakan yan duvarı: boş sıva (çapraz çizgiler gölge). Çekirdek duvarı saçak hizasının biraz üstüne yükselir (teras)."
+      "note": "Merdiven girintisinin güneye bakan yan duvarı: boş sıva (çapraz çizgiler gölge). Çekirdek duvarı saçak hizasının biraz üstüne yükselir (teras). v-retro: yakın karelerde (jeMF/yz6q) de boş; eğik koyu çizgiler çekirdek gölgesi. Derz görülmedi."
     },
     {
       "edge": 2,
       "len": 2.39,
       "seen": "partial",
       "ref": "1480041344_0_agzpWIde.jpg",
-      "cal": { "u": [0, 2.39], "head": [[0, 5.25], [5, 19.05]] },
+      "cal": {
+        "u": [
+          0,
+          2.39
+        ],
+        "head": [
+          [
+            0,
+            5.25
+          ],
+          [
+            5,
+            19.05
+          ]
+        ]
+      },
       "items": [
-        { "t": "win", "u0": 0.6, "u1": 1.8, "y0": 2.07, "y1": 3.97, "k": 0, "s": [0, 5], "kind": "small", "split": 2 },
-        { "t": "win", "u0": 0.6, "u1": 1.8, "y0": 18.6, "y1": 19.78, "k": 5, "s": [5, 5], "kind": "small", "split": 2 }
+        {
+          "t": "win",
+          "u0": 0.6,
+          "u1": 1.8,
+          "y0": 2.07,
+          "y1": 3.97,
+          "k": 0,
+          "s": [
+            0,
+            5
+          ],
+          "kind": "small",
+          "split": 2,
+          "curt": {
+            "K0": "karanlik",
+            "K1": "karanlik",
+            "K2": "karanlik",
+            "K3": "karanlik",
+            "K4": "karanlik",
+            "K5": "karanlik"
+          },
+          "stair": true
+        },
+        {
+          "t": "win",
+          "u0": 0.6,
+          "u1": 1.8,
+          "y0": 18.6,
+          "y1": 19.78,
+          "k": 5,
+          "s": [
+            5,
+            5
+          ],
+          "kind": "small",
+          "split": 2,
+          "curt": {
+            "K5": "karanlik"
+          },
+          "stair": true
+        }
       ],
-      "note": "Girinti dibi (merdiven kovası), kendi ortofotosu yok: agzp (e0) ve jeMF (e1) karelerinde derinlik düzeltmesiyle okundu; u gerçek metre, yükseklikler e0 çerçevesinde. Ara sahanlık pencereleri kat lentolarından ~1.3 m aşağıda, ~1.2×1.9 m, yatay kayıtlı; en alttaki K0 altındaki giriş sahanlığına ait, en üstteki küçük pencere teras merdiveni."
+      "note": "Girinti dibi (merdiven kovası), kendi ortofotosu yok: agzp (e0) ve jeMF (e1) karelerinde derinlik düzeltmesiyle okundu; u gerçek metre, yükseklikler e0 çerçevesinde. Ara sahanlık pencereleri kat lentolarından ~1.3 m aşağıda, ~1.2×1.9 m, yatay kayıtlı; en alttaki K0 altındaki giriş sahanlığına ait, en üstteki küçük pencere teras merdiveni. Merdiven camları perdesiz (mavi gök yansıması)."
     },
     {
       "edge": 3,
       "len": 2.76,
       "seen": "photo",
       "ref": "1480041344_3_agzpWIde.jpg",
-      "cal": { "u": [0, 2.76], "head": [[0, 5.25], [5, 19.05]] },
-      "items": [{ "t": "ac", "u": 1.1, "s": 0, "y": 4.5 }],
-      "note": "Girintinin kuzeye bakan yan duvarı: boş sıva; K0 hizasında klima dış ünitesi (u ±0.5; iki ortofoto farklı gösteriyor). cal.u varsayım (duvarda kalibrasyon öğesi yok)."
+      "cal": {
+        "u": [
+          0,
+          2.76
+        ],
+        "head": [
+          [
+            0,
+            5.25
+          ],
+          [
+            5,
+            19.05
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "ac",
+          "u": 1.1,
+          "s": 0,
+          "y": 4.5
+        }
+      ],
+      "note": "Girintinin kuzeye bakan yan duvarı: boş sıva; K0 hizasında klima dış ünitesi (beyaz, tek büyük fanlı). agzp ve oQX1 ortofotolarında u'su farklı (≈0.9 / ≈1.9) → ünite duvar düzleminde değil (girinti dibine/köşeye yakın, konsolda); u ±0.5. cal.u varsayım (duvarda kalibrasyon öğesi yok)."
     },
     {
       "edge": 4,
-      "len": 8.71,
+      "len": 9.26,
       "seen": "photo",
       "ref": "1480041344_4_jeMFFlce.jpg",
-      "cal": { "u": [-0.15, 8.1], "head": [[0, 5.28], [5, 18.55]] },
+      "cal": {
+        "u": [
+          -0.15,
+          8.1
+        ],
+        "head": [
+          [
+            0,
+            5.28
+          ],
+          [
+            5,
+            18.55
+          ]
+        ]
+      },
       "items": [
-        { "t": "strip", "u": 2.08, "y0": 11.52, "y1": 19.25 },
-        { "t": "strip", "u": 4.72, "y0": 11.52, "y1": 19.25 },
-        { "t": "strip", "u": 2.59, "y0": 3.1, "y1": 10.81 },
-        { "t": "strip", "u": 4.16, "y0": 3.1, "y1": 10.81 },
-        { "t": "win", "u0": 2.73, "u1": 4.0, "y0": 9.34, "y1": 10.56, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 2.21, "u1": 4.59, "y0": 16.94, "y1": 18.55, "k": 5, "s": [3, 5], "kind": "french", "rail": true, "split": 3 },
-        { "t": "bal", "u0": 6.72, "u1": 8.1, "d": 0, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "sides": "open" },
-        { "t": "pipe", "u": 6.69 },
-        { "t": "panel", "u0": -0.15, "u1": 6.69, "y0": 11.06, "y1": 19.63, "color": "plaster2" }
+        {
+          "t": "strip",
+          "u": 2.08,
+          "y0": 11.52,
+          "y1": 19.25
+        },
+        {
+          "t": "strip",
+          "u": 4.72,
+          "y0": 11.52,
+          "y1": 19.25
+        },
+        {
+          "t": "strip",
+          "u": 2.59,
+          "y0": 3.1,
+          "y1": 10.81
+        },
+        {
+          "t": "strip",
+          "u": 4.16,
+          "y0": 3.1,
+          "y1": 10.81
+        },
+        {
+          "t": "win",
+          "u0": 2.73,
+          "u1": 4.0,
+          "y0": 9.34,
+          "y1": 10.56,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ],
+          "curt": {
+            "K0": "tul",
+            "K1": "jaluzi",
+            "K2": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 2.21,
+          "u1": 4.59,
+          "y0": 16.94,
+          "y1": 18.55,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 3,
+          "curt": {
+            "K3": "tul-yan",
+            "K4": "tul",
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 6.72,
+          "u1": 8.1,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "tint": {
+            "0": "dark",
+            "1": "clear",
+            "2": "clear",
+            "3": "blinds",
+            "4": "dark",
+            "5": "green"
+          },
+          "frameC": {
+            "*": "#e9eae6",
+            "K0": "#2b2e30"
+          }
+        },
+        {
+          "t": "pipe",
+          "u": 6.69,
+          "color": "#e8e9e6",
+          "r": 0.04
+        },
+        {
+          "t": "panel",
+          "u0": -0.15,
+          "u1": 6.69,
+          "y0": 11.06,
+          "y1": 19.63,
+          "color": "plaster2"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": -0.15,
+          "u1": 6.69,
+          "y": 5.9,
+          "w": 0.03,
+          "color": "#70757a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": -0.15,
+          "u1": 6.69,
+          "y": 11.1,
+          "w": 0.03,
+          "color": "#70757a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": -0.15,
+          "u1": 6.69,
+          "y": 14.1,
+          "w": 0.03,
+          "color": "#70757a"
+        },
+        {
+          "t": "vent",
+          "u": 6.05,
+          "y": 5.22,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 6.05,
+          "y": 8.0,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 6.05,
+          "y": 11.0,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 6.05,
+          "y": 13.53,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 6.05,
+          "y": 16.08,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        },
+        {
+          "t": "vent",
+          "u": 6.05,
+          "y": 18.89,
+          "s": 0.11,
+          "shape": "round",
+          "color": "#55595c"
+        }
       ],
-      "note": "Güney kanat batı cephesi (e0'ın aynası). u 6.72–8.1: GB köşe yığınının (ön yüzü e5) camlı yan yüzü (d:0). Kombi baca çıkışları u≈6.0."
+      "note": "Güney kanat batı cephesi (e0'ın aynası); jeMF (11 m) + yz6q. u 6.72–8.1: GB köşe yığınının (ön yüzü e5) camlı yan yüzü (d:0), kat kat e5 ile aynı cam görünümü (K0 koyu, K1–K2 şeffaf + beyaz perde, K3 dikey/yatay lamelli stor, K4 koyu mavi, K5 yeşil). Perdeler: K0 beyaz tül; K1 dikey lamel (jaluzi) + koyu; K2 dantel tül (arkası mavi); K3 sol karanlık, orta/sağ beyaz tül + alt yarıda mavi fon (tul-yan); K4 ve K5 beyaz tül. Kombi baca çıkışları her katta u≈6.05 (tavan hizası). Derzler y 5.9 / 11.1 (renk sınırı) / 14.1. Beyaz PVC yağmur borusu u 6.69."
     },
     {
       "edge": 5,
-      "len": 4.84,
+      "len": 4.83,
       "seen": "photo",
       "ref": "1480041344_5_1JmeZhl7.jpg",
-      "cal": { "u": [1.0, 5.84], "head": [[0, 5.26], [5, 18.5]] },
+      "cal": {
+        "u": [
+          1.0,
+          5.84
+        ],
+        "head": [
+          [
+            0,
+            5.26
+          ],
+          [
+            5,
+            18.5
+          ]
+        ]
+      },
       "items": [
-        { "t": "bal", "u0": 1.0, "u1": 5.84, "d": 0, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "tint": { "0": "dark", "1": "clear", "2": "clear", "3": "blinds", "4": "dark", "5": "green" }, "cap": true, "sides": "open" }
+        {
+          "t": "bal",
+          "u0": 1.0,
+          "u1": 5.84,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "0": "dark",
+            "1": "clear",
+            "2": "clear",
+            "3": "blinds",
+            "4": "dark",
+            "5": "green"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "frameC": {
+            "*": "#e9eae6",
+            "K0": "#2b2e30"
+          }
+        }
       ],
-      "note": "GB köşe balkon yığınının ön yüzü = bu kenar (taban izi balkonu içeriyor); ön yüz (parapet) kenar çizgisinde → d:0; balkon derinliği içeri doğru e6 kadar (~1.5 m), arka duvar e7 hizasında. Bütün katlar katlanır camlı. Üstte gri sıvalı eğik 'şapka' (alınlık eğimi yığının üstünden devam eder; alt kenarı düz, soffit krem). Doğu uç görünmüyor, cal.u[1] ölçekten."
+      "note": "GB köşe balkon yığınının ön yüzü = bu kenar (güneşli, 1Jme 46/56 yakın kareleri çok net). Ön yüz kenar çizgisinde → d:0. Her kat: koyu gri döşeme alnı + dolu parapet (≈0.75 m görünen, döşemeden ≈0.58) + ≈0.25 m beyazımsı buzlu cam şerit, üstü beyaz dikmeli katlanır cam (≈0.6 m panel). Kat kat cam: K0 koyu (siyah dikmeli, içerisi karanlık), K1 ve K2 şeffaf + arkada boydan beyaz perde, K3 yeşil camlı yatay zebra stor, K4 koyu (mavi-lacivert), K5 yeşil/turkuaz cam. Üstte gri sıvalı eğik 'şapka' (alınlık eğimi yığının üstünden devam eder; güneşte #cbccc6, fascia'dan açık), altı beyaz. Doğu uç görünmüyor, cal.u[1] ölçekten."
     },
     {
       "edge": 6,
-      "len": 1.51,
+      "len": 0.49,
       "seen": "none",
       "ref": "1480041344_5_1JmeZhl7.jpg",
-      "cal": { "u": [0, 1.51], "head": [[0, 5.26], [5, 18.5]] },
+      "cal": {
+        "u": [
+          0,
+          0.49
+        ],
+        "head": [
+          [
+            0,
+            5.26
+          ],
+          [
+            5,
+            18.5
+          ]
+        ]
+      },
       "items": [
-        { "t": "bal", "u0": 0, "u1": 1.51, "d": 0, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "sides": "open" }
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 0.49,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "tint": {
+            "0": "dark",
+            "1": "clear",
+            "2": "clear",
+            "3": "blinds",
+            "4": "dark",
+            "5": "green"
+          },
+          "frameC": {
+            "*": "#e9eae6",
+            "K0": "#2b2e30"
+          }
+        }
       ],
-      "note": "GB yığının doğu yan yüzü; hiçbir karede görünmüyor. Cam balkonun e5 ile aynı katlarda yana döndüğü varsayıldı (batı yan yüzü böyle)."
+      "note": "GB yığının doğu yan yüzü (düzeltilmiş izde 0.49 m); hiçbir karede GÖRÜLMEDİ. Cam balkonun batı yan yüzü (e4, görüldü) gibi yana döndüğü VARSAYILDI — doğrulanmadı. u gerçek metre."
     },
     {
       "edge": 7,
       "len": 12.23,
       "seen": "photo",
       "ref": "1480041344_7_1JmeZhl7.jpg",
-      "cal": { "u": [1.45, 13.68], "head": [[0, 5.42], [5, 19.33]] },
+      "cal": {
+        "u": [
+          1.45,
+          13.68
+        ],
+        "head": [
+          [
+            0,
+            5.42
+          ],
+          [
+            5,
+            19.33
+          ]
+        ]
+      },
       "items": [
-        { "t": "strip", "u": 5.27, "y0": 12.39, "y1": 24.4 },
-        { "t": "strip", "u": 6.86, "y0": 12.39, "y1": 23.75 },
-        { "t": "strip", "u": 8.53, "y0": 12.39, "y1": 23.0 },
-        { "t": "strip", "u": 10.18, "y0": 12.39, "y1": 22.3 },
-        { "t": "strip", "u": 5.28, "y0": 3.3, "y1": 11.04 },
-        { "t": "strip", "u": 6.94, "y0": 3.3, "y1": 11.04 },
-        { "t": "strip", "u": 8.62, "y0": 3.3, "y1": 11.04 },
-        { "t": "strip", "u": 10.24, "y0": 3.3, "y1": 11.04 },
-        { "t": "win", "u0": 5.45, "u1": 6.75, "y0": 9.58, "y1": 10.97, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 8.76, "u1": 10.05, "y0": 9.58, "y1": 10.97, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 5.45, "u1": 6.75, "y0": 18.01, "y1": 19.33, "k": 5, "s": [3, 5] },
-        { "t": "win", "u0": 8.76, "u1": 10.05, "y0": 18.01, "y1": 19.33, "k": 5, "s": [3, 5] },
-        { "t": "win", "u0": 3.05, "u1": 4.0, "y0": 18.08, "y1": 19.33, "k": 5, "s": [0, 5] },
-        { "t": "win", "u0": 3.05, "u1": 4.0, "y0": 20.72, "y1": 22.1, "k": 6, "s": [6, 6] },
-        { "t": "bal", "u0": 11.85, "u1": 13.68, "d": 0, "s": [0, 5], "glazed": [1, 2, 3, 4, 5], "sides": "open" },
-        { "t": "entrance", "u0": 2.65, "u1": 3.55, "kind": "lobby" },
-        { "t": "panel", "u0": 3.0, "u1": 11.85, "y0": 11.9, "y1": 24.5, "color": "plaster2" }
+        {
+          "t": "strip",
+          "u": 5.27,
+          "y0": 12.39,
+          "y1": 24.4
+        },
+        {
+          "t": "strip",
+          "u": 6.86,
+          "y0": 12.39,
+          "y1": 23.75
+        },
+        {
+          "t": "strip",
+          "u": 8.53,
+          "y0": 12.39,
+          "y1": 23.0
+        },
+        {
+          "t": "strip",
+          "u": 10.18,
+          "y0": 12.39,
+          "y1": 22.3
+        },
+        {
+          "t": "strip",
+          "u": 5.28,
+          "y0": 3.3,
+          "y1": 11.04
+        },
+        {
+          "t": "strip",
+          "u": 6.94,
+          "y0": 3.3,
+          "y1": 11.04
+        },
+        {
+          "t": "strip",
+          "u": 8.62,
+          "y0": 3.3,
+          "y1": 11.04
+        },
+        {
+          "t": "strip",
+          "u": 10.24,
+          "y0": 3.3,
+          "y1": 11.04
+        },
+        {
+          "t": "win",
+          "u0": 5.45,
+          "u1": 6.75,
+          "y0": 9.58,
+          "y1": 10.97,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ],
+          "curt": {
+            "K1": "tul",
+            "K2": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 8.76,
+          "u1": 10.05,
+          "y0": 9.58,
+          "y1": 10.97,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ],
+          "curt": {
+            "K1": "tul",
+            "K2": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 5.45,
+          "u1": 6.75,
+          "y0": 18.01,
+          "y1": 19.33,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "curt": {
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 8.76,
+          "u1": 10.05,
+          "y0": 18.01,
+          "y1": 19.33,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "curt": {
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 3.05,
+          "u1": 4.0,
+          "y0": 18.08,
+          "y1": 19.33,
+          "k": 5,
+          "s": [
+            0,
+            5
+          ],
+          "curt": {
+            "K0": "karanlik",
+            "K1": "tul",
+            "K2": "tul-yan",
+            "K3": "tul-yan",
+            "K4": "karanlik",
+            "K5": "karanlik"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 3.05,
+          "u1": 4.0,
+          "y0": 20.72,
+          "y1": 22.1,
+          "k": 6,
+          "s": [
+            6,
+            6
+          ],
+          "curt": {
+            "K6": "karanlik"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 11.85,
+          "u1": 13.68,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "tint": {
+            "1": "clear",
+            "2": "clear",
+            "3": "dark",
+            "4": "dark",
+            "5": "green"
+          },
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "entrance",
+          "u0": 2.65,
+          "u1": 3.55,
+          "kind": "lobby"
+        },
+        {
+          "t": "panel",
+          "u0": 3.0,
+          "u1": 11.85,
+          "y0": 11.9,
+          "y1": 24.5,
+          "color": "plaster2"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 3.0,
+          "u1": 11.85,
+          "y": 11.9,
+          "w": 0.03,
+          "color": "#70757a"
+        }
       ],
-      "note": "Güney alınlık cephesi (1Jme, çok eğik: u ±0.4). Mahya bina ortasında (≈u 5.4 görünen); dört üst şerit alınlık eğimine kadar çıkar (üst uçları eğimi izler; 1–2. şerit tepeleri ortofoto dışında, eğimden tahmin). k=6 = çatı arası penceresi (yalnız yığın yanındaki dar sütunda). u 11.85–13.68: GD gömülü köşe loggiasının yan açıklığı (ön yüzü e8'de). Giriş görünmüyor (palmiye/çit): 345 ikizine göre bu uçta zemin kotunda kapı varsayıldı. K0 satırı palmiye arkasında, ritimden."
+      "note": "Güney alınlık cephesi (güneşli; 1Jme ortofotosu uzak/aşırı pozlu, 1Jme 46/56 yakın kareleriyle okundu, u ±0.4). Mahya bina ortasında (≈u 5.4 görünen); dört üst şerit alınlık eğimine kadar çıkar, uçları eğimi izler. Alt bölge beyaz, üst bölge (K3–) + alınlık açık mavi-gri; sınırda koyu derz. Alınlık üst kenarında ince koyu gri damlalık/alın. Perdeler: A/B sütunları K1–K5 beyaz tül (K0 palmiye arkasında, görülmedi). Yığın yanı dar sütun: K0 karanlık, K1 dantel tül, K2–K3 mavi fon perde, K4–K5 ve çatı arası (k=6) perdesiz. u 11.85–13.68: GD gömülü köşe loggiasının yan açıklığı (ön yüzü e8): K0 açık, K1–K2 şeffaf + beyaz perde, K3–K4 koyu, K5 yeşil cam (hoOD 342 yakın karesi). Giriş GÖRÜLMEDİ (palmiye/çit arkasında): 345 ikizinde aynı konumda (yığın yanı, zemin kotu) görülen kapıya göre bırakıldı — doğrulanmadı."
     },
     {
       "edge": 8,
-      "len": 16.78,
+      "len": 18.35,
       "seen": "photo",
       "ref": "1480041344_8_hoODQJrU.jpg",
-      "cal": { "u": [0.9, 17.68], "head": [[0, 4.2], [5, 18.14]] },
+      "cal": {
+        "u": [
+          0.9,
+          17.68
+        ],
+        "head": [
+          [
+            0,
+            4.2
+          ],
+          [
+            5,
+            18.14
+          ]
+        ]
+      },
       "items": [
-        { "t": "strip", "u": 6.52, "y0": 10.25, "y1": 18.3 },
-        { "t": "strip", "u": 8.02, "y0": 10.25, "y1": 18.3 },
-        { "t": "strip", "u": 10.72, "y0": 10.25, "y1": 18.3 },
-        { "t": "strip", "u": 12.37, "y0": 10.25, "y1": 18.3 },
-        { "t": "strip", "u": 6.5, "y0": 2.2, "y1": 9.95 },
-        { "t": "strip", "u": 7.95, "y0": 2.2, "y1": 9.95 },
-        { "t": "strip", "u": 10.72, "y0": 2.2, "y1": 9.95 },
-        { "t": "strip", "u": 12.3, "y0": 2.2, "y1": 9.95 },
-        { "t": "win", "u0": 6.75, "u1": 7.9, "y0": 8.5, "y1": 9.77, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 11.0, "u1": 12.2, "y0": 8.5, "y1": 9.77, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 6.75, "u1": 7.9, "y0": 16.34, "y1": 18.14, "k": 5, "s": [3, 5], "kind": "french", "rail": true, "split": 2 },
-        { "t": "win", "u0": 11.0, "u1": 12.2, "y0": 16.34, "y1": 18.14, "k": 5, "s": [3, 5], "kind": "french", "rail": true, "split": 2 },
-        { "t": "bal", "u0": 0.9, "u1": 4.5, "d": 0, "s": [0, 5], "glazed": [1, 2, 3, 4, 5], "tint": { "5": "dark", "4": "dark", "3": "dark" }, "sides": "end-wall" },
-        { "t": "bal", "u0": 14.65, "u1": 17.68, "d": 0, "s": [0, 5], "glazed": [1, 3, 4, 5], "sides": "start-wall" },
-        { "t": "dish", "u": 17.6, "s": 2, "y": 9.3, "onBal": true },
-        { "t": "pipe", "u": 5.18 },
-        { "t": "pipe", "u": 14.55 },
-        { "t": "dish", "u": 5.6, "s": 5, "y": 20.3 },
-        { "t": "panel", "u0": 4.5, "u1": 14.65, "y0": 10.1, "y1": 19.2, "color": "plaster2" }
+        {
+          "t": "strip",
+          "u": 6.52,
+          "y0": 10.25,
+          "y1": 18.3
+        },
+        {
+          "t": "strip",
+          "u": 8.02,
+          "y0": 10.25,
+          "y1": 18.3
+        },
+        {
+          "t": "strip",
+          "u": 10.72,
+          "y0": 10.25,
+          "y1": 18.3
+        },
+        {
+          "t": "strip",
+          "u": 12.37,
+          "y0": 10.25,
+          "y1": 18.3
+        },
+        {
+          "t": "strip",
+          "u": 6.5,
+          "y0": 2.2,
+          "y1": 9.95
+        },
+        {
+          "t": "strip",
+          "u": 7.95,
+          "y0": 2.2,
+          "y1": 9.95
+        },
+        {
+          "t": "strip",
+          "u": 10.72,
+          "y0": 2.2,
+          "y1": 9.95
+        },
+        {
+          "t": "strip",
+          "u": 12.3,
+          "y0": 2.2,
+          "y1": 9.95
+        },
+        {
+          "t": "win",
+          "u0": 6.75,
+          "u1": 7.9,
+          "y0": 8.5,
+          "y1": 9.77,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 11.0,
+          "u1": 12.2,
+          "y0": 8.5,
+          "y1": 9.77,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 6.75,
+          "u1": 7.9,
+          "y0": 16.34,
+          "y1": 18.14,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 11.0,
+          "u1": 12.2,
+          "y0": 16.34,
+          "y1": 18.14,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "bal",
+          "u0": 0.9,
+          "u1": 4.5,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "1": "clear",
+            "2": "clear",
+            "3": "dark",
+            "4": "dark",
+            "5": "green"
+          },
+          "sides": "end-wall",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 14.65,
+          "u1": 17.68,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [],
+          "sides": "start-wall",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "tint": {},
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "dish",
+          "u": 17.6,
+          "s": 2,
+          "y": 9.3,
+          "onBal": false
+        },
+        {
+          "t": "pipe",
+          "u": 5.18,
+          "color": "#e8e9e6",
+          "r": 0.04
+        },
+        {
+          "t": "pipe",
+          "u": 14.55,
+          "color": "#e8e9e6",
+          "r": 0.04
+        },
+        {
+          "t": "dish",
+          "u": 5.6,
+          "s": 5,
+          "y": 20.3
+        },
+        {
+          "t": "panel",
+          "u0": 4.5,
+          "u1": 14.65,
+          "y0": 10.1,
+          "y1": 19.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "dish",
+          "u": 17.4,
+          "s": 3,
+          "y": 11.0,
+          "onBal": false
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.5,
+          "u1": 14.65,
+          "y": 10.1,
+          "w": 0.03,
+          "color": "#70757a"
+        }
       ],
-      "note": "Doğu (site içi) saçaklı cephe; hoOD 44 m, çok eğik ve bulanık (u ±0.4, K0 altı bitki). İki köşede taban izine gömülü loggia: ön açıklık bu kenarda, parapet kenar çizgisinde (d:0); içeri derinlik GD ~1.8 m, KD ~1.5 m (alınlık cephelerindeki açıklık genişliği). Üstte (u≈5.6) saçak üzerinde çanak anten. Üst katlarda dar fransız pencere + korkuluk, altta normal pencere; şerit çiftleri iki bölgede aynı hizada."
+      "note": "Doğu (site içi) saçaklı cephe; hoOD 44 m, aşırı pozlu ve bulanık (u ±0.4, K0 altı bitki); perdeler çözünürlükte okunamıyor (kayıt yok). hoOD 342_11/342_14 yakın kareleriyle loggialar okundu. GD loggia (u 0.9–4.5, ön açıklık bu kenarda, d:0): K0 açık (buzlu cam korkuluk), K1–K2 şeffaf cam + beyaz perde, K3 koyu, K4 koyu mavi, K5 yeşil-turkuaz cam. KD loggia (u 14.65–17.68): K0–K4 AÇIK (gri alın + buzlu cam korkuluk; eski kayıttaki cam balkonlar yakın karede yok), K5 belirsiz (uzak, kısmen) → cam çizilmedi. KD'de korkuluğa asılı çanaklar: K2 beyaz, K3 koyu gri (d:0 yığında onBal kapalı: parapet duvar çizgisinde). Üstte (u≈5.6) saçak üzerinde çatıda çanak anten. Üst katlarda dar fransız pencere + korkuluk, altta normal pencere; şerit çiftleri iki bölgede aynı hizada. Beyaz PVC yağmur boruları loggia–duvar birleşimlerinde."
     },
     {
       "edge": 9,
-      "len": 11.34,
+      "len": 12.19,
       "seen": "photo",
       "ref": "1480041344_9_WDsdgaog.jpg",
-      "cal": { "u": [-0.4, 10.94], "head": [[0, 5.23], [5, 18.97]] },
+      "cal": {
+        "u": [
+          -0.4,
+          10.94
+        ],
+        "head": [
+          [
+            0,
+            5.23
+          ],
+          [
+            5,
+            18.97
+          ]
+        ]
+      },
       "items": [
-        { "t": "strip", "u": 2.91, "y0": 12.1, "y1": 22.02 },
-        { "t": "strip", "u": 4.55, "y0": 12.1, "y1": 22.72 },
-        { "t": "strip", "u": 6.19, "y0": 12.1, "y1": 23.42 },
-        { "t": "strip", "u": 7.83, "y0": 12.1, "y1": 24.1 },
-        { "t": "strip", "u": 2.94, "y0": 3.1, "y1": 10.9 },
-        { "t": "strip", "u": 4.4, "y0": 3.1, "y1": 10.9 },
-        { "t": "strip", "u": 6.19, "y0": 3.1, "y1": 10.9 },
-        { "t": "strip", "u": 7.63, "y0": 3.1, "y1": 10.9 },
-        { "t": "win", "u0": 3.05, "u1": 4.4, "y0": 9.45, "y1": 10.7, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 6.3, "u1": 7.65, "y0": 9.45, "y1": 10.7, "k": 2, "s": [0, 2] },
-        { "t": "win", "u0": 3.05, "u1": 4.4, "y0": 17.69, "y1": 18.97, "k": 5, "s": [3, 5] },
-        { "t": "win", "u0": 6.3, "u1": 7.65, "y0": 17.69, "y1": 18.97, "k": 5, "s": [3, 5] },
-        { "t": "win", "u0": 8.95, "u1": 9.9, "y0": 17.9, "y1": 18.97, "k": 5, "s": [0, 5] },
-        { "t": "win", "u0": 8.95, "u1": 9.9, "y0": 20.53, "y1": 21.86, "k": 6, "s": [6, 6] },
-        { "t": "bal", "u0": -0.4, "u1": 1.1, "d": 0, "s": [0, 5], "glazed": [3, 4, 5], "sides": "open" },
-        { "t": "panel", "u0": 1.1, "u1": 10.94, "y0": 11.5, "y1": 24.5, "color": "plaster2" }
+        {
+          "t": "strip",
+          "u": 2.91,
+          "y0": 12.1,
+          "y1": 22.02
+        },
+        {
+          "t": "strip",
+          "u": 4.55,
+          "y0": 12.1,
+          "y1": 22.72
+        },
+        {
+          "t": "strip",
+          "u": 6.19,
+          "y0": 12.1,
+          "y1": 23.42
+        },
+        {
+          "t": "strip",
+          "u": 7.83,
+          "y0": 12.1,
+          "y1": 24.1
+        },
+        {
+          "t": "strip",
+          "u": 2.94,
+          "y0": 3.1,
+          "y1": 10.9
+        },
+        {
+          "t": "strip",
+          "u": 4.4,
+          "y0": 3.1,
+          "y1": 10.9
+        },
+        {
+          "t": "strip",
+          "u": 6.19,
+          "y0": 3.1,
+          "y1": 10.9
+        },
+        {
+          "t": "strip",
+          "u": 7.63,
+          "y0": 3.1,
+          "y1": 10.9
+        },
+        {
+          "t": "win",
+          "u0": 3.05,
+          "u1": 4.4,
+          "y0": 9.45,
+          "y1": 10.7,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 6.3,
+          "u1": 7.65,
+          "y0": 9.45,
+          "y1": 10.7,
+          "k": 2,
+          "s": [
+            0,
+            2
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 3.05,
+          "u1": 4.4,
+          "y0": 17.69,
+          "y1": 18.97,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 6.3,
+          "u1": 7.65,
+          "y0": 17.69,
+          "y1": 18.97,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 8.95,
+          "u1": 9.9,
+          "y0": 17.9,
+          "y1": 18.97,
+          "k": 5,
+          "s": [
+            0,
+            5
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 8.95,
+          "u1": 9.9,
+          "y0": 20.53,
+          "y1": 21.86,
+          "k": 6,
+          "s": [
+            6,
+            6
+          ]
+        },
+        {
+          "t": "bal",
+          "u0": -0.4,
+          "u1": 1.1,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [],
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "tint": {},
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "panel",
+          "u0": 1.1,
+          "u1": 10.94,
+          "y0": 11.5,
+          "y1": 24.5,
+          "color": "plaster2"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.1,
+          "u1": 10.94,
+          "y": 11.5,
+          "w": 0.03,
+          "color": "#70757a"
+        }
       ],
-      "note": "Kuzey alınlık cephesi (WDsd, çok eğik). e7'nin aynası: iki şerit çifti + KB yığın yanında dar pencere sütunu (k=6 çatı arası). Duvar gerçekte e10 köşesinden ~0.9 m daha batıya uzanıyor (KB yığın ~4.9 m genişlikte, taban izi 5.75); cal.u[1] metrik tutarlılık için len'e göre konuldu. u −0.4–1.1: KD gömülü loggianın yan açıklığı (ön yüzü e8). Alt katlar ağaç arkasında."
+      "note": "Kuzey alınlık cephesi (WDsd 32.6 m, gölgede, bulanık; perdeler çözünürlükte okunamıyor → kayıt yok). e7'nin aynası: iki şerit çifti + KB yığın yanında dar pencere sütunu (k=6 çatı arası). Duvar gerçekte e10 köşesinden ~0.9 m daha batıya uzanıyor; cal.u[1] metrik tutarlılık için. u −0.4–1.1: KD gömülü loggianın yan açıklığı: K3–K5 açıklığında gök görünüyor (köşe loggia iki yandan açık) → cam balkon YOK (eski kayıt [3,4,5] düzeltildi; hoOD karesiyle tutarlı). Alt katlar ağaç arkasında."
     },
     {
       "edge": 10,
-      "len": 2.18,
+      "len": 1.45,
       "seen": "none",
       "ref": "1480041344_11_WDsdgaog.jpg",
-      "cal": { "u": [0, 2.18], "head": [[3, 12.58], [5, 17.93]] },
+      "cal": {
+        "u": [
+          0,
+          1.45
+        ],
+        "head": [
+          [
+            3,
+            12.58
+          ],
+          [
+            5,
+            17.93
+          ]
+        ]
+      },
       "items": [
-        { "t": "bal", "u0": 0, "u1": 2.18, "d": 0, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "sides": "open" }
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 1.45,
+          "d": 0,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "tint": {
+            "0": "clear",
+            "1": "green",
+            "2": "clear",
+            "3": "clear",
+            "4": "blinds",
+            "5": "clear"
+          },
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        }
       ],
-      "note": "KB yığının doğu yan yüzü; görünmüyor. Batı yan yüzü gibi camlı varsayıldı. Gerçek yığın derinliği ~1.45 m (hava fotoğrafında çatı basamağı), taban izindeki 2.18 fazla."
+      "note": "KB yığının doğu yan yüzü (düzeltilmiş izde 1.45 m); GÖRÜLMEDİ. Batı yan yüzü (e0, görüldü) gibi camlı VARSAYILDI — doğrulanmadı. u gerçek metre."
     },
     {
       "edge": 11,
-      "len": 5.75,
+      "len": 4.9,
       "seen": "photo",
       "ref": "1480041344_11_WDsdgaog.jpg",
-      "cal": { "u": [1.25, 6.14], "head": [[3, 12.58], [5, 17.93]] },
+      "cal": {
+        "u": [
+          1.25,
+          6.14
+        ],
+        "head": [
+          [
+            3,
+            12.58
+          ],
+          [
+            5,
+            17.93
+          ]
+        ]
+      },
       "items": [
-        { "t": "bal", "u0": 1.25, "u1": 6.14, "d": 0, "s": [0, 5], "glazed": [0, 1, 2, 3, 4, 5], "tint": { "1": "green", "4": "clear", "5": "clear" }, "cap": true, "sides": "open" }
+        {
+          "t": "bal",
+          "u0": 1.25,
+          "u1": 6.14,
+          "d": 0,
+          "s": [
+            0,
+            1
+          ],
+          "glazed": [
+            0,
+            1
+          ],
+          "tint": {
+            "0": "clear",
+            "1": "green"
+          },
+          "cap": false,
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 1.25,
+          "u1": 3.6,
+          "d": 0,
+          "s": [
+            2,
+            2
+          ],
+          "glazed": [
+            2
+          ],
+          "tint": {
+            "2": "clear"
+          },
+          "cap": false,
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 3.6,
+          "u1": 6.14,
+          "d": 0,
+          "s": [
+            2,
+            2
+          ],
+          "glazed": [
+            2
+          ],
+          "tint": {
+            "2": "blinds"
+          },
+          "cap": false,
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 1.25,
+          "u1": 6.14,
+          "d": 0,
+          "s": [
+            3,
+            5
+          ],
+          "glazed": [
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "3": "clear",
+            "4": "blinds",
+            "5": "clear"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "parapetH": {
+            "*": 0.58
+          },
+          "railC": "#c9cdcf",
+          "frameC": {
+            "*": "#e9eae6"
+          }
+        }
       ],
-      "note": "KB köşe yığınının ön yüzü = bu kenar; parapet kenar çizgisinde (d:0), balkon içeri e10 kadar uzanır, arka duvar e9 hizasında. Görünen genişlik ~4.9 m (taban izi 5.75'e gerilir). Tüm katlar camlı; üstte gri eğik şapka (alınlık eğimi), altı krem soffit."
+      "note": "KB köşe yığınının ön yüzü = bu kenar (kuzey, sokağa dönük); WDsd + JY5o + WDsd 123 yakın karesi. Parapet kenar çizgisinde (d:0). Her kat koyu gri alın/parapet + buzlu cam şerit + çerçevesiz katlanır cam. Kat kat: K0 şeffaf (ağaç arkasında, kısmen), K1 belirgin yeşil cam, K2 şeffaf ama batı ucunda (u 3.6–6.14 görünen) beyaz yatay zebra stor (e0 yan yüzünde de), K3 şeffaf (içeride eşya), K4 şeffaf + üst yarıda inik beyaz stor, K5 şeffaf. Üstte gri eğik şapka (alınlık eğimi), altı beyaz."
     }
   ],
   "notes": [
@@ -226,8 +1569,27 @@
     "Sıva: alt 3 kat (K0–K2) beyaz, üst 3 kat + alınlıklar açık mavi-gri (plaster2); sınır K2 lentosunun ~0.5 m üstünde, bütün cephelerde.",
     "Ön (batı) kanatlarda: altta dar tek pencere + dar şerit çifti, üstte 3 kanatlı fransız pencere (paslanmaz yatay korkuluk) + geniş şerit çifti; şerit çiftleri K2/K3 arasında ~0.7 m kesilir. Alınlık ve doğu cephelerinde şerit çiftleri iki bölgede aynı hizada; alınlıkta üst şeritler eğime kadar çıkar.",
     "Köşe balkon yığınları (4 köşe, hepsi taban izinin İÇİNDE): batı köşeleri e11/e5 çıkıntılarıdır — ön yüz (parapet) kenar çizgisinde → bal.d = 0; balkon içeri doğru e10/e6 kadar uzanır, arka duvar e9/e7 hizasında (üretici bu aralıkta kenar duvarı yerine balkon boşluğu açmalı). Fotoğraf + hava fotoğrafına göre gerçek derinlik ~1.45 m, genişlik ~4.9 m (taban izinde e10=2.18, e11=5.75 fazla; e0 ~0.6 m uzun). Yan yüzleri e0/e4 ile aynı düzlemde: d:0 kayıtları yığının yan yüzüdür, ayrı balkon değil. Doğu köşeleri taban izi köşesine gömülü loggia (e8 boyunca ~3.6 / 3.0 m, alınlık cephesinde ~1.8 / 1.5 m).",
-    "Balkon korkuluğu: koyu gri döşeme alnı + buzlu cam korkuluk; cam balkonlar çerçevesiz katlanır cam, bazılarında zebra stor.",
     "Detaylar: yığın–duvar birleşimlerinde beyaz yağmur borusu; ön kanatlarda her katta kombi baca çıkışı (kısa koyu boru, e0 u≈2.5 / e4 u≈6.0); duvar üstünde ince kablo çizgileri; girinti yan duvarında K0'da klima; doğu saçağında çanak anten.",
-    "Belirsizlikler: e7/e8/e9 ortofotoları çok eğik (u ±0.4); e8 bulanık; e2 merdiven pencereleri derinlik düzeltmesiyle; giriş kapısı görülmedi (ikizden); plinth görülmedi (çit arkasında); doğu loggialarının cam katları kısmen tahmin."
+    "Belirsizlikler: e7/e8/e9 ortofotoları çok eğik (u ±0.4); e8 bulanık; e2 merdiven pencereleri derinlik düzeltmesiyle; giriş kapısı görülmedi (ikizden); plinth görülmedi (çit arkasında); doğu loggialarının cam katları kısmen tahmin.",
+    "v-retro (kat kat yeniden inceleme, 40° yakın kareler): bütün yığın/loggia korkulukları aynı tip: döşeme alnı + koyu gri dolu parapet (döşemeden ≈0.58 m; görünen toplam bant ≈0.75 m) + üstünde ≈0.3 m buzlu cam şerit, alüminyum küpeşte → rail 'glass', parapetH 0.58. Cam balkonlar çerçevesiz/ince beyaz dikmeli katlanır cam; kat kat tintler kenar notlarında.",
+    "Renkler (güneşli / gölgeli): alt sıva beyaz #f1f2ed (güneşte ortofoto #fcfefe aşırı pozlu, 1Jme 46 yakın #fbfbf5–#e7e6e1; gölgede e0/e4 #a0a1a1–#a4a5a3); üst sıva açık mavi-gri #dde1e1 (güneşte #dbe0e0–#e8eae2; gölgede #899099/#88929b — gölgede beyazdan belirgin koyu ve mavimsi); turuncu şerit #df8d47 (gölgede #9c612f/#956234, güneşte ortofoto aşırı pozlu #f0cba2 → gölge/güneş oranından türetildi); balkon alnı/parapet #a6a9a2 (güneşte #a0a49c–#bfc4b8, gölgede #4b5256–#5d6c7e); yığın şapkası gri sıva güneşte #cbccc6; saçak alın bandı gölgede #636b74 / #5c6464; soffit beyaz-açık gri (krem değil).",
+    "Eleştirmen notları: (1) 'beyaz/krem kalın balkon alnı' bu blokta geçerli değil — alınlar koyu gri, kalınlık parapetle birlikte ≈0.75 m görünen (doğru). (2) Pilastr: bu bloktaki tek pilastr turuncu yuvarlak şeritler (strip ile çizili); başka pilastr yok. (3) Soffit rengi krem → açık gri-beyaz yapıldı.",
+    "Görülmeyenler: e6 ve e10 (yığınların iç yan yüzleri) — camlı varsayıldı; e7 girişi (ikizden); e8/e9 perdeleri (uzak, çözünürlük yok); K0 satırlarının bir kısmı çit/palmiye/ağaç arkasında; subasman (çit arkasında) görülmedi."
+  ],
+  "pending": [
+    {
+      "what": "Köşe yığını şapkası rengi",
+      "color": "#cbccc6",
+      "edges": [
+        5,
+        11
+      ],
+      "note": "KB/GB yığınlarının üstündeki gri eğik 'şapka' (alınlık eğiminin devamı, alt kenarı düz) güneşte #cbccc6 (1Jme 46_32) — balkon alnından (#a6a9a2) açık; üretici şapkayı fascia rengiyle çiziyorsa ayrı renk gerekir."
+    },
+    {
+      "what": "Saçak alın bandı rengi",
+      "color": "#8f979e",
+      "note": "Batı/doğu saçağının ~0.95 m koyu gri alın bandı gölgede #636b74 / #5c6464 (e0/e4), güneşte ~#8f979e (tahmini, gölge/güneş oranı). Balkon alnıyla aynı palet anahtarını kullanıyorsa daha koyu ayrı renk gerekir."
+    }
   ]
 }
