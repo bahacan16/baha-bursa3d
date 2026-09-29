@@ -78,7 +78,7 @@
 - **f9bdb42** — Kullanıcı kalite kuralları `CLAUDE.md` §0'a yazıldı (tahmin yok, kat kat inceleme, en ince
   detay, dükkân tabelaları, Street View'a sadık sokak/ağaç/asfalt hasarı). **Blender:** aynı kurallar Blender
   tarafında da geçerli — görülmeyen detay uydurulmaz, veri dosyalarındaki her öğe aynen çizilir.
-- **(bu commit)** — Üretici yeni özellikler (kullanıcı kuralı: kat kat detay, tahmin yok):
+- **51e642f** — Üretici yeni özellikler (kullanıcı kuralı: kat kat detay, tahmin yok):
   - Balkon `bal` kat kat: `rail` (kat → glass | glassFull | tube | bars | solid | solidTube | none), `fasciaC`
     (kat → alın/parapet rengi), `railC` (metal rengi), `parapetH` (kat → dolu parapet yüksekliği). Varsayılan
     eskisi gibi `glass` (0.38 m dolu parapet + buzlu cam). Loca balkonlar da aynı.
