@@ -100,7 +100,8 @@ export function granularTextures(
   const img = g.createImageData(N, N);
   const nimg = ng.createImageData(N, N);
   const [br, bg, bb] = hexRgb(base);
-  const mA = opts.mottle ?? 0.05;
+  // Eleştirmen: gerçek sıva düzgün ince gren; metre ölçekli bulut lekeleri yok (0.05 → 0.018)
+  const mA = opts.mottle ?? 0.018;
   const sA = opts.speck ?? 0.05;
   const bump = opts.bump ?? 1.6;
   for (let y = 0; y < N; y++)
@@ -210,8 +211,8 @@ vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
     if (kind > 0.5) {
       // Yan perdeler (fon perde, iki yanda ~%12–16, camın arkasında loş; kırmızı fon seyrek)
       float side = step(uv.x, 0.12 + 0.04 * h1(seed)) + step(0.88 - 0.04 * h1(seed + 1.0), uv.x);
-      vec3 drape = mix(vec3(0.3, 0.24, 0.19), vec3(0.46, 0.4, 0.33), h1(seed * 5.3));
-      drape = mix(drape, vec3(0.36, 0.15, 0.13), step(0.9, h1(seed * 9.1)));
+      // Eleştirmen: gerçekte çoğunlukla beyaz tül; yan perde krem-bej, düşük kontrast (kahverengi kareler yok)
+      vec3 drape = mix(vec3(0.44, 0.42, 0.38), vec3(0.54, 0.52, 0.48), h1(seed * 5.3));
       float df = 0.75 + 0.25 * sin(x * 22.0);
       col = mix(col, drape * df, min(side, 1.0));
     }
@@ -237,7 +238,8 @@ vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
     vec3 shop = mix(vec3(0.035, 0.037, 0.04), vec3(0.075, 0.075, 0.07), smoothstep(0.0, 1.0, uv.y));
     float spot = step(0.9, uv.y) * step(0.7, fract(x * 0.8 + h1(seed)));
     float shelf = step(uv.y, 0.45) * step(0.35, fract(x * 0.45 + h1(seed * 2.0))) * (0.6 + 0.4 * step(0.5, fract(y * 3.3)));
-    col = shop + vec3(0.5, 0.48, 0.44) * spot * 0.35 + vec3(0.1, 0.095, 0.09) * shelf;
+    // Koyu, şeffaf vitrin: raf siluetleri çok hafif (kahverengi opak panel gibi görünmesin)
+    col = shop * 0.8 + vec3(0.5, 0.48, 0.44) * spot * 0.25 + vec3(0.035, 0.035, 0.035) * shelf;
   }
   return col;
 }
@@ -259,7 +261,7 @@ float lit = step(0.45, h1(seed * 17.3));
 totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-winglass-v3';
+  m.customProgramCacheKey = () => 'mk-winglass-v4';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   return m;
@@ -300,31 +302,30 @@ float tint = vAux.y; // 0 açık, 1 yeşil, 2 koyu, 3 perdeli
 float x = vWUv.x;
 float y = vWUv.y;
 float panel = floor(x / 0.72);
-// Derzler (çerçevesiz panel kenarları ~0.72 m) + alt/üst alüminyum profil
-// (Önceki sürümde smoothstep kenarları tersti → GLSL'de tanımsız, tüm panel çerçeve rengine dönüp beyaz çıkıyordu)
-float joint = smoothstep(0.455, 0.475, abs(fract(x / 0.72) - 0.5));
+// Derzler (çerçevesiz panel kenarları ~0.72 m, ince beyaz/açık gri profil) + alt/üst alüminyum profil
+float joint = smoothstep(0.462, 0.478, abs(fract(x / 0.72) - 0.5));
 float prof = step(y, 0.035) + step(0.965, y);
-// Balkon içi: tavan açık, zemin koyu; paneller arası hafif ton farkı (katlanır camların açısı)
-// Street View: cam balkonlar koyu mavi-lacivert bant (~50,75,100): içerisi karanlık, yansıma mavimsi
-vec3 inside = mix(vec3(0.035, 0.05, 0.07), vec3(0.08, 0.1, 0.13), smoothstep(0.0, 1.0, y));
-inside *= 0.9 + 0.2 * h1(panel + seed);
+// Eleştirmen (yakın plan): cam balkon = şeffaf cam, arkasında ince BEYAZ TÜL, gökyüzü yansıması; panel başına
+// rastgele parlaklık mozaik gibi görünüyordu → kaldırıldı. Balkon içi karanlık, tül yumuşak dikey kıvrımlı.
+vec3 inside = mix(vec3(0.03, 0.036, 0.045), vec3(0.075, 0.085, 0.1), smoothstep(0.0, 1.0, y));
+float fold = 0.5 + 0.5 * sin(x * 21.0 + sin(x * 3.1 + seed) * 1.7);
+vec3 tul = vec3(0.5, 0.51, 0.52) * (0.93 + 0.07 * fold);
 if (tint > 2.5) {
-  // Zebra / stor perde camın arkasında: kırık beyaz-krem bantlar, cam geçirgenliğiyle loş (önceden nane yeşili pasteldi)
-  float band = step(0.5, fract(y * 7.0 + h1(seed)));
-  inside = mix(vec3(0.34, 0.33, 0.31), vec3(0.46, 0.45, 0.42), band) * (0.9 + 0.2 * h1(panel + seed));
+  // "blinds": tül/stor daha yoğun ve açık (şerit değil)
+  inside = mix(inside, tul * 1.08, 0.82);
 } else if (tint > 0.5 && tint < 1.5) {
   // Yeşil camlı: yansıyan ağaçlar + cam kenar tonu
   inside = inside * vec3(0.72, 1.05, 0.9) + vec3(0.02, 0.09, 0.06);
 } else if (tint > 1.5) {
   inside *= 0.55;
 } else {
-  // Açık: tül / eşya lekeleri
-  float cur = step(0.55, h1(panel + seed * 3.0));
-  inside = mix(inside, vec3(0.4, 0.41, 0.4), cur * 0.35);
+  // Şeffaf: çoğu dairede ince tül (yükseklik ~%85, alt kenar yumuşak), bazılarında açık
+  float has = step(0.25, h1(seed * 3.0 + floor(x / 2.9)));
+  inside = mix(inside, tul, 0.62 * has * smoothstep(0.06, 0.16, y));
 }
-// Sahte gökyüzü yansıması (yukarı bakan camlarda güçlü)
-inside += vec3(0.07, 0.085, 0.1) * (0.6 + 0.4 * y);
-vec3 frameCol = vec3(0.62, 0.64, 0.66);
+// Gökyüzü yansıması (yukarı doğru güçlenen, yumuşak)
+inside += vec3(0.06, 0.072, 0.088) * (0.55 + 0.45 * y);
+vec3 frameCol = vec3(0.68, 0.7, 0.71);
 diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
       )
       .replace(
@@ -333,7 +334,7 @@ diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
 totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 0.55);`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-camglass-v4';
+  m.customProgramCacheKey = () => 'mk-camglass-v5';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   return m;

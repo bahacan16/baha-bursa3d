@@ -1,1152 +1,1153 @@
 {
-  "id": 1546358554,
-  "name": "Şehr-i Bursa Evleri",
-  "storeys": 6,
-  "groundRaise": 0.2,
-  "floorH": 2.95,
-  "roof": {
-    "kind": "hipped",
-    "eave": 0.05,
-    "fasciaH": 0.3,
-    "pitch": 22,
-    "gables": [
-      0,
-      2,
-      4,
-      6,
-      10,
-      12,
-      14
-    ],
-    "eaveY": {
-      "edge": 19,
-      "y": 12.4
-    }
-  },
-  "colors": {
-    "plaster": "#666f71",
-    "plaster2": "#a2a6a4",
-    "strip": "#6f777e",
-    "fascia": "#acafa8",
-    "soffit": "#8a8d88",
-    "tile": "#9f847b"
-  },
-  "notes": [
-    "Şehr-i Bursa Evleri sitesinin bloğu (site kapısı tabelası doğu sokakta, blok üzerinde ad levhası görülmedi; GD yığınının K1 döşeme alnında küçük '8' numara levhası). 1546358562 ile aynı müteahhit dili: koyu antrasit + açık gri sıva, beyaz balkon alınları, paslanmaz borulu korkuluklar, katlanır cam balkonlar, pencere sütunlarının yanında sıva renginde yükseltilmiş pilastrlar.",
-    "Kat: 6 normal kat K0–K5 + ortada çatı katı. K0 sokak kotunda (kuzey/doğu/batıda çit ve çalı arkasında; kuzeyde beyaz doğramalı kapı + diyafon ve pencere), K0 döşemesi ≈0.2. Kuzey orta duvarda 6 sıra + en üstte (K6) çatı katı penceresi var; K6 yalnız kuzey/güney orta alınlık duvarlarında (kenar 2, 12) — s:[6,6] olarak yazıldı, üretici kat sayısı dışında bırakır. Kat yüksekliği 2.95 (6Bi, kenar 2: lentolar 5.38/8.34/11.30/14.25/17.20/20.20).",
-    "Kütle: kuzeyde KD (kenar 0) ve KB (kenar 4) loca yığınları taban izinin çıkıntılarıdır (ön yüzleri kenar çizgisiyle çakışır, yan duvarları kenar 1/3), aralarında koyu orta duvar (kenar 2). Güneyde simetrik: GB loca (kenar 10), koyu orta duvar (12), GD yığın (14 — bu yığın taban izinin ~1.4 m dışına taşan konsol balkonlar). Batı kanadının KB köşesinde köşeyi dönen loca (kenar 6 + 7). Doğuda merdiven kovası girintisi (16–18) iki düz kütleyi ayırır.",
-    "Loca derinlikleri: KD 1.15 (kenar 1), KB 1.30 (kenar 3), GB 1.22 (kenar 11) taban izi dönüşlerinden; batı (kenar 6/7) locası ölçülemedi, KB ile aynı 1.3 varsayıldı; GD konsol derinliği 1.4 doğu karelerindeki çıkıntıdan (görünen 1.06 m / ölçek 0.62, büyütme düzeltmeli) tahmini.",
-    "Cam/açık düzeni: KD K1–K5 hepsi cam; KB ve batı locası K1 açık, K2 açık, K3 cam (batıda koyu/siyahımsı cam, batı yüzünde beyaz-gri perdeler), K4 cam, K5 açık; GB K1 açık (çanak), K2 açık, K3 cam, K4 açık, K5 açık (çanak); GD K1 cam (koyu), K2–K4 açık (K2 korkuluk arkası siyah file), K5 cam. Tüm yığınlarda K3 döşeme alnı koyu gri (fasciaC K3 #5e5f5a), diğerleri beyaz; loca tavanlarında aplik. Korkuluklar kat kat: tüm yığınlarda her katta yatay paslanmaz borulu (tube, #aaafaf; camlı katlarda da camın arkasında borulu korkuluk görünür) — tek istisna KD K5: boru yok, cam döşemeden iner, ≈0.9 m’de beyaz yatay kayıt + alt sıra sabit camlar (glassFull). GD K2 korkuluğunun arkasında siyah file/perde gererli (şemada karşılığı yok). GB K3 camı gri dikey şeritli (stor/jaluzi → blinds).",
-    "Yığınların üstünde (K5 üstü) açık gri dolu parapet/alınlık kutuları (localarda taban izi hizasında → panel; GD konsol yığınında 1.4 m dışarıda → proj, ancak proj düz üstlü: doğu ucu ≈18.4’e kadar yazıldı, batıya doğru ≈21.5’e yükselen eğimli kısım ifade edilemedi): üst kenarları çatı mahyasına doğru eğimli yükselir (KD 18.0→21.2, KB 20.6→21.9, orta duvar tepe 22.7; güneyde de aynı). Çatı: kiremit, kuzey–güney ana mahya (x≈177) + doğu–batı mahya (z≈−136), ortada düz alanda güneş enerjili su ısıtıcıları/depolar (hava fotoğrafı). Doğu cephesinde düz parapet (saçak yok, K5 üstünde ≈0.4 m); merdiven kovası parapetin üstüne çıkar (proj, kenar 17; gerçekte ≈3.5 m genişliğinde kutu, güney ve kuzey kütlelerin parapet arkasına da uzanır, derinliği görülmedi). kind 'hipped' + gables [0,2,4,6,10,12,14] bu eğimli alın duvarlarını temsil eder; eğim ≈22° (kuzey alınlık çizgisinden).",
-    "Yan cepheler (doğu 15/19, batı 5): kat kat yatay açık/koyu gri bantlar (K0 koyu, K1 açık, K2 koyu, K3 açık, K4 koyu, K5 açık), 3 bölmeli beyaz PVC pencere sütunu, iki yanında banda göre renk alan yükseltilmiş pilastrlar (parapet üstünde küçük çıkıntılarla biter), köşelere yakın her katta küçük siyah duvar lambaları, GD köşesinde ve batı (kenar 5 güney ucu) yağmur boruları.",
-    "Renkler (colors = doğu/güney dağınık gün ışığı, ham karelerden): koyu sıva #666f71 (kuzey gölgede #30404a–#465360), açık gri #a2a6a4 (kuzey gölgede #7b8b9b–#808b99), pilastr ≈ duvar rengi (kuzeyde #3b4b57 gölge), balkon alınları beyaz #acafa8 (kuzey #8d99a9–#9aa5b2), K3 koyu alın #5e5f5a, loca tavanı #8a8d88, K6 parapet kutusu #9da7af, kiremit #9f847b (hava fotoğrafı). Pencere doğraması beyaz PVC (ince, güvenilir örneklenemedi → yazılmadı); cam korkuluk yok (borulu), subasman çit arkasında görülmedi.",
-    "Pano konumları güvenilmez: kuzey sırası (nxqv/5Owm/RW5/4hcO/TRta) ≈2.5–3 m uzak, doğu sırası (HVLz/MeHp/l07h/jeEb) 4–6 m uzak görünüyor (görünen kat aralığı 2.5 / 1.85). Bu yüzden görünen ölçüler cal.u/cal.head ile kalibre edildi; konsol/loca büyütme düzeltmesi bu kenarlarda yaklaşık. Güney ve kısa kenarlar gerçek metreyle (ref’siz) yazıldı.",
-    "Taban izi: 6Bi karesindeki göreli ölçüye göre (kuzey orta duvar ≈4.8 m, KB yığın ön yüzü ≈4.3 m) köşe 3–4 0.6 m doğuya alındı (kenar 2 = 4.91, kenar 4 = 4.52). KD yığın genişliği iz ile uyumlu (5.35/5.36). 6Bi’de tüm kuzey cephesi ≈0.9 m doğuya kaymış görünüyor, ancak bu pano konum hatası da olabilir."
+ "id": 1546358554,
+ "name": "Şehr-i Bursa Evleri",
+ "storeys": 6,
+ "groundRaise": 0.2,
+ "floorH": 2.95,
+ "roof": {
+  "kind": "hipped",
+  "eave": 0.05,
+  "fasciaH": 0.3,
+  "pitch": 22,
+  "gables": [
+   0,
+   2,
+   4,
+   6,
+   10,
+   12,
+   14
   ],
-  "edges": [
+  "eaveY": {
+   "edge": 19,
+   "y": 12.4
+  }
+ },
+ "colors": {
+  "plaster": "#707a7e",
+  "plaster2": "#a2a6a4",
+  "strip": "#6f777e",
+  "fascia": "#acafa8",
+  "soffit": "#8a8d88",
+  "tile": "#9f847b"
+ },
+ "notes": [
+  "Şehr-i Bursa Evleri sitesinin bloğu (site kapısı tabelası doğu sokakta, blok üzerinde ad levhası görülmedi; GD yığınının K1 döşeme alnında küçük '8' numara levhası). 1546358562 ile aynı müteahhit dili: koyu antrasit + açık gri sıva, beyaz balkon alınları, paslanmaz borulu korkuluklar, katlanır cam balkonlar, pencere sütunlarının yanında sıva renginde yükseltilmiş pilastrlar.",
+  "Kat: 6 normal kat K0–K5 + ortada çatı katı. K0 sokak kotunda (kuzey/doğu/batıda çit ve çalı arkasında; kuzeyde beyaz doğramalı kapı + diyafon ve pencere), K0 döşemesi ≈0.2. Kuzey orta duvarda 6 sıra + en üstte (K6) çatı katı penceresi var; K6 yalnız kuzey/güney orta alınlık duvarlarında (kenar 2, 12) — s:[6,6] olarak yazıldı, üretici kat sayısı dışında bırakır. Kat yüksekliği 2.95 (6Bi, kenar 2: lentolar 5.38/8.34/11.30/14.25/17.20/20.20).",
+  "Kütle: kuzeyde KD (kenar 0) ve KB (kenar 4) loca yığınları taban izinin çıkıntılarıdır (ön yüzleri kenar çizgisiyle çakışır, yan duvarları kenar 1/3), aralarında koyu orta duvar (kenar 2). Güneyde simetrik: GB loca (kenar 10), koyu orta duvar (12), GD yığın (14 — bu yığın taban izinin ~1.4 m dışına taşan konsol balkonlar). Batı kanadının KB köşesinde köşeyi dönen loca (kenar 6 + 7). Doğuda merdiven kovası girintisi (16–18) iki düz kütleyi ayırır.",
+  "Loca derinlikleri: KD 1.15 (kenar 1), KB 1.30 (kenar 3), GB 1.22 (kenar 11) taban izi dönüşlerinden; batı (kenar 6/7) locası ölçülemedi, KB ile aynı 1.3 varsayıldı; GD konsol derinliği 1.4 doğu karelerindeki çıkıntıdan (görünen 1.06 m / ölçek 0.62, büyütme düzeltmeli) tahmini.",
+  "Cam/açık düzeni: KD K1–K5 hepsi cam; KB ve batı locası K1 açık, K2 açık, K3 cam (batıda koyu/siyahımsı cam, batı yüzünde beyaz-gri perdeler), K4 cam, K5 açık; GB K1 açık (çanak), K2 açık, K3 cam, K4 açık, K5 açık (çanak); GD K1 cam (koyu), K2–K4 açık (K2 korkuluk arkası siyah file), K5 cam. Tüm yığınlarda K3 döşeme alnı koyu gri (fasciaC K3 #5e5f5a), diğerleri beyaz; loca tavanlarında aplik. Korkuluklar kat kat: tüm yığınlarda her katta yatay paslanmaz borulu (tube, #aaafaf; camlı katlarda da camın arkasında borulu korkuluk görünür) — tek istisna KD K5: boru yok, cam döşemeden iner, ≈0.9 m’de beyaz yatay kayıt + alt sıra sabit camlar (glassFull). GD K2 korkuluğunun arkasında siyah file/perde gererli (şemada karşılığı yok). GB K3 camı gri dikey şeritli (stor/jaluzi → blinds).",
+  "Yığınların üstünde (K5 üstü) açık gri dolu parapet/alınlık kutuları (localarda taban izi hizasında → panel; GD konsol yığınında 1.4 m dışarıda → proj, ancak proj düz üstlü: doğu ucu ≈18.4’e kadar yazıldı, batıya doğru ≈21.5’e yükselen eğimli kısım ifade edilemedi): üst kenarları çatı mahyasına doğru eğimli yükselir (KD 18.0→21.2, KB 20.6→21.9, orta duvar tepe 22.7; güneyde de aynı). Çatı: kiremit, kuzey–güney ana mahya (x≈177) + doğu–batı mahya (z≈−136), ortada düz alanda güneş enerjili su ısıtıcıları/depolar (hava fotoğrafı). Doğu cephesinde düz parapet (saçak yok, K5 üstünde ≈0.4 m); merdiven kovası parapetin üstüne çıkar (proj, kenar 17; gerçekte ≈3.5 m genişliğinde kutu, güney ve kuzey kütlelerin parapet arkasına da uzanır, derinliği görülmedi). kind 'hipped' + gables [0,2,4,6,10,12,14] bu eğimli alın duvarlarını temsil eder; eğim ≈22° (kuzey alınlık çizgisinden).",
+  "Yan cepheler (doğu 15/19, batı 5): kat kat yatay açık/koyu gri bantlar (K0 koyu, K1 açık, K2 koyu, K3 açık, K4 koyu, K5 açık), 3 bölmeli beyaz PVC pencere sütunu, iki yanında banda göre renk alan yükseltilmiş pilastrlar (parapet üstünde küçük çıkıntılarla biter), köşelere yakın her katta küçük siyah duvar lambaları, GD köşesinde ve batı (kenar 5 güney ucu) yağmur boruları.",
+  "Renkler (colors = doğu/güney dağınık gün ışığı, ham karelerden): koyu sıva #666f71 (kuzey gölgede #30404a–#465360), açık gri #a2a6a4 (kuzey gölgede #7b8b9b–#808b99), pilastr ≈ duvar rengi (kuzeyde #3b4b57 gölge), balkon alınları beyaz #acafa8 (kuzey #8d99a9–#9aa5b2), K3 koyu alın #5e5f5a, loca tavanı #8a8d88, K6 parapet kutusu #9da7af, kiremit #9f847b (hava fotoğrafı). Pencere doğraması beyaz PVC (ince, güvenilir örneklenemedi → yazılmadı); cam korkuluk yok (borulu), subasman çit arkasında görülmedi.",
+  "Pano konumları güvenilmez: kuzey sırası (nxqv/5Owm/RW5/4hcO/TRta) ≈2.5–3 m uzak, doğu sırası (HVLz/MeHp/l07h/jeEb) 4–6 m uzak görünüyor (görünen kat aralığı 2.5 / 1.85). Bu yüzden görünen ölçüler cal.u/cal.head ile kalibre edildi; konsol/loca büyütme düzeltmesi bu kenarlarda yaklaşık. Güney ve kısa kenarlar gerçek metreyle (ref’siz) yazıldı.",
+  "Taban izi: 6Bi karesindeki göreli ölçüye göre (kuzey orta duvar ≈4.8 m, KB yığın ön yüzü ≈4.3 m) köşe 3–4 0.6 m doğuya alındı (kenar 2 = 4.91, kenar 4 = 4.52). KD yığın genişliği iz ile uyumlu (5.35/5.36). 6Bi’de tüm kuzey cephesi ≈0.9 m doğuya kaymış görünüyor, ancak bu pano konum hatası da olabilir.",
+  "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster': '#666f71'} → {'plaster': '#707a7e'}"
+ ],
+ "edges": [
+  {
+   "edge": 0,
+   "len": 5.36,
+   "seen": "photo",
+   "ref": "1546358554_0_6Bi-PCcx.jpg",
+   "cal": {
+    "u": [
+     -0.33,
+     5
+    ],
+    "head": [
+     [
+      1,
+      5.45
+     ],
+     [
+      5,
+      17.05
+     ]
+    ]
+   },
+   "items": [
     {
-      "edge": 0,
-      "len": 5.36,
-      "seen": "photo",
-      "ref": "1546358554_0_6Bi-PCcx.jpg",
-      "cal": {
-        "u": [
-          -0.33,
-          5
-        ],
-        "head": [
-          [
-            1,
-            5.45
-          ],
-          [
-            5,
-            17.05
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": -0.33,
-          "u1": 4.8,
-          "d": 0,
-          "inset": 1.15,
-          "s": [
-            1,
-            5
-          ],
-          "glazed": [
-            1,
-            2,
-            3,
-            4,
-            5
-          ],
-          "tint": {
-            "1": "clear",
-            "2": "clear",
-            "3": "clear",
-            "4": "clear",
-            "5": "clear"
-          },
-          "sides": "end-wall",
-          "rail": {
-            "*": "tube",
-            "K5": "glassFull"
-          },
-          "fasciaC": {
-            "K3": "#5e5f5a"
-          },
-          "railC": "#aaafaf"
-        },
-        {
-          "t": "panel",
-          "u0": -0.33,
-          "u1": 5,
-          "y0": 18,
-          "y1": 20.8,
-          "color": "plaster2"
-        }
-      ],
-      "note": "6Bi referans (SyTa/nxqv/5Owm teyit). KD köşe cam balkon yığını: K1–K5 tüm katlar çerçevesiz katlanır cam (K3 mavi gök yansıması, K5 alt kısmında sabit cam şerit), beyaz döşeme alınları, K3 döşeme alnı koyu gri; doğu yanı da camlı (köşeyi döner), batı yanı dolu duvar. Yığın ön yüzü taban izi kenarıyla çakışıyor (genişlik 5.35 = kenar 5.36) → içe gömük loca (d 0, derinlik ≈ kenar 1 = 1.15). K5 üstünde açık gri, üst kenarı batıya doğru yükselen (18.0→21.2) dolu parapet/alınlık duvarı. K0 (zemin, sokak kotu) çit/çam arkasında: koyu duvar."
+     "t": "bal",
+     "u0": -0.33,
+     "u1": 4.8,
+     "d": 0,
+     "inset": 1.15,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "tint": {
+      "1": "clear",
+      "2": "clear",
+      "3": "clear",
+      "4": "clear",
+      "5": "clear"
+     },
+     "sides": "end-wall",
+     "rail": {
+      "*": "tube",
+      "K5": "glassFull"
+     },
+     "fasciaC": {
+      "K3": "#5e5f5a"
+     },
+     "railC": "#aaafaf"
     },
     {
-      "edge": 1,
-      "len": 1.18,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          1.18
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [],
-      "note": "KD locasının batı yan duvarı (dolu). nxqv karesinde çok eğik; ayrıntı okunamadı. Açık gri pano şeridi kenar 2 başına yazıldı."
-    },
-    {
-      "edge": 2,
-      "len": 4.91,
-      "seen": "photo",
-      "ref": "1546358554_2_6Bi-PCcx.jpg",
-      "cal": {
-        "u": [
-          -0.1,
-          4.75
-        ],
-        "head": [
-          [
-            1,
-            5.38
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "win",
-          "u0": 0.31,
-          "u1": 1.5,
-          "y0": 4.15,
-          "y1": 5.38,
-          "k": 1,
-          "s": [
-            1,
-            5
-          ],
-          "curt": {
-            "1": "tul",
-            "2": "tul-yan",
-            "3": "karanlik",
-            "4": "stor",
-            "5": "tul"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 0.31,
-          "u1": 1.5,
-          "y0": 18.9,
-          "y1": 20.2,
-          "k": 6,
-          "s": [
-            6,
-            6
-          ],
-          "curt": {
-            "6": "tul"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 3,
-          "u1": 4.37,
-          "y0": 4,
-          "y1": 5.38,
-          "k": 1,
-          "s": [
-            1,
-            5
-          ],
-          "curt": {
-            "1": "tul-yan",
-            "2": "tul-yan",
-            "3": "tul",
-            "4": "tul",
-            "5": "tul"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 3,
-          "u1": 4.37,
-          "y0": 18.85,
-          "y1": 20.2,
-          "k": 6,
-          "s": [
-            6,
-            6
-          ],
-          "curt": {
-            "6": "tul"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 3.06,
-          "u1": 4.25,
-          "y0": 1.19,
-          "y1": 2.44,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "curt": {
-            "0": "karanlik"
-          }
-        },
-        {
-          "t": "strip",
-          "u": 2.88,
-          "w": 0.28,
-          "y0": 3.1,
-          "y1": 8.6
-        },
-        {
-          "t": "strip",
-          "u": 2.88,
-          "w": 0.28,
-          "y0": 9.8,
-          "y1": 22.6
-        },
-        {
-          "t": "strip",
-          "u": 4.61,
-          "w": 0.28,
-          "y0": 3.1,
-          "y1": 8.6
-        },
-        {
-          "t": "strip",
-          "u": 4.61,
-          "w": 0.28,
-          "y0": 9.8,
-          "y1": 22.6
-        },
-        {
-          "t": "panel",
-          "u0": -0.1,
-          "u1": 0.25,
-          "y0": 3.1,
-          "y1": 6.1,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": -0.1,
-          "u1": 0.25,
-          "y0": 11.9,
-          "y1": 15.3,
-          "color": "plaster2"
-        }
-      ],
-      "note": "6Bi referans (nxqv teyit; nxqv ~2.5 m uzak pano konumu → kat aralığı 2.5 görünür). Kuzey orta koyu antrasit duvar: iki pencere sütunu — doğuda dar (≈1.2 m, 2 kanat), batıda geniş (≈1.4 m, 2 kanat, iki yanında duvar renginde yükseltilmiş pilastr şeritleri: alt parça K0 üstü→K1 lentosunun üstünde sivri uçla biter, üst parça K2 denizliğinden çatı parapetine). K0 (sokak kotu) batı sütun altında beyaz doğramalı pencere, solunda beyaz kapı + diyafon (ağaç arkasında, u ≈1.5–2.3, yazılmadı). En üstte (K6 hizası, lento 20.2) çatı katı pencereleri: duvar burada parapet/alınlık olarak 21.3→22.7 (tepe u≈2.8)→22.1 yükselir. Doğu ucunda (KD locası yanı) K1 ve K4 hizasında açık gri pano şeritleri. Perdeler 6Bi 40° karelerinden."
-    },
-    {
-      "edge": 3,
-      "len": 1.32,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          1.32
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 1.32,
-          "y0": 3,
-          "y1": 6,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 1.32,
-          "y0": 11.9,
-          "y1": 14.9,
-          "color": "plaster2"
-        }
-      ],
-      "note": "KB locasının doğu yan duvarı; 6Bi karesinde eğik görünür: K1 ve K4 hizasında açık gri, diğer katlar koyu. u/y gerçek metre."
-    },
-    {
-      "edge": 4,
-      "len": 4.52,
-      "seen": "photo",
-      "ref": "1546358554_4_6Bi-PCcx.jpg",
-      "cal": {
-        "u": [
-          -0.03,
-          4.28
-        ],
-        "head": [
-          [
-            1,
-            5.45
-          ],
-          [
-            5,
-            17.45
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": 0.19,
-          "u1": 4.06,
-          "d": 0,
-          "inset": 1.3,
-          "s": [
-            1,
-            5
-          ],
-          "glazed": [
-            3,
-            4
-          ],
-          "tint": {
-            "3": "clear",
-            "4": "clear"
-          },
-          "sides": "wall",
-          "rail": {
-            "*": "tube"
-          },
-          "fasciaC": {
-            "K3": "#5e5f5a"
-          },
-          "railC": "#aaafaf"
-        },
-        {
-          "t": "panel",
-          "u0": -0.03,
-          "u1": 4.28,
-          "y0": 17.7,
-          "y1": 21,
-          "color": "plaster2"
-        }
-      ],
-      "note": "6Bi referans (5Owm/nxqv/RW5/4hcO teyit). KB loca yığını: K1 ve K2 açık (paslanmaz borulu korkuluk, K1 korkuluğunda çiçek saksıları), K3 ve K4 camlı, K5 açık; K3 döşeme alnı koyu gri, diğerleri beyaz; her loca tavanında aplik. Arka duvar açık gri, K1/K2’de 3 bölmeli beyaz sürme balkon kapısı. İki yanı dolu duvar. K5 üstünde açık gri kutu (alt yüzü görünür, üst kenarı doğuya doğru 20.6→21.9 yükselir). K0 (sokak kotu) koyu duvar, beyaz doğramalı kapı/pencere (u≈0.6–1.1)."
-    },
-    {
-      "edge": 5,
-      "len": 4.96,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          4.96
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 4.96,
-          "y0": 3,
-          "y1": 5.95,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 4.96,
-          "y0": 8.9,
-          "y1": 11.85,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 4.96,
-          "y0": 14.8,
-          "y1": 17.9,
-          "color": "plaster2"
-        },
-        {
-          "t": "pipe",
-          "u": 4.8
-        }
-      ],
-      "note": "Batıya bakan duvar (KB locasının batı yan duvarı + W kanadına kadar). 4hcO/TRta/RW5 karelerinde çok eğik: katlara göre açık/koyu gri yatay bantlar (K1 açık, K2 koyu, K3 açık, K4 koyu, K5 + parapet açık — doğu cephesiyle aynı düzen); güney ucunda (W locası köşesi) tam boy yağmur borusu. Pencere görülmedi. u/y gerçek metre."
-    },
-    {
-      "edge": 6,
-      "len": 3.99,
-      "seen": "photo",
-      "ref": "1546358554_6_5OwmjuRT.jpg",
-      "cal": {
-        "u": [
-          1.5,
-          4.97
-        ],
-        "head": [
-          [
-            1,
-            5.16
-          ],
-          [
-            5,
-            15.18
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": 1.5,
-          "u1": 4.97,
-          "d": 0,
-          "inset": 1.3,
-          "s": [
-            1,
-            5
-          ],
-          "glazed": [
-            3,
-            4
-          ],
-          "tint": {
-            "3": "dark",
-            "4": "clear"
-          },
-          "sides": "start-wall",
-          "rail": {
-            "*": "tube"
-          },
-          "fasciaC": {
-            "K3": "#5e5f5a"
-          },
-          "railC": "#aaafaf"
-        },
-        {
-          "t": "panel",
-          "u0": 1.5,
-          "u1": 4.97,
-          "y0": 15.2,
-          "y1": 17.9,
-          "color": "plaster2"
-        }
-      ],
-      "note": "5Owm referans (RW5/nxqv teyit; 5Owm pano konumu ~3 m uzak → görünen kat aralığı 2.5). Batı kanadın kuzey ucunda köşeyi (kenar 7) dönen loca yığını: K1 açık (bank), K2 açık, K3 koyu renkli cam (siyahımsı), K4 şeffaf cam, K5 açık; K3 döşeme alnı koyu gri; arka duvar koyu, beyaz balkon kapısı. Üstte açık gri parapet kutusu, üst kenarı batıya doğru alçalır (18.0→16.8 görünen). Doğu ucu kenar 5 duvarına dayanır."
-    },
-    {
-      "edge": 7,
-      "len": 10.93,
-      "seen": "partial",
-      "ref": "1546358554_7_RW5-4dM-.jpg",
-      "cal": {
-        "u": [
-          5,
-          17.25
-        ],
-        "head": [
-          [
-            2,
-            8.84
-          ],
-          [
-            5,
-            18.7
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": 6.46,
-          "u1": 10.3,
-          "d": 0,
-          "inset": 1.3,
-          "s": [
-            1,
-            5
-          ],
-          "glazed": [
-            3,
-            4
-          ],
-          "tint": {
-            "3": "blinds",
-            "4": "clear"
-          },
-          "sides": "end-wall",
-          "rail": {
-            "*": "tube"
-          },
-          "fasciaC": {
-            "K3": "#5e5f5a"
-          },
-          "railC": "#aaafaf"
-        },
-        {
-          "t": "panel",
-          "u0": 5,
-          "u1": 10.9,
-          "y0": 18,
-          "y1": 20.5,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 10.5,
-          "u1": 12.4,
-          "y0": 0,
-          "y1": 20.5,
-          "color": "plaster2"
-        }
-      ],
-      "note": "RW5 referans (tek, çok eğik, pano konumu hatalı: görünen ölçek ≈1.12 → cal.u güney ucu ölçekten). Kenar 6 locası köşeyi dönüp batı cephede ≈5 m sürer (K2 açık, K3 cam + beyaz/gri perdeler, K4 cam, K5 açık, K3 alnı koyu; K1 ağaç arkasında), sonra açık gri pilastr/duvar (u≈10.5–12.4). Köşedeki ilk 1.3 m kenar 6 locasının derinliği (üretici birleştirmesin diye buradaki loca 1.3 m’den başlatıldı). Kenarın güney yarısı (≈5 m) hiçbir karede görülmedi."
-    },
-    {
-      "edge": 8,
-      "len": 3.86,
-      "seen": "none",
-      "cal": {
-        "u": [
-          0,
-          3.86
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [],
-      "note": "Batı kanadın güney yüzü; görülmedi."
-    },
-    {
-      "edge": 9,
-      "len": 4.06,
-      "seen": "none",
-      "cal": {
-        "u": [
-          0,
-          4.06
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [],
-      "note": "Görülmedi (site içi, batı)."
-    },
-    {
-      "edge": 10,
-      "len": 3.6,
-      "seen": "partial",
-      "ref": "1546358554_10_XBa6arpH.jpg",
-      "cal": {
-        "u": [
-          -0.66,
-          2.33
-        ],
-        "head": [
-          [
-            1,
-            3.77
-          ],
-          [
-            5,
-            13.57
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": -0.66,
-          "u1": 2.13,
-          "d": 0,
-          "inset": 1.22,
-          "s": [
-            1,
-            5
-          ],
-          "glazed": [
-            3
-          ],
-          "tint": {
-            "3": "blinds"
-          },
-          "sides": "end-wall",
-          "rail": {
-            "*": "tube"
-          },
-          "fasciaC": {
-            "K3": "#5e5f5a"
-          },
-          "railC": "#aaafaf"
-        },
-        {
-          "t": "dish",
-          "u": 1.83,
-          "s": 1,
-          "onBal": true
-        },
-        {
-          "t": "dish",
-          "u": 0.67,
-          "s": 5,
-          "onBal": true
-        },
-        {
-          "t": "panel",
-          "u0": -0.66,
-          "u1": 2.33,
-          "y0": 14.9,
-          "y1": 18.7,
-          "color": "plaster2"
-        }
-      ],
-      "note": "XBa6 referans (jeEb teyit; eğik, önünde site kapısı tabelası). GB loca yığını: K1 açık (korkulukta çanak anten), K2 açık, K3 camlı (tabela arkasında, kısmen), K4 açık, K5 açık (çanak anten); üstte açık gri eğik üst kenarlı parapet kutusu. Doğu yanı açık gri dolu duvar (kenar 11). Batı ucu görünmüyor → cal.u batı köşesi ölçekten."
-    },
-    {
-      "edge": 11,
-      "len": 1.22,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          1.22
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 1.22,
-          "y0": 3,
-          "y1": 17.9,
-          "color": "plaster2"
-        }
-      ],
-      "note": "GB locasının doğu yan duvarı: XBa6 karesinde K1–K5 boyunca açık gri. u/y gerçek metre."
-    },
-    {
-      "edge": 12,
-      "len": 5.34,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          5.34
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "win",
-          "u0": 0.55,
-          "u1": 1.65,
-          "y0": 4.15,
-          "y1": 5.4,
-          "k": 1,
-          "s": [
-            1,
-            5
-          ]
-        },
-        {
-          "t": "win",
-          "u0": 0.55,
-          "u1": 1.65,
-          "y0": 18.9,
-          "y1": 20.15,
-          "k": 6,
-          "s": [
-            6,
-            6
-          ]
-        }
-      ],
-      "note": "Güney orta koyu duvar; jeEb/XBa6 karelerinde yalnız batı kısmı (GB locası yanı) görünür: dar pencere sütunu K1–K5 + en üstte çatı katı penceresi (K6). Doğu kısmı GD balkon yığını arkasında → ikinci sütun var mı görülmedi. Tepesi kuzey gibi alınlık biçiminde yükselir. u/y gerçek metre (ortofotolar çok eğik/pano konumları hatalı)."
-    },
-    {
-      "edge": 13,
-      "len": 1.95,
-      "seen": "none",
-      "cal": {
-        "u": [
-          0,
-          1.95
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [],
-      "note": "GD yığınının batı yanındaki girinti yüzü; görülmedi."
-    },
-    {
-      "edge": 14,
-      "len": 5.63,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          5.63
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": 0,
-          "u1": 5.63,
-          "d": 1.4,
-          "s": [
-            1,
-            5
-          ],
-          "glazed": [
-            1,
-            5
-          ],
-          "tint": {
-            "1": "dark",
-            "5": "clear"
-          },
-          "sides": "open",
-          "rail": {
-            "*": "tube"
-          },
-          "fasciaC": {
-            "K3": "#5e5f5a"
-          },
-          "railC": "#aaafaf"
-        },
-        {
-          "t": "proj",
-          "u0": 0,
-          "u1": 5.63,
-          "d": 1.4,
-          "y0": 17.75,
-          "y1": 18.4,
-          "color": "plaster2"
-        },
-        {
-          "t": "sign",
-          "u0": 3.76,
-          "u1": 4,
-          "y0": 3.05,
-          "y1": 3.33,
-          "d": 1.43,
-          "text": "8",
-          "bg": "#5f696a",
-          "fg": "#b9bfc2",
-          "style": "panel",
-          "font": "sans",
-          "bold": true
-        }
-      ],
-      "note": "GD balkon yığını (jeEb/XBa6/MeHp): K1 camlı (koyu), K2 açık (korkuluk arkası siyah file/perde), K3 açık, K4 açık, K5 camlı; K3 döşeme alnı koyu gri, diğerleri beyaz; doğu yanı açık, korkuluk köşeyi döner. Diğer locaların aksine taban izinin ~1.4 m DIŞINA taşar (doğu karelerinde GD köşesinin güneyine çıkıntı yapar; jeEb’de yan yüzleri ve alt yüzleri görünür) → d 1.4. Üstünde açık gri, üst kenarı batıya doğru yükselen parapet kutusu (cap). K1 döşeme alnında küçük \"8\" levhası. u/y gerçek metre."
-    },
-    {
-      "edge": 15,
-      "len": 8.44,
-      "seen": "photo",
-      "ref": "1546358554_15_jeEbP2Mt.jpg",
-      "cal": {
-        "u": [
-          -0.3,
-          4.3
-        ],
-        "head": [
-          [
-            1,
-            3.56
-          ],
-          [
-            5,
-            10.54
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "win",
-          "u0": 1.5,
-          "u1": 2.9,
-          "y0": 2.75,
-          "y1": 3.56,
-          "k": 1,
-          "s": [
-            1,
-            5
-          ],
-          "split": 3,
-          "curt": {
-            "1": "tul",
-            "2": "tul",
-            "3": "tul",
-            "4": "tul",
-            "5": "karanlik"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 3.3,
-          "u1": 4,
-          "y0": 1.56,
-          "y1": 2,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small"
-        },
-        {
-          "t": "strip",
-          "u": 1.4,
-          "w": 0.2,
-          "y0": 2.2,
-          "y1": 11.6
-        },
-        {
-          "t": "strip",
-          "u": 3.08,
-          "w": 0.2,
-          "y0": 2.2,
-          "y1": 11.6
-        },
-        {
-          "t": "pipe",
-          "u": -0.25
-        },
-        {
-          "t": "panel",
-          "u0": -0.3,
-          "u1": 4.3,
-          "y0": 2.1,
-          "y1": 3.88,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": -0.3,
-          "u1": 4.3,
-          "y0": 5.63,
-          "y1": 7.37,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": -0.3,
-          "u1": 4.3,
-          "y0": 9.06,
-          "y1": 11.6,
-          "color": "plaster2"
-        }
-      ],
-      "note": "jeEb referans (MeHp/HVLz teyit; doğu panolarının konumu 4–6 m hatalı → görünen ölçek ≈0.6). Doğu cephe güney kütlesi: katlara göre yatay açık/koyu gri bantlar (K1 açık, K2 koyu, K3 açık, K4 koyu, K5 açık, K0 koyu), ortada tek 3 bölmeli pencere sütunu (≈2.4 m), iki yanında banda göre renk alan yükseltilmiş pilastrlar (parapet üstünde küçük çıkıntılarla biter). Düz parapet (saçak yok). GD köşede yağmur borusu; köşeye yakın her katta küçük siyah duvar lambası. K0 pencereleri çit arkasında."
-    },
-    {
-      "edge": 16,
-      "len": 1.25,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          1.25
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [],
-      "note": "Merdiven girintisinin güney yüzü (kuzeye bakar), koyu gri; HVLz/l07h’de eğik, pencere görülmedi."
-    },
-    {
-      "edge": 17,
-      "len": 2.42,
-      "seen": "photo",
-      "ref": "1546358554_17_MeHpp0ZG.jpg",
-      "cal": {
-        "u": [
-          0.31,
-          2.44
-        ],
-        "head": [
-          [
-            1,
-            4.75
-          ],
-          [
-            4,
-            10.31
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "win",
-          "u0": 0.35,
-          "u1": 1.06,
-          "y0": 3.38,
-          "y1": 4.75,
-          "k": 1,
-          "s": [
-            0,
-            4
-          ],
-          "split": 1
-        },
-        {
-          "t": "win",
-          "u0": 0.35,
-          "u1": 1.06,
-          "y0": 10.88,
-          "y1": 11.56,
-          "k": 5,
-          "s": [
-            5,
-            5
-          ],
-          "split": 1,
-          "kind": "small"
-        },
-        {
-          "t": "proj",
-          "u0": 0.31,
-          "u1": 2.44,
-          "d": 0.15,
-          "y0": 13.5,
-          "y1": 14.43,
-          "color": "plaster"
-        }
-      ],
-      "note": "MeHp referans (HVLz/l07h teyit). Doğu girintisindeki merdiven kovası: tamamı koyu gri, güney ucunda dar dikey pencere sütunu (her katta, en üstte kısa pencere), parapetin ≈1.5 m üstüne yükselir (proj: görünen 13.5→14.43; gerçekte ≈3.5 m genişliğinde merdiven başı kutusu, güney/kuzey kütlelerin parapeti arkasına da uzanır, derinliği görülmedi → yalnız ön yüz 0.15 m kalınlıkta)."
-    },
-    {
-      "edge": 18,
-      "len": 1.6,
-      "seen": "partial",
-      "cal": {
-        "u": [
-          0,
-          1.6
-        ],
-        "head": [
-          [
-            1,
-            5.4
-          ],
-          [
-            5,
-            17.2
-          ]
-        ]
-      },
-      "items": [],
-      "note": "Girintinin kuzey yüzü (güneye bakar), koyu gri; ayrıntı yok."
-    },
-    {
-      "edge": 19,
-      "len": 9.69,
-      "seen": "photo",
-      "ref": "1546358554_19_l07hZ6pz.jpg",
-      "cal": {
-        "u": [
-          5.8,
-          11.3
-        ],
-        "head": [
-          [
-            1,
-            4.2
-          ],
-          [
-            5,
-            11.55
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "win",
-          "u0": 7.06,
-          "u1": 8.53,
-          "y0": 3.4,
-          "y1": 4.2,
-          "k": 1,
-          "s": [
-            0,
-            5
-          ],
-          "split": 3,
-          "curt": {
-            "1": "tul",
-            "2": "tul",
-            "3": "tul",
-            "4": "tul",
-            "5": "tul"
-          }
-        },
-        {
-          "t": "strip",
-          "u": 6.89,
-          "w": 0.22,
-          "y0": 2.3,
-          "y1": 12.6
-        },
-        {
-          "t": "strip",
-          "u": 8.69,
-          "w": 0.22,
-          "y0": 2.3,
-          "y1": 12.6
-        },
-        {
-          "t": "panel",
-          "u0": 5.8,
-          "u1": 11.3,
-          "y0": 2.72,
-          "y1": 4.47,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 5.8,
-          "u1": 11.3,
-          "y0": 6.3,
-          "y1": 8.1,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 5.8,
-          "u1": 11.3,
-          "y0": 9.94,
-          "y1": 12.5,
-          "color": "plaster2"
-        }
-      ],
-      "note": "l07h referans (HVLz/MeHp teyit). Doğu cephe kuzey kütlesi: 15 ile aynı bant düzeni, tek 3 bölmeli pencere sütunu + pilastrlar, düz parapet. Kuzey ucundaki ≈1.15 m KD cam locasının açık/camlı doğu yanıdır (loca kenar 0’a yazıldı; burada ikinci loca yazılmadı ki üretici 5.35 m derin köşe locası üretmesin). Kuzeye yakın her katta küçük siyah lamba."
+     "t": "panel",
+     "u0": -0.33,
+     "u1": 5,
+     "y0": 18,
+     "y1": 20.8,
+     "color": "plaster2"
     }
-  ]
+   ],
+   "note": "6Bi referans (SyTa/nxqv/5Owm teyit). KD köşe cam balkon yığını: K1–K5 tüm katlar çerçevesiz katlanır cam (K3 mavi gök yansıması, K5 alt kısmında sabit cam şerit), beyaz döşeme alınları, K3 döşeme alnı koyu gri; doğu yanı da camlı (köşeyi döner), batı yanı dolu duvar. Yığın ön yüzü taban izi kenarıyla çakışıyor (genişlik 5.35 = kenar 5.36) → içe gömük loca (d 0, derinlik ≈ kenar 1 = 1.15). K5 üstünde açık gri, üst kenarı batıya doğru yükselen (18.0→21.2) dolu parapet/alınlık duvarı. K0 (zemin, sokak kotu) çit/çam arkasında: koyu duvar."
+  },
+  {
+   "edge": 1,
+   "len": 1.18,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     1.18
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [],
+   "note": "KD locasının batı yan duvarı (dolu). nxqv karesinde çok eğik; ayrıntı okunamadı. Açık gri pano şeridi kenar 2 başına yazıldı."
+  },
+  {
+   "edge": 2,
+   "len": 4.91,
+   "seen": "photo",
+   "ref": "1546358554_2_6Bi-PCcx.jpg",
+   "cal": {
+    "u": [
+     -0.1,
+     4.75
+    ],
+    "head": [
+     [
+      1,
+      5.38
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.31,
+     "u1": 1.5,
+     "y0": 4.15,
+     "y1": 5.38,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "curt": {
+      "1": "tul",
+      "2": "tul-yan",
+      "3": "karanlik",
+      "4": "stor",
+      "5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 0.31,
+     "u1": 1.5,
+     "y0": 18.9,
+     "y1": 20.2,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "curt": {
+      "6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3,
+     "u1": 4.37,
+     "y0": 4,
+     "y1": 5.38,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "curt": {
+      "1": "tul-yan",
+      "2": "tul-yan",
+      "3": "tul",
+      "4": "tul",
+      "5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3,
+     "u1": 4.37,
+     "y0": 18.85,
+     "y1": 20.2,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "curt": {
+      "6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.06,
+     "u1": 4.25,
+     "y0": 1.19,
+     "y1": 2.44,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "curt": {
+      "0": "karanlik"
+     }
+    },
+    {
+     "t": "strip",
+     "u": 2.88,
+     "w": 0.28,
+     "y0": 3.1,
+     "y1": 8.6
+    },
+    {
+     "t": "strip",
+     "u": 2.88,
+     "w": 0.28,
+     "y0": 9.8,
+     "y1": 22.6
+    },
+    {
+     "t": "strip",
+     "u": 4.61,
+     "w": 0.28,
+     "y0": 3.1,
+     "y1": 8.6
+    },
+    {
+     "t": "strip",
+     "u": 4.61,
+     "w": 0.28,
+     "y0": 9.8,
+     "y1": 22.6
+    },
+    {
+     "t": "panel",
+     "u0": -0.1,
+     "u1": 0.25,
+     "y0": 3.1,
+     "y1": 6.1,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": -0.1,
+     "u1": 0.25,
+     "y0": 11.9,
+     "y1": 15.3,
+     "color": "plaster2"
+    }
+   ],
+   "note": "6Bi referans (nxqv teyit; nxqv ~2.5 m uzak pano konumu → kat aralığı 2.5 görünür). Kuzey orta koyu antrasit duvar: iki pencere sütunu — doğuda dar (≈1.2 m, 2 kanat), batıda geniş (≈1.4 m, 2 kanat, iki yanında duvar renginde yükseltilmiş pilastr şeritleri: alt parça K0 üstü→K1 lentosunun üstünde sivri uçla biter, üst parça K2 denizliğinden çatı parapetine). K0 (sokak kotu) batı sütun altında beyaz doğramalı pencere, solunda beyaz kapı + diyafon (ağaç arkasında, u ≈1.5–2.3, yazılmadı). En üstte (K6 hizası, lento 20.2) çatı katı pencereleri: duvar burada parapet/alınlık olarak 21.3→22.7 (tepe u≈2.8)→22.1 yükselir. Doğu ucunda (KD locası yanı) K1 ve K4 hizasında açık gri pano şeritleri. Perdeler 6Bi 40° karelerinden."
+  },
+  {
+   "edge": 3,
+   "len": 1.32,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     1.32
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 1.32,
+     "y0": 3,
+     "y1": 6,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 1.32,
+     "y0": 11.9,
+     "y1": 14.9,
+     "color": "plaster2"
+    }
+   ],
+   "note": "KB locasının doğu yan duvarı; 6Bi karesinde eğik görünür: K1 ve K4 hizasında açık gri, diğer katlar koyu. u/y gerçek metre."
+  },
+  {
+   "edge": 4,
+   "len": 4.52,
+   "seen": "photo",
+   "ref": "1546358554_4_6Bi-PCcx.jpg",
+   "cal": {
+    "u": [
+     -0.03,
+     4.28
+    ],
+    "head": [
+     [
+      1,
+      5.45
+     ],
+     [
+      5,
+      17.45
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0.19,
+     "u1": 4.06,
+     "d": 0,
+     "inset": 1.3,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      3,
+      4
+     ],
+     "tint": {
+      "3": "clear",
+      "4": "clear"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "tube"
+     },
+     "fasciaC": {
+      "K3": "#5e5f5a"
+     },
+     "railC": "#aaafaf"
+    },
+    {
+     "t": "panel",
+     "u0": -0.03,
+     "u1": 4.28,
+     "y0": 17.7,
+     "y1": 21,
+     "color": "plaster2"
+    }
+   ],
+   "note": "6Bi referans (5Owm/nxqv/RW5/4hcO teyit). KB loca yığını: K1 ve K2 açık (paslanmaz borulu korkuluk, K1 korkuluğunda çiçek saksıları), K3 ve K4 camlı, K5 açık; K3 döşeme alnı koyu gri, diğerleri beyaz; her loca tavanında aplik. Arka duvar açık gri, K1/K2’de 3 bölmeli beyaz sürme balkon kapısı. İki yanı dolu duvar. K5 üstünde açık gri kutu (alt yüzü görünür, üst kenarı doğuya doğru 20.6→21.9 yükselir). K0 (sokak kotu) koyu duvar, beyaz doğramalı kapı/pencere (u≈0.6–1.1)."
+  },
+  {
+   "edge": 5,
+   "len": 4.96,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     4.96
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 4.96,
+     "y0": 3,
+     "y1": 5.95,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 4.96,
+     "y0": 8.9,
+     "y1": 11.85,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 4.96,
+     "y0": 14.8,
+     "y1": 17.9,
+     "color": "plaster2"
+    },
+    {
+     "t": "pipe",
+     "u": 4.8
+    }
+   ],
+   "note": "Batıya bakan duvar (KB locasının batı yan duvarı + W kanadına kadar). 4hcO/TRta/RW5 karelerinde çok eğik: katlara göre açık/koyu gri yatay bantlar (K1 açık, K2 koyu, K3 açık, K4 koyu, K5 + parapet açık — doğu cephesiyle aynı düzen); güney ucunda (W locası köşesi) tam boy yağmur borusu. Pencere görülmedi. u/y gerçek metre."
+  },
+  {
+   "edge": 6,
+   "len": 3.99,
+   "seen": "photo",
+   "ref": "1546358554_6_5OwmjuRT.jpg",
+   "cal": {
+    "u": [
+     1.5,
+     4.97
+    ],
+    "head": [
+     [
+      1,
+      5.16
+     ],
+     [
+      5,
+      15.18
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 1.5,
+     "u1": 4.97,
+     "d": 0,
+     "inset": 1.3,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      3,
+      4
+     ],
+     "tint": {
+      "3": "dark",
+      "4": "clear"
+     },
+     "sides": "start-wall",
+     "rail": {
+      "*": "tube"
+     },
+     "fasciaC": {
+      "K3": "#5e5f5a"
+     },
+     "railC": "#aaafaf"
+    },
+    {
+     "t": "panel",
+     "u0": 1.5,
+     "u1": 4.97,
+     "y0": 15.2,
+     "y1": 17.9,
+     "color": "plaster2"
+    }
+   ],
+   "note": "5Owm referans (RW5/nxqv teyit; 5Owm pano konumu ~3 m uzak → görünen kat aralığı 2.5). Batı kanadın kuzey ucunda köşeyi (kenar 7) dönen loca yığını: K1 açık (bank), K2 açık, K3 koyu renkli cam (siyahımsı), K4 şeffaf cam, K5 açık; K3 döşeme alnı koyu gri; arka duvar koyu, beyaz balkon kapısı. Üstte açık gri parapet kutusu, üst kenarı batıya doğru alçalır (18.0→16.8 görünen). Doğu ucu kenar 5 duvarına dayanır."
+  },
+  {
+   "edge": 7,
+   "len": 10.93,
+   "seen": "partial",
+   "ref": "1546358554_7_RW5-4dM-.jpg",
+   "cal": {
+    "u": [
+     5,
+     17.25
+    ],
+    "head": [
+     [
+      2,
+      8.84
+     ],
+     [
+      5,
+      18.7
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 6.46,
+     "u1": 10.3,
+     "d": 0,
+     "inset": 1.3,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      3,
+      4
+     ],
+     "tint": {
+      "3": "blinds",
+      "4": "clear"
+     },
+     "sides": "end-wall",
+     "rail": {
+      "*": "tube"
+     },
+     "fasciaC": {
+      "K3": "#5e5f5a"
+     },
+     "railC": "#aaafaf"
+    },
+    {
+     "t": "panel",
+     "u0": 5,
+     "u1": 10.9,
+     "y0": 18,
+     "y1": 20.5,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 10.5,
+     "u1": 12.4,
+     "y0": 0,
+     "y1": 20.5,
+     "color": "plaster2"
+    }
+   ],
+   "note": "RW5 referans (tek, çok eğik, pano konumu hatalı: görünen ölçek ≈1.12 → cal.u güney ucu ölçekten). Kenar 6 locası köşeyi dönüp batı cephede ≈5 m sürer (K2 açık, K3 cam + beyaz/gri perdeler, K4 cam, K5 açık, K3 alnı koyu; K1 ağaç arkasında), sonra açık gri pilastr/duvar (u≈10.5–12.4). Köşedeki ilk 1.3 m kenar 6 locasının derinliği (üretici birleştirmesin diye buradaki loca 1.3 m’den başlatıldı). Kenarın güney yarısı (≈5 m) hiçbir karede görülmedi."
+  },
+  {
+   "edge": 8,
+   "len": 3.86,
+   "seen": "none",
+   "cal": {
+    "u": [
+     0,
+     3.86
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [],
+   "note": "Batı kanadın güney yüzü; görülmedi."
+  },
+  {
+   "edge": 9,
+   "len": 4.06,
+   "seen": "none",
+   "cal": {
+    "u": [
+     0,
+     4.06
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [],
+   "note": "Görülmedi (site içi, batı)."
+  },
+  {
+   "edge": 10,
+   "len": 3.6,
+   "seen": "partial",
+   "ref": "1546358554_10_XBa6arpH.jpg",
+   "cal": {
+    "u": [
+     -0.66,
+     2.33
+    ],
+    "head": [
+     [
+      1,
+      3.77
+     ],
+     [
+      5,
+      13.57
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": -0.66,
+     "u1": 2.13,
+     "d": 0,
+     "inset": 1.22,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      3
+     ],
+     "tint": {
+      "3": "blinds"
+     },
+     "sides": "end-wall",
+     "rail": {
+      "*": "tube"
+     },
+     "fasciaC": {
+      "K3": "#5e5f5a"
+     },
+     "railC": "#aaafaf"
+    },
+    {
+     "t": "dish",
+     "u": 1.83,
+     "s": 1,
+     "onBal": true
+    },
+    {
+     "t": "dish",
+     "u": 0.67,
+     "s": 5,
+     "onBal": true
+    },
+    {
+     "t": "panel",
+     "u0": -0.66,
+     "u1": 2.33,
+     "y0": 14.9,
+     "y1": 18.7,
+     "color": "plaster2"
+    }
+   ],
+   "note": "XBa6 referans (jeEb teyit; eğik, önünde site kapısı tabelası). GB loca yığını: K1 açık (korkulukta çanak anten), K2 açık, K3 camlı (tabela arkasında, kısmen), K4 açık, K5 açık (çanak anten); üstte açık gri eğik üst kenarlı parapet kutusu. Doğu yanı açık gri dolu duvar (kenar 11). Batı ucu görünmüyor → cal.u batı köşesi ölçekten."
+  },
+  {
+   "edge": 11,
+   "len": 1.22,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     1.22
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 1.22,
+     "y0": 3,
+     "y1": 17.9,
+     "color": "plaster2"
+    }
+   ],
+   "note": "GB locasının doğu yan duvarı: XBa6 karesinde K1–K5 boyunca açık gri. u/y gerçek metre."
+  },
+  {
+   "edge": 12,
+   "len": 5.34,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     5.34
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.55,
+     "u1": 1.65,
+     "y0": 4.15,
+     "y1": 5.4,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 0.55,
+     "u1": 1.65,
+     "y0": 18.9,
+     "y1": 20.15,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ]
+    }
+   ],
+   "note": "Güney orta koyu duvar; jeEb/XBa6 karelerinde yalnız batı kısmı (GB locası yanı) görünür: dar pencere sütunu K1–K5 + en üstte çatı katı penceresi (K6). Doğu kısmı GD balkon yığını arkasında → ikinci sütun var mı görülmedi. Tepesi kuzey gibi alınlık biçiminde yükselir. u/y gerçek metre (ortofotolar çok eğik/pano konumları hatalı)."
+  },
+  {
+   "edge": 13,
+   "len": 1.95,
+   "seen": "none",
+   "cal": {
+    "u": [
+     0,
+     1.95
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [],
+   "note": "GD yığınının batı yanındaki girinti yüzü; görülmedi."
+  },
+  {
+   "edge": 14,
+   "len": 5.63,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     5.63
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 5.63,
+     "d": 1.4,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      1,
+      5
+     ],
+     "tint": {
+      "1": "dark",
+      "5": "clear"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "tube"
+     },
+     "fasciaC": {
+      "K3": "#5e5f5a"
+     },
+     "railC": "#aaafaf"
+    },
+    {
+     "t": "proj",
+     "u0": 0,
+     "u1": 5.63,
+     "d": 1.4,
+     "y0": 17.75,
+     "y1": 18.4,
+     "color": "plaster2"
+    },
+    {
+     "t": "sign",
+     "u0": 3.76,
+     "u1": 4,
+     "y0": 3.05,
+     "y1": 3.33,
+     "d": 1.43,
+     "text": "8",
+     "bg": "#5f696a",
+     "fg": "#b9bfc2",
+     "style": "panel",
+     "font": "sans",
+     "bold": true
+    }
+   ],
+   "note": "GD balkon yığını (jeEb/XBa6/MeHp): K1 camlı (koyu), K2 açık (korkuluk arkası siyah file/perde), K3 açık, K4 açık, K5 camlı; K3 döşeme alnı koyu gri, diğerleri beyaz; doğu yanı açık, korkuluk köşeyi döner. Diğer locaların aksine taban izinin ~1.4 m DIŞINA taşar (doğu karelerinde GD köşesinin güneyine çıkıntı yapar; jeEb’de yan yüzleri ve alt yüzleri görünür) → d 1.4. Üstünde açık gri, üst kenarı batıya doğru yükselen parapet kutusu (cap). K1 döşeme alnında küçük \"8\" levhası. u/y gerçek metre."
+  },
+  {
+   "edge": 15,
+   "len": 8.44,
+   "seen": "photo",
+   "ref": "1546358554_15_jeEbP2Mt.jpg",
+   "cal": {
+    "u": [
+     -0.3,
+     4.3
+    ],
+    "head": [
+     [
+      1,
+      3.56
+     ],
+     [
+      5,
+      10.54
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 1.5,
+     "u1": 2.9,
+     "y0": 2.75,
+     "y1": 3.56,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "split": 3,
+     "curt": {
+      "1": "tul",
+      "2": "tul",
+      "3": "tul",
+      "4": "tul",
+      "5": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.3,
+     "u1": 4,
+     "y0": 1.56,
+     "y1": 2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "small"
+    },
+    {
+     "t": "strip",
+     "u": 1.4,
+     "w": 0.2,
+     "y0": 2.2,
+     "y1": 11.6
+    },
+    {
+     "t": "strip",
+     "u": 3.08,
+     "w": 0.2,
+     "y0": 2.2,
+     "y1": 11.6
+    },
+    {
+     "t": "pipe",
+     "u": -0.25
+    },
+    {
+     "t": "panel",
+     "u0": -0.3,
+     "u1": 4.3,
+     "y0": 2.1,
+     "y1": 3.88,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": -0.3,
+     "u1": 4.3,
+     "y0": 5.63,
+     "y1": 7.37,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": -0.3,
+     "u1": 4.3,
+     "y0": 9.06,
+     "y1": 11.6,
+     "color": "plaster2"
+    }
+   ],
+   "note": "jeEb referans (MeHp/HVLz teyit; doğu panolarının konumu 4–6 m hatalı → görünen ölçek ≈0.6). Doğu cephe güney kütlesi: katlara göre yatay açık/koyu gri bantlar (K1 açık, K2 koyu, K3 açık, K4 koyu, K5 açık, K0 koyu), ortada tek 3 bölmeli pencere sütunu (≈2.4 m), iki yanında banda göre renk alan yükseltilmiş pilastrlar (parapet üstünde küçük çıkıntılarla biter). Düz parapet (saçak yok). GD köşede yağmur borusu; köşeye yakın her katta küçük siyah duvar lambası. K0 pencereleri çit arkasında."
+  },
+  {
+   "edge": 16,
+   "len": 1.25,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     1.25
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [],
+   "note": "Merdiven girintisinin güney yüzü (kuzeye bakar), koyu gri; HVLz/l07h’de eğik, pencere görülmedi."
+  },
+  {
+   "edge": 17,
+   "len": 2.42,
+   "seen": "photo",
+   "ref": "1546358554_17_MeHpp0ZG.jpg",
+   "cal": {
+    "u": [
+     0.31,
+     2.44
+    ],
+    "head": [
+     [
+      1,
+      4.75
+     ],
+     [
+      4,
+      10.31
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.35,
+     "u1": 1.06,
+     "y0": 3.38,
+     "y1": 4.75,
+     "k": 1,
+     "s": [
+      0,
+      4
+     ],
+     "split": 1
+    },
+    {
+     "t": "win",
+     "u0": 0.35,
+     "u1": 1.06,
+     "y0": 10.88,
+     "y1": 11.56,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "split": 1,
+     "kind": "small"
+    },
+    {
+     "t": "proj",
+     "u0": 0.31,
+     "u1": 2.44,
+     "d": 0.15,
+     "y0": 13.5,
+     "y1": 14.43,
+     "color": "plaster"
+    }
+   ],
+   "note": "MeHp referans (HVLz/l07h teyit). Doğu girintisindeki merdiven kovası: tamamı koyu gri, güney ucunda dar dikey pencere sütunu (her katta, en üstte kısa pencere), parapetin ≈1.5 m üstüne yükselir (proj: görünen 13.5→14.43; gerçekte ≈3.5 m genişliğinde merdiven başı kutusu, güney/kuzey kütlelerin parapeti arkasına da uzanır, derinliği görülmedi → yalnız ön yüz 0.15 m kalınlıkta)."
+  },
+  {
+   "edge": 18,
+   "len": 1.6,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     1.6
+    ],
+    "head": [
+     [
+      1,
+      5.4
+     ],
+     [
+      5,
+      17.2
+     ]
+    ]
+   },
+   "items": [],
+   "note": "Girintinin kuzey yüzü (güneye bakar), koyu gri; ayrıntı yok."
+  },
+  {
+   "edge": 19,
+   "len": 9.69,
+   "seen": "photo",
+   "ref": "1546358554_19_l07hZ6pz.jpg",
+   "cal": {
+    "u": [
+     5.8,
+     11.3
+    ],
+    "head": [
+     [
+      1,
+      4.2
+     ],
+     [
+      5,
+      11.55
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 7.06,
+     "u1": 8.53,
+     "y0": 3.4,
+     "y1": 4.2,
+     "k": 1,
+     "s": [
+      0,
+      5
+     ],
+     "split": 3,
+     "curt": {
+      "1": "tul",
+      "2": "tul",
+      "3": "tul",
+      "4": "tul",
+      "5": "tul"
+     }
+    },
+    {
+     "t": "strip",
+     "u": 6.89,
+     "w": 0.22,
+     "y0": 2.3,
+     "y1": 12.6
+    },
+    {
+     "t": "strip",
+     "u": 8.69,
+     "w": 0.22,
+     "y0": 2.3,
+     "y1": 12.6
+    },
+    {
+     "t": "panel",
+     "u0": 5.8,
+     "u1": 11.3,
+     "y0": 2.72,
+     "y1": 4.47,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 5.8,
+     "u1": 11.3,
+     "y0": 6.3,
+     "y1": 8.1,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 5.8,
+     "u1": 11.3,
+     "y0": 9.94,
+     "y1": 12.5,
+     "color": "plaster2"
+    }
+   ],
+   "note": "l07h referans (HVLz/MeHp teyit). Doğu cephe kuzey kütlesi: 15 ile aynı bant düzeni, tek 3 bölmeli pencere sütunu + pilastrlar, düz parapet. Kuzey ucundaki ≈1.15 m KD cam locasının açık/camlı doğu yanıdır (loca kenar 0’a yazıldı; burada ikinci loca yazılmadı ki üretici 5.35 m derin köşe locası üretmesin). Kuzeye yakın her katta küçük siyah lamba."
+  }
+ ]
 }
