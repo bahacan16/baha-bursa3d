@@ -15,14 +15,14 @@
     }
   },
   "colors": {
-    "plaster": "#778288",
-    "plaster2": "#b5b9b7",
-    "strip": "#4b5a68",
-    "fascia": "#b7b8b5",
-    "soffit": "#a9adab",
-    "railGlass": "#a8bac0",
-    "frame": "#d9dcda",
-    "tile": "#55636b"
+    "plaster": "#89969c",
+    "plaster2": "#d0d5d2",
+    "strip": "#566778",
+    "fascia": "#d2d4d0",
+    "soffit": "#c2c7c5",
+    "railGlass": "#c1d6dd",
+    "frame": "#fafdfb",
+    "tile": "#62727b"
   },
   "notes": [
     "HALKA YÖNÜ: footprints.json'daki halka bu blokta ters (işaretli alan +790, diğer tüm bloklarda −) → (−dz,dx) İÇE bakıyor. Bu ölçüm, halka TERS ÇEVRİLMİŞ (ring.slice().reverse()) numaralamayla yazıldı — sv-extra.json survey[] kenar numaralarıyla aynı (sv-survey-plan halkayı çevirmişti). footprints.json düzeltilmeli; docs/survey/c/1540901773_* ortofotoları yanlış düzlemlerle (düzeltilmemiş indeksler) üretilmiş, yeniden üretilmeli (SURVEY_TOP≥31, bina 9 kat).",
@@ -31,7 +31,8 @@
     "Çatı: kuzey panolarından (5229BIGS) kırma çatı silueti köşelerden yükselip ortada düz terasa varıyor (hava fotoğrafında düz tan renkli alan + beyaz kutular) → hipped + terrace; eğim 25° tahmin. Ön (SW) cephedeki çerçeve ayakları çatı hizasının ≈1.5–2 m üstüne çıkar (şemada yok). KB'de küçük kırma çatılı merdiven kulesi.",
     "Ön cephe ortasındaki koyu \"yuva\" gerçek bir girinti (≈2.3 m derin; hava fotoğrafında koyu gölge şeridi) — panel olarak yazıldı, geometri gerekirse üreticide oyulmalı.",
     "Uzaklık 50–90 m: perdeler hiçbir cephede güvenilir çözülemiyor (curt yazılmadı).",
-    "Sitenin kapı portali (kahverengi çerçeve, beyaz saçak, bekçi kulübesi, Türk bayrağı, \"Uptown\" tabelası komşuda) cadde kenarında, bina cephesinde değil."
+    "Sitenin kapı portali (kahverengi çerçeve, beyaz saçak, bekçi kulübesi, Türk bayrağı, \"Uptown\" tabelası komşuda) cadde kenarında, bina cephesinde değil.",
+    "Renkler bulutlu/gölgede örneklendi (güneşli yama yok); oyunda gölge tarafı gerçek bulutlu günden koyu kaldığı için albedo ×1.15 (örneklenen: plaster #778288, plaster2 #b5b9b7, strip #4b5a68, fascia #b7b8b5, soffit #a9adab, railGlass #a8bac0, frame #d9dcda, tile #55636b)."
   ],
   "edges": [
     {
