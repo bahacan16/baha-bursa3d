@@ -385,7 +385,9 @@ const bal1 = (o: Partial<CBal> = {}): CBal => ({
 
 describe('cephe üreticisi v6', () => {
   it('perde rengi / kapanma oranı cam aux verisine kodlanır', () => {
-    const { bk } = runB(block([win1({ curt: { '1': 'tul-yan' }, curtC: { '1': '#627699' }, curtF: { '1': 0.9 } })]));
+    const { bk } = runB(
+      block([win1({ curt: { '1': 'tul-yan' }, curtC: { '1': '#627699' }, curtF: { '1': 0.9 } })]),
+    );
     const g = bk.get('mkGlass')!;
     const aux = g.aux!;
     // İlk cam dörtgeni: [tohum, tür, en, boy]
@@ -424,13 +426,25 @@ describe('cephe üreticisi v6', () => {
     const gl = bbox(bk.get('mkGlass'));
     expect(gl.y0).toBeGreaterThan(WALL_TOP);
     // Kenar 0'da saçak alnı bandı yok: mkPlaster2 x ≈ −0.02 düzleminde saçak kotunda yüz yok
-    for (const c of tris(bk.get('mkPlaster2'))) expect(Math.abs(c[0] + 0.02) < 1e-3 && c[1] > WALL_TOP - 0.1).toBe(false);
+    for (const c of tris(bk.get('mkPlaster2')))
+      expect(Math.abs(c[0] + 0.02) < 1e-3 && c[1] > WALL_TOP - 0.1).toBe(false);
   });
 
   it('üçgen alınlıkta çatı arası penceresi: delikli ön yüz + pencere', () => {
     const { bk } = runB(
       block([
-        { t: 'pediment', u0: 1, u1: 7, apex: 4, y: null, top: null, h: 2.5, d: 0, depth: 0.5, color: '#c0c4c6' },
+        {
+          t: 'pediment',
+          u0: 1,
+          u1: 7,
+          apex: 4,
+          y: null,
+          top: null,
+          h: 2.5,
+          d: 0,
+          depth: 0.5,
+          color: '#c0c4c6',
+        },
         win1({ u0: 3.5, u1: 4.5, sill: 0.3, head: 1.3, storeys: [4] }),
       ]),
     );
@@ -521,7 +535,9 @@ describe('cephe üreticisi v6', () => {
     expect(cg.aux![2]).toBeGreaterThan(0.5);
     expect(cg.aux![3]).toBeCloseTo(0.4, 5);
     // Cam korkuluk yok (glazed) → açık balkon: dikmeler railC renginde, ~1 m arayla
-    const { bk: bk2 } = runB(block([bal1({ storeys: [1], railC: '#c9cdcf', rail: { '*': 'glass' }, postEvery: 1.0 })]));
+    const { bk: bk2 } = runB(
+      block([bal1({ storeys: [1], railC: '#c9cdcf', rail: { '*': 'glass' }, postEvery: 1.0 })]),
+    );
     const posts = bk2.get('cc_metal_#c9cdcf')!;
     // Ön kenar 6 m → 7 dikme + iki yan 1.2 m → 2 + 2; her kutu 24 köşe, + küpeşteler (3 × 24)
     expect(posts.pos.length / 3).toBe((7 + 2 + 2) * 24 + 3 * 24);
@@ -558,7 +574,9 @@ describe('cephe üreticisi v6', () => {
 
   it('eğik şapka: üst yüz eğimli, kalınlık ve renk ölçülen', () => {
     const { bk } = runB(
-      block([bal1({ storeys: [2, 3], cap: true, capC: '#cbccc6', capH: 1.0, capSlope: { dir: 'u0', pitch: 25 } })]),
+      block([
+        bal1({ storeys: [2, 3], cap: true, capC: '#cbccc6', capH: 1.0, capSlope: { dir: 'u0', pitch: 25 } }),
+      ]),
     );
     const top = bk.get('cc_plaster_#cbccc6')!;
     let ymin = Infinity;
@@ -636,7 +654,8 @@ describe('cephe üreticisi v6', () => {
     const { bk } = runB(blk);
     expect(bk.has('mkPlinth')).toBe(false);
     // Lamel üçgenlerinin hiçbiri pencere aralığında (z 3..5) değil
-    for (const c of tris(bk.get('cc_plaster_#3b4e51'))) expect(c[2] > 3.05 && c[2] < 4.95 && c[1] < 2.0).toBe(false);
+    for (const c of tris(bk.get('cc_plaster_#3b4e51')))
+      expect(c[2] > 3.05 && c[2] < 4.95 && c[1] < 2.0).toBe(false);
   });
 
   it('zemine inen girinti ağzı çarpışma halkasından çıkarılır', () => {
@@ -668,7 +687,9 @@ describe('cephe üreticisi v6', () => {
       res.holes,
     );
     const area = (r: [number, number][]) =>
-      Math.abs(r.reduce((a, p, i) => a + p[0] * r[(i + 1) % r.length][1] - r[(i + 1) % r.length][0] * p[1], 0)) / 2;
+      Math.abs(
+        r.reduce((a, p, i) => a + p[0] * r[(i + 1) % r.length][1] - r[(i + 1) % r.length][0] * p[1], 0),
+      ) / 2;
     expect(area(rings[0])).toBeCloseTo(80 - 3 * 1.5, 1);
   });
 
@@ -703,7 +724,9 @@ describe('cephe üreticisi v6', () => {
   });
 
   it('parapet yalnız bazı kenarlarda: diğer kenarlarda saçak taşması', () => {
-    const { bk } = runB(block([], { parapet: { h: 1.2, color: '#777777', edges: [0] }, eave: 0.8, fasciaH: 0.3 }));
+    const { bk } = runB(
+      block([], { parapet: { h: 1.2, color: '#777777', edges: [0] }, eave: 0.8, fasciaH: 0.3 }),
+    );
     const so = bbox(bk.get('mkSoffit'));
     // Kenar 0 (x = 0) parapetli: saçak altı orada taşmaz; kenar 2 (x = 10) tarafında 0.8 m taşar
     expect(so.x0).toBeGreaterThan(-0.1);
@@ -787,7 +810,8 @@ describe('cephe üreticisi v6 — ek istekler', () => {
     const rg = bbox(bk.get('mkRailGlass'));
     expect(rg.x0).toBeLessThan(-0.2);
     // Taban izi hattında (x ≈ 0) açıklık ortasında korkuluk camı yok
-    for (const [x, , z] of tris(bk.get('mkRailGlass'))) expect(Math.abs(x) < 0.08 && z > 3 && z < 5).toBe(false);
+    for (const [x, , z] of tris(bk.get('mkRailGlass')))
+      expect(Math.abs(x) < 0.08 && z > 3 && z < 5).toBe(false);
     // Döşeme: loca (x 0..1.2) + yay şeridi (x −0.3..0)
     const st = bbox(bk.get('mkSlabTop'));
     expect(st.x0).toBeLessThan(-0.25);
@@ -800,7 +824,10 @@ describe('cephe üreticisi v6 — ek istekler', () => {
   it('gömük loca arka duvarında ölçülmüş pencere: otomatik kapı yerine', () => {
     const lo = bal1({ d: 0, inset: 1.3, storeys: [1] });
     const { bk } = runB(
-      block([lo, win1({ u0: 2, u1: 3.5, sill: 0.02, head: 2.4, kind: 'door', storeys: [1], curt: { '1': 'tul' } })]),
+      block([
+        lo,
+        win1({ u0: 2, u1: 3.5, sill: 0.02, head: 2.4, kind: 'door', storeys: [1], curt: { '1': 'tul' } }),
+      ]),
     );
     const gl = bbox(bk.get('mkGlass'));
     expect(gl.x0).toBeGreaterThan(1.25);
@@ -858,7 +885,12 @@ describe('cephe üreticisi v6 — ek istekler', () => {
     expect(bbox(bk.get('mkPlaster')).y1).toBeCloseTo(14, 2);
     const parts = splitMassing({
       ...block([]),
-      massing: { towers: [{ x: [-1, 5], wallTop: 14, storeys: 4 }, { x: [5, 11], storeys: 3 }] },
+      massing: {
+        towers: [
+          { x: [-1, 5], wallTop: 14, storeys: 4 },
+          { x: [5, 11], storeys: 3 },
+        ],
+      },
     });
     expect(parts[0].wallTop).toBe(14);
     expect(parts[1].wallTop ?? null).toBe(null);
@@ -969,11 +1001,16 @@ describe('sokak / kapı üreticisi v6', () => {
     expect(bk.has('bollardOrange')).toBe(true);
     // da* dışı yaya kapısı da biçimini alır (2D tel panel kanat)
     const b2 = new Builder();
-    buildPlanGate(b2, { kind: 'pedestrian', id: 'sehri-ped', c: [0, 0], n: [1, 0], w: 1.5, style: 'panel', color: '#21382b' }, 0, {
-      mat,
-      colorKey: ck as never,
-      wrought,
-    });
+    buildPlanGate(
+      b2,
+      { kind: 'pedestrian', id: 'sehri-ped', c: [0, 0], n: [1, 0], w: 1.5, style: 'panel', color: '#21382b' },
+      0,
+      {
+        mat,
+        colorKey: ck as never,
+        wrought,
+      },
+    );
     expect(buckets(b2).has('gf_welded_#21382b')).toBe(true);
   });
 

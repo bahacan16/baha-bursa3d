@@ -231,7 +231,9 @@ function planRoof(ring: V2[], o: UnionRoofOptions): RoofPlan | null {
   ) =>
     lines.find(
       (g) =>
-        g.axis === axis && Math.abs(g.at - at) < 0.4 && Math.min(g.hi, hi) - Math.max(g.lo, lo) > 0.5 * (hi - lo),
+        g.axis === axis &&
+        Math.abs(g.at - at) < 0.4 &&
+        Math.min(g.hi, hi) - Math.max(g.lo, lo) > 0.5 * (hi - lo),
     );
   const out: PlanRect[] = [];
   for (const [i0, i1, j0, j1] of keep) {
@@ -254,13 +256,7 @@ function planRoof(ring: V2[], o: UnionRoofOptions): RoofPlan | null {
       outer(s as 0 | 1 | 2 | 3) ? match(edgeLines, ax, at, lo, hi) : undefined,
     );
     const ex = [0, 1, 2, 3].map((s) =>
-      gab[s]
-        ? GE
-        : outer(s as 0 | 1 | 2 | 3)
-          ? o.eaveOf && em[s]
-            ? o.eaveOf(em[s]!.gi)
-            : o.eave
-          : 0,
+      gab[s] ? GE : outer(s as 0 | 1 | 2 | 3) ? (o.eaveOf && em[s] ? o.eaveOf(em[s]!.gi) : o.eave) : 0,
     );
     const e: Rect = { u0: r.u0 - ex[0], u1: r.u1 + ex[1], v0: r.v0 - ex[2], v1: r.v1 + ex[3] };
     const edgeOf = (s: number) => gm[s]?.gi ?? em[s]?.gi ?? -1;

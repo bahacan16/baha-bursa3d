@@ -543,19 +543,21 @@ export interface CVolume {
     gableC?: string | null;
   } | null;
   /** Hacim yüzlerindeki pencere/kapılar: poly kenarı, kenar boyunca u (m), blok tabanından y (m) */
-  wins?: {
-    edge: number;
-    u0: number;
-    u1: number;
-    y0: number;
-    y1: number;
-    kind?: string | null;
-    split?: number | null;
-    curt?: string | null;
-    frameC?: string | null;
-    shut?: number | null;
-    shutC?: string | null;
-  }[] | null;
+  wins?:
+    | {
+        edge: number;
+        u0: number;
+        u1: number;
+        y0: number;
+        y1: number;
+        kind?: string | null;
+        split?: number | null;
+        curt?: string | null;
+        frameC?: string | null;
+        shut?: number | null;
+        shutC?: string | null;
+      }[]
+    | null;
 }
 
 /** Çatı / hacim parapeti (ölçüm dosyasından aynen) */
@@ -1025,7 +1027,14 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             split: 1,
             box: false,
           };
-          openings[i].push({ u0: doorK.u0, u1: doorK.u1, y0: floorY(k) + 0.02, y1: floorY(k) + 2.2, win: doorK, k });
+          openings[i].push({
+            u0: doorK.u0,
+            u1: doorK.u1,
+            y0: floorY(k) + 0.02,
+            y1: floorY(k) + 2.2,
+            win: doorK,
+            k,
+          });
           continue;
         }
         const dc = W >= 2.6 ? u0 + W * (h < 0.5 ? 0.28 : 0.72) : (u0 + u1) / 2;
@@ -1172,7 +1181,9 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   const hexOf = (c: string | null | undefined) =>
     c && /^#[0-9a-f]{6}$/i.test(c)
       ? c
-      : ((blk.colors as Record<string, string | undefined>)[c ?? 'plaster'] ?? PAL_DEF[c ?? 'plaster'] ?? '#d3d1cc');
+      : ((blk.colors as Record<string, string | undefined>)[c ?? 'plaster'] ??
+        PAL_DEF[c ?? 'plaster'] ??
+        '#d3d1cc');
   /** Derzli kaplama (ince dikey / yatay derz dokusu, aralık `every`): verilirse düz renk yerine */
   const cladKey = (
     cl: { dir?: string; every: number; w?: number; color?: string | null } | null | undefined,
@@ -1197,7 +1208,12 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   // üstünden başlar. Tüm kenarlar parapetli: çatı parapetin arkasından, saçaksız (ör. 1541439435).
   const mixedPar = !!par?.edges;
   const eave = par && !mixedPar ? 0.02 : (blk.roof.eave ?? 0.6);
-  const fH = par && !mixedPar ? 0.05 : mixedPar ? Math.max(0.05, blk.roof.fasciaH ?? 0.45) : (blk.roof.fasciaH ?? 0.45);
+  const fH =
+    par && !mixedPar
+      ? 0.05
+      : mixedPar
+        ? Math.max(0.05, blk.roof.fasciaH ?? 0.45)
+        : (blk.roof.fasciaH ?? 0.45);
   const fasciaK = colorOf(blk.roof.fasciaC, K('mkPlaster2'));
   const gables = (blk.roof as { gables?: number[] }).gables ?? [];
   const gableEdges = blk.roof.kind === 'gable' ? gables : [];
@@ -1214,8 +1230,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     eave,
     pitchDeg: blk.roof.pitch ?? 26,
     gableEdges,
-    terraceInset:
-      blk.roof.kind === 'flat' ? 0.001 : roofRf.terrace ? (roofRf.terraceInset ?? 7) : undefined,
+    terraceInset: blk.roof.kind === 'flat' ? 0.001 : roofRf.terrace ? (roofRf.terraceInset ?? 7) : undefined,
     eaveOf: mixedPar ? (i: number) => (onPar(i) ? 0.02 : (blk.roof.eave ?? 0.6)) : undefined,
     gableKeys,
     gableBase: wallTop - 0.05,
@@ -1236,7 +1251,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       const pts = g.prof
         .map(([x, z, h]) => [(x - e.a[0]) * e.t[0] + (z - e.a[1]) * e.t[1], h] as [number, number])
         .sort((p, q) => p[0] - q[0]);
-      gableProf.set(g.edge, [...(gableProf.get(g.edge) ?? []), ...pts].sort((p, q) => p[0] - q[0]));
+      gableProf.set(
+        g.edge,
+        [...(gableProf.get(g.edge) ?? []), ...pts].sort((p, q) => p[0] - q[0]),
+      );
     }
   const gableAt = (i: number, u: number): number | null => {
     const pr = gableProf.get(i);
@@ -1409,7 +1427,9 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     if (len < 0.02) continue;
     // Subasman bandı (koyu gri, zemin kat döşemesine kadar ya da en az 0.4 m); ölçülmüşse plinthH (0 = yok)
     const yp =
-      blk.plinthH != null ? base + Math.max(0, blk.plinthH) : Math.max(base + 0.4, Math.min(floorY(0), base + 1.2));
+      blk.plinthH != null
+        ? base + Math.max(0, blk.plinthH)
+        : Math.max(base + 0.4, Math.min(floorY(0), base + 1.2));
     // Bodrum pencereleri ve zemine inen girintiler subasmanı keser
     const pCut = [
       ...openings[i].filter((op) => op.k < 0 && op.y0 < yp),
@@ -1535,7 +1555,16 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           // Camın önünde demir parmaklık (kemerli / düz)
           const gr = v.it.grille?.[kk] ?? v.it.grille?.['*'];
           if (gr)
-            balGrille(b, pp, qq, gy0, yCeil, gr, ck('metal', v.it.grilleC ?? '#2f3438', 'darkMetal'), v.it.grilleW ?? 0.9);
+            balGrille(
+              b,
+              pp,
+              qq,
+              gy0,
+              yCeil,
+              gr,
+              ck('metal', v.it.grilleC ?? '#2f3438', 'darkMetal'),
+              v.it.grilleW ?? 0.9,
+            );
           if (tint === 'frosted')
             b.wall(ck('glass', v.it.frostC ?? '#d9dfdd', K('mkRailGlass')), pp, qq, gy0, yCeil, [
               run,
@@ -1644,10 +1673,13 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const uc = (u0 + u1) / 2;
         const shadeK = ck('plaster', it.shade ?? null, 'darkMetal');
         if (!lops.length) b.wall(shadeK, P(i, u0, 0.008), P(i, u1, 0.008), Y0, Y1);
-        else wallWithOpenings(b, (ii, u, off = 0) => P(ii, u, off + 0.008), i, u0, u1, 0, Y0, Y1, lops, shadeK);
+        else
+          wallWithOpenings(b, (ii, u, off = 0) => P(ii, u, off + 0.008), i, u0, u1, 0, Y0, Y1, lops, shadeK);
         for (let j = 0; j < n; j++) {
           const ys = Y0 + pitch * (j + 0.5);
-          for (const [sa, se] of lops.length ? freeU(ys - pitch / 2, ys + pitch / 2) : [[u0, u1] as [number, number]]) {
+          for (const [sa, se] of lops.length
+            ? freeU(ys - pitch / 2, ys + pitch / 2)
+            : [[u0, u1] as [number, number]]) {
             const g = new THREE.BoxGeometry(se - sa, pitch * 0.8, 0.035);
             g.rotateX(-0.35); // üst kenar duvara doğru, alt kenar dışarı (panjur eğimi)
             g.rotateY(E[i].yaw);
@@ -1701,7 +1733,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
                   ] as [number, number][],
               );
             if (holes.length && mp.length) mp = pc.difference(mp, ...holes.map((h) => [h] as pcNs.Polygon));
-            for (const poly of mp) planarFace(b, key, P, i, off, poly as [number, number][][], E[i].n, E[i].s0, base);
+            for (const poly of mp)
+              planarFace(b, key, P, i, off, poly as [number, number][][], E[i].n, E[i].s0, base);
           } catch {
             /* kırpma başarısız: üst kısım çizilmez */
           }
@@ -1830,7 +1863,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         b.geometry(K('mkStrip'), g);
       } else {
         // Uç biçimleri ayrı: yarım yuvarlak / sivri (koni) / düz uçlu yarım yuvarlak kesitli şerit
-        const endH = (s: string) => (s === 'round' ? r : s === 'point' ? Math.min(w * 1.2, (it.y1 - it.y0) * 0.3) : 0);
+        const endH = (s: string) =>
+          s === 'round' ? r : s === 'point' ? Math.min(w * 1.2, (it.y1 - it.y0) * 0.3) : 0;
         const hT = endH(topS);
         const hB = endH(botS);
         const Lc = Math.max(0.01, it.y1 - it.y0 - hT - hB);
@@ -1926,7 +1960,12 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             // Ölçülmüş çiçek renkleri: bitki tepesinde sırayla küçük çiçek öbekleri
             fl.forEach((fc, j) => {
               const a = (j / fl.length) * Math.PI * 2 + u;
-              b.sphere(ck('awning', fc, plK), [c[0] + Math.cos(a) * 0.24, y + 0.95, c[1] + Math.sin(a) * 0.24], 0.07, 6);
+              b.sphere(
+                ck('awning', fc, plK),
+                [c[0] + Math.cos(a) * 0.24, y + 0.95, c[1] + Math.sin(a) * 0.24],
+                0.07,
+                6,
+              );
             });
           } else {
             const c = P(i, u, f + 0.09);
@@ -2054,12 +2093,22 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           // Camın önünde demir parmaklık (kemerli / düz)
           const gr = own.it.grille?.[kk] ?? own.it.grille?.['*'];
           if (gr)
-            balGrille(b, gp, gq, gy0, yTop, gr, ck('metal', own.it.grilleC ?? '#2f3438', 'darkMetal'), own.it.grilleW ?? 0.9);
+            balGrille(
+              b,
+              gp,
+              gq,
+              gy0,
+              yTop,
+              gr,
+              ck('metal', own.it.grilleC ?? '#2f3438', 'darkMetal'),
+              own.it.grilleW ?? 0.9,
+            );
         } else if (own?.it.blinds?.[kk] && k + 1 <= S) {
           // Açık balkonda bambu / hasır stor: yalnız ön (duvara paralel) kenarlarda, korkuluğun arkasında
           const et = E[own.edge].t;
           if (Math.abs(((q[0] - p[0]) * et[0] + (q[1] - p[1]) * et[1]) / Math.max(1e-6, L)) > 0.9) {
-            const bt = y + (own.it.blindTo?.[kk] ?? (own.rail.railH && own.rail.railH > 0.1 ? own.rail.railH : RAIL));
+            const bt =
+              y + (own.it.blindTo?.[kk] ?? (own.rail.railH && own.rail.railH > 0.1 ? own.rail.railH : RAIL));
             const [p0, q0] = outwardOrder(outer, p, q);
             const [bp, bq] = insetSeg(p0, q0, 0.14);
             balBlind(b, bp, bq, bt, yTop - 0.02, ck('blind', own.it.blinds[kk], 'mkShutter'), run);
@@ -2070,13 +2119,17 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       // Tavan spotu (ölçülmüşse balkon başına dizi, yoksa çokgen ortasında bir tane)
       if (k > 0) {
         const mine = list.filter((l) => {
-          const c = l.poly.reduce((a, p) => [a[0] + p[0] / l.poly.length, a[1] + p[1] / l.poly.length], [0, 0]);
+          const c = l.poly.reduce(
+            (a, p) => [a[0] + p[0] / l.poly.length, a[1] + p[1] / l.poly.length],
+            [0, 0],
+          );
           return inside(outer, c[0], c[1]);
         });
         // Kavisli locanın yay şeridi: tavan spotu loca döngüsünde (loca tavanında)
         if (mine.length && mine.every((l) => curvedLoggia(l.it))) {
           /* spot yok */
-        } else if (mine.some((l) => l.it.spots)) for (const l of mine) balSpots(l.it, l.edge, y - SLAB - 0.006);
+        } else if (mine.some((l) => l.it.spots))
+          for (const l of mine) balSpots(l.it, l.edge, y - SLAB - 0.006);
         else {
           const c = centroid(outer);
           const g = new THREE.CircleGeometry(0.08, 12)
@@ -2141,7 +2194,13 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             3,
           ),
         );
-        g.setAttribute('uv', new THREE.Float32BufferAttribute(outer.flatMap((p) => [p[0] * 0.5, -p[1] * 0.5]), 2));
+        g.setAttribute(
+          'uv',
+          new THREE.Float32BufferAttribute(
+            outer.flatMap((p) => [p[0] * 0.5, -p[1] * 0.5]),
+            2,
+          ),
+        );
         g.setIndex(tris.flatMap((t) => [t[0], t[2], t[1]]));
         g.computeVertexNormals();
         if (g.attributes.normal.getY(0) < 0) {
@@ -2162,7 +2221,13 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             const tk = ck('frame', it.capTrim.color ?? '#3a3d40', 'darkMetal');
             const [tp, tq] = insetSeg(pp, qq, -0.012);
             const th = it.capTrim.h;
-            b.quad(tk, xz(tp, topY(pp) - th), xz(tq, topY(qq) - th), xz(tq, topY(qq) + 0.005), xz(tp, topY(pp) + 0.005));
+            b.quad(
+              tk,
+              xz(tp, topY(pp) - th),
+              xz(tq, topY(qq) - th),
+              xz(tq, topY(qq) + 0.005),
+              xz(tp, topY(pp) + 0.005),
+            );
           }
         }
       } else {
@@ -2231,7 +2296,9 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const ya = it.y0 != null ? base + it.y0 : base - 0.1;
         const yb = it.y1 != null ? base + it.y1 : wallTop + 0.35;
         // Girintiden geçen boru: girinti kotlarında arka duvara çekilir (dirsekli)
-        const rc = recs.find((q) => q.i === i && it.u > q.u0 + r && it.u < q.u1 - r && q.Y1 > ya && q.Y0 < yb);
+        const rc = recs.find(
+          (q) => q.i === i && it.u > q.u0 + r && it.u < q.u1 - r && q.Y1 > ya && q.Y0 < yb,
+        );
         const segs: [number, number, number][] = rc
           ? [
               [ya, Math.max(ya, rc.Y0), 0],
@@ -2281,7 +2348,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             const jw = Math.max(0.008, jt.w ?? 0.02);
             const fa = P(i, ua, d + 0.011);
             const fe = P(i, ub, d + 0.011);
-            for (let yy = Y0 + jt.every; yy < Y1 - jw; yy += jt.every) b.wall(jk, fa, fe, yy - jw / 2, yy + jw / 2);
+            for (let yy = Y0 + jt.every; yy < Y1 - jw; yy += jt.every)
+              b.wall(jk, fa, fe, yy - jw / 2, yy + jw / 2);
           }
           for (const [sp, top] of [
             [it.cap, true],
@@ -2409,7 +2477,13 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           const eu = ((ue - ua) / Ls) * (it.w / 2);
           const ey = ((ye - ya) / Ls) * (it.w / 2);
           const Q = (u: number, yy: number): V3 => xz(P(i, u, off), base + yy);
-          b.quad(key, Q(ua - eu - nu, ya - ey - ny), Q(ue + eu - nu, ye + ey - ny), Q(ue + eu + nu, ye + ey + ny), Q(ua - eu + nu, ya - ey + ny));
+          b.quad(
+            key,
+            Q(ua - eu - nu, ya - ey - ny),
+            Q(ue + eu - nu, ye + ey - ny),
+            Q(ue + eu + nu, ye + ey + ny),
+            Q(ua - eu + nu, ya - ey + ny),
+          );
         }
       } else if (it.t === 'mast') {
         // Bayrak direği: ince boru + tepe topu (+ bayrak)
@@ -2439,7 +2513,12 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           dish.translate(p[0], ya + it.h, p[1]);
           b.geometry(tp.color ? ck('metal', tp.color, 'mkDish') : 'mkDish', dish);
         } else if (tp && tp.kind === 'ball') {
-          b.sphere(ck('metal', tp.color ?? null, mk), [p[0], ya + it.h + (tp.d ?? 0.14) / 2, p[1]], (tp.d ?? 0.14) / 2, 10);
+          b.sphere(
+            ck('metal', tp.color ?? null, mk),
+            [p[0], ya + it.h + (tp.d ?? 0.14) / 2, p[1]],
+            (tp.d ?? 0.14) / 2,
+            10,
+          );
         } else b.sphere(mk, [p[0], ya + it.h + 0.05, p[1]], 0.07, 8);
         if (it.flag) {
           const fk = /^#[0-9a-f]{6}$/i.test(it.flag) ? ck('awning', it.flag, 'mkFlag') : 'mkFlag';
@@ -2555,7 +2634,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           fr(wn.u0 + F / 2, (y0 + y1) / 2, F, Hh);
           fr(wn.u1 - F / 2, (y0 + y1) / 2, F, Hh);
           if (wn.split != null && wn.split > 1)
-            for (let sI = 1; sI < Math.min(12, wn.split); sI++) fr(wn.u0 + (W * sI) / wn.split, (y0 + y1) / 2, 0.05, Hh);
+            for (let sI = 1; sI < Math.min(12, wn.split); sI++)
+              fr(wn.u0 + (W * sI) / wn.split, (y0 + y1) / 2, 0.05, Hh);
           else if (wn.kind !== 'glassband' && W > 0.9) fr((wn.u0 + wn.u1) / 2, (y0 + y1) / 2, 0.05, Hh);
           if (wn.rail) {
             // Fransız korkuluk: yatay paslanmaz borular + uç dikmeler, pencere önünde
@@ -2859,7 +2939,15 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     } else if (vr && vr.kind === 'vault') {
       // Tonoz çatı: eksen kenarına paralel, dar yönde dairesel kesit (rise), iki alın duvarı
       const tk = !vr.color || vr.color === 'tile' ? K('mkTile') : ck('plaster', vr.color, K('mkTile'));
-      vaultRoof(b, plOrig, vy1, vr.rise ?? 1.2, vr.axis ?? null, tk, vr.gableC ? ck('plaster', vr.gableC, wk) : wk);
+      vaultRoof(
+        b,
+        plOrig,
+        vy1,
+        vr.rise ?? 1.2,
+        vr.axis ?? null,
+        tk,
+        vr.gableC ? ck('plaster', vr.gableC, wk) : wk,
+      );
     } else slab(b, pl, [], vy1, v.roofC ? ck('plaster', v.roofC, 'roofFlat') : 'roofFlat', wk);
     const vp = v.parapet && v.parapet.h > 0.02 ? v.parapet : null;
     if (vp) {
@@ -2950,8 +3038,15 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const c = P(i, len / 2, (0.02 - 0.2) / 2);
         const cK = ck('frame', par.coping!.color ?? null, pk);
         if (BEV > 0)
-          b.bevelBox(cK, [c[0], wallTop + par.h + copH / 2, c[1]], [len + 2 * ov, copH, 0.22 + 2 * ov], E[i].yaw, BEV);
-        else b.box(cK, [c[0], wallTop + par.h + copH / 2, c[1]], [len + 2 * ov, copH, 0.22 + 2 * ov], E[i].yaw);
+          b.bevelBox(
+            cK,
+            [c[0], wallTop + par.h + copH / 2, c[1]],
+            [len + 2 * ov, copH, 0.22 + 2 * ov],
+            E[i].yaw,
+            BEV,
+          );
+        else
+          b.box(cK, [c[0], wallTop + par.h + copH / 2, c[1]], [len + 2 * ov, copH, 0.22 + 2 * ov], E[i].yaw);
       }
       // Yüksek/Ultra, harpuştasız parapet: dış üst kenar pahlı
       const pb = BEV > 0 && !copH ? Math.min(BEV, par.h * 0.3) : 0;
@@ -2965,7 +3060,13 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       const aT = pb > 0 ? P(i, 0, 0.02 - pb) : a;
       const eT = pb > 0 ? P(i, len, 0.02 - pb) : e;
       if (pb > 0)
-        b.quad(pk, xz(a, wallTop + par.h - pb), xz(e, wallTop + par.h - pb), xz(eT, wallTop + par.h), xz(aT, wallTop + par.h));
+        b.quad(
+          pk,
+          xz(a, wallTop + par.h - pb),
+          xz(e, wallTop + par.h - pb),
+          xz(eT, wallTop + par.h),
+          xz(aT, wallTop + par.h),
+        );
       b.quad(
         pk,
         [ai[0], wallTop + par.h, ai[1]],
@@ -3250,7 +3351,13 @@ function parapet(b: Builder, p0: V2, q0: V2, y: number, run: number, spec?: Rail
     // Pahlıysa üst yüz pahın iç kenarından başlar
     const po: V2 = bv > 0 ? [p[0] - nx * bv, p[1] - nz * bv] : p;
     const qo: V2 = bv > 0 ? [q[0] - nx * bv, q[1] - nz * bv] : q;
-    b.quad(fKey, [pi[0], y + PH, pi[1]], [qi[0], y + PH, qi[1]], [qo[0], y + PH, qo[1]], [po[0], y + PH, po[1]]);
+    b.quad(
+      fKey,
+      [pi[0], y + PH, pi[1]],
+      [qi[0], y + PH, qi[1]],
+      [qo[0], y + PH, qo[1]],
+      [po[0], y + PH, po[1]],
+    );
   }
   // Dolu parapet üstü harpuşta / başlık (ölçüm: kat kat `coping`)
   const copH = PH > 0.3 && spec?.copH && spec.copK ? spec.copH : 0;
@@ -3258,7 +3365,13 @@ function parapet(b: Builder, p0: V2, q0: V2, y: number, run: number, spec?: Rail
     const ov = spec!.copOver ?? 0.02;
     const cm: V2 = [(p[0] + q[0]) / 2 - (nx * T) / 2, (p[1] + q[1]) / 2 - (nz * T) / 2];
     if (BEV > 0)
-      b.bevelBox(spec!.copK!, [cm[0], y + PH + copH / 2, cm[1]], [L + 2 * ov, copH, T + 2 * ov], yaw0, Math.min(BEV, copH * 0.4));
+      b.bevelBox(
+        spec!.copK!,
+        [cm[0], y + PH + copH / 2, cm[1]],
+        [L + 2 * ov, copH, T + 2 * ov],
+        yaw0,
+        Math.min(BEV, copH * 0.4),
+      );
     else b.box(spec!.copK!, [cm[0], y + PH + copH / 2, cm[1]], [L + 2 * ov, copH, T + 2 * ov], yaw0);
   }
   // Dolu parapet üstünde ince çelik küpeşte (ölçüm: kat kat `hand`, parapet üstünden yükseklik)
@@ -3483,7 +3596,16 @@ function winCurtAux(win: CWin, k: number, seed: number, kind: number): [number, 
  * Cam balkon / loca camının önünde demir parmaklık: kemerli (bölme başına yarım daire kemer + dikey çubuklar, ≈12 cm)
  * ya da düz çubuklu. p→q dış sıralı cam hattı; parmaklık 5 cm dışarıda, y0..y1 cam yüksekliği boyunca.
  */
-function balGrille(b: Builder, p0: V2, q0: V2, y0: number, y1: number, kind: string, key: string, pw0: number): void {
+function balGrille(
+  b: Builder,
+  p0: V2,
+  q0: V2,
+  y0: number,
+  y1: number,
+  kind: string,
+  key: string,
+  pw0: number,
+): void {
   const L = Math.hypot(q0[0] - p0[0], q0[1] - p0[1]);
   if (L < 0.2 || y1 - y0 < 0.4) return;
   const nx = -(q0[1] - p0[1]) / L;
@@ -3620,7 +3742,8 @@ function addWindow(b: Builder, P: PFn, E: Edge, i: number, op: Opening, seed: nu
   if (win.kind !== 'door') {
     const ps = P(i, (u0 + u1) / 2, 0.035);
     // Yüksek/Ultra: mermer denizliğin üst kenarları pahlı
-    if (BEV > 0) b.bevelBox('mkSill', [ps[0], y0 - 0.015, ps[1]], [W + 0.08, 0.03, 0.07], E.yaw, Math.min(BEV, 0.01));
+    if (BEV > 0)
+      b.bevelBox('mkSill', [ps[0], y0 - 0.015, ps[1]], [W + 0.08, 0.03, 0.07], E.yaw, Math.min(BEV, 0.01));
     else b.box('mkSill', [ps[0], y0 - 0.015, ps[1]], [W + 0.08, 0.03, 0.07], E.yaw);
   }
   // Kasa: dış çerçeve (4 kenar) + dikey kayıtlar + kapıda yatay orta kayıt
@@ -3805,7 +3928,10 @@ function archGeom(
   const yc = ys + h - R;
   const topAt = (u: number) => yc + Math.sqrt(Math.max(0, R * R - (u - um) * (u - um)));
   const n = Math.max(8, Math.min(40, Math.round(c / 0.3)));
-  const outline: [number, number][] = [[it.u0, yB], [it.u1, yB]];
+  const outline: [number, number][] = [
+    [it.u0, yB],
+    [it.u1, yB],
+  ];
   if (ys > yB + 1e-3) outline.push([it.u1, ys]);
   for (let k = 1; k < n; k++) {
     const u = it.u1 - (c * k) / n;
@@ -3819,7 +3945,10 @@ function inArch(it: CArch, base: number, wallTop: number, op: Opening): boolean 
   const g = archGeom(it, base, wallTop);
   if (!g || op.y0 < g.yB + 0.03) return false;
   return (
-    op.u0 > it.u0 + 0.03 && op.u1 < it.u1 - 0.03 && op.y1 < g.topAt(op.u0) - 0.03 && op.y1 < g.topAt(op.u1) - 0.03
+    op.u0 > it.u0 + 0.03 &&
+    op.u1 < it.u1 - 0.03 &&
+    op.y1 < g.topAt(op.u0) - 0.03 &&
+    op.y1 < g.topAt(op.u1) - 0.03
   );
 }
 
@@ -3867,7 +3996,8 @@ function planarFace(
   const wz = c[2] - a[2];
   const nx = uy * wz - uz * wy;
   const nz = ux * wy - uy * wx;
-  if (nx * n[0] + nz * n[1] < 0) for (let q = 0; q < idx.length; q += 3) [idx[q + 1], idx[q + 2]] = [idx[q + 2], idx[q + 1]];
+  if (nx * n[0] + nz * n[1] < 0)
+    for (let q = 0; q < idx.length; q += 3) [idx[q + 1], idx[q + 2]] = [idx[q + 2], idx[q + 1]];
   const emit = (ix: number[], sign: number) => {
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
@@ -4009,7 +4139,11 @@ function archFront(
   planarFace(b, key, P, i, off - back, [g.outline], nb, 0, 0);
   // Üst yüz: yay boyunca (u1 → u0) ön → arka şeritler (tonozda çatı malzemesi)
   const sp = g.ys > g.yB + 1e-3;
-  const pts: [number, number][] = [[it.u1, g.ys], ...g.outline.slice(sp ? 3 : 2, sp ? -1 : undefined), [it.u0, g.ys]];
+  const pts: [number, number][] = [
+    [it.u1, g.ys],
+    ...g.outline.slice(sp ? 3 : 2, sp ? -1 : undefined),
+    [it.u0, g.ys],
+  ];
   const topK = vault > 0.05 ? roofK : key;
   let s = 0;
   for (let k = 0; k + 1 < pts.length; k++) {
@@ -4271,7 +4405,10 @@ function wallLamp(
     : [base + (it.y ?? 2.3)];
   const dark = it.style === 'lantern' || it.style === 'spot';
   const bodyK = ckm('frame', it.color ?? (dark ? '#1c1d1e' : '#f2f2f0'), dark ? 'darkMetal' : 'mkAc');
-  const glowK = it.tip && /^#[0-9a-f]{6}$/i.test(it.tip) && it.tip.toLowerCase() !== '#ffffff' ? ckm('frame', it.tip, 'wallLamp') : 'wallLamp';
+  const glowK =
+    it.tip && /^#[0-9a-f]{6}$/i.test(it.tip) && it.tip.toLowerCase() !== '#ffffff'
+      ? ckm('frame', it.tip, 'wallLamp')
+      : 'wallLamp';
   const r = Math.max(0.02, it.d / 2);
   const h = Math.max(0.05, it.h);
   const yaw = E.yaw;
@@ -4286,7 +4423,8 @@ function wallLamp(
         // Klasik fener: kol, koyu çerçeveli camlı gövde, piramit başlık
         b.box(bodyK, [bc[0], y + h / 2 + 0.06, bc[1]], [0.035, 0.035, pr], yaw);
         b.box(glowK, [c[0], y, c[1]], [r * 1.7, h * 0.8, r * 1.7], yaw);
-        for (const yy of [y - h * 0.42, y + h * 0.42]) b.box(bodyK, [c[0], yy, c[1]], [r * 2, h * 0.08, r * 2], yaw);
+        for (const yy of [y - h * 0.42, y + h * 0.42])
+          b.box(bodyK, [c[0], yy, c[1]], [r * 2, h * 0.08, r * 2], yaw);
         const cone = new THREE.ConeGeometry(r * 1.45, h * 0.3, 4);
         cone.rotateY(Math.PI / 4 + yaw);
         cone.translate(c[0], y + h * 0.46 + h * 0.15, c[1]);
@@ -4386,7 +4524,12 @@ function vaultRoof(
     const [va, ya] = prof[k];
     const [vb, yb] = prof[k + 1];
     const Ls = Math.hypot(vb - va, yb - ya);
-    b.quad(roofK, W(u1, va, ya), W(u0, va, ya), W(u0, vb, yb), W(u1, vb, yb), [0, s, (u1 - u0) / 1.5, s + Ls / 1.5]);
+    b.quad(roofK, W(u1, va, ya), W(u0, va, ya), W(u0, vb, yb), W(u1, vb, yb), [
+      0,
+      s,
+      (u1 - u0) / 1.5,
+      s + Ls / 1.5,
+    ]);
     s += Ls / 1.5;
   }
   // Alın duvarları (kemer biçimli): u0 ucunda −t, u1 ucunda +t yönüne bakar
@@ -4405,7 +4548,13 @@ function vaultRoof(
     for (const tr of tris) idx.push(tr[0], tr[1], tr[2]);
     const g = new THREE.BufferGeometry();
     g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
-    g.setAttribute('uv', new THREE.Float32BufferAttribute(pts.flatMap(([v, yy]) => [v, yy]), 2));
+    g.setAttribute(
+      'uv',
+      new THREE.Float32BufferAttribute(
+        pts.flatMap(([v, yy]) => [v, yy]),
+        2,
+      ),
+    );
     g.setIndex(idx);
     g.computeVertexNormals();
     const nr = g.attributes.normal;
@@ -4524,8 +4673,10 @@ function unit(b: Builder, E: Edge, P: PFn, i: number, it: CUnit, yFloor: number,
     if (it.style === 'dome') {
       // Kubbe kamera: duvar konsolu + altında yarım küre (beyaz)
       const kk = ckm('frame', it.color ?? '#f1f1ee', 'mkAc');
-      const c = P(i, it.u, 0.13);
-      const w = P(i, it.u, 0.02);
+      // Önündeki dikme / ayak üzerindeyse (off) oradan
+      const mo = Math.max(0, it.off ?? 0);
+      const c = P(i, it.u, mo + 0.13);
+      const w = P(i, it.u, mo + 0.02);
       // Duvar plakası + yatay kol + beyaz gövde halkası; altında füme kubbe
       b.box(kk, [w[0], y + 0.05, w[1]], [0.14, 0.14, 0.04], yaw);
       b.box(kk, [c[0], y + 0.07, c[1]], [0.06, 0.03, 0.2], yaw);

@@ -501,7 +501,9 @@ export function buildPlanGate(b: Builder, g: PlanGate, ground: number, ctx: Gate
               ? ctx.colorKey('metal', g.color)
               : undefined,
         frameKey: style === 'panel' ? ctx.mat('metal', g.color ?? '#21382b') : undefined,
-        pillars: pl ? { w: pl.w, h: pl.h ?? 2, key: ctx.colorKey('fascia', pl.color), lamp: pl.lamp } : undefined,
+        pillars: pl
+          ? { w: pl.w, h: pl.h ?? 2, key: ctx.colorKey('fascia', pl.color), lamp: pl.lamp }
+          : undefined,
       });
   }
 }
@@ -556,7 +558,11 @@ export function buildPortalGate(b: Builder, g: PlanGate, y0: number, ctx: GateCt
   for (const u of [-g.w / 2 - pw / 2, g.w / 2 + pw / 2]) {
     const p = P(u, 0);
     b.box(colK, [p[0], y0 + (top - bh) / 2 - 0.1, p[1]], [pw, top - bh + 0.2, pd], yaw);
-    ctx.collide?.([P(u - pw / 2, -pd / 2), P(u + pw / 2, -pd / 2), P(u + pw / 2, pd / 2), P(u - pw / 2, pd / 2)], y0 - 1, y0 + top);
+    ctx.collide?.(
+      [P(u - pw / 2, -pd / 2), P(u + pw / 2, -pd / 2), P(u + pw / 2, pd / 2), P(u - pw / 2, pd / 2)],
+      y0 - 1,
+      y0 + top,
+    );
   }
   // Kiriş (kolonların dış kenarından dış kenarına)
   const span = g.w + 2 * pw;

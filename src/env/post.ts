@@ -228,7 +228,7 @@ export class PostFX {
       u.tExposure.value = this.exposure.texture;
       u.uExpRef.value = ref;
       u.uExpStrength.value = Number(q.get('ae') ?? 0.5);
-      u.uExpRange.value.set(0.75, 1.6);
+      u.uExpRange.value.set(0.75, 1.45);
     }
     this.composer.addPass(this.grade);
     this.composer.addPass(new OutputPass());
@@ -312,5 +312,8 @@ export class PostFX {
   }
 }
 
-/** Ultra otomatik pozlama referansı: kalibrasyon görüşlerinde ölçülen ln(ortalama parlaklık) (bkz. BLENDER_CHANGES). */
-export const ULTRA_EXPOSURE_REF = -1.0;
+/**
+ * Ultra otomatik pozlama referansı: eleştirmen görüşlerinde (6 Street View görüşü, kalibre ışık, AO öncesi) ölçülen
+ * ln(ortalama parlaklık) ortalaması −1.48 (−1.30…−1.67). Bu değerde düzeltme 1.0 → kalibrasyon aynen korunur.
+ */
+export const ULTRA_EXPOSURE_REF = -1.48;

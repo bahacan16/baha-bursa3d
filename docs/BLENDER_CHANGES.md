@@ -350,3 +350,34 @@
   3.10→2.75 / çit 2.6→2.3, da3-fence-side-n/-s. Karşılaştırma kamerası artık pano tarihine göre göz yüksekliğinde.
   Cephe ortofotoları varsayılan 2.5 ile kalır (ölçüler/`base` onlara göre; fark yalnız düşey kayma). **Blender:**
   Doğan Avcıoğlu 2–3. kesim kaldırım/çit katmanı (bu girdiler) yeniden kurulmalı.
+- **(üretici v6)** — Cephe / sokak üreticisi v6 (yeni alanları henüz hiçbir ölçüm kullanmıyor; ölçüm ajanlarına brif
+  verilecek). Dosyalar: `facade.ts`, `roof.ts`, `builder.ts` (`bevelBox`), `facadeMats.ts`, `textures.ts`,
+  `massing.ts`, `street.ts`, `site.ts`, `fenceGeneric.ts`, `siteplan.ts`, `survey/schema.ts`,
+  `scripts/survey-compile.mjs`, `index.ts` / `osm/world.ts` (kancalar). Yeni öğeler: `cloth` (balkon içi branda),
+  `banner` (korkuluk bayrağı / portreli pankart), `lamp` (aplik), `dormer` (çatı penceresi), `arch` (kemerli parapet /
+  tonoz), `roofobj` (baca, TV anteni, çatı çanağı), `ribbon` (kavisli şerit). Yeni alanlar: pencere `curtC`/`curtF`
+  (perde rengi / kapanma, "fon" perde), `behind` (loca arka duvarı ölçü düzeltmesi), çatı arası pencereleri (k =
+  kat sayısı: alınlıkta / üçgen alınlıkta / kemerde); balkon `curtC`/`curtF`, `grille` (kemerli parmaklık), `spots`,
+  `postEvery`, `hand` (dolu parapet küpeştesi), `coping`, `capC`/`capH`/`capSlope`/`capTrim`/`capRail`, `blinds`
+  (bambu stor), `keepDoor`, `flowerC`, `arc` (ortak yay), kavisli gömük loca (inset + bulge); çatı `gableC`,
+  `fasciaC`, `spots`, kenar bazında saçak (parapetsiz kenarlarda taşma); `plinthH` (0 = subasman yok), `wallTop`
+  (blok / kütle parçası saçak kotu, parça `floorH`/`floorHs`); şerit uçları `point`/`flat`; pilastır `corner`/`joints`;
+  alınlık `trim.base`; girinti `backS`/`sideS` + klima/çanak/kamera/aplik/boru/tente/giriş arka duvarda; çıkma `clad`,
+  `back`/`topC`/`cap`, pencere korkuluğu; pano / bant `clad` (derzli kaplama dokusu); tabela `oval`, `glyphs`, 3B
+  katmanlı harfler; kamera `dome`/`bullet`, `off`, `pair`; direk tepesi `top`; ek hacim `roof` (beşik / kırma / tonoz)
+  ve `wins`. Sokak planı: çit `kind:"wall"` (serbest duvar), her kapıda `style`/`color`/`pillars` + `portal` (kolon,
+  kiriş, harfler, kanat, trafik aynası), yol yüzeyi `patch`/`crack`/`pothole`/`wear`/`delineator`, yaya geçidi
+  `wear`. Yüksek/Ultra kalitede döşeme alnı, denizlik, harpuşta ve bordürlerde 1.5 cm pah (Düşük/Orta değişmez; +%3.5
+  üçgen). **Mevcut veride değişen geometri** (anlık görüntü karşılaştırmasıyla doğrulandı, başka fark yok): cam
+  korkuluk dikmeleri + küpeşteleri ölçülen `railC` renginde (önce paslanmaz; cam korkuluklu tüm bloklar); beşik çatılı
+  bloklarda alınlık duvarı cephe düzleminde + 0.15 m rüzgârlık, çatı arası pencereleri alınlıkta (1479658783,
+  1480041344, 1480041345, 1480163634, 1540901796, 1546358555, 1546358556, 1546358562); ters yönlü ek hacim
+  çokgenlerinde cam / korkuluk doğru yüzde (303738118, 1540901770, 1540901777); kütle bölünmesinde kesimi aşan tabela /
+  tente bir kez, gerçek köşede kırpma yok, ek hacim / pergola tek parçada (900000101, 900000104, 1550614218,
+  1550826982, 1540901774, 1540901776, 1540901777, 1546816193); saçak bandındaki derz (1540901771); loca arka duvarında
+  ölçülmüş pencereler otomatik kapı yerine (1479658783 e0, 1540901795 e8/e12/e19/e26); 3B harf tabelalar (1541439437,
+  1550614218, 1550826982, 303738122, 900000102); da2-ped-gate-uptown ölçülen biçimiyle (lamelli kanat ölçülen #676f70
+  renginde, iki kolon + opal küre lamba). **Blender:** bu blokların `NW/Mertkent/Blocks/<id>` katmanları ve `NW/Mertkent/Street` (kapılar, Yüksek
+  kalitede pahlı bordürler) yeniden kurulmalı; `materials.py`: `clad:*` (derzli kaplama), `blind:*` (bambu stor),
+  `asphalt:*` / `tar:*` / `wear1..3` (yol yüzeyi) yeni malzeme aileleri. Pişirilmiş ışık bu bloklar için yeniden
+  pişirilmeli (imza değişti).

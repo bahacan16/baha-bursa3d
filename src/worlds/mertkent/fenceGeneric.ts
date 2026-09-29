@@ -96,7 +96,9 @@ export function buildGenericFence(
   const pKey = mat('render', hex(pil.color, hex(f.wall?.color, '#e6e3dc')));
   // Serbest duvar (kind "wall"): dolgu verilmemişse yok (yalnız duvar + harpuşta)
   const inf0 =
-    typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? (f.kind === 'wall' ? { type: 'none' } : {}));
+    typeof f.infill === 'string'
+      ? { type: f.infill }
+      : (f.infill ?? (f.kind === 'wall' ? { type: 'none' } : {}));
   const inf = { ...inf0, ...(f.infillSpec ?? {}), type: inf0.type ?? f.infillSpec?.type };
   const infType = (inf.type ?? 'railing').toLowerCase();
   // Ayrıntılı tanım (infillSpec.type) kısa tipi (infill: "railing") ezmesin: ikisi birlikte aranır
@@ -219,7 +221,13 @@ export function buildGenericFence(
       if (wallH > 0.05) {
         b.box(wallKey, [c[0], y0 + (wH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wH + 0.2, wallT], yaw, 1);
         if (bevel > 0)
-          b.bevelBox(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw, Math.min(bevel, copH * 0.4));
+          b.bevelBox(
+            copKey,
+            [c[0], y0 + wH + copH / 2, c[1]],
+            [u1 - u0 + 0.004, copH, wallT + 0.06],
+            yaw,
+            Math.min(bevel, copH * 0.4),
+          );
         else b.box(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
       }
       if (/yatay|horizontal/.test(infDesc) && !/none|yok/.test(infType)) {

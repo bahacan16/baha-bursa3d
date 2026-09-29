@@ -1120,10 +1120,9 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const wearL = kind.startsWith('wear') ? Number(kind.slice(4)) : 0;
     const k = `cc_${kind}_${hex.toLowerCase()}`;
     if (!extraMats[k])
-      extraMats[k] =
-        kind.startsWith('clad:')
-          ? cladMaterial(kind, hex)
-          : kind === 'blind'
+      extraMats[k] = kind.startsWith('clad:')
+        ? cladMaterial(kind, hex)
+        : kind === 'blind'
           ? // Bambu / hasır stor: çıtalı doku × ölçülen renk, iki yüz
             new THREE.MeshStandardMaterial({
               map: typeof document === 'undefined' ? null : T.bambooBlindTexture(),
@@ -1145,37 +1144,37 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
                 polygonOffsetUnits: wearL > 0 ? -9 : kind === 'tar' ? -8 : -6,
               })
             : kind === 'shutter'
-          ? // Kepenk: ölçülen renkte lamelli alüminyum (beyaz tabanlı lamel dokusu × renk)
-            new THREE.MeshStandardMaterial({
-              map: T.rollerShutterTexture(),
-              color: hex,
-              roughness: 0.55,
-              metalness: 0.3,
-              side: THREE.DoubleSide,
-            })
-          : kind === 'metal'
-            ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
-            : kind === 'awning'
-              ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.85, side: THREE.DoubleSide })
-              : kind === 'frame'
-                ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.4, metalness: 0.1 })
-                : kind === 'tint'
-                  ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.06, metalness: 0.25 })
-                  : kind === 'glass'
-                    ? new THREE.MeshStandardMaterial({
-                        // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
-                        color: hex,
-                        roughness: 0.12,
-                        metalness: 0,
-                        transparent: true,
-                        opacity: 0.86,
-                        side: THREE.DoubleSide,
-                        depthWrite: false,
-                      })
-                    : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
-                        roughness: 0.9,
-                        side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
-                      });
+              ? // Kepenk: ölçülen renkte lamelli alüminyum (beyaz tabanlı lamel dokusu × renk)
+                new THREE.MeshStandardMaterial({
+                  map: T.rollerShutterTexture(),
+                  color: hex,
+                  roughness: 0.55,
+                  metalness: 0.3,
+                  side: THREE.DoubleSide,
+                })
+              : kind === 'metal'
+                ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
+                : kind === 'awning'
+                  ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.85, side: THREE.DoubleSide })
+                  : kind === 'frame'
+                    ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.4, metalness: 0.1 })
+                    : kind === 'tint'
+                      ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.06, metalness: 0.25 })
+                      : kind === 'glass'
+                        ? new THREE.MeshStandardMaterial({
+                            // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
+                            color: hex,
+                            roughness: 0.12,
+                            metalness: 0,
+                            transparent: true,
+                            opacity: 0.86,
+                            side: THREE.DoubleSide,
+                            depthWrite: false,
+                          })
+                        : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
+                            roughness: 0.9,
+                            side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
+                          });
     return k;
   };
   const signFace = (sg: {

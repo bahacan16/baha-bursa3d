@@ -324,7 +324,10 @@ export interface Win {
    * Pencere sütununda soldan sağa birden çok pencere varsa "K3": "tul" hepsi için geçerlidir; ayrı ayrı gerekiyorsa
    * sütunu ayrı `win` öğelerine böl.
    */
-  curt?: Record<string, 'tul' | 'tul-yan' | 'stor' | 'jaluzi' | 'zebra' | 'karanlik' | 'acik' | 'vitrin' | 'fon'>;
+  curt?: Record<
+    string,
+    'tul' | 'tul-yan' | 'stor' | 'jaluzi' | 'zebra' | 'karanlik' | 'acik' | 'vitrin' | 'fon'
+  >;
   /**
    * Kat → perde RENGİ "#rrggbb" (camın arkasından görünen; güneşli / gölgeli olduğunu notta yaz): tul-yan'da yan (fon)
    * perdelerin, fon'da kalın perdenin, tul'da tülün, stor'da storun, jaluzi / zebra'da lamellerin rengi.

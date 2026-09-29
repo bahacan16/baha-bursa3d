@@ -147,24 +147,71 @@ export class Builder {
     const U = uvScale;
     const yt = hy - rr;
     // Yanlar (+z, −z, +x, −x) pah altına kadar
-    this.quad(key, P(-hx, -hy, hz), P(hx, -hy, hz), P(hx, yt, hz), P(-hx, yt, hz), [0, 0, s[0] * U, (yt + hy) * U]);
-    this.quad(key, P(hx, -hy, -hz), P(-hx, -hy, -hz), P(-hx, yt, -hz), P(hx, yt, -hz), [0, 0, s[0] * U, (yt + hy) * U]);
-    this.quad(key, P(hx, -hy, hz), P(hx, -hy, -hz), P(hx, yt, -hz), P(hx, yt, hz), [0, 0, s[2] * U, (yt + hy) * U]);
-    this.quad(key, P(-hx, -hy, -hz), P(-hx, -hy, hz), P(-hx, yt, hz), P(-hx, yt, -hz), [0, 0, s[2] * U, (yt + hy) * U]);
+    this.quad(key, P(-hx, -hy, hz), P(hx, -hy, hz), P(hx, yt, hz), P(-hx, yt, hz), [
+      0,
+      0,
+      s[0] * U,
+      (yt + hy) * U,
+    ]);
+    this.quad(key, P(hx, -hy, -hz), P(-hx, -hy, -hz), P(-hx, yt, -hz), P(hx, yt, -hz), [
+      0,
+      0,
+      s[0] * U,
+      (yt + hy) * U,
+    ]);
+    this.quad(key, P(hx, -hy, hz), P(hx, -hy, -hz), P(hx, yt, -hz), P(hx, yt, hz), [
+      0,
+      0,
+      s[2] * U,
+      (yt + hy) * U,
+    ]);
+    this.quad(key, P(-hx, -hy, -hz), P(-hx, -hy, hz), P(-hx, yt, hz), P(-hx, yt, -hz), [
+      0,
+      0,
+      s[2] * U,
+      (yt + hy) * U,
+    ]);
     // Pahlar (yamuk): alt kenar yan yüz üstü, üst kenar üst yüz kenarı
     const pr = rr * 1.4142 * U;
-    this.quad(key, P(-hx, yt, hz), P(hx, yt, hz), P(hx - rr, hy, hz - rr), P(-hx + rr, hy, hz - rr), [0, 0, s[0] * U, pr]);
-    this.quad(key, P(hx, yt, -hz), P(-hx, yt, -hz), P(-hx + rr, hy, -hz + rr), P(hx - rr, hy, -hz + rr), [0, 0, s[0] * U, pr]);
-    this.quad(key, P(hx, yt, hz), P(hx, yt, -hz), P(hx - rr, hy, -hz + rr), P(hx - rr, hy, hz - rr), [0, 0, s[2] * U, pr]);
-    this.quad(key, P(-hx, yt, -hz), P(-hx, yt, hz), P(-hx + rr, hy, hz - rr), P(-hx + rr, hy, -hz + rr), [0, 0, s[2] * U, pr]);
-    // Üst ve alt
-    this.quad(key, P(-hx + rr, hy, hz - rr), P(hx - rr, hy, hz - rr), P(hx - rr, hy, -hz + rr), P(-hx + rr, hy, -hz + rr), [
+    this.quad(key, P(-hx, yt, hz), P(hx, yt, hz), P(hx - rr, hy, hz - rr), P(-hx + rr, hy, hz - rr), [
       0,
       0,
-      (s[0] - 2 * rr) * U,
-      (s[2] - 2 * rr) * U,
+      s[0] * U,
+      pr,
     ]);
-    this.quad(key, P(-hx, -hy, -hz), P(hx, -hy, -hz), P(hx, -hy, hz), P(-hx, -hy, hz), [0, 0, s[0] * U, s[2] * U]);
+    this.quad(key, P(hx, yt, -hz), P(-hx, yt, -hz), P(-hx + rr, hy, -hz + rr), P(hx - rr, hy, -hz + rr), [
+      0,
+      0,
+      s[0] * U,
+      pr,
+    ]);
+    this.quad(key, P(hx, yt, hz), P(hx, yt, -hz), P(hx - rr, hy, -hz + rr), P(hx - rr, hy, hz - rr), [
+      0,
+      0,
+      s[2] * U,
+      pr,
+    ]);
+    this.quad(key, P(-hx, yt, -hz), P(-hx, yt, hz), P(-hx + rr, hy, hz - rr), P(-hx + rr, hy, -hz + rr), [
+      0,
+      0,
+      s[2] * U,
+      pr,
+    ]);
+    // Üst ve alt
+    this.quad(
+      key,
+      P(-hx + rr, hy, hz - rr),
+      P(hx - rr, hy, hz - rr),
+      P(hx - rr, hy, -hz + rr),
+      P(-hx + rr, hy, -hz + rr),
+      [0, 0, (s[0] - 2 * rr) * U, (s[2] - 2 * rr) * U],
+    );
+    this.quad(key, P(-hx, -hy, -hz), P(hx, -hy, -hz), P(hx, -hy, hz), P(-hx, -hy, hz), [
+      0,
+      0,
+      s[0] * U,
+      s[2] * U,
+    ]);
   }
 
   /** Yatay çokgen (üçgenlenmiş), y yüksekliğinde; up=true yukarı bakar. UV = dünya x,z × uvScale. */

@@ -266,7 +266,10 @@ export function patchSkyClouds(mat: THREE.ShaderMaterial): boolean {
     )
     .replace('void main() {', `${CLOUD_GLSL}\n\t\tvoid main() {`)
     // güneş diski ~6e4: yarım kayan noktada taşmasın (Inf → TAA/pozlama tamponlarını bozar)
-    .replace('gl_FragColor = vec4( texColor, 1.0 );', 'gl_FragColor = vec4( clamp( texColor, 0.0, 30000.0 ), 1.0 );');
+    .replace(
+      'gl_FragColor = vec4( texColor, 1.0 );',
+      'gl_FragColor = vec4( clamp( texColor, 0.0, 30000.0 ), 1.0 );',
+    );
   mat.fragmentShader = fs;
   mat.needsUpdate = true;
   return true;

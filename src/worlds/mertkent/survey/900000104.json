@@ -1546,27 +1546,27 @@
     },
     {
       "edge": 1,
-      "len": 15.9,
+      "len": 14.4,
       "seen": "none",
       "items": [],
-      "note": "Doğu cephe hiçbir panodan görülmedi (tüm panolar batıda/güneyde; önünde tek katlı ANKARA SİMİT). Çizilmedi."
+      "note": "Doğu cephe hiçbir panodan görülmedi (tüm panolar batıda/güneyde; önünde tek katlı ANKARA SİMİT). Çizilmedi. | FP-v3 (2026-09-29, taban izi): kenar sonu (KD köşe) 1.5 m güneye, uzunluk 15.9→14.4."
     },
     {
       "edge": 2,
       "len": 22.9,
       "seen": "none",
       "items": [],
-      "note": "Kuzey cephe görülmedi (footprint notu: x≈717.5–721.5 arası ~1 m çıkıntılı merdiven çekirdeği, çizilmedi)."
+      "note": "Kuzey cephe görülmedi (footprint notu: x≈717.5–721.5 arası ~1 m çıkıntılı merdiven çekirdeği, çizilmedi). | FP-v3 (2026-09-29, taban izi): kuzey cephe 1.5 m güneye (z −105.9); görülmedi."
     },
     {
       "edge": 3,
-      "len": 15.9,
+      "len": 14.4,
       "seen": "partial",
       "ref": "900000104_3_Q5ICTzjr.jpg",
       "cal": {
         "u": [
           0,
-          15.9
+          14.4
         ],
         "head": [
           [
@@ -1582,8 +1582,8 @@
       "items": [
         {
           "t": "win",
-          "u0": 9.47,
-          "u1": 10.5,
+          "u0": 7.97,
+          "u1": 9.0,
           "y0": 4.43,
           "y1": 5.53,
           "k": 1,
@@ -1608,8 +1608,8 @@
         },
         {
           "t": "win",
-          "u0": 12.76,
-          "u1": 13.79,
+          "u0": 11.26,
+          "u1": 12.29,
           "y0": 4.46,
           "y1": 5.51,
           "k": 1,
@@ -1634,8 +1634,8 @@
         },
         {
           "t": "bal",
-          "u0": 5.71,
-          "u1": 9.64,
+          "u0": 4.21,
+          "u1": 8.14,
           "d": 0.8,
           "s": [
             1,
@@ -1664,8 +1664,8 @@
         },
         {
           "t": "bal",
-          "u0": 5.71,
-          "u1": 9.64,
+          "u0": 4.21,
+          "u1": 8.14,
           "d": 0.8,
           "s": [
             2,
@@ -1695,12 +1695,12 @@
           },
           "pots": {
             "K4": [
-              6.83,
-              7.22,
-              7.65,
-              8.06,
-              8.57,
-              9.06
+              5.33,
+              5.72,
+              6.15,
+              6.56,
+              7.07,
+              7.56
             ]
           },
           "potsOn": "rail",
@@ -1708,30 +1708,30 @@
         },
         {
           "t": "ac",
-          "u": 9.13,
+          "u": 7.63,
           "s": 4,
           "y": 13.87
         },
         {
           "t": "ac",
-          "u": 8.91,
+          "u": 7.41,
           "s": 1,
           "y": 4.27
         },
         {
           "t": "ac",
-          "u": 15.8,
+          "u": 14.3,
           "s": 0,
           "y": 0.67
         },
         {
           "t": "pipe",
-          "u": 15.8
+          "u": 14.3
         },
         {
           "t": "groove",
           "dir": "v",
-          "u": 1.56,
+          "u": 0.06,
           "y0": 3.45,
           "y1": 19,
           "w": 0.06,
@@ -1740,8 +1740,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 4.74,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1749,8 +1749,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 5.25,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1758,8 +1758,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 5.75,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1767,8 +1767,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 6.25,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1776,8 +1776,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 6.75,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1785,8 +1785,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 7.25,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1794,8 +1794,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 7.75,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1803,8 +1803,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 8.25,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1812,8 +1812,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 8.76,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1821,8 +1821,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 9.28,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1830,8 +1830,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 9.76,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1839,8 +1839,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 10.27,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1848,8 +1848,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 10.78,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1857,8 +1857,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 11.28,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1866,8 +1866,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 11.78,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1875,8 +1875,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 12.29,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1884,8 +1884,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 12.8,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1893,8 +1893,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 13.29,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1902,8 +1902,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 13.8,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1911,8 +1911,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 14.31,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1920,8 +1920,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 14.82,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1929,8 +1929,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 15.31,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1938,8 +1938,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 15.81,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1947,8 +1947,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 16.31,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1956,8 +1956,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 16.81,
           "w": 0.02,
           "color": "#c9c9c6"
@@ -1965,24 +1965,24 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 1.6,
-          "u1": 15.85,
+          "u0": 0.1,
+          "u1": 14.35,
           "y": 17.33,
           "w": 0.02,
           "color": "#c9c9c6"
         },
         {
           "t": "panel",
-          "u0": 1.56,
-          "u1": 15.2,
+          "u0": 0.06,
+          "u1": 13.7,
           "y0": 0.12,
           "y1": 3.45,
           "color": "#4f5457"
         },
         {
           "t": "proj",
-          "u0": 15.2,
-          "u1": 15.9,
+          "u0": 13.7,
+          "u1": 14.4,
           "d": 0.2,
           "y0": 0.12,
           "y1": 3.31,
@@ -1990,8 +1990,8 @@
         },
         {
           "t": "band",
-          "u0": 5.71,
-          "u1": 9.64,
+          "u0": 4.21,
+          "u1": 8.14,
           "y0": 6.08,
           "y1": 6.4,
           "color": "#f2f3f1",
@@ -1999,8 +1999,8 @@
         },
         {
           "t": "band",
-          "u0": 5.71,
-          "u1": 9.64,
+          "u0": 4.21,
+          "u1": 8.14,
           "y0": 9.21,
           "y1": 9.53,
           "color": "#f2f3f1",
@@ -2008,8 +2008,8 @@
         },
         {
           "t": "band",
-          "u0": 5.71,
-          "u1": 9.64,
+          "u0": 4.21,
+          "u1": 8.14,
           "y0": 12.34,
           "y1": 12.66,
           "color": "#f2f3f1",
@@ -2017,8 +2017,8 @@
         },
         {
           "t": "band",
-          "u0": 5.71,
-          "u1": 9.64,
+          "u0": 4.21,
+          "u1": 8.14,
           "y0": 15.47,
           "y1": 15.79,
           "color": "#f2f3f1",
@@ -2026,8 +2026,8 @@
         },
         {
           "t": "proj",
-          "u0": 1.35,
-          "u1": 15.9,
+          "u0": -0.15,
+          "u1": 14.4,
           "d": 0.8,
           "y0": 18.5,
           "y1": 18.8,
@@ -2035,15 +2035,15 @@
         },
         {
           "t": "proj",
-          "u0": 1.35,
-          "u1": 15.9,
+          "u0": -0.15,
+          "u1": 14.4,
           "d": 0.8,
           "y0": 18.8,
           "y1": 19.72,
           "color": "#7a838a"
         }
       ],
-      "note": "GERÇEK KOORDİNAT. Q5ICTzjr (2025-09) 62° yan bakış; aynı ≈4.6° yön hatası homografiyle düzeltildi (çatı parapeti ucu = KB köşe, pencere lentoları güney cephesiyle ±5 cm). Kuzey uçta (u 0–1.56) duvar girintili görünüyor (derinlik görülmedi, bkz. pending). Zemin kat önündeki yeşil tel çit + kapı parsel sınırında (binaya ait değil, çizilmedi); zemin kat duvarı çit arkasından koyu gri seçiliyor. v5: teras batı taşması proj (u 1.0–15.9, d 0.8; kuzey ucu U≈1.35 Q5 d0.8); K4 saksıları (Q5 d0.8 → U 6.83…9.06, saksı #9a8676 bulanık örnek); batı cephe K1'de gri döşeme alnı görülmedi (beyaz)."
+      "note": "GERÇEK KOORDİNAT. Q5ICTzjr (2025-09) 62° yan bakış; aynı ≈4.6° yön hatası homografiyle düzeltildi (çatı parapeti ucu = KB köşe, pencere lentoları güney cephesiyle ±5 cm). Kuzey uçta (u 0–1.56) duvar girintili görünüyor (derinlik görülmedi, bkz. pending). Zemin kat önündeki yeşil tel çit + kapı parsel sınırında (binaya ait değil, çizilmedi); zemin kat duvarı çit arkasından koyu gri seçiliyor. v5: teras batı taşması proj (u 1.0–15.9, d 0.8; kuzey ucu U≈1.35 Q5 d0.8); K4 saksıları (Q5 d0.8 → U 6.83…9.06, saksı #9a8676 bulanık örnek); batı cephe K1'de gri döşeme alnı görülmedi (beyaz). | FP-v3 (2026-09-29, taban izi): kuzey duvar 1.5 m GÜNEYE (−107.4→−105.9): kenar başı (KB köşe, v3) kenar boyunca +1.5 m → tüm u −1.5, uzunluk 15.9→14.4, cal.u [0,14.4] (ölçek aynı). Eski \"kuzey uçta girinti\" (u 0–1.56) taban izi hatasıydı: u 1.56 köşe profili artık KB köşede (u 0.06); teras taşması kuzey ucu u −0.15 (pergola ucu −106.05 ile aynı, fiziksel yerinde bırakıldı)."
     }
   ],
   "pending": [
@@ -2123,15 +2123,6 @@
       "note": "Batı parapeti üstünde ~2.7 m arayla dikmeler (Q5: U≈1.6, …, 16.65 d 0.8), dikmelerden doğu–batı yönlü kirişler parapetten ~0.5 m batıya taşar (uçlarında beyaz kapak), aralarında kuzey–güney yönlü koyu lamel paneller. Güneyden bakışta lamel alt uçları güney parapetine yakın → örtü güneye doğru eğimli olabilir (batı dikme üstleri 21.5–21.8). Üretici düz pergola çiziyor (lameller uzun kenara dik = doğu–batı) → eğim ve lamel yönü ifade edilemedi; y1 21.65 ortalama. Üretici dikmeleri çokgenin dört kenarına da ~2.6 m arayla koyuyor; güney kenarda yalnız GB köşe dikmesi görüldü, doğu kenar (çatı katı duvarına bağlı) ve kuzey kenar görülmedi."
     },
     {
-      "what": "Kuzey duvar / KB köşe — taban izi muhtemelen ~1.4–1.5 m fazla kuzeyde",
-      "edge": 3,
-      "u": [
-        0,
-        1.56
-      ],
-      "note": "Q5 ortosunda batı cephesinin kuzey ucunda U≈1.56'da güneybatı köşesindekiyle aynı koyu köşe profili var; u 0–1.56 bölgesi cepheden farklı (düz, eğik üst kenarlı, komşu yapıyla karışık). Teras taşması (d 0.8) kuzeyde U≈1.35'te bitiyor, ilk pergola dikmesi U≈1.6. Hava fotoğrafında pergola ve çatı katı çatısının kuzey ucu z≈−106.8 (eğim 1.5,5.4 ile). → Üst katlarda kuzey duvar z≈−105.9…−106.6 olabilir (izde −107.4, ±0.6 not edilmiş). footprints.json değiştirilmedi; alt katlar komşu yapı yüzünden görülmedi. Eski 'girinti' yorumu bununla açıklanabilir, derinlik ölçülemedi."
-    },
-    {
       "what": "Massing kırpması: kesimi aşan tabela/tente ikiye bölünüyor + köşeyi saran öğeler kesiliyor (üretici)",
       "note": "massing.shiftItem u'yu parça kenarına kırpıyor: 'GÜLTEN KARADAĞ' (u 4.1–8.65), 'KUAFÖR' (4.25–4.75), 'TURUNCU Market' (13.4–18.4) tabelaları ve TURUNCU tentesi (13.49–18.59) x=714 / 727.6 kesimlerinde ikiye bölünüp iki kez yazılıyor; kenar 0/3 teras taşması proj'ları GB köşeye uzanamadığı için köşe karesi volumes ile kapatıldı. Öneri: tabela/tente merkezinin düştüğü parçaya bütün olarak gitsin; orijinal köşelerde (kesim olmayan uçlarda) u kırpılmasın. Ayrıca blok volumes/pergolas her parçaya kopyalanıyor (3 kez çiziliyor)."
     }
@@ -2144,7 +2135,8 @@
     "TABELALAR: \"GÜLTEN KARADAĞ / HAIR DESIGN\" (gri kutu, gümüş harf, G/K monogram), dikey \"KUAFÖR\" ve \"BAYAN\" siyah bantlar, vitrin kadın afişleri; \"TURUNCU Market\" (turuncu kutu, beyaz kabartma harf) + iki bölmeli somon tente \"TURUNCU MARKET\", dikey \"MARKET\" bant, \"BURADA\" rozet etiketi, \"Lezzet…\" etiketi; \"cabinas® / dış ticaret\" (siyah kutu, K1 balkon önünde). Apartman girişi siyah ferforje camlı kapı (u 11.88–13.49), yanı bej traverten kaplama + yerde klima.",
     "RENKLER güneşli yüzeyden (amsci ortofoto/kare): beyaz #f5f0ed, parapet #6d757c, çatı katı #808c9b, tabela turuncu #f67d5d, cabinas #4c514c, Gülten #6f777d, tente #c46150, traverten #a3937c. Doğrama rengi ortofoto çözünürlüğünde örneklenemedi, karelerden gözle (#8a5b3a).",
     "Doğu (kenar 1) ve kuzey (kenar 2) cepheler görülmedi — çizilmedi. Doğu duvar konumu (x 732.4) iki ortofotonun köşe çizgisiyle tutarlı (uzunluk 22.9 kabulüyle kat yüksekliği 3.13 çıkıyor, makul).",
-    "v5 dönüşümü (2026-09-29): çatı katı ön kutusu (proj + 2 pencere + pilaster söveler) + K6 döşeme balkonu (rail none, kiriş 0.09) + pediment; teras taşması; pergola; batı yan duvar kaplaması (volume); solidTube küpeşteler; beyaz/koyu yağmur boruları; kepenk rengi; saksılar. Görülmeyenler: çatı katının doğu ve kuzey yan duvarları (beyaz blok sıvası kalıyor), terasın kuzey kenarı (parapet çizilmedi), kuzey ve doğu cepheleri."
+    "v5 dönüşümü (2026-09-29): çatı katı ön kutusu (proj + 2 pencere + pilaster söveler) + K6 döşeme balkonu (rail none, kiriş 0.09) + pediment; teras taşması; pergola; batı yan duvar kaplaması (volume); solidTube küpeşteler; beyaz/koyu yağmur boruları; kepenk rengi; saksılar. Görülmeyenler: çatı katının doğu ve kuzey yan duvarları (beyaz blok sıvası kalıyor), terasın kuzey kenarı (parapet çizilmedi), kuzey ve doğu cepheleri.",
+    "FP-v3 (2026-09-29, taban izi): kuzey duvar (kenar 2) 1.5 m GÜNEYE: v2 (732.4,−107.4)→(732.4,−105.9), v3 (709.5,−107.4)→(709.5,−105.9) — derinlik 15.9→14.4. Kanıt: (1) hava fotoğrafı eğimi bu binanın güney cephe balkon bantlarından ölçüldü: bant aralığı 0.93 m / kat 3.13 m → 0.297 m/m (eski izde 0.256 kullanılmıştı; güney şerit üst kenarı 0.8 m taşan teras parapetine ait, o da 0.289 veriyor); pergolanın hava fotoğrafındaki kuzey ucu z −112.4 (x 708–712.5, üst ≈21.65) → −105.97…−106.12; (2) Q5ICT batı cephe ortosunda KB köşe profili U 1.56 → −105.84; teras taşması ucu U 1.35 (parapet ucu köşeyle aynı z, kuzeye taşma yok). Eski \"kuzey uçta girinti\" yorumu (u 0–1.56) bu kaymadan geliyordu — pending maddesi çözüldü, silindi. Kenar 3 öğelerinin tümü u −1.5 (fiziksel yerinde), kenar 1 uzunluğu 14.4, batı yan duvar kaplaması (volumes) kuzey ucu −105.9. Bu tarihten önceki not/pending metinlerindeki kenar 3 U değerleri eski çerçevede (yeni = eski − 1.5). Kalan: orta/doğu bölüm (x 714–732.4) çatısının hava fotoğrafındaki kuzey kenarı doğuya doğru güneye kayıyor (x 714.5: −112.5, x 725.5: −111.6 → saçak ≈22 m ise duvar −105.5…−105.0 olabilir; çatı biçimi/yüksekliği bilinmiyor, ±0.6) — tek düz kuzey duvar olarak bırakıldı; kuzey çekirdek çıkıntısı (x≈717.5–722.5) çizilmedi; kuzey ve doğu cepheler görülmedi."
   ],
   "floorHs": [
     3.13,
@@ -2239,11 +2231,11 @@
       "poly": [
         [
           713.96,
-          -107.4
+          -105.9
         ],
         [
           713.99,
-          -107.4
+          -105.9
         ],
         [
           713.99,
@@ -2258,7 +2250,7 @@
       "y1": 21.95,
       "color": "#808c9b",
       "collide": false,
-      "note": "Çatı katının batı yan duvarı koyu gri (massing kesim duvarı beyaz çiziliyordu); 3 cm kaplama"
+      "note": "Çatı katının batı yan duvarı koyu gri (massing kesim duvarı beyaz çiziliyordu); 3 cm kaplama | FP-v3 (2026-09-29, taban izi): kuzey ucu yeni kuzey duvara kırpıldı (−107.4→−105.9)."
     }
   ]
 }

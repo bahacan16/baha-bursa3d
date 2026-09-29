@@ -178,7 +178,13 @@ function kerbStones(b: Builder, a: V2, e: V2, n: V2, kh: number, H: (x: number, 
     const y = H(c[0], c[1]);
     // Yüksek/Ultra: bordür taşının üst kenarları pahlı (KERB_BEV)
     if (KERB_BEV > 0)
-      b.bevelBox('curb', [c[0], y + kh / 2 - 0.05, c[1]], [L / nS - 0.006, kh + 0.1, KERB_W], Math.atan2(-t[1], t[0]), KERB_BEV);
+      b.bevelBox(
+        'curb',
+        [c[0], y + kh / 2 - 0.05, c[1]],
+        [L / nS - 0.006, kh + 0.1, KERB_W],
+        Math.atan2(-t[1], t[0]),
+        KERB_BEV,
+      );
     else
       b.box(
         'curb',
@@ -227,8 +233,11 @@ function roadDetail(
   H: (x: number, z: number) => number,
   colorKey: StreetExt['colorKey'],
 ): void {
-  const ck = (kind: 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3', hex: string | undefined, dflt: string) =>
-    colorKey ? colorKey(kind, hex && /^#[0-9a-f]{6}$/i.test(hex) ? hex : dflt) : 'roadFill';
+  const ck = (
+    kind: 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3',
+    hex: string | undefined,
+    dflt: string,
+  ) => (colorKey ? colorKey(kind, hex && /^#[0-9a-f]{6}$/i.test(hex) ? hex : dflt) : 'roadFill');
   const ring = (r: V2[]) => {
     const o = r.map((p) => [p[0], p[1]] as V2);
     if (o.length > 3 && o[0][0] === o[o.length - 1][0] && o[0][1] === o[o.length - 1][1]) o.pop();
@@ -263,7 +272,15 @@ function roadDetail(
   } else if (s.kind === 'crack') {
     const w = Math.max(0.005, Math.min(0.3, s.w ?? 0.03));
     for (const q of ribbon(s.pts ?? [], w))
-      b.drape(s.sealed ? ck('tar', s.color, '#2b2b2a') : ck('asphalt', s.color, '#3f403e'), q, [], H, s.over ? 0.057 : 0.046, 1, 2);
+      b.drape(
+        s.sealed ? ck('tar', s.color, '#2b2b2a') : ck('asphalt', s.color, '#3f403e'),
+        q,
+        [],
+        H,
+        s.over ? 0.057 : 0.046,
+        1,
+        2,
+      );
   } else if (s.kind === 'pothole') {
     let r = ring(s.poly ?? []);
     if (r.length < 3) {
@@ -287,7 +304,8 @@ function roadDetail(
     const amt = Math.max(0, Math.min(1, s.amount ?? 0.5));
     if (amt <= 0.05) return;
     const lvl = Math.min(3, Math.max(1, Math.round(amt * 4))) as 1 | 2 | 3;
-    for (const q of polys) if (q.length >= 3) b.drape(ck(`wear${lvl}`, s.color, ROAD_TONE), q, [], H, 0.058, 2, 2);
+    for (const q of polys)
+      if (q.length >= 3) b.drape(ck(`wear${lvl}`, s.color, ROAD_TONE), q, [], H, 0.058, 2, 2);
   }
 }
 
@@ -739,42 +757,42 @@ export function streetSignTexture(kind: 'keepRight' | 'chevron' | 'pedestrian'):
 
 /** buildStreetPlan ek seçenekleri */
 export interface StreetExt {
-    signFace?: (sg: {
-      text: string;
-      lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
-      bg: string | null;
-      fg: string;
-      border: string | null;
-      font: string;
-      bold: boolean;
-      lit: boolean;
-      style: string;
-      w: number;
-      h: number;
-    }) => string;
-    colorKey?: (
-      kind:
-        | 'plaster'
-        | 'fascia'
-        | 'metal'
-        | 'awning'
-        | 'glass'
-        | 'frame'
-        | 'tint'
-        | 'asphalt'
-        | 'tar'
-        | 'wear1'
-        | 'wear2'
-        | 'wear3',
-      hex: string,
-    ) => string;
-    /** Yüksek/Ultra kalite: bordür taşı üst kenar pahı (m, 0 = yok) */
-    bevel?: number;
-    /** Çarpışma halkası (x/z çokgen, alt–üst kot) */
-    collide?: Collide;
-    /** Noktadan en yakın OSM yol şeridi KENARINA uzaklık (m); asfalt dolgusunun genişliği için */
-    roadEdge?: (x: number, z: number) => number;
-  }
+  signFace?: (sg: {
+    text: string;
+    lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
+    bg: string | null;
+    fg: string;
+    border: string | null;
+    font: string;
+    bold: boolean;
+    lit: boolean;
+    style: string;
+    w: number;
+    h: number;
+  }) => string;
+  colorKey?: (
+    kind:
+      | 'plaster'
+      | 'fascia'
+      | 'metal'
+      | 'awning'
+      | 'glass'
+      | 'frame'
+      | 'tint'
+      | 'asphalt'
+      | 'tar'
+      | 'wear1'
+      | 'wear2'
+      | 'wear3',
+    hex: string,
+  ) => string;
+  /** Yüksek/Ultra kalite: bordür taşı üst kenar pahı (m, 0 = yok) */
+  bevel?: number;
+  /** Çarpışma halkası (x/z çokgen, alt–üst kot) */
+  collide?: Collide;
+  /** Noktadan en yakın OSM yol şeridi KENARINA uzaklık (m); asfalt dolgusunun genişliği için */
+  roadEdge?: (x: number, z: number) => number;
+}
 
 export function buildStreetPlan(
   b: Builder,
@@ -872,7 +890,13 @@ function buildStreet(
           const c = q((u0 + u1) / 2, v + KERB_W / 2);
           const y = H(c[0], c[1]);
           if (KERB_BEV > 0)
-            b.bevelBox('curb', [c[0], y + kh / 2 - 0.05, c[1]], [u1 - u0 - 0.006, kh + 0.1, KERB_W], Math.atan2(-t[1], t[0]), KERB_BEV);
+            b.bevelBox(
+              'curb',
+              [c[0], y + kh / 2 - 0.05, c[1]],
+              [u1 - u0 - 0.006, kh + 0.1, KERB_W],
+              Math.atan2(-t[1], t[0]),
+              KERB_BEV,
+            );
           else
             b.box(
               'curb',
@@ -1131,7 +1155,8 @@ function buildStreet(
             const e = de.pts[i + 1];
             const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
             const n = Math.max(1, Math.round(L / ev));
-            for (let k = i ? 1 : 0; k <= n; k++) at.push([a[0] + ((e[0] - a[0]) * k) / n, a[1] + ((e[1] - a[1]) * k) / n]);
+            for (let k = i ? 1 : 0; k <= n; k++)
+              at.push([a[0] + ((e[0] - a[0]) * k) / n, a[1] + ((e[1] - a[1]) * k) / n]);
           }
         } else at.push([s.x, s.z]);
         for (const [x, z] of at) {
@@ -1139,7 +1164,8 @@ function buildStreet(
           b.cylinder('darkMetal', [x, gy, z], 0.1, 0.04, 10);
           b.cylinder(bodyK, [x, gy + 0.04, z], 0.04, hh - 0.04, 8);
           const nb = Math.max(1, Math.min(3, de.bands ?? 2));
-          for (let k = 0; k < nb; k++) b.cylinder('spPaint', [x, gy + hh - 0.09 - k * 0.12, z], 0.042, 0.06, 8);
+          for (let k = 0; k < nb; k++)
+            b.cylinder('spPaint', [x, gy + hh - 0.09 - k * 0.12, z], 0.042, 0.06, 8);
         }
         break;
       }

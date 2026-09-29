@@ -454,7 +454,9 @@ async function main() {
                 : {}),
               ...(it.curtC ? { curtC: keyK(it.curtC) } : {}),
               ...(it.curtF ? { curtF: keyK(it.curtF) } : {}),
-              ...(it.grille ? { grille: keyK(it.grille), grilleC: it.grilleC ?? null, grilleW: it.grilleW ?? null } : {}),
+              ...(it.grille
+                ? { grille: keyK(it.grille), grilleC: it.grilleC ?? null, grilleW: it.grilleW ?? null }
+                : {}),
               ...(it.spots ? { spots: it.spots } : {}),
               ...(it.postEvery ? { postEvery: it.postEvery } : {}),
               ...(it.postW ? { postW: it.postW } : {}),
@@ -465,7 +467,9 @@ async function main() {
               ...(it.capRail
                 ? { capRail: it.capRail, capRailC: it.capRailC ?? null, capRailH: it.capRailH ?? null }
                 : {}),
-              ...(it.blinds ? { blinds: keyK(it.blinds), ...(it.blindTo ? { blindTo: keyK(it.blindTo) } : {}) } : {}),
+              ...(it.blinds
+                ? { blinds: keyK(it.blinds), ...(it.blindTo ? { blindTo: keyK(it.blindTo) } : {}) }
+                : {}),
               ...(it.coping ? { coping: keyK(it.coping) } : {}),
               ...(it.capTrim ? { capTrim: it.capTrim } : {}),
               ...(it.keepDoor ? { keepDoor: true } : {}),
@@ -652,7 +656,17 @@ async function main() {
         // KARAR (CLAUDE.md §0.1): kopya (görülmemiş) kenara yalnız GEOMETRİ geçer — tabela, bayrak, klima/çanak/
         // kamera, perde/kepenk/parmaklık durumu, cam balkon tonu, kuş filesi, saksı, tente yazısı fotoğrafta
         // görülmedi → kopyalanmaz (nötr varsayılan). Pencere/balkon/şerit/boru/bant gibi yapı öğeleri kalır.
-        const OBSERVED_ONLY = new Set(['sign', 'flag', 'ac', 'dish', 'camera', 'banner', 'cloth', 'lamp', 'roofobj']);
+        const OBSERVED_ONLY = new Set([
+          'sign',
+          'flag',
+          'ac',
+          'dish',
+          'camera',
+          'banner',
+          'cloth',
+          'lamp',
+          'roofobj',
+        ]);
         items = src
           .filter((it) => !OBSERVED_ONLY.has(it.t))
           .map((it) => {
