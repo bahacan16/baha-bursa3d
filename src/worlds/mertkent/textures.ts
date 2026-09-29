@@ -1318,16 +1318,19 @@ function drawIcon(
   g.restore();
 }
 
-export function shopSignTexture(o: {
+/** Tabela çizim tarifi (facade.ts SignSpec'in doku alanları; tabela atlası bölgesine çizilir) */
+export interface SignDraw {
   text: string;
-  lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
+  lines?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[] | null;
   bg: string | null;
   fg: string;
   border: string | null;
   font: string;
   bold: boolean;
+  /** Tabelanın gerçek boyu (m) — ölçülen harf yüksekliği (capH) ve hale payı için */
   w: number;
   h: number;
+  style?: string;
   /** Harf konturu (ör. mavi harf + beyaz kontur) */
   outline?: string | null;
   /** 'round': yuvarlak rozet (zemin daire) */
@@ -1338,12 +1341,68 @@ export function shopSignTexture(o: {
   /** Monogram / glif: yan yana (bindirmeli) harfler, isteğe bağlı ayna simetrik (ör. ayna K + R) */
   glyphs?: { ch: string; mirror?: boolean }[] | null;
   join?: number | null;
-}): THREE.Texture {
-  const asp = Math.max(0.05, o.w / Math.max(0.05, o.h));
-  const W = asp >= 1 ? 1024 : Math.max(64, Math.round(1024 * asp));
-  const H = asp >= 1 ? Math.max(64, Math.round(1024 / asp)) : 1024;
-  const [c, g] = canvas(W, H);
-  g.clearRect(0, 0, W, H);
+  /** v7: ölçülen büyük harf yüksekliği (m); hiza left | center | right */
+  capH?: number | null;
+  align?: string | null;
+  /** v7: renk blokları (0..1, alt sol köşe 0,0) — ekran / baskı içeriği */
+  blocks?: { x0: number; x1: number; y0: number; y1: number; color: string }[] | null;
+  /** v7: hale: yalnız harf biçimleri hale renginde, bulanık; haloPad (m) bölge kenarından harf kutusuna pay */
+  halo?: string | null;
+  haloPad?: number;
+}
+
+const famOf = (font: string) =>
+  font === 'serif'
+    ? 'Georgia, "Times New Roman", serif'
+    : font === 'script'
+      ? '"Brush Script MT", "Segoe Script", cursive'
+      : font === 'condensed'
+        ? '"Arial Narrow", "Roboto Condensed", Arial, sans-serif'
+        : 'Arial, Helvetica, sans-serif';
+
+/** Renk blokları (0..1 oranında, alt sol köşe 0,0) */
+function drawBlocks(g: CanvasRenderingContext2D, W: number, H: number, blocks: SignDraw['blocks']): void {
+  for (const bl of blocks ?? []) {
+    if (!/^#[0-9a-f]{6}$/i.test(bl.color)) continue;
+    const x0 = Math.max(0, Math.min(bl.x0, bl.x1));
+    const x1 = Math.min(1, Math.max(bl.x0, bl.x1));
+    const y0 = Math.max(0, Math.min(bl.y0, bl.y1));
+    const y1 = Math.min(1, Math.max(bl.y0, bl.y1));
+    g.fillStyle = bl.color;
+    g.fillRect(x0 * W, (1 - y1) * H, (x1 - x0) * W, (y1 - y0) * H);
+  }
+}
+
+/**
+ * Dükkân / apartman tabelası yüzü: ölçülen yazı, zemin/yazı/kenar rengi, yazı tipi. Metin satırları "\n" ile.
+ * (0,0)–(W,H) bölgesine çizer (tabela atlası; bg null → saydam). v7: capH (ölçülen harf boyu), hiza, renk
+ * blokları, LED ekran (style screen), hale (halo: yalnız harfler, bulanık).
+ */
+export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, o: SignDraw): void {
+  if (o.halo && (o.haloPad ?? 0) > 0) {
+    // Hale: harf kutusu bölgenin içinde pay kadar; harfler hale renginde, gölge bulanıklığıyla yayılır
+    const pp = Math.max(1, ((o.haloPad ?? 0) / Math.max(0.05, o.h)) * H);
+    g.save();
+    g.translate(pp, pp);
+    g.shadowColor = o.halo;
+    g.shadowBlur = pp * 0.9;
+    drawShopSign(g, Math.max(4, W - 2 * pp), Math.max(4, H - 2 * pp), {
+      ...o,
+      w: o.w - 2 * (o.haloPad ?? 0),
+      h: o.h - 2 * (o.haloPad ?? 0),
+      bg: null,
+      border: null,
+      outline: null,
+      icon: null,
+      blocks: null,
+      halo: null,
+      haloPad: 0,
+      fg: o.halo,
+      lines: o.lines?.map((l) => ({ ...l, fg: o.halo! })) ?? null,
+    });
+    g.restore();
+    return;
+  }
   const oval = o.shape === 'oval';
   const round = o.shape === 'round' || oval;
   if (round) {
@@ -1366,6 +1425,7 @@ export function shopSignTexture(o: {
       g.fillStyle = o.bg;
       g.fillRect(0, 0, W, H);
     }
+    drawBlocks(g, W, H, o.blocks);
     if (o.border) {
       g.strokeStyle = o.border;
       g.lineWidth = Math.max(4, Math.min(W, H) * 0.06);
@@ -1379,17 +1439,12 @@ export function shopSignTexture(o: {
     drawIcon(g, o.icon, H * 0.1 + s0 / 2, H / 2, s0, o.iconC ?? o.fg);
     x0 = H;
   } else if (o.icon && round) drawIcon(g, o.icon, W / 2, H * 0.28, H * 0.3, o.iconC ?? o.fg);
-  const fam =
-    o.font === 'serif'
-      ? 'Georgia, "Times New Roman", serif'
-      : o.font === 'script'
-        ? '"Brush Script MT", "Segoe Script", cursive'
-        : o.font === 'condensed'
-          ? '"Arial Narrow", "Roboto Condensed", Arial, sans-serif'
-          : 'Arial, Helvetica, sans-serif';
+  const fam = famOf(o.font);
+  // Ölçülen büyük harf yüksekliği → piksel (Arial büyük harf ≈ 0.72 em)
+  const capPx = o.capH && o.capH > 0.01 && o.h > 0.01 ? ((o.capH / 0.72) * H) / o.h : null;
   if (o.glyphs?.length) {
     // Monogram: harfler yan yana, `join` oranında bindirilir; ayna harfler yatay çevrilir
-    const fs = H * 0.78;
+    const fs = capPx ?? H * 0.78;
     g.font = `${o.bold ? 'bold ' : ''}${fs}px ${fam}`;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
@@ -1407,7 +1462,7 @@ export function shopSignTexture(o: {
       g.restore();
       x += ws[k];
     });
-    return tex(c, false);
+    return;
   }
   // Satırlar: ya düz metin ("\n") ya da satır başına renk/boyut
   const rows = (
@@ -1420,7 +1475,10 @@ export function shopSignTexture(o: {
     const rel = rows.map((r) => r.size ?? 1);
     const sumRel = rel.reduce((a, v) => a + v, 0);
     let unit = (H - pad * 2) / sumRel / 1.15;
-    g.textAlign = 'center';
+    // v7: ölçülen harf boyu (sığmıyorsa bölge yüksekliğine kadar)
+    if (capPx) unit = Math.min(capPx, H / sumRel / 1.02);
+    const al = o.align === 'left' || o.align === 'right' ? o.align : 'center';
+    g.textAlign = al;
     g.textBaseline = 'middle';
     const fontOf = (k: number) => `${(rows[k].bold ?? o.bold) ? 'bold ' : ''}${unit * rel[k]}px ${fam}`;
     const widest = () =>
@@ -1433,22 +1491,41 @@ export function shopSignTexture(o: {
     const avail = (round ? W * 0.72 : W - x0) - pad * 2;
     while (widest() > avail && unit > 4) unit *= 0.92;
     let y = H / 2 - (unit * sumRel * 1.15) / 2 + (round && o.icon ? H * 0.1 : 0);
-    const cx = x0 + (W - x0) / 2;
+    const cx = al === 'left' ? x0 + pad : al === 'right' ? W - pad : x0 + (W - x0) / 2;
     rows.forEach((r, k) => {
       const lh = unit * rel[k] * 1.15;
       g.font = fontOf(k);
+      // v7: satır merkezi ölçülmüşse (y: alttan 0..1) orada
+      const ly = (r as { y?: number }).y;
+      const yc = ly != null && ly >= 0 && ly <= 1 ? (1 - ly) * H : y + lh / 2;
       if (o.outline) {
         // Harf konturu (fotoğraftaki beyaz/koyu kenar)
         g.strokeStyle = o.outline;
         g.lineJoin = 'round';
         g.lineWidth = Math.max(2, unit * rel[k] * 0.12);
-        g.strokeText(r.text, cx, y + lh / 2);
+        g.strokeText(r.text, cx, yc);
       }
       g.fillStyle = r.fg ?? o.fg;
-      g.fillText(r.text, cx, y + lh / 2);
+      g.fillText(r.text, cx, yc);
       y += lh;
     });
   }
+  if (o.style === 'screen') {
+    // LED ekran: ince piksel ızgarası (panel dokusu)
+    g.fillStyle = 'rgba(0,0,0,0.18)';
+    const st = Math.max(3, Math.round(Math.min(W, H) / 80));
+    for (let x = 0; x < W; x += st) g.fillRect(x, 0, 1, H);
+    for (let yy = 0; yy < H; yy += st) g.fillRect(0, yy, W, 1);
+  }
+}
+
+export function shopSignTexture(o: SignDraw): THREE.Texture {
+  const asp = Math.max(0.05, o.w / Math.max(0.05, o.h));
+  const W = asp >= 1 ? 1024 : Math.max(64, Math.round(1024 * asp));
+  const H = asp >= 1 ? Math.max(64, Math.round(1024 / asp)) : 1024;
+  const [c, g] = canvas(W, H);
+  g.clearRect(0, 0, W, H);
+  drawShopSign(g, W, H, o);
   return tex(c, false);
 }
 
@@ -1482,25 +1559,22 @@ export function bambooBlindTexture(): THREE.Texture {
   return tex(c);
 }
 
-/**
- * Korkuluğa asılı bayrak / pankart dokusu:
- * - portrait: kırmızı zemin, üstte beyaz ay-yıldız, ortada beyaz çerçeveli gri tonlu portre madalyonu (genel büst
- *   silueti — yüz çizilmez), altta beyaz bant üstünde (ölçülen) kırmızı yazı;
- * - tr-v: dikey Türk bayrağı (ay-yıldız üstte, yıldız aşağı bakar); tr: yatay Türk bayrağı;
- * - plain: düz renk + yazı.
- */
-export function bannerTexture(o: {
+/** Pankart / bayrak çizim tarifi (bannerTexture, tabela atlası) */
+export interface BannerDraw {
   style: string;
   bg: string | null;
   fg: string;
   text: string;
   w: number;
   h: number;
-}): THREE.Texture {
-  const asp = Math.max(0.1, o.w / Math.max(0.05, o.h));
-  const H = 512;
-  const W = Math.max(64, Math.round(H * asp));
-  const [c, g] = canvas(W, H);
+  /** v7 (style print): satırlar (y: alttan 0..1 satır merkezi, size göreli boy), renk blokları, file pankart */
+  lines?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[] | null;
+  blocks?: { x0: number; x1: number; y0: number; y1: number; color: string }[] | null;
+  mesh?: boolean | null;
+}
+
+/** Pankart / bayrak yüzünü (0,0)–(W,H) bölgesine çizer (bannerTexture ve tabela atlası) */
+export function drawBanner(g: CanvasRenderingContext2D, W: number, H: number, o: BannerDraw): void {
   const red = o.bg ?? '#d21f26';
   g.fillStyle = red;
   g.fillRect(0, 0, W, H);
@@ -1575,7 +1649,56 @@ export function bannerTexture(o: {
     g.fillStyle = '#f7f7f5';
     g.fillRect(0, H * 0.76, W, H * 0.2);
     text(o.text, H * 0.77, H * 0.95, o.fg || red);
+  } else if (o.style === 'print') {
+    // v7 çok katlı asılı / file pankart: renk blokları + ölçülen satırlar (satır merkezi y: alttan 0..1)
+    drawBlocks(g, W, H, o.blocks);
+    type Row = { text: string; fg?: string; size?: number; bold?: boolean; y?: number };
+    const rows: Row[] = o.lines?.length
+      ? o.lines
+      : (o.text || '')
+          .split('\n')
+          .filter((t) => t.length)
+          .map((t, k, a) => ({ text: t, y: 1 - (k + 0.5) / a.length }));
+    const n = Math.max(1, rows.length);
+    rows.forEach((r, k) => {
+      const yc = r.y != null ? (1 - r.y) * H : ((k + 0.5) / n) * H;
+      let size = (H / n) * 0.7 * (r.size ?? 1);
+      const fnt = () => `${r.bold === false ? '' : 'bold '}${size}px Arial, sans-serif`;
+      g.font = fnt();
+      while (g.measureText(r.text).width > W * 0.92 && size > 6) {
+        size *= 0.92;
+        g.font = fnt();
+      }
+      g.fillStyle = r.fg ?? o.fg;
+      g.textAlign = 'center';
+      g.textBaseline = 'middle';
+      g.fillText(r.text, W / 2, yc);
+    });
   } else text(o.text, H * 0.2, H * 0.8, o.fg);
+  if (o.mesh) {
+    // File pankart: düzenli küçük delikler (alfa) — arkası seçilir
+    g.save();
+    g.globalCompositeOperation = 'destination-out';
+    g.fillStyle = '#000';
+    const st = Math.max(3, Math.round(H / 90));
+    for (let y = st / 2; y < H; y += st) for (let x = st / 2; x < W; x += st) g.fillRect(x, y, 1, 1);
+    g.restore();
+  }
+}
+
+/**
+ * Korkuluğa asılı bayrak / pankart dokusu:
+ * - portrait: kırmızı zemin, üstte beyaz ay-yıldız, ortada beyaz çerçeveli gri tonlu portre madalyonu (genel büst
+ *   silueti — yüz çizilmez), altta beyaz bant üstünde (ölçülen) kırmızı yazı;
+ * - tr-v: dikey Türk bayrağı (ay-yıldız üstte, yıldız aşağı bakar); tr: yatay Türk bayrağı;
+ * - plain: düz renk + yazı; v7 print: renk blokları + satırlar.
+ */
+export function bannerTexture(o: BannerDraw): THREE.Texture {
+  const asp = Math.max(0.1, o.w / Math.max(0.05, o.h));
+  const H = 512;
+  const W = Math.max(64, Math.round(H * asp));
+  const [c, g] = canvas(W, H);
+  drawBanner(g, W, H, o);
   return tex(c, false);
 }
 
