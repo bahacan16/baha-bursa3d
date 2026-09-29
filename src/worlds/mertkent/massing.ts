@@ -245,5 +245,21 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
     const h = home(pg.poly);
     if (h) h.pergolas = [...(h.pergolas ?? []), pg];
   }
+  // v7: blok düzeyindeki kanat çatıları (roof.wings) yalnız kanadın düştüğü parçada (çokgen ağırlık merkezi, yoksa
+  // mahya ortası) — her parçaya kopyalanınca kanat parça sayısı kadar çiziliyordu. Parçanın kendi roof.wings'i korunur.
+  const bw = blk.roof.wings;
+  if (bw?.length) {
+    const own = out.filter((p) => p.roof.wings === bw);
+    for (const p of own) p.roof = { ...p.roof, wings: null };
+    for (const w of bw) {
+      const pl: [number, number][] = w.poly?.length
+        ? w.poly
+        : [[(w.ridge[0][0] + w.ridge[1][0]) / 2, (w.ridge[0][1] + w.ridge[1][1]) / 2]];
+      const cx = pl.reduce((a, q) => a + q[0], 0) / pl.length;
+      const cz = pl.reduce((a, q) => a + q[1], 0) / pl.length;
+      const h = own.find((p) => inPoly(p.ring as V2[], cx, cz)) ?? own[0];
+      if (h) h.roof = { ...h.roof, wings: [...(h.roof.wings ?? []), w] };
+    }
+  }
   return out;
 }

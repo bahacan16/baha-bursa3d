@@ -437,26 +437,30 @@ describe('üretici v7 — yeni öğeler', () => {
 
   it('pergola v7: yalnız seçili kenarda dikme, taşmalı kirişler + kapak', () => {
     const bk = run(
-      block([], {}, {
-        pergolas: [
-          {
-            poly: [
-              [2, 2],
-              [2, 6],
-              [6, 6],
-              [6, 2],
-            ],
-            y0: 12,
-            y1: 14.5,
-            y1s: 14,
-            color: '#333333',
-            postEdges: [0],
-            every: 2,
-            beams: { edge: 0, over: 0.5, capC: '#ffffff' },
-            slatEdge: 0,
-          },
-        ],
-      }),
+      block(
+        [],
+        {},
+        {
+          pergolas: [
+            {
+              poly: [
+                [2, 2],
+                [2, 6],
+                [6, 6],
+                [6, 2],
+              ],
+              y0: 12,
+              y1: 14.5,
+              y1s: 14,
+              color: '#333333',
+              postEdges: [0],
+              every: 2,
+              beams: { edge: 0, over: 0.5, capC: '#ffffff' },
+              slatEdge: 0,
+            },
+          ],
+        },
+      ),
     );
     const cap = bbox(bk.get('cc_plaster_#ffffff'));
     // Kenar 0 x = 2 hattı; kirişler 0.5 m dışarı (x ≈ 1.5) taşar
@@ -466,7 +470,9 @@ describe('üretici v7 — yeni öğeler', () => {
   });
 
   it('kalkık gömük loca şapkası (capOver) cephe hattından taşar', () => {
-    const bk = run(block([bal({ d: 0, inset: 1.5, storeys: [2, 3], cap: true, capOver: 0.4, capC: '#777777' })]));
+    const bk = run(
+      block([bal({ d: 0, inset: 1.5, storeys: [2, 3], cap: true, capOver: 0.4, capC: '#777777' })]),
+    );
     const r = bbox(bk.get('cc_plaster_#777777'));
     expect(r.x0).toBeCloseTo(-0.4, 2);
   });
