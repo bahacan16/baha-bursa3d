@@ -1,0 +1,931 @@
+{
+  "id": 1540901771,
+  "storeys": 6,
+  "roof": {
+    "kind": "hipped",
+    "eave": 0.6,
+    "fasciaH": 0.5,
+    "terrace": true,
+    "eaveY": {
+      "edge": 10,
+      "y": 20.96
+    }
+  },
+  "colors": {
+    "plaster": "#aaa29d",
+    "plaster2": "#b7b1b2",
+    "fascia": "#a8a096",
+    "soffit": "#5c5244",
+    "railGlass": "#b3b9c3",
+    "frame": "#b9b9c0",
+    "tile": "#ac9688",
+    "plinth": "#76695f"
+  },
+  "notes": [
+    "KAT: 6 pencereli/balkonlu kat (K0–K5) sayıldı — tüm cephelerde üstten 6 sıra; altında pencere görülmeyen ~2.6 m'lik bodrum/podyum kotu var (kenar 6 UXy7 karesinde net: K0 döşemesi hizasında ince çıkıntılı silme, altında düz ve gölgede daha koyu sıva #72675e–#797066; GD uçta en alt balkonların altında ~1.5–2 m düz duvar). footprints.json notundaki '7 kat' (1540901770'e benzetme) fotoğrafla uyuşmuyor. Bodrumun penceresi/girişi görülmedi (çit/çalı/araç arkasında). groundRaise derleyicide ≈3.9 m (kenar örnekleri 3.84–4.12), kat yüksekliği 2.92 m (görünen aralık 2.81–2.87 × ölçek).",
+    "Saçak altı ≈21.4 m (WdXs'te görünen 20.96). Saçak taşması ≈0.6 m (WdXs'te saçak altının görünen yüksekliğinden; iz ajanı 0.35 varsaymıştı), alın bandı ≈0.5 m açık bej (#a29d9b–#a1988e). Saçak altı gölgede koyu kahve-gri (#50493b–#5c5244).",
+    "Mimari dil: düz kum-bej sıva, TURUNCU ŞERİT YOK. Sıva örnekleri: WdXs #a8a1a5, JWAUh #b0a8a2 / ayak #aea6a0, UXy7 #a19c98, 2Qtex (bulutlu) #a69e92 → plaster #aaa29d. Fotoğraflarda belirgin gölge izi yok (yayınık ışık); güneşli/gölgeli ayrımı yapılamadı. Tüm pencerelerde ~0.2 m açık krem söve (#b5afb0–#b9b4b8) + denizlik (pending). Beyaz PVC doğrama (görünen en açık #b8b8c1), dış panjur/stor kutusu yok. Pencere tipleri: 2 kanatlı ≈1.22×1.13 m, 3 kanatlı ≈1.6–1.7×1.15 m.",
+    "Balkonlar iki tip: (a) büyük cam balkon yığınları S1 (kenar 8), S2 (9), S4 (12–13), S5 (14), K cephede kenar 20 — kalın bej döşeme alnı (≈0.55–0.6 m, iki yatay oluk, uçları yuvarlak, #a8a096) + ≈0.35 m dolu parapet + paslanmaz yatay borulu korkuluk (2–3 boru + dikmeler; renk ince borudan yaklaşık #c2c5c8) + arkasında katlanır cam (profiller beyaz/alüminyum). S2 ve kenar 20 K5 açık balkon, S4 K5 sol kısmı açık, S5 K1 açık loca. (b) fransız kapılı küçük balkonlar S3 (kenar 11), S6 (kenar 16), KB uçta kenar 0 — ince döşeme + ≈1 m borulu korkuluk, balkonlarda klima dış üniteleri.",
+    "Cam yığınları taban izinde çıkma olarak çizilmiş (iz ajanı: 'kavisli çıkmalar 9, 13–14, 19–20'; 7–8 basamağı S1'in dış hattı) → bu yığınlar ön yüzleri iz çizgisinde gömük loca (d 0.1 + inset 0.7–1.0) olarak yazıldı. Gerçekte yığınlar yandaki düz ayaklardan ~0.5–0.8 m (S2) / ~0.3–0.5 m (S1) önde ve yan yüzleri camlı; iz ayakları yığın önüyle aynı hizada çiziyor (pending: yan camlar / ayakların geride olması, kavisli ön).",
+    "TABAN İZİ / KONUM: güneydeki 2025-09 panoları (JWAUh/UXy7/WdXs/2Qtex) paralaksla kenar 10 duvarını izin ~1.0 m, kenar 11 duvarını ~1.4 m, kenar 6'yı ~0.9 m İÇERİDE gösteriyor; hepsi pano konumlarının ortak ~(−0.6, −1.5) m kaymasıyla tutarlı (bu düzeltmeyle WdXs/JWAUh'dan üçgenlenen GD köşe iz köşesi 11'e 0.2 m oturuyor) → izin kaydığına dair kesin kanıt YOK, iz değiştirilmedi. Yanal kaymalar köşe bazında düzeltildi (cal.u: görülen köşeler + model). Kalan uyuşmazlıklar: (i) S4 cam yığınının sol ucu fotoğrafta kenar 11'in son ~1.1 m'sinde (iz 12 köşesinden önce) — çizilmedi; (ii) 2Qtex'te doğu uç (17) izdeki yerinden ~1.7° batıda (yön kayması ~1.3° ile kısmen açıklanıyor, kalan ±0.7 m); (iii) kenar 10'daki tam boy düşey çizgi (iz 10 köşesinden ~2.6 m doğuda) gerçek yön kırılması olabilir.",
+    "Kenar 6 (u≈5.6) ve kenar 10 (u≈2.65) üzerindeki tam boy düşey çizgiler groove olarak yazıldı: her ikisinde de çizginin iki yanı farklı tonda (≈7° yön değişimi ya da hafif çıkıntılı ayak), derinliği ölçülemedi.",
+    "Çatı (hava fotoğrafı google-z21): kırma kiremit (güneşli yüz #ac9688, kuzey yüzü #95877e), dereli çok parçalı; uzun eksen boyunca ortada ~13.6×3.1 m düz gri teras şeridi (üzerinde küçük beyaz noktalar: güneş enerjili ısıtıcı / baca?) → terrace true + pending. Eğim sokaktan görülmedi → üretici varsayılanı (pitch yazılmadı).",
+    "GÖRÜLMEYENLER: KD cephe (kenar 17, 18, 19, 21) tamamen — Doğan Avcıoğlu'nda bu kesimde pano yok; KB uç (1–5) batı panolarından 1540901772 arkasında; kenar 7 ve 15 (kısa basamaklar); bodrum/podyum kotunun tamamı (kenar 6 dışında); bina girişi/lobi ve levha görülmedi (muhtemelen KD/KB tarafta). Kenar 0 (K3–K5) ve kenar 20 (K2–K5) yalnız 2019-05 JDIgP karesinden, uzak/eğik.",
+    "Perdeler 45–60 m'den okundu (kaba): kenar 10 sol sütun K5 tül, K4 tül, K3 tül+yan fon, K2 karanlık, K1 tül, K0 dikey jaluzi (UXy7); sağ geniş sütun K5 stor (orta kanatta), K4 tül, K3–K2 karanlık, K1 tül, K0 tül. Kenar 6 sütunları çoğunlukla beyaz tül (K4 orta kanat koyu). S3/S6 kapıları çoğunlukla tül.",
+    "Site elemanları (binaya ait değil, bu dosyada yok): güneydeki site giriş kapısı (kahverengi ahşap görünümlü kiriş + gri kolon + bekçi kulübesi), bayrak direği, aydınlatma/kamera direği, ferforje çit, leylandi ve pergola; binanın dibinde çalılar."
+  ],
+  "pending": [
+    {
+      "what": "pencere sövesi + denizlik",
+      "edges": [
+        0,
+        6,
+        10
+      ],
+      "ortho": {
+        "6": "1540901771_6_UXy7Q7qk.jpg",
+        "10": "1540901771_10_WdXsNXEJ.jpg"
+      },
+      "desc": "Tüm normal pencerelerin çevresinde açık krem, hafif kabarık söve bandı; altta biraz daha geniş denizlik. Örnek (kenar 10, WdXs, K3 sağ pencere): söve dış u 3.075–5.00, y 13.425–14.875; kasa u 3.225–4.925, y 13.60–14.775 → yanlarda ≈0.15–0.2 m, üstte ≈0.1 m, altta ≈0.17 m (denizlik). Sol pencere: söve u −1.275–0.30, y 13.50–14.975; kasa u −1.05–0.175, y 13.675–14.80.",
+      "width": 0.18,
+      "proud": 0.03,
+      "color": "#b7b1b2",
+      "sillColor": "#b1aba9"
+    },
+    {
+      "what": "cam balkon yığını ön profili",
+      "edges": [
+        8,
+        9,
+        12,
+        13,
+        14,
+        20
+      ],
+      "desc": "Döşeme alınları düz değil: S2 (kenar 9) hafif dışbükey kavisli (~5.7 m açıklıkta ~0.2–0.3 m sehim), S5 (kenar 14) belirgin kavisli, S1/S4 uçları yuvarlatılmış (yarıçap ≈0.3–0.5 m). Alın ≈0.55–0.6 m, iki yatay oluk (üst kenarda açık çizgi). Yığınların yan yüzleri camlı/korkuluklu (S2 sağ yan 2Qtex'te camlı) ve yandaki düz ayaklar yığın önünden ~0.5–0.8 m geride — taban izinde bu girinti yok.",
+      "fasciaH": 0.58,
+      "color": "#a8a096"
+    },
+    {
+      "what": "çatı terası şeridi",
+      "world": {
+        "center": [
+          253.4,
+          -112.5
+        ],
+        "axis": [
+          0.8465,
+          0.5324
+        ],
+        "length": 13.6,
+        "width": 3.1
+      },
+      "desc": "Hava fotoğrafında kırma çatının ortasında uzun eksen boyunca düz gri teras (eğim düzeltmesi ±1 m); üzerinde küçük beyaz noktalar (güneş enerjili ısıtıcı / baca / havalandırma). Renk (hava) ≈#a7988e karışık; kenarında açık renkli ince parapet.",
+      "color": "#9e948c"
+    },
+    {
+      "what": "ayak üzerindeki küçük duvar aparatları",
+      "edge": 14,
+      "ortho": "1540901771_13_2QtexqzB.jpg",
+      "desc": "S4 ile S5 arasındaki penceresiz ayakta (kenar 14 gerçek u≈0.8–1.2; kenar 13 ortosunda görünen u≈0.65–1.4) her katta döşeme hizasının ~0.3–0.5 m altında ikişer küçük koyu gri nesne (~0.15 m, aralarında ~0.3 m); en üstteki saçak altında. 48 m'den tanınamadı (aplik lamba / çamaşır askısı braketi / kuş kovucu olabilir). Görünen y (2Qtex kenar 13 ortosu): ≈20.3, 17.4, 14.6, 11.8, 8.9 (K0 çit arkasında).",
+      "color": "#5a5650"
+    },
+    {
+      "what": "kenar 0 dar pencereler",
+      "edge": 0,
+      "desc": "KB uçta 0 köşesinin hemen yanında (u≈0.2–0.4) dar düşey pencereler (≈0.2×0.7 m görünen, K4 ve K3'te; K5'te belirsiz) — JDIgP 2019, 49 m; merdiven/banyo penceresi olabilir. Düzlemi belirsiz (kenar 21'e dönen yüzde olabilir)."
+    }
+  ],
+  "edges": [
+    {
+      "edge": 0,
+      "len": 4.4,
+      "seen": "partial",
+      "cal": {
+        "u": [
+          0,
+          4.4
+        ],
+        "head": [
+          [
+            0,
+            6.15
+          ],
+          [
+            5,
+            20.75
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 2.5,
+          "u1": 4.4,
+          "d": 0.5,
+          "s": [
+            3,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c2c5c8"
+        },
+        {
+          "t": "win",
+          "u0": 2.68,
+          "u1": 4.3,
+          "y0": 18.55,
+          "y1": 20.75,
+          "k": 5,
+          "s": [
+            3,
+            5
+          ],
+          "kind": "door",
+          "split": 2,
+          "curt": {
+            "K5": "tul",
+            "K4": "tul",
+            "K3": "tul"
+          }
+        },
+        {
+          "t": "ac",
+          "u": 3.0,
+          "s": 4,
+          "onBal": true
+        }
+      ],
+      "note": "KB uç cephe. Yalnız JDIgP (2019-05, ~49 m, site duvarı + leylandi arkasından, 1540901772'nin yanından) ile K3–K5 görüldü; K0–K2 ağaçların arkasında GÖRÜLMEDİ. Kenarın sağ ucunda (1 köşesine dayalı) iki kanatlı fransız kapı + küçük balkon (döşeme ~0.3 m, paslanmaz borulu korkuluk) sütunu; K4'te balkonda klima. Kenarın başında (u≈0.2–0.4) dar düşey pencereler (≈0.2×0.7 m, K4/K3) — uzak/eski karede belirsiz, çizilmedi (notes). u gerçek metre (JDIgP başlığından kenara izdüşüm); balkon derinliği ve kapı boyu tahmini (uzak kare). 2019 kanıtı: bina sonradan değişmiş olabilir."
+    },
+    {
+      "edge": 1,
+      "len": 0.78,
+      "seen": "none",
+      "items": [],
+      "note": "Görülmedi (KB uçtaki küçük basamak; JDIgP'de köşe çizgisi)."
+    },
+    {
+      "edge": 2,
+      "len": 4.74,
+      "seen": "none",
+      "items": [],
+      "note": "Görülmedi — batıdaki panoramalardan 1540901772'nin arkasında kalıyor, JDIgP'de de kapalı."
+    },
+    {
+      "edge": 3,
+      "len": 2.57,
+      "seen": "none",
+      "items": [],
+      "note": "Görülmedi (1540901772 arkasında)."
+    },
+    {
+      "edge": 4,
+      "len": 1.31,
+      "seen": "none",
+      "items": [],
+      "note": "Görülmedi (güneyden bakışta binanın kendi köşesi, batıdan 1540901772 kapatıyor)."
+    },
+    {
+      "edge": 5,
+      "len": 6.25,
+      "seen": "none",
+      "items": [],
+      "note": "Görülmedi — XBa6/jeEb/MeHpp/HVLz karelerinde 1540901772'nin arkasında; XBa6'da yalnız 6 köşesinin hemen yanında bir şerit görünüyor (çözülemez)."
+    },
+    {
+      "edge": 6,
+      "len": 9.91,
+      "seen": "photo",
+      "ref": "1540901771_6_UXy7Q7qk.jpg",
+      "cal": {
+        "u": [
+          0.02,
+          9.68
+        ],
+        "head": [
+          [
+            0,
+            6.21
+          ],
+          [
+            5,
+            20.25
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 2.72,
+          "u1": 4.28,
+          "y0": 13.56,
+          "y1": 14.63,
+          "k": 3,
+          "s": [
+            0,
+            5
+          ],
+          "split": 3,
+          "curt": {
+            "K5": "tul",
+            "K4": "tul",
+            "K3": "tul",
+            "K2": "tul",
+            "K1": "tul"
+          }
+        },
+        {
+          "t": "groove",
+          "dir": "v",
+          "u": 5.5,
+          "y0": 3.97,
+          "y1": 21.0,
+          "w": 0.04
+        },
+        {
+          "t": "win",
+          "u0": 6.94,
+          "u1": 8.15,
+          "y0": 13.56,
+          "y1": 14.63,
+          "k": 3,
+          "s": [
+            0,
+            5
+          ],
+          "split": 2,
+          "curt": {
+            "K4": "tul",
+            "K3": "tul",
+            "K2": "tul",
+            "K1": "tul"
+          }
+        },
+        {
+          "t": "band",
+          "y0": 3.8,
+          "y1": 3.97,
+          "color": "fascia",
+          "proud": 0.06
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 3.8,
+          "color": "plinth"
+        }
+      ],
+      "note": "GB cephenin batı parçası; ref UXy7 (2025-09, ~61 m, site kapısı altından), JWAUh (bayrak direği/aydınlatma direği önde) ile doğrulandı. Batı köşesi UXy7'de net (u 0.02). 3 kanatlı pencere sütunu A (≈1.6 m) ve 2 kanatlı sütun B (≈1.2 m; sağ kısmı iki karede de S1 balkon yığınının arkasında kalıyor, genişlik JWAUh'dan). Aralarında (u≈5.5) tam boy düşey çizgi: hafif açı değişimi / derz — XBa6'dan bakınca sağ parça daha koyu (yüzey yönü farklı). Taban: K0 döşemesi hizasında (≈3.9 görünen) ince çıkıntılı silme, altında pencere görülmeyen ~2.6 m'lik bodrum/podyum duvarı (gölgede #72675e–#797066, arabanın arkasında). K0 pencereleri (sütun A ve B) UXy7'de görüldü. Perdeler 60 m'den kaba."
+    },
+    {
+      "edge": 7,
+      "len": 1.01,
+      "seen": "none",
+      "items": [],
+      "note": "1 m'lik batıya bakan basamak; güney karelerinden arka yüz, XBa6'da çok eğik. S1 cam balkon yığınının sol ucu bu basamağın önüne taşıyor (kenar 8'de u0<0 ile)."
+    },
+    {
+      "edge": 8,
+      "len": 6.53,
+      "seen": "photo",
+      "ref": "1540901771_8_JWAUhRP4.jpg",
+      "cal": {
+        "u": [
+          -0.75,
+          5.65
+        ],
+        "head": [
+          [
+            1,
+            9.16
+          ],
+          [
+            5,
+            20.57
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -1.9,
+          "u1": 2.95,
+          "d": 0.1,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "K5": "clear",
+            "K4": "clear",
+            "K3": "clear",
+            "K2": "dark",
+            "K1": "clear",
+            "K0": "dark"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "parapetH": {
+            "*": 0.35
+          },
+          "railC": "#c2c5c8",
+          "inset": 1.0
+        }
+      ],
+      "note": "S1: eğik (GB'ye bakan) kavisli cam balkon yığını, 6 katın hepsi katlanır camlı (K0 UXy7'de çitin üstünde görüldü), önde kalın bej döşeme alnı (≈0.6 m görünen, 2 yatay oluk) + alçak parapet + paslanmaz borulu korkuluk. Taban izinde 7 basamağı + kenar 8 yığının dış hattını izliyor → ön yüz iz çizgisinde, gömük loca (d 0.1, inset 1.0 ≈ arka duvar kenar 6 hattında). Ölçüm: ön yüz 8 hattının ~0.3–0.5 m önünde (paralaks+yan yüz, ±0.5). Sol ucu 8 köşesini ~0.8 m aşıp 7 basamağının önüne taşıyor (bu ortonun dışında; u0 JWAUh+UXy7 paralaksından). Sağında (görünen u 3.2–5.0) penceresiz düz ayak, sonra S2 (kenar 9). JWAUh ve UXy7 (2025-09)."
+    },
+    {
+      "edge": 9,
+      "len": 6.03,
+      "seen": "photo",
+      "ref": "1540901771_9_JWAUhRP4.jpg",
+      "cal": {
+        "u": [
+          -0.61,
+          5.26
+        ],
+        "head": [
+          [
+            1,
+            9.06
+          ],
+          [
+            5,
+            20.44
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -1.27,
+          "u1": 4.44,
+          "d": 0.1,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "K4": "clear",
+            "K3": "clear",
+            "K2": "dark",
+            "K1": "dark",
+            "K0": "clear"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "parapetH": {
+            "*": 0.35
+          },
+          "railC": "#c2c5c8",
+          "inset": 0.7
+        }
+      ],
+      "note": "S2: ana cam balkon yığını (hafif dışbükey kavisli ön), JWAUh'da cepheden; 2Qtex/UXy7/WdXs ile doğrulandı (2025-09). K5 AÇIK balkon (cam yok; borulu korkuluk, arkada kapılı/pencereli duvar, tavanı ana çatı saçağı), K0–K4 katlanır cam (K4/K3 beyaz tül perdeli, K2/K1 koyu, dikey profilli; K0 kiosk çatısı üstünden kısmen). Ön: kalın bej döşeme alnı + alçak dolu parapet (≈0.35 m) + paslanmaz borulu korkuluk (küpeşte ≈0.9–1.0 m); döşeme uçları yuvarlatılmış, sağ yanda yan cam. Yığın sağındaki ayağa göre ≈0.5–0.8 m önde (2Qtex yan yüz 0.54 m görünen; JWAUh ortosunda 0.12–0.19 m) — iz bu kenarı 'kavisli çıkma' olarak yığın önünden çizdiği için gömük loca (d 0.1, inset 0.7) yazıldı. Sağ kenarındaki ayak penceresi kenar 10'un başında (orada)."
+    },
+    {
+      "edge": 10,
+      "len": 9.11,
+      "seen": "photo",
+      "ref": "1540901771_10_WdXsNXEJ.jpg",
+      "cal": {
+        "u": [
+          -1.34,
+          7.56
+        ],
+        "head": [
+          [
+            0,
+            6.13
+          ],
+          [
+            5,
+            20.46
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": -1.05,
+          "u1": 0.175,
+          "y0": 13.675,
+          "y1": 14.8,
+          "k": 3,
+          "s": [
+            0,
+            5
+          ],
+          "split": 2,
+          "curt": {
+            "K5": "tul",
+            "K4": "tul",
+            "K3": "tul-yan",
+            "K2": "karanlik",
+            "K1": "tul",
+            "K0": "jaluzi"
+          }
+        },
+        {
+          "t": "groove",
+          "dir": "v",
+          "u": 1.25,
+          "y0": 3.97,
+          "y1": 20.95,
+          "w": 0.04
+        },
+        {
+          "t": "win",
+          "u0": 3.225,
+          "u1": 4.925,
+          "y0": 13.6,
+          "y1": 14.775,
+          "k": 3,
+          "s": [
+            0,
+            5
+          ],
+          "split": 3,
+          "curt": {
+            "K5": "stor",
+            "K4": "tul",
+            "K3": "karanlik",
+            "K2": "karanlik",
+            "K1": "tul",
+            "K0": "tul"
+          }
+        }
+      ],
+      "note": "GB cephenin doğu parçası (S2'nin sağından GD köşeye); ref WdXs (2025-09, kapısız net kare, 46 m), JWAUh/UXy7/2Qtex ile doğrulandı. Solda 2 kanatlı pencere sütunu (çerçeve ≈1.22×1.13 m), u≈1.25'te tam boy düşey çizgi (sol parça biraz daha gri: ≈7° yön değişimi ya da hafif çıkıntılı ayak — 2Qtex'te de köşe gibi görünüyor), sağda 3 kanatlı geniş pencere sütunu (≈1.70×1.18 m). Tüm pencerelerde krem söve (≈0.2 m) + denizlik (pending). GD duvar köşesi WdXs'te u 7.56 (sağında görülen balkonlar kenar 11–13'e ait). K0 sol pencere UXy7'de (dikey jaluzi görünümü), sağ K0 WdXs'te çit arkasında. Perdeler 45 m'den kaba okuma."
+    },
+    {
+      "edge": 11,
+      "len": 6.3,
+      "seen": "photo",
+      "ref": "1540901771_11_2QtexqzB.jpg",
+      "cal": {
+        "u": [
+          -1.32,
+          4.47
+        ],
+        "head": [
+          [
+            0,
+            5.93
+          ],
+          [
+            5,
+            19.8
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0.98,
+          "u1": 2.88,
+          "d": 0.6,
+          "s": [
+            0,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c2c5c8"
+        },
+        {
+          "t": "win",
+          "u0": 0.6,
+          "u1": 2.08,
+          "y0": 17.55,
+          "y1": 19.8,
+          "k": 5,
+          "s": [
+            0,
+            5
+          ],
+          "kind": "door",
+          "split": 2,
+          "curt": {
+            "K5": "tul",
+            "K4": "tul",
+            "K3": "karanlik",
+            "K2": "tul",
+            "K1": "tul"
+          }
+        },
+        {
+          "t": "ac",
+          "u": 2.15,
+          "s": 5,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 2.15,
+          "s": 4,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 2.15,
+          "s": 2,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 2.15,
+          "s": 1,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 2.15,
+          "s": 0,
+          "onBal": true
+        }
+      ],
+      "note": "GD uç cephe; ref 2Qtex (2025-09, bulutlu, 44 m), UXy7 ile doğrulandı. 2Qtex yönü ~1.3° kaymış (izin 11 köşesi görülen GD köşenin ~0.9 m sağına düşüyor) → cal.u görülen GD köşeye (−1.32) ve boya göre. GD köşeden ~1.9 m düz duvar, S3: iki kanatlı fransız balkon kapıları (≈1.6 m) + küçük balkonlar (ince döşeme, ≈1 m paslanmaz borulu korkuluk önde ve yanlarda), balkon zemininde klima dış ünitesi K5, K4 (gri kutu), K2, K1, K0 (çit arkasında); K3'te saksı/eşya, klima seçilemedi. Balkon sol ucu arka köşe (soldan bakan kamera yan yüzü görüyor) → u0 ön köşeye çevrildi; derinlik ≈0.6 (tahmini, ±0.2). Klima u değerleri derleyicinin 1.4 m balkon varsayımına göre geri hesaplı (gerçekte sol kanadın önünde). Fotoğrafta S4 cam yığınının sol ucu bu kenarın son ~1.1 m'sinde (görünen u≈3.4) başlıyor; iz yığını 12–13 çıkmasına koyduğu için burada ÇİZİLMEDİ (taban izi uyuşmazlığı, notes)."
+    },
+    {
+      "edge": 12,
+      "len": 1.15,
+      "seen": "partial",
+      "cal": {
+        "u": [
+          0,
+          1.15
+        ],
+        "head": [
+          [
+            0,
+            6.15
+          ],
+          [
+            5,
+            20.75
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.2,
+          "u1": 1.35,
+          "d": 0.1,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "K4": "clear",
+            "K3": "dark",
+            "K2": "dark",
+            "K1": "dark",
+            "K0": "clear"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "parapetH": {
+            "*": 0.35
+          },
+          "railC": "#c2c5c8",
+          "inset": 1.0
+        }
+      ],
+      "note": "Ortofoto yok; 2Qtex/UXy7 panoramalarında S4 cam yığınının sol (GB'ye bakan) yüzü/ön kısmı (yön düzeltmeli başlık izdüşümü). u gerçek metre. İz bu kenarı çıkmanın yan yüzü olarak çiziyor → gömük loca (d 0.1, inset 1.0), köşe locası olarak kenar 13 ile birleşir. K5 bu kısımda AÇIK (koyu loca, borulu korkuluk), K0–K4 camlı."
+    },
+    {
+      "edge": 13,
+      "len": 2.02,
+      "seen": "photo",
+      "ref": "1540901771_13_2QtexqzB.jpg",
+      "cal": {
+        "u": [
+          -1.6,
+          0.27
+        ],
+        "head": [
+          [
+            0,
+            5.93
+          ],
+          [
+            5,
+            19.8
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -1.9,
+          "u1": 0.04,
+          "d": 0.1,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "K5": "blinds",
+            "K4": "clear",
+            "K3": "dark",
+            "K2": "dark",
+            "K1": "dark",
+            "K0": "clear"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "parapetH": {
+            "*": 0.35
+          },
+          "railC": "#c2c5c8",
+          "inset": 1.0
+        }
+      ],
+      "note": "S4 cam yığınının ön/sağ kısmı (yuvarlatılmış döşeme uçları; K5 camlı, gri dikey perde; K3 koyu + beyaz tül; K0 UXy7'de camlı) + sağında penceresiz ayak (kenar 14'e devam). ref 2Qtex (yön düzeltmeli cal.u); UXy7 ile aynı sıra. Gömük loca (d 0.1, inset 1.0). cal.head kenar 11'den (aynı pano, penceresiz kenar)."
+    },
+    {
+      "edge": 14,
+      "len": 5.05,
+      "seen": "photo",
+      "ref": "1540901771_14_2QtexqzB.jpg",
+      "cal": {
+        "u": [
+          -2.68,
+          1.7
+        ],
+        "head": [
+          [
+            0,
+            5.93
+          ],
+          [
+            5,
+            19.8
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.99,
+          "u1": 1.23,
+          "d": 0.1,
+          "s": [
+            0,
+            5
+          ],
+          "glazed": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ],
+          "tint": {
+            "K5": "dark",
+            "K4": "clear",
+            "K3": "clear",
+            "K2": "dark",
+            "K0": "clear"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "parapetH": {
+            "*": 0.35
+          },
+          "railC": "#c2c5c8",
+          "inset": 1.0
+        }
+      ],
+      "note": "Doğuya bakan kavisli çıkma: kenar başında ~1.8 m penceresiz ayak (her katta döşeme hizasının ~0.3–0.5 m altında ikişer küçük koyu duvar aparatı → pending), sonra S5 kavisli cam yığını (K1 AÇIK loca: arkada kapı + pencere; K2–K5 camlı mavimsi/koyu; K0 çit arkasında açık renkli cam). 2Qtex bu kenara ~60° eğik baktığından yığının sol yan camı görünüyor; ön yüz iz çizgisinde kabul edildi (gömük loca d 0.1, inset 1.0). ref 2Qtex (yön düzeltmeli); ortoda sağda görülen fransız kapılı/klimalı yığın geride kalan kenar 16'ya ait. Dr35 (2019) ağaçla kapalı."
+    },
+    {
+      "edge": 15,
+      "len": 1.01,
+      "seen": "none",
+      "items": [],
+      "note": "Kuzeye bakan 1 m geri basamak; güneydeki panolardan görünmez."
+    },
+    {
+      "edge": 16,
+      "len": 4.49,
+      "seen": "photo",
+      "ref": "1540901771_16_2QtexqzB.jpg",
+      "cal": {
+        "u": [
+          -2.58,
+          1.4
+        ],
+        "head": [
+          [
+            1,
+            8.72
+          ],
+          [
+            5,
+            19.8
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -1.6,
+          "u1": 0.36,
+          "d": 0.5,
+          "s": [
+            0,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c2c5c8"
+        },
+        {
+          "t": "win",
+          "u0": -1.45,
+          "u1": -0.43,
+          "y0": 17.55,
+          "y1": 19.8,
+          "k": 5,
+          "s": [
+            0,
+            5
+          ],
+          "kind": "door",
+          "split": 2,
+          "curt": {
+            "K5": "tul",
+            "K4": "tul",
+            "K3": "tul",
+            "K2": "karanlik",
+            "K1": "tul"
+          }
+        },
+        {
+          "t": "ac",
+          "u": 0.78,
+          "s": 5,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 0.78,
+          "s": 4,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 0.78,
+          "s": 3,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 0.78,
+          "s": 2,
+          "onBal": true
+        },
+        {
+          "t": "ac",
+          "u": 0.78,
+          "s": 1,
+          "onBal": true
+        }
+      ],
+      "note": "Doğu ucun geri çekilmiş parçası; ref 2Qtex (yön düzeltmeli; binanın doğu ucu u 1.40'ta net, gökyüzüne karşı), UXy7 ile doğrulandı. S6: S3'ün eşi — iki kanatlı fransız balkon kapıları + küçük borulu korkuluklu balkonlar, K1–K5 her balkonda klima; K0 kapısı çit arkasında görüldü, klima seçilemedi. Kenarın ilk ~1.2 m'si 14'ün arkasında (görülmedi). Sonra ~1.1 m düz duvar ve köşe."
+    },
+    {
+      "edge": 17,
+      "len": 7.46,
+      "seen": "none",
+      "items": [],
+      "note": "KD cephe (Doğan Avcıoğlu tarafı) — bu kesimde panorama yok, GÖRÜLMEDİ."
+    },
+    {
+      "edge": 18,
+      "len": 6.24,
+      "seen": "none",
+      "items": [],
+      "note": "KD cephe — GÖRÜLMEDİ."
+    },
+    {
+      "edge": 19,
+      "len": 8.61,
+      "seen": "none",
+      "items": [],
+      "note": "KD cephe — GÖRÜLMEDİ (JDIgP 2019'da yalnız kenar 20'deki yığının ucu)."
+    },
+    {
+      "edge": 20,
+      "len": 3.11,
+      "seen": "partial",
+      "cal": {
+        "u": [
+          0,
+          3.11
+        ],
+        "head": [
+          [
+            0,
+            6.15
+          ],
+          [
+            5,
+            20.75
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.3,
+          "u1": 3.11,
+          "d": 0.1,
+          "s": [
+            2,
+            5
+          ],
+          "glazed": [
+            2,
+            3,
+            4
+          ],
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "parapetH": {
+            "*": 0.35
+          },
+          "railC": "#c2c5c8",
+          "inset": 0.9
+        }
+      ],
+      "note": "Kuzeye bakan kavisli çıkma: yalnız JDIgP (2019-05, 57 m, çok eğik, ağaçların üstünden). K5 açık balkon (borulu korkuluk, üstte ana saçak — saçak ana çatı ile aynı kotta), K4–K2 katlanır camlı yığın; K0–K1 ağaç arkasında GÖRÜLMEDİ. u gerçek metre (başlık izdüşümü ≈ −0.8…3.1); gömük loca (d 0.1, inset 0.9) — derinlik/korkuluk bu açıdan ölçülemedi, S2 dili görülüyor. 2019 kanıtı."
+    },
+    {
+      "edge": 21,
+      "len": 7.19,
+      "seen": "none",
+      "items": [],
+      "note": "KD cephe — GÖRÜLMEDİ (JDIgP'den neredeyse kenar üstü)."
+    }
+  ]
+}

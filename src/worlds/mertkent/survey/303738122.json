@@ -1,0 +1,188 @@
+{
+ "id": 303738122,
+ "name": "Balıkçı Mahmut (balık lokantası / balık market)",
+ "storeys": 1,
+ "groundRaise": 0.15,
+ "floorH": 3.06,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.05,
+  "fasciaH": 1.14
+ },
+ "colors": {
+  "plaster": "#eef2ef",
+  "plaster2": "#dfe9ef",
+  "strip": "#1897af",
+  "fascia": "#3b4e51",
+  "frame": "#3b4e51",
+  "tile": "#98908f"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 13.82,
+   "seen": "partial",
+   "ref": "303738122_0_lIEqcjO5.jpg",
+   "cal": {
+    "u": [-0.75, 11.59],
+    "head": [[0, 2.973], [1, 5.706]]
+   },
+   "items": [
+    { "t": "proj", "u0": -0.75, "u1": 8.0, "d": 0.25, "y0": 3.8, "y1": 4.82, "color": "#dfe9ef" },
+    { "t": "proj", "u0": -0.75, "u1": 4.78, "d": 0.25, "y0": 4.82, "y1": 5.62, "color": "#3b4e51" },
+    { "t": "sign", "u0": -0.75, "u1": 8.0, "y0": 3.8, "y1": 4.03, "d": 0.02, "text": "", "bg": "#1897af", "fg": "#1897af", "style": "panel" },
+    { "t": "sign", "u0": 4.75, "u1": 8.0, "y0": 4.03, "y1": 4.55, "d": 0.02, "text": "", "bg": "#1897af", "fg": "#1897af", "style": "panel" },
+    { "t": "sign", "u0": -0.45, "u1": 1.3, "y0": 4.02, "y1": 4.6, "text": "Balıkçı", "fg": "#043d76", "style": "letters", "font": "sans", "bold": true, "logo": "kalın yuvarlak (balon) harfler, ~4 cm beyaz dış kontur; kabartma kanal harf gibi" },
+    { "t": "sign", "u0": 2.4, "u1": 4.47, "y0": 4.02, "y1": 4.6, "text": "Mahmut", "fg": "#043d76", "style": "letters", "font": "sans", "bold": true, "logo": "kalın yuvarlak harfler, beyaz dış kontur" },
+    { "t": "sign", "u0": -0.68, "u1": 1.15, "y0": 4.87, "y1": 5.6, "text": "ÇİĞ ve PİŞMİŞ\nKİLO İLE BALIK", "fg": "#eef2ef", "style": "letters", "font": "sans", "bold": true },
+    { "t": "sign", "u0": 1.22, "u1": 2.59, "y0": 4.81, "y1": 5.31, "text": "Gel Al Paket\n413 47 23", "lines": [ { "text": "Gel Al Paket", "size": 0.75 }, { "text": "413 47 23", "size": 1.25 } ], "fg": "#1897af", "style": "letters", "font": "sans", "bold": true, "logo": "turkuaz harfler, kalın beyaz dış kontur (sticker kesim); 413'ün solunda dikey küçük yazı (alan kodu?) okunamadı" },
+    { "t": "sign", "u0": 1.41, "u1": 2.45, "y0": 5.36, "y1": 6.41, "text": "BALIK\nMARKET", "bg": "#5db2c7", "fg": "#eef2ef", "border": "#eef2ef", "style": "box", "font": "condensed", "bold": true, "logo": "YUVARLAK pano (Ø≈1.12 m), içte ince beyaz halka, MARKET altında beyaz dalga çizgisi, altta okunamayan küçük yazı" },
+    { "t": "sign", "u0": 2.72, "u1": 4.68, "y0": 4.89, "y1": 5.58, "text": "MEZE ÇEŞİTLERİ\nDONUK ÜRÜNLER", "fg": "#eef2ef", "style": "letters", "font": "sans", "bold": true },
+    { "t": "awning", "u0": -0.62, "u1": 4.62, "y": 3.72, "d": 0.7, "drop": 0.94, "color": "#5eb4c4", "stripe": "#99dfe6" },
+    { "t": "awning", "u0": 4.72, "u1": 6.87, "y": 3.72, "d": 0.7, "drop": 0.94, "color": "#5eb4c4", "stripe": "#99dfe6" },
+    { "t": "win", "u0": -0.55, "u1": 6.85, "y0": 2.08, "y1": 3.7, "k": 0, "s": [0, 0], "kind": "shop", "curt": { "K0": "vitrin" } },
+    { "t": "proj", "u0": -0.57, "u1": 6.6, "d": 0.5, "y0": 0.83, "y1": 2.02, "color": "#f0f4f0" }
+   ],
+   "note": "Güney cephe (2025-09, lI 26 m; BJWF6/vX/T1qi7 ile doğrulandı). Yalnız batı ~8.5 m görülüyor (u_gerçek 0–9.8): doğusu Leyla Fasıl’ın batı pergolası/güverte saksıları, trafik lambası ve Leyla binası arkasında → GÖRÜLMEDİ (tabela bandı u≈9.8’de pergola arkasında kayboluyor). SW köşesi lI 40° karolarının dışında kalıyor; köşe, aynı panonun 90° karesinden aynı kamera/düzlemle üretilen ortofotoda bulundu (bant köşesi u_app −0.75, çit başı −0.57). Ölçek: bu ortofoto ön cepheye göre ×0.893 küçük (yuvarlak BALIK MARKET panosu 1.00/1.12 m, ‘Gel Al Paket’ grubu 1.37/1.56 m, bant yükseklikleri) + düşey +0.83 m kayma (pano eğim hatası) → cal.u ve cal.head (K1 değeri tek katlı binada sanal: yalnız düşey ölçek için, ön cepheden aktarılan tabela kotlarıyla) buna göre. Görünen öğeler: üst lamelli antrasit pano (0–6.2 m), beyaz/turkuaz ana bant (dalga: ‘Mahmut’un doğusunda turkuaz 4.17 m’ye yükselip düz devam ediyor), iki turkuaz tente, cam (arkası karanlık), beyaz delikli saksı/çit panelleri (0.2–1.33 m)."
+  },
+  {
+   "edge": 1,
+   "len": 8.05,
+   "seen": "none",
+   "items": [],
+   "note": "Arka (doğu) cephe: Balentur binası doğrudan önünde; Q5ICTzjr, pc3ZpeNx, zDExpla2 ortofotolarında yalnız Balentur/PİLATES/pizzabulls cepheleri var → GÖRÜLMEDİ. Hava fotoğrafında bu kenarın batısında (x 667.8–671.3) beyaz çerçeveli alçak avlu + klima üniteleri seçiliyor (çatının x≈667.7’deki beyaz çizgisi) — cephe biçimi bilinmiyor."
+  },
+  {
+   "edge": 2,
+   "len": 14.54,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cephe: büyük ağaç ve LINENS/KUDRET binası arkasında (QZixQMgf, urVE3ZYD, zPW8jCvr ortofotoları o binaları gösteriyor; kr3oP karesinde de ağaç kapatıyor) → GÖRÜLMEDİ."
+  },
+  {
+   "edge": 3,
+   "len": 9.3,
+   "seen": "photo",
+   "ref": "303738122_3_epBrUk-A.jpg",
+   "cal": {
+    "u": [-1.03, 8.2],
+    "head": [[0, 2.4], [0, 2.4]]
+   },
+   "items": [
+    { "t": "proj", "u0": -1.03, "u1": 8.45, "d": 0.25, "y0": 3.33, "y1": 4.47, "color": "#dfe9ef" },
+    { "t": "proj", "u0": -1.03, "u1": 8.45, "d": 0.25, "y0": 4.47, "y1": 5.36, "color": "#3b4e51" },
+    { "t": "sign", "u0": -1.03, "u1": 8.2, "y0": 3.33, "y1": 3.7, "d": 0.02, "text": "", "bg": "#1897af", "fg": "#1897af", "style": "panel" },
+    { "t": "sign", "u0": 7.75, "u1": 8.2, "y0": 3.7, "y1": 4.2, "d": 0.02, "text": "", "bg": "#1897af", "fg": "#1897af", "style": "panel" },
+    { "t": "sign", "u0": -0.45, "u1": 2.36, "y0": 3.6, "y1": 4.26, "text": "Balıkçı", "fg": "#043d76", "style": "letters", "font": "sans", "bold": true, "logo": "kalın yuvarlak (balon) harfler, ~5 cm beyaz dış kontur; kabartma kanal harf gibi, ışıklı olup olmadığı gündüz karesinden anlaşılmıyor" },
+    { "t": "sign", "u0": 4.14, "u1": 7.49, "y0": 3.66, "y1": 4.32, "text": "Mahmut", "fg": "#043d76", "style": "letters", "font": "sans", "bold": true, "logo": "kalın yuvarlak harfler, beyaz dış kontur" },
+    { "t": "sign", "u0": -0.45, "u1": 2.05, "y0": 4.55, "y1": 5.32, "text": "ÇİĞ ve PİŞMİŞ\nKİLO İLE BALIK", "fg": "#eef2ef", "style": "letters", "font": "sans", "bold": true },
+    { "t": "sign", "u0": 2.62, "u1": 4.08, "y0": 4.47, "y1": 5.03, "text": "Gel Al Paket\n413 47 23", "lines": [ { "text": "Gel Al Paket", "size": 0.75 }, { "text": "413 47 23", "size": 1.25 } ], "fg": "#1897af", "style": "letters", "font": "sans", "bold": true, "logo": "turkuaz harfler, kalın beyaz dış kontur (sticker kesim); 413'ün solunda dikey küçük yazı (alan kodu?) okunamadı" },
+    { "t": "sign", "u0": 2.74, "u1": 3.86, "y0": 5.08, "y1": 6.25, "text": "BALIK\nMARKET", "bg": "#5db2c7", "fg": "#eef2ef", "border": "#eef2ef", "style": "box", "font": "condensed", "bold": true, "logo": "YUVARLAK pano (Ø≈1.12 m), üst lamelli panonun üstüne oturuyor (alt ~0.28 m panoyla örtüşür), içte ince beyaz halka, MARKET altında beyaz dalga çizgisi, altta okunamayan küçük yazı" },
+    { "t": "sign", "u0": 4.6, "u1": 7.53, "y0": 4.55, "y1": 5.32, "text": "MEZE ÇEŞİTLERİ\nDONUK ÜRÜNLER", "fg": "#eef2ef", "style": "letters", "font": "sans", "bold": true },
+    { "t": "awning", "u0": -0.72, "u1": 2.07, "y": 3.22, "d": 0.7, "drop": 0.88, "color": "#5eb4c4", "stripe": "#99dfe6" },
+    { "t": "awning", "u0": 2.1, "u1": 4.78, "y": 3.22, "d": 0.5, "drop": 0.27, "color": "#5eb4c4", "stripe": "#99dfe6" },
+    { "t": "awning", "u0": 4.97, "u1": 8.1, "y": 3.22, "d": 0.7, "drop": 0.88, "color": "#5eb4c4", "stripe": "#99dfe6" },
+    { "t": "win", "u0": -0.95, "u1": 2.15, "y0": 1.4, "y1": 3.2, "k": 0, "s": [0, 0], "kind": "shop", "curt": { "K0": "vitrin" } },
+    { "t": "win", "u0": 2.25, "u1": 4.6, "y0": 0.15, "y1": 2.7, "k": 0, "s": [0, 0], "kind": "door", "split": 2, "curt": { "K0": "karanlik" } },
+    { "t": "win", "u0": 4.7, "u1": 8.12, "y0": 1.4, "y1": 3.2, "k": 0, "s": [0, 0], "kind": "shop", "curt": { "K0": "vitrin" } },
+    { "t": "proj", "u0": -0.98, "u1": 1.98, "d": 0.5, "y0": 0.0, "y1": 1.4, "color": "#f0f4f0" },
+    { "t": "proj", "u0": 4.3, "u1": 7.4, "d": 0.5, "y0": 0.0, "y1": 1.4, "color": "#f0f4f0" },
+    { "t": "proj", "u0": 7.85, "u1": 8.45, "d": 0.5, "y0": 0.0, "y1": 1.35, "color": "#f0f4f0" }
+   ],
+   "note": "Ön (batı) cephe (2025-09, epBrUk 18 m cepheden; kr3oP ve T1qi7 ile doğrulandı). Cephe baştan sona tabela + tente + cam; sıva görünmüyor. cal.u = tabela uçları (T1qi7 köşe görünüşünde ön ve güney tabelaları tam köşede birleşiyor, köşe kahverengi hortumla işaretli). Tek katlı: cal.head iki kez aynı (ep düşey ölçeği ≈1; yatay 9.23/9.30). Tabela: beyaz/turkuaz ana bant 3.33–4.47 (tente bağlantısı 3.22), lamelli antrasit üst pano 4.47–5.36, yuvarlak BALIK MARKET 5.08–6.25. Tenteler (hepsi turkuaz, ince beyaz çizgili, Hollanda tipi yuvarlak profil, uçları yelpaze dikişli): sol 3.22→2.12, orta (giriş üstü, kısa) 3.22→2.73, sağ 3.22→2.12 + GB köşede çeyrek kubbe. Zemin: minibüs (Ford Transit Custom) orta kısmı her üç karede kapatıyor → giriş kapısının alt kısmı, orta saksıların tam uçları GÖRÜLMEDİ; giriş orta tentenin altındaki koyu açıklık (2.25–4.6), kr3oP’de kuzey saksı sırası u_app 1.98’de bitiyor + koyu mavi dikme, T1qi7’de güney saksı sırası köşeden ~4 m kuzeye uzanıyor. Işıklı tabela olup olmadığı belirlenemedi (gündüz)."
+  }
+ ],
+ "notes": [
+  "Tek katlı balık lokantası + balık market (Balıkçı Mahmut). Tüm kareler 2025-09. Batı (ön) cephe tam, güney cephenin batı ~9 m’si görüldü; doğu (Balentur arkası) ve kuzey (ağaç + LINENS arkası) GÖRÜLMEDİ — bu iki kenar düz sıva olarak çiziliyor ama gerçek görünüşleri bilinmiyor.",
+  "Zemin kat döşeme kotu görülmedi (saksılar ve minibüs arkasında): groundRaise 0.15 varsayılan; duvar üstü = tabela bandı altı 3.33 m (floorH 3.06 bundan türetildi). Çatı hava fotoğrafında gri düz (#98908f); sokaktan çatı yüzeyi görülmüyor, düz çatı kotu tabela bandı üstüne (4.47) alındı.",
+  "Renkler: güneşli güney yüzünden T1qi7 karesinde örneklendi ve beyaz delikli panele (ham #c0c6c2) göre ×1.25 pozlama düzeltildi (lI karesi aşırı pozlu/puslu: beyaz #fbfdfb, turkuaz #40bcd5, tente #88cad2; ön cephe epBrUk gölgede: beyaz bant #99a9bb, turkuaz #0d6e8e, harf mavisi #145389, lamel #293c43, tente #2b778e). Kullanılan: beyaz bant #dfe9ef, turkuaz #1897af, harf lacivert-mavi #043d76, lamelli pano antrasit #3b4e51, yuvarlak pano #5db2c7, tente kumaşı #5eb4c4 + çizgi #99dfe6, saksı/çit beyazı #f0f4f0, cam arkası çok koyu (#0d1611).",
+  "Doğrama: camların önünde beyaz kasa görülmüyor, dikmeler koyu (cam arkası karanlık) → frame antrasit alındı; kayıt/kanat sayısı çözülemedi. GB köşede beyaz kare dikme var.",
+  "proj derinlikleri (tabela kutusu 0.25 m, saksı/çit kutusu 0.5 m, tente çıkması 0.7 m / orta tente 0.5 m) doğrudan ölçülemedi: tente çıkması T1qi7’de güney tentenin yelpaze uç kapağının görünen genişliğinden (~0.7 m), saksı sırası ön/güney hattı cephe düzlemine ±0.3 m (ep–kr paralaksı) ile tabelanın hemen altında.",
+  "TABAN İZİ UYARISI (düzeltilmedi, rapor): ön cephe x=658 boyunca K–G değil, ~4.5–5.7° dönük görünüyor — KB ucu GB ucundan ~0.7–0.9 m daha doğuda. Kanıt: (1) epBrUk ortofotosunda tabela yüksekliği KB ucunda 2.00, GB ucunda 2.10 m görünüyor (KB ucu ~0.9 m daha uzak); (2) T1qi7 azimut uydurması KB ucunu x≈658.7’de veriyor; (3) hava fotoğrafında tabelanın koyu çizgisi z −110.5’te x 657.6, z −105’te x 657.05. Köşe başına sapma ~±0.4 m.",
+  "Güney tente/bant/çit Leyla Fasıl’ın batı pergolasına (x≈664.7–667.3, z≈−102…−94.7; koyu dikmeler, yarı saydam turkuaz çatı, koyu gri tahta güverte + saksılar) dayanıyor; pergola bu binaya ait görünmüyor (güverte Leyla’nın cephesiyle aynı malzeme) — çizilmedi, pending’de.",
+  "Tabelalar: ön ve güneyde aynı tasarım (güneyde daha kısa üst pano ve daha küçük harfler). Metinler: ‘Balıkçı Mahmut’ (balık logosu iki kelime arasında), ‘ÇİĞ ve PİŞMİŞ / KİLO İLE BALIK’, ‘Gel Al Paket / 413 47 23’, ‘MEZE ÇEŞİTLERİ / DONUK ÜRÜNLER’, yuvarlak ‘BALIK / MARKET’. Saksı panelindeki iki satır küçük koyu yazı okunamadı."
+ ],
+ "pending": [
+  {
+   "id": "fish-logo",
+   "what": "Balık logosu (ana bantta iki kelime arasında): sıçrayan balık, gövde beyaz-açık turkuaz, koyu mavi dış hat, sırt yüzgeci yukarıda; baş sağa-yukarı, kuyruk sola-aşağı; bandın üst kenarını hafifçe aşar",
+   "edge3": { "ref": "303738122_3_epBrUk-A.jpg", "u": [2.49, 3.99], "y": [3.45, 4.45] },
+   "edge0": { "ref": "303738122_0_lIEqcjO5.jpg", "u": [1.38, 2.34], "y": [3.9, 4.75] },
+   "colors": { "body": "#e1f4fb", "belly": "#5eb4c4", "outline": "#043d76" },
+   "d": 0.04
+  },
+  {
+   "id": "band-wave",
+   "what": "Ana bantta turkuaz alanın üst kenarı dalga biçimli (düz dikdörtgen değil); altta beyaz noktalı dalga çizgisi şeridi",
+   "edge3": "ref ep: turkuaz alt şerit 3.33–3.70 boyunca; sol uçta (u_app −1.03…−0.5) 3.85’e kadar hafif yükselir; sağ uçta ‘Mahmut’ sonrası (u_app 7.49→8.20) 3.72’den 4.26’ya kavisle yükselir (u 7.6: 4.0, u 7.85: 4.19, u 8.2: 4.26). Şimdilik 7.75–8.20 × 3.70–4.20 dikdörtgenle yaklaşıldı.",
+   "edge0": "ref lI: alt şerit y_app 3.80–4.03; ‘Mahmut’ sonrası u_app 4.47→4.75 arasında kavisle y_app 4.55’e (gerçek 4.17) yükselir ve görünen uca (u_app 8.0) kadar düz sürer.",
+   "dots": "noktalı dalga şeridi: gerçek 3.35–3.49 m, turkuaz üstüne beyaz küçük halkalar (~4 cm), iki cephede de tüm boy",
+   "colors": { "teal": "#1897af", "dots": "#eef2ef" }
+  },
+  {
+   "id": "letter-outline",
+   "what": "‘Balıkçı’, ‘Mahmut’ harflerinde ~4–5 cm beyaz dış kontur; ‘Gel Al Paket / 413 47 23’ turkuaz harflerde kalın (~6 cm) beyaz kontur (arka plan antrasit lamel). Üretici letters stilinde kontur çizemiyor.",
+   "colors": { "outline": "#eef2ef" }
+  },
+  {
+   "id": "round-badge",
+   "what": "BALIK MARKET panosu yuvarlak disk (Ø≈1.12 m, kalınlık ~0.05), kenardan ~4 cm içte ince beyaz halka, ‘MARKET’ altında beyaz dalga çizgisi, en altta okunamayan küçük yazı; iki cephede de üst panonun üst kenarına oturur",
+   "edge3": { "ref": "303738122_3_epBrUk-A.jpg", "center": [3.3, 5.66], "diam": 1.12 },
+   "edge0": { "ref": "303738122_0_lIEqcjO5.jpg", "center": [1.93, 5.885], "diam_app": 1.0 },
+   "colors": { "disk": "#5db2c7", "ring": "#eef2ef", "text": "#eef2ef" }
+  },
+  {
+   "id": "louvre-board",
+   "what": "Üst antrasit pano yatay lamelli (panjur benzeri): 6 lamel, ~0.14–0.15 m aralık, lamel arası koyu gölge çizgisi; ön cephe 4.47–5.36 m, güney 0–6.2 m (u_gerçek) aynı",
+   "colors": { "slat": "#3b4e51", "gap_shade": "#293c43" }
+  },
+  {
+   "id": "awning-shape",
+   "what": "Tenteler Hollanda tipi (yuvarlak/çeyrek silindir profil), uçlarda yarım daire yelpaze kapak (beyaz ışınsal dikişler), kumaşta duvara paralel ince beyaz çizgiler ~0.25 m aralık; üretici düz eğik tente çiziyor. GB köşede ön sağ tentenin ucu köşeyi saran çeyrek kubbe (yarıçap ≈ tente çıkması 0.7 m, 3.22→2.12 m; ep’de u_app 8.25–9.1).",
+   "colors": { "fabric": "#5eb4c4", "stripe": "#99dfe6", "shade_fabric": "#2b778e" }
+  },
+  {
+   "id": "planter-panels",
+   "what": "Cephe önü saksı/çit kutuları: beyaz düz panel üzerinde dikey bantlar halinde farklı çaplarda (Ø 4–8 cm) delik deseni (yarım ton nokta), altta ~0.2 m koyu gölge boşluğu (ayaklı/kaideli), üst 1.33–1.40 m; içlerinde ve arkalarında sarı-yeşil alacalı çalılar (taflan/euonymus) 1.9–2.0 m’ye kadar. Güneyde u_gerçek 0.2–8.2 kesintisiz; önde kuzey grup (u_app −0.98…1.98, kr3oP), güney grup (≈4.3…7.4, T1qi7; kuzey ucu ±0.4 belirsiz) + köşe kutusu. Kuzey gruptaki panelde iki satır küçük koyu yazı (okunamadı).",
+   "colors": { "panel": "#f0f4f0", "holes": "#1c2220", "shrub": "#9aa13c" }
+  },
+  {
+   "id": "entrance-steps",
+   "what": "Ön cephede kuzey saksı grubunun güney yarısı önünde beyaz basamak bloğu (iki kademeli beyaz kutu, toplam ~0.4 m yüksek, ~1.2 m geniş, saksı hattının ~0.5–1 m önünde); kr3oP ortofotosunda u_app 1.5–3.0 (ep’de ≈0.4–1.9)",
+   "color": "#f0f4f0"
+  },
+  {
+   "id": "blue-post",
+   "what": "Girişin kuzey yanında koyu mavi dikme/pano (~0.3 m geniş, ~1.0 m yüksek), saksı sırasının bittiği yerde; ep u_app ≈1.98–2.28 (kr3oP’den aktarıldı)",
+   "color": "#1d3f7a"
+  },
+  {
+   "id": "ground-ac-unit",
+   "what": "Yerde duran büyük klima dış ünitesi (tek fanlı, ~0.9 m geniş, ~1.2 m yüksek, ~0.35 m derin), küçük beton kaide üstünde, saksı hattında GB köşeye ~0.1–1.0 m (ön cephe), fan yüzü batı-güneybatıya; ep’de u_app ≈7.4–7.85 (yan yüzü gölgede #6a7274), açık gri",
+   "color": "#e0e2de"
+  },
+  {
+   "id": "corner-hose",
+   "what": "GB köşede tabela bandı altından (3.3 m) yere, klima ünitesine inen bej-kahverengi esnek hortum (Ø≈5 cm), alt uçta sola (kuzeye) kıvrılıyor",
+   "color": "#8a7a62"
+  },
+  {
+   "id": "nw-pot",
+   "what": "KB köşede pişmiş toprak saksı (Ø≈0.5, h≈0.5) + koni biçimli mazı (1.85 m’ye kadar); ep u_app −1.05…−0.25 (cephe hattında ±0.3)",
+   "colors": { "pot": "#b0724e", "plant": "#7d7a3a" }
+  },
+  {
+   "id": "north-yard",
+   "what": "Binanın KB köşesinin kuzeyinde (taban izi dışında, ağacın altında, kr3oP 103° karesi): doğuya uzanan ~1 m yüksek beyaz alçak duvar, önünde beyaz küp (~0.5 m, kutu/pano), 3 pişmiş toprak saksıda kuru çalı, büyük yeşil çalı; konumlar yalnız tek kareden, ±1 m"
+  },
+  {
+   "id": "south-white-wedge",
+   "what": "Güney cephede, üst pano bitimi (u_gerçek 6.2) doğusunda ana bandın üstünde beyaz yüzey; üst kenarı doğuya doğru yükseliyor: lI’de u_gerçek 6.2’de 4.50 m → 9.8’de ≈4.9 m → 11.1’de ≈5.1 m (bant düzleminde varsayılarak). T1qi7 (sıyırma açısı) karesinde görünmüyor → bant düzleminin kuzeyinde (arkasında) olabilir: eğimli çatı yüzeyi/arka parapet ya da trapez tabela üstü — niteliği belirlenemedi. Hava fotoğrafında çatının x≈667.7’de beyaz K–G çizgisi var.",
+   "color": "#dfe9ef"
+  },
+  {
+   "id": "leyla-pergola",
+   "what": "Leyla Fasıl’ın batı terası (bu binaya ait görünmüyor, OSM’de bina yok): pergola x≈664.7–667.3, z≈−102…−94.7 (hava fotoğrafı), koyu gri/siyah dikmeler (~0.1 m), üst çerçeve ~3.9–4.1 m, yarı saydam turkuaz-yeşil çatı; altında koyu gri yatay tahta kaplı güverte/saksı kutuları (~0.9–1.6 m yüksek), sarı varil saksı, ahşap kutu, sarmaşık; güney cephenin u_gerçek ≈6.7–9.3 kısmının önünde"
+  }
+ ]
+}

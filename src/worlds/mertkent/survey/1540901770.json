@@ -1,0 +1,1149 @@
+{
+ "id": 1540901770,
+ "name": "Tarabya Sitesi",
+ "storeys": 7,
+ "groundRaise": 1.8,
+ "floorH": 2.94,
+ "roof": {
+  "kind": "hipped",
+  "eave": 0.6,
+  "fasciaH": 0.45,
+  "pitch": 26,
+  "terrace": true,
+  "eaveY": {
+   "edge": 10,
+   "y": 22
+  }
+ },
+ "colors": {
+  "plaster": "#afa79b",
+  "plaster2": "#aba39f",
+  "fascia": "#aea899",
+  "soffit": "#76674f",
+  "railGlass": "#a1a9a6",
+  "frame": "#c4cdd6",
+  "tile": "#9d8c80",
+  "plinth": "#8e8681"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 4.87,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cephe (KD kanat): hiçbir Street View karesinden görülmedi (tüm panoramalar güney/güneybatıda). Boş bırakıldı, tahmin yapılmadı."
+  },
+  {
+   "edge": 1,
+   "len": 1.09,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cephe basamağı: görülmedi."
+  },
+  {
+   "edge": 2,
+   "len": 4.19,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cephe (orta çıkma): görülmedi."
+  },
+  {
+   "edge": 3,
+   "len": 3.09,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cephe (orta çıkma): görülmedi."
+  },
+  {
+   "edge": 4,
+   "len": 1.07,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cephe basamağı: görülmedi."
+  },
+  {
+   "edge": 5,
+   "len": 5.95,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cephe (KB kanat): görülmedi."
+  },
+  {
+   "edge": 6,
+   "len": 9.23,
+   "seen": "photo",
+   "ref": "1540901770_6_WdXsNXEJ.jpg",
+   "cal": {
+    "u": [
+     -1.72,
+     8.56
+    ],
+    "head": [
+     [
+      1,
+      7.05
+     ],
+     [
+      5,
+      18.8
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 1,
+     "u1": 2.7,
+     "y0": 5.95,
+     "y1": 7.05,
+     "k": 1,
+     "s": [
+      1,
+      6
+     ],
+     "split": 3,
+     "curt": {
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.45,
+     "u1": 6.7,
+     "y0": 6,
+     "y1": 7.05,
+     "k": 1,
+     "s": [
+      1,
+      6
+     ],
+     "split": 2,
+     "curt": {
+      "K1": "karanlik",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "v",
+     "u": 4.2,
+     "y0": 5,
+     "y1": 22.4,
+     "w": 0.04
+    }
+   ],
+   "note": "Batı cephe kuzey kanadı, WdXs (2025-09, 52 m) — UXy7 (41 m) A sütununu doğruluyor, B sütunu orada cam balkon yığınının arkasında. İki pencere sütunu: A 3 kanatlı (1.0–2.7), B 2 kanatlı (5.45–6.7); ikisi arasında (u≈4.2) boydan boya düşey çizgi: cephe burada küçük bir düzlem kırılması yapıyor (sağ taraf daha açık tonda, derinliği ölçülemedi) → oluk olarak yazıldı. KB köşe siluet u≈−1.72 (taban izi köşesinin ~1.4–1.7 m kuzeyi), kenar sonu cam balkon yığınının arkasında (yığın ön köşesi 7.75, paralaksla duvar ≈8.56). K0 çit+çitin arkasında görülmedi; perdeler 52 m'den kaba (beyaz tül)."
+  },
+  {
+   "edge": 7,
+   "len": 1.13,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey cam balkon yığınının kuzey yanı (KKB'ye bakıyor): hiçbir panoramadan görülmedi."
+  },
+  {
+   "edge": 8,
+   "len": 8.1,
+   "seen": "photo",
+   "ref": "1540901770_8_JWAUhRP4.jpg",
+   "cal": {
+    "u": [
+     -1.15,
+     8.1
+    ],
+    "head": [
+     [
+      1,
+      7.1
+     ],
+     [
+      6,
+      22.1
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": -1.15,
+     "u1": 2.85,
+     "d": 0,
+     "inset": 1.4,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "wall",
+     "glazed": [
+      1,
+      2,
+      3,
+      4,
+      6
+     ],
+     "tint": {
+      "K1": "dark",
+      "K2": "blinds",
+      "K3": "clear",
+      "K4": "dark",
+      "K6": "blinds"
+     },
+     "rail": {
+      "*": "glass"
+     },
+     "railC": "#bfc3c1",
+     "parapetH": {
+      "*": 0.45
+     },
+     "glassC": {
+      "*": "#a1a9a6"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 4.75,
+     "u1": 8.1,
+     "d": 0,
+     "inset": 1.4,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "wall",
+     "glazed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K1": "dark",
+      "K2": "blinds",
+      "K3": "blinds",
+      "K4": "dark",
+      "K5": "blinds",
+      "K6": "blinds"
+     },
+     "rail": {
+      "*": "glass"
+     },
+     "railC": "#bfc3c1",
+     "parapetH": {
+      "*": 0.45
+     },
+     "glassC": {
+      "*": "#a1a9a6"
+     }
+    },
+    {
+     "t": "entrance",
+     "u0": 4.1,
+     "u1": 5.25,
+     "kind": "lobby",
+     "canopy": false
+    }
+   ],
+   "note": "Batı orta çıkma (kavisli/pahlı cam balkon cumbası), JWAU (2025-09, 39 m, site batı kapısı kirişinin altından) + xaRAH (2025-09, 54 m, temiz) + WdXs. K1–K6: iki cam balkon yığını (loca: ön yüz taban izi çizgisinde, arka duvar içeride; derinlik açık K5'ten ≈1.3–1.5 m tahmini) ve ortada düz sıvalı ayak (2.85–4.75; üçgenlemede ön yüzü taban izinin ~0.75 m batısında). Kuzey yığın: K5 açık loca (cam korkuluk, arkada pencereli duvar), diğerleri katlanır cam; güney yığın tüm katlar camlı; güney yığın K3 korkuluğunda küçük kırmızı bayrak/örtü. Korkuluk her katta ≈0.45 m dolu parapet + buzlu cam (dikmeli). K0: cumbanın altı açık, gölgeli giriş sundurması (arkası içeride; kolonlar u≈−0.2 ve 5.3, beyaz kutu/pano u 0.3–1.25, koyu camlı apartman giriş kapısı u 4.1–5.25) → sundurma pending'de. Kuzey yığın kuzey ucu u≈−1.15 (taban izi köşesinin ~1.2 m kuzeyi)."
+  },
+  {
+   "edge": 9,
+   "len": 4.94,
+   "seen": "photo",
+   "ref": "1540901770_9_JWAUhRP4.jpg",
+   "cal": {
+    "u": [
+     0,
+     6.05
+    ],
+    "head": [
+     [
+      1,
+      7
+     ],
+     [
+      6,
+      21.55
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 2.95,
+     "d": 0,
+     "inset": 1.4,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "wall",
+     "glazed": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K1": "dark",
+      "K2": "blinds",
+      "K3": "blinds",
+      "K4": "dark",
+      "K5": "blinds",
+      "K6": "blinds"
+     },
+     "rail": {
+      "*": "glass"
+     },
+     "railC": "#bfc3c1",
+     "parapetH": {
+      "*": 0.45
+     },
+     "glassC": {
+      "*": "#a1a9a6"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.85,
+     "u1": 5.1,
+     "y0": 6,
+     "y1": 7,
+     "k": 1,
+     "s": [
+      1,
+      6
+     ],
+     "split": 2,
+     "curt": {
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "y0": 1.45,
+     "y1": 2.95,
+     "color": "#8e8681",
+     "proud": 0.02
+    }
+   ],
+   "note": "Batı cephe, çıkmanın güney ucu + dar duvar; JWAU (2025-09) ref, UXy7 ve WdXs pencere konumunu ±0.05 doğruluyor (duvar düzlemde). Güney cam balkon yığını bu kenarda u≈2.2–2.95 arasında 45° pahla biter. Duvarda tek 2 kanatlı pencere sütunu (3.85–5.1, sol kanat karanlık, sağda beyaz tül). K0 (JWAU'dan görünür): pencere yok, düz sıva; altta açık gri damarlı (mermer benzeri) kaplama subasman ≈1.45–2.95; u≈3.2'de K1 döşemesinden zemine inen koyu gri yağmur borusu (yalnız K0'da görünür). Kenar sonu (dış köşe) u≈6.05: taban izinden ~1 m uzun; burada güneye bakan ≈0.5 m'lik bir girinti duvarı (izde yok) ile 10. kenara bağlanıyor."
+  },
+  {
+   "edge": 10,
+   "len": 9.23,
+   "seen": "photo",
+   "ref": "1540901770_10_UXy7Q7qk.jpg",
+   "cal": {
+    "u": [
+     1.4,
+     7.1
+    ],
+    "head": [
+     [
+      1,
+      7.05
+     ],
+     [
+      5,
+      18.8
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 3.28,
+     "u1": 4.87,
+     "y0": 5.9,
+     "y1": 7.05,
+     "k": 1,
+     "s": [
+      1,
+      6
+     ],
+     "split": 3,
+     "curt": {
+      "K1": "karanlik",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    }
+   ],
+   "note": "Batı cephe güney kanadı; UXy7 (2025-09, 24 m) ref, JWAU aynı konumları veriyor, 2Qtex (18 m) +0.7 m kaymış (duvar taban izi düzleminin ~0.7 m doğusunda). Tek 3 kanatlı pencere sütunu (surround 3.05–5.0, açıklık 3.28–4.87). GB köşe u≈7.1 (UXy7), 7.3 (JWAU): duvar gerçekte ≈6.0–6.2 m (izde 9.23) → izde düzeltilene kadar pencere 1.5× geniş çizilir. K0 çit + çitin arkasındaki ~2 m çitle görülmedi."
+  },
+  {
+   "edge": 11,
+   "len": 5.24,
+   "seen": "photo",
+   "ref": "1540901770_11_2QtexqzB.jpg",
+   "cal": {
+    "u": [
+     -1.28,
+     3.3
+    ],
+    "head": [
+     [
+      1,
+      7
+     ],
+     [
+      6,
+      20.35
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.45,
+     "u1": 2.4,
+     "y0": 5.1,
+     "y1": 7,
+     "k": 1,
+     "s": [
+      1,
+      6
+     ],
+     "kind": "door",
+     "split": 2,
+     "curt": {
+      "K1": "stor",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 0.3,
+     "u1": 2.55,
+     "d": 0.9,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "bars"
+     },
+     "railC": "#bfc3c1"
+    },
+    {
+     "t": "ac",
+     "u": 0.8,
+     "s": 1,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 0.8,
+     "s": 2,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 0.8,
+     "s": 5,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 0.8,
+     "s": 6,
+     "onBal": true
+    },
+    {
+     "t": "pipe",
+     "u": 2.62,
+     "off": 0.08
+    }
+   ],
+   "note": "Güney cephe batı kanadı; 2Qtex (2025-09, 17 m) ref, 1TOk (2025-09, 50 m, cepheden) aynı oranları veriyor (GB köşe −1.1…−1.3, balkon kapısı 0.45–2.45, çıkma yanı 3.3). K1–K6 her katta küçük konsol balkon (≈0.9 m, kalın bej döşeme alnı) + 2 kanatlı beyaz PVC balkon kapısı; korkuluk dikey paslanmaz çubuklu (üst+alt küpeşte). Klima: K1, K2, K5, K6 balkonlarında (2025). K1 kapısında jaluzi/stor. Kapının sağında (u≈2.62) tam boy ince koyu gri yağmur borusu. Önündeki beyaz sokak lambası direği sokak eşyası. K0 çit+çitle görülmedi."
+  },
+  {
+   "edge": 12,
+   "len": 1.01,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     1.01
+    ],
+    "head": [
+     [
+      1,
+      6.99
+     ],
+     [
+      6,
+      21.69
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 1.01,
+     "d": 0,
+     "inset": 1,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "wall",
+     "glazed": [
+      1,
+      2,
+      6
+     ],
+     "tint": {
+      "K1": "blinds",
+      "K2": "dark",
+      "K6": "clear"
+     },
+     "rail": {
+      "K1": "glass",
+      "K2": "glass",
+      "*": "bars"
+     },
+     "railC": "#bfc3c1",
+     "parapetH": {
+      "K1": 0.35,
+      "K2": 0.35
+     },
+     "glassC": {
+      "*": "#a1a9a6"
+     }
+    }
+   ],
+   "note": "Güney cumbanın batı yanı: 2Qtex (2025-09) karelerinde kavisli balkon döşemeleri bu yüze dönüyor; aynı kat durumları (K1–K2 camlı, K3–K5 açık, K6 camlı). Gerçek metre."
+  },
+  {
+   "edge": 13,
+   "len": 3.68,
+   "seen": "photo",
+   "ref": "1540901770_13_EIX3i6Md.jpg",
+   "cal": {
+    "u": [
+     -1,
+     3.68
+    ],
+    "head": [
+     [
+      1,
+      7.1
+     ],
+     [
+      6,
+      22
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": -1,
+     "u1": 1.25,
+     "d": 0,
+     "inset": 1.4,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "wall",
+     "glazed": [
+      1,
+      2,
+      6
+     ],
+     "tint": {
+      "K1": "blinds",
+      "K2": "dark",
+      "K6": "clear"
+     },
+     "rail": {
+      "K1": "glass",
+      "K2": "glass",
+      "*": "bars"
+     },
+     "railC": "#bfc3c1",
+     "parapetH": {
+      "K1": 0.35,
+      "K2": 0.35
+     },
+     "glassC": {
+      "*": "#a1a9a6"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 2.95,
+     "u1": 3.68,
+     "d": 0,
+     "inset": 1.4,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "wall",
+     "glazed": [
+      1,
+      3,
+      4
+     ],
+     "tint": {
+      "K1": "blinds",
+      "K3": "clear",
+      "K4": "dark"
+     },
+     "rail": {
+      "K1": "glass",
+      "*": "tube"
+     },
+     "railC": "#bfc3c1",
+     "parapetH": {
+      "K1": 0.35
+     },
+     "glassC": {
+      "*": "#a1a9a6"
+     }
+    }
+   ],
+   "note": "Güney cumba batı yarısı. Konumlar EIX3i6 (2014-07, 11 m, tam cepheden) ortofotosundan; kat durumları 2025-09 2Qtex karelerinden (2014'ten farklı: 2014'te K2–K3 açık, bambu stor): K1 camlı (dikey stor), K2 camlı, K3–K5 açık (tavanda yuvarlak spot), K6 camlı; korkuluk K1–K2 buzlu cam panel + dikme, K3–K6 dikey çubuklu. Orta ayak u 1.25–2.95 (üçgenleme: x 289.5–291.1, ön yüz z≈−61.7; ayakta her katta iki küçük silindir aplik → pending). 2.95 sonrası doğu yarının locası başlar (durumları 14. kenarda)."
+  },
+  {
+   "edge": 14,
+   "len": 3.21,
+   "seen": "partial",
+   "ref": "1540901770_14_EIX3i6Md.jpg",
+   "cal": {
+    "u": [
+     0,
+     2.55
+    ],
+    "head": [
+     [
+      1,
+      7.1
+     ],
+     [
+      6,
+      22
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 2.2,
+     "d": 0,
+     "inset": 1.4,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "wall",
+     "glazed": [
+      1,
+      3,
+      4
+     ],
+     "tint": {
+      "K1": "blinds",
+      "K3": "clear",
+      "K4": "dark"
+     },
+     "rail": {
+      "K1": "glass",
+      "*": "tube"
+     },
+     "railC": "#bfc3c1",
+     "parapetH": {
+      "K1": 0.35
+     },
+     "glassC": {
+      "*": "#a1a9a6"
+     }
+    }
+   ],
+   "note": "Güney cumba doğu yarısı. Konum EIX3i6 (2014) cepheden; kat durumları en yeni okunabilir kare Dr35 (2019-05): K1 camlı (stor), K2 açık, K3 camlı, K4 camlı (koyu), K5–K6 açık; korkuluklar yatay borulu (K1 buzlu cam). 2025 (2Qtex) bu yarıyı çok yatık görüyor: daha fazla katın camlandığı izlenimi var, doğrulanamadı. Loca 2.2'de biter, 2.2–2.55 düz duvar (cumbanın doğu köşesi)."
+  },
+  {
+   "edge": 15,
+   "len": 1.04,
+   "seen": "none",
+   "items": [],
+   "note": "Güney cumbanın doğu yanı (doğuya bakıyor): tüm panoramalar batıda → görülmedi."
+  },
+  {
+   "edge": 16,
+   "len": 5.86,
+   "seen": "photo",
+   "ref": "1540901770_16_EIX3i6Md.jpg",
+   "cal": {
+    "u": [
+     -0.72,
+     3.68
+    ],
+    "head": [
+     [
+      1,
+      7.1
+     ],
+     [
+      6,
+      22
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.24,
+     "u1": 1.72,
+     "y0": 5,
+     "y1": 7.1,
+     "k": 1,
+     "s": [
+      1,
+      6
+     ],
+     "kind": "door",
+     "split": 2
+    },
+    {
+     "t": "bal",
+     "u0": 0.05,
+     "u1": 2.2,
+     "d": 0.9,
+     "s": [
+      1,
+      6
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "bars"
+     },
+     "railC": "#bfc3c1"
+    },
+    {
+     "t": "dish",
+     "u": 1.9,
+     "s": 1,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 1.6,
+     "s": 1,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 1,
+     "s": 2,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 1,
+     "s": 3,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 0.7,
+     "s": 6,
+     "onBal": true
+    },
+    {
+     "t": "pipe",
+     "u": 2.25,
+     "off": 0.08
+    }
+   ],
+   "note": "Güney cephe doğu kanadı. Konum ref EIX3i6 (2014-07, 16 m, en cepheden kare); Dr35 (2019-05) ve 2Qtex (2025-09, 28 m yatık) düzeni doğruluyor. 11. kenarın simetriği: K1–K6 küçük konsol balkon + 2 kanatlı balkon kapısı, dikey çubuklu korkuluk. K1 balkonunda beyaz çanak anten + klima (2014, 2025'te de var); K2 ve K3 klimaları 2019 karesinde; K6 klima 2014. Balkonların sağında (u≈2.25) ince boru (2014). GD köşe u≈3.68 (üçgenleme x≈298.9, z≈−64.4; izde 300.5/−63.47). Köşenin doğusunda (ortofoto 3.7+) alçak kırmızı ek bina görünür → 17–21. kenarlarda proj. Perdeler 2014'e ait olduğundan yazılmadı."
+  },
+  {
+   "edge": 17,
+   "len": 7.84,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     7.84
+    ],
+    "head": [
+     [
+      1,
+      6.99
+     ],
+     [
+      6,
+      21.69
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "proj",
+     "u0": 0,
+     "u1": 7.84,
+     "d": 4.4,
+     "y0": 0,
+     "y1": 5.1,
+     "color": "#79504f",
+     "topRail": "glassFull",
+     "topRailC": "#bfc3c1",
+     "wins": []
+    }
+   ],
+   "note": "Doğu cephe görülmedi (tüm panoramalar batıda). Yalnız 1 katlı ek yapı yazıldı: güney yüzü EIX3i6 (2014-07), Dr35 (2019-05) ve 2Qtex (2025-09) karelerinde görülüyor — bordo/kiremit kırmızısı sıvalı duvar, üstte açık gri-beyaz döşeme alnı (≈0.4 m, pending), üstünde çerçevesiz buzlu cam korkuluk + paslanmaz dikme/küpeşte; terasta geri çekilmiş camlı oda (pending). Ek yapının doğu yüzü, kapı/pencereleri görülmedi → wins boş. Ön yüzü x≈304.9 (SV üçgenleme 304.8–305.5, hava 305±0.4); çatı ≈5.1 m (K1 döşemesinin ~0.35 m üstü). Gerçek metre."
+  },
+  {
+   "edge": 18,
+   "len": 6.31,
+   "seen": "none",
+   "cal": {
+    "u": [
+     0,
+     6.31
+    ],
+    "head": [
+     [
+      1,
+      6.99
+     ],
+     [
+      6,
+      21.69
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "proj",
+     "u0": 0,
+     "u1": 6.31,
+     "d": 4,
+     "y0": 0,
+     "y1": 5.1,
+     "color": "#79504f",
+     "topRail": "glassFull",
+     "topRailC": "#bfc3c1",
+     "wins": []
+    }
+   ],
+   "note": "Doğu cephe (kavisli çıkma) görülmedi. Yalnız ek yapının devamı (hava fotoğrafı: düz çatı x≈300–305). Gerçek metre."
+  },
+  {
+   "edge": 19,
+   "len": 7.02,
+   "seen": "none",
+   "cal": {
+    "u": [
+     0,
+     7.02
+    ],
+    "head": [
+     [
+      1,
+      6.99
+     ],
+     [
+      6,
+      21.69
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "proj",
+     "u0": 0,
+     "u1": 7.02,
+     "d": 3.8,
+     "y0": 0,
+     "y1": 5.1,
+     "color": "#79504f",
+     "topRail": "glassFull",
+     "topRailC": "#bfc3c1",
+     "wins": []
+    }
+   ],
+   "note": "Doğu cephe görülmedi. Ek yapının devamı (hava fotoğrafı). Gerçek metre."
+  },
+  {
+   "edge": 20,
+   "len": 1.88,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu cephe kısa pah: görülmedi (ek yapı komşu kutularla örtülüyor)."
+  },
+  {
+   "edge": 21,
+   "len": 9.51,
+   "seen": "none",
+   "cal": {
+    "u": [
+     0,
+     9.51
+    ],
+    "head": [
+     [
+      1,
+      6.99
+     ],
+     [
+      6,
+      21.69
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "proj",
+     "u0": 0,
+     "u1": 11.71,
+     "d": 5.6,
+     "y0": 0,
+     "y1": 5.1,
+     "color": "#79504f",
+     "topRail": "glassFull",
+     "topRailC": "#bfc3c1",
+     "wins": []
+    }
+   ],
+   "note": "Doğu cephe (KD kanat) görülmedi. Ek yapı hava fotoğrafına göre binanın KD köşesini ~2.1 m aşarak z≈−97.5'e kadar uzanıyor (u1 = len + 2.2). Gerçek metre."
+  }
+ ],
+ "notes": [
+  "Bina: Tarabya Sitesi (batı giriş kapısındaki istinat duvarında 'TARABYA SİTESİ' levhası — site levhası, blok levhası değil; cephede tabela/levha görülmedi). İkizi 1540901771 ile aynı dil (ondan kopyalanmadı).",
+  "KAT: 7 normal kat (K0–K6). K1–K6 güney/batıdaki tüm karelerde çit+çitin üstünde görünüyor; K0 (zemin) yalnız batıda JWAU (2025) karesinde, site batı kapısının kirişi altından görülüyor: batı cumbanın altında gölgeli açık giriş sundurması + apartman kapısı, 9. kenarda penceresiz düz duvar + gri mermer desenli subasman. Doğudaki 1 katlı ek yapının çatısı K1 döşemesi hizasında (bu da K0'ı doğruluyor). Güney ve 6./10. kenarlarda K0 çit ve ~2 m selvi çitin arkasında → K0 pencere/kapısı YAZILMADI (görülmedi).",
+  "Kat yüksekliği 2.94 m: düzlemde olduğu doğrulanan 9. kenarda (UXy7/JWAU/WdXs aynı konum) görünen kat aralığı 2.89–2.93, 6. kenarda 2.94–2.97. groundRaise 1.8: K1 lento görünen 6.95–7.1 (2Qtex/UXy7/JWAU/WdXs) → K0 döşemesi zemin koduna göre ≈1.7–1.9 (site sokaktan ~1.2 m yüksek, istinat duvarı + çit). 2014 EIX3i6 panoramasında düşey ölçek ~%8 büyük çıkıyor (kalibrasyon), bu yüzden kat yüksekliği ondan alınmadı.",
+  "Renkler: sıva (plaster) 2014-07 güneşli güney cephe örnekleri #b2aaa2 / #b4aca3 / #a59a8b, ayak #aea899 → #afa79b; 2025-09 bulutlu/dağınık ışıkta güney #a69e91, batı #99948c–#aaa19d, doğu gölge #8d8779 (aynı ton, repaint yok). Balkon/cumba döşeme alınları sıva ile aynı bej (#aea899, 2014 güneşli). Saçak alnı (plaster2) #aba39f (2025 batı), saçak altı gölgede #645848. Balkon tavanları (soffit) 2014 gölgede #76674f. Buzlu cam korkuluk #a1a9a6 (2025; 2014 #99a4a9). PVC doğrama beyaz, 2025 dağınık ışıkta #c4cdd6. Denizlik açık gri #a7acb2. Kiremit (hava fotoğrafı, soluk kahve-gri) #9d8c80. Subasman gri damarlı kaplama #8e8681 (2025). Ek yapı bordo-kiremit kırmızısı #79504f (2025 dağınık; 2014 gölgede #4e3132), üst alın açık gri-beyaz #b8c6ca (2025; 2014 #899191). Turuncu şerit YOK.",
+  "Mimari dil: düz bej sıva, pencerelerin çevresinde ~0.13 m kabarık söve + açık gri denizlik (pending), her kat hizasında çift yatay sıva derzi (pending). Batıda iki katlanır camlı loca yığınlı kavisli/pahlı cumba + ortada düz ayak; güneyde ortada derin cumba (iki yanında kavisli döşemeli localar, ortada her katta çift aplikli ayak), iki yanında dikey çubuk korkuluklu küçük konsol balkon + balkon kapısı yığınları (11 ve 16 simetrik). Kırma kiremit çatı, geniş saçak (≈0.6 m, bej düz saçak altı), ortada düz teras şeridi (hava fotoğrafı: x≈286.5–291.5 apparent, havalandırmalı).",
+  "Çatı eğimi Street View'dan görülmedi (yerden saçak altı görünüyor) → 26° varsayılan. Saçak taşması: güneybatı saçak köşesi üçgenlemesi (281.9, −63.8) ile duvar köşesi arası ≈0.6–0.8 m; 2Qtex 10. kenar ortofotosunda alın konumundan ≈0.6 m; footprint notundaki 0.35 m'den geniş. Güneydoğu saçak köşesi (300.6, −64.1) duvar köşesinin ~1.6 m doğusunda → doğu saçağı daha geniş olabilir (doğu cephe görülmedi).",
+  "TABAN İZİ UYUŞMAZLIKLARI (düzeltilmedi, ana oturuma rapor): Street View üçgenlemesi (2Qtex/UXy7/JWAU/1TOk/EIX3i6/Dr35/WdXs/xaRAH; panoramalar arası yön hatası ~1°, mutlak konum ±0.5–0.7 m): (1) Güney duvar (11, 16) z≈−64.4…−64.7 — izden 1.5–2 m kuzeyde; GB köşe ≈(283.0, −64.5), GD köşe ≈(298.9, −64.4) (izde 282.75/−62.45 ve 300.5/−63.47). (2) Güney cumbanın orta ayağı x 289.5–291.1, ön yüz z≈−61.7 (izle uyumlu) → cumba duvardan ≈2.7–2.9 m taşıyor (izde ≈1 m); cumba ön yüzü x≈287.2–293.7 (izde 288.2–295.0). Hava fotoğrafında eğim kat başına z'de ≈0.72 m alınırsa (0.915 yerine) güney saçak ve cumba saçağı bu değerlerle tutarlı. (3) KB köşe ≈(280.6, −95.6) (izde 280.95/−94.26). (4) 9. kenar z≈−70.7'ye kadar sürüp ≈0.5 m'lik güneye bakan bir girinti duvarıyla doğuya dönüyor, 10. kenar ≈6.0–6.2 m ve iz çizgisinin ~0.7 m doğusunda (izde 9.23 m). (5) Batı cumba orta ayak ön yüzü x≈279.45, z −80.7…−79.1 (8. kenar çizgisinin ~0.75 m batısı); kuzey cam yığın kuzey ucu z≈−85.7. (6) 6. kenarda iki pencere sütunu arasında küçük düzlem kırılması (izde yok). Orantılı eşleme nedeniyle iz düzeltilmezse 10. kenar penceresi ~1.5×, 11. kenar öğeleri ~1.14× geniş çizilir.",
+  "Görülmeyenler (tahmin yapılmadı, boş): kuzey cephenin tamamı (0–5), 7. kenar (kuzey cam yığının kuzey yanı), 15. kenar (cumbanın doğu yanı), doğu cephenin tamamı (17–21; yalnız önündeki ek yapı yazıldı), ek yapının doğu/kuzey yüzleri ve kapı/pencereleri, tüm cephelerde K0 (8/9 dışında), çatı eğimi.",
+  "Tarihler: 6, 8, 9, 10, 11 ve güney cumba batı yarısının kat durumları 2025-09. Güney cumba konumları EIX3i6 2014-07 (en cepheden kare), doğu yarı kat durumları Dr35 2019-05 (2025'te çok yatık). 16. kenar düzeni 2014/2019/2025 uyumlu; K2–K3 klimaları 2019. Güney cumba batı yarısında 2014→2025 değişim: K2 ve K6 camlanmış, bambu storlar kalkmış.",
+  "Sokak/site eşyası (bina değil): 11. kenar önünde beyaz sokak lambası direği; batı cumba önünde bayrak direği (Türk bayrağı) + güvenlik kamerası + projektör; batı site kapısı kahverengi kirişli kapı ve '7/24 KAMERA SİSTEMİ İLE İZLENMEKTEDİR' levhası; sokak kenarında kemerli istinat duvarı + paslanmaz boru korkuluk + yeşil panel çit + selvi çit.",
+  "İFADE EDİLEMEYEN / YAKLAŞIK: loca yığınlarının kavisli döşeme alınları ve 45° pahlı uçları (dikdörtgen loca olarak yazıldı), güney cumba ayağındaki aplikler, söve ve derzler, 9/10 arası girinti, batı cumba altındaki açık sundurma, ek yapı üst alını ve teras üstündeki camlı oda → hepsi pending'de ölçüleriyle."
+ ],
+ "pending": [
+  {
+   "what": "apartment-sconces",
+   "edge": 13,
+   "ref": "1540901770_13_EIX3i6Md.jpg",
+   "u": [
+    1.64,
+    2.2
+   ],
+   "yRel": "her katta lento çizgisinin ≈0.3 m üstü (döşemeden ≈2.55 m)",
+   "storeys": [
+    1,
+    6
+   ],
+   "size": [
+    0.12,
+    0.22
+   ],
+   "proud": 0.12,
+   "color": "#3a3a38",
+   "desc": "Güney cumba orta ayağında her katta yan yana iki küçük silindir duvar aplik (koyu gri gövde, beyaz uç); 2014, 2019 ve 2025 karelerinde var."
+  },
+  {
+   "what": "window-surround",
+   "edges": [
+    6,
+    9,
+    10,
+    11,
+    16
+   ],
+   "width": 0.13,
+   "proud": 0.025,
+   "color": "#b8b1a6",
+   "sill": {
+    "color": "#a7acb2",
+    "depth": 0.06
+   },
+   "desc": "Tüm pencere ve balkon kapılarının çevresinde ~0.13 m kabarık açık bej söve çerçeve (ortofotolarda açık çerçeve), altta ince açık gri denizlik."
+  },
+  {
+   "what": "double-groove",
+   "edges": [
+    6,
+    9,
+    10,
+    11,
+    16
+   ],
+   "spacing": 0.25,
+   "width": 0.03,
+   "color": "#8f887c",
+   "desc": "Her kat hizasında cephe boyunca iki paralel ince yatay sıva derzi (2Qtex 33_24/53_6 yakın karelerinde köşeyi dönerek devam ediyor); kesin yükseklikleri seçilemedi (pencere denizliğinin ≈0.3–0.6 m altı)."
+  },
+  {
+   "what": "k0-porch",
+   "edge": 8,
+   "ref": "1540901770_8_JWAUhRP4.jpg",
+   "u": [
+    -1.15,
+    8.1
+   ],
+   "y": [
+    1.4,
+    4.65
+   ],
+   "recess": "≥1.5 m (ölçülemedi)",
+   "columns": [
+    {
+     "u": -0.2,
+     "w": 0.4
+    },
+    {
+     "u": 5.3,
+     "w": 0.4
+    }
+   ],
+   "box": {
+    "u": [
+     0.3,
+     1.25
+    ],
+    "y": [
+     2.9,
+     3.6
+    ],
+    "color": "#e6e6e2",
+    "desc": "beyaz kutu/pano"
+   },
+   "door": {
+    "u": [
+     4.1,
+     5.25
+    ],
+    "y": [
+     1.4,
+     3.7
+    ],
+    "glass": "koyu",
+    "frame": "alüminyum"
+   },
+   "desc": "Batı cumbanın altı K0 seviyesinde açık, gölgeli giriş sundurması; K1 döşeme alnı kalın bej bant (4.65–5.5, ortada derz). Apartman giriş kapısı burada (entrance öğesi yazıldı)."
+  },
+  {
+   "what": "return-wall",
+   "between": [
+    9,
+    10
+   ],
+   "at": [
+    281.8,
+    -70.7
+   ],
+   "to": [
+    282.35,
+    -70.7
+   ],
+   "height": "tam boy",
+   "desc": "9. kenarın güney ucu ile 10. kenar arasında güneye bakan ≈0.5 m girinti duvarı (izde yok); 2Qtex/UXy7/JWAU üçgenlemesi."
+  },
+  {
+   "what": "annex-coping",
+   "edges": [
+    17,
+    18,
+    19,
+    21
+   ],
+   "y": [
+    4.7,
+    5.1
+   ],
+   "color": "#b8c6ca",
+   "proud": 0.03,
+   "desc": "Ek yapının kırmızı duvarının üstünde teras döşemesi alnı: açık gri-beyaz ≈0.4 m bant (2014 ve 2025)."
+  },
+  {
+   "what": "annex-glass-room",
+   "edge": 17,
+   "uTrue": [
+    1.4,
+    6
+   ],
+   "dTrue": [
+    0.3,
+    4
+   ],
+   "y": [
+    5.1,
+    7.4
+   ],
+   "roof": {
+    "color": "#d4d8d6",
+    "edge": "koyu gri ince alın"
+   },
+   "glass": "çerçevesiz katlanır cam, arkasında beyaz perde/stor (2014), 2025 cam",
+   "desc": "Ek yapı terasında güney kenardan ~1–1.5 m geri çekilmiş camlı oda (2014, 2019, 2025 karelerinde var); doğu ucu x≈303.2–304.4 (yön hatası), kuzey-güney boyu hava fotoğrafından ≈4.6 m (z −69.6…−65.0). 2014'te doğusunda koyu gri kutu (depo/kule?) x≈303.2–304.3. proj yan yüzüne pencere konamadığı için çizilmedi."
+  },
+  {
+   "what": "curved-loggia-fronts",
+   "edges": [
+    8,
+    9,
+    12,
+    13,
+    14
+   ],
+   "desc": "Batı cam yığınlarının uçları 45° pahlı (9. kenar u≈2.2–2.95, kuzey uç 7. kenarda görülmedi); güney cumba locaalarının döşeme alınları planda dışbükey kavisli (ayaktan köşeye doğru geri kıvrılıyor), köşede cumba yan yüzüne (12) dönüyor."
+  },
+  {
+   "what": "ceiling-spots",
+   "edges": [
+    13,
+    14
+   ],
+   "storeys": "açık localar",
+   "desc": "Güney cumba açık localarının tavanında birer yuvarlak spot armatür (2019, 2025)."
+  },
+  {
+   "what": "k0-downpipe",
+   "edge": 9,
+   "ref": "1540901770_9_JWAUhRP4.jpg",
+   "u": 3.2,
+   "y": [
+    1.45,
+    4.65
+   ],
+   "color": "#4a4a48",
+   "desc": "Güney cam yığının ucunda yalnız K0 boyunca görünen koyu gri yağmur borusu (üst katlarda yığının arkasında)."
+  }
+ ]
+}

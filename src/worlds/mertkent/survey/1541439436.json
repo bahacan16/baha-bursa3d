@@ -1,0 +1,186 @@
+{
+  "id": 1541439436,
+  "storeys": 8,
+  "groundRaise": 1.2,
+  "floorH": 3.2,
+  "roof": {
+    "kind": "flat",
+    "eave": 0.05,
+    "fasciaH": 1.1
+  },
+  "colors": {
+    "plaster": "#9da49c",
+    "plaster2": "#5b6775",
+    "strip": "#7b8990",
+    "fascia": "#9da49c",
+    "railGlass": "#41474f",
+    "frame": "#2a2622",
+    "tile": "#857173"
+  },
+  "notes": [
+    "KAT SAYISI (bu kulede doğrudan sayıldı, 1435'ten alınmadı): 8 normal kat (K0–K7). GB kavisli balkon kulesinde (kenar 2, otFK3sk5 67/76 + sa-WfHt0 79, 2025-09, ~40–50 m) ve KD kavisli kulede (kenar 8, amsci9pL/alOgArOd, 2025-09, ~50–60 m) çitin üstünde 7 balkon sırası (K1–K7) + en üstte koyu alın/şapka; K1'in altındaki giriş katı K0 çit (≈2.3 m) arkasında görülmedi. Kardeş kule notundaki '9' ile uyuşmuyor; çatı üstünde küçük pencereli çatı odası var (pending #3), 9. kat olarak sayılmış olabilir.",
+    "KAT YÜKSEKLİĞİ 3.2 m VARSAYIM: bu kulenin tüm kareleri 40–60 m uzaktan ve pano konum hataları yüzünden mutlak ölçek bağımsız ölçülemedi (görünen kat aralıkları 2.59–2.96). 1437 için bulunan 3.2 m (aynı proje dili) kullanıldı — kanıt yetersizliği nedeniyle, bu kulede ölçülmedi. Zemin kat kotu kamera yüksekliğinden üç ayrı tahmin: 0.73 (alOgArOd), 0.99 (amsci9pL), 1.69 (otFK3sk5) → 1.2 ±0.4.",
+    "RENKLER: bu kulede güneşli yüzey örneği YOK (tüm kareler kapalı hava/gölgede, uzak). Ölçülenler (gölge/kapalı): ana sıva #8e9694 (güney paye), #899087 (kuzey duvar), parapet #9da49c; kat bantları mavimsi gri #7b8990; en üst kat koyu kaplama / şapka #5b6775; parapet füme cam bölmeleri #41474f; cam balkon doğraması koyu kahve-siyah (uzaktan). Palet bu gölge tonlarıyla yazıldı — gerçek (güneşli) tonlar daha açık olmalı (1437'de güneş/gölge farkı ≈ +0x1e).",
+    "CEPHE DİLİ: 1437 ile aynı müteahhit dili görülüyor (her katta ~0.6 m mavimsi gri döşeme bandı, dolu açık parapetli kavisli balkon kuleleri, parapetin bir ucunda füme cam bölme — kat kat geniş/dar değişen, cam balkonlar, en üst kat koyu kaplama) — ama öğeler bu kulenin kendi karelerinden ölçüldü, kopyalanmadı.",
+    "GB KULE (kenar 2): füme cam bölmeler BATI/kuzeybatı ucta (u_app −1.2 …): K2,K4,K6 dar (→2.15), K3,K5,K7 geniş (→4.4). Cam balkon: K1 camlı koyu (üst kısmı görüldü), K2 AÇIK (kapı + pencere görünüyor; sol ucta çelik çerçeveli cam korkuluk parçası), K3 camlı (bulut yansıması), K4 camlı, K5 camlı, K6 camlı, K7 AÇIK — üstünde büyük kavisli koyu gri şapka/saçak, altı ızgaralı (pergola) tavan, üstünde korkuluk (pending #1).",
+    "KD KULE (kenar 8): füme cam bölmeler KB ucta: K3,K5,K7 geniş (u_app 5.1→), K2,K4,K6 dar (7.2→); alt katlarda ağacın (büyük sedir) arkası görülmedi. Cam balkon: K1 AÇIK (koyu kapı/pencere), K2 camlı koyu, K3 camlı kiremit-kahve perde, K4 camlı (mavi), K5 camlı (mavi), K6 AÇIK (açık renk arka duvar, iki koyu açıklık), K7 camlı; üstte ≈1.1 m koyu alın, çatıda pencereli oda + 3 beyaz çanak + koyu baca borusu + korkuluk.",
+    "KENAR 6 (doğu kanadın KD duvarı): düz sıva, döşeme bantları, doğu köşede tek dar (~0.65 m) boy pencere sütunu (koyu, K1–K6; K7'de koyu kaplama içinde beyaz çerçeveli pencere), K7 koyu kaplama. Çatı kenarında beyaz klima dış ünitesi (kenar 8 ortofotosunda sol üstte).",
+    "GÖRÜLMEYENLER: kenar 0 (BKB, 14.2 m — güneyden 1437 arkasında, kuzeyden ağaç), kenar 1'in büyük kısmı (yalnız kenar 2'ye bitişik ~1 m açık gri paye + her katta koyu gri kare levha görüldü), kenar 3, 4 (güney girinti), kenar 5 (GD uzun cephe, 15.3 m — hiçbir pano yok), kenar 7 (KD çıkıntının yan yüzü), kenar 9 (kuzey, ağaç arkasında; yalnız çatıdaki çanaklar). Bunlara öğe yazılmadı.",
+    "Tabela/dükkân yok (konut). Güney sokakta, kulenin güneyinde site girişinin pas/bakır renkli saçağı ve üstünde beyaz yazı var (otFK3sk5 67/76, sa-WfHt0 79) — bina taban izi dışında, sokak planına ait; yazı bu mesafeden okunamadı.",
+    "Taban izi: fotoğraflardan >0.5 m kesin sapma kanıtı çıkmadı (pano konum/yön hataları ±1–2 m, kenar köşeleri görünen köşelere eşlendi). KD kulenin (kenar 8) önü kenar 6 duvarının ≈2.7 m önünde (ortofotoda kat aralığı oranı 2.76/2.59 ile tutarlı)."
+  ],
+  "edges": [
+    {
+      "edge": 0,
+      "len": 14.2,
+      "seen": "none",
+      "items": [],
+      "note": "Görülmedi (güneyden 1437 arkasında, kuzeyden ağaç)."
+    },
+    {
+      "edge": 1,
+      "len": 7.33,
+      "seen": "partial",
+      "items": [],
+      "note": "Yalnız kenar 2'ye bitişik ucunda ~1 m genişliğinde açık gri paye görüldü (otFK3sk5 67_10/67_19): her kat hizasında koyu mavi-gri kare/dikdörtgen levha (~0.6 m yüksek). Cephenin geri kalanı 1437'nin arkasında kaldı. Konum ölçüsü güvenilir olmadığından öğe yazılmadı."
+    },
+    {
+      "edge": 2,
+      "len": 6.45,
+      "seen": "partial",
+      "ref": "1541439436_2_otFK3sk5.jpg",
+      "cal": { "u": [-1.25, 4.72], "head": [[2, 9.81], [6, 21.61]] },
+      "items": [
+        {
+          "t": "bal", "u0": -1.25, "u1": 4.72, "d": 0, "inset": 1.3, "s": [1, 7],
+          "glazed": [1, 3, 4, 5, 6],
+          "tint": { "1": "dark", "3": "clear", "4": "dark", "5": "dark", "6": "dark" },
+          "sides": "open",
+          "rail": { "*": "solid" },
+          "parapetH": { "*": 1.0 },
+          "fasciaC": { "*": "#9da49c" }
+        },
+        { "t": "panel", "u0": -1.2, "u1": 2.15, "y0": 7.6, "y1": 8.45, "color": "#41474f" },
+        { "t": "panel", "u0": -1.2, "u1": 4.4, "y0": 10.5, "y1": 11.35, "color": "#41474f" },
+        { "t": "panel", "u0": -1.2, "u1": 2.15, "y0": 13.5, "y1": 14.35, "color": "#41474f" },
+        { "t": "panel", "u0": -1.2, "u1": 4.4, "y0": 16.4, "y1": 17.25, "color": "#41474f" },
+        { "t": "panel", "u0": -1.2, "u1": 2.15, "y0": 19.4, "y1": 20.25, "color": "#41474f" },
+        { "t": "panel", "u0": -1.2, "u1": 4.4, "y0": 22.4, "y1": 23.25, "color": "#41474f" }
+      ],
+      "note": "GB kavisli balkon kulesi (otFK3sk5 2025-09 ref, ~32–40 m; sa-WfHt0 ile doğrulandı). cal.u sol = paye/balkon başlangıcı (kenar 2 başı), sağ = kat aralığı ölçeğinden (2.96 görünen / 3.2); görünen balkon önü sağa doğru kenar 2'nin ötesine (u_app ≥7.9) kavisle devam ediyor → kavis kenar 3'e dönüyor olabilir (görülmedi). Parapetler dolu açık; füme cam bölmeler panel olarak (tek-çift kat deseni). K1 alt kısmı ve K0 çit arkasında."
+    },
+    {
+      "edge": 3,
+      "len": 3.26,
+      "seen": "none",
+      "items": [],
+      "note": "Güney girinti (GD'ye bakar) — görülmedi."
+    },
+    {
+      "edge": 4,
+      "len": 3.77,
+      "seen": "none",
+      "items": [],
+      "note": "Güney girinti (GB'ye bakar) — kenar 2'nin arkasında kaldı, görülmedi."
+    },
+    {
+      "edge": 5,
+      "len": 15.31,
+      "seen": "none",
+      "items": [],
+      "note": "GD uzun cephe — hiçbir panodan görülmedi (doğu yolunda pano yok). Hava fotoğrafında balkon şeritleri var ama cam/korkuluk bilinmiyor; uydurulmadı."
+    },
+    {
+      "edge": 6,
+      "len": 3.61,
+      "seen": "photo",
+      "ref": "1541439436_6_alOgArOd.jpg",
+      "cal": { "u": [2.0, 5.07], "head": [[2, 8.25], [6, 19.13]] },
+      "items": [
+        { "t": "win", "u0": 2.02, "u1": 2.55, "y0": 4.1, "y1": 6.05, "k": 1, "s": [1, 6], "kind": "std", "split": 1 },
+        { "t": "win", "u0": 2.05, "u1": 2.55, "y0": 21.0, "y1": 22.1, "k": 7, "s": [7, 7], "kind": "std", "split": 1 },
+        { "t": "band", "y0": 3.36, "y1": 3.95, "u0": 2.55, "u1": 5.07, "color": "#7b8990" },
+        { "t": "band", "y0": 6.08, "y1": 6.67, "u0": 2.55, "u1": 5.07, "color": "#7b8990" },
+        { "t": "band", "y0": 8.8, "y1": 9.4, "u0": 2.55, "u1": 5.07, "color": "#7b8990" },
+        { "t": "band", "y0": 11.53, "y1": 12.1, "u0": 2.55, "u1": 5.07, "color": "#7b8990" },
+        { "t": "band", "y0": 14.25, "y1": 14.83, "u0": 2.55, "u1": 5.07, "color": "#7b8990" },
+        { "t": "band", "y0": 16.97, "y1": 17.55, "u0": 2.55, "u1": 5.07, "color": "#7b8990" },
+        { "t": "band", "y0": 19.68, "y1": 20.23, "u0": 2.55, "u1": 5.07, "color": "#7b8990" },
+        { "t": "panel", "u0": 2.0, "u1": 5.07, "y0": 20.23, "y1": 30, "color": "plaster2" }
+      ],
+      "note": "Doğu kanadın KD duvarı (alOgArOd 2025-09, ~45 m; amsci9pL ile doğrulandı). u=0 doğu köşe (gökyüzü sınırı u_app 2.0). Doğu köşede tek dar boy pencere sütunu (döşemeye yakın denizlik, lento bant altında), düz sıva + döşeme bantları (K1 bandı çit hizasında, ritimden), K7 koyu kaplama + beyaz çerçeveli K7 penceresi. Perde türü bu mesafeden okunamadı."
+    },
+    {
+      "edge": 7,
+      "len": 2.8,
+      "seen": "none",
+      "items": [],
+      "note": "KD çıkıntının DGD yan yüzü — kuzeyden görünmez."
+    },
+    {
+      "edge": 8,
+      "len": 10.04,
+      "seen": "partial",
+      "ref": "1541439436_8_amsci9pL.jpg",
+      "cal": { "u": [1.4, 10.06], "head": [[2, 8.55], [6, 19.65]] },
+      "items": [
+        {
+          "t": "bal", "u0": 1.4, "u1": 10.06, "d": 0, "inset": 1.3, "s": [1, 7],
+          "glazed": [2, 3, 4, 5, 7],
+          "tint": { "2": "dark", "3": "blinds", "4": "clear", "5": "clear", "7": "clear" },
+          "sides": "open",
+          "rail": { "*": "solid" },
+          "parapetH": { "*": 1.0 },
+          "fasciaC": { "*": "#9da49c" }
+        },
+        { "t": "panel", "u0": 7.2, "u1": 9.6, "y0": 6.5, "y1": 7.3, "color": "#41474f" },
+        { "t": "panel", "u0": 5.1, "u1": 9.6, "y0": 9.3, "y1": 10.1, "color": "#41474f" },
+        { "t": "panel", "u0": 7.2, "u1": 9.6, "y0": 12.05, "y1": 12.85, "color": "#41474f" },
+        { "t": "panel", "u0": 5.1, "u1": 9.6, "y0": 14.8, "y1": 15.6, "color": "#41474f" },
+        { "t": "panel", "u0": 7.2, "u1": 9.6, "y0": 17.6, "y1": 18.4, "color": "#41474f" },
+        { "t": "panel", "u0": 5.1, "u1": 9.6, "y0": 20.3, "y1": 21.1, "color": "#41474f" },
+        { "t": "ac", "u": 1.1, "s": 7, "y": 23.6 }
+      ],
+      "note": "KD kavisli balkon kulesi (amsci9pL 2025-09 ref, alOgArOd ve zDExpla2 ile; ~50–60 m, önünde büyük sedir). cal.u sol = balkon yığınının başladığı yer (düz duvar u_app 1.4'te biter), sağ = kat aralığından. Kulenin önü kenar 6 duvarının ≈2.7 m önünde. Füme cam bölmeler KB ucta (tek katlar geniş 5.1→, çift katlar dar 7.2→); u_app 9.6 ötesi ve alt katların sağ yarısı ağaç arkasında. K2 dar bölme ağaç dalları arasından (belirsiz). Klima: çatı kenarında, kenar 6/8 köşesinin üstünde beyaz dış ünite."
+    },
+    {
+      "edge": 9,
+      "len": 6.3,
+      "seen": "none",
+      "items": [],
+      "note": "Kuzey cephe — ağaç arkasında; yalnız çatı kenarındaki 3 beyaz çanak anten ve koyu baca borusu görüldü (pending #3)."
+    }
+  ],
+  "pending": [
+    {
+      "id": 1,
+      "what": "GB kule üstünde kavisli koyu gri şapka (büyük saçak plağı) + ızgaralı tavan + üst korkuluk",
+      "edge": 2,
+      "ref": "1541439436_2_otFK3sk5.jpg",
+      "u": [-1.25, 7.9],
+      "y": [25.1, 27.3],
+      "desc": "K7 locasının üstünde, balkon önü kavsini izleyen, önü ≈1.9 m yüksek koyu gri (#5b6775) alınlı kavisli saçak; alt yüzü kare ızgaralı (pergola/ızgara tavan), üstünde ince çelik korkuluk. Kenar 2 ötesine (kenar 3 yönüne) kavisle devam ediyor. 'cap' ile yalnız düz plak çizilebiliyor."
+    },
+    {
+      "id": 2,
+      "what": "Parapetlerdeki füme cam bölmeler (gerçekte cam)",
+      "edges": [2, 8],
+      "desc": "Şimdilik 'panel' (#41474f) olarak parapet önüne boyandı; gerçekte dolu parapetin bir ucunda döşeme alnı üstünden parapet üstüne kadar füme cam, kat kat genişlik değişir. Tek balkon öğesinde u'ya göre korkuluk tipi değiştirilemiyor."
+    },
+    {
+      "id": 3,
+      "what": "Çatı üstü: pencereli çatı odası, 3 beyaz çanak anten, koyu baca borusu, çevre korkuluğu",
+      "edge": 8,
+      "ref": "1541439436_8_amsci9pL.jpg",
+      "u": [1.2, 10.0],
+      "y": [24.3, 25.7],
+      "desc": "KD alnın (y 23.0–24.3) üstünde geri çekilmiş, beyaz çerçeveli pencereli alçak hacim (çatı odası), üstünde/yanında 3 beyaz çanak (≈0.8 m) ve ince koyu baca borusu; çatı kenarında çelik korkuluk. Hava fotoğrafında çatı kahverengi-mor (#857173), 1437'deki gibi tonoz olabilir — sokaktan görülmedi."
+    },
+    {
+      "id": 4,
+      "what": "Kenar 1 ucunda koyu kare levhalı açık gri paye",
+      "edge": 1,
+      "desc": "Kenar 2'ye bitişik ~1 m genişliğinde açık gri paye, her döşeme hizasında koyu mavi-gri (#7b8990) ~0.6 m yüksek levha (bant parçası). Kenar 1 ortofotosunda konum güvenilir değil (1437 önde)."
+    }
+  ]
+}

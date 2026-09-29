@@ -160,3 +160,25 @@
   kulede toplam 9.2 birim → (−2.74, −8.78); eski eğim (8.2 birim) kısa kalıyordu. GB duvarın zemin çizgisi doğrudan
   görülüp doğrulandı (±0.25 m). 1540901772 ve 1540901794 kontrol edildi, < 0.3 m → değişmedi. Dosyalar:
   `data/footprints.json`, `data/facades.json`. **Blender:** `NW/Mertkent/Blocks/1540901773` yeniden kur.
+- **(bu commit)** — **Segment 3 (Özlüce kavşağına kadar) ilk ölçüm, 12 bina** (Street View 2025-09 ağırlıklı; 2014/2019
+  kareleri yalnız geometri için, notlu). Dosyalar: `survey/<id>.json`, `data/facades.json`. **Blender:**
+  `NW/Mertkent/Blocks/<id>` her biri için kur.
+  - 1540901770 (Tarabya Sitesi bloğu, 7 kat; doğuda tek katlı kırmızı ek + cam korkuluklu teras = `proj` + `topRail`),
+    1540901771 (6 kat, kum-bej, camlı loca yığınları), 1540901774 / 1540901776 (9 kat, derin portal çerçeve,
+    K8 yalnız bir kısımda — üretici eksik, notlu), 1540901777 (Riva Konutları: 5 kat + çatı katı, kahverengi
+    kaplama, merdiven kulesi camı, 4 parçalı `massing`), 1546816193 (2 katlı ticari sıra, iki blok arası 3.7 m açık
+    geçit + tek katlı ek, `massing`), 1541439435 / 36 / 37 (8 kat kuleler, kavisli loca yığınları, K7 antrasit
+    kaplama, 1437'de "A" blok harfi), 303738118 (Delice / Cevher / Özel Yeşil Beyaz Ağız ve Diş Sağlığı Polikliniği /
+    İskele Balık — tüm tabelalar), 303738122 (Balıkçı Mahmut — tabelalar, turkuaz tenteler), 1550614218 (MOSSA:
+    6/5/4/1 katlı parçalar, SOFT TOWN, TERZİOĞLU, VEFALI KÖFTECİ, TARİHİ TENCERE KÖFTECİSİ, Karina, SIEMENS).
+  - Görülmeyen cepheler öğesiz bırakıldı (tahmin yok); her dosyanın `pending` listesinde üreticinin henüz
+    çizemediği detaylar ölçüleriyle.
+- **(bu commit)** — Segment 3 sokak planı (`da3-*`, 74 öğe): kaldırımlar (SV olmayan x 245–590 arası yalnız hava
+  fotoğrafından, malzeme "bilinmiyor"), site duvarları, lambalar, Özlüce döner kavşak adası (merkez 629.6,−82.1,
+  ≈23×25 m), ayırıcı adacıklar, trafik ışıkları, yaya geçitleri, "BURSA VERGİ DAİRESİ BAŞKANLIĞI HİZMET BİNASI
+  PROJE ALANIDIR." panosu, reklam panoları, doğu kaldırımı genç ağaçları. Bazı türler (ada, geçit, sinyal, pano
+  sırası) üreticiye eklenecek. Dosya: `data/street-plan.json`. **Blender:** `NW/Mertkent/Street` segment 3.
+- **(bu commit)** — Asfalt dokusundaki hazır çatlaklar temizlendi (`scripts/clean-asphalt.mjs` →
+  `public/textures/asphalt-clean/`, oyun bu kopyayı kullanır; `pbr.ts`). Gerçek hasar yalnız Street View'da
+  görülen yerde çizilecek (kullanıcı kuralı). **Blender:** asfalt malzemesi `asphalt-clean` dokusu.
+- **(bu commit)** — `scripts/sv-extra.json`'a 1540901774/76 için 2025 karelerinden 11 ortofoto kaydı.

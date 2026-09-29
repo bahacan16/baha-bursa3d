@@ -27,6 +27,12 @@ const SIZES: Record<PbrRole, number> = {
   bark: 1,
 };
 
+/**
+ * Rol → klasör. KARAR (kullanıcı kuralı §0.5): asfalt dokusunun hazır çatlakları her 3 m'de tekrarlanan uydurma
+ * hasardı → `scripts/clean-asphalt.mjs` ile temizlenmiş kopya; gerçek hasar yalnızca Street View'da görülen yerde.
+ */
+const DIRS: Partial<Record<PbrRole, string>> = { asphalt: 'asphalt-clean' };
+
 const loader = new THREE.TextureLoader();
 
 function averageColor(img: CanvasImageSource, out: THREE.Color): void {
@@ -55,7 +61,7 @@ export function loadPbr(base: string, role: PbrRole, withMaps: boolean): PbrSet 
   const avg = { value: new THREE.Color(0.5, 0.5, 0.5) };
   const tex = (name: string, srgb: boolean) => {
     const t = loader.load(
-      `${base}textures/${role}/${name}.jpg`,
+      `${base}textures/${DIRS[role] ?? role}/${name}.jpg`,
       (tt) => {
         if (name === 'diffuse') averageColor(tt.image as CanvasImageSource, avg.value);
       },
