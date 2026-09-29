@@ -1095,60 +1095,60 @@
  "1540901773": {
   "ring": [
    [
-    251.21,
-    -165.6
+    250.91,
+    -164.9
    ],
    [
-    250.12,
-    -164.01
+    249.82,
+    -163.31
    ],
    [
-    263.63,
-    -152.73
+    263.33,
+    -152.03
    ],
    [
-    266.52,
-    -156.51
+    266.22,
+    -155.81
    ],
    [
-    267.09,
-    -155.65
+    266.79,
+    -154.95
    ],
    [
-    272.51,
-    -161.63
+    272.21,
+    -160.93
    ],
    [
-    271.84,
-    -162.57
+    271.54,
+    -161.87
    ],
    [
-    275.55,
-    -166.17
+    275.25,
+    -165.47
    ],
    [
-    258.82,
-    -180.37
+    258.52,
+    -179.67
    ],
    [
-    255.68,
-    -176.4
+    255.38,
+    -175.7
    ],
    [
-    255.2,
-    -177.25
+    254.9,
+    -176.55
    ],
    [
-    249.5,
-    -170.81
+    249.2,
+    -170.11
    ],
    [
-    250.36,
-    -169.77
+    250.06,
+    -169.07
    ],
    [
-    248.36,
-    -167.78
+    248.06,
+    -167.08
    ]
   ],
   "shift": [
@@ -1166,10 +1166,10 @@
   "manual": true,
   "storeys": 9,
   "leanUsed": [
-   -2.8,
-   -7.67
+   -2.74,
+   -8.78
   ],
-  "note": "Hava fotoğrafı (bina eksenine döndürülmüş kesit), eğim (−2.8,−7.67)/28 m (SV JDIgP pano: 9 kat; OSM height 28). OSM halkası bu eğimle çatı parapetine KD, KB (çıkıntı 2–3 dahil) ve GD kenarlarında ±0.3 m oturuyor → değiştirilmedi. GD cephenin alt yarısı komşu binanın gölgesinde, zemin çizgisi görünmüyor (±0.4). GB ana duvar 0.25 m içeri (parapet dış kenarı + eğim 17.9 ile zemin çizgisi 18.2–18.5 arası, ±0.3); GB köşe girintisi 0/13 OSM (±0.4). SV GPS kayması nedeniyle mutlak konum yalnızca hava fotoğrafından. Köşe sırası ters çevrildi (saat yönü tersi → diğer bloklarla aynı yön; sv-extra/survey kenar numaraları bu sıraya göre)."
+  "note": "Hava fotoğrafı (bina eksenine döndürülmüş kesit), eğim (−2.8,−7.67)/28 m (SV JDIgP pano: 9 kat; OSM height 28). OSM halkası bu eğimle çatı parapetine KD, KB (çıkıntı 2–3 dahil) ve GD kenarlarında ±0.3 m oturuyor → değiştirilmedi. GD cephenin alt yarısı komşu binanın gölgesinde, zemin çizgisi görünmüyor (±0.4). GB ana duvar 0.25 m içeri (parapet dış kenarı + eğim 17.9 ile zemin çizgisi 18.2–18.5 arası, ±0.3); GB köşe girintisi 0/13 OSM (±0.4). SV GPS kayması nedeniyle mutlak konum yalnızca hava fotoğrafından. Köşe sırası ters çevrildi (saat yönü tersi → diğer bloklarla aynı yön; sv-extra/survey kenar numaraları bu sıraya göre). KONUM DOĞRULAMASI (2026-09-29, eğim kontrol ajanı): eğim yönü üç düşey kenardan ölçüldü: −107.3° ±0.5 (1773 GB cephe şeridi −107.5°, 1776 G cephe şeridi −107.5°, 1794 G cephe −107°), birim vektör (−0.297,−0.955); eski eğimin yönü −110° idi. Kat başına eğim bu binanın GD cephe döşeme çizgilerinin otokorelasyonundan 1.00 m (u periyodu 0.84; kardeş kule 1776 G cephede 0.99). SV (JDIgP 60/0, 64/9): 9 kat (zemin+8) + parapet → çatı kenarı ≥9 kat birimi; 1776 G cephede parapet dış kenarı (v −6.75) → zemin çizgisi (+0.1…+0.2, çit/çalı önü) doğrudan 9.3 birim. Eski eğim (−2.8,−7.67) = 8.2 birim, 9 katlı bina için yetersiz. Yeni eğim 9.2 birim → (−2.74,−8.78). Duvar kanıtları (bina çerçevesi u=GD ekseni, v=GB normali): KD parapet silueti v −4.42 → KD duvar +0.49 m GB yönünde; GB parapet dış kenarı v 14.1 → GB duvar 19.0 (+0.95), GB cephe zemin çizgisi doğrudan 18.9–19.2 (u 5–6 ve 14–16; eski halka 18.0 — aradaki 1 m düz, çizgisiz cephe, döşeme değil); KB silueti (K ve orta kısım) +0.33/+0.26 GD yönünde, G kısa kısım −0.07; GD parapet dış kenarı ≈14.4 → GD duvar 22.2 (orta çıkıntı −0.25, K kısım +0.5, G kısım +0.75). İki eksende de aynı yönlü sapma → halka bütünüyle (dx,dz)=(−0.30,+0.70) m taşındı (çerçevede u +0.22, v +0.73); köşe sayısı, sırası ve kenar boyları değişmedi. Kalan belirsizlik: gerçek gövde KD–GB yönünde OSM halkasından ~0.4 m geniş (parapet dış kenarları 18.5 m, halka 18.0) → yeni halkada KD ve GB duvarları ~0.25 m içeride; GD basamak şekli çatıyla uyuşmuyor (orta çıkıntı ~0.45 m dışarıda, G kısım ~0.5 m içeride) — yalnızca öteleme yapıldı, şekil düzeltilmedi. GD cephenin alt kısmı 1774'ün çatı görüntüsü ve gölgesi altında, zemin çizgisi görülmedi. Mutlak konum ±0.25 m (KD–GB), ±0.2 m (KB–GD)."
  },
  "1540901774": {
   "ring": [
