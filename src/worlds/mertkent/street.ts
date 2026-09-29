@@ -348,7 +348,8 @@ export function buildStreetPlan(
         const si = Math.sin(yaw);
         // rot: tabelanın baktığı pusula yönü; yüz normali (sin, −cos)
         const fn: V2 = [Math.sin(yaw), -Math.cos(yaw)];
-        const ft: V2 = [-fn[1], fn[0]];
+        // wall(a→e) normali (−tz, tx): yüzün fn'e bakması için t = (fn.z, −fn.x) (önceden ters, yazı arkada kalıyordu)
+        const ft: V2 = [fn[1], -fn[0]];
         const at = (u: number, off: number): V2 => [
           s.x + ft[0] * u + fn[0] * off,
           s.z + ft[1] * u + fn[1] * off,
@@ -365,7 +366,8 @@ export function buildStreetPlan(
         const c = at(0, 0);
         const yawB = Math.atan2(-ft[1], ft[0]);
         const sideK = bo.bg && ext.colorKey ? ext.colorKey('fascia', bo.border ?? bo.bg) : 'pole';
-        b.box(sideK, [c[0], yb + Hh / 2, c[1]], [W, Hh, d], yawB);
+        // Tek tek harf/rakam (ör. kolon üstündeki kapı numarası): kutu yok, yalnız yüz
+        if (bo.style !== 'letters') b.box(sideK, [c[0], yb + Hh / 2, c[1]], [W, Hh, d], yawB);
         if (ext.signFace) {
           const key = ext.signFace({
             text: bo.text ?? '',

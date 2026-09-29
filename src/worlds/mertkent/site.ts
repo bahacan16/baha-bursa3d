@@ -228,10 +228,56 @@ export function buildDriveGate(
  * Çitteki küçük yaya kapısı (güney araç kapısı yanı): siyah çerçeve, yapay yaprak kaplı kanat.
  * c: kapı merkezi (çit hattında), n: sokak yönü, w: kanat genişliği.
  */
-export function buildSideDoor(b: Builder, c: V2, n: V2, y0: number, w: number, h: number): void {
+/** Yaya kapısı biçimi (ölçüm): lamelli çelik kanat + kalın kolonlar (+ küre lamba); verilmezse Mertkent yaprak kapısı */
+export interface SideDoorStyle {
+  /** 'slats': yatay lamelli çelik kanat */
+  style?: 'leaf' | 'slats';
+  /** Kanat malzeme anahtarı */
+  leafKey?: string;
+  pillars?: { w: number; h: number; key: string; lamp?: string };
+}
+
+export function buildSideDoor(
+  b: Builder,
+  c: V2,
+  n: V2,
+  y0: number,
+  w: number,
+  h: number,
+  st: SideDoorStyle = {},
+): void {
   const t: V2 = [n[1], -n[0]];
   const yaw = Math.atan2(-t[1], t[0]);
   const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
+  if (st.pillars) {
+    // Kalın kare kolonlar kanadın iki yanında (+ başlık, küre lamba)
+    const pw = st.pillars.w;
+    for (const u of [-w / 2 - pw / 2, w / 2 + pw / 2]) {
+      const p = P(u, 0);
+      b.box(st.pillars.key, [p[0], y0 + st.pillars.h / 2 - 0.1, p[1]], [pw, st.pillars.h + 0.2, pw], yaw);
+      b.box(st.pillars.key, [p[0], y0 + st.pillars.h + 0.03, p[1]], [pw + 0.05, 0.06, pw + 0.05], yaw);
+      if (/globe|küre/.test(st.pillars.lamp ?? '')) {
+        b.cylinder('capDark', [p[0], y0 + st.pillars.h + 0.06, p[1]], 0.05, 0.08, 8);
+        b.sphere('globe', [p[0], y0 + st.pillars.h + 0.26, p[1]], 0.145, 12);
+      }
+    }
+  }
+  if (st.style === 'slats') {
+    // Yatay lamelli çelik kanat: çerçeve + ~9 cm aralıklı lameller (iki yüz)
+    const k = st.leafKey ?? 'gateGrey';
+    const tp = P(0, 0);
+    b.box(k, [tp[0], y0 + h - 0.03, tp[1]], [w, 0.06, 0.05], yaw);
+    b.box(k, [tp[0], y0 + 0.05, tp[1]], [w, 0.06, 0.05], yaw);
+    for (const u of [-w / 2 + 0.03, w / 2 - 0.03]) {
+      const p = P(u, 0);
+      b.box(k, [p[0], y0 + h / 2, p[1]], [0.06, h, 0.05], yaw);
+    }
+    for (let yy = y0 + 0.14; yy < y0 + h - 0.08; yy += 0.09)
+      b.box(k, [tp[0], yy, tp[1]], [w - 0.1, 0.055, 0.02], yaw);
+    const kp = P(w / 2 - 0.14, 0.04);
+    b.box('darkMetal', [kp[0], y0 + 1.0, kp[1]], [0.12, 0.03, 0.04], yaw);
+    return;
+  }
   for (const u of [-w / 2, w / 2]) {
     const p = P(u, 0);
     b.box('iron', [p[0], y0 + h / 2, p[1]], [0.06, h, 0.06], yaw);

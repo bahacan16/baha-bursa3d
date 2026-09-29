@@ -1888,7 +1888,15 @@
    ],
    "w": 1.45,
    "h": 1.8,
-   "note": "UPTOWN Bursa yaya kapısı: gri yatay lamelli çelik tek kanat (≈#60686c, h≈1.8), iki yanda kalın açık mavi-gri kare kolon + büyük küre lamba (kolon merkezleri x 199.45 / 201.2; SyTa_58 2025 + KOxF_0_-50 2019). Batısında otopark girişi x≈194.5–199.3: kırmızı-beyaz bariyer kolu (turuncu mekanizma direği x≈194.1, kol kapı kolonuna uzanır) — sürgülü kapı YOK (da2-barrier-uptown). Kapı gerçekte siyah değil gri."
+   "note": "UPTOWN Bursa yaya kapısı: gri yatay lamelli çelik tek kanat (≈#60686c, h≈1.8), iki yanda kalın açık mavi-gri kare kolon + büyük küre lamba (kolon merkezleri x 199.45 / 201.2; SyTa_58 2025 + KOxF_0_-50 2019). Batısında otopark girişi x≈194.5–199.3: kırmızı-beyaz bariyer kolu (turuncu mekanizma direği x≈194.1, kol kapı kolonuna uzanır) — sürgülü kapı YOK (da2-barrier-uptown). Kapı gerçekte siyah değil gri. Kolon ≈0.25 m kare, ≈2.2 m (kapı kanadına oranla; SyTa_58_7_40 yakın plan), üstünde ≈0.29 m opal küre; kanat lamel rengi #676f70 (güneşte örnek).",
+   "style": "slats",
+   "color": "#676f70",
+   "pillars": {
+    "w": 0.25,
+    "h": 2.2,
+    "color": "#61717d",
+    "lamp": "globe"
+   }
   }
  ],
  "sidewalks": [
@@ -3721,6 +3729,25 @@
    "poles": 1,
    "poleC": "#8e9194",
    "note": "UPTOWN BURSA panosu (tek direk, güneybatı bahçe kapısı yanında): mor zemin (gölgede ≈#3b2c57, gerçekte daha canlı), beyaz kalın 'UPTOWN', küçük 'BURSA', üstte beyaz çerçeveli kare 'U' logosu. SyTa + l07h üçgenleme (2025), ±0.7 m; alt kenar ≈3.2 m, üst ≈4.1 m."
+  },
+  {
+   "kind": "board",
+   "id": "da2-no-52",
+   "x": 201.23,
+   "z": -166.42,
+   "rot": 180,
+   "w": 0.13,
+   "h": 0.12,
+   "y0": 1.6,
+   "d": 0.01,
+   "text": "52",
+   "bg": null,
+   "fg": "#3a3e41",
+   "font": "sans",
+   "bold": true,
+   "style": "letters",
+   "poles": 0,
+   "note": "UPTOWN Bursa güney yaya kapısının doğu kolonu, sokak (güney) yüzü, korkuluk tarafında: koyu çelik tek tek rakam '52' (≈0.12 m), kolon başlığının ≈0.25 m altında. SyTaPSlHURYV8qFnLnigLw_58_7_40 (2025-09) yakın plan; boyut/kot kolon genişliğine oranla ±3 cm."
   }
  ],
  "notes": [

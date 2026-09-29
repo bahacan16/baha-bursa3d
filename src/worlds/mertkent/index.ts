@@ -127,6 +127,9 @@ const DOORS = SP_GATES.filter((g) => g.kind === 'pedestrian' && g.w < 2) as {
   n: V2;
   w: number;
   h?: number;
+  style?: 'leaf' | 'slats';
+  color?: string;
+  pillars?: { w: number; h: number; color: string; lamp?: string };
 }[];
 
 type Collide = (ring: [number, number][], bottom: number, top: number) => void;
@@ -1358,7 +1361,15 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       );
     for (const g of DRIVE_GATES)
       buildDriveGate(b, g.c, g.n, o.H(g.c[0], g.c[1]) + (SP_GATES.length ? 0.03 : 0), g.w, !SP_GATES.length);
-    for (const g of DOORS) buildSideDoor(b, g.c, g.n, o.H(g.c[0], g.c[1]) + 0.15, g.w, g.h ?? 2);
+    for (const g of DOORS) {
+      // Ölçülmüş biçim (lamelli kanat, kalın kolon) varsa onu, yoksa Mertkent yaprak kaplı kapısını çiz
+      const pl = g.pillars;
+      buildSideDoor(b, g.c, g.n, o.H(g.c[0], g.c[1]) + 0.15, g.w, g.h ?? 2, {
+        style: g.style,
+        leafKey: g.color ? colorKey('metal', g.color) : undefined,
+        pillars: pl ? { w: pl.w, h: pl.h, key: colorKey('fascia', pl.color), lamp: pl.lamp } : undefined,
+      });
+    }
     // Ölçülmüş kaldırımlar site çevresinin tamamını kapsıyor → eski tahmini kaldırım yok
     if (!street) fenceWalk(b, o, segs, 'walk', true);
   }

@@ -145,3 +145,13 @@
   nane yeşili pastel yerine kırık beyaz-krem ve camın arkasında loş; pencerelerde yan fon perdeler daraltıldı
   (%12–16) ve koyulaştırıldı, kırmızı fon seyrek. Dosyalar: `facade.ts`, `facadeMats.ts`. **Blender:** cam balkon
   camı küpeştenin arkasında; perde dokuları nötr/loş.
+- **(bu commit)** — UPTOWN Bursa (1540901794) güney girişi yakın plana göre düzeltildi (SyTa_58_7_40, 2025-09):
+  - Sokak panosu (`board`) yüz yönü hatası: yüz ters tarafa bakıyordu (yazısız mor kutu görünüyordu) → düzeltildi;
+    tüm `board` öğeleri etkilenir (`da2-board-sehri`, `da2-board-uptown`). Dosya: `street.ts`.
+  - Yaya kapısı: Mertkent yaprak kaplı kapı yerine gri yatay lamelli çelik kanat (#676f70) + iki yanda 0.25 m kare,
+    2.2 m açık mavi-gri kolon (#61717d) ve 0.29 m opal küre lamba (`gates[].style/color/pillars`). Dosyalar:
+    `site.ts` (`buildSideDoor` biçim seçeneği), `index.ts`, `data/street-plan.json` (`da2-ped-gate-uptown`).
+  - Kapı no "52": doğu kolonun sokak yüzünde koyu çelik tek tek rakam (0.12 m, `board` style `letters`, kutusuz)
+    → `da2-no-52`.
+  - Çit korkuluğu: tanımdaki "4 sıra yatay gri çelik boru" artık yatay borular (önceden dikey çubuk dokusu).
+    Dosya: `fenceGeneric.ts` (`infDesc`). **Blender:** `NW/Mertkent/Street` — UPTOWN kapısı, pano yönü, çit boruları.

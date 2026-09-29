@@ -74,6 +74,8 @@ export function buildGenericFence(
   const inf0 = typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? {});
   const inf = { ...inf0, ...(f.infillSpec ?? {}), type: inf0.type ?? f.infillSpec?.type };
   const infType = (inf.type ?? 'railing').toLowerCase();
+  // Ayrıntılı tanım (infillSpec.type) kısa tipi (infill: "railing") ezmesin: ikisi birlikte aranır
+  const infDesc = `${inf0.type ?? ''} ${f.infillSpec?.type ?? ''}`.toLowerCase();
   const infH = inf.h ?? 1.0;
   const infKey = /mesh|tel|panel/.test(infType)
     ? mat('mesh', hex(inf.color, '#2f4a36'))
@@ -191,7 +193,15 @@ export function buildGenericFence(
         b.box(wallKey, [c[0], y0 + (wH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wH + 0.2, wallT], yaw, 1);
         b.box(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
       }
-      if (!/none|yok/.test(infType)) {
+      if (/yatay|horizontal/.test(infDesc) && !/none|yok/.test(infType)) {
+        // Yatay boru korkuluk (ölçüm: "4 sıra yatay gri çelik boru"): eşit aralıklı borular, dikey çubuk yok
+        const nT = Number(/(\d+)\s*sıra/.exec(infDesc)?.[1] ?? 4) || 4;
+        const yb = y0 + wH + copH;
+        const m = P((u0 + u1) / 2, wallT / 2);
+        const tk = mat('metal', hex(inf.color, '#61717d'));
+        for (let j = 1; j <= nT; j++)
+          b.box(tk, [m[0], yb + (infH * j) / nT - 0.02, m[1]], [u1 - u0 + 0.004, 0.04, 0.04], yaw);
+      } else if (!/none|yok/.test(infType)) {
         const pa = P(u0, wallT / 2);
         const pe = P(u1, wallT / 2);
         const yb = y0 + wH + copH;
