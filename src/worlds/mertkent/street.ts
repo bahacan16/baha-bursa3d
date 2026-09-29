@@ -9,7 +9,7 @@ import { sideNormal, type StreetPlan } from './siteplan';
  */
 
 const KERB_W = 0.15;
-const SHOW_BIKE = typeof location !== 'undefined' && new URLSearchParams(location.search).has('bike');
+const SHOW_BIKE = !(typeof location !== 'undefined' && new URLSearchParams(location.search).has('nobike'));
 
 export interface StreetResult {
   /** Yürüme yüksekliği için yükseltilmiş alanlar (arazinin üstünde h metre) */
@@ -57,7 +57,7 @@ function layerKey(m: string): string {
   if (/asphalt|asfalt/.test(t)) return 'roadFill';
   if (/concrete|beton/.test(t) && !/interlock|kilit|paver/.test(t)) return 'spConcrete';
   if (/gravel|çakıl|toprak|dirt|soil/.test(t)) return 'spGravel';
-  if (/red|kırmızı|kiremit|terracotta/.test(t)) return 'spPaverRed';
+  // KARAR: kaldırımlarda kırmızı kilit taşı yok (kullanıcı: Nilüfer'de gri + sarı [+ mavi]); kırmızı → gri
   return 'spPaverGrey';
 }
 
@@ -79,7 +79,7 @@ function layoutOf(sw: {
     for (const L of sw.layers) {
       const key = layerKey(L.material ?? '');
       if (L.at != null) {
-        tactile = [L.at, L.w ?? 0.5];
+        tactile = [L.at, 0.4];
         continue;
       }
       const w = L.w ?? 0;
@@ -94,38 +94,42 @@ function layoutOf(sw: {
   switch (sw.id) {
     case 'east-west-side':
       // 502. Sk. batı: gri kilit taşı, ortada krem kılavuz (duvardan ~1.0 m), yol tarafında mavi bisiklet şeridi
-      return { bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }], tactile: [W - 1.0, 0.5], bike: 1.2 };
+      return {
+        bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }],
+        tactile: [(KERB_W + W) / 2, 0.4],
+        bike: 1.15,
+      };
     case 'north-south-side':
       // Doğan Avcıoğlu güney: bordür boyunca kiremit bant ~1.3 m, duvara kadar gri + kılavuz
       return {
-        bands: [
-          { v0: KERB_W, v1: 1.45, key: 'spPaverRed', h },
-          { v0: 1.45, v1: W, key: 'spPaverGrey', h },
-        ],
-        tactile: [Math.max(1.8, W - 0.8), 0.5],
+        bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }],
+        tactile: [(KERB_W + W) / 2, 0.4],
       };
     case 'ne-island':
-      return { bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }], tactile: [W / 2, 0.5] };
+      return { bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }], tactile: [(KERB_W + W) / 2, 0.4] };
     case 'west-east-side':
       // Cavit Orhan doğu: yol kotunda kiremit park cebi 1.5 m, iç bordür (0.12), gri 2.7 m, kılavuz duvardan ~1.95 m
       return {
         bands: [
-          { v0: 0, v1: 1.5, key: 'spPaverRed', h: 0.03 },
+          { v0: 0, v1: 1.5, key: 'spPaverGrey', h: 0.03 },
           { v0: 1.62, v1: W, key: 'spPaverGrey', h: 0.12 },
         ],
         kerbs: [[1.5, 0.12]],
-        tactile: [W - 1.95, 0.5],
+        tactile: [1.62 + (W - 1.62) / 2, 0.4],
       };
     case 'east-east-side':
-      return { bands: [{ v0: KERB_W, v1: W, key: 'spConcrete', h }] };
+      return {
+        bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }],
+        tactile: W > 1.4 ? [(KERB_W + W) / 2, 0.4] : undefined,
+      };
     case 'south-north-side':
       return { bands: [{ v0: 0, v1: W, key: 'spConcrete', h: Math.max(0.04, h) }] };
   }
   const t = (sw.material ?? '').toLowerCase();
-  const key = /kırmızı|red|kiremit/.test(t) && !/gri|grey/.test(t) ? 'spPaverRed' : 'spPaverGrey';
+  const key = 'spPaverGrey';
   return {
     bands: [{ v0: KERB_W, v1: W, key, h }],
-    tactile: /kılavuz|tactile|hissedilebilir/.test(t) && W > 1.4 ? [W / 2, 0.5] : undefined,
+    tactile: W > 1.4 ? [(KERB_W + W) / 2, 0.4] : undefined,
     bike: /bisiklet|bike/.test(t) ? 1.2 : undefined,
   };
 }
@@ -153,11 +157,14 @@ export function buildStreetPlan(
       }
       b.drape('roadFill', ring, [], H, 0.027, 1, 2);
     }
+    let s0 = 0;
     for (let i = 0; i + 1 < pts.length; i++) {
       const a = pts[i];
       const e = pts[i + 1];
       const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
       if (L < 0.05) continue;
+      const sPrev = s0;
+      s0 += L;
       const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
       // Kaldırım tarafı: ölçümdeki 'left'/'right'; yoksa yol ekseninden uzak olan yan
       let n: V2 = sideNormal(t, sw.side);
@@ -170,9 +177,11 @@ export function buildStreetPlan(
       const q = (u: number, v: number): V2 => [a[0] + t[0] * u + n[0] * v, a[1] + t[1] * u + n[1] * v];
       // Köşelerde komşu parçalarla birleşsin diye hafif uzat (iç tarafta daha çok: dış köşe açıklığı kapansın)
       const ext = 0.08;
+      // Şerit yerel UV'si: u yol boyunca (parçalar arası sürekli: s0), v bandın iç kenarından
       const strip = (v0: number, v1: number, key: string, off: number) => {
         const ring: V2[] = [q(-ext, v0), q(L + ext, v0), q(L + ext, v1), q(-ext, v1)];
-        b.drape(key, ring, [], H, off, 1, 2);
+        const o0 = q(-sPrev, v0);
+        b.drape(key, ring, [], H, off, 1, 2, { o: o0, t, n });
         return ring;
       };
       for (const bd of lay.bands) {
@@ -208,17 +217,12 @@ export function buildStreetPlan(
       for (const [v, kh] of lay.kerbs ?? []) kerbLine(v, kh);
       // Bisiklet şeridi (yol kotunda mavi boya) + dış kenarda beyaz kesikli çizgi
       // KARAR: bisiklet şeridi boyası çizilmez — iki eleştirmen turunda da gerçek karelerde mavi boya seçilemedi
+      // KARAR: kullanıcı fotoğrafı (502. Sk.) mavi şeridi açıkça gösteriyor → varsayılan açık (?nobike kapatır).
+      // Bordür dibinde ince beyaz çizgi + dış kenarda sürekli beyaz çizgi (12 cm).
       if (lay.bike && SHOW_BIKE) {
         strip(-lay.bike, 0, 'spBike', 0.075);
-        for (let u = 0.5; u + 1 < L; u += 2) {
-          const r: V2[] = [
-            q(u, -lay.bike),
-            q(u + 1, -lay.bike),
-            q(u + 1, -lay.bike + 0.12),
-            q(u, -lay.bike + 0.12),
-          ];
-          b.drape('spPaint', r, [], H, 0.08, 1, 1);
-        }
+        strip(-lay.bike, -lay.bike + 0.12, 'spPaint', 0.08);
+        strip(-0.1, 0, 'spPaint', 0.08);
       }
       // Bordürle OSM asfaltı arası boşluk kalmasın: yol tarafına asfalt dolgu (OSM yolunun altında kalır)
       strip(-3, 0.02, 'roadFill', 0.028);

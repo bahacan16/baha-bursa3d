@@ -19,6 +19,59 @@ function canvasTexture(
   return t;
 }
 
+/**
+ * KARAR: Nilüfer kaldırımı (kullanıcı fotoğrafları): gri beton tuğla 10×20 cm, uzun kenar yol boyunca, şaşırtmalı;
+ * ortada 40 cm sarı kılavuz karo (yürüme yönünde kabartma çubuklar). UV: u = yoldan uzaklık (0..SIDEWALK_W m),
+ * v = yol boyunca metre → doku 2 m × 1.2 m (3 karo).
+ */
+function nilueferSidewalk(): THREE.CanvasTexture {
+  const PPM = 200;
+  const W = 2 * PPM;
+  const H = 1.2 * PPM;
+  const c = document.createElement('canvas');
+  c.width = W;
+  c.height = H;
+  const g = c.getContext('2d')!;
+  let seed = 91;
+  const r = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  g.fillStyle = '#6d6a66';
+  g.fillRect(0, 0, W, H);
+  const bw = 0.1 * PPM;
+  const bl = 0.2 * PPM;
+  for (let col = 0; col < W / bw; col++) {
+    const x = col * bw;
+    if (x >= 0.8 * PPM - 1 && x < 1.2 * PPM - 1) continue;
+    const off = col % 2 ? bl / 2 : 0;
+    for (let y = -bl; y < H + bl; y += bl) {
+      const l = 58 + (r() - 0.5) * 12;
+      g.fillStyle = `hsl(${30 + r() * 20},${3 + r() * 4}%,${l}%)`;
+      g.fillRect(x + 1.5, y + off + 1.5, bw - 3, bl - 3);
+    }
+  }
+  // Kılavuz karolar (40 cm): hardal sarısı, 6 uzun çubuk
+  for (let y = 0; y < H; y += 0.4 * PPM) {
+    const x0 = 0.8 * PPM;
+    const s = 0.4 * PPM;
+    g.fillStyle = '#9a773a';
+    g.fillRect(x0, y, s, s);
+    g.fillStyle = '#bf9444';
+    g.fillRect(x0 + 2, y + 2, s - 4, s - 4);
+    for (let k = 0; k < 6; k++) {
+      const cx = x0 + 6 + ((s - 12) * (k + 0.5)) / 6;
+      g.fillStyle = '#d2a652';
+      g.fillRect(cx - 3.5, y + 8, 7, s - 16);
+      g.fillStyle = '#8f6d33';
+      g.fillRect(cx + 3.5, y + 8, 1.5, s - 16);
+    }
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.wrapS = t.wrapT = THREE.RepeatWrapping;
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.anisotropy = 8;
+  t.repeat.set(0.5, 1 / 1.2);
+  return t;
+}
+
 function speckle(ctx: CanvasRenderingContext2D, s: number, base: string, amount: number, seed = 7) {
   ctx.fillStyle = base;
   ctx.fillRect(0, 0, s, s);
@@ -130,7 +183,7 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
     roadMajor: detailMaterial(asphalt, { key: 'roadMajor', polygonOffset: -5, normalScale: 0.8 }),
     footway: detailMaterial(paving, { key: 'footway', polygonOffset: -4, normalScale: 1 }),
     marking: flat(null, -7, 0.7),
-    sidewalk: detailMaterial(paving, { key: 'sidewalk', normalScale: 1 }),
+    sidewalk: new THREE.MeshStandardMaterial({ vertexColors: true, map: nilueferSidewalk(), roughness: 0.9 }),
     rail: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.8, metalness: 0.1 }),
     barrier: new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9 }),
   };

@@ -17,7 +17,7 @@ import {
   STREET_PLAN as STREET_PLAN0,
   type StreetPlan,
 } from './siteplan';
-import { paverTextures } from './facadeMats';
+import { paverTextures, tactileTextures } from './facadeMats';
 
 /** Ölçülmüş site planı varsa eski kural tabanlı zemin yerine o kullanılır (?oldgrounds=1 eskisi) */
 const USE_PLAN =
@@ -338,7 +338,9 @@ function materials(base: string): Record<string, THREE.Material> {
     mkStep: std({ color: 0xc9c3b6, roughness: 0.7 }),
     mkEntryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
     // Street View'da güneşte ~#c0b19c (sıcak bej-gri), kiremit bant solgun
-    spPaverGrey: paverMat(['#c3beb2', '#ccc7bb', '#b8b3a7', '#c7c2b6'], 21, -5),
+    // KARAR: Nilüfer kaldırımı (kullanıcı fotoğrafları): gri beton tuğla 20×10, uzun kenar yol boyunca, şaşırtmalı;
+    // taşlar arası belirgin ton farkı. Kaldırımlarda kırmızı bant yok (yalnız gri + sarı kılavuz [+ mavi bisiklet]).
+    spPaverGrey: paverMat(['#9a9792', '#a19e98', '#938f8a', '#9d9994', '#8b8883', '#a5a19b'], 21, -5),
     spPaverRed: paverMat(['#bfae9f', '#c8b7a8', '#b5a496', '#c4b3a4'], 22, -5),
     spRubberRed: std({
       color: 0x7e4a3f,
@@ -397,10 +399,10 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetUnits: -8,
     }),
     spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
-    // Bisiklet şeridi boyası (502. Sk. Street View: soluk mavi, yer yer aşınmış)
+    // Bisiklet şeridi (kullanıcı fotoğrafı, 502. Sk.): mat mavi asfalt boyası
     spBike: std({
-      color: 0xa7b6c0,
-      roughness: 0.85,
+      color: 0x3a5c80,
+      roughness: 0.9,
       polygonOffset: true,
       polygonOffsetFactor: -6,
       polygonOffsetUnits: -6,
@@ -502,7 +504,20 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetFactor: -6,
       polygonOffsetUnits: -6,
     }),
-    tactile: std({ map: T.tactileTexture(), roughness: 0.7 }),
+    // Kılavuz karo 40 cm (kullanıcı fotoğrafları): şerit yerel UV'si (metre) ile döşenir
+    tactile: (() => {
+      if (typeof document === 'undefined') return std({ color: 0xcf9f3c });
+      const t = tactileTextures();
+      return std({
+        map: t.map,
+        normalMap: t.normalMap,
+        normalScale: new THREE.Vector2(0.9, 0.9),
+        roughness: 0.72,
+        polygonOffset: true,
+        polygonOffsetFactor: -7,
+        polygonOffsetUnits: -7,
+      });
+    })(),
     walkRed: std({
       map: T.cobbleTexture('#9a5a4c', '#b27a66', 19),
       roughness: 0.85,
@@ -525,7 +540,7 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetFactor: -4,
       polygonOffsetUnits: -4,
     }),
-    curb: std({ color: 0xd4d0c8, roughness: 0.75 }),
+    curb: std({ color: 0xaeaca6, roughness: 0.85 }),
     drive: pbr('asphalt', 0xd2d2d2, { roughness: 0.95 }, -4),
     bay: std({
       map: T.cobbleTexture('#9fa0a0', '#8b8c8d', 13),
@@ -790,7 +805,6 @@ function fenceWalk(
   for (const s of segs) {
     const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);
     const t: V2 = [(s.e[0] - s.a[0]) / len, (s.e[1] - s.a[1]) / len];
-    const yaw = Math.atan2(-t[1], t[0]);
     // 3 m'lik parçalar: her parçada asfalta kalan mesafe ayrı (kavşak yakınında daralır)
     const nP = Math.max(1, Math.ceil(len / 3));
     for (let k = 0; k < nP; k++) {
@@ -818,10 +832,20 @@ function fenceWalk(
         0.17,
         1,
         3,
+        { o: s.a, t, n: s.n },
       );
       if (tactile && W > 1.2) {
-        const m: V2 = [(A[0] + E[0]) / 2 + s.n[0] * W * 0.55, (A[1] + E[1]) / 2 + s.n[1] * W * 0.55];
-        b.box('tactile', [m[0], o.H(m[0], m[1]) + 0.18, m[1]], [u1 - u0, 0.012, 0.3], yaw);
+        // 40 cm sarı kılavuz karo, kaldırımın ortasında
+        const v0 = W * 0.5 - 0.2;
+        const P = (u: number, v: number): V2 => [
+          s.a[0] + t[0] * u + s.n[0] * v,
+          s.a[1] + t[1] * u + s.n[1] * v,
+        ];
+        b.drape('tactile', [P(u0, v0), P(u1, v0), P(u1, v0 + 0.4), P(u0, v0 + 0.4)], [], o.H, 0.176, 1, 3, {
+          o: P(0, v0),
+          t,
+          n: s.n,
+        });
       }
     }
   }

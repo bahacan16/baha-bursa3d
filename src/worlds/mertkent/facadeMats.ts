@@ -475,3 +475,68 @@ export function paverTextures(
   paverCache.set(key, out);
   return out;
 }
+
+let tactileCache: { map: THREE.Texture; normalMap: THREE.Texture } | null = null;
+
+/**
+ * Hissedilebilir kılavuz karo (Nilüfer kaldırımları, kullanıcı fotoğrafları): 40 × 40 cm sarı-hardal beton karo,
+ * yürüme yönünde (u) 6 uzun kabartma çubuk, karo derzleri. 1 doku = 1 karo (UV metre × 2.5).
+ */
+export function tactileTextures(): { map: THREE.Texture; normalMap: THREE.Texture } {
+  if (tactileCache) return tactileCache;
+  const S = 256;
+  const r = rng(77);
+  const [c, g] = canvas(S, S);
+  const [nc, ng] = canvas(S, S);
+  const img = g.createImageData(S, S);
+  const nimg = ng.createImageData(S, S);
+  const mott = valueNoise(S, 5, r);
+  const base = hexRgb('#ad8744');
+  const RIBS = 6;
+  const pitch = (S - 16) / RIBS; // karo kenarında 8 px boşluk
+  for (let y = 0; y < S; y++)
+    for (let x = 0; x < S; x++) {
+      const i = y * S + x;
+      let f = 1 + (mott[i] - 0.5) * 0.16 + (r() - 0.5) * 0.06;
+      const nx = 0;
+      let ny = 0;
+      const edge = Math.min(x, S - 1 - x, y, S - 1 - y);
+      if (edge < 3) f *= 0.5;
+      else if (edge < 7) f *= 0.82;
+      else {
+        // Çubuk: v (y) yönünde kesit, uçları yuvarlak (u başı/sonu 14 px)
+        const ly = (y - 8) / pitch;
+        const k = Math.floor(ly);
+        const fy = ly - k;
+        const inX = x > 14 && x < S - 14;
+        if (k >= 0 && k < RIBS && inX) {
+          const d = Math.abs(fy - 0.5) / 0.28; // çubuk yarı genişliği ≈ %28
+          if (d < 1) {
+            f *= 1.1 - 0.12 * d;
+            ny = d > 0.55 ? (fy < 0.5 ? 0.8 : -0.8) : 0;
+          } else f *= 0.8;
+        } else f *= 0.95;
+      }
+      img.data[i * 4] = Math.min(255, base[0] * f);
+      img.data[i * 4 + 1] = Math.min(255, base[1] * f);
+      img.data[i * 4 + 2] = Math.min(255, base[2] * f);
+      img.data[i * 4 + 3] = 255;
+      const l = Math.hypot(nx, ny, 1);
+      nimg.data[i * 4] = (nx / l / 2 + 0.5) * 255;
+      nimg.data[i * 4 + 1] = (ny / l / 2 + 0.5) * 255;
+      nimg.data[i * 4 + 2] = (1 / l / 2 + 0.5) * 255;
+      nimg.data[i * 4 + 3] = 255;
+    }
+  g.putImageData(img, 0, 0);
+  ng.putImageData(nimg, 0, 0);
+  const map = new THREE.CanvasTexture(c);
+  map.colorSpace = THREE.SRGBColorSpace;
+  const normalMap = new THREE.CanvasTexture(nc);
+  for (const t of [map, normalMap]) {
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.anisotropy = 8;
+    t.repeat.set(2.5, 2.5);
+  }
+  tactileCache = { map, normalMap };
+  return tactileCache;
+}

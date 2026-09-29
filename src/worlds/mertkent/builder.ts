@@ -150,7 +150,8 @@ export class Builder {
 
   /**
    * Araziye oturan yatay çokgen (delikli): üçgenler küçük parçalara bölünür, her köşe y = H(x,z) + off.
-   * UV = dünya x,−z × uvScale. Normal yukarı (arazi neredeyse düz).
+   * UV = dünya x,−z × uvScale; frame verilirse yerel eksen: u = (p−o)·t, v = (p−o)·n (şerit boyunca döşeme).
+   * Normal yukarı (arazi neredeyse düz).
    */
   drape(
     key: string,
@@ -160,6 +161,7 @@ export class Builder {
     off: number,
     uvScale = 1,
     maxEdge = 2,
+    frame?: { o: V2; t: V2; n: V2 },
   ): void {
     const all = [...ring, ...holes.flat()];
     const tris = THREE.ShapeUtils.triangulateShape(
@@ -188,7 +190,14 @@ export class Builder {
           const z = A[1] + (B[1] - A[1]) * u + (C[1] - A[1]) * v;
           b.pos.push(x, H(x, z) + off, z);
           b.nor.push(0, 1, 0);
-          b.uv.push(x * uvScale, -z * uvScale);
+          if (frame) {
+            const dx = x - frame.o[0];
+            const dz = z - frame.o[1];
+            b.uv.push(
+              (dx * frame.t[0] + dz * frame.t[1]) * uvScale,
+              (dx * frame.n[0] + dz * frame.n[1]) * uvScale,
+            );
+          } else b.uv.push(x * uvScale, -z * uvScale);
           this.pushAux(b, 1);
         }
       for (let i = 0; i < n; i++)

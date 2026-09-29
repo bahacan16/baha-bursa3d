@@ -16,8 +16,9 @@ const ASPHALT_SERVICE: Rgb = [0.3, 0.3, 0.3];
 const PAVER: Rgb = [0.6, 0.5, 0.38];
 const PATH: Rgb = [0.6, 0.53, 0.42];
 const CYCLE: Rgb = [0.55, 0.3, 0.27];
-const SIDEWALK: Rgb = [0.6, 0.5, 0.38];
-const CURB: Rgb = [0.78, 0.77, 0.74];
+// Kaldırım rengi dokudan (Nilüfer tipi: gri tuğla + sarı kılavuz, materials.ts) → köşe rengi beyaz
+const SIDEWALK: Rgb = [1, 1, 1];
+const CURB: Rgb = [0.62, 0.61, 0.59];
 const WHITE: Rgb = [0.92, 0.92, 0.9];
 
 /** Kaldırım / yükseltilmiş şerit — zemin yüksekliği sorgusu için. */
