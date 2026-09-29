@@ -237,6 +237,28 @@
           "railC": "#c8ccce",
           "railH": {
             "*": 1.33
+          },
+          "coping": {
+            "K2": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K3": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K4": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K5": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            }
           }
         },
         {
@@ -293,6 +315,28 @@
           "railC": "#c8ccce",
           "railH": {
             "*": 1.33
+          },
+          "coping": {
+            "K2": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K3": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K4": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K5": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            }
           }
         },
         {
@@ -1354,7 +1398,10 @@
               "y0": 19.12,
               "y1": 21.23,
               "kind": "std",
-              "curt": "tul"
+              "curt": "tul",
+              "rail": true,
+              "split": 2,
+              "frameC": "#8a5b3a"
             },
             {
               "u0": 14.9,
@@ -1362,7 +1409,10 @@
               "y0": 19.12,
               "y1": 21.23,
               "kind": "std",
-              "curt": "tul"
+              "curt": "tul",
+              "rail": true,
+              "split": 2,
+              "frameC": "#8a5b3a"
             }
           ]
         },
@@ -1448,11 +1498,17 @@
           "d": 0.8,
           "depth": 0.7,
           "color": "plaster2",
-          "roofC": "tile"
+          "roofC": "tile",
+          "trim": {
+            "w": 0.09,
+            "d": 0.2,
+            "color": "#1f262d",
+            "base": false
+          }
         },
         {
           "t": "proj",
-          "u0": 0,
+          "u0": -0.8,
           "u1": 4.9,
           "d": 0.8,
           "y0": 18.5,
@@ -1461,7 +1517,7 @@
         },
         {
           "t": "proj",
-          "u0": 0,
+          "u0": -0.8,
           "u1": 4.9,
           "d": 0.8,
           "y0": 18.8,
@@ -1540,9 +1596,27 @@
           "y0": 20.0,
           "y1": 22.0,
           "brackets": false
+        },
+        {
+          "t": "lamp",
+          "us": [
+            11.06,
+            11.54
+          ],
+          "s": [
+            1,
+            5
+          ],
+          "yRel": 2.3,
+          "style": "cylinder",
+          "dir": "up",
+          "d": 0.08,
+          "h": 0.28,
+          "proud": 0.62,
+          "color": "#efefec"
         }
       ],
-      "note": "GERÇEK KOORDİNAT (trueCoords): tüm u/y değerleri kenar başından gerçek metre / taban (-1.02) üstü gerçek metre. Her iki güney ortofotoda (amsci9pL 2025-09, alOgArOd 2025-09) projektif bozulma var (pano yönü ≈4.4° sapık: doğu uçta kat aralığı %8 büyük, pencere genişlikleri %16 büyük); iki ortofoto için ayrı ayrı 1B homografi kuruldu (/tmp/claude-0/agent-d3-n104/model.mjs), iki ortofotodan okunan konumlar ±5–10 cm tutuyor. Bu yüzden standart bindirme (survey-overlay) fotoğrafa oturmaz — ölçüler doğrudur. Zemin kat doğusu (u>18) kamyonetle kısmen kapalı (alOgArOd'dan okundu). v5: K6 çatı katı ön yüzü (proj u 4.9–17.75, d 0.8, 18.94–21.95) + pencereleri ön kutuda; alınlık pediment (d 0.8); teras güney taşması (proj u 0–4.9); beyaz döşeme alnı bantları (proud 0.82); borular: batı yığını batı yanında beyaz (U 4.34, 4.0–18.5; Q5 39_22'de tam boy), doğu yığını doğu yanında beyaz (U 18.44, 4.06–19.44, en parlak piksel #fafdfb → #f0f1ee), çatı katı GD köşesinde koyu kısa boru (U 17.9, 20.0–22.0, doğu çatısına iner)."
+      "note": "GERÇEK KOORDİNAT (trueCoords): tüm u/y değerleri kenar başından gerçek metre / taban (-1.02) üstü gerçek metre. Her iki güney ortofotoda (amsci9pL 2025-09, alOgArOd 2025-09) projektif bozulma var (pano yönü ≈4.4° sapık: doğu uçta kat aralığı %8 büyük, pencere genişlikleri %16 büyük); iki ortofoto için ayrı ayrı 1B homografi kuruldu (/tmp/claude-0/agent-d3-n104/model.mjs), iki ortofotodan okunan konumlar ±5–10 cm tutuyor. Bu yüzden standart bindirme (survey-overlay) fotoğrafa oturmaz — ölçüler doğrudur. Zemin kat doğusu (u>18) kamyonetle kısmen kapalı (alOgArOd'dan okundu). v5: K6 çatı katı ön yüzü (proj u 4.9–17.75, d 0.8, 18.94–21.95) + pencereleri ön kutuda; alınlık pediment (d 0.8); teras güney taşması (proj u 0–4.9); beyaz döşeme alnı bantları (proud 0.82); borular: batı yığını batı yanında beyaz (U 4.34, 4.0–18.5; Q5 39_22'de tam boy), doğu yığını doğu yanında beyaz (U 18.44, 4.06–19.44, en parlak piksel #fafdfb → #f0f1ee), çatı katı GD köşesinde koyu kısa boru (U 17.9, 20.0–22.0, doğu çatısına iner). | v6 (2026-09-29): alınlık damlalığı trim.base:false (w 0.09, d 0.2, #1f262d); çatı katı pencerelerine fransız korkuluk + 2 kanat + #8a5b3a doğrama (proj.wins); K2–K5 balkon parapet harpuştası (coping h 0.09 #2e3440 — iki yığın; profil: parapet #6b727c güneşte, üstte iki koyu çizgi #202529/#2b2f33 + parlak üst kenar, 0.2 m içinde; K1 beyaz parapette harpuşta YOK, profille doğrulandı); dikme aplikleri: amsci 350_24 / alOg 347_34 yakın kareleri + amsci ortosu (AM homografisi, d≈0.6–0.75): K1–K5 her katta dikmenin iki yan yüzünde birer beyaz silindir lamba, koyu mercek üst uçta (ışık yukarı-dışa), gövde ≈0.28 × Ø0.08, merkezler dikme yüzlerinden ≈0.14 m dışarıda (ölçülen 10.96–11.0 / 11.42–11.46, simetrik alındı), döşemeden 2.15–2.51 (ort. 2.3). Gerçekte dikme yanına kollu ve cephe düzleminde ≈45° eğik; üretici düşey silindir çiziyor, konsol duvardan (proud 0.62) — derinlik yaklaşık. Teras taşması proj'ları (kenar 0, 18.5–18.8 beyaz + 18.8–19.72 koyu gri) GB köşeyi 0.8 m aşıyor (u −0.8; v6 massing gerçek köşede kırpmıyor) → köşe karesi için eklenen iki geçici hacim silindi."
     },
     {
       "edge": 1,
@@ -1704,7 +1778,29 @@
             ]
           },
           "potsOn": "rail",
-          "potC": "#9a8676"
+          "potC": "#9a8676",
+          "coping": {
+            "K2": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K3": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K4": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            },
+            "K5": {
+              "h": 0.09,
+              "color": "#2e3440",
+              "over": 0.02
+            }
+          }
         },
         {
           "t": "ac",
@@ -2043,71 +2139,10 @@
           "color": "#7a838a"
         }
       ],
-      "note": "GERÇEK KOORDİNAT. Q5ICTzjr (2025-09) 62° yan bakış; aynı ≈4.6° yön hatası homografiyle düzeltildi (çatı parapeti ucu = KB köşe, pencere lentoları güney cephesiyle ±5 cm). Kuzey uçta (u 0–1.56) duvar girintili görünüyor (derinlik görülmedi, bkz. pending). Zemin kat önündeki yeşil tel çit + kapı parsel sınırında (binaya ait değil, çizilmedi); zemin kat duvarı çit arkasından koyu gri seçiliyor. v5: teras batı taşması proj (u 1.0–15.9, d 0.8; kuzey ucu U≈1.35 Q5 d0.8); K4 saksıları (Q5 d0.8 → U 6.83…9.06, saksı #9a8676 bulanık örnek); batı cephe K1'de gri döşeme alnı görülmedi (beyaz). | FP-v3 (2026-09-29, taban izi): kuzey duvar 1.5 m GÜNEYE (−107.4→−105.9): kenar başı (KB köşe, v3) kenar boyunca +1.5 m → tüm u −1.5, uzunluk 15.9→14.4, cal.u [0,14.4] (ölçek aynı). Eski \"kuzey uçta girinti\" (u 0–1.56) taban izi hatasıydı: u 1.56 köşe profili artık KB köşede (u 0.06); teras taşması kuzey ucu u −0.15 (pergola ucu −106.05 ile aynı, fiziksel yerinde bırakıldı)."
+      "note": "GERÇEK KOORDİNAT. Q5ICTzjr (2025-09) 62° yan bakış; aynı ≈4.6° yön hatası homografiyle düzeltildi (çatı parapeti ucu = KB köşe, pencere lentoları güney cephesiyle ±5 cm). Kuzey uçta (u 0–1.56) duvar girintili görünüyor (derinlik görülmedi, bkz. pending). Zemin kat önündeki yeşil tel çit + kapı parsel sınırında (binaya ait değil, çizilmedi); zemin kat duvarı çit arkasından koyu gri seçiliyor. v5: teras batı taşması proj (u 1.0–15.9, d 0.8; kuzey ucu U≈1.35 Q5 d0.8); K4 saksıları (Q5 d0.8 → U 6.83…9.06, saksı #9a8676 bulanık örnek); batı cephe K1'de gri döşeme alnı görülmedi (beyaz). | FP-v3 (2026-09-29, taban izi): kuzey duvar 1.5 m GÜNEYE (−107.4→−105.9): kenar başı (KB köşe, v3) kenar boyunca +1.5 m → tüm u −1.5, uzunluk 15.9→14.4, cal.u [0,14.4] (ölçek aynı). Eski \"kuzey uçta girinti\" (u 0–1.56) taban izi hatasıydı: u 1.56 köşe profili artık KB köşede (u 0.06); teras taşması kuzey ucu u −0.15 (pergola ucu −106.05 ile aynı, fiziksel yerinde bırakıldı). | v6 (2026-09-29): K2–K5 balkon parapetlerinde koyu harpuşta (coping h 0.09 #2e3440; Q5 profili: gölgede parapet #4f535e, üst 0.15–0.2 m #414247–#424246)."
     }
   ],
   "pending": [
-    {
-      "what": "Çatı katı alınlığının üst kenar damlalığı (verge) — pediment trim tabanı da çizdiği için kullanılmadı",
-      "edge": 0,
-      "u": [
-        4.9,
-        17.75
-      ],
-      "apexU": 11.1,
-      "y": [
-        21.95,
-        24.2
-      ],
-      "w": 0.09,
-      "proud": 0.2,
-      "color": "#1f262d",
-      "note": "Yalnız iki eğik kenar boyunca siyah/koyu lacivert ~0.09 m profil, alınlık yüzünden ~0.2 m önde (stereo d≈1.0); tabanda (21.95) çizgi YOK. Örnek #495f6f gökyüzüyle karışık; gözle #1f262d. pediment.trim tabana da silme koyduğu için (gerçekte olmayan siyah yatay çizgi) eklenmedi → trim'e 'yalnız eğik kenarlar' seçeneği gerekli."
-    },
-    {
-      "what": "Çatı katı pencerelerinin fransız korkuluğu (proj.wins korkuluk çizemiyor)",
-      "edge": 0,
-      "wins": [
-        [
-          6.17,
-          7.72
-        ],
-        [
-          14.9,
-          16.45
-        ]
-      ],
-      "y": [
-        19.12,
-        21.23
-      ],
-      "d": 0.81,
-      "note": "K6 pencereleri artık çatı katı ön kutusunun (proj d 0.8) ön yüzünde; beyaz söveler pilaster (5 cm) ile çizildi. Pencerenin alt yarısında 4 yatay paslanmaz boru + uç/orta dikme (alt kenardan ~0.3–0.95 m) görülüyor; proj.wins'e rail:true + split + frameC desteği gerekli."
-    },
-    {
-      "what": "Dikme aplikleri (v6: duvar lambası)",
-      "edge": 0,
-      "u": 11.3,
-      "storeys": [
-        1,
-        5
-      ],
-      "note": "Balkonlar arası beyaz dikmenin (proj u 11.2–11.4, d 0.8) iki yanında her katta, tavanın ~0.3 m altında birer küçük beyaz silindir aplik (kolu dikmeye bağlı, yana bakan); K5'te dikme tepesinde iki yanda (am 199_13, am_pier kırpması)."
-    },
-    {
-      "what": "Balkon parapeti üst başlığı (koyu lacivert ince harpuşta)",
-      "edges": [
-        0,
-        3
-      ],
-      "storeys": [
-        2,
-        5
-      ],
-      "h": 0.09,
-      "color": "#2e3440",
-      "note": "K2–K5 koyu gri dolu parapetlerin üstünde parapetten daha koyu ~0.09 m şerit (küpeşte dikmelerinin oturduğu profil); bal için coping alanı yok."
-    },
     {
       "what": "Pergolanın gerçek biçimi",
       "world": {
@@ -2120,11 +2155,62 @@
           -90.7
         ]
       },
-      "note": "Batı parapeti üstünde ~2.7 m arayla dikmeler (Q5: U≈1.6, …, 16.65 d 0.8), dikmelerden doğu–batı yönlü kirişler parapetten ~0.5 m batıya taşar (uçlarında beyaz kapak), aralarında kuzey–güney yönlü koyu lamel paneller. Güneyden bakışta lamel alt uçları güney parapetine yakın → örtü güneye doğru eğimli olabilir (batı dikme üstleri 21.5–21.8). Üretici düz pergola çiziyor (lameller uzun kenara dik = doğu–batı) → eğim ve lamel yönü ifade edilemedi; y1 21.65 ortalama. Üretici dikmeleri çokgenin dört kenarına da ~2.6 m arayla koyuyor; güney kenarda yalnız GB köşe dikmesi görüldü, doğu kenar (çatı katı duvarına bağlı) ve kuzey kenar görülmedi."
+      "note": "Batı parapeti üstünde ~2.7 m arayla dikmeler (Q5: U≈1.6, …, 16.65 d 0.8), dikmelerden doğu–batı yönlü kirişler parapetten ~0.5 m batıya taşar (uçlarında beyaz kapak), aralarında kuzey–güney yönlü koyu lamel paneller. Güneyden bakışta lamel alt uçları güney parapetine yakın → örtü güneye doğru eğimli olabilir (batı dikme üstleri 21.5–21.8). Üretici düz pergola çiziyor (lameller uzun kenara dik = doğu–batı) → eğim ve lamel yönü ifade edilemedi; y1 21.65 ortalama. Üretici dikmeleri çokgenin dört kenarına da ~2.6 m arayla koyuyor; güney kenarda yalnız GB köşe dikmesi görüldü, doğu kenar (çatı katı duvarına bağlı) ve kuzey kenar görülmedi. v6: pergola şeması değişmedi (eğim / lamel yönü / kenar başına dikme hâlâ yok); pergola artık ağırlık merkezinin parçasında bir kez çiziliyor (eskiden 3 kez)."
     },
     {
-      "what": "Massing kırpması: kesimi aşan tabela/tente ikiye bölünüyor + köşeyi saran öğeler kesiliyor (üretici)",
-      "note": "massing.shiftItem u'yu parça kenarına kırpıyor: 'GÜLTEN KARADAĞ' (u 4.1–8.65), 'KUAFÖR' (4.25–4.75), 'TURUNCU Market' (13.4–18.4) tabelaları ve TURUNCU tentesi (13.49–18.59) x=714 / 727.6 kesimlerinde ikiye bölünüp iki kez yazılıyor; kenar 0/3 teras taşması proj'ları GB köşeye uzanamadığı için köşe karesi volumes ile kapatıldı. Öneri: tabela/tente merkezinin düştüğü parçaya bütün olarak gitsin; orijinal köşelerde (kesim olmayan uçlarda) u kırpılmasın. Ayrıca blok volumes/pergolas her parçaya kopyalanıyor (3 kez çiziliyor)."
+      "what": "Dikme yanlarında beyaz kutular (tanımlanamadı)",
+      "edge": 0,
+      "items": [
+        {
+          "storey": 1,
+          "side": "doğu",
+          "apparent": {
+            "u": [
+              10.2,
+              10.6
+            ],
+            "y": [
+              5.9,
+              6.9
+            ]
+          }
+        },
+        {
+          "storey": 4,
+          "side": "doğu",
+          "apparent": {
+            "u": [
+              10.2,
+              10.6
+            ],
+            "y": [
+              16.6,
+              17.3
+            ]
+          }
+        },
+        {
+          "storey": 5,
+          "side": "iki yan",
+          "apparent": {
+            "u": [
+              [
+                9.3,
+                9.95
+              ],
+              [
+                10.2,
+                10.9
+              ]
+            ],
+            "y": [
+              20.0,
+              21.1
+            ]
+          }
+        }
+      ],
+      "note": "amsci ortosu (görünen, homografi öncesi) + amsci 350_24 / alOg 347_34: orta dikmenin (proj u 11.2–11.4) yan yüzüne dayalı, korkuluk üstünden tavana doğru ≈0.35–0.5 m genişlik, ≈0.8–1.3 m yükseklik beyaz/krem kutular (K1 doğu, K4 doğu, K5 iki yan; diğer katlarda yok). Dolap mı klima mı tesisat kutusu mu seçilemedi → çizilmedi. Gerçek konum AM homografisiyle d≈0.6: U ≈11.4–11.8 (K1), Y ≈4.7–5.6."
     }
   ],
   "notes": [
@@ -2136,7 +2222,8 @@
     "RENKLER güneşli yüzeyden (amsci ortofoto/kare): beyaz #f5f0ed, parapet #6d757c, çatı katı #808c9b, tabela turuncu #f67d5d, cabinas #4c514c, Gülten #6f777d, tente #c46150, traverten #a3937c. Doğrama rengi ortofoto çözünürlüğünde örneklenemedi, karelerden gözle (#8a5b3a).",
     "Doğu (kenar 1) ve kuzey (kenar 2) cepheler görülmedi — çizilmedi. Doğu duvar konumu (x 732.4) iki ortofotonun köşe çizgisiyle tutarlı (uzunluk 22.9 kabulüyle kat yüksekliği 3.13 çıkıyor, makul).",
     "v5 dönüşümü (2026-09-29): çatı katı ön kutusu (proj + 2 pencere + pilaster söveler) + K6 döşeme balkonu (rail none, kiriş 0.09) + pediment; teras taşması; pergola; batı yan duvar kaplaması (volume); solidTube küpeşteler; beyaz/koyu yağmur boruları; kepenk rengi; saksılar. Görülmeyenler: çatı katının doğu ve kuzey yan duvarları (beyaz blok sıvası kalıyor), terasın kuzey kenarı (parapet çizilmedi), kuzey ve doğu cepheleri.",
-    "FP-v3 (2026-09-29, taban izi): kuzey duvar (kenar 2) 1.5 m GÜNEYE: v2 (732.4,−107.4)→(732.4,−105.9), v3 (709.5,−107.4)→(709.5,−105.9) — derinlik 15.9→14.4. Kanıt: (1) hava fotoğrafı eğimi bu binanın güney cephe balkon bantlarından ölçüldü: bant aralığı 0.93 m / kat 3.13 m → 0.297 m/m (eski izde 0.256 kullanılmıştı; güney şerit üst kenarı 0.8 m taşan teras parapetine ait, o da 0.289 veriyor); pergolanın hava fotoğrafındaki kuzey ucu z −112.4 (x 708–712.5, üst ≈21.65) → −105.97…−106.12; (2) Q5ICT batı cephe ortosunda KB köşe profili U 1.56 → −105.84; teras taşması ucu U 1.35 (parapet ucu köşeyle aynı z, kuzeye taşma yok). Eski \"kuzey uçta girinti\" yorumu (u 0–1.56) bu kaymadan geliyordu — pending maddesi çözüldü, silindi. Kenar 3 öğelerinin tümü u −1.5 (fiziksel yerinde), kenar 1 uzunluğu 14.4, batı yan duvar kaplaması (volumes) kuzey ucu −105.9. Bu tarihten önceki not/pending metinlerindeki kenar 3 U değerleri eski çerçevede (yeni = eski − 1.5). Kalan: orta/doğu bölüm (x 714–732.4) çatısının hava fotoğrafındaki kuzey kenarı doğuya doğru güneye kayıyor (x 714.5: −112.5, x 725.5: −111.6 → saçak ≈22 m ise duvar −105.5…−105.0 olabilir; çatı biçimi/yüksekliği bilinmiyor, ±0.6) — tek düz kuzey duvar olarak bırakıldı; kuzey çekirdek çıkıntısı (x≈717.5–722.5) çizilmedi; kuzey ve doğu cepheler görülmedi."
+    "FP-v3 (2026-09-29, taban izi): kuzey duvar (kenar 2) 1.5 m GÜNEYE: v2 (732.4,−107.4)→(732.4,−105.9), v3 (709.5,−107.4)→(709.5,−105.9) — derinlik 15.9→14.4. Kanıt: (1) hava fotoğrafı eğimi bu binanın güney cephe balkon bantlarından ölçüldü: bant aralığı 0.93 m / kat 3.13 m → 0.297 m/m (eski izde 0.256 kullanılmıştı; güney şerit üst kenarı 0.8 m taşan teras parapetine ait, o da 0.289 veriyor); pergolanın hava fotoğrafındaki kuzey ucu z −112.4 (x 708–712.5, üst ≈21.65) → −105.97…−106.12; (2) Q5ICT batı cephe ortosunda KB köşe profili U 1.56 → −105.84; teras taşması ucu U 1.35 (parapet ucu köşeyle aynı z, kuzeye taşma yok). Eski \"kuzey uçta girinti\" yorumu (u 0–1.56) bu kaymadan geliyordu — pending maddesi çözüldü, silindi. Kenar 3 öğelerinin tümü u −1.5 (fiziksel yerinde), kenar 1 uzunluğu 14.4, batı yan duvar kaplaması (volumes) kuzey ucu −105.9. Bu tarihten önceki not/pending metinlerindeki kenar 3 U değerleri eski çerçevede (yeni = eski − 1.5). Kalan: orta/doğu bölüm (x 714–732.4) çatısının hava fotoğrafındaki kuzey kenarı doğuya doğru güneye kayıyor (x 714.5: −112.5, x 725.5: −111.6 → saçak ≈22 m ise duvar −105.5…−105.0 olabilir; çatı biçimi/yüksekliği bilinmiyor, ±0.6) — tek düz kuzey duvar olarak bırakıldı; kuzey çekirdek çıkıntısı (x≈717.5–722.5) çizilmedi; kuzey ve doğu cepheler görülmedi.",
+    "v6 geçişi (2026-09-29): dönüşenler — alınlık damlalığı (pediment trim.base:false), çatı katı pencere korkulukları (proj.wins rail/split/frameC), balkon parapet harpuştası K2–K5 (bal.coping), dikme aplikleri K1–K5 (lamp, iki yan); massing düzeltmesiyle GB köşe teras taşması proj ile (u −0.8) kapatıldı, iki geçici köşe hacmi silindi. Tabela/tente elle bölünmemişti: TURUNCU tentesinin iki bölmesi (13.49–18.59 / 18.59–22.39) gerçek; \"GÜLTEN KARADAĞ\", \"KUAFÖR\", \"TURUNCU Market\", \"cabinas\" tabelaları artık merkezlerinin düştüğü parçada tek çiziliyor. Çatı katı batı yan duvarı kaplaması (3 cm hacim) KALDI: kesim duvarı hâlâ öğesiz blok sıvası çiziliyor (v6 değişikliği yok). Küpeşte: solidTube (1.05 parapet + dikmeler 1.33) korundu — v6 `hand` solidTube ile iki kez küpeşte çizer, `solid`+`hand` ise camlı katlarda camı küpeştenin önüne alır (fotoğrafta küpeşte camın önünde)."
   ],
   "floorHs": [
     3.13,
@@ -2177,56 +2264,6 @@
     }
   ],
   "volumes": [
-    {
-      "poly": [
-        [
-          708.7,
-          -91.5
-        ],
-        [
-          709.5,
-          -91.5
-        ],
-        [
-          709.5,
-          -90.7
-        ],
-        [
-          708.7,
-          -90.7
-        ]
-      ],
-      "y0": 18.7,
-      "y1": 18.8,
-      "color": "#f2f3f1",
-      "collide": false,
-      "note": "GB köşe: teras taşmasının beyaz döşeme alnı (kenar 0/3 proj kutuları massing kırpması yüzünden köşeye uzanamıyor)"
-    },
-    {
-      "poly": [
-        [
-          708.7,
-          -91.5
-        ],
-        [
-          709.5,
-          -91.5
-        ],
-        [
-          709.5,
-          -90.7
-        ],
-        [
-          708.7,
-          -90.7
-        ]
-      ],
-      "y0": 19.0,
-      "y1": 19.72,
-      "color": "#7a838a",
-      "collide": false,
-      "note": "GB köşe: teras taşmasının koyu gri parapeti"
-    },
     {
       "poly": [
         [
