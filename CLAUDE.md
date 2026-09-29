@@ -386,6 +386,18 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 - Araçlar tamamen kodla (`sim/carmodel.ts`): kesit loft gövde (çamurluk kavisleri, tumblehome, ön/arka cam, omuz çizgisi, kapı derzleri), jantlı lastikler, far/stop/sis, ızgara, ayna, kol, silecek, Bursa "16 …" plakaları (atlas + instance başına plaka no). 4 tip (sedan/hatchback/SUV/hafif ticari, Türkiye dağılımına yakın). Park edenler yakın/uzak LOD; trafikte tekerler döner.
 - Sis ana sahne ve uzak arka plan için ortak; Düşük kalitede uzak arazi kapalı.
 - Yayın `gh-pages` dalına (Settings → Pages → Deploy from a branch: gh-pages). Bu ortamdan Pages API'sine erişilemedi.
+- **Gerçek zemin malzemeleri (R4):** `scripts/real-textures.mjs` → `public/textures/real/` → `mertkent/realtex.ts`
+  (malzemeler anahtar adıyla yükseltilir, `?norealtex` kapatır). Ölçü kullanıcı fotoğrafı `502sk-bati-bisiklet.jpg`
+  metrik üst görünüşe düzeltilerek (sarı şerit kenarları → kaçış noktası, 1/(y−Vy) doğrusal mesafe): kilit taşı
+  200 × 100 mm yarım şaşırtmalı (uzun kenar yol boyunca), derz ≈3 mm + 5 mm pah; kılavuz karo 400 × 400, 6 çubuk
+  (adım 64, üst 25, taban 32, ≈5 mm); bordür birimi ≈0.72 m (geometri `street.ts`); site içi I taşı 200 × 139 (uç
+  165). Tane gerçek taş içlerinden (ıslak → kuru kontrast ×0.45), renk Street View oranlarından (aynı karede gri taşa
+  göre), taşlar arası ton CV 0.07 (kuru SV blok ölçümü). Albedoda gölge/AO yok; mikro örtünme ayrı kanalda (yalnız
+  dolaylı ışık). Ultra: paralaks örtünme. 502. Sk. batı bordürü (bisiklet şeridi yanı) beyaz boyalı (`kerbPaint`).
+  Kaldırım katman anahtarı (`street.ts` `layerKey`) malzeme metninin **baş ifadesinden** (ilk ayraca kadar): açıklamada
+  komşu bandın anılması ("… + 0.32 sarı kılavuz …") 502. Sk. kaldırımlarının tamamını kılavuz karo yapıyordu. 502. Sk.
+  kılavuz konumları taş sayımıyla: batı bordür | 4 sıra | karo 0.40 | duvar (`at` 0.75), doğu bordür | 3 sıra | karo |
+  3 sıra (`at` 0.65). Düşük kalitede eski yordamsal dokular kalır (mobil bellek).
 
 ## 19. Kullanıcının yapması gerekenler (README'de de olsun)
 

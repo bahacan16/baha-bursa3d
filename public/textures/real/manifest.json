@@ -1,0 +1,247 @@
+{
+ "note": "scripts/real-textures.mjs ile üretildi — ölçüler ve kanıtlar için betiğin başına ve measure çıktısına bakın",
+ "generatedAt": "2026-09-29T17:57:52.253Z",
+ "alphaDry": 0.45,
+ "stoneToneCvDry": 0.07,
+ "measure": [
+  "── Kilit taşı / kılavuz geometrisi (502sk-bati-bisiklet.jpg) ──",
+  "  kaçış noktası V = (934.8, 1005.2) px",
+  "  karo derzleri (satır): 1441, 1483, 1704, 2015, 2312",
+  "  karo boyu / taş boyu = 1.998 (2.000 beklenir)",
+  "  şerit genişliği / taş dizisi = 3.935 (4.000 beklenir)",
+  "  → taş en-boy oranı (kare karo) = 1.970; modül ≈ 200 × 102 mm",
+  "  bordür üstü enine derzleri (mm, s ekseni): 561, 1263, 1506, 1992 → dönem 736 (skor 0.68)",
+  "  aynı görüntüde taş kısa derzleri: 52, 256, 458, 657, 858, 1061, 1253, 1456, 1551, 1649, 1862, 2060 → dönem 200 (skor 0.83)",
+  "  → bordür birimi ≈ 0.734 m (taş modülü 0.200 m)",
+  "  (kullanılan KERB_UNIT = 0.72 m; ayrıca DA 2019 JDIg_180_-50 ve zoTd7_256_-15_40 karelerinde ≈0.71–0.74 m)",
+  "  kılavuz karo satır profili koyu çizgileri (px): 837, 861, 887, 921, 951, 979, 986, 1013, 1047, 1077, 1109, 1136, 1152, 1172, 1201, 1222",
+  "  (çubuk kenar gölgeleri çiftler hâlinde; 6 çubuk, adım ≈ 62 px ≈ 64 mm, üst ≈ 25 mm, taban ≈ 32 mm, yan pay ≈ 24 mm)",
+  "── Renk kanıtları (doğrusal ortalama → sRGB) ──",
+  "  extra/zoTd7-zO0NiokiEGjXvu4w_256_-15_40.jpg          red       sun      #d7be9f",
+  "  extra/zoTd7-zO0NiokiEGjXvu4w_256_-15_40.jpg          red       shade    #817266",
+  "  extra/zoTd7-zO0NiokiEGjXvu4w_256_-15_40.jpg          grey      sun      #dfcfb0",
+  "  extra/zoTd7-zO0NiokiEGjXvu4w_256_-15_40.jpg          asphalt   sun      #c2b59f",
+  "  extra/2ydcI-zCkRh08bRAgD6bUA_155_-5_40.jpg           tactile   sun      #e2d4b3",
+  "  extra/2ydcI-zCkRh08bRAgD6bUA_155_-5_40.jpg           grey      sun      #cfc3a8",
+  "  extra/U-Oz8apjeKqFGeyERByHqQ_273_-5_40.jpg           grey      sun      #e4d6bd  (kırpık)",
+  "  extra/U-Oz8apjeKqFGeyERByHqQ_273_-5_40.jpg           tactile   sun      #f4eed5  (kırpık)",
+  "  extra/U-Oz8apjeKqFGeyERByHqQ_273_-5_40.jpg           kerb      sun      #d2c3ab  (kırpık)",
+  "  extra/U-Oz8apjeKqFGeyERByHqQ_273_-5_40.jpg           kerbPaint sun      #f7f4e9  (kırpık)",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg     grey      overcast #929189",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg     tactile   overcast #aba59b",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg     grey      overcast #95948d",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg     red       overcast #969089",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg     kerb      overcast #8d887e",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg     asphalt   overcast #8d9391",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg   grey      overcast #8a8986",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg   red       overcast #97918f",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg   kerb      overcast #959392",
+  "  mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg   asphalt   overcast #9a9b97",
+  "── Aynı karede gri kilit taşına oranlar (R, G, B) ──",
+  "  zoTd7-zO0NiokiEGjXvu4w red       sun      0.922, 0.820, 0.794",
+  "  zoTd7-zO0NiokiEGjXvu4w red       shade    0.297, 0.268, 0.304",
+  "  zoTd7-zO0NiokiEGjXvu4w asphalt   sun      0.735, 0.736, 0.790",
+  "  2ydcI-zCkRh08bRAgD6bUA tactile   sun      1.217, 1.204, 1.148",
+  "  U-Oz8apjeKqFGeyERByHqQ tactile   sun      1.167, 1.274, 1.302",
+  "  U-Oz8apjeKqFGeyERByHqQ kerb      sun      0.836, 0.805, 0.795",
+  "  U-Oz8apjeKqFGeyERByHqQ kerbPaint sun      1.195, 1.340, 1.592",
+  "  JDIgP_YqV92AywXf0SHNFw tactile   overcast 1.386, 1.307, 1.263",
+  "  JDIgP_YqV92AywXf0SHNFw red       overcast 1.040, 0.962, 0.972",
+  "  JDIgP_YqV92AywXf0SHNFw kerb      overcast 0.903, 0.858, 0.809",
+  "  JDIgP_YqV92AywXf0SHNFw asphalt   overcast 0.908, 1.010, 1.091",
+  "  JDIgP_YqV92AywXf0SHNFw red       overcast 1.221, 1.122, 1.145",
+  "  JDIgP_YqV92AywXf0SHNFw kerb      overcast 1.191, 1.161, 1.201",
+  "  JDIgP_YqV92AywXf0SHNFw asphalt   overcast 1.266, 1.307, 1.296",
+  "── Taşlar arası ton: taş boyu blok ortalamalarının CV (kuru Street View; derz payı dahil → üst sınır) ──",
+  "  zoTd7-zO0NiokiEGjXvu4w_256_-15 blok 8×5: CV 0.085 (110 blok)",
+  "  2ydcI-zCkRh08bRAgD6bUA_155_-5_ blok 12×4: CV 0.077 (208 blok)",
+  "  JDIgP_YqV92AywXf0SHNFw_180_-50 blok 14×7: CV 0.101 (240 blok)",
+  "  JDIgP_YqV92AywXf0SHNFw_180_-50 blok 12×5: CV 0.088 (276 blok)",
+  "  kullanılan STONE_CV_DRY = 0.07",
+  "── Seçilen doku ortalama albedoları (doğrusal → sRGB) ──",
+  "  grey     #9f9d94  (0.345, 0.335, 0.298)",
+  "  red      #998f86  (0.318, 0.275, 0.237)",
+  "  tactile  #b3aea2  (0.448, 0.421, 0.359)",
+  "  kerb     #a19e96  (0.359, 0.342, 0.304)"
+ ],
+ "sets": {
+  "paver-grey": {
+   "size": [
+    2,
+    2
+   ],
+   "module": [
+    200,
+    100
+   ],
+   "bond": "running",
+   "joint": 3,
+   "chamfer": 5,
+   "normalScale": 1,
+   "roughness": [
+    0.78,
+    0.97
+   ],
+   "heightRangeMM": [
+    -7,
+    2
+   ],
+   "meanAlbedo": "#9f9d94",
+   "px": [
+    2048,
+    2048
+   ]
+  },
+  "paver-red": {
+   "size": [
+    2,
+    2
+   ],
+   "module": [
+    200,
+    100
+   ],
+   "bond": "running",
+   "joint": 3,
+   "chamfer": 5,
+   "normalScale": 1,
+   "roughness": [
+    0.78,
+    0.97
+   ],
+   "heightRangeMM": [
+    -7,
+    2
+   ],
+   "meanAlbedo": "#998f86",
+   "px": [
+    2048,
+    2048
+   ]
+  },
+  "tactile": {
+   "size": [
+    1.6,
+    0.4
+   ],
+   "module": [
+    400,
+    400
+   ],
+   "bond": "stack",
+   "bars": 6,
+   "pitch": 64,
+   "barTop": 25,
+   "barBase": 32,
+   "barHeight": 5,
+   "normalScale": 1,
+   "roughness": [
+    0.7,
+    0.97
+   ],
+   "heightRangeMM": [
+    -4,
+    5
+   ],
+   "meanAlbedo": "#b3aea2",
+   "px": [
+    2048,
+    512
+   ]
+  },
+  "kerb": {
+   "size": [
+    0.5,
+    0.5
+   ],
+   "triplanar": true,
+   "roughness": [
+    0.75,
+    0.95
+   ],
+   "unit": 0.72,
+   "heightRangeMM": [
+    -1,
+    1
+   ],
+   "meanAlbedo": "#a29e96",
+   "px": [
+    1024,
+    1024
+   ]
+  },
+  "kerb-paint": {
+   "size": [
+    0.5,
+    0.5
+   ],
+   "triplanar": true,
+   "roughness": [
+    0.75,
+    0.95
+   ],
+   "note": "502sk-bati-bisiklet.jpg bordür üstü dış yarısı (t 0.895–0.945)",
+   "heightRangeMM": [
+    -1,
+    1
+   ],
+   "meanAlbedo": "#e2e2de",
+   "px": [
+    1024,
+    1024
+   ]
+  },
+  "bone-grey": {
+   "size": [
+    2,
+    1.946
+   ],
+   "module": [
+    200,
+    139
+   ],
+   "bond": "running",
+   "endWidth": 165,
+   "normalScale": 1,
+   "roughness": [
+    0.78,
+    0.97
+   ],
+   "heightRangeMM": [
+    -7,
+    2
+   ],
+   "meanAlbedo": "#9f978f",
+   "px": [
+    2048,
+    2048
+   ]
+  },
+  "bone-red": {
+   "size": [
+    2,
+    1.946
+   ],
+   "module": [
+    200,
+    139
+   ],
+   "bond": "running",
+   "endWidth": 165,
+   "normalScale": 1,
+   "roughness": [
+    0.78,
+    0.97
+   ],
+   "heightRangeMM": [
+    -7,
+    2
+   ],
+   "meanAlbedo": "#a26e5f",
+   "px": [
+    2048,
+    2048
+   ]
+  }
+ }
+}

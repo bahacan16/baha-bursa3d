@@ -91,6 +91,8 @@ export interface StreetPlan {
     layers?: { w?: number; material?: string; h?: number; at?: number }[];
     /** Bordüre bitişik mavi bisiklet şeridi genişliği (yol kotunda) */
     bike?: number;
+    /** Bordür boyası (ör. "white": yol yüzü + üstün dış yarısı beyaz boyalı — bisiklet şeridi kenarı) */
+    kerbPaint?: string;
   }[];
   /**
    * Sokak eşyası ve yol yüzeyi ayrıntısı (street.ts). v6 yol yüzeyi (YALNIZ Street View'da görülen yerlerde):

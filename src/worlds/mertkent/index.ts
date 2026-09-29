@@ -45,6 +45,7 @@ import { roadWidth } from '../osm/parse';
 import * as T from './textures';
 import { nightUniform } from '../../env/night';
 import { windTime } from '../osm/eztree';
+import { upgradeRealMaterials } from './realtex';
 
 const BLOCK_NAMES = ['A', 'B', 'C', 'D', 'E', 'F'];
 /** ?nosurvey=1 → ölçülmüş cepheler yerine eski kural tabanlı apartman modeli (karşılaştırma için) */
@@ -1615,6 +1616,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
   if (!street) signPole(b, [-31.3, -145.8], [-0.95, -0.31], o.H(-31.3, -145.8), ['signCurve', 'sign30']);
   const mats = materials(o.base);
+  upgradeRealMaterials(mats, o.base);
   extraMats.roadFill = o.roadMaterial ?? mats.drive;
   b.build({ ...mats, ...extraMats }, group, o.shadows);
   // Özhan önünde (vitrin, otopark) ağaç yok

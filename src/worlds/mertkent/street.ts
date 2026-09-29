@@ -9,6 +9,14 @@ import { sideNormal, type StreetPlan } from './siteplan';
  */
 
 const KERB_W = 0.15;
+/**
+ * Bordür birim boyu (m): kullanıcı fotoğrafı 502sk-bati-bisiklet.jpg metrik düzeltmede enine derzler ≈0.70–0.73 m
+ * (aynı görüntüde taş modülü 0.200 m), Street View JDIg_180_-50 (DA-2, 2019) ve zoTd7_256_-15_40 (DA-1, 2025)
+ * ≈0.71–0.74 m (`scripts/real-textures.mjs measure`). Önceden 1 m idi.
+ */
+const KERB_UNIT = 0.72;
+/** Bordür boyası: yol yüzü + üstün dış yarısı (düzeltilmiş fotoğrafta üstün iç ~7 cm'i gri beton, dışı beyaz) */
+const PAINT_TOP = 0.08;
 const SHOW_BIKE = !(typeof location !== 'undefined' && new URLSearchParams(location.search).has('nobike'));
 
 export interface StreetResult {
@@ -50,10 +58,17 @@ interface Layout {
  * KARAR: serbest metni ayrıştırmak yerine hat kimliğine göre tablo; bilinmeyen hatlar metinden tahmin edilir.
  */
 /** Katman malzeme metninden anahtar */
-function layerKey(m: string): string {
+export function layerKey(m: string): string {
   const t = m.toLowerCase();
-  if (/tactile|kılavuz|hissedilebilir/.test(t)) return 'tactile';
-  if (/grass|çim|lawn|verge/.test(t)) return 'lawn';
+  // Baş ifade (ilk ayraca kadar) katmanın kendi malzemesi; devamında komşu bantlar da anılıyor. Ör. 502. Sk. batı:
+  // "gri beton kilit taşı 10×20, boyuna …: bordürden 0.40 gri + 0.32 sarı kılavuz …" tüm bandı kılavuz yapıyordu;
+  // "krem/bej beton kenar taşı (çime karşı)" çim çiziliyordu.
+  const head = t.split(/[:;,(]/)[0];
+  if (/tactile|kılavuz|hissedilebilir/.test(head)) return 'tactile';
+  if (/grass|çim|lawn|verge/.test(head)) return 'lawn';
+  // Beton kenar taşı sırası: krem/bej → krem kenar taşı, diğerleri gri bordür betonu (gerçek bordür dokusu)
+  if (/kenar taşı|edging/.test(head) && !/kilit|paver/.test(head))
+    return /krem|bej|cream/.test(head) ? 'edging' : 'curb';
   if (/asphalt|asfalt/.test(t)) return 'roadFill';
   if (/concrete|beton/.test(t) && !/interlock|kilit|paver/.test(t)) return 'spConcrete';
   if (/gravel|çakıl|toprak|dirt|soil/.test(t)) return 'spGravel';
@@ -880,10 +895,10 @@ function buildStreet(
           'tactile',
           top + 0.006,
         );
-      // Bordür taşları (1 m, yola bakan yüz dahil): yol kenarında + ara bordürler
+      // Bordür taşları (≈0.72 m birim, yola bakan yüz dahil): yol kenarında + ara bordürler
       const kerbLine = (v: number, kh: number) => {
         if (kh < 0.05) return;
-        const nS = Math.max(1, Math.round(L / 1));
+        const nS = Math.max(1, Math.round(L / KERB_UNIT));
         for (let k = 0; k < nS; k++) {
           const u0 = (L * k) / nS;
           const u1 = (L * (k + 1)) / nS;
@@ -908,6 +923,24 @@ function buildStreet(
       };
       if (lay.bands[0]?.v0 >= KERB_W - 1e-6) kerbLine(0, kerbH);
       for (const [v, kh] of lay.kerbs ?? []) kerbLine(v, kh);
+      // Beyaz boyalı bordür (ölçüm: kerbPaint "white" — 502. Sk. batı, bisiklet şeridi kenarı; kullanıcı fotoğrafı
+      // 502sk-bati-bisiklet.jpg düzeltilmiş üst görünüşte üstün iç ~7 cm'i gri, dışı + yuvarlak kenar + yol yüzü beyaz;
+      // Street View U-Oz8…_273_-5_40 yol yüzünü beyaz gösteriyor). Yol kotunda ayrı beyaz çizgi yok.
+      const paintKerb = sw.kerbPaint === 'white' && kerbH >= 0.05 && lay.bands[0]?.v0 >= KERB_W - 1e-6;
+      if (paintKerb) {
+        const nS = Math.max(1, Math.round(L / KERB_UNIT));
+        const outward = -t[1] * -n[0] + t[0] * -n[1] > 0;
+        for (let k = 0; k < nS; k++) {
+          const u0 = (L * k) / nS;
+          const u1 = (L * (k + 1)) / nS;
+          const c = q((u0 + u1) / 2, KERB_W / 2);
+          const y = H(c[0], c[1]);
+          const A = q(u0, -0.002);
+          const E = q(u1, -0.002);
+          b.wall('kerbPaint', outward ? A : E, outward ? E : A, y + 0.02, y + kerbH);
+        }
+        strip(0, PAINT_TOP, 'kerbPaint', kerbH + 0.003);
+      }
       // Bisiklet şeridi (yol kotunda mavi boya) + dış kenarda beyaz kesikli çizgi
       // KARAR: bisiklet şeridi boyası çizilmez — iki eleştirmen turunda da gerçek karelerde mavi boya seçilemedi
       // KARAR: kullanıcı fotoğrafı (502. Sk.) mavi şeridi açıkça gösteriyor → varsayılan açık (?nobike kapatır).
@@ -915,7 +948,7 @@ function buildStreet(
       if (lay.bike && SHOW_BIKE) {
         strip(-lay.bike, 0, 'spBike', 0.075);
         strip(-lay.bike, -lay.bike + 0.12, 'spPaint', 0.08);
-        strip(-0.1, 0, 'spPaint', 0.08);
+        if (!paintKerb) strip(-0.1, 0, 'spPaint', 0.08);
       }
       // Bordürle OSM asfaltı arası boşluk kalmasın: yol tarafına asfalt dolgu (OSM yolunun altında kalır)
       const fw = Math.max(fillW(a[0], a[1]), fillW(e[0], e[1]), fillW((a[0] + e[0]) / 2, (a[1] + e[1]) / 2));
