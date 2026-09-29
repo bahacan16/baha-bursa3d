@@ -1747,19 +1747,19 @@
      -151.36
     ],
     [
-     202.3,
+     202.05,
      -151.43
     ],
     [
-     202.3,
+     202.05,
      -146
     ],
     [
-     202.2,
+     201.95,
      -138
     ],
     [
-     202.1,
+     201.85,
      -128
     ]
    ],
@@ -1817,7 +1817,7 @@
     ]
    ],
    "pillarsU": [],
-   "note": "Bej-kum rengi taneli sıvalı betonarme duvar (2025 difüz ≈#7d6f5b, 2019 ≈#71665d; kuzeye baktığı için güneşli yama yok). Panellerin üst kenarı yay biçiminde (yüksekliği ≈1.7 m panel uçlarında, ≈2.1 m panel ortasında; ortalama 1.9), paneller arası koyu yeşil/antrasit sivri kemer biçimli derz şeritleri (yerden yükselip komşu kemerle kesişen); JDIg_180_-50'de derz ayakları duvar boyunca −4.6, +1.0, +3.6 m (düzen ≈5.7 + 2.5 m, ±0.5). Duvar hattı = bordür+3.8 (da2-sw-south-arch notu). Duvar dibinde bank ve turuncu çöp kutusu (street). Doğu ucu ≈(251.7,-136.3): hava fotoğrafında duvar/çalı bandı köşe yapıp güneye döner (dönüş kolu ölçülmedi). Batı ucu köşe (202.3,-151.4) dik köşe varsayıldı; 503. Sk. kolu x≈202.3 (bordür 200.3 + 2.0; HVLz_90_-50 2025 yakın kare: aynı duvar, gümüş boru korkuluk + sarmaşık), güneyde z≈-128'e kadar kaydedildi."
+   "note": "Bej-kum rengi taneli sıvalı betonarme duvar (2025 difüz ≈#7d6f5b, 2019 ≈#71665d; kuzeye baktığı için güneşli yama yok). Panellerin üst kenarı yay biçiminde (yüksekliği ≈1.7 m panel uçlarında, ≈2.1 m panel ortasında; ortalama 1.9), paneller arası koyu yeşil/antrasit sivri kemer biçimli derz şeritleri (yerden yükselip komşu kemerle kesişen); JDIg_180_-50'de derz ayakları duvar boyunca −4.6, +1.0, +3.6 m (düzen ≈5.7 + 2.5 m, ±0.5). Duvar hattı = bordür+3.8 (da2-sw-south-arch notu). Duvar dibinde bank ve turuncu çöp kutusu (street). Doğu ucu ≈(251.7,-136.3): hava fotoğrafında duvar/çalı bandı köşe yapıp güneye döner (dönüş kolu ölçülmedi). Batı ucu köşe (202.3,-151.4) dik köşe varsayıldı; 503. Sk. kolu x≈202.3 (bordür 200.3 + 2.0; HVLz_90_-50 2025 yakın kare: aynı duvar, gümüş boru korkuluk + sarmaşık), güneyde z≈-128'e kadar kaydedildi. H-kalibrasyon (HVLz 2025, kamera 2.35 m, kaldırım kotunda ×0.88): 503. Sk. kolu bordür+2.0 → bordür+1.75; noktalar x 202.3/202.3/202.2/202.1 → 202.05/202.05/201.95/201.85 (DA kolu hava fotoğrafı + 2019 oranından, değişmedi)."
   },
   {
    "kind": "other",
@@ -1825,40 +1825,40 @@
    "street": "503. Sokak (batı yakası) — da1 sitesinin doğu çiti",
    "pts": [
     [
-     190.7,
+     190.95,
      -128
     ],
     [
-     190.7,
+     190.95,
      -134
     ],
     [
-     190.7,
+     190.95,
      -140
     ],
     [
-     190.7,
+     190.95,
      -146
     ],
     [
-     190.7,
+     190.95,
      -151.5
     ]
    ],
-   "wallH": 1.2,
+   "wallH": 1.1,
    "coping": {
     "h": 0.06,
     "color": "#646a6d"
    },
    "pillarEvery": 5.8,
    "pillarW": 0.38,
-   "pillarH": 1.6,
+   "pillarH": 1.4,
    "lamp": "none",
-   "mesh": 0.9,
+   "mesh": 0.75,
    "razor": false,
    "hedge": null,
    "wall": {
-    "h": 1.2,
+    "h": 1.1,
     "t": 0.25,
     "color": "#575c60",
     "finish": "stone"
@@ -1867,21 +1867,21 @@
     "every": 5.8,
     "list": [
      [
-      190.7,
+      190.95,
       -128
      ]
     ],
     "w": 0.38,
-    "h": 1.6,
+    "h": 1.4,
     "color": "#646a6d",
     "cap": "düz prekast başlık",
     "lamp": false
    },
    "infill": "panel",
    "infillSpec": {
-    "h": 0.9,
-    "from": 1.2,
-    "to": 2.1,
+    "h": 0.75,
+    "from": 1.1,
+    "to": 1.85,
     "color": "#243a2c",
     "type": "koyu yeşil 2D tel panel"
    },
@@ -1892,7 +1892,7 @@
      "none"
     ]
    ],
-   "note": "da1-south-site ile aynı tip: koyu gri prekast panel, yüzü oyma/kabartma desenli (l07h_270_-50 2025: ≈#4a5154–#575c60), açık gri kolonlar ≈#646a6d, üstte koyu yeşil tel panel; arkası çim şerit + ağaçlar (x 186–190.5, hava fotoğrafı). Bu kolda panel yüksekliği ham ≈1.25 m (da1'deki 0.7'den yüksek; ±0.2). Kolon aralığı ≈5.8 (tek karede iki aralık) — faz (başlangıç kolonu) bilinmiyor, U=0'dan başlatıldı. Jiletli tel bu karelerde seçilemedi. Hat: hava fotoğrafında duvarın batıya düşen gölge çizgisi x≈190.5–190.9 (z -148…-128); kuzey ucu z≈-151.5 (köşe ve da1 çitiyle bağlantı ölçülmedi)."
+   "note": "da1-south-site ile aynı tip: koyu gri prekast panel, yüzü oyma/kabartma desenli (l07h_270_-50 2025: ≈#4a5154–#575c60), açık gri kolonlar ≈#646a6d, üstte koyu yeşil tel panel; arkası çim şerit + ağaçlar (x 186–190.5, hava fotoğrafı). Bu kolda panel yüksekliği ham ≈1.25 m (da1'deki 0.7'den yüksek; ±0.2). Kolon aralığı ≈5.8 (tek karede iki aralık) — faz (başlangıç kolonu) bilinmiyor, U=0'dan başlatıldı. Jiletli tel bu karelerde seçilemedi. Hat: hava fotoğrafında duvarın batıya düşen gölge çizgisi x≈190.5–190.9 (z -148…-128); kuzey ucu z≈-151.5 (köşe ve da1 çitiyle bağlantı ölçülmedi). H-kalibrasyon (l07h 2025, kamera 2.35 m, duvar tabanı kaldırım kotunda → ×0.88): duvar ham 1.25→1.10 (wallH 1.2→1.1), dikme 1.6→1.4, panel 1.2–2.1 → 1.1–1.85; hat x 190.7→190.95 (kalibre kaldırım 2.05 m, bordür 193.0; gölge çizgisi 190.5–190.9 duvarın batısına düşer, duvar yüzü doğu kenarda)."
   },
   {
    "kind": "other",
@@ -2063,25 +2063,25 @@
      -69.73
     ]
    ],
-   "wallH": 1.9,
+   "wallH": 1.65,
    "coping": {
     "h": 0.05,
     "color": "#9a998f"
    },
    "pillarEvery": 4.1,
    "pillarW": 0.35,
-   "pillarH": 1.9,
+   "pillarH": 1.65,
    "lamp": "none",
-   "mesh": 1.2,
+   "mesh": 1.1,
    "razor": false,
    "hedge": {
-    "h": 2.6,
+    "h": 2.3,
     "depth": 1,
     "species": "x 678–695 sürekli leylandi kesme çit (DIKa 2025); x 695–729 bahçe: çam, servi, genç ağaçlar (pc3Z 2025)",
     "color": "#2c391c"
    },
    "wall": {
-    "h": 1.9,
+    "h": 1.65,
     "t": 0.25,
     "color": "#919087",
     "finish": "render (düz sıva, beyaz-krem; üst kısmında gömme dikdörtgen paneller; kuzeye baktığı için gölgede ölçüldü)"
@@ -2143,15 +2143,15 @@
      ]
     ],
     "w": 0.35,
-    "h": 1.9,
+    "h": 1.65,
     "cap": false,
     "lamp": false
    },
    "infill": "panel",
    "infillSpec": {
-    "h": 1.2,
-    "from": 1.9,
-    "to": 3.1,
+    "h": 1.1,
+    "from": 1.65,
+    "to": 2.75,
     "color": "#8e9194",
     "type": "galvaniz/açık gri 2D tel panel, dikmeleri duvar kolonları üzerinde (pc3Z_180_0)"
    },
@@ -2163,7 +2163,7 @@
     ]
    ],
    "pillarsU": [],
-   "note": "SV 2025-09: DIKa_180_0 (x≈683), pc3Z_180_0 (x≈703), duvar yüksekliği DIKa_180_0 karesinden kamera 2.5 m ile ≈1.9 m (taban d≈7.3), kolon aralığı aynı karede üç kolondan 3.9 / 4.3 → 4.1 (liste düzenli bölmeyle üretildi, tek tek doğrulanmadı). Hat hava fotoğrafından (kılavuz E1 v≈+10.1, ±0.4). Batı ucu x≈678: 303738118 (İskele Balık, mavi-beyaz şeritli cephe BJWF_180_-50) yapısına bitişir; doğu ucu x 729 (hava fotoğrafı sınırı, duvar devam ediyor). Kapı/araç girişi bu kesimde görülmedi (x 720–729 otopark 303738117 girişi olabilir — ölçülmedi)."
+   "note": "SV 2025-09: DIKa_180_0 (x≈683), pc3Z_180_0 (x≈703), duvar yüksekliği DIKa_180_0 karesinden kamera 2.5 m ile ≈1.9 m (taban d≈7.3), kolon aralığı aynı karede üç kolondan 3.9 / 4.3 → 4.1 (liste düzenli bölmeyle üretildi, tek tek doğrulanmadı). Hat hava fotoğrafından (kılavuz E1 v≈+10.1, ±0.4). Batı ucu x≈678: 303738118 (İskele Balık, mavi-beyaz şeritli cephe BJWF_180_-50) yapısına bitişir; doğu ucu x 729 (hava fotoğrafı sınırı, duvar devam ediyor). Kapı/araç girişi bu kesimde görülmedi (x 720–729 otopark 303738117 girişi olabilir — ölçülmedi). H-kalibrasyon (DIKa_180_0 / pc3Z_180_0 2025, kamera 2.35 m; duvar tabanı kaldırım kotunda → ×0.88): duvar 1.90→1.65, kolon 1.90→1.65, panel 1.9–3.1 → 1.65–2.75, leylandi 2.6→2.3, taban mesafesi d 7.3→6.4. Kolon aralığı 4.1 SV taban mesafesiyle hesaplandıysa ×0.88 → 3.6 olur — doğrulanmadı, değiştirilmedi. Hava fotoğrafı eğiklik düzeltmesi 1.9 m duvara göre yapılmıştı (duvar tabanı v≈+10.1 ≈0.1 m kayabilir)."
   },
   {
    "kind": "other",
@@ -2219,7 +2219,7 @@
      -55.24
     ]
    ],
-   "wallH": 1.75,
+   "wallH": 1.65,
    "coping": {
     "h": 0.04,
     "color": "#796851"
@@ -2228,11 +2228,11 @@
    "pillarW": 0,
    "pillarH": 0,
    "lamp": "none",
-   "mesh": 0.6,
+   "mesh": 0.55,
    "razor": false,
    "hedge": null,
    "wall": {
-    "h": 1.75,
+    "h": 1.65,
     "t": 0.3,
     "color": "#796851",
     "finish": "render",
@@ -2254,9 +2254,9 @@
    },
    "infill": "railing",
    "infillSpec": {
-    "h": 0.6,
-    "from": 1.75,
-    "to": 2.35,
+    "h": 0.55,
+    "from": 1.65,
+    "to": 2.2,
     "color": "#0b1d12",
     "type": "duvar kemerlerini izleyen koyu yeşil kemerli çelik korkuluk (da2-fence-arch ile aynı tip — 2Qtex 2025 karesinde görüldü)"
    },
@@ -2268,7 +2268,7 @@
     ]
    ],
    "pillarsU": [],
-   "note": "SV 2Qtex (273.9,-51.7) 2025-09: 0_-50, 60_0 — bej taneli sıvalı betonarme duvar, paneller arası koyu yeşil sivri kemer derzleri, üstte kemerli koyu yeşil korkuluk (da2-fence-arch tipi); yükseklik 60_0 karesinde ≈1.75 (x≈277); renk gölgede #796851 / #706557 (duvar güneye baksa da kapalı hava). Duvar dibinde kaldırım YOK: yol asfaltı doğrudan duvara (ince beton şerit), duvar boyunca yol üstünde park etmiş araçlar. Hat hava fotoğrafında sabit parlak çizgi (kılavuz v=-2.7) + SV taban noktası (277.1,-56.8). Kemer deseni da2 ölçüsünden kopya (bu kesimde ölçülmedi)."
+   "note": "SV 2Qtex (273.9,-51.7) 2025-09: 0_-50, 60_0 — bej taneli sıvalı betonarme duvar, paneller arası koyu yeşil sivri kemer derzleri, üstte kemerli koyu yeşil korkuluk (da2-fence-arch tipi); yükseklik 60_0 karesinde ≈1.75 (x≈277); renk gölgede #796851 / #706557 (duvar güneye baksa da kapalı hava). Duvar dibinde kaldırım YOK: yol asfaltı doğrudan duvara (ince beton şerit), duvar boyunca yol üstünde park etmiş araçlar. Hat hava fotoğrafında sabit parlak çizgi (kılavuz v=-2.7) + SV taban noktası (277.1,-56.8). Kemer deseni da2 ölçüsünden kopya (bu kesimde ölçülmedi). H-kalibrasyon (2Qtex 2025, kamera 2.35 m, duvar dibi yol kotunda → ×0.94): duvar 1.75→1.65, korkuluk üstü 2.35→2.20; SV taban noktası (277.1,-56.8) pano mesafesi 6.0→5.65 m → ≈(276.9,-56.5) (hat hava fotoğrafından, taşınmadı). Ayrıca 2014 (EIX3) ve 2019 (Dr35) zemin karelerinde bu sokakta duvar tabanından duvar tabanına ≈9.0 m ölçülüyor, bu hat ile da3-fence-side-s arası 6.5 m — güney hat yeniden ölçülmeli (docs/SV_CAMERA.md)."
   },
   {
    "kind": "other",
@@ -2336,7 +2336,7 @@
    "mesh": 0.9,
    "razor": false,
    "hedge": {
-    "h": 2.75,
+    "h": 2.6,
     "depth": 1.1,
     "species": "leylandi sürekli kesme çit (tel çitin arkasından taşıyor)",
     "color": "#2c391c"
@@ -2371,7 +2371,7 @@
     ]
    ],
    "pillarsU": [],
-   "note": "SV 2Qtex 2025-09: 180_-50, 120_0 — alçak açık gri yarma taş duvar (≈#88867d), üstünde tel çit, arkasında leylandi (üst ≈2.75 m, 120_0 kamera 2.5 m ile). Kaldırım yok; duvar dibinde yol. Hat: SV taban d≈3.1 m (z≈-48.6 x≈274) ile hava fotoğrafı çizgisi (x 312âde v≈+4.0) arasında — batı ucu ±0.8 m belirsiz. Duvar yüksekliği ≈0.9 VARSAYIM (oransal, ±0.2). Duvar dibinde lamba (da3-lamp-side)."
+   "note": "SV 2Qtex 2025-09: 180_-50, 120_0 — alçak açık gri yarma taş duvar (≈#88867d), üstünde tel çit, arkasında leylandi (üst ≈2.75 m, 120_0 kamera 2.5 m ile). Kaldırım yok; duvar dibinde yol. Hat: SV taban d≈3.1 m (z≈-48.6 x≈274) ile hava fotoğrafı çizgisi (x 312âde v≈+4.0) arasında — batı ucu ±0.8 m belirsiz. Duvar yüksekliği ≈0.9 VARSAYIM (oransal, ±0.2). Duvar dibinde lamba (da3-lamp-side). H-kalibrasyon (2Qtex 2025, kamera 2.35 m, yol kotu → ×0.94): SV taban d 3.1→2.9 m (z≈-48.8, x≈274); leylandi üstü 2.75→2.6. Hat taşınmadı, ama 2014 (EIX3) ve 2019 (Dr35) zemin kareleri duvar tabanından duvar tabanına ≈9.0 m veriyor (bu hat ile kuzey hat arası 6.5 m): güney duvar hava fotoğrafında bina çatısı eğikliğinin altında kalıyor olabilir, gerçek hat ≈1.5–2 m güneyde görünüyor (2Qtex z≈-48.8 x 274; Dr35 z≈-48.1 x 283; GPS ±1–3 m) — yeniden ölçülmeli."
   }
  ],
  "gates": [
@@ -3588,7 +3588,7 @@
      -162.72
     ]
    ],
-   "w": 3.7,
+   "w": 3.25,
    "side": "left",
    "kerbH": 0.15,
    "layers": [
@@ -3598,7 +3598,7 @@
      "h": 0.15
     },
     {
-     "w": 2.4,
+     "w": 1.95,
      "material": "gri beton kilit taşı 10×20 (SV 2025 ≈#85817c, 2019 ≈#93948d)",
      "h": 0.15
     },
@@ -3609,7 +3609,7 @@
     }
    ],
    "material": "gri beton bordür 15×30; kırmızı bant 1.15 + gri + sarı kılavuz (kaldırımın batıdaki da1 meydanı ve doğudaki UPTOWN önüyle aynı düzen).",
-   "note": "pts = bordür (yol kenarı) = kuzey kenar çizgisi + 0.35 m (hava fotoğrafı profilleri; SV JDIg/KOxF zemin karelerinde kenar çizgisi–bordür yüzü ≈0.3 m). Arkası: x 183–194 sıkıştırılmış çakıl otopark (OSM parking_aisle x≈185.5 girişi; SyTa 2025 zemin karesinde kilit taşı çakıla kotsuz birleşiyor, kaldırım ≈3.7 m), x 194.5–199.3 UPTOWN site otoparkı girişi (kırmızı-beyaz bariyer kolu, turuncu direk x≈194.1; KOxF 2019 karesinde bordür bu açıklıkta indirilmiş rampa). Bordür indirme sınırları ±0.5 m. SV: 2025-09 (SyTa, nxqv) + 2019-05 (KOxF)."
+   "note": "pts = bordür (yol kenarı) = kuzey kenar çizgisi + 0.35 m (hava fotoğrafı profilleri; SV JDIg/KOxF zemin karelerinde kenar çizgisi–bordür yüzü ≈0.3 m). Arkası: x 183–194 sıkıştırılmış çakıl otopark (OSM parking_aisle x≈185.5 girişi; SyTa 2025 zemin karesinde kilit taşı çakıla kotsuz birleşiyor, kaldırım ≈3.7 m), x 194.5–199.3 UPTOWN site otoparkı girişi (kırmızı-beyaz bariyer kolu, turuncu direk x≈194.1; KOxF 2019 karesinde bordür bu açıklıkta indirilmiş rampa). Bordür indirme sınırları ±0.5 m. SV: 2025-09 (SyTa, nxqv) + 2019-05 (KOxF). H-kalibrasyon (docs/SV_CAMERA.md; 2025-09 kamera 2.35 m, kaldırım kotunda etkin 2.20 → ×0.88): SyTa zemin karesindeki genişlik 3.70→3.25 m, gri bant 2.40→1.95 (hava fotoğrafında çakıl sınırı seçilmiyor; ±0.15)."
   },
   {
    "id": "da2-sw-north-uptown",
@@ -3912,23 +3912,23 @@
      -155.25
     ]
    ],
-   "w": 2,
+   "w": 1.75,
    "side": "right",
    "kerbH": 0.15,
    "layers": [
     {
-     "w": 1.85,
+     "w": 1.6,
      "material": "gri beton kilit taşı (2025 gölgede ≈#898984)",
      "h": 0.15
     },
     {
      "w": 0.4,
      "material": "sarı hissedilebilir kılavuz şerit (2025 gölgede ≈#a1937d)",
-     "at": 1.1
+     "at": 0.95
     }
    ],
    "material": "gri bordür, gri kilit taşı, bordüre yakın sarı kılavuz (merkez bordür+1.1); kırmızı bant yok (503. Sk.).",
-   "note": "HVLz_0_-50 (2025-09) zemin karesi satır profili: bordür→kılavuz 0.9–1.3, →duvar 1.95 m (bu mesafede ham ölçek ≈1). Bordür x: hava fotoğrafı 199.8–200.6 arası (gölge nedeniyle belirsiz) → 200.3 ±0.4. SV konumları bu sokakta 3–4 m kayık (l07h/HVLz GPS), bu yüzden mutlak konum hava fotoğrafından. Köşe yayı yarıçapı ≈1.8 (KOxF_180_-50: köşede ızgara + DUR levhası). Güney ucu z≈-128 (daha güneyi ölçülmedi)."
+   "note": "HVLz_0_-50 (2025-09) zemin karesi satır profili: bordür→kılavuz 0.9–1.3, →duvar 1.95 m (bu mesafede ham ölçek ≈1). Bordür x: hava fotoğrafı 199.8–200.6 arası (gölge nedeniyle belirsiz) → 200.3 ±0.4. SV konumları bu sokakta 3–4 m kayık (l07h/HVLz GPS), bu yüzden mutlak konum hava fotoğrafından. Köşe yayı yarıçapı ≈1.8 (KOxF_180_-50: köşede ızgara + DUR levhası). Güney ucu z≈-128 (daha güneyi ölçülmedi). H-kalibrasyon (2025-09 kamera 2.35 m, kaldırım kotunda ×0.88; 'ham ölçek ≈1' geçerli değil — hata mesafeyle orantılı): HVLz bordür→duvar 1.95→1.72 (w 2.00→1.75), gri 1.85→1.60, kılavuz merkezi 1.10→0.95 (ham 0.9–1.3 → 0.8–1.15)."
   },
   {
    "id": "da2-sw-503-west",
@@ -3975,23 +3975,23 @@
      -128
     ]
    ],
-   "w": 2.3,
+   "w": 2.05,
    "side": "right",
    "kerbH": 0.15,
    "layers": [
     {
-     "w": 2.15,
+     "w": 1.9,
      "material": "gri beton kilit taşı (2025 ≈#8b877f, güneşli kısım ≈#9f9c97)",
      "h": 0.15
     },
     {
      "w": 0.4,
      "material": "sarı hissedilebilir kılavuz şerit (2025 güneşli ≈#b9aa93)",
-     "at": 1
+     "at": 0.9
     }
    ],
    "material": "gri bordür, gri kilit taşı, sarı kılavuz (bordür+≈1.0); yol tarafında bordür boyunca mavi bisiklet şeridi (≈1.15 m, beyaz kenar çizgili, 2025 ≈#7a838e) — katmanlarla ifade edilemiyor.",
-   "note": "l07h_270_-50 (2025): bisiklet şeridi → bordür → gri kaldırım (ham 2.35 m) → kabartmalı duvar; kılavuz bordürden ham ≈1.0. HVLz_0_-50: batı bordürü ile şerit iç çizgisi arası ham ≈1.2. Bordür x 193.0 ±0.5 (hava fotoğrafı; SV GPS kayık). Kuzey kolu (x 185–191) da1-sw-south'un bittiği köşe; burada kaldırım gerçekte site çitine (z≈-152) kadar ≈4 m geniş köşe alanı (lamba da1-lamp-5) — 2.3 m ile kapanmıyor. Park etmiş araçlar bisiklet şeridi üzerinde (hava fotoğrafı).",
+   "note": "l07h_270_-50 (2025): bisiklet şeridi → bordür → gri kaldırım (ham 2.35 m) → kabartmalı duvar; kılavuz bordürden ham ≈1.0. HVLz_0_-50: batı bordürü ile şerit iç çizgisi arası ham ≈1.2. Bordür x 193.0 ±0.5 (hava fotoğrafı; SV GPS kayık). Kuzey kolu (x 185–191) da1-sw-south'un bittiği köşe; burada kaldırım gerçekte site çitine (z≈-152) kadar ≈4 m geniş köşe alanı (lamba da1-lamp-5) — 2.3 m ile kapanmıyor. Park etmiş araçlar bisiklet şeridi üzerinde (hava fotoğrafı). H-kalibrasyon (2025-09 kamera 2.35 m): l07h kaldırım ham 2.35 × 0.88 = 2.07 → w 2.30→2.05, gri 2.15→1.90, kılavuz 1.00→0.90; bisiklet şeridi yol kotunda ham 1.2 × 0.94 = 1.13 → 1.15 değişmedi. Duvar hattı buna göre x 190.95 (hava fotoğrafı gölge çizgisinin doğu kenarı ≈190.9 ile uyumlu; da2-fence-503-west).",
    "bike": 1.15
   },
   {
@@ -6558,11 +6558,11 @@
   "da1 güney yakası (site önü): kaldırımla duvar arası boşluk yok, duvar doğrudan kaldırıma oturur. Duvarın arkasında: x 15–26 köşe çimi + çam/çalı, x 26–40 site içi otopark (beyaz çizgili, araç kapısından girilen), x 45–182 blok önü çimler, şimşir/çalı öbekleri, küçük süs ağaçları (erguvan, ıhlamur, çam) ve blokların giriş yolları. Blokların kuzey cepheleri duvardan ≈4–6 m geride.",
   "da1 kuzey yakası: x 0–36 park (Nato Parkı tarafı) çimi, kaldırım arkasında krem beton kenar taşı; x≈20–26 parka çapraz giden yaya yolu. x 36.5–83 yol kotunda kilit taşı açık otopark (dik park), arkasında 2.3 m park kaldırımı ve çim; otoparkın arkasında beyaz trafo köşkü (x≈53–59). x 83–94 kuzeye giden kilit taşı yaşam sokağı / blok girişi. x 94–183 cepheye kadar kilit taşı meydan: kaldırım + sarı çizgili dik park yerleri + vitrin önü; zemin katta dükkânlar. x>183 çakıl/toprak otopark, servis yolunda kırmızı-beyaz bariyer kolu.",
   "da1 yaya geçidi: incelenen bölgede boyalı yaya geçidi (zebra) yok; kavşak ve giriş önlerinde bordür rampaları var. Otobüs durağı, bank (kamusal), yangın musluğu görülmedi.",
-  "da1 kayıt kontrolü: Street View GPS’i bu yolda enine 1–3 m, boyuna 1–2 m kayıyor (aynı kolon/kapı iki panodan 0.9–1.8 m farklı). Konumlar hava fotoğrafına göre (kenar çizgileri, otopark arka bordürü, trafo, ağaç, direk); duvar ve kapılar SV kerteriz çizgilerinin (bearing) duvar hattıyla kesişimi, lamba/pano/kapı konumları iki pano ortalaması. Kamera yüksekliği varsayımı (2.5 m) aşağı bakan karelerde güney kaldırımını ~%15 geniş veriyor; genişlikler hava fotoğrafı ile uzlaştırıldı.",
+  "da1 kayıt kontrolü: Street View GPS’i bu yolda enine 1–3 m, boyuna 1–2 m kayıyor (aynı kolon/kapı iki panodan 0.9–1.8 m farklı). Konumlar hava fotoğrafına göre (kenar çizgileri, otopark arka bordürü, trafo, ağaç, direk); duvar ve kapılar SV kerteriz çizgilerinin (bearing) duvar hattıyla kesişimi, lamba/pano/kapı konumları iki pano ortalaması. Kamera yüksekliği varsayımı (2.5 m) aşağı bakan karelerde güney kaldırımını ~%15 geniş veriyor; genişlikler hava fotoğrafı ile uzlaştırıldı. H-kalibrasyon (docs/SV_CAMERA.md): 2025-09 kamera 2.35 ± 0.07 m (yol çizgileri + zebra + araç + yaya); kaldırım kotundaki noktalar için etkin yükseklik 2.35 − 0.15 = 2.20 → 2.5 ile ölçülen SV genişlikleri yol kotunda ×0.94, kaldırımda ×0.88 (%15 fazlalığın nedeni).",
   "da1 belirsizlikler: güney duvar hattı ±0.4 m (hava fotoğrafında çalı/ağaç eğikliği kaldırımın dış kısmını örtüyor), kolon aralığı 3.9±0.2 (kolonlar kapı kolonlarından eşit bölünerek üretildi, tek tek doğrulanmadı), köşe (502. Sk.) duvar kıvrımı ve doğu uç kolu, jiletli telin tüm hatta sürekliliği, kuzey meydan dikmeleri ve bank konumu ±1–2 m, park ağaçları (yalnızca bir örnek).",
   "da2 (Doğan Avcıoğlu Cad., x 183–278, 503. Sk. kavşağı → viraj → güneydoğu): taşıt yolu iki şeritli iki yönlü asfalt, orta refüj yok; beyaz kesikli orta çizgi, iki kenarda beyaz sürekli kenar çizgisi. Kenar çizgileri arası 6.1–6.3 m (hava fotoğrafı profilleri, x 200–278 boyunca sabit). Kenar çizgisi → bordür: güneyde ≈0.5 m asfalt oluk (SV JDIg_180_-50), kuzeyde ≈0.3–0.35 m (JDIg_0_-50). Bordürden bordüre ≈7.0 m. Yolda park, bisiklet şeridi, yaya geçidi (zebra) yok; kuzey kaldırımında 2019'da boyalı bisiklet piktogramı.",
   "da2 geometri: yol ekseni x 198–222'de düz (z ≈ -157.8 + 0.0515·(x−198.7) + 1.25 m kuzeye, yani x 210'da ≈-158.45), x 222–245 arasında ≈33° sağa (güneydoğuya) dönen viraj, x 245–278 düz, doğrultu ≈(0.843, 0.538) (x 264.7'de eksen ≈(264.4,-136.7)). Bordür noktaları hava fotoğrafındaki kenar çizgisi tepelerinden (0.05 m adımlı profiller, ±0.2) türetildi. 503. Sk. (güney kolu) kavşakta x≈193.0 (batı bordürü) – 200.3 (doğu bordürü), batı yakasında yol üzerinde ≈1.15 m mavi bisiklet şeridi; kuzeydeki kol OSM'de otopark servis yolu (x≈185, sıkıştırılmış çakıl).",
-  "da2 kayıt kontrolü: Bu kesimde Doğan Avcıoğlu zemin panoları yalnız 2019-05 (KOxF x≈201, JDIg x≈210); 2025-09 kanıt SyTa/nxqv (x 179–190) 40° uzak kareleri ve 503. Sk. panoları (l07h, HVLz). 2019 zemin karelerinde 2.5 m kamera varsayımı uzak bantları %12–20 büyük veriyor (kuzey duvarı ham 5.35 m, hava fotoğrafı 4.15) → genişlikler hava fotoğrafından, bant oranları SV'den. 503. Sk. panolarının GPS'i 3–4 m kayık (l07h/HVLz batı bordürüne ham 6.3 m, doğu bordürüne 1.5 m) → 503 konumları hava fotoğrafından. Renkler: 2019 kareleri kapalı hava, 2025 kareleri difüz/puslu, kuzeye bakan cepheler güneş almıyor → güneşli yama bulunamadı; verilen #rrggbb değerleri difüz (2025) ve 2019 örnekleri (dikdörtgen ortalamaları). Tek güneşli/gölgeli çift 503. Sk.'da: gri kilit taşı güneşte ≈#9f9c97 / gölgede ≈#898984, sarı kılavuz ≈#b9aa93 / ≈#a1937d.",
+  "da2 kayıt kontrolü: Bu kesimde Doğan Avcıoğlu zemin panoları yalnız 2019-05 (KOxF x≈201, JDIg x≈210); 2025-09 kanıt SyTa/nxqv (x 179–190) 40° uzak kareleri ve 503. Sk. panoları (l07h, HVLz). 2019 zemin karelerinde 2.5 m kamera varsayımı uzak bantları %12–20 büyük veriyor (kuzey duvarı ham 5.35 m, hava fotoğrafı 4.15) → genişlikler hava fotoğrafından, bant oranları SV'den. 503. Sk. panolarının GPS'i 3–4 m kayık (l07h/HVLz batı bordürüne ham 6.3 m, doğu bordürüne 1.5 m) → 503 konumları hava fotoğrafından. Renkler: 2019 kareleri kapalı hava, 2025 kareleri difüz/puslu, kuzeye bakan cepheler güneş almıyor → güneşli yama bulunamadı; verilen #rrggbb değerleri difüz (2025) ve 2019 örnekleri (dikdörtgen ortalamaları). Tek güneşli/gölgeli çift 503. Sk.'da: gri kilit taşı güneşte ≈#9f9c97 / gölgede ≈#898984, sarı kılavuz ≈#b9aa93 / ≈#a1937d. H-kalibrasyon (docs/SV_CAMERA.md): 2019-05 kamera 2.55 ± 0.10 m (2014-07: 2.80 ± 0.15) → yol kotunda ×1.02, kaldırımda ×0.96; uzak bantlardaki %12–20 fazlalık kamera yüksekliğinden değil kaldırım kotu/eğimi ve pano eğikliğinden (uzak noktalar 0.3° ile %3) — genişlikler hava fotoğrafından kalmalı.",
   "da2 kuzey yakası: x 183–194 çakıl otopark önü, x 194.5–199.3 UPTOWN Bursa otopark girişi (bariyer), x 199.3–222 UPTOWN beyaz tuğla desenli alçak duvar + gri dikme/küre lamba + yatay boru korkuluk + leylandi, x 222–224.6 pah, sonra isimsiz yol (x≈225.5–231; batıda duvar dibinde paralel park, doğuda ağaçlı şerit; OSM kerb/crossing düğümü 228.8,-162.1), x≈231–242 kuzeydoğu site giriş kulübesi + kanopi (servis yolu), x 244→ kuzeydoğu site gri panel duvar + tel panel + servi sırası, dar (≈2.2 m) kaldırım.",
   "da2 güney yakası: 503. Sk. GD köşesinden x≈252'ye kadar OSM 1540901772 bloğunun bej sıvalı kemerli istinat duvarı (h≈1.7–2.1, 2025'te üstünde kemerli yeşil korkuluk), önünde 3.8 m kaldırım (kırmızı bant + gri + sarı kılavuz), duvar dibinde bank ve turuncu çöp kutusu, kaldırımda duvar tarafında lamba direkleri; x 252–278 apartman zemin katı dükkânlarının açık gri ön avlusu, önünde ≈3 m kaldırım.",
   "da2 belirsizlikler: kuzeydoğu kaldırımı ve güney ön avlu kesimi (x>242) yalnız hava fotoğrafı + uzak kareler (bant düzeni bilinmiyor, ±0.4 m); kemerli duvar yüzü ±0.3 (hava fotoğrafında çalı/çatı eğikliği); UPTOWN isimsiz yol kolundaki dikmeler aralıktan varsayıldı; kuzeydoğu çit kolon aralığı 9.6 (ara kolon olabilir); lamba-2 ±2 m; 503. Sk. bordürleri ±0.4–0.5; bisiklet şeridi ve kavşak köşe rampaları katman şemasında ifade edilemiyor; isimsiz yol ve servis yolu ağızlarının bordür/rampa geometrisi ölçülmedi.",

@@ -342,3 +342,11 @@
   kaldırıldı), 1546816193 (parapet lamelleri, yalnız görülen kenarlarda çatı korkuluğu), 1541439435 (KD çekirdek
   2.3 m girinti + giydirme cam, bronz cam balkon profilleri), 1541439437 (çekirdek 3.25 m girinti, kat kat profil
   renkleri, köşe çubukları), 1541439436 (GB başlık çıkması, profil renkleri). **Blender:** bu 5 blok yeniden kurulmalı.
+- **(SV kamera kalibrasyonu)** — Street View kamera yüksekliği ölçüldü (`docs/SV_CAMERA.md`): 2025-09 **2.35 m**,
+  2019-05 2.55 m, 2014-07 2.80 m (hepsi 2.5 varsayılıyordu). Kaldırım noktaları kameradan H − 0.15 aşağıda olduğundan
+  2025 karelerinden 2.5 ile ölçülen kaldırım genişlikleri ×0.88. Düzeltilen sokak girdileri (`street-plan.json`, not:
+  "H-kalibrasyon: a→b"): da2-sw-north-lot 3.70→3.25 m, da2-sw-503-east 2.00→1.75, da2-sw-503-west 2.30→2.05,
+  da2-fence-503-west hattı/duvar/kolon, da2-fence-arch 503 kolu, da3-fence-east-site duvar 1.90→1.65 / pano üstü
+  3.10→2.75 / çit 2.6→2.3, da3-fence-side-n/-s. Karşılaştırma kamerası artık pano tarihine göre göz yüksekliğinde.
+  Cephe ortofotoları varsayılan 2.5 ile kalır (ölçüler/`base` onlara göre; fark yalnız düşey kayma). **Blender:**
+  Doğan Avcıoğlu 2–3. kesim kaldırım/çit katmanı (bu girdiler) yeniden kurulmalı.
