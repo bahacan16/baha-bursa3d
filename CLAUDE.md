@@ -2,6 +2,30 @@
 
 > Bu dosya Claude Code için proje spesifikasyonu ve çalışma talimatıdır. Her oturumun başında bunu oku, **Faz durumu** bölümünü güncel tut.
 
+## 0. KULLANICININ KALİTE KURALLARI (her zaman geçerli — önce bunu oku)
+
+> Kullanıcı (2026-09-29): "Ben lego oyunu istemiyorum, içinde gezerken gerçekten mahallemde gibi olmak istiyorum."
+> Aşağıdakiler bu projedeki tüm işler (ajan brifleri dahil) için bağlayıcıdır.
+
+1. **Tahmin yok.** Binalarda, sokaklarda, ağaçlarda, kaldırımlarda yalnızca görülen çizilir. Görülemeyen bir açı
+   yoksa varsayım yapılmaz. Görülemeyen kısım açıkça "görülmedi" diye işaretlenir, kullanıcıya bildirilir.
+2. **Katlar arası varsayım yok.** Türkiye'de her katın balkonu farklı olabilir: her kat ayrı ayrı incelenir
+   (balkon tipi, camlı/açık, korkuluk, alın rengi, perde, klima, çanak…). Alt kattan üst kata kopyalanmaz.
+3. **En ince detay:** her renk, her çıkıntı (dışarı taşan merdiven kulesi, çıkma, saçak, denizlik, söve, kat
+   silmesi), her pencere ve perdesi, balkon ölçüleri, kat kat farklı balkon alınları. Üreticinin henüz çizemediği
+   bir detay görülürse **önce üreticiye o özellik eklenir**, detay atlanmaz.
+4. **Dükkânlar:** her dükkân panosu, tabelası, vitrin afişi, tente, kepenk özenle çizilir (yazısı, rengi, logosu,
+   ışıklı/ışıksız).
+5. **Sokak:** ağaçlar (tür görünüşü, boy, konum), kaldırım bantları ve renkleri, bordürler, asfalttaki yamalar,
+   çatlaklar, çukurlar, rögarlar, yol çizgilerinin aşınması her zaman Street View görüntülerine sadık kalır.
+6. **Renkler gerçek tonlarda:** pastel/soluk ya da uydurma renk yok; fotoğraftan örneklenir (güneşli ve gölgeli
+   yama, hangisi olduğu not edilir).
+7. **Hız değil detay.** İş uzun sürebilir; çok ajanlı çalışma serbest. Kalite düşükse durup kullanıcıya sorulur.
+8. **Blender günlüğü:** her commit'te `docs/BLENDER_CHANGES.md`'ye ne değiştiği ve Blender'da hangi katmanın
+   yeniden kurulacağı yazılır, kullanıcıya "Blender günlüğüne yazdım" diye bildirilir (yerel Blender oturumu
+   paralel çalışıyor, bkz. `docs/BLENDER.md`).
+9. Düzeltmeler parça bazında yapılır (survey JSON'da öğe/renk düzeyinde); bina baştan çizilmez.
+
 ## 1. Amaç
 
 Bursa / Nilüfer / 29 Ekim Mahallesi / **502. Sokak** merkezli, **2 km çaplı (1 km yarıçaplı)** bir alanda, web ve mobil tarayıcıda oynanabilen, **GTA tarzı üçüncü şahıs yürüyüşlü** bir 3D simülasyon.
