@@ -230,7 +230,7 @@
           ]
         ]
       },
-      "note": "Kuzey cephe batı yarısı (kenar 35 aynası). KB köşe: ana balkon (d≈1.5) + köşede sığ parça (d≈0.75). K0 cam balkon; üst katlar açık. Alt katlar ağaç arkasında (otngugWf ile doğrulandı). Balkon arka duvarında küçük pencere, K4'te klima. v5: perdeler Oh3B 200_10 + 8QlT 178_22: K5 tül + lacivert fon (tul-yan), K4 beyaz tül, K3 zebra, K2 tül, K1 tül + koyu fon, K0 çit/ağaç arkasında. Köşe yığını kat kat: K0 cam (önünde kemerli ferforje, bkz. pending), K1–K5 açık buzlu cam korkuluk (dikmeli paneller, üstte paslanmaz küpeşte). K4 arka duvarda klima (K5 döşemesi altında). Alın bandı ≈0.8 m koyu gri, cam ≈0.3–0.4 m. v6: köşe yığını K0 camı önünde kemerli ferforje (Oh3B 200_10 sağ kenar, 178_9) → grille K0 arched (ana + sığ parça); şapka altında gömme spot görüldü (178_22) → ana parçada spots {n 1, cap}; her döşeme altında parça başına 1 spot (üretici varsayılanı zaten); postEvery 1.0. Çatı: gablet (8QlT 178_22, e3 ortosu): tepe görünen u 4.78 y 21.69 → dünya x −62.17 (hava fotoğrafı eğiklik düzeltmesiyle aynı), ön yüz duvar hattında (hava fotoğrafında ön kenar saçak çizgisinde → setback 0), tepe duvar üstünden 2.3 m (22.12), rüzgârlık eğimi ≈41–42° (ortoda), taban genişliği 2.6 (eğim + tepe yüksekliğinden; görünen rüzgârlık açıklığı 2.85 ≈ w + 2·0.1), ön yüz kiremit tonlu (gölgede #87746d–#9d8484 → #b99a92), rüzgârlık kiremit #a4735f, beyaz çerçeveli pencere (gerçekte alınlık biçimli beşgen, üretici dikdörtgen: 1.2 m, 3 bölme). Alt kısmı saçak alnı arkasında görülmedi.",
+      "note": "Kuzey cephe batı yarısı (kenar 35 aynası). KB köşe: ana balkon (d≈1.5) + köşede sığ parça (d≈0.75). K0 cam balkon; üst katlar açık. Alt katlar ağaç arkasında (otngugWf ile doğrulandı). Balkon arka duvarında küçük pencere, K4'te klima. v5: perdeler Oh3B 200_10 + 8QlT 178_22: K5 tül + lacivert fon (tul-yan), K4 beyaz tül, K3 zebra, K2 tül, K1 tül + koyu fon, K0 çit/ağaç arkasında. Köşe yığını kat kat: K0 cam (önünde kemerli ferforje, bkz. pending), K1–K5 açık buzlu cam korkuluk (dikmeli paneller, üstte paslanmaz küpeşte). K4 arka duvarda klima (K5 döşemesi altında). Alın bandı ≈0.8 m koyu gri, cam ≈0.3–0.4 m. v6: köşe yığını K0 camı önünde kemerli ferforje (Oh3B 200_10 sağ kenar, 178_9) → grille K0 arched (ana + sığ parça); şapka altında gömme spot görüldü (178_22) → ana parçada spots {n 1, cap}; her döşeme altında parça başına 1 spot (ana + sığ parça ayrı ayrı spots n 1; ölçülmüş spot verilince üretici yalnız spotlu parçalara koyuyor); postEvery 1.0. Çatı: gablet (8QlT 178_22, e3 ortosu): tepe görünen u 4.78 y 21.69 → dünya x −62.17 (hava fotoğrafı eğiklik düzeltmesiyle aynı), ön yüz duvar hattında (hava fotoğrafında ön kenar saçak çizgisinde → setback 0), tepe duvar üstünden 2.3 m (22.12), rüzgârlık eğimi ≈41–42° (ortoda), taban genişliği 2.6 (eğim + tepe yüksekliğinden; görünen rüzgârlık açıklığı 2.85 ≈ w + 2·0.1), ön yüz kiremit tonlu (gölgede #87746d–#9d8484 → #b99a92), rüzgârlık kiremit #a4735f, beyaz çerçeveli pencere (gerçekte alınlık biçimli beşgen, üretici dikdörtgen: 1.2 m, 3 bölme). Alt kısmı saçak alnı arkasında görülmedi.",
       "items": [
         {
           "t": "panel",
@@ -364,7 +364,10 @@
           },
           "grilleC": "#2f3438",
           "grilleW": 0.9,
-          "postEvery": 1.0
+          "postEvery": 1.0,
+          "spots": {
+            "n": 1
+          }
         },
         {
           "t": "pipe",
@@ -2609,7 +2612,7 @@
           ]
         ]
       },
-      "note": "Kuzey cephe doğu yarısı. KD köşe balkon yığını: ana ön (d≈1.5) + köşe ucunda sığ parça (d≈0.75, 1.3 m) — köşe basamaklı, balkonlar doğuya taşmaz, doğuda ayrı balkon (kenar 34). K0 ve K4 cam balkon (K0 ferforje korumalı). Balkon iç ucunda boru; balkon arka duvarında küçük pencere + K5'te klima. Şerit sütunu: K3-K5 geniş 3 kanatlı fransız pencere + çelik korkuluk, üst şerit çifti geniş aralıklı; K0-K2 dar pencere, alt şerit çifti dar. K3 pencere altından saçağa kadar orta gri sıva panosu, altı açık. KD duvar köşesi balkonların arkasında görünmez; uA sığ parçanın ucundan tahmin. Orto kuzey (gölge). v5: 178_22 yakın kare: K3–K5 fransız pencerelerde beyaz tül + gri-mavi kruvaze fon (tul-yan), K1–K2 dar pencerelerde beyaz tül; K3 korkuluğunun sol altında asılı Türk bayrağı. Köşe yığını: K4 koyu mavi cam balkon (sığ parça dahil), K0 cam + ferforje, K1–K3 ve K5 açık buzlu cam korkuluk. K5 arka duvarda klima, K2/K3/K5 arka duvarda küçük beyaz pencere. Balkon ve saçak altlarında gömme spot (pending). Boru açık gri (#9ea3a5 gölgede). v6: K0 kemerli ferforje (ana + sığ parça) → grille K0 arched; şapka altında spot (178_22) → ana parçada spots {n 1, cap}; postEvery 1.0. K3 fransız pencere korkuluğunun sol ucuna asılı, kıvrılmış Türk bayrağı (8QlT 178_9/178_22, ortoda u 6.45–7.07 y 10.73–11.9) → banner tr-v d 0.08 (eski düz `flag` u 6.1 kaldırıldı; bayrak asılı olduğu için yassı dikey bayrak yaklaşımı). Gablet: tepe görünen u 4.73 y 21.86 → dünya x −46.85, setback 0, ridge 2.45 (22.27), w 2.7, eğim 42° (görünen rüzgârlık açıklığı 2.96), renkler kenar 3'teki gibi.",
+      "note": "Kuzey cephe doğu yarısı. KD köşe balkon yığını: ana ön (d≈1.5) + köşe ucunda sığ parça (d≈0.75, 1.3 m) — köşe basamaklı, balkonlar doğuya taşmaz, doğuda ayrı balkon (kenar 34). K0 ve K4 cam balkon (K0 ferforje korumalı). Balkon iç ucunda boru; balkon arka duvarında küçük pencere + K5'te klima. Şerit sütunu: K3-K5 geniş 3 kanatlı fransız pencere + çelik korkuluk, üst şerit çifti geniş aralıklı; K0-K2 dar pencere, alt şerit çifti dar. K3 pencere altından saçağa kadar orta gri sıva panosu, altı açık. KD duvar köşesi balkonların arkasında görünmez; uA sığ parçanın ucundan tahmin. Orto kuzey (gölge). v5: 178_22 yakın kare: K3–K5 fransız pencerelerde beyaz tül + gri-mavi kruvaze fon (tul-yan), K1–K2 dar pencerelerde beyaz tül; K3 korkuluğunun sol altında asılı Türk bayrağı. Köşe yığını: K4 koyu mavi cam balkon (sığ parça dahil), K0 cam + ferforje, K1–K3 ve K5 açık buzlu cam korkuluk. K5 arka duvarda klima, K2/K3/K5 arka duvarda küçük beyaz pencere. Balkon ve saçak altlarında gömme spot (pending). Boru açık gri (#9ea3a5 gölgede). v6: K0 kemerli ferforje (ana + sığ parça) → grille K0 arched; şapka altında spot (178_22) → ana parçada spots {n 1, cap}, sığ parçada spots {n 1} (spotsN: her döşemede ana + sığ parçada birer spot); postEvery 1.0. K3 fransız pencere korkuluğunun sol ucuna asılı, kıvrılmış Türk bayrağı (8QlT 178_9/178_22, ortoda u 6.45–7.07 y 10.73–11.9) → banner tr-v d 0.08 (eski düz `flag` u 6.1 kaldırıldı; bayrak asılı olduğu için yassı dikey bayrak yaklaşımı). Gablet: tepe görünen u 4.73 y 21.86 → dünya x −46.85, setback 0, ridge 2.45 (22.27), w 2.7, eğim 42° (görünen rüzgârlık açıklığı 2.96), renkler kenar 3'teki gibi.",
       "items": [
         {
           "t": "panel",
@@ -2753,7 +2756,10 @@
           },
           "grilleC": "#2f3438",
           "grilleW": 0.9,
-          "postEvery": 1.0
+          "postEvery": 1.0,
+          "spots": {
+            "n": 1
+          }
         },
         {
           "t": "pipe",
