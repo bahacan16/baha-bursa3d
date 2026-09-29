@@ -244,7 +244,7 @@
   cepheler yalnız geometri (perde/afiş kopyalanmaz). Henüz `data/facades.json`'a derlenmedi (diğer retro ajanlarıyla
   birlikte derlenecek) → oyunda değişiklik yok. **Blender:** şimdilik yeniden kurulacak katman yok; derleme sonrası bu
   üç blok.
-- **(bu commit)** — **Cephe / sokak üreticisine yeni öğeler** (eleştirmen + ölçüm ajanlarının `pending` listeleri;
+- **d59f88d (+a59d738)** — **Cephe / sokak üreticisine yeni öğeler** (eleştirmen + ölçüm ajanlarının `pending` listeleri;
   şema `survey/schema.ts`, derleme `scripts/survey-compile.mjs`, çizim `facade.ts`, `fenceGeneric.ts`):
   - `pilaster` (kabartma pilastır: u0..u1 / u+w, y0..y1 ya da kat aralığı `s`, çıkıntı d, renk, başlık/kaide),
     `pediment` (üçgen alınlık; `apex` ile asimetrik, `h`/`yTop`, balkon yığını önünde `d`, eğik üst yüzler, silme),
@@ -299,3 +299,7 @@
   madalyon panel, süslü kolon + siyah fener, yeşil 2D tel, jilet tel) ve güney taş duvar + leylandi, 5 yeni direk,
   pano, ızgara, rögar, Nato Parkı yaya geçidi; "ŞEHR-İ BAHAR" → "ŞEHR-İ BURSA EVLERİ"; olmayan güneydoğu kapısı
   silindi. **Blender:** bu 15 blok + Mertkent-2 çevresi sokak katmanı (kaldırım, çit, sokak eşyası) yeniden kurulmalı.
+- **(yeniden derleme)** — Üretici v5 derleme kuralları tüm bloklara uygulandı (`data/facades.json`): görülmeyen
+  `copyOf` kenarlarında artık yalnız geometri (tabela/bayrak/perde/klima kopyası yok), "K3" biçimli cam balkon tonu
+  anahtarları normalize → ölçülmüş tonlar görünür. Değişen: 1540901770/71/72, 1541439435, 900000105. CLAUDE.md
+  kararlar güncellendi (Ultra, pişirilmiş ışık, 1. şahıs açısı, copyOf). **Blender:** bu 5 blok yeniden kurulmalı.
