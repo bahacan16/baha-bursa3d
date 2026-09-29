@@ -27,14 +27,14 @@ async function main() {
   const OW = Number(process.argv[6] ?? 1400);
   const out = process.argv[7] ?? join(root, 'docs', 'survey', 'site', `ov_${X0}_${Z0}_${X1}_${Z1}.jpg`);
   const drawPlan = process.argv[8] !== '0';
-  const aidx = JSON.parse(await readFile(join(root, 'streetview-src', 'aerial', 'index.json'), 'utf8'));
+  const aidx = JSON.parse(await readFile(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', 'index.json'), 'utf8'));
   const im = aidx.images.find((i) => i.source === 'google');
   const m = im.metersPerPixel;
   const ox = aidx.cx - aidx.half;
   const oz = aidx.cz - aidx.half;
   const S = OW / (X1 - X0);
   const OH = Math.round((Z1 - Z0) * S);
-  const base = await sharp(join(root, 'streetview-src', 'aerial', im.file))
+  const base = await sharp(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', im.file))
     .extract({
       left: Math.max(0, Math.round((X0 - ox) / m)),
       top: Math.max(0, Math.round((Z0 - oz) / m)),

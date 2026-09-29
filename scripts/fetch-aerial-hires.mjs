@@ -11,7 +11,8 @@ import sharp from 'sharp';
 import { unproject } from '../src/worlds/osm/simplify.ts';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const outDir = join(root, 'streetview-src', 'aerial');
+// AERIAL_DIR: çıktı klasörü (streetview-src/<dir>); birden çok pafta için ayrı klasörler (aerial, aerial-e, …)
+const outDir = join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial');
 /** Mertkent 2 + Salusvizyon + Özhan + çevre sokaklar (yerel metre) */
 const CX = Number(process.env.AERIAL_CX ?? -40);
 const CZ = Number(process.env.AERIAL_CZ ?? -90);

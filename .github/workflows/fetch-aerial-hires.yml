@@ -33,11 +33,20 @@ jobs:
           AERIAL_CZ: -140
           AERIAL_HALF: 250
         run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
+      - name: Hava fotoğrafları (doğu paftası — Doğan Avcıoğlu → Özlüce kavşağı)
+        env:
+          AERIAL_SOURCES: google
+          AERIAL_DIR: aerial-e
+          # x 230…730, z −350…150
+          AERIAL_CX: 480
+          AERIAL_CZ: -100
+          AERIAL_HALF: 250
+        run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add streetview-src/aerial
+          git add streetview-src/aerial streetview-src/aerial-e
           if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
           git commit -m "data: high-res aerial survey images"
           git pull --rebase origin "${GITHUB_REF_NAME}"

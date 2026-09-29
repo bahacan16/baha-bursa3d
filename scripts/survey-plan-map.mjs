@@ -20,7 +20,7 @@ async function main() {
   const idx = JSON.parse(
     await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
   );
-  const aidx = JSON.parse(await readFile(join(root, 'streetview-src', 'aerial', 'index.json'), 'utf8'));
+  const aidx = JSON.parse(await readFile(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', 'index.json'), 'utf8'));
   const im = aidx.images.find((i) => i.source === 'google');
   const ring = fp[id].ring;
   const xs = ring.map((p) => p[0]);
@@ -35,7 +35,7 @@ async function main() {
   const OW = 1100;
   const S = OW / (X1 - X0);
   const OH = Math.round((Z1 - Z0) * S);
-  const base = await sharp(join(root, 'streetview-src', 'aerial', im.file))
+  const base = await sharp(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', im.file))
     .extract({
       left: Math.round((X0 - ox) / m),
       top: Math.round((Z0 - oz) / m),
