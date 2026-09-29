@@ -129,9 +129,14 @@ float ultraPCSS( sampler2D sm, vec2 smSize, mat4 M, int tile, vec3 wp, vec3 nrm,
   float zR = sc.z;
   const int NB = 12;
   const int NF = 20;
-  float searchT = 22.0;
+  // arama yarıçapı: ~45 m uzaktaki engelin yarı gölgesinin yarısı (kademe texel'ine göre). Geniş sabit arama ince
+  // engelleri (lamba direği, tel, dal) çoğu karede ıskalayıp "aydınlık" diye erken çıkıyordu (gölge soluyordu).
+  float searchT = clamp( 0.5 * 45.0 * ${Math.tan(SUN_DIAM).toFixed(6)} / texM, 1.5, 10.0 );
   float sumB = 0.0;
   float nB = 0.0;
+  // merkez örneği her zaman (alıcının kendi texel'i engelliyse engel kesin var)
+  float d0 = texture2D( sm, sc.xy ).r;
+  if ( d0 < zR - eps ) { sumB += d0; nB += 1.0; }
   for ( int i = 0; i < NB; i ++ ) {
     vec2 o = ultraVogel( i, NB, phi ) * searchT * texel;
     float d = texture2D( sm, clamp( sc.xy + o, tmin, tmax ) ).r;
@@ -141,7 +146,7 @@ float ultraPCSS( sampler2D sm, vec2 smSize, mat4 M, int tile, vec3 wp, vec3 nrm,
   if ( nB < 0.5 ) return 1.0;
   float zB = sumB / nB;
   float penM = max( zR - zB, 0.0 ) / zPerM * ${Math.tan(SUN_DIAM).toFixed(6)};
-  float rT = clamp( 0.5 * penM / texM, 1.0, 22.0 );
+  float rT = clamp( 0.5 * penM / texM, 1.0, 16.0 );
   float lit = 0.0;
   for ( int i = 0; i < NF; i ++ ) {
     vec2 o = ultraVogel( i, NF, phi + 1.3 ) * rT * texel;

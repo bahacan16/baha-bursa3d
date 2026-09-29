@@ -154,7 +154,31 @@
       "color": "#785a53",
       "roofC": "#8e716d",
       "collide": false,
-      "note": "Batı blok çatı katının batıya bakan koyu kahve kaplamalı dik duvarı (2Qtexqz/UXy7Q7qk 2025): saçaktan ≈19.2–19.4'ten yükselir, üst kenarı basamaklı (≈20.8 / 21.4→24.1 tepe / 22.4→21.2) — ortalama 22.0 düz alındı. Doğuya derinliği görülmedi (kiremit çatı içinde) → 1.2 m ince hacim; iki pencere ve basamaklı üst kenar hâlâ pending."
+      "note": "Batı blok çatı katının batıya bakan koyu kahve kaplamalı dik duvarı (2Qtexqz/UXy7Q7qk 2025): saçaktan ≈19.2–19.4'ten yükselir, üst kenarı basamaklı (≈20.8 / 21.4→24.1 tepe / 22.4→21.2) — ortalama 22.0 düz alındı. Doğuya derinliği görülmedi (kiremit çatı içinde) → 1.2 m ince hacim; iki pencere ve basamaklı üst kenar hâlâ pending. v6 `wins` (hacmin batı yüzü = poly kenar 3, u (284.5,−34.3)'ten kuzeye): iki beyaz PVC 2 kanatlı pencere, beyaz söveli + denizlikli, arkada beyaz tül (2Qtex 137_49 yakın kare). Konumlar 2Qtex (ref, D 10.5 m) ve UXy7 (D 20.7 m) ortolarından cephe pencerelerine göre: kuzey pencere kenar 4 gerçek u ≈4.4–6.4 (z −40.3…−38.3), y 19.8–21.2; güney pencere (0.6 m geride kısım) u ≈8.4–10.3 (z −36.3…−34.4), y 19.6–20.8 (±0.3). Pencere sövesi hacim penceresinde çizilemiyor.",
+      "wins": [
+        {
+          "edge": 3,
+          "u0": 4.05,
+          "u1": 6.05,
+          "y0": 19.8,
+          "y1": 21.2,
+          "kind": "std",
+          "split": 2,
+          "curt": "tul",
+          "frameC": "#f2f2ef"
+        },
+        {
+          "edge": 3,
+          "u0": 0.15,
+          "u1": 2.05,
+          "y0": 19.6,
+          "y1": 20.8,
+          "kind": "std",
+          "split": 2,
+          "curt": "tul",
+          "frameC": "#f2f2ef"
+        }
+      ]
     },
     {
       "poly": [
@@ -206,7 +230,8 @@
     "GÖRÜLMEYENLER: doğu cephe (10–12) tamamen; kuzey girinti (0–2); batı cephenin K0–K1'i ve güney yarısının K0–K2'si (servi); kuzey cephelerin K0'ı (çit); doğu blok güney gövdesinin 2025 hali; doğu blok kuzey yüzü 2025'te yalnız çok yatık. Perdeler yalnız 2025 yakın/orta karelerde okunabilenler yazıldı.",
     "Doğrulanamayan: UXy7Q7qk karesinde batı cephede B sütunu K4 penceresinin ≈1.8 m sağında koyu gri bir uydu çanağı görünüyor; daha yakın 2Qtexqz karesinde o noktada duvar boş → çizilmedi (bahçede direk üstünde olabilir).",
     "UYARI: kenar 4'ün güney yarısı 'düzlem eşdeğeri' koordinatlarla yazıldı (gerçek duvar ≈0.6 m geride; taban izi basamağı pending). Güney girinti artık izde (uzlaştırma 2026-09-29) → 5/9 kenarlarında yalnız loca yığınları, girinti arka duvarı öğeleri 7. kenarda gerçek düzlemde.",
-    "v5 geçişi (2026-09-29): taban izi 13:54 uzlaştırmasında güney girintiyi aldı (5: 12.03→7.48, 6: 2.56, 7: 10.51, 8: 2.86, 9: 10.84→7.36) → 5/9 ortoları yeni izle yeniden üretildi, 7/8 için HdorTBep/1TOk/C7Sj karolarından orto üretildi (scratch), girinti arka duvarı öğeleri (pencere sütunları, kule çerçevesi + giydirme cam + kayıt ritmi, K0–K2 kaplama, kanopi, giriş, 'C' rozeti) 7. kenara taşındı ve yeniden ölçüldü. Dönüşenler: loca alınlarının sarkan kirişi (`beam`, 5/9/3/13), girinti (izde). Eklenen: batı teras döşemesinin girinti üstü köprüsü (hacim), KB boru rengi. Hâlâ pending: kule kemer çatısı, batı çatı katı pencereleri + basamaklı üst kenar, batı cephe 0.6 m basamağı (iz), kuzey köşe yığınlarının gömük kısmı."
+    "v5 geçişi (2026-09-29): taban izi 13:54 uzlaştırmasında güney girintiyi aldı (5: 12.03→7.48, 6: 2.56, 7: 10.51, 8: 2.86, 9: 10.84→7.36) → 5/9 ortoları yeni izle yeniden üretildi, 7/8 için HdorTBep/1TOk/C7Sj karolarından orto üretildi (scratch), girinti arka duvarı öğeleri (pencere sütunları, kule çerçevesi + giydirme cam + kayıt ritmi, K0–K2 kaplama, kanopi, giriş, 'C' rozeti) 7. kenara taşındı ve yeniden ölçüldü. Dönüşenler: loca alınlarının sarkan kirişi (`beam`, 5/9/3/13), girinti (izde). Eklenen: batı teras döşemesinin girinti üstü köprüsü (hacim), KB boru rengi. Hâlâ pending: kule kemer çatısı, batı çatı katı pencereleri + basamaklı üst kenar, batı cephe 0.6 m basamağı (iz), kuzey köşe yığınlarının gömük kısmı.",
+    "v6 dönüşümü (2026-09-29): kule kemerli başlığı `arch` (7. kenar), batı çatı katı pencereleri volumes[1].wins. v6 hacim kenar indeksi düzeltmesi kontrol edildi: volumes[0] glazing edges [2] = güney yüz (poly[2]→poly[3]), volumes[2] parapet edges/railEdges [0] = güney yüz — ikisi de amaçlanan yüz. Hâlâ pending: çatı katı basamaklı üst kenarı, batı cephe 0.6 m basamağı (iz), kuzey köşe yığınlarının gömük kısmı."
   ],
   "edges": [
     {
@@ -710,7 +735,7 @@
           "u1": 7.0,
           "d": 0.15,
           "y0": 4.35,
-          "y1": 22.9,
+          "y1": 22.0,
           "color": "#6c5648",
           "wins": [
             {
@@ -829,10 +854,30 @@
               "u0": 2.9,
               "u1": 5.95,
               "y0": 20.65,
-              "y1": 22.77,
+              "y1": 22.0,
               "kind": "glassband"
             }
           ]
+        },
+        {
+          "t": "arch",
+          "u0": 3.1,
+          "u1": 7.8,
+          "d": 0.72,
+          "y": 22.0,
+          "rise": 1.4,
+          "shape": "segment",
+          "thick": 0.6,
+          "color": "#6c5648"
+        },
+        {
+          "t": "proj",
+          "u0": 2.47,
+          "u1": 6.94,
+          "d": 0.72,
+          "y0": 21.9,
+          "y1": 22.0,
+          "color": "#6c5648"
         },
         {
           "t": "proj",
@@ -885,7 +930,7 @@
           "logo": "kanopinin ön yüzünde ≈0.3 m yuvarlak gümüş/beyaz rozet, içinde koyu 'C' (blok harfi) — yalnız 2014 karesi; 2025'te çam arkasında"
         }
       ],
-      "note": "Güney girintinin ARKA DUVARI (YENİ iz: uzlaştırmada 291.2→301.7, z −33.0…−32.5). Ref: HdorTBep (2014-07, 15 m) karolarından (28/40/64 × 1/25/49 … 7/22/37) üretilen orto — docs/survey/c'de YOK: /tmp/claude-0/pend-g3/c/1540901777_7_HdorTBep.jpg; sv-extra survey[]'e {building 1540901777, edge 7, pano HdorTBepOP77I42tshQt7w, base 0.39, tiles 28/1,28/25,28/49,40/1,40/25,40/49,64/7,64/22,64/37} eklenip CORRECTED=1 SURVEY_TOP=31 ile üretilirse aynısı çıkar (1TOk 2025: 47/7,47/36,64/10,64/25; C7Sj 2025: 67/8,67/33 de işe yarar). 2014 karesi tüm yüksekliği gösteriyor, 2025'te (1TOk 64_25) yalnız K3 üstü (çam önünde) — mimari aynı. Soldan sağa: [sol pencere sütunu u 0.4–1.4, 2 kanat beyaz PVC, beyaz söve | kule çerçevesi (kahve pilastr) 2.05–2.9 | mavi giydirme cam 2.9–5.95, beyaz yatay kayıtlar kat başına [0.6, 1.2, 1.2] ritim (satır profili: 5.38, 6.53, 7.13, 8.32 …) | çerçeve 6.0–7.0 | sağ pencere sütunu 7.2–8.75 (daha geniş, kalın beyaz söve) | kaplama]. K0–K2 kiremit kırmızısı kare kaplama (2014 güneşli #9c5a44; K2 pencere lentosunun hemen üstünde 12.7'de biter), K3–K4 bej sıva. Zeminde kule girişi (sokak kotu, K0 döşemesi 3.6 m yukarıda), üstünde kahve kutu kanopi (u 2.1–7.6, ≈0.75 m kalın, havada öne taşma ≈1.1: hava fotoğrafı z −33.5…−31.9) + 'C' rozeti; kule tepesi kemerli (pending). Kat lentoları K0 6.6 … K4 18.5 (aralık 2.975, 2014 ölçek hatası bu ortoda yok). YATAY KAYIT: panolar arası konum hataları ±1–2 m (bu ortoda batı yığın görünen geometriye göre arka duvarın ilk ≈2 m'sini örtmeliydi) → u, kanopi/kule merkezini hava fotoğrafıyla (x≈296.3) eşleyen birim ölçekle (cal.u −0.25…10.26); ±0.5. Doğu köşe ortoda u≈9.65 görünüyor (izden ≈0.6 kısa). Renkler: kule çerçevesi 2025 güneşli #6c5648 (2014 #684434), cam 2025 #435c70, kanopi #6b402f (2014). Perdeler 2014'e ait → yazılmadı."
+      "note": "Güney girintinin ARKA DUVARI (YENİ iz: uzlaştırmada 291.2→301.7, z −33.0…−32.5). Ref: HdorTBep (2014-07, 15 m) karolarından (28/40/64 × 1/25/49 … 7/22/37) üretilen orto — docs/survey/c'de YOK: /tmp/claude-0/pend-g3/c/1540901777_7_HdorTBep.jpg; sv-extra survey[]'e {building 1540901777, edge 7, pano HdorTBepOP77I42tshQt7w, base 0.39, tiles 28/1,28/25,28/49,40/1,40/25,40/49,64/7,64/22,64/37} eklenip CORRECTED=1 SURVEY_TOP=31 ile üretilirse aynısı çıkar (1TOk 2025: 47/7,47/36,64/10,64/25; C7Sj 2025: 67/8,67/33 de işe yarar). 2014 karesi tüm yüksekliği gösteriyor, 2025'te (1TOk 64_25) yalnız K3 üstü (çam önünde) — mimari aynı. Soldan sağa: [sol pencere sütunu u 0.4–1.4, 2 kanat beyaz PVC, beyaz söve | kule çerçevesi (kahve pilastr) 2.05–2.9 | mavi giydirme cam 2.9–5.95, beyaz yatay kayıtlar kat başına [0.6, 1.2, 1.2] ritim (satır profili: 5.38, 6.53, 7.13, 8.32 …) | çerçeve 6.0–7.0 | sağ pencere sütunu 7.2–8.75 (daha geniş, kalın beyaz söve) | kaplama]. K0–K2 kiremit kırmızısı kare kaplama (2014 güneşli #9c5a44; K2 pencere lentosunun hemen üstünde 12.7'de biter), K3–K4 bej sıva. Zeminde kule girişi (sokak kotu, K0 döşemesi 3.6 m yukarıda), üstünde kahve kutu kanopi (u 2.1–7.6, ≈0.75 m kalın, havada öne taşma ≈1.1: hava fotoğrafı z −33.5…−31.9) + 'C' rozeti; kule tepesi kemerli başlık (v6 arch, aşağıda). Kat lentoları K0 6.6 … K4 18.5 (aralık 2.975, 2014 ölçek hatası bu ortoda yok). YATAY KAYIT: panolar arası konum hataları ±1–2 m (bu ortoda batı yığın görünen geometriye göre arka duvarın ilk ≈2 m'sini örtmeliydi) → u, kanopi/kule merkezini hava fotoğrafıyla (x≈296.3) eşleyen birim ölçekle (cal.u −0.25…10.26); ±0.5. Doğu köşe ortoda u≈9.65 görünüyor (izden ≈0.6 kısa). Renkler: kule çerçevesi 2025 güneşli #6c5648 (2014 #684434), cam 2025 #435c70, kanopi #6b402f (2014). Perdeler 2014'e ait → yazılmadı. v6 (yeniden ölçüm, HdorTBep satır/sütun profili): kule camının üst kasası görünen 22.0'da (önceki 22.77 = başlığın ön alt kenarıydı) → kule proj üstü ve son cam bandı 22.0 (gerçek 21.38). Üstünde kemerli kahve BAŞLIK kule yüzünün ≈0.57 m ÖNÜNE taşıyor: sağ ucu görünen 7.8 (kule kenarı 7.1), alt yüzü görünen 22.0–22.9 bandı (öne taşan saçağın altı) — paralaks d≈0.72 (±0.1) ile tutarlı; sol ucu görünen ≈3.1 (y 23.2'de koyu yüzün başladığı 3.25'ten; batı yığın plağı bu yükseklikte örtmüyor). `arch`: u 3.1–7.8 (ön düzlem d 0.72 → gerçek 2.72–7.19), taban y 22.0 (= cam üstü), rise 1.4 (tepe görünen ≈24.4 → d 0.72 ile gerçek ≈22.77; bindirmede ön yüz fotoğraftaki başlığa oturuyor), kalınlık 0.6 (ön yüzden kule yüzüne; kule yüzünün gerisi görülmedi). Başlığın alt yüzü (kemer altı boş kalmasın) ince `proj` (d 0.72, görünen 21.9–22.0; u 2.47–6.94 = kemerin gerçek 2.72–7.19'u, proj derinlik düzeltmesiz derlendiği için). HdorTBep 40_49 (2014) ve 1TOk 47_36/64_25 (2025): başlık dolu kahve kemer, üst kenarında ince açık kahve kenar (güneş alan kenar, ayrı harpuşta sayılmadı). Başlığın kuleden geriye (kuzeye) uzanımı GÖRÜLMEDİ: hava fotoğrafındaki koyu şerit (x≈295.6–298.6, z −33…−41 düzeltilmiş) çekirdeğin iki kırma çatı arasındaki düz çatısı da olabilir → tonoz (vault) yazılmadı. Renk kule çerçevesi #6c5648 (2025 güneşli); 1TOk'ta başlık yüzü gölgede #331f14, güneş alan üst kenar #c8998a."
     },
     {
       "edge": 8,
@@ -1133,33 +1178,7 @@
   ],
   "pending": [
     {
-      "what": "Merdiven kulesi kemer çatısı",
-      "edge": 7,
-      "world": {
-        "x": [
-          294.0,
-          298.5
-        ],
-        "top_y_spring": 19.9,
-        "top_y_crown": 21.4,
-        "axis": "K–G, hava fotoğrafında x≈295.1–298.1, z≈−43…−30 koyu şerit"
-      },
-      "ref": "1540901777_7_HdorTBep.jpg (/tmp/claude-0/pend-g3/c)",
-      "app": {
-        "u": [
-          3.25,
-          7.75
-        ],
-        "y": [
-          22.9,
-          24.3
-        ]
-      },
-      "color": "#3a2317 (gölge) / #6b3f2c; terrakota-kahve kaplama",
-      "desc": "Kulenin tepesinde tam genişlikte yarım daire kesitli beşik tonoz (ön yüzde kemer), ≈1.5 m yükselir; kule camı kemerin altına kadar çıkar. Çekirdek parçası şimdilik düz çatı + 1.3 m alın. (YENİ izde kule 7. kenarda; kule proj'u 22.9'da düz biter, kemer bunun üstünde.)"
-    },
-    {
-      "what": "Batı blok çatı katı: pencereler + basamaklı üst kenar (hacmin kendisi volumes[1])",
+      "what": "Batı blok çatı katı: basamaklı / eğik üst kenar, kalça kiremit yüzleri, güney ucu (pencereler v6 volumes[1].wins ile çizildi)",
       "edge": 4,
       "ref": "1540901777_4_2QtexqzB.jpg",
       "profile_app": [
@@ -1202,7 +1221,7 @@
             20.1,
             21.6
           ],
-          "type": "2 kanat beyaz PVC, beyaz söveli, tül"
+          "type": "2 kanat beyaz PVC, beyaz söveli, tül — v6 wins'e çevrildi"
         },
         {
           "u": [
@@ -1213,7 +1232,7 @@
             19.5,
             20.75
           ],
-          "type": "2 kanat beyaz PVC, söveli (güney yarıda; düzlem eşdeğeri u≈9.6–11.5, y≈20.5–21.8)"
+          "type": "2 kanat beyaz PVC, söveli, tül — v6 wins'e çevrildi"
         }
       ],
       "world": {
@@ -1228,7 +1247,8 @@
         "top_y": 24.1
       },
       "color": "#6a535b kapalı hava / #59423d gölge; kalçalar açık terrakota #66514f; kahve düz kaplama",
-      "desc": "volumes[1] düz üstlü 1.2 m ince kahve hacim olarak çizildi (y 18.6–22.0). Hâlâ çizilemeyen: iki beyaz PVC pencere (windows_app), basamaklı/eğik üst kenar (profile_app, tepe ≈24.1), kuzey/güney kalçalardaki kiremit yüzler, GB tepedeki krem küçük baca/kule parçası, 1TOk 47/36'daki batıya bakan çatı penceresi."
+      "desc": "volumes[1] düz üstlü 1.2 m ince kahve hacim olarak çizildi (y 18.6–22.0). Hâlâ çizilemeyen: iki beyaz PVC pencere (windows_app), basamaklı/eğik üst kenar (profile_app, tepe ≈24.1), kuzey/güney kalçalardaki kiremit yüzler, GB tepedeki krem küçük baca/kule parçası, 1TOk 47/36'daki batıya bakan çatı penceresi.",
+      "reason": "Hacim (volumes) üstü düz; roof gable/hipped/vault tek yönlü eğik (sundurma) + basamaklı alın profilini (profile_app) veremiyor. Pencereler v6 `wins` ile çizildi. Ayrıca UXy7/2Qtex'te alının güney ucu hacmin güney ucundan (z −34.3) ≈1.3 m daha güneyde (z≈−33.0) bitiyor; 1TOk 47_36'da güney ucunda krem küçük yüz (baca ya da alın ucu) — konum belirsiz."
     },
     {
       "what": "Batı cephe basamağı + GB köşe konumu (TABAN İZİ)",
@@ -1239,7 +1259,8 @@
         "sw_corner_x_aerial": 284.4,
         "sw_corner_x_footprint": 283.75
       },
-      "desc": "Batı cephenin güney ≈6.5 m'si kuzey kısmına göre ≈0.6 m doğuda (2Qtexqz ortofotosunda lento/saçak çizgileri 0.6–0.9 m aşağıda, derinlikle tutarlı; hava fotoğrafında GB zemin köşesi x≈284.4, KB çatı köşesi eğim düzeltmeli x≈283.7). Basamak brown kaplama panosunun güney ucunda (görünen u≈7.8). Güney parça öğeleri düzlem eşdeğerine çevrildi. v5 KONTROL: uzlaştırma bunu uygulamadı (GB ayağı hava fotoğrafında 5. noktada). `recess` ile 0.6 m tam boy girinti denenebilir ama GB köşede loca yanı açıklıkları ve 5. kenar başıyla çakışıyor → taban izi kararı ana oturumda."
+      "desc": "Batı cephenin güney ≈6.5 m'si kuzey kısmına göre ≈0.6 m doğuda (2Qtexqz ortofotosunda lento/saçak çizgileri 0.6–0.9 m aşağıda, derinlikle tutarlı; hava fotoğrafında GB zemin köşesi x≈284.4, KB çatı köşesi eğim düzeltmeli x≈283.7). Basamak brown kaplama panosunun güney ucunda (görünen u≈7.8). Güney parça öğeleri düzlem eşdeğerine çevrildi. v5 KONTROL: uzlaştırma bunu uygulamadı (GB ayağı hava fotoğrafında 5. noktada). `recess` ile 0.6 m tam boy girinti denenebilir ama GB köşede loca yanı açıklıkları ve 5. kenar başıyla çakışıyor → taban izi kararı ana oturumda.",
+      "reason": "Taban izi kararı (ana oturum): tek köşeli kenarda 0.6 m basamak yok; recess ile tam boy girinti GB loca yanı açıklıkları ve 5. kenar başıyla çakışıyor."
     },
     {
       "what": "KB/KD köşe balkon yığınlarının gömülü kısmı",
@@ -1248,7 +1269,8 @@
         4,
         13
       ],
-      "desc": "Kuzey köşe yığınları kuzey duvar düzleminden yalnız ≈0.3–0.35 m taşıyor (bant büyütmesi), ama batı yan yüzündeki cam ≈1.0 m (2Qtexqz 140/25, u −0.24…0.74) → yığın ≈0.65 m köşeye gömük, yan yüzü de katlanır camlı + korkuluklu; köşede krem yağmur borusu. Üretici taşan balkon (d 0.35) çiziyor."
+      "desc": "Kuzey köşe yığınları kuzey duvar düzleminden yalnız ≈0.3–0.35 m taşıyor (bant büyütmesi), ama batı yan yüzündeki cam ≈1.0 m (2Qtexqz 140/25, u −0.24…0.74) → yığın ≈0.65 m köşeye gömük, yan yüzü de katlanır camlı + korkuluklu; köşede krem yağmur borusu. Üretici taşan balkon (d 0.35) çiziyor.",
+      "reason": "v6: d ≥ 0.35 → yalnız taşan balkon (inset yok sayılır); d < 0.35 + inset → loca ön yüzü taban izi hattında (0.35 taşma kaybolur); kavisli loca hilesi (bulge) köşe yan camını (taban izi hattındaki kenarları) atlıyor → taşma 0.35 + gömme 0.65 birleşimi ifade edilemiyor."
     }
   ]
 }

@@ -18,7 +18,10 @@
         {"t": "panel", "u0": 1.78, "u1": 6.3, "y0": 4.17, "y1": 4.87, "color": "#202f39"},
         {"t": "win", "u0": 1.78, "u1": 6.3, "y0": 1.0, "y1": 4.17, "k": 0, "s": [0, 0], "kind": "shop", "split": 1, "frameC": "#2a2d30", "curt": {"K0": "vitrin"}},
         {"t": "sign", "u0": 1.78, "u1": 6.3, "y0": 1.0, "y1": 4.17, "d": 0.01, "text": "LINENS", "style": "panel", "bg": "#c9d3dc", "fg": "#1f2a44", "font": "serif", "bold": false, "logo": "Vitrin camının tamamını kaplayan baskılı afiş: mavi/lacivert yastıklı yatak fotoğrafı, üstte ortada küçük oval 'LINENS' logosu (T1qi7 ve drkr98’de görülüyor)"},
-        {"t": "sign", "u0": 3.45, "u1": 6.17, "y0": 5.25, "y1": 6.42, "d": 0.12, "text": "LINENS", "style": "lightbox", "bg": "#eef0f2", "fg": "#1f2a44", "border": "#1f2a44", "font": "serif", "bold": false, "lit": true, "logo": "Oval (elips) beyaz ışıklı kutu, lacivert kalın çerçeve, lacivert serif büyük harf"}
+        {"t": "sign", "u0": 3.45, "u1": 6.17, "y0": 5.25, "y1": 6.42, "d": 0.12, "text": "LINENS", "style": "lightbox", "bg": "#eef0f2", "fg": "#1f2a44", "border": "#1f2a44", "font": "serif", "bold": false, "lit": true, "shape": "oval", "logo": "Oval (elips) beyaz ışıklı kutu, lacivert kalın çerçeve, lacivert serif büyük harf"},
+        {"t": "panel", "u0": 0.97, "u1": 1.78, "y0": 0.95, "y1": 7.96, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}},
+        {"t": "panel", "u0": 1.78, "u1": 6.3, "y0": 6.63, "y1": 7.96, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}},
+        {"t": "panel", "u0": 6.3, "u1": 8.0, "y0": 7.0, "y1": 7.96, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}}
       ],
       "note": "2025-09, drkr98 26_11/26_22 (ref) + T1qi7 39_10 + kr3oP 60/0. GB köşede 0.8 m kahverengi ayak (u 0.97–1.78, blok sıvası), sonra gri pano + oval LINENS, koyu bant, afişle kaplı vitrin. u>6.3 (doğu yarısı) önündeki Balıkçı Mahmut tabelası/ağaç yüzünden görülmedi. GD köşesi görülmedi → uE = uA + 10.55×0.96 (oval boyu batıdakiyle aynı ölçek varsayımı)."
     },
@@ -30,7 +33,7 @@
       "ref": "900000106_2_urVE3ZYD.jpg",
       "cal": {"u": [0, 10.55], "head": [[0, 3.8], [1, 11.17]]},
       "items": [
-        {"t": "panel", "u0": 3.8, "u1": 10.55, "y0": 7.0, "y1": 8.9, "color": "#3a3130"},
+        {"t": "panel", "u0": 3.8, "u1": 10.55, "y0": 7.0, "y1": 8.9, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}},
         {"t": "win", "u0": 3.8, "u1": 10.55, "y0": 5.5, "y1": 7.0, "k": 0, "s": [0, 0], "kind": "shop", "split": 4, "frameC": "#2a2d30", "curt": {"K0": "vitrin"}},
         {"t": "panel", "u0": 3.8, "u1": 10.55, "y0": 4.4, "y1": 5.4, "color": "#1c2226"},
         {"t": "win", "u0": 3.8, "u1": 10.55, "y0": 1.4, "y1": 4.4, "k": 0, "s": [0, 0], "kind": "shop", "split": 4, "frameC": "#2a2d30", "curt": {"K0": "vitrin"}}
@@ -53,35 +56,39 @@
         {"t": "win", "u0": 6.3, "u1": 9.5, "y0": 1.06, "y1": 3.9, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": {"K0": "vitrin"}},
         {"t": "panel", "u0": 10.25, "u1": 19.38, "y0": 5.25, "y1": 7.22, "color": "#75828c"},
         {"t": "panel", "u0": 10.25, "u1": 19.38, "y0": 4.38, "y1": 5.25, "color": "#202f39"},
-        {"t": "sign", "u0": 13.25, "u1": 16.28, "y0": 5.56, "y1": 6.87, "d": 0.12, "text": "LINENS", "style": "lightbox", "bg": "#eef0f2", "fg": "#1f2a44", "border": "#1f2a44", "font": "serif", "bold": false, "lit": true, "logo": "Oval (elips) beyaz ışıklı kutu, lacivert kalın çerçeve"},
+        {"t": "sign", "u0": 13.25, "u1": 16.28, "y0": 5.56, "y1": 6.87, "d": 0.12, "text": "LINENS", "style": "lightbox", "bg": "#eef0f2", "fg": "#1f2a44", "border": "#1f2a44", "font": "serif", "bold": false, "lit": true, "shape": "oval", "logo": "Oval (elips) beyaz ışıklı kutu, lacivert kalın çerçeve"},
         {"t": "camera", "u": 10.4, "s": 0, "y": 4.9},
         {"t": "camera", "u": 19.2, "s": 0, "y": 4.9},
         {"t": "win", "u0": 10.25, "u1": 13.44, "y0": 1.0, "y1": 4.31, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": {"K0": "vitrin"}},
         {"t": "win", "u0": 13.44, "u1": 15.81, "y0": 1.0, "y1": 3.37, "k": 0, "s": [0, 0], "kind": "door", "split": 2, "frameC": "#2a2d30"},
+        {"t": "win", "u0": 13.44, "u1": 15.81, "y0": 3.37, "y1": 4.31, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": {"K0": "vitrin"}},
         {"t": "win", "u0": 15.81, "u1": 19.1, "y0": 1.0, "y1": 4.31, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": {"K0": "vitrin"}},
         {"t": "sign", "u0": 16.48, "u1": 18.25, "y0": 3.03, "y1": 3.88, "d": 0.01, "text": "5.000 TL", "style": "panel", "bg": "#f0c8cf", "fg": "#c0304a", "font": "sans", "bold": true, "logo": "Vitrin camında pembe kampanya afişi; alt satırlar okunamadı"},
         {"t": "pilaster", "u0": 0.84, "u1": 0.95, "y0": 1.05, "y1": 7.17, "d": 0.03, "color": "#9f9772"},
         {"t": "pilaster", "u0": 9.575, "u1": 9.68, "y0": 1.05, "y1": 7.17, "d": 0.03, "color": "#9f9772"},
         {"t": "band", "u0": 0.84, "u1": 9.68, "y0": 7.07, "y1": 7.17, "color": "#9f9772", "proud": 0.03},
-        {"t": "sign", "u0": 4.05, "u1": 6.26, "y0": 3.35, "y1": 3.93, "d": 0.01, "text": "", "style": "panel", "bg": "#1e2429", "fg": "#c9a55f", "logo": "Kapı üstü cam traversinde lacivert-siyah pano; ortada altın ayna-simetrik K+R monogramı (ЖR / Ꮶ benzeri, u 4.9–5.5, y 3.4–3.9) — çizilemedi (pending); iki yanında küçük altın 'SINCE' ve '1950'"},
+        {"t": "sign", "u0": 4.05, "u1": 6.26, "y0": 3.35, "y1": 3.93, "d": 0.01, "text": "", "style": "panel", "bg": "#1e2429", "fg": "#c9a55f", "logo": "Kapı üstü cam traversinde lacivert-siyah pano; ortada altın ayna-simetrik monogram (ayrı glyphs öğesi, u 4.9–5.5, y 3.4–3.9); iki yanında küçük altın 'SINCE' ve '1950'"},
+        {"t": "sign", "u0": 4.9, "u1": 5.5, "y0": 3.4, "y1": 3.9, "d": 0.02, "text": "", "glyphs": [{"ch": "K", "mirror": true}, {"ch": "R"}], "join": 0.3, "style": "letters", "fg": "#c9a55f", "font": "serif", "bold": false, "logo": "Altın serifli monogram: ortada ortak dikey gövde, altta iki yana kıvrılan bacaklar, üstte iki küçük kıvrım (ayna simetrik görünüm); harfler bu çözünürlükte tek tek okunamıyor — ilk ölçümdeki ve markanın K…R okumasıyla ayna K + R"},
         {"t": "sign", "u0": 4.33, "u1": 4.87, "y0": 3.58, "y1": 3.74, "d": 0.02, "text": "SINCE", "style": "letters", "fg": "#c9a55f", "font": "serif", "bold": false},
         {"t": "sign", "u0": 5.58, "u1": 6.02, "y0": 3.58, "y1": 3.74, "d": 0.02, "text": "1950", "style": "letters", "fg": "#c9a55f", "font": "serif", "bold": false},
-        {"t": "sign", "u0": 9.83, "u1": 10.08, "y0": 4.58, "y1": 4.89, "d": 0.1, "text": "", "style": "box", "bg": "#a7b4c7", "fg": "#3b4a5a", "logo": "Beyaz alarm sireni kutusu (gölgede #a7b4c7), ortasında küçük koyu logo"}
+        {"t": "sign", "u0": 9.83, "u1": 10.08, "y0": 4.58, "y1": 4.89, "d": 0.1, "text": "", "style": "box", "bg": "#a7b4c7", "fg": "#3b4a5a", "logo": "Beyaz alarm sireni kutusu (gölgede #a7b4c7), ortasında küçük koyu logo"},
+        {"t": "panel", "u0": 0.1, "u1": 0.84, "y0": 0.9, "y1": 7.17, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}},
+        {"t": "panel", "u0": 0.1, "u1": 10.25, "y0": 7.17, "y1": 8.55, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}},
+        {"t": "panel", "u0": 10.25, "u1": 19.65, "y0": 7.22, "y1": 8.55, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}},
+        {"t": "panel", "u0": 9.68, "u1": 10.25, "y0": 0.9, "y1": 7.17, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}},
+        {"t": "panel", "u0": 19.38, "u1": 19.65, "y0": 0.9, "y1": 7.22, "color": "#3a3130", "clad": {"dir": "v", "every": 0.14, "w": 0.02, "color": "#2e2626"}}
       ],
       "note": "2025-09, _PsLu 94/110 (ref, neredeyse dik) + 0oDNp 70/90 (ağaç kapatıyor) + kr3oP 60/0. Cephe tamamı koyu kahverengi ince dikey derzli kaplama (#3a3130). Kuzeyde KUDRET HOME: siyah üst pano + altın çerçeveli tabela, altın ince çerçeve (u 0.85–9.66) yukarıdan zemine kadar iner, altın yazılı siyah kasa-tente, ortada çift kanat cam kapı (üstünde altın monogram), iki yanda vitrin. Güneyde LINENS: gri pano + oval ışıklı tabela, koyu bant, iki vitrin + ortada çift kanat kapı (üstünde kayıt 3.37). Kaplama üstü (parapet) ~8.0 m; çatı terası kenarında füme cam korkuluk + dikme (≈2.4 m ara) ve üst küpeşte. v5: KUDRET cephesinin altın ince çerçevesi (pilaster sol u 0.84–0.95 / sağ 9.575–9.68, y 1.05–7.17, üst band 7.07–7.17, 3 cm çıkıntı; renk en parlak %30 piksel #9f9772 kapalı hava, bulanık — gözle daha doygun altın); kapı üstü monogram panosu + 'SINCE' / '1950' (monogram glifi pending); kuzey ayaktaki beyaz kutu kamera değil alarm sireni (u 9.83–10.08, y 4.58–4.89)."
     }
   ],
-  "pending": [
-    {"what": "Oval tabela biçimi (elips) — shape:'round' yalnız daire çiziyor", "edge": [0, 3], "size": "3.0×1.3 m (kenar 3 u 13.25–16.28 y 5.56–6.87; kenar 0 u 3.45–6.17 y 5.25–6.42)", "note": "Beyaz ışıklı elips kutu, ~0.12 m kalın lacivert (#1f2a44) çerçeve, lacivert serif 'LINENS'."},
-    {"what": "KUDRET kapı üstü monogram glifi", "edge": 3, "u": [4.9, 5.5], "y": [3.4, 3.9], "color": "#c9a55f", "note": "Altın, ayna-simetrik birleşik K+R harfi (ЖR / Ꮶ benzeri serifli); pano ve 'SINCE'/'1950' yazıları sign olarak eklendi, glif için logo/vektör desteği gerekli."},
-    {"what": "Kaplamada ince dikey derzler — tek tek groove ile çizilmedi (0.14 m aralıkta ~240 şerit uzakta titreşir)", "edge": [0, 2, 3], "spacing": 0.14, "w": 0.02, "color": "#2e2626", "base": "#393030", "note": "_PsLu 94_8 ham karede ~5.3 px (≈0.13–0.15 m) aralıkla koyu çizgiler; tüm kahverengi yüzeylerde (üst bant, ayaklar, subasman). Kaplama malzemesine dikey derz dokusu (normal/renk) olarak eklenmeli."}
-  ],
+  "pending": [],
   "notes": [
     "OSM’de yok. Yükseklik footprint notundaki 5.5–6 m değil: PsLu ortofotosunda kaplama üstü dükkân zemininden 7.1 m (ölçek 0.936), yani blok tabanından ≈8.0 m; bu, 900000105 kulesinin K2 döşemesiyle (≈8.0 m) aynı → podyum çatısı kulenin K2 terası. kr3oP 60/0’da da araca göre ~8 m.",
     "Tek kat: floorH 7.0 + groundRaise 0.9 (dükkân zemini görünen y≈1.0; kaldırım eğimli). cal.head’deki K1 değeri sanal: dikey ölçek (batı 0.936, güney 1.023, kuzey 0.95) derleyiciye bu yolla verildi.",
     "Renkler (gölge/yaygın ışık, güneşli yama yok): kaplama #3a3130 (güney #3e2f27), LINENS gri pano #6c7c8b–#727d7d (sunlit tahmini #75828c), koyu bantlar #202f39, KUDRET siyah #243138, altın #c9a55f (ince harflerden örneklenemedi, görsel).",
     "Batı cephe görünen genişliği 19.55 (iz 18.3); kule batı cephesiyle birlikte pano ~1.45 m GPS kaymasıyla açıklanıyor, iz boyu doğru görünüyor.",
     "Çatı: hava fotoğrafında açık gri düz (#c4bbb7).",
-    "v5 dönüşümü (2026-09-29): altın çerçeve (pilaster/band), monogram panosu ve yazıları, siren kutusu (eski kamera öğesi kaldırıldı). Değişmeyen/görülmeyen: doğu yarısı (kenar 0 u>6.3), kenar 1 (kule ortak duvarı), kenar 2 u<3.8."
+    "v5 dönüşümü (2026-09-29): altın çerçeve (pilaster/band), monogram panosu ve yazıları, siren kutusu (eski kamera öğesi kaldırıldı). Değişmeyen/görülmeyen: doğu yarısı (kenar 0 u>6.3), kenar 1 (kule ortak duvarı), kenar 2 u<3.8.",
+    "v6 dönüşümü (2026-09-29): (1) LINENS ışıklı tabelaları shape oval (kenar 0 ve 3, 3.0×1.3 m). (2) KUDRET kapı üstü monogramı `glyphs` [ayna K, R] + join 0.3, altın serif 3B harf (_PsLu 94_8, 0oDNp 70_7: ortak gövde, iki yana kıvrılan bacaklar, üstte iki küçük kıvrım; harfler tek tek okunamıyor, ilk ölçümün K+R okuması korundu). (3) Kahverengi kaplamanın ince dikey derzleri `clad` (dikey, 0.14 m aralık, 2 cm, #2e2626) — kaplama rengindeki panolar yalnız GÖRÜLEN kahverengi yüzeylerde: batı (kenar 3) kuzey köşe ayağı u 0.1–0.84, KUDRET–LINENS arası ayak 9.68–10.25, güney uç 19.38–19.65, üst bant 7.17/7.22–8.55; güney (kenar 0) GB köşe ayağı 0.97–1.78 ve üst bant (u 6.3–8.0 yalnız Balıkçı Mahmut tabelalarının üstünde, 7.0’dan); kuzey (kenar 2) üst bant (urVE 120_9’da derzler seçiliyor). Subasman şeridi zeminin üstünde ≈0.1 m kaldığından ayrıca kaplanmadı. (4) Düzeltme: LINENS kapısının üstü duvar değil cam (kayıt 3.37’nin üstünde 4.31’e kadar vitrin camı, _PsLu) → kapı üstü cam eklendi."
   ]
 }

@@ -45,7 +45,8 @@
     "Tabela: yalnız giriş saçağında beyaz 'A' harfi (blok adı). Dükkân/tente/kepenk YOK (konut bloğu). Pano/levha başka görülmedi.",
     "Kuzeybatıdaki 'Delice / YENİ NESİL MEYHANE / DELICE YENİ NESİL EĞLENCE' ve 'Cevher' tabelaları bu binada değil, önündeki alçak restoran binasında (taban izi dışı).",
     "TABAN İZİ KANITI (düzeltilmedi): (a) G35 cepheden görünüşte batı cephe genişliği/kat aralığı oranı ≈4.9 → 3.2 m katla ≈15.7 m; halkada kenar 10 = 13.22 m. Hava fotoğrafında batı yüzün eğimle izdüşümü z −18.3 … −2.5'e uzanıyor → GB köşe (667.33,−4.9) büyük olasılıkla ~1.5–2.4 m daha güneyde (±1). (b) Üç panodan (otFK, sa-WfHt0, G9) üçgenlenen kenar 0/11 iç köşesi (674.3,−5.4): halkadan ≈1.4 m doğuda (pano konum hataları ±1 m). Ölçümler halkaya göre ölçeklendi (cal.u = görünen köşeler).",
-    "v4 (d078e71): çatı parapeti roof.parapet (0.95 m antrasit + füme cam korkuluk), çatı köşkü volumes, füme cam parapet bölmeleri bölünmüş bal öğeleri, pencere frameC/tint, giriş saçağı proj. Kalan pending: tonoz kemeri, uzun balkon uçları, köşe boruları, dışbükey balkon önleri, GD pencere sütunu, cam balkon doğrama rengi, çekirdek girinti derinliği. v5 (bu tur): cam balkon profil rengi (bal.frameC), çekirdek girintisi (recess 3.25 m), köşe loca çubukları (pipe), çatı korkuluğu kenar bazında (railEdges) çizildi."
+    "v4 (d078e71): çatı parapeti roof.parapet (0.95 m antrasit + füme cam korkuluk), çatı köşkü volumes, füme cam parapet bölmeleri bölünmüş bal öğeleri, pencere frameC/tint, giriş saçağı proj. Kalan pending: tonoz kemeri, uzun balkon uçları, köşe boruları, dışbükey balkon önleri, GD pencere sütunu, cam balkon doğrama rengi, çekirdek girinti derinliği. v5 (bu tur): cam balkon profil rengi (bal.frameC), çekirdek girintisi (recess 3.25 m), köşe loca çubukları (pipe), çatı korkuluğu kenar bazında (railEdges) çizildi.",
+    "v6 dönüşümü (2026-09-29): çatı köşkü tonozu (volumes[0].roof vault), batı yığınları tek dışbükey yay (arc [−0.45, 12.8] + bulge 0.75, G35 paralaksından ölçüldü) + yayı izleyen çatı parapeti (cap). Çekirdek girintisi arka duvar camına `behind` EKLENMEDİ: G35'te arka duvar kat ritmi (kayıt aralığı görünen 1.065 m, cephe 1.255) derinlik düzeltmesiyle kat yüksekliğini 3.6 m'ye çıkarıyor (ortonun düşey basıklığı yüzünden model tutarsız) → cam kat çizgilerine hizalı kaldı. Hâlâ pending: alın dikmeleri/kaburgalar + tonoz üstü havalandırmalar, GB uçta K2/K4 döşeme ucu, kuzey uç yuvarlatması, GD pencere sütunu."
   ],
   "edges": [
     {
@@ -915,7 +916,15 @@
             "*": "#171611",
             "K6": "#e6e8e6",
             "K7": "#e6e8e6"
-          }
+          },
+          "arc": [
+            -0.45,
+            12.8
+          ],
+          "bulge": 0.75,
+          "cap": true,
+          "capH": 1.19,
+          "capC": "#465466"
         },
         {
           "t": "bal",
@@ -966,7 +975,15 @@
             "*": "#171611",
             "K6": "#e6e8e6",
             "K7": "#e6e8e6"
-          }
+          },
+          "arc": [
+            -0.45,
+            12.8
+          ],
+          "bulge": 0.75,
+          "cap": true,
+          "capH": 1.19,
+          "capC": "#465466"
         },
         {
           "t": "bal",
@@ -1013,7 +1030,15 @@
             "*": "#171611",
             "K6": "#e6e8e6",
             "K7": "#e6e8e6"
-          }
+          },
+          "arc": [
+            -0.45,
+            12.8
+          ],
+          "bulge": 0.75,
+          "cap": true,
+          "capH": 1.19,
+          "capC": "#465466"
         },
         {
           "t": "bal",
@@ -1057,7 +1082,15 @@
           "frameC": {
             "*": "#171611",
             "K7": "#e6e8e6"
-          }
+          },
+          "arc": [
+            -0.45,
+            12.8
+          ],
+          "bulge": 0.75,
+          "cap": true,
+          "capH": 1.19,
+          "capC": "#465466"
         },
         {
           "t": "bal",
@@ -1105,7 +1138,15 @@
           "frameC": {
             "*": "#171611",
             "K7": "#e6e8e6"
-          }
+          },
+          "arc": [
+            -0.45,
+            12.8
+          ],
+          "bulge": 0.75,
+          "cap": true,
+          "capH": 1.19,
+          "capC": "#465466"
         },
         {
           "t": "bal",
@@ -1151,7 +1192,15 @@
           "frameC": {
             "*": "#171611",
             "K7": "#e6e8e6"
-          }
+          },
+          "arc": [
+            -0.45,
+            12.8
+          ],
+          "bulge": 0.75,
+          "cap": true,
+          "capH": 1.19,
+          "capC": "#465466"
         },
         {
           "t": "proj",
@@ -1227,7 +1276,7 @@
           "proud": 0.03
         }
       ],
-      "note": "Batı cephe (Özlüce yolu), cepheden G35dRPhH (2025-09) referans; G9scaTkn, PLTC61DJ, uaWQP1-r ile doğrulandı. Bu ortofoto düşeyde basık (görünen kat aralığı 2.51, yatay ölçek ≈1.0) → floorH açıkça 3.2. cal.u = iki yığının çatı alnı uçları. Kuzey yığın u −0.35…4.5, çekirdek cam u 4.8…7.45 (yığınların iç yan duvarları sağır sıva), güney yığın u 7.55…12.8. Güney yığında K2 ve K4 (belki K6) parapetleri çatı alnının 0.65 m ötesine (u 13.45) uzanıyor (pending #5). Füme cam parapet bölmeleri panel olarak (kuzey yığında kuzey uçta, güney yığında güney uçta; tek katlar geniş, çift katlar dar). Çekirdek (v5 `recess` u 4.55–7.55, K1–K7, derinlik 3.25 m): G9 65_32 ve PLTC 106_31 karelerinde yığınların yan duvarlarının görünen genişliği / yığın cephe genişliği oranı → 3.2–3.3 m (PLTC ortosunda güney yan duvar 9.0→7.4 da 3.3 veriyor). Arka duvarda 3 sütunlu koyu mavi-gri perde duvar (cam #3f5464, dikme #1b2523; kat başına tavan-taban cam `stair` + ortada kayıt = kat başına 2 sıra; u derinlik için kamera merkezli düzeltilip 4.7–7.4 yazıldı), K7 hizasında cam yok, arka yüz koyu gri #4c524e (G35; önceki ölçüm #1d252b); üstteki açık gri kiriş = çekirdek önündeki parapet yüzü, panel #828882 (21.0–22.1). K0 çitin arkasında (girinti K1’den). Giriş saçağı + 'A' harfi çekirdeğin dibinde (pending #4). K3'te güney yığının ucunda Türk bayrağı. v4: füme cam uç bölmeleri artık ayrı bal öğeleri (glassFull, cam #555a60): kuzey yığında u −0.45…0.88 tüm katlar, 0.88…2.19 yalnız tek katlar; güney yığında 10.05…11.45 tek katlar, 11.45…12.8 tüm katlar (K4'te bu uç bölüm camlı — fotoğraftaki kısmi cam). Giriş saçağı proj (d 1.2 ÖLÇÜLEMEDİ, ~1–1.5; alın #3f4852, üstünde füme cam korkuluk); 'A' harfi saçak önüne (d 1.24). Çekirdek camı tint #3f5464."
+      "note": "Batı cephe (Özlüce yolu), cepheden G35dRPhH (2025-09) referans; G9scaTkn, PLTC61DJ, uaWQP1-r ile doğrulandı. Bu ortofoto düşeyde basık (görünen kat aralığı 2.51, yatay ölçek ≈1.0) → floorH açıkça 3.2. cal.u = iki yığının çatı alnı uçları. Kuzey yığın u −0.35…4.5, çekirdek cam u 4.8…7.45 (yığınların iç yan duvarları sağır sıva), güney yığın u 7.55…12.8. Güney yığında K2 ve K4 (belki K6) parapetleri çatı alnının 0.65 m ötesine (u 13.45) uzanıyor (pending #5). Füme cam parapet bölmeleri panel olarak (kuzey yığında kuzey uçta, güney yığında güney uçta; tek katlar geniş, çift katlar dar). Çekirdek (v5 `recess` u 4.55–7.55, K1–K7, derinlik 3.25 m): G9 65_32 ve PLTC 106_31 karelerinde yığınların yan duvarlarının görünen genişliği / yığın cephe genişliği oranı → 3.2–3.3 m (PLTC ortosunda güney yan duvar 9.0→7.4 da 3.3 veriyor). Arka duvarda 3 sütunlu koyu mavi-gri perde duvar (cam #3f5464, dikme #1b2523; kat başına tavan-taban cam `stair` + ortada kayıt = kat başına 2 sıra; u derinlik için kamera merkezli düzeltilip 4.7–7.4 yazıldı), K7 hizasında cam yok, arka yüz koyu gri #4c524e (G35; önceki ölçüm #1d252b); üstteki açık gri kiriş = çekirdek önündeki parapet yüzü, panel #828882 (21.0–22.1). K0 çitin arkasında (girinti K1’den). Giriş saçağı + 'A' harfi çekirdeğin dibinde (pending #4). K3'te güney yığının ucunda Türk bayrağı. v4: füme cam uç bölmeleri artık ayrı bal öğeleri (glassFull, cam #555a60): kuzey yığında u −0.45…0.88 tüm katlar, 0.88…2.19 yalnız tek katlar; güney yığında 10.05…11.45 tek katlar, 11.45…12.8 tüm katlar (K4'te bu uç bölüm camlı — fotoğraftaki kısmi cam). Giriş saçağı proj (d 1.2 ÖLÇÜLEMEDİ, ~1–1.5; alın #3f4852, üstünde füme cam korkuluk); 'A' harfi saçak önüne (d 1.24). Çekirdek camı tint #3f5464. v6 KAVİS (ölçüm): iki yığının ön yüzleri TEK dışbükey yay üzerinde — G35 (D 25 m, uF 5.37) ortosunda K3/K5/K6 parapet alt kenarının görünen y'si u boyunca: kuzey yığın u −0.2→4.0 yükseliyor (K5 15.43→15.85), güney yığın u 7.8→12.6 alçalıyor (15.95→15.68); çekirdek panelinin alt kenarındaki eğim (0.029/m, pano yuvarlanması) çıkarıldıktan sonra derinlik paralaksına (Δy = (y−yc)·f/D) parabol uyduruldu: eğrilik k = 0.0175 ± 0.002 /m² (üç bantta tutarlı), tepe u ≈4.5–5.7 (çekirdek). Yay açıklığı cephe uçları (cal.u −0.45…12.8 = yığınların dış uçları taban izi hattında kabul) → sehim k·6.625² ≈ 0.77 → bulge 0.75, arc [−0.45, 12.8] altı öğede ortak (kavisli gömük loca: inset 1.1 korunur, döşeme/korkuluk/cam yay boyunca). Üstte çatı parapeti yayı izliyor (G35): cap + capH 1.19 (K8 döşemesi −0.12 → parapet üstü) + capC #465466; korkuluk çatı parapetinde (railEdges 10) kaldı, şapka üstünde ayrıca çizilmedi."
     },
     {
       "edge": 11,
@@ -1672,7 +1721,7 @@
   "pending": [
     {
       "id": 1,
-      "what": "Çatı köşkünün tonoz (beşik kemer) çatısı — gövde 'volumes' ile camlı kutu olarak çizildi",
+      "what": "Çatı köşkü tonozunun batı alın camındaki düşey beyaz dikmeler + tonoz kenarındaki ışınsal kaburgalar; tonoz üstündeki 4 beyaz havalandırma",
       "edge": 10,
       "ref": "1541439437_10_G35dRPhH.jpg",
       "u": [
@@ -1683,7 +1732,8 @@
         22.1,
         23.4
       ],
-      "desc": "Volumes[0] üstüne D–B eksenli kemer: taban genişliği 9.7 m (K–G), tepe ≈29.4 m (alın üstünden +1.7 m), kaplama kahverengi-mor #827173 (tepe #a08582), batı alın yüzü ışınsal beyaz dikmeli cam yelpaze (~12 bölme), üstte 4 beyaz havalandırma."
+      "desc": "G35 ortosu (3× yakın): alın yüzünde ≈0.8 m arayla koyu düşey dikmeler (#626c65), açık gri-beyaz camlar (#919a93), üst kavisli bantta ≈1 m arayla kısa ışınsal kaburga uçları; hava fotoğrafında tonoz üstünde 2×2 beyaz nokta (düzeltilmiş ≈(669.7,−14.8), (674.1,−15.0), (670.3,−10.2), (674.7,−10.4)), boyları görülmedi.",
+      "reason": "Tonoz v6 volumes[0].roof (vault) ile çizildi; alın yüzü düz renk (gableC). Hacim alnında dikme/kaburga, hacim çatısı üstünde roofobj (roofobj yalnız ana çatı yüzüne oturur) yok."
     },
     {
       "id": 5,
@@ -1698,13 +1748,15 @@
         2,
         4
       ],
-      "desc": "K2 ve K4 (K6 belirsiz) dolu parapetleri çatı alnı ucundan ≈0.65 m daha güneye uzanıyor (yuvarlatılmış uç); taban izi dışında kalıyor."
+      "desc": "K2 ve K4 (K6 belirsiz) dolu parapetleri çatı alnı ucundan ≈0.65 m daha güneye uzanıyor (yuvarlatılmış uç); taban izi dışında kalıyor.",
+      "reason": "Yeniden bakıldı: G35'te u 12.75–13.5 kesintisiz krem uç şeridi (K2/K4'e özgü taşma seçilmiyor; u ≥ 13.5'teki yuvarlak uçlu döşemeler güney kulenin (kenar 0/1) balkonları); G9 yakın eğik karede yalnız K2 (belki K4) döşeme ucu komşu katlardan ≈0.3 m (görünen) ileride. Ne olduğu (güneye mi batıya mı taşma) belirsiz → öğe yazılmadı."
     },
     {
       "id": 8,
-      "what": "Batı yığınlarının hafif dışbükey (kavisli) balkon önleri",
+      "what": "Kuzey yığının kuzey ucunda yuvarlatılmış loca ucu (kavisli ön yüzler v6 arc+bulge ile çizildi)",
       "edge": 10,
-      "desc": "Balkon döşeme/parapet önleri planda hafif kavisli (ortası dışarıda, uçları geride; sehim ~0.3–0.5 m, ölçülemedi); kuzey yığının kuzey ucu yuvarlatılmış. v5 notu: bulge/round dönüştürülmedi — (1) her yığın füme cam uç bölmeleri yüzünden üç bal öğesine bölünmüş, bulge her öğenin kendi u aralığına uygulanıyor (ortak yay yerine üç tümsek); (2) bu balkonlar gömük loca (d 0, inset 1.1), üretici bulge/round’u yalnız taşan balkonda uyguluyor. İstenen (v6): bal.arc = [u0, u1] ortak parabol açıklığı + inset locada kavisli ön yüz ve yuvarlatılmış uç (kuzey yığının kuzey ucu). otFK 29_47 karesinde de önler belirgin kavisli."
+      "desc": "G35/G9: kuzey yığının kuzey ucunda (u −0.45) parapet/döşeme uçları yuvarlatılmış (yarıçap ≈0.4–0.6, ölçülemedi).",
+      "reason": "v6: taban izi içindeki loca uçlarının yuvarlatılması/pahı desteklenmiyor (round yalnız taşan yay kısmına uygulanır; yay ucunda sehim 0)."
     },
     {
       "id": 9,
@@ -1747,7 +1799,14 @@
         "frame": "#e6e8e6"
       },
       "collide": true,
-      "note": "Çatı köşkü (yaklaşık): K–G genişlik batıdan ölçüldü (9.7 m, z −17…−7.3); D–B uzunluk ve konum hava fotoğrafındaki kahverengi tonozdan ±2 m; cam duvar yüksekliği korkuluk arkasında görülmedi (~1.8 m varsayım), tonoz kemeri (tepe ≈29.4 m) pending'de. Kuzey yüzün beyaz doğramalı pencereleri (PLTC kenar 8, eski pending #2) bu hacmin parçası."
+      "note": "Çatı köşkü (yaklaşık): K–G genişlik batıdan ölçüldü (9.7 m, z −17…−7.3); D–B uzunluk ve konum hava fotoğrafındaki kahverengi tonozdan ±2 m; cam duvar yüksekliği korkuluk arkasında görülmedi (~1.8 m varsayım), tonoz kemeri (tepe ≈29.4 m) pending'de. Kuzey yüzün beyaz doğramalı pencereleri (PLTC kenar 8, eski pending #2) bu hacmin parçası. v6 tonoz çatı: roof.kind vault, eksen poly kenar 0 (D–B), rise 1.5 (G35 ortosunda batı alın kemeri görünen u ≈1.3–11.0, üzengi 22.35–22.6, tepe 23.63 → 1.15 görünen × sY 1.274 ≈ 1.47, köşk yüzü ≈0.6 m geride → ≈1.5; üzengi ≈28.3–28.9 = y1 28.6 ile tutarlı → tepe ≈30.1 ±0.3), kaplama #827173 (hava fotoğrafı), alın yüzleri gableC #919a93 (G35 batı alın camı, bölmeler arası örnek; doğu alın GÖRÜLMEDİ, aynı renk çizilir). Batı alındaki düşey beyaz dikmeler ve tonoz kenarındaki kısa ışınsal kaburgalar çizilemiyor (pending).",
+      "roof": {
+        "kind": "vault",
+        "axis": 0,
+        "rise": 1.5,
+        "color": "#827173",
+        "gableC": "#919a93"
+      }
     }
   ]
 }

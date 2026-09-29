@@ -213,9 +213,9 @@
     },
     {
      "t": "win",
-     "u0": 4.35,
-     "u1": 5.45,
-     "y0": 22.55,
+     "u0": 4.2,
+     "u1": 5.3,
+     "y0": 22.25,
      "y1": 24.6,
      "k": 7,
      "s": [
@@ -224,7 +224,8 @@
      ],
      "kind": "door",
      "rail": true,
-     "split": 2
+     "split": 2,
+     "behind": 2.0
     },
     {
      "t": "panel",
@@ -379,7 +380,7 @@
      "color": "plaster2"
     }
    ],
-   "note": "Güney (Doğan Avcıoğlu) cephesi. Ref 2QtexqzB (2025-09, 94 m, ~30° eğik, bulutlu); u>14.5 ve renkler UXy7Q7qk (2025-09, 99 m, güneşli) ile — iki ortofoto düzlem üstündeki öğelerde ±0.15 m örtüşüyor; l07hZ6pz eğik bakışla çerçeve/sütun konumlarını doğruladı. Batıdan doğuya: KB köşede beyaz sütun (u −0.25–1.65) + 2 kanatlı fransız pencere (yatay borulu korkuluk) + altında gri çıkıntılı denizlik kutusu; ÇERÇEVE (portal): gri ayaklar u 1.65–2.9 ve 7.5–9.05, üst kiriş 28.1–30.55 (ana parapetin 29.8 üstüne ≈0.75 çıkar); içinde derin yuva (u 2.9–7.5): v5 `recess` (K2 döşemesinden 28.1'e, derinlik 2.0 m — 2Qtex'te sol iç yan duvar 1.1 m görünür (kamera 81 m / 44 m yanal → 1.9–2.1 m), yuva içi kat aralığı 2.95/3.02 → 2.0 m); arka duvarda her katta balkon kapısı (u 4.35–5.45, korkuluklu, arka duvara çizilir); arka duvardaki açık gri döşeme alınları (u 4.0–7.55) ve beyaz dikme (u 5.45–5.8) üretici girinti arka duvarına bant/pano çizemediği için pending'e taşındı. Yuvanın K0–K1'i görülmedi (koyu pano ağızda, eski kabul); beyaz sütun 2 (u 9.05–12.35) + fransız pencere u 9.1–10.95 + gri denizlik kutuları; GD'de loca yığını (u 12.35–14.85) K1–K7 tümü katlanır cam balkon (buzlu alt panel, beyaz alın), K8 yerine kalın beyaz şapka (25.05–26.25) → saçak olarak doğu köşeye kadar sürer (u 14.85–17.95), üstünde gri kiremitli kırma çatı eteği görünür; gri penceresiz duvar u 14.85–17.0; köşede beyaz dikey şerit u 17.0–17.5. K8 (en üst kat) YALNIZ u −0.25–12.35 bandında var (pencereler + parapet 29.8); loca bölümünde yok (bkz. pending). K0 hiç görülmedi (çit/çalı + köprü korkuluğu); K1 yalnız beyaz sütun 2 ve loca (UXy7'de üst yarısı). Klima, çanak, boru görülmedi. Perdeler 95–100 m'den ayırt edilemiyor (açık kanatlar tül mü yansıma mı belirsiz)."
+   "note": "Güney (Doğan Avcıoğlu) cephesi. Ref 2QtexqzB (2025-09, 94 m, ~30° eğik, bulutlu); u>14.5 ve renkler UXy7Q7qk (2025-09, 99 m, güneşli) ile — iki ortofoto düzlem üstündeki öğelerde ±0.15 m örtüşüyor; l07hZ6pz eğik bakışla çerçeve/sütun konumlarını doğruladı. Batıdan doğuya: KB köşede beyaz sütun (u −0.25–1.65) + 2 kanatlı fransız pencere (yatay borulu korkuluk) + altında gri çıkıntılı denizlik kutusu; ÇERÇEVE (portal): gri ayaklar u 1.65–2.9 ve 7.5–9.05, üst kiriş 28.1–30.55 (ana parapetin 29.8 üstüne ≈0.75 çıkar); içinde derin yuva (u 2.9–7.5): v5 `recess` (K2 döşemesinden 28.1'e, derinlik 2.0 m — 2Qtex'te sol iç yan duvar 1.1 m görünür (kamera 81 m / 44 m yanal → 1.9–2.1 m), yuva içi kat aralığı 2.95/3.02 → 2.0 m); arka duvarda her katta balkon kapısı (görünen u 4.2–5.3, y 22.25–24.6 K7; korkuluklu) — v6 `behind: 2.0`: ortofoto ön düzlem ölçeğinden arka duvara çevrilir → gerçek u ≈3.33–4.46 (yuvanın sol-arka köşesine bitişik; UXy7 güneşli karede de kapı sol iç yan duvarın hemen yanında, sağında beyaz dikme), eşik kat döşemesinden ≈0.2; arka duvardaki açık gri döşeme alınları (u 4.0–7.55) ve beyaz dikme (u 5.45–5.8) üretici girinti arka duvarına bant/pano çizemediği için pending'e taşındı. Yuvanın K0–K1'i görülmedi (koyu pano ağızda, eski kabul); beyaz sütun 2 (u 9.05–12.35) + fransız pencere u 9.1–10.95 + gri denizlik kutuları; GD'de loca yığını (u 12.35–14.85) K1–K7 tümü katlanır cam balkon (buzlu alt panel, beyaz alın), K8 yerine kalın beyaz şapka (25.05–26.25) → saçak olarak doğu köşeye kadar sürer (u 14.85–17.95), üstünde gri kiremitli kırma çatı eteği görünür; gri penceresiz duvar u 14.85–17.0; köşede beyaz dikey şerit u 17.0–17.5. K8 (en üst kat) YALNIZ u −0.25–12.35 bandında var (pencereler + parapet 29.8); loca bölümünde yok (bkz. pending). K0 hiç görülmedi (çit/çalı + köprü korkuluğu); K1 yalnız beyaz sütun 2 ve loca (UXy7'de üst yarısı). Klima, çanak, boru görülmedi. Perdeler 95–100 m'den ayırt edilemiyor (açık kanatlar tül mü yansıma mı belirsiz)."
   },
   {
    "edge": 2,
@@ -983,7 +984,9 @@
   "Tabela/levha, klima, çanak anten, kamera, bayrak: görülen hiçbir cephede seçilmedi (uzaklık 85–110 m; küçük öğeler kaçmış olabilir). Perdeler çözülemiyor.",
   "Ayak izi: fotoğraflar ≥0.5 m sapma göstermiyor (kenar 1 köşeleri 2Qtex/UXy7'de u −0.25 ve 17.95; l07 izdüşümü ±0.4 m); çentik balkonu çentiği doldurmuyor (yalnız batı 2.2 m).",
   "KISMİ K8 (massing): 9 katlı iki şerit — güney şerit kenar 1 boyunca P1'den 12.4 m (çerçeve + iki beyaz sütun; üstü düz, 1.3 m beyaz parapet → 29.8) ve kuzey orta çekirdek kenar 7 u 11.2–17.85 (K8 pencereleri, üstü ≈27.3–28.8). Kalan gövde 8 kat + 1.2 m beyaz saçak alnı (K8 döşeme düzeyi, 25.5–26.7; fotoğraflarda 25.05–27.0) + kırma çatı/teras. Şeritlerin DERİNLİĞİ (4.5 m) GÖRÜLMEDİ — yalnız cephe genişlikleri ölçüldü; yuvanın ≥1.6–2.9 m derinliğini kapsayacak alt sınır olarak seçildi. Şerit–gövde kesim duvarları öğesiz düz sıva (gerçekte kırma çatının arkasında).",
-  "v5 dönüşümü (2026-09-29): çerçeve yuvası → recess 2.0 m; çentik balkonu batı ön köşesi round 0.7; iki baca → volumes (l07 + -5Gw üçgenleme). Yuva arka duvarındaki döşeme alınları + beyaz dikme üretici desteği gelene kadar pending (öğelerden çıkarıldı)."
+  "v5 dönüşümü (2026-09-29): çerçeve yuvası → recess 2.0 m; çentik balkonu batı ön köşesi round 0.7; iki baca → volumes (l07 + -5Gw üçgenleme). Yuva arka duvarındaki döşeme alınları + beyaz dikme üretici desteği gelene kadar pending (öğelerden çıkarıldı).",
+  "Gri çıkıntılı denizlik kutuları (kenar 1, 10): proj d 0.25 TAHMİN (alt kenarlarında gölge bandı; pencereyi iki yanda ≈0.1–0.15 m aşar) — v6 turunda üretici isteği olmadığı için pending'den notlara alındı.",
+  "v6 dönüşümü (2026-09-29): yuva arka duvarındaki kapı `behind: 2.0` ile (görünen ölçüler yeniden okundu: u 4.2–5.3, y 22.25–24.6) → sol-arka köşeye taşındı (iki pano tutarlı). Hâlâ pending: yuva arka duvarı döşeme alınları + beyaz dikme (band/panel arka duvara taşınmıyor). Bacalar v5 hacim olarak kaldı (l07/-5Gw'de başlıklar küçük piramit/kırma kiremit görünüyor; roofobj'e çevrilmedi çünkü çatı yüzeyi kotu ve baca boyu bu uzaklıkta doğrulanamadı)."
  ],
  "pending": [
   {
@@ -1067,15 +1070,19 @@
    ],
    "post": {
     "u": [
-     5.45,
-     5.8
+     5.5,
+     5.95
     ],
     "y": [
      9.9,
      27.3
     ],
     "color": "plaster2",
-    "desc": "kapının sağında beyaz düşey dikme/kasa"
+    "real_u_behind2": [
+     4.64,
+     5.1
+    ],
+    "desc": "kapının sağında beyaz düşey dikme/kasa (2Qtex zoom: parlak şerit x 280–298 px → görünen u 5.5–5.95; UXy7'de ≈0.75 görünen); arka duvar (2.0 m) ölçeğinde gerçek ≈4.64–5.1"
    },
    "doorPanel": {
     "u": [
@@ -1090,16 +1097,8 @@
     "back_shade": "#6a757d–#737c8e",
     "side_shade": "#6f777b"
    },
-   "desc": "Her katta döşeme hizasında (yuva arka duvarında, ≈2 m derinde) açık gri döşeme alnı bantları ve beyaz dikme. Görünen y'ler cephe düzlemi ölçeğinde (derinlik nedeniyle gerçekte ≈0.3 m yukarıda). Girinti ağzına proj olarak çizilince havada kalıyordu → öğelerden çıkarıldı; üretici bant/pano/proj öğelerini (ORTASI girintiye düşenleri) arka duvara taşımalı."
-  },
-  {
-   "what": "Gri çıkıntılı denizlik kutuları derinliği",
-   "edges": [
-    1,
-    10
-   ],
-   "d": "0.25 tahmin (alt kenarlarında gölge bandı)",
-   "desc": "Fransız pencerelerin altındaki kutular pencereyi her iki yanda ≈0.1–0.15 m aşar."
+   "desc": "Her katta döşeme hizasında (yuva arka duvarında, ≈2 m derinde) açık gri döşeme alnı bantları ve beyaz dikme. Görünen y'ler cephe düzlemi ölçeğinde (arka duvar 2.0 m derinde: gerçek = 2.81 + (y − 2.81)·1.0246 → K7 bandı 21.65–22.25 görünen = 22.11–22.73 gerçek; u benzer biçimde kameradan uzağa ≈1.0–1.1 m kayar). Girinti ağzına proj olarak çizilince havada kalıyordu → öğelerden çıkarıldı; üretici bant/pano/proj öğelerini (ORTASI girintiye düşenleri) arka duvara taşımalı.",
+   "reason": "v6 girintide arka duvara yalnız win/sign/vent/ac/dish/camera/flag/lamp/pipe/awning/entrance taşıyor; band/panel/proj (döşeme alınları, beyaz dikme) hâlâ ağızda çizilir → arka duvar bandı/panosu gerekiyor. Kapı artık win + behind ile arka duvarda doğru yerde."
   }
  ],
  "massing": {

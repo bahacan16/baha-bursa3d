@@ -169,48 +169,86 @@ function concat(gs: THREE.BufferGeometry[]): THREE.BufferGeometry {
   return out;
 }
 
-/** Gri AO görüntüsü → tek kanallı (R8) doku, mipmap'li; yoksa null. channel: kullanılacak uv kanalı. */
-async function loadAoTexture(url: string, channel: number): Promise<THREE.DataTexture | null> {
+function aoTexture(data: Uint8Array, w: number, h: number, channel: number): THREE.DataTexture {
+  // Satır 0 = görüntünün üstü = uv v=0 (glTF kuralı) → flipY yok
+  const t = new THREE.DataTexture(data, w, h, THREE.RedFormat, THREE.UnsignedByteType);
+  t.flipY = false;
+  t.colorSpace = THREE.NoColorSpace;
+  t.generateMipmaps = true;
+  t.minFilter = THREE.LinearMipmapLinearFilter;
+  t.magFilter = THREE.LinearFilter;
+  t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
+  t.anisotropy = 4;
+  t.channel = channel;
+  t.unpackAlignment = 1;
+  t.needsUpdate = true;
+  return t;
+}
+
+/** GPU'nun en büyük doku kenarı (bir kez, geçici WebGL2 bağlamıyla) */
+let maxTexCache = 0;
+function maxTextureSize(): number {
+  if (maxTexCache) return maxTexCache;
+  maxTexCache = 4096;
+  try {
+    const gl = document.createElement('canvas').getContext('webgl2');
+    if (gl) {
+      maxTexCache = gl.getParameter(gl.MAX_TEXTURE_SIZE) as number;
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
+    }
+  } catch {
+    /* varsayılan 4096 */
+  }
+  return maxTexCache;
+}
+
+/**
+ * Gri AO görüntüsü → tek kanallı (R8), mipmap'li dokular. Görüntü `tile` pikselden büyükse `tile`×`tile`
+ * dokulara bölünür (anahtar "tx,ty"): dörtlü ağaç paketlemesinde hiçbir parça dilim sınırını aşmaz.
+ * 2048² parçalarla okunur (tek dev tuval hem ~270 MB geçici bellek hem Safari tuval sınırı 16.7 Mpx).
+ */
+async function loadAoTiles(
+  url: string,
+  channel: number,
+  tile = Infinity,
+): Promise<{ w: number; h: number; tile: number; tex: Map<string, THREE.DataTexture> } | null> {
   try {
     const r = await fetch(url);
     if (!r.ok) return null;
     const bmp = await createImageBitmap(await r.blob());
     const w = bmp.width;
     const h = bmp.height;
-    // 2048² dilimlerle oku: 8192² sayfa için tek tuval hem ~270 MB geçici bellek hem Safari tuval sınırı (16.7 Mpx)
-    const T = 2048;
+    const T = Math.min(tile, Math.max(w, h));
+    const R = 2048;
     const cv = document.createElement('canvas');
-    cv.width = Math.min(T, w);
-    cv.height = Math.min(T, h);
+    cv.width = Math.min(R, w);
+    cv.height = Math.min(R, h);
     const ctx = cv.getContext('2d', { willReadFrequently: true }) as CanvasRenderingContext2D;
-    const data = new Uint8Array(w * h);
-    for (let y0 = 0; y0 < h; y0 += T)
-      for (let x0 = 0; x0 < w; x0 += T) {
-        const tw = Math.min(T, w - x0);
-        const th = Math.min(T, h - y0);
-        ctx.clearRect(0, 0, tw, th);
-        ctx.drawImage(bmp, x0, y0, tw, th, 0, 0, tw, th);
-        const rgba = ctx.getImageData(0, 0, tw, th).data;
-        for (let y = 0; y < th; y++) {
-          const o = (y0 + y) * w + x0;
-          for (let x = 0; x < tw; x++) data[o + x] = rgba[(y * tw + x) * 4];
-        }
+    const tex = new Map<string, THREE.DataTexture>();
+    for (let ty = 0; ty * T < h; ty++)
+      for (let tx = 0; tx * T < w; tx++) {
+        const X0 = tx * T;
+        const Y0 = ty * T;
+        const tw = Math.min(T, w - X0);
+        const th = Math.min(T, h - Y0);
+        const data = new Uint8Array(tw * th);
+        for (let y0 = 0; y0 < th; y0 += R)
+          for (let x0 = 0; x0 < tw; x0 += R) {
+            const rw = Math.min(R, tw - x0);
+            const rh = Math.min(R, th - y0);
+            ctx.clearRect(0, 0, rw, rh);
+            ctx.drawImage(bmp, X0 + x0, Y0 + y0, rw, rh, 0, 0, rw, rh);
+            const rgba = ctx.getImageData(0, 0, rw, rh).data;
+            for (let y = 0; y < rh; y++) {
+              const o = (y0 + y) * tw + x0;
+              for (let x = 0; x < rw; x++) data[o + x] = rgba[(y * rw + x) * 4];
+            }
+          }
+        tex.set(`${tx},${ty}`, aoTexture(data, tw, th, channel));
       }
     bmp.close();
     cv.width = cv.height = 1;
-    // Satır 0 = görüntünün üstü = uv v=0 (glTF kuralı) → flipY yok
-    const t = new THREE.DataTexture(data, w, h, THREE.RedFormat, THREE.UnsignedByteType);
-    t.flipY = false;
-    t.colorSpace = THREE.NoColorSpace;
-    t.generateMipmaps = true;
-    t.minFilter = THREE.LinearMipmapLinearFilter;
-    t.magFilter = THREE.LinearFilter;
-    t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
-    t.anisotropy = 4;
-    t.channel = channel;
-    t.unpackAlignment = 1;
-    t.needsUpdate = true;
-    return t;
+    return { w, h, tile: T, tex };
   } catch (e) {
     console.warn('bake: doku yüklenemedi', url, e);
     return null;
@@ -323,28 +361,41 @@ export async function applyBakedLighting(
     console.warn(`bake: eskimiş parçalar canlı çiziliyor: ${stale.join(' ')} — yeniden pişirin`);
   if (unbaked.length) console.info(`bake: pişirilmemiş parçalar: ${unbaked.join(' ')}`);
 
-  // Sayfa dokuları
-  const pageTex = new Map<number, THREE.DataTexture>();
-  // Sırayla (paralel çözme geçici belleği katlar)
+  // Sayfa dokuları: sırayla (paralel çözme geçici belleği katlar); sayfa GPU sınırından büyükse dilimlere bölünür
+  const maxTex = maxTextureSize();
+  const pageTiles = new Map<number, NonNullable<Awaited<ReturnType<typeof loadAoTiles>>>>();
   for (const p of [...new Set(valid.map((v) => v.m.page))].sort((a, b) => a - b)) {
-    const t = await loadAoTexture(`${base}bake/${man.pages[p].file}`, 1);
-    if (t) pageTex.set(p, t);
+    const t = await loadAoTiles(`${base}bake/${man.pages[p].file}`, 1, maxTex);
+    if (t) pageTiles.set(p, t);
   }
 
   // key → sayfa → parçalar; key → pişirilen üçgenler
-  const perKey = new Map<string, Map<number, THREE.BufferGeometry[]>>();
+  const perKey = new Map<string, Map<string, THREE.BufferGeometry[]>>();
   const bakedTris = new Map<string, Set<number>>();
   let applied = 0;
+  const texOf = new Map<string, THREE.DataTexture>();
   for (const { c, m } of valid) {
-    const tex = pageTex.get(m.page);
-    if (!tex) continue;
+    const pt = pageTiles.get(m.page);
+    if (!pt) continue;
+    const [px, py, rs] = m.rect;
+    const tx = Math.floor(px / pt.tile);
+    const ty = Math.floor(py / pt.tile);
+    const tkey = `${m.page}:${tx},${ty}`;
+    const tex = pt.tex.get(`${tx},${ty}`);
+    if (!tex || px + rs > (tx + 1) * pt.tile || py + rs > (ty + 1) * pt.tile) {
+      console.warn(`bake: ${c.id} sayfa dilimine sığmıyor — canlı`);
+      continue;
+    }
+    texOf.set(tkey, tex);
     const u = unwrapChunk(c, col.sources, man.unwrap);
     if (u.size !== m.size) {
       console.warn(`bake: ${c.id} atlas boyutu farklı (${u.size} ≠ ${m.size}) — canlı`);
       continue;
     }
-    const P = man.pages[m.page].size;
-    const [rx, ry, rs] = m.rect;
+    // Dilim içi konum
+    const P = pt.tile;
+    const rx = px - tx * pt.tile;
+    const ry = py - ty * pt.tile;
     c.parts.forEach((part, i) => {
       const key = col.sources[part.src].key;
       const up = u.parts[i];
@@ -356,8 +407,8 @@ export async function applyBakedLighting(
       const g = partGeometry(col.sources[part.src].geometry, up);
       let pk = perKey.get(key);
       if (!pk) perKey.set(key, (pk = new Map()));
-      let l = pk.get(m.page);
-      if (!l) pk.set(m.page, (l = []));
+      let l = pk.get(tkey);
+      if (!l) pk.set(tkey, (l = []));
       l.push(g);
       let bt = bakedTris.get(key);
       if (!bt) bakedTris.set(key, (bt = new Set()));
@@ -374,7 +425,7 @@ export async function applyBakedLighting(
     for (const [p, gs] of pages) {
       const ck = `${mat.uuid}|${p}`;
       let cm = clones.get(ck);
-      if (!cm) clones.set(ck, (cm = aoClone(mat, pageTex.get(p) as THREE.Texture)));
+      if (!cm) clones.set(ck, (cm = aoClone(mat, texOf.get(p) as THREE.Texture)));
       const g = concat(gs);
       g.computeBoundingSphere();
       const mesh = new THREE.Mesh(g, cm);
@@ -402,8 +453,10 @@ export async function applyBakedLighting(
 
   // Zemin AO
   if (ground && man.groundAo) {
-    const gt = await loadAoTexture(`${base}bake/${man.groundAo.file}`, 0);
-    if (gt) patchGround(ground, gt, man.groundAo.rect);
+    const gt = await loadAoTiles(`${base}bake/${man.groundAo.file}`, 0);
+    const g0 = gt?.tex.get('0,0');
+    if (gt && g0 && gt.tex.size === 1) patchGround(ground, g0, man.groundAo.rect);
+    else if (gt) console.warn('bake: zemin AO dokusu GPU sınırından büyük — atlandı');
   }
   bakedLighting.active = applied > 0;
   bakedLighting.chunks = applied;

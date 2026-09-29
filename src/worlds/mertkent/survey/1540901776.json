@@ -669,7 +669,8 @@
   "Görülmeyenler: TÜM doğu cephe (kenar 8–12, 0) ve güney cephe (kenar 7) — yalnız GB köşede şerit camın güneye döndüğü seçiliyor; KD çentik (13); batı cephenin K0–K2/K3'ü; kuzey cephenin K0–K1'i ve 2025 hali; kenar 2'nin balkon arkası ve cam/açık durumu; kenar 4'te u<2 (gerçek) gri bölümün alt katları.",
   "Tabela, klima, çanak anten, kamera görülmedi. Kenar 4'te beyaz sütun önünde koyu düşey yağmur borusu. Perdeler: kenar 4'teki 2 kanatlı pencerelerde beyaz tül seçiliyor ama kat kat güvenle ayrılamıyor → yazılmadı.",
   "KISMİ K8 (massing): 9 katlı şerit kuzey cephe u 3.6–16.8 (j-FHs 2019 kaydı, ±1–3 m) boyunca, üstü düz + 1.3 m beyaz parapet (29.7); kalan gövde 8 kat + 1.3 m beyaz saçak bandı + kırma çatı/teras (batı cephede 27.0–28.3 bant uJjm kaydında). Şerit DERİNLİĞİ (4.5 m) görülmedi, alt sınır seçimi.",
-  "v5 dönüşümü (2026-09-29): kuzey çerçeve yuvası → recess 2.3 m (2019 j-FHs geometrisi); yuva arka duvarı bantları pending. Çatı üstü panel dizisi ve çatı odası konumları güvenilmez (ayak izi dışına düşüyor) → hâlâ pending; kahverengi pano basamak yüzü (kenar 5) görülmedi."
+  "v5 dönüşümü (2026-09-29): kuzey çerçeve yuvası → recess 2.3 m (2019 j-FHs geometrisi); yuva arka duvarı bantları pending. Çatı üstü panel dizisi ve çatı odası konumları güvenilmez (ayak izi dışına düşüyor) → hâlâ pending; kahverengi pano basamak yüzü (kenar 5) görülmedi.",
+  "v6 turu (2026-09-29): pending öğelerinin hiçbiri v6 özellikleriyle ifade edilemedi (yuva arka duvarı bantları: band arka duvara taşınmıyor; çatı panel dizisi/odası: konum güvenilmez). Kuzey cephe hâlâ yalnız 2019 karesinden."
  ],
  "pending": [
   {
@@ -751,7 +752,8 @@
      "color": "#9aa3a8 (2019 inşaat rengi, güncel değil)"
     }
    ],
-   "desc": "Her katta döşeme hizasında yuva arka duvarında (≈2.3 m derinde) açık gri döşeme alnı bantları (sol iç yan duvarın bittiği u 9.4'ten sağ ayağa). Ağızda proj olarak havada kalacağı için öğelerden çıkarıldı."
+   "desc": "Her katta döşeme hizasında yuva arka duvarında (≈2.3 m derinde) açık gri döşeme alnı bantları (sol iç yan duvarın bittiği u 9.4'ten sağ ayağa). Ağızda proj olarak havada kalacağı için öğelerden çıkarıldı.",
+   "reason": "v6 girintide yalnız win/sign/vent/ac/dish/camera/flag/lamp/pipe/awning/entrance arka duvara taşınıyor; band/panel hâlâ ağızda → arka duvar bandı desteği gerekiyor. Yuva arka duvarında pencere/kapı yok (2019 j-FHs'te yalnız bantlar) → behind gerekmedi. Renkler 2019."
   },
   {
    "what": "Çatı üstü koyu panel dizisi",
@@ -765,7 +767,8 @@
     30.0
    ],
    "color": "#4a5360",
-   "desc": "Batı saçağın gerisinde, çatı/teras üstünde düşey dikmelerle bölünmüş koyu mavi-gri paneller (≈1.5 m yüksek, kenar 4'ün güney yarısı ve kenar 6 boyunca) — güneş kolektörü dizisi ya da teras paravanı; türü kesin değil."
+   "desc": "Batı saçağın gerisinde, çatı/teras üstünde düşey dikmelerle bölünmüş koyu mavi-gri paneller (≈1.5 m yüksek, kenar 4'ün güney yarısı ve kenar 6 boyunca) — güneş kolektörü dizisi ya da teras paravanı; türü kesin değil.",
+   "reason": "v6 roofobj türleri (chimney/antenna/dish/vent) güneş kolektörü / paravan dizisini ifade etmiyor; ayrıca türü ve dünya konumu (glMQ+uJjm üçgenlemesi taban izi dışında) güvenilir değil."
   },
   {
    "what": "Çatı odası / merdiven kulesi",
@@ -778,7 +781,8 @@
     28.3,
     29.3
    ],
-   "desc": "Kırma çatı üstünde küçük pencereli (3–4 bölme), koyu gri çatılı oda; önünde iki beyaz baca (terrakota başlık) görünen u≈0.4 ve 2.65 (kenar 4 ortofotosu), üstü ≈30.5. Bacalar volumes olarak yazıldı. Oda ve panel dizisi üçgenlemesi (glMQ+uJjm) ayak izinin DIŞINA düşüyor (x≈296–304, iki KB panosunun kaymaları) → konum güvenilmez, volumes yazılmadı."
+   "desc": "Kırma çatı üstünde küçük pencereli (3–4 bölme), koyu gri çatılı oda; önünde iki beyaz baca (terrakota başlık) görünen u≈0.4 ve 2.65 (kenar 4 ortofotosu), üstü ≈30.5. Bacalar volumes olarak yazıldı. Oda ve panel dizisi üçgenlemesi (glMQ+uJjm) ayak izinin DIŞINA düşüyor (x≈296–304, iki KB panosunun kaymaları) → konum güvenilmez, volumes yazılmadı.",
+   "reason": "v6 volumes[].wins + roof (gable/hipped) odayı çizebilir, ama glMQ+uJjm üçgenlemesi taban izinin DIŞINA düşüyor (x≈296–304) → konum/ölçü güvenilmez; doğru konum ölçülünce volumes'e çevrilecek."
   },
   {
    "what": "Kahverengi pano sınırı",
@@ -786,7 +790,8 @@
     4,
     6
    ],
-   "desc": "Ahşap görünümlü pano kolonu kenar 4 sonundan (gerçek u≈7.1) basamak (kenar 5) üzerinden kenar 6'nın u≈1.95'ine kadar sürüyor; kat aralarında beyaz döşeme bantları (≈0.5 m). Basamak yüzü görülmedi. (ÜRETİCİ İSTEĞİ DEĞİL: kenar 5 basamak yüzü hiçbir karede görülmedi → kural gereği çizilmedi.)"
+   "desc": "Ahşap görünümlü pano kolonu kenar 4 sonundan (gerçek u≈7.1) basamak (kenar 5) üzerinden kenar 6'nın u≈1.95'ine kadar sürüyor; kat aralarında beyaz döşeme bantları (≈0.5 m). Basamak yüzü görülmedi. (ÜRETİCİ İSTEĞİ DEĞİL: kenar 5 basamak yüzü hiçbir karede görülmedi → kural gereği çizilmedi.)",
+   "reason": "Üretici isteği değil: kenar 5 basamak yüzü hiçbir karede görülmedi (kural gereği çizilmedi); kenar 4/6 panoları proj olarak çizili."
   }
  ],
  "massing": {

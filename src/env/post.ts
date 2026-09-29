@@ -105,7 +105,7 @@ const FinishUltraShader = {
     uTime: { value: 0 },
     uGrain: { value: 1.3 },
     uCA: { value: 1.0 },
-    uSharpen: { value: 0.35 },
+    uSharpen: { value: 0.5 },
   },
   vertexShader: VS,
   fragmentShader: /* glsl */ `

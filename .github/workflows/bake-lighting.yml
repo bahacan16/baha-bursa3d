@@ -19,7 +19,7 @@ on:
         description: 'Yalnız bu parçalar (virgüllü, ör. -1_-2,-1_-1); boş = tümü'
         default: ''
       chunk:
-        description: 'Parça kenarı (m). 50 + 2048² atlas ≈ 2.5 GB bellek (özel depo koşucusu 7 GB); 100 + 4096² ≈ 6 GB'
+        description: 'Parça kenarı (m). 50 + 2048² atlas ≈ 3.5 GB tepe bellek (özel depo koşucusu 7 GB); 100 + 4096² ≈ 5.4 GB'
         default: '50'
       atlas:
         description: 'Parça atlasının en büyük kenarı (px)'

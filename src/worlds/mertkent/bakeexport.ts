@@ -83,7 +83,7 @@ export function installBakeExport(world: WorldLike): void {
     texel: Number(params.get('texel')) || DEFAULT_UNWRAP.texel,
     maxAtlas: Number(params.get('maxatlas')) || DEFAULT_UNWRAP.maxAtlas,
   };
-  // Parça kenarı (m): küçük pişirme makinesinde (ör. 7 GB'lık CI) 50 m + 2048² atlas → pişirme belleği ¼
+  // Parça kenarı (m): küçük pişirme makinesinde (ör. 7 GB'lık CI) 50 m + 2048² atlas → tepe bellek 5.4 → 3.5 GB
   const CH = Math.round(Number(params.get('chunk')) || BAKE_CHUNK);
   let cache: {
     sources: BakeSource[];

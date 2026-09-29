@@ -38,7 +38,8 @@
     "GÖRÜLMEYENLER: kenar 0 (BKB, 14.2 m — güneyden 1437 arkasında, kuzeyden ağaç), kenar 1'in büyük kısmı (yalnız kenar 2'ye bitişik ~1 m açık gri paye + her katta koyu gri kare levha görüldü), kenar 3, 4 (güney girinti), kenar 5 (GD uzun cephe, 15.3 m — hiçbir pano yok), kenar 7 (KD çıkıntının yan yüzü), kenar 9 (kuzey, ağaç arkasında; yalnız çatıdaki çanaklar). Bunlara öğe yazılmadı.",
     "Tabela/dükkân yok (konut). Güney sokakta, kulenin güneyinde site girişinin pas/bakır renkli saçağı ve üstünde beyaz yazı var (otFK3sk5 67/76, sa-WfHt0 79) — bina taban izi dışında, sokak planına ait; yazı bu mesafeden okunamadı.",
     "Taban izi: fotoğraflardan >0.5 m kesin sapma kanıtı çıkmadı (pano konum/yön hataları ±1–2 m, kenar köşeleri görünen köşelere eşlendi). KD kulenin (kenar 8) önü kenar 6 duvarının ≈2.7 m önünde (ortofotoda kat aralığı oranı 2.76/2.59 ile tutarlı).",
-    "v4: roof.parapet (≈1.1 m koyu gri alın + ince çelik boru korkuluk, rail 'tube'), füme cam parapet bölmeleri bölünmüş bal öğeleri. Kalan pending: GB kavisli şapka, çatı odası/çanaklar/baca (konum ölçülemedi), kenar 1 payesi. v5 (bu tur): cam balkon profil rengi bal.frameC (#2a2622, önceden korkuluk metali), GB şapka ön yüzü proj + korkuluğu, çatı korkuluğu yalnız görülen kenarlarda (railEdges [6, 8] + şapka korkuluğu kenar 2); görülmeyen kenarlarda (0, 1, 3–5, 7, 9) korkuluk yok."
+    "v4: roof.parapet (≈1.1 m koyu gri alın + ince çelik boru korkuluk, rail 'tube'), füme cam parapet bölmeleri bölünmüş bal öğeleri. Kalan pending: GB kavisli şapka, çatı odası/çanaklar/baca (konum ölçülemedi), kenar 1 payesi. v5 (bu tur): cam balkon profil rengi bal.frameC (#2a2622, önceden korkuluk metali), GB şapka ön yüzü proj + korkuluğu, çatı korkuluğu yalnız görülen kenarlarda (railEdges [6, 8] + şapka korkuluğu kenar 2); görülmeyen kenarlarda (0, 1, 3–5, 7, 9) korkuluk yok.",
+    "v6 turu (2026-09-29): pending öğelerinden hiçbiri v6 ile ifade edilemedi (GB kule köşeyi saran yay + ızgaralı şapka altı; çatı odası/çanaklar konum; kenar 1 payesi konum). Kavisli balkon önleri kenar 2/8'de düz loca olarak kaldı (köşe yayı)."
   ],
   "edges": [
     {
@@ -553,7 +554,8 @@
         25.1,
         27.3
       ],
-      "desc": "K7 locasının üstünde, balkon önü kavsini izleyen, önü ≈1.9 m yüksek koyu gri (#5b6775) alınlı kavisli saçak; alt yüzü kare ızgaralı (pergola/ızgara tavan), üstünde ince çelik korkuluk. Kenar 2 ötesine (kenar 3 yönüne) kavisle devam ediyor. 'cap' ile yalnız düz plak çizilebiliyor. v5: kenar 2 üzerinde düz proj (u −1.25…4.72, d 0.2) + topRail tube olarak çizildi. KALAN: planda kavis (balkon önü kavsini izliyor), alt yüzde kare ızgara tavan, kenar 2 ötesine (görünen u 4.72→7.9, kenar 3 yönü) dönen kısım."
+      "desc": "K7 locasının üstünde, balkon önü kavsini izleyen, önü ≈1.9 m yüksek koyu gri (#5b6775) alınlı kavisli saçak; alt yüzü kare ızgaralı (pergola/ızgara tavan), üstünde ince çelik korkuluk. Kenar 2 ötesine (kenar 3 yönüne) kavisle devam ediyor. 'cap' ile yalnız düz plak çizilebiliyor. v5: kenar 2 üzerinde düz proj (u −1.25…4.72, d 0.2) + topRail tube olarak çizildi. KALAN: planda kavis (balkon önü kavsini izliyor), alt yüzde kare ızgara tavan, kenar 2 ötesine (görünen u 4.72→7.9, kenar 3 yönü) dönen kısım.",
+      "reason": "v6 arc+bulge yalnız TEK kenar boyunca sehim verir; bu kulenin ön yüzü kenar 2'den kenar 3'e dönen yuvarlatılmış KÖŞE (otFK 67_19/76_18, sa-WfHt0 79_13: balkon önleri ve şapka köşeyi saran büyük yarıçaplı yay) → taban izi köşesi değişmeden ifade edilemez; şapkanın kare ızgaralı alt yüzü için öğe yok (bal.cap düz tavan, pergolas dikmeli)."
     },
     {
       "id": 3,
@@ -568,13 +570,15 @@
         24.3,
         25.7
       ],
-      "desc": "KD alnın (y 23.0–24.3) üstünde geri çekilmiş, beyaz çerçeveli pencereli alçak hacim (çatı odası), üstünde/yanında 3 beyaz çanak (≈0.8 m) ve ince koyu baca borusu; çatı kenarında çelik korkuluk. Hava fotoğrafında çatı kahverengi-mor (#857173), 1437'deki gibi tonoz olabilir — sokaktan görülmedi. volumes'e çevrilmedi: odanın dünya konumu/boyu ölçülemedi (yalnız 55 m uzaktan, kuzeyden, geri çekilmiş; görünen boy y 24.3–25.7)."
+      "desc": "KD alnın (y 23.0–24.3) üstünde geri çekilmiş, beyaz çerçeveli pencereli alçak hacim (çatı odası), üstünde/yanında 3 beyaz çanak (≈0.8 m) ve ince koyu baca borusu; çatı kenarında çelik korkuluk. Hava fotoğrafında çatı kahverengi-mor (#857173), 1437'deki gibi tonoz olabilir — sokaktan görülmedi. volumes'e çevrilmedi: odanın dünya konumu/boyu ölçülemedi (yalnız 55 m uzaktan, kuzeyden, geri çekilmiş; görünen boy y 24.3–25.7).",
+      "reason": "Oda amsci ortosunda görünen u ≈2.1–11.5, y 24.3–25.7 (beyaz çerçeveli pencere bandı, üstte düz plak + korkuluk; kenar 8 parapetinin gerisinde) ama plan konumu/derinliği ölçülemedi → v6 volumes (wins/roof) yazılamadı. Çanaklar (görünen u ≈10.4 ve ≥11.5, y ≈25.2 → düzlemde ≈29 m, yani ana çatının 2–4 m üstünde) odanın çatısında; roofobj yalnız ana çatı yüzüne oturur → yazılmadı."
     },
     {
       "id": 4,
       "what": "Kenar 1 ucunda koyu kare levhalı açık gri paye",
       "edge": 1,
-      "desc": "Kenar 2'ye bitişik ~1 m genişliğinde açık gri paye, her döşeme hizasında koyu mavi-gri (#7b8990) ~0.6 m yüksek levha (bant parçası). Kenar 1 ortofotosunda konum güvenilir değil (1437 önde)."
+      "desc": "Kenar 2'ye bitişik ~1 m genişliğinde açık gri paye, her döşeme hizasında koyu mavi-gri (#7b8990) ~0.6 m yüksek levha (bant parçası). Kenar 1 ortofotosunda konum güvenilir değil (1437 önde).",
+      "reason": "Kenar 1 ortosunda 1437 önde, konum güvenilmez; başka pano yok."
     }
   ]
 }

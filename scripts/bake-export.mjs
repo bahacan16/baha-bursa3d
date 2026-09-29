@@ -28,7 +28,7 @@ const url = args.url ?? 'http://localhost:4180/';
 const out = args.out ?? 'bake-work/src';
 const texel = Number(args.texel ?? process.env.BAKE_TEXEL ?? 0.08);
 const maxAtlas = Number(args.maxatlas ?? process.env.BAKE_MAX_ATLAS ?? 4096);
-// Parça kenarı (m). 100 m + 4096² atlas pişirmede ~5.5 GB bellek ister; 50 m + 2048² ~¼'ü (küçük CI makinesi)
+// Parça kenarı (m). 100 m + 4096² atlas pişirmede 5.4 GB tepe bellek; 50 m + 2048² 3.5 GB (küçük CI makinesi)
 const chunkM = Number(args.chunk ?? process.env.BAKE_CHUNK_M ?? 100);
 const only = args.chunks ? new Set(args.chunks.split(',')) : null;
 const MARGIN = 60;

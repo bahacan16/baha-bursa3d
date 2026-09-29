@@ -76,13 +76,31 @@ rect:[x,y,kenar],meshes}], groundAo:{file,rect:[x0,z0,x1,z1],mpp}, seconds }`. `
    yoğunluk 1); `onBeforeCompile` ve `customProgramCacheKey` (+`|bakedAO`) kopyalanır, Ultra yansıma kaydı korunur.
    Çarpışma dünyası değişmez. Arazi malzemesine (zincirlenmiş `onBeforeCompile`) dünya xz ile `ground_ao`
    örneklemesi: yalnız `indirectDiffuse`/`indirectSpecular` çarpılır. `bakedLighting.active` dışa açık (ör. SSAO
-   şiddetini azaltmak için).
+   şiddetini azaltmak için). Sayfalar 2048² parçalarla okunur (Safari tuval sınırı, geçici bellek) ve GPU'nun
+   `MAX_TEXTURE_SIZE`'ından büyükse dilimlere bölünür (dörtlü ağaç paketlemesinde parça dilim sınırını aşmaz).
+   `?bakeao=0..1` AO şiddetini (göz ayarı) değiştirir.
 6. **CI** `.github/workflows/bake-lighting.yml`: `workflow_dispatch` (örnek, yoğunluk, yöntem, parça listesi, parça
    kenarı, atlas) + yalnız `main`'e itmede veri/üretici yolları değişince (KARAR: özellik dalı çok sık itiliyor,
    Actions dakikası). Adımlar: `npm ci` → ayrı klasöre derle → `vite preview` → dışa aktar → bpy kur
    (`pip install bpy==4.2.0 pillow numpy`) → pişir → boyut < 150 MB denetimi → yalnız başarılıysa `public/bake/`
    commit. KARAR: CI'da 50 m parça + 2048² atlas (özel depoların standart koşucusu 2 çekirdek / 7 GB; 100 m + 4096²
-   pişirme ~5.5 GB tepe bellek ister, 50 m + 2048² ~¼'ü; yoğunluk aynı, yalnız parça başına sabit maliyet ×4).
+   pişirme 5.4 GB tepe bellek ölçüldü, 50 m + 2048² 3.5 GB; yoğunluk yakın (yoğun 50 m parçalar 9–14 cm/px), parça sayısı 24 → 66).
+
+### Ölçümler (2026-09-29, bu konteyner: 4 çekirdek / 15 GB, başka ajanlarla paylaşımlı, yük ortalaması 5–160)
+
+| Adım                                                                                                                  | Sonuç                                                                                                                          |
+| --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Dışa aktarma (24 × 100 m parça, 1.92 M üçgen, 1034 anahtar)                                                           | 195–926 s (yüke bağlı; oyun yükleme ~100 s, uv ~1.5 s/yoğun parça)                                                             |
+| Pişirme, Mertkent-2: 4 × 100 m parça (-1_-1, -1_-2, 0_-1, 0_-2), 966 k alıcı / 1.44 M sahne üçgeni, 32 örnek, 3 sekme | 4096² parça başına 62–134 s Cycles (yük düşükken; ağır yükte biri 1159 s) + 14 s OIDN; toplam 27.6 dk (yüksüz kestirim ~11 dk) |
+| Aynı, bellek                                                                                                          | tepe 5.4 GB (100 m + 4096²); 50 m + 2048² ile 3.5 GB                                                                           |
+| Verim                                                                                                                 | ~2.5 M örnek·piksel/s (4 çekirdek, orta yük)                                                                                   |
+| Çıktı (4 parça)                                                                                                       | 1 sayfa 8192² WebP 12.6 MB + zemin 800² 36 KB                                                                                  |
+| Oyunda uygulama (4 parça)                                                                                             | 6–25 s (imza + uv + sayfa çözme; yüke bağlı)                                                                                   |
+
+**Tam bölge kestirimi** (24 × 100 m ya da 66 × 50 m, kapsanan ≈ 105 M piksel): 64 örnekle ≈ 6.7 G örnek·piksel →
+4 çekirdekte ~45 dk Cycles + parça başına sabit ~10 s + OIDN ~4 dk + sayfa/zemin ~5 dk ≈ **~1 sa**; özel deponun
+2 çekirdekli koşucusunda **~2–2.5 sa** (+ kurulum/derleme/dışa aktarma ~10–15 dk; süre bütçesi aşılırsa örnek
+kendiliğinden düşer). Boyut: 3–4 sayfa × ~10–13 MB + zemin < 1 MB ≈ **35–50 MB** (bütçe 150 MB).
 
 ### Yerelde tam pişirme
 

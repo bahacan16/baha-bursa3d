@@ -3,6 +3,7 @@
  "storeys": 2,
  "groundRaise": 0.02,
  "floorH": 4,
+ "plinthH": 0,
  "massing": {
   "towers": [
    {
@@ -2775,7 +2776,8 @@
   "GÖRÜLMEYENLER (varsayım yapılmadı, düz bırakıldı): doğu blok K0 kuzey cephesi (Bursaray panosu + Bursaray kulübesi arkası; Doğan Avcıoğlu’nda x 245–590 arası panorama yok), batı blok kenar 22 K0, tüm güney cepheler (site içi; yalnız uzaktan K1 üst kısmı), doğu cephe (komşu apartmana 3.4 m), geçit iç duvarları, ek yapının güney/doğu yüzleri, KD parça (kenar 16) büyük kısmı. Kenar 18’in alt iki K1 cam sırası görülmedi (kenar 22’den alındı, aynı düzen).",
   "PANO NOTLARI: aynı kenarda farklı panoların ortofotoları 0.5–1 m kayık (konum/yön hatası): glMQ1Beo batı yüzde 0tTf4uTe’ye göre ~0.6 m kuzeyde; uJjmdiDN kenar 18’de -5GwXVZp’ye göre −0.66 m. Ref ortofotolarda cal.u görünen köşelere/ortofoto ölçeğine göre ayarlandı. Tüm ortofotolarda taban çizgisi (0.88) gerçek tabandan 1.25–2.29 m aşağıda (arazi/kamera kotu hatası) → her kenarın cal.head’i o karedeki gerçek taban görünümüne göre verildi.",
   "v4 dönüşümü: pencere perdeleri (karanlik) yerine ölçülen cam renkleri `tint`: batı K0 #586453, batı K1 kuzey bölme #1a3534 (örnek #10282a–#20403e), batı K1 güney bölme #4e5b4a, kuzey K1 mavi kenar 24 #345c7a / 22 #2c5067 / 18 #4d6e7e; kenar 22 u 2.99–9.01 ve 18 u 6.23–13.27 gri çerçeveli camlar tint #495355 + frameC #3f4747. Kuzey K0 vitrinleri (kenar 24) görünmediği için vitrin kaldı. Ek yapı massing parçası olarak kaldı (volumes yerine; taban izinde zaten var), çatısı parapetsiz alın (fasciaH 0.12 → 4.26 m).",
-  "v5 ÇATI KORKULUĞU: roof.parapet.railEdges/edges massing parçalarının KENDİ halka indisleriyle yazıldı (massing.ts splitMassing çıktısından): parça 1 (KB, x 240.45–250.15, z ≤ −190.35) j1 = kenar 24, j2 = kenar 25, j0 = x 250.15 iç kesim (parapetsiz); parça 2 (x 250.15–266.87) j0 = kenar 2, j7 = kenar 24’ün doğu 2.52 m’si, j8 = x 250.15 iç kesim (parapetsiz). Korkuluk yalnız görülen kenarlarda (24, 25, 2); doğu blok ve geçit/iç kenarlarda korkuluk yok (görülmedi). Taban izi ya da massing değişirse bu indisler yeniden hesaplanmalı."
+  "v5 ÇATI KORKULUĞU: roof.parapet.railEdges/edges massing parçalarının KENDİ halka indisleriyle yazıldı (massing.ts splitMassing çıktısından): parça 1 (KB, x 240.45–250.15, z ≤ −190.35) j1 = kenar 24, j2 = kenar 25, j0 = x 250.15 iç kesim (parapetsiz); parça 2 (x 250.15–266.87) j0 = kenar 2, j7 = kenar 24’ün doğu 2.52 m’si, j8 = x 250.15 iç kesim (parapetsiz). Korkuluk yalnız görülen kenarlarda (24, 25, 2); doğu blok ve geçit/iç kenarlarda korkuluk yok (görülmedi). Taban izi ya da massing değişirse bu indisler yeniden hesaplanmalı.",
+  "v6 DÖNÜŞÜMÜ (2026-09-29): plinthH 0 — batı yüzde (0tTf4uTe 112_10, glMQ1Beo) K0 yeşil-gri giydirme cam ve beyaz payeler zemine kadar iner, ek yapının gri duvarı da tabandan başlar; üreticinin 0.4 m subasman bandı artık çizilmiyor (plinth rengi paye rengiyle aynı kaldı, etkisiz). Diğer pending öğeleri v6 özellikleriyle ifade edilemiyor (gerekçeleri `why` alanında)."
  ],
  "pending": [
   {
@@ -2790,29 +2792,30 @@
     8.9,
     9.6
    ],
-   "note": "görünen koordinat (bu kare için yaklaşık u_gerçek = u+0.66, y_gerçek = y−1.76 → x≈290.1–293.2, 7.1–7.8 m). Altında u 3.1–6.3, y 7.8–8.9 (gerçek 6.0–7.1 m) beyaz pano/duvar. Tabela zemini beyaz (#dfe3e6 civarı), solda yeşil yuvarlak amblem, ortada lacivert figür/harf, sağda turuncu-kırmızı yazı; ışıklı mı bilinmiyor. Duvara mı çatı üstüne mi monte olduğu belirsiz. 2019’da aynı yerde \"SATILIK DÜKKANLAR\" afişi vardı."
+   "note": "görünen koordinat (bu kare için yaklaşık u_gerçek = u+0.66, y_gerçek = y−1.76 → x≈290.1–293.2, 7.1–7.8 m). Altında u 3.1–6.3, y 7.8–8.9 (gerçek 6.0–7.1 m) beyaz pano/duvar. Tabela zemini beyaz (#dfe3e6 civarı), solda yeşil yuvarlak amblem, ortada lacivert figür/harf, sağda turuncu-kırmızı yazı; ışıklı mı bilinmiyor. Duvara mı çatı üstüne mi monte olduğu belirsiz. 2019’da aynı yerde \"SATILIK DÜKKANLAR\" afişi vardı.",
+   "why": "yazı okunamadı (40 m, pano arkası) ve duvara mı çatıya mı monte olduğu belirsiz — v6 buna çözüm getirmiyor"
   },
   {
    "what": "Kutu saçağın GB köşeyi aşan kısmı ve güney yüzü",
-   "detail": "Beyaz kutu saçak (d≈1.1, gerçek 6.71–8.33 m) batı yüzde z≈−196.3’ten −189.4’e; ana kütle köşesini (−190.35) ~1 m aşarak ek yapının üstüne taşar. Massing parçalara böldüğü için ek yapı parçasına düşen kısım 1 katlı parçada yüzer kutu olarak çizilir (doğru). Kutunun güney yüzü/güney cephede devamı l07hZ6pz’den uzaktan görülüyor (beyaz kutu), ölçülemedi."
+   "detail": "Beyaz kutu saçak (d≈1.1, gerçek 6.71–8.33 m) batı yüzde z≈−196.3’ten −189.4’e; ana kütle köşesini (−190.35) ~1 m aşarak ek yapının üstüne taşar. Massing parçalara böldüğü için ek yapı parçasına düşen kısım 1 katlı parçada yüzer kutu olarak çizilir (doğru). Kutunun güney yüzü/güney cephede devamı l07hZ6pz’den uzaktan görülüyor (beyaz kutu), ölçülemedi.",
+   "why": "taşan kısım zaten çizili (ek yapı parçasında); güney yüzü yalnız uzaktan görüldü, ölçülemedi"
   },
   {
    "what": "Kuzey saçak (K0 önü)",
    "edge": 24,
-   "detail": "~2.0 m derin beyaz saçak plağı gerçek 3.29–4.0 m; batı ucundaki uç yüzü batı düzlemi ortofotosunda z −201.7…−199.7 (0tTf4uTe özel ortofoto). Saçak üstünde batı uçta K1 boyunca (gerçek ≈4.1–7.5 m) bir cam yüzey/perde görülüyor (z −201.6…−199.55 arası, cam korkuluk veya rüzgâr camı olabilir) — geometri çözülemedi, çizilmedi. Kenar 22 boyunca saçağın sürüp sürmediği görülmedi."
-  },
-  {
-   "what": "Subasman yok",
-   "detail": "Batı yüzde camlar ve payeler zemine kadar iniyor (gerçek ≈0.02 m); üreticinin 0.4 m subasman bandı camın altını örtüyor — plinth rengi paye rengine (#a5adb2) eşitlendi, ideal olarak bu blokta subasman çizilmemeli."
+   "detail": "~2.0 m derin beyaz saçak plağı gerçek 3.29–4.0 m; batı ucundaki uç yüzü batı düzlemi ortofotosunda z −201.7…−199.7 (0tTf4uTe özel ortofoto). Saçak üstünde batı uçta K1 boyunca (gerçek ≈4.1–7.5 m) bir cam yüzey/perde görülüyor (z −201.6…−199.55 arası, cam korkuluk veya rüzgâr camı olabilir) — geometri çözülemedi, çizilmedi. Kenar 22 boyunca saçağın sürüp sürmediği görülmedi.",
+   "why": "saçak plağı kenar 24 proj olarak çizili; üstündeki cam yüzeyin geometrisi ve kenar 22 boyunca devamı görülmedi"
   },
   {
    "what": "Ek yapı parmaklıklı pencere/kapı",
    "edge": 27,
-   "detail": "Kenar 27 u 5.44–6.2 + kenar 29 u 0–0.4 (kenar 28 kıvrımını aşar; tek parça ~1.3 m genişlik), görünen üst gerçek ≈2.2 m, alt kenar çit arkasında (kapı olabilir). Beyaz dikey parmaklık, arkası koyu. Kenar 29 kısmı çizilmedi (iki ayrı çerçeve olmasın diye)."
+   "detail": "Kenar 27 u 5.44–6.2 + kenar 29 u 0–0.4 (kenar 28 kıvrımını aşar; tek parça ~1.3 m genişlik), görünen üst gerçek ≈2.2 m, alt kenar çit arkasında (kapı olabilir). Beyaz dikey parmaklık, arkası koyu. Kenar 29 kısmı çizilmedi (iki ayrı çerçeve olmasın diye).",
+   "why": "köşeyi (kenar 28 kıvrımı) saran tek açıklık — v6’da köşe dönen pencere yok; kenar 27 kısmı çizili"
   },
   {
    "what": "Doğu blok çatı alanları",
-   "detail": "Hava fotoğrafında doğu blokta x≈284.7’de boydan boya parapet: batı kısım (270.6–284.7) benekli gri, doğu kısım (284.7–297) açık bej çatı. Kuzeyden KD parçanın üst kenarı pano hizasının altında kaldı → KD parça daha alçak (1 kat?) olabilir; 2019 karesi KD köşede K1 hizasında beyaz hacim gösteriyor. Belirsiz; 2 kat bırakıldı."
+   "detail": "Hava fotoğrafında doğu blokta x≈284.7’de boydan boya parapet: batı kısım (270.6–284.7) benekli gri, doğu kısım (284.7–297) açık bej çatı. Kuzeyden KD parçanın üst kenarı pano hizasının altında kaldı → KD parça daha alçak (1 kat?) olabilir; 2019 karesi KD köşede K1 hizasında beyaz hacim gösteriyor. Belirsiz; 2 kat bırakıldı.",
+   "why": "kot / kat farkı görülmedi (belirsiz)"
   }
  ],
  "floorHs": [
