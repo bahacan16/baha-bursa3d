@@ -36,13 +36,28 @@ async function main() {
   const oz = aidx.cz - aidx.half;
   const S = OW / (X1 - X0);
   const OH = Math.round((Z1 - Z0) * S);
-  const base = await sharp(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', im.file))
-    .extract({
-      left: Math.max(0, Math.round((X0 - ox) / m)),
-      top: Math.max(0, Math.round((Z0 - oz) / m)),
-      width: Math.round((X1 - X0) / m),
-      height: Math.round((Z1 - Z0) / m),
-    })
+  // Kırpma görüntü dışına taşarsa siyah dolgu (eskiden sessizce kenara kırpıyordu → x < −160'ta kayık çizim)
+  const aerialFile = join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', im.file);
+  const meta = await sharp(aerialFile).metadata();
+  const L = Math.round((X0 - ox) / m);
+  const T = Math.round((Z0 - oz) / m);
+  const W = Math.round((X1 - X0) / m);
+  const Hh = Math.round((Z1 - Z0) / m);
+  const pad = {
+    left: Math.max(0, -L),
+    top: Math.max(0, -T),
+    right: Math.max(0, L + W - meta.width),
+    bottom: Math.max(0, T + Hh - meta.height),
+  };
+  let src = sharp(aerialFile);
+  if (pad.left || pad.top || pad.right || pad.bottom) {
+    console.warn(
+      '⚠ istenen alan hava fotoğrafının dışına taşıyor — dışı siyah (AERIAL_DIR başka karo olabilir)',
+    );
+    src = sharp(await src.extend({ ...pad, background: { r: 0, g: 0, b: 0 } }).toBuffer());
+  }
+  const base = await src
+    .extract({ left: L + pad.left, top: T + pad.top, width: W, height: Hh })
     .resize(OW, OH)
     .toBuffer();
   const tx = (x) => ((x - X0) * S).toFixed(1);
