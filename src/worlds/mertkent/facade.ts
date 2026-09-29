@@ -54,6 +54,10 @@ export interface CWin {
   curtC?: Record<string, string> | null;
   /** Kat → fon perde kapanma oranı 0..1 (pencere genişliğinin perdeyle örtülen kısmı; 1 = tamamen kapalı) */
   curtF?: Record<string, number> | null;
+  /** v7: yuvarlak / oval pencere (u0..u1 × sill..head kutusunun içine çizilen elips; oculus) */
+  shape?: 'round' | null;
+  /** v7: cam folyo (desenli dekor folyo, yaklaşık): renk + desen (damask | dots | frost) */
+  film?: { color: string; pattern?: string | null } | null;
 }
 /** Kabartma pilastır (düşey çıkıntılı bant): u0..u1, y0..y1 (tabandan) ya da kat aralığı, çıkıntı d */
 export interface CPilaster {
@@ -114,6 +118,15 @@ export interface CLamp {
   color: string | null;
   tip: string | null;
   dir: string;
+  /** v7: kol boyu (m, duvardan başa; > proud ise baş kolun ucunda) ve baş eğimi (derece, düşeyden; spot yukarı / aşağı) */
+  arm?: number | null;
+  tilt?: number | null;
+  /**
+   * v7: payenin YAN yüzünde (cepheye dik yüz): 'start' → yüz −t yönüne bakar (u'nun başlangıç tarafı), 'end' → +t.
+   * u = yan yüzün görünen konumu, off = lambanın cephe düzleminden dışarı uzaklığı (m).
+   */
+  side?: 'start' | 'end' | null;
+  off?: number | null;
 }
 /** Çatı penceresi (alınlıklı dormer / gablet): kenarın çatı yüzünde, duvardan setback geride */
 export interface CDormer {
@@ -130,6 +143,7 @@ export interface CDormer {
   pitch: number;
   color: string | null;
   roofC: string | null;
+  /** Rüzgârlık tahtası: w bant genişliği (m, varsayılan 0.12 — v7'de ölçülen değer kullanılır), renk */
   trim: { w?: number; color?: string | null } | null;
   win: {
     w?: number;
@@ -138,6 +152,8 @@ export interface CDormer {
     split?: number;
     curt?: string | null;
     frameC?: string | null;
+    /** v7: 'gable' → beşgen pencere (düşey yanlar + üstü dormer eğimine paralel; alınlığın çoğunu kaplar) */
+    shape?: string | null;
   } | null;
 }
 /** Çatı üstü öğe (baca, TV anteni, çanak, havalandırma): kenarın çatı yüzünde, duvardan setback geride */
@@ -151,7 +167,10 @@ export interface CRoofObj {
   w: number;
   d: number;
   color: string | null;
-  cap: { kind: string; h?: number; color?: string | null } | null;
+  /** Başlık: hip | pyramid | flat | none; v7: disc (baca şapkası koyu disk, çap d) */
+  cap: { kind: string; h?: number; color?: string | null; d?: number } | null;
+  /** v7 (kind post): direk tepesi — ball (küre lamba, lit → gece yanar), plate (kare levha), none */
+  top?: { kind: string; d?: number; color?: string | null; lit?: boolean } | null;
 }
 /** Cephe üstünde yol boyunca şerit (boya / kabartma, kavisli olabilir): (u, y) noktaları (tabandan), genişlik */
 export interface CRibbon {
@@ -182,6 +201,13 @@ export interface CArch {
   /** Tonoz: ön yüzden geriye uzanan eğri çatı (m) */
   vault: number;
   roofC: string | null;
+  /**
+   * v7: yalnız bu u aralığı çizilir (kısmi kemer — ör. kanat yüzünde tonoz ucunun yükselen yarısı); kemer biçimi
+   * u0..u1 (kenarı aşabilir) üzerinden hesaplanır.
+   */
+  clip?: [number, number] | null;
+  /** v7: false → tonozun arka alın yüzü çizilmez (arka uçta kendi `arch` öğesi olan tonozlar) */
+  backFace?: boolean | null;
 }
 /** Üçgen alınlık (balkon yığını üstü / cephe alınlığı; tepe noktası kaydırılabilir → asimetrik) */
 export interface CPediment {
@@ -217,6 +243,8 @@ export interface CRecess {
   /** Kat → arka / yan duvar rengi (kat döşemelerinde değişen renk bölgeleri) */
   backS?: Record<string, string> | null;
   sideS?: Record<string, string> | null;
+  /** v7: arka / yan duvarlarda derzli kaplama (Proj.clad ile aynı) */
+  clad?: { dir?: string; every: number; w?: number; color?: string | null } | null;
 }
 /** Bayrak direği (duvar önünde) */
 export interface CMast {
@@ -318,8 +346,21 @@ export interface CBal {
   grilleC?: string | null;
   /** Kemerli parmaklık bölme genişliği (m, varsayılan 0.9) */
   grilleW?: number | null;
-  /** Tavan gömme spotları: adet ya da aralık, ön kenardan içeri, çap; cap: şapka altında da */
-  spots?: { n?: number; every?: number; inset?: number; d?: number; cap?: boolean } | null;
+  /**
+   * Tavan gömme spotları: adet ya da aralık, ön kenardan içeri, çap; cap: şapka altında da. v7: us (gerçek u
+   * listesi: ölçülen konumlar, eşit aralık yerine), shape rect + l × w (dikdörtgen armatür)
+   */
+  spots?: {
+    n?: number;
+    every?: number;
+    inset?: number;
+    d?: number;
+    cap?: boolean;
+    us?: number[] | null;
+    shape?: string | null;
+    l?: number;
+    w?: number;
+  } | null;
   /** Cam korkuluk dikme aralığı / kesiti (m; varsayılan 1.2 / 0.03) */
   postEvery?: number | null;
   postW?: number | null;
@@ -343,6 +384,31 @@ export interface CBal {
   keepDoor?: boolean;
   /** Saksı çiçek renkleri (sırayla) */
   flowerC?: string[] | null;
+  /** v7: saksı başına ayrıntı (pots listesindeki konumla eşleşir): korkuluk / döşeme, bitkili mi, renkler */
+  potSpec?: Record<string, { u: number; on?: string | null; plant?: boolean; potC?: string | null; plantC?: string | null }[]> | null;
+  /** v7: serbest ön köşelerde 45° pah (m): tek sayı ya da [u0 ucu, u1 ucu] */
+  chamfer?: number | [number, number] | null;
+  /**
+   * v7: köşeyi saran balkon: öğenin binanın gerçek köşesindeki ucunda (u1 ≥ kenar boyu ya da u0 ≤ 0) ön kenar
+   * komşu kenarın balkonuyla r yarıçaplı yay (kind round) ya da r pahla (kind chamfer) birleşir.
+   */
+  wrap?: { r: number; kind?: string | null } | null;
+  /** v7: false → köşe locası komşu kenardaki locayla tek dikdörtgende birleştirilmez (ayrı hacimler) */
+  merge?: boolean | null;
+  /**
+   * v7: gömük locanın ön kenarı uçlarda taban izi İÇİNE döner: yarıçap / pah (m) [u0 ucu, u1 ucu]; döşeme,
+   * tavan ve korkuluk bu dönüşü izler (endShape round | chamfer).
+   */
+  endIn?: number | [number, number] | null;
+  endShape?: string | null;
+  /** v7: şapka altında kare ızgara tavan (pergola ızgarası): göz aralığı, çubuk genişliği, derinlik, renk */
+  capGrid?: { every: number; w?: number; depth?: number; color?: string | null } | null;
+  /** v7: kat → parmaklık yüksekliği (m, cam alt kotundan; kısmi boy) ve camın ARKASINDA (grilleIn) */
+  grilleH?: Record<string, number> | null;
+  grilleIn?: boolean | null;
+  /** v7: kat → açık balkonda korkuluk üstünden tavana beyaz kare güvenlik kafesi rengi, göz aralığı (m) */
+  cage?: Record<string, string> | null;
+  cageEvery?: number | null;
 }
 export interface CProj {
   t: 'proj';
@@ -376,7 +442,25 @@ export interface CProj {
   topC?: string | null;
   cap?: { h: number; over?: number; color?: string | null } | null;
   /** Derzli kaplama dokusu (ör. kahverengi kompozit / ahşap görünümlü panel): yön, aralık, derz genişliği, rengi */
-  clad?: { dir?: string; every: number; w?: number; color?: string | null } | null;
+  clad?: Clad | null;
+  /** v7: terasın cam korkuluk rengi (verilmezse blok railGlass) */
+  topGlassC?: string | null;
+  /** v7: u1 ucundaki derinlik (m): d → d1 doğrusal değişen (eğik) çıkma / saçak kutusu */
+  d1?: number | null;
+  /** v7: yüzey bitişi: acp (parlak kompozit panel), matte (mat); verilmezse sıva */
+  finish?: string | null;
+}
+/**
+ * Derzli kaplama: dir v (düşey derz) | h (yatay) | grid (ikisi birden: every yatay aralık, every2 düşey aralık),
+ * w derz genişliği, color derz rengi; us: düzensiz düşey derzlerin gerçek u listesi (every yerine / ek olarak).
+ */
+export interface Clad {
+  dir?: string;
+  every: number;
+  every2?: number | null;
+  w?: number;
+  color?: string | null;
+  us?: number[] | null;
 }
 export interface CSign {
   t: 'sign';
@@ -401,6 +485,16 @@ export interface CSign {
   /** Monogram / glif: yan yana harfler (ayna simetrik olabilir), bindirme oranı */
   glyphs?: { ch: string; mirror?: boolean }[] | null;
   join?: number | null;
+  /** v7: duvardan uzaklık (m): balkon önüne / başka bir yüzeye monte (verilmezse bant/pano/çıkma önü ya da duvar) */
+  off?: number | null;
+  /** v7: arkadan aydınlatmalı harflerin duvardaki ışık halesi rengi (gece parlar) */
+  halo?: string | null;
+  /** v7: harflerin arkasında taşıyıcı pano (kanal harf + pano): renk, kalınlık, harflerden taşma (m) */
+  back?: { color: string; d?: number; pad?: number } | null;
+  /** v7: ölçülen büyük harf yüksekliği (m): yazı bu boyda çizilir (sığmazsa küçülür) */
+  capH?: number | null;
+  /** v7: yazı hizası left | center | right */
+  align?: string | null;
 }
 export interface CAwning {
   t: 'awning';
@@ -413,8 +507,28 @@ export interface CAwning {
   stripe: string | null;
   text: string | null;
   textColor: string;
-  /** 'dutch': çeyrek yuvarlak kabuk + yelpaze uç kapakları (Hollanda tipi); yoksa düz eğik tente */
+  /**
+   * 'dutch': çeyrek yuvarlak kabuk + yelpaze uç kapakları (Hollanda tipi); 'retract': katlanır kollu düz tente (ön
+   * profil + kollar); yoksa düz eğik tente
+   */
   style?: string | null;
+  /** v7: valans üstünde birden çok yazı / monogram: gerçek u aralığı, metin ya da glif, renk, yazı tipi */
+  texts?:
+    | {
+        u0: number;
+        u1: number;
+        text?: string | null;
+        glyphs?: { ch: string; mirror?: boolean }[] | null;
+        join?: number | null;
+        fg?: string | null;
+        font?: string | null;
+        bold?: boolean | null;
+      }[]
+    | null;
+  /** v7: katlanır kollar: adet ya da gerçek u listesi, renk */
+  arms?: { n?: number; us?: number[] | null; color?: string | null } | null;
+  /** v7: Hollanda tentesinde köşeyi saran çeyrek kubbe uç (start | end | both) */
+  dome?: string | null;
 }
 export interface CPipe {
   t: 'pipe';
@@ -428,6 +542,11 @@ export interface CPipe {
   y0?: number | null;
   y1?: number | null;
   brackets?: boolean;
+  /**
+   * v7: balkon gider boruları: her katta (s aralığı) döşemenin altından düşey boruya yatay parça + dirsek; len
+   * boy (m), side −1 (u0 yönüne) / 1 (u1 yönüne), y döşeme üstünden kot (m, −0.3 = döşeme altı)
+   */
+  stubs?: { s: [number, number]; len: number; side?: number; y?: number } | null;
 }
 export interface CUnit {
   t: 'ac' | 'dish' | 'camera' | 'flag';
@@ -442,6 +561,11 @@ export interface CUnit {
   off?: number | null;
   /** Çift kamera (iki yana, cephe boyunca bakan) */
   pair?: boolean;
+  /**
+   * v7: loca / girinti YAN duvarına monte (en yakın yan duvar; ön yüzü cephe boyunca açıklığa bakar); off = birimin
+   * cephe düzleminden içeri uzaklığı (m)
+   */
+  side?: boolean;
 }
 export interface CPanel {
   t: 'band' | 'panel';
@@ -451,12 +575,20 @@ export interface CPanel {
   y1: number;
   color: string;
   proud: number;
-  /** 'louvre': yatay lamelli alüminyum alın (dükkân saçağı) */
+  /**
+   * 'louvre': yatay lamelli alüminyum alın (dükkân saçağı); v7 'tiles': çok renkli karo bandı (tile karo boyu,
+   * colors palet, seq renk sırası — indeks listesi; verilmezse paletten tohumlu sıra)
+   */
   style?: string | null;
   slats?: number | null;
   shade?: string | null;
-  /** Derzli kaplama dokusu (dikey / yatay ince derzler): yön, aralık, derz genişliği, rengi */
-  clad?: { dir?: string; every: number; w?: number; color?: string | null } | null;
+  /** Derzli kaplama dokusu (dikey / yatay ince derzler / grid): yön, aralık, derz genişliği, rengi */
+  clad?: Clad | null;
+  tile?: number | null;
+  colors?: string[] | null;
+  seq?: number[] | null;
+  /** v7: yüzey bitişi: acp (parlak kompozit panel), matte */
+  finish?: string | null;
 }
 export interface CEntrance {
   t: 'entrance';
