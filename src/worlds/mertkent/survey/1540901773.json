@@ -1,0 +1,954 @@
+{
+  "id": 1540901773,
+  "storeys": 9,
+  "groundRaise": 0.4,
+  "floorH": 3.1,
+  "roof": {
+    "kind": "hipped",
+    "eave": 0.3,
+    "fasciaH": 1.2,
+    "pitch": 25,
+    "terrace": true,
+    "eaveY": {
+      "edge": 10,
+      "y": 26.25
+    }
+  },
+  "colors": {
+    "plaster": "#89969c",
+    "plaster2": "#d0d5d2",
+    "strip": "#566778",
+    "fascia": "#d2d4d0",
+    "soffit": "#c2c7c5",
+    "railGlass": "#c1d6dd",
+    "frame": "#fafdfb",
+    "tile": "#62727b"
+  },
+  "notes": [
+    "HALKA YÖNÜ: footprints.json'daki halka bu blokta ters (işaretli alan +790, diğer tüm bloklarda −) → (−dz,dx) İÇE bakıyor. Bu ölçüm, halka TERS ÇEVRİLMİŞ (ring.slice().reverse()) numaralamayla yazıldı — sv-extra.json survey[] kenar numaralarıyla aynı (sv-survey-plan halkayı çevirmişti). footprints.json düzeltilmeli; docs/survey/c/1540901773_* ortofotoları yanlış düzlemlerle (düzeltilmemiş indeksler) üretilmiş, yeniden üretilmeli (SURVEY_TOP≥31, bina 9 kat).",
+    "9 kat (K0–K8): JDIgP (2019) fransız A sütununda portalin altında K0–K1 dahil 9 pencere; SyTa lento gölgeleri 3.26 aralıkla 9 kat. Kat yüksekliği 3.1 (görünen aralıklar 3.1–3.26, OSM height 28). groundRaise 0.4 (JDIgP'de K0 penceresi zemine yakın) — belirsiz.",
+    "Turuncu şerit yok. Renkler (bulutlu, gölgeli cephe): ana gri sıva #778288 (SW gölgede #73808c), beyaz sıva/ayaklar #b5b9b7 (gölgede #9fa8ab–#a6afb6), derin yuva koyu gri #4b5a68 (strip anahtarına yazıldı, şerit yok), fransız pencere altı gri denizlik bandı #68747a, beyaz döşeme alınları/saçak #b7b8b5, buzlu mavi korkuluk camı #a8bac0, kahverengi kompozit pano #655144, çatı koyu arduvaz gri #55636b (arka cepheden, mavi pus içerir). Doğrama beyaz PVC (rengi uzaklıktan örneklenemedi, #d9dcda varsayım).",
+    "Çatı: kuzey panolarından (5229BIGS) kırma çatı silueti köşelerden yükselip ortada düz terasa varıyor (hava fotoğrafında düz tan renkli alan + beyaz kutular) → hipped + terrace; eğim 25° tahmin. Ön (SW) cephedeki çerçeve ayakları çatı hizasının ≈1.5–2 m üstüne çıkar (şemada yok). KB'de küçük kırma çatılı merdiven kulesi.",
+    "Ön cephe ortasındaki koyu \"yuva\" gerçek bir girinti (≈2.3 m derin; hava fotoğrafında koyu gölge şeridi) — panel olarak yazıldı, geometri gerekirse üreticide oyulmalı.",
+    "Uzaklık 50–90 m: perdeler hiçbir cephede güvenilir çözülemiyor (curt yazılmadı).",
+    "Sitenin kapı portali (kahverengi çerçeve, beyaz saçak, bekçi kulübesi, Türk bayrağı, \"Uptown\" tabelası komşuda) cadde kenarında, bina cephesinde değil.",
+    "Renkler bulutlu/gölgede örneklendi (güneşli yama yok); oyunda gölge tarafı gerçek bulutlu günden koyu kaldığı için albedo ×1.15 (örneklenen: plaster #778288, plaster2 #b5b9b7, strip #4b5a68, fascia #b7b8b5, soffit #a9adab, railGlass #a8bac0, frame #d9dcda, tile #55636b)."
+  ],
+  "edges": [
+    {
+      "edge": 0,
+      "len": 1.93,
+      "seen": "photo",
+      "ref": "1540901773_0_glMQ1Beo.jpg",
+      "cal": {
+        "u": [
+          0.45,
+          2.4
+        ],
+        "head": [
+          [
+            8,
+            27.4
+          ],
+          [
+            4,
+            14.6
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 0.9,
+          "u1": 2.35,
+          "y0": 25.1,
+          "y1": 27.4,
+          "k": 8,
+          "s": [
+            0,
+            8
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "band",
+          "y0": 1.8,
+          "y1": 2.5,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 5,
+          "y1": 5.7,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 8.2,
+          "y1": 8.9,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 11.4,
+          "y1": 12.1,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 14.6,
+          "y1": 15.3,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 17.8,
+          "y1": 18.5,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 21,
+          "y1": 21.7,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 24.2,
+          "y1": 24.9,
+          "u0": 0.85,
+          "u1": 2.4,
+          "color": "fascia",
+          "proud": 0.3
+        }
+      ],
+      "note": "glMQ (2025-09, 53 m, dik bakış). Tek fransız pencere sütunu; alt kısmında beyaz buzlu/panjurlu korkuluk paneli (paslanmaz boru değil), altında beyaz çıkıntılı denizlik kutusu (≈0.7 m). K0–K3 ağaç arkasında → ritimden uzatıldı. Perde çözülemiyor."
+    },
+    {
+      "edge": 1,
+      "len": 17.6,
+      "seen": "photo",
+      "ref": "1540901773_1_SyTaPSlH.jpg",
+      "cal": {
+        "u": [
+          4,
+          21.6
+        ],
+        "head": [
+          [
+            2,
+            10.95
+          ],
+          [
+            7,
+            27.25
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 4.1,
+          "u1": 5.9,
+          "y0": 24.9,
+          "y1": 27.25,
+          "k": 7,
+          "s": [
+            0,
+            8
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "band",
+          "y0": 4.48,
+          "y1": 5.03,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 7.74,
+          "y1": 8.29,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 11,
+          "y1": 11.55,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 14.26,
+          "y1": 14.81,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 17.52,
+          "y1": 18.07,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 20.78,
+          "y1": 21.33,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 24.04,
+          "y1": 24.59,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 27.3,
+          "y1": 27.85,
+          "u0": 3.95,
+          "u1": 6.05,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "panel",
+          "u0": 8,
+          "u1": 12,
+          "y0": 0,
+          "y1": 29,
+          "color": "#4b5a68"
+        },
+        {
+          "t": "panel",
+          "u0": 8.05,
+          "u1": 9.6,
+          "y0": 10.6,
+          "y1": 11.2,
+          "color": "#8e97a0"
+        },
+        {
+          "t": "panel",
+          "u0": 8.05,
+          "u1": 9.6,
+          "y0": 13.7,
+          "y1": 14.3,
+          "color": "#8e97a0"
+        },
+        {
+          "t": "panel",
+          "u0": 8.05,
+          "u1": 9.6,
+          "y0": 16.8,
+          "y1": 17.4,
+          "color": "#8e97a0"
+        },
+        {
+          "t": "panel",
+          "u0": 8.05,
+          "u1": 9.6,
+          "y0": 19.9,
+          "y1": 20.5,
+          "color": "#8e97a0"
+        },
+        {
+          "t": "panel",
+          "u0": 8.05,
+          "u1": 9.6,
+          "y0": 22.95,
+          "y1": 23.55,
+          "color": "#8e97a0"
+        },
+        {
+          "t": "panel",
+          "u0": 8.05,
+          "u1": 9.6,
+          "y0": 26,
+          "y1": 26.6,
+          "color": "#8e97a0"
+        },
+        {
+          "t": "win",
+          "u0": 14.2,
+          "u1": 15.45,
+          "y0": 24.9,
+          "y1": 27.25,
+          "k": 7,
+          "s": [
+            0,
+            8
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "band",
+          "y0": 4.48,
+          "y1": 5.03,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 7.74,
+          "y1": 8.29,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 11,
+          "y1": 11.55,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 14.26,
+          "y1": 14.81,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 17.52,
+          "y1": 18.07,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 20.78,
+          "y1": 21.33,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 24.04,
+          "y1": 24.59,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 27.3,
+          "y1": 27.85,
+          "u0": 14.05,
+          "u1": 16.2,
+          "color": "#68747a",
+          "proud": 0.3
+        },
+        {
+          "t": "panel",
+          "u0": 15.45,
+          "u1": 17.2,
+          "y0": 0,
+          "y1": 30.5,
+          "color": "plaster2"
+        },
+        {
+          "t": "bal",
+          "u0": 17.2,
+          "u1": 21.6,
+          "d": 0,
+          "inset": 3,
+          "s": [
+            0,
+            7
+          ],
+          "sides": "wall"
+        }
+      ],
+      "note": "SyTa (2025-09, ≈42 m, ~50° eğik); JDIgP/KOxFy1 (2019-05) ile doğrulandı. Pano GPS kayması: SyTa ortofotosunda cephe ≈+4.0 m kaymış (fransız A sütunu köşede başlar — JDIgP geometrisi + glMQ ile tutarlı) → cal.u [4.0, 21.6] (ölçek ≈1, düşey kat aralığı 3.26 görünen). Batıdan doğuya: fransız pencere sütunu A (köşede, 2 kanatlı, yatay borulu korkuluk, altında koyu gri çıkıntılı denizlik/döşeme bandı) – orta gri ayak – ÇERÇEVE: koyu gri derin yuva (u 8–12 görünen; görünen kat aralığı 3.08 → arka duvar ≈2.3 m içeride; yuvada her katta sol yarıda açık gri yatay dikdörtgen), yuva tepesi 29.0'da tavanlı; çerçeve ayakları orta gri ve çatı hizasının ≈1.5–2 m ÜSTÜNE çıkar – fransız sütunu B – beyaz ayak – GD ucunda içe gömük balkon (loca) yığını (beyaz döşeme alınları; derinlik ≈3 m görünen ölçek farkından ve hava fotoğrafındaki beyaz döşeme çizgilerinden; K8'de loca yok, üstünde saçak). Yuva ve loca derinlikleri tahmini (±0.7 m). Alt katlar sitenin kapı portali (kahverengi çerçeve + beyaz saçak, cadde üzerinde, binadan ayrı) ve çit arkasında; K0–K1 ritimden uzatıldı. Uzaklık nedeniyle perde çözülemiyor."
+    },
+    {
+      "edge": 2,
+      "len": 4.76,
+      "seen": "none",
+      "items": [],
+      "note": "GD yüz; hiçbir panodan görülmüyor. Hava fotoğrafında açık gri, penceresiz görünen düz yüzey (eğik) — doğrulanamadı."
+    },
+    {
+      "edge": 3,
+      "len": 1.03,
+      "seen": "none",
+      "items": []
+    },
+    {
+      "edge": 4,
+      "len": 8.07,
+      "seen": "none",
+      "items": [],
+      "note": "GD yüz; komşu 1540901772'ye bakıyor, görülmedi. Hava fotoğrafında yatay beyaz balkon döşemesi çizgileri seçiliyor (ayrıntı yok)."
+    },
+    {
+      "edge": 5,
+      "len": 1.15,
+      "seen": "none",
+      "items": []
+    },
+    {
+      "edge": 6,
+      "len": 5.17,
+      "seen": "none",
+      "items": [],
+      "note": "GD yüz; görülmedi (hava fotoğrafında beyaz döşeme çizgileri)."
+    },
+    {
+      "edge": 7,
+      "len": 21.94,
+      "seen": "partial",
+      "ref": "1540901773_7_5229BIGS.jpg",
+      "cal": {
+        "u": [
+          0.9,
+          22.6
+        ],
+        "head": [
+          [
+            8,
+            24.4
+          ],
+          [
+            5,
+            15.1
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 1,
+          "u1": 8,
+          "d": 0,
+          "inset": 1.4,
+          "s": [
+            0,
+            8
+          ],
+          "glazed": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "tint": {
+            "4": "dark",
+            "5": "dark",
+            "6": "dark",
+            "7": "dark",
+            "8": "dark"
+          },
+          "sides": "wall"
+        },
+        {
+          "t": "panel",
+          "u0": 8,
+          "u1": 9,
+          "y0": 0,
+          "y1": 25.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 9.4,
+          "u1": 10.6,
+          "y0": 22.9,
+          "y1": 24.2,
+          "k": 8,
+          "s": [
+            0,
+            8
+          ]
+        },
+        {
+          "t": "panel",
+          "u0": 12.3,
+          "u1": 12.9,
+          "y0": 0,
+          "y1": 25.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 13,
+          "u1": 14.3,
+          "y0": 22.9,
+          "y1": 24.2,
+          "k": 8,
+          "s": [
+            0,
+            8
+          ]
+        },
+        {
+          "t": "panel",
+          "u0": 14.6,
+          "u1": 15.2,
+          "y0": 0,
+          "y1": 25.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "bal",
+          "u0": 15.2,
+          "u1": 22.6,
+          "d": 0,
+          "inset": 1.4,
+          "s": [
+            0,
+            8
+          ],
+          "glazed": [
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "tint": {
+            "4": "dark",
+            "5": "dark",
+            "6": "dark",
+            "7": "dark",
+            "8": "dark"
+          },
+          "sides": "start-wall"
+        }
+      ],
+      "note": "Arka cephe; yalnız Uğur Mumcu Bulvarı panolarının 90° karelerinden (5229BIGS, Ie1U7aep, bXVPBswN; 2025-09, 85–95 m) — çok bulanık. Okunan: iki geniş balkon yığını (kalın beyaz döşeme alınları + koyu cam bant, K4–K8 görünür), ortada beyaz ayaklı çekirdek ve 2 pencere sütunu (konum ±0.5 m, tür/perde çözülemiyor). K0–K3 önündeki kırmızı çatılı yapı ve reklam panosu arkasında → yığınlar ritimden uzatıldı. KB yığın kuzey köşeyi dönüp KB cephedeki (kenar 8) mavi camlı şeride bağlanıyor. Loca derinliği 1.4 varsayım."
+    },
+    {
+      "edge": 8,
+      "len": 5.06,
+      "seen": "photo",
+      "ref": "1540901773_8_glMQ1Beo.jpg",
+      "cal": {
+        "u": [
+          -0.06,
+          5
+        ],
+        "head": [
+          [
+            8,
+            26.6
+          ],
+          [
+            4,
+            14.2
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.8,
+          "u1": 2.4,
+          "d": 0,
+          "inset": 1.4,
+          "s": [
+            0,
+            8
+          ],
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "tint": {
+            "2": "clear",
+            "3": "clear",
+            "4": "clear",
+            "5": "clear",
+            "6": "clear",
+            "7": "clear",
+            "8": "clear"
+          },
+          "sides": "end-wall"
+        },
+        {
+          "t": "panel",
+          "u0": 2.4,
+          "u1": 5,
+          "y0": 0,
+          "y1": 26.6,
+          "color": "#655144"
+        },
+        {
+          "t": "band",
+          "y0": 2,
+          "y1": 2.7,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        },
+        {
+          "t": "band",
+          "y0": 5.1,
+          "y1": 5.8,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        },
+        {
+          "t": "band",
+          "y0": 8.2,
+          "y1": 8.9,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        },
+        {
+          "t": "band",
+          "y0": 11.3,
+          "y1": 12,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        },
+        {
+          "t": "band",
+          "y0": 14.4,
+          "y1": 15.1,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        },
+        {
+          "t": "band",
+          "y0": 17.5,
+          "y1": 18.2,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        },
+        {
+          "t": "band",
+          "y0": 20.6,
+          "y1": 21.3,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        },
+        {
+          "t": "band",
+          "y0": 23.7,
+          "y1": 24.4,
+          "u0": 2.4,
+          "u1": 5,
+          "color": "fascia",
+          "proud": 0.1
+        }
+      ],
+      "note": "glMQ (2025-09, 53 m, dik) + 0tTf4uTe ile doğrulandı. Kuzey köşede her katta tam genişlik şerit cam (beyaz dikmeli, üstte açık mavi cam, altta ≈0.9 m buzlu mavi korkuluk camı) + beyaz döşeme alnı; köşeyi dönüp arka cepheye devam ediyor. Yanında kahverengi ahşap görünümlü kompozit panolar (u 2.4–5.0), aralarında beyaz kat bantları. Cam cephenin döşemeye göre içe mi dışa mı olduğu görülemiyor (taban izi çatı parapetinden) → loca 1.4 varsayım. K0–K1 önündeki alçak beyaz yapı arkasında (ritimden uzatıldı)."
+    },
+    {
+      "edge": 9,
+      "len": 0.98,
+      "seen": "none",
+      "items": []
+    },
+    {
+      "edge": 10,
+      "len": 8.6,
+      "seen": "photo",
+      "ref": "1540901773_10_glMQ1Beo.jpg",
+      "cal": {
+        "u": [
+          0.4,
+          9
+        ],
+        "head": [
+          [
+            8,
+            26
+          ],
+          [
+            4,
+            13.6
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "panel",
+          "u0": 0.4,
+          "u1": 0.85,
+          "y0": 0,
+          "y1": 26.25,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 1.48,
+          "u1": 2.84,
+          "y0": 24.77,
+          "y1": 26,
+          "k": 8,
+          "s": [
+            0,
+            8
+          ],
+          "split": 2
+        },
+        {
+          "t": "panel",
+          "u0": 3.85,
+          "u1": 7.6,
+          "y0": 0,
+          "y1": 26.25,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 5.14,
+          "u1": 6.52,
+          "y0": 23.86,
+          "y1": 26.09,
+          "k": 8,
+          "s": [
+            0,
+            8
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2
+        },
+        {
+          "t": "band",
+          "y0": 1.48,
+          "y1": 2.16,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 4.58,
+          "y1": 5.26,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 7.68,
+          "y1": 8.36,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 10.78,
+          "y1": 11.46,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 13.88,
+          "y1": 14.56,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 16.98,
+          "y1": 17.66,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 20.08,
+          "y1": 20.76,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        },
+        {
+          "t": "band",
+          "y0": 23.18,
+          "y1": 23.86,
+          "u0": 4.95,
+          "u1": 6.55,
+          "color": "fascia",
+          "proud": 0.3
+        }
+      ],
+      "note": "glMQ (2025-09, 52 m, dik); SyTa ile doğrulandı. Soldan: beyaz köşe ayağı – gri sıvalı bölmede 2 kanatlı beyaz PVC pencere sütunu – beyaz (ince düşey derzli) sütunda fransız pencere (yatay borulu korkuluk, altında beyaz denizlik kutusu) – penceresiz gri bölme (kenar 12'ye devam). Üstte ≈1.8 m beyaz saçak/parapet bandı (alt çizgisi 26.25, gölgeli çıkıntı), üzerinde kırma çatılı küçük merdiven/asansör kulesi (u≈4–7.5). K0–K3 ağaç arkasında (SyTa'da alt katlarda da sürüyor). Perde çözülemiyor."
+    },
+    {
+      "edge": 11,
+      "len": 1.35,
+      "seen": "none",
+      "items": []
+    },
+    {
+      "edge": 12,
+      "len": 2.82,
+      "seen": "photo",
+      "ref": "1540901773_12_glMQ1Beo.jpg",
+      "cal": {
+        "u": [
+          -0.1,
+          2.95
+        ],
+        "head": [
+          [
+            8,
+            26
+          ],
+          [
+            4,
+            13.6
+          ]
+        ]
+      },
+      "items": [],
+      "note": "glMQ: tamamen penceresiz gri sıva (kenar 10'daki gri bölmenin devamı); üstte beyaz saçak bandı ve çatıda gri kutu."
+    },
+    {
+      "edge": 13,
+      "len": 3.59,
+      "seen": "partial",
+      "cal": {
+        "u": [
+          0,
+          3.59
+        ],
+        "head": [
+          [
+            0,
+            2.65
+          ],
+          [
+            8,
+            27.45
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0.25,
+          "u1": 3.35,
+          "d": 1.2,
+          "s": [
+            2,
+            7
+          ],
+          "glazed": [
+            2,
+            4,
+            5,
+            6,
+            7
+          ],
+          "tint": {
+            "2": "clear",
+            "4": "clear",
+            "5": "clear",
+            "6": "clear",
+            "7": "clear"
+          },
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "ac",
+          "u": 0.8,
+          "s": 3,
+          "onBal": true
+        }
+      ],
+      "note": "Ortofoto yok (hiçbir ortofoto yığını tam kapsamıyor) → gerçek koordinat (u metre, cal.head = 0.4 + 3.1k + 2.25). l07h + SyTa (2025-09) ham karelerinden: beyaz, uçları yuvarlak döşeme alınları, paslanmaz yatay borulu korkuluk; K2, K4–K7 katlanır cam balkon (şeffaf), K3 açık (balkon kapısı + zeminde klima). En üstte kalın beyaz şapka (K8 yerine çatı saçağı iniyor). 2019 karelerinde K3–K4 açık. K0–K1 kapı portali/çit arkasında. Taşma d 1.2 belirsiz (paralaks 0.3–1.9 arası veriyor)."
+    }
+  ]
+}

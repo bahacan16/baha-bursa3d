@@ -177,6 +177,10 @@ Kullanıcı fotoğrafı kameraları (yaklaşık, eye 1.5 m; oyun koordinatı):
 
 ## 8. Senkronizasyon (geçmiş + gelecek)
 
+**Değişiklik günlüğü: `docs/BLENDER_CHANGES.md`.** Bulut oturumu her commit'te oraya ne değiştiğini, hangi dosyaları
+ve Blender'da hangi katmanın yeniden kurulacağını yazar. Eşitlerken önce onu oku; aşağıdaki git komutları yedek
+kontrol içindir.
+
 Geçmiş: şu anki dal ucu her şeyi içerir; ilk kurulum doğrudan bu veriden yapılır. Projenin tarihçesi ve
 kararları için `CLAUDE.md` (özellikle §18 Faz durumu ve §18b Kararlar) oku.
 

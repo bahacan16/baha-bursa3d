@@ -417,7 +417,7 @@ function materials(base: string): Record<string, THREE.Material> {
     // Site içi kemik kilit taşı (kullanıcı fotoğrafları): gri + kırmızı bant/meydan
     spSiteGrey: boneMat(['#9d968e', '#a69f96', '#928b83', '#aca49b', '#978f86'], 41, -5),
     spSiteRed: boneMat(['#a06d5f', '#aa7767', '#955f53', '#a87263'], 42, -5),
-    spPaverRed: paverMat(['#bfae9f', '#c8b7a8', '#b5a496', '#c4b3a4'], 22, -5),
+    spPaverRed: paverMat(['#938882', '#9b908a', '#8b807a', '#968b85', '#877c76'], 22, -5),
     spRubberRed: std({
       color: 0x7e4a3f,
       roughness: 0.95,
@@ -477,7 +477,7 @@ function materials(base: string): Record<string, THREE.Material> {
     spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
     // Bisiklet şeridi (kullanıcı fotoğrafı, 502. Sk.): mat mavi asfalt boyası
     spBike: std({
-      color: 0x3a5c80,
+      color: 0x56758f,
       roughness: 0.9,
       polygonOffset: true,
       polygonOffsetFactor: -6,
@@ -718,6 +718,26 @@ function materials(base: string): Record<string, THREE.Material> {
       emissive: 0x7d8286,
       alphaTest: 0.5,
     }),
+    signStop: std({ map: T.roadSignTexture('stop'), alphaTest: 0.5, roughness: 0.4 }),
+    signStopBack: std({
+      map: T.roadSignTexture('stop'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signBikeFlat: std({
+      map: T.roadSignTexture('bike'),
+      alphaTest: 0.5,
+      roughness: 0.8,
+      polygonOffset: true,
+      polygonOffsetFactor: -9,
+      polygonOffsetUnits: -9,
+    }),
+    gateGrey: std({ color: 0x8e9194, roughness: 0.45, metalness: 0.5 }),
+    barrierOrange: std({ color: 0xe06a1e, roughness: 0.5 }),
+    barrierWhite: std({ color: 0xeeeeea, roughness: 0.5 }),
+    barrierRed: std({ color: 0xc41c22, roughness: 0.5 }),
+    boothFrame: std({ color: 0x4a423c, roughness: 0.6, metalness: 0.3 }),
     lampHead: std({ color: 0x9aa0a4, roughness: 0.4, metalness: 0.6, emissive: 0x000000 }),
     concretePole: std({ color: 0xa7a59f, roughness: 0.9 }),
     hydrant: std({ color: 0xc0282a, roughness: 0.5 }),
@@ -1300,8 +1320,9 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     for (const f of others) buildGenericFence(b, f, o.H, mat, gapsO, o.collide);
     for (const g of og) {
       const y = o.H(g.c[0], g.c[1]) + 0.05;
-      // Komşu sitelerde yaya kapıları da siyah çubuklu (ölçüm notları)
-      buildDriveGate(b, g.c, g.n, y, g.w, false);
+      // Komşu sitelerde yaya kapıları çoğunlukla siyah çubuklu; notta gri lamelli ise gri
+      const grey = /gri\b.*(lamel|çıta|slat)|grey slat/i.test(g.note ?? '');
+      buildDriveGate(b, g.c, g.n, y, g.w, false, grey);
     }
   }
   // Park Koza Sitesi girişi (502. Sk doğu yakası, güney uç; Street View l4zd… kuzey karesi)

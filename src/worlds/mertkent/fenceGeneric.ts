@@ -11,7 +11,14 @@ export interface GenericFence {
   id?: string;
   pts: V2[];
   n?: V2;
-  wall?: { h?: number; t?: number; color?: string; finish?: string };
+  wall?: {
+    h?: number;
+    t?: number;
+    color?: string;
+    finish?: string;
+    /** Kemerli panel üstü: panel boyları (tekrar eden desen, m), ortada yükselme (m), panel arası derz rengi */
+    arch?: { pattern: number[]; rise: number; joint?: string };
+  };
   coping?: { h?: number; color?: string } | string;
   pillars?: {
     every?: number;
@@ -104,6 +111,62 @@ export function buildGenericFence(
     for (const [a, e, s] of f.screen ?? []) if (U >= a && U <= e) return s;
     return hedgeH > 0 ? 'real' : 'none';
   };
+  // Kemerli panel üstü (ölçüm: 1540901772 istinat duvarı — panel uçlarında h − rise/2, ortada h + rise/2)
+  const arch = f.wall?.arch;
+  const archAt = (U: number): { f: number; joint: boolean } => {
+    if (!arch?.pattern?.length) return { f: 0.5, joint: false };
+    const per = arch.pattern.reduce((q, v) => q + v, 0);
+    let r = ((U % per) + per) % per;
+    for (const w of arch.pattern) {
+      if (r <= w) return { f: r / w, joint: r < 0.12 || w - r < 0.12 };
+      r -= w;
+    }
+    return { f: 0, joint: true };
+  };
+  // Panel üstü kemer: uçlarda (derzde) keskin düşüş, ortada düz yay (fotoğraf: bitişik kemerler sivri V'de birleşir)
+  const wallTop = (U: number) =>
+    arch ? wallH - arch.rise / 2 + arch.rise * Math.sin(Math.PI * archAt(U).f) : wallH;
+  if (arch?.pattern?.length) {
+    // Sivri kemer derzi: iki eğik koyu şerit, yerde birleşip yukarıda kemer uçlarına açılır (V)
+    const jKey = mat('render', arch.joint ?? '#2c3a33');
+    const per = arch.pattern.reduce((q, v) => q + v, 0);
+    for (let U0 = 0; U0 < total; U0 += per) {
+      let acc = U0;
+      for (const w of arch.pattern) {
+        if (acc > 0.2 && acc < total - 0.2 && !inGap(acc)) {
+          const { p, t: tt } = at(acc);
+          const nn: V2 = f.n ?? [-tt[1], tt[0]];
+          const q: V2 = [p[0] + nn[0] * 0.01, p[1] + nn[1] * 0.01];
+          const yy = H(q[0], q[1]) + 0.15;
+          const yawJ = Math.atan2(-tt[1], tt[0]);
+          // Kemer kenarı: dörtte bir elips, derz dibinden (0.25 m) iki yana panel üstüne kıvrılır (ince koyu şerit)
+          const reach = 1.4;
+          const segs = 7;
+          for (const sg of [-1, 1]) {
+            let prev: [number, number] | null = null;
+            for (let k = 0; k <= segs; k++) {
+              const th = (k / segs) * (Math.PI / 2);
+              const du = sg * reach * (1 - Math.cos(th));
+              const top = wallTop(acc + du) - 0.02;
+              const yv = 0.25 + (top - 0.25) * Math.sin(th);
+              if (prev) {
+                const [pu, py] = prev;
+                const len = Math.hypot(du - pu, yv - py);
+                const g = new THREE.BoxGeometry(0.06, len + 0.02, wallT + 0.03);
+                g.rotateZ(-Math.atan2(du - pu, yv - py));
+                g.translate((du + pu) / 2, (yv + py) / 2, 0);
+                g.rotateY(yawJ);
+                g.translate(q[0], yy, q[1]);
+                b.geometry(jKey, g);
+              }
+              prev = [du, yv];
+            }
+          }
+        }
+        acc += w;
+      }
+    }
+  }
   for (let i = 0; i + 1 < pts.length; i++) {
     const a = pts[i];
     const e = pts[i + 1];
@@ -115,7 +178,7 @@ export function buildGenericFence(
     const yaw = Math.atan2(-t[1], t[0]);
     // Sokak yüzü off=0, içeri −n
     const P = (u: number, off: number): V2 => [a[0] + t[0] * u - n[0] * off, a[1] + t[1] * u - n[1] * off];
-    const nS = Math.max(1, Math.ceil(L / 2));
+    const nS = Math.max(1, Math.ceil(L / (arch ? 0.35 : 2)));
     for (let k = 0; k < nS; k++) {
       const u0 = (L * k) / nS;
       const u1 = (L * (k + 1)) / nS;
@@ -123,14 +186,15 @@ export function buildGenericFence(
       if (inGap(mid)) continue;
       const c = P((u0 + u1) / 2, wallT / 2);
       const y0 = H(c[0], c[1]) + 0.15;
+      const wH = wallTop(mid);
       if (wallH > 0.05) {
-        b.box(wallKey, [c[0], y0 + (wallH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wallH + 0.2, wallT], yaw, 1);
-        b.box(copKey, [c[0], y0 + wallH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
+        b.box(wallKey, [c[0], y0 + (wH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wH + 0.2, wallT], yaw, 1);
+        b.box(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
       }
       if (!/none|yok/.test(infType)) {
         const pa = P(u0, wallT / 2);
         const pe = P(u1, wallT / 2);
-        const yb = y0 + wallH + copH;
+        const yb = y0 + wH + copH;
         b.wall(infKey, pa, pe, yb, yb + infH, [
           0,
           0,

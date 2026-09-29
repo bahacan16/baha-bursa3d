@@ -30,7 +30,7 @@ const DRY = process.env.SV_DRY === '1';
 const CAM_H = 2.5; // Google aracı kamera yüksekliği (yaklaşık)
 const FOV = 90;
 const HEAD_STEP = 60; // yön kovaları (fov 90 → komşularla 15° örtüşme)
-const MAX_DIST = 55;
+const MAX_DIST = Number(process.env.SV_MAXDIST || 55); // arka cepheler için uzak yoldan (ör. Uğur Mumcu) artırılabilir
 const API = 'https://maps.googleapis.com/maps/api/streetview';
 
 /** Koridor modu: SV_BBOX="x0,z0,x1,z1" (yerel m) — alan adı yerine kutu içindeki binalar hedef */

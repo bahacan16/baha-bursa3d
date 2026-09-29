@@ -11,11 +11,13 @@ const Y_MAJOR = 0.04;
 const Y_MARK = 0.05;
 
 // Renkler Mertkent çevresi Street View karelerinden ölçüldü (asfalt sRGB≈145,146,143; parke≈211,193,167)
-const ASPHALT: Rgb = [0.26, 0.265, 0.26];
-const ASPHALT_SERVICE: Rgb = [0.3, 0.3, 0.3];
+// Street View ölçümü (DA 97/128, güneşli): asfalt sıcak gri ≈ #95908a → mavimsi olmasın diye hafif sıcak
+const ASPHALT: Rgb = [0.27, 0.26, 0.245];
+const ASPHALT_SERVICE: Rgb = [0.3, 0.29, 0.275];
 const PAVER: Rgb = [0.6, 0.5, 0.38];
 const PATH: Rgb = [0.6, 0.53, 0.42];
-const CYCLE: Rgb = [0.55, 0.3, 0.27];
+// Nilüfer bisiklet yolları mavi boyalı (kullanıcı fotoğrafı, 502. Sk.)
+const CYCLE: Rgb = [0.16, 0.26, 0.38];
 // Kaldırım rengi dokudan (Nilüfer tipi: gri tuğla + sarı kılavuz, materials.ts) → köşe rengi beyaz
 const SIDEWALK: Rgb = [1, 1, 1];
 const CURB: Rgb = [0.62, 0.61, 0.59];
@@ -392,6 +394,12 @@ export function buildRoads(
   // Önce geniş yollar: aynı y'de üst üste binmeler aynı renkte olduğundan görünmez.
   const sorted = visible.slice().sort((a, b) => a.width - b.width);
   for (const r of sorted) {
+    // Ölçülmüş sokak bantlarında (street-plan) OSM yaya/bisiklet çizgisi çizilmez: gerçek düzen oradan gelir
+    if (!r.vehicular && r.pts.length >= 2) {
+      const m = r.pts[Math.floor(r.pts.length / 2)];
+      const a = r.pts[0];
+      if (skipWalk(m[0], m[1]) && skipWalk(a[0], a[1])) continue;
+    }
     const st = roadStyle(r);
     const half = r.width / 2;
     const dense = densify(r.pts);

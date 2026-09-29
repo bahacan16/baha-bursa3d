@@ -1060,12 +1060,35 @@ export function letterSignTexture(lines: string[], color: string, aspect = 3): T
 
 /** Trafik levhası (şeffaf zemin): 'curve' = tehlikeli viraj (sola-sağa), 'limit30' = azami hız 30 */
 export function roadSignTexture(
-  kind: 'curve' | 'limit30' | 'parking' | 'bike' | 'noentry' | 'noleft',
+  kind: 'curve' | 'limit30' | 'parking' | 'bike' | 'noentry' | 'noleft' | 'stop',
 ): THREE.Texture {
   const S = 256;
   const [c, g] = canvas(S, S);
   g.clearRect(0, 0, S, S);
-  if (kind === 'curve') {
+  if (kind === 'stop') {
+    // DUR: kırmızı sekizgen, beyaz kenar, beyaz "DUR"
+    const oct = (r: number) => {
+      g.beginPath();
+      for (let k = 0; k < 8; k++) {
+        const a = Math.PI / 8 + (k * Math.PI) / 4;
+        const x = S / 2 + Math.cos(a) * r;
+        const y = S / 2 + Math.sin(a) * r;
+        if (k) g.lineTo(x, y);
+        else g.moveTo(x, y);
+      }
+      g.closePath();
+      g.fill();
+    };
+    g.fillStyle = '#f5f5f2';
+    oct(S / 2 - 4);
+    g.fillStyle = '#c8102e';
+    oct(S / 2 - 14);
+    g.fillStyle = '#f5f5f2';
+    g.font = 'bold 92px Arial, sans-serif';
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    g.fillText('DUR', S / 2, S / 2 + 4);
+  } else if (kind === 'curve') {
     g.fillStyle = '#c8102e';
     g.beginPath();
     g.moveTo(S / 2, 10);

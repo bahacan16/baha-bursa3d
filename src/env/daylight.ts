@@ -86,8 +86,9 @@ export function daylight(t: TimeOfDay, center: { lat: number; lon: number }, now
   const moon = new THREE.Color(0x8ea6ff);
   const sunColor = e > -2 ? white.clone().lerp(orange, golden) : moon;
   const sunIntensity = e > -2 ? 0.2 + 2.5 * smooth(-2, 18, e) : 0.6 * night;
+  // Gündüz gök ışığı: şehirde gölgeler Street View'da nötr gri (gökyüzü kısmen binalarla kapalı) → az mavi
   const hemiSky = new THREE.Color(0x4a5a80)
-    .lerp(new THREE.Color(0xcfe3ff), day)
+    .lerp(new THREE.Color(0xdde4ec), day)
     .lerp(new THREE.Color(0xffc9a8), golden * 0.6);
   const hemiGround = new THREE.Color(0x2a2c30).lerp(new THREE.Color(0x6b6250), day);
   const fogColor = new THREE.Color(0x141b28)

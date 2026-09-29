@@ -17,6 +17,9 @@ on:
       slug:
         description: 'Çıktı klasörü (streetview-src/<slug>)'
         default: ''
+      maxdist:
+        description: 'Cepheye en uzak pano mesafesi (m)'
+        default: '55'
   push:
     paths:
       - 'scripts/fetch-streetview.mjs'
@@ -32,6 +35,8 @@ concurrency:
 
 jobs:
   fetch:
+    # Push ile tetiklenince çalışmasın (varsayılan alanla index.json'u birleştirmeden ezer); yalnız elle
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,6 +53,7 @@ jobs:
           SV_BBOX: ${{ inputs.bbox }}
           SV_SLUG: ${{ inputs.slug }}
           SV_MERGE: ${{ inputs.bbox != '' && '1' || '0' }}
+          SV_MAXDIST: ${{ inputs.maxdist || '55' }}
         run: node scripts/fetch-streetview.mjs
       - name: Commit
         run: |

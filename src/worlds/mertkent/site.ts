@@ -170,7 +170,15 @@ export function buildGate(b: Builder, c: V2, n: V2, y0: number): void {
  * Araç girişi: iki kolon arasında siyah sürgülü parmaklık kapı (kapalı), üstte sarı-siyah uyarı bandı yok —
  * sade site kapısı. c: açıklık merkezi, n: sokak yönü, w: açıklık genişliği.
  */
-export function buildDriveGate(b: Builder, c: V2, n: V2, y0: number, w: number, pillars = true): void {
+export function buildDriveGate(
+  b: Builder,
+  c: V2,
+  n: V2,
+  y0: number,
+  w: number,
+  pillars = true,
+  greySlats = false,
+): void {
   const t: V2 = [n[1], -n[0]];
   const yaw = Math.atan2(-t[1], t[0]);
   const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
@@ -181,6 +189,20 @@ export function buildDriveGate(b: Builder, c: V2, n: V2, y0: number, w: number, 
       b.box('capDark', [p[0], y0 + 1.73, p[1]], [0.46, 0.06, 0.46], yaw);
       b.sphere('globe', [p[0], y0 + 1.92, p[1]], 0.14, 10);
     }
+  if (greySlats) {
+    // Gri alüminyum dikey lamelli kapı (ölçüm: UPTOWN yaya kapısı)
+    const H1 = 1.9;
+    const nS = Math.max(2, Math.round(w / 0.11));
+    for (let k = 0; k < nS; k++) {
+      const p = P(-w / 2 + (w * (k + 0.5)) / nS, -0.1);
+      b.box('gateGrey', [p[0], y0 + 0.05 + H1 / 2, p[1]], [0.07, H1, 0.03], yaw);
+    }
+    for (const y of [0.12, H1 - 0.05]) {
+      const m = P(0, -0.1);
+      b.box('gateGrey', [m[0], y0 + y, m[1]], [w - 0.02, 0.06, 0.05], yaw);
+    }
+    return;
+  }
   // Siyah ferforje sürgülü kapı (Street View: dikey çubuklar, altta ~0.5 m kıvrımlı süs bandı, orta kuşak)
   const H0 = 1.75;
   const a = P(-w / 2 + 0.02, -0.1);

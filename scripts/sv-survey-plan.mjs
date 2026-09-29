@@ -16,6 +16,8 @@ const FOV = 40;
 const STEP = 30; // karo aralığı (derece), %25 bindirme
 const CAM_H = 2.5;
 const TOP = Number(process.env.SURVEY_TOP ?? 23.5); // zeminden cephe üstü (çatı dahil)
+/** Pano–cephe en uzak mesafe (arka cepheler karşı caddeden: SURVEY_MAXD=90) */
+const MAXD = Number(process.env.SURVEY_MAXD ?? 45);
 
 const deg = (r) => (r * 180) / Math.PI;
 
@@ -27,7 +29,10 @@ async function main() {
   const idx = JSON.parse(
     await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
   );
-  const panos = idx.panos.filter((p) => !p.date || p.date >= '2020');
+  // 2020 öncesi kareler yalnız SURVEY_ALLOW_OLD=1 ile ve düşük puanla (yeni kare yoksa; ör. Doğan Avcıoğlu doğusu 2019-05)
+  const ALLOW_OLD = process.env.SURVEY_ALLOW_OLD === '1';
+  const panos = idx.panos.filter((p) => ALLOW_OLD || !p.date || p.date >= '2020');
+  const ageF = (p) => (!p.date || p.date >= '2020' ? 1 : 0.45);
   const buildings = osm.ways
     .filter((w) => w.t && w.t.building && w.p.length >= 6)
     .map((w) => ({ id: w.i, ring: ring(w.p) }));
@@ -75,7 +80,7 @@ async function main() {
         const vz = p.z - mz;
         const d = Math.hypot(vx, vz);
         const front = (vx * nx + vz * nz) / d;
-        if (d < 3 || d > 45 || front < 0.3) continue;
+        if (d < 3 || d > MAXD || front < 0.3) continue;
         // Kenarın 3 noktasından en az 2'si görünür olsun
         let vis = 0;
         for (const f of [0.1, 0.5, 0.9]) {
@@ -85,15 +90,15 @@ async function main() {
         }
         if (vis < 2) continue;
         // Çözünürlük: yakın iyi ama çok yakında cephe ~180° kaplar; 8–25 m ideal
-        const res = d < 8 ? d / 8 : d > 25 ? 25 / d : 1;
-        cands.push({ p, d, score: front * res * (vis / 3) });
+        const res = d < 8 ? d / 8 : d > 25 ? 25 / d : 1; // uzak panolar düşük puan (yalnız başka yoksa seçilir)
+        cands.push({ p, d, score: front * res * (vis / 3) * ageF(p) });
       }
       cands.sort((u, v) => v.score - u.score);
       const pick = [];
       for (const c of cands) {
         if (pick.some((q) => Math.hypot(q.p.x - c.p.x, q.p.z - c.p.z) < 6)) continue;
         pick.push(c);
-        if (pick.length === 2) break;
+        if (pick.length === (ALLOW_OLD ? 3 : 2)) break;
       }
       for (const c of pick) {
         const p = c.p;
@@ -140,6 +145,7 @@ async function main() {
           e: [+ex.toFixed(2), +ez.toFixed(2)],
           base: +base.toFixed(2),
           pano: p.id,
+          date: p.date ?? null,
           dist: +c.d.toFixed(1),
           tiles,
         });
