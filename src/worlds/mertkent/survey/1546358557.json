@@ -274,11 +274,22 @@
             "*": "solidTube"
           },
           "parapetH": {
-            "*": 0.43
+            "*": 0.43,
+            "K3": 0.39
           },
           "railC": "#cfd5d8",
           "fasciaC": {
             "K3": "#cdd3d6"
+          },
+          "railH": {
+            "K2": 1.35
+          },
+          "coping": {
+            "K3": {
+              "h": 0.12,
+              "color": "#4a5360",
+              "over": 0.01
+            }
           }
         },
         {
@@ -309,11 +320,22 @@
             "*": "solidTube"
           },
           "parapetH": {
-            "*": 0.43
+            "*": 0.43,
+            "K3": 0.39
           },
           "railC": "#cfd5d8",
           "fasciaC": {
             "K3": "#cdd3d6"
+          },
+          "railH": {
+            "K2": 1.35
+          },
+          "coping": {
+            "K3": {
+              "h": 0.12,
+              "color": "#4a5360",
+              "over": 0.01
+            }
           }
         },
         {
@@ -387,7 +409,7 @@
           "text": "SATILIK"
         }
       ],
-      "note": "v5 (yeni ortofoto, düzeltilmiş taban izi; -KU8 referans, qc-7 teyit). Batı kanat güney cephesi: GB köşe yığını artık taban izi boşluğunda (19/20), bu kenar pencere sütununun batısındaki beyaz panodan başlar. Batıdan doğuya: beyaz pano (yalnız K1 5.5–9.4 — K0 hizası gri, qc-7 ve K4 15.05–19.0 hizası; arası ve üstü gri), gri pilastr 0.25 m (u 1.2–1.45), 3 bölmeli pencere sütunu (sol dar/orta geniş/sağ dar, beyaz PVC, her katta koyu gri denizlik; K2 denizliği pilastrlar arası tam genişlik, uçları çıkıntılı), sağ pilastr (4.12–4.43), beyaz pano, büyük yığın (5.3–12.2 ön yüz). Yığın katları: K0 şeffaf cam (içeride klima, sağ uçta), K1 zebra stor camı (sağ uç ~1.7 m storsuz; korkulukta Türksat çanağı + klima), K2 AÇIK (5 borulu korkuluk, SATILIK afişi, tavanda spot, sağ uçta klima), K3 koyu/mavi yansımalı cam, K4 zebra stor, K5 koyu cam (sağda şeffaf naylon). Tüm katlarda korkuluk: ≈0.43 m beyaz dolu alın (döşeme üstü) + borulu paslanmaz küpeşte ≈0.95 m. K3 döşeme alnı sıva grisi (#cdd3d6 güneşte; beyazlara göre 'koyu' görünür), diğerleri beyaz. Görünen kat aralığı duvarda 3.19, yığın önünde 3.37 → yığın ön yüzü pencere sütununun ≈0.55 m önünde; pencere sütunu duvarı taban izi çizgisinin ≈0.6–1.0 m önünde görünüyor (qc-7: 0.6, -KU8: 1.0; pano poz hatası payı). Yağmur borusu beyaz PVC (girinti köşesinde, kelepçeli). | FP-v3 (2026-09-29, taban izi düzeltmesi): güney duvar hattı 1.03 m KUZEYE taşındı (bkz. notlar); ortofoto düzlemi değiştiği için tüm görünen u/y ve cal (u, head) -KU8 GPS kamerasından eski düzlem→yeni düzlem merkezî izdüşümüyle dönüştürüldü (ölçek ×1.109, uF≈6.74 / yCam etrafında) — derlenen gerçek konumlar değişmedi, öğeler duvarla birlikte taşındı. | v6 (2026-09-29, -KU8 yeni ortosu + 347_23/347_46 yakın kareleri): pilastrlar iki parça — K0–K1 alt ayakları (u 0.6–0.95 / 3.92–4.27, subasman üstünden 9.03'e, sivri/beşik başlık tepe 9.135 → pediment d 0.06 depth 0.07; alt kısım ≈4.5 altı çalı arkasında, subasmana indirildi), 9.03–10.3 arası düz duvar (pilastr YOK), K2 denizlik bandı ince (10.5–10.6) + uçlarda kalın koyu bloklar (u 0.65–0.975 / 3.9–4.25, 10.3–10.63; çıkıntılar ölçülemedi, bant 0.05 / blok 0.07), üst pilastrlar bandın üstünden duvar üstüne (10.63–23.86 görünen = 20.22 gerçek). Renk: alt ayaklar da gri sıva (#ccd3d3 vs duvar #ced6d6; beyaz görünmesi güneşli başlık yüzünden). SATILIK afişi (K2 korkuluğu, d 0.55): -KU8 u 6.16–7.50, y 10.66–11.53; solda mavi eğik şerit (dikdörtgen 6.16–6.53 yazıldı; içindeki beyaz logo + kişi fotoğrafı çizilmedi), sağda beyaz alan: üstte okunmayan telefon satırları (yazı yok), altta lacivert \"SATILIK\" (qc-7 ortosunda net okunuyor; afiş qc-7'de u≈3.5–4.6, pano poz farkı). Renkler: mavi en doygun piksel ort. #7f7fd5 (qc-7 321_23, bulanık), beyaz #f4f5f7, yazı #2e3a8c (göz)."
+      "note": "v5 (yeni ortofoto, düzeltilmiş taban izi; -KU8 referans, qc-7 teyit). Batı kanat güney cephesi: GB köşe yığını artık taban izi boşluğunda (19/20), bu kenar pencere sütununun batısındaki beyaz panodan başlar. Batıdan doğuya: beyaz pano (yalnız K1 5.5–9.4 — K0 hizası gri, qc-7 ve K4 15.05–19.0 hizası; arası ve üstü gri), gri pilastr 0.25 m (u 1.2–1.45), 3 bölmeli pencere sütunu (sol dar/orta geniş/sağ dar, beyaz PVC, her katta koyu gri denizlik; K2 denizliği pilastrlar arası tam genişlik, uçları çıkıntılı), sağ pilastr (4.12–4.43), beyaz pano, büyük yığın (5.3–12.2 ön yüz). Yığın katları: K0 şeffaf cam (içeride klima, sağ uçta), K1 zebra stor camı (sağ uç ~1.7 m storsuz; korkulukta Türksat çanağı + klima), K2 AÇIK (5 borulu korkuluk, SATILIK afişi, tavanda spot, sağ uçta klima), K3 koyu/mavi yansımalı cam, K4 zebra stor, K5 koyu cam (sağda şeffaf naylon). Tüm katlarda korkuluk: ≈0.43 m beyaz dolu alın (döşeme üstü) + borulu paslanmaz küpeşte ≈0.95 m. K3 döşeme alnı sıva grisi (#cdd3d6 güneşte; beyazlara göre 'koyu' görünür), diğerleri beyaz. Görünen kat aralığı duvarda 3.19, yığın önünde 3.37 → yığın ön yüzü pencere sütununun ≈0.55 m önünde; pencere sütunu duvarı taban izi çizgisinin ≈0.6–1.0 m önünde görünüyor (qc-7: 0.6, -KU8: 1.0; pano poz hatası payı). Yağmur borusu beyaz PVC (girinti köşesinde, kelepçeli). | FP-v3 (2026-09-29, taban izi düzeltmesi): güney duvar hattı 1.03 m KUZEYE taşındı (bkz. notlar); ortofoto düzlemi değiştiği için tüm görünen u/y ve cal (u, head) -KU8 GPS kamerasından eski düzlem→yeni düzlem merkezî izdüşümüyle dönüştürüldü (ölçek ×1.109, uF≈6.74 / yCam etrafında) — derlenen gerçek konumlar değişmedi, öğeler duvarla birlikte taşındı. | v6 (2026-09-29, -KU8 yeni ortosu + 347_23/347_46 yakın kareleri): pilastrlar iki parça — K0–K1 alt ayakları (u 0.6–0.95 / 3.92–4.27, subasman üstünden 9.03'e, sivri/beşik başlık tepe 9.135 → pediment d 0.06 depth 0.07; alt kısım ≈4.5 altı çalı arkasında, subasmana indirildi), 9.03–10.3 arası düz duvar (pilastr YOK), K2 denizlik bandı ince (10.5–10.6) + uçlarda kalın koyu bloklar (u 0.65–0.975 / 3.9–4.25, 10.3–10.63; çıkıntılar ölçülemedi, bant 0.05 / blok 0.07), üst pilastrlar bandın üstünden duvar üstüne (10.63–23.86 görünen = 20.22 gerçek). Renk: alt ayaklar da gri sıva (#ccd3d3 vs duvar #ced6d6; beyaz görünmesi güneşli başlık yüzünden). SATILIK afişi (K2 korkuluğu, d 0.55): -KU8 u 6.16–7.50, y 10.66–11.53; solda mavi eğik şerit (dikdörtgen 6.16–6.53 yazıldı; içindeki beyaz logo + kişi fotoğrafı çizilmedi), sağda beyaz alan: üstte okunmayan telefon satırları (yazı yok), altta lacivert \"SATILIK\" (qc-7 ortosunda net okunuyor; afiş qc-7'de u≈3.5–4.6, pano poz farkı). Renkler: mavi en doygun piksel ort. #7f7fd5 (qc-7 321_23, bulanık), beyaz #f4f5f7, yazı #2e3a8c (göz). | v6 kat kat alın/küpeşte ölçümü (-KU8, u 8.6–9.4, d 0.55 düzeltmeli, derleyicinin kat çizgilerine göre): K1 alın −0.18…+0.54, küpeşte +0.95; K2 −0.31…+0.52, küpeşte +1.35 (6 yatay borulu uzun küpeşte — açık kat); K3 gri alın −0.27…+0.39 + üstünde koyu profil +0.39…+0.51 (#4a5360 güneşte) + küpeşte +0.87; K4 −0.25…+0.44, +0.82; K5 −0.30…+0.44, +0.77 → railH K2 1.35, K3 parapet 0.39 + coping 0.12 yazıldı; diğer katlar mevcut değerlerle (±0.1) uyumlu, alın alt kenarındaki 0.02–0.15 m fark (kiriş) kayıt belirsizliği içinde → değiştirilmedi. SATILIK afişi K2 uzun küpeştesinde (+0.54…+1.22)."
     },
     {
       "edge": 1,

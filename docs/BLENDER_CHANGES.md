@@ -494,3 +494,8 @@
   kavşak lambaları 12 → 10.5, kavşak kamera 10 → 9.0, trafik ışıkları 4.0 → 3.5; levhalar direkleriyle; da1 lambaları
   bordürden 1.5 m içeri. `da3-fence-east-site` nokta sırası ters çevrildi (aynı yön hatası: duvar + 2.3 m çit Doğan
   Avcıoğlu'na çiziliyordu). **Blender:** kavşak doğusu + yan sokak çit/duvar katmanı ve sokak lambaları yeniden kurulmalı.
+- **(v6 dönüşüm 3)** — 900000104 (çatı katı alın `trim` tabansız, çatı katı pencere korkulukları, orta ayak
+  aplikleri K1–K5, parapet harpuştaları, köşe dolgu hacimleri kaldırıldı), 1540901770 Tarabya (ayak aplikleri K1–K6
+  yeniden ölçüldü, renkler düzeltildi; K3 kırmızı bez, K1 halı; cam yığın korkuluk 1.14 m; ek bina yalnız güney
+  korkuluk), 1546358557 ("SATILIK" pankartı, siyah kablo, pilastır başlıkları + K2 denizlik bandı, K2 1.35 m tüp
+  korkuluk, K3 harpuşta), 1546358561 (duvar silindirleri, K2 dikey Türk bayrağı). **Blender:** bu 4 blok.
