@@ -1,7 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
 import { REAL_SPECS } from '../../src/worlds/mertkent/realtex';
-import { layerKey } from '../../src/worlds/mertkent/street';
+import { buildStreetPlan, layerKey } from '../../src/worlds/mertkent/street';
+import { Builder } from '../../src/worlds/mertkent/builder';
+
+type Buckets = { buckets: Map<string, { pos: number[]; nor: number[] }> };
 
 const MAN = 'public/textures/real/manifest.json';
 
@@ -61,5 +64,51 @@ describe('gerçek zemin dokuları (scripts/real-textures.mjs)', () => {
       ['ağaç şeridi: çıplak toprak, yer yer seyrek ot', 'spGravel'],
     ];
     for (const [m, k] of cases) expect(layerKey(m), m).toBe(k);
+  });
+
+  it('boyalı bordür: yan yüz yola bakar ve bordürün önünde, üst şerit yukarı bakar', () => {
+    for (const side of ['left', 'right'] as const) {
+      const b = new Builder();
+      const plan = {
+        sidewalks: [
+          {
+            id: 'test',
+            pts: [
+              [0, 10],
+              [0, -30],
+            ],
+            w: 1.52,
+            side,
+            kerbH: 0.15,
+            bike: 1.1,
+            kerbPaint: 'white',
+            layers: [{ w: 1.37, material: 'gri beton kilit taşı 10×20', h: 0.15 }],
+          },
+        ],
+      };
+      buildStreetPlan(
+        b,
+        plan as never,
+        () => 0,
+        () => 0,
+      );
+      const k = (b as unknown as Buckets).buckets.get('kerbPaint');
+      expect(k, side).toBeTruthy();
+      // Hat kuzeye (t = (0, −1)); kaldırım yönü sideNormal: left → −x, right → +x; yol ters tarafta
+      const inward = side === 'left' ? -1 : 1;
+      let walls = 0;
+      let tops = 0;
+      for (let i = 0; i < k!.nor.length; i += 3) {
+        const [nx, ny] = [k!.nor[i], k!.nor[i + 1]];
+        if (ny > 0.9) tops++;
+        else {
+          expect(nx * inward, `${side} yan yüz normali`).toBeLessThan(-0.9);
+          expect(k!.pos[i] * inward, `${side} yan yüz konumu`).toBeLessThan(0);
+          walls++;
+        }
+      }
+      expect(walls).toBeGreaterThan(0);
+      expect(tops).toBeGreaterThan(0);
+    }
   });
 });

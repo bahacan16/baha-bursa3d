@@ -312,3 +312,4 @@
   (Image Texture: albedo sRGB, normal Non-Color, rh.G pürüzlülük; rh.R yükseklik → Displacement/Bump, ölçek
   0.009 m; UV metre, doku boyu manifest `size`), bordür malzemeleri üç düzlemli (Box projection, 0.5 m);
   `NW/Mertkent/Street` yeniden kur (0.72 m bordür birimleri + boyalı bordür), `NW/Mertkent/Site` malzemeleri.
+  Karşılaştırma görselleri: `docs/compare/ground-502sk.jpg`, `ground-da.jpg`, `ground-textures.jpg` (Blender: yok).
