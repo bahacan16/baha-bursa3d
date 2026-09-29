@@ -19,6 +19,16 @@ export class FollowCamera {
   private initialized = false;
   private readonly tmpDir = new THREE.Vector3();
   private readonly tmpFrom = new THREE.Vector3();
+  /** 3. şahıs dikey görüş açısı (spec); 1. şahısta insan gözüne/telefon kamerasına yakın daha dar açı. */
+  fovThird = 62;
+  // KARAR: 1. şahıs 55° dikey (16:9'da ≈ 85° yatay). 62° sokakları olduğundan geniş/derin gösteriyordu (geniş açı
+  // bozulması); telefonun ana kamerası ≈ 50° dikey, Street View karesi 90°. Geçiş 0.35 s yumuşak.
+  fovFirst = 55;
+  /** Yürürken baş salınımı (yalnız 1. şahıs). 0 = kapalı. */
+  bob = 1;
+  private readonly lastFeet = new THREE.Vector3(NaN, 0, 0);
+  private stepPhase = 0;
+  private bobAmp = 0;
 
   constructor(public readonly camera: THREE.PerspectiveCamera) {}
 
@@ -44,8 +54,38 @@ export class FollowCamera {
     const fy = Math.sin(this.pitch);
     const fz = -Math.cos(this.yaw) * cp;
 
+    // Görüş açısı: moda göre yumuşak geçiş
+    const wantFov = this.firstPerson ? this.fovFirst : this.fovThird;
+    if (Math.abs(cam.fov - wantFov) > 0.01) {
+      cam.fov += (wantFov - cam.fov) * (1 - Math.exp(-dt / 0.12));
+      if (Math.abs(cam.fov - wantFov) < 0.02) cam.fov = wantFov;
+      cam.updateProjectionMatrix();
+    }
+    // Adım evresi: yatay yol / adım boyu. Yürüyüş ≈ 0.72 m, koşu ≈ 1.25 m adım (insan yürüyüş ölçümleri).
+    let speed = 0;
+    if (Number.isFinite(this.lastFeet.x) && dt > 0) {
+      const d = Math.hypot(feet.x - this.lastFeet.x, feet.z - this.lastFeet.z);
+      if (d < 3) {
+        speed = d / dt;
+        const stride = THREE.MathUtils.lerp(0.72, 1.25, THREE.MathUtils.clamp((speed - 1.6) / 3.9, 0, 1));
+        this.stepPhase += d / stride;
+      }
+    }
+    this.lastFeet.copy(feet);
+
     if (this.firstPerson) {
-      cam.position.set(feet.x, feet.y + this.eyeHeight, feet.z);
+      // Baş salınımı: adım başına bir dikey çukur (topuk vuruşu), iki adımda bir yanal salınım. Gerçekte ~4–5 cm
+      // tepe-tepe; ekranda mide bulandırmasın diye yürüyüşte ~1.6 cm, koşuda ~3.2 cm (KARAR).
+      const target = speed < 0.2 ? 0 : THREE.MathUtils.clamp(speed / 5.5, 0.35, 1);
+      this.bobAmp += (target - this.bobAmp) * (1 - Math.exp(-6 * dt));
+      const a = this.bobAmp * this.bob;
+      const ph = this.stepPhase * Math.PI;
+      // Topuk vuruşunda (evre tam sayı) en alçak, tek ayak basışının ortasında en yüksek
+      const up = 0.032 * a * Math.abs(Math.sin(ph)) - 0.016 * a;
+      const side = 0.012 * a * Math.sin(ph);
+      const rx = Math.cos(this.yaw);
+      const rz = -Math.sin(this.yaw);
+      cam.position.set(feet.x + rx * side, feet.y + this.eyeHeight + up, feet.z + rz * side);
       cam.lookAt(cam.position.x + fx, cam.position.y + fy, cam.position.z + fz);
       this.initialized = false;
       return;

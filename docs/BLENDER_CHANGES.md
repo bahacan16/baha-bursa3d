@@ -285,3 +285,6 @@
   ölçüldü — güneyin kopyası değil; oluklu taş pilastırlar, HAS KİLİT / KALE KİLİT tabelaları, lacivert cam
   korkuluklar). `scripts/sv-extra.json`: Salus kuzey cephesi ortofoto girdisi. **Blender:** derleme sonrası bu 10
   blok yeniden kurulacak (şimdilik yok).
+- **(kamera)** — 1. şahıs görüş açısı 62° → 55° dikey (yumuşak geçiş; geniş açı bozulması), adımla senkron baş
+  salınımı (yürüyüş ~1.6 cm, koşu ~3.2 cm; topuk vuruşunda en alçak). `docs/REALISM.md`: gerçekçilik planı.
+  Dosya: `src/player/camera.ts`. **Blender:** yok (Blender kamerası için referans: göz 1.65 m, 55° dikey).
