@@ -381,7 +381,7 @@
   kalitede pahlı bordürler) yeniden kurulmalı; `materials.py`: `clad:*` (derzli kaplama), `blind:*` (bambu stor),
   `asphalt:*` / `tar:*` / `wear1..3` (yol yüzeyi) yeni malzeme aileleri. Pişirilmiş ışık bu bloklar için yeniden
   pişirilmeli (imza değişti).
-- **(bu commit)** — **Ultra gerçekçilik paketi** (gerçek zamanlı; yalnız Ultra — Düşük/Orta/Yüksek davranışı ve maliyeti
+- **(Ultra paketi, WIP anlık görüntülerinde)** — **Ultra gerçekçilik paketi** (gerçek zamanlı; yalnız Ultra — Düşük/Orta/Yüksek davranışı ve maliyeti
   değişmedi). Kalite menüsünde 4. düğme "Ultra" (başlangıç ekranı + duraklat menüsü), `?q=ultra` zorlar. Ayarda Ultra
   açık olsa da yazılım işleyici / tümleşik GPU (Intel, Mali, Adreno, Radeon Graphics APU) algılanırsa kendiliğinden
   Yüksek'e düşer; menüden açıkça seçilirse yine açılır.
