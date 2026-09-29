@@ -111,9 +111,12 @@ export function partGeometry(src: THREE.BufferGeometry, part: UnwrappedPart): TH
   for (const [name, a] of Object.entries(src.attributes)) {
     const s = a.itemSize;
     const arr = new Float32Array(n * s);
+    const direct = !(a as THREE.InterleavedBufferAttribute).isInterleavedBufferAttribute && !a.normalized;
+    const sa = a.array as ArrayLike<number>;
     for (let i = 0; i < n; i++) {
       const v = part.vmap[i];
-      for (let k = 0; k < s; k++) arr[i * s + k] = a.getComponent(v, k);
+      if (direct) for (let k = 0; k < s; k++) arr[i * s + k] = sa[v * s + k];
+      else for (let k = 0; k < s; k++) arr[i * s + k] = a.getComponent(v, k);
     }
     g.setAttribute(name, new THREE.BufferAttribute(arr, s));
   }
