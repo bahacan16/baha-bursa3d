@@ -113,11 +113,14 @@ async function main() {
     const p = pos.get(s.pano);
     if (!p) continue;
     const cy = H(p.x, p.z) + camH(p.date);
+    // Yakın plan (dar görüş açılı) karolar: `s.fov` (ör. 22°) → daha yüksek çözünürlüklü ortofoto (`_f22` son eki)
+    const fov = s.fov ?? 40;
+    const px = fov < 40 ? Math.min(120, (PX * 40) / fov) : PX;
     const tiles = [];
     for (const t of s.tiles) {
-      const file = join(root, 'streetview-src', 'extra', `${s.pano}_${t.h}_${t.p}_40.jpg`);
+      const file = join(root, 'streetview-src', 'extra', `${s.pano}_${t.h}_${t.p}_${fov}.jpg`);
       if (!(await exists(file))) continue;
-      tiles.push({ cam: camOf(p.x, cy, p.z, t.h, t.p, 40), data: await img(file) });
+      tiles.push({ cam: camOf(p.x, cy, p.z, t.h, t.p, fov), data: await img(file) });
     }
     if (!tiles.length) continue;
     const len = Math.hypot(s.e[0] - s.a[0], s.e[1] - s.a[1]);
@@ -126,13 +129,13 @@ async function main() {
     // Düzlemi dış normal (−tz, tx) boyunca δ kaydır
     const ax = s.a[0] - tz * dl;
     const az = s.a[1] + tx * dl;
-    const W = Math.round((len + MARGIN * 2) * PX);
-    const Hh = Math.round((TOP + 1) * PX);
+    const W = Math.round((len + MARGIN * 2) * px);
+    const Hh = Math.round((TOP + 1) * px);
     const out = Buffer.alloc(W * Hh * 3, 0);
     for (let j = 0; j < Hh; j++) {
-      const y = s.base - 0.5 + (Hh - 1 - j) / PX;
+      const y = s.base - 0.5 + (Hh - 1 - j) / px;
       for (let i = 0; i < W; i++) {
-        const u = i / PX - MARGIN;
+        const u = i / px - MARGIN;
         const P = [ax + tx * u, y, az + tz * u];
         let best = -1;
         let bx = 0;
@@ -167,7 +170,7 @@ async function main() {
         }
       }
     }
-    const name = `${s.building}_${s.edge}_${s.pano.slice(0, 8)}`;
+    const name = `${s.building}_${s.edge}_${s.pano.slice(0, 8)}${fov !== 40 ? `_f${fov}` : ''}`;
     const base = sharp(out, { raw: { width: W, height: Hh, channels: 3 } });
     await base
       .clone()
@@ -176,21 +179,21 @@ async function main() {
     // Izgara: 1 m ince, 5 m kalın + etiket; zemin (base) çizgisi kırmızı; kenar uçları sarı
     let svg = `<svg width="${W}" height="${Hh}" xmlns="http://www.w3.org/2000/svg">`;
     for (let m = Math.ceil(-MARGIN); m <= len + MARGIN; m++) {
-      const x = (m + MARGIN) * PX;
+      const x = (m + MARGIN) * px;
       const major = m % 5 === 0;
       svg += `<line x1="${x}" y1="0" x2="${x}" y2="${Hh}" stroke="${major ? '#00ffff' : '#ffffff'}" stroke-opacity="${major ? 0.7 : 0.3}" stroke-width="${major ? 2 : 1}"/>`;
       if (major)
         svg += `<text x="${x + 3}" y="${Hh - 6}" font-size="16" fill="#00ffff" font-family="sans-serif">${m}m</text>`;
     }
     for (let m = 0; m <= TOP; m++) {
-      const yv = Hh - 1 - (m + 0.5) * PX;
+      const yv = Hh - 1 - (m + 0.5) * px;
       const major = m % 3 === 0;
       svg += `<line x1="0" y1="${yv}" x2="${W}" y2="${yv}" stroke="${m === 0 ? '#ff3030' : major ? '#00ffff' : '#ffffff'}" stroke-opacity="${m === 0 ? 0.9 : major ? 0.6 : 0.25}" stroke-width="${m === 0 || major ? 2 : 1}"/>`;
       if (major)
         svg += `<text x="4" y="${yv - 4}" font-size="16" fill="#00ffff" font-family="sans-serif">${m}m</text>`;
     }
     for (const xm of [MARGIN, len + MARGIN])
-      svg += `<line x1="${xm * PX}" y1="0" x2="${xm * PX}" y2="${Hh}" stroke="#ffe000" stroke-width="3" stroke-dasharray="12 8"/>`;
+      svg += `<line x1="${xm * px}" y1="0" x2="${xm * px}" y2="${Hh}" stroke="#ffe000" stroke-width="3" stroke-dasharray="12 8"/>`;
     svg += `<text x="10" y="24" font-size="20" fill="#ffe000" font-family="sans-serif">${name} len=${len.toFixed(2)}m dist=${s.dist}m δ=${dl}</text></svg>`;
     await base
       .clone()

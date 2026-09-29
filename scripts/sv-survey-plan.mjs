@@ -12,8 +12,10 @@ import { Occluders, ring } from './sv-common.mjs';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DEFAULT_IDS = [1480041342, 1480041343, 1480041344, 1480041345, 1540901795, 1540901796];
 const IDS = (process.argv[2] ?? DEFAULT_IDS.join(',')).split(',').map(Number);
-const FOV = 40;
-const STEP = 30; // karo aralığı (derece), %25 bindirme
+const FOV = Number(process.env.SURVEY_FOV ?? 40);
+const STEP = FOV * 0.75; // karo aralığı (derece), %25 bindirme
+/** Tabela okuma yakın planı: en iyi panodan ek dar açılı ızgara (ör. SURVEY_ZOOM_FOV=22); 0 = kapalı */
+const ZFOV = Number(process.env.SURVEY_ZOOM_FOV ?? 0);
 const CAM_H = 2.5;
 const TOP = Number(process.env.SURVEY_TOP ?? 23.5); // zeminden cephe üstü (çatı dahil)
 /** Pano–cephe en uzak mesafe (arka cepheler karşı caddeden: SURVEY_MAXD=90) */
@@ -134,34 +136,44 @@ async function main() {
         const h1 = deg(Math.max(...hs)) + 6;
         const p0 = Math.max(-40, deg(Math.min(...pts.map((q) => q[1]))) - 4);
         const p1 = Math.min(80, deg(Math.max(...pts.map((q) => q[1]))) + 4);
-        const tiles = [];
-        const nh = Math.max(1, Math.ceil((h1 - h0 - FOV) / STEP) + 1);
-        const np = Math.max(1, Math.ceil((p1 - p0 - FOV) / STEP) + 1);
-        for (let a = 0; a < nh; a++)
-          for (let bb = 0; bb < np; bb++) {
-            const hh = h0 + FOV / 2 + (nh === 1 ? (h1 - h0 - FOV) / 2 : ((h1 - h0 - FOV) * a) / (nh - 1));
-            const pp = p0 + FOV / 2 + (np === 1 ? (p1 - p0 - FOV) / 2 : ((p1 - p0 - FOV) * bb) / (np - 1));
-            const H2 = Math.round((((deg(hc) + hh) % 360) + 360) % 360);
-            const P2 = Math.round(Math.max(-60, Math.min(85, pp)));
-            tiles.push({ h: H2, p: P2 });
+        const grid = (fov, step) => {
+          const tiles = [];
+          const nh = Math.max(1, Math.ceil((h1 - h0 - fov) / step) + 1);
+          const np = Math.max(1, Math.ceil((p1 - p0 - fov) / step) + 1);
+          for (let a = 0; a < nh; a++)
+            for (let bb = 0; bb < np; bb++) {
+              const hh = h0 + fov / 2 + (nh === 1 ? (h1 - h0 - fov) / 2 : ((h1 - h0 - fov) * a) / (nh - 1));
+              const pp = p0 + fov / 2 + (np === 1 ? (p1 - p0 - fov) / 2 : ((p1 - p0 - fov) * bb) / (np - 1));
+              const H2 = Math.round((((deg(hc) + hh) % 360) + 360) % 360);
+              const P2 = Math.round(Math.max(-60, Math.min(85, pp)));
+              tiles.push({ h: H2, p: P2 });
+            }
+          return tiles;
+        };
+        const grids = [[FOV, STEP]];
+        // Yakın plan yalnız en iyi (ilk seçilen) panodan: tabela metinleri için ~2× çözünürlük
+        if (ZFOV > 0 && c === pick[0]) grids.push([ZFOV, ZFOV * 0.8]);
+        for (const [fov, step] of grids) {
+          const tiles = grid(fov, step);
+          survey.push({
+            building: id,
+            edge: i,
+            a: [+ax.toFixed(2), +az.toFixed(2)],
+            e: [+ex.toFixed(2), +ez.toFixed(2)],
+            base: +base.toFixed(2),
+            pano: p.id,
+            date: p.date ?? null,
+            dist: +c.d.toFixed(1),
+            ...(fov !== 40 ? { fov } : {}),
+            tiles,
+          });
+          for (const t of tiles) {
+            const k = `${p.id}_${t.h}_${t.p}_${fov}`;
+            if (have.has(k)) continue;
+            have.add(k);
+            cfg.requests.push({ pano: p.id, h: t.h, p: t.p, fov });
+            added++;
           }
-        survey.push({
-          building: id,
-          edge: i,
-          a: [+ax.toFixed(2), +az.toFixed(2)],
-          e: [+ex.toFixed(2), +ez.toFixed(2)],
-          base: +base.toFixed(2),
-          pano: p.id,
-          date: p.date ?? null,
-          dist: +c.d.toFixed(1),
-          tiles,
-        });
-        for (const t of tiles) {
-          const k = `${p.id}_${t.h}_${t.p}_${FOV}`;
-          if (have.has(k)) continue;
-          have.add(k);
-          cfg.requests.push({ pano: p.id, h: t.h, p: t.p, fov: FOV });
-          added++;
         }
       }
     }
