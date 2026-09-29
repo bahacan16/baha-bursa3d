@@ -46,7 +46,17 @@ export interface SitePlan {
 export interface StreetPlan {
   fence?: unknown[];
   gates?: { kind: string; c: V2; n: V2; w: number; note?: string }[];
-  sidewalks?: { pts: V2[]; w: number; side: string; kerbH?: number; material?: string; note?: string }[];
+  sidewalks?: {
+    id?: string;
+    pts: V2[];
+    w: number;
+    side: string;
+    kerbH?: number;
+    material?: string;
+    note?: string;
+    /** Bordürden içeri katmanlar: w genişlik, h yükseklik (yoksa kerbH), at: kılavuz şerit merkezi */
+    layers?: { w?: number; material?: string; h?: number; at?: number }[];
+  }[];
   street?: { kind: string; x: number; z: number; h?: number; text?: string; rot?: number; note?: string }[];
 }
 

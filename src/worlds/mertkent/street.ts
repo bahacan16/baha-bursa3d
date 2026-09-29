@@ -49,9 +49,48 @@ interface Layout {
  * Ölçüm notlarındaki kaldırım düzeni (street-plan.json malzeme metinlerinden, bordürden içeri metre).
  * KARAR: serbest metni ayrıştırmak yerine hat kimliğine göre tablo; bilinmeyen hatlar metinden tahmin edilir.
  */
-function layoutOf(sw: { id?: string; w: number; kerbH?: number; material?: string }): Layout {
+/** Katman malzeme metninden anahtar */
+function layerKey(m: string): string {
+  const t = m.toLowerCase();
+  if (/tactile|kılavuz|hissedilebilir/.test(t)) return 'tactile';
+  if (/grass|çim|lawn|verge/.test(t)) return 'lawn';
+  if (/asphalt|asfalt/.test(t)) return 'roadFill';
+  if (/concrete|beton/.test(t) && !/interlock|kilit|paver/.test(t)) return 'spConcrete';
+  if (/gravel|çakıl|toprak|dirt|soil/.test(t)) return 'spGravel';
+  if (/red|kırmızı|kiremit|terracotta/.test(t)) return 'spPaverRed';
+  return 'spPaverGrey';
+}
+
+function layoutOf(sw: {
+  id?: string;
+  w: number;
+  kerbH?: number;
+  material?: string;
+  layers?: { w?: number; material?: string; h?: number; at?: number }[];
+}): Layout {
   const W = sw.w;
   const h = sw.kerbH ?? 0.15;
+  if (sw.layers?.length) {
+    // Ölçülmüş katmanlar (bordürden içeri); "at" verilenler kılavuz şerit gibi üstte ince bantlar
+    const bands: Band[] = [];
+    let v = KERB_W;
+    let tactile: [number, number] | undefined;
+    const kerbs: [number, number][] = [];
+    for (const L of sw.layers) {
+      const key = layerKey(L.material ?? '');
+      if (L.at != null) {
+        tactile = [L.at, L.w ?? 0.5];
+        continue;
+      }
+      const w = L.w ?? 0;
+      if (w <= 0) continue;
+      const lh = L.h ?? h;
+      if (bands.length && Math.abs(bands[bands.length - 1].h - lh) > 0.05 && lh > 0.06) kerbs.push([v, lh]);
+      bands.push({ v0: v, v1: Math.min(W, v + w), key, h: lh });
+      v += w;
+    }
+    return { bands, tactile, kerbs };
+  }
   switch (sw.id) {
     case 'east-west-side':
       // 502. Sk. batı: gri kilit taşı, ortada krem kılavuz (duvardan ~1.0 m), yol tarafında mavi bisiklet şeridi
@@ -103,7 +142,7 @@ export function buildStreetPlan(
     const pts = sw.pts;
     if (!pts || pts.length < 2) continue;
     const kerbH = sw.kerbH ?? 0.15;
-    const lay = layoutOf(sw as { id?: string; w: number; kerbH?: number; material?: string });
+    const lay = layoutOf(sw);
     // Köşe noktalarında asfalt dolgu diski (parçaların dış köşede bıraktığı kama boşlukları; kaldırım üstte kalır)
     for (let i = 1; i + 1 < pts.length; i++) {
       const c = pts[i];

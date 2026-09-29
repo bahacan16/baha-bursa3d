@@ -8,6 +8,7 @@ import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
 import { buildStreetPlan } from './street';
 import { buildMertkentFence, type FenceSpec } from './fence2';
+import { buildGenericFence, type GenericFence } from './fenceGeneric';
 import {
   buildSitePlan,
   PARK_PLAN,
@@ -1153,6 +1154,56 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     for (const g of DOORS) buildSideDoor(b, g.c, g.n, o.H(g.c[0], g.c[1]) + 0.15, g.w, g.h ?? 2);
     // Ölçülmüş kaldırımlar site çevresinin tamamını kapsıyor → eski tahmini kaldırım yok
     if (!street) fenceWalk(b, o, segs, 'walk', true);
+  }
+  // Komşu sitelerin ölçülmüş çitleri (street-plan kind "other") + kapıları
+  {
+    const cache = new Map<string, string>();
+    const mat = (kind: string, color: string) => {
+      const k = `gf_${kind}_${color}`;
+      if (!cache.has(k)) {
+        cache.set(k, k);
+        const DSd = THREE.DoubleSide;
+        extraMats[k] =
+          kind === 'mesh'
+            ? new THREE.MeshStandardMaterial({
+                map: T.meshFenceTexture(),
+                color,
+                alphaTest: 0.45,
+                side: DSd,
+                roughness: 0.5,
+                metalness: 0.2,
+              })
+            : kind === 'bars'
+              ? new THREE.MeshStandardMaterial({
+                  map: T.ironBarsTexture(),
+                  color,
+                  alphaTest: 0.5,
+                  side: DSd,
+                  roughness: 0.4,
+                  metalness: 0.6,
+                })
+              : kind === 'metal'
+                ? new THREE.MeshStandardMaterial({ color, roughness: 0.45, metalness: 0.5 })
+                : granularMaterial(
+                    color,
+                    kind === 'brick' ? 14 : kind === 'stone' ? 15 : 13,
+                    { roughness: 0.9 },
+                    kind === 'stone' || kind === 'brick' ? { mottle: 0.12, bump: 2.5 } : undefined,
+                  );
+      }
+      return k;
+    };
+    const others = (STREET_PLAN.fence ?? []).filter(
+      (f) => f.kind === 'other' && f.pts?.length >= 2,
+    ) as unknown as GenericFence[];
+    const og = (STREET_PLAN.gates ?? []).filter((g) => /^da\d-/.test((g as { id?: string }).id ?? ''));
+    const gapsO = og.map((g) => ({ c: g.c, w: g.w + 0.3 }));
+    for (const f of others) buildGenericFence(b, f, o.H, mat, gapsO, o.collide);
+    for (const g of og) {
+      const y = o.H(g.c[0], g.c[1]) + 0.05;
+      if (g.kind === 'vehicle') buildDriveGate(b, g.c, g.n, y, g.w, false);
+      else buildSideDoor(b, g.c, g.n, y + 0.1, g.w, (g as { h?: number }).h ?? 2);
+    }
   }
   // Park Koza Sitesi girişi (502. Sk doğu yakası, güney uç; Street View l4zd… kuzey karesi)
   buildParkKoza(b, [11.2, -37.4], [0, 1], o.H(11.2, -37.4) + 0.05, o.collide);
