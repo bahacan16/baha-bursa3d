@@ -96,6 +96,12 @@ async function main() {
   for (const s0 of cfg.survey ?? []) {
     let s = s0;
     if (fp) {
+      // Kilitli girdi: taban izine köşe eklendi ve survey kenarları yeniden numaralandı (ör. 1480163634 FP-v3);
+      // eski ortofotolar u koordinatlarının referansı olarak kalır, yeni halkayla yeniden üretilmez.
+      if (s0.lock) {
+        console.warn(`• ${s0.building} kenar ${s0.edge}: kilitli (lock) — düzeltilmiş halkayla üretilmedi`);
+        continue;
+      }
       const f = fp[s0.building];
       if (!f) continue;
       const R = f.ring;

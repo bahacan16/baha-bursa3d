@@ -416,3 +416,10 @@
     ekranın asıl nedeni: ortak bellek grubunda GPU sürecinin OOM ile öldürülmesi → bağlam kaybı).
   - **Blender:** — (gerçek zamanlı gölge/son işlem; Cycles zaten fiziksel). İsteğe bağlı referans: aynı HDRI
     (`public/textures/sky/sky.hdr`) Blender dünya dokusu olarak kullanılabilir (güneş azimutu 165°'ye döndürülmüş).
+- **(ayak izi FP-v3)** — Taban izi düzeltmeleri derlendi (`data/footprints.json`, survey'ler yeniden eşlendi):
+  900000104 kuzey duvar 1.5 m güneye (bina eğimi bu binada ölçüldü 0.297 m/m; eski "KB girinti" bu hataydı),
+  1540901770 Tarabya GD köşe 0.85 m batıya (kenar 16 öğeleri 0.72 m doğuya, hava fotoğrafıyla uyumlu), 1546358557
+  güney duvarlar 1.03 / 0.68 m kuzeye (Street View GPS kayması güneye yanıltıyordu), 1480163634 4 → 8 köşe (kahverengi
+  doğu kütle krem kısmın güneyde 1.5 m, kuzeyde 0.8 m önünde), 1480163637 kuleler ve girinti ağzı 0.66 m güneye.
+  1480163634'ün eski ortofotoları kilitlendi (`sv-extra.json` `lock`; `sv-ortho.mjs` kilitli girdiyi yeniden üretmez).
+  **Blender:** bu 5 bloğun taban izi, kütlesi, cepheleri ve çatısı + 770 ek bina/cam oda hacimleri yeniden kurulmalı.
