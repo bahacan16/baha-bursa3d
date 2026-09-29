@@ -33,20 +33,19 @@
     "GÖRÜLMEYENLER: KD cephe (kenar 17, 18, 19, 21) tamamen — Doğan Avcıoğlu'nda bu kesimde pano yok; KB uç (1–5) batı panolarından 1540901772 arkasında; kenar 7 ve 15 (kısa basamaklar); bodrum/podyum kotunun tamamı (kenar 6 dışında); bina girişi/lobi ve levha görülmedi (muhtemelen KD/KB tarafta). Kenar 0 (K3–K5) ve kenar 20 (K2–K5) yalnız 2019-05 JDIgP karesinden, uzak/eğik.",
     "Perdeler 45–60 m'den okundu (kaba): kenar 10 sol sütun K5 tül, K4 tül, K3 tül+yan fon, K2 karanlık, K1 tül, K0 dikey jaluzi (UXy7); sağ geniş sütun K5 stor (orta kanatta), K4 tül, K3–K2 karanlık, K1 tül, K0 tül. Kenar 6 sütunları çoğunlukla beyaz tül (K4 orta kanat koyu). S3/S6 kapıları çoğunlukla tül.",
     "Site elemanları (binaya ait değil, bu dosyada yok): güneydeki site giriş kapısı (kahverengi ahşap görünümlü kiriş + gri kolon + bekçi kulübesi), bayrak direği, aydınlatma/kamera direği, ferforje çit, leylandi ve pergola; binanın dibinde çalılar.",
-    "v5 geçişi (2026-09-29): pending'lerden hiçbiri v5 ile ifade edilemedi (kavisli/yuvarlak uçlu yığınlar gömük loca — bulge/round yalnız taşan balkonda; ayrıntılar pending'de). Düzeltme: S3/S6/kenar 0 klimaları balkon zeminine (onBal:false + y), çünkü 0.5–0.6 m balkonlarda onBal üniteler duvardan 1.0 m'de havada kalıyordu."
+    "v5 geçişi (2026-09-29): pending'lerden hiçbiri v5 ile ifade edilemedi (kavisli/yuvarlak uçlu yığınlar gömük loca — bulge/round yalnız taşan balkonda; ayrıntılar pending'de). Düzeltme: S3/S6/kenar 0 klimaları balkon zeminine (onBal:false + y), çünkü 0.5–0.6 m balkonlarda onBal üniteler duvardan 1.0 m'de havada kalıyordu.",
+    "v6 (2026-09-29): S2 (9) ve S5 (14) kavisli gömük loca (bulge + inset; S2 round 0.3), kenar 14 ayağında aplik çiftleri (lamp, tür kesin değil). S1/S4 yuvarlak uçları, alın oluklarının kendisi, çatı teras şeridi ve kenar 0 dar pencereleri pending'de."
   ],
   "pending": [
     {
-      "what": "cam balkon yığını ön profili",
+      "what": "cam balkon yığını ön profili (kalan)",
       "edges": [
         8,
-        9,
         12,
         13,
-        14,
         20
       ],
-      "desc": "Döşeme alınları düz değil: S2 (kenar 9) hafif dışbükey kavisli (~5.7 m açıklıkta ~0.2–0.3 m sehim), S5 (kenar 14) belirgin kavisli, S1/S4 uçları yuvarlatılmış (yarıçap ≈0.3–0.5 m). Alın ≈0.55–0.6 m, iki yatay oluk (üst kenarda açık çizgi). Yığınların yan yüzleri camlı/korkuluklu (S2 sağ yan 2Qtex'te camlı) ve yandaki düz ayaklar yığın önünden ~0.5–0.8 m geride — taban izinde bu girinti yok. v5 KONTROL (2026-09-29): 2Qtex 360_12 yakın karesinde S5'in alın bantları belirgin kavisli, S4'ün sağ ucu yuvarlak; S2 JWAUh cepheden düz görünüyor (sehim ≤0.3). v5 `bulge`/`round` yalnız TAŞAN balkonda çalışıyor (d<0.35 + inset gömük locada yok sayılıyor; bulge>0.05 locayı taşan balkona çeviriyor ve 0.7–1.0 m loca derinliği kayboluyor — arkadaki duvar camın 0–0.3 m gerisine geliyor). Loca derinliği fotoğrafta belirgin (koyu cam arkası, tavan), kavis ise ≤0.3 m sehim → loca olarak bırakıldı. ÜRETİCİ İSTEĞİ: gömük locada (void) kavisli/yuvarlatılmış ön kenar (bulge/round) — S2 kenar 9 sehim ≈0.25 (açıklık ≈5.7), S5 kenar 14 sehim ≈0.3–0.4, S1/S4 uç yarıçapı ≈0.3–0.5, alın 0.55–0.6 m (iki yatay oluk).",
+      "desc": "S2 (9) ve S5 (14) v6'da kavisli gömük loca olarak çizildi. Kalan: S1 (8) ve S4 (12–13) yığınlarının yuvarlatılmış döşeme uçları (yarıçap ≈0.3–0.5; S4 sağ ucu 2Qtex 360_12'de yuvarlak) — ön yüzleri düz (sehim ölçülmedi) olduğundan `round` kullanılamıyor (round yalnız taşan / kavisli locada; düz gömük locada uç iz içinde, desteklenmiyor); S1 sol ucu 8 köşesini ≈0.8 m aşıp 7 basamağının önüne taşıyor; kenar 20 (kuzey, 2019) kavisi ölçülemedi. Tüm yığınlarda alın bandı ≈0.55–0.6 m, üzerinde iki yatay oluk (üst kenarda açık çizgi) — balkon alnında oluk/derz alanı yok. Yığınların yandaki ayaklardan 0.3–0.8 m önde olması ve yan camları taban izi meselesi (iz ayakları yığın önüyle aynı hizada).",
       "fasciaH": 0.58,
       "color": "#a8a096"
     },
@@ -64,20 +63,13 @@
         "length": 13.6,
         "width": 3.1
       },
-      "desc": "Hava fotoğrafında kırma çatının ortasında uzun eksen boyunca düz gri teras (eğim düzeltmesi ±1 m); üzerinde küçük beyaz noktalar (güneş enerjili ısıtıcı / baca / havalandırma). Renk (hava) ≈#a7988e karışık; kenarında açık renkli ince parapet. v4: volumes (y0=çatı üstü) ve roof.parapet kırma çatı içine gömülü düz şeridi ifade etmiyor → pending kaldı (roof.terrace true ile yaklaşık). v5 KONTROL: v5 `volumes`/`roof.parapet` kırma çatı içindeki düz şeridi hâlâ ifade etmiyor.",
+      "desc": "Hava fotoğrafında kırma çatının ortasında uzun eksen boyunca düz gri teras (eğim düzeltmesi ±1 m); üzerinde küçük beyaz noktalar (güneş enerjili ısıtıcı / baca / havalandırma). Renk (hava) ≈#a7988e karışık; kenarında açık renkli ince parapet. v4: volumes (y0=çatı üstü) ve roof.parapet kırma çatı içine gömülü düz şeridi ifade etmiyor → pending kaldı (roof.terrace true ile yaklaşık). v5 KONTROL: v5 `volumes`/`roof.parapet` kırma çatı içindeki düz şeridi hâlâ ifade etmiyor. v6 KONTROL: v6'da da kırma çatı içine gömülü düz şerit için alan yok (roof.terrace yaklaşık).",
       "color": "#9e948c"
-    },
-    {
-      "what": "ayak üzerindeki küçük duvar aparatları",
-      "edge": 14,
-      "ortho": "1540901771_13_2QtexqzB.jpg",
-      "desc": "S4 ile S5 arasındaki penceresiz ayakta (kenar 14 gerçek u≈0.8–1.2; kenar 13 ortosunda görünen u≈0.65–1.4) her katta döşeme hizasının ~0.3–0.5 m altında ikişer küçük koyu gri nesne (~0.15 m, aralarında ~0.3 m); en üstteki saçak altında. 48 m'den tanınamadı (aplik lamba / çamaşır askısı braketi / kuş kovucu olabilir). Görünen y (2Qtex kenar 13 ortosu): ≈20.3, 17.4, 14.6, 11.8, 8.9 (K0 çit arkasında). v5 KONTROL: 2Qtex 360_12 yakın karesinde ayakta her katta yan yana iki küçük koyu silindir — 1540901770 güney cumba ayağındaki aplik lambalarla aynı görünüm (üretici v6 'duvar aplikleri' bekleniyor; tür yine de kesin değil).",
-      "color": "#5a5650"
     },
     {
       "what": "kenar 0 dar pencereler",
       "edge": 0,
-      "desc": "KB uçta 0 köşesinin hemen yanında (u≈0.2–0.4) dar düşey pencereler (≈0.2×0.7 m görünen, K4 ve K3'te; K5'te belirsiz) — JDIgP 2019, 49 m; merdiven/banyo penceresi olabilir. Düzlemi belirsiz (kenar 21'e dönen yüzde olabilir). v5 KONTROL: yeni kare yok (yalnız JDIgP 2019, 49 m) → düzlemi hâlâ belirsiz, çizilmedi."
+      "desc": "KB uçta 0 köşesinin hemen yanında (u≈0.2–0.4) dar düşey pencereler (≈0.2×0.7 m görünen, K4 ve K3'te; K5'te belirsiz) — JDIgP 2019, 49 m; merdiven/banyo penceresi olabilir. Düzlemi belirsiz (kenar 21'e dönen yüzde olabilir). v5 KONTROL: yeni kare yok (yalnız JDIgP 2019, 49 m) → düzlemi hâlâ belirsiz, çizilmedi. v6 KONTROL: v6 özelliği değil, düzlem belirsizliği sürüyor (yeni kare yok)."
     }
   ],
   "edges": [
@@ -398,10 +390,12 @@
             "*": 0.35
           },
           "railC": "#c2c5c8",
-          "inset": 0.7
+          "inset": 0.7,
+          "bulge": 0.25,
+          "round": 0.3
         }
       ],
-      "note": "S2: ana cam balkon yığını (hafif dışbükey kavisli ön), JWAUh'da cepheden; 2Qtex/UXy7/WdXs ile doğrulandı (2025-09). K5 AÇIK balkon (cam yok; borulu korkuluk, arkada kapılı/pencereli duvar, tavanı ana çatı saçağı), K0–K4 katlanır cam (K4/K3 beyaz tül perdeli, K2/K1 koyu, dikey profilli; K0 kiosk çatısı üstünden kısmen). Ön: kalın bej döşeme alnı + alçak dolu parapet (≈0.35 m) + paslanmaz borulu korkuluk (küpeşte ≈0.9–1.0 m); döşeme uçları yuvarlatılmış, sağ yanda yan cam. Yığın sağındaki ayağa göre ≈0.5–0.8 m önde (2Qtex yan yüz 0.54 m görünen; JWAUh ortosunda 0.12–0.19 m) — iz bu kenarı 'kavisli çıkma' olarak yığın önünden çizdiği için gömük loca (d 0.1, inset 0.7) yazıldı. Sağ kenarındaki ayak penceresi kenar 10'un başında (orada)."
+      "note": "S2: ana cam balkon yığını (hafif dışbükey kavisli ön), JWAUh'da cepheden; 2Qtex/UXy7/WdXs ile doğrulandı (2025-09). K5 AÇIK balkon (cam yok; borulu korkuluk, arkada kapılı/pencereli duvar, tavanı ana çatı saçağı), K0–K4 katlanır cam (K4/K3 beyaz tül perdeli, K2/K1 koyu, dikey profilli; K0 kiosk çatısı üstünden kısmen). Ön: kalın bej döşeme alnı + alçak dolu parapet (≈0.35 m) + paslanmaz borulu korkuluk (küpeşte ≈0.9–1.0 m); döşeme uçları yuvarlatılmış, sağ yanda yan cam. Yığın sağındaki ayağa göre ≈0.5–0.8 m önde (2Qtex yan yüz 0.54 m görünen; JWAUh ortosunda 0.12–0.19 m) — iz bu kenarı 'kavisli çıkma' olarak yığın önünden çizdiği için gömük loca (d 0.1, inset 0.7) yazıldı. Sağ kenarındaki ayak penceresi kenar 10'un başında (orada). v6 (2026-09-29): kavisli gömük loca — bulge 0.25 (≈5.9 m açıklık, v5 ölçümü 0.2–0.3; JWAUh cepheden düz, 2Qtex/UXy7 eğikten hafif dışbükey) + round 0.3 (döşeme uçları yuvarlak; yay uçları iz hattına yuvarlanarak döner). Loca derinliği (inset 0.7) korunur, alın/korkuluk/cam yay boyunca iz dışında."
     },
     {
       "edge": 10,
@@ -757,10 +751,28 @@
             "*": 0.35
           },
           "railC": "#c2c5c8",
-          "inset": 1.0
+          "inset": 1.0,
+          "bulge": 0.35
+        },
+        {
+          "t": "lamp",
+          "us": [
+            -1.94,
+            -1.42
+          ],
+          "s": [
+            1,
+            5
+          ],
+          "yRel": 2.3,
+          "style": "spot",
+          "d": 0.08,
+          "h": 0.15,
+          "proud": 0.1,
+          "color": "#5a5650"
         }
       ],
-      "note": "Doğuya bakan kavisli çıkma: kenar başında ~1.8 m penceresiz ayak (her katta döşeme hizasının ~0.3–0.5 m altında ikişer küçük koyu duvar aparatı → pending), sonra S5 kavisli cam yığını (K1 AÇIK loca: arkada kapı + pencere; K2–K5 camlı mavimsi/koyu; K0 çit arkasında açık renkli cam). 2Qtex bu kenara ~60° eğik baktığından yığının sol yan camı görünüyor; ön yüz iz çizgisinde kabul edildi (gömük loca d 0.1, inset 1.0). ref 2Qtex (yön düzeltmeli); ortoda sağda görülen fransız kapılı/klimalı yığın geride kalan kenar 16'ya ait. Dr35 (2019) ağaçla kapalı."
+      "note": "Doğuya bakan kavisli çıkma: kenar başında ~1.8 m penceresiz ayak (her katta döşeme hizasının ~0.3–0.5 m altında ikişer küçük koyu duvar aparatı → pending), sonra S5 kavisli cam yığını (K1 AÇIK loca: arkada kapı + pencere; K2–K5 camlı mavimsi/koyu; K0 çit arkasında açık renkli cam). 2Qtex bu kenara ~60° eğik baktığından yığının sol yan camı görünüyor; ön yüz iz çizgisinde kabul edildi (gömük loca d 0.1, inset 1.0). ref 2Qtex (yön düzeltmeli); ortoda sağda görülen fransız kapılı/klimalı yığın geride kalan kenar 16'ya ait. Dr35 (2019) ağaçla kapalı. v6: S5 kavisli gömük loca bulge 0.35 (2Qtex 360_12 yakın karesinde alın bantları belirgin kavisli; açıklık ≈2.6 m, sehim 0.3–0.4). Ayaktaki küçük koyu aparatlar APLİK kabul edildi (1540901770 güney cumba ayağındaki aplik çiftleriyle aynı görünüm; tür yine de kesin değil): K1–K5 her katta çift, kenar 13 ortosunda görünen u 0.69–0.81 / 1.06–1.19 → 2Qtex ışınının kenar 14 düzlemiyle kesişiminden gerçek u ≈0.85 / 1.45 (kenar 14 görünen −1.94 / −1.42; eski tahmin 0.8–1.2), yükseklik kat döşemesinden 2.29–2.32 (5 katta tutarlı, ortodaki ≈%2.4 büyütme düzeltilerek) → yRel 2.3; eğik (çapraz) koyu gövde → style spot #5a5650 (en koyu pikseller #43402c–#6b6857); K0 çit arkasında görülmedi."
     },
     {
       "edge": 15,
