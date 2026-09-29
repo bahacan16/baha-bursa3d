@@ -286,6 +286,7 @@ export class PostFX {
     this.time += dt;
     if (this.ultra) this.finish.uniforms.uTime.value = this.time;
     if (this.exposure) {
+      if (this.taa?.reset) this.exposure.snap();
       // ölçüm: bir önceki karenin TAA geçmişi yerine bu karenin güzel hedefi (AO öncesi, yeterli)
       this.exposure.update(this.renderer, this.target.texture, dt);
       this.grade.uniforms.tExposure.value = this.exposure.texture;

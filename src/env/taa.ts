@@ -312,6 +312,11 @@ export class ExposureMeter {
     });
   }
 
+  /** Sonraki ölçümde uyum beklemeden doğrudan ayarla (ışınlanma / kamera sıçraması). */
+  snap(): void {
+    this.first = true;
+  }
+
   /** Uyarlanmış log parlaklık dokusu (r = ln L). */
   get texture(): THREE.Texture {
     return this.adapt[this.ai].texture;

@@ -3,7 +3,19 @@ import tseslint from 'typescript-eslint';
 import globals from 'globals';
 
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules', 'public', 'playwright-report', 'test-results', '**/*.tmp.mjs'] },
+  {
+    // .claude/worktrees: ajan çalışma kopyaları (kendi tsconfig'leri tsconfigRootDir belirsizliği yaratıyor)
+    ignores: [
+      'dist',
+      'node_modules',
+      'public',
+      'playwright-report',
+      'test-results',
+      '**/*.tmp.mjs',
+      '.claude',
+      'bake-work',
+    ],
+  },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {

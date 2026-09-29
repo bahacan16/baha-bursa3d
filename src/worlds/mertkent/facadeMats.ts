@@ -186,7 +186,7 @@ export function windowGlassMaterial(): THREE.MeshStandardMaterial {
     sh.vertexShader = sh.vertexShader
       .replace(
         '#include <common>',
-        '#include <common>\nattribute vec4 aux;\nvarying vec4 vAux;\nvarying vec2 vWUv;',
+        '#include <common>\nattribute vec4 aux;\nflat varying vec4 vAux;\nvarying vec2 vWUv;',
       )
       .replace('#include <uv_vertex>', '#include <uv_vertex>\nvAux = aux;\nvWUv = uv;');
     sh.fragmentShader = sh.fragmentShader
@@ -194,11 +194,12 @@ export function windowGlassMaterial(): THREE.MeshStandardMaterial {
         '#include <common>',
         `#include <common>
 uniform float uNight;
-varying vec4 vAux;
+flat varying vec4 vAux;
 varying vec2 vWUv;
 float h1(float n) { return fract(sin(n * 127.1) * 43758.5453); }
 float h2(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
-vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
+// cc: ölçülmüş perde rengi (doğrusal; x < 0 → yok), cf: kapanma oranı (< 0 → varsayılan)
+vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh, vec3 cc, float cf) {
   // Oda derinliği hissi: üstte tavan açık, altta koyu, kenarlarda koyulaşma
   // Street View: cam mavi-gri (gökyüzü/karşı cephe yansıması), iç mekân sıcak kahve değil
   vec3 room = mix(vec3(0.03, 0.034, 0.042), vec3(0.09, 0.1, 0.115), smoothstep(0.1, 0.95, uv.y));
@@ -211,32 +212,45 @@ vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
     // Tül: yumuşak, düşük kontrastlı kıvrımlar; camın arkasında olduğu için gri-mavimsi ve loş
     float fold = 0.5 + 0.5 * sin(x * 26.0 + sin(x * 4.0 + seed) * 2.0);
     vec3 tul = vec3(0.46, 0.475, 0.49) * (0.94 + 0.06 * fold) * (0.9 + 0.12 * uv.y);
+    // Ölçülmüş renkli tül (yalnız tül türünde; tul-yan'da renk yan perdenin)
+    if (cc.x >= 0.0 && kind < 0.5) tul = cc * (0.9 + 0.1 * fold);
     col = mix(room, tul, 0.8);
     if (kind > 0.5) {
       // Yan perdeler (fon perde, iki yanda ~%12–16, camın arkasında loş; kırmızı fon seyrek)
-      float side = step(uv.x, 0.12 + 0.04 * h1(seed)) + step(0.88 - 0.04 * h1(seed + 1.0), uv.x);
+      float sw0 = cf >= 0.0 ? cf * 0.5 : 0.12 + 0.04 * h1(seed);
+      float sw1 = cf >= 0.0 ? cf * 0.5 : 0.12 + 0.04 * h1(seed + 1.0);
+      float side = step(uv.x, sw0) + step(1.0 - sw1, uv.x);
       // Eleştirmen: gerçekte çoğunlukla beyaz tül; yan perde krem-bej, düşük kontrast (kahverengi kareler yok)
-      vec3 drape = mix(vec3(0.44, 0.42, 0.38), vec3(0.54, 0.52, 0.48), h1(seed * 5.3));
+      vec3 drape = cc.x >= 0.0 ? cc : mix(vec3(0.44, 0.42, 0.38), vec3(0.54, 0.52, 0.48), h1(seed * 5.3));
       float df = 0.75 + 0.25 * sin(x * 22.0);
       col = mix(col, drape * df, min(side, 1.0));
     }
   } else if (kind < 2.5) {
     // Stor: bej/beyaz, yukarıdan belli bir yüksekliğe inik
-    float drop = 0.35 + 0.6 * h1(seed * 2.7);
-    vec3 st = mix(vec3(0.72, 0.68, 0.6), vec3(0.85, 0.84, 0.8), h1(seed * 4.4));
+    float drop = cf >= 0.0 ? cf : 0.35 + 0.6 * h1(seed * 2.7);
+    vec3 st = cc.x >= 0.0 ? cc : mix(vec3(0.72, 0.68, 0.6), vec3(0.85, 0.84, 0.8), h1(seed * 4.4));
     col = uv.y > 1.0 - drop ? st * (0.92 + 0.08 * step(0.5, fract(y * 12.0))) : mix(room, vec3(0.7, 0.69, 0.66), 0.55);
   } else if (kind < 3.5) {
     // Dikey jaluzi (beyaz lameller)
     float sl = 0.55 + 0.45 * smoothstep(0.0, 0.5, abs(fract(x * 11.0) - 0.5));
-    col = vec3(0.78, 0.78, 0.76) * sl;
+    col = (cc.x >= 0.0 ? cc : vec3(0.78, 0.78, 0.76)) * sl;
   } else if (kind < 4.5) {
     col = room * 0.8;
   } else if (kind < 5.5) {
     // Zebra perde: yatay bantlar (yarı saydam / opak)
     float band = step(0.5, fract(y * 5.5 + h1(seed) ));
-    col = mix(mix(room, vec3(0.8, 0.78, 0.74), 0.55), vec3(0.83, 0.82, 0.78), band);
+    vec3 zc = cc.x >= 0.0 ? cc : vec3(0.83, 0.82, 0.78);
+    col = mix(mix(room, zc * 0.96, 0.55), zc, band);
   } else if (kind < 6.5) {
     col = room * 0.6;
+  } else if (kind > 7.5) {
+    // Fon perde (kalın): iki yandan kapanır (cf, varsayılan tamamen kapalı), dikey kıvrımlı; arada loş oda + tül
+    float f = cf >= 0.0 ? cf : 1.0;
+    vec3 dc = cc.x >= 0.0 ? cc : vec3(0.5, 0.47, 0.42);
+    float side = step(uv.x, f * 0.5) + step(1.0 - f * 0.5, uv.x);
+    float fold = 0.5 + 0.5 * sin(x * 24.0 + sin(x * 3.3 + seed) * 1.6);
+    vec3 tul = vec3(0.46, 0.475, 0.49);
+    col = mix(mix(room, tul, 0.7), dc * (0.72 + 0.28 * fold), min(side, 1.0));
   } else {
     // Vitrin: derin, loş dükkân içi — tavanda spot sırası, alt yarıda raf/tezgâh siluetleri (gündüz cam koyu görünür)
     vec3 shop = mix(vec3(0.035, 0.037, 0.04), vec3(0.075, 0.075, 0.07), smoothstep(0.0, 1.0, uv.y));
@@ -254,7 +268,16 @@ vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
         `#include <color_fragment>
 float seed = vAux.x;
 float kind = vAux.y;
-vec3 rc = roomColor(seed, kind, vWUv, max(vAux.z, 0.3), max(vAux.w, 0.3));
+// Ölçülmüş perde: kapanma oranı tohumla negatif kodlu, renk 6-6-6 bit tür + 10·(kod+1) (facade.ts winCurtAux)
+float cf = -1.0;
+if (seed < -0.5) { float v = -seed - 1.0; float fq = floor((v + 0.5) / 100.0); seed = v - fq * 100.0; cf = fq / 20.0; }
+vec3 cc = vec3(-1.0);
+if (kind > 9.5) {
+  float code = floor((kind + 0.5) / 10.0) - 1.0;
+  kind = kind - (code + 1.0) * 10.0;
+  cc = pow(vec3(floor(code / 4096.0), mod(floor(code / 64.0), 64.0), mod(code, 64.0)) / 63.0, vec3(2.2));
+}
+vec3 rc = roomColor(seed, kind, vWUv, max(vAux.z, 0.3), max(vAux.w, 0.3), cc, cf);
 diffuseColor.rgb = rc * 0.65;`,
       )
       .replace(
@@ -265,7 +288,7 @@ float lit = step(0.45, h1(seed * 17.3));
 totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-winglass-v4';
+  m.customProgramCacheKey = () => 'mk-winglass-v5';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   // Ultra: aynasal yansıma yerel küreden (karşı cephe, ağaçlar, gök)
@@ -287,7 +310,7 @@ export function camGlassMaterial(): THREE.MeshStandardMaterial {
     sh.vertexShader = sh.vertexShader
       .replace(
         '#include <common>',
-        '#include <common>\nattribute vec4 aux;\nvarying vec4 vAux;\nvarying vec2 vWUv;',
+        '#include <common>\nattribute vec4 aux;\nflat varying vec4 vAux;\nvarying vec2 vWUv;',
       )
       .replace('#include <uv_vertex>', '#include <uv_vertex>\nvAux = aux;\nvWUv = uv;');
     sh.fragmentShader = sh.fragmentShader
@@ -295,7 +318,7 @@ export function camGlassMaterial(): THREE.MeshStandardMaterial {
         '#include <common>',
         `#include <common>
 uniform float uNight;
-varying vec4 vAux;
+flat varying vec4 vAux;
 varying vec2 vWUv;
 float h1(float n) { return fract(sin(n * 127.1) * 43758.5453); }
 `,
@@ -329,6 +352,16 @@ if (tint > 2.5) {
   float has = step(0.25, h1(seed * 3.0 + floor(x / 2.9)));
   inside = mix(inside, tul, 0.62 * has * smoothstep(0.06, 0.16, y));
 }
+// Ölçülmüş fon perde (aux.z = 1 + 6-6-6 bit renk, aux.w = kapanma oranı): ~2.9 m modülde iki yandan
+if (vAux.z > 0.5) {
+  float cv = floor(vAux.z - 1.0 + 0.5);
+  vec3 dc = pow(vec3(floor(cv / 4096.0), mod(floor(cv / 64.0), 64.0), mod(cv, 64.0)) / 63.0, vec3(2.2));
+  float f = clamp(vAux.w, 0.0, 1.0);
+  float mx = fract(x / 2.9);
+  float side = step(mx, f * 0.5) + step(1.0 - f * 0.5, mx);
+  float dfo = 0.72 + 0.28 * (0.5 + 0.5 * sin(x * 24.0 + sin(x * 3.0) * 1.3));
+  inside = mix(inside, dc * dfo * 0.85, min(side, 1.0) * smoothstep(0.02, 0.08, y));
+}
 // Gökyüzü yansıması (yukarı doğru güçlenen, yumuşak)
 inside += vec3(0.06, 0.072, 0.088) * (0.55 + 0.45 * y);
 vec3 frameCol = vec3(0.68, 0.7, 0.71);
@@ -340,7 +373,7 @@ diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
 totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 0.55);`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-camglass-v5';
+  m.customProgramCacheKey = () => 'mk-camglass-v6';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   registerReflective(m);

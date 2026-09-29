@@ -183,8 +183,20 @@ export function surveyVegetation(): {
       );
     }
   }
-  // OSM kaldırım üretiminin kapatılacağı bantlar: ölçülmüş bordürün yol tarafına 1.5 m, kaldırım tarafına w + 4 m
+  // OSM kaldırım üretiminin kapatılacağı bantlar: ölçülmüş bordürün yol tarafına ROAD_SIDE, kaldırım tarafına w + 4 m.
+  // KARAR: yol tarafı 1.5 → 4.5 m — OSM ekseni gerçek yoldan kaymışsa OSM'nin kendi kaldırımı asfaltın ortasına
+  // düşüyordu (502/Doğan Avcıoğlu kavşağı). 4.5 m < en dar araç yolu (6.5 m) → karşı kaldırıma taşmaz.
+  const ROAD_SIDE = 4.5;
   const noSidewalkZones: number[][] = [];
+  // Doğan Avcıoğlu – 502. Sokak kavşak ortası (iki yanı ölçülü; burada OSM kaldırımı olamaz)
+  noSidewalkZones.push(
+    flat([
+      [1, -158],
+      [10, -158],
+      [10, -143],
+      [1, -143],
+    ]),
+  );
   for (const s of STREET_PLAN.sidewalks ?? []) {
     for (let i = 0; i + 1 < s.pts.length; i++) {
       const a = s.pts[i];
@@ -198,8 +210,8 @@ export function surveyVegetation(): {
       const W = s.w + 4;
       noSidewalkZones.push(
         flat([
-          [A[0] - n[0] * 1.5, A[1] - n[1] * 1.5],
-          [E[0] - n[0] * 1.5, E[1] - n[1] * 1.5],
+          [A[0] - n[0] * ROAD_SIDE, A[1] - n[1] * ROAD_SIDE],
+          [E[0] - n[0] * ROAD_SIDE, E[1] - n[1] * ROAD_SIDE],
           [E[0] + n[0] * W, E[1] + n[1] * W],
           [A[0] + n[0] * W, A[1] + n[1] * W],
         ]),

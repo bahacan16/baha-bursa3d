@@ -167,16 +167,27 @@ async function loadAoTexture(url: string, channel: number): Promise<THREE.DataTe
     const bmp = await createImageBitmap(await r.blob());
     const w = bmp.width;
     const h = bmp.height;
+    // 2048² dilimlerle oku: 8192² sayfa için tek tuval hem ~270 MB geçici bellek hem Safari tuval sınırı (16.7 Mpx)
+    const T = 2048;
     const cv = document.createElement('canvas');
-    cv.width = w;
-    cv.height = h;
+    cv.width = Math.min(T, w);
+    cv.height = Math.min(T, h);
     const ctx = cv.getContext('2d', { willReadFrequently: true }) as CanvasRenderingContext2D;
-    ctx.drawImage(bmp, 0, 0);
-    bmp.close();
-    const rgba = ctx.getImageData(0, 0, w, h).data;
-    cv.width = cv.height = 1;
     const data = new Uint8Array(w * h);
-    for (let i = 0; i < data.length; i++) data[i] = rgba[i * 4];
+    for (let y0 = 0; y0 < h; y0 += T)
+      for (let x0 = 0; x0 < w; x0 += T) {
+        const tw = Math.min(T, w - x0);
+        const th = Math.min(T, h - y0);
+        ctx.clearRect(0, 0, tw, th);
+        ctx.drawImage(bmp, x0, y0, tw, th, 0, 0, tw, th);
+        const rgba = ctx.getImageData(0, 0, tw, th).data;
+        for (let y = 0; y < th; y++) {
+          const o = (y0 + y) * w + x0;
+          for (let x = 0; x < tw; x++) data[o + x] = rgba[(y * tw + x) * 4];
+        }
+      }
+    bmp.close();
+    cv.width = cv.height = 1;
     // Satır 0 = görüntünün üstü = uv v=0 (glTF kuralı) → flipY yok
     const t = new THREE.DataTexture(data, w, h, THREE.RedFormat, THREE.UnsignedByteType);
     t.flipY = false;
@@ -274,7 +285,9 @@ export async function applyBakedLighting(
     return 0;
   }
   if (man.uvVersion !== BAKE_UV_VERSION) {
-    console.warn(`bake: uv sürümü farklı (${man.uvVersion} ≠ ${BAKE_UV_VERSION}) — yeniden pişirilmeli; canlı ışık`);
+    console.warn(
+      `bake: uv sürümü farklı (${man.uvVersion} ≠ ${BAKE_UV_VERSION}) — yeniden pişirilmeli; canlı ışık`,
+    );
     return 0;
   }
   const col = collectBakeSources(root);
@@ -302,12 +315,11 @@ export async function applyBakedLighting(
 
   // Sayfa dokuları
   const pageTex = new Map<number, THREE.DataTexture>();
-  await Promise.all(
-    [...new Set(valid.map((v) => v.m.page))].map(async (p) => {
-      const t = await loadAoTexture(`${base}bake/${man.pages[p].file}`, 1);
-      if (t) pageTex.set(p, t);
-    }),
-  );
+  // Sırayla (paralel çözme geçici belleği katlar)
+  for (const p of [...new Set(valid.map((v) => v.m.page))].sort((a, b) => a - b)) {
+    const t = await loadAoTexture(`${base}bake/${man.pages[p].file}`, 1);
+    if (t) pageTex.set(p, t);
+  }
 
   // key → sayfa → parçalar; key → pişirilen üçgenler
   const perKey = new Map<string, Map<number, THREE.BufferGeometry[]>>();

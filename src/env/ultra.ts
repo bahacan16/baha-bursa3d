@@ -39,6 +39,7 @@ export function weakGpu(renderer: THREE.WebGLRenderer): boolean {
     const gl = renderer.getContext();
     const ext = gl.getExtension('WEBGL_debug_renderer_info');
     const name = String(ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER));
+    if (/\barc\b|nvidia|geforce|rtx|radeon rx|radeon pro|apple m\d/i.test(name)) return false;
     return /swiftshader|llvmpipe|software|softpipe|microsoft basic|intel|mali|adreno|powervr|radeon\(tm\) graphics|vega \d+ graphics/i.test(
       name,
     );

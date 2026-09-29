@@ -118,7 +118,10 @@ async function main() {
       const Yabs = (y) => P.yCam + (y - P.yCam) * sY + (P.base - baseRun);
       const rel = (y, k) => HEAD + (y - headApp(k)) * sY; // kat k döşemesinden
       if (!unseen) gRs.push(Yabs(y1) - k1 * FH - HEAD);
-      conv.set(s.edge, { U, Ud, rel, headApp, sY, L, Yabs, k1, y1 });
+      // Duvarın d önündeki öğeler (balkon önü bez / pankart): görünen boy kamera ufku etrafında D/(D−d) büyür
+      const yCamRel = P.yCam + (P.base - baseRun);
+      const depthK = (d) => (unseen ? 1 : (P.D - d) / P.D);
+      conv.set(s.edge, { U, Ud, rel, headApp, sY, L, Yabs, k1, y1, yCamRel, depthK, D: P.D });
     }
     const gR = sv.groundRaise ?? (gRs.length ? median(gRs) : 0.6);
     const storeysArr = (s, except = []) => {
@@ -134,6 +137,16 @@ async function main() {
       if (!c) return [];
       // Mutlak görünen y → tabandan gerçek: kat çizgilerine göre (gR ile tutarlı)
       const absY = (y) => gR + HEAD + (y - c.headApp(0)) * c.sY;
+      // Duvarın d önündeki düzlemde görünen y → gerçek (kamera yüksekliği etrafında derinlik düzeltmesi)
+      const absYd = (y, d) => c.yCamRel + (absY(y) - c.yCamRel) * c.depthK(d);
+      const ring0 = ring;
+      /** Dünya noktasının kenar boyunca gerçek u'su */
+      const uWorld = (x, z) => {
+        const a = ring0[s.edge];
+        const b = ring0[(s.edge + 1) % ring0.length];
+        const Le = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+        return ((x - a[0]) * (b[0] - a[0]) + (z - a[1]) * (b[1] - a[1])) / Le;
+      };
       const items = [];
       for (const it of s.items ?? []) {
         switch (it.t) {
@@ -170,6 +183,8 @@ async function main() {
                   }
                 : {}),
               ...(it.shutC ? { shutC: it.shutC } : {}),
+              ...(it.curtC ? { curtC: keyK(it.curtC) } : {}),
+              ...(it.curtF ? { curtF: keyK(it.curtF) } : {}),
               // Yatay kayıtlar: referans kattaki görünen y → kat döşemesinden gerçek yükseklik
               ...(it.hbars?.length ? { hbars: it.hbars.map((y) => r2(c.rel(y, it.k))) } : {}),
               ...(it.stair ? { stair: true } : {}),
@@ -189,6 +204,8 @@ async function main() {
               color: it.color ?? 'plaster2',
               cap: it.cap ?? null,
               base: it.base ?? null,
+              ...(it.corner ? { corner: it.corner } : {}),
+              ...(it.joints ? { joints: it.joints } : {}),
             });
             break;
           }
@@ -225,6 +242,8 @@ async function main() {
               side: it.side ?? null,
               ceil: it.ceil ?? null,
               floor: it.floor ?? null,
+              ...(it.backS ? { backS: keyK(it.backS) } : {}),
+              ...(it.sideS ? { sideS: keyK(it.sideS) } : {}),
             });
             break;
           case 'mast':
@@ -236,8 +255,136 @@ async function main() {
               h: it.h ?? 6,
               color: it.color ?? '#d9dadb',
               flag: it.flag ?? null,
+              ...(it.top ? { top: it.top } : {}),
             });
             break;
+          case 'cloth': {
+            const d = it.d ?? 1.0;
+            items.push({
+              t: 'cloth',
+              u0: r2(c.Ud(Math.min(it.u0, it.u1), d)),
+              u1: r2(c.Ud(Math.max(it.u0, it.u1), d)),
+              y0: r2(absYd(Math.min(it.y0, it.y1), d)),
+              y1: r2(absYd(Math.max(it.y0, it.y1), d)),
+              d,
+              color: it.color ?? '#8a6a50',
+              back: it.back ?? 0,
+            });
+            break;
+          }
+          case 'banner': {
+            const d = it.d ?? 1.4;
+            items.push({
+              t: 'banner',
+              u0: r2(c.Ud(Math.min(it.u0, it.u1), d)),
+              u1: r2(c.Ud(Math.max(it.u0, it.u1), d)),
+              y0: r2(absYd(Math.min(it.y0, it.y1), d)),
+              y1: r2(absYd(Math.max(it.y0, it.y1), d)),
+              d,
+              style: it.style ?? 'portrait',
+              bg: it.bg ?? null,
+              fg: it.fg ?? null,
+              text: it.text ?? null,
+            });
+            break;
+          }
+          case 'lamp': {
+            const us = (it.us ?? [it.u]).filter((u) => u != null).map((u) => r2(c.U(u)));
+            const st = it.s ? storeysArr(it.s) : null;
+            items.push({
+              t: 'lamp',
+              us,
+              y: st ? null : it.y != null ? r2(absY(it.y)) : null,
+              yRel: st ? (it.yRel ?? (it.y != null ? r2(c.rel(it.y, it.k ?? it.s[0])) : 2.3)) : null,
+              storeys: st,
+              style: it.style ?? 'cylinder',
+              d: it.d ?? 0.1,
+              h: it.h ?? 0.22,
+              proud: it.proud ?? 0.12,
+              color: it.color ?? null,
+              tip: it.tip ?? null,
+              dir: it.dir ?? 'down',
+            });
+            break;
+          }
+          case 'dormer': {
+            const sb = it.setback ?? 2.0;
+            let a;
+            let e;
+            if (it.x != null && it.z != null) {
+              // Dünya konumu (hava fotoğrafı): kenar boyunca gerçek u, genişlik w
+              const um = uWorld(it.x, it.z);
+              a = um - (it.w ?? 1.6) / 2;
+              e = um + (it.w ?? 1.6) / 2;
+            } else if (it.u != null) {
+              const um = c.Ud(it.u, -sb);
+              a = um - (it.w ?? 1.6) / 2;
+              e = um + (it.w ?? 1.6) / 2;
+            } else {
+              a = c.Ud(Math.min(it.u0, it.u1), -sb);
+              e = c.Ud(Math.max(it.u0, it.u1), -sb);
+            }
+            items.push({
+              t: 'dormer',
+              u0: r2(a),
+              u1: r2(e),
+              setback: sb,
+              ridge: it.ridge ?? null,
+              h: it.h ?? null,
+              wallH: it.wallH ?? null,
+              pitch: it.pitch ?? 45,
+              color: it.color ?? null,
+              roofC: it.roofC ?? null,
+              trim: it.trim ?? null,
+              win: it.win ?? null,
+            });
+            break;
+          }
+          case 'roofobj': {
+            const sb = it.setback ?? 1.0;
+            const u = it.x != null && it.z != null ? uWorld(it.x, it.z) : c.Ud(it.u, -sb);
+            items.push({
+              t: 'roofobj',
+              kind: it.kind ?? 'chimney',
+              u: r2(u),
+              setback: sb,
+              h: it.h ?? 0.8,
+              w: it.w ?? 0.45,
+              d: it.depth ?? it.w ?? 0.45,
+              color: it.color ?? null,
+              cap: it.cap ?? (it.kind === 'chimney' || !it.kind ? { kind: 'hip' } : null),
+            });
+            break;
+          }
+          case 'ribbon':
+            items.push({
+              t: 'ribbon',
+              pts: (it.pts ?? []).map(([u, y]) => [r2(c.U(u)), r2(absY(y))]),
+              w: it.w ?? 0.1,
+              d: it.d ?? 0.01,
+              color: it.color ?? 'plaster',
+            });
+            break;
+          case 'arch': {
+            const d = it.d ?? 0;
+            items.push({
+              t: 'arch',
+              u0: r2(c.Ud(Math.min(it.u0, it.u1), d)),
+              u1: r2(c.Ud(Math.max(it.u0, it.u1), d)),
+              y: it.y != null ? r2(absY(it.y)) : null,
+              rise: it.rise ?? null,
+              top: it.yTop != null ? r2(absY(it.yTop)) : null,
+              spring: it.spring ?? 0,
+              d,
+              shape: it.shape ?? 'segment',
+              thick: it.thick ?? 0.25,
+              color: it.color ?? 'plaster2',
+              coping: it.coping ?? null,
+              vault: it.vault ?? 0,
+              roofC: it.roofC ?? null,
+            });
+            break;
+          }
           case 'strip':
             items.push({
               t: 'strip',
@@ -245,6 +392,8 @@ async function main() {
               w: r2((it.w ?? 0.24) * c.sY),
               y0: r2(absY(Math.min(it.y0, it.y1))),
               y1: r2(absY(Math.max(it.y0, it.y1))),
+              ...(it.top ? { top: it.top } : {}),
+              ...(it.bottom ? { bottom: it.bottom } : {}),
             });
             break;
           case 'bal': {
@@ -288,6 +437,24 @@ async function main() {
                     plantC: it.plantC ?? null,
                   }
                 : {}),
+              ...(it.curtC ? { curtC: keyK(it.curtC) } : {}),
+              ...(it.curtF ? { curtF: keyK(it.curtF) } : {}),
+              ...(it.grille ? { grille: keyK(it.grille), grilleC: it.grilleC ?? null, grilleW: it.grilleW ?? null } : {}),
+              ...(it.spots ? { spots: it.spots } : {}),
+              ...(it.postEvery ? { postEvery: it.postEvery } : {}),
+              ...(it.postW ? { postW: it.postW } : {}),
+              ...(it.hand ? { hand: keyK(it.hand) } : {}),
+              ...(it.capC ? { capC: it.capC } : {}),
+              ...(it.capH ? { capH: it.capH } : {}),
+              ...(it.capSlope ? { capSlope: it.capSlope } : {}),
+              ...(it.capRail
+                ? { capRail: it.capRail, capRailC: it.capRailC ?? null, capRailH: it.capRailH ?? null }
+                : {}),
+              ...(it.blinds ? { blinds: keyK(it.blinds), ...(it.blindTo ? { blindTo: keyK(it.blindTo) } : {}) } : {}),
+              ...(it.coping ? { coping: keyK(it.coping) } : {}),
+              ...(it.capTrim ? { capTrim: it.capTrim } : {}),
+              ...(it.keepDoor ? { keepDoor: true } : {}),
+              ...(it.flowerC?.length ? { flowerC: it.flowerC } : {}),
             });
             break;
           }
@@ -307,7 +474,11 @@ async function main() {
                 y1: r2(absY(Math.max(w.y0, w.y1))),
                 kind: w.kind ?? 'std',
                 curt: w.curt ?? null,
+                ...(w.rail ? { rail: true } : {}),
+                ...(w.split ? { split: w.split } : {}),
+                ...(w.frameC ? { frameC: w.frameC } : {}),
               })),
+              ...(it.clad ? { clad: it.clad } : {}),
               ...(it.topRail
                 ? {
                     topRail: it.topRail,
@@ -316,6 +487,9 @@ async function main() {
                     ...(it.topRailH ? { topRailH: it.topRailH } : {}),
                   }
                 : {}),
+              ...(it.back ? { back: it.back } : {}),
+              ...(it.topC ? { topC: it.topC } : {}),
+              ...(it.cap ? { cap: it.cap } : {}),
             });
             break;
           case 'sign':
@@ -338,6 +512,7 @@ async function main() {
               ...(it.outline ? { outline: it.outline } : {}),
               ...(it.shape ? { shape: it.shape } : {}),
               ...(it.icon ? { icon: it.icon, iconC: it.iconC ?? null } : {}),
+              ...(it.glyphs ? { glyphs: it.glyphs, join: it.join ?? null } : {}),
             });
             break;
           case 'groove':
@@ -413,6 +588,10 @@ async function main() {
               s: it.s,
               y: it.y != null ? r2(absY(it.y) - (gR + it.s * FH)) : null,
               onBal: !!it.onBal,
+              ...(it.style ? { style: it.style } : {}),
+              ...(it.color ? { color: it.color } : {}),
+              ...(it.off != null ? { off: it.off } : {}),
+              ...(it.pair ? { pair: true } : {}),
             });
             break;
           case 'band':
@@ -428,6 +607,7 @@ async function main() {
               ...(it.style ? { style: it.style } : {}),
               ...(it.slats ? { slats: it.slats } : {}),
               ...(it.shade ? { shade: it.shade } : {}),
+              ...(it.clad ? { clad: it.clad } : {}),
             });
             break;
           case 'entrance':
@@ -457,7 +637,7 @@ async function main() {
         // KARAR (CLAUDE.md §0.1): kopya (görülmemiş) kenara yalnız GEOMETRİ geçer — tabela, bayrak, klima/çanak/
         // kamera, perde/kepenk/parmaklık durumu, cam balkon tonu, kuş filesi, saksı, tente yazısı fotoğrafta
         // görülmedi → kopyalanmaz (nötr varsayılan). Pencere/balkon/şerit/boru/bant gibi yapı öğeleri kalır.
-        const OBSERVED_ONLY = new Set(['sign', 'flag', 'ac', 'dish', 'camera']);
+        const OBSERVED_ONLY = new Set(['sign', 'flag', 'ac', 'dish', 'camera', 'banner', 'cloth', 'lamp', 'roofobj']);
         items = src
           .filter((it) => !OBSERVED_ONLY.has(it.t))
           .map((it) => {
@@ -470,8 +650,18 @@ async function main() {
               o.tint = {};
               delete o.net;
               delete o.pots;
+              // Görülmemiş kenarda perde / parmaklık / stor durumu bilinmez
+              delete o.curtC;
+              delete o.curtF;
+              delete o.grille;
+              delete o.blinds;
             } else if (o.t === 'awning') o.text = null;
+            if (o.t === 'win') {
+              delete o.curtC;
+              delete o.curtF;
+            }
             if ('u' in o) o.u = r2(M(o.u));
+            if (o.t === 'ribbon') o.pts = o.pts.map(([u, y]) => [r2(M(u)), y]);
             if ('apex' in o && o.apex != null) o.apex = r2(M(o.apex));
             if ('u0' in o) {
               const a = M(o.u0);
@@ -499,6 +689,7 @@ async function main() {
       ...(sv.volumes?.length ? { volumes: sv.volumes } : {}),
       ...(sv.floorHs?.length ? { floorHs: sv.floorHs } : {}),
       ...(sv.pergolas?.length ? { pergolas: sv.pergolas } : {}),
+      ...(sv.plinthH != null ? { plinthH: sv.plinthH } : {}),
       notes: sv.notes ?? [],
     };
     console.log(

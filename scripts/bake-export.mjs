@@ -40,7 +40,7 @@ const browser = await chromium.launch({
 const page = await browser.newPage({ viewport: { width: 320, height: 240 } });
 page.on('pageerror', (e) => console.log('[pageerror]', e.message));
 page.on('console', (m) => {
-  if (/bake|error/i.test(m.text())) console.log('[page]', m.text());
+  if (/^bake/.test(m.text())) console.log('[page]', m.text());
 });
 // Derlenmiş kopyadaki veri eski olabilir: güncel OSM doğrudan repodan
 if (existsSync('public/data/osm.json'))
@@ -65,7 +65,9 @@ if (info.srcHash !== localHash)
     `UYARI: derlenmiş oyunun kaynak özeti (${info.srcHash}) repodakinden (${localHash}) farklı — önce yeniden derleyin`,
   );
 const chunks = info.chunks.filter((c) => !only || only.has(c.id));
-console.log(`${info.chunks.length} parça (${chunks.length} yazılacak), ${Object.keys(info.keys).length} anahtar`);
+console.log(
+  `${info.chunks.length} parça (${chunks.length} yazılacak), ${Object.keys(info.keys).length} anahtar`,
+);
 let totalTris = 0;
 for (const c of chunks) {
   const r = await page.evaluate((id) => window.__bake.chunk(id), c.id);
@@ -74,9 +76,13 @@ for (const c of chunks) {
   c.texel = r.texel;
   c.charts = r.charts;
   writeFileSync(join(out, c.file), Buffer.from(r.glb, 'base64'));
+  // Ada dikdörtgenleri + normalin yukarı bileşeni (float32 × 5): pişirmede E0(n) için
+  c.rectsFile = `chunk_${c.id}.rects.bin`;
+  writeFileSync(join(out, c.rectsFile), Buffer.from(r.rects, 'base64'));
   totalTris += c.tris;
   console.log(
-    `  ${c.id}: ${c.tris} üçgen, ${r.charts} ada, atlas ${r.size}² @ ${(r.texel * 100).toFixed(1)} cm/px (uv ${r.unwrapMs} ms)`,
+    `  ${c.id}: ${c.tris} üçgen, ${r.charts} ada, atlas ${r.size}² @ ${(r.texel * 100).toFixed(1)} cm/px, ` +
+      `doluluk %${Math.round(r.fill * 100)} (uv ${r.unwrapMs} ms)`,
   );
 }
 const x0 = Math.min(...chunks.map((c) => c.bbox[0]));
@@ -118,4 +124,6 @@ const exp = {
   occluderRect: occRect,
 };
 writeFileSync(join(out, 'export.json'), JSON.stringify(exp, null, 1));
-console.log(`bitti: ${chunks.length} parça, ${totalTris} üçgen, ${((Date.now() - t0) / 1000).toFixed(0)} s → ${out}`);
+console.log(
+  `bitti: ${chunks.length} parça, ${totalTris} üçgen, ${((Date.now() - t0) / 1000).toFixed(0)} s → ${out}`,
+);

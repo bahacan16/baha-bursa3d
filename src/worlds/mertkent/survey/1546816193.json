@@ -14,14 +14,57 @@
      -199.9,
      -190.35
     ],
-    "storeys": 2
+    "storeys": 2,
+    "roof": {
+     "parapet": {
+      "h": 0.57,
+      "color": "#a6adb4",
+      "rail": "tube",
+      "railC": "#9aa1a5",
+      "railH": 0.6,
+      "edges": [
+       1,
+       2,
+       3,
+       4,
+       5
+      ],
+      "railEdges": [
+       1,
+       2
+      ]
+     }
+    }
    },
    {
     "x": [
      250.15,
      266.87
     ],
-    "storeys": 2
+    "storeys": 2,
+    "roof": {
+     "parapet": {
+      "h": 0.57,
+      "color": "#a6adb4",
+      "rail": "tube",
+      "railC": "#9aa1a5",
+      "railH": 0.6,
+      "edges": [
+       0,
+       1,
+       2,
+       3,
+       4,
+       5,
+       6,
+       7
+      ],
+      "railEdges": [
+       0,
+       7
+      ]
+     }
+    }
    },
    {
     "x": [
@@ -101,20 +144,8 @@
      ]
     ]
    },
-   "items": [
-    {
-     "t": "proj",
-     "u0": 0,
-     "u1": 14.69,
-     "d": 0.05,
-     "y0": 6.71,
-     "y1": 7.66,
-     "color": "#a6adb4",
-     "topRail": "tube",
-     "topRailC": "#9aa1a5"
-    }
-   ],
-   "note": "Ortofoto yok; koordinatlar gerçek (y = tabandan m). Yalnız uzaktan görüldü: 2019 JDIgP_Yq (~50 m) ve 2025 l07hZ6pz 66_7/57_11 (~65–75 m, ağaç arkası): K1 düz beyaz sağır duvar (pencere görülmedi, x≈249–262), çatı kenarında 3 borulu paslanmaz korkuluk (dikmeli). K0 site çiti + çalı + ağaç arkasında — görülmedi. Korkuluk/parapet kotları batı cephesinden (aynı bina) alındı."
+   "items": [],
+   "note": "Ortofoto yok; koordinatlar gerçek (y = tabandan m). Yalnız uzaktan görüldü: 2019 JDIgP_Yq (~50 m) ve 2025 l07hZ6pz 66_7/57_11 (~65–75 m, ağaç arkası): K1 düz beyaz sağır duvar (pencere görülmedi, x≈249–262), çatı kenarında 3 borulu paslanmaz korkuluk (dikmeli). K0 site çiti + çalı + ağaç arkasında — görülmedi. Korkuluk/parapet kotları batı cephesinden (aynı bina) alındı; v5: eski proj+topRail yerine roof.parapet (0.57 m) + bu kenarda boru korkuluk (railEdges, küpeşte 0.6 m). Parapet lamelli mi düz mü bu uzaklıktan seçilemedi → düz."
   },
   {
    "edge": 3,
@@ -1993,18 +2024,19 @@
      "color": "#a6adb4"
     },
     {
-     "t": "proj",
+     "t": "band",
      "u0": 0.74,
      "u1": 12.22,
-     "d": 0.05,
      "y0": 8.36,
      "y1": 9.31,
      "color": "#a6adb4",
-     "topRail": "tube",
-     "topRailC": "#9aa1a5"
+     "proud": 0.08,
+     "style": "louvre",
+     "slats": 4,
+     "shade": "#8a9aa9"
     }
    ],
-   "note": "K1 ve üstü 2025 -5GwXVZp + uJjmdiDN (~39 m, pano/ağaç üstünden) ile ölçüldü: mavi yansıtıcı cam giydirme (dikey kayıt ~1.25–1.3 m: 9 bölme u 0.05–11.36; yatay kayıtlar gerçek 4.9 / 5.85 m, uJjmdiDN’de iki sıra + üçüncünün üstü görüldü), KB köşede u 11.36–12.22 beyaz dar şerit. Üstte ~0.95 m beyaz yatay ızgaralı/lamelli parapet (4 lamel çizgisi) + üzerinde 3 borulu paslanmaz korkuluk (~0.6 m, dikmeli; köşeden batı cepheye döner). K0: YALNIZ Doğan Avcıoğlu’ndan (glMQ1Beo/0tTf4uTe) çok yatık açıyla görüldü: beyaz çerçeveli boy vitrin camları, üstünde ~2 m derin beyaz saçak plağı (derinlik batı yüzündeki plak ucundan ölçüldü, gerçek 3.3–4.0 m). K0 kayıt aralığı çözülemedi (~1 m görünüyor) → 2 m’lik split 2 vitrin modülleri; tabela/kepenk/tente görülmedi (yatık açı)."
+   "note": "K1 ve üstü 2025 -5GwXVZp + uJjmdiDN (~39 m, pano/ağaç üstünden) ile ölçüldü: mavi yansıtıcı cam giydirme (dikey kayıt ~1.25–1.3 m: 9 bölme u 0.05–11.36; yatay kayıtlar gerçek 4.9 / 5.85 m, uJjmdiDN’de iki sıra + üçüncünün üstü görüldü), KB köşede u 11.36–12.22 beyaz dar şerit. Üstte ~0.95 m beyaz yatay lamelli parapet (4 lamel; v5 band style louvre, lamel #a6adb4, ara gölge #8a9aa9) + üzerinde 3 borulu paslanmaz korkuluk (~0.6 m, dikmeli; köşeden batı cepheye döner; v5 roof.parapet railEdges/railH 0.6). K0: YALNIZ Doğan Avcıoğlu’ndan (glMQ1Beo/0tTf4uTe) çok yatık açıyla görüldü: beyaz çerçeveli boy vitrin camları, üstünde ~2 m derin beyaz saçak plağı (derinlik batı yüzündeki plak ucundan ölçüldü, gerçek 3.3–4.0 m). K0 kayıt aralığı çözülemedi (~1 m görünüyor) → 2 m’lik split 2 vitrin modülleri; tabela/kepenk/tente görülmedi (yatık açı)."
   },
   {
    "edge": 25,
@@ -2308,15 +2340,16 @@
      "color": "#abb1b0"
     },
     {
-     "t": "proj",
+     "t": "band",
      "u0": 0.04,
      "u1": 3.09,
-     "d": 0.05,
      "y0": 9,
      "y1": 9.95,
      "color": "#a6adb4",
-     "topRail": "tube",
-     "topRailC": "#9aa1a5"
+     "proud": 0.08,
+     "style": "louvre",
+     "slats": 4,
+     "shade": "#8a9aa9"
     },
     {
      "t": "proj",
@@ -2328,7 +2361,7 @@
      "color": "#a6adb4"
     }
    ],
-   "note": "2025 0tTf4uTe (~38 m) ref; glMQ1Beo ve 0pQA7ir8 ile doğrulandı (glMQ1Beo ~0.6 m kuzeye kaymış). Ortofotoda bina tabanı görünen 2.29’da (arazi modeli ~1.4 m hatalı; ölçekler kat kotlarıyla bağlandı). KB köşe K0’da 0.64 m beyaz paye; K0 yeşil-gri giydirme cam 3×3 bölme (dikey 1.25 m, yatay kayıt gerçek 0.87 / 2.08 m); K0 üstünde beyaz döşeme alnı bandı gerçek 3.29–4.0 m; K1 koyu petrol yeşili yansıtıcı cam 3×3 (kayıt 4.88 / 5.81 m), cam köşeye kadar (paye üstünden geçer). Üstte beyaz lamelli parapet 6.71–7.66 m + borulu korkuluk (u<3.09); u≥3.09 güney bölmesinin üstündeki ~1.1 m dışa taşan beyaz kutu saçak (6.71–8.33 m; görünen konum D/(D−d) ile düzeltildi)."
+   "note": "2025 0tTf4uTe (~38 m) ref; glMQ1Beo ve 0pQA7ir8 ile doğrulandı (glMQ1Beo ~0.6 m kuzeye kaymış). Ortofotoda bina tabanı görünen 2.29’da (arazi modeli ~1.4 m hatalı; ölçekler kat kotlarıyla bağlandı). KB köşe K0’da 0.64 m beyaz paye; K0 yeşil-gri giydirme cam 3×3 bölme (dikey 1.25 m, yatay kayıt gerçek 0.87 / 2.08 m); K0 üstünde beyaz döşeme alnı bandı gerçek 3.29–4.0 m; K1 koyu petrol yeşili yansıtıcı cam 3×3 (kayıt 4.88 / 5.81 m), cam köşeye kadar (paye üstünden geçer). Üstte beyaz lamelli parapet 6.71–7.66 m (v5 louvre bandı, 4 lamel) + borulu korkuluk (u<3.09; kutu saçak kısmında korkuluk kutunun içinde kalır); u≥3.09 güney bölmesinin üstündeki ~1.1 m dışa taşan beyaz kutu saçak (6.71–8.33 m; görünen konum D/(D−d) ile düzeltildi)."
   },
   {
    "edge": 26,
@@ -2733,7 +2766,7 @@
   }
  ],
  "notes": [
-  "KAT SAYISI (önemli, OSM height=4 YANLIŞ): fotoğraflarda bina 2 katlı (K0 dükkân + K1) ticari yapı. Batı cephede (0tTf4uTe/glMQ1Beo/0pQA7ir8, 2025) ölçü: K0 cam 0–3.29 m, beyaz döşeme alnı 3.29–4.0, K1 cam 4.0–6.71, lamelli parapet 6.71–7.66, korkuluk üstü ≈8.25, beyaz kutu saçak üstü ≈8.33 m. Kuzeyden (Uğur Mumcu, 2025) doğu blok da aynı yükseklikte K1 cam bandı + yüksek beyaz alınla 2 katlı. floorHs=[4.0, 2.95] (K0 dükkân katı 4.0 m: cam 0–3.29 + döşeme bandı 3.29–4.0; K1 2.95 m: cam 4.0–6.71, çatı döşemesi ≈6.9), groundRaise 0.02; çatı parapeti roof.parapet h 0.57 → üst 7.66 m.7 m; üretici kat yüksekliğini eşit alıyor). Yalnız GB’deki ek yapı 1 katlı (≈4.26 m — OSM height=4 muhtemelen bunu anlatıyor).",
+  "KAT SAYISI (önemli, OSM height=4 YANLIŞ): fotoğraflarda bina 2 katlı (K0 dükkân + K1) ticari yapı. Batı cephede (0tTf4uTe/glMQ1Beo/0pQA7ir8, 2025) ölçü: K0 cam 0–3.29 m, beyaz döşeme alnı 3.29–4.0, K1 cam 4.0–6.71, lamelli parapet 6.71–7.66, korkuluk üstü ≈8.25, beyaz kutu saçak üstü ≈8.33 m. Kuzeyden (Uğur Mumcu, 2025) doğu blok da aynı yükseklikte K1 cam bandı + yüksek beyaz alınla 2 katlı. floorHs=[4.0, 2.95] (K0 dükkân katı 4.0 m: cam 0–3.29 + döşeme bandı 3.29–4.0; K1 2.95 m: cam 4.0–6.71, çatı döşemesi ≈6.9), groundRaise 0.02; çatı parapeti roof.parapet h 0.57 → üst 7.66 m. Yalnız GB’deki ek yapı 1 katlı (≈4.26 m — OSM height=4 muhtemelen bunu anlatıyor).",
   "KÜTLE / massing (dünya koordinatı): 1) batı blok KB parçası x 240.45–250.15, z ≤ −190.35 (2 kat); 2) batı blok x 250.15–266.87 (2 kat); 3) GB EK YAPI x 240.45–250.15, z ≥ −190.35 (1 kat, çatı alnı 0.47 → üst 4.26 m); 4) doğu blok x 270.57–297.1 (2 kat). Gap YOK: iki blok arası x 266.87–270.57 açık geçit (hava fotoğrafında: batı çatı parapeti x≈266.2 + doğu yüz duvarı 0.75 m eğik görünüm → duvar ≈266.9; doğu blok gölgesi 268.5’ten, doğu parapet 270.0 → duvar ≈270.6–270.75; geçit zemini aydınlık, güney ucunda çalılar). Taban izindeki geçit güney ucu şeridi (kenar 5–7, 20) sahte → x aralıkları dışarıda bırakıyor. Kesim çizgileri düz duvar: geçit yan duvarları (kenar 19/21) görülmedi; KB parça/ek yapı kesimindeki K1 güney duvarı ve x=250.15 kesimi görülmedi (düz beyaz).",
   "TABAN İZİ UYARISI (0.5 m üstü, footprints.json’a DOKUNULMADI): (a) Batı cephede ana 2 katlı kütlenin GB köşesi (beyaz kolonun güney yüzü) iki panodan z≈−190.35 (0tTf4uTe) / −190.8 (glMQ1Beo); taban izinde bu köşe yok, batı duvar −188.85’e kadar uzuyor → massing z sınırı −190.35 ile ölçüye çekildi. Beyaz kutu saçak z≈−189.4’e kadar taşar. (b) GB’deki taban izi çıkıntısı (kenar 28–29–0–1, x 240.5–250, z −188.85…−182.7) GERÇEK ama 1 katlı ek yapı (gri duvar, beyaz alın, ≈4.26 m; hava fotoğrafında parapetsiz açık bej düz çatı, güney kenarında ince aydınlık cephe şeridi). (c) Hava fotoğrafında batı blok güney parapeti x 245–263’te z≈−190.2, x 240–245’te −191.2 (bu binada eğiklik küçük görünüyor: KB köşe tabanı −199.6 ile çatı kenarı −200.2 → ~0.6 m); kenar 2’nin gerçek hattı −188.85…−187.77 yerine ≈−189.6 olabilir — güney cephe yakından görülmediği için doğrulanamadı. (d) Kenar 22/24 arasındaki 0.3 m kıvrım -5GwXVZp’de yüksek alının bittiği yerden ~0.7 m batıda (x≈251.9) görünüyor, YuA5c1wo’da ≈253.0 → kıvrım konumu ±0.6 m içinde doğru.",
   "CEPHE DİLİ: beyaz alüminyum kompozit kaplamalı payeler/kolonlar + giydirme cam. Batı yüz (sokak kenarı otopark): KB’de K0 köşe payesi, iki bölme (her biri 3 dikey bölme ≈1.25 m): kuzey bölmede K0 yeşil-gri cam + beyaz döşeme alnı + K1 koyu petrol yeşili yansıtıcı cam; güney bölmede iki kat boyu yeşil-gri cam (kat hizasında açık yeşil opak spandrel). Güney bölmenin üstünde dışa ~1.1 m taşan beyaz kutu saçak (1.6 m yüksek), köşeyi ~1 m aşar. Kuzey yüz (Doğan Avcıoğlu Cd., dükkân cephesi): batı parçada (kenar 24) K1 mavi yansıtıcı giydirme cam + lamelli parapet + borulu korkuluk, K0 önünde ~2 m derin beyaz saçak ve beyaz çerçeveli vitrinler (yalnız yatık açıdan); doğu parçada (kenar 22) ve doğu blokta (kenar 18) 1.4 m yüksek düz beyaz alın, K1’de gri çerçeveli cam + mavi cam bölmeler, beyaz payeler.",
@@ -2741,7 +2774,8 @@
   "TABELALAR: 2025’te OKUNABİLEN TABELA YOK. Tek görülen: doğu blok KD parçası (kenar 16, x≈290–293, gerçek ≈6.0–7.8 m) beyaz zeminli, solda yeşil yuvarlak amblem, lacivert figür/harf, sağda turuncu-kırmızı yazı — 40 m’den ve pano arkasından, piksel düzeyinde, okunamadı (pending’de). 2019 j-FHs_eT karesinde aynı yerde kırmızı zemin beyaz harf \"SATILIK DÜKKANLAR\" + altında beyaz zemin siyah telefon satırı olan afiş vardı (2025’te yok, çizilmedi). Dükkân kepengi, tente, vitrin afişi: kuzey K0 hiç (doğu) ya da yalnız çok yatık (batı) görüldüğü için tespit edilemedi.",
   "GÖRÜLMEYENLER (varsayım yapılmadı, düz bırakıldı): doğu blok K0 kuzey cephesi (Bursaray panosu + Bursaray kulübesi arkası; Doğan Avcıoğlu’nda x 245–590 arası panorama yok), batı blok kenar 22 K0, tüm güney cepheler (site içi; yalnız uzaktan K1 üst kısmı), doğu cephe (komşu apartmana 3.4 m), geçit iç duvarları, ek yapının güney/doğu yüzleri, KD parça (kenar 16) büyük kısmı. Kenar 18’in alt iki K1 cam sırası görülmedi (kenar 22’den alındı, aynı düzen).",
   "PANO NOTLARI: aynı kenarda farklı panoların ortofotoları 0.5–1 m kayık (konum/yön hatası): glMQ1Beo batı yüzde 0tTf4uTe’ye göre ~0.6 m kuzeyde; uJjmdiDN kenar 18’de -5GwXVZp’ye göre −0.66 m. Ref ortofotolarda cal.u görünen köşelere/ortofoto ölçeğine göre ayarlandı. Tüm ortofotolarda taban çizgisi (0.88) gerçek tabandan 1.25–2.29 m aşağıda (arazi/kamera kotu hatası) → her kenarın cal.head’i o karedeki gerçek taban görünümüne göre verildi.",
-  "v4 dönüşümü: pencere perdeleri (karanlik) yerine ölçülen cam renkleri `tint`: batı K0 #586453, batı K1 kuzey bölme #1a3534 (örnek #10282a–#20403e), batı K1 güney bölme #4e5b4a, kuzey K1 mavi kenar 24 #345c7a / 22 #2c5067 / 18 #4d6e7e; kenar 22 u 2.99–9.01 ve 18 u 6.23–13.27 gri çerçeveli camlar tint #495355 + frameC #3f4747. Kuzey K0 vitrinleri (kenar 24) görünmediği için vitrin kaldı. Ek yapı massing parçası olarak kaldı (volumes yerine; taban izinde zaten var), çatısı parapetsiz alın (fasciaH 0.12 → 4.26 m)."
+  "v4 dönüşümü: pencere perdeleri (karanlik) yerine ölçülen cam renkleri `tint`: batı K0 #586453, batı K1 kuzey bölme #1a3534 (örnek #10282a–#20403e), batı K1 güney bölme #4e5b4a, kuzey K1 mavi kenar 24 #345c7a / 22 #2c5067 / 18 #4d6e7e; kenar 22 u 2.99–9.01 ve 18 u 6.23–13.27 gri çerçeveli camlar tint #495355 + frameC #3f4747. Kuzey K0 vitrinleri (kenar 24) görünmediği için vitrin kaldı. Ek yapı massing parçası olarak kaldı (volumes yerine; taban izinde zaten var), çatısı parapetsiz alın (fasciaH 0.12 → 4.26 m).",
+  "v5 ÇATI KORKULUĞU: roof.parapet.railEdges/edges massing parçalarının KENDİ halka indisleriyle yazıldı (massing.ts splitMassing çıktısından): parça 1 (KB, x 240.45–250.15, z ≤ −190.35) j1 = kenar 24, j2 = kenar 25, j0 = x 250.15 iç kesim (parapetsiz); parça 2 (x 250.15–266.87) j0 = kenar 2, j7 = kenar 24’ün doğu 2.52 m’si, j8 = x 250.15 iç kesim (parapetsiz). Korkuluk yalnız görülen kenarlarda (24, 25, 2); doğu blok ve geçit/iç kenarlarda korkuluk yok (görülmedi). Taban izi ya da massing değişirse bu indisler yeniden hesaplanmalı."
  ],
  "pending": [
   {
@@ -2757,18 +2791,6 @@
     9.6
    ],
    "note": "görünen koordinat (bu kare için yaklaşık u_gerçek = u+0.66, y_gerçek = y−1.76 → x≈290.1–293.2, 7.1–7.8 m). Altında u 3.1–6.3, y 7.8–8.9 (gerçek 6.0–7.1 m) beyaz pano/duvar. Tabela zemini beyaz (#dfe3e6 civarı), solda yeşil yuvarlak amblem, ortada lacivert figür/harf, sağda turuncu-kırmızı yazı; ışıklı mı bilinmiyor. Duvara mı çatı üstüne mi monte olduğu belirsiz. 2019’da aynı yerde \"SATILIK DÜKKANLAR\" afişi vardı."
-  },
-  {
-   "what": "Parapet lamelleri",
-   "edges": [
-    24,
-    25
-   ],
-   "detail": "Kenar 24 (u 0.74–12.22) ve kenar 25 (u 0.04–3.09) parapeti (gerçek 6.71–7.66 m) yatay beyaz lamelli/oluklu: 4 yatay çizgi ~0.22 m arayla (gölge çizgisi #8a9aa9). Şimdilik proj (d 0.05) + topRail tube ile verildi; lameller çizilmiyor."
-  },
-  {
-   "what": "Çatı kenarı korkuluğu yüksekliği",
-   "detail": "Çatı parapeti artık roof.parapet (h 0.57, düz beyaz, tüm kenarlar; üst 7.66 m). Korkuluk yalnız görülen kenarlarda (2, 24, 25 kuzey bölme) proj.topRail ile kaldı — roof.parapet.rail tüm kenarlara (görülmeyen 22/18 dahil) koyacağı için kullanılmadı. Gerçek korkuluk ~0.6 m (3 boru), üretici 0.92 m çiziyor; kenar başına parapet korkuluğu seçeneği gerekiyor."
   },
   {
    "what": "Kutu saçağın GB köşeyi aşan kısmı ve güney yüzü",

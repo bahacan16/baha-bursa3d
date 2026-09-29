@@ -44,7 +44,8 @@
     "Pano poz hataları: aynı noktanın farklı panolardan üçgenlenmesi 1–4 m tutarsız (özellikle ChHr–kgyF). Değerler en tutarlı çiftlerden (-KU8/qc-7, Jfyr); doğu/kuzey kenarların çoğu görülmedi ve simetri/benzerlikten kopyalandı (5–14).",
     "v5 kat kat yığın özeti — batı kanat güney büyük yığın (0): K0 şeffaf, K1 zebra, K2 AÇIK, K3 koyu, K4 zebra, K5 koyu; GB yığını (19): K0–K3 AÇIK, K4 şeffaf+stor, K5 AÇIK; batı cephe kuzey daire (18): K0 koyu, K1–K3 şeffaf, K4 stor, K5 şeffaf; güney daire: K0 AÇIK, K1 koyu, K2 AÇIK, K3 koyu, K4 zebra, K5 koyu; doğu kanat B yığını (4): K0 görülmedi, K1 koyu stor, K2 AÇIK, K3 şeffaf, K4 AÇIK, K5 koyu; D yığını (4): K0 AÇIK, K1 koyu, K2 şeffaf+tül, K3–K5 AÇIK; GD köşe (6): K1 koyu, diğerleri AÇIK; kuzey yığın (15): K0–K3 şeffaf, K4 zebra, K5 şeffaf.",
     "v5 perdeler (pencere sütunları, kat kat): kenar 0: K0 tül, K1 tül, K2 karanlık/yansıma, K3–K5 tül; kenar 4: K0 tül, K1 tül, K2 karanlık, K3 tül, K4 tül (orta bölme koyu), K5 tül; kenar 15 (37 m): K0–K2 tül, K3–K5 gökyüzü yansıması (çözünürlük düşük). Pencereler beyaz PVC, 3 bölmeli (sol dar / orta geniş / sağ dar), her katta koyu gri denizlik (#5d6368); K2 denizliği pilastrlar arası tam genişlik, uçları çıkıntılı (band ile).",
-    "v5 pilastrlar: güney pencere sütunlarının iki yanında ≈0.25–0.3 m genişlikte, ≈0.06 m çıkıntılı sıva pilastrları, K0'dan çatıya kadar ('pilaster' öğesi — derleyicinin çalışma kopyasında var, schema.ts'e henüz eklenmemiş)."
+    "v5 pilastrlar: güney pencere sütunlarının iki yanında ≈0.25–0.3 m genişlikte, ≈0.06 m çıkıntılı sıva pilastrları, K0'dan çatıya kadar ('pilaster' öğesi — derleyicinin çalışma kopyasında var, schema.ts'e henüz eklenmemiş).",
+    "FP-v3 (2026-09-29, taban izi düzeltmesi): güney cephe duvarları (kenar 0 ve 4) ortak doğru z = −89.87 + 0.0512·(x − 26) üzerine alındı — kenar 0 1.03 m, kenar 4 0.68 m KUZEYE (önceki ölçüm notundaki \"0.6–1.0 m güneyde\" GPS poz hatasından: -KU8/qc-7/Jfyr panoları çit tabanına göre 1.3–2.1 m GÜNEYE kayık; kamera çitten kalibre edilince kat aralığı oranlarıyla duvar z≈−89.9 (x=26) çıktı; hava fotoğrafı balkon bantları (eğim 0.289 m/m) aynı hattı verdi). Kaydırılan köşeler: v0 (17.66,−89.27)→(17.711,−90.294), v1 (29.38,−88.67)→(29.432,−89.694), v4 (32.89,−88.84)→(32.924,−89.515), v5 (44.81,−88.23)→(44.843,−88.905); girinti (1,3) 3.70 m, GD yan duvarı (5) 2.38 m, GB boşluk yan duvarı (20) 1.77 m. Ölçüm dönüşümleri kenar notlarında. Ortofotolar yeni halkayla yeniden üretilmeli (CORRECTED=1); kenar 0/4 değerleri yeni ortofoto çerçevesindedir; kenar 1/7/19 yükseklikleri eski kenar-0 çerçevesinde (kendi cal.head kopyalarıyla tutarlı)."
   ],
   "groundRaise": 2.7,
   "edges": [
@@ -55,27 +56,27 @@
       "ref": "1546358557_0_-KU85kKj.jpg",
       "cal": {
         "u": [
-          -0.12,
-          12.79
+          -0.868,
+          13.45
         ],
         "head": [
           [
             1,
-            8.17
+            8.774
           ],
           [
             5,
-            20.92
+            22.914
           ]
         ]
       },
       "items": [
         {
           "t": "win",
-          "u0": 1.56,
-          "u1": 4.08,
-          "y0": 16.13,
-          "y1": 17.69,
+          "u0": 0.997,
+          "u1": 3.792,
+          "y0": 17.602,
+          "y1": 19.332,
           "k": 4,
           "s": [
             0,
@@ -93,8 +94,8 @@
         },
         {
           "t": "pilaster",
-          "u0": 1.2,
-          "u1": 1.45,
+          "u0": 0.598,
+          "u1": 0.875,
           "s": [
             0,
             5
@@ -104,8 +105,8 @@
         },
         {
           "t": "pilaster",
-          "u0": 4.12,
-          "u1": 4.43,
+          "u0": 3.836,
+          "u1": 4.18,
           "s": [
             0,
             5
@@ -115,85 +116,85 @@
         },
         {
           "t": "band",
-          "u0": 1.2,
-          "u1": 4.43,
-          "y0": 9.6,
-          "y1": 9.8,
+          "u0": 0.598,
+          "u1": 4.18,
+          "y0": 10.36,
+          "y1": 10.582,
           "color": "#5d6368",
           "proud": 0.07
         },
         {
           "t": "band",
-          "u0": 1.5,
-          "u1": 4.14,
-          "y0": 6.55,
-          "y1": 6.66,
+          "u0": 0.93,
+          "u1": 3.858,
+          "y0": 6.978,
+          "y1": 7.1,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "band",
-          "u0": 1.5,
-          "u1": 4.14,
-          "y0": 12.8,
-          "y1": 12.91,
+          "u0": 0.93,
+          "u1": 3.858,
+          "y0": 13.909,
+          "y1": 14.031,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "band",
-          "u0": 1.5,
-          "u1": 4.14,
-          "y0": 16.03,
-          "y1": 16.14,
+          "u0": 0.93,
+          "u1": 3.858,
+          "y0": 17.491,
+          "y1": 17.613,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "band",
-          "u0": 1.5,
-          "u1": 4.14,
-          "y0": 19.25,
-          "y1": 19.36,
+          "u0": 0.93,
+          "u1": 3.858,
+          "y0": 21.062,
+          "y1": 21.184,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "panel",
-          "u0": -0.12,
-          "u1": 1.2,
-          "y0": 15.05,
-          "y1": 19.0,
+          "u0": -0.866,
+          "u1": 0.598,
+          "y0": 16.404,
+          "y1": 20.784,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 4.43,
-          "u1": 5.2,
-          "y0": 15.05,
-          "y1": 19.0,
+          "u0": 4.18,
+          "u1": 5.034,
+          "y0": 16.404,
+          "y1": 20.784,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": -0.12,
-          "u1": 1.2,
-          "y0": 5.5,
-          "y1": 9.42,
+          "u0": -0.866,
+          "u1": 0.598,
+          "y0": 5.813,
+          "y1": 10.16,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 4.43,
-          "u1": 5.2,
-          "y0": 5.5,
-          "y1": 9.38,
+          "u0": 4.18,
+          "u1": 5.034,
+          "y0": 5.813,
+          "y1": 10.116,
           "color": "plaster2"
         },
         {
           "t": "bal",
-          "u0": 5.3,
-          "u1": 10.45,
+          "u0": 5.145,
+          "u1": 10.856,
           "d": 0.55,
           "inset": 0.95,
           "s": [
@@ -229,8 +230,8 @@
         },
         {
           "t": "bal",
-          "u0": 10.45,
-          "u1": 12.2,
+          "u0": 10.856,
+          "u1": 12.797,
           "d": 0.55,
           "inset": 0.95,
           "s": [
@@ -264,54 +265,54 @@
         },
         {
           "t": "dish",
-          "u": 11.7,
+          "u": 12.242,
           "s": 1,
-          "y": 7.4,
+          "y": 7.92,
           "onBal": true
         },
         {
           "t": "ac",
-          "u": 10.85,
+          "u": 11.299,
           "s": 1,
-          "y": 7.5
+          "y": 8.031
         },
         {
           "t": "ac",
-          "u": 11.15,
+          "u": 11.632,
           "s": 2,
-          "y": 10.3
+          "y": 11.136
         },
         {
           "t": "ac",
-          "u": 11.6,
+          "u": 12.131,
           "s": 0,
-          "y": 4.4
+          "y": 4.593
         },
         {
           "t": "pipe",
-          "u": 12.75,
+          "u": 13.406,
           "color": "#e6e8e8"
         },
         {
           "t": "band",
-          "y0": 0,
-          "y1": 2.6,
-          "u0": -0.12,
-          "u1": 12.79,
+          "y0": -0.286,
+          "y1": 2.597,
+          "u0": -0.866,
+          "u1": 13.451,
           "color": "plinth"
         }
       ],
-      "note": "v5 (yeni ortofoto, düzeltilmiş taban izi; -KU8 referans, qc-7 teyit). Batı kanat güney cephesi: GB köşe yığını artık taban izi boşluğunda (19/20), bu kenar pencere sütununun batısındaki beyaz panodan başlar. Batıdan doğuya: beyaz pano (yalnız K1 5.5–9.4 — K0 hizası gri, qc-7 ve K4 15.05–19.0 hizası; arası ve üstü gri), gri pilastr 0.25 m (u 1.2–1.45), 3 bölmeli pencere sütunu (sol dar/orta geniş/sağ dar, beyaz PVC, her katta koyu gri denizlik; K2 denizliği pilastrlar arası tam genişlik, uçları çıkıntılı), sağ pilastr (4.12–4.43), beyaz pano, büyük yığın (5.3–12.2 ön yüz). Yığın katları: K0 şeffaf cam (içeride klima, sağ uçta), K1 zebra stor camı (sağ uç ~1.7 m storsuz; korkulukta Türksat çanağı + klima), K2 AÇIK (5 borulu korkuluk, SATILIK afişi, tavanda spot, sağ uçta klima), K3 koyu/mavi yansımalı cam, K4 zebra stor, K5 koyu cam (sağda şeffaf naylon). Tüm katlarda korkuluk: ≈0.43 m beyaz dolu alın (döşeme üstü) + borulu paslanmaz küpeşte ≈0.95 m. K3 döşeme alnı sıva grisi (#cdd3d6 güneşte; beyazlara göre 'koyu' görünür), diğerleri beyaz. Görünen kat aralığı duvarda 3.19, yığın önünde 3.37 → yığın ön yüzü pencere sütununun ≈0.55 m önünde; pencere sütunu duvarı taban izi çizgisinin ≈0.6–1.0 m önünde görünüyor (qc-7: 0.6, -KU8: 1.0; pano poz hatası payı). Yağmur borusu beyaz PVC (girinti köşesinde, kelepçeli)."
+      "note": "v5 (yeni ortofoto, düzeltilmiş taban izi; -KU8 referans, qc-7 teyit). Batı kanat güney cephesi: GB köşe yığını artık taban izi boşluğunda (19/20), bu kenar pencere sütununun batısındaki beyaz panodan başlar. Batıdan doğuya: beyaz pano (yalnız K1 5.5–9.4 — K0 hizası gri, qc-7 ve K4 15.05–19.0 hizası; arası ve üstü gri), gri pilastr 0.25 m (u 1.2–1.45), 3 bölmeli pencere sütunu (sol dar/orta geniş/sağ dar, beyaz PVC, her katta koyu gri denizlik; K2 denizliği pilastrlar arası tam genişlik, uçları çıkıntılı), sağ pilastr (4.12–4.43), beyaz pano, büyük yığın (5.3–12.2 ön yüz). Yığın katları: K0 şeffaf cam (içeride klima, sağ uçta), K1 zebra stor camı (sağ uç ~1.7 m storsuz; korkulukta Türksat çanağı + klima), K2 AÇIK (5 borulu korkuluk, SATILIK afişi, tavanda spot, sağ uçta klima), K3 koyu/mavi yansımalı cam, K4 zebra stor, K5 koyu cam (sağda şeffaf naylon). Tüm katlarda korkuluk: ≈0.43 m beyaz dolu alın (döşeme üstü) + borulu paslanmaz küpeşte ≈0.95 m. K3 döşeme alnı sıva grisi (#cdd3d6 güneşte; beyazlara göre 'koyu' görünür), diğerleri beyaz. Görünen kat aralığı duvarda 3.19, yığın önünde 3.37 → yığın ön yüzü pencere sütununun ≈0.55 m önünde; pencere sütunu duvarı taban izi çizgisinin ≈0.6–1.0 m önünde görünüyor (qc-7: 0.6, -KU8: 1.0; pano poz hatası payı). Yağmur borusu beyaz PVC (girinti köşesinde, kelepçeli). | FP-v3 (2026-09-29, taban izi düzeltmesi): güney duvar hattı 1.03 m KUZEYE taşındı (bkz. notlar); ortofoto düzlemi değiştiği için tüm görünen u/y ve cal (u, head) -KU8 GPS kamerasından eski düzlem→yeni düzlem merkezî izdüşümüyle dönüştürüldü (ölçek ×1.109, uF≈6.74 / yCam etrafında) — derlenen gerçek konumlar değişmedi, öğeler duvarla birlikte taşındı."
     },
     {
       "edge": 1,
-      "len": 4.73,
+      "len": 3.7,
       "seen": "partial",
       "ref": "1546358557_0_-KU85kKj.jpg",
       "cal": {
         "u": [
           0,
-          4.73
+          3.704
         ],
         "head": [
           [
@@ -328,7 +329,7 @@
         {
           "t": "panel",
           "u0": 0,
-          "u1": 4.73,
+          "u1": 3.704,
           "y0": 6.47,
           "y1": 9.37,
           "color": "#5f666d"
@@ -336,13 +337,13 @@
         {
           "t": "panel",
           "u0": 0,
-          "u1": 4.73,
+          "u1": 3.704,
           "y0": 15.99,
           "y1": 18.89,
           "color": "#5f666d"
         }
       ],
-      "note": "v5: Girintinin batı duvarı (doğuya bakar). qc-7 yakın karelerinde (321/338_*) görüldü, ortofoto yok: açık gri sıva, K1 ve K4 hizasında koyu antrasit panolar (kenar 3 ile aynı düzen, kenar 0 -KU8 çerçevesinde yükseklik), penceresiz. Ön ucunda batı kanadın büyük yığınının doğu yanı (cam kenar 0'da) ve beyaz PVC yağmur borusu (kenar 0 u 12.75'te yazıldı). Derindeki kısım görülmedi."
+      "note": "v5: Girintinin batı duvarı (doğuya bakar). qc-7 yakın karelerinde (321/338_*) görüldü, ortofoto yok: açık gri sıva, K1 ve K4 hizasında koyu antrasit panolar (kenar 3 ile aynı düzen, kenar 0 -KU8 çerçevesinde yükseklik), penceresiz. Ön ucunda batı kanadın büyük yığınının doğu yanı (cam kenar 0'da) ve beyaz PVC yağmur borusu (kenar 0 u 12.75'te yazıldı). Derindeki kısım görülmedi. | FP-v3 (2026-09-29, taban izi düzeltmesi): başlangıç köşesi (girinti ağzı, v1) kenar boyunca 1.025 m içeri kaydı (güney duvar kuzeye); öğe u −1.025, uzunluk 4.73→3.70, cal.u [0,3.704] (gerçek metre); duvar boyu panolar yeni duvarı kaplar."
     },
     {
       "edge": 2,
@@ -353,13 +354,13 @@
     },
     {
       "edge": 3,
-      "len": 4.38,
+      "len": 3.7,
       "seen": "photo",
       "ref": "1546358557_3_-KU85kKj.jpg",
       "cal": {
         "u": [
-          0.0,
-          4.7
+          0,
+          3.974
         ],
         "head": [
           [
@@ -376,7 +377,7 @@
         {
           "t": "panel",
           "u0": 0,
-          "u1": 4.7,
+          "u1": 3.974,
           "y0": 5.8,
           "y1": 8.7,
           "color": "#5f666d"
@@ -384,42 +385,42 @@
         {
           "t": "panel",
           "u0": 0,
-          "u1": 4.7,
+          "u1": 3.974,
           "y0": 15.2,
           "y1": 18.3,
           "color": "#5f666d"
         }
       ],
-      "note": "v5 (-KU8, gölgede): girintinin doğu duvarı (batıya bakar): açık gri sıva (gölgede #95a0a8), K1 (5.8–8.7) ve K4 (15.2–18.3) hizasında koyu antrasit panolar (gölgede #5c636b), penceresiz. Ağzında doğu kanadın B yığınının batı yanı (kenar 4 B yığını girinti köşesinden başlar). Yükseklik kalibrasyonu panolardan (pencere yok)."
+      "note": "v5 (-KU8, gölgede): girintinin doğu duvarı (batıya bakar): açık gri sıva (gölgede #95a0a8), K1 (5.8–8.7) ve K4 (15.2–18.3) hizasında koyu antrasit panolar (gölgede #5c636b), penceresiz. Ağzında doğu kanadın B yığınının batı yanı (kenar 4 B yığını girinti köşesinden başlar). Yükseklik kalibrasyonu panolardan (pencere yok). | FP-v3 (2026-09-29, taban izi düzeltmesi): bitiş köşesi (girinti ağzı, v4) kenar boyunca 0.676 m geri çekildi; uzunluk 4.38→3.70; cal.u[1] 4.7→3.974 (ölçek korundu), panolar yeni duvarı kaplar."
     },
     {
       "edge": 4,
-      "len": 11.94,
+      "len": 11.93,
       "seen": "photo",
       "ref": "1546358557_4_Jfyr1r2L.jpg",
       "cal": {
         "u": [
-          -0.48,
-          12.62
+          -1.334,
+          12.677
         ],
         "head": [
           [
             1,
-            8.55
+            8.941
           ],
           [
             5,
-            21.25
+            22.525
           ]
         ]
       },
       "items": [
         {
           "t": "win",
-          "u0": 4.53,
-          "u1": 7.03,
-          "y0": 16.45,
-          "y1": 18.15,
+          "u0": 4.026,
+          "u1": 6.7,
+          "y0": 17.39,
+          "y1": 19.209,
           "k": 4,
           "s": [
             0,
@@ -437,8 +438,8 @@
         },
         {
           "t": "pilaster",
-          "u0": 4.1,
-          "u1": 4.45,
+          "u0": 3.566,
+          "u1": 3.94,
           "s": [
             0,
             5
@@ -448,8 +449,8 @@
         },
         {
           "t": "pilaster",
-          "u0": 7.05,
-          "u1": 7.36,
+          "u0": 6.721,
+          "u1": 7.053,
           "s": [
             0,
             5
@@ -459,85 +460,85 @@
         },
         {
           "t": "band",
-          "u0": 4.1,
-          "u1": 7.36,
-          "y0": 9.85,
-          "y1": 10.02,
+          "u0": 3.566,
+          "u1": 7.053,
+          "y0": 10.331,
+          "y1": 10.513,
           "color": "#5d6368",
           "proud": 0.07
         },
         {
           "t": "band",
-          "u0": 4.5,
-          "u1": 7.05,
-          "y0": 6.8,
-          "y1": 6.9,
+          "u0": 3.994,
+          "u1": 6.721,
+          "y0": 7.069,
+          "y1": 7.176,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "band",
-          "u0": 4.5,
-          "u1": 7.05,
-          "y0": 13.15,
-          "y1": 13.25,
+          "u0": 3.994,
+          "u1": 6.721,
+          "y0": 13.861,
+          "y1": 13.968,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "band",
-          "u0": 4.5,
-          "u1": 7.05,
-          "y0": 16.35,
-          "y1": 16.45,
+          "u0": 3.994,
+          "u1": 6.721,
+          "y0": 17.284,
+          "y1": 17.39,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "band",
-          "u0": 4.5,
-          "u1": 7.05,
-          "y0": 19.65,
-          "y1": 19.75,
+          "u0": 3.994,
+          "u1": 6.721,
+          "y0": 20.813,
+          "y1": 20.92,
           "color": "#5d6368",
           "proud": 0.05
         },
         {
           "t": "panel",
-          "u0": 3.05,
-          "u1": 4.1,
-          "y0": 15.35,
-          "y1": 19.25,
+          "u0": 2.443,
+          "u1": 3.566,
+          "y0": 16.214,
+          "y1": 20.385,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.36,
-          "u1": 8.12,
-          "y0": 15.4,
-          "y1": 19.3,
+          "u0": 7.053,
+          "u1": 7.866,
+          "y0": 16.267,
+          "y1": 20.439,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 3.05,
-          "u1": 4.1,
-          "y0": 5.85,
-          "y1": 9.7,
+          "u0": 2.443,
+          "u1": 3.566,
+          "y0": 6.053,
+          "y1": 10.171,
           "color": "plaster2"
         },
         {
           "t": "panel",
-          "u0": 7.36,
-          "u1": 8.12,
-          "y0": 5.85,
-          "y1": 9.7,
+          "u0": 7.053,
+          "u1": 7.866,
+          "y0": 6.053,
+          "y1": 10.171,
           "color": "plaster2"
         },
         {
           "t": "bal",
-          "u0": -0.55,
-          "u1": 3.15,
+          "u0": -1.408,
+          "u1": 2.55,
           "d": 0.55,
           "inset": 0.95,
           "s": [
@@ -569,8 +570,8 @@
         },
         {
           "t": "bal",
-          "u0": 8.18,
-          "u1": 12.62,
+          "u0": 7.93,
+          "u1": 12.679,
           "d": 0.55,
           "inset": 0.95,
           "s": [
@@ -600,44 +601,44 @@
         },
         {
           "t": "dish",
-          "u": 2.25,
+          "u": 1.587,
           "s": 5,
-          "y": 21.35,
+          "y": 22.632,
           "onBal": true
         },
         {
           "t": "dish",
-          "u": 2.45,
+          "u": 1.801,
           "s": 2,
-          "y": 10.9,
+          "y": 11.454,
           "onBal": true
         },
         {
           "t": "ac",
-          "u": 8.95,
+          "u": 8.753,
           "s": 5,
-          "y": 21.1
+          "y": 22.364
         },
         {
           "t": "band",
-          "y0": 0,
-          "y1": 2.6,
-          "u0": -0.48,
-          "u1": 12.62,
+          "y0": -0.204,
+          "y1": 2.577,
+          "u0": -1.333,
+          "u1": 12.679,
           "color": "plinth"
         }
       ],
-      "note": "v5 (yeni ortofoto; Jfyr referans, qc-7 teyit — iki pano arasında yatay ~2 m poz tutarsızlığı, Jfyr + taban izi esas). Doğu kanat güney cephesi, batıdan: B yığını (girinti köşesinden u 3.15'e; K0 ağaç arkasında — cam/açık görülmedi, çizilmedi; K1 koyu stor/koyu cam (içeride tablo), K2 AÇIK + korkuluk sağ ucunda çanak, K3 şeffaf cam (tavan spotu görünür), K4 AÇIK, K5 koyu cam + sağ uçta çanak), beyaz pano (yalnız K1 5.85–9.7 ve K4 15.35–19.25), pilastr, 3 bölmeli pencere sütunu (K2 denizliği tam genişlik; K2 denizliğinden B yığınına çapraz inen siyah kablo — şemada yok), pilastr, beyaz pano, D yığını (8.18–12.62): K0 AÇIK (arka duvar açık gri, beyaz kapı + tül), K1 koyu mavi cam, K2 şeffaf cam + arkasında beyaz tül/stor, K3 AÇIK, K4 AÇIK, K5 AÇIK (arka duvarda solda klima). Doğu ucu kapalı: kenar 5 duvarı (vupj) yığının doğu yan duvarıdır (end-wall). Tüm katlarda ≈0.43 m beyaz dolu alın + borulu küpeşte; K3 alnı gri. Sağda (u>12.7) geride GD köşe balkonları = kenar 6. Önde sokak lambası direği (u≈12.5; bina değil)."
+      "note": "v5 (yeni ortofoto; Jfyr referans, qc-7 teyit — iki pano arasında yatay ~2 m poz tutarsızlığı, Jfyr + taban izi esas). Doğu kanat güney cephesi, batıdan: B yığını (girinti köşesinden u 3.15'e; K0 ağaç arkasında — cam/açık görülmedi, çizilmedi; K1 koyu stor/koyu cam (içeride tablo), K2 AÇIK + korkuluk sağ ucunda çanak, K3 şeffaf cam (tavan spotu görünür), K4 AÇIK, K5 koyu cam + sağ uçta çanak), beyaz pano (yalnız K1 5.85–9.7 ve K4 15.35–19.25), pilastr, 3 bölmeli pencere sütunu (K2 denizliği tam genişlik; K2 denizliğinden B yığınına çapraz inen siyah kablo — şemada yok), pilastr, beyaz pano, D yığını (8.18–12.62): K0 AÇIK (arka duvar açık gri, beyaz kapı + tül), K1 koyu mavi cam, K2 şeffaf cam + arkasında beyaz tül/stor, K3 AÇIK, K4 AÇIK, K5 AÇIK (arka duvarda solda klima). Doğu ucu kapalı: kenar 5 duvarı (vupj) yığının doğu yan duvarıdır (end-wall). Tüm katlarda ≈0.43 m beyaz dolu alın + borulu küpeşte; K3 alnı gri. Sağda (u>12.7) geride GD köşe balkonları = kenar 6. Önde sokak lambası direği (u≈12.5; bina değil). | FP-v3 (2026-09-29, taban izi düzeltmesi): güney duvar hattı 0.676 m KUZEYE; tüm görünen u/y ve cal Jfyr GPS kamerasından eski→yeni düzlem izdüşümüyle dönüştürüldü (ölçek ×≈1.07) — derlenen gerçek konumlar değişmedi."
     },
     {
       "edge": 5,
-      "len": 3.05,
+      "len": 2.38,
       "seen": "photo",
       "ref": "1546358557_5_vupjKSys.jpg",
       "cal": {
         "u": [
-          0.3,
-          3.3
+          0.288,
+          2.624
         ],
         "head": [
           [
@@ -653,24 +654,24 @@
       "items": [
         {
           "t": "panel",
-          "u0": 0.3,
-          "u1": 3.3,
+          "u0": 0.288,
+          "u1": 2.624,
           "y0": 6.6,
           "y1": 8.6,
           "color": "#5f666d"
         },
         {
           "t": "panel",
-          "u0": 0.3,
-          "u1": 3.3,
+          "u0": 0.288,
+          "u1": 2.624,
           "y0": 15.2,
           "y1": 17.4,
           "color": "#5f666d"
         },
         {
           "t": "band",
-          "u0": 0.3,
-          "u1": 3.3,
+          "u0": 0.288,
+          "u1": 2.624,
           "y0": 5.8,
           "y1": 6.4,
           "color": "plaster2",
@@ -678,8 +679,8 @@
         },
         {
           "t": "band",
-          "u0": 0.3,
-          "u1": 3.3,
+          "u0": 0.288,
+          "u1": 2.624,
           "y0": 8.8,
           "y1": 9.2,
           "color": "plaster2",
@@ -687,29 +688,29 @@
         },
         {
           "t": "band",
-          "u0": 0.3,
-          "u1": 3.3,
+          "u0": 0.288,
+          "u1": 2.624,
           "y0": 14.6,
-          "y1": 15.0,
+          "y1": 15,
           "color": "plaster2",
           "proud": 0.02
         },
         {
           "t": "band",
-          "u0": 0.3,
-          "u1": 3.3,
+          "u0": 0.288,
+          "u1": 2.624,
           "y0": 17.6,
-          "y1": 18.0,
+          "y1": 18,
           "color": "plaster2",
           "proud": 0.02
         },
         {
           "t": "pipe",
-          "u": 0.75,
+          "u": 0.738,
           "color": "#dfe3e4"
         }
       ],
-      "note": "v5 (vupj, güneşte): D yığınının doğu yan duvarı = GD köşe boşluğunun batı duvarı (doğuya bakar), tam kat dolu duvar: açık gri sıva, K1 ve K4 hizasında gri panolar, üst/alt kenarlarında beyaz silme bantları (yığın alınlarının devamı), güney ucunda açık gri/beyaz yağmur borusu. Güney ucunda D yığınının döşemeleri 0.5 m taşar (kenar 4)."
+      "note": "v5 (vupj, güneşte): D yığınının doğu yan duvarı = GD köşe boşluğunun batı duvarı (doğuya bakar), tam kat dolu duvar: açık gri sıva, K1 ve K4 hizasında gri panolar, üst/alt kenarlarında beyaz silme bantları (yığın alınlarının devamı), güney ucunda açık gri/beyaz yağmur borusu. Güney ucunda D yığınının döşemeleri 0.5 m taşar (kenar 4). | FP-v3 (2026-09-29, taban izi düzeltmesi): başlangıç köşesi (v5, D yığını GD köşesi) kenar boyunca 0.656 m kuzeye kaydı; uzunluk 3.05→2.38; panolar/bantlar yeni duvarı kaplar (cal.u [0.288,2.624]); köşedeki yağmur borusu köşeyle birlikte taşındı (köşeden aynı 0.45 m)."
     },
     {
       "edge": 6,
@@ -1421,9 +1422,9 @@
         },
         {
           "t": "bal",
-          "u0": -2.0,
+          "u0": -2,
           "u1": 0.5,
-          "d": 2.0,
+          "d": 2,
           "s": [
             0,
             5
@@ -1457,7 +1458,7 @@
           "t": "bal",
           "u0": 0.5,
           "u1": 3.4,
-          "d": 3.35,
+          "d": 2.34,
           "s": [
             0,
             5
@@ -1483,25 +1484,25 @@
         },
         {
           "t": "ac",
-          "u": 3.0,
+          "u": 3,
           "s": 0,
           "y": 4.4
         },
         {
           "t": "ac",
-          "u": 3.0,
+          "u": 3,
           "s": 5,
           "y": 21.3
         }
       ],
-      "note": "v5 (kgyF/ChHr yakın kareleri + -KU8 ortofotosu u<0; gerçek metre, yükseklikler kenar 0 çerçevesinde): GB köşe boşluğunun arka duvarı (güneye bakar), koyu antrasit. Batıda batı cephe güney dairesinin balkonları köşeyi döner (K0 açık, K1 koyu cam, K2 açık, K3 koyu cam + koyu gri alın, K4 zebra stor, K5 koyu cam). Doğuda GB yığını (ön yüzü kenar 0 yığınlarıyla aynı hizada, d≈3.35): K0 AÇIK (arka duvarda klima, kapı), K1 AÇIK (çamaşırlık), K2 AÇIK, K3 AÇIK (alın koyu gri), K4 şeffaf cam + beyaz stor, K5 AÇIK (arka duvarda klima), üstte beyaz kapak. İkisi arasında geride koyu duvar şeridi. Yığının genişliği taban izi boşluğuyla sınırlandı (-KU8'de ≈3.7 m görünür; taban izi boşluğu 3.4 m)."
+      "note": "v5 (kgyF/ChHr yakın kareleri + -KU8 ortofotosu u<0; gerçek metre, yükseklikler kenar 0 çerçevesinde): GB köşe boşluğunun arka duvarı (güneye bakar), koyu antrasit. Batıda batı cephe güney dairesinin balkonları köşeyi döner (K0 açık, K1 koyu cam, K2 açık, K3 koyu cam + koyu gri alın, K4 zebra stor, K5 koyu cam). Doğuda GB yığını (ön yüzü kenar 0 yığınlarıyla aynı hizada, d≈3.35): K0 AÇIK (arka duvarda klima, kapı), K1 AÇIK (çamaşırlık), K2 AÇIK, K3 AÇIK (alın koyu gri), K4 şeffaf cam + beyaz stor, K5 AÇIK (arka duvarda klima), üstte beyaz kapak. İkisi arasında geride koyu duvar şeridi. Yığının genişliği taban izi boşluğuyla sınırlandı (-KU8'de ≈3.7 m görünür; taban izi boşluğu 3.4 m). | FP-v3 (2026-09-29, taban izi düzeltmesi): GB köşe yığını d 3.35→2.34: gözlem \"ön yüzü kenar 0 yığınlarıyla aynı hizada\" korunarak (kenar 0 yığın önü artık 1.03 m kuzeyde); kenar 19 duvarının kendisi taşınmadı (bağımsız ölçüm yok)."
     },
     {
       "edge": 20,
-      "len": 2.79,
+      "len": 1.77,
       "seen": "partial",
       "items": [],
-      "note": "v5: GB köşe boşluğunun doğu yan duvarı (batıya bakar) = GB yığınının doğu yan duvarı (kenar 19 'end-wall'); G8RU/kgyF'de yığının arkasında kalıyor → ayrı öğe yok."
+      "note": "v5: GB köşe boşluğunun doğu yan duvarı (batıya bakar) = GB yığınının doğu yan duvarı (kenar 19 'end-wall'); G8RU/kgyF'de yığının arkasında kalıyor → ayrı öğe yok. | FP-v3 (2026-09-29, taban izi düzeltmesi): GB boşluğunun doğu duvarı 2.79→1.77 m (v0 kuzeye taşındı); öğe yok."
     }
   ],
   "pending": [
@@ -1510,18 +1511,19 @@
       "edge": 0,
       "storey": 2,
       "u": [
-        6.2,
-        7.4
+        6.143,
+        7.473
       ],
       "y": [
-        9.8,
-        10.6
+        10.582,
+        11.469
       ],
       "mount": "K2 borulu korkuluğun önü (duvardan ≈1.5 m; tabela montajı yalnız duvar/bant/çıkıntıya)",
       "bg": "#f4f5f7",
       "fg": "#2e3a8c",
       "text": "SATILIK",
-      "logo": "solda ≈0.35 m koyu lacivert şerit, beyaz kutulu emlak logosu + kişi fotoğrafı; telefon numaraları okunmuyor"
+      "logo": "solda ≈0.35 m koyu lacivert şerit, beyaz kutulu emlak logosu + kişi fotoğrafı; telefon numaraları okunmuyor",
+      "note": "u/y FP-v3 ortofoto çerçevesine dönüştürüldü."
     },
     {
       "what": "Pahlı döşeme köşesi",

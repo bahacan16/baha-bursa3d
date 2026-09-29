@@ -441,6 +441,7 @@ export class OsmWorld implements IWorld {
           shadows: quality !== 'low',
           collide,
           roadMaterial: world.materials.roadFill,
+          quality,
         });
         world.object.add(mk.group);
         fenceSkip = mk.fenceSkip;

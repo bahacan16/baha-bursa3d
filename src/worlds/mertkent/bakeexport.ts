@@ -138,7 +138,19 @@ export function installBakeExport(world: WorldLike): void {
       });
       const glb = await toGlb(scene);
       scene.traverse((o) => (o as THREE.Mesh).geometry?.dispose());
-      return { glb, size: u.size, texel: u.texel, charts: u.charts, unwrapMs: Math.round(ms) };
+      const rb = new Uint8Array(u.rects.buffer, u.rects.byteOffset, u.rects.byteLength);
+      let rs = '';
+      for (let i = 0; i < rb.length; i += 0x8000)
+        rs += String.fromCharCode(...rb.subarray(i, Math.min(i + 0x8000, rb.length)));
+      return {
+        glb,
+        rects: btoa(rs),
+        size: u.size,
+        texel: u.texel,
+        charts: u.charts,
+        fill: u.fill,
+        unwrapMs: Math.round(ms),
+      };
     },
     /**
      * Engelleyiciler (alıcı değil): arazi, OSM/Street View binaları, ağaç taçları (küre/koni vekil),
@@ -156,12 +168,16 @@ export function installBakeExport(world: WorldLike): void {
       const ground = world.object.getObjectByName('ground') as THREE.Mesh | undefined;
       // Arazi 0.3 m aşağıda: vekil üçgenler (10 m ızgara) çift doğrusal H'den birkaç cm sapar ve üstüne serilen
       // döşeme katmanlarını (H + 1..15 cm) örtüp karartıyordu. Zemin AO düzlemi bunu geri ekler (bake_ao.py).
-      if (ground) add(clipMesh(ground, rect)?.translate(0, -TERRAIN_DROP, 0) ?? null, 'occ_terrain', 0x807a70);
+      if (ground)
+        add(clipMesh(ground, rect)?.translate(0, -TERRAIN_DROP, 0) ?? null, 'occ_terrain', 0x807a70);
       const osm: THREE.BufferGeometry[] = [];
       world.object.traverse((o) => {
         const m = o as THREE.Mesh;
         if (!m.isMesh || (m as unknown as THREE.InstancedMesh).isInstancedMesh) return;
-        if (/^(wall|roof|roofTile|detail|barrier|rail)@/.test(m.name) || /^streetview (facades|hedges)/.test(m.name)) {
+        if (
+          /^(wall|roof|roofTile|detail|barrier|rail)@/.test(m.name) ||
+          /^streetview (facades|hedges)/.test(m.name)
+        ) {
           const g = clipMesh(m, rect, 0);
           if (g) osm.push(g);
         }
@@ -187,9 +203,7 @@ export function installBakeExport(world: WorldLike): void {
       const mtx = new THREE.Matrix4();
       const box = new THREE.Box3();
       const tm = world.treeMeshes ?? [];
-      const ims: { im: THREE.InstancedMesh; mats: ArrayLike<number> }[] = tm.length
-        ? tm
-        : [];
+      const ims: { im: THREE.InstancedMesh; mats: ArrayLike<number> }[] = tm.length ? tm : [];
       if (!ims.length)
         world.object.traverse((o) => {
           const im = o as THREE.InstancedMesh;

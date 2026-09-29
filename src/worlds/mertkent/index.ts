@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { SimpleOsm } from '../osm/simplify';
 import { Builder, type V2 } from './builder';
 import { buildApartment, insidePoly, type ApartmentStyle } from './apartment';
-import { buildFacadeBlock, type CK, type CompiledBlock } from './facade';
+import { buildFacadeBlock, footCollision, type CK, type CompiledBlock } from './facade';
 import { splitMassing } from './massing';
 import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
 import facadesData from './data/facades.json';
@@ -27,7 +27,16 @@ const USE_PLAN =
 /** Ölçülmüş sokak planı (street-plan.json, ajan ölçümü) — yoksa OSM site sınırından çit */
 const STREET_PLAN = STREET_PLAN0 as Omit<StreetPlan, 'fence'> & { fence?: FenceSpec[] };
 import { buildBrickFence, buildSalusGate, type BrickSeg } from './salus';
-import { buildDriveGate, buildFence, buildGate, buildParkKoza, buildSideDoor, type FenceSeg } from './site';
+import {
+  buildDriveGate,
+  buildFence,
+  buildGate,
+  buildParkKoza,
+  buildPlanGate,
+  gateGapWidth,
+  type FenceSeg,
+  type PlanGate,
+} from './site';
 import { buildOzhan } from './ozhan';
 import { buildGrounds } from './grounds';
 import { groundHoles } from '../osm/materials';
@@ -225,6 +234,54 @@ function nightLamp(color: number, strength: number): THREE.Material {
   };
   m.customProgramCacheKey = () => `mk-lamp-${strength}`;
   return m;
+}
+
+/**
+ * Derzli kaplama malzemesi (`clad:<v|h>:<aralık>:<derz genişliği>:<derz rengi>`, taban rengi hex): beyaz tabanlı
+ * derz dokusu (derz pikseli = derz rengi / taban rengi) × taban rengi, derz kenarlarında normal; doku tekrarı aralığa
+ * göre (dünya UV = metre). Tek tek derz şeridi yerine (0.14 m aralıkta yüzlerce şerit uzakta titreşir).
+ */
+function cladMaterial(kind: string, hex: string): THREE.Material {
+  const [, dir, ev, wv, gc] = kind.split(':');
+  const every = Math.max(0.03, Number(ev) || 0.15);
+  const frac = Math.max(0.02, Math.min(0.4, (Number(wv) || 0.02) / every));
+  const base = new THREE.Color(hex);
+  const gcol = new THREE.Color(/^#[0-9a-f]{6}$/i.test(gc ?? '') ? gc : '#000000');
+  if (typeof document === 'undefined') return new THREE.MeshStandardMaterial({ color: hex, roughness: 0.8 });
+  const N = 64;
+  const cv = document.createElement('canvas');
+  const nv = document.createElement('canvas');
+  const vert = dir !== 'h';
+  cv.width = nv.width = vert ? N : 4;
+  cv.height = nv.height = vert ? 4 : N;
+  const g = cv.getContext('2d')!;
+  const ng = nv.getContext('2d')!;
+  const r = (c: number, bc: number) => Math.round(255 * Math.min(1, bc > 0.01 ? c / bc : 1));
+  g.fillStyle = '#ffffff';
+  g.fillRect(0, 0, cv.width, cv.height);
+  ng.fillStyle = 'rgb(128,128,255)';
+  ng.fillRect(0, 0, nv.width, nv.height);
+  const gw = Math.max(1, Math.round(N * frac));
+  g.fillStyle = `rgb(${r(gcol.r, base.r)},${r(gcol.g, base.g)},${r(gcol.b, base.b)})`;
+  if (vert) g.fillRect(0, 0, gw, 4);
+  else g.fillRect(0, 0, 4, gw);
+  // Derz kenarlarında eğim (normal haritası): derzin iki yanı içe bakar
+  ng.fillStyle = vert ? 'rgb(40,128,215)' : 'rgb(128,40,215)';
+  if (vert) ng.fillRect(gw, 0, 1, 4);
+  else ng.fillRect(0, gw, 4, 1);
+  ng.fillStyle = vert ? 'rgb(216,128,215)' : 'rgb(128,216,215)';
+  if (vert) ng.fillRect(N - 1, 0, 1, 4);
+  else ng.fillRect(0, N - 1, 4, 1);
+  const map = new THREE.CanvasTexture(cv);
+  map.colorSpace = THREE.SRGBColorSpace;
+  const nm = new THREE.CanvasTexture(nv);
+  for (const t of [map, nm]) {
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.anisotropy = 8;
+    if (vert) t.repeat.set(1 / every, 1);
+    else t.repeat.set(1, 1 / every);
+  }
+  return new THREE.MeshStandardMaterial({ map, normalMap: nm, color: hex, roughness: 0.75 });
 }
 
 /** Blok paleti: ölçümde örneklenen renklerden bloğa özel malzemeler (güneşli yüzden alındığı için hafif koyu) */
@@ -490,6 +547,21 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetFactor: -8,
       polygonOffsetUnits: -8,
     }),
+    // Aşınmış yol boyası (yaya geçidi `wear`): gürültü alfa eşiği ≈ %25 / %50 / %75 eksik
+    ...Object.fromEntries(
+      [1, 2, 3].map((l) => [
+        `spPaintWear${l}`,
+        std({
+          color: 0xeeeeea,
+          roughness: 0.6,
+          alphaMap: typeof document === 'undefined' ? null : T.paintWearTexture(11),
+          alphaTest: [0, 0.38, 0.5, 0.62][l],
+          polygonOffset: true,
+          polygonOffsetFactor: -8,
+          polygonOffsetUnits: -8,
+        }),
+      ]),
+    ),
     spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
     // Bisiklet şeridi (kullanıcı fotoğrafı, 502. Sk.): mat mavi asfalt boyası
     spBike: std({
@@ -1023,6 +1095,8 @@ export interface MertkentOptions {
   collide?: Collide;
   /** OSM yol malzemesi (bordür ile OSM asfaltı arasındaki dolgu aynı görünsün) */
   roadMaterial?: THREE.Material;
+  /** Grafik kalitesi: Yüksek (ve Ultra) kalitede beton kenarları 1.5 cm pahlı (Düşük/Orta: geometri değişmez) */
+  quality?: 'low' | 'medium' | 'high';
 }
 
 /** Elle modellenmiş bölgeyi kurar. fenceSkip: StreetView çit kabuğunun bu bölgede çizilmemesi için. */
@@ -1039,12 +1113,38 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   group.name = 'mertkent (el modeli)';
   const b = new Builder();
   const extraMats: Record<string, THREE.Material> = {};
+  // Yüksek/Ultra: döşeme alnı, parapet, denizlik, harpuşta, bordür kenarları pahlı (1.5 cm)
+  const bevel = o.quality === 'high' ? 0.015 : 0;
   // Ölçülen özel renkler (kat kat balkon alını, korkuluk metali, çıkma, tente) ve tabela yüzleri → dinamik malzeme
-  const colorKey = (kind: CK, hex: string): string => {
+  const colorKey = (kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3', hex: string): string => {
+    const wearL = kind.startsWith('wear') ? Number(kind.slice(4)) : 0;
     const k = `cc_${kind}_${hex.toLowerCase()}`;
     if (!extraMats[k])
       extraMats[k] =
-        kind === 'shutter'
+        kind.startsWith('clad:')
+          ? cladMaterial(kind, hex)
+          : kind === 'blind'
+          ? // Bambu / hasır stor: çıtalı doku × ölçülen renk, iki yüz
+            new THREE.MeshStandardMaterial({
+              map: typeof document === 'undefined' ? null : T.bambooBlindTexture(),
+              color: hex,
+              roughness: 0.85,
+              side: THREE.DoubleSide,
+            })
+          : kind === 'asphalt' || kind === 'tar' || wearL > 0
+            ? // Yol yüzeyi ayrıntısı (yama / çatlak dolgusu / çizgi aşınması): ölçülen ton, asfalt normal dokusu;
+              // aşınma: gürültü alfa (alphaTest; kademe 1/2/3 ≈ %25/50/75 örtü) ile boyayı örten yol tonu
+              new THREE.MeshStandardMaterial({
+                color: hex,
+                roughness: kind === 'tar' ? 0.5 : 0.93,
+                normalMap: (o.roadMaterial as THREE.MeshStandardMaterial | undefined)?.normalMap ?? null,
+                alphaMap: wearL > 0 && typeof document !== 'undefined' ? T.paintWearTexture(7) : null,
+                alphaTest: wearL > 0 ? [0, 0.62, 0.5, 0.38][wearL] : 0,
+                polygonOffset: true,
+                polygonOffsetFactor: wearL > 0 ? -9 : kind === 'tar' ? -8 : -6,
+                polygonOffsetUnits: wearL > 0 ? -9 : kind === 'tar' ? -8 : -6,
+              })
+            : kind === 'shutter'
           ? // Kepenk: ölçülen renkte lamelli alüminyum (beyaz tabanlı lamel dokusu × renk)
             new THREE.MeshStandardMaterial({
               map: T.rollerShutterTexture(),
@@ -1094,22 +1194,35 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     shape?: string | null;
     icon?: string | null;
     iconC?: string | null;
+    banner?: string | null;
+    side?: boolean;
+    glyphs?: { ch: string; mirror?: boolean }[] | null;
+    join?: number | null;
   }): string => {
-    const k = `sign_${JSON.stringify([sg.text, sg.lines ?? null, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10), sg.outline ?? null, sg.shape ?? null, sg.icon ?? null, sg.iconC ?? null])}`;
+    const k = `sign_${JSON.stringify([sg.text, sg.lines ?? null, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10), sg.outline ?? null, sg.shape ?? null, sg.icon ?? null, sg.iconC ?? null, ...(sg.banner ? [sg.banner] : []), ...(sg.side ? ['side'] : []), ...(sg.glyphs?.length ? [sg.glyphs, sg.join ?? null] : [])])}`;
     if (!extraMats[k]) {
       if (typeof document === 'undefined')
         extraMats[k] = new THREE.MeshStandardMaterial({ color: sg.bg ?? sg.fg });
-      else {
+      else if (sg.banner) {
+        // Korkuluğa asılı bayrak / portreli pankart (kumaş, iki yüz)
+        extraMats[k] = new THREE.MeshStandardMaterial({
+          map: T.bannerTexture({ style: sg.banner, bg: sg.bg, fg: sg.fg, text: sg.text, w: sg.w, h: sg.h }),
+          roughness: 0.85,
+          side: THREE.DoubleSide,
+        });
+      } else {
         const map = T.shopSignTexture(sg);
-        const transparent = !sg.bg || sg.style === 'letters' || sg.shape === 'round';
+        const transparent = !sg.bg || sg.style === 'letters' || sg.shape === 'round' || sg.shape === 'oval';
+        // Kalın harflerin yan katmanları: aynı harf dokusu, koyulaştırılmış ve ışıksız (yan yüz gölgesi)
         extraMats[k] = new THREE.MeshStandardMaterial({
           map,
+          color: sg.side ? 0x8c8c8c : 0xffffff,
           transparent,
           alphaTest: transparent ? 0.35 : 0,
           roughness: sg.lit ? 0.35 : 0.6,
-          emissive: sg.lit ? 0xffffff : 0x000000,
-          emissiveMap: sg.lit ? map : null,
-          emissiveIntensity: sg.lit ? 0.35 : 0,
+          emissive: sg.lit && !sg.side ? 0xffffff : 0x000000,
+          emissiveMap: sg.lit && !sg.side ? map : null,
+          emissiveIntensity: sg.lit && !sg.side ? 0.35 : 0,
           polygonOffset: true,
           polygonOffsetFactor: -2,
           polygonOffsetUnits: -2,
@@ -1125,6 +1238,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
           signFace,
           colorKey,
           collide: o.collide,
+          roadEdge: roadGapFn(o.simple),
+          bevel,
         })
       : null;
   const walkSkip = street ? street.covers : undefined;
@@ -1149,15 +1264,17 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const lv = Number(w?.t?.['building:levels']);
     const name = BLOCK_NAMES[bi];
     const fac = FACADES[id];
+    let holes: [number, number][][] = [];
     if (fac && !NO_SURVEY)
-      buildFacadeBlock(b, fac, base, {
+      holes = buildFacadeBlock(b, fac, base, {
         seed: id % 100000,
         collide: o.collide,
         signKey: `blockSign${name}`,
         keys: paletteKeys(fac, id, extraMats),
         colorKey,
         signFace,
-      });
+        bevel,
+      }).holes;
     else
       buildApartment(b, {
         ring: r,
@@ -1168,11 +1285,12 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         name,
         signKey: `blockSign${name}`,
       });
-    o.collide?.(
+    // Zemine inen girinti ağızları (girintili dükkân hattı, kapı yuvası) çarpışma halkasından çıkarılır
+    for (const rr of footCollision(
       r.map((p) => [p[0], p[1]]),
-      base - 1,
-      base + 25,
-    );
+      holes,
+    ))
+      o.collide?.(rr, base - 1, base + 25);
   });
   // Ölçülmüş komşu binalar
   if (!NO_SURVEY)
@@ -1181,19 +1299,23 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       const r = fac.ring.map((p) => [p[0], p[1]] as V2);
       const base = ringBase(r);
       const keys = paletteKeys(fac, id, extraMats);
+      const holes: [number, number][][] = [];
       for (const part of splitMassing(fac))
-        buildFacadeBlock(b, part, base, {
-          seed: part.id % 100000,
-          collide: o.collide,
-          keys,
-          colorKey,
-          signFace,
-        });
-      o.collide?.(
+        holes.push(
+          ...buildFacadeBlock(b, part, base, {
+            seed: part.id % 100000,
+            collide: o.collide,
+            keys,
+            colorKey,
+            signFace,
+            bevel,
+          }).holes,
+        );
+      for (const rr of footCollision(
         r.map((p) => [p[0], p[1]]),
-        base - 1,
-        base + 40,
-      );
+        holes,
+      ))
+        o.collide?.(rr, base - 1, base + 40);
     }
   // Özhan
   // Düzeltilmiş taban izi (hava fotoğrafı; OSM ile aynı köşe sırası), yoksa OSM
@@ -1276,14 +1398,16 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const salusFac = FACADES[SALUS_BUILDING];
     const salusRingC = (salusFac?.ring.map((p) => [p[0], p[1]] as V2) ?? salusB) as V2[];
     const base = ringBase(salusRingC);
+    let salusHoles: [number, number][][] = [];
     if (salusFac && !NO_SURVEY)
-      buildFacadeBlock(b, salusFac, base, {
+      salusHoles = buildFacadeBlock(b, salusFac, base, {
         seed: 4242,
         collide: o.collide,
         keys: paletteKeys(salusFac, SALUS_BUILDING, extraMats),
         colorKey,
         signFace,
-      });
+        bevel,
+      }).holes;
     else
       buildApartment(b, {
         ring: salusB,
@@ -1293,11 +1417,11 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         inside: [-78, -178],
         style: SALUS_STYLE,
       });
-    o.collide?.(
+    for (const rr of footCollision(
       salusRingC.map((p) => [p[0], p[1]]),
-      base - 1,
-      base + 25,
-    );
+      salusHoles,
+    ))
+      o.collide?.(rr, base - 1, base + 25);
     const pool = ringOf(o.simple, SALUS_POOL);
     const g = USE_PLAN
       ? null
@@ -1411,17 +1535,9 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         gateGaps,
         o.collide,
       );
-    for (const g of DRIVE_GATES)
-      buildDriveGate(b, g.c, g.n, o.H(g.c[0], g.c[1]) + (SP_GATES.length ? 0.03 : 0), g.w, !SP_GATES.length);
-    for (const g of DOORS) {
-      // Ölçülmüş biçim (lamelli kanat, kalın kolon) varsa onu, yoksa Mertkent yaprak kaplı kapısını çiz
-      const pl = g.pillars;
-      buildSideDoor(b, g.c, g.n, o.H(g.c[0], g.c[1]) + 0.15, g.w, g.h ?? 2, {
-        style: g.style,
-        leafKey: g.color ? colorKey('metal', g.color) : undefined,
-        pillars: pl ? { w: pl.w, h: pl.h, key: colorKey('fascia', pl.color), lamp: pl.lamp } : undefined,
-      });
-    }
+    // Ölçülmüş kapılar (street-plan) aşağıda ortak kapı çizicisiyle; ölçüm yoksa varsayılan araç kapıları
+    if (!SP_GATES.length)
+      for (const g of DRIVE_GATES) buildDriveGate(b, g.c, g.n, o.H(g.c[0], g.c[1]), g.w, true);
     // Ölçülmüş kaldırımlar site çevresinin tamamını kapsıyor → eski tahmini kaldırım yok
     if (!street) fenceWalk(b, o, segs, 'walk', true);
   }
@@ -1473,42 +1589,28 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       }
       return k;
     };
+    // Komşu çitler + serbest duvarlar (kind "wall": bir site çitine bağlı olmayan duvar, ör. 504. Sk. kuzey duvarı)
     const others = (STREET_PLAN.fence ?? []).filter(
-      (f) => f.kind === 'other' && f.pts?.length >= 2,
+      (f) => (f.kind === 'other' || f.kind === 'wall') && f.pts?.length >= 2,
     ) as unknown as GenericFence[];
-    const og = (STREET_PLAN.gates ?? []).filter((g) => /^da\d-/.test((g as { id?: string }).id ?? ''));
-    const gapsO = og.map((g) => ({ c: g.c, w: g.w + 0.3 }));
-    for (const f of others) buildGenericFence(b, f, o.H, mat, gapsO, o.collide);
-    for (const g of og) {
-      const y = o.H(g.c[0], g.c[1]) + 0.05;
-      const gs = g as {
-        style?: string;
-        h?: number;
-        color?: string;
-        leaves?: number;
-        pillars?: { w: number; h: number; color: string };
-        kind?: string;
-      };
-      // Ferforje yaya kapısı: style "wrought" ya da ölçüm notunda "ferforje" yazan yaya kapısı
-      const wrought =
-        gs.style === 'wrought' || (gs.kind === 'pedestrian' && /ferforje|wrought/i.test(g.note ?? ''));
-      if (wrought) {
-        // Ölçülmüş siyah ferforje yaya kapısı (mızrak uçlu çubuklar, alt süs bandı)
-        buildWroughtGate(b, g.c, g.n, y, g.w, gs.h ?? 1.8, mat, {
-          color: gs.color,
-          leaves: gs.leaves,
-          pillars: gs.pillars ?? null,
-        });
-        continue;
-      }
-      // Komşu sitelerde yaya kapıları çoğunlukla siyah çubuklu; notta gri lamelli ise gri
-      const grey = /gri\b.*(lamel|çıta|slat)|grey slat/i.test(g.note ?? '');
-      buildDriveGate(b, g.c, g.n, y, g.w, false, grey);
-    }
+    // Tüm ölçülmüş kapılar (Salusvizyon hariç: salus.ts) — biçim (`style`), renk, kolonlar HER kapıda uygulanır
+    const planGates = (STREET_PLAN.gates ?? []).filter(
+      (g) => !/^salus/.test((g as { id?: string }).id ?? ''),
+    ) as unknown as PlanGate[];
+    const gapsO = planGates.map((g) => ({ c: g.c, w: gateGapWidth(g) }));
+    for (const f of others) buildGenericFence(b, f, o.H, mat, gapsO, o.collide, bevel);
+    for (const g of planGates)
+      buildPlanGate(b, g, o.H(g.c[0], g.c[1]), {
+        mat,
+        colorKey: (k, h) => colorKey(k, h),
+        signFace,
+        collide: o.collide,
+        wrought: buildWroughtGate,
+      });
   }
   // Park Koza Sitesi girişi (502. Sk doğu yakası, güney uç; Street View l4zd… kuzey karesi)
   buildParkKoza(b, [11.2, -37.4], [0, 1], o.H(11.2, -37.4) + 0.05, o.collide);
-  for (const g of GATES) buildGate(b, g.c, g.n, o.H(g.c[0], g.c[1]) + (SP_GATES.length ? 0.15 : 0));
+  if (!SP_GATES.length) for (const g of GATES) buildGate(b, g.c, g.n, o.H(g.c[0], g.c[1]));
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
   if (!street) signPole(b, [-31.3, -145.8], [-0.95, -0.31], o.H(-31.3, -145.8), ['signCurve', 'sign30']);
   const mats = materials(o.base);

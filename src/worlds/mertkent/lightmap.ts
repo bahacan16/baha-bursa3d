@@ -44,7 +44,7 @@ export interface UnwrapOptions {
   maxAtlas: number;
 }
 
-export const DEFAULT_UNWRAP: UnwrapOptions = { texel: 0.08, pad: 2, maxAtlas: 4096 };
+export const DEFAULT_UNWRAP: UnwrapOptions = { texel: 0.08, pad: 1, maxAtlas: 4096 };
 
 export interface UnwrappedPart {
   /** Yeni köşe → kaynak köşe sırası (öznitelikler buradan kopyalanır) */
@@ -62,11 +62,23 @@ export interface UnwrapResult {
   texel: number;
   parts: UnwrappedPart[];
   charts: number;
+  /**
+   * Ada dikdörtgenleri (atlas px, üstten): ada başına [x, y, w, h, n_yukarı]. Pişirmede açık alan değeri E0(n) için
+   * normal pişirmesi yerine kullanılır (ada düzlemseldir, normal farkı < ~10°).
+   */
+  rects: Float32Array;
+  /** Adaların kapladığı piksel oranı (pay ve boşluk hariç) */
+  fill: number;
 }
 
 const Q = 1000; // mm
 
-function qv(a: THREE.BufferAttribute | THREE.InterleavedBufferAttribute, i: number, out: Int32Array, o: number) {
+function qv(
+  a: THREE.BufferAttribute | THREE.InterleavedBufferAttribute,
+  i: number,
+  out: Int32Array,
+  o: number,
+) {
   out[o] = Math.round(a.getX(i) * Q);
   out[o + 1] = Math.round(a.getY(i) * Q);
   out[o + 2] = Math.round(a.getZ(i) * Q);
@@ -154,6 +166,8 @@ interface Chart {
   st: number[];
   w: number;
   h: number;
+  /** ada normalinin yukarı bileşeni */
+  up: number;
 }
 
 /**
@@ -310,7 +324,7 @@ export function unwrapChunk(
       const vy = nz * ux - nx * uz;
       const vz = nx * uy - ny * ux;
       const ci = charts.length;
-      const ch: Chart = { part: pi, verts: [], st: [], w: 0, h: 0 };
+      const ch: Chart = { part: pi, verts: [], st: [], w: 0, h: 0, up: ny };
       let u0 = Infinity;
       let v0 = Infinity;
       let u1 = -Infinity;
@@ -349,41 +363,50 @@ export function unwrapChunk(
     }
   });
 
-  // Paketleme: yoğunluk sığana kadar büyür
+  // Paketleme. KARAR: atlas kenarı iki katına çıkmadan önce yoğunluk hedefin 1.25 katına kadar gevşetilir
+  // (4096²'ye %20 dolulukla sıçramak yerine 2048²'de 9–10 cm/px); en büyük atlasta sığana kadar büyür.
+  const layout = (tx: number) => {
+    const d = new Int32Array(charts.length * 2);
+    const tf = new Uint8Array(charts.length);
+    let area = 0;
+    charts.forEach((c, i) => {
+      const w = Math.ceil(c.w / tx);
+      const h = Math.ceil(c.h / tx);
+      const tiny = w <= 2 && h <= 2;
+      tf[i] = tiny ? 1 : 0;
+      // 4 px ızgarasına hizalı dikdörtgenler: mip 0–2 seviyelerinde adalar birbirine karışmaz (gizli yüzlerin siyahı
+      // uzakta görünen yüzlere sızmaz)
+      d[i * 2] = tiny ? 4 : (Math.max(1, w) + 2 * opts.pad + 3) & ~3;
+      d[i * 2 + 1] = tiny ? 4 : (Math.max(1, h) + 2 * opts.pad + 3) & ~3;
+      area += d[i * 2] * d[i * 2 + 1];
+    });
+    return { d, tf, area };
+  };
   let texel = opts.texel;
   let size = 0;
   let place: Int32Array = new Int32Array(0);
-  let dims: Int32Array = new Int32Array(0);
+  let dimsF: Int32Array = new Int32Array(0);
   let tinyF = new Uint8Array(0);
-  for (let attempt = 0; attempt < 40; attempt++) {
-    dims = new Int32Array(charts.length * 2);
-    tinyF = new Uint8Array(charts.length);
-    let area = 0;
-    charts.forEach((c, i) => {
-      const w = Math.ceil(c.w / texel);
-      const h = Math.ceil(c.h / texel);
-      const tiny = w <= 2 && h <= 2;
-      tinyF[i] = tiny ? 1 : 0;
-      // 4 px ızgarasına hizalı dikdörtgenler: mip 0–2 seviyelerinde adalar birbirine karışmaz (gizli yüzlerin siyahı
-      // uzakta görünen yüzlere sızmaz)
-      dims[i * 2] = tiny ? 4 : (Math.max(1, w) + 2 * opts.pad + 3) & ~3;
-      dims[i * 2 + 1] = tiny ? 4 : (Math.max(1, h) + 2 * opts.pad + 3) & ~3;
-      area += dims[i * 2] * dims[i * 2 + 1];
-    });
-    let S = 64;
-    while (S * S < area * 1.08 && S < opts.maxAtlas) S *= 2;
-    let fitted = false;
-    for (; S <= opts.maxAtlas; S *= 2) {
-      const r = shelfPack(dims, S);
-      if (r) {
-        place = r;
-        size = S;
-        fitted = true;
-        break;
-      }
-    }
-    if (fitted) break;
-    texel *= 1.12;
+  const tryFit = (S: number, tx: number): boolean => {
+    const l = layout(tx);
+    if (l.area > S * S) return false;
+    const r = shelfPack(l.d, S);
+    if (!r) return false;
+    place = r;
+    dimsF = l.d;
+    tinyF = l.tf;
+    size = S;
+    texel = tx;
+    return true;
+  };
+  let S = 64;
+  const a0 = layout(opts.texel).area;
+  while (S * S < a0 && S < opts.maxAtlas) S *= 2;
+  search: for (; S <= opts.maxAtlas; S *= 2)
+    for (const f of [1, 1.12, 1.25]) if (tryFit(S, opts.texel * f)) break search;
+  for (let k = 0, tx = opts.texel * 1.25; !size && k < 40; k++) {
+    tx *= 1.12;
+    tryFit(opts.maxAtlas, tx);
   }
   if (!size) throw new Error(`bake: parça ${chunk.id} atlasa sığmadı`);
 
@@ -409,7 +432,13 @@ export function unwrapChunk(
       uv[v * 2 + 1] = (oy + c.st[k * 2 + 1] * sy) / size;
     }
   });
-  return { size, texel, parts, charts: charts.length };
+  const rects = new Float32Array(charts.length * 5);
+  let used = 0;
+  charts.forEach((c, i) => {
+    rects.set([place[i * 2], place[i * 2 + 1], dimsF[i * 2], dimsF[i * 2 + 1], c.up], i * 5);
+    used += tinyF[i] ? 9 : Math.max(1, Math.ceil(c.w / texel)) * Math.max(1, Math.ceil(c.h / texel));
+  });
+  return { size, texel, parts, charts: charts.length, rects, fill: used / (size * size) };
 }
 
 /** Raf paketleme (yüksekliğe göre azalan, kararlı). Sığmazsa null. */

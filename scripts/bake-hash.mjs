@@ -26,7 +26,12 @@ export function bakeSourceFiles(root = ROOT) {
   walk('src/worlds/mertkent', (f) => f.endsWith('.ts') && !/^bake(d|export)\.ts$/.test(f));
   // Ölçüm verisi (facades, footprints, street/site/park planı…)
   walk('src/worlds/mertkent/data', (f) => f.endsWith('.json'));
-  for (const f of ['public/data/osm.json', 'public/data/terrain.bin', 'src/worlds/osm/height.ts', 'src/env/terrain.ts'])
+  for (const f of [
+    'public/data/osm.json',
+    'public/data/terrain.bin',
+    'src/worlds/osm/height.ts',
+    'src/env/terrain.ts',
+  ])
     if (existsSync(join(root, f))) out.push(f);
   return [...new Set(out)].sort();
 }

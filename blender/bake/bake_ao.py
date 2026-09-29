@@ -29,9 +29,9 @@ normal yönüne göre veriyor). Oyunda aoMap (uv1) olarak yalnız dolaylı ış�
 """
 
 import json
-import math
 import os
 import re
+import resource
 import sys
 import time
 
@@ -75,7 +75,8 @@ T0 = time.time()
 
 
 def log(*a):
-    print(f"[bake {time.time() - T0:7.1f}s]", *a, flush=True)
+    rss = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss / 1024
+    print(f"[bake {time.time() - T0:7.1f}s {rss:5.0f}MB]", *a, flush=True)
 
 
 # ---------------------------------------------------------------- sahne
@@ -180,6 +181,20 @@ def join(objs, name):
     return o
 
 
+def strip_attributes(me, keep_uv1):
+    """Bellek: pişirmede gerekmeyen öznitelikleri sil. keep_uv1: TEXCOORD_1 (2. uv katmanı) kalır ve etkin olur."""
+    for n in [a.name for a in me.attributes if a.name == "_AUX" or a.name.startswith("Col")]:
+        me.attributes.remove(me.attributes[n])
+    if keep_uv1 and len(me.uv_layers) >= 2:
+        me.uv_layers.remove(me.uv_layers[0])
+    elif not keep_uv1:
+        while len(me.uv_layers):
+            me.uv_layers.remove(me.uv_layers[0])
+    if len(me.uv_layers):
+        me.uv_layers.active_index = 0
+        me.uv_layers[0].active_render = True
+
+
 def classify_slots(obj, keys, prefix=""):
     """Her malzeme yuvası için opaklık sınıfı; yuvalar ortak engelleyici malzemelerine bağlanır."""
     classes = []
@@ -239,14 +254,10 @@ def denoise(img):
     path = os.path.join(WORK, "_dn.exr")
     bpy.data.images["Render Result"].save_render(path, scene=s)
     r = bpy.data.images.load(path)
-    arr = image_array(r)
+    arr = image_array(r)[..., 0].copy()
     bpy.data.images.remove(r)
+    os.remove(path)
     return arr
-
-
-def to_u8_top(arr):
-    """Blender (satır 0 = alt) → dosya (satır 0 = üst = glTF v=0)"""
-    return np.clip(np.flipud(arr) * 255.0 + 0.5, 0, 255).astype(np.uint8)
 
 
 def save_grey(u8, path):
@@ -332,41 +343,92 @@ def isolate(rect, margin, keep=()):
     return shown
 
 
-def new_image(name, w, h, fill):
-    img = bpy.data.images.new(name, w, h, alpha=False, float_buffer=True)
+def read_rects(path, size):
+    """Ada dikdörtgenleri (export: [x, y, w, h, n_yukarı] float32, px, üstten) →
+    Blender satır düzeninde n_yukarı haritası, "küçük ada" maskesi (kısa kenarı < 12 px) ve 4×4 hücrelerin (x, y)'si."""
+    r = np.fromfile(path, dtype=np.float32).reshape(-1, 5)
+    xs, ys, ws, hs = (r[:, k].astype(np.int64) for k in range(4))
+    up = np.ones((size, size), dtype=np.float32)
+    small = np.zeros((size, size), dtype=bool)
+    for x, y, w, h, n in zip(xs, ys, ws, hs, r[:, 4]):
+        up[y : y + h, x : x + w] = n
+        if w < 12 or h < 12:
+            small[y : y + h, x : x + w] = True
+    cell = (ws == 4) & (hs == 4)
+    return np.flipud(up), np.flipud(small), xs[cell], ys[cell]
+
+
+def bake_chunk(obj, size, method, samples, height=None, normalize=True, rects=None):
+    """Parça atlası → 0..1 oran, dosya düzeninde (satır 0 = üst) uint8.
+
+    Bellek: 8 bit hedef görüntü (4096² = 64 MB) + tek float tampon; alfa 0 ile doldurulur, pişirilen (ve pay ile
+    genişletilen) pikseller alfa 1 alır → kapsama maskesi.
+    Gürültü: büyük adalar OIDN ile; küçük adalar (4×4 hücreler, ince şeritler) OIDN'e verilmez (komşu adaya
+    bulaşırdı) — 4×4 hücreler kendi ortalamasına indirilir."""
+    w, h = size, height or size
+    img = bpy.data.images.new(f"lm_{obj.name}", w, h, alpha=True, float_buffer=False)
     img.colorspace_settings.name = "Non-Color"
-    set_image(img, np.full((h, w, 4), fill, dtype=np.float32))
-    return img
-
-
-def bake_chunk(obj, size, method, samples):
-    """Parça atlası → 0..1 oran (float, Blender satır düzeni)"""
-    img = new_image(f"lm_{obj.name}", size, size, -1.0)
+    buf = np.zeros(w * h * 4, dtype=np.float32)
+    b4 = buf.reshape(h, w, 4)
+    img.pixels.foreach_set(buf)
     t = time.time()
     do_bake(obj, img, method, samples)
-    light = image_array(img)[..., 0].copy()
     t_bake = time.time() - t
-    covered = light > -0.5
-    if method == "ratio":
-        nimg = new_image(f"nm_{obj.name}", size, size, 0.0)
-        do_bake(obj, nimg, "normal", 1)
-        nz = image_array(nimg)[..., 2] * 2.0 - 1.0  # nesne uzayı = dünya, Blender Z = yukarı
-        bpy.data.images.remove(nimg)
+    img.pixels.foreach_get(buf)
+    covered = b4[..., 3] > 0.5
+    light = b4[..., 0].copy()
+    phases = {"bake": t_bake}
+    small = None
+    cells = None
+    if rects and os.path.exists(rects):
+        up, small, cx, cy = read_rects(rects, size)
+        cells = (cx, cy)
+    if method == "ratio" and normalize:
+        t = time.time()
+        if small is not None:
+            # Ada normalleri dışa aktarmadan (ayrı NORMAL pişirmesi = bir sahne eşitlemesi daha, gereksiz)
+            nz = up
+        else:
+            buf[:] = 0
+            img.pixels.foreach_set(buf)
+            do_bake(obj, img, "normal", 1)
+            phases["normal"] = time.time() - t
+            img.pixels.foreach_get(buf)
+            nz = b4[..., 2] * 2.0 - 1.0  # nesne uzayı = dünya, Blender Z = yukarı
         e0 = (1.0 + nz) * 0.5 + ALBEDO * (1.0 - nz) * 0.5
         val = np.where(covered, light / np.maximum(e0, 0.05), 1.0)
+        del nz, e0
     else:
         val = np.where(covered, light, 1.0)
-    val = np.clip(val, 0.0, 1.0)
+    del light
+    val = np.clip(val, 0.0, 1.0).astype(np.float32)
     if DENOISE:
-        a = np.zeros((size, size, 4), dtype=np.float32)
-        a[..., 0] = a[..., 1] = a[..., 2] = val
-        a[..., 3] = 1
-        set_image(img, a)
-        d = denoise(img)[..., 0]
-        # Kapsanmayan pikseller (adalar arası) gürültü gidericiden gelen değeri almasın
-        val = np.clip(np.where(covered, d, val), 0.0, 1.0)
+        b4[..., 0] = val
+        b4[..., 1] = val
+        b4[..., 2] = val
+        b4[..., 3] = 1.0
+        img.pixels.foreach_set(buf)
+        del buf, b4
+        t = time.time()
+        d = denoise(img)
+        phases["denoise"] = time.time() - t
+        # Kapsanmayan pikseller (adalar arası) ve küçük adalar gürültü gidericiden gelen değeri almaz
+        use = covered if small is None else covered & ~small
+        val = np.clip(np.where(use, d, val), 0.0, 1.0).astype(np.float32)
+        del d
+    else:
+        del buf, b4
     bpy.data.images.remove(img)
-    return val, t_bake, float(covered.mean())
+    top = np.ascontiguousarray(np.flipud(val))
+    del val
+    if cells is not None and len(cells[0]) and w % 4 == 0 and h % 4 == 0:
+        v4 = top.reshape(h // 4, 4, w // 4, 4)
+        bx = cells[0] // 4
+        by = cells[1] // 4
+        m = v4[by, :, bx, :].mean(axis=(1, 2))
+        v4[by, :, bx, :] = m[:, None, None]
+    log("    " + ", ".join(f"{k} {v:.0f}s" for k, v in phases.items()))
+    return np.clip(top * 255.0 + 0.5, 0, 255).astype(np.uint8), t_bake, float(covered.mean())
 
 
 def pack_pages(chunks, page):
@@ -449,6 +511,7 @@ def main():
     occ = import_glb(os.path.join(SRC, exp["occluders"]))
     terrain = None
     for o in occ:
+        strip_attributes(o.data, keep_uv1=False)
         nm = strip_suffix(o.name)
         if nm.startswith("occ_terrain"):
             terrain = o
@@ -483,10 +546,8 @@ def main():
         if o is None:
             continue
         me = o.data
-        # uv1 (TEXCOORD_1) etkin → pişirme hedefi
-        if len(me.uv_layers) >= 2:
-            me.uv_layers.active_index = 1
-            me.uv_layers[1].active_render = True
+        # Pişirmede yalnız uv1 (TEXCOORD_1) gerekir: uv0, _AUX ve renk öznitelikleri bellekten atılır
+        strip_attributes(me, keep_uv1=True)
         o["bake_classes"] = classify_slots(o, keys)
         objs[c["id"]] = o
         tris += sum(len(p.vertices) - 2 for p in me.polygons)
@@ -503,7 +564,8 @@ def main():
         if o is None:
             continue
         isolate(c["bbox"], OCC_MARGIN, keep=(o,))
-        val, tb, cov = bake_chunk(o, c["size"], method, samples)
+        rects = os.path.join(SRC, c.get("rectsFile", f"chunk_{c['id']}.rects.bin"))
+        val, tb, cov = bake_chunk(o, c["size"], method, samples, rects=rects)
         done_px += c["size"] ** 2
         el = time.time() - t_start
         log(f"  {c['id']}: {c['size']}² ({cov * 100:.0f}% dolu) pişirme {tb:.1f}s, toplam {el:.0f}s")
@@ -519,7 +581,7 @@ def main():
                 else:
                     method, samples = "ao", max(16, min(AO_SAMPLES, int(AO_SAMPLES * f * 2)))
                     log(f"  bütçe: AO pişirmesine geçildi ({samples} örnek)")
-                val, tb, cov = bake_chunk(o, c["size"], method, samples)
+                val, tb, cov = bake_chunk(o, c["size"], method, samples, rects=rects)
         c["_val"] = val
         results.append(c)
 
@@ -539,7 +601,7 @@ def main():
         arr = np.full((side, side), 255, dtype=np.uint8)
         for c in members:
             x, y, s = c["rect"]
-            arr[y : y + s, x : x + s] = to_u8_top(c["_val"])
+            arr[y : y + s, x : x + s] = c["_val"]
         fn = f"ao_{p}.webp"
         save_grey(arr, os.path.join(OUT, fn))
         pages.append({"file": fn, "size": side})
@@ -556,19 +618,10 @@ def main():
         isolate((x0, z0, x1, z1), OCC_MARGIN, keep=(g,))
         w = int(round((x1 - x0) / GROUND_MPP))
         h = int(round((z1 - z0) / GROUND_MPP))
-        img = new_image("ground_ao", w, h, -1.0)
         t = time.time()
-        do_bake(g, img, "ao" if method == "ao" else "ratio", samples)
-        a = image_array(img)[..., 0]
-        cov = a > -0.5
-        val = np.clip(np.where(cov, a, 1.0), 0, 1)
-        if DENOISE:
-            b = np.zeros((h, w, 4), dtype=np.float32)
-            b[..., 0] = b[..., 1] = b[..., 2] = val
-            b[..., 3] = 1
-            set_image(img, b)
-            val = np.clip(np.where(cov, denoise(img)[..., 0], 1.0), 0, 1)
-        save_grey(to_u8_top(val), os.path.join(OUT, "ground_ao.webp"))
+        # Normal ≈ yukarı → E0 ≈ 1, normal pişirmesi gerekmez
+        u8, _tb, _cov = bake_chunk(g, w, "ao" if method == "ao" else "ratio", samples, height=h, normalize=False)
+        save_grey(u8, os.path.join(OUT, "ground_ao.webp"))
         ground = {"file": "ground_ao.webp", "rect": [x0, z0, x1, z1], "mpp": GROUND_MPP}
         log(f"zemin AO {w}×{h} pişirme {time.time() - t:.0f}s")
 

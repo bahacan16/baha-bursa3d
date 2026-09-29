@@ -55,7 +55,8 @@ describe('pişirilmiş ışık uv1 (lightmap.ts)', () => {
     const u1 = unwrapChunk(c, s, opts);
     const u2 = unwrapChunk(c, s, opts);
     expect(u1.size).toBe(u2.size);
-    for (let i = 0; i < u1.parts.length; i++) expect(Array.from(u1.parts[i].uv1)).toEqual(Array.from(u2.parts[i].uv1));
+    for (let i = 0; i < u1.parts.length; i++)
+      expect(Array.from(u1.parts[i].uv1)).toEqual(Array.from(u2.parts[i].uv1));
     // Kutu: 6 yüz (ayrı köşeler) = 6 ada; düzlem 3×2 dörtgen = 1 ada
     expect(u1.charts).toBe(7);
     const rects: number[][] = [];
@@ -87,7 +88,7 @@ describe('pişirilmiş ışık uv1 (lightmap.ts)', () => {
       }
   });
 
-  it('düzlem ada ölçeği yoğunluğa uyar (12 m / 0.1 m ≈ 120 px)', () => {
+  it('düzlem ada ölçeği kullanılan yoğunluğa uyar (12 m × 6 m)', () => {
     const s = sources();
     const c = splitChunks(s)[0];
     const u = unwrapChunk(c, s, { texel: 0.1, pad: 2, maxAtlas: 1024 });
@@ -108,8 +109,11 @@ describe('pişirilmiş ışık uv1 (lightmap.ts)', () => {
       }
       return (b - a) * u.size;
     })();
-    expect(Math.max(px, py)).toBeCloseTo(120, 0);
-    expect(Math.min(px, py)).toBeCloseTo(60, 0);
+    // Küçük atlas için yoğunluk en fazla 1.25× gevşer
+    expect(u.texel).toBeGreaterThanOrEqual(0.1);
+    expect(u.texel).toBeLessThanOrEqual(0.125 + 1e-9);
+    expect(Math.max(px, py)).toBeCloseTo(12 / u.texel, 0);
+    expect(Math.min(px, py)).toBeCloseTo(6 / u.texel, 0);
   });
 
   it('partGeometry öznitelikleri (aux dahil) kaynaktan kopyalar', () => {

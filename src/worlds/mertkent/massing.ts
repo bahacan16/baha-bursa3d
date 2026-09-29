@@ -42,22 +42,50 @@ function dedupe(out: V2[]): V2[] {
   });
 }
 
-/** Öğeyi [s, s+L] aralığına taşı (u → u − s); dışarıda kalırsa null */
-function shiftItem(it: CItem, s: number, L: number): CItem | null {
+/**
+ * Bütün olarak bir parçaya giden öğeler (kesimde ikiye bölünüp iki kez çizilmesin): tabela, tente, pankart, bez,
+ * alınlık, kemerli parapet, dormer — orta noktasının düştüğü parçaya, kırpılmadan.
+ */
+const WHOLE = new Set(['sign', 'awning', 'banner', 'cloth', 'pediment', 'arch', 'dormer']);
+
+/**
+ * Öğeyi [s, s+L] aralığına taşı (u → u − s); dışarıda kalırsa null. realA / realE: parça kenarının başı / sonu
+ * binanın gerçek köşesi (kesim değil) — orada kırpılmaz (köşeyi saran balkon / taşma korunur).
+ */
+function shiftItem(it: CItem, s: number, L: number, realA = false, realE = false): CItem | null {
   if ('u0' in it && it.u0 != null && it.u1 != null) {
     const u0 = it.u0 - s;
     const u1 = it.u1 - s;
+    if (WHOLE.has(it.t)) {
+      // Orta nokta bu parçada mı (gerçek köşelerde uç dahil)
+      const um = (u0 + u1) / 2;
+      if (um < (realA ? -1e9 : 0) || um >= (realE ? 1e9 : L)) return null;
+      const o = { ...it, u0, u1 } as CItem;
+      if (o.t === 'pediment' && it.t === 'pediment') o.apex = it.apex - s;
+      return o;
+    }
     if (u1 <= 0.05 || u0 >= L - 0.05) return null;
-    const o = { ...it, u0: Math.max(0, u0), u1: Math.min(L, u1) } as CItem;
+    const o = { ...it, u0: realA ? u0 : Math.max(0, u0), u1: realE ? u1 : Math.min(L, u1) } as CItem;
     // Alınlık tepesi ve balkon saksıları da aynı kaydırmayla
     if (o.t === 'pediment' && it.t === 'pediment') o.apex = it.apex - s;
     if (o.t === 'bal' && o.pots)
       o.pots = Object.fromEntries(Object.entries(o.pots).map(([k, us]) => [k, us.map((u) => u - s)]));
     return o;
   }
+  if (it.t === 'ribbon') {
+    // Şerit: orta noktası bu parçadaysa bütün olarak
+    const pts = it.pts.map(([u, y]) => [u - s, y] as [number, number]);
+    const um = pts.reduce((a, p) => a + p[0], 0) / Math.max(1, pts.length);
+    return um >= (realA ? -1e9 : 0) && um < (realE ? 1e9 : L) ? { ...it, pts } : null;
+  }
+  if (it.t === 'lamp') {
+    // Aplik dizisi: parçaya düşen konumlar
+    const us = it.us.map((u) => u - s).filter((u) => u >= (realA ? -0.5 : 0) && u <= (realE ? L + 0.5 : L));
+    return us.length ? { ...it, us } : null;
+  }
   if (!('u' in it) || it.u == null) return it;
   const u = it.u - s;
-  if (u < 0 || u > L) return null;
+  if (u < (realA ? -0.5 : 0) || u > (realE ? L + 0.5 : L)) return null;
   return { ...it, u } as CItem;
 }
 
@@ -135,13 +163,27 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
         if (sp < -0.01 || sq > len + 0.01 || sq < sp) continue;
         const src = byEdge.get(i);
         if (src) {
-          const items = src.items.map((it) => shiftItem(it, sp, L)).filter((x): x is CItem => !!x);
+          const realA = sp < 0.01;
+          const realE = sq > len - 0.01;
+          const items = src.items
+            .map((it) => shiftItem(it, sp, L, realA, realE))
+            .filter((x): x is CItem => !!x);
           edges.push({ edge: j, len: L, seen: src.seen, items });
         }
         break;
       }
     }
-    return { ...blk, id: blk.id * 100 + tag, ring: r, storeys, edges, massing: undefined };
+    // Ek hacimler / pergolalar parçalara ayrıca dağıtılır (her parçaya kopyalanınca 3 kez çiziliyordu)
+    return {
+      ...blk,
+      id: blk.id * 100 + tag,
+      ring: r,
+      storeys,
+      edges,
+      massing: undefined,
+      volumes: null,
+      pergolas: null,
+    };
   };
   const out: CompiledBlock[] = [];
   const pieces = (tw: Tower): V2[][] => {
@@ -168,6 +210,29 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
     const p = part(r, 1, 9);
     // Podyum üstü sokaktan görünmez; kenarı zemin kat bandıyla biter (açık gri saçak alnı yok — Street View)
     if (p) out.push({ ...p, roof: { ...p.roof, kind: 'flat', eave: 0.02, fasciaH: 0.02 } });
+  }
+  // Ek hacim / pergola: ağırlık merkezinin düştüğü parçaya (yoksa ilk parçaya) — bir kez
+  const inPoly = (r: V2[], x: number, z: number) => {
+    let c = false;
+    for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+      const [xi, zi] = r[i];
+      const [xj, zj] = r[j];
+      if (zi > z !== zj > z && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) c = !c;
+    }
+    return c;
+  };
+  const home = (poly: [number, number][]) => {
+    const cx = poly.reduce((a, p) => a + p[0], 0) / poly.length;
+    const cz = poly.reduce((a, p) => a + p[1], 0) / poly.length;
+    return out.find((p) => inPoly(p.ring as V2[], cx, cz)) ?? out[0];
+  };
+  for (const v of blk.volumes ?? []) {
+    const h = home(v.poly);
+    if (h) h.volumes = [...(h.volumes ?? []), v];
+  }
+  for (const pg of blk.pergolas ?? []) {
+    const h = home(pg.poly);
+    if (h) h.pergolas = [...(h.pergolas ?? []), pg];
   }
   return out;
 }

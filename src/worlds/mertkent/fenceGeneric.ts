@@ -7,6 +7,7 @@ import { Builder, type V2 } from './builder';
  * çit bitkisi, jiletli tel. Renkler ölçümden; malzemeler anahtar+renk başına bir kez üretilir.
  */
 export interface GenericFence {
+  /** "other": komşu site çiti; "wall": serbest duvar (site çitine bağlı değil; dolgu verilmezse yok) */
   kind: string;
   id?: string;
   pts: V2[];
@@ -70,6 +71,8 @@ export function buildGenericFence(
   mat: (kind: string, color: string) => string,
   gaps: { c: V2; w: number }[],
   collide?: Collide,
+  /** Yüksek/Ultra: harpuşta üst kenarları pahlı (m, 0 = yok) */
+  bevel = 0,
 ): void {
   const wallH = f.wall?.h ?? 0.6;
   const wallT = f.wall?.t ?? 0.22;
@@ -91,7 +94,9 @@ export function buildGenericFence(
   const pW = pil.w ?? 0.4;
   const pH = pil.h ?? Math.max(wallH + 0.9, 1.5);
   const pKey = mat('render', hex(pil.color, hex(f.wall?.color, '#e6e3dc')));
-  const inf0 = typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? {});
+  // Serbest duvar (kind "wall"): dolgu verilmemişse yok (yalnız duvar + harpuşta)
+  const inf0 =
+    typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? (f.kind === 'wall' ? { type: 'none' } : {}));
   const inf = { ...inf0, ...(f.infillSpec ?? {}), type: inf0.type ?? f.infillSpec?.type };
   const infType = (inf.type ?? 'railing').toLowerCase();
   // Ayrıntılı tanım (infillSpec.type) kısa tipi (infill: "railing") ezmesin: ikisi birlikte aranır
@@ -213,7 +218,9 @@ export function buildGenericFence(
       const wH = wallTop(mid);
       if (wallH > 0.05) {
         b.box(wallKey, [c[0], y0 + (wH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wH + 0.2, wallT], yaw, 1);
-        b.box(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
+        if (bevel > 0)
+          b.bevelBox(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw, Math.min(bevel, copH * 0.4));
+        else b.box(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
       }
       if (/yatay|horizontal/.test(infDesc) && !/none|yok/.test(infType)) {
         // Yatay boru korkuluk (ölçüm: "4 sıra yatay gri çelik boru"): eşit aralıklı borular, dikey çubuk yok

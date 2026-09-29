@@ -490,6 +490,12 @@ export class Game {
     if (this.controller.jumpedThisStep) this.character.jump();
   }
 
+  /** Hata ayıklama (?debug=1): n kareyi eşzamanlı çiz (yavaş işleyicide karşılaştırma görüntüsü; TAA birikimi). */
+  debugRender(n: number, dt = 1 / 30): void {
+    if (!this.debug) return;
+    for (let i = 0; i < n; i++) this.render(1, dt);
+  }
+
   /** Ultra kare başı: bulut saati (gökyüzü + yer gölgesi aynı zaman), yansıma küresinin bir yüzü. */
   private ultraFrame(dt: number): void {
     this.time += dt;
