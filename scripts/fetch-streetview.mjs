@@ -15,6 +15,7 @@ import {
   centroid,
   headingOf,
   outwardNormal,
+  bboxArea,
   pilotArea,
   siteFences,
 } from './sv-common.mjs';
@@ -32,7 +33,13 @@ const HEAD_STEP = 60; // yön kovaları (fov 90 → komşularla 15° örtüşme)
 const MAX_DIST = 55;
 const API = 'https://maps.googleapis.com/maps/api/streetview';
 
-const slug = AREA.toLowerCase()
+/** Koridor modu: SV_BBOX="x0,z0,x1,z1" (yerel m) — alan adı yerine kutu içindeki binalar hedef */
+const BBOX = process.env.SV_BBOX ? process.env.SV_BBOX.split(',').map(Number) : null;
+/** Çıktı klasörü (varsayılan alan adından); SV_MERGE=1 → mevcut index.json'daki panoramalar korunur */
+const SLUG = process.env.SV_SLUG;
+const MERGE = process.env.SV_MERGE === '1';
+const slug = (SLUG || AREA)
+  .toLowerCase()
   .replace(/[çğıöşü]/g, (c) => ({ ç: 'c', ğ: 'g', ı: 'i', ö: 'o', ş: 's', ü: 'u' })[c])
   .replace(/[^a-z0-9]+/g, '-')
   .replace(/^-|-$/g, '');
@@ -82,7 +89,7 @@ async function main() {
   } catch {
     /* varsayılan */
   }
-  const { bbox, all, targets } = pilotArea(osm, AREA, BUFFER);
+  const { bbox, all, targets } = BBOX ? bboxArea(osm, BBOX) : pilotArea(osm, AREA, BUFFER);
   console.log(
     `Alan: ${AREA} — ${targets.length} hedef bina, kutu ${bbox.map((v) => v.toFixed(0)).join(',')}`,
   );
@@ -239,6 +246,26 @@ async function main() {
     })),
     attribution: '© Google Street View',
   };
+  if (MERGE) {
+    // Eski panoramalar korunur; aynı panoramanın kare listesi birleştirilir
+    try {
+      const old = JSON.parse(await readFile(join(outDir, 'index.json'), 'utf8'));
+      const byId = new Map(old.panos.map((p) => [p.id, p]));
+      for (const p of index.panos) {
+        const o = byId.get(p.id);
+        if (o) {
+          const have = new Set(o.views.map((v) => v.file));
+          for (const v of p.views) if (!have.has(v.file)) o.views.push(v);
+        } else byId.set(p.id, p);
+      }
+      index.panos = [...byId.values()];
+      index.targets = [...new Set([...(old.targets ?? []), ...index.targets])];
+      index.area = old.area ?? index.area;
+      delete index.targetCentroids;
+    } catch {
+      /* ilk indirme */
+    }
+  }
   await writeFile(join(outDir, 'index.json'), JSON.stringify(index, null, 1));
   console.log(`✓ ${done} kare indirildi → streetview-src/${slug}/`);
 }

@@ -143,6 +143,19 @@ export function pilotArea(osm, areaName, buffer) {
   return { area, poly, bbox, all, targets, core };
 }
 
+/** Koridor: kutu içindeki (ağırlık merkezi) binalar hedef; kutu + 20 m içindeki yollardan panorama aranır */
+export function bboxArea(osm, box) {
+  const bbox = [box[0] - 20, box[1] - 20, box[2] + 20, box[3] + 20];
+  const all = osm.ways
+    .filter((w) => w.t && w.t.building && w.p.length >= 6)
+    .map((w) => ({ id: w.i, ring: ring(w.p), tags: w.t, height: buildingHeight(w.t) }));
+  const targets = all.filter((b) => {
+    const [cx, cz] = centroid(b.ring);
+    return cx >= box[0] && cx <= box[2] && cz >= box[1] && cz <= box[3];
+  });
+  return { area: null, poly: null, bbox, all, targets, core: targets };
+}
+
 /** Bir hedef kenarın dış normali (poligonun dışına bakan). */
 export function outwardNormal(r, i) {
   const n = r.length / 2;

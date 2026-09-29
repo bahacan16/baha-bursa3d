@@ -11,6 +11,12 @@ on:
       max:
         description: 'En fazla yeni ücretli kare'
         default: '2000'
+      bbox:
+        description: 'Koridor kutusu x0,z0,x1,z1 (yerel m; boşsa alan adı)'
+        default: ''
+      slug:
+        description: 'Çıktı klasörü (streetview-src/<slug>)'
+        default: ''
   push:
     paths:
       - 'scripts/fetch-streetview.mjs'
@@ -39,6 +45,9 @@ jobs:
           GOOGLE_STREETVIEW_KEY: ${{ secrets.GOOGLE_STREETVIEW_KEY }}
           SV_AREA: ${{ inputs.area || 'Mertkent 2. Etap' }}
           SV_MAX: ${{ inputs.max || '2000' }}
+          SV_BBOX: ${{ inputs.bbox }}
+          SV_SLUG: ${{ inputs.slug }}
+          SV_MERGE: ${{ inputs.bbox != '' && '1' || '0' }}
         run: node scripts/fetch-streetview.mjs
       - name: Commit
         run: |

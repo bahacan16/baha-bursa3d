@@ -28,6 +28,10 @@ jobs:
       - name: Hava fotoğrafları
         env:
           AERIAL_SOURCES: google
+          # Mertkent + Doğan Avcıoğlu doğu koridoru (x −160…240, z −330…70)
+          AERIAL_CX: 40
+          AERIAL_CZ: -130
+          AERIAL_HALF: 200
         run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
       - name: Commit
         run: |
