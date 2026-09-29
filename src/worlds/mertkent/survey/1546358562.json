@@ -1,0 +1,1501 @@
+{
+  "id": 1546358562,
+  "name": "Şehr-i Bursa Evleri",
+  "storeys": 5,
+  "groundRaise": 2.2,
+  "floorH": 2.8,
+  "roof": {
+    "kind": "gable",
+    "eave": 0.2,
+    "fasciaH": 0.8,
+    "pitch": 23,
+    "gables": [
+      5,
+      17
+    ],
+    "eaveY": {
+      "edge": 14,
+      "y": 16.4
+    }
+  },
+  "colors": {
+    "plaster": "#b7bcc1",
+    "plaster2": "#50575f",
+    "strip": "#abb1b7",
+    "fascia": "#eceeec",
+    "soffit": "#dcdcd6",
+    "railGlass": "#c7ced2",
+    "frame": "#eeeeec",
+    "tile": "#9a6f60",
+    "plinth": "#4a5057"
+  },
+  "notes": [
+    "Aynı site: 'ŞEHR-İ BURSA EVLERİ' (batı cephe önünde direkte yeşil yazılı levha + kamera). 1546358561/557 ile aynı müteahhit dili: koyu antrasit + açık gri sıva, beyaz balkon alınları, paslanmaz borulu korkuluk, pencere sütunlarının iki yanında pilastr şeritleri, beşik alınlıklar.",
+    "Kat: 5 normal kat (K0–K4) + yarı bodrum (kuzeyde zemin hizasında beyaz doğramalı bodrum kapısı/penceresi, çitin arkasında). K0 döşemesi ≈2.2 m. Kat yüksekliği 2.8 varsayıldı (ortofotolarda görünen kat aralığı 2.27–3.29 arası: duvarlar taban izi düzleminde değil, pano pozları ±0.5–1 m). cal.u köşeler görünmediği için kat aralığı/kamera ayağı homotetisinden hesaplandı (duvar görünen ölçeği = kat aralığı / 2.8).",
+    "Kuzey cephe (Doğan Avcıoğlu Cad.), doğudan batıya: KD köşe açık balkon yığını (8/10, büyük düz saçak plağı) – açık gri ayak – koyu gri duvarda 3 bölmeli pencere sütunu A (≈2.35 m) – beyaz pilastr – tüm katları camlı çıkma balkon G1 – koyu ayak (her katta küçük siyah aplikler) – tüm katları camlı çıkma balkon G2 – beyaz pano – pencere sütunu B – beyaz pano – KB köşe locası (açık, iki klima) ve batı cepheye dönen balkon yığını.",
+    "Beyaz panolar (color 'fascia') pencere sütunlarının yanında yalnız K0 ve K3 hizasında; kuzey cephenin geri kalanı koyu gri (plaster2 panoları). Doğu/batı alınlık cepheleri açık gri, K0 ve K3 hizasında koyu gri yatay bantlar (üstte/altta ince beyaz silmeler), pilastrlar alınlık eğimine kadar çıkar.",
+    "Balkon alınları beyaz, ama K2 alnı (K2 balkon döşemesi) tüm yığınlarda koyu gri — üretici tek alın rengi kullanıyor.",
+    "Çatı: doğu (5) ve batı (17) cephelerinde tepe ≈20.5 (görünen) olan kiremit beşik alınlık, eğim ≈23° → kind 'gable', gables [5,17]. Kuzey cephenin üstünde küçük üçgen havalandırma alınlıkları (şemada yok). Taban izinin ortasında K–G mahya (hava fotoğrafında gri şerit).",
+    "Güney cephe (0, 1, 3, 21) Street View ile görülmedi; hava fotoğrafında tüm genişlikte balkon döşemeleri (yuvarlak uçlu) ve ortada (x≈55–57) koyu gri dikey şerit → tahmini düzen. Camlar bilinmiyor.",
+    "Belirsizlik: KD köşe — nB9G/ q6qb karelerinde kuzey balkon yığınının doğusunda (x>68) gökyüzü görünüyor; taban izinin KD çıkıntısı (6–8, x≈69.5) gerçekte daha dar/alçak olabilir.",
+    "Batı cephenin güney parçası (19) görünen kat aralığı 3.29 → duvar taban izi çizgisinin ~1 m batısında görünüyor (kenar 17 hizasında olabilir)."
+  ],
+  "edges": [
+    {
+      "edge": 0,
+      "len": 15.89,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          15.89
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.3,
+          "u1": 5.3,
+          "d": 1.4,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "panel",
+          "u0": 5.3,
+          "u1": 7.4,
+          "y0": 0,
+          "y1": 16.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 5.75,
+          "u1": 6.95,
+          "y0": 3.45,
+          "y1": 4.45,
+          "k": 0,
+          "s": [
+            0,
+            4
+          ]
+        },
+        {
+          "t": "bal",
+          "u0": 7.4,
+          "u1": 16.2,
+          "d": 1.4,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "pipe",
+          "u": 11.8,
+          "off": 1.4
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 2.2,
+          "color": "plinth"
+        }
+      ],
+      "note": "Güney cephe; görülmedi. Hava fotoğrafı: iki geniş balkon yığını (yuvarlak uçlu döşemeler) ve arada koyu gri dikey şerit (x≈55–57). Tahmini: iki açık yığın + ortada koyu gri pencere sütunu. u gerçek metre (batıdan)."
+    },
+    {
+      "edge": 1,
+      "len": 2.99,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          2.99
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.3,
+          "u1": 2.99,
+          "d": 1.4,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "Güneydoğu köşesinin doğu yüzü; y7b7 ortofotosu çok eğik/okunamaz. Güney yığınının köşeyi dönen devamı varsayıldı. u gerçek metre."
+    },
+    {
+      "edge": 2,
+      "len": 0.25,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          0.25
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 3,
+      "len": 5.06,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          5.06
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 1,
+          "u1": 5.36,
+          "d": 1.6,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 2.2,
+          "color": "plinth"
+        }
+      ],
+      "note": "Alt doğu cephe (x≈65.6); görülmedi. Hava fotoğrafında z −137…−144 arasında doğuya taşan kıvrık balkon döşemeleri → açık yığın varsayıldı. u gerçek metre."
+    },
+    {
+      "edge": 4,
+      "len": 1.57,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          1.57
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 5,
+      "len": 10.35,
+      "seen": "photo",
+      "ref": "1546358562_5_y7b7S7yD.jpg",
+      "cal": {
+        "u": [
+          0,
+          10.35
+        ],
+        "head": [
+          [
+            1,
+            7.43
+          ],
+          [
+            4,
+            14.66
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 6.9,
+          "u1": 7.9,
+          "y0": 13.5,
+          "y1": 14.66,
+          "k": 4,
+          "s": [
+            0,
+            4
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 9.35,
+          "u1": 10.2,
+          "y0": 13.5,
+          "y1": 14.66,
+          "k": 4,
+          "s": [
+            0,
+            4
+          ]
+        },
+        {
+          "t": "bal",
+          "u0": -3.52,
+          "u1": 1.24,
+          "d": 1.5,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open",
+          "glazed": [
+            4
+          ],
+          "tint": {
+            "4": "clear"
+          }
+        },
+        {
+          "t": "panel",
+          "u0": 3.4,
+          "u1": 10.35,
+          "y0": 10.9,
+          "y1": 12.6,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 3.4,
+          "u1": 10.35,
+          "y0": 3.67,
+          "y1": 5.37,
+          "color": "plaster2"
+        },
+        {
+          "t": "band",
+          "y0": 12.6,
+          "y1": 13.3,
+          "color": "fascia",
+          "u0": 3.4,
+          "u1": 10.35
+        },
+        {
+          "t": "band",
+          "y0": 10.1,
+          "y1": 10.9,
+          "color": "fascia",
+          "u0": 3.4,
+          "u1": 10.35
+        },
+        {
+          "t": "band",
+          "y0": 5.37,
+          "y1": 6.1,
+          "color": "fascia",
+          "u0": 3.4,
+          "u1": 10.35
+        },
+        {
+          "t": "band",
+          "y0": 2.9,
+          "y1": 3.67,
+          "color": "fascia",
+          "u0": 3.4,
+          "u1": 10.35
+        },
+        {
+          "t": "strip",
+          "u": 6.75,
+          "w": 0.22,
+          "y0": 6.1,
+          "y1": 10.1
+        },
+        {
+          "t": "strip",
+          "u": 6.75,
+          "w": 0.22,
+          "y0": 13.3,
+          "y1": 18.3
+        },
+        {
+          "t": "strip",
+          "u": 8.12,
+          "w": 0.22,
+          "y0": 6.1,
+          "y1": 10.1
+        },
+        {
+          "t": "strip",
+          "u": 8.12,
+          "w": 0.22,
+          "y0": 13.3,
+          "y1": 18.8
+        },
+        {
+          "t": "strip",
+          "u": 9.2,
+          "w": 0.22,
+          "y0": 6.1,
+          "y1": 10.1
+        },
+        {
+          "t": "strip",
+          "u": 9.2,
+          "w": 0.22,
+          "y0": 13.3,
+          "y1": 18.9
+        },
+        {
+          "t": "ac",
+          "u": 4.2,
+          "s": 4,
+          "y": 13.3
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 2.9,
+          "color": "plinth",
+          "u0": 3.4,
+          "u1": 10.35
+        }
+      ],
+      "note": "y7b7 referans (q6qb çok eğik; iki ortofoto duvar düzlemi farkından 2–3 m kayık → kamera homotetisi). Doğu alınlık cephesi: güney ucunda (u<3.4) doğuya taşan balkon yığını (K4 camlı), sonra açık gri alınlık duvarı: iki dar pencere sütunu (≈1 m, 2 kanat), iki yanlarında pilastr şeritleri, K3 hizasında koyu gri bant (üstte/altta beyaz silme), K0 hizasında aynı bant (ağaç arkasında, ritimden). Alınlık tepesi u≈9.9, y≈18.9. Balkon yanında K4 hizasında klima. Alt katlar ağaç arkasında."
+    },
+    {
+      "edge": 6,
+      "len": 1.79,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          1.79
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 7,
+      "len": 3.86,
+      "seen": "partial",
+      "ref": "1546358562_7_y7b7S7yD.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.86
+        ],
+        "head": [
+          [
+            1,
+            6.9
+          ],
+          [
+            4,
+            13.65
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 0.9,
+          "u1": 1.5,
+          "y0": 12.6,
+          "y1": 13.65,
+          "k": 4,
+          "s": [
+            0,
+            4
+          ],
+          "split": 1
+        },
+        {
+          "t": "bal",
+          "u0": 0.42,
+          "u1": 3,
+          "d": 1.3,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "panel",
+          "u0": -0.3,
+          "u1": 2.4,
+          "y0": 10.1,
+          "y1": 11.8,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": -0.3,
+          "u1": 2.4,
+          "y0": 3.3,
+          "y1": 5,
+          "color": "plaster2"
+        },
+        {
+          "t": "band",
+          "y0": 11.8,
+          "y1": 12.3,
+          "color": "fascia",
+          "u0": -0.3,
+          "u1": 2.4
+        },
+        {
+          "t": "band",
+          "y0": 9.6,
+          "y1": 10.1,
+          "color": "fascia",
+          "u0": -0.3,
+          "u1": 2.4
+        },
+        {
+          "t": "band",
+          "y0": 5,
+          "y1": 5.5,
+          "color": "fascia",
+          "u0": -0.3,
+          "u1": 2.4
+        },
+        {
+          "t": "band",
+          "y0": 2.8,
+          "y1": 3.3,
+          "color": "fascia",
+          "u0": -0.3,
+          "u1": 2.4
+        },
+        {
+          "t": "strip",
+          "u": 0.7,
+          "w": 0.22,
+          "y0": 5.5,
+          "y1": 9.6
+        },
+        {
+          "t": "strip",
+          "u": 0.7,
+          "w": 0.22,
+          "y0": 12.3,
+          "y1": 16.8
+        },
+        {
+          "t": "strip",
+          "u": 1.7,
+          "w": 0.22,
+          "y0": 5.5,
+          "y1": 9.6
+        },
+        {
+          "t": "strip",
+          "u": 1.7,
+          "w": 0.22,
+          "y0": 12.3,
+          "y1": 17.2
+        }
+      ],
+      "note": "y7b7 referans (NNxF teyit). KD çıkıntının doğu yüzü: güney yarıda açık gri alınlık duvarı (dar pencere sütunu + pilastrlar, K0/K3 koyu bantları; alınlık tepesi u≈1.3), kuzey yarıda KD balkon yığınının köşeyi dönen yan balkonları (açık, K2 alnı koyu). Alt katlar ağaç arkasında."
+    },
+    {
+      "edge": 8,
+      "len": 3.19,
+      "seen": "partial",
+      "ref": "1546358562_8_nB9GCbc9.jpg",
+      "cal": {
+        "u": [
+          0.29,
+          3.08
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            14.25
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 1.3,
+          "u1": 3.5,
+          "d": 1.3,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        }
+      ],
+      "note": "nB9G referans (q6qb teyit). KD köşe balkon yığınının kuzey ucu: beyaz alınlıklar, paslanmaz korkuluk, büyük düz saçak plağı (spotlu); yığının doğusunda (u<1.4) gökyüzü → taban izinin KD köşesi gerçekte daha batıda olabilir. Kat yükseklikleri kenar 10 ile aynı pano."
+    },
+    {
+      "edge": 9,
+      "len": 0.41,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          0.41
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 10,
+      "len": 3.57,
+      "seen": "photo",
+      "ref": "1546358562_10_nB9GCbc9.jpg",
+      "cal": {
+        "u": [
+          -0.1,
+          3.02
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            14.25
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -1.5,
+          "u1": 1.95,
+          "d": 1.3,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "panel",
+          "u0": 1.95,
+          "u1": 2.4,
+          "y0": 9.9,
+          "y1": 12.9,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 1.95,
+          "u1": 2.4,
+          "y0": 2.6,
+          "y1": 5.55,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 1.95,
+          "u1": 2.4,
+          "y0": 0,
+          "y1": 2.6,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 1.95,
+          "u1": 2.4,
+          "y0": 5.55,
+          "y1": 9.9,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 1.95,
+          "u1": 2.4,
+          "y0": 12.9,
+          "y1": 16.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 2.4,
+          "u1": 3.8,
+          "y0": 0,
+          "y1": 16.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "ac",
+          "u": 1.45,
+          "s": 3,
+          "y": 11.35
+        }
+      ],
+      "note": "nB9G referans (q6qb teyit, 1.5 m kayık). KD açık balkon yığını (u<1.95; K3 arka duvarında klima, K2 alnı koyu gri, tepede spotlu düz saçak plağı), beyaz ayak (K0 ve K3 hizası), koyu gri duvar. Pencere sütunu A bu kenarla 12 arasındaki köşede görünüyor; 12 üzerine yazıldı."
+    },
+    {
+      "edge": 11,
+      "len": 0.39,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          0.39
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 12,
+      "len": 6.48,
+      "seen": "photo",
+      "ref": "1546358562_12_Ng8IaLOy.jpg",
+      "cal": {
+        "u": [
+          0.76,
+          6.37
+        ],
+        "head": [
+          [
+            0,
+            4.34
+          ],
+          [
+            4,
+            14.03
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 0.19,
+          "u1": 2.17,
+          "y0": 3.17,
+          "y1": 4.34,
+          "k": 0,
+          "s": [
+            0,
+            4
+          ],
+          "split": 3
+        },
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 2.4,
+          "y0": 0,
+          "y1": 16,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 2.4,
+          "u1": 2.69,
+          "y0": 10.1,
+          "y1": 12.8,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 2.4,
+          "u1": 2.69,
+          "y0": 2.3,
+          "y1": 5.6,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 2.69,
+          "u1": 6.48,
+          "y0": 0,
+          "y1": 16,
+          "color": "plaster2"
+        },
+        {
+          "t": "bal",
+          "u0": 2.69,
+          "u1": 5.06,
+          "d": 1.25,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open",
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "blinds",
+            "1": "clear",
+            "2": "clear",
+            "3": "clear",
+            "4": "clear"
+          }
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 2.2,
+          "color": "plinth"
+        }
+      ],
+      "note": "Ng8I referans (nB9G teyit, ~1 m kayık). Kuzey cephenin orta çıkıntısı: doğuda pencere sütunu A (3 bölmeli, beyaz PVC) koyu gri duvarda, beyaz pilastr (K0/K3), tüm katları camlı çıkma balkon G1 (K0 beyaz tül, üstü düz beyaz plak), batısında koyu gri ayak (her katta iki küçük siyah aplik). Ayağın batısındaki ikinci camlı yığın (G2) kenar 14 başına yazıldı. Bodrumda zemin hizasında beyaz doğramalı kapı (u≈0.2–0.9, şemada yazılamaz)."
+    },
+    {
+      "edge": 13,
+      "len": 0.71,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          0.71
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 14,
+      "len": 8.56,
+      "seen": "photo",
+      "ref": "1546358562_14_4VcmT6jW.jpg",
+      "cal": {
+        "u": [
+          0.51,
+          8.6
+        ],
+        "head": [
+          [
+            0,
+            4.35
+          ],
+          [
+            4,
+            14.93
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.65,
+          "u1": 2.5,
+          "d": 1.25,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open",
+          "glazed": [
+            0,
+            1,
+            2,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "blinds",
+            "1": "clear",
+            "2": "clear",
+            "3": "clear",
+            "4": "clear"
+          }
+        },
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 2.6,
+          "y0": 0,
+          "y1": 16.4,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 2.6,
+          "u1": 2.95,
+          "y0": 10.1,
+          "y1": 13.4,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 2.6,
+          "u1": 2.95,
+          "y0": 2.1,
+          "y1": 5.45,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 2.6,
+          "u1": 2.95,
+          "y0": 0,
+          "y1": 2.1,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 2.6,
+          "u1": 2.95,
+          "y0": 5.45,
+          "y1": 10.1,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 2.6,
+          "u1": 2.95,
+          "y0": 13.4,
+          "y1": 16.4,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 2.95,
+          "u1": 5.75,
+          "y0": 0,
+          "y1": 16.4,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 3.28,
+          "u1": 5.5,
+          "y0": 3.1,
+          "y1": 4.35,
+          "k": 0,
+          "s": [
+            0,
+            4
+          ],
+          "split": 3
+        },
+        {
+          "t": "panel",
+          "u0": 5.75,
+          "u1": 6.1,
+          "y0": 10.1,
+          "y1": 13.5,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 5.75,
+          "u1": 6.1,
+          "y0": 3,
+          "y1": 5.4,
+          "color": "fascia"
+        },
+        {
+          "t": "panel",
+          "u0": 5.75,
+          "u1": 6.1,
+          "y0": 0,
+          "y1": 3,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 5.75,
+          "u1": 6.1,
+          "y0": 5.4,
+          "y1": 10.1,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 5.75,
+          "u1": 6.1,
+          "y0": 13.5,
+          "y1": 16.4,
+          "color": "plaster2"
+        },
+        {
+          "t": "bal",
+          "u0": 6.2,
+          "u1": 8.6,
+          "d": 0,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "start-wall",
+          "inset": 1.3
+        },
+        {
+          "t": "ac",
+          "u": 6.8,
+          "s": 4,
+          "y": 14.9
+        },
+        {
+          "t": "ac",
+          "u": 6.8,
+          "s": 2,
+          "y": 9.7
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 2.1,
+          "color": "plinth"
+        }
+      ],
+      "note": "4Vcm referans (Ng8I teyit, ~0.35 m kayık). Doğuda G2 camlı çıkma balkon (tüm katlar camlı, K0 beyaz tül, K2 alnı koyu gri; köşeyi aşıp 13/12 önüne taşar), beyaz pano (K0/K3), pencere sütunu B (3 bölmeli ≈2.35 m), beyaz pano, batı ucunda KB köşe locası: kuzeye ve batıya açık, arka duvarı açık gri, balkon kapısı, K4 ve K2 arka duvarında klima, tepede kalın açık gri saçak plağı. K0 balkonu korkuluğunda halı asılı, K4 balkonunda mavi sandalyeler."
+    },
+    {
+      "edge": 15,
+      "len": 2.57,
+      "seen": "partial",
+      "ref": "1546358562_15_TRTBVUFi.jpg",
+      "cal": {
+        "u": [
+          0,
+          2.57
+        ],
+        "head": [
+          [
+            0,
+            4.4
+          ],
+          [
+            4,
+            15.8
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": -0.4,
+          "u1": 3,
+          "d": 0.6,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "ac",
+          "u": 0.2,
+          "s": 4,
+          "y": 14.2
+        },
+        {
+          "t": "ac",
+          "u": 0.2,
+          "s": 2,
+          "y": 9.1
+        }
+      ],
+      "note": "TRTB referans (uzak/eğik). KB köşe: batı cepheye taşan balkon yığınının kuzey ucu, açık borulu korkuluk köşeyi döner; kuzey uçta K4 ve K2 hizasında klimalar; arka duvarda balkon kapısı. Ön yüz x≈47.1 (hava fotoğrafı saçak kenarı)."
+    },
+    {
+      "edge": 16,
+      "len": 1.11,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          1.11
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 17,
+      "len": 10.03,
+      "seen": "photo",
+      "ref": "1546358562_17_TRTBVUFi.jpg",
+      "cal": {
+        "u": [
+          0,
+          10.03
+        ],
+        "head": [
+          [
+            0,
+            4.4
+          ],
+          [
+            4,
+            15.8
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0.78,
+          "u1": 4.73,
+          "d": 1.4,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open"
+        },
+        {
+          "t": "win",
+          "u0": 1.4,
+          "u1": 3.8,
+          "y0": 14.5,
+          "y1": 15.8,
+          "k": 4,
+          "s": [
+            0,
+            4
+          ],
+          "split": 3
+        },
+        {
+          "t": "win",
+          "u0": 5.3,
+          "u1": 6.5,
+          "y0": 14.5,
+          "y1": 15.8,
+          "k": 4,
+          "s": [
+            0,
+            4
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 8.3,
+          "u1": 9.6,
+          "y0": 14.5,
+          "y1": 15.8,
+          "k": 4,
+          "s": [
+            0,
+            4
+          ]
+        },
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 10.03,
+          "y0": 11.3,
+          "y1": 13.4,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 10.03,
+          "y0": 2.8,
+          "y1": 4.9,
+          "color": "plaster2"
+        },
+        {
+          "t": "band",
+          "y0": 13.4,
+          "y1": 14.1,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 10.55,
+          "y1": 11.3,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 4.9,
+          "y1": 5.6,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 2.1,
+          "y1": 2.8,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 2.1,
+          "color": "plinth"
+        },
+        {
+          "t": "strip",
+          "u": 5.15,
+          "w": 0.22,
+          "y0": 5.6,
+          "y1": 10.55
+        },
+        {
+          "t": "strip",
+          "u": 5.15,
+          "w": 0.22,
+          "y0": 14.1,
+          "y1": 19.6
+        },
+        {
+          "t": "strip",
+          "u": 6.75,
+          "w": 0.22,
+          "y0": 5.6,
+          "y1": 10.55
+        },
+        {
+          "t": "strip",
+          "u": 6.75,
+          "w": 0.22,
+          "y0": 14.1,
+          "y1": 20.4
+        },
+        {
+          "t": "strip",
+          "u": 8.17,
+          "w": 0.22,
+          "y0": 5.6,
+          "y1": 10.55
+        },
+        {
+          "t": "strip",
+          "u": 8.17,
+          "w": 0.22,
+          "y0": 14.1,
+          "y1": 19.9
+        },
+        {
+          "t": "strip",
+          "u": 9.8,
+          "w": 0.22,
+          "y0": 5.6,
+          "y1": 10.55
+        },
+        {
+          "t": "strip",
+          "u": 9.8,
+          "w": 0.22,
+          "y0": 14.1,
+          "y1": 19
+        }
+      ],
+      "note": "TRTB referans (d_xi teyit, alt katlar ağaç). Batı alınlık cephesi (otopark): kuzey ucunda ≈6 m genişliğinde balkon yığını (açık borulu korkuluk, K2 alnı koyu gri, tepede kalın saçak plağı; arka duvarda 3 bölmeli pencere + dar kapı), güneyde iki dar pencere sütunu (≈1.25 m, 2 kanat) ve iki yanlarında alınlık eğimine kadar çıkan pilastr şeritleri; K0 (2.8–4.9) ve K3 (11.3–13.4) hizasında koyu gri bantlar, üst/altlarında beyaz silmeler; alınlık tepesi u≈6.0, y≈20.6. Cephe önünde direkte ŞEHR-İ BURSA EVLERİ levhası ve kamera (u≈6.3, bina üzerinde değil)."
+    },
+    {
+      "edge": 18,
+      "len": 3.4,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          3.4
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 19,
+      "len": 5.65,
+      "seen": "photo",
+      "ref": "1546358562_19_TRTBVUFi.jpg",
+      "cal": {
+        "u": [
+          0,
+          5.65
+        ],
+        "head": [
+          [
+            0,
+            4.8
+          ],
+          [
+            4,
+            17.96
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 1.85,
+          "u1": 3.29,
+          "y0": 16.4,
+          "y1": 17.96,
+          "k": 4,
+          "s": [
+            0,
+            4
+          ]
+        },
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 5.65,
+          "y0": 13,
+          "y1": 15.2,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 5.65,
+          "y0": 3,
+          "y1": 5.3,
+          "color": "plaster2"
+        },
+        {
+          "t": "band",
+          "y0": 15.2,
+          "y1": 16.1,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 12,
+          "y1": 13,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 5.3,
+          "y1": 6.2,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 2,
+          "y1": 3,
+          "color": "fascia"
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 2,
+          "color": "plinth"
+        },
+        {
+          "t": "strip",
+          "u": 1.7,
+          "w": 0.26,
+          "y0": 6.2,
+          "y1": 12
+        },
+        {
+          "t": "strip",
+          "u": 1.7,
+          "w": 0.26,
+          "y0": 16.1,
+          "y1": 21.5
+        },
+        {
+          "t": "strip",
+          "u": 3.43,
+          "w": 0.26,
+          "y0": 6.2,
+          "y1": 12
+        },
+        {
+          "t": "strip",
+          "u": 3.43,
+          "w": 0.26,
+          "y0": 16.1,
+          "y1": 21
+        }
+      ],
+      "note": "TRTB referans (d_xi teyit). Batı cephenin güney parçası: tek dar pencere sütunu (≈1.4 m, 2 kanat) + iki yanında pilastrlar, K0 ve K3 hizasında koyu gri bantlar ve beyaz silmeler (17 ile aynı dil). Görünen kat aralığı 3.29 (duvar taban izi düzleminin önünde görünüyor). Güney ucunun ötesinde GB camlı balkon yığını (21)."
+    },
+    {
+      "edge": 20,
+      "len": 1.7,
+      "seen": "none",
+      "cal": {
+        "u": [
+          0,
+          1.7
+        ],
+        "head": [
+          [
+            0,
+            4.45
+          ],
+          [
+            4,
+            15.65
+          ]
+        ]
+      },
+      "items": []
+    },
+    {
+      "edge": 21,
+      "len": 3.29,
+      "seen": "partial",
+      "ref": "1546358562_21_TRTBVUFi.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.29
+        ],
+        "head": [
+          [
+            0,
+            4.3
+          ],
+          [
+            4,
+            15.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "bal",
+          "u0": 1.58,
+          "u1": 5.4,
+          "d": 1.4,
+          "s": [
+            0,
+            4
+          ],
+          "cap": true,
+          "sides": "open",
+          "glazed": [
+            0,
+            3,
+            4
+          ],
+          "tint": {
+            "0": "blinds",
+            "3": "clear",
+            "4": "clear"
+          }
+        }
+      ],
+      "note": "TRTB referans (uzak, eğik). GB köşe balkon yığını: K4 ve K3 camlı, K0 camlı + beyaz stor, K1–K2 açık borulu korkuluk (K2 alnı koyu), üstte düz plak. Güney cepheye döner (0)."
+    }
+  ]
+}
