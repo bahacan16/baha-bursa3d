@@ -247,7 +247,10 @@ export function patchSkyClouds(mat: THREE.ShaderMaterial): boolean {
     .replace(d, 'float cloudNoise = ucf.x;')
     .replace(e, 'float region = 0.5;')
     // örtü ucField içinde uygulandı: eşik = ucf.y
-    .replace('float cov = clamp( cloudCoverage + ( region - 0.5 ) * 0.6, 0.0, 1.0 );', 'float cov = 1.0 - ucf.y;')
+    .replace(
+      'float cov = clamp( cloudCoverage + ( region - 0.5 ) * 0.6, 0.0, 1.0 );',
+      'float cov = 1.0 - ucf.y;',
+    )
     .replace('void main() {', `${CLOUD_GLSL}\n\t\tvoid main() {`);
   mat.fragmentShader = fs;
   mat.needsUpdate = true;
@@ -296,8 +299,14 @@ export function registerReflective(m: THREE.Material): void {
     Object.assign(sh.uniforms, probeUniforms);
     const C = THREE.ShaderChunk as unknown as Record<string, string>;
     sh.fragmentShader = sh.fragmentShader
-      .replace('#include <envmap_physical_pars_fragment>', `#include <envmap_physical_pars_fragment>\n${PROBE_PARS}`)
-      .replace('#include <lights_fragment_maps>', C.lights_fragment_maps.replaceAll('getIBLRadiance(', 'probeRadiance('));
+      .replace(
+        '#include <envmap_physical_pars_fragment>',
+        `#include <envmap_physical_pars_fragment>\n${PROBE_PARS}`,
+      )
+      .replace(
+        '#include <lights_fragment_maps>',
+        C.lights_fragment_maps.replaceAll('getIBLRadiance(', 'probeRadiance('),
+      );
   };
   m.customProgramCacheKey = function () {
     return prevKey.call(this) + '|ultraProbe';

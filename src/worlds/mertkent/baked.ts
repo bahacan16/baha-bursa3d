@@ -9,7 +9,7 @@
  * uyarı düşülür. Zemin (arazi) gölgelendiricisine dünya xz ile `ground_ao` örneklemesi eklenir.
  */
 import * as THREE from 'three';
-import { loadSettings } from '../../core/settings';
+import { reflectiveMaterials, ultraState } from '../../env/ultra';
 import {
   BAKE_UV_VERSION,
   chunkSignature,
@@ -67,7 +67,8 @@ export function bakeRequested(): boolean {
   if (typeof location === 'undefined') return false;
   const p = new URLSearchParams(location.search);
   if (p.has('bakeexport') || p.get('bake') === '0') return false;
-  return p.get('bake') === '1' || loadSettings().ultra;
+  // Ultra kararını oyun verir (ayar + GPU denetimi, game.ts → ultraState.on); ?bake=1 her durumda zorlar
+  return p.get('bake') === '1' || ultraState.on;
 }
 
 /** El modeli meshleri → pişirme kaynakları (anahtar sırasına göre) */
@@ -205,6 +206,8 @@ function aoClone(m: THREE.MeshStandardMaterial, tex: THREE.Texture): THREE.MeshS
   c.aoMap = tex;
   c.aoMapIntensity = 1;
   c.name = `${m.name || ''}+ao`;
+  // Ultra yerel yansıma yaması onBeforeCompile ile birlikte kopyalandı → ikinci kez yamalanmasın
+  if (reflectiveMaterials.has(m)) reflectiveMaterials.add(c);
   return c;
 }
 

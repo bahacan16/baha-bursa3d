@@ -18,35 +18,74 @@ güçlü GPU içindir; Düşük/Orta/Yüksek mobil/zayıf cihazlar için eskisi 
   OIDN gürültü giderme). Yerel Blender oturumu gerekmez; yerel oturum (docs/BLENDER.md) aynı betikleri çalıştırıp
   sonucu görsel olarak inceleyebilir.
 
-## Hat
+## Hat (uygulandı — 2026-09-29)
 
-1. **Dışa aktarma** (`scripts/bake-export.mjs`, Playwright + başsız oyun `?debug=1&bakeexport=1`): el modeli dünyasının
-   (Mertkent + ölçülmüş bloklar + sokak planı, `mertkent*` meshleri) statik meshlerini dünya koordinatında, malzeme
-   anahtarı adıyla, 100 m × 100 m parçalara (chunk) bölerek `bake-work/src/chunk_<cx>_<cz>.glb` olarak yazar.
-   Öznitelikler: `position`, `normal`, `uv` (oyunun dokuları için), varsa `aux` → glTF `_AUX` (cam/perde
-   gölgelendiricileri için). Engelleyici (occluder) olarak ayrıca: araziyi (bölge + 60 m pay) ve ağaç taçlarını
-   (basit küre/koni vekiller) `bake-work/src/occluders.glb`. Yanında `bake-work/src/export.json` (chunk listesi,
-   srcHash).
-2. **Pişirme** (`blender/bake/bake_ao.py`, bpy): her chunk için meshleri içe al, `uv1` = Lightmap Pack (ada payı 2 px),
-   doku yoğunluğu hedefi 8 cm/px (duvar), atlas ≤ 4096²; Cycles **AO değil, gerçek dolaylı oran** tercih edilir:
-   beyaz gökyüzü (1.0) + beyaz yayınık yüzeyler (albedo 0.6) ile DIFFUSE pişirme (yalnız INDIRECT+DIRECT world,
-   lamba yok) ÷ aynı normal için engelsiz gökyüzü değeri (= π·kosinüs ağırlıklı yarı küre, 1.0'a normalize) → oran;
-   örnek 256, OIDN. Süre sınırı aşılırsa Cycles AO pişirmesine (mesafe 25 m, 128 örnek) düş. Çıktı:
-   `public/bake/chunk_<cx>_<cz>.glb` (geometri + `TEXCOORD_1` + `occlusionTexture{texCoord:1}` gri JPG/WebP) ve
-   **zemin için** üstten dünya-uzayı AO dokusu `public/bake/ground_ao.webp` (0.25 m/px, bölge dikdörtgeni
-   `manifest.groundAo.rect`).
-3. **Manifest** `public/bake/manifest.json`: `{ version, srcHash, createdAt, chunks:[{file,bbox:[x0,z0,x1,z1],
-meshes}], groundAo:{file,rect:[x0,z0,x1,z1],mpp}, texel, samples, blender:"4.2" }`. `srcHash` = SHA-1(facades.json,
-   footprints.json, street-plan.json, site-plan.json, park-plan.json, osm.json, terrain.bin, generator kaynakları
-   `src/worlds/mertkent/*.ts`) — `scripts/bake-hash.mjs` hem dışa aktarmada hem oyunda (derleme anında
-   `import.meta.glob` veya vite define ile) aynı şekilde hesaplanır.
-4. **Oyun** (`src/worlds/mertkent/baked.ts`): kalite `ultra` (veya `?bake=1`) ve manifest srcHash güncel ise
-   chunk GLB'leri yüklenir; üretilen `mertkent*` meshlerinin yerine konur (çarpışma dünyası üretilen geometriden
-   olduğu gibi kalır). Malzemeler oyunun kendi malzemeleridir (ad = anahtar), klonlanıp `aoMap` (+ `aoMap.channel=1`,
-   `aoMapIntensity` ≈ 1) eklenir; özel gölgelendiriciler (`onBeforeCompile`) korunur. Zemin arazi gölgelendiricisine
-   dünya xz ile `ground_ao` örneklemesi eklenir. srcHash eskiyse konsolda uyarı + canlı meshler (pişirmesiz).
-5. **CI** `.github/workflows/bake-lighting.yml`: `workflow_dispatch` + veri/üretici değişince; `npm ci`, oyun derle,
-   dışa aktar, `pip install bpy==4.2.0`, pişir, `public/bake/` commit et. Toplam boyut hedefi < 150 MB (KTX2/WebP).
+Dosyalar: `src/worlds/mertkent/lightmap.ts` (parça bölme, imza, uv1), `bakeexport.ts` (dışa aktarma kancası),
+`baked.ts` (oyun tarafı), `scripts/bake-hash.mjs`, `scripts/bake-export.mjs`, `blender/bake/bake_ao.py`,
+`.github/workflows/bake-lighting.yml`, `tests/unit/lightmap.test.ts`. Kancalar: `src/worlds/osm/world.ts`
+(`OsmWorld.create` sonu), `vite.config.ts` (`define: __BAKE_SRC_HASH__`).
+
+1. **Dışa aktarma** (`scripts/bake-export.mjs`, Playwright + başsız oyun `?debug=1&bakeexport=1`): el modeli
+   meshleri (`mertkent <anahtar>`) dünya koordinatında, üçgenin ağırlık merkezine göre 100 m × 100 m parçalara
+   bölünür ve `bake-work/src/chunk_<cx>_<cz>.glb` olarak yazılır (mesh adı = malzeme anahtarı). Öznitelikler:
+   `position`, `normal`, `uv`, varsa `aux` → `_AUX`, ve **`uv1` → `TEXCOORD_1`** (ışık haritası uv'si, aşağıda).
+   Alfa testli yaprak kartları vb. alıcı değildir, engelleyicilere girer. Engelleyiciler `occluders.glb`: arazi
+   (bölge + 60 m, **0.3 m aşağıda** — 10 m ızgara üçgenleri çift doğrusal `H`'den birkaç cm sapıp üstüne serilen
+   döşemeleri karartıyordu), OSM/Street View binaları, ağaç taçları (örnek başına elipsoid + gövde vekili).
+   `export.json`: parça listesi (`sig`, atlas boyutu, gerçek yoğunluk), malzeme bilgileri (saydamlık/alfa), `srcHash`.
+2. **uv1 — KARAR (sapma):** Lightmap Pack Blender'da değil `lightmap.ts`'te, **deterministik** olarak üretilir ve aynı
+   kod oyunda da çalışır. Gerekçe: 1.9 M üçgenlik el modeli geometrisi GLB olarak ~190 MB (sıkıştırmasız) —
+   150 MB bütçesini tek başına aşıyordu; oyun geometriyi zaten kendisi üretiyor. Böylece yayına **yalnız AO
+   dokuları** girer, özel öznitelikler (`aux`) ve malzeme gölgelendiricileri aynen kalır, Blender'ın köşe
+   yeniden sıralaması/bölmesi sorun olmaz. Algoritma: konumlar mm'ye yuvarlanır (tarayıcıdan bağımsız, yalnız
+   IEEE-kesin işlemler), aynı düzlemdeki bitişik üçgenler (konumdan kaynaklanmış kenarlar, normal farkı < ~10°)
+   tek ada; ada düzlemine izdüşüm (yatay adalarda en uzun kenar boyunca); 2 px pay; **4 px ızgarasına hizalı**
+   dikdörtgenler (mip 0–2'de adalar karışmaz); ≤ 2 px adalar 4×4 hücreye esnetilir; raf paketleme; atlas
+   ≤ 4096², sığmazsa yoğunluk %12 adımlarla büyür (yoğun parçalarda 10–14 cm/px). `BAKE_UV_VERSION` algoritma
+   sürümüdür (manifest ile eşleşmeli).
+3. **Pişirme** (`blender/bake/bake_ao.py`, bpy 4.2, Cycles CPU): tüm parçalar + engelleyiciler tek sahnede; parça
+   başına bir nesne (malzeme yuvaları opaklık sınıfına göre ortak pişirme malzemesine bağlanır: opak yayınık albedo
+   0.6; cam/su `opacity×0.8`, yaprak kartı 0.55, ağaç tacı 0.65 opak karışım). Beyaz gökyüzü 1.0, lamba yok,
+   DIFFUSE (DIRECT+INDIRECT, renk yok), 3 sekme. Aynı atlasa NORMAL (nesne = dünya uzayı) pişirilir ve
+   **oran = ışık / E0(n)**, `E0 = (1+n_yukarı)/2 + 0.6·(1−n_yukarı)/2` (düz açık alanda aynı normalin alacağı değer;
+   oyundaki yarım küre/ortam ışığı zaten normale göre gök/zemin ayrımı yapıyor). OIDN (compositor Denoise,
+   ayrı boş Workbench sahnesinde). Kapsanmayan pikseller 1.0. Parça atlasları 8192² **sayfalara** (dörtlü ağaç)
+   yerleştirilir: `public/bake/ao_<n>.webp` (gri, WebP). Zemin: bölge dikdörtgeninde arazi vekilinin
+   0.25 m üstüne kaldırılmış kopyası (döşemeler engellemesin) üstten pişirilir → `ground_ao.webp` (0.25 m/px).
+   Süre bütçesi (`BAKE_TIME_BUDGET`): ilk (en büyük) parçadan toplam kestirilir; aşılırsa örnek sayısı düşürülür,
+   16'nın altına inecekse Cycles AO'ya (25 m) geçilir ve ilk parça yeniden pişirilir.
+4. **Manifest** `public/bake/manifest.json`: `{ version, uvVersion, srcHash, createdAt, blender, method, samples,
+bounces, denoise, texel, unwrap:{texel,pad,maxAtlas}, pages:[{file,size}], chunks:[{id,bbox,sig,size,texel,page,
+rect:[x,y,kenar],meshes}], groundAo:{file,rect:[x0,z0,x1,z1],mpp}, seconds }`. `srcHash` = `scripts/bake-hash.mjs`
+   (SHA-1: `src/worlds/mertkent/**/*.ts` (baked/bakeexport hariç), `src/worlds/mertkent/data/*.json`,
+   `public/data/osm.json`, `terrain.bin`, `src/worlds/osm/height.ts`, `src/env/terrain.ts`; CRLF→LF). Oyun aynı
+   özeti derleme anında alır (`vite.config.ts` → `define`).
+5. **Oyun** (`baked.ts`, `OsmWorld.create` sonunda): `ultraState.on` (oyunun Ultra kararı: ayar + GPU denetimi) veya
+   `?bake=1` (`?bake=0` kapatır; `?bakeexport=1`'de hiç uygulanmaz). **Eskime denetimi iki katmanlı:** srcHash farklıysa
+   konsolda uyarı; asıl karar **parça imzası** — üretilen geometrinin mm'ye yuvarlanmış üçgenlerinin özeti
+   manifest'tekiyle tutmayan parça canlı (pişirmesiz) çizilir ve konsola yazılır. Tutan parçalarda üçgenler uv1'li
+   yeni geometriye taşınır (anahtar × sayfa başına tek mesh; draw call artışı yalnız sayfa sayısı kadar), kalan
+   üçgenler kaynak meshte kalır. Malzeme = oyunun kendi malzemesinin klonu + `aoMap` (R8 doku, `channel = 1`,
+   yoğunluk 1); `onBeforeCompile` ve `customProgramCacheKey` (+`|bakedAO`) kopyalanır, Ultra yansıma kaydı korunur.
+   Çarpışma dünyası değişmez. Arazi malzemesine (zincirlenmiş `onBeforeCompile`) dünya xz ile `ground_ao`
+   örneklemesi: yalnız `indirectDiffuse`/`indirectSpecular` çarpılır. `bakedLighting.active` dışa açık (ör. SSAO
+   şiddetini azaltmak için).
+6. **CI** `.github/workflows/bake-lighting.yml`: `workflow_dispatch` (örnek, yoğunluk, yöntem, parça listesi) +
+   yalnız `main`'e itmede veri/üretici yolları değişince (KARAR: özellik dalı çok sık itiliyor, Actions dakikası);
+   `npm ci` → ayrı klasöre derle → `vite preview` → dışa aktar → `pip install bpy==4.2.0 pillow numpy` → pişir →
+   boyut < 150 MB denetimi → yalnız başarılıysa `public/bake/` commit.
+
+### Yerelde tam pişirme
+
+```bash
+npx vite build --outDir /tmp/bake-dist
+npx vite preview --outDir /tmp/bake-dist --port 4180 --strictPort &
+node scripts/bake-export.mjs --out bake-work/src            # ~3–5 dk
+pip install bpy==4.2.0 pillow numpy                          # Python 3.11
+python blender/bake/bake_ao.py                               # BAKE_SAMPLES, BAKE_CHUNKS … (betiğin başı)
+```
+
+Blender kuruluysa aynı betik `blender --background --python blender/bake/bake_ao.py` ile de çalışır.
 
 ## Ultra gerçekçilik paketi (gerçek zamanlı)
 

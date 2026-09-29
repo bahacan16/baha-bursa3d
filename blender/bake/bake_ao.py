@@ -20,6 +20,7 @@ Ortam değişkenleri (hepsi isteğe bağlı):
     BAKE_GROUND_MPP=0.25     zemin AO çözünürlüğü (m/px); 0 = zemin pişirme yok
     BAKE_QUALITY=88          WebP kalitesi
     BAKE_THREADS=0           0 = tüm çekirdekler
+    BAKE_MARGIN_M=60         parça başına sahneye alınan çevre (m); uzaktakiler Cycles'tan gizlenir
 
 Yöntem (ratio): beyaz gökyüzü (1.0), lamba yok, tüm yüzeyler yayınık albedo 0.6. Her doku pikselinde Cycles DIFFUSE
 (yalnız ışık, renk yok) = gelen dolaylı ışınım / π. Açık düz alanda aynı normalin alacağı değer
@@ -67,6 +68,7 @@ QUALITY = env("BAKE_QUALITY", 88)
 THREADS = env("BAKE_THREADS", 0)
 ALBEDO = 0.6
 MARGIN_PX = 2
+OCC_MARGIN = env("BAKE_MARGIN_M", 60.0)  # m; pişirilen parçadan bu kadar uzaktaki nesneler gizlenir
 GROUND_LIFT = 0.25  # zemin AO düzlemi gerçek araziden bu kadar yukarıda (döşeme katmanları engellemesin)
 
 T0 = time.time()
@@ -295,6 +297,41 @@ def do_bake(obj, image, method, samples):
         obj.data.materials[i] = bake_material("occ", a)
 
 
+_bounds = {}
+
+
+def game_bounds(o):
+    """Nesnenin oyun uzayındaki (x, z) sınır kutusu, önbellekli"""
+    if o.name not in _bounds:
+        from mathutils import Vector
+
+        pts = [o.matrix_world @ Vector(c) for c in o.bound_box]
+        xs = [p.x for p in pts]
+        zs = [-p.y for p in pts]
+        _bounds[o.name] = (min(xs), min(zs), max(xs), max(zs))
+    return _bounds[o.name]
+
+
+def isolate(rect, margin, keep=()):
+    """Pişirilen bölgeden `margin` m'den uzaktaki nesneleri Cycles'tan gizle (bellek + BVH süresi)."""
+    x0, z0, x1, z1 = rect[0] - margin, rect[1] - margin, rect[2] + margin, rect[3] + margin
+    shown = 0
+    for o in bpy.context.scene.objects:
+        if o.type != "MESH":
+            continue
+        if o in keep:
+            o.hide_render = False
+            continue
+        if o.name.startswith("ground_ao"):
+            o.hide_render = True
+            continue
+        b = game_bounds(o)
+        vis = b[2] >= x0 and b[0] <= x1 and b[3] >= z0 and b[1] <= z1
+        o.hide_render = not vis
+        shown += vis
+    return shown
+
+
 def new_image(name, w, h, fill):
     img = bpy.data.images.new(name, w, h, alpha=False, float_buffer=True)
     img.colorspace_settings.name = "Non-Color"
@@ -465,6 +502,7 @@ def main():
         o = objs.get(c["id"])
         if o is None:
             continue
+        isolate(c["bbox"], OCC_MARGIN, keep=(o,))
         val, tb, cov = bake_chunk(o, c["size"], method, samples)
         done_px += c["size"] ** 2
         el = time.time() - t_start
@@ -515,6 +553,7 @@ def main():
         x1 = max(c["bbox"][2] for c in results)
         z1 = max(c["bbox"][3] for c in results)
         g = ground_object(terrain, (x0, z0, x1, z1), float(exp.get("terrainDrop", 0.0)))
+        isolate((x0, z0, x1, z1), OCC_MARGIN, keep=(g,))
         w = int(round((x1 - x0) / GROUND_MPP))
         h = int(round((z1 - z0) / GROUND_MPP))
         img = new_image("ground_ao", w, h, -1.0)

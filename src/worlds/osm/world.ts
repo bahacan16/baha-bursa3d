@@ -470,10 +470,12 @@ export class OsmWorld implements IWorld {
       const mkGroup = world.object.getObjectByName('mertkent (el modeli)');
       if (new URLSearchParams(location.search).has('bakeexport'))
         (await import('../mertkent/bakeexport')).installBakeExport(world as never);
-      else if (mkGroup && bakeRequested())
+      else if (mkGroup && bakeRequested()) {
+        progress(0.97, 'Pişirilmiş ışık yükleniyor');
         await applyBakedLighting(mkGroup, world.materials.ground, import.meta.env.BASE_URL).catch((e) =>
           console.warn('bake: pişirilmiş ışık uygulanamadı', e),
         );
+      }
     }
     return world;
   }
