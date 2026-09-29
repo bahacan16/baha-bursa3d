@@ -43,7 +43,13 @@
         "roof": {
           "kind": "flat",
           "eave": 0.05,
-          "fasciaH": 1.05
+          "fasciaH": 1.05,
+          "parapet": {
+            "h": 1.05,
+            "color": "#785a53",
+            "rail": "tube",
+            "railC": "#c5c0ba"
+          }
         }
       },
       {
@@ -58,19 +64,105 @@
         }
       },
       {
-        "x": [
-          298.2,
-          312
-        ]
+        "poly": [
+          [
+            298.2,
+            -33.2
+          ],
+          [
+            312,
+            -33.2
+          ],
+          [
+            312,
+            -28
+          ],
+          [
+            298.2,
+            -28
+          ]
+        ],
+        "roof": {
+          "kind": "flat",
+          "eave": 0.05,
+          "fasciaH": 0.3
+        }
+      },
+      {
+        "rest": true
       }
     ]
   },
+  "volumes": [
+    {
+      "poly": [
+        [
+          298.3,
+          -33.2
+        ],
+        [
+          309.15,
+          -33.2
+        ],
+        [
+          309.05,
+          -29.35
+        ],
+        [
+          298.25,
+          -29.85
+        ]
+      ],
+      "y0": 18.6,
+      "y1": 21.2,
+      "color": "#785a53",
+      "roofC": "#8e716d",
+      "glazing": {
+        "edges": [
+          2
+        ],
+        "from": 19.8,
+        "to": 21.0,
+        "mullion": 0.65,
+        "glass": "#455a72",
+        "frame": "#f2f2ef"
+      },
+      "collide": false,
+      "note": "Doğu blok güney şeridinde çatı katı: K5 kotunda ≈1.2 m kahve döşeme alnı, üstünde tüm genişlikte katlanır cam (1TOk 64/25, 9_1TOkSVSN ortofoto 2025), üstünde kiremit saçak (roofC kiremit rengi). Yükseklikler aşağıdan dik bakıştan ~tahmini (cam bandı görünen 0.6 m, geri çekik olduğu için kısalmış). Yan (doğu/batı) ve kuzey yüzleri görülmedi → düz kahve; camın önündeki korkuluk çizilmedi."
+    },
+    {
+      "poly": [
+        [
+          284.5,
+          -44.2
+        ],
+        [
+          285.7,
+          -44.2
+        ],
+        [
+          285.7,
+          -34.3
+        ],
+        [
+          284.5,
+          -34.3
+        ]
+      ],
+      "y0": 18.6,
+      "y1": 22.0,
+      "color": "#785a53",
+      "roofC": "#8e716d",
+      "collide": false,
+      "note": "Batı blok çatı katının batıya bakan koyu kahve kaplamalı dik duvarı (2Qtexqz/UXy7Q7qk 2025): saçaktan ≈19.2–19.4'ten yükselir, üst kenarı basamaklı (≈20.8 / 21.4→24.1 tepe / 22.4→21.2) — ortalama 22.0 düz alındı. Doğuya derinliği görülmedi (kiremit çatı içinde) → 1.2 m ince hacim; iki pencere ve basamaklı üst kenar hâlâ pending."
+    }
+  ],
   "notes": [
     "Riva Konutları — bu bina girişteki kanopide 'C' rozetli blok (2014). Binanın kendi duvarında isim levhası YOK; site adı levhaları taban izi dışında (sokak planı için): (1) güney site taş duvarında siyah/koyu granit pano üstünde altın-krem kalın büyük harf 'RİVA KONUTLARI' (2014'te altında beyaz 'özeryapı ®' yazısı da vardı; 2025'te alt kısım gölgede, okunamadı); (2) batıdaki araç/yaya kapısında açık gri kiriş üstünde koyu antrasit kabartma harf 'RİVA KONUTLARI', sol ayakta terrakota pano + gri çapraz bant + gri metal 'RK' ev-çatı logosu (1TOkSVSN 0/0, 2025).",
     "KAT: 5 normal kat (K0–K4) + çatı katı. K0 döşemesi zeminden ≈3.6 m (groundRaise 3.6; kuzey 3.5, batı 3.65, güney 3.6–4.2 tahminleri). Altında sokak kotunda ≈3 m'lik bodrum/giriş katı: güneyde merdiven kulesinin kapısı zeminde, loca yığınlarının altı penceresiz krem duvar + ızgaralı menfez (2014). Kuzeyde K0 bahçe kotundan ≈1.5–2.5 m yukarıda (çit arkası). floorH 3.0 (2014 güney yığın genişliği/hava fotoğrafı ölçeği ile kat aralığı 2.86×1.05).",
     "RENK (2025): krem-kırık beyaz sıva (#b0b0aa kapalı hava batı yüzü; gölgede #a7a6a0, güneşli güney yığın çerçevesi doygun beyaz #fbfefc); koyu kahve/terrakota kaplama ve alınlar plaster2 #785a53 (kapalı hava; güneşte #c18e74/#b18d77, gölgede #59423d, K3 bandı güneşte #c9a08c); merdiven kulesi çerçevesi daha koyu #634435 (2014) / #44322b (2025 güneş); kule camı mavi #435c70; kiremit #8e716d (hava fotoğrafı); beyaz PVC doğrama.",
     "TASARIM DİLİ: iki blok (batı x≈284–295, doğu x≈298–310) + ortada mavi cam giydirmeli merdiven kulesi. Alt üç kat (K0–K2) kahve vurgulu: batı cephe kuzey yarısında K0–K2 kahve kaplama; güney loca yığınlarında K0–K2 kahve yan kolonlar + K3 kahve alın ('Π' çerçeve), K3–K4 beyaz; kuzey köşe balkon yığınlarında K1–K2 (KB) / K2 (KD, K1 görülmedi) alınları kahve, üst katlar krem. Her kat ayrı incelendi; balkon/loca katları: güney batı yığını K0–K4 camlı (K0 2014 kanıtı), doğu yığını 2014'te camsız (2025 görülmedi), KB yığını K0–K4 camlı, KD yığını K2–K4 camlı (2025).",
-    "KÜTLE (massing): hava fotoğrafında iki ayrı kırma kiremit çatı + ortada kule/çekirdek şeridi (x≈295–298, koyu kemerli çatı) + batı bloğun güneyinde düz teras (z≈−34…−30.6, kahve alın + paslanmaz korkuluk). Bu yüzden 4 parça: batı ana (kırma), batı güney şeridi (düz teras, alın 1.05), çekirdek (düz, alın 1.3 ≈ kule tepesi), doğu blok (kırma). Kesim çizgilerindeki iç duvarlar eşit yükseklikte olduğu için görünmez. Doğu bloğun güney şeridindeki camlı çatı katı ve batıdaki mansart çatı katı pending'de.",
+    "KÜTLE (massing): hava fotoğrafında iki ayrı kırma kiremit çatı + ortada kule/çekirdek şeridi (x≈295–298, koyu kemerli çatı) + batı bloğun güneyinde düz teras (z≈−34…−30.6, kahve alın + paslanmaz korkuluk). Bu yüzden 5 parça: batı ana (kırma), batı güney şeridi (düz teras; roof.parapet 1.05 m kahve + paslanmaz boru korkuluk), çekirdek (düz, alın 1.3 ≈ kule tepesi), doğu güney şeridi (poly, düz; üstünde volumes[0] camlı çatı katı), doğu gövde (rest, kırma). Batı çatı katının batı duvarı volumes[1]. Kesim çizgilerindeki iç duvarlar eşit yükseklikte olduğu için görünmez.",
     "ÇATI: kırma, kiremit #8e716d, saçak taşması ≈0.55 (kuzey saçak altı büyütmesinden), koyu kahve alın ≈0.85 m (beyaz saçak bandı YOK), eğim ≈38–40° (batı çatı katı alınlık tepesi ≈24 m, saçak ≈19.4 m; tahmini). Çatı katı (çatı arası değil, oturulan kat) mansart/alınlık duvarlarıyla — pending.",
     "TARİH: 2025-09 kareleri (2Qtexqz, UXy7Q7qk, C7Sj_GtW, 1TOkSVSN) esas. 2019-05 (Dr35Nyuc) ve 2014-07 (EIX3i6Md, HdorTBep, NoC-3fSN) yalnız 2025'te görünmeyen kısımlar için (K0 katları, giriş/kanopi/'C', doğu blok güney gövdesi, doğu blok kuzey yüzü) — bina 2014/2019'dan beri değişti: çatı katı eklendi (2019'da düz saçaklı 5 kat), balkonlar camlandı, teras alınları beyazdan kahveye döndü, kuzeyde kahve dikey şerit eklendi. Bu yüzden eski karelerden alınan cam/perde/renk bilgisi güncel olmayabilir.",
     "GÖRÜLMEYENLER: doğu cephe (10–12) tamamen; kuzey girinti (0–2); batı cephenin K0–K1'i ve güney yarısının K0–K2'si (servi); kuzey cephelerin K0'ı (çit); doğu blok güney gövdesinin 2025 hali; doğu blok kuzey yüzü 2025'te yalnız çok yatık. Perdeler yalnız 2025 yakın/orta karelerde okunabilenler yazıldı.",
@@ -138,6 +230,11 @@
             "K2": "tul",
             "K3": "tul",
             "K4": "tul"
+          },
+          "surround": {
+            "w": 0.1,
+            "d": 0.03,
+            "color": "#f2f2ef"
           }
         },
         {
@@ -157,6 +254,11 @@
             "K2": "tul",
             "K3": "tul",
             "K4": "tul"
+          },
+          "surround": {
+            "w": 0.1,
+            "d": 0.03,
+            "color": "#f2f2ef"
           }
         },
         {
@@ -255,6 +357,11 @@
           "curt": {
             "K3": "tul",
             "K4": "tul"
+          },
+          "surround": {
+            "w": 0.1,
+            "d": 0.03,
+            "color": "#f2f2ef"
           }
         },
         {
@@ -271,6 +378,11 @@
           "split": 2,
           "curt": {
             "K2": "tul"
+          },
+          "surround": {
+            "w": 0.1,
+            "d": 0.03,
+            "color": "#f2f2ef"
           }
         },
         {
@@ -362,20 +474,9 @@
         {
           "t": "pipe",
           "u": 0.85
-        },
-        {
-          "t": "proj",
-          "u0": 11.82,
-          "u1": 14.85,
-          "d": 0.08,
-          "y0": 18.9,
-          "y1": 19.95,
-          "color": "plaster2",
-          "topRail": "tube",
-          "topRailC": "#c5c0ba"
         }
       ],
-      "note": "2025-09 (2Qtexqz kapalı hava; güney ucu C7Sj_GtW ve 1TOkSVSN ile). Kuzey kısım (u≈1–7.8): K0–K2 hizasında koyu kahve iri ebatlı kompozit/seramik kaplama (derzli), üstü krem sıva; A sütunu K3–K4 boydan fransız pencere + yatay borulu paslanmaz korkuluk, K1–K2 normal pencere; yanında küçük banyo pencereleri K2–K4. K0 ve K1'in alt kısmı servi ağacının arkasında (görülmedi). Güney kısım (u>7.8) ≈0.6 m geride görünüyor (lento ve saçak çizgileri 0.6–0.9 m aşağıda, derinlikle tutarlı) — öğeler düzlem eşdeğerine çevrildi, bindirmede fotoğrafın biraz sağında/üstünde durur. B sütunu K3–K4 (K0–K2 ağaç arkasında, görülmedi). GB uçta köşe locasının yan açıklıkları: K0–K2 camlı + korkuluklu (C7Sj, 1TOk 47/7), K3–K4 çerçeveli pencere, K0/K3/K4'te yanlarında klima. KB köşede krem yağmur borusu. Üst güney parça: teras döşemesinin kahve alnı + paslanmaz korkuluk. Çatı katı (kahve kaplamalı mansart duvarı + 2 pencere) pending'de."
+      "note": "2025-09 (2Qtexqz kapalı hava; güney ucu C7Sj_GtW ve 1TOkSVSN ile). Kuzey kısım (u≈1–7.8): K0–K2 hizasında koyu kahve iri ebatlı kompozit/seramik kaplama (derzli), üstü krem sıva; A sütunu K3–K4 boydan fransız pencere + yatay borulu paslanmaz korkuluk, K1–K2 normal pencere; yanında küçük banyo pencereleri K2–K4. K0 ve K1'in alt kısmı servi ağacının arkasında (görülmedi). Güney kısım (u>7.8) ≈0.6 m geride görünüyor (lento ve saçak çizgileri 0.6–0.9 m aşağıda, derinlikle tutarlı) — öğeler düzlem eşdeğerine çevrildi, bindirmede fotoğrafın biraz sağında/üstünde durur. B sütunu K3–K4 (K0–K2 ağaç arkasında, görülmedi). GB uçta köşe locasının yan açıklıkları: K0–K2 camlı + korkuluklu (C7Sj, 1TOk 47/7), K3–K4 çerçeveli pencere, K0/K3/K4'te yanlarında klima. KB köşede krem yağmur borusu. Üst güney parça: teras alnı + korkuluk massing batı-güney parçasının roof.parapet'i ile. Çatı katı batı duvarı volumes[1] (pencereleri pending)."
     },
     {
       "edge": 5,
@@ -486,17 +587,6 @@
           "color": "#634435"
         },
         {
-          "t": "proj",
-          "u0": -1.79,
-          "u1": 8.58,
-          "d": 0.08,
-          "y0": 17.08,
-          "y1": 18.17,
-          "color": "plaster2",
-          "topRail": "tube",
-          "topRailC": "#c5c0ba"
-        },
-        {
           "t": "vent",
           "u": 3.8,
           "y": 3.28,
@@ -505,7 +595,7 @@
           "color": "#d8d6cf"
         }
       ],
-      "note": "2025-09 (1TOkSVSN, güneşli; K1–K4 ve kule üstü). Alt kısım çam/ıhlamur arkasında → K0 ve zemin 2014 HdorTBep karesinden (K0 camlı balkon, cephe altında menfez). Loca yığını (GB köşe locası): K0–K4 katlanır cam (koyu mavi gök yansıması), cam arkasında paslanmaz korkuluk; parapet alınları beyaz, K3 alnı KAHVE; iki yan kolon K0–K2 kahve (K3 bandıyla 'Π' çerçeve), K3–K4 beyaz. Yığının doğusundaki pencereli duvar ve merdiven kulesi gerçekte ≈1.9–2.8 m geride (pending): pencere sütunu ve kule çerçevesi girinti düzeltmesiyle düzleme taşındı (bindirmede fotoğraftakinden sağda durur); girinti duvarı K0–K2 kahve kaplama 2014 karesinden (2025'te görünmüyor). Üstte kahve teras döşemesi (yığın + girinti üzerinde saçak gibi, kuleye kadar) + paslanmaz teras korkuluğu (2025'te alın kahve; 2014'te beyazdı)."
+      "note": "2025-09 (1TOkSVSN, güneşli; K1–K4 ve kule üstü). Alt kısım çam/ıhlamur arkasında → K0 ve zemin 2014 HdorTBep karesinden (K0 camlı balkon, cephe altında menfez). Loca yığını (GB köşe locası): K0–K4 katlanır cam (koyu mavi gök yansıması), cam arkasında paslanmaz korkuluk; parapet alınları beyaz, K3 alnı KAHVE; iki yan kolon K0–K2 kahve (K3 bandıyla 'Π' çerçeve), K3–K4 beyaz. Yığının doğusundaki pencereli duvar ve merdiven kulesi gerçekte ≈1.9–2.8 m geride (pending): pencere sütunu ve kule çerçevesi girinti düzeltmesiyle düzleme taşındı (bindirmede fotoğraftakinden sağda durur); girinti duvarı K0–K2 kahve kaplama 2014 karesinden (2025'te görünmüyor). Üstte kahve teras döşemesi (yığın + girinti üzerinde saçak gibi, kuleye kadar), paslanmaz teras korkuluğu massing roof.parapet ile (2025'te alın kahve; 2014'te beyazdı)."
     },
     {
       "edge": 6,
@@ -1078,7 +1168,7 @@
       "desc": "Kulenin tepesinde tam genişlikte yarım daire kesitli beşik tonoz (ön yüzde kemer), ≈1.5 m yükselir; kule camı kemerin altına kadar çıkar. Çekirdek parçası şimdilik düz çatı + 1.3 m alın."
     },
     {
-      "what": "Batı blok çatı katı (mansart / alınlık duvarı)",
+      "what": "Batı blok çatı katı: pencereler + basamaklı üst kenar (hacmin kendisi volumes[1])",
       "edge": 4,
       "ref": "1540901777_4_2QtexqzB.jpg",
       "profile_app": [
@@ -1147,41 +1237,7 @@
         "top_y": 24.1
       },
       "color": "#6a535b kapalı hava / #59423d gölge; kalçalar açık terrakota #66514f; kahve düz kaplama",
-      "desc": "Saçak kotundan (≈19.2–19.4) yükselen, dik (mansart ≈70–90°) koyu kahve kaplamalı çatı katı duvarı; üst kenarı basamaklı kırık alınlık (tepe u≈8.7). Kuzey ve güney uçlarda kiremit kalça yüzeyleri. GB tepede krem küçük kule/baca gibi dikey parça (1TOk 0/0 x≈495–505, 47/36). 1TOk 47/36'da batıya bakan çatı penceresi (dormer, beyaz çerçeve). Kırma çatı bunu çizmiyor."
-    },
-    {
-      "what": "Doğu blok güneyinde camlı çatı katı / kapalı teras",
-      "edge": 9,
-      "ref": "1540901777_9_1TOkSVSN.jpg",
-      "app": {
-        "u": [
-          -1.5,
-          3.8
-        ],
-        "brown_slab_y": [
-          16.3,
-          17.6
-        ],
-        "glazing_y": [
-          17.8,
-          18.4
-        ],
-        "eave_y": [
-          18.5,
-          19.0
-        ]
-      },
-      "world": {
-        "x": [
-          298.4,
-          309.0
-        ],
-        "z": [
-          -33.2,
-          -29.8
-        ]
-      },
-      "desc": "Doğu bloğun güney şeridinde K5 kotunda kahve döşeme alnı (≈1.2 m) + paslanmaz korkuluk, üstünde tüm genişlikte katlanır cam (cam balkon) çatı katı cephesi, onun üstünde kiremit çatının saçağı. Hava fotoğrafında bu şerit gri (farklı çatı malzemesi). 2025 (1TOk 64/25). Doğu blok şimdilik tek kırma çatı."
+      "desc": "volumes[1] düz üstlü 1.2 m ince kahve hacim olarak çizildi (y 18.6–22.0). Hâlâ çizilemeyen: iki beyaz PVC pencere (windows_app), basamaklı/eğik üst kenar (profile_app, tepe ≈24.1), kuzey/güney kalçalardaki kiremit yüzler, GB tepedeki krem küçük baca/kule parçası, 1TOk 47/36'daki batıya bakan çatı penceresi."
     },
     {
       "what": "Loca alınlarının sarkan kirişi",
@@ -1212,14 +1268,6 @@
         13
       ],
       "desc": "Kuzey köşe yığınları kuzey duvar düzleminden yalnız ≈0.3–0.35 m taşıyor (bant büyütmesi), ama batı yan yüzündeki cam ≈1.0 m (2Qtexqz 140/25, u −0.24…0.74) → yığın ≈0.65 m köşeye gömük, yan yüzü de katlanır camlı + korkuluklu; köşede krem yağmur borusu. Üretici taşan balkon (d 0.35) çiziyor."
-    },
-    {
-      "what": "Batı teras korkuluğu ve teras döşemesi",
-      "edges": [
-        4,
-        5
-      ],
-      "desc": "Batı bloğun güney şeridi düz teras: kahve alın (K5 döşemesinden ≈−0.2…+1.05 m) üstünde paslanmaz korkuluk (≈0.3–0.4 m görünür, dikmeli). proj+topRail ile yaklaşık çizildi; terasın kuzey kenarı ana çatı saçağına dayanır (z≈−34)."
     }
   ]
 }

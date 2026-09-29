@@ -6,7 +6,7 @@
  "roof": {
   "kind": "hipped",
   "eave": 0.3,
-  "fasciaH": 1.3,
+  "fasciaH": 1.2,
   "pitch": 30,
   "terrace": true
  },
@@ -421,15 +421,6 @@
      "glassC": {
       "*": "#8f99a8"
      }
-    },
-    {
-     "t": "band",
-     "y0": 25.05,
-     "y1": 26.25,
-     "u0": 14.85,
-     "u1": 17.95,
-     "color": "fascia",
-     "proud": 0.3
     },
     {
      "t": "panel",
@@ -922,15 +913,6 @@
      "y0": 24.2,
      "y1": 24.7,
      "color": "#a7b1b3"
-    },
-    {
-     "t": "band",
-     "y0": 27.2,
-     "y1": 28.5,
-     "u0": 2.5,
-     "u1": 8.53,
-     "color": "fascia",
-     "proud": 0.3
     }
    ],
    "note": "l07hZ6pz (2025-09, ≈85 m, dik; tek iyi 2025 görünümü — SyTaPSlH/nxqvwsSp'de bu kenar tamamen 1773 arkasında). u 0–2.5 önündeki 1773 arkasında: yalnız -5Gw/uJjm'den KB köşe yanında kahverengi ahşap görünümlü panel (u≈0–1.0, K5–K7) seçiliyor, genişliği ve u 1.0–2.6 arası görülmedi. u 2.6–6.6 beyaz sütun + 2 kanatlı fransız pencere (yatay borulu korkuluk) + açık gri çıkıntılı denizlik kutuları; u 6.6–8.53 penceresiz gri sıva (kenar 12'ye devam). Üstte 27.2–28.5 beyaz saçak bandı; en üst pencere K7 (bu cephede K8 yok, saçak K8 düzeyinde). Bu ortofotonun düşey kaydı 2Qtex'ten ≈+1 m farklı (kat indeksi çentik döşemeleriyle eşlendi). K0–K1 ağaç arkasında; K2 kısmen."
@@ -962,17 +944,7 @@
      ]
     ]
    },
-   "items": [
-    {
-     "t": "band",
-     "y0": 27.3,
-     "y1": 28.5,
-     "u0": 0,
-     "u1": 2.92,
-     "color": "fascia",
-     "proud": 0.3
-    }
-   ],
+   "items": [],
    "note": "l07hZ6pz + 6Bi-PCcx (2025-09): tamamen penceresiz gri sıva (#6d7a86 gölge); üstte 27.3–28.5 beyaz saçak bandı (çentik balkonunun şapkasına bağlanır). 2019 JDIgP/KOxFy'de de aynı boş duvar 6.5 m'ye kadar (renk 2019'da koyu gri — sonradan boyanmış). K0–K1 çit/çalı arkasında."
   },
   {
@@ -1051,25 +1023,16 @@
   "KAYNAKLAR: Doğan Avcıoğlu'nun bu kesiminde cadde üstünde pano yok. Kullanılan 2025-09 kareleri: güney 2QtexqzB + UXy7Q7qk (site içinden, ≈95–100 m, 1771/1770 arasındaki boşluktan), batı l07hZ6pz (≈85 m; SyTaPSlH/nxqvwsSp'de batı cephe 1773 arkasında ve bu panoların konumu ≈3 m kayık), kuzey -5GwXVZp + uJjmdiDN + q0QFA5AO/zNp1JsZE (Uğur Mumcu, ≈95–110 m, yalnız K5–K8). 2019-05 j-FHs_eT (kuzey, K2–K8) yalnız yerleşim için; 2019 JDIgP/KOxFy (docs/survey/c'deki eski ortofotolar) bina inşaat/yeni bitmişken çekilmiş: koyu gri + açık gri — 2025'te cephe açık gri-beyaz + orta gri (renkler yalnız 2025'ten).",
   "ORTOFOTOLAR: ref'lerdeki dosyalar docs/survey/c'de YOK; sv-ortho.mjs ile aynı algoritmayla (CORRECTED=1, SURVEY_TOP=31, base 0.58) /tmp/claude-0/agent-d3-774/c/ altında üretildi. sv-extra.json survey[]'e rapordaki girişler eklenip sv-ortho yeniden çalıştırılırsa birebir aynı çıkar (doğrulandı) ve compile balkon büyütmesini düzeltir.",
   "Kat: 9 kat (K0–K8), kat aralığı 3.0 (güney pencere lentoları 3.03, loca alınları 2.99, kuzey 2.975, batı 3.06). K0 HİÇBİR cephede görülmedi; groundRaise 1.5 güneyde K1–K7 döşeme kotlarından geri hesap (±0.5). OSM height 28 ile uyumlu (parapet 29.8 + ≈0.9 zemin).",
-  "KISMİ K8: en üst kat yalnız güney şeridinde (kenar 1 u −0.25–12.35: iki beyaz sütun + çerçeve) ve kuzey cephe ortasında (kenar 7 u 11.2–17.85) var. GD loca/gri duvar, batı (10/12/13/0) ve kuzey balkon yığınlarının (7/8) üstünde K8 yerine K8 döşeme düzeyinde beyaz saçak/şapka bandı (≈1.2 m) + gri kiremitli kırma çatı. Üretici tek kat sayısı kullandığı için 9 yazıldı; bu kenarlarda duvar ≈3 m fazla çıkar (pending).",
   "Renkler (2025): ana gri sıva #8a909b (güneşli UXy7 #8e95a5 / bulutlu 2Qtex #868a91; batı gölge #6d7a86, kuzey gölge #3e5159–#64707f); beyaz sıva #c1c3c6 (güneşli #c4c6cc, bulutlu #bec0c0; batı gölge #9aa0a5); döşeme alınları/şapka #c4c6cf (güneşli #c5c8d2, kuzey gölge #8a9ca9); çerçeve yuvası arka duvarı #6c767d (gölgede); yuva içi döşeme alınları #a9adb3; gri denizlik kutuları #838890 (batı sütununda açık gri #a7b1b3); buzlu cam korkuluk görünen #8f99a8 (güneşli), çentik balkonunda #5d6469 (bulutlu, arkası karanlık), kuzey #8096a1/#607880; kiremit #757f8b (güneşli, güney saçak üstü), kuzeyde #566c7b gölge. Doğrama beyaz PVC (örneklenemeyecek kadar ince).",
   "Çerçeve (kenar 1): 1773'teki gibi derin yuvalı portal; ayaklar ve üst kiriş ana parapetin (29.8) ≈0.75 m üstüne (30.55) çıkar; çıkıntı d 0.2 TAHMİN (iki güney panosu arasındaki paralaks çözemiyor). Yuva derinliği ≈1.6–2.9 m (pending).",
   "Loca/cam balkon: GD loca yığını (kenar 1) K1–K7 hepsi katlanır cam balkon (UXy7 yakın görüntü: tam genişlikte eşit aralıklı beyaz dikmeler, alt buzlu panel); kuzey şerit camlar (7/8) binanın kendi doğraması (2019'da da vardı). Çentik balkonu (kenar 13) açık, arkada doğrama. Loca derinlikleri (inset 1.2) GÖRÜLMEDİ, tahmin.",
   "Çatı: kırma, gri kiremit, tepesi düz teras (kuzeyden ≈29.3–29.9); batıda iki terrakota başlıklı baca (l07); güneyde saçak üstünde kiremit eteği. Eğim ≈30° (kuzey siluetinden 28–34°).",
   "Görülmeyenler: tüm doğu cephe (kenar 2–6), K0 (tüm cepheler), K1 (güney beyaz sütun 2 ve loca dışında), kenar 10'un u 0–2.6 kısmı (1773 arkasında; yalnız KB köşe yanında kahverengi pano seçiliyor), kenar 7'nin doğu ucu u 0–3.5, kenar 8'in K0–K4'ü, kuzey cephenin K0–K1'i, çentik yan duvarının (kenar 0) balkon arkası.",
   "Tabela/levha, klima, çanak anten, kamera, bayrak: görülen hiçbir cephede seçilmedi (uzaklık 85–110 m; küçük öğeler kaçmış olabilir). Perdeler çözülemiyor.",
-  "Ayak izi: fotoğraflar ≥0.5 m sapma göstermiyor (kenar 1 köşeleri 2Qtex/UXy7'de u −0.25 ve 17.95; l07 izdüşümü ±0.4 m); çentik balkonu çentiği doldurmuyor (yalnız batı 2.2 m)."
+  "Ayak izi: fotoğraflar ≥0.5 m sapma göstermiyor (kenar 1 köşeleri 2Qtex/UXy7'de u −0.25 ve 17.95; l07 izdüşümü ±0.4 m); çentik balkonu çentiği doldurmuyor (yalnız batı 2.2 m).",
+  "KISMİ K8 (massing): 9 katlı iki şerit — güney şerit kenar 1 boyunca P1'den 12.4 m (çerçeve + iki beyaz sütun; üstü düz, 1.3 m beyaz parapet → 29.8) ve kuzey orta çekirdek kenar 7 u 11.2–17.85 (K8 pencereleri, üstü ≈27.3–28.8). Kalan gövde 8 kat + 1.2 m beyaz saçak alnı (K8 döşeme düzeyi, 25.5–26.7; fotoğraflarda 25.05–27.0) + kırma çatı/teras. Şeritlerin DERİNLİĞİ (4.5 m) GÖRÜLMEDİ — yalnız cephe genişlikleri ölçüldü; yuvanın ≥1.6–2.9 m derinliğini kapsayacak alt sınır olarak seçildi. Şerit–gövde kesim duvarları öğesiz düz sıva (gerçekte kırma çatının arkasında)."
  ],
  "pending": [
-  {
-   "what": "Kısmi K8 kütlesi / saçak kotu",
-   "edges": {
-    "1": "u −0.25…12.35 (2Qtex ref) K8 var: pencereler + beyaz parapet üstü 29.8, çerçeve 30.55",
-    "7": "u 11.2…17.85 (j-FHs ref) K8 pencereleri, duvar üstü ≈27.3 (j-FHs kaydı)"
-   },
-   "elsewhere": "kenar 1 u 12.35…17.95 şapka/saçak 25.05–26.25 (2Qtex kaydı); kenar 10/12/13 saçak bandı l07 kaydında 27.2–28.5 (= 2Qtex kaydında ≈25.8–27.0); kenar 7/8 yığın şapkası j-FHs 24.7–25.9 / -5Gw 26.4–27.6",
-   "desc": "Bu kenarlarda duvar K7 tavanında bitmeli, üstünde ≈1.2 m beyaz (#c4c6cf) saçak alnı + kırma çatı; K8 hacmi yalnız güney şeridi (kenar 1 boyunca ≈12.6 m, derinliği görülmedi) ve kuzey orta çekirdek. Dünya eksenine dik olmadığından massing ile ifade edilemedi."
-  },
   {
    "what": "Çerçeve yuvası derinliği",
    "edge": 1,
@@ -1122,5 +1085,80 @@
    "d": "0.25 tahmin (alt kenarlarında gölge bandı)",
    "desc": "Fransız pencerelerin altındaki kutular pencereyi her iki yanda ≈0.1–0.15 m aşar."
   }
- ]
+ ],
+ "massing": {
+  "towers": [
+   {
+    "poly": [
+     [
+      274.14,
+      -144.81
+     ],
+     [
+      284.8,
+      -138.47
+     ],
+     [
+      287.61,
+      -143.2
+     ],
+     [
+      276.95,
+      -149.54
+     ]
+    ],
+    "storeys": 9,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.02,
+     "parapet": {
+      "h": 1.3,
+      "color": "#c1c3c6"
+     }
+    }
+   },
+   {
+    "poly": [
+     [
+      290.63,
+      -158.62
+     ],
+     [
+      284.95,
+      -162.07
+     ],
+     [
+      282.09,
+      -157.37
+     ],
+     [
+      287.78,
+      -153.92
+     ]
+    ],
+    "storeys": 9,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.02,
+     "parapet": {
+      "h": 0.3,
+      "color": "#838e9a"
+     }
+    }
+   },
+   {
+    "rest": true,
+    "storeys": 8,
+    "roof": {
+     "kind": "hipped",
+     "eave": 0.3,
+     "fasciaH": 1.2,
+     "pitch": 30,
+     "terrace": true
+    }
+   }
+  ]
+ }
 }

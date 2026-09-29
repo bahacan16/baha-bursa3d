@@ -7,20 +7,44 @@
  "massing": {
   "towers": [
    {
-    "x": [
-     655.5,
-     670.95
+    "poly": [
+     [
+      671.21,
+      -169.16
+     ],
+     [
+      655.77,
+      -170.51
+     ],
+     [
+      652.89,
+      -137.64
+     ],
+     [
+      668.33,
+      -136.29
+     ]
     ],
     "storeys": 6
    },
    {
-    "x": [
-     670.95,
-     688.28
-    ],
-    "z": [
-     -175,
-     -155.3
+    "poly": [
+     [
+      688.54,
+      -167.64
+     ],
+     [
+      671.21,
+      -169.16
+     ],
+     [
+      670.06,
+      -156.01
+     ],
+     [
+      687.39,
+      -154.49
+     ]
     ],
     "storeys": 5,
     "roof": {
@@ -29,13 +53,48 @@
     }
    },
    {
-    "x": [
-     688.28,
-     693.91
+    "poly": [
+     [
+      690.63,
+      -167.46
+     ],
+     [
+      688.54,
+      -167.64
+     ],
+     [
+      687.32,
+      -153.7
+     ],
+     [
+      689.41,
+      -153.51
+     ]
     ],
-    "z": [
-     -175,
-     -156
+    "storeys": 3,
+    "roof": {
+     "eave": 0.05,
+     "fasciaH": 2.8
+    }
+   },
+   {
+    "poly": [
+     [
+      694.17,
+      -167.15
+     ],
+     [
+      690.63,
+      -167.46
+     ],
+     [
+      689.41,
+      -153.51
+     ],
+     [
+      692.95,
+      -153.2
+     ]
     ],
     "storeys": 4,
     "roof": {
@@ -44,13 +103,23 @@
     }
    },
    {
-    "x": [
-     693.91,
-     724.46
-    ],
-    "z": [
-     -175,
-     -151.2
+    "poly": [
+     [
+      724.72,
+      -164.47
+     ],
+     [
+      694.17,
+      -167.15
+     ],
+     [
+      692.85,
+      -152.11
+     ],
+     [
+      723.41,
+      -149.43
+     ]
     ],
     "storeys": 5,
     "roof": {
@@ -59,59 +128,11 @@
     }
    },
    {
-    "x": [
-     724.46,
-     739.5
-    ],
+    "rest": true,
     "storeys": 1,
     "roof": {
      "eave": 0.05,
      "fasciaH": 0.6
-    }
-   },
-   {
-    "x": [
-     670.95,
-     688.28
-    ],
-    "z": [
-     -155.3,
-     -128
-    ],
-    "storeys": 1,
-    "roof": {
-     "eave": 0.05,
-     "fasciaH": 0.35
-    }
-   },
-   {
-    "x": [
-     688.28,
-     693.91
-    ],
-    "z": [
-     -156,
-     -128
-    ],
-    "storeys": 1,
-    "roof": {
-     "eave": 0.05,
-     "fasciaH": 0.35
-    }
-   },
-   {
-    "x": [
-     693.91,
-     724.46
-    ],
-    "z": [
-     -151.2,
-     -128
-    ],
-    "storeys": 1,
-    "roof": {
-     "eave": 0.05,
-     "fasciaH": 0.35
     }
    }
   ]
@@ -1408,6 +1429,25 @@
      "color": "#2b2b2b"
     },
     {
+     "t": "proj",
+     "u0": 48,
+     "u1": 50.1,
+     "d": 0.02,
+     "y0": 11.29,
+     "y1": 14.2,
+     "color": "#4a433e",
+     "wins": [
+      {
+       "u0": 48,
+       "u1": 49.35,
+       "y0": 11.35,
+       "y1": 14.1,
+       "kind": "std",
+       "curt": "karanlik"
+      }
+     ]
+    },
+    {
      "t": "win",
      "u0": 48,
      "u1": 49.35,
@@ -1439,23 +1479,6 @@
      "split": 1,
      "curt": {
       "K2": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 48,
-     "u1": 49.35,
-     "y0": 11.31,
-     "y1": 14.1,
-     "k": 3,
-     "s": [
-      3,
-      3
-     ],
-     "kind": "std",
-     "split": 1,
-     "curt": {
-      "K3": "karanlik"
      }
     },
     {
@@ -2174,8 +2197,8 @@
   }
  ],
  "notes": [
-  "KAT SAYISI: batı blok zemin + 5 kat = 6 (ayak bandı brifindeki 7 değil): batı cephede her iki ortofotoda ve QZix/_PsLu karelerinde tam 5 balkon sırası (döşeme üstleri görünen 7.08/10.55/14.1/17.6/21.1), kuzey yüzde 5 pencere sırası + zemin; üstte 22.3 m'de saçak. Kat aralığı 3.43 m (batı: görünen 3.48, ortofoto genişliği 24.72/24.33), zemin kat yüksek (K1 döşemesi kuzey kaldırımından 4.43, batı kaldırımından ~4.9 → batı kaldırımı ~0.5 m aşağıda). groundRaise 1.0 = K1 döşemesi 4.43 − 3.43 (sanal; zemin kat camları tabandan 0.1 m'den başlar).",
-  "KÜTLE (massing, dünya x/z): batı blok x 655.5–670.95 (6 kat, düz çatı, 0.33 m saçak/korniş, üst 22.3). Kuzey kanat A x 670.95–688.28 ve B x 693.91–724.46 (kuzey şerit, z güney sınırı A −155.3 / B −151.2 hava fotoğrafı beyaz çatı + 4.35 m eğim): 5 'üretici katı' = gerçekte zemin (0→3.9) + iki YÜKSEK loca katı (döşeme 4.45 ve 11.15, tavanlar 10.65 ve 18.85; her biri ~6.5 m, 4.1–4.3 m genişlikte tavana kadar cam) + saçak 18.85–19.35. Çekirdek x 688.28–693.91 (MOSSA ROOMS girişi, girintili koyu granit kule, üst ~16.6 m; düşük yarısı ~14.2 m). Doğu podyum x 724.46–739.5 tek kat (kanopi üstü 5.16). Kanatların güneyi (avlu yönü) tek katlı podyum (x 670.95–724.46): yüksekliği ve güney yüzleri GÖRÜLMEDİ, doğu podyumla aynı (tek kat) varsayıldı; hava fotoğrafında podyum çatısında ışıklıklar/klima blokları, x 700–735 z −145…−139'da ayrı beyaz membran şerit (alçak güney kanat) var.",
+  "KAT SAYISI: batı blok zemin + 5 kat = 6 (ayak bandı brifindeki 7 değil): batı cephede her iki ortofotoda ve QZix/_PsLu karelerinde tam 5 balkon sırası (döşeme üstleri görünen 7.08/10.55/14.1/17.6/21.1), kuzey yüzde 5 pencere sırası + zemin; üstte 22.3 m'de saçak. Kat aralığı 3.43 m (batı: görünen 3.48, ortofoto genişliği 24.72/24.33), zemin kat yüksek (K1 döşemesi kuzey kaldırımından 4.43, batı kaldırımından ~4.9 → batı kaldırımı ~0.5 m aşağıda). groundRaise 1.0 = K1 döşemesi 4.43 − 3.43 (sanal; zemin kat camları tabandan 0.1 m'den başlar). floorHs [4.43, 3.43…] + groundRaise 0 daha doğru olurdu, ama survey-compile rel()/absY() hâlâ düzgün kat aralığı (cal.head) kullanıyor → tüm öğeler 1 m kayardı; derleyici floorHs'i desteklediğinde geçilmeli (yan etki: üretici subasmanı tabandan 1.0 m'ye kadar çiziyor, gerçekte 0.05–0.4 renkli seramik).",
+  "KÜTLE (massing, dünya poly): batı blok u 67.5–80 (x ≈ 656–671) (6 kat, düz çatı, 0.33 m saçak/korniş, üst 22.3). Kuzey kanat A (u 50.1–67.5, derinlik 10.2) ve B (u 13.78–44.45, derinlik 12.1; hava fotoğrafı beyaz çatı güney kenarı + 4.35 m eğim): 5 'üretici katı' = gerçekte zemin (0→3.9) + iki YÜKSEK loca katı (döşeme 4.45 ve 11.15, tavanlar 10.65 ve 18.85; her biri ~6.5 m, 4.1–4.3 m genişlikte tavana kadar cam) + saçak 18.85–19.35. Çekirdek (MOSSA ROOMS girişi, girintili koyu granit kule): batı yarısı u 44.45–48 üst 16.6, doğu yarısı u 48–50.1 üst 14.2 (iki massing parçası). Parçalar kenar 2'ye paralel poly şeritler (u aralığı × derinlik: blok 67.5–80, kanat A 10.2 m, çekirdek 11 m, kanat B 12.1 m). Geri kalan her şey (doğu podyum + kanatların güneyindeki avlu podyumu) `rest` tek kat, kanopi üstü 5.16: güney podyumun yüksekliği ve güney yüzleri GÖRÜLMEDİ, doğu podyumla aynı (tek kat) alındı; hava fotoğrafında podyum çatısında ışıklıklar/klima blokları, x 700–735 z −145…−139'da ayrı beyaz membran şerit (alçak güney kanat) var.",
   "EĞİM/KONUM: kanat 4 değil 3 seviye ama 19.35 m yüksek → hava fotoğrafı eğimi 0.226 m/m ile çatı kayması 4.35 m (ayak bandındaki 3.4 değil). Kanatların çatısı kuzeyinde görülen 2 m kahverengi bant = saçak üstü (granit kaplama), kuzey kenarı ≈ taban izi çizgisi (düzeltilmiş ortofotolarda ayak önleri ve batı blok kuzey yüzü aynı düzlemde, ±0.2 m). Yani kuzey taban izi dış hat olarak doğru; ama dükkân camları ve loca arka duvarları 1.8 m, podyum camı 1.8 m, podyum kanopi önü 0.75 m, çekirdek ön yüzü 1.8–4.5 m (belirsiz) içeride.",
   "RENKLER (tümü gölgede ölçüldü — kuzey ve batı yüzde güneşli kare yok; güneşte ~1.3× daha açık olmalı): ana kaplama koyu kahverengi benekli granit #4a433e (örnekler #423c33 #44403d #4c4b48 #525150; 31V0 kanatlarda sıcak #39312f), ayak kenarı ve köşe ayakları açık gri alüminyum #6f7682/#72767d, loca yan duvarı/tavanı açık gri #696d71–#6f7478, döşeme alnı granit #4e4a45, saçak alnı #4f4c4a, cam korkuluk görünen #7e8689 (batı #7f8c95), pencere doğraması koyu bronz/antrasit #3a3b38, batı blok kuzey yüzü ızgara çerçeveleri açık gri #707a8b (dolgu koyu granit), podyum kanopisi #706b63, kanat zemin kat fasya bandı bej-kahve #5a5040 (gölge #534a38), düz çatı membranı hava fotoğrafında beyaz.",
   "KANAT CEPHESİ: her loca iki yanında ayak çifti (0.35 açık gri alüminyum + 0.92 koyu granit + 0.35 açık gri; toplam ~1.6 m), köşelerde tek açık gri ayak (1.15–1.2 m). B kanadı 4 loca (5.8–5.98 m), A kanadı 3 loca (4.2–4.4 m; A3'ün batı yanı batı blok yüzü). Arka duvar pencereleri locada ortalı: B 4.1–4.3 m, A 3.0 m genişlik; alt seviyede kayıtlar 7.1–8.0 ve üstte 14.5–14.9 (üreticide pencere bu kayıtlardan iki kata bölündü). A2/A3 pencere kenarları kısmen ayak arkasında → A1 ile aynı genişlikte ortalı alındı (A3 dMXw karesinde görüldü). Perdeler (K1/K3 = alt camlar, K2/K4 = üst camlar): B2 üst jaluzi, sağ-orta tül; B3 üst jaluzi, sol-orta beyaz stor; B4 sağ-orta tül, alt locada beyaz klima dış ünitesi; A1 beyaz stor; A2 alt yatay jaluzi (zebra ile), üst tül; A3 alt tül (+ masa-sandalye).",
@@ -2209,11 +2232,11 @@
    "depth": 1.3
   },
   {
-   "what": "çekirdek (MOSSA girişi) girintisi ve iki yükseklik",
+   "what": "çekirdek girintisi",
    "edge": 2,
    "u": "44.45–50.1",
-   "real": "ön yüz kanat ayaklarından 1.8–4.5 m içeride (belirsiz), batı yarısı (u 44.45–48) üstü ~16.6, doğu yarısı dar düşey cam şerit (u 48.0–49.35, 5.9→14.1) ile ~14.2; A kanadının doğu yan duvarı (granit) çekirdek boşluğuna açık",
-   "now": "çekirdek 4 kat + 1.8 fasya (üst 16.6), ön yüz duvarda"
+   "real": "ön yüz kanat ayaklarından 1.8–4.5 m içeride (belirsiz); iki yükseklik artık massing ile çizili (u 44.45–48 üst 16.6, u 48–50.1 üst 14.2; cam şeridin K3 parçası proj ön penceresi)",
+   "now": "ön yüz duvarda (duvar girintisi özelliği bekleniyor)"
   },
   {
    "what": "saçak yan taşmaları",

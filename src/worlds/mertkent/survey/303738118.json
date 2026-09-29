@@ -138,9 +138,8 @@
      ],
      "kind": "std",
      "split": 3,
-     "curt": {
-      "K1": "karanlik"
-     }
+     "frameC": "#d7dbdc",
+     "tint": "#1f3336"
     },
     {
      "t": "win",
@@ -155,9 +154,8 @@
      ],
      "kind": "std",
      "split": 2,
-     "curt": {
-      "K1": "karanlik"
-     }
+     "frameC": "#d7dbdc",
+     "tint": "#1f3336"
     }
    ],
    "note": "Kuzey cephe (Doğan Avcıoğlu Cd.). Ref BJWF6wJu (2025-09, 13 m); DIKaX37Z ve vXbUE2n9 ile doğrulandı. Yatay çapa: KD köşedeki fasya kutusunun ucu (u'2.53 = köşe 4); ölçek fasya üst kenarından (k≈0.96). K1: köşeden ~0.5 m içerde beyaz kare köşe payesi, koyu yeşil-lacivert yansıtıcı büyük camlar (ince beyaz-gri dikmeler); camda karşı binanın yansıması var (tabela değil). Fasya burada ~0.85 m beyaz kutu + altında kavisli beyaz tavan (≈0.35 m çıkma). K0 görülmez (önünde kış bahçesi eki). Fasya üstünde K2 köşkü: doğu ucunda gri tonlu kabartma/baskı duvar resmi + beyaz doğramalı pencereler + koyu yeşil-gri kavisli saçak (pending)."
@@ -235,7 +233,9 @@
      "font": "sans",
      "bold": true,
      "lit": false,
-     "logo": "solda mavi balık/dalga kıvrımı logosu (içinde küçük 'BURSA İSKELE BALIK'), logonun altında küçük mavi 'BALIĞIN EN LEZZETLİ HALİ'; kutu kavisli fasyanın önünde düz, doğu ucu kenar 4'e ~1.3 m taşar (BJW karesi)"
+     "logo": "solda mavi balık/dalga kıvrımı logosu (içinde küçük 'BURSA İSKELE BALIK'), logonun altında küçük mavi 'BALIĞIN EN LEZZETLİ HALİ'; kutu kavisli fasyanın önünde düz, doğu ucu kenar 4'e ~1.3 m taşar (BJW karesi)",
+     "icon": "fish",
+     "iconC": "#1f3f9e"
     },
     {
      "t": "win",
@@ -250,9 +250,8 @@
      ],
      "kind": "std",
      "split": 3,
-     "curt": {
-      "K1": "karanlik"
-     }
+     "frameC": "#d7dbdc",
+     "tint": "#1f3336"
     },
     {
      "t": "proj",
@@ -279,7 +278,8 @@
      "lower": "frosted",
      "curt": {
       "K1": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     }
    ],
    "note": "KB kıvrımın kuzey kirişi. Ref lIEqcjO5 (2025-09, 13 m); ölçek fasya üst kenarından (k≈0.90), yatay çapa İskele tabelasının doğu ucu (BJW ortofotosu, kenar 4'te köşeden 9.3 m). vH6TTmQ_ ile ±0.2 m tutarlı. u 0…~5.2: İskele Balık — düz beyaz fasya (şeritsiz) + mavi harfli kutu tabela; K1 koyu (füme/yansıtıcı) cam, beyaz dikmeler; üstte K2 kavisli cam köşk (pending). u≈6.0'dan sonra klinik (yeşil şeritli fasya, jaluzili K1). K0 bu kenarda GÖRÜLMEZ: önünde İskele Balık tek katlı kış bahçesi eki (pending 'annexNorth')."
@@ -486,7 +486,8 @@
      "lower": "frosted",
      "curt": {
       "K1": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -504,7 +505,8 @@
      "lower": "frosted",
      "curt": {
       "K1": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -522,7 +524,8 @@
      "lower": "frosted",
      "curt": {
       "K1": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -539,7 +542,8 @@
      "split": 3,
      "curt": {
       "K1": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "proj",
@@ -592,7 +596,8 @@
      "split": 2,
      "curt": {
       "K0": "stor"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -609,7 +614,8 @@
      "split": 1,
      "curt": {
       "K0": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -626,7 +632,8 @@
      "split": 2,
      "curt": {
       "K0": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -643,7 +650,8 @@
      "split": 2,
      "curt": {
       "K0": "vitrin"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -660,7 +668,8 @@
      "split": 1,
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "sign",
@@ -675,7 +684,9 @@
      "style": "box",
      "font": "sans",
      "bold": true,
-     "logo": "iki uçta kırmızı (#c8282c) kare içinde beyaz diş simgesi; kapı boşluğu üstünde"
+     "logo": "iki uçta kırmızı (#c8282c) kare içinde beyaz diş simgesi; kapı boşluğu üstünde",
+     "icon": "tooth",
+     "iconC": "#c8282c"
     },
     {
      "t": "sign",
@@ -723,7 +734,9 @@
      "fg": "#ffffff",
      "style": "box",
      "bold": true,
-     "logo": "mavi kare levha üzerinde büyük beyaz diş (azı) simgesi; yeşil-beyaz fasya bandının önünde"
+     "logo": "mavi kare levha üzerinde büyük beyaz diş (azı) simgesi; yeşil-beyaz fasya bandının önünde",
+     "icon": "tooth",
+     "iconC": "#ffffff"
     }
    ],
    "note": "KB kıvrım (Yeşil Beyaz diş polikliniği ana cephesi). Ref gne0DODX (2025-09); kalibrasyon kenar 7 çapasından çözülen pano sapması (b≈(4.6,1.0) m) ile, fasya üst/alt kenarıyla doğrulandı (±0.3). K0: 3 dükkân camı gözü (sol: yatay stor perde yarı inik; orta: cama basılı beyaz hizmet listesi folyosu + jaluzi; sağ: jaluzi), beyaz payeler üzerinde üç koyu yeşil yatay şerit, GİRİŞ kapısı (koyu lobi, çift kanat cam, tek basamaksız plaza). İsim levhası bandı (≈0.8 m) 8–9 levhalı. K1: jaluzili boy camlar, alt ~1.1 m buzlu/opak; tabela üstünde beyaz doğramalı 2 sıra × 3 kanat pencere. Çatıda cam rüzgârlık + yeşil tente + kırmızı küre lambalar (pending). vo T/VsNJ ortofotoları bu panolarda ~3–6 m yanal hatalı olduğu için yalnız doğrulama için kullanıldı."
@@ -874,7 +887,8 @@
      "split": 1,
      "curt": {
       "K1": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -891,7 +905,8 @@
      "split": 1,
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -908,7 +923,8 @@
      "split": 1,
      "curt": {
       "K0": "vitrin"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -926,7 +942,8 @@
      "lower": "frosted",
      "curt": {
       "K1": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "win",
@@ -943,7 +960,8 @@
      "split": 2,
      "curt": {
       "K0": "jaluzi"
-     }
+     },
+     "frameC": "#b9c0c3"
     },
     {
      "t": "proj",
@@ -988,7 +1006,8 @@
      "split": 3,
      "curt": {
       "K1": "karanlik"
-     }
+     },
+     "frameC": "#2c4f86"
     }
    ],
    "note": "KB kıvrımın güney kirişi. Ref gne0DODX (2025-09; 20 m, eğik). Yatay çapa: kliniğin son payesi (u' 3.94–4.75) Cevher ekinin kuzey duvarıyla birleşir; ek çatısının kuzey ucu hava fotoğrafında z≈−48.0 → u≈3.69 (±0.7). u' <4.75 Yeşil Beyaz diş polikliniği (K1 jaluzili cam bölme + alt buzlu bant; K0 dükkân camı jaluzili; beyaz isim levhası bandı), sağında Cevher K1 (mavi doğramalı cam + küpeşte). Fasya şeridi paye üstünde yeşilden maviye döner (u' 4.56). Bu kenarın K0'ı u' >4.75'te Cevher ekinin kuzey duvarı (balık baskılı pano) ile kapanır → pending. Önde plazada ~1.75 m yapay şimşir panel duvar ve büyük beyaz ısı pompası (pending/sokak)."
@@ -1112,7 +1131,8 @@
      "split": 1,
      "curt": {
       "K1": "karanlik"
-     }
+     },
+     "frameC": "#2c4f86"
     },
     {
      "t": "win",
@@ -1130,7 +1150,8 @@
      "split": 5,
      "curt": {
       "K1": "karanlik"
-     }
+     },
+     "frameC": "#2c4f86"
     },
     {
      "t": "bal",
@@ -1198,94 +1219,74 @@
   "PANO KONUM SAPMASI: bu köşede Street View pano konumları taban izine göre ≈(−3.2, 0) m kaymış (GB köşe: C0o, PLTC, G9sc; KD köşe: DIK, BJW, vXb, Q5I → 7 gözlem, artık ±0.6 m; G35dRPhH ayrıca ~3 m hatalı, kullanılmadı). Bazı panolarda ek yaw/konum hatası var (voTOzp6l ↔ VsNJjxJK aynı tabelayı 4–6 m farklı yere düşürüyor; gne0DODX b≈(4.6,1.0)). Bu yüzden her kenarın cal.u / cal.head değerleri görsel köşe değil, sapma çözümü + fasya üst kenarı (9.07) + çapa (köşe/ek birleşimi/tabela ucu) ile hesaplandı; kıvrımlı cephede konum belirsizliği ±0.7–1 m.",
   "TABAN İZİ: hava fotoğrafı (eğim düzeltmeli) batı ve KB fasyanın taban izinde olduğunu (±0.5) gösteriyor; pano üçgenlemesi (sapma düzeltilmiş) batı fasyasını ~0.9 m, KB kıvrımı ~2 m dışarıda veriyor — pano hatası olabilir, taban izi DEĞİŞTİRİLMEDİ, ana oturum kontrol etsin.",
   "FASYA ŞERİDİ RENGİ kesit kesit: Delice+Cevher (kenar 8, kenar 7 u'>4.56) mavi #1d56a5 (gölge #104389); klinik (kenar 7 u'<4.56, kenar 6, kenar 5 u'>7.9) koyu yeşil #1b7a63 (gölge ölçümü #0f5349); İskele (kenar 5 u'<7.9, kenar 4) şeritsiz düz beyaz; doğu (kenar 3) şeritsiz, yalnız silme. Beyaz fasya panelleri gölgede #9fa2a0 (tüm B/K cepheler çekimde gölgede) → güneşli tahmin #dfe1dd; doğu sıvası güneşte #d0cfc3–#d8d6c9.",
-  "DOĞRAMA RENGİ kesite göre değişir (blok 'frame' tek renk): klinik gümüş-gri alüminyum (gölge #818f94 → ~#b9c0c3), Cevher K1 mavi alüminyum (#314153 gölge → ~#2c4f86), İskele K1 ince beyaz-gri, K2 köşkü beyaz PVC, Delice koyu antrasit çelik (#2b2d2f). Üretici kesit bazında renk desteklemiyorsa pending'e bakın.",
   "PAYELER: beyaz kare payeler (proj d 0.10–0.12); klinik payelerinde üç kısa koyu yeşil yatay şerit (#1b7a63; kotlar ≈1.3, 2.9, 6.1 tabandan), Cevher/Delice payelerinde tek mavi şerit (≈5.9). Delice K1 terası 'loca' (d 0, inset 1.4 tahmini — arka duvar derinliği görülmedi), korkuluğu lazer kesim desenli kahverengi + koyu gri paneller → 'solid' kahverengi yaklaşımı; deseni pending'de.",
   "TABELALAR (hepsi): kenar 8 çatı 'DELiCE YENi NESiL EĞLENCE' (siyah levha, ince beyaz harf, uçlarda tüy/çiçek logosu); kenar 6 'ÖZEL / YEŞİL BEYAZ / AĞIZ ve DİŞ SAĞLIĞI POLİKLİNİĞİ' (beyaz kutu, koyu harf, 3 spot), mavi-beyaz diş logosu (fasyada), 'GİRİŞ' (kırmızı diş ikonlu), isim levhaları ('Diş Hekimi' ×~8, 'Ağız, Diş ve Çene Cerrahisi', 'Periodontoloji', 'Ortodonti'; hekim adları okunamadı); kenar 5 'İSKELE BALIK' (beyaz kutu, mavi kalın harf, balık logosu + 'BALIĞIN EN LEZZETLİ HALİ'). EKLERDEKİ tabelalar (bina duvarında değil) pending'de: 'CevheR' altın 3B harf (taş kaplı parapet), 'Delice' pembe neon el yazısı, 'YENi NESiL MEYHANE' siyah levha, Cevher kuzey duvarındaki balık baskılı pano, kış bahçesi köşesindeki 'BURSA İSKELE BALIK / BALIĞIN EN LEZZETLİ HALİ' kutusu ve yan dikey tabelası. Kepenk ve tente binada yok; tenteler Cevher ekinde (krem katlanır tente).",
   "GÖRÜLMEYENLER: güney cephe (kenar 0) tamamı, doğu cephe güney kısmı (kenar 1, 2), doğu cephenin alt ~3 m'si, tüm cephelerin K0'ı batı ve kuzeyde eklerin arkasında (yalnız KB kıvrımda K0 görünür), çatı yüzeyi yalnız kenarlardan. Bunlar için öğe yazılmadı.",
-  "FOTO TARİHİ: kullanılan tüm kareler 2025-09."
+  "FOTO TARİHİ: kullanılan tüm kareler 2025-09.",
+  "DOĞRAMA RENGİ (frameC): klinik #b9c0c3, Cevher #2c4f86 mavi alüminyum, İskele K1 #d7dbdc + koyu füme cam tint #1f3336, Delice (hacim) #2b2d2f. Ek hacimler volumes'da (batı 3 parça, kuzey kış bahçesi, K2 köşkü)."
  ],
  "pending": [
   {
-   "id": "annexWest",
-   "what": "Batı tek katlı ek (Cevher kış bahçesi + tuğla ara giriş + Delice dükkânı) — bina K0'ının önünü tamamen kaplar",
-   "planWorld": {
-    "note": "hava fotoğrafı çatı dikdörtgeni, eğim (−0.28,−1.04) düzeltmeli; ±0.5 m",
-    "poly": [
-     [
-      650.3,
-      -48.0
-     ],
-     [
-      657.8,
-      -48.0
-     ],
-     [
-      659.7,
-      -28.3
-     ],
-     [
-      650.3,
-      -28.3
-     ]
-    ]
-   },
-   "heights": "tabandan (−0.35): kaldırım ≈0.35; ön cephe: taş kaplı subasman 0–≈1.1 m (kaldırımdan), cam 1.1–2.8, krem tente saçağı 2.8–3.15, beyaz saçak/kanopi alnı ≈3.15–3.7 (üst kenarında mavi metal şerit), üstünde Cevher kısmında taş parapet 3.7–4.5 (kaldırımdan); ek çatısı düz, açık bej (hava foto)",
-   "segments": [
+   "id": "annexWestDetails",
+   "what": "Batı ek hacimlerinde (volumes 0–2) çizilemeyenler + eklerdeki TABELALAR (tabelalar yalnız kenar öğesi olabildiği için)",
+   "signs": [
     {
-     "name": "Cevher (z −48.0…−38.5)",
-     "front": "açık bej/gri düzensiz taş kaplama subasman (#b9b5a6 güneş tahmini; gölge #908f85), üstte beyaz-gri ince doğramalı cam kış bahçesi (katlanır cam), kanopi altında krem-beyaz (#e8e4d6) katlanır tente saçakları 3 bölüm, beyaz kanopi alnı + mavi (#2a63b8) üst şerit; kanopinin ön kenarında ≈0.8 m taş kaplı parapet üzerinde altın (#c8a65a, gölge #858058) kalın 3B harf 'CevheR' (C ve R büyük, e-v-h-e küçük; süslü serif/fırça yazı), parapet ucunda kuğu boyunlu spot",
-     "north": "kuzey duvarı (plazaya bakar, z≈−48): üstte baskılı pano — mavi deniz degrade zemin, 3 tabakta pişmiş balık/karides görselleri, sağda beyaz çapraz alan; yazı yok; altında krem tente saçağı, mavi doğramalı cam, önünde ~1.75 m yapay şimşir panel duvar, büyük beyaz ısı pompası/klima dış ünitesi ve ahşap palet saksılar"
+     "text": "CevheR",
+     "on": "Cevher ek ön yüzü (x≈650.3), z −47.5…−38.5, ek çatısı ön kenarında ≈0.8 m taş kaplı parapet (tabandan 4.05–4.85) üstünde",
+     "style": "letters",
+     "fg": "#c8a65a",
+     "d": 0.1,
+     "font": "script/serif süslü",
+     "h": "harf ≈0.7 m, C ve R büyük",
+     "logo": "altın 3B harf; parapet açık bej düzensiz taş (#b9b5a6); parapet ucunda kuğu boyunlu spot"
     },
     {
-     "name": "ara giriş (z ≈ −38.5…−36.8)",
-     "front": "soluk bej tuğla kaplama (#bdb3a3 tahmini), boy cam kapı (çerçevesiz, ortada kırmızı yatay bant), 2 mermer basamak, üstte beyaz CCTV kamera, solda mavi kapı numarası levhası (okunamadı)"
+     "text": "Delice",
+     "on": "Delice ek çatı ön kenarı, z≈−33.5…−29.5, 2 dikme üstünde, tabandan ≈4.1–5.3",
+     "style": "letters",
+     "fg": "#d0457f",
+     "lit": true,
+     "font": "script",
+     "logo": "pembe neon boru el yazısı; D harfi koyu gri dolu büyük daire"
     },
     {
-     "name": "Delice (z −36.8…−28.3)",
-     "front": "antrasit dikey nervürlü metal alın bandı (≈0.8 m) + siyah levha 'YENi NESiL MEYHANE' (beyaz ince büyük harf, i'ler noktalı küçük; iki uçta lila tüy/çiçek logosu) kapı bölümünün üstünde; koyu antrasit çelik doğramalı vitrin (ince açık gri dikmeler, 4–5 göz), koyu gri alt panel; çift cam kapı + 1–2 basamak; kapının iki yanındaki kolonlarda mor-pembe yapay çiçek sarmaşık süsü; alt camlarda küçük EFES çıkartmaları; çatı ön kenarında 2 dikme üzerinde 'Delice' pembe (#d0457f tahmini, gölgede koyu) neon el yazısı, D harfi koyu gri dolu büyük daire",
-     "south": "güney yüzü (PLTC61DJ 48_7): koyu doğramalı cam + nervürlü alın bandı; GD ucunda koyu kolon; güneyinde gri beton panel çit + tel çit + çalı (site sınırı)"
+     "text": "YENi NESiL MEYHANE",
+     "on": "Delice ek ön yüzü üst bandı, z≈−33.5…−28.3, tabandan ≈3.3–3.95",
+     "style": "box",
+     "bg": "#1f2427",
+     "fg": "#e8e8e6",
+     "font": "sans ince",
+     "logo": "i'ler noktalı küçük i; iki uçta lila tüy/çiçek logosu"
+    },
+    {
+     "text": "",
+     "on": "Cevher ek kuzey duvarı (z −48.0), x≈651–657, tabandan ≈3.1–4.05",
+     "style": "panel",
+     "logo": "baskılı pano: mavi deniz degrade, 3 tabakta pişmiş balık/karides, sağda beyaz çapraz alan; yazı yok"
     }
    ],
-   "note": "Bu ek çizilmezse kenar 8 K0'ı düz sıva kalır (görülmedi). Tuborg/Carlsberg kasaları ve yeşil varil geçici eşya."
+   "other": "Cevher: taş subasman 0.35–1.45, krem (#e8e4d6) katlanır tente saçakları 3 bölüm (≈3.15 altında, 0.35 m sarkma), kanopi üst kenarında mavi (#2a63b8) metal şerit; Cevher kuzeyinde ~1.75 m yapay şimşir panel duvar, büyük beyaz ısı pompası, ahşap palet saksılar. Ara giriş: çerçevesiz boy cam kapı (ortada kırmızı yatay bant), 2 mermer basamak, CCTV, mavi kapı numarası. Delice: kapı yanı kolonlarında mor-pembe yapay çiçek sarmaşık, alt camlarda EFES çıkartmaları; güneyde gri beton panel + tel çit."
   },
   {
-   "id": "annexNorth",
-   "what": "İskele Balık kuzey kış bahçesi eki (tek kat, camlı)",
-   "planWorld": {
-    "note": "hava fotoğrafı (eğim düzeltmeli) ±0.7 m; ön yüz hafif kavisli",
-    "poly": [
-     [
-      662.0,
-      -64.5
-     ],
-     [
-      679.5,
-      -65.5
-     ],
-     [
-      679.5,
-      -70.0
-     ],
-     [
-      662.0,
-      -70.8
-     ],
-     [
-      658.5,
-      -67.5
-     ]
-    ]
-   },
-   "heights": "tabandan: ahşap subasman ≈0.4–0.95 (mavi #1a5dac boyalı yatay tahtalar, aralarda beyaz ince şeritler), beyaz doğramalı cam ≈0.95–3.9 (yatay kayıtlı, 2 m'de ara kayıt), beyaz alın ≈3.9–4.7, arkasında binaya doğru yükselen kiremit-kahve (#6e3a2c tahmini) eğimli çatı bandı ≈4.7–5.3",
-   "details": "kuzey ön yüzün ortasında çift kanat cam kapı + 5 basamaklı ahşap merdiven; KB köşede beyaz kutu kütle, üstünde 'BURSA İSKELE BALIK' mavi balık logosu + 'İSKELE BALIK' + 'BALIĞIN EN LEZZETLİ HALİ' tabelası (beyaz zemin mavi yazı), doğu yan yüzünde dikey 'İSKELE BALIK' levhası (5xRC4P9s 131_7); köşede güvenlik kamerası; camdan içeride masa/sandalyeler",
-   "note": "kenar 4/5 K0'ını kapatır"
+   "id": "annexNorthDetails",
+   "what": "Kış bahçesi (volume 3) çizilemeyenler + tabela",
+   "signs": [
+    {
+     "text": "BURSA İSKELE BALIK\nBALIĞIN EN LEZZETLİ HALİ",
+     "on": "KB köşe beyaz kutu (≈x 658.5–662, z −70.8…−67.5), ek alnının üstünde, tabandan ≈3.9–5.0",
+     "style": "box",
+     "bg": "#f4f4f2",
+     "fg": "#1f3f9e",
+     "icon": "fish",
+     "logo": "mavi balık/dalga logosu; doğu yan yüzünde dikey 'İSKELE BALIK' levhası (5xRC4P9s 131_7)"
+    }
+   ],
+   "other": "mavi boyalı yatay ahşap subasman 0.4–0.95 (#1a5dac, beyaz ince çizgiler), kiremit-kahve (#6e3a2c) eğimli çatı bandı binaya doğru ≈4.7–5.3, kuzey ön yüz ortasında çift kanat cam kapı + 5 basamak ahşap merdiven, köşede güvenlik kamerası"
   },
   {
-   "id": "roofPavilionK2",
-   "what": "İskele Balık çatı köşkü (K2, kavisli ön yüz)",
-   "extent": "kenar 4 u≈3.2 (doğu ucu, duvar resmi) → köşe 5 → kenar 5 u≈5.2 (batı ucu, beyaz yan duvar); ön yüz kuzey fasyasının hemen arkasında, kavisli; derinlik görülmedi (hava fotoğrafında açık gri beşgen çatı: x≈664–680, z≈−63…−55 düzeltilmiş)",
-   "heights": "tabandan ≈9.07 (fasya üstü) → pencereler 9.1–10.8, kavisli saçak üstü ≈11.2–11.4",
-   "facade": "beyaz PVC doğramalı ~0.75 m genişlikte dikey kanatlar (bazılarında üstte vasistas), doğu ucunda ≈3.2 m × 1.7 m gri tonlu duvar resmi/kabartma baskı (Osmanlı şehir silueti, kubbeler, tepsi/çaydanlık tutan figür), saçak koyu yeşil-gri metal alın (#3f4a44 tahmini; gölge #5d6d60) + açık gri alt yüz; KD'de yeşil gölgelik brandasıyla örtülü iskelet (#44463f–#505448)"
+   "id": "roofPavilionK2Details",
+   "what": "K2 köşkü (volume 4) çizilemeyenler",
+   "other": "doğu uçta ≈3.2 m × 1.7 m gri tonlu duvar resmi/kabartma baskı (Osmanlı şehir silueti, kubbeler, tepsi/çaydanlık tutan figür) — volume kenar 0'ın ilk ~3.2 m'si; ön yüz gerçekte kavisli; saçak koyu yeşil-gri metal + açık gri alt yüz; KD'de yeşil branda örtülü iskelet"
   },
   {
    "id": "roofTerraceClinic",
@@ -1306,6 +1307,211 @@
    "id": "plaza",
    "what": "KB plaza/kaldırım (sokak planı için)",
    "details": "klinik önünde bej beton karo plaza + ışınsal kiremit renkli bantlar, kuzeybatıdan 5 basamak + paslanmaz tırabzan, beyaz dikey totem tabela (mavi diş logolu, klinik yönlendirme) plazanın batısında, kolon dibinde paslanmaz çöp kovası, alçak beton istinat duvarı ve saksılar (kenar 6 önü)"
+  }
+ ],
+ "volumes": [
+  {
+   "poly": [
+    [
+     650.3,
+     -48.0
+    ],
+    [
+     657.74,
+     -48.0
+    ],
+    [
+     658.33,
+     -38.5
+    ],
+    [
+     650.3,
+     -38.5
+    ]
+   ],
+   "y0": 0.35,
+   "y1": 4.05,
+   "color": "#e2e3df",
+   "band": {
+    "h": 0.55,
+    "color": "#e6e7e3"
+   },
+   "roofC": "#d8d3c4",
+   "glazing": {
+    "edges": [
+     3,
+     0
+    ],
+    "from": 1.45,
+    "to": 3.1,
+    "mullion": 1.4,
+    "glass": "#4b5964",
+    "frame": "#d4d7d6"
+   },
+   "collide": true,
+   "note": "Cevher kış bahçesi eki (hava foto ±0.5). Kenar 3 = batı ön yüz (Özlüce Blv.), kenar 0 = kuzey (plaza). Alt ~1.1 m taş kaplama subasman (#b9b5a6) ve krem katlanır tente saçakları çizilemiyor → pending annexWestDetails"
+  },
+  {
+   "poly": [
+    [
+     650.3,
+     -38.5
+    ],
+    [
+     658.33,
+     -38.5
+    ],
+    [
+     658.56,
+     -36.8
+    ],
+    [
+     650.3,
+     -36.8
+    ]
+   ],
+   "y0": 0.35,
+   "y1": 4.05,
+   "color": "#bdb3a3",
+   "band": {
+    "h": 0.55,
+    "color": "#e6e7e3"
+   },
+   "roofC": "#d8d3c4",
+   "collide": true,
+   "note": "tuğla kaplı ara giriş (soluk bej tuğla); boy cam kapı + 2 mermer basamak çizilemiyor → pending"
+  },
+  {
+   "poly": [
+    [
+     650.3,
+     -36.8
+    ],
+    [
+     658.56,
+     -36.8
+    ],
+    [
+     659.74,
+     -28.3
+    ],
+    [
+     650.3,
+     -28.3
+    ]
+   ],
+   "y0": 0.35,
+   "y1": 4.05,
+   "color": "#2e3133",
+   "band": {
+    "h": 0.8,
+    "color": "#3a3d3f"
+   },
+   "roofC": "#d8d3c4",
+   "glazing": {
+    "edges": [
+     3,
+     2
+    ],
+    "from": 0.55,
+    "to": 3.05,
+    "mullion": 1.0,
+    "glass": "#3e4a52",
+    "frame": "#2b2d2f"
+   },
+   "collide": true,
+   "note": "Delice dükkânı eki; kenar 3 batı vitrin (koyu antrasit çelik doğrama), kenar 2 güney yüz (camlı). Üst bant = dikey nervürlü antrasit metal alın"
+  },
+  {
+   "poly": [
+    [
+     662.0,
+     -64.5
+    ],
+    [
+     679.5,
+     -65.5
+    ],
+    [
+     679.5,
+     -70.0
+    ],
+    [
+     662.0,
+     -70.8
+    ],
+    [
+     658.5,
+     -67.5
+    ]
+   ],
+   "y0": 0.0,
+   "y1": 4.7,
+   "color": "#e8e9e6",
+   "band": {
+    "h": 0.8,
+    "color": "#eceeec"
+   },
+   "roofC": "#d9d6cd",
+   "glazing": {
+    "edges": [
+     1,
+     2,
+     3
+    ],
+    "from": 0.95,
+    "to": 3.9,
+    "mullion": 1.1,
+    "glass": "#3f4c55",
+    "frame": "#eef0ee"
+   },
+   "collide": true,
+   "note": "İskele Balık kuzey kış bahçesi (hava foto ±0.7). Kenar 2 = kuzey ön yüz. Subasman 0.4–0.95 mavi (#1a5dac) yatay ahşap tahta + beyaz çizgiler, arkadaki kiremit-kahve eğimli çatı bandı, orta kapı + 5 basamak ahşap merdiven çizilemiyor → pending"
+  },
+  {
+   "poly": [
+    [
+     678.37,
+     -64.6
+    ],
+    [
+     671.01,
+     -64.2
+    ],
+    [
+     666.9,
+     -61.5
+    ],
+    [
+     669.5,
+     -57.5
+    ],
+    [
+     679.0,
+     -58.5
+    ]
+   ],
+   "y0": 9.07,
+   "y1": 11.3,
+   "color": "#e6e7e3",
+   "band": {
+    "h": 0.4,
+    "color": "#3f4a44"
+   },
+   "roofC": "#b8bcb8",
+   "glazing": {
+    "edges": [
+     0,
+     1
+    ],
+    "from": 9.1,
+    "to": 10.8,
+    "mullion": 0.75,
+    "glass": "#3d5470",
+    "frame": "#eef0ee"
+   },
+   "collide": true,
+   "note": "İskele Balık çatı köşkü (K2). Ön (kuzey) kenarlar 0–1 fotoğraftan (kavisli ön yüz iki kirişle); güney/doğu sınırı hava fotoğrafındaki açık gri beşgenden, YAKLAŞIK (görülmedi). Kenar 0 doğu ucundaki ≈3.2 m duvar resmi camsız olmalı → pending"
   }
  ]
 }

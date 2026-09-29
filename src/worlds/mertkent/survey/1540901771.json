@@ -36,23 +36,6 @@
   ],
   "pending": [
     {
-      "what": "pencere sövesi + denizlik",
-      "edges": [
-        0,
-        6,
-        10
-      ],
-      "ortho": {
-        "6": "1540901771_6_UXy7Q7qk.jpg",
-        "10": "1540901771_10_WdXsNXEJ.jpg"
-      },
-      "desc": "Tüm normal pencerelerin çevresinde açık krem, hafif kabarık söve bandı; altta biraz daha geniş denizlik. Örnek (kenar 10, WdXs, K3 sağ pencere): söve dış u 3.075–5.00, y 13.425–14.875; kasa u 3.225–4.925, y 13.60–14.775 → yanlarda ≈0.15–0.2 m, üstte ≈0.1 m, altta ≈0.17 m (denizlik). Sol pencere: söve u −1.275–0.30, y 13.50–14.975; kasa u −1.05–0.175, y 13.675–14.80.",
-      "width": 0.18,
-      "proud": 0.03,
-      "color": "#b7b1b2",
-      "sillColor": "#b1aba9"
-    },
-    {
       "what": "cam balkon yığını ön profili",
       "edges": [
         8,
@@ -80,7 +63,7 @@
         "length": 13.6,
         "width": 3.1
       },
-      "desc": "Hava fotoğrafında kırma çatının ortasında uzun eksen boyunca düz gri teras (eğim düzeltmesi ±1 m); üzerinde küçük beyaz noktalar (güneş enerjili ısıtıcı / baca / havalandırma). Renk (hava) ≈#a7988e karışık; kenarında açık renkli ince parapet.",
+      "desc": "Hava fotoğrafında kırma çatının ortasında uzun eksen boyunca düz gri teras (eğim düzeltmesi ±1 m); üzerinde küçük beyaz noktalar (güneş enerjili ısıtıcı / baca / havalandırma). Renk (hava) ≈#a7988e karışık; kenarında açık renkli ince parapet. v4: volumes (y0=çatı üstü) ve roof.parapet kırma çatı içine gömülü düz şeridi ifade etmiyor → pending kaldı (roof.terrace true ile yaklaşık).",
       "color": "#9e948c"
     },
     {
@@ -236,6 +219,11 @@
             "K3": "tul",
             "K2": "tul",
             "K1": "tul"
+          },
+          "surround": {
+            "w": 0.18,
+            "d": 0.03,
+            "color": "#b7b1b2"
           }
         },
         {
@@ -263,6 +251,11 @@
             "K3": "tul",
             "K2": "tul",
             "K1": "tul"
+          },
+          "surround": {
+            "w": 0.18,
+            "d": 0.03,
+            "color": "#b7b1b2"
           }
         },
         {
@@ -449,6 +442,11 @@
             "K2": "karanlik",
             "K1": "tul",
             "K0": "jaluzi"
+          },
+          "surround": {
+            "w": 0.18,
+            "d": 0.03,
+            "color": "#b7b1b2"
           }
         },
         {
@@ -478,6 +476,11 @@
             "K2": "karanlik",
             "K1": "tul",
             "K0": "tul"
+          },
+          "surround": {
+            "w": 0.18,
+            "d": 0.03,
+            "color": "#b7b1b2"
           }
         }
       ],
