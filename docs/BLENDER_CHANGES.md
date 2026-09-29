@@ -202,7 +202,7 @@
   adacıklar, trafik ışıkları (3 lamba, siperlik), reklam panosu sırası (içerik yok — uydurulmadı), "sağdan gidiniz"
   ve sarı-siyah ok levhaları, kazıklı genç ağaçlar; ada ve adacıklarda hava fotoğrafı ağaç adayları kaldırıldı.
   **Blender:** `NW/Mertkent/Street` kavşak.
-- **(bu commit)** — Segment 3 ölçümleri yeni üretici özellikleriyle (ajanlar `pending` listelerini dönüştürdü):
+- **7ab41bf** — Segment 3 ölçümleri yeni üretici özellikleriyle (ajanlar `pending` listelerini dönüştürdü):
   1540901770 (kırmızı ek + cam korkuluklu teras + teras camlı odası artık `volumes`, tüm pencerelerde söve),
   1540901771 (söve), 1540901774/76 (K8 yalnız şeritte: `massing` poly + rest; 1776 bacaları), 1540901777 (doğu çatı
   katı ve batı çatı katı `volumes`, teras parapeti), 1546816193 (`floorHs` [4.0, 2.95], pencere başına cam tonu /
@@ -211,7 +211,7 @@
   "A"), 303738118 (Cevher/Delice ekleri, İskele Balık kış bahçesi, çatı odası `volumes`; bölüm başına doğrama
   rengi; diş/balık simgeleri), 303738122 (balık simgesi, beyaz harf konturu, yuvarlak BALIK MARKET rozeti,
   Hollanda tenteleri), 1550614218 (5° eğik parça şeritleri, iki yükseklikli çekirdek).
-- **(bu commit)** — Taban izi uzlaştırması: 1540901770 güney duvarları ≈1.0–1.1 m kuzeye (Street View derinliği +
+- **7ab41bf** — Taban izi uzlaştırması: 1540901770 güney duvarları ≈1.0–1.1 m kuzeye (Street View derinliği +
   ölçülen eğim; eski "zemin çizgisi" ön döşeme şeridiymiş), köşe 10 düzeltildi; 1540901777 güney girintisi gerçek
   10.5 m genişliğe. Diğer yedi çelişki kanıtla reddedildi (notlarda). **Yeni, OSM'de olmayan 7 bina** (hava fotoğrafı
   - SV): 900000101 VİZE KONGRE / BALENTUR ofis bloğu, 102 LEYLA fasıl, 103 eczane + pilates eki, 104 TURUNCU Market
