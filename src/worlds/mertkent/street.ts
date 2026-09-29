@@ -1222,19 +1222,11 @@ function buildStreet(
         break;
       }
       case 'tree': {
-        // Budanmış yuvarlak çalı (Street View: ~1.2 m şimşir topları); büyük ağaçlar (h ≥ 2) gerçek 3D ağaç olarak
-        // vegetation'da (siteplan.surveyVegetation → fixedTrees, verilen konum/boy)
-        if ((s.h ?? 5) >= 2) {
-          // Genç fidanların iki ahşap kazığı (ölçüm notu "kazık"); KARAR: kazık boyu/aralığı ölçülmedi → 1.6 m, 0.6 m
-          if (/kazı[kğ]/.test(note))
-            for (const u of [-0.3, 0.3]) b.cylinder('wood', [s.x + u, g0 - 0.1, s.z], 0.03, 1.7, 6);
-          break;
-        }
-        const h = s.h ?? 1.3;
-        const g = new THREE.SphereGeometry(0.62, 14, 10);
-        g.scale(1, (h * 0.9) / 1.24, 1);
-        g.translate(s.x, g0 + 0.05 + h * 0.45, s.z);
-        b.geometry('boxwood', g);
+        // Tüm sokak ağaçları (2 m altı mazı/şimşir konileri dahil) ağaç kütüphanesinde, türüne göre
+        // (siteplan.surveyVegetation → fixedTrees → vegetation/treelib; docs/TREES.md). Burada yalnız kazıklar.
+        // Genç fidanların iki ahşap kazığı (ölçüm notu "kazık"); KARAR: kazık boyu/aralığı ölçülmedi → 1.6 m, 0.6 m
+        if (/kazı[kğ]/.test(note))
+          for (const u of [-0.3, 0.3]) b.cylinder('wood', [s.x + u, g0 - 0.1, s.z], 0.03, 1.7, 6);
         break;
       }
       case 'drain': {

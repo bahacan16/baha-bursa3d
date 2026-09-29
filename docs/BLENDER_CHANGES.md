@@ -445,3 +445,23 @@
   0.009 m; UV metre, doku boyu manifest `size`), bordür malzemeleri üç düzlemli (Box projection, 0.5 m);
   `NW/Mertkent/Street` yeniden kur (0.72 m bordür birimleri + boyalı bordür), `NW/Mertkent/Site` malzemeleri.
   Karşılaştırma görselleri: `docs/compare/ground-502sk.jpg`, `ground-da.jpg`, `ground-textures.jpg` (Blender: yok).
+- **(ağaç türleri)** — **Ağaç türü kütüphanesi** (3 genel tür yerine 20 tür anahtarı; kanıt, tanıma ipuçları,
+  örneklenen renkler: `docs/TREES.md`). Himalaya sediri (sarkık katlar, eğik tepe), mavi ladin, limoni servi
+  (alev konisi), Akdeniz servisi, mazı konisi, Trachycarpus palmiyesi (lifli gövde + 30 yelpaze yaprak), ıhlamur,
+  karaağaç tipi kubbe, akasya, top akasya (2 m temiz gövde + küre), sabun ağacı (kırmızı-kahve kapsüller), kan erik (anahtar hazır, veride yok),
+  yenidünya, meyve ağacı, parlak yapraklı her dem yeşil, fidan, şimşir + genel yaprak döken/iğne yapraklı.
+  Yaprak kartları çalışma anında canvas atlasında (tür başına 512 px karo), orta LOD seyreltilmiş kart, uzak LOD tür
+  silüeti; Ultra'da yakın/orta 160/260 m. Veri: site planındaki 51 `cone` (limoni servi) ve mazı çalı sırası artık
+  ağaç kütüphanesinde (sitekit `cypressCone` / `bush` çizilmez); sokak planındaki 2 m altı `tree` (KD köşe adası
+  mazıları) küre değil mazı konisi. Tür düzeltmeleri: site-plan 3 `pine` → `cedrus`, **yeni** palmiye (-68.1,
+  -62.6) ve genç sedir (-57.4, -62.7); park-plan top akasya (-21.5, -163.6), sabun ağacı (-12.9, -165.8),
+  (-16.5, -176.9) ve "mor/kızıl yapraklı" `PURPLE` (-19.5, -171.9; kırmızı-kahve renk kapsül salkımıymış, yapraklar
+  yeşil); parktaki tek mavi ladin 3 kerterizle (17.2, -172.6) → park-plan `n183Y` mavi ladin (h 2.9),
+  aynı ağacın yanlış konumlu kopyaları park-plan `n164Y` ve street-plan `da1-tree-park-1` **silindi** (Blender'da
+  da kaldırılmalı). `fixedTrees` artık ağaç başına 5 sayı
+  (`x, z, tür, boy, taç yarıçapı`, metre). Dosyalar: `src/worlds/osm/` altında `species`, `treelib`, `leafcards`,
+  `treefield`, `treemesh`, `eztree`, `vegetation`, `world` (.ts); `src/worlds/mertkent/{siteplan,street}.ts`,
+  `data/{site,park,street}-plan.json`, `tests/unit/species.test.ts`.
+  **Blender:** `NW/Vegetation` yeniden kurulmalı (tür başına model; konum/boy/taç ölçüleri planlardan; tür →
+  `docs/TREES.md` tablosu); `NW/Mertkent/Site` (konik servi ve mazı çalıları buradan kalktı → Vegetation'a),
+  `NW/Mertkent/Street` (KD köşe adası küreleri kalktı → mazı konisi Vegetation'da).

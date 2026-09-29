@@ -1,22 +1,54 @@
 import { rng, hashString, CHUNK_SIZE } from './chunks';
 import { pointInPolygon, distToSegment, type Area, type Building, type Pt, type Road } from './parse';
+import { SPECIES_COUNT, SPECIES_SIZE, speciesIndex, speciesKey } from './species';
 
-export const TREE_TYPES = 3; // 0 = yuvarlak (çınar/ıhlamur), 1 = konik (selvi/çam), 2 = oval (kavak)
+/**
+ * Tür sayısı. Tür indeksleri `species.ts` SPECIES listesindedir; 0–2 eski üç genel türle aynı
+ * (0 yuvarlak yaprak döken, 1 iğne yapraklı, 2 oval) → eski sayısal türler geriye uyumlu.
+ */
+export const TREE_TYPES = SPECIES_COUNT;
+const T_ROUND = speciesIndex('deciduous');
+const T_CONIFER = speciesIndex('conifer');
+const T_OVAL = speciesIndex('deciduous-oval');
 
 export interface TreeInstance {
   x: number;
   z: number;
+  /** Tür indeksi (species.ts) */
   type: number;
-  scale: number;
+  /** Taç genişliği ve boy ölçeği (türün başvuru boyuna göre) */
+  sxz: number;
+  sy: number;
   rot: number;
   /** renk çarpanı */
   shade: number;
 }
 
+/** Payload'da ağaç başına kayan sayı: [x, z, sxz, sy, dönüş, gölge] */
+export const TREE_STRIDE = 6;
+
 export interface TreePayload {
-  /** chunk anahtarı → tip → [x, z, ölçek, dönüş, gölge]* */
+  /** chunk anahtarı → tip → [x, z, sxz, sy, dönüş, gölge]* */
   chunks: { cx: number; cz: number; type: number; data: Float32Array }[];
   count: number;
+}
+
+/** fixedTrees akışı: ağaç başına [x, z, tür, boy m (0 = bilinmiyor), taç yarıçapı m (0 = bilinmiyor)] */
+export const FIXED_STRIDE = 5;
+
+/**
+ * Ölçülmüş boy/taç yarıçapından türün başvuru boyuna göre ölçek. Yalnız biri biliniyorsa oran korunur;
+ * oran uç değerlere kırpılır (aşırı basık/sivri model olmasın).
+ */
+export function fixedScale(type: number, h: number, r: number): { sxz: number; sy: number } {
+  const size = SPECIES_SIZE[speciesKey(type)];
+  const byH = h > 0 ? h / size.h : 0;
+  const byR = r > 0 ? (2 * r) / size.w : 0;
+  let sy = byH || byR || 1;
+  let sxz = byR || byH || 1;
+  sy = Math.max(0.12, Math.min(2.2, sy));
+  sxz = Math.max(sy * 0.6, Math.min(sy * 1.7, sxz));
+  return { sxz, sy };
 }
 
 class SpatialHash<T> {
@@ -44,7 +76,7 @@ export interface VegetationOptions {
   density: number;
   /** Hava fotoğrafından tespit edilmiş ağaçlar [x, z, taçYarıçapı]* — varsa rastgele dağıtımın yerine geçer */
   aerialTrees?: Float32Array | number[];
-  /** Elle ölçülmüş ağaçlar [x, z, tür, ölçek]* (engelleme kontrolü yok, önce yerleşir) */
+  /** Elle ölçülmüş ağaçlar [x, z, tür, boy, taç yarıçapı]* (FIXED_STRIDE; engelleme kontrolü yok, önce yerleşir) */
   fixedTrees?: number[];
   /** Otomatik ağaç konmayacak bölgeler (düz [x,z,...] çokgenler) — ölçülmüş alanlar */
   excludeZones?: number[][];
@@ -122,8 +154,18 @@ export function placeTrees(
   const add = (x: number, z: number, seed: number, typeBias: number) => {
     const r = rng(seed);
     const t = r();
-    const type = t < typeBias ? 1 : t < 0.8 ? 0 : 2;
-    out.push({ x, z, type, scale: 0.75 + r() * 0.6, rot: r() * Math.PI * 2, shade: 0.8 + r() * 0.35 });
+    // Tür görülmedi → genel yaprak döken / iğne yapraklı ayrımı (eski dağılım)
+    const type = t < typeBias ? T_CONIFER : t < 0.8 ? T_ROUND : T_OVAL;
+    const s = 0.75 + r() * 0.6;
+    out.push({
+      x,
+      z,
+      type,
+      sxz: s,
+      sy: s * (0.9 + r() * 0.2),
+      rot: r() * Math.PI * 2,
+      shade: 0.8 + r() * 0.35,
+    });
     placed.insertBox(x, z, x, z, [x, z]);
   };
 
@@ -131,11 +173,13 @@ export function placeTrees(
   const excluded = (x: number, z: number) => zones.some((p) => inFlat(p, x, z));
   // 0) Elle ölçülmüş ağaçlar (Street View + hava fotoğrafı): aynen
   const F = opts.fixedTrees ?? [];
-  for (let i = 0; i + 3 < F.length; i += 4) {
+  for (let i = 0; i + FIXED_STRIDE - 1 < F.length; i += FIXED_STRIDE) {
     const x = F[i];
     const z = F[i + 1];
+    const type = Math.max(0, Math.min(SPECIES_COUNT - 1, Math.round(F[i + 2])));
     const r = rng(hashString(`f${x},${z}`));
-    out.push({ x, z, type: F[i + 2], scale: F[i + 3], rot: r() * Math.PI * 2, shade: 0.85 + r() * 0.25 });
+    const { sxz, sy } = fixedScale(type, F[i + 3], F[i + 4]);
+    out.push({ x, z, type, sxz, sy, rot: r() * Math.PI * 2, shade: 0.88 + r() * 0.2 });
     placed.insertBox(x, z, x, z, [x, z]);
   }
   // 1) Haritalanmış ağaçlar (engellemeden bağımsız, yalnızca bina içi elenir)
@@ -170,9 +214,19 @@ export function placeTrees(
       const seed = hashString(`a${x},${z}`);
       const r = rng(seed);
       const t = r();
-      const type = t < 0.14 ? 1 : t < 0.86 ? 0 : 2;
-      const scale = Math.max(0.6, Math.min(1.6, A[i + 2] / 2.3));
-      out.push({ x, z, type, scale, rot: r() * Math.PI * 2, shade: 0.8 + r() * 0.35 });
+      // KARAR: hava fotoğrafı tespitinde tür ayrımı güvenilir değil → genel yaprak döken/iğne yapraklı (eski oran)
+      const type = t < 0.14 ? T_CONIFER : t < 0.86 ? T_ROUND : T_OVAL;
+      const half = SPECIES_SIZE[speciesKey(type)].w / 2;
+      const sxz = Math.max(0.45, Math.min(1.8, A[i + 2] / half));
+      out.push({
+        x,
+        z,
+        type,
+        sxz,
+        sy: sxz * (0.9 + r() * 0.2),
+        rot: r() * Math.PI * 2,
+        shade: 0.8 + r() * 0.35,
+      });
       placed.insertBox(x, z, x, z, [x, z]);
       if (out.length >= opts.maxTrees) break;
     }
@@ -230,7 +284,7 @@ export function treesToPayload(trees: TreeInstance[]): TreePayload {
     const k = `${cx},${cz},${t.type}`;
     let g = groups.get(k);
     if (!g) groups.set(k, (g = { cx, cz, type: t.type, data: [] }));
-    g.data.push(t.x, t.z, t.scale, t.rot, t.shade);
+    g.data.push(t.x, t.z, t.sxz, t.sy, t.rot, t.shade);
   }
   return {
     chunks: [...groups.values()].map((g) => ({
