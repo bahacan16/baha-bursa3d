@@ -34,7 +34,9 @@
     "TABAN İZİ UYUŞMAZLIĞI (SV çerçevesinde, 2025 panoları HVLz/MeHpp/jeEb/XBa6/l07h/SyTa üçgenlemesi): batı duvarları izden 3.5–4 m batıda (kenar 17 x≈204.7/203.9, kenar 21 x≈203.25, kavisli çıkıntı önü x≈201.8–202.0; izde 208.2/207/206). Aynı sonucu düşey ölçek de veriyor (izdeki uzaklıkla kat 3.9 m çıkıyordu). KB köşe z≈−146.2 (izde −144.75), GB köşe z≈−114.6 (izde −112.85); kavisli çıkıntının z konumları ize uyuyor. Kenar 17 gerçekte ≈9.1 m (izde 7.95), ortasında ~0.8 m basamak. Kuzey cephe KD–KB ≈16.6 m (izde 17.4; 9l1o). Öğeler kenar köşelerine oranlanarak yerleştirildi (cal.u gerçek köşelerin görünen yerleri).",
     "Tarihler: batı ve kuzey ölçüleri 2025-09 karelerinden. JDIgP (2019-05, kuzey, 14–20 m) yalnız doğrulama için; 2019’da orta cam yığınının en üst katı açık locaydı, balkon düzeni aynı.",
     "Belirsizlik: güney/doğu cepheler (0–10) neredeyse görülmedi; yalnız GB köşedeki açık balkon yığını ve güney orta çıkıntının cam yığını (XBa6, eğik) yazıldı. Kuzey perdeleri 45–55 m’den seçilemiyor.",
-    "Renkler bulutlu/gölgede örneklendi (güneşli yama yok); oyunda gölge tarafı gerçek bulutlu günden koyu kaldığı için albedo ×1.15 (örneklenen: plaster #99958c, plaster2 #a9a9a1, fascia #969189, soffit #878175, railGlass #949da4, frame #d8d9d6, tile #9c8a7e, plinth #757570)."
+    "Renkler bulutlu/gölgede örneklendi (güneşli yama yok); oyunda gölge tarafı gerçek bulutlu günden koyu kaldığı için albedo ×1.15 (örneklenen: plaster #99958c, plaster2 #a9a9a1, fascia #969189, soffit #878175, railGlass #949da4, frame #d8d9d6, tile #9c8a7e, plinth #757570).",
+    "Korkuluklar: tüm balkon ve cam balkonlarda her görülen katta paslanmaz yatay borulu korkuluk (4–5 yatay boru + seyrek dikmeler, döşemeden ~1 m; dolu parapet yok) → rail \"tube\", railC #c3cdd3 (MeHpp yakın ortosundaki en parlak boru pikselleri). Cam balkonlarda katlanır cam bu korkuluğun üstünde/arkasında. Balkon alınları tüm katlarda aynı bej (fasciaC yok). Hiçbir pencerede dış panjur/stor kutusu yok (shut yok).",
+    "İFADE EDİLEMEYEN: kenar 17 K0 pencerelerindeki beyaz ferforje koruma (kıvrık dikey çubuklar, şemada pencere ızgarası yok; shut kepenk anlamında olduğu için kullanılmadı); sıvadaki çift yatay oluklar ve düşey derzler; kuzeydeki havalandırma delikleri; afişteki kırmızı logo ve iki renkli yazı (tek fg)."
   ],
   "edges": [
     {
@@ -62,15 +64,19 @@
           "t": "bal",
           "u0": 0.2,
           "u1": 2.2,
-          "d": 0.45,
+          "d": 1.2,
           "s": [
             0,
             5
           ],
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3"
         }
       ],
-      "note": "Güney cephe batı kanadı: yalnız XBa6 karesinden (2025-09) çok eğik açıyla görüldü + hava fotoğrafı. GB köşesinin hemen yanında her katta açık balkon (fransız kapı, paslanmaz borulu korkuluk, sığ konsol döşeme). Genişlik görülemedi: kuzeydeki eş açık balkon yığınları (≈2.0 m, ~0.45 m derin) ile aynı alındı; konum ±0.7 m. Kapı/pencere yeri ölçülemedi → yazılmadı. u gerçek metre (GB köşesinden doğuya)."
+      "note": "Güney cephe batı kanadı: yalnız XBa6 karesinden (2025-09) çok eğik açıyla görüldü + hava fotoğrafı. GB köşesinin hemen yanında her katta açık balkon (fransız kapı, paslanmaz borulu korkuluk, ~1.2 m konsol döşeme — XBa6 66_40’ta yan yüz cepheye bakışla neredeyse cepheden görülüyor, korkuluk yüksekliğinin ~1.2 katı; kuzeydeki sığ balkonlardan derin). Korkuluk her katta (K0–K5) yatay borulu. Genişlik görülemedi: kuzeydeki eş açık balkon yığınları (≈2.0 m) ile aynı alındı; konum ±0.7 m. Kapı/pencere yeri ölçülemedi → yazılmadı. u gerçek metre (GB köşesinden doğuya)."
     },
     {
       "edge": 1,
@@ -95,6 +101,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 0,
           "u1": 0.69,
           "d": 0,
@@ -138,6 +148,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 0,
           "u1": 3.41,
           "d": 0,
@@ -246,6 +260,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 0.88,
           "u1": 2.9,
           "d": 0.45,
@@ -301,6 +319,10 @@
         },
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 2.9,
           "u1": 4.38,
           "d": 0.45,
@@ -327,7 +349,7 @@
           }
         }
       ],
-      "note": "Kuzey cephe doğu kanadı (KD köşeden batıya): ~1.8 m düz duvar, sığ açık balkon yığını (≈2.0 m genişlik; konsol derinliği ~0.45 m — SyTa 117 eğik karesinde yan/ön oranından ve 9l1o/7Tks’te döşemenin kapıya göre yalnız ~0.3–0.4 m kaymasından; 2 kanatlı fransız kapı ≈1.1–1.5 m, paslanmaz borulu korkuluk; balkonun doğu ucunda her katta klima K1–K5, K0 ağaç/tabela arkasında), sonra orta çıkıntıya (kenar 12) yaslanan küçük cam balkon yığını (tüm katlar katlanır cam + borulu korkuluk, ≈2.1 m; derinlik açık balkonla aynı alındı). Cam yığını fotoğrafta kenar sonunu ~0.8 m aşıyor (kenar 11 izde ~0.5–0.8 m kısa olabilir; kalan kısım kırpılır). Klima u değeri derleyicinin 1.4 m balkon varsayımına göre geri hesaplı (bindirmede kutu gerçek klimanın ~1 m solunda). Perdeler 45–55 m’den seçilemiyor."
+      "note": "Kuzey cephe doğu kanadı (KD köşeden batıya): ~1.8 m düz duvar, sığ açık balkon yığını (≈2.0 m genişlik; konsol derinliği ~0.45 m — SyTa 117 eğik karesinde yan/ön oranından ve 9l1o/7Tks’te döşemenin kapıya göre yalnız ~0.3–0.4 m kaymasından; 2 kanatlı fransız kapı ≈1.1–1.5 m, paslanmaz borulu korkuluk; balkonun doğu ucunda her katta klima K1–K5, K0 ağaç/tabela arkasında), sonra orta çıkıntıya (kenar 12) yaslanan küçük cam balkon yığını (tüm katlar katlanır cam + borulu korkuluk, ≈2.1 m; derinlik açık balkonla aynı alındı). Cam yığını fotoğrafta kenar sonunu ~0.8 m aşıyor (kenar 11 izde ~0.5–0.8 m kısa olabilir; kalan kısım kırpılır). Klima u değeri derleyicinin 1.4 m balkon varsayımına göre geri hesaplı (bindirmede kutu gerçek klimanın ~1 m solunda). Korkuluklar K1–K5’te yatay borulu; K0 korkuluğu ağaç/tabela arkasında görülmedi, üst katlarla aynı (tube) alındı. Perdeler 45–55 m’den seçilemiyor."
     },
     {
       "edge": 12,
@@ -384,6 +406,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 0.83,
           "u1": 3.6,
           "d": 0,
@@ -440,6 +466,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 0,
           "u1": 1.25,
           "d": 0,
@@ -484,6 +514,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 2.46,
           "u1": 4.58,
           "d": 0.45,
@@ -757,6 +791,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 1.53,
           "u1": 9.64,
           "d": 0,
@@ -809,6 +847,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 1.42,
           "u1": 9.8,
           "d": 0,
@@ -833,9 +875,24 @@
             "K4": "clear",
             "K5": "clear"
           }
+        },
+        {
+          "t": "sign",
+          "u0": 1.6,
+          "u1": 3.14,
+          "y0": 13.79,
+          "y1": 14.96,
+          "d": 0.02,
+          "text": "Kaymaz Emlak\nwww.kaymazemlak.com\nSATILIK\n0534 704 39 74",
+          "bg": "#e0e0e8",
+          "fg": "#34436b",
+          "style": "panel",
+          "font": "sans",
+          "bold": true,
+          "logo": "Beyaz vinil afiş, K2 cam balkonun borulu korkuluğuna hafif eğik bağlı (sol üstü yüksek). \"Kaymaz\" üstünde kırmızı çatı logosu; \"Kaymaz\", web adresi ve telefon lacivert, \"Emlak\" ve aralıklı \"S A T I L I K\" kırmızı (~#c0392b); logo ile web adresi arasında okunamayan küçük turuncu satır. Telefonun ilk 4 hanesi bulanık (\"05?4\", 0534 okundu)."
         }
       ],
-      "note": "Batı kavisli çıkıntının cephesi: kuzey ucunda ~1.5 m dolu ayak (kenar 18 sonu + bu kenarın ilk ~0.95 m’si), sonra tüm katlarda kıvrık cam balkon yığını (kenar 20’ye dolanır). K2 korkuluğunda \"SATILIK\" emlak afişi (u≈0.9–1.8 görünen; şemada öğe yok). K0 camlı, içeride mor mobilya. Taban izi balkon ön yüzü → loca."
+      "note": "Batı kavisli çıkıntının cephesi: kuzey ucunda ~1.5 m dolu ayak (kenar 18 sonu + bu kenarın ilk ~0.95 m’si), sonra tüm katlarda kıvrık cam balkon yığını (kenar 20’ye dolanır). K2 korkuluğunda \"Kaymaz Emlak … SATILIK\" vinil afişi (sign). K0 camlı, içeride mor mobilya. Taban izi balkon ön yüzü → loca."
     },
     {
       "edge": 20,
@@ -860,6 +917,10 @@
       "items": [
         {
           "t": "bal",
+          "rail": {
+            "*": "tube"
+          },
+          "railC": "#c3cdd3",
           "u0": 0,
           "u1": 2,
           "d": 0,
