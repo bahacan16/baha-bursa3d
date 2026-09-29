@@ -1,5 +1,16 @@
 import * as THREE from 'three';
 import { Builder, leafFringe, type V2, type V3 } from './builder';
+import {
+  binStand,
+  cypressCone,
+  goal,
+  kamelya,
+  lamp2,
+  panelFence,
+  pitchFence,
+  playSet,
+  roseBush,
+} from './sitekit';
 
 /**
  * Ölçülmüş site planı (data/site-plan.json: Google z21 hava fotoğrafından; data/street-plan.json: sokaklar):
@@ -13,6 +24,14 @@ export interface SiteArea {
   material?: string;
   level?: number;
   note?: string;
+  /** Yükseltilmiş alan kenarında korkuluk: 'glass' = buzlu cam panel + paslanmaz küpeşte (havuz platformu) */
+  rail?: string;
+  /** Korkuluk/çit açıklıkları (merkez, genişlik) — kapı */
+  gates?: { c: V2; w: number }[];
+  /** Saha çiti (halı saha): true → 4 m tel çit + kaleler */
+  fence?: boolean;
+  /** Kenar bordürü çizilmesin */
+  noKerb?: boolean;
 }
 export interface SiteLine {
   kind: string;
@@ -26,6 +45,8 @@ export interface SiteStructure {
   poly: V2[];
   h?: number;
   note?: string;
+  /** kamelya: ön yüz yönü (derece, 0 = +x uzun kenar) */
+  rot?: number;
 }
 export interface SitePoint {
   kind: string;
@@ -210,6 +231,8 @@ function areaKey(a: SiteArea): string {
     case 'deck':
       return /mermer|marble|kenar taşı|coping/.test(m) ? 'coping' : 'deck';
     case 'playground':
+      // Kullanıcı fotoğrafı: koyu mor-kahve 50 cm kauçuk karo
+      if (/karo|tile/.test(m)) return 'rubberTile';
       if (/mor|purple/.test(m)) return 'spRubberPurple';
       if (/gri|grey|gray/.test(m)) return 'spRubberGrey';
       return 'spRubberRed';
@@ -226,8 +249,8 @@ function areaKey(a: SiteArea): string {
       if (/asfalt|asphalt/.test(m)) return 'drive';
       if (/metal|ızgara|kapak|grate/.test(m)) return 'darkMetal';
       if (/traverten|travertine|mermer/.test(m)) return 'deck';
-      if (/kırmızı|red|kahve/.test(m) && !/gri/.test(m.split('(')[0])) return 'spPaverRed';
-      return 'spPaverGrey';
+      if (/kırmızı|red|kahve/.test(m) && !/gri/.test(m.split('(')[0])) return 'spSiteRed';
+      return 'spSiteGrey';
   }
 }
 
@@ -260,18 +283,43 @@ export function buildSitePlan(
     const inner = pools.filter((p) => insidePoly(a.poly, ...centroid(p.poly))).map((p) => p.poly);
     const off = 0.03 + Math.min(0.06, idx * 0.0015) + (a.level ?? 0) + (a.kind === 'lawn' ? 0 : 0.03);
     try {
-      b.drape(key, a.poly, inner, H, off, key.startsWith('spPaver') || key === 'deck' ? 1 : 0.5, 2.5);
+      b.drape(
+        key,
+        a.poly,
+        inner,
+        H,
+        off,
+        key.startsWith('spPaver') || key.startsWith('spSite') || key === 'deck' ? 1 : 0.5,
+        2.5,
+      );
     } catch {
       /* hatalı çokgen */
     }
-    // Yükseltilmiş alanlar (güverte vb.): kenar yüzü
+    // Yükseltilmiş alanlar (güverte vb.): kenar yüzü (+ traverten denizlik), cam korkuluk
     if ((a.level ?? 0) > 0.05)
       for (let i = 0; i < a.poly.length; i++) {
         const p = a.poly[i];
         const q = a.poly[(i + 1) % a.poly.length];
         const y0 = Math.min(H(p[0], p[1]), H(q[0], q[1]));
-        b.wall('deckSide', q, p, y0, y0 + off, [0, 0, Math.hypot(q[0] - p[0], q[1] - p[1]), off]);
+        const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
+        b.wall('deckSide', q, p, y0 - 0.1, y0 + off, [0, 0, L / 0.6, (off + 0.1) / 0.3]);
+        if (a.rail === 'glass') glassRail(b, p, q, y0 + off, a.gates ?? [], collide);
+        else if ((a.level ?? 0) > 0.3) collide?.(edgeRing(p, q, 0.1), y0 - 0.5, y0 + off);
       }
+    // Site içi yollar: gri beton bordür (çimle sınırda); fotoğraflarda her yol kenarında
+    if (key.startsWith('spSite') && !a.noKerb) siteKerbs(b, a.poly, areas, H, off);
+    // Halı saha çiti + kaleler
+    if (a.kind === 'court' && a.fence) {
+      pitchFence(b, a.poly, H, a.gates?.[0], collide);
+      const xs = a.poly.map((p) => p[0]);
+      const zs = a.poly.map((p) => p[1]);
+      const cz = (Math.min(...zs) + Math.max(...zs)) / 2;
+      const x0 = Math.min(...xs) + 0.6;
+      const x1 = Math.max(...xs) - 0.6;
+      goal(b, [x0, H(x0, cz) + 0.03, cz], Math.PI / 2);
+      goal(b, [x1, H(x1, cz) + 0.03, cz], -Math.PI / 2);
+    }
+    if (a.kind === 'playground' && a.fence) panelFence(b, [...a.poly, a.poly[0]], H, 1.0, collide);
   });
   // ── Havuzlar ──
   for (const pool of pools) {
@@ -279,7 +327,12 @@ export function buildSitePlan(
     const m = `${pool.material ?? ''} ${pool.note ?? ''}`.toLowerCase();
     const shallow = /çocuk|child|sığ|shallow|basamak|raf/.test(m);
     const depth = shallow ? 0.55 : 1.45;
-    const rim = Math.max(...r.map((p) => H(p[0], p[1]))) + 0.1;
+    const cP = centroid(r);
+    const deckAround = areas.find(
+      (a) => a.kind !== 'pool' && (a.level ?? 0) > 0.2 && insidePoly(a.poly, cP[0], cP[1]),
+    );
+    const rim =
+      Math.max(...r.map((p) => H(p[0], p[1]))) + (deckAround ? (deckAround.level ?? 0) + 0.06 : 0.1);
     const xs = r.map((p) => p[0]);
     const zs = r.map((p) => p[1]);
     holes.push([
@@ -383,7 +436,16 @@ export function buildSitePlan(
           break;
         }
         case 'parking-bay':
-          b.box('spPaint', [m[0], y + 0.075, m[1]], [L, 0.01, l.w ?? 0.1], yaw);
+          // Site içi park çizgileri sarı (kullanıcı fotoğrafı)
+          b.box(
+            /beyaz|white/.test(l.note ?? '') ? 'spPaint' : 'spPaintYellow',
+            [m[0], y + 0.075, m[1]],
+            [L, 0.01, l.w ?? 0.1],
+            yaw,
+          );
+          break;
+        case 'panel-fence':
+          if (i === 0) panelFence(b, pts, H, l.h ?? 1.0, collide);
           break;
         case 'kerb':
         case 'path-edge':
@@ -393,9 +455,18 @@ export function buildSitePlan(
           b.box('edging', [m[0], y + h / 2, m[1]], [L + 0.02, h + 0.05, w], yaw);
           break;
         }
-        case 'pool-lane':
-          b.box('poolBand', [m[0], y - 1.3, m[1]], [L, 0.01, l.w ?? 0.25], yaw);
+        case 'pool-lane': {
+          const dk = areas.find(
+            (a) => a.kind !== 'pool' && (a.level ?? 0) > 0.2 && insidePoly(a.poly, m[0], m[1]),
+          );
+          b.box(
+            'poolBand',
+            [m[0], dk ? y + (dk.level ?? 0) + 0.06 - 1.44 : y - 1.3, m[1]],
+            [L, 0.01, l.w ?? 0.25],
+            yaw,
+          );
           break;
+        }
       }
     }
   }
@@ -408,6 +479,24 @@ export function buildSitePlan(
     const y = Math.min(...r.map((p) => H(p[0], p[1])));
     const h = s.h ?? 2.5;
     switch (s.kind) {
+      case 'kamelya': {
+        const cc = centroid(r);
+        const e0: V2 = [r[1][0] - r[0][0], r[1][1] - r[0][1]];
+        const e1: V2 = [r[2][0] - r[1][0], r[2][1] - r[1][1]];
+        const L0 = Math.hypot(...e0);
+        const L1 = Math.hypot(...e1);
+        const long = L0 >= L1 ? e0 : e1;
+        const yawK = Math.atan2(-long[1], long[0]) + ((s.rot ?? 0) * Math.PI) / 180;
+        kamelya(
+          b,
+          [cc[0], H(cc[0], cc[1]), cc[1]],
+          Math.max(L0, L1) - 0.3,
+          Math.min(L0, L1) - 0.3,
+          yawK,
+          collide,
+        );
+        break;
+      }
       case 'pergola': {
         for (const p of r) b.box('darkMetal', [p[0], y + h / 2, p[1]], [0.12, h, 0.12]);
         b.polygon('canopy', r, y + h, true, 0.5);
@@ -502,12 +591,131 @@ export function buildSitePlan(
       case 'bin':
         b.cylinder('darkMetal', [p.x, y, p.z], 0.22, 0.85, 10);
         break;
+      case 'playset':
+        playSet(b, [p.x, y + 0.04, p.z], yaw, collide);
+        break;
+      case 'lamp2':
+        lamp2(b, [p.x, y, p.z], yaw);
+        break;
+      case 'bin-stand':
+        binStand(b, [p.x, y, p.z], yaw);
+        break;
+      case 'rose':
+        roseBush(b, [p.x, y, p.z], (seed += 13));
+        break;
+      case 'cone':
+        cypressCone(b, [p.x, y, p.z], p.r ?? 0.6, p.h ?? 2.4);
+        break;
       case 'bollard':
         b.cylinder('darkMetal', [p.x, y, p.z], 0.07, 0.8, 8);
         break;
     }
   }
   return { holes, cars };
+}
+
+function edgeRing(p: V2, q: V2, w: number): [number, number][] {
+  const L = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+  const n: V2 = [(-(q[1] - p[1]) / L) * w * 0.5, ((q[0] - p[0]) / L) * w * 0.5];
+  return [
+    [p[0] + n[0], p[1] + n[1]],
+    [q[0] + n[0], q[1] + n[1]],
+    [q[0] - n[0], q[1] - n[1]],
+    [p[0] - n[0], p[1] - n[1]],
+  ];
+}
+
+/**
+ * Havuz platformu korkuluğu (fotoğraf): 1.35 m arayla paslanmaz dikme, 0.85 m buzlu cam panel, üstte Ø5 cm
+ * paslanmaz küpeşte (1.0 m). Kapı açıklıklarında kesilir; kapıda platforma çıkan traverten basamak.
+ */
+function glassRail(
+  b: Builder,
+  p: V2,
+  q: V2,
+  y: number,
+  gates: { c: V2; w: number }[],
+  collide?: Collide,
+): void {
+  const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
+  if (L < 0.2) return;
+  const t: V2 = [(q[0] - p[0]) / L, (q[1] - p[1]) / L];
+  const yaw = Math.atan2(-t[1], t[0]);
+  let parts: [number, number][] = [[0, L]];
+  for (const g of gates) {
+    const gu = (g.c[0] - p[0]) * t[0] + (g.c[1] - p[1]) * t[1];
+    const off = Math.abs((g.c[0] - p[0]) * t[1] - (g.c[1] - p[1]) * t[0]);
+    if (off > 0.6 || gu < -0.5 || gu > L + 0.5) continue;
+    parts = parts.flatMap(
+      ([u0, u1]) =>
+        [
+          [u0, Math.min(u1, gu - g.w / 2)],
+          [Math.max(u0, gu + g.w / 2), u1],
+        ].filter(([a, e]) => e - a > 0.05) as [number, number][],
+    );
+    // Basamak (dışarı): iki kademe
+    const n: V2 = [-t[1], t[0]];
+    const mid: V2 = [p[0] + t[0] * gu, p[1] + t[1] * gu];
+    for (const s of [1, -1]) {
+      const c1: V2 = [mid[0] + n[0] * 0.28 * s, mid[1] + n[1] * 0.28 * s];
+      const c2: V2 = [mid[0] + n[0] * 0.58 * s, mid[1] + n[1] * 0.58 * s];
+      b.box('deck', [c1[0], y - 0.45 + 0.3 / 2, c1[1]], [g.w + 0.2, 0.3, 0.3], yaw);
+      b.box('deck', [c2[0], y - 0.45 + 0.15 / 2, c2[1]], [g.w + 0.2, 0.15, 0.3], yaw);
+    }
+  }
+  const at = (u: number): V2 => [p[0] + t[0] * u, p[1] + t[1] * u];
+  for (const [u0, u1] of parts) {
+    const A = at(u0);
+    const E = at(u1);
+    const len = u1 - u0;
+    // Cam (iki yüz), 5 cm içeride
+    b.wall('glassFrost', A, E, y + 0.06, y + 0.78, [0, 0, 1, 1]);
+    b.wall('glassFrost', E, A, y + 0.06, y + 0.78, [0, 0, 1, 1]);
+    const m = at((u0 + u1) / 2);
+    b.box('steel', [m[0], y + 0.86, m[1]], [len + 0.04, 0.05, 0.05], yaw);
+    const n = Math.max(1, Math.round(len / 1.35));
+    for (let k = 0; k <= n; k++) {
+      const c = at(u0 + (len * k) / n);
+      b.cylinder('steel', [c[0], y, c[1]], 0.022, 0.86, 8);
+    }
+    collide?.(edgeRing(A, E, 0.12), y - 1.2, y + 1.0);
+  }
+}
+
+/** Kilit taşı alan kenarında beton bordür (dışarıda başka döşeme/alan yoksa) */
+function siteKerbs(
+  b: Builder,
+  poly: V2[],
+  areas: SiteArea[],
+  H: (x: number, z: number) => number,
+  off: number,
+): void {
+  const c = centroid(poly);
+  for (let i = 0; i < poly.length; i++) {
+    const p = poly[i];
+    const q = poly[(i + 1) % poly.length];
+    const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
+    if (L < 0.4) continue;
+    const t: V2 = [(q[0] - p[0]) / L, (q[1] - p[1]) / L];
+    let n: V2 = [-t[1], t[0]];
+    const mid: V2 = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
+    if (n[0] * (mid[0] - c[0]) + n[1] * (mid[1] - c[1]) < 0) n = [-n[0], -n[1]];
+    // Parça parça (1 m): dış noktada başka (çim dışı) alan varsa bordür yok
+    const nS = Math.max(1, Math.round(L));
+    for (let k = 0; k < nS; k++) {
+      const u = (L * (k + 0.5)) / nS;
+      const m: V2 = [p[0] + t[0] * u, p[1] + t[1] * u];
+      const o: V2 = [m[0] + n[0] * 0.35, m[1] + n[1] * 0.35];
+      if (areas.some((a) => a.kind !== 'lawn' && insidePoly(a.poly, o[0], o[1]))) continue;
+      const kc: V2 = [m[0] + n[0] * 0.05, m[1] + n[1] * 0.05];
+      b.box(
+        'siteKerb',
+        [kc[0], H(kc[0], kc[1]) + off - 0.06, kc[1]],
+        [L / nS + 0.01, 0.2, 0.1],
+        Math.atan2(-t[1], t[0]),
+      );
+    }
+  }
 }
 
 function rect(m: V2, t: V2, L: number, w: number): [number, number][] {

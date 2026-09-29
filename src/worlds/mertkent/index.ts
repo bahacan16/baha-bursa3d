@@ -17,7 +17,7 @@ import {
   STREET_PLAN as STREET_PLAN0,
   type StreetPlan,
 } from './siteplan';
-import { paverTextures, tactileTextures } from './facadeMats';
+import { bonePaverTextures, ironScrollTexture, paverTextures, tactileTextures } from './facadeMats';
 
 /** Ölçülmüş site planı varsa eski kural tabanlı zemin yerine o kullanılır (?oldgrounds=1 eskisi) */
 const USE_PLAN =
@@ -286,6 +286,21 @@ function paverMat(palette: string[], seed: number, off: number): THREE.Material 
   });
 }
 
+/** Site içi kemik kilit taşı (dünya UV'si metre) */
+function boneMat(palette: string[], seed: number, off: number): THREE.Material {
+  if (typeof document === 'undefined') return new THREE.MeshStandardMaterial({ color: palette[0] });
+  const t = bonePaverTextures(palette, seed);
+  return new THREE.MeshStandardMaterial({
+    map: t.map,
+    normalMap: t.normalMap,
+    normalScale: new THREE.Vector2(0.8, 0.8),
+    roughness: 0.9,
+    polygonOffset: true,
+    polygonOffsetFactor: off,
+    polygonOffsetUnits: off,
+  });
+}
+
 function materials(base: string): Record<string, THREE.Material> {
   const std = (p: THREE.MeshStandardMaterialParameters) =>
     new THREE.MeshStandardMaterial({ roughness: 0.85, ...p });
@@ -341,6 +356,67 @@ function materials(base: string): Record<string, THREE.Material> {
     // KARAR: Nilüfer kaldırımı (kullanıcı fotoğrafları): gri beton tuğla 20×10, uzun kenar yol boyunca, şaşırtmalı;
     // taşlar arası belirgin ton farkı. Kaldırımlarda kırmızı bant yok (yalnız gri + sarı kılavuz [+ mavi bisiklet]).
     spPaverGrey: paverMat(['#9a9792', '#a19e98', '#938f8a', '#9d9994', '#8b8883', '#a5a19b'], 21, -5),
+    // Site içi donatılar (kullanıcı fotoğrafları, sitekit.ts)
+    kamSlab: granularMaterial('#b3afa8', 44, { roughness: 0.95 }),
+    kamPost: std({ color: 0xcf9282, roughness: 0.8 }),
+    kamWood: std({ color: 0x7b4f33, roughness: 0.75 }),
+    kamRoof: std({ map: T.roofTileTexture('#5a4238'), roughness: 0.9, color: 0x9c8a82 }),
+    ironScroll: std({
+      map: typeof document === 'undefined' ? null : ironScrollTexture(),
+      alphaTest: 0.4,
+      side: DS,
+      roughness: 0.5,
+      metalness: 0.4,
+    }),
+    playBeige: std({ color: 0xe3d3ae, roughness: 0.55 }),
+    playGreen: std({ color: 0x3fa03a, roughness: 0.45 }),
+    playRed: std({ color: 0xcc3526, roughness: 0.45 }),
+    playPink: std({ color: 0xf0b3c4, roughness: 0.5 }),
+    binBlue: std({ color: 0x8fc3c8, roughness: 0.55, metalness: 0.2, side: DS }),
+    roseRed: std({ color: 0xc41c2c, roughness: 0.6 }),
+    rosePink: std({ color: 0xf08aa6, roughness: 0.6 }),
+    cypress: std({ map: T.hedgeTexture(5), color: 0xc4dc84, roughness: 0.95 }),
+    spPaintYellow: std({
+      color: 0xe0b52a,
+      roughness: 0.6,
+      polygonOffset: true,
+      polygonOffsetFactor: -8,
+      polygonOffsetUnits: -8,
+    }),
+    siteKerb: std({ color: 0x8c8984, roughness: 0.85 }),
+    glassFrost: std({
+      color: 0xc9dcd6,
+      roughness: 0.25,
+      metalness: 0,
+      transparent: true,
+      opacity: 0.55,
+      side: DS,
+      depthWrite: false,
+    }),
+    rubberTile: (() => {
+      if (typeof document === 'undefined') return std({ color: 0x3b3035 });
+      const t = paverTextures(['#3e3035', '#44363a', '#392d31', '#403236'], {
+        pw: 0.5,
+        ph: 0.5,
+        seed: 45,
+        joint: '#211a1c',
+      });
+      const map = t.map.clone();
+      const nm = t.normalMap.clone();
+      map.repeat.set(0.5, 1);
+      nm.repeat.set(0.5, 1);
+      return std({
+        map,
+        normalMap: nm,
+        roughness: 0.75,
+        polygonOffset: true,
+        polygonOffsetFactor: -6,
+        polygonOffsetUnits: -6,
+      });
+    })(),
+    // Site içi kemik kilit taşı (kullanıcı fotoğrafları): gri + kırmızı bant/meydan
+    spSiteGrey: boneMat(['#9a958f', '#a39e98', '#8f8a85', '#aaa59f', '#948f89'], 41, -5),
+    spSiteRed: boneMat(['#a06d5f', '#aa7767', '#955f53', '#a87263'], 42, -5),
     spPaverRed: paverMat(['#bfae9f', '#c8b7a8', '#b5a496', '#c4b3a4'], 22, -5),
     spRubberRed: std({
       color: 0x7e4a3f,

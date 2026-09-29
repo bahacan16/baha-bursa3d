@@ -56,6 +56,100 @@
    "note": "Tüm site içi taban çimi; üzerine yollar/otopark/havuz çizilir. Dış sınır çitin iç yüzüne yakın (±0.5 m)."
   },
   {
+   "kind": "deck",
+   "level": 0.45,
+   "rail": "glass",
+   "gates": [
+    {
+     "c": [
+      -35.2,
+      -89.6
+     ],
+     "w": 1.0
+    }
+   ],
+   "material": "krem traverten plak (havuz platformu, bordür taşı traverten)",
+   "poly": [
+    [
+     -49.6,
+     -93.4
+    ],
+    [
+     -35.2,
+     -93.4
+    ],
+    [
+     -35.2,
+     -86.0
+    ],
+    [
+     -32.5,
+     -86.0
+    ],
+    [
+     -32.5,
+     -63.6
+    ],
+    [
+     -49.6,
+     -63.6
+    ]
+   ],
+   "note": "Kullanıcı fotoğrafları (site-havuz-bati, site-havuz-yolu, site-otopark-c): havuz alanı ~0.55 m yükseltilmiş traverten kaideli platform, çevresi buzlu cam panel + paslanmaz küpeşte; doğuda basamaklı kapı. Sınırlar Google z21."
+  },
+  {
+   "kind": "pool",
+   "poly": [
+    [
+     -44.8,
+     -86.6
+    ],
+    [
+     -35.4,
+     -86.6
+    ],
+    [
+     -35.4,
+     -69.0
+    ],
+    [
+     -44.8,
+     -69.0
+    ]
+   ],
+   "material": "açık mavi seramik, 3 koyu kulvar çizgisi"
+  },
+  {
+   "kind": "pool",
+   "poly": [
+    [
+     -47.4,
+     -72.0
+    ],
+    [
+     -44.8,
+     -72.0
+    ],
+    [
+     -44.8,
+     -69.0
+    ],
+    [
+     -42.2,
+     -69.0
+    ],
+    [
+     -42.2,
+     -65.8
+    ],
+    [
+     -47.4,
+     -65.8
+    ]
+   ],
+   "material": "çocuk havuzu (sığ), açık mavi"
+  },
+  {
    "kind": "paving",
    "poly": [
     [
@@ -305,175 +399,37 @@
    "note": "Oyun kauçuğunun kuzeyindeki açık gri döşeme."
   },
   {
-   "kind": "playground",
-   "poly": [
-    [
-     -41,
-     -130.2
-    ],
-    [
-     -35.8,
-     -130.1
-    ],
-    [
-     -35.8,
-     -125
-    ],
-    [
-     -41,
-     -125.1
-    ]
-   ],
-   "material": "kırmızı-kahve kauçuk (EPDM)",
-   "note": "Kahverengi-mor düz yüzey (5.2×5.1 m); gölge vermiyor → kauçuk zemin (fitness/oyun alanı). Üzerindeki aletler çözünürlükte görünmüyor."
-  },
-  {
    "kind": "court",
    "poly": [
     [
-     -63.1,
-     -138.8
+     -63,
+     -139
     ],
     [
-     -44.5,
-     -137.8
+     -43.2,
+     -139
     ],
     [
-     -45.2,
-     -125
+     -43.2,
+     -130.2
     ],
     [
-     -63.8,
-     -126
+     -63,
+     -130.2
     ]
    ],
    "material": "bej/kum renkli beton-akrilik spor zemini",
-   "note": "Çok amaçlı saha ≈18.6×13.3 m; güney kenarı B blok çatısı altında kalıyor (varsayım: cepheye ~1 m). Çizgi/pota görünmüyor. Street View: ~4 m koyu yeşil tel örgü çit."
-  },
-  {
-   "kind": "deck",
-   "poly": [
-    [
-     -48.2,
-     -93.6
-    ],
-    [
-     -32.1,
-     -92.8
-    ],
-    [
-     -33.6,
-     -63.1
-    ],
-    [
-     -49.8,
-     -64
-    ]
-   ],
-   "material": "krem/bej traverten veya yapay taş 40x60, derz belirsiz",
-   "note": "Havuz güvertesi ≈16.2×29.7 m; güneyde otoparktan beyaz istinat duvarı + mızrak uçlu demir korkulukla ayrılır."
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -44.9,
-     -87.7
-    ],
-    [
-     -34.3,
-     -87.1
-    ],
-    [
-     -35.3,
-     -68.5
-    ],
-    [
-     -45.9,
-     -69.1
-    ]
-   ],
-   "material": "koyu gri taşma oluğu ızgarası 0.3 m (güverte ile aynı kotta)",
-   "note": "Ana havuz çevresi taşma oluğu; kuzey/doğu/güneyde koyu çizgi olarak görünüyor, batıda ışık nedeniyle seçilemiyor."
-  },
-  {
-   "kind": "pool",
-   "poly": [
-    [
-     -44.6,
-     -87.3
-    ],
-    [
-     -34.6,
-     -86.8
-    ],
-    [
-     -35.6,
-     -68.9
-    ],
-    [
-     -45.6,
-     -69.4
-    ]
-   ],
-   "material": "açık mavi-gri seramik/mozaik, taşma oluğu (koyu ızgara) kuzey/güney/doğu",
-   "depth": 1.6,
-   "note": "Ana havuz 10×18 m (3° döndürülmüş). Derinlik bilinmiyor (~1.4–1.8 m tahmin). Batı kenarında 1.5 m açık renkli şerit (sığ raf olabilir)."
-  },
-  {
-   "kind": "pool",
-   "poly": [
-    [
-     -47.2,
-     -72.2
-    ],
-    [
-     -45.4,
-     -72.1
-    ],
-    [
-     -45.6,
-     -69.4
-    ],
-    [
-     -42.2,
-     -69.2
-    ],
-    [
-     -42.3,
-     -66
-    ],
-    [
-     -47.5,
-     -66.3
-    ]
-   ],
-   "material": "açık gri-mavi seramik (daha sığ)",
-   "depth": 0.5,
-   "note": "Çocuk havuzu (L biçimli, ≈5.2×5.9 m), ana havuzun güneybatı köşesine bitişik; daha açık renk → sığ (~0.4–0.6 m)."
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -38.3,
-     -91
-    ],
-    [
-     -37.4,
-     -91
-    ],
-    [
-     -37.4,
-     -90.1
-    ],
-    [
-     -38.3,
-     -90.1
-    ]
-   ],
-   "material": "koyu metal kapak/ızgara 0.9x0.9",
-   "note": "Kuzey güvertede koyu kare (gölge yok → düz): makine dairesi kapağı veya süzgeç."
+   "note": "Halı saha: 4 m yeşil tel çit, doğu yüzünde kapı (kullanıcı fotoğrafı site-kamelya-yolu.jpg: kapıda Atatürk posteri)",
+   "fence": true,
+   "gates": [
+    {
+     "c": [
+      -43.2,
+      -133.5
+     ],
+     "w": 1.2
+    }
+   ]
   },
   {
    "kind": "paving",
@@ -553,47 +509,25 @@
    "kind": "playground",
    "poly": [
     [
-     -29.4,
-     -75.1
+     -22.8,
+     -75.6
     ],
     [
-     -24.3,
-     -75
+     -12.4,
+     -75.6
     ],
     [
-     -24.3,
-     -71.1
+     -12.4,
+     -68.4
     ],
     [
-     -29.4,
-     -71.2
+     -22.8,
+     -68.4
     ]
    ],
-   "material": "kahverengi-kırmızı kauçuk (EPDM)",
-   "note": "Oyun alanı batı parçası."
-  },
-  {
-   "kind": "playground",
-   "poly": [
-    [
-     -24.3,
-     -75.1
-    ],
-    [
-     -12.6,
-     -74.6
-    ],
-    [
-     -12.9,
-     -66.6
-    ],
-    [
-     -24.3,
-     -67.1
-    ]
-   ],
-   "material": "mor-gri kauçuk (EPDM) veya renkli beton",
-   "note": "Ana oyun alanı ≈11.7×8 m; güney yarısı A2 blok çatı gölgesinde (güney kenar varsayım). Üzerinde oyun kulesi+kaydırak, beyaz direkler."
+   "material": "koyu mor-kahve kauçuk karo 50×50 (kullanıcı fotoğrafı site-oyun-parki.jpg)",
+   "note": "Ana oyun alanı ≈11.7×8 m; güney yarısı A2 blok çatı gölgesinde (güney kenar varsayım). Üzerinde oyun kulesi+kaydırak, beyaz direkler.",
+   "fence": true
   },
   {
    "kind": "paving",
@@ -2428,26 +2362,56 @@
    ],
    "h": 2.8,
    "note": "Tuğla kaplı güvenlik kulübesi (kanopi altında, kapının güneyi) — salus.ts ile zaten modelleniyor."
+  },
+  {
+   "kind": "kamelya",
+   "poly": [
+    [
+     -29.4,
+     -75.0
+    ],
+    [
+     -24.2,
+     -75.0
+    ],
+    [
+     -24.2,
+     -71.2
+    ],
+    [
+     -29.4,
+     -71.2
+    ]
+   ],
+   "rot": 90,
+   "h": 2.8,
+   "note": "Kamelya 1 (site-kamelya.jpg): somon dikmeler, oluklu ahşap saçak, ferforje korkuluk; arkasında oyun parkı"
+  },
+  {
+   "kind": "kamelya",
+   "poly": [
+    [
+     -41.2,
+     -131.2
+    ],
+    [
+     -35.6,
+     -131.2
+    ],
+    [
+     -35.6,
+     -125.4
+    ],
+    [
+     -41.2,
+     -125.4
+    ]
+   ],
+   "h": 2.8,
+   "note": "Kamelya 2 (site-kamelya-yolu.jpg), halı saha yanında"
   }
  ],
  "points": [
-  {
-   "kind": "fountain",
-   "x": -43.6,
-   "z": -69.3,
-   "r": 0.85,
-   "h": 2,
-   "note": "Beyaz mantar şelale (çocuk havuzu kenarında), gölgesi KB yönünde."
-  },
-  {
-   "kind": "ladder",
-   "x": -36.6,
-   "z": -86.7,
-   "r": 0.4,
-   "h": 1,
-   "rot": 0,
-   "note": "Havuz merdiveni (kuzey duvar, doğuya yakın) — koyu leke."
-  },
   {
    "kind": "car",
    "x": -29.8,
@@ -3120,6 +3084,565 @@
    "z": -147.3,
    "rot": 90,
    "note": "Salus: koyu"
+  },
+  {
+   "kind": "playset",
+   "x": -17.8,
+   "z": -72.0,
+   "rot": -90,
+   "note": "site-oyun-parki.jpg"
+  },
+  {
+   "kind": "lamp2",
+   "x": -33.6,
+   "z": -96
+  },
+  {
+   "kind": "lamp2",
+   "x": -33.6,
+   "z": -110
+  },
+  {
+   "kind": "lamp2",
+   "x": -30,
+   "z": -121
+  },
+  {
+   "kind": "lamp2",
+   "x": -30,
+   "z": -136
+  },
+  {
+   "kind": "lamp2",
+   "x": -44.5,
+   "z": -112
+  },
+  {
+   "kind": "lamp2",
+   "x": -20,
+   "z": -99.5
+  },
+  {
+   "kind": "lamp2",
+   "x": -8.5,
+   "z": -104
+  },
+  {
+   "kind": "lamp2",
+   "x": -8.5,
+   "z": -86
+  },
+  {
+   "kind": "lamp2",
+   "x": -8.5,
+   "z": -60
+  },
+  {
+   "kind": "lamp2",
+   "x": -51,
+   "z": -78
+  },
+  {
+   "kind": "lamp2",
+   "x": -51,
+   "z": -55
+  },
+  {
+   "kind": "lamp2",
+   "x": -33.8,
+   "z": -66.5
+  },
+  {
+   "kind": "lamp2",
+   "x": -25,
+   "z": -78
+  },
+  {
+   "kind": "lamp2",
+   "x": -42,
+   "z": -123.5
+  },
+  {
+   "kind": "lamp2",
+   "x": -47,
+   "z": -104
+  },
+  {
+   "kind": "bin-stand",
+   "x": -31.3,
+   "z": -92.5,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -31.6,
+   "z": -63,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -34,
+   "z": -123,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -21,
+   "z": -77.2,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -8.2,
+   "z": -110,
+   "rot": 0
+  },
+  {
+   "kind": "cone",
+   "x": -49.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -48.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -47.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -46.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -45.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -44.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -43.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -42.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -41.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -40.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -39.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -38.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -37.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -36.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -93,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -92.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -91.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -90.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -89.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -88.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -87.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -86.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -85.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -84.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -83.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -82.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -81.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -80.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -79.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -78.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -77.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -76.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -75.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -74.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -73.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -72.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -71.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -70.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -69.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -68.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -67.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -66.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -65.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -138
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -135
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -132
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -129
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -126
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -123
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -120
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -117
+  },
+  {
+   "kind": "rose",
+   "x": -28,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -25,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -22,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -19,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -16,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -45.5,
+   "z": -114
+  },
+  {
+   "kind": "rose",
+   "x": -46,
+   "z": -117
+  },
+  {
+   "kind": "rose",
+   "x": -45.8,
+   "z": -120
+  },
+  {
+   "kind": "rose",
+   "x": -36,
+   "z": -114.5
+  },
+  {
+   "kind": "rose",
+   "x": -39,
+   "z": -114.5
+  },
+  {
+   "kind": "cone",
+   "x": -36.5,
+   "z": -118,
+   "r": 0.55,
+   "h": 2.6
+  },
+  {
+   "kind": "cone",
+   "x": -34.5,
+   "z": -129,
+   "r": 0.55,
+   "h": 2.3
+  },
+  {
+   "kind": "cone",
+   "x": -26.5,
+   "z": -67.5,
+   "r": 0.55,
+   "h": 2.2
+  },
+  {
+   "kind": "cone",
+   "x": -11.5,
+   "z": -66.5,
+   "r": 0.55,
+   "h": 2.4
+  },
+  {
+   "kind": "cone",
+   "x": -47,
+   "z": -108.5,
+   "r": 0.55,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -10,
+   "z": -92,
+   "r": 0.55,
+   "h": 2.5
+  },
+  {
+   "kind": "cone",
+   "x": -10,
+   "z": -80,
+   "r": 0.55,
+   "h": 2.2
+  },
+  {
+   "kind": "cone",
+   "x": -26,
+   "z": -102.5,
+   "r": 0.55,
+   "h": 1.8
   }
  ],
  "notes": [
@@ -3134,6 +3657,7 @@
   "Lamba/bank: hava fotoğrafında seçilemiyor; yalnızca Street View’de görülen kuzey kapı yolundaki çift küreli bahçe lambası kesin. Yollar boyunca ~12 m arayla aynı tip lamba konması makul varsayım.",
   "Çim–kaplama sınırlarında 10–12 cm beton bordür olduğu varsayılabilir (fotoğrafta ince açık çizgi).",
   "Ek türler: lines.kind \"pool-lane\" (havuz kulvar çizgisi), points.kind \"ladder\" (havuz merdiveni); areas.depth (havuz derinliği, m) isteğe bağlı.",
-  "Salusvizyon: bina güneyinde havuz (≈13.8×7.95 m mavi mozaik, beyaz kenar taşı, kuzeybatıda sığ kare), pembe-bej güverte, batıda oyun alanı (ahşap oyun evi + mavi kaydırak), güney ve doğuda dik park yerli otopark, bina önü çiçeklikler; doğu girişinde kanopi + kulübe (salus.ts zaten çiziyor)."
+  "Salusvizyon: bina güneyinde havuz (≈13.8×7.95 m mavi mozaik, beyaz kenar taşı, kuzeybatıda sığ kare), pembe-bej güverte, batıda oyun alanı (ahşap oyun evi + mavi kaydırak), güney ve doğuda dik park yerli otopark, bina önü çiçeklikler; doğu girişinde kanopi + kulübe (salus.ts zaten çiziyor).",
+  "2026-09: site içi kullanıcı fotoğraflarıyla yeniden (streetview-src/user/site-*.jpg): havuz yükseltilmiş cam korkuluklu platform, iki kamelya (eski \"oyun alanı\" çatıları), oyun parkı doğuda (kauçuk karo + panel çit), halı saha çitli, çift küreli lambalar, sarı ayaklı mavi çöp kovaları, güller, konik serviler, sarı park çizgileri, yollarda beton bordür, kemik kilit taşı."
  ]
 }

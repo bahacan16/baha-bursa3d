@@ -540,3 +540,147 @@ export function tactileTextures(): { map: THREE.Texture; normalMap: THREE.Textur
   tactileCache = { map, normalMap };
   return tactileCache;
 }
+
+const boneCache = new Map<string, { map: THREE.Texture; normalMap: THREE.Texture }>();
+
+/**
+ * Site içi "kemik" kilit taşı (kullanıcı fotoğrafları): 20 × 16.5 cm taşlar, sıra içinde birbirine geçen çıkıntılı
+ * yan kenarlar, sıralar yarım taş kaydırılmış → dalgalı derz. 1 doku = 2 m × 0.99 m (10 taş × 6 sıra).
+ * palette: taş renkleri; redRows: bu sıra indeksleri (0..5) kırmızı paletle (bant) — boşsa hepsi palette.
+ */
+export function bonePaverTextures(
+  palette: string[],
+  seed = 3,
+  joint = '#4f4c49',
+): { map: THREE.Texture; normalMap: THREE.Texture } {
+  const key = JSON.stringify([palette, seed, joint]);
+  const hit = boneCache.get(key);
+  if (hit) return hit;
+  const SW = 52; // taş (px, u)
+  const RH = 43; // sıra (px, v)
+  const W = SW * 10;
+  const H = RH * 6;
+  const r = rng(seed);
+  const [c, g] = canvas(W, H);
+  const [, hg] = canvas(W, H);
+  g.fillStyle = joint;
+  g.fillRect(0, 0, W, H);
+  hg.fillStyle = '#000';
+  hg.fillRect(0, 0, W, H);
+  const bump = SW * 0.12;
+  const outline = (x: number, y: number): [number, number][] => [
+    [x, y],
+    [x + SW, y],
+    [x + SW, y + RH * 0.3],
+    [x + SW - bump, y + RH * 0.42],
+    [x + SW - bump, y + RH * 0.58],
+    [x + SW, y + RH * 0.7],
+    [x + SW, y + RH],
+    [x, y + RH],
+    [x, y + RH * 0.7],
+    [x - bump, y + RH * 0.58],
+    [x - bump, y + RH * 0.42],
+    [x, y + RH * 0.3],
+  ];
+  const cols = palette.map(hexRgb);
+  for (let row = 0; row < 6; row++) {
+    const off = row % 2 ? SW / 2 : 0;
+    for (let k = -1; k <= 10; k++) {
+      const x = k * SW + off;
+      const base = cols[Math.floor(r() * cols.length)];
+      const f = 1 + (r() - 0.5) * 0.14;
+      const col = `rgb(${Math.min(255, base[0] * f) | 0},${Math.min(255, base[1] * f) | 0},${Math.min(255, base[2] * f) | 0})`;
+      for (const dx of [0, W, -W]) {
+        const pts = outline(x + dx, row * RH);
+        for (const [ctx, fill] of [
+          [g, col],
+          [hg, '#fff'],
+        ] as const) {
+          ctx.beginPath();
+          pts.forEach(([px, py], i) => (i ? ctx.lineTo(px, py) : ctx.moveTo(px, py)));
+          ctx.closePath();
+          ctx.fillStyle = fill;
+          ctx.fill();
+          ctx.lineWidth = ctx === g ? 2.2 : 5;
+          ctx.strokeStyle = ctx === g ? joint : '#000';
+          ctx.stroke();
+        }
+      }
+    }
+  }
+  // Leke/kir
+  const img = g.getImageData(0, 0, W, H);
+  const mott = valueNoise(Math.max(W, H), 7, r);
+  for (let i = 0; i < W * H; i++) {
+    const x = i % W;
+    const y = (i / W) | 0;
+    const m = 1 + (mott[y * Math.max(W, H) + x] - 0.5) * 0.14 + (r() - 0.5) * 0.07;
+    for (let k = 0; k < 3; k++) img.data[i * 4 + k] = Math.min(255, img.data[i * 4 + k] * m);
+  }
+  g.putImageData(img, 0, 0);
+  // Yükseklikten normal (pah)
+  const hi = hg.getImageData(0, 0, W, H).data;
+  const [nc, ng] = canvas(W, H);
+  const nimg = ng.createImageData(W, H);
+  const hAt = (x: number, y: number) => hi[(((y + H) % H) * W + ((x + W) % W)) * 4] / 255;
+  for (let y = 0; y < H; y++)
+    for (let x = 0; x < W; x++) {
+      const nx = (hAt(x - 1, y) - hAt(x + 1, y)) * 1.2;
+      const ny = (hAt(x, y - 1) - hAt(x, y + 1)) * 1.2;
+      const l = Math.hypot(nx, ny, 1);
+      const i = (y * W + x) * 4;
+      nimg.data[i] = (nx / l / 2 + 0.5) * 255;
+      nimg.data[i + 1] = (ny / l / 2 + 0.5) * 255;
+      nimg.data[i + 2] = (1 / l / 2 + 0.5) * 255;
+      nimg.data[i + 3] = 255;
+    }
+  ng.putImageData(nimg, 0, 0);
+  const map = new THREE.CanvasTexture(c);
+  map.colorSpace = THREE.SRGBColorSpace;
+  const normalMap = new THREE.CanvasTexture(nc);
+  for (const t of [map, normalMap]) {
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.anisotropy = 8;
+    t.repeat.set(1 / 2, 1 / 0.99);
+  }
+  const out = { map, normalMap };
+  boneCache.set(key, out);
+  return out;
+}
+
+/** Ferforje dolgu (kamelya korkuluğu, fotoğraf): siyah C/S kıvrımları ve çiçek motifi, şeffaf zemin; 1 doku = 1 panel */
+export function ironScrollTexture(): THREE.Texture {
+  const W = 256;
+  const H = 140;
+  const [c, g] = canvas(W, H);
+  g.clearRect(0, 0, W, H);
+  g.strokeStyle = '#161616';
+  g.lineCap = 'round';
+  g.lineWidth = 5;
+  const cx = W / 2;
+  // Ortadan yükselen yelpaze kıvrımları
+  for (let k = -3; k <= 3; k++) {
+    const ang = (k / 3) * 1.1;
+    g.beginPath();
+    g.moveTo(cx, H - 6);
+    const ex = cx + Math.sin(ang) * 100;
+    const ey = H - 6 - Math.cos(ang) * 110;
+    g.quadraticCurveTo(cx + Math.sin(ang) * 30, H - 40, ex, ey);
+    g.stroke();
+    g.beginPath();
+    g.arc(ex + (k < 0 ? 9 : -9), ey + 4, 9, 0, Math.PI * 1.5, k < 0);
+    g.stroke();
+  }
+  for (const s of [-1, 1]) {
+    g.beginPath();
+    g.arc(cx + s * 55, H - 30, 22, 0, Math.PI * 2);
+    g.stroke();
+  }
+  g.lineWidth = 6;
+  g.strokeRect(3, 3, W - 6, H - 6);
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  t.wrapS = THREE.RepeatWrapping;
+  t.anisotropy = 4;
+  return t;
+}
