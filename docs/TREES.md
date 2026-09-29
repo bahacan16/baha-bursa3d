@@ -64,7 +64,7 @@ yazanlar kullanıcı fotoğraflarından (genel ışık düşük). Yaprak kartı 
   (yaprak ucu en çok salınır).
 - **LOD** (`treefield.ts`, ağaç başına, kamera 4 m yer değiştirince): yakın = tam model, orta = kartların
   %28–45'i (merkez etrafında büyütülmüş) + ana dallar, uzak = tür silüeti (katlı koni, sütun, yumurta, yıldız
-  palmiye, gövdeli küre…). Yarıçaplar yakın/orta: Orta 65/130 m, Yüksek 100/180 m, **Ultra 140/260 m**; Düşük
+  palmiye, gövdeli küre…). Yarıçaplar yakın/orta: Orta 65/130 m, Yüksek 100/180 m, **Ultra 160/260 m** (tür başına 1400 yakın ağaç); Düşük
   yalnız uzak silüet. Hata ayıklama: `?treelod=near|mid|far`.
 - Yakın model üçgen sayıları (yaklaşık): sedir 10.7k, mavi ladin 8.6k, ıhlamur 8.8k, karaağaç 9.6k, top akasya
   9.1k, palmiye 3.1k, limoni servi 3.2k, mazı 1.5k, fidan 1.7k; orta 0.7–3.5k; uzak 30–400.
@@ -94,6 +94,26 @@ Bu çalışmada veride yapılan tür düzeltmeleri / eklemeler (kanıtları ilgi
   ladin, SV d_xiN" — tek kareden zemin temasıyla konmuş, park zemini yoldan yüksek olduğu için ~4.7 m uzağa
   düşmüş) ve street-plan `da1-tree-park-1` (12.7, -173.4, "düşük güven ±2 m"). d_xiN_0_0'da o iki noktada ağaç
   yok.
+
+## Doğrulama
+
+Kameralar `scripts/critic-views-trees.json` (8 görüş, `compare.tmp.mjs` ile oyunda `debugCam`, `?q=high`).
+Önce/sonra: `docs/compare/trees-sedir-karaagac.jpg`, `trees-palmiye-mazi.jpg`, `trees-park.jpg` (Street View ·
+eski 3 genel tür · tür kütüphanesi).
+
+Oyun görüntüsü ile Street View aynı dikdörtgende (`scripts/sample-foliage.mjs`, güneşli / orta / gölge):
+
+| Ağaç (kare)                   | Oyun                        | Street View                 |
+| ----------------------------- | --------------------------- | --------------------------- |
+| Büyük sedir (Y11WZ 255)       | #6e7d55 / #404e2f / #323f23 | #94a57c / #4b5b36 / #1b2912 |
+| Palmiye (1Jme 56 / 46)        | #4a6235 / #344c24 / #2e4620 | #687b5a / #30452b / #182c15 |
+| KD adası mazıları (2ydcI 183) | #6c8643 / #3b5516 / #2a410e | #769441 / #253f19 / #152a12 |
+| Park karaağacı (EbG300 120)   | #5d673c / #37421d / #2a3416 | #859165 / #39422a / #1e2811 |
+
+Orta bant %10–15 içinde; güneşli bant hâlâ %15–30 koyu, gölge bandı açık → yaprakta kontrast az (fotoğrafta
+güneşli iğne/yaprak uçlarında parlama var; oyunda yaprak malzemesinde parlama yok). İlk sürümde sedir/karaağaç
+güneşli bandı ~1.7× koyuydu (#55683f, #4d592b); albedo ve taç içi gölge buna göre düzeltildi. Düşük kalite: yalnız
+uzak silüet, hata yok (63 örnek mesh).
 
 ## Görülmedi / açık konular
 
