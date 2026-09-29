@@ -10,6 +10,7 @@ import { GameAudio } from './env/audio';
 import { PostFX } from './env/post';
 import { installUltraChunks, patchSkyClouds, probeUniforms, ultraState, weakGpu } from './env/ultra';
 import { ReflectionProbe } from './env/probe';
+import { loadHdriSky, measureSky, type HdriSky } from './env/hdrisky';
 import { facadeSky } from './worlds/osm/facades';
 import { CharacterController } from './player/controller';
 import { Character } from './player/character';
@@ -91,6 +92,8 @@ export class Game {
   /** Ultra gerçekçilik paketi etkin mi (ayar + güçlü GPU; ?q=ultra zorlar). */
   readonly ultra: boolean;
   private probe: ReflectionProbe | null = null;
+  /** Ultra + ?sky=hdri: fotoğraf gökyüzü (arka plan + yansıma) */
+  private hdri: HdriSky | null = null;
   private time = 0;
 
   constructor(
@@ -156,6 +159,7 @@ export class Game {
       this.post = new PostFX(r, this.scene, this.camera, settings.quality, this.ultra);
     if (this.ultra && !new URLSearchParams(location.search).has('noprobe'))
       this.probe = new ReflectionProbe(r, this.pmrem);
+    if (this.ultra && new URLSearchParams(location.search).get('sky') === 'hdri') void this.loadHdri();
     this.desktop = new DesktopInput(this.input, r.domElement);
     this.touch = this.isTouch ? new TouchControls(container, this.input) : null;
 
@@ -268,6 +272,35 @@ export class Game {
     this.lights.hemi.intensity = d.hemiIntensity * 0.6;
   }
 
+  private async loadHdri(): Promise<void> {
+    const h = await loadHdriSky(`${import.meta.env.BASE_URL}textures/sky/sky.hdr`);
+    if (!h) return;
+    this.hdri = h;
+    this.backdrop.add(h.mesh);
+    // HDRI bulutlarıyla eşleşmeyen prosedürel bulut gölgesi kapalı
+    const u = this.sky.sky.material.uniforms;
+    if (u.cloudCoverage) u.cloudCoverage.value = 0;
+    this.alignHdri();
+  }
+
+  private alignHdri(): void {
+    const h = this.hdri;
+    const d = this.daylight;
+    if (!h || !d) return;
+    const hide = [h.mesh, this.backdrop.getObjectByName('backdrop-object'), this.sky.stars].filter(
+      (o): o is THREE.Object3D => !!o,
+    );
+    const vis = hide.map((o) => o.visible);
+    for (const o of hide) o.visible = false;
+    const sv = this.sky.sky.visible;
+    this.sky.sky.visible = true;
+    this.sky.sky.position.set(0, 0, 0);
+    h.align(d.azimuth, (dirs) => measureSky(this.renderer, this.backdrop, dirs, new THREE.Vector3()));
+    this.sky.sky.visible = sv;
+    hide.forEach((o, i) => (o.visible = vis[i]));
+    h.mesh.visible = d.night < 0.3;
+  }
+
   applyTimeOfDay(): void {
     const d = (this.daylight = daylight(this.settings.timeOfDay, this.geoCenter));
     this.sky.apply(d);
@@ -297,7 +330,9 @@ export class Game {
     facadeSky.top.value.copy(d.hemiSky).multiplyScalar(0.8);
     facadeSky.horizon.value.copy(d.fogColor);
     facadeSky.ground.value.copy(d.hemiGround);
+    if (this.hdri) this.hdri.mesh.visible = false;
     this.updateEnvironment(d);
+    this.alignHdri();
     // Gece gökyüzü rengi (Sky shader'ı gizlendiğinde görünür)
     this.renderer.setClearColor(0x0a1224);
   }
@@ -527,6 +562,12 @@ export class Game {
     this.sky.sky.position.copy(bc.position);
     this.sky.stars.position.copy(bc.position);
     const r = this.renderer;
+    const hdriOn = !!this.hdri?.mesh.visible;
+    const skyVis = this.sky.sky.visible;
+    if (hdriOn) {
+      this.hdri!.mesh.position.copy(bc.position);
+      this.sky.sky.visible = false;
+    }
     if (this.ultra) this.ultraFrame(dt);
     const taa = this.post?.taa ?? null;
     if (taa) {
@@ -547,6 +588,7 @@ export class Game {
       this.post.render(dt);
     }
     taa?.unjitter([bc]);
+    if (hdriOn) this.sky.sky.visible = skyVis;
     if (this.pendingShot) {
       this.pendingShot = false;
       // Aynı karede (çizim tamponu temizlenmeden) al
