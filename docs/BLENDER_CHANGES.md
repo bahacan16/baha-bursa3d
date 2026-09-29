@@ -540,3 +540,23 @@
   hatası yuvayı düşürmez, döngülerde işlenemeyen aday yerine sıradaki alınır, atıf yalnız kullanılan kayda;
   Freesound paket listesi için kullanıcı içi arama (`q`); 10 boş yuvaya (araç, trafik, köpek, rüzgâr, parke/çakıl
   adımı, tramvay) yedek kaynaklar. **Blender:** —
+- **(üretici v7)** — Cephe / çatı / sokak üreticisi v7 (henüz commit'lenmedi; ölçüm dosyaları değişmedi, 41 ölçümün
+  derlemesi bayt bayt aynı). Hata düzeltmeleri: `d ≥ 0.35 + inset` balkonlar artık taşan + gömük (1480041343,
+  1546358557); K0 kapıları eşiğe / zemine iner (sanal groundRaise); gömük locadaki klima / çanak loca arka duvarında;
+  köşe locasında komşu kenardan ölçülen pencereler loca duvarında (cam z-fighting bitti); girinti içindeki bant /
+  pano / çıkma / derz arka duvarda; ek hacim parapeti yalnız `edges` kenarlarında; bordürsüz sokakta çit ve sokak
+  eşyası ölçülmüş bant kotunda (+0.15 değil). Yeni: tabela atlası (sayfa başına tek malzeme, gece ışıklı tabela /
+  LED ekran / hale), bayrak tabela, cam folyo yazı, çatı harfleri, LED ekran, neon şerit, tabela çubuğu, basamak,
+  balkon eşyası (dolap / salıncak), sivri kemer, yuvarlak pencere, beşgen gablet penceresi, açık mahyalı kanat
+  çatıları (`roof.wings`), kenar bazında saçak (`roof.eaves`), düz çatı rengi, tonoz kaburga / camlı alın / hacim
+  çatı öğeleri, eğik pergola, pah / köşeyi saran balkon / içe dönen loca ucu / şapka taşması + ızgara tavan, kafes,
+  karo bandı, ACP / delikli kaplama, düzensiz derz, tente yazıları + kolları + çeyrek kubbe, gider boruları, lamba
+  kolu / eğimi / yan yüz, kamera yönü, sokakta hız kesici, Λ bacaklı kemer çit, yol çizgisi düzeltmesi, kış bahçesi,
+  rüzgâr camı, sokak pergolası ve örneklenen kafe eşyası (masa, sandalye, şemsiye, ısıtıcı, saksı, A-pano, totem, menü
+  standı). Uzakta derzler sönümlenir. Dosyalar: `facade.ts`, `signs.ts`, `signatlas.ts`, `roofWing.ts`, `roof.ts`,
+  `builder.ts` (`quadUV`, `moveBucket`, `instance`), `textures.ts`, `index.ts`, `street.ts`, `streetFurniture.ts`,
+  `fenceGeneric.ts`, `siteplan.ts`, `osm/roads.ts`, `osm/build.ts`, `osm/world.ts`, `survey/schema.ts`,
+  `scripts/survey-compile.mjs`. **Blender:** `mk_facade.py` yeni öğe türleri (yukarıdaki liste) + tabela yüzleri tek
+  atlas dokusundan; etkilenen bloklar 1480041342/43, 1546358557, 1480163634, 1540901777, 1540901771/94/95/96/98,
+  1479658783, 1480041301/44/45, 1540901772, 1546358562, 1550826982, 303738118, 900000101/106 (liste v7 raporunda);
+  `NW/Mertkent/Street`: hız kesici, da3 yan sokak çitleri (taban kotu), park levhası kotu.

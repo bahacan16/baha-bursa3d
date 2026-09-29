@@ -267,11 +267,24 @@ export function wingGables(ring: V2[], wings: RoofWing[], y: number, base: numbe
 }
 
 /** Kanat çatılarını çizer; tepe kotunu döndürür */
-export function wingRoofs(b: Builder, ring: V2[], wings: RoofWing[], y: number, base: number, o: WingOpts): number {
+export function wingRoofs(
+  b: Builder,
+  ring: V2[],
+  wings: RoofWing[],
+  y: number,
+  base: number,
+  o: WingOpts,
+): number {
   let top = y;
   const tri = (key: string, pts: P2[], hs: number[], uvs: P2[]) => {
     const g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.Float32BufferAttribute(pts.flatMap((p, k) => [p[0], hs[k], p[1]]), 3));
+    g.setAttribute(
+      'position',
+      new THREE.Float32BufferAttribute(
+        pts.flatMap((p, k) => [p[0], hs[k], p[1]]),
+        3,
+      ),
+    );
     g.setAttribute('uv', new THREE.Float32BufferAttribute(uvs.flat(), 2));
     const idx: number[] = [];
     for (let k = 1; k + 1 < pts.length; k++) idx.push(0, k, k + 1);
@@ -303,7 +316,9 @@ export function wingRoofs(b: Builder, ring: V2[], wings: RoofWing[], y: number, 
       const gd: P2 = [s.g[0] / gl, s.g[1] / gl];
       const tu: P2 = [-gd[1], gd[0]];
       const cosA = Math.cos(Math.atan(gl));
-      const uvs = poly.map((p) => [(tu[0] * p[0] + tu[1] * p[1]) / 2, (gd[0] * p[0] + gd[1] * p[1]) / cosA / 1.5] as P2);
+      const uvs = poly.map(
+        (p) => [(tu[0] * p[0] + tu[1] * p[1]) / 2, (gd[0] * p[0] + gd[1] * p[1]) / cosA / 1.5] as P2,
+      );
       tri(
         o.keys.roof,
         poly,
@@ -330,8 +345,22 @@ export function wingRoofs(b: Builder, ring: V2[], wings: RoofWing[], y: number, 
         const he = hAt(ee);
         const len = Math.hypot(ee[0] - ea[0], ee[1] - ea[1]);
         // Dışa bakan yüz (CCW çokgende a→e için sağ taraf dış): p0=a alt, p1=e alt, p3=a üst
-        b.quad(o.keys.fascia, [ea[0], ha - 0.3, ea[1]], [ee[0], he - 0.3, ee[1]], [ee[0], he + 0.03, ee[1]], [ea[0], ha + 0.03, ea[1]], [0, 0, len, 0.33]);
-        b.quad(o.keys.fascia, [ee[0], he - 0.3, ee[1]], [ea[0], ha - 0.3, ea[1]], [ea[0], ha + 0.03, ea[1]], [ee[0], he + 0.03, ee[1]], [0, 0, len, 0.33]);
+        b.quad(
+          o.keys.fascia,
+          [ea[0], ha - 0.3, ea[1]],
+          [ee[0], he - 0.3, ee[1]],
+          [ee[0], he + 0.03, ee[1]],
+          [ea[0], ha + 0.03, ea[1]],
+          [0, 0, len, 0.33],
+        );
+        b.quad(
+          o.keys.fascia,
+          [ee[0], he - 0.3, ee[1]],
+          [ea[0], ha - 0.3, ea[1]],
+          [ea[0], ha + 0.03, ea[1]],
+          [ee[0], he + 0.03, ee[1]],
+          [0, 0, len, 0.33],
+        );
         continue;
       }
       if (ed.kind !== 'gable') continue;
@@ -385,9 +414,18 @@ export function wingRoofs(b: Builder, ring: V2[], wings: RoofWing[], y: number, 
       const g = new THREE.BufferGeometry();
       g.setAttribute(
         'position',
-        new THREE.Float32BufferAttribute(all.flatMap((p) => [a[0] + t[0] * p[0], p[1], a[1] + t[1] * p[0]]), 3),
+        new THREE.Float32BufferAttribute(
+          all.flatMap((p) => [a[0] + t[0] * p[0], p[1], a[1] + t[1] * p[0]]),
+          3,
+        ),
       );
-      g.setAttribute('uv', new THREE.Float32BufferAttribute(all.flatMap((p) => [p[0], p[1]]), 2));
+      g.setAttribute(
+        'uv',
+        new THREE.Float32BufferAttribute(
+          all.flatMap((p) => [p[0], p[1]]),
+          2,
+        ),
+      );
       const idx: number[] = [];
       for (const tr of tris) idx.push(tr[0], tr[1], tr[2]);
       g.setIndex(idx);
@@ -410,8 +448,20 @@ export function wingRoofs(b: Builder, ring: V2[], wings: RoofWing[], y: number, 
         const [se, he] = profE[q + 1];
         const A: [number, number] = [ea[0] + tE[0] * sa, ea[1] + tE[1] * sa];
         const B: [number, number] = [ea[0] + tE[0] * se, ea[1] + tE[1] * se];
-        b.quad(o.keys.fascia, [A[0], ha - 0.2, A[1]], [B[0], he - 0.2, B[1]], [B[0], he + 0.02, B[1]], [A[0], ha + 0.02, A[1]]);
-        b.quad(o.keys.fascia, [B[0], he - 0.2, B[1]], [A[0], ha - 0.2, A[1]], [A[0], ha + 0.02, A[1]], [B[0], he + 0.02, B[1]]);
+        b.quad(
+          o.keys.fascia,
+          [A[0], ha - 0.2, A[1]],
+          [B[0], he - 0.2, B[1]],
+          [B[0], he + 0.02, B[1]],
+          [A[0], ha + 0.02, A[1]],
+        );
+        b.quad(
+          o.keys.fascia,
+          [B[0], he - 0.2, B[1]],
+          [A[0], ha - 0.2, A[1]],
+          [A[0], ha + 0.02, A[1]],
+          [B[0], he + 0.02, B[1]],
+        );
       }
     }
   }

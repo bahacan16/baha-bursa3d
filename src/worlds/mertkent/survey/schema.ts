@@ -133,7 +133,13 @@ export interface BlockSurvey {
        * rengi, frame dikme rengi, mullion dikme aralığı (m, 0.8), band = yayın altında dolu kavisli bant kalınlığı
        * (m, gableC renginde; 0 = yok). Ör. 1541439437 batı alnı: cam #919a93, dikme #626c65 / 0.8 m.
        */
-      endGlass?: { ends?: 'both' | 'start' | 'end'; glass: string; frame?: string; mullion?: number; band?: number };
+      endGlass?: {
+        ends?: 'both' | 'start' | 'end';
+        glass: string;
+        frame?: string;
+        mullion?: number;
+        band?: number;
+      };
     };
     /**
      * v7: hacim çatısı üstü öğeler (baca, havalandırma, çanak, anten, direk): `at` DÜNYA [x, z]; diğer alanlar
@@ -318,7 +324,8 @@ export interface RoofSpec {
  * (pencere kenarlarına hizalı 0.6–0.87 m gibi düzensiz aralıklar; every ile birlikte ya da yerine).
  */
 export interface CladSpec {
-  dir?: 'v' | 'h' | 'grid';
+  /** v7 dots: delikli (perfore) panel — every delik aralığı, w delik çapı, color delik rengi (düzenli, yaklaşık) */
+  dir?: 'v' | 'h' | 'grid' | 'dots';
   every: number;
   every2?: number;
   w?: number;

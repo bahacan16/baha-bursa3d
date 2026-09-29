@@ -41,6 +41,9 @@ export interface FurnCtx {
 }
 
 const HEX = /^#[0-9a-f]{6}$/i;
+/** Renk ölçülmemişse nötr gri (örnek rengi zorunlu; görülen renk yazılmalı) */
+const NEUTRAL = '#c8c8c8';
+const colOf = (v: unknown) => (typeof v === 'string' && HEX.test(v) ? v : NEUTRAL);
 const ckOf = (c: FurnCtx, kind: CK, hex: unknown, dflt: string) =>
   typeof hex === 'string' && HEX.test(hex) && c.colorKey ? c.colorKey(kind, hex) : dflt;
 const num = (v: unknown, d: number) => (typeof v === 'number' && Number.isFinite(v) ? v : d);
@@ -52,16 +55,6 @@ function frame(rot: number | undefined): { f: V2; t: V2; yaw: number } {
   // Yan yön: f'nin sağı (wall(a→e) normali f olsun diye t = (f.z, −f.x))
   const t: V2 = [f[1], -f[0]];
   return { f, t, yaw: Math.atan2(-t[1], t[0]) };
-}
-
-function rodW(b: Builder, key: string, A: V3, B: V3, r: number, seg = 6): void {
-  const v = new THREE.Vector3(B[0] - A[0], B[1] - A[1], B[2] - A[2]);
-  const L = v.length();
-  if (L < 0.005) return;
-  const g = new THREE.CylinderGeometry(r, r, L, seg);
-  g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), v.normalize()));
-  g.translate((A[0] + B[0]) / 2, (A[1] + B[1]) / 2, (A[2] + B[2]) / 2);
-  b.geometry(key, g);
 }
 
 const place = (x: number, y: number, z: number, yaw: number, sx = 1, sy = 1, sz = 1) =>
@@ -153,14 +146,13 @@ const PROTO = {
 };
 
 function cafeSet(c: FurnCtx, s: StreetItem, y: number): void {
-  const { f, t } = frame(s.rot);
-  void t;
   const a0 = ((s.rot ?? 0) * Math.PI) / 180;
   const w = num(s.w, 0.7);
   const h = num(s.h, 0.75);
   const shape = s.shape === 'square' ? 'tableSquare' : 'tableRound';
-  const tc = typeof s.color === 'string' && HEX.test(s.color) ? s.color : '#d9d6cf';
+  const tc = colOf(s.color);
   c.b.instance(shape, PROTO[shape], place(s.x, y, s.z, -a0, w, h, w), tc);
+  // Sandalyeler: masanın çevresinde eşit açıyla (ilki rot yönünde), masaya bakar
   const n = Math.max(0, Math.min(8, Math.round(num(s.chairs, 0))));
   const cr = num(s.chairR, w / 2 + 0.35);
   const cc = typeof s.chairC === 'string' && HEX.test(s.chairC) ? s.chairC : tc;
@@ -168,17 +160,15 @@ function cafeSet(c: FurnCtx, s: StreetItem, y: number): void {
     const ang = a0 + (k / n) * Math.PI * 2;
     const dx = Math.sin(ang);
     const dz = -Math.cos(ang);
-    // Sandalye masaya bakar (bakış −z masaya doğru)
-    const yaw = Math.atan2(dx, dz) + Math.PI;
-    c.b.instance('chair', PROTO.chair, place(s.x + dx * cr, y, s.z + dz * cr, yaw), cc);
+    // Yerel −z (oturanın bakışı) masaya doğru: (−sin θ, −cos θ) = (−dx, −dz)
+    c.b.instance('chair', PROTO.chair, place(s.x + dx * cr, y, s.z + dz * cr, Math.atan2(dx, dz)), cc);
   }
-  void f;
 }
 
 function parasol(c: FurnCtx, s: StreetItem, y: number): void {
   const w = num(s.w, 2.5);
   const h = num(s.h, 2.4);
-  const col = typeof s.color === 'string' && HEX.test(s.color) ? s.color : '#e8e4da';
+  const col = colOf(s.color);
   const yaw = -((s.rot ?? 0) * Math.PI) / 180;
   const open = s.open !== false;
   const id = !open ? 'parasolClosed' : s.shape === 'round' ? 'parasolRound' : 'parasolSquare';
@@ -217,7 +207,14 @@ function parasol(c: FurnCtx, s: StreetItem, y: number): void {
       const m: [number, number] = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
       const ml = Math.hypot(m[0], m[1]) || 1;
       const o = 0.006 / ml;
-      c.b.wall(key, W(e[0] * (1 + o), e[1] * (1 + o)), W(a[0] * (1 + o), a[1] * (1 + o)), y + rim - 0.08 * h, y + rim, [0, 0, 1, 1]);
+      c.b.wall(
+        key,
+        W(e[0] * (1 + o), e[1] * (1 + o)),
+        W(a[0] * (1 + o), a[1] * (1 + o)),
+        y + rim - 0.08 * h,
+        y + rim,
+        [0, 0, 1, 1],
+      );
     }
   }
 }
@@ -247,7 +244,8 @@ function planter(c: FurnCtx, s: StreetItem, y: number): void {
       const g = new THREE.ConeGeometry(Math.min(w, d) * 0.4, ph, 10);
       g.translate(s.x, y + h + ph / 2 - 0.05, s.z);
       c.b.geometry(plK, g);
-    } else if (pl.shape === 'hedge') c.b.box(plK, [s.x, y + h + ph / 2 - 0.05, s.z], [w - 0.04, ph, d - 0.04], yaw);
+    } else if (pl.shape === 'hedge')
+      c.b.box(plK, [s.x, y + h + ph / 2 - 0.05, s.z], [w - 0.04, ph, d - 0.04], yaw);
     else {
       const g = new THREE.SphereGeometry(0.5, 10, 7);
       g.scale(w * 0.9, ph, d * 0.9);
@@ -259,7 +257,10 @@ function planter(c: FurnCtx, s: StreetItem, y: number): void {
   if (h >= 0.4) {
     const co = Math.cos(yaw);
     const si = Math.sin(yaw);
-    const W = (lx: number, lz: number): [number, number] => [s.x + co * lx + si * lz, s.z - si * lx + co * lz];
+    const W = (lx: number, lz: number): [number, number] => [
+      s.x + co * lx + si * lz,
+      s.z - si * lx + co * lz,
+    ];
     c.collide?.([W(-w / 2, -d / 2), W(w / 2, -d / 2), W(w / 2, d / 2), W(-w / 2, d / 2)], y - 0.1, y + h);
   }
 }
@@ -306,10 +307,10 @@ function aframe(c: FurnCtx, s: StreetItem, y: number): void {
   const spread = 0.28 * h;
   // İki eğik pano (ön / arka), tepede birleşik
   for (const sg of [1, -1]) {
-    const A: V3 = [s.x + f[0] * sg * spread - t[0] * w / 2, y, s.z + f[1] * sg * spread - t[1] * w / 2];
-    const B: V3 = [s.x + f[0] * sg * spread + t[0] * w / 2, y, s.z + f[1] * sg * spread + t[1] * w / 2];
-    const C: V3 = [s.x + t[0] * w / 2, y + h, s.z + t[1] * w / 2];
-    const D: V3 = [s.x - t[0] * w / 2, y + h, s.z - t[1] * w / 2];
+    const A: V3 = [s.x + f[0] * sg * spread - (t[0] * w) / 2, y, s.z + f[1] * sg * spread - (t[1] * w) / 2];
+    const B: V3 = [s.x + f[0] * sg * spread + (t[0] * w) / 2, y, s.z + f[1] * sg * spread + (t[1] * w) / 2];
+    const C: V3 = [s.x + (t[0] * w) / 2, y + h, s.z + (t[1] * w) / 2];
+    const D: V3 = [s.x - (t[0] * w) / 2, y + h, s.z - (t[1] * w) / 2];
     c.b.quad(fk, sg > 0 ? A : B, sg > 0 ? B : A, sg > 0 ? C : D, sg > 0 ? D : C);
     c.b.quad(fk, sg > 0 ? B : A, sg > 0 ? A : B, sg > 0 ? D : C, sg > 0 ? C : D);
     if (c.signFace && s.text) {
@@ -348,12 +349,38 @@ function totem(c: FurnCtx, s: StreetItem, y: number): void {
   const bk = ckOf(c, 'fascia', s.color, 'darkMetal');
   c.b.box(bk, [s.x, y + h / 2, s.z], [w, h, d], yaw);
   // Kiracı levhaları (ölçülen satırlar: y0..y1 tabandan, yazı, renk) ya da tek yüz
-  const panels = (s.panels as { y0: number; y1: number; text?: string; bg?: string; fg?: string }[] | undefined) ?? [];
+  const panels =
+    (s.panels as { y0: number; y1: number; text?: string; bg?: string; fg?: string }[] | undefined) ?? [];
   const both = s.faces !== 1;
   if (panels.length)
     for (const p of panels)
-      signPanel(c, { ...s, text: p.text ?? '', bg: p.bg ?? s.bg, fg: p.fg ?? s.fg, lines: undefined }, s.x, s.z, t, f, w * 0.9, y + p.y0, y + p.y1, d / 2 + 0.006, both);
-  else signPanel(c, s, s.x, s.z, t, f, w * 0.9, y + num(s.y0, h * 0.55), y + num(s.y1, h * 0.95), d / 2 + 0.006, both);
+      signPanel(
+        c,
+        { ...s, text: p.text ?? '', bg: p.bg ?? s.bg, fg: p.fg ?? s.fg, lines: undefined },
+        s.x,
+        s.z,
+        t,
+        f,
+        w * 0.9,
+        y + p.y0,
+        y + p.y1,
+        d / 2 + 0.006,
+        both,
+      );
+  else
+    signPanel(
+      c,
+      s,
+      s.x,
+      s.z,
+      t,
+      f,
+      w * 0.9,
+      y + num(s.y0, h * 0.55),
+      y + num(s.y1, h * 0.95),
+      d / 2 + 0.006,
+      both,
+    );
   const co = Math.cos(yaw);
   const si = Math.sin(yaw);
   const W = (lx: number, lz: number): [number, number] => [s.x + co * lx + si * lz, s.z - si * lx + co * lz];
@@ -373,12 +400,20 @@ function menuStand(c: FurnCtx, s: StreetItem, y: number): void {
   // Eğik pano (tablet): 25° geriye yatık
   const tilt = 0.44;
   const cy = y + h - 0.2;
-  const top: V3 = [s.x - f[0] * Math.sin(tilt) * bh * 0.5, cy + Math.cos(tilt) * bh * 0.5, s.z - f[1] * Math.sin(tilt) * bh * 0.5];
-  const bot: V3 = [s.x + f[0] * Math.sin(tilt) * bh * 0.5, cy - Math.cos(tilt) * bh * 0.5, s.z + f[1] * Math.sin(tilt) * bh * 0.5];
+  void yaw;
+  const top: V3 = [
+    s.x - f[0] * Math.sin(tilt) * bh * 0.5,
+    cy + Math.cos(tilt) * bh * 0.5,
+    s.z - f[1] * Math.sin(tilt) * bh * 0.5,
+  ];
+  const bot: V3 = [
+    s.x + f[0] * Math.sin(tilt) * bh * 0.5,
+    cy - Math.cos(tilt) * bh * 0.5,
+    s.z + f[1] * Math.sin(tilt) * bh * 0.5,
+  ];
   const Q = (p: V3, u: number): V3 => [p[0] + t[0] * u, p[1], p[2] + t[1] * u];
   c.b.quad(mk, Q(bot, -bw / 2), Q(bot, bw / 2), Q(top, bw / 2), Q(top, -bw / 2));
   c.b.quad(mk, Q(bot, bw / 2), Q(bot, -bw / 2), Q(top, -bw / 2), Q(top, bw / 2));
-  void yaw;
 }
 
 function windscreen(c: FurnCtx, s: StreetItem): void {
@@ -511,8 +546,20 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
   );
   for (const sg of [1, -1]) {
     const g = new THREE.BufferGeometry();
-    g.setAttribute('position', new THREE.Float32BufferAttribute(poly.flatMap((p) => [p[0], topAt(p) + (sg > 0 ? 0.02 : 0), p[1]]), 3));
-    g.setAttribute('uv', new THREE.Float32BufferAttribute(poly.flatMap((p) => [p[0], p[1]]), 2));
+    g.setAttribute(
+      'position',
+      new THREE.Float32BufferAttribute(
+        poly.flatMap((p) => [p[0], topAt(p) + (sg > 0 ? 0.02 : 0), p[1]]),
+        3,
+      ),
+    );
+    g.setAttribute(
+      'uv',
+      new THREE.Float32BufferAttribute(
+        poly.flatMap((p) => [p[0], p[1]]),
+        2,
+      ),
+    );
     g.setIndex(tris.flatMap((tr) => [tr[0], tr[1], tr[2]]));
     g.computeVertexNormals();
     if (Math.sign(g.attributes.normal.getY(0)) !== sg) {
@@ -541,6 +588,8 @@ function speedBump(c: FurnCtx, s: StreetItem): void {
   const en = s.ends as { color?: string; len?: number; at?: string } | undefined;
   const ek = en ? ckOf(c, 'awning', en.color, bk) : bk;
   const mod = num(s.module, 0);
+  const atS = !!en && (en.at === 'start' || en.at === 'both');
+  const atE = !!en && (en.at == null || en.at === 'end' || en.at === 'both');
   const NS = 6;
   const prof = Array.from({ length: NS + 1 }, (_, k) => {
     const v = -w / 2 + (w * k) / NS;
@@ -565,13 +614,9 @@ function speedBump(c: FurnCtx, s: StreetItem): void {
     // Parçalar: modül derzleri + uç parçaları
     const cuts = [0, L];
     if (mod > 0.1) for (let u = mod - (s0 % mod); u < L; u += mod) cuts.push(u);
-    const isEnd = (u: number) =>
-      !!en &&
-      ((en.at !== 'end' && s0 + u < eLen) || (en.at !== 'start' && en.at != null && s0 + u > total - eLen));
-    if (en) {
-      if (en.at !== 'end' && s0 < eLen && s0 + L > eLen) cuts.push(eLen - s0);
-      if (en.at != null && en.at !== 'start' && s0 < total - eLen && s0 + L > total - eLen) cuts.push(total - eLen - s0);
-    }
+    const isEnd = (u: number) => (atS && s0 + u < eLen) || (atE && s0 + u > total - eLen);
+    if (atS && s0 < eLen && s0 + L > eLen) cuts.push(eLen - s0);
+    if (atE && s0 < total - eLen && s0 + L > total - eLen) cuts.push(total - eLen - s0);
     cuts.sort((p, q) => p - q);
     for (let k = 0; k + 1 < cuts.length; k++) {
       const u0 = cuts[k] + (k > 0 && mod > 0.1 ? 0.005 : 0);
@@ -643,19 +688,16 @@ export function buildStreetFurniture(c: FurnCtx, s: StreetItem): boolean {
     case 'table':
       cafeSet(c, s, y);
       return true;
-    case 'chair': {
-      const cc = typeof s.color === 'string' && HEX.test(s.color) ? s.color : '#d9d6cf';
-      c.b.instance('chair', PROTO.chair, place(s.x, y, s.z, -((s.rot ?? 0) * Math.PI) / 180 + Math.PI), cc);
+    case 'chair':
+      // rot: oturanın baktığı pusula yönü (sin a, −cos a) = yerel −z → θ = −a
+      c.b.instance('chair', PROTO.chair, place(s.x, y, s.z, -((s.rot ?? 0) * Math.PI) / 180), colOf(s.color));
       return true;
-    }
     case 'parasol':
       parasol(c, s, y);
       return true;
-    case 'heater': {
-      const col = typeof s.color === 'string' && HEX.test(s.color) ? s.color : '#b8bcbf';
-      c.b.instance('heater', PROTO.heater, place(s.x, y, s.z, 0, 1, num(s.h, 2.2), 1), col);
+    case 'heater':
+      c.b.instance('heater', PROTO.heater, place(s.x, y, s.z, 0, 1, num(s.h, 2.2), 1), colOf(s.color));
       return true;
-    }
     case 'planter':
       planter(c, s, y);
       return true;

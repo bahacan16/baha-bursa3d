@@ -375,6 +375,8 @@ export function buildRoads(
   roads: Road[],
   crossings: Pt[],
   noSidewalk: number[][] = [],
+  /** v7: ölçülmüş çizgi düzeltmeleri (Street View): yol kimliği → centre none | dashed | solid, edges none | solid */
+  marks: Record<string, { centre?: string; edges?: string }> = {},
 ): RoadBuildResult {
   const skipWalk = (x: number, z: number) => noSidewalk.some((r) => inFlatRing(r, x, z));
   const strips: RaisedStrip[] = [];
@@ -426,10 +428,15 @@ export function buildRoads(
     }
     // Orta çizgi: primary ve üstü kesikli beyaz; iki yönlü cadde/sokaklarda da kesikli (Street View: Cavit Orhan
     // Tütengil, Doğan Avcıoğlu, 502. Sokak), caddelerde kenar çizgisi düz beyaz
-    if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, dense, 3, 6, 0.15, Y_MARK);
+    const mk = marks[r.id];
+    if (mk?.centre === 'dashed') dashes(geo, dense, 3, 5, 0.12, Y_MARK);
+    else if (mk?.centre === 'solid') dashes(geo, dense, 1e6, 0, 0.12, Y_MARK);
+    else if (mk?.centre === 'none') {
+      /* ölçüm: orta çizgi yok */
+    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, dense, 3, 6, 0.15, Y_MARK);
     else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
       dashes(geo, dense, 3, 5, 0.12, Y_MARK);
-    if (/^(secondary|tertiary)$/.test(r.kind))
+    if (mk?.edges === 'solid' || (mk?.edges !== 'none' && /^(secondary|tertiary)$/.test(r.kind)))
       for (const sd of [-1, 1]) dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK);
   }
 

@@ -104,7 +104,42 @@ export interface StreetPlan {
     rot?: number;
     note?: string;
   }[];
+  /**
+   * v7: OSM yol çizgisi düzeltmeleri (yalnız Street View'da görülen): id OSM yol kimliği ("w303589053" ya da sayı),
+   * centre none | dashed | solid (orta çizgi), edges none | solid (kenar çizgileri). Ör. z≈−53 yan sokakta
+   * (303589053) OSM üreticisi kesikli orta çizgi çiziyordu — SV'de 2014/2019/2025 orta çizgi YOK → centre "none".
+   */
+  roads?: {
+    id: string | number;
+    centre?: 'none' | 'dashed' | 'solid';
+    edges?: 'none' | 'solid';
+    note?: string;
+  }[];
 }
+/*
+ * v7 sokak öğesi türleri (street[], streetFurniture.ts) — ortak alanlar kind, id, x, z, rot (pusula derecesi: bakış
+ * yönü), h, w, d, color, note; `base` (arazinin üstünde m) verilirse ölçülmüş kaldırım bandı kotu yerine taban o
+ * kotta (bordürsüz sokak / yükseltilmiş teras). Renk verilmezse nötr gri — görülen renk yazılmalı:
+ * - table: shape round | square, w çap/kenar (0.7), h (0.75), color tabla, chairs sandalye sayısı (masa çevresinde,
+ *   ilki rot yönünde), chairC, chairR (merkezden uzaklık)
+ * - chair: color, rot (oturanın baktığı yön)
+ * - parasol: w (kare kenar / çap, 2.5), h (tepe, 2.4), shape square | round, open (false → kapalı), color kumaş,
+ *   valance {text, fg, bg, sides [0..3]} (kare şemsiye valans yazısı, markayı OKUNDUĞU gibi)
+ * - heater: h (2.2), color (mantar ısıtıcı)
+ * - planter: shape box | round, w, d, h, color, plant {h, color, shape shrub | cone | hedge}
+ * - aframe: w (0.6), h (1.0), color çerçeve, text / lines / bg / fg (iki yüz)
+ * - totem: w, h, d, color gövde, text / lines / bg / fg (tek pano, y0..y1) ya da panels [{y0, y1, text, bg, fg}]
+ *   kiracı levhaları, faces 1 | 2, lit
+ * - menu-stand: h (1.25), w (tablet eni 0.4), color
+ * - windscreen: pts (dünya hattı), h (1.5), glass, frame, every (dikme aralığı 1.2), base {h, color} dolu alt bant
+ * - enclosure (kış bahçesi kapatması): poly (dünya), h (poly kenar 0 tarafı), h2 (karşı taraf; eğik çatı), glass,
+ *   frame, mullion (1.0), doors [{edge, u0, u1}], solid [kenar] (dolu kenarlar, wallC), plinth {h, color}, roofC
+ * - pergola: poly, h (üst), h2 (eğim: slopeEdge karşısı), color, cover, slat, slatEdge, postEdges / posts, beams
+ *   {edge, over, capC}, every, post, beam (facade pergola ile aynı)
+ * - speed-bump: pts (yolu enine), w (yol boyunca derinlik 0.5), h (0.05), color, module (modül boyu → 1 cm derz),
+ *   ends {color, len (0.4), at start | end | both}
+ * - bike-rack: n (5), every (0.7), color (ters U demirler)
+ */
 
 const PLANS = import.meta.glob('./data/{site,street,park}-plan.json', {
   eager: true,
@@ -158,6 +193,8 @@ export function surveyVegetation(): {
   fixedTrees: number[];
   excludeZones: number[][];
   noSidewalkZones: number[][];
+  /** v7: OSM yol çizgisi düzeltmeleri (id → orta / kenar çizgisi) */
+  roadMarks: Record<string, { centre?: string; edges?: string }>;
 } {
   const fixedTrees: number[] = [];
   const add = (x: number, z: number, r: number | undefined, h: number | undefined, type: number) =>
@@ -256,7 +293,12 @@ export function surveyVegetation(): {
       );
     }
   }
-  return { fixedTrees, excludeZones, noSidewalkZones };
+  const roadMarks: Record<string, { centre?: string; edges?: string }> = {};
+  for (const r of STREET_PLAN.roads ?? []) {
+    const id = typeof r.id === 'number' ? `w${r.id}` : /^\d+$/.test(r.id) ? `w${r.id}` : r.id;
+    roadMarks[id] = { ...(r.centre ? { centre: r.centre } : {}), ...(r.edges ? { edges: r.edges } : {}) };
+  }
+  return { fixedTrees, excludeZones, noSidewalkZones, roadMarks };
 }
 
 /**

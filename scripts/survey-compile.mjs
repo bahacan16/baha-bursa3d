@@ -680,7 +680,12 @@ async function main() {
                   }
                 : {}),
               ...(it.arms
-                ? { arms: { ...it.arms, ...(it.arms.us?.length ? { us: it.arms.us.map((u) => r2(c.U(u))) } : {}) } }
+                ? {
+                    arms: {
+                      ...it.arms,
+                      ...(it.arms.us?.length ? { us: it.arms.us.map((u) => r2(c.U(u))) } : {}),
+                    },
+                  }
                 : {}),
               ...(it.dome ? { dome: it.dome } : {}),
             });

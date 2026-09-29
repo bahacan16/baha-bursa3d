@@ -62,7 +62,9 @@ function regionKey(sg: SignSpec): string {
     sg.glyphs?.length ? [sg.glyphs, sg.join ?? null] : null,
     sg.capH != null ? Math.round((sg.capH / Math.max(0.01, sg.h)) * 50) : null,
     sg.align ?? null,
-    sg.halo && (sg.haloPad ?? 0) > 0 ? [sg.halo, Math.round(((sg.haloPad ?? 0) / Math.max(0.01, sg.h)) * 50)] : null,
+    sg.halo && (sg.haloPad ?? 0) > 0
+      ? [sg.halo, Math.round(((sg.haloPad ?? 0) / Math.max(0.01, sg.h)) * 50)]
+      : null,
     sg.blocks?.length ? sg.blocks : null,
     sg.mesh ? 1 : null,
   ]);
@@ -229,7 +231,10 @@ export class SignAtlas {
           sh.uniforms.uNight = nightUniform;
           sh.fragmentShader = sh.fragmentShader
             .replace('#include <common>', '#include <common>\nuniform float uNight;')
-            .replace('#include <dithering_fragment>', 'gl_FragColor.rgb *= uNight;\n#include <dithering_fragment>');
+            .replace(
+              '#include <dithering_fragment>',
+              'gl_FragColor.rgb *= uNight;\n#include <dithering_fragment>',
+            );
         };
         m.customProgramCacheKey = () => 'mk-sign-halo-v1';
         mats[key] = m;
@@ -281,7 +286,10 @@ totalEmissiveRadiance *= lf;`,
       b.moveBucket(
         k,
         to,
-        (u, v) => [x0 + Math.max(0, Math.min(1, u)) * sx, 1 - (y0 + (1 - Math.max(0, Math.min(1, v))) * sy) / h],
+        (u, v) => [
+          x0 + Math.max(0, Math.min(1, u)) * sx,
+          1 - (y0 + (1 - Math.max(0, Math.min(1, v))) * sy) / h,
+        ],
         [t.lit, 0, 0, 0],
       );
     }

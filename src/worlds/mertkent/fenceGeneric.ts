@@ -18,7 +18,18 @@ export interface GenericFence {
     color?: string;
     finish?: string;
     /** Kemerli panel üstü: panel boyları (tekrar eden desen, m), ortada yükselme (m), panel arası derz rengi */
-    arch?: { pattern: number[]; rise: number; joint?: string };
+    arch?: {
+      pattern: number[];
+      rise: number;
+      joint?: string;
+      /**
+       * v7: duvar yüzüne monte çelik kemerler (Λ bacaklı): her panelin kemeri iki uçtaki derzin `spread` m ötesindeki
+       * ayaklara iner (komşu kemerler derz üstünde X'te kesişir), panel ortasında tepe `top` (tabandan m; verilmezse
+       * duvar üstü + harpuşta + dolgu yüksekliği); şerit genişliği w (m, 0.06), renk (verilmezse joint). Verilirse V
+       * derz şeritleri çizilmez (da3-fence-side-n: spread 1.3, top 2.31).
+       */
+      legs?: { spread: number; top?: number; w?: number; color?: string };
+    };
     /**
      * Kabartmalı prekast panel (sokak yüzü): panel genişliği (m, verilmezse kolon aralığı ya da 2 m), motif
      * (rhombus = baklava, medallion = yuvarlak madalyon, frame = yalnız çerçeve), kabartma rengi ve çıkıntısı.
@@ -50,6 +61,11 @@ export interface GenericFence {
     gap?: number;
   } | null;
   razor?: boolean;
+  /**
+   * v7: taban kotu (arazinin üstünde m): verilirse sokak yürüme yüzeyi (ölçülmüş kaldırım bandı) yerine — kaldırımsız
+   * sokakta duvar dibi yol kotunda (0), yüksek kaldırımda bordür üstü
+   */
+  base?: number;
   screen?: [number, number, string][];
   /** Ölçülmüş kolon konumları polyline boyunca (m) */
   pillarsU?: number[];
@@ -73,7 +89,36 @@ export function buildGenericFence(
   collide?: Collide,
   /** Yüksek/Ultra: harpuşta üst kenarları pahlı (m, 0 = yok) */
   bevel = 0,
+  /**
+   * v7: sokak yürüme yüzeyi kotu (street.ts surfaceAt; arazinin üstünde m, ölçülmüş bant yoksa null) — önceden
+   * her noktada +0.15 (bordürlü kaldırım) varsayılıyordu: bordürsüz sokakta çit tabanı havada kalıyordu
+   */
+  surf?: (x: number, z: number) => number | null,
 ): void {
+  // Taban: ölçülmüş base; yoksa çit hattının sokak yüzündeki yürüme yüzeyi (hat boyunca örneklerin ortancası — duvar
+  // gövdesi bandın dışında kalsa da tüm parçalar aynı kotta); ölçülmüş bant yoksa +0.15 (eski varsayılan)
+  const baseOff = (() => {
+    if (f.base != null) return f.base;
+    if (!surf) return 0.15;
+    const v: number[] = [];
+    for (let i = 0; i + 1 < f.pts.length; i++) {
+      const a = f.pts[i];
+      const e = f.pts[i + 1];
+      const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      if (L < 0.05) continue;
+      const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
+      const nn: V2 = f.n ?? [-t[1], t[0]];
+      for (let k = 0; k <= Math.ceil(L / 2); k++) {
+        const u = Math.min(L, k * 2);
+        const h = surf(a[0] + t[0] * u + nn[0] * 0.1, a[1] + t[1] * u + nn[1] * 0.1);
+        if (h != null) v.push(h);
+      }
+    }
+    if (!v.length) return 0.15;
+    v.sort((p, q) => p - q);
+    return v[v.length >> 1];
+  })();
+  const baseY = (p: V2) => H(p[0], p[1]) + baseOff;
   const wallH = f.wall?.h ?? 0.6;
   const wallT = f.wall?.t ?? 0.22;
   const finish = (f.wall?.finish ?? 'render').toLowerCase();
@@ -157,7 +202,52 @@ export function buildGenericFence(
   // Panel üstü kemer: uçlarda (derzde) keskin düşüş, ortada düz yay (fotoğraf: bitişik kemerler sivri V'de birleşir)
   const wallTop = (U: number) =>
     arch ? wallH - arch.rise / 2 + arch.rise * Math.sin(Math.PI * archAt(U).f) : wallH;
-  if (arch?.pattern?.length) {
+  const legs = arch?.legs && arch.legs.spread > 0.1 ? arch.legs : null;
+  if (arch?.pattern?.length && legs) {
+    // v7 Λ bacaklı çelik kemerler: panel başına elips yayı, ayaklar derzin spread ötesinde, tepe panel ortasında
+    const lk = mat('metal', hex(legs.color, hex(arch.joint, '#2c3a33')));
+    const lw = Math.max(0.02, legs.w ?? 0.06);
+    const per = arch.pattern.reduce((q, v) => q + v, 0);
+    const infTop = infType === 'none' ? 0 : infH;
+    const seg3 = (A: [number, number, number], B: [number, number, number]) => {
+      const v = new THREE.Vector3(B[0] - A[0], B[1] - A[1], B[2] - A[2]);
+      const L = v.length();
+      if (L < 0.005) return;
+      const g = new THREE.BoxGeometry(lw, L + 0.01, 0.04);
+      g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), v.normalize()));
+      g.translate((A[0] + B[0]) / 2, (A[1] + B[1]) / 2, (A[2] + B[2]) / 2);
+      b.geometry(lk, g);
+    };
+    for (let U0 = 0; U0 < total; U0 += per) {
+      let acc = U0;
+      for (const w of arch.pattern) {
+        const Ja = acc;
+        const Jb = acc + w;
+        acc += w;
+        const Um = (Ja + Jb) / 2;
+        if (Um > total) break;
+        const A = w / 2 + legs.spread;
+        const Ht = legs.top ?? wallTop(Um) + copH + infTop;
+        const NSg = 18;
+        let prev: [number, number, number] | null = null;
+        for (let k = 0; k <= NSg; k++) {
+          const U = Um - A + (2 * A * k) / NSg;
+          if (U < 0 || U > total || inGap(U)) {
+            prev = null;
+            continue;
+          }
+          const { p, t: tt } = at(U);
+          const nn: V2 = f.n ?? [-tt[1], tt[0]];
+          const q: V2 = [p[0] + nn[0] * 0.02, p[1] + nn[1] * 0.02];
+          const yy = baseY(q) + Ht * Math.sqrt(Math.max(0, 1 - ((U - Um) / A) ** 2));
+          const cur: [number, number, number] = [q[0], yy, q[1]];
+          if (prev) seg3(prev, cur);
+          prev = cur;
+        }
+      }
+    }
+  }
+  if (arch?.pattern?.length && !legs) {
     // Sivri kemer derzi: iki eğik koyu şerit, yerde birleşip yukarıda kemer uçlarına açılır (V)
     const jKey = mat('render', arch.joint ?? '#2c3a33');
     const per = arch.pattern.reduce((q, v) => q + v, 0);
@@ -168,7 +258,7 @@ export function buildGenericFence(
           const { p, t: tt } = at(acc);
           const nn: V2 = f.n ?? [-tt[1], tt[0]];
           const q: V2 = [p[0] + nn[0] * 0.01, p[1] + nn[1] * 0.01];
-          const yy = H(q[0], q[1]) + 0.15;
+          const yy = baseY(q);
           const yawJ = Math.atan2(-tt[1], tt[0]);
           // Kemer kenarı: dörtte bir elips, derz dibinden (0.25 m) iki yana panel üstüne kıvrılır (ince koyu şerit)
           const reach = 1.4;
@@ -216,7 +306,7 @@ export function buildGenericFence(
       const mid = cum[i] + (u0 + u1) / 2;
       if (inGap(mid)) continue;
       const c = P((u0 + u1) / 2, wallT / 2);
-      const y0 = H(c[0], c[1]) + 0.15;
+      const y0 = baseY(c);
       const wH = wallTop(mid);
       if (wallH > 0.05) {
         b.box(wallKey, [c[0], y0 + (wH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wH + 0.2, wallT], yaw, 1);
@@ -358,7 +448,7 @@ export function buildGenericFence(
       const n: V2 = f.n ?? [-t[1], t[0]];
       const c: V2 = [p[0] + n[0] * (rd / 2 + 0.005), p[1] + n[1] * (rd / 2 + 0.005)];
       const yaw = Math.atan2(-t[1], t[0]);
-      const y0 = H(p[0], p[1]) + 0.15;
+      const y0 = baseY(p);
       const wH = wallTop(mid);
       const hw = pw / 2 - 0.12;
       const y1 = wH - 0.12;
@@ -406,7 +496,7 @@ export function buildGenericFence(
       const yaw = Math.atan2(-t[1], t[0]);
       const n: V2 = f.n ?? [-t[1], t[0]];
       const q: V2 = [p[0] - n[0] * (wallT / 2), p[1] - n[1] * (wallT / 2)];
-      const yb = H(p[0], p[1]) + 0.15 + wallTop(U) + copH;
+      const yb = baseY(p) + wallTop(U) + copH;
       b.box(pk, [q[0], yb + (infH + 0.05) / 2, q[1]], [0.06, infH + 0.05, 0.045], yaw);
     }
   }
@@ -425,7 +515,7 @@ export function buildGenericFence(
     if (inGap(U + 0.02) && inGap(U - 0.02)) continue;
     const { p, t } = at(Math.max(0, Math.min(total, U)));
     const yaw = Math.atan2(-t[1], t[0]);
-    const y0 = H(p[0], p[1]) + 0.15;
+    const y0 = baseY(p);
     b.box(pKey, [p[0], y0 + pH / 2 - 0.1, p[1]], [pW, pH + 0.2, pW], yaw, 1);
     const capK = mat('render', hex(pil.cap, hex(pil.color, '#e8e4da')));
     let yTop = y0 + pH + 0.08;

@@ -102,28 +102,28 @@
  "900000101": {
   "ring": [
    [
-    675.4,
-    -93
+    675.596,
+    -94.413
    ],
    [
-    700.65,
-    -93
+    699.05,
+    -92.65
    ],
    [
-    700.65,
-    -106.75
+    700.047,
+    -105.913
    ],
    [
-    695.2,
-    -106.75
+    695.421,
+    -106.26
    ],
    [
-    695.2,
-    -108.95
+    695.489,
+    -107.158
    ],
    [
-    675.4,
-    -108.95
+    676.661,
+    -108.574
    ]
   ],
   "shift": [
@@ -135,8 +135,8 @@
    1
   ],
   "axis": [
-   1,
-   0
+   0.9972,
+   0.075
   ],
   "manual": true,
   "synthetic": true,
@@ -145,27 +145,27 @@
   "storeys": 7,
   "leanUsed": [
    -1.9,
-   -6.25
+   -6.3
   ],
-  "note": "OSM’de yok. Hava fotoğrafı (aerial-e): kahverengi kırma çatı saçağı x 673.75–698.75, z −115.2…−99.25 (doğu bölüm x>693.3 kuzeyde −113’te başlıyor → KD basamağı). Eğim: güney cephenin görünen zemin çizgisi z −93.0 ile çatı saçağı arası 6.25 m (≈24.5 m saçak, bölgede 0.255 m/m, yön dx/dz≈0.30; kule 1550…/B bloğu ile aynı oran) → taban = çatı + (1.9, 6.25). G duvar z −93.0 (zemin çizgisi, ±0.3); B duvar x 675.4 (çatı+eğim 675.65; SV DIKaX 0/0’da cam kule köşesi ~0.7 m batıda, T1qi7 60/0 izdüşümü tam oturuyor → ±0.5); D duvar x 700.65 (çatı+eğim, SV pc3Zp 0/0 ve zDExp 0/0’da beyaz cephenin doğu kenarına izdüşüm ±0.3); K duvar/basamak yalnız çatı+eğimden (K cephe hiçbir SV’den görülmedi, ±0.8). Kat: zemin (dükkânlar, İş Merkezi girişi) + 5 ofis katı (pc3Zp 313_18_40, Q5ICT 322_24_40) + koyu gri çatı katı (pencereli) = 7; batı ucu tüm yükseklikte mavi cam (VİZE KONGRE / epBrUk 60/120: BALENTUR TRANSFER TUR). Doğu ~5 m’lik bölüm beyaz sıva + tek pencereli (konut tipi) ön cephe. Çatının ortasında x 684.7–688, z −115…−111 koyu ışıklık/çentik (çizilmedi). SV 2025-09."
+  "note": "FP-v3 (2026-09-29, cephe ajanı iddiaları doğrulandı/düzeltildi): halka 4.3° döndürüldü (cephe doğrultusu 94.3°; köşe sayısı/sırası aynı). DOĞRULTU: DIKaX 0/0 yatay kat çizgileri 94.3–95.1° (baş yol çizgileriyle −0.3° düzeltildi), hava fotoğrafında güney cephe bantlarının 0.068–0.075 m/m kayması, LEYLA çatısı güney kenarı 4.2°. GD köşe (699.05,−92.65) ±0.25: hava fotoğrafında köşe payesi koyu lekesi + zDExp 333_7/333_22 ve pc3Zp–Q5ICT ışın kesişimleri (iddia 698.55 GPS’li stereodan; eski 700.65 = saçak çizgisi + eğim, saçak taşması düşülmemiş). GB köşe (675.60,−94.41) ±0.35: DIKaX kamerası iki köşeden çözüldü (683.65,−76.92; GPS’ten ~2 m güneyde), pc3Zp–Q5ICT üçgenlemesi 675.7–676.4, T1qi7 78 ile tutarlı. Güney duvar 25.25→23.52 m — iddia ‘≈21.9’ REDDEDİLDİ (v6 düşey ölçeği 1.104 yalnız doğu uçta geçerli; cephe ortofoto düzlemine göre dönük olduğundan DIKaX ölçeği batıda 1.24, doğuda 1.11). Doğu duvar 13.75→13.30 ±0.3 (zDExp 333_22 kesitlemesi, KD köşe 700.03…700.05, −105.99…−106.26). KD basamak: x’i güney cephedeki beyaz doğu bölüm sınırından (DIKaX görünen 17.56 → 18.88 m), genişlik 4.64, derinlik 2.2→0.9 ±0.5 (hava fotoğrafı: doğu bölüm saçağı kuzey kenarı −113.0, ana saçak −115.25 @ x 677 → dönük hatta ≈1 m). Kuzey duvar 18.88 m ve KB köşe (676.66,−108.57): hava fotoğrafı saçak kuzey kenarı + eğim (≈5.9) + saçak 0.9, ±0.6 — kuzey cephe hiçbir SV karesinde GÖRÜLMEDİ. Batı duvar 15.95→14.20 ±0.5 (T1qi7 kamera kesitlemesi 643.75,−92.98). Eğim (21 m başına) (−1.9, −6.3): b 0.30 (104’ün 0.297’si; bu binanın güney bant aralığı 0.94 m → kat ≈3.13), a ≈0.09 (0.07–0.10). Komşular: 102 batıda, 103 doğuda ortak duvar; 303738122, 900000104–106, 303738118 ile çakışma yok. UYARI (cephe): aynı kamera modeli DIKaX ortofotosunun düşey ölçeğinin de u ile değiştiğini gösteriyor (anket pending). Önceki (değişmeyen): OSM’de yok; zemin dükkânlar + 5 ofis + orta çatı katı = 7 kat; batı ucu tüm yükseklikte mavi cam; çatının ortasında x≈684.7–688, z≈−115…−111 koyu ışıklık/çentik (çizilmedi). SV 2025-09."
  },
  "900000102": {
   "ring": [
    [
-    667.9,
-    -95.5
+    666.85,
+    -95.071
    ],
    [
-    675.4,
-    -95.5
+    675.596,
+    -94.413
    ],
    [
-    675.4,
-    -101.3
+    676.065,
+    -100.646
    ],
    [
-    667.9,
-    -101.3
+    667.319,
+    -101.304
    ]
   ],
   "shift": [
@@ -177,8 +177,8 @@
    1
   ],
   "axis": [
-   1,
-   0
+   0.9972,
+   0.075
   ],
   "manual": true,
   "synthetic": true,
@@ -186,28 +186,28 @@
   "name": "LEYLA fasıl",
   "storeys": 1,
   "leanUsed": [
-   -0.3,
-   -1
+   -0.37,
+   -1.22
   ],
-  "note": "OSM’de yok. Tek katlı restoran (SV T1qi7 60/0, epBrUk 60/120, DIKaX 0/0 ve 300/0, vXbUE 3_23_40: siyah zemin üstüne beyaz ‘LEYLA fasıl’ tabelası, cam ön cephe, çizgili tente, önde saksılar). Balıkçı Mahmut (303738122) ile 900000101 iş merkezinin batı cam cephesi arasında, ikisine bitişik. B duvar x 667.9: hava fotoğrafındaki açık çatının batı kenarı (beyaz şerit x 667.6) + eğim, T1qi7 60 ve DIKaX 300 izdüşümleri cam cephenin başlangıcına oturuyor (±0.5). K kenar Balıkçı Mahmut’un güney duvarına dayandırıldı (z −101.3, ±0.5). G cephe z −95.5: çatı/tente kenarı çizgisi −95.5…−96 ve SV’de zemin çizgisi izdüşümün ~1 m kuzeyinde — ±1 (tente ile ayrılamıyor). D kenar = iş merkezinin B duvarı. Batısındaki x 664.4–667 yeşil/turkuaz şerit Balıkçı Mahmut’un tenteli terası sayıldı, bina değil."
+  "note": "FP-v3 (2026-09-29): 101 ile aynı cephe hattına 4.3° döndürüldü (köşe sırası aynı). Güney cephe 7.5→8.77 m: 101’in batı dükkânıyla aynı düzlemde (DIKaX 343_3’te tente kesintisiz; anket v6 kot kontrolü) — iddia ‘ön z≈−93’ dönmesiz cephe varsayımıyla; dönük hatta GB −95.07, GD −94.41 (eski −95.5). GD köşe = 101’in GB köşesi (675.60,−94.41). GB köşe x 666.85 ±0.35: BJWF6 0/0 kesitlemesi (101 GB köşesi + 1. paye; 666.49–666.83), vXbUE 3_6 / zDExp ışınları 667.05–667.2, hava fotoğrafında batı tabela kutusunun beyaz şeridi (batı kenarı 666.7–667.3, eğim ≈−0.35) → eski 667.9 ~1 m doğudaydı. Derinlik 5.8→6.25 ±0.4 (+0.8): KB köşe Balıkçı Mahmut’un (303738122) güney kenarına dayandırıldı (0.03 m ara); hava fotoğrafı çatı kuzey sınırı (−102.1 − eğim 1.2) → ≈5.9; T1qi7 78_10 batı tabela kutusu (101 batı köşelerinden çözülen kamerayla) 7.07 m — kutu iki uçta ~0.4 m taşıyor ya da bina daha derin. Kuzey duvar GÖRÜLMEDİ; Balıkçı’nın güney kenarı −2° eğik olduğundan x 667.3–671.8 arasında 0–0.53 m kama boşluk kalıyor. Doğu duvar = 101’in batı duvarı (ortak). Eğim (≈4.1 m için) (−0.37, −1.22). Batıdaki pergola/teras (ankette volumes) iz dışında. Önceki: OSM’de yok; tek katlı restoran; siyah zemin üstüne beyaz LEYLA fasıl tabelası, cam ön cephe, çizgili tente, önde saksılar."
  },
  "900000103": {
   "ring": [
    [
-    700.65,
-    -93
+    699.05,
+    -92.65
    ],
    [
-    703.2,
-    -93
+    702.949,
+    -92.357
    ],
    [
-    703.2,
-    -99.75
+    703.481,
+    -99.437
    ],
    [
-    700.65,
-    -99.75
+    699.582,
+    -99.73
    ]
   ],
   "shift": [
@@ -219,8 +219,8 @@
    1
   ],
   "axis": [
-   1,
-   0
+   0.075,
+   -0.9972
   ],
   "manual": true,
   "synthetic": true,
@@ -228,10 +228,10 @@
   "name": "Eczane (ECZANEMİZ ÇOK YAKINDA HİZMETİNİZDE) + 1. kat camlı PILATES house",
   "storeys": 2,
   "leanUsed": [
-   -0.6,
-   -2
+   -0.7,
+   -2.34
   ],
-  "note": "OSM’de yok. İş merkezinin (900000101) doğusuna bitişik 2 katlı ek (SV pc3Zp 338_10_40, 357_10_40, 0/0; Q5ICT 60/0; zDExp 0/0): zemin kat boş dükkân ‘ECZANEMİZ ÇOK YAKINDA’, üstte camlı PILATES house katı, doğu köşede koyu gri kolon (kırmızı taban); doğusunda demir çitli geçit ve merdiven. Hava fotoğrafında kırmızımsı kahve düz çatı x 698.75–703.1, z −101.75…−93.25; ≈8 m için eğim (0.6, 2.0) → K duvar −99.75 (±0.6). D duvar x 703.2 (çatı+eğim 703.8; pc3Zp 0/0’da kolonun izdüşümü ~0.6 m içeride → 703.2, ±0.5). G cephe iş merkeziyle aynı hizada (SV) z −93.0 ±0.4."
+  "note": "FP-v3 (2026-09-29): 101 ile aynı cephe hattına 4.3° döndürüldü (köşe sırası aynı). Güney cephe 2.55→3.91 m — iddia (≈3.8–4.1) DOĞRULANDI: GB köşe = 101’in GD köşesi (699.05,−92.65; eski 700.65 101’in saçak taşmalı izinden), GD köşe (702.95,−92.36) ±0.25: hava fotoğrafında köşe kolonu koyu lekesi + pc3Zp/Q5ICT ışınları; iki ortofotoda görünen 4.13 m (ECZANEMİZ panosu ölçeği tutarlı) → yatay ölçek 1.06 ≈ düşey 1.0–1.05. Doğu cephe 6.75→7.10 ±0.3: zDExp 333_7/333_22 kesitlemesi KD köşe (703.39…703.40, −99.38…−99.52); hava fotoğrafı düz çatı kuzey kenarı −101.75 + eğim 2.34 → −99.4 ile tutarlı. Kuzey (arka) cephe GÖRÜLMEDİ. Batı duvar = 101’in doğu duvarı (ortak). Eğim (≈7.8 m için) (−0.7, −2.34). Önceki: OSM’de yok; zemin kat boş eczane dükkânı + camlı PILATES house katı, doğu köşede koyu gri kolon (kırmızı kaide); doğusundaki demir çitli geçit/merdiven iz dışında."
  },
  "900000104": {
   "ring": [

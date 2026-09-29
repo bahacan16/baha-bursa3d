@@ -124,12 +124,7 @@ function blade(c: SignCtx, it: CBlade): void {
     const style = it.bg ? 'panel' : 'letters';
     const fa = c.signFace(specOf(it, w, h, style));
     const fb = c.signFace(
-      specOf(
-        { ...it, text: it.textB ?? it.text, lines: it.linesB ?? it.lines ?? null },
-        w,
-        h,
-        style,
-      ),
+      specOf({ ...it, text: it.textB ?? it.text, lines: it.linesB ?? it.lines ?? null }, w, h, style),
     );
     const e = d / 2 + 0.004;
     // +t'ye bakan yüz: a→e −n yönünde (sağa doğru okunur); −t'ye bakan: +n yönünde
@@ -241,7 +236,14 @@ function screen(c: SignCtx, it: CScreen): void {
         ...(it.blocks?.length ? { blocks: it.blocks } : {}),
       }),
     );
-    b.wall(k, P(i, u0 + bz, off0 + d + 0.004), P(i, u1 - bz, off0 + d + 0.004), y0 + bz, y1 - bz, [0, 0, 1, 1]);
+    b.wall(
+      k,
+      P(i, u0 + bz, off0 + d + 0.004),
+      P(i, u1 - bz, off0 + d + 0.004),
+      y0 + bz,
+      y1 - bz,
+      [0, 0, 1, 1],
+    );
   }
   if (y0 - c.base < 2.3 && off0 + d > 0.05)
     c.collide?.(

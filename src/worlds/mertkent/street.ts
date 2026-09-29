@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import { Builder, type V2, type V3 } from './builder';
 import { sideNormal, type StreetPlan } from './siteplan';
+import type { CK, SignSpec } from './facade';
+import { buildStreetFurniture, type StreetItem } from './streetFurniture';
 
 /**
  * Ölçülmüş sokak planı (data/street-plan.json): kaldırımlar (bordür hattından içeri w genişlik, kilit taşı
@@ -24,6 +26,11 @@ export interface StreetResult {
   raised: { poly: [number, number][]; h: number }[];
   /** Kaldırım şeritlerinin kapsadığı alan (OSM kaldırımını/el kaldırımını çizmemek için) */
   covers: (x: number, z: number) => boolean;
+  /**
+   * v7: noktadaki ölçülmüş yürüme yüzeyi kotu (arazinin üstünde m): kavşak / ayrım adası, kaldırım bandı (alçak —
+   * bordürsüz — bantlar dahil); hiçbirinin içinde değilse null. Çit / kolon / lamba tabanları buna oturur.
+   */
+  surfaceAt: (x: number, z: number) => number | null;
 }
 
 function inside(r: V2[], x: number, z: number): boolean {
@@ -772,35 +779,9 @@ export function streetSignTexture(kind: 'keepRight' | 'chevron' | 'pedestrian'):
 
 /** buildStreetPlan ek seçenekleri */
 export interface StreetExt {
-  signFace?: (sg: {
-    text: string;
-    lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
-    bg: string | null;
-    fg: string;
-    border: string | null;
-    font: string;
-    bold: boolean;
-    lit: boolean;
-    style: string;
-    w: number;
-    h: number;
-  }) => string;
-  colorKey?: (
-    kind:
-      | 'plaster'
-      | 'fascia'
-      | 'metal'
-      | 'awning'
-      | 'glass'
-      | 'frame'
-      | 'tint'
-      | 'asphalt'
-      | 'tar'
-      | 'wear1'
-      | 'wear2'
-      | 'wear3',
-    hex: string,
-  ) => string;
+  /** Tabela yüzü (index.ts tabela atlası) */
+  signFace?: (sg: SignSpec) => string;
+  colorKey?: (kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3', hex: string) => string;
   /** Yüksek/Ultra kalite: bordür taşı üst kenar pahı (m, 0 = yok) */
   bevel?: number;
   /** Çarpışma halkası (x/z çokgen, alt–üst kot) */
@@ -832,6 +813,8 @@ function buildStreet(
   ext: StreetExt,
 ): StreetResult {
   const raised: StreetResult['raised'] = [];
+  /** v7: tüm kaldırım bantları (alçak / bordürsüz dahil) — öğe ve çit tabanı kotu için */
+  const lowBands: StreetResult['raised'] = [];
   const polys: V2[][] = [];
   for (const sw of plan.sidewalks ?? []) {
     const pts = sw.pts;
@@ -886,6 +869,7 @@ function buildStreet(
       for (const bd of lay.bands) {
         strip(bd.v0, bd.v1, bd.key, bd.h);
         if (bd.h > 0.06) raised.push({ poly: [q(0, bd.v0), q(L, bd.v0), q(L, bd.v1), q(0, bd.v1)], h: bd.h });
+        else lowBands.push({ poly: [q(0, bd.v0), q(L, bd.v0), q(L, bd.v1), q(0, bd.v1)], h: bd.h });
       }
       const top = lay.bands.length ? lay.bands[lay.bands.length - 1].h : kerbH;
       if (lay.tactile && lay.tactile[0] > 0.3)
@@ -971,13 +955,29 @@ function buildStreet(
   const walkAt = (x: number, z: number) => {
     let best: Raised | undefined;
     for (const r of isl) if (inside(r.poly, x, z) && (!best || r.h > best.h)) best = r;
-    return best ?? raised.find((r) => inside(r.poly, x, z));
+    // v7: alçak (bordürsüz) bantlar da — önceden bu noktalarda +0.15 varsayılıyordu (çit / lamba havada)
+    return best ?? raised.find((r) => inside(r.poly, x, z)) ?? lowBands.find((r) => inside(r.poly, x, z));
+  };
+  /** v7: öğe tabanı kotu (arazinin üstünde): ölçülen `base` > yürüme yüzeyi > +0.15 (eski varsayılan) */
+  const walkH = (x: number, z: number, base?: unknown) =>
+    typeof base === 'number' && Number.isFinite(base) ? base : (walkAt(x, z)?.h ?? 0.15);
+  const furn = {
+    b,
+    H,
+    walk: (x: number, z: number) => walkH(x, z),
+    colorKey: ext.colorKey as ((kind: CK, hex: string) => string) | undefined,
+    signFace: ext.signFace,
+    collide: ext.collide,
   };
   // Sokak eşyası
   for (const s of plan.street ?? []) {
     const g0 = H(s.x, s.z);
-    const onWalk = walkAt(s.x, s.z);
-    const y = g0 + (onWalk?.h ?? 0.15);
+    const sb = (s as { base?: number }).base;
+    const wh = walkH(s.x, s.z, sb);
+    const y = g0 + wh;
+    // v7: restoran önü / sokak eşyası türleri (streetFurniture.ts); base ölçülmüşse onun kotunda
+    if (buildStreetFurniture({ ...furn, walk: (x, z) => walkH(x, z, sb) }, s as unknown as StreetItem))
+      continue;
     const note = `${s.text ?? ''} ${s.note ?? ''}`.toLowerCase();
     const yaw = ((s.rot ?? 0) * Math.PI) / 180;
     switch (s.kind) {
@@ -1148,20 +1148,11 @@ function buildStreet(
         const co = Math.cos(yaw);
         const si = Math.sin(yaw);
         const q = (u: number, v: number): V2 => [s.x + co * u + si * v, s.z - si * u + co * v];
-        b.drape(
-          'signBikeFlat',
-          [q(-r, -r), q(r, -r), q(r, r), q(-r, r)],
-          [],
-          H,
-          (onWalk?.h ?? 0.15) + 0.012,
-          1,
-          2,
-          {
-            o: q(-r, -r),
-            t: [co / (2 * r), -si / (2 * r)],
-            n: [si / (2 * r), co / (2 * r)],
-          },
-        );
+        b.drape('signBikeFlat', [q(-r, -r), q(r, -r), q(r, r), q(-r, r)], [], H, wh + 0.012, 1, 2, {
+          o: q(-r, -r),
+          t: [co / (2 * r), -si / (2 * r)],
+          n: [si / (2 * r), co / (2 * r)],
+        });
         break;
       }
       case 'bin':
@@ -1237,12 +1228,18 @@ function buildStreet(
         break;
       }
       case 'bike-rack': {
+        // v7: adet n / aralık every / renk ölçülebilir (varsayılan 5 × 0.7 m — eski çıktı)
+        const br = s as unknown as { n?: number; every?: number; color?: string };
         const co = Math.cos(yaw);
         const si = Math.sin(yaw);
-        for (let k = -2; k <= 2; k++) {
+        const n = Math.max(1, Math.min(20, Math.round(br.n ?? 5)));
+        const ev = br.every ?? 0.7;
+        const key = br.color && ext.colorKey ? ext.colorKey('metal', br.color) : 'steel';
+        for (let k = 0; k < n; k++) {
+          const o = (k - (n - 1) / 2) * ev;
           const g = new THREE.TorusGeometry(0.38, 0.025, 6, 16, Math.PI).rotateY(yaw + Math.PI / 2);
-          g.translate(s.x + co * k * 0.7, y, s.z - si * k * 0.7);
-          b.geometry('steel', g);
+          g.translate(s.x + co * o, y, s.z - si * o);
+          b.geometry(key, g);
         }
         break;
       }
@@ -1283,7 +1280,7 @@ function buildStreet(
           [s.x + 0.6, s.z + 0.6],
           [s.x - 0.6, s.z + 0.6],
         ];
-        b.drape('spMulch', r, [], H, (onWalk?.h ?? 0.15) + 0.008, 1, 2);
+        b.drape('spMulch', r, [], H, wh + 0.008, 1, 2);
         break;
       }
       case 'bench': {
@@ -1353,7 +1350,7 @@ function buildStreet(
               [px, pz] = rb.outerAt(KERB_W + 0.25, Math.atan2(ez, ex));
             }
           }
-        const py = H(px, pz) + (walkAt(px, pz)?.h ?? 0.15);
+        const py = H(px, pz) + walkH(px, pz, sb);
         // Baktığı yön: rot (pusula); ölçümde "baktığı yön ölçülmedi" ise en yakın yol eksenine doğru
         // KARAR: yönü ölçülmemiş sinyal başları taşıt yoluna (en yakın yol eksenine) bakar — lamba kolu kuralıyla aynı
         let fn: V2 = [Math.sin(yaw), -Math.cos(yaw)];
@@ -1388,5 +1385,9 @@ function buildStreet(
     }
   }
   raised.push(...isl);
-  return { raised, covers: (x, z) => polys.some((p) => inside(p, x, z)) };
+  return {
+    raised,
+    covers: (x, z) => polys.some((p) => inside(p, x, z)),
+    surfaceAt: (x, z) => walkAt(x, z)?.h ?? null,
+  };
 }
