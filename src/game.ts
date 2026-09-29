@@ -8,6 +8,8 @@ import { daylight, type Daylight } from './env/daylight';
 import { nightUniform } from './env/night';
 import { GameAudio } from './env/audio';
 import { PostFX } from './env/post';
+import { lightCalibration } from './env/calibration';
+import { bakedLighting } from './worlds/mertkent/baked';
 import { installUltraChunks, patchSkyClouds, probeUniforms, ultraState, weakGpu } from './env/ultra';
 import { ReflectionProbe } from './env/probe';
 import { loadHdriSky, measureSky, type HdriSky } from './env/hdrisky';
@@ -274,14 +276,16 @@ export class Game {
     if (far) far.visible = farVis;
     this.sky.stars.visible = stars;
     this.scene.environment = this.envRT.texture;
-    // Sky shader'ı HDR (çok parlak) üretir: ortam katkısı düşük ölçekli
-    this.scene.environmentIntensity = this.envScale * (1 - d.night * 0.7);
+    // Sky shader'ı HDR (çok parlak) üretir: ortam katkısı düşük ölçekli. Pişirilmiş dolaylı ışık etkinse ayrı
+    // kalibrasyon kümesi (env/calibration.ts — kalibrasyon AO'suz yapıldı, pişirmeyle yeniden oturtulacak).
+    const cal = lightCalibration(bakedLighting.active);
+    this.scene.environmentIntensity = (bakedLighting.active ? cal.env : this.envScale) * (1 - d.night * 0.7);
     if (!probeUniforms.uProbeReady.value) {
       probeUniforms.uProbe.value = this.envRT.texture;
       probeUniforms.uProbeI.value = this.scene.environmentIntensity;
     }
     // KARAR: Street View kalibrasyonu (71 yama, 11 görüş): ortam ışığı güneşe göre ~2× fazlaydı → soluk/pastel
-    this.lights.hemi.intensity = d.hemiIntensity * 0.6;
+    this.lights.hemi.intensity = d.hemiIntensity * cal.hemi;
   }
 
   private async loadHdri(): Promise<void> {
@@ -337,7 +341,8 @@ export class Game {
     this.backdropSun.color.copy(d.sunColor);
     this.backdropHemi.intensity = d.hemiIntensity;
     this.backdropHemi.color.copy(d.hemiSky);
-    this.renderer.toneMappingExposure = d.exposure * EXPOSURE_TWEAK;
+    this.renderer.toneMappingExposure =
+      d.exposure * EXPOSURE_TWEAK * lightCalibration(bakedLighting.active).exposure;
     this.post?.setNight(d.night);
     facadeSky.top.value.copy(d.hemiSky).multiplyScalar(0.8);
     facadeSky.horizon.value.copy(d.fogColor);
@@ -377,6 +382,8 @@ export class Game {
     this.camera.far =
       world.kind === 'google' ? 20000 : Math.min(this.ultra ? 8000 : 5000, this.viewDistanceSafe * 1.1);
     this.camera.updateProjectionMatrix();
+    // pişirilmiş dolaylı ışık etkinse ekran uzayı AO azaltılır (çifte karartma olmasın) + ayrı ışık kalibrasyonu
+    this.post?.setBaked(bakedLighting.active);
     this.applyTimeOfDay();
     if (this.ultra) this.maxAnisotropy(world.object);
     this.teleport(world.spawn.x, world.spawn.y, world.spawn.z);

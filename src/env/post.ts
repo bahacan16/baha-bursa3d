@@ -7,6 +7,7 @@ import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { N8AOPass } from 'n8ao';
 import type { Quality } from '../core/settings';
 import { ExposureMeter, TAAPass } from './taa';
+import { lightCalibration } from './calibration';
 
 const VS = /* glsl */ `
   varying vec2 vUv;
@@ -189,9 +190,10 @@ export class PostFX {
     const c = this.ao.configuration;
     c.autoRenderBeauty = false; // sahneyi (arka plan dahil) biz çiziyoruz
     c.gammaCorrection = false; // OutputPass yapıyor
-    c.aoRadius = 2.2;
+    const cal = lightCalibration(false);
+    c.aoRadius = cal.ssaoRadius;
     c.distanceFalloff = 1.2;
-    c.intensity = 1.7;
+    c.intensity = cal.ssao;
     c.halfRes = quality !== 'high';
     // Ultra: tam çözünürlük, 64 örnek (TAA gürültüyü biriktirir)
     this.ao.setQualityMode(ultra ? 'High' : quality === 'high' ? 'Medium' : 'Low');
@@ -228,7 +230,8 @@ export class PostFX {
       u.tExposure.value = this.exposure.texture;
       u.uExpRef.value = ref;
       u.uExpStrength.value = Number(q.get('ae') ?? 0.5);
-      u.uExpRange.value.set(0.75, 1.45);
+      // KARAR: karartma en çok %15 (gökyüzü ağırlıklı karede cepheler kararmasın), açma en çok %45 (gölgede)
+      u.uExpRange.value.set(0.85, 1.45);
     }
     this.composer.addPass(this.grade);
     this.composer.addPass(new OutputPass());
@@ -252,8 +255,17 @@ export class PostFX {
       const [r, g, b] = (q.get('wbs') ?? '').split(',').map(Number);
       this.grade.uniforms.uShadowTint.value.set(r, g, b);
     }
-    if (q.has('ao')) c.intensity = Number(q.get('ao'));
-    if (q.has('aor')) c.aoRadius = Number(q.get('aor'));
+  }
+
+  /**
+   * Pişirilmiş dolaylı ışık etkin mi (docs/BAKE.md): etkinse N8AO yalnız yakın temas ayrıntısı için (şiddet/yarıçap
+   * env/calibration.ts `baked` kümesinden) — büyük ölçekli örtme pişirmede, ikinci kez karartılmaz.
+   */
+  setBaked(active: boolean): void {
+    const cal = lightCalibration(active);
+    const c = this.ao.configuration;
+    c.intensity = cal.ssao;
+    c.aoRadius = cal.ssaoRadius;
   }
 
   /** Güzel (beauty) hedefi: Game bu hedefe arka plan + sahneyi çizer. */
