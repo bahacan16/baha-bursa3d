@@ -57,7 +57,9 @@ function layerKey(m: string): string {
   if (/asphalt|asfalt/.test(t)) return 'roadFill';
   if (/concrete|beton/.test(t) && !/interlock|kilit|paver/.test(t)) return 'spConcrete';
   if (/gravel|çakıl|toprak|dirt|soil/.test(t)) return 'spGravel';
-  // KARAR: kaldırımlarda kırmızı kilit taşı yok (kullanıcı: Nilüfer'de gri + sarı [+ mavi]); kırmızı → gri
+  // KARAR: kırmızı bant yalnız ölçümde açıkça yazıyorsa (Doğan Avcıoğlu: Street View zemin karelerinde bordür
+  // boyunca kiremit-kahve bant net görünüyor); aksi hâlde Nilüfer tipi gri + sarı [+ mavi]
+  if (/kırmızı|kiremit|red|terracotta/.test(t) && !/gri|grey/.test(t.split(/[;,(]/)[0])) return 'spPaverRed';
   return 'spPaverGrey';
 }
 
@@ -93,17 +95,21 @@ function layoutOf(sw: {
   }
   switch (sw.id) {
     case 'east-west-side':
-      // 502. Sk. batı: gri kilit taşı, ortada krem kılavuz (duvardan ~1.0 m), yol tarafında mavi bisiklet şeridi
+      // 502. Sk. batı: gri kilit taşı, ortada sarı kılavuz, yol tarafında mavi bisiklet şeridi (kullanıcı fotoğrafı)
       return {
         bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }],
         tactile: [(KERB_W + W) / 2, 0.4],
         bike: 1.15,
       };
     case 'north-south-side':
-      // Doğan Avcıoğlu güney: bordür boyunca kiremit bant ~1.3 m, duvara kadar gri + kılavuz
+      // Doğan Avcıoğlu güney (Mertkent kuzeyi): bordür boyunca kiremit-kahve bant ~1.3 m (Street View zemin
+      // kareleri), sonra duvara kadar gri + sarı kılavuz
       return {
-        bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }],
-        tactile: [(KERB_W + W) / 2, 0.4],
+        bands: [
+          { v0: KERB_W, v1: 1.45, key: 'spPaverRed', h },
+          { v0: 1.45, v1: W, key: 'spPaverGrey', h },
+        ],
+        tactile: [Math.max(1.85, (1.45 + W) / 2), 0.4],
       };
     case 'ne-island':
       return { bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }], tactile: [(KERB_W + W) / 2, 0.4] };
@@ -111,7 +117,7 @@ function layoutOf(sw: {
       // Cavit Orhan doğu: yol kotunda kiremit park cebi 1.5 m, iç bordür (0.12), gri 2.7 m, kılavuz duvardan ~1.95 m
       return {
         bands: [
-          { v0: 0, v1: 1.5, key: 'spPaverGrey', h: 0.03 },
+          { v0: 0, v1: 1.5, key: 'spPaverRed', h: 0.03 },
           { v0: 1.62, v1: W, key: 'spPaverGrey', h: 0.12 },
         ],
         kerbs: [[1.5, 0.12]],

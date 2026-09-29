@@ -417,7 +417,7 @@ function materials(base: string): Record<string, THREE.Material> {
     // Site içi kemik kilit taşı (kullanıcı fotoğrafları): gri + kırmızı bant/meydan
     spSiteGrey: boneMat(['#9d968e', '#a69f96', '#928b83', '#aca49b', '#978f86'], 41, -5),
     spSiteRed: boneMat(['#a06d5f', '#aa7767', '#955f53', '#a87263'], 42, -5),
-    spPaverRed: paverMat(['#bfae9f', '#c8b7a8', '#b5a496', '#c4b3a4'], 22, -5),
+    spPaverRed: paverMat(['#938882', '#9b908a', '#8b807a', '#968b85', '#877c76'], 22, -5),
     spRubberRed: std({
       color: 0x7e4a3f,
       roughness: 0.95,
@@ -477,7 +477,7 @@ function materials(base: string): Record<string, THREE.Material> {
     spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
     // Bisiklet şeridi (kullanıcı fotoğrafı, 502. Sk.): mat mavi asfalt boyası
     spBike: std({
-      color: 0x3a5c80,
+      color: 0x56758f,
       roughness: 0.9,
       polygonOffset: true,
       polygonOffsetFactor: -6,

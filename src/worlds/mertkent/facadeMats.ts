@@ -491,7 +491,7 @@ export function tactileTextures(): { map: THREE.Texture; normalMap: THREE.Textur
   const img = g.createImageData(S, S);
   const nimg = ng.createImageData(S, S);
   const mott = valueNoise(S, 5, r);
-  const base = hexRgb('#ad8744');
+  const base = hexRgb('#a8894a');
   const RIBS = 6;
   const pitch = (S - 16) / RIBS; // karo kenarında 8 px boşluk
   for (let y = 0; y < S; y++)

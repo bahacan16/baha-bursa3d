@@ -30,6 +30,10 @@ const FOG: Record<Settings['quality'], [number, number]> = {
   high: [900, 26000],
 };
 
+/** Ortam haritası şehir silueti bandı parlaklık çarpanı (?skyline=, 0 = kapalı) */
+const SKYLINE = Number(
+  new URLSearchParams(typeof location !== 'undefined' ? location.search : '').get('skyline') ?? 1.4,
+);
 /** Ortam haritası zemin parlaklığı (?envg=) */
 const ENV_GROUND = Number(
   new URLSearchParams(typeof location !== 'undefined' ? location.search : '').get('envg') ?? 4,
@@ -146,6 +150,7 @@ export class Game {
   }
 
   private envGround: THREE.Mesh | null = null;
+  private envSkyline: THREE.Mesh | null = null;
   private backdropSun = new THREE.DirectionalLight(0xffffff, 2);
   private backdropHemi = new THREE.HemisphereLight(0xcfe3ff, 0x5a5448, 1);
 
@@ -196,10 +201,27 @@ export class Game {
     (this.envGround.material as THREE.MeshBasicMaterial).color
       .setRGB(0.58, 0.57, 0.54)
       .multiplyScalar(ENV_GROUND * d.sunIntensity * (1 - d.night));
+    // KARAR: şehir silueti — ufuktan ~14°'ye kadar sıcak gri bant (çevre binalar). Gök yalnız üstten görünür;
+    // gölgede kalan zemin/cephe gökyüzünün mavisini değil binalardan seken nötr ışığı alır (Street View'da
+    // gölgeler nötr gri; önceden belirgin mavi çıkıyordu). ?skyline=0 kapatır.
+    if (!this.envSkyline && SKYLINE > 0) {
+      this.envSkyline = new THREE.Mesh(
+        new THREE.CylinderGeometry(50000, 50000, 12500, 48, 1, true).translate(0, 12500 / 2 - 40, 0),
+        new THREE.MeshBasicMaterial({ fog: false, side: THREE.DoubleSide }),
+      );
+      this.backdrop.add(this.envSkyline);
+    }
+    if (this.envSkyline) {
+      (this.envSkyline.material as THREE.MeshBasicMaterial).color
+        .setRGB(0.62, 0.6, 0.56)
+        .multiplyScalar(SKYLINE * ENV_GROUND * d.sunIntensity * (1 - d.night) + 0.02);
+      this.envSkyline.visible = true;
+    }
     this.envGround.visible = true;
     const old = this.envRT;
     this.envRT = this.pmrem.fromScene(this.backdrop, 0, 1, 100000);
     this.envGround.visible = false;
+    if (this.envSkyline) this.envSkyline.visible = false;
     if (u.showSunDisc) u.showSunDisc.value = disc;
     old?.dispose();
     if (far) far.visible = farVis;

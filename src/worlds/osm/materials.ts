@@ -54,11 +54,11 @@ function nilueferSidewalk(): THREE.CanvasTexture {
     const s = 0.4 * PPM;
     g.fillStyle = '#9a773a';
     g.fillRect(x0, y, s, s);
-    g.fillStyle = '#bf9444';
+    g.fillStyle = '#a8894a';
     g.fillRect(x0 + 2, y + 2, s - 4, s - 4);
     for (let k = 0; k < 6; k++) {
       const cx = x0 + 6 + ((s - 12) * (k + 0.5)) / 6;
-      g.fillStyle = '#d2a652';
+      g.fillStyle = '#b89656';
       g.fillRect(cx - 3.5, y + 8, 7, s - 16);
       g.fillStyle = '#8f6d33';
       g.fillRect(cx + 3.5, y + 8, 1.5, s - 16);
