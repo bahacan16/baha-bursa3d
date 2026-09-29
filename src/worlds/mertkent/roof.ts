@@ -36,8 +36,11 @@ export interface UnionRoofOptions {
   gableKeys?: Record<number, string>;
   /** Alınlık duvarının alt kotu (verilmezse y − 0.05): cephe duvarının üstünden kesintisiz başlasın */
   gableBase?: number;
-  /** Alınlık duvarında boşluklar (çatı arası pencereleri): taban izi kenarı, dünya uçları a→e, kot aralığı */
-  holes?: { edge: number; a: V2; e: V2; y0: number; y1: number }[];
+  /**
+   * Alınlık duvarında boşluklar (çatı arası pencereleri): taban izi kenarı, dünya uçları a→e, kot aralığı; v7 round →
+   * kutunun içine elips (yuvarlak pencere)
+   */
+  holes?: { edge: number; a: V2; e: V2; y0: number; y1: number; round?: boolean }[];
 }
 
 type P2 = [number, number];
@@ -473,12 +476,22 @@ export function unionRoof(b: Builder, ring: V2[], y: number, o: UnionRoofOptions
           return yb;
         };
         if (h.y1 > Math.min(pAt(lo), pAt(hi)) - 0.03) continue;
-        holes.push([
-          [lo, h.y0],
-          [lo, h.y1],
-          [hi, h.y1],
-          [hi, h.y0],
-        ]);
+        if (h.round) {
+          const cx = (lo + hi) / 2;
+          const cy = (h.y0 + h.y1) / 2;
+          holes.push(
+            Array.from({ length: 24 }, (_, q) => {
+              const t = (-q / 24) * Math.PI * 2;
+              return [cx + (Math.cos(t) * (hi - lo)) / 2, cy + (Math.sin(t) * (h.y1 - h.y0)) / 2] as P2;
+            }),
+          );
+        } else
+          holes.push([
+            [lo, h.y0],
+            [lo, h.y1],
+            [hi, h.y1],
+            [hi, h.y0],
+          ]);
       }
       const tris = THREE.ShapeUtils.triangulateShape(
         shape.map((p) => new THREE.Vector2(p[0], p[1])),

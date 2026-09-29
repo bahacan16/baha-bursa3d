@@ -59,6 +59,84 @@ export class Builder {
     this.pushAux(b, 4, aux);
   }
 
+  /** v7: köşe başına UV'li dörtgen (p3 = p2 → üçgen); normal (p1−p0)×(p3−p0) */
+  quadUV(key: string, p: [V3, V3, V3, V3], uv: [V2, V2, V2, V2], aux?: V4): void {
+    const b = this.bucket(key);
+    const o = b.pos.length / 3;
+    const [p0, p1, p2] = p;
+    const ax = p1[0] - p0[0];
+    const ay = p1[1] - p0[1];
+    const az = p1[2] - p0[2];
+    const bx = p2[0] - p0[0];
+    const by = p2[1] - p0[1];
+    const bz = p2[2] - p0[2];
+    let nx = ay * bz - az * by;
+    let ny = az * bx - ax * bz;
+    let nz = ax * by - ay * bx;
+    const l = Math.hypot(nx, ny, nz) || 1;
+    nx /= l;
+    ny /= l;
+    nz /= l;
+    for (const q of p) b.pos.push(q[0], q[1], q[2]);
+    for (let k = 0; k < 4; k++) b.nor.push(nx, ny, nz);
+    for (const q of uv) b.uv.push(q[0], q[1]);
+    b.idx.push(o, o + 1, o + 2, o, o + 2, o + 3);
+    this.pushAux(b, 4, aux);
+  }
+
+  /**
+   * v7: kovadaki tüm üçgenleri başka kovaya taşır; UV'ler `uvMap` ile dönüştürülür, köşe başına `aux` yazılır
+   * (tabela atlası: tabela başına kova → atlas sayfası kovası, UV → sayfadaki dikdörtgen).
+   */
+  moveBucket(from: string, to: string, uvMap: (u: number, v: number) => [number, number], aux?: V4): boolean {
+    const src = this.buckets.get(from);
+    if (!src || !src.idx.length) return false;
+    const dst = this.bucket(to);
+    const o = dst.pos.length / 3;
+    const n = src.pos.length / 3;
+    dst.pos.push(...src.pos);
+    dst.nor.push(...src.nor);
+    for (let k = 0; k < n; k++) {
+      const [u, v] = uvMap(src.uv[k * 2], src.uv[k * 2 + 1]);
+      dst.uv.push(u, v);
+    }
+    for (const i of src.idx) dst.idx.push(o + i);
+    this.pushAux(dst, n, aux);
+    this.buckets.delete(from);
+    return true;
+  }
+
+  /** v7: kullanılan kova anahtarları (atlas / örnekleme için) */
+  keys(): string[] {
+    return [...this.buckets.keys()];
+  }
+
+  /**
+   * v7: örneklenen (instanced) nesne: `proto` bir kez yerel koordinatta kurulur (kendi Builder'ı, kova başına
+   * geometri), her çağrı bir dünya matrisi (+ isteğe bağlı örnek rengi: yalnız `inst*` renkli kovalara) ekler. build()
+   * kova başına bir InstancedMesh üretir — yüzlerce masa / sandalye / şemsiye tek çizim çağrısı ve tek geometri.
+   */
+  instance(protoId: string, proto: (pb: Builder) => void, m: THREE.Matrix4, color?: string | null): void {
+    let e = this.protos.get(protoId);
+    if (!e) {
+      const pb = new Builder();
+      proto(pb);
+      e = { pb, mats: [], cols: [] };
+      this.protos.set(protoId, e);
+    }
+    e.mats.push(m.clone());
+    e.cols.push(color ?? null);
+  }
+
+  private protos = new Map<string, { pb: Builder; mats: THREE.Matrix4[]; cols: (string | null)[] }>();
+
+  /** Örnek sayıları (test / hata ayıklama): proto → adet */
+  instanceCounts(): Record<string, number> {
+    const o: Record<string, number> = {};
+    for (const [k, e] of this.protos) o[k] = e.mats.length;
+    return o;
+  }
+
   /** Dikey dikdörtgen yüz: a→e yatay (x,z), y0..y1; dışa bakan yön (a→e) × yukarı sağ taraf. */
   wall(
     key: string,
@@ -355,6 +433,33 @@ export class Builder {
       // Düz cam yüzeylerde gölge sivilcesi (acne) olmasın diye bazı malzemeler gölge almaz
       m.receiveShadow = shadows && !mat.userData.noReceive;
       group.add(m);
+    }
+    // v7: örneklenen nesneler (kova başına bir InstancedMesh; `inst*` kovalarında örnek rengi)
+    for (const [id, e] of this.protos) {
+      if (!e.mats.length) continue;
+      for (const [key, pbk] of e.pb.buckets) {
+        if (!pbk.idx.length) continue;
+        const mat = materials[key];
+        if (!mat) throw new Error(`malzeme yok: ${key}`);
+        const g = new THREE.BufferGeometry();
+        g.setAttribute('position', new THREE.Float32BufferAttribute(pbk.pos, 3));
+        g.setAttribute('normal', new THREE.Float32BufferAttribute(pbk.nor, 3));
+        g.setAttribute('uv', new THREE.Float32BufferAttribute(pbk.uv, 2));
+        g.setIndex(pbk.idx);
+        g.computeBoundingSphere();
+        const im = new THREE.InstancedMesh(g, mat, e.mats.length);
+        e.mats.forEach((mm, k) => im.setMatrixAt(k, mm));
+        if (key.startsWith('inst')) {
+          const c = new THREE.Color();
+          e.cols.forEach((hex, k) => im.setColorAt(k, c.set(hex ?? '#ffffff')));
+        }
+        im.computeBoundingSphere();
+        // KARAR: "mertkent " önekli değil → ışık pişirme kaynağı sayılmaz (örnek geometrisi yerel koordinatta)
+        im.name = `mertkent-inst ${id}:${key}`;
+        im.castShadow = shadows && !mat.userData.noCast;
+        im.receiveShadow = shadows && !mat.userData.noReceive;
+        group.add(im);
+      }
     }
   }
 }
