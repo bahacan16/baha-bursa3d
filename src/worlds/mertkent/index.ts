@@ -385,21 +385,21 @@ function materials(base: string): Record<string, THREE.Material> {
     }),
     siteKerb: std({ color: 0x8c8984, roughness: 0.85 }),
     glassFrost: std({
-      color: 0xc9dcd6,
-      roughness: 0.25,
+      color: 0xb4d2c8,
+      roughness: 0.2,
       metalness: 0,
       transparent: true,
-      opacity: 0.55,
+      opacity: 0.42,
       side: DS,
       depthWrite: false,
     }),
     rubberTile: (() => {
       if (typeof document === 'undefined') return std({ color: 0x3b3035 });
-      const t = paverTextures(['#3e3035', '#44363a', '#392d31', '#403236'], {
+      const t = paverTextures(['#6a4f4b', '#735651', '#634946', '#6e524d'], {
         pw: 0.5,
         ph: 0.5,
         seed: 45,
-        joint: '#211a1c',
+        joint: '#2a1e1c',
       });
       const map = t.map.clone();
       const nm = t.normalMap.clone();
@@ -408,14 +408,14 @@ function materials(base: string): Record<string, THREE.Material> {
       return std({
         map,
         normalMap: nm,
-        roughness: 0.75,
+        roughness: 0.93,
         polygonOffset: true,
         polygonOffsetFactor: -6,
         polygonOffsetUnits: -6,
       });
     })(),
     // Site içi kemik kilit taşı (kullanıcı fotoğrafları): gri + kırmızı bant/meydan
-    spSiteGrey: boneMat(['#9a958f', '#a39e98', '#8f8a85', '#aaa59f', '#948f89'], 41, -5),
+    spSiteGrey: boneMat(['#9d968e', '#a69f96', '#928b83', '#aca49b', '#978f86'], 41, -5),
     spSiteRed: boneMat(['#a06d5f', '#aa7767', '#955f53', '#a87263'], 42, -5),
     spPaverRed: paverMat(['#bfae9f', '#c8b7a8', '#b5a496', '#c4b3a4'], 22, -5),
     spRubberRed: std({
@@ -627,7 +627,7 @@ function materials(base: string): Record<string, THREE.Material> {
     }),
     line: std({ color: 0xf2f2ee, roughness: 0.6 }),
     deck: std({ map: T.travertineTexture(), roughness: 0.7 }),
-    deckSide: std({ map: T.travertineTexture(), roughness: 0.7, color: 0xd9d4ca }),
+    deckSide: std({ map: T.travertineTexture(), roughness: 0.7, color: 0xd8c0a0 }),
     coping: std({ color: 0xf1efe9, roughness: 0.5 }),
     poolTile: std({ map: T.mosaicTexture('#6fc3dc', '#5ab2cf'), roughness: 0.3 }),
     poolBand: std({ map: T.mosaicTexture('#1f5f8c', '#184f78'), roughness: 0.3 }),
