@@ -321,7 +321,7 @@
   Riva (güney girinti yeni ayak izine göre yeniden eşlendi: arka duvar kolonları, kırmızı kaplama, mavi giydirme cam,
   kanopi, "C" rozeti; loca kirişleri; K5 teras köprüsü). `scripts/sv-extra.json`: 1777 kenar 7 ortofoto girdisi.
   **Blender:** bu 5 blok yeniden kurulmalı.
-- **(bu commit)** — Pişirilmiş dolaylı ışık hattı (Ultra; ayrıntı `docs/BAKE.md`). Dışa aktarma
+- **(pişirme hattı, WIP 71e108a…c3f+)** — Pişirilmiş dolaylı ışık hattı (Ultra; ayrıntı `docs/BAKE.md`). Dışa aktarma
   `scripts/bake-export.mjs`: başsız oyundan (`?debug=1&bakeexport=1`, kanca `src/worlds/mertkent/bakeexport.ts`)
   el modeli meshleri dünya koordinatında 100 m (CI'da 50 m) parçalar hâlinde `bake-work/src/chunk_<cx>_<cz>.glb`
   (mesh adı = malzeme anahtarı; `TEXCOORD_1` = ışık haritası uv'si, `src/worlds/mertkent/lightmap.ts` deterministik
