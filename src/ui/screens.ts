@@ -1,8 +1,6 @@
-import { clearApiKey, loadApiKey, saveApiKey, saveSettings, type Settings } from '../core/settings';
+import { saveSettings, type Settings } from '../core/settings';
 
 export type Mode = 'osm' | 'google';
-
-const README_KEY_URL = 'https://github.com/bahacan16/baha-bursa3d#mod-a-google-api-anahtar%C4%B1';
 
 function esc(s: string): string {
   return s.replace(
@@ -11,7 +9,11 @@ function esc(s: string): string {
   );
 }
 
-/** Başlangıç ekranı: mod seçimi, API anahtarı, kalite, kontrol kılavuzu. */
+/**
+ * Başlangıç ekranı: başlık, kalite, kontrol kılavuzu, "Başla".
+ * KARAR: Mod A (Google 3D) seçimi ve API anahtarı kutusu kullanıcı isteğiyle kaldırıldı — oyun artık el ile
+ * modellenmiş Mod B dünyası. Google modu kodda duruyor; yalnız ?mode=a ile (tarayıcıda kayıtlı anahtarla) açılır.
+ */
 export function showStartScreen(
   parent: HTMLElement,
   settings: Settings,
@@ -21,41 +23,14 @@ export function showStartScreen(
     el.className = 'screen';
     el.dataset.testid = 'start-screen';
     parent.appendChild(el);
-    let key = loadApiKey();
 
     const render = () => {
-      const hasKey = key.length > 10;
       const q = settings.quality;
       el.innerHTML = `<div class="screen-inner">
         <h1 class="title">Nilüfer <span>Walk</span></h1>
-        <p class="subtitle">Bursa · Nilüfer · 29 Ekim Mahallesi · 502. Sokak çevresinde 2 km'lik alanda üçüncü şahıs yürüyüş.
-        Binalar, yollar ve ağaçlar gerçek 3D geometri.</p>
-        <div class="modes">
-          <button class="mode-card" data-mode="osm" data-testid="mode-osm">
-            <span class="tag">Varsayılan · anahtar gerekmez</span>
-            <h3>Mod B — Oyun (OpenStreetMap 3D)</h3>
-            <p>Temiz, oyun gibi görünüm. Bina şekilleri ve kat yükseklikleri OpenStreetMap'ten, cepheler prosedürel.</p>
-            <div class="play">Oyna ▸</div>
-          </button>
-          <button class="mode-card" data-mode="google" data-testid="mode-google" ${hasKey ? '' : 'disabled'}>
-            <span class="tag">${hasKey ? 'Anahtar kayıtlı' : 'Google API anahtarı gerekir'}</span>
-            <h3>Mod A — Gerçekçi (Google 3D)</h3>
-            <p>Google Photorealistic 3D Tiles: fotoğraf dokulu gerçek şehir modeli. Uzaktan çok gerçekçi, yakından "erimiş" görünebilir.
-            ${hasKey ? '' : '<br/><strong>Aşağıya Map Tiles API anahtarını gir.</strong>'}</p>
-            <div class="play">${hasKey ? 'Oyna ▸' : 'Pasif'}</div>
-          </button>
-        </div>
-        <div class="panel">
-          <h4>Google Maps API anahtarı (Mod A için)</h4>
-          <div class="row">
-            <input class="field" type="password" autocomplete="off" spellcheck="false" placeholder="AIza…" value="${esc(key)}" data-key />
-            <button class="btn" data-act="show">Göster</button>
-            <button class="btn primary" data-act="save">Kaydet</button>
-            <button class="btn" data-act="clear">Sil</button>
-          </div>
-          <p class="note">Anahtar yalnızca bu tarayıcıda (localStorage) saklanır, hiçbir yere gönderilmez (Google dışında).
-          <a href="${README_KEY_URL}" target="_blank" rel="noopener">Nasıl alınır?</a></p>
-        </div>
+        <p class="subtitle">Bursa · Nilüfer · 29 Ekim Mahallesi. Mertkent 2 ve çevresi gerçek ölçülerle modellendi;
+        2 km'lik alanda üçüncü şahıs yürüyüş.</p>
+        <button class="btn primary start-btn" data-testid="mode-osm">Başla ▸</button>
         <div class="panel">
           <h4>Grafik kalitesi</h4>
           <div class="seg" data-seg="quality">
@@ -77,6 +52,7 @@ export function showStartScreen(
             <span><kbd>Space</kbd></span><span>Zıpla</span>
             <span><kbd>V</kbd></span><span>1. / 3. şahıs kamera</span>
             <span><kbd>M</kbd> <kbd>T</kbd></span><span>Harita · Işınlanma menüsü</span>
+            <span><kbd>P</kbd></span><span>Fotoğraf modu</span>
             <span><kbd>Esc</kbd> <kbd>H</kbd></span><span>Duraklat/ayarlar · HUD aç/kapa</span>
             <span><kbd>Ctrl</kbd></span><span>Hayalet adım (çarpışmasız 1 m, sıkışınca)</span>
             <span>📱</span><span>Sol yarı: joystick (sona kadar it = koş) · sağ yarı: kamera · butonlar sağ altta</span>
@@ -84,20 +60,6 @@ export function showStartScreen(
         </div>
         <p class="note">Harita verisi © OpenStreetMap katkıcıları (ODbL). İnsan modelleri: three.js örnekleri (Ready Player Me, Mixamo).</p>
       </div>`;
-      const input = el.querySelector<HTMLInputElement>('[data-key]')!;
-      el.querySelector('[data-act="show"]')!.addEventListener('click', () => {
-        input.type = input.type === 'password' ? 'text' : 'password';
-      });
-      el.querySelector('[data-act="save"]')!.addEventListener('click', () => {
-        key = input.value.trim();
-        saveApiKey(key);
-        render();
-      });
-      el.querySelector('[data-act="clear"]')!.addEventListener('click', () => {
-        key = '';
-        clearApiKey();
-        render();
-      });
       el.querySelectorAll<HTMLButtonElement>('[data-seg="quality"] button').forEach((b) =>
         b.addEventListener('click', () => {
           settings.quality = b.dataset.v as Settings['quality'];
@@ -105,18 +67,10 @@ export function showStartScreen(
           render();
         }),
       );
-      el.querySelectorAll<HTMLButtonElement>('.mode-card').forEach((b) =>
-        b.addEventListener('click', () => {
-          if (b.disabled) return;
-          const typed = input.value.trim();
-          if (typed && typed !== key) {
-            key = typed;
-            saveApiKey(key);
-          }
-          el.remove();
-          resolve({ mode: b.dataset.mode as Mode, key });
-        }),
-      );
+      el.querySelector('[data-testid="mode-osm"]')!.addEventListener('click', () => {
+        el.remove();
+        resolve({ mode: 'osm', key: '' });
+      });
     };
     render();
   });
