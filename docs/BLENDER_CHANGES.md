@@ -480,3 +480,9 @@
   parçada tek kavis `arc`+`bulge` 0.55 + kavisli parapet, 0.9 m saçak, K7'ye uzanan girinti, mavi perdeler),
   1541439436 (terrakota perdeler), 1541439437 (çatı köşkü tonoz çatı, iki balkon yığını tek dışbükey kavis, K3 bayrak
   `banner`, kat kat perdeler). **Blender:** bu 6 blok yeniden kurulmalı.
+- **(v6 dönüşüm 2)** — 1550614218 MOSSA (B4 klima doğuda, VEFALI tentesi tüm bölme 1.1 m + oval tabela, iki beyaz
+  dome kamera, batı locaların sürgülü kapıları kat kat `behind`, kanat saçak üstü 18.85 + 0.5 alın, `plinthH 0`
+  sanal subasman bandının vitrinleri örtme hatası giderildi, havada kapı kaldırıldı, lobi cam kapısı mullion'lardan),
+  1546816193 (`plinthH 0`), 900000105 (bay kahve kaplama dikey derz 0.14, K3 loca arka açıklıkları), 900000106
+  (LINENS oval tabelalar, KUDRET K+R monogram 3D altın harf, kahve kaplama derzleri, LINENS kapı üstü cam).
+  **Blender:** bu 4 blok yeniden kurulmalı.
