@@ -311,7 +311,9 @@ export class Game {
     const sv = this.sky.sky.visible;
     this.sky.sky.visible = true;
     this.sky.sky.position.set(0, 0, 0);
-    h.align(d.azimuth, d.sunDir, (dirs) => measureSky(this.renderer, this.backdrop, dirs, new THREE.Vector3()));
+    h.align(d.azimuth, d.sunDir, (dirs) =>
+      measureSky(this.renderer, this.backdrop, dirs, new THREE.Vector3()),
+    );
     this.sky.sky.visible = sv;
     hide.forEach((o, i) => (o.visible = vis[i]));
     // HDRI tek bir öğle göğü: güneş yüksekliği HDRI'dekinden çok farklıysa (sabah, gün batımı, gece) prosedürel gök

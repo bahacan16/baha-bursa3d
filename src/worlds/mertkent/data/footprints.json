@@ -2075,68 +2075,106 @@
  "1540901798": {
   "ring": [
    [
-    -165.61,
-    -196.95
+    -164.67,
+    -202.85
    ],
    [
-    -166.21,
-    -172.07
+    -165.41,
+    -172.32
    ],
    [
-    -162.5,
-    -171.98
+    -161.7,
+    -172.23
    ],
    [
-    -162.54,
-    -170.64
+    -161.74,
+    -170.89
    ],
    [
-    -150.38,
-    -170.35
+    -149.58,
+    -170.6
    ],
    [
-    -150.35,
-    -171.74
+    -149.56,
+    -171.71
    ],
    [
-    -145.86,
-    -171.63
+    -147.69,
+    -171.67
    ],
    [
-    -145.26,
-    -196.27
+    -147.6,
+    -175.39
    ],
    [
-    -149.46,
-    -196.37
+    -146.3,
+    -175.35
    ],
    [
-    -149.43,
-    -197.57
+    -146.21,
+    -179.13
    ],
    [
-    -161.83,
-    -197.87
+    -145.01,
+    -179.1
    ],
    [
-    -161.85,
-    -196.86
+    -144.65,
+    -193.98
+   ],
+   [
+    -145.85,
+    -194.01
+   ],
+   [
+    -145.76,
+    -197.75
+   ],
+   [
+    -147.06,
+    -197.78
+   ],
+   [
+    -146.97,
+    -201.7
+   ],
+   [
+    -148.53,
+    -201.74
+   ],
+   [
+    -148.52,
+    -202.08
+   ],
+   [
+    -160.92,
+    -202.38
+   ],
+   [
+    -160.92,
+    -202.76
    ]
   ],
   "shift": [
-   1.73,
-   -1.26
+   0,
+   0
   ],
   "scale": [
    1,
    1
   ],
   "axis": [
-   -0.9997,
-   -0.0242
+   -0.0242,
+   0.9997
   ],
   "manual": true,
-  "note": "Kuzey uç 5.65 m güneye alındı: doğu cephe 24.6 m (iki panoda aynı ölçek) ve hava fotoğrafında taban z≈−171…−196; doğu/batı x değişmedi (güçlü eğim, taban çit arkasında)."
+  "storeys": 10,
+  "leanUsed": [
+   -2.9,
+   -9.4
+  ],
+  "reversed": false,
+  "note": "FP-v4 (2026-09-29): 12 → 20 köşe (bu bina için izinli istisna: doğu cephe basamaklı). Önceki not (\"kuzey uç 5.65 m güneye alındı; doğu cephe 24.6 m\") yanlıştı: 24.6 m, ortofotoda ana düzlemin 2.5 m gerisindeki köşe kulelerinin GÖRÜNEN açıklığıydı (görünen kat aralığı oranı 2.382/2.891) — gerçek doğu cephe 30.05 m, kuzey uç geri alındı. Doğu cephe (kenar 5–16), Street View üçgenlemesi (ev6x, lyr3, __by, 0Pe2 köşe azimutları; üç ışınlı köşelerde artık ≤0.04 m): güneyden kuzeye GD kule 3.72 / G bant 3.78 / ana düzlem 14.88 / K bant 3.74 / KD kule 3.92 m; bantlar kulelerin 1.30 m, ana düzlem 2.50 m önünde (ortolardaki kat aralığı oranları 1.28 / 2.49 ile tutarlı), göreli ±0.1 m. GD kule güney yüzü (kenar 5) OSM'nin 0.28 m güneyinde (SV). Güney orta çıkıntı duvarı (3) OSM çizgisinde: __by 315_31 ve Rylq 329_21'de balkonların doğu yan yüzünün duvar ucu bu çizgiye ±0.1 m oturuyor. Kuzey orta çıkıntı duvarı (17) KD kule yüzünün yalnız 0.34 m kuzeyinde (0Pe2 250_40: balkonların doğu yan camı z −201.8…−203.2); OSM'nin kuzey çizgisi balkon önüymüş. KD köşenin (15) düşey izi hava fotoğrafındaki silüete oturuyor. Batı cephe (0), GB kule (1–2) ve KB kule kuzey yüzü (18–19) Street View'de görülmedi; z21 hava fotoğrafı x>−160'ta bittiği için orada da yok — OSM şekli korunup binayla birlikte ötelendi (±1 m, doğrulanmadı). Mutlak konum: Street View GPS çerçevesi hava fotoğrafına göre (+0.8, −0.25) m ötelendi (KD köşe düşey izi, GD kule pencere ve beyaz şerit izleri, çit hattı) — ±0.3 m. Eğim (batı z21 karo, bu binada ölçüldü): (−0.095, −0.308) m/m — KD kule köşesinin düşey izi (yön) + güney balkon şeritlerinin hava fotoğrafındaki aralığı 0.89 m / 2.9 m kat (0.307); leanUsed 30.6 m çatı kotu için. 10 kat (K0–K9). OSM köşe sırası ve sarma korundu (negatif alan, ters çevrilmedi). Cephe anketi yeni kenar numaralarına eşlendi (survey/1540901798.json FP-v4 notu); sv-extra girdileri lock."
  },
  "1541439435": {
   "ring": [
