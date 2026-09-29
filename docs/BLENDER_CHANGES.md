@@ -486,3 +486,11 @@
   1546816193 (`plinthH 0`), 900000105 (bay kahve kaplama dikey derz 0.14, K3 loca arka açıklıkları), 900000106
   (LINENS oval tabelalar, KUDRET K+R monogram 3D altın harf, kahve kaplama derzleri, LINENS kapı üstü cam).
   **Blender:** bu 4 blok yeniden kurulmalı.
+- **(yan sokak z≈−53 + direk boyları)** — Kavşak yanındaki yan sokak duvardan duvara **8.0 ± 0.3 m** (planda 6.5):
+  güney duvar 1.7–1.9 m güneye, nokta sırası ters çevrildi (duvar ve çit yola çiziliyordu); duvar 0.8 m taş + 0.12
+  harpuşta, koyu yeşil 2D tel 0.8–1.4 m, leylandi 3.9 m, 5 fenerli kolon; kuzey duvar kemer aralığı ölçülü 5.6 m,
+  kemer 0.5, duvar 1.6; yeni `da3-fence-side-ne` düz duvar; bordürsüz kenar şeritleri (sahte kaldırım yok);
+  rögar/ızgara/kasis. Direk boyları Street View ufuk yöntemiyle ölçüldü: Doğan Avcıoğlu lambaları 9 → 11.6–12.4 m,
+  kavşak lambaları 12 → 10.5, kavşak kamera 10 → 9.0, trafik ışıkları 4.0 → 3.5; levhalar direkleriyle; da1 lambaları
+  bordürden 1.5 m içeri. `da3-fence-east-site` nokta sırası ters çevrildi (aynı yön hatası: duvar + 2.3 m çit Doğan
+  Avcıoğlu'na çiziliyordu). **Blender:** kavşak doğusu + yan sokak çit/duvar katmanı ve sokak lambaları yeniden kurulmalı.
