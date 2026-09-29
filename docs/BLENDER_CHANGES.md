@@ -155,7 +155,7 @@
     → `da2-no-52`.
   - Çit korkuluğu: tanımdaki "4 sıra yatay gri çelik boru" artık yatay borular (önceden dikey çubuk dokusu).
     Dosya: `fenceGeneric.ts` (`infDesc`). **Blender:** `NW/Mertkent/Street` — UPTOWN kapısı, pano yönü, çit boruları.
-- **(bu commit)** — 1540901773 taban izi (−0.30, +0.70) m ötelendi (yalnız öteleme; kenar uzunlukları, cephe ölçümü
+- **cd873e5** — 1540901773 taban izi (−0.30, +0.70) m ötelendi (yalnız öteleme; kenar uzunlukları, cephe ölçümü
   aynı): hava fotoğrafında eğim yönü −107.3° ve kat başına ≈1.0 m ölçüldü (balkon döşeme çizgisi periyodu), 9 katlı
   kulede toplam 9.2 birim → (−2.74, −8.78); eski eğim (8.2 birim) kısa kalıyordu. GB duvarın zemin çizgisi doğrudan
   görülüp doğrulandı (±0.25 m). 1540901772 ve 1540901794 kontrol edildi, < 0.3 m → değişmedi. Dosyalar:
