@@ -89,9 +89,9 @@
   { "poly": [[664.25, -99.9], [664.7, -99.9], [664.7, -98.6], [664.25, -98.6]], "y0": 0, "y1": 0.3, "color": "#2f363c", "collide": true, "note": "Teras girişi basamakları (2 basamak, koyu gri); z konumu T1 ışınından (GPS düzeltmeli) ±0.6" }
  ],
  "pending": [
-  { "id": "awning-arm", "what": "Tentenin LEYLA/fasıl birleşimindeki beyaz katlanır kol mafsalı (üçgen, tente üstünde) + tabela kutusu boyunca beyaz dikey çubuk (sign panel olarak çizildi)", "edge0": "u 2.9–3.8, y 3.75–4.4" },
-  { "id": "terrace-plants", "what": "Teras içi ve önü: 6+ pişmiş toprak saksıda (Ø≈0.5, h≈0.45) sarı-yeşil çalılar (taflan), sarı 200 l varil saksı (yaklaşık x 665.3, z −98.4; Ø0.58 h0.88, #d6a21c, siyah etiketli), kahverengi ahşap sandık saksı (terasın güneyinde, Leyla duvarı önü), pergoladan sarkan sarmaşık/çiçekler; önde turuncu-beyaz trafik konileri (geçici)", "colors": { "pot": "#b0724e", "drum": "#d6a21c", "wood": "#7a5436", "plant": "#8a9a3c" } },
-  { "id": "roof-color", "what": "Düz çatı (parapet arkası) hava fotoğrafında açık gri-bej #bfb1a2; roofFlat malzemesi sabit" }
+  { "id": "awning-arm", "what": "Tentenin LEYLA/fasıl birleşimindeki beyaz katlanır kol mafsalı (üçgen, tente üstünde) + tabela kutusu boyunca beyaz dikey çubuk (sign panel olarak çizildi)", "edge0": "u 2.9–3.8, y 3.75–4.4", "v6": "v6: tente kolu / katlanır mafsal öğesi yok." },
+  { "id": "terrace-plants", "what": "Teras içi ve önü: 6+ pişmiş toprak saksıda (Ø≈0.5, h≈0.45) sarı-yeşil çalılar (taflan), sarı 200 l varil saksı (yaklaşık x 665.3, z −98.4; Ø0.58 h0.88, #d6a21c, siyah etiketli), kahverengi ahşap sandık saksı (terasın güneyinde, Leyla duvarı önü), pergoladan sarkan sarmaşık/çiçekler; önde turuncu-beyaz trafik konileri (geçici)", "colors": {"pot": "#b0724e", "drum": "#d6a21c", "wood": "#7a5436", "plant": "#8a9a3c"}, "v6": "v6: balkon dışında saksı / bitki / varil öğesi yok (bal.pots yalnız balkon ve loca üstünde)." },
+  { "id": "roof-color", "what": "Düz çatı (parapet arkası) hava fotoğrafında açık gri-bej #bfb1a2; roofFlat malzemesi sabit", "v6": "v6: blok düz çatı yüzeyi rengi ayarı yok (roofC yalnız volumes’ta; blok düz çatısı sabit malzeme)." }
  ],
  "notes": [
   "Tek katlı fasıl restoranı; tüm cephe koyu gri dikmeler + iki büyük vitrin + çizgili tente + tüm çatı çevresinde siyah tabela kutusu (roof.parapet 1.04 m siyah olarak; güney ve batıda LEYLA fasıl + 0532 764 19 32). Tüm kareler 2025-09.",

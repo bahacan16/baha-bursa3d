@@ -506,3 +506,8 @@
   yeniden ölçüldü, renkler düzeltildi; K3 kırmızı bez, K1 halı; cam yığın korkuluk 1.14 m; ek bina yalnız güney
   korkuluk), 1546358557 ("SATILIK" pankartı, siyah kablo, pilastır başlıkları + K2 denizlik bandı, K2 1.35 m tüp
   korkuluk, K3 harpuşta), 1546358561 (duvar silindirleri, K2 dikey Türk bayrağı). **Blender:** bu 4 blok.
+- **(v6 dönüşüm 4)** — Kavşak köşesi ortak yükseklik referansı düzeltildi: 900000101'de sanal kamera ufku yüzünden
+  kaldırım 1.1–1.4 m yukarıdaydı → 10 ortak özellikle (103 lamelleri, Leyla tabelası…) ölçek 1.104, rms 0.05 m; bina
+  ≈%11 kısaldı (mahya 28.5 → 24.6 m), K0 eşikleri gerçek konuma, eksik vitrin eklendi, saçak bantları kütle
+  parçalarına. 900000102 (Leyla fenerleri, iki tabela paneli ayrı renk), 900000103 (lamel üstü), 303738122 (turkuaz
+  bant kavisli yükselişleri `ribbon`), 303738118 (çatı bacası + iki çanak `roofobj`). **Blender:** bu 5 blok.

@@ -632,7 +632,8 @@
     "fabric": "#5eb4c4",
     "stripe": "#99dfe6",
     "shade_fabric": "#2b778e"
-   }
+   },
+   "v6": "v6: köşeyi saran çeyrek kubbe tente ucu yok (dutch tente yalnız düz kenar boyunca, iki uçta yelpaze kapak)."
   },
   {
    "id": "planter-panels",
@@ -641,17 +642,20 @@
     "panel": "#f0f4f0",
     "holes": "#1c2220",
     "shrub": "#9aa13c"
-   }
+   },
+   "v6": "v6: delikli (yarım ton) desenli pano ve alacalı çalı öğesi yok; kutular proj (düz beyaz) olarak çizili."
   },
   {
    "id": "entrance-steps",
    "what": "Ön cephede kuzey saksı grubunun güney yarısı önünde beyaz basamak bloğu (iki kademeli beyaz kutu, toplam ~0.4 m yüksek, ~1.2 m geniş, saksı hattının ~0.5–1 m önünde); kr3oP ortofotosunda u_app 1.5–3.0 (ep’de ≈0.4–1.9)",
-   "color": "#f0f4f0"
+   "color": "#f0f4f0",
+   "v6": "Yalnız kr3oP ortofotosunda (ep’de minibüs arkasında); cepheden uzaklığı (saksı hattının ~0.5–1 m önü) ve derinliği yandan görülmedi → hacim/basamak olarak çizmek tahmin."
   },
   {
    "id": "blue-post",
    "what": "Girişin kuzey yanında koyu mavi dikme/pano (~0.3 m geniş, ~1.0 m yüksek), saksı sırasının bittiği yerde; ep u_app ≈1.98–2.28 (kr3oP’den aktarıldı)",
-   "color": "#1d3f7a"
+   "color": "#1d3f7a",
+   "v6": "Yalnız kr3oP’de; derinliği / cepheden uzaklığı görülmedi → proj/hacim olarak çizmek tahmin."
   },
   {
    "id": "nw-pot",
@@ -659,16 +663,19 @@
    "colors": {
     "pot": "#b0724e",
     "plant": "#7d7a3a"
-   }
+   },
+   "v6": "v6: cephe önünde saksı / ağaççık öğesi yok."
   },
   {
    "id": "north-yard",
-   "what": "Binanın KB köşesinin kuzeyinde (taban izi dışında, ağacın altında, kr3oP 103° karesi): doğuya uzanan ~1 m yüksek beyaz alçak duvar, önünde beyaz küp (~0.5 m, kutu/pano), 3 pişmiş toprak saksıda kuru çalı, büyük yeşil çalı; konumlar yalnız tek kareden, ±1 m"
+   "what": "Binanın KB köşesinin kuzeyinde (taban izi dışında, ağacın altında, kr3oP 103° karesi): doğuya uzanan ~1 m yüksek beyaz alçak duvar, önünde beyaz küp (~0.5 m, kutu/pano), 3 pişmiş toprak saksıda kuru çalı, büyük yeşil çalı; konumlar yalnız tek kareden, ±1 m",
+   "v6": "Taban izi dışı avlu öğeleri, tek kareden ±1 m → sokak/site planı konusu."
   },
   {
    "id": "south-white-wedge",
    "what": "Güney cephede, üst pano bitimi (u_gerçek 6.2) doğusunda ana bandın üstünde beyaz yüzey; üst kenarı doğuya doğru yükseliyor: lI’de u_gerçek 6.2’de 4.50 m → 9.8’de ≈4.9 m → 11.1’de ≈5.1 m (bant düzleminde varsayılarak). T1qi7 (sıyırma açısı) karesinde görünmüyor → bant düzleminin kuzeyinde (arkasında) olabilir: eğimli çatı yüzeyi/arka parapet ya da trapez tabela üstü — niteliği belirlenemedi. Hava fotoğrafında çatının x≈667.7’de beyaz K–G çizgisi var.",
-   "color": "#dfe9ef"
+   "color": "#dfe9ef",
+   "v6": "Niteliği (eğik çatı yüzü mü, arka parapet mi, trapez tabela mı) belirlenemedi → çizmek tahmin."
   }
  ],
  "volumes": [
