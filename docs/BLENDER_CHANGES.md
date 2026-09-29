@@ -360,7 +360,10 @@
   ağaç kütüphanesinde (sitekit `cypressCone` / `bush` çizilmez); sokak planındaki 2 m altı `tree` (KD köşe adası
   mazıları) küre değil mazı konisi. Tür düzeltmeleri: site-plan 3 `pine` → `cedrus`, **yeni** palmiye (-68.1,
   -62.6) ve genç sedir (-57.4, -62.7); park-plan top akasya (-21.5, -163.6), sabun ağacı (-12.9, -165.8),
-  (-16.5, -176.9); street-plan `da1-tree-park-1` → mavi ladin. `fixedTrees` artık ağaç başına 5 sayı
+  (-16.5, -176.9) ve "mor/kızıl yapraklı" `PURPLE` (-19.5, -171.9; kırmızı-kahve renk kapsül salkımıymış, yapraklar
+  yeşil); parktaki tek mavi ladin 3 kerterizle (17.2, -172.6) → park-plan `n183Y` mavi ladin (h 2.9),
+  aynı ağacın yanlış konumlu kopyaları park-plan `n164Y` ve street-plan `da1-tree-park-1` **silindi** (Blender'da
+  da kaldırılmalı). `fixedTrees` artık ağaç başına 5 sayı
   (`x, z, tür, boy, taç yarıçapı`, metre). Dosyalar: `src/worlds/osm/` altında `species`, `treelib`, `leafcards`,
   `treefield`, `treemesh`, `eztree`, `vegetation`, `world` (.ts); `src/worlds/mertkent/{siteplan,street}.ts`,
   `data/{site,park,street}-plan.json`, `tests/unit/species.test.ts`.

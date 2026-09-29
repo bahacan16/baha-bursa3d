@@ -174,7 +174,7 @@ export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
   cedrus: {
     gen: {
       kind: 'ez',
-      cardSize: 1.25,
+      cardSize: 0.95,
       normalBias: 0.2,
       opts: {
         seed: 7071,
@@ -195,7 +195,7 @@ export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
         twist: [0, 0, 0],
         whorl: [0, 3, 0],
         leaderDroop: 0.7,
-        leaves: { angle: 58, count: 6, start: 0.05, size: 5.2, sizeVariance: 0.3, double: true },
+        leaves: { angle: 58, count: 9, start: 0.05, size: 5.2, sizeVariance: 0.3, double: true },
       },
     },
     tile: TILE.cedar,

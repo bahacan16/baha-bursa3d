@@ -466,7 +466,7 @@ function tilePalm(ctx: Ctx, S: number, seed: number): void {
     ctx.rotate(a + Math.PI / 2);
     // Dilim: tabanda birleşik (geniş), uca doğru incelen şerit; dıştaki üçte bir serbest (yarık)
     const w0 = ((Math.PI * 1.45 * R * 0.3) / segs) * 1.05;
-    const col = vary('#4f6640', r, 0.12);
+    const col = vary('#627a53', r, 0.12);
     const g = ctx.createLinearGradient(-w0 / 2, 0, w0 / 2, 0);
     g.addColorStop(0, shade(col, 0.72));
     g.addColorStop(0.5, shade(col, 1.18));
@@ -575,7 +575,7 @@ export function leafAtlas(size = 2048): THREE.CanvasTexture {
     tileBroad(
       c,
       S,
-      { kind: 'ovate', colors: ['#7a8752', '#6d7a48', '#86935d'], serrate: 0.1, rib: 0.4 },
+      { kind: 'ovate', colors: ['#879560', '#7a8854', '#939f69'], serrate: 0.1, rib: 0.4 },
       37,
       {
         L: 42 * k,
@@ -780,7 +780,7 @@ export function leafAtlas(size = 2048): THREE.CanvasTexture {
   // 11 sedir: hafif kemerli dal, sık yan sürgünlerde iğne rozetleri (kısa sürgün), gri-mavi yeşil (Y11WZ, h329R2)
   tile(TILE.cedar, (c) => {
     const r = mkRng(127);
-    const cols = ['#7b8c66', '#70825d', '#879970', '#687a57'];
+    const cols = ['#8a9c72', '#7e9068', '#97a97d', '#74865f'];
     const main = curve(S * 0.5, S, S * 0.47, S * 0.04, 0.06, 16);
     stroke(c, main, 5 * k, 2 * k, '#4d4034');
     for (let i = 1; i < main.length; i++) {
@@ -796,10 +796,10 @@ export function leafAtlas(size = 2048): THREE.CanvasTexture {
           const f = q / 3;
           const x = p[0] + (e[0] - p[0]) * f;
           const y = p[1] + (e[1] - p[1]) * f;
-          needleTuft(c, x, y, 26, 24 * k, cols, r, -Math.PI / 2, Math.PI * 2, 1.6 * k);
+          needleTuft(c, x, y, 22, 17 * k, cols, r, -Math.PI / 2, Math.PI * 2, 1.4 * k);
         }
       }
-      needleTuft(c, p[0], p[1], 18, 22 * k, cols, r, -Math.PI / 2, Math.PI * 2, 1.5 * k);
+      needleTuft(c, p[0], p[1], 16, 16 * k, cols, r, -Math.PI / 2, Math.PI * 2, 1.3 * k);
     }
   });
   // 12 mavi ladin: sert, sık fırça sürgünler, gümüşi mavi (d_xiN 0, TRTBV 300)
@@ -839,7 +839,7 @@ export function leafAtlas(size = 2048): THREE.CanvasTexture {
   // 14 mazı/servi: yassı dikey sürgün yelpazeleri, orta yeşil (servi/şimşir için köşe rengiyle koyulaştırılır)
   tile(TILE.thuja, (c) => {
     const r = mkRng(149);
-    const col = { base: '#648536', tip: '#7c9b42', dark: '#4d6a2d' };
+    const col = { base: '#557a33', tip: '#7a9a42', dark: '#3e5a26' };
     for (let i = 0; i < 8; i++)
       scaleSpray(
         c,
