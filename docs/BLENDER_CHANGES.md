@@ -75,6 +75,6 @@
   panel arası sivri kemer derzi (iki koyu 6 cm şerit, 0.25 m'den çeyrek elipsle 1.4 m yana kıvrılır), üstteki koyu
   yeşil korkuluk kemeri izler. Dosya: `src/worlds/mertkent/fenceGeneric.ts`. **Blender:** `mk_fences.py` kemerli
   duvar desteği; `NW/Mertkent/Street` yeniden kur.
-- **(bu commit)** — Kullanıcı kalite kuralları `CLAUDE.md` §0'a yazıldı (tahmin yok, kat kat inceleme, en ince
+- **f9bdb42** — Kullanıcı kalite kuralları `CLAUDE.md` §0'a yazıldı (tahmin yok, kat kat inceleme, en ince
   detay, dükkân tabelaları, Street View'a sadık sokak/ağaç/asfalt hasarı). **Blender:** aynı kurallar Blender
   tarafında da geçerli — görülmeyen detay uydurulmaz, veri dosyalarındaki her öğe aynen çizilir.
