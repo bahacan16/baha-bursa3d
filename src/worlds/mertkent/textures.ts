@@ -1037,8 +1037,31 @@ export function tactileTexture(): THREE.Texture {
   return tex(c);
 }
 
+/** Duvara yapıştırılmış harf tabela (şeffaf zemin): satırlar, renk, en/boy oranı (w/h) */
+export function letterSignTexture(lines: string[], color: string, aspect = 3): THREE.Texture {
+  const W = 1024;
+  const Hh = Math.round(W / aspect);
+  const [c, g] = canvas(W, Hh);
+  g.clearRect(0, 0, W, Hh);
+  g.textAlign = 'center';
+  g.textBaseline = 'middle';
+  const n = lines.length;
+  lines.forEach((t, i) => {
+    const size = (Hh / n) * (i === 0 ? 0.78 : 0.55);
+    g.font = `bold ${size}px Georgia, 'Times New Roman', serif`;
+    g.fillStyle = 'rgba(0,0,0,0.35)';
+    g.fillText(t, W / 2 + 4, (Hh / n) * (i + 0.5) + 4);
+    g.fillStyle = color;
+    g.fillText(t, W / 2, (Hh / n) * (i + 0.5));
+  });
+  const t = tex(c, false);
+  return t;
+}
+
 /** Trafik levhası (şeffaf zemin): 'curve' = tehlikeli viraj (sola-sağa), 'limit30' = azami hız 30 */
-export function roadSignTexture(kind: 'curve' | 'limit30' | 'parking' | 'bike' | 'noentry'): THREE.Texture {
+export function roadSignTexture(
+  kind: 'curve' | 'limit30' | 'parking' | 'bike' | 'noentry' | 'noleft',
+): THREE.Texture {
   const S = 256;
   const [c, g] = canvas(S, S);
   g.clearRect(0, 0, S, S);
@@ -1102,6 +1125,37 @@ export function roadSignTexture(kind: 'curve' | 'limit30' | 'parking' | 'bike' |
     g.lineTo(S / 2 + 50, S / 2 + 30);
     g.moveTo(S / 2 - 10, S / 2 - 30);
     g.lineTo(S / 2 + 5, S / 2 + 30);
+    g.stroke();
+  } else if (kind === 'noleft') {
+    // Sola dönülmez: beyaz zemin, kırmızı çember, siyah sola kıvrık ok, kırmızı çapraz çizgi
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#f7f7f5';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 34, 0, Math.PI * 2);
+    g.fill();
+    g.strokeStyle = '#111';
+    g.lineWidth = 20;
+    g.lineCap = 'butt';
+    g.beginPath();
+    g.moveTo(S / 2 + 20, S - 60);
+    g.lineTo(S / 2 + 20, S / 2);
+    g.quadraticCurveTo(S / 2 + 20, S / 2 - 30, S / 2 - 20, S / 2 - 30);
+    g.lineTo(S / 2 - 40, S / 2 - 30);
+    g.stroke();
+    g.fillStyle = '#111';
+    g.beginPath();
+    g.moveTo(S / 2 - 80, S / 2 - 30);
+    g.lineTo(S / 2 - 38, S / 2 - 62);
+    g.lineTo(S / 2 - 38, S / 2 + 2);
+    g.fill();
+    g.strokeStyle = '#c8102e';
+    g.lineWidth = 22;
+    g.beginPath();
+    g.moveTo(S * 0.22, S * 0.22);
+    g.lineTo(S * 0.78, S * 0.78);
     g.stroke();
   } else if (kind === 'noentry') {
     g.fillStyle = '#c8102e';

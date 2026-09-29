@@ -233,6 +233,7 @@ export function buildStreetPlan(
         if (/bisiklet|bike|cycle/.test(note)) keys.push('signBike');
         if (/park/.test(note)) keys.push('signP');
         if (/girilmez|no entry/.test(note)) keys.push('signNoEntry');
+        if (/sola dönülmez|no left/.test(note)) keys.push('signNoLeft');
         if (!keys.length) break; // yazılı tabelalar (site adı vb.) ayrıca
         const co = Math.cos(yaw);
         const si = Math.sin(yaw);

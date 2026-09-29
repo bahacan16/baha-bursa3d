@@ -250,7 +250,7 @@ diffuseColor.rgb = rc * 0.65;`,
         `#include <emissivemap_fragment>
 // Gece: odaların bir kısmı sıcak ışıkla yanar; gündüz odadan gelen loş ışık (güneşten bağımsız)
 float lit = step(0.45, h1(seed * 17.3));
-totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(2.6, 2.1, 1.5));`,
+totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
       );
   };
   m.customProgramCacheKey = () => 'mk-winglass-v1';
@@ -322,7 +322,7 @@ diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
       .replace(
         '#include <emissivemap_fragment>',
         `#include <emissivemap_fragment>
-totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 1.6);`,
+totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 0.55);`,
       );
   };
   m.customProgramCacheKey = () => 'mk-camglass-v2';

@@ -227,3 +227,68 @@ export function buildSideDoor(b: Builder, c: V2, n: V2, y0: number, w: number, h
   const kp = P(w / 2 - 0.12, 0.04);
   b.box('darkMetal', [kp[0], y0 + 1.0, kp[1]], [0.12, 0.03, 0.04], yaw);
 }
+
+/**
+ * Park Koza Sitesi girişi (502. Sk güney ucu, doğu yaka; Street View l4zd…): taş kaplı iki kolon arasında gri tel
+ * sürgülü araç kapısı, kolon üstlerinde siyah fener; batıda sıvalı alçak duvar + "PARK KOZA SİTESİ" harfleri,
+ * arkasında çit; kapının yanında trafik aynası, köşede kırmızı-beyaz dikme. c: kapı merkezi, n: sokak yönü.
+ * KARAR: konum Street View karesinden (pano GPS ±2 m), boyutlar karelerdeki kolon/kapı oranlarından.
+ */
+export function buildParkKoza(b: Builder, c: V2, n: V2, y0: number, collide?: Collide): void {
+  const t: V2 = [n[1], -n[0]];
+  const yaw = Math.atan2(-t[1], t[0]);
+  const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
+  const W = 5.2;
+  // Taş kolonlar + fener
+  for (const u of [-W / 2 - 0.28, W / 2 + 0.28]) {
+    const p = P(u, 0);
+    b.box('stone', [p[0], y0 + 0.9, p[1]], [0.56, 1.8, 0.56], yaw);
+    b.box('stone', [p[0], y0 + 1.84, p[1]], [0.66, 0.08, 0.66], yaw);
+    b.cylinder('darkMetal', [p[0], y0 + 1.88, p[1]], 0.06, 0.15, 8);
+    b.box('darkMetal', [p[0], y0 + 2.15, p[1]], [0.2, 0.32, 0.2], yaw);
+    collide?.(
+      [
+        [p[0] - 0.3, p[1] - 0.3],
+        [p[0] + 0.3, p[1] - 0.3],
+        [p[0] + 0.3, p[1] + 0.3],
+        [p[0] - 0.3, p[1] + 0.3],
+      ],
+      y0 - 1,
+      y0 + 2,
+    );
+  }
+  // Gri tel sürgülü kapı (ızgara panel + çerçeve)
+  const a = P(-W / 2, 0);
+  const e = P(W / 2, 0);
+  b.wall('mkMesh', a, e, y0 + 0.05, y0 + 1.6, [0, 0, W / 0.2, 1.55 / 0.2]);
+  b.wall('mkMesh', e, a, y0 + 0.05, y0 + 1.6, [0, 0, W / 0.2, 1.55 / 0.2]);
+  for (const y of [0.05, 1.6]) {
+    const m = P(0, 0);
+    b.box('steel', [m[0], y0 + y, m[1]], [W, 0.05, 0.05], yaw);
+  }
+  for (const u of [-W / 2, -W / 6, W / 6, W / 2]) {
+    const p = P(u, 0);
+    b.box('steel', [p[0], y0 + 0.8, p[1]], [0.05, 1.6, 0.05], yaw);
+  }
+  collide?.([P(-W / 2, -0.05), P(W / 2, -0.05), P(W / 2, 0.05), P(-W / 2, 0.05)], y0 - 1, y0 + 1.6);
+  // Batı: sıvalı alçak duvar (tabela yüzü sokağa), arkasında çit
+  const L = 4.2;
+  const w0 = -W / 2 - 0.56;
+  const wm = P(w0 - L / 2, 0);
+  b.box('plaster', [wm[0], y0 + 0.65, wm[1]], [L, 1.3, 0.3], yaw);
+  b.box('stone', [wm[0], y0 + 1.33, wm[1]], [L + 0.05, 0.06, 0.36], yaw);
+  const [sa, se] = [P(w0 - L + 0.3, 0.16), P(w0 - 0.3, 0.16)];
+  b.wall('parkKozaSign', se, sa, y0 + 0.55, y0 + 1.25);
+  const hm = P(w0 - L / 2, -0.8);
+  b.box('mkHedge', [hm[0], y0 + 1.1, hm[1]], [L, 2.2, 1.0], yaw, 0.5);
+  collide?.([P(w0 - L, -1.3), P(w0, -1.3), P(w0, 0.15), P(w0 - L, 0.15)], y0 - 1, y0 + 2);
+  // Trafik aynası (kapı batı kolonunun önü) + kırmızı-beyaz dikme (köşe)
+  const mp = P(-W / 2 - 0.9, 0.5);
+  b.cylinder('pole', [mp[0], y0, mp[1]], 0.04, 2.4, 8);
+  const mg = new THREE.SphereGeometry(0.38, 16, 8, 0, Math.PI * 2, 0, 0.5).rotateX(-Math.PI / 2);
+  mg.rotateY(Math.atan2(n[0], n[1]));
+  mg.translate(mp[0], y0 + 2.6, mp[1]);
+  b.geometry('steel', mg);
+  const bp = P(w0 - L - 0.5, 0.8);
+  b.cylinder('bollardOrange', [bp[0], y0, bp[1]], 0.05, 0.8, 8);
+}

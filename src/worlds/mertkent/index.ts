@@ -25,7 +25,7 @@ const USE_PLAN =
 /** Ölçülmüş sokak planı (street-plan.json, ajan ölçümü) — yoksa OSM site sınırından çit */
 const STREET_PLAN = STREET_PLAN0 as Omit<StreetPlan, 'fence'> & { fence?: FenceSpec[] };
 import { buildBrickFence, buildSalusGate, type BrickSeg } from './salus';
-import { buildDriveGate, buildFence, buildGate, buildSideDoor, type FenceSeg } from './site';
+import { buildDriveGate, buildFence, buildGate, buildParkKoza, buildSideDoor, type FenceSeg } from './site';
 import { buildOzhan } from './ozhan';
 import { buildGrounds } from './grounds';
 import { groundHoles } from '../osm/materials';
@@ -618,6 +618,13 @@ function materials(base: string): Record<string, THREE.Material> {
       emissive: 0x7d8286,
       alphaTest: 0.5,
     }),
+    signNoLeft: std({ map: T.roadSignTexture('noleft'), alphaTest: 0.5, roughness: 0.4 }),
+    signNoLeftBack: std({
+      map: T.roadSignTexture('noleft'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
     lampHead: std({ color: 0x9aa0a4, roughness: 0.4, metalness: 0.6, emissive: 0x000000 }),
     concretePole: std({ color: 0xa7a59f, roughness: 0.9 }),
     hydrant: std({ color: 0xc0282a, roughness: 0.5 }),
@@ -694,6 +701,13 @@ function materials(base: string): Record<string, THREE.Material> {
     brick: std({ map: T.brickTexture(), roughness: 0.85 }),
     brickCap: std({ color: 0xd8d1c4, roughness: 0.7 }),
     ironBars: std({ map: T.ironBarsTexture(), alphaTest: 0.5, side: DS, roughness: 0.4, metalness: 0.6 }),
+    parkKozaSign: std({
+      map: T.letterSignTexture(['PARK KOZA', 'SİTESİ'], '#c9a54a', 3.6),
+      transparent: true,
+      alphaTest: 0.3,
+      roughness: 0.3,
+      metalness: 0.6,
+    }),
     gateOrnBand: std({ map: T.ornBandTexture(), alphaTest: 0.5, side: DS, roughness: 0.4, metalness: 0.6 }),
     iron: std({ color: 0x1d1e1f, roughness: 0.4, metalness: 0.6 }),
     photGreen: leafMat(base, 'oak_color.png', 0x88a868),
@@ -1140,6 +1154,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     // Ölçülmüş kaldırımlar site çevresinin tamamını kapsıyor → eski tahmini kaldırım yok
     if (!street) fenceWalk(b, o, segs, 'walk', true);
   }
+  // Park Koza Sitesi girişi (502. Sk doğu yakası, güney uç; Street View l4zd… kuzey karesi)
+  buildParkKoza(b, [11.2, -37.4], [0, 1], o.H(11.2, -37.4) + 0.05, o.collide);
   for (const g of GATES) buildGate(b, g.c, g.n, o.H(g.c[0], g.c[1]) + (SP_GATES.length ? 0.15 : 0));
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
   if (!street) signPole(b, [-31.3, -145.8], [-0.95, -0.31], o.H(-31.3, -145.8), ['signCurve', 'sign30']);
