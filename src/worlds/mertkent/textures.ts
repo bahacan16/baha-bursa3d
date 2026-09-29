@@ -1228,3 +1228,58 @@ export function meshFenceTexture(): THREE.Texture {
   t.premultiplyAlpha = false;
   return t;
 }
+
+/**
+ * Dükkân / apartman tabelası yüzü: ölçülen yazı, zemin/yazı/kenar rengi, yazı tipi. Metin satırları "\n" ile.
+ * Genişlik/yükseklik oranı korunur (uzun kenar 1024 px); bg null → saydam (tek tek harf).
+ */
+export function shopSignTexture(o: {
+  text: string;
+  bg: string | null;
+  fg: string;
+  border: string | null;
+  font: string;
+  bold: boolean;
+  w: number;
+  h: number;
+}): THREE.Texture {
+  const asp = Math.max(0.05, o.w / Math.max(0.05, o.h));
+  const W = asp >= 1 ? 1024 : Math.max(64, Math.round(1024 * asp));
+  const H = asp >= 1 ? Math.max(64, Math.round(1024 / asp)) : 1024;
+  const [c, g] = canvas(W, H);
+  g.clearRect(0, 0, W, H);
+  if (o.bg) {
+    g.fillStyle = o.bg;
+    g.fillRect(0, 0, W, H);
+  }
+  if (o.border) {
+    g.strokeStyle = o.border;
+    g.lineWidth = Math.max(4, Math.min(W, H) * 0.06);
+    g.strokeRect(g.lineWidth / 2, g.lineWidth / 2, W - g.lineWidth, H - g.lineWidth);
+  }
+  const fam =
+    o.font === 'serif'
+      ? 'Georgia, "Times New Roman", serif'
+      : o.font === 'script'
+        ? '"Brush Script MT", "Segoe Script", cursive'
+        : o.font === 'condensed'
+          ? '"Arial Narrow", "Roboto Condensed", Arial, sans-serif'
+          : 'Arial, Helvetica, sans-serif';
+  const lines = (o.text || '').split('\n').filter((l) => l.length);
+  if (lines.length) {
+    const pad = Math.min(W, H) * 0.1;
+    let size = (H - pad * 2) / lines.length / 1.15;
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    const fit = () => {
+      g.font = `${o.bold ? 'bold ' : ''}${size}px ${fam}`;
+      return Math.max(...lines.map((l) => g.measureText(l).width));
+    };
+    while (fit() > W - pad * 2 && size > 6) size *= 0.92;
+    g.fillStyle = o.fg;
+    const lh = size * 1.15;
+    const y0 = H / 2 - (lh * (lines.length - 1)) / 2;
+    lines.forEach((l, k) => g.fillText(l, W / 2, y0 + k * lh));
+  }
+  return tex(c, false);
+}

@@ -78,3 +78,15 @@
 - **f9bdb42** — Kullanıcı kalite kuralları `CLAUDE.md` §0'a yazıldı (tahmin yok, kat kat inceleme, en ince
   detay, dükkân tabelaları, Street View'a sadık sokak/ağaç/asfalt hasarı). **Blender:** aynı kurallar Blender
   tarafında da geçerli — görülmeyen detay uydurulmaz, veri dosyalarındaki her öğe aynen çizilir.
+- **(bu commit)** — Üretici yeni özellikler (kullanıcı kuralı: kat kat detay, tahmin yok):
+  - Balkon `bal` kat kat: `rail` (kat → glass | glassFull | tube | bars | solid | solidTube | none), `fasciaC`
+    (kat → alın/parapet rengi), `railC` (metal rengi), `parapetH` (kat → dolu parapet yüksekliği). Varsayılan
+    eskisi gibi `glass` (0.38 m dolu parapet + buzlu cam). Loca balkonlar da aynı.
+  - `proj`: duvardan taşan kütle (merdiven kulesi, çıkma, kolon) — u0..u1, d, y0..y1, renk, ön yüz pencereleri `wins`.
+  - `sign`: tabela (kutu / tek harf / pano / ışıklı kutu): yazı, zemin/yazı/kenar rengi, yazı tipi, ışıklı.
+  - `awning`: tente (y yüksekliğinden d dışarı, drop sarkma, renk, valans yazısı).
+  - Pencere `shut`: kat → dış panjur / dükkân kepengi kapanma oranı (galvaniz lamel + kutu).
+    Dosyalar: `survey/schema.ts`, `scripts/survey-compile.mjs`, `facade.ts` (`parapet`, `proj`/`sign`/`awning`,
+    `addWindow`), `index.ts` (`colorKey`, `signFace`, `mkShutter`), `textures.ts` (`shopSignTexture`).
+    **Blender:** `mk_facade.py`'ye aynı öğe türleri ve kat kat korkuluk tipleri eklenmeli; tabela yüzleri yazıdan
+    üretilmeli (Blender'da metin nesnesi veya resim dokusu).

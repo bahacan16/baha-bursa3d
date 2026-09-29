@@ -734,6 +734,7 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetUnits: -9,
     }),
     gateGrey: std({ color: 0x8e9194, roughness: 0.45, metalness: 0.5 }),
+    mkShutter: std({ map: T.shutterTexture(), roughness: 0.5, metalness: 0.45, side: DS }),
     barrierOrange: std({ color: 0xe06a1e, roughness: 0.5 }),
     barrierWhite: std({ color: 0xeeeeea, roughness: 0.5 }),
     barrierRed: std({ color: 0xc41c22, roughness: 0.5 }),
@@ -989,6 +990,56 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   group.name = 'mertkent (el modeli)';
   const b = new Builder();
   const extraMats: Record<string, THREE.Material> = {};
+  // Ölçülen özel renkler (kat kat balkon alını, korkuluk metali, çıkma, tente) ve tabela yüzleri → dinamik malzeme
+  const colorKey = (kind: 'plaster' | 'fascia' | 'metal' | 'awning', hex: string): string => {
+    const k = `cc_${kind}_${hex.toLowerCase()}`;
+    if (!extraMats[k])
+      extraMats[k] =
+        kind === 'metal'
+          ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
+          : kind === 'awning'
+            ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.85, side: THREE.DoubleSide })
+            : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
+                roughness: 0.9,
+                side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
+              });
+    return k;
+  };
+  const signFace = (sg: {
+    text: string;
+    bg: string | null;
+    fg: string;
+    border: string | null;
+    font: string;
+    bold: boolean;
+    lit: boolean;
+    style: string;
+    w: number;
+    h: number;
+  }): string => {
+    const k = `sign_${JSON.stringify([sg.text, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10)])}`;
+    if (!extraMats[k]) {
+      if (typeof document === 'undefined')
+        extraMats[k] = new THREE.MeshStandardMaterial({ color: sg.bg ?? sg.fg });
+      else {
+        const map = T.shopSignTexture(sg);
+        const transparent = !sg.bg || sg.style === 'letters';
+        extraMats[k] = new THREE.MeshStandardMaterial({
+          map,
+          transparent,
+          alphaTest: transparent ? 0.35 : 0,
+          roughness: sg.lit ? 0.35 : 0.6,
+          emissive: sg.lit ? 0xffffff : 0x000000,
+          emissiveMap: sg.lit ? map : null,
+          emissiveIntensity: sg.lit ? 0.35 : 0,
+          polygonOffset: true,
+          polygonOffsetFactor: -2,
+          polygonOffsetUnits: -2,
+        });
+      }
+    }
+    return k;
+  };
   // Ölçülmüş sokak: kaldırım, bordür, sokak eşyası (street-plan.json); varsa eski tahmini kaldırım çizilmez
   const street =
     (STREET_PLAN.sidewalks?.length ?? 0) + (STREET_PLAN.street?.length ?? 0) > 0
@@ -1022,6 +1073,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         collide: o.collide,
         signKey: `blockSign${name}`,
         keys: paletteKeys(fac, id, extraMats),
+        colorKey,
+        signFace,
       });
     else
       buildApartment(b, {
@@ -1047,7 +1100,13 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       const base = ringBase(r);
       const keys = paletteKeys(fac, id, extraMats);
       for (const part of splitMassing(fac))
-        buildFacadeBlock(b, part, base, { seed: part.id % 100000, collide: o.collide, keys });
+        buildFacadeBlock(b, part, base, {
+          seed: part.id % 100000,
+          collide: o.collide,
+          keys,
+          colorKey,
+          signFace,
+        });
       o.collide?.(
         r.map((p) => [p[0], p[1]]),
         base - 1,
@@ -1140,6 +1199,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         seed: 4242,
         collide: o.collide,
         keys: paletteKeys(salusFac, SALUS_BUILDING, extraMats),
+        colorKey,
+        signFace,
       });
     else
       buildApartment(b, {

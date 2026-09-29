@@ -87,7 +87,7 @@ export interface EdgeSpec {
   note?: string;
 }
 
-export type FacadeItem = Win | Strip | Bal | Pipe | Unit | Band | Panel | Entrance;
+export type FacadeItem = Win | Strip | Bal | Pipe | Unit | Band | Panel | Entrance | Proj | Sign | Awning;
 
 /** Pencere / kapı sütunu (her katta aynı yerde tekrar eden açıklık) */
 export interface Win {
@@ -119,7 +119,7 @@ export interface Win {
    * sütunu ayrı `win` öğelerine böl.
    */
   curt?: Record<string, 'tul' | 'tul-yan' | 'stor' | 'jaluzi' | 'zebra' | 'karanlik' | 'acik'>;
-  /** Kat → görünen panjur/stor kutusu kapanma oranı 0..1 (dış kepenk/panjur inik) */
+  /** Kat → dış panjur / dükkân kepengi kapanma oranı 0..1 (1 = tamamen inik), fotoğraftaki gibi */
   shut?: Record<string, number>;
 }
 
@@ -160,6 +160,87 @@ export interface Bal {
    * kenarda yazılırsa derinlikler birbirinin genişliğinden otomatik çıkarılır.
    */
   inset?: number;
+  /**
+   * Korkuluk tipi, kat → tür ("*" = tüm katlar varsayılanı). KAT KAT AYRI İNCELE (Türkiye'de her kat farklı olabilir):
+   * glass = dolu alçak parapet (~0.4 m) + üstünde buzlu cam; glassFull = döşemeden itibaren çerçevesiz cam;
+   * tube = yatay paslanmaz/çelik borular (dikmeli); bars = dikey çubuklu demir korkuluk; solid = tam boy (≈1 m) dolu
+   * parapet; solidTube = alçak dolu parapet + üstünde borular; none = korkuluksuz (yalnız döşeme alnı).
+   */
+  rail?: Record<string, 'glass' | 'glassFull' | 'tube' | 'bars' | 'solid' | 'solidTube' | 'none'>;
+  /** Kat → döşeme alnı / parapet rengi "#rrggbb" (bloğun fascia renginden farklıysa) */
+  fasciaC?: Record<string, string>;
+  /** Korkuluk metal rengi (boru/çubuk/dikme) "#rrggbb" */
+  railC?: string;
+  /** Kat → dolu parapet yüksekliği (m, gerçek; solid/solidTube/glass için) */
+  parapetH?: Record<string, number>;
+}
+
+/**
+ * Dışarı taşan kütle (merdiven kulesi, çıkma, cumba, asansör kulesi, kolon): duvardan d kadar dışarı, görünen y0..y1
+ * (ortofotodaki gibi; diğer öğelerle aynı koordinat). Üstü düz. Ön yüzündeki pencereler `wins` (görünen u/y).
+ */
+export interface Proj {
+  t: 'proj';
+  u0: number;
+  u1: number;
+  d: number;
+  y0: number;
+  y1: number;
+  /** Renk: blok palet adı (plaster, plaster2, strip, fascia, plinth) veya "#rrggbb" */
+  color?: string;
+  wins?: {
+    u0: number;
+    u1: number;
+    y0: number;
+    y1: number;
+    kind?: 'std' | 'small' | 'glassband';
+    curt?: string;
+  }[];
+}
+
+/**
+ * Dükkân / apartman tabelası: duvara ya da saçak altına monte kutu (d derinlik) veya tek tek harf (letters).
+ * Yazı fotoğraftaki gibi (büyük/küçük harf, satırlar "\n"), renkler örneklenmiş.
+ */
+export interface Sign {
+  t: 'sign';
+  u0: number;
+  u1: number;
+  /** Görünen alt/üst (ortofoto y) */
+  y0: number;
+  y1: number;
+  /** Kutu derinliği (m, varsayılan 0.12); letters için 0.04 */
+  d?: number;
+  text: string;
+  /** Zemin rengi (letters için yok) */
+  bg?: string;
+  /** Yazı rengi */
+  fg: string;
+  /** Kenar/çerçeve rengi */
+  border?: string;
+  style?: 'box' | 'letters' | 'panel' | 'lightbox';
+  font?: 'sans' | 'serif' | 'script' | 'condensed';
+  bold?: boolean;
+  /** Işıklı (gece parlar) */
+  lit?: boolean;
+  /** Yazı dışında görülen logo/şekil tarifi (çizilemiyorsa not) */
+  logo?: string;
+}
+
+/** Tente (dükkân önü): duvarda görünen y yüksekliğinden d kadar dışarı, drop kadar aşağı eğik */
+export interface Awning {
+  t: 'awning';
+  u0: number;
+  u1: number;
+  y: number;
+  d: number;
+  drop?: number;
+  color: string;
+  /** Çizgili ise ikinci renk */
+  stripe?: string;
+  /** Sarkan saçak (valans) üstündeki yazı */
+  text?: string;
+  textColor?: string;
 }
 
 /** Yağmur borusu (tam boy, koyu gri) */

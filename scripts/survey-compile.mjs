@@ -123,6 +123,9 @@ async function main() {
       for (let k = s[0]; k <= s[1]; k++) if (!except.includes(k)) a.push(k);
       return a;
     };
+    // Kat anahtarları: "K3" → "3" ("*" korunur)
+    const keyK = (m) =>
+      Object.fromEntries(Object.entries(m).map(([k, v]) => [String(k).replace(/^K/, ''), v]));
     const compileEdge = (s) => {
       const c = conv.get(s.edge);
       if (!c) return [];
@@ -182,9 +185,64 @@ async function main() {
               cap: !!it.cap,
               sides: it.sides ?? 'open',
               inset: it.inset ?? null,
+              ...(it.rail ? { rail: keyK(it.rail) } : {}),
+              ...(it.fasciaC ? { fasciaC: keyK(it.fasciaC) } : {}),
+              ...(it.railC ? { railC: it.railC } : {}),
+              ...(it.parapetH ? { parapetH: keyK(it.parapetH) } : {}),
             });
             break;
           }
+          case 'proj':
+            items.push({
+              t: 'proj',
+              u0: r2(c.U(Math.min(it.u0, it.u1))),
+              u1: r2(c.U(Math.max(it.u0, it.u1))),
+              d: it.d ?? 0.6,
+              y0: r2(absY(Math.min(it.y0, it.y1))),
+              y1: r2(absY(Math.max(it.y0, it.y1))),
+              color: it.color ?? 'plaster',
+              wins: (it.wins ?? []).map((w) => ({
+                u0: r2(c.U(Math.min(w.u0, w.u1))),
+                u1: r2(c.U(Math.max(w.u0, w.u1))),
+                y0: r2(absY(Math.min(w.y0, w.y1))),
+                y1: r2(absY(Math.max(w.y0, w.y1))),
+                kind: w.kind ?? 'std',
+                curt: w.curt ?? null,
+              })),
+            });
+            break;
+          case 'sign':
+            items.push({
+              t: 'sign',
+              u0: r2(c.U(Math.min(it.u0, it.u1))),
+              u1: r2(c.U(Math.max(it.u0, it.u1))),
+              y0: r2(absY(Math.min(it.y0, it.y1))),
+              y1: r2(absY(Math.max(it.y0, it.y1))),
+              d: it.d ?? (it.style === 'letters' ? 0.04 : 0.12),
+              text: it.text ?? '',
+              bg: it.bg ?? null,
+              fg: it.fg ?? '#ffffff',
+              border: it.border ?? null,
+              style: it.style ?? 'box',
+              font: it.font ?? 'sans',
+              bold: it.bold !== false,
+              lit: !!it.lit,
+            });
+            break;
+          case 'awning':
+            items.push({
+              t: 'awning',
+              u0: r2(c.U(Math.min(it.u0, it.u1))),
+              u1: r2(c.U(Math.max(it.u0, it.u1))),
+              y: r2(absY(it.y)),
+              d: it.d ?? 1.2,
+              drop: it.drop ?? 0.5,
+              color: it.color ?? '#7a2e2a',
+              stripe: it.stripe ?? null,
+              text: it.text ?? null,
+              textColor: it.textColor ?? '#ffffff',
+            });
+            break;
           case 'pipe':
             items.push({ t: 'pipe', u: r2(it.off ? c.Ud(it.u, it.off) : c.U(it.u)), off: it.off ?? 0.08 });
             break;
