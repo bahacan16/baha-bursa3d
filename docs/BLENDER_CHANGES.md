@@ -217,7 +217,7 @@
   - SV): 900000101 VİZE KONGRE / BALENTUR ofis bloğu, 102 LEYLA fasıl, 103 eczane + pilates eki, 104 TURUNCU Market
     konut bloğu, 105 beyaz kule, 106 KUDRET HOME / LINENS podyumu, 107 konut bloğu — cephe ölçümü için 77 yakın plan
     karesi istendi (`sv-extra.json`). Dosya: `data/footprints.json`. **Blender:** ilgili bloklar yeniden kur.
-- **(bu commit)** — D1+D2 yakın plan eleştirmen bulgularından ilk düzeltmeler:
+- **e783d25** — D1+D2 yakın plan eleştirmen bulgularından ilk düzeltmeler:
   - Cam balkon gölgelendiricisi: panel başına rastgele parlaklık "mozaik gürültü" gibi görünüyordu → karanlık iç +
     yumuşak kıvrımlı beyaz tül (çoğu dairede) + gökyüzü yansıması; "blinds" artık yoğun açık tül, şerit değil;
     derz profilleri açık gri. Pencerelerde yan fon perde krem-bej, düşük kontrast (kahverengi kareler yok).
