@@ -321,3 +321,24 @@
   Riva (güney girinti yeni ayak izine göre yeniden eşlendi: arka duvar kolonları, kırmızı kaplama, mavi giydirme cam,
   kanopi, "C" rozeti; loca kirişleri; K5 teras köprüsü). `scripts/sv-extra.json`: 1777 kenar 7 ortofoto girdisi.
   **Blender:** bu 5 blok yeniden kurulmalı.
+- **(bu commit)** — Pişirilmiş dolaylı ışık hattı (Ultra; ayrıntı `docs/BAKE.md`). Dışa aktarma
+  `scripts/bake-export.mjs`: başsız oyundan (`?debug=1&bakeexport=1`, kanca `src/worlds/mertkent/bakeexport.ts`)
+  el modeli meshleri dünya koordinatında 100 m (CI'da 50 m) parçalar hâlinde `bake-work/src/chunk_<cx>_<cz>.glb`
+  (mesh adı = malzeme anahtarı; `TEXCOORD_1` = ışık haritası uv'si, `src/worlds/mertkent/lightmap.ts` deterministik
+  üretir), `chunk_*.rects.bin` (ada dikdörtgenleri + normal), `occluders.glb` (arazi 0.3 m aşağıda, OSM/Street View
+  binaları, ağaç taçları) ve `export.json`. Pişirme `blender/bake/bake_ao.py` (bpy 4.2 / Blender 4.2, Cycles CPU +
+  OIDN): beyaz gök, lamba yok, albedo 0.6 → dolaylı ışık oranı; çıktı `public/bake/ao_<n>.webp` (8192² sayfalar),
+  `ground_ao.webp` (0.25 m/px), `manifest.json`. Oyun: `src/worlds/mertkent/baked.ts` (Ultra veya `?bake=1`;
+  `?bake=0` kapatır) — imzası tutmayan parça canlı ışıkta kalır. CI: `.github/workflows/bake-lighting.yml` (elle +
+  `main`). **Blender:** el modeli sahnesi (`NW/*`) değişmedi, yeniden kurulum yok. Yerel oturum isterse aynı
+  pişirmeyi kendi Blender'ında çalıştırabilir (önce oyunu derleyip `node scripts/bake-export.mjs`, sonra
+  `BAKE_WORK=bake-work BAKE_CHUNKS=-1_-1 blender --background --python blender/bake/bake_ao.py`). Sonucu Blender'da
+  görmek için `bake-work/src/chunk_*.glb` içe aktarılır; `UVMap.001` (uv1) → sayfa uv'si
+  `((rect.x + u·rect.kenar) / sayfa, (rect.y + v·rect.kenar) / sayfa)` (manifest `chunks[].rect`, v üstten) ile
+  `ao_<n>.webp` bir Emission/AO düğümüne bağlanır. `blender/bake/` bulut oturumunun klasörüdür; `blender-bridge`
+  dalında bu klasörü değiştirme (çakışma olur).
+- **(v5 dönüşüm 4)** — Doğan Avcıoğlu 2. kesim + kavşak: 1550614218 MOSSA (7 bölmede dükkân/alt/üst loca 1.8 m
+  girintileri, girinti ağzında cam korkuluk, çekirdek 3.0 m geride + giriş kanopisi; eski 1.8 m sokağa taşan kanatlar
+  kaldırıldı), 1546816193 (parapet lamelleri, yalnız görülen kenarlarda çatı korkuluğu), 1541439435 (KD çekirdek
+  2.3 m girinti + giydirme cam, bronz cam balkon profilleri), 1541439437 (çekirdek 3.25 m girinti, kat kat profil
+  renkleri, köşe çubukları), 1541439436 (GB başlık çıkması, profil renkleri). **Blender:** bu 5 blok yeniden kurulmalı.
