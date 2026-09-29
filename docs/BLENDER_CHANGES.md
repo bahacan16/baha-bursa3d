@@ -90,9 +90,9 @@
     `addWindow`), `index.ts` (`colorKey`, `signFace`, `mkShutter`), `textures.ts` (`shopSignTexture`).
     **Blender:** `mk_facade.py`'ye aynı öğe türleri ve kat kat korkuluk tipleri eklenmeli; tabela yüzleri yazıdan
     üretilmeli (Blender'da metin nesnesi veya resim dokusu).
-- **(bu commit)** — 1540901772 v3: tüm balkon/loca korkulukları `rail: {"*": "tube"}` (yatay paslanmaz boru,
+- **7be7de4** — 1540901772 v3: tüm balkon/loca korkulukları `rail: {"*": "tube"}` (yatay paslanmaz boru,
   dolu parapet yok), `railC #c3cdd3`; güneybatı köşe balkonu derinliği 1.2 m; kuzey kanat K2'de "Kaymaz Emlak /
   SATILIK" pankartı (`sign`, panel, zemin `#e0e0e8`, yazı `#34436b`). Dosyalar: `survey/1540901772.json`,
   `data/facades.json`. **Blender:** `NW/Mertkent/Blocks/1540901772` (korkuluk tipi boru, tabela).
-- **(bu commit)** — Doğu paftası hava fotoğrafı `streetview-src/aerial-e/` (x 230…730, z −350…150) + 18 bina için
+- **7be7de4** — Doğu paftası hava fotoğrafı `streetview-src/aerial-e/` (x 230…730, z −350…150) + 18 bina için
   yakın plan kare planı. **Blender:** — (referans)
