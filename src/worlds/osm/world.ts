@@ -24,6 +24,9 @@ import { Pedestrians } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
 import { ParkedCars } from '../../sim/parked';
 import { nightUniform } from '../../env/night';
+import { OsmSoundScene } from '../../env/sound/osmscene';
+import type { SoundScene } from '../../env/sound/types';
+import { AERIAL_HALF } from './aerial';
 
 const SHADOW_CASTERS: MatKey[] = ['wall', 'roof', 'roofTile', 'detail', 'barrier', 'rail'];
 const SHADOW_RECEIVERS: MatKey[] = [
@@ -153,6 +156,19 @@ export class GroundIndex {
     const tc = Math.max(0, Math.min(1, t));
     return { t, d: Math.hypot(x - (s.ax + ex * tc), z - (s.az + ez * tc)) };
   }
+  /** Ses için zemin sınıfı: ölçülmüş alan, araç yolu, kaldırım, ray balastı (iç yarıçap 0) ya da yok. */
+  pavedKind(x: number, z: number): 'area' | 'road' | 'sidewalk' | 'ballast' | null {
+    if (this.areaHeight(x, z) !== null) return 'area';
+    const k = this.k(x, z);
+    for (const r of this.roads.get(k) ?? []) if (GroundIndex.proj(x, z, r).d < r.half) return 'road';
+    for (const s of this.strips.get(k) ?? []) {
+      const p = GroundIndex.proj(x, z, s);
+      if (p.t >= 0 && p.t <= 1 && p.d >= s.inner && p.d <= s.outer)
+        return s.inner === 0 ? 'ballast' : 'sidewalk';
+    }
+    return null;
+  }
+
   /** Araç yolu veya kaldırım üzerinde mi? */
   onPaved(x: number, z: number): boolean {
     const k = this.k(x, z);
@@ -216,6 +232,8 @@ export class OsmWorld implements IWorld {
   private peds!: Pedestrians;
   private traffic!: Traffic;
   private parked!: ParkedCars;
+  private aerialImg: HTMLImageElement | null = null;
+  private sound: OsmSoundScene | null = null;
 
   private constructor(
     readonly data: OsmWorldData,
@@ -229,6 +247,7 @@ export class OsmWorld implements IWorld {
     this.object.name = 'osm-world';
     this.materials = createOsmMaterials(quality);
     this.stat = res.stats;
+    this.aerialImg = aerial;
 
     setTerrain(terrain?.near ?? null);
     const ground = createTerrainMesh(terrain?.near ?? null, data, this.materials.ground, quality, aerial);
@@ -618,6 +637,34 @@ export class OsmWorld implements IWorld {
     }
     this.treeLodAt.set(1e9, 1e9);
     return n;
+  }
+
+  /** Ses manzarası bilgisi (ilk çağrıda kurulur; el modeli ağaç kaldırmaları sonrası). */
+  soundScene(): SoundScene {
+    if (!this.sound) {
+      // Ağaçlar: çizilen örnekler (kaldırılanlar hariç)
+      const pts: number[] = [];
+      for (const t of this.treeMeshes)
+        for (let i = 0; i < t.hi.length; i++) {
+          const o = i * 16;
+          if (t.mats[o + 15] !== 0) pts.push(t.mats[o + 12], t.mats[o + 14]);
+        }
+      const gi = this.groundIdx;
+      this.sound = new OsmSoundScene(this.data, {
+        real: this.data.centerSource !== 'fixture',
+        paved: (x, z) => {
+          const k = gi.pavedKind(x, z);
+          return k === 'ballast' ? null : k;
+        },
+        groundY: H,
+        trees: new Float32Array(pts),
+        cars: () => this.traffic.soundCars(),
+        aerial: this.aerialImg,
+        aerialHalf: AERIAL_HALF,
+        ballast: (x, z) => gi.pavedKind(x, z) === 'ballast',
+      });
+    }
+    return this.sound;
   }
 
   private soft = new Set(['park', 'grass', 'wood', 'scrub', 'pitch', 'cemetery', 'farmland']);

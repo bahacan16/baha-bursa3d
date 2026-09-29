@@ -110,6 +110,8 @@ export interface OsmWorldData {
   benches: Pt[];
   /** amenity=shelter / otobüs durağı */
   shelters: Pt[];
+  /** Camiler (building=mosque ya da adı cami/mescit olan ibadet yeri) — ezan sesi için; building:part'lı camiler dahil */
+  mosques?: Poi[];
 }
 
 export const LEVEL_HEIGHT = 3.1;
@@ -405,7 +407,10 @@ export function parseOsm(d: SimpleOsm): OsmWorldData {
     shops: [],
     benches: [],
     shelters: [],
+    mosques: [],
   };
+  const isMosque = (t: Tags) =>
+    t.building === 'mosque' || (t.amenity === 'place_of_worship' && /cami|mescit|mescid/i.test(t.name ?? ''));
 
   for (const n of d.nodes) {
     const t = n.t;
@@ -414,6 +419,7 @@ export function parseOsm(d: SimpleOsm): OsmWorldData {
     if (t.highway === 'street_lamp') out.lamps.push([n.x, n.z]);
     if (t.amenity === 'bench') out.benches.push([n.x, n.z]);
     if (t.amenity === 'shelter' || t.highway === 'bus_stop') out.shelters.push([n.x, n.z]);
+    if (isMosque(t)) out.mosques!.push({ id: `n${n.i}`, name: t.name ?? '', x: n.x, z: n.z, kind: 'mosque' });
     if (t.shop || (t.amenity && /^(cafe|restaurant|fast_food|bank|pharmacy|bakery|pub|bar)$/.test(t.amenity)))
       out.shops.push([n.x, n.z]);
     if (t.name) {
@@ -512,6 +518,12 @@ export function parseOsm(d: SimpleOsm): OsmWorldData {
       polys.push({ id: `r${r.i}${r.o.length > 1 ? '_' + k : ''}`, outer, holes: own, t: r.t });
     }
   }
+
+  for (const p of polys)
+    if (isMosque(p.t) && !p.t['building:part']) {
+      const c = ringCentroid(p.outer);
+      out.mosques!.push({ id: p.id, name: p.t.name ?? '', x: c[0], z: c[1], kind: 'mosque' });
+    }
 
   // Bina: dükkan node'u içindeyse zemin kat dükkan
   const shopGrid = new Map<string, Pt[]>();

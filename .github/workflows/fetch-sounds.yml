@@ -1,0 +1,62 @@
+name: Fetch sounds
+
+# Gerçek ses kayıtlarını (CC0 / CC BY) indirir, lisansını kaynak sayfasından doğrular, ffmpeg ile işler
+# (normalleştirme, kırpma, döngü çapraz geçişi, adım/çağrı dilimleme, MP3) ve public/sounds/'a commit eder.
+# Geliştirme ortamının açık interneti yok; kaynak listesi scripts/sounds.json.
+# İsteğe bağlı: repo secret FREESOUND_API_KEY (https://freesound.org/apiv2/apply) → Freesound API kullanılır.
+on:
+  workflow_dispatch:
+    inputs:
+      slots:
+        description: 'Yalnız bu yuvalar (boşlukla ayrılmış; boş = tümü)'
+        required: false
+        default: ''
+  push:
+    paths:
+      - 'scripts/sounds.json'
+      - 'scripts/fetch-sounds.mjs'
+      - 'scripts/sounds-lib.mjs'
+      - '.github/workflows/fetch-sounds.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: fetch-sounds-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+      - name: ffmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffmpeg -hide_banner -encoders 2>/dev/null | grep -i mp3lame
+      - name: Sesleri indir ve işle
+        env:
+          FREESOUND_API_KEY: ${{ secrets.FREESOUND_API_KEY }}
+          SLOTS: ${{ github.event.inputs.slots }}
+        # SLOTS bilerek tırnaksız: boşlukla ayrılmış yuva adları ayrı argüman olur
+        run: node scripts/fetch-sounds.mjs $SLOTS
+      - name: Özet
+        run: |
+          ls -la public/sounds
+          du -sh public/sounds
+          cat public/sounds/ATTRIBUTION.md
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/sounds
+          if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
+          git commit -m "sounds: fetch CC0/CC-BY recordings (scripts/sounds.json)"
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

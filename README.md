@@ -79,11 +79,32 @@ npm run build
 
 `?debug=1` ile: `window.__game` kancası, FPS sayacında draw call/üçgen/bellek. `?world=boxes` Faz 1 test sahnesi. Mod A'da `?gcal=dx,dz` Google mesh'ine metre cinsinden kalibrasyon ofseti uygular.
 
+## Ses
+
+Konumlu mahalle ses manzarası (Web Audio, `src/env/sound/`): dinleyici kamerayı izler, kaynaklar HRTF/mesafe
+modeliyle yerleşir ve binaların arkasında boğuklaşır; çevredeki binalardan sokak kanyonu / site avlusu / açık alan
+yankısı hesaplanır. Zemine göre ayak sesleri (asfalt, kilit taşı, beton, traverten, çim, toprak, çakıl, rögar
+kapağı, ahşap, kauçuk) iskeletteki ayak basışına eşlenir; trafikte her araca motor + lastik sesi, Doppler, önünü
+kesince korna; ana caddelerin uzak uğultusu; BursaRay geçişleri (istasyonda fren, bekleme, kalkış); saate göre kuşlar
+(serçe, kumru, karga, martı), ağaçlarda rüzgâr, gece cırcır böceği, uzak köpekler, site avlusunda çocuklar; gerçek
+cami konumlarından, Diyanet yöntemiyle hesaplanan vakitlerde ezan (Esc → Ses düzeyi → "Ezan sesi").
+
+- Kayıtlar **CC0 / CC BY** (`public/sounds/ATTRIBUTION.md`); kaynak listesi `scripts/sounds.json`. Geliştirme
+  ortamının açık interneti olmadığı için `.github/workflows/fetch-sounds.yml` (Actions) indirir, lisansı kaynak
+  sayfasından doğrular, ffmpeg ile işler ve `public/sounds/`'a commit eder. İsteğe bağlı repo secret
+  `FREESOUND_API_KEY` (freesound.org/apiv2/apply) varsa Freesound API kullanılır.
+- Kayıt yoksa oyun eski prosedürel seslere düşer; kuş, köpek, çocuk ve **ezan asla sentezlenmez** (kayıt yoksa
+  çalmaz).
+- Hata ayıklama: `?ezan=now` hemen ezan, `?clock=+90` ses saatini 90 dk ileri al, `__game.audio.info()` (saat,
+  vakitler, akustik sınıf, zemin), `__game.audio.debugTrain()` hemen Bursaray geçişi.
+
 ## Lisanslar ve atıflar
 
 - Harita verisi © [OpenStreetMap](https://www.openstreetmap.org/copyright) katkıcıları, ODbL.
 - Mod A: Google Photorealistic 3D Tiles — Google ve veri sağlayıcılarının koşullarına tabidir.
 - İnsan modelleri: three.js örnek deposundan **Ready Player Me** avatarı, **Michelle** ve **Xbot** (Mixamo animasyonları); eski karakter **RobotExpressive** (Tomás Laulhé, CC0) `?robot=1` ile.
 - Dokular (asfalt, kilitli parke, beton, sıva, kiremit, çim, toprak, ağaç kabuğu): [Poly Haven](https://polyhaven.com), **CC0**; yazarlar `public/textures/manifest.json`'da. `scripts/fetch-textures.mjs` ile Actions'ta indirilir.
+- Sesler: Freesound ve BigSoundBank kayıtları, **CC0 / CC BY** — başlık, yazar, lisans ve bağlantılar
+  `public/sounds/ATTRIBUTION.md`'de (oyunda Esc → Ses düzeyi → "kaynaklar").
 - Ortam gölgelemesi: [N8AO](https://github.com/N8python/n8ao) (MIT).
 - Draco çözücü: Google, Apache-2.0 (three.js ile gelir).

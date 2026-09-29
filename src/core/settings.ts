@@ -14,6 +14,14 @@ export interface Settings {
    * film greni, TAA…). `quality` 'high' ile birlikte kullanılır. KARAR (kullanıcı): mobilde açılmasa da olur.
    */
   ultra: boolean;
+  /** Ses düzeyleri 0..1: ana, ambiyans (kuş, rüzgâr, köpek, çocuk, cırcır), trafik (araç, Bursaray), ayak, ezan */
+  volMaster: number;
+  volAmbience: number;
+  volTraffic: number;
+  volSteps: number;
+  volEzan: number;
+  /** Ezan sesi (gerçek cami konumlarından, Diyanet vakitlerinde). */
+  ezan: boolean;
 }
 
 const KEY = 'nilufer-walk.settings';
@@ -37,6 +45,12 @@ export function defaultSettings(): Settings {
     googleErrorTarget: mobile ? 12 : 6,
     sound: true,
     ultra: !mobile,
+    volMaster: 0.8,
+    volAmbience: 1,
+    volTraffic: 1,
+    volSteps: 1,
+    volEzan: 1,
+    ezan: true,
   };
 }
 

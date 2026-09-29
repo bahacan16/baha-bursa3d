@@ -12,6 +12,7 @@ import { buildGraph, pointOn, type Graph } from './graph';
 import type { Road } from '../worlds/osm/parse';
 import type { Quality } from '../core/settings';
 import { H } from '../worlds/osm/height';
+import type { SoundCar } from '../env/sound/types';
 
 interface Car {
   edge: number;
@@ -158,6 +159,24 @@ export class Traffic {
       yaw: 0,
       lane: 0,
     };
+  }
+
+  private soundOut: SoundCar[] = [];
+
+  /** Ses için araçların anlık durumu (nesneler yeniden kullanılır; kimlik = araç sırası). */
+  soundCars(): readonly SoundCar[] {
+    const out = this.soundOut;
+    this.cars.forEach((c, i) => {
+      const o = out[i] ?? (out[i] = { id: i, x: 0, y: 0, z: 0, yaw: 0, speed: 0, kind: 0 });
+      o.x = c.x;
+      o.y = c.y;
+      o.z = c.z;
+      o.yaw = c.yaw;
+      o.speed = c.speed;
+      o.kind = c.kind;
+    });
+    out.length = this.cars.length;
+    return out;
   }
 
   nearest(x: number, z: number): number {

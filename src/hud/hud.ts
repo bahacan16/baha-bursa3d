@@ -242,6 +242,22 @@ export class Hud {
         <label><input type="checkbox" data-opt="hud" ${this.hudVisible ? 'checked' : ''}/> HUD (H)</label>
         <label><input type="checkbox" data-opt="sound" ${s.sound ? 'checked' : ''}/> Ses</label>
       </div>
+      <h4 style="margin-top:12px">Ses düzeyi <a class="note" href="sounds/ATTRIBUTION.md" target="_blank" rel="noopener">(kaynaklar)</a></h4>
+      ${(
+        [
+          ['volMaster', 'Ana ses'],
+          ['volAmbience', 'Ambiyans'],
+          ['volTraffic', 'Trafik'],
+          ['volSteps', 'Ayak sesi'],
+          ['volEzan', 'Ezan'],
+        ] as const
+      )
+        .map(
+          ([k, l]) =>
+            `<label class="row" style="gap:8px"><span style="min-width:84px">${l}</span><input type="range" min="0" max="1" step="0.05" value="${s[k]}" data-vol="${k}" style="flex:1"/></label>`,
+        )
+        .join('')}
+      <label><input type="checkbox" data-opt="ezan" ${s.ezan ? 'checked' : ''}/> Ezan sesi</label>
       <h4 style="margin-top:12px">Koşu hızı: <span data-run>${s.runSpeed.toFixed(1)}</span> m/s</h4>
       <input type="range" min="3" max="9" step="0.5" value="${s.runSpeed}" data-opt="run" style="width:100%"/>
       <p class="note" style="margin-top:12px"><kbd>WASD</kbd> yürü · <kbd>Shift</kbd> koş · <kbd>Space</kbd> zıpla · <kbd>V</kbd> kamera · <kbd>M</kbd> harita · <kbd>T</kbd> ışınlan · <kbd>H</kbd> HUD · <kbd>P</kbd> fotoğraf modu · <kbd>Ctrl</kbd> hayalet adım</p>
@@ -280,6 +296,17 @@ export class Hud {
     el.querySelector<HTMLInputElement>('[data-opt="sound"]')!.addEventListener('change', (e) => {
       s.sound = (e.target as HTMLInputElement).checked;
       this.game.audio.setEnabled(s.sound);
+      saveSettings(s);
+    });
+    el.querySelectorAll<HTMLInputElement>('[data-vol]').forEach((inp) =>
+      inp.addEventListener('input', () => {
+        const k = inp.dataset.vol as 'volMaster' | 'volAmbience' | 'volTraffic' | 'volSteps' | 'volEzan';
+        s[k] = Number(inp.value);
+        saveSettings(s);
+      }),
+    );
+    el.querySelector<HTMLInputElement>('[data-opt="ezan"]')!.addEventListener('change', (e) => {
+      s.ezan = (e.target as HTMLInputElement).checked;
       saveSettings(s);
     });
     el.querySelector<HTMLInputElement>('[data-opt="hud"]')!.addEventListener('change', (e) => {

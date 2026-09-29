@@ -29,6 +29,10 @@ export class FollowCamera {
   private readonly lastFeet = new THREE.Vector3(NaN, 0, 0);
   private stepPhase = 0;
   private bobAmp = 0;
+  /** Adım evresi (tam sayı = topuk vuruşu); 1. şahısta ayak sesleri baş salınımıyla aynı ana eşlenir. */
+  get step(): number {
+    return this.stepPhase;
+  }
 
   constructor(public readonly camera: THREE.PerspectiveCamera) {}
 
