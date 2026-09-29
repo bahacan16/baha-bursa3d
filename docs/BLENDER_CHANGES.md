@@ -238,3 +238,9 @@
   YAKINDA + PILATES house), 104 (GÜLTEN KARADAĞ HAIR DESIGN, TURUNCU Market tenteleri, cabinas), 105 (beyaz kule,
   kahve kaplamalı çıkma, loca balkonlar), 106 (KUDRET HOME + LINENS podyumu). 107 hiçbir karede ölçülebilir değil →
   çizilmedi (tahmin yok). Dosyalar: `survey/9000001xx.json`, `data/facades.json`. **Blender:** bu 6 blok kur.
+- **(retro-1)** — Eski ölçümler yeni standarda (1. parti): 1540901795 / 1540901796 / 1540901798 survey dosyaları kat
+  kat güncellendi (cam korkuluk + parapet yüksekliği, alın/cam/korkuluk renkleri, kat kat perde, "CITY 124 KİRALIK"
+  afişi ve pencere "KİRALIK" kâğıtları, 98'de sıva derzleri + mavi dolu korkuluk, palet düzeltmeleri). Görülmeyen
+  cepheler yalnız geometri (perde/afiş kopyalanmaz). Henüz `data/facades.json`'a derlenmedi (diğer retro ajanlarıyla
+  birlikte derlenecek) → oyunda değişiklik yok. **Blender:** şimdilik yeniden kurulacak katman yok; derleme sonrası bu
+  üç blok.
