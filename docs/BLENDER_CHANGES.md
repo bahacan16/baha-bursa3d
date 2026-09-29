@@ -523,3 +523,9 @@
   → 6–14), kule pencereleri 4 bölmeli Fransız pencere (kayıt, korkuluk yok), e5/e1 yanlış pencere kaldırıldı, beyaz
   PVC boru, dolu parapet üstü çelik küpeşte K4–K9, beyaz dikey şerit. `sv-extra.json` kilitli. Tepedeki sivri kemer
   bekliyor (üretici v7). **Blender:** bu bloğun taban izi, kütlesi, cepheleri ve çatısı yeniden kurulmalı.
+- **(v6 dönüşüm 6)** — 1480163638 (iki yüzde parçalı kemer parapet + çatı katı pencereleri ve kepenkleri, girinti
+  arka duvarında lamba çiftleri K1–K5, merdiven kulesi başları, parapet yalnız 4 kenarda), 1540901795 (K0 kemerli
+  ferforje parmaklıklar, cam korkuluk dikmeleri, tavan spotları, 4 kanat çatı penceresi (gablet), dikey Türk bayrağı,
+  loca arka duvar pencereleri), 1540901796 (çatı üçgeni rengi, ayak aplikleri K0–K5, eğik başlık yüzleri, K0–K1 loca
+  arka duvarları ölçülü; K0 "kemerli parmaklık" yansımaydı → çizilmedi), 1540901771 (kavisli iç localar S2/S5, ayak
+  lamba çiftleri). **Blender:** bu 4 blok yeniden kurulmalı.
