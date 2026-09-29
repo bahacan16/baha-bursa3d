@@ -1,5 +1,5 @@
 import './hud/hud.css';
-import { loadSettings } from './core/settings';
+import { loadApiKey, loadSettings } from './core/settings';
 import { Game } from './game';
 import { Hud } from './hud/hud';
 import { BoxesWorld } from './worlds/boxes';
@@ -79,6 +79,8 @@ async function main(): Promise<void> {
   }
   const auto = params.get('mode');
   if (auto === 'b' || params.get('world') === 'boxes') return run('osm', '');
+  // Google 3D modu arayüzden kaldırıldı; yalnız ?mode=a (tarayıcıda kayıtlı anahtar veya VITE_GOOGLE_MAPS_KEY)
+  if (auto === 'a') return run('google', loadApiKey());
   const choice = await showStartScreen(app, settings);
   await run(choice.mode, choice.key);
 }

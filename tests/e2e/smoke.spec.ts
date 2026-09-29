@@ -71,10 +71,11 @@ test('HUD: sokak adı, mini harita, ışınlanma menüsü', async ({ page }) => 
   await expect(page.locator('.bigmap')).toBeHidden();
 });
 
-test('başlangıç ekranı: anahtarsız Mod A pasif', async ({ page }) => {
+test('başlangıç ekranı: tek Başla düğmesi, Mod A/anahtar kutusu yok', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByTestId('mode-google')).toBeDisabled();
   await expect(page.getByTestId('mode-osm')).toBeEnabled();
+  await expect(page.getByTestId('mode-google')).toHaveCount(0);
+  await expect(page.locator('[data-key]')).toHaveCount(0);
 });
 
 test('test dünyası: kutuya çarpılır', async ({ page }) => {
@@ -106,16 +107,14 @@ test.describe('mobil', () => {
   });
 });
 
-test('Mod A: geçersiz anahtar (403) anlaşılır hata verir', async ({ page }) => {
+test('Mod A (?mode=a): geçersiz anahtar (403) anlaşılır hata verir', async ({ page }) => {
   await serveFixture(page);
   await page.route('https://tile.googleapis.com/**', (r) =>
     r.fulfill({ status: 403, body: '{"error":{"code":403}}', contentType: 'application/json' }),
   );
-  await page.goto('/?debug=1');
-  await expect(page.getByTestId('mode-google')).toBeDisabled();
-  await page.locator('[data-key]').fill('AIza-test-not-a-real-key-000');
-  await page.locator('[data-act="save"]').click();
-  await expect(page.getByTestId('mode-google')).toBeEnabled();
-  await page.getByTestId('mode-google').click();
+  await page.addInitScript(() =>
+    localStorage.setItem('nilufer-walk.googleKey', 'AIza-test-not-a-real-key-000'),
+  );
+  await page.goto('/?debug=1&mode=a');
   await expect(page.getByTestId('error')).toContainText('403', { timeout: 30_000 });
 });
