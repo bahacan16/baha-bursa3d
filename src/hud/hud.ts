@@ -233,8 +233,9 @@ export class Hud {
           ['low', 'Düşük'],
           ['medium', 'Orta'],
           ['high', 'Yüksek'],
+          ['ultra', 'Ultra'],
         ],
-        s.quality,
+        s.ultra && s.quality === 'high' ? 'ultra' : s.quality,
       )}
       <h4 style="margin-top:12px">Göstergeler</h4>
       <div class="row">
@@ -261,8 +262,12 @@ export class Hud {
           if (segEl.dataset.seg === 'time') {
             s.timeOfDay = v as TimeOfDay;
             this.game.applyTimeOfDay();
-          } else if (segEl.dataset.seg === 'quality' && v !== s.quality) {
-            s.quality = v as Quality;
+          } else if (
+            segEl.dataset.seg === 'quality' &&
+            v !== (s.ultra && s.quality === 'high' ? 'ultra' : s.quality)
+          ) {
+            s.ultra = v === 'ultra';
+            s.quality = (v === 'ultra' ? 'high' : v) as Quality;
             saveSettings(s);
             location.reload();
             return;

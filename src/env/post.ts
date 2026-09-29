@@ -6,6 +6,7 @@ import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { N8AOPass } from 'n8ao';
 import type { Quality } from '../core/settings';
+import { ExposureMeter, TAAPass } from './taa';
 
 const VS = /* glsl */ `
   varying vec2 vUv;
@@ -22,6 +23,10 @@ const GradeShader = {
     uShadowTint: { value: new THREE.Vector3(1.025, 1.0, 0.95) },
     uHighlightTint: { value: new THREE.Vector3(1.02, 1.0, 0.98) },
     uSaturation: { value: 1.0 },
+    tExposure: { value: null },
+    uExpRef: { value: 0.0 },
+    uExpStrength: { value: 0.0 },
+    uExpRange: { value: new THREE.Vector2(1, 1) },
   },
   vertexShader: VS,
   fragmentShader: /* glsl */ `
@@ -29,8 +34,18 @@ const GradeShader = {
     uniform vec3 uShadowTint, uHighlightTint;
     uniform float uSaturation;
     varying vec2 vUv;
+    #ifdef AUTO_EXPOSURE
+    uniform sampler2D tExposure;
+    uniform float uExpRef, uExpStrength;
+    uniform vec2 uExpRange;
+    #endif
     void main() {
       vec3 c = texture2D(tDiffuse, vUv).rgb;
+      #ifdef AUTO_EXPOSURE
+      // kalibre pozlamaya göre kısmi uyum: ölçülen log ortalama referanstan sapınca yarı yarıya düzelt
+      float lavg = texture2D(tExposure, vec2(0.5)).r;
+      c *= clamp(exp((uExpRef - lavg) * uExpStrength), uExpRange.x, uExpRange.y);
+      #endif
       float l0 = dot(c, vec3(0.2126, 0.7152, 0.0722));
       c *= mix(uShadowTint, uHighlightTint, smoothstep(0.02, 0.25, l0));
       float l = dot(c, vec3(0.2126, 0.7152, 0.0722));
@@ -74,6 +89,75 @@ const FinishShader = {
 };
 
 /**
+ * Ultra ekran uzayı bitişi (ton eşleme + sRGB sonrası): aynı S eğrisi ve vinyet + TAA yumuşaklığını geri alan uyarlamalı
+ * keskinleştirme (CAS benzeri) + kenarlarda hafif yanal kromatik sapma + luma'ya bağlı, kare başına değişen ince
+ * film greni (sensör gürültüsü gibi gölge/orta tonlarda, parlaklarda az; renk gürültüsü %15).
+ */
+const FinishUltraShader = {
+  name: 'CameraFinishUltra',
+  uniforms: {
+    tDiffuse: { value: null },
+    uResolution: { value: new THREE.Vector2(1, 1) },
+    uVignette: { value: 0.1 },
+    uContrast: { value: 0.14 },
+    uTime: { value: 0 },
+    uGrain: { value: 1.3 },
+    uCA: { value: 1.0 },
+    uSharpen: { value: 0.35 },
+  },
+  vertexShader: VS,
+  fragmentShader: /* glsl */ `
+    uniform sampler2D tDiffuse;
+    uniform vec2 uResolution;
+    uniform float uVignette, uContrast, uTime, uGrain, uCA, uSharpen;
+    varying vec2 vUv;
+    float hash(vec2 p) {
+      vec3 q = fract(vec3(p.xyx) * 0.1031);
+      q += dot(q, q.yzx + 33.33);
+      return fract((q.x + q.y) * q.z);
+    }
+    vec3 curve(vec3 c) {
+      c = max(c - 0.008, 0.0) / 0.992;
+      return mix(c, c * c * (3.0 - 2.0 * c), uContrast);
+    }
+    void main() {
+      vec2 px = 1.0 / uResolution;
+      vec3 c = texture2D(tDiffuse, vUv).rgb;
+      vec3 n = texture2D(tDiffuse, vUv + vec2(0.0, px.y)).rgb;
+      vec3 s = texture2D(tDiffuse, vUv - vec2(0.0, px.y)).rgb;
+      vec3 e = texture2D(tDiffuse, vUv + vec2(px.x, 0.0)).rgb;
+      vec3 w = texture2D(tDiffuse, vUv - vec2(px.x, 0.0)).rgb;
+      // CAS: yerel kontrasta göre ağırlık (düz alanlarda gürültüyü büyütmez, kenarda hale yapmaz)
+      vec3 mn = min(c, min(min(n, s), min(e, w)));
+      vec3 mx = max(c, max(max(n, s), max(e, w)));
+      vec3 amp = sqrt(clamp(min(mn, 1.0 - mx) / max(mx, 1e-4), 0.0, 1.0));
+      vec3 wgt = -amp * uSharpen * 0.2;
+      vec3 sh = clamp((c + (n + s + e + w) * wgt) / (1.0 + 4.0 * wgt), mn, mx);
+      // yanal kromatik sapma: kırmızı dışa, mavi içe (köşede ~1.2 px @1080p)
+      vec2 d = vUv - 0.5;
+      vec2 ca = d * dot(d, d) * uCA * 0.006;
+      float r = texture2D(tDiffuse, vUv + ca).r;
+      float b = texture2D(tDiffuse, vUv - ca).b;
+      sh.r += r - c.r;
+      sh.b += b - c.b;
+      vec3 col = curve(max(sh, 0.0));
+      vec2 p = d * vec2(uResolution.x / uResolution.y, 1.0) / 1.02;
+      col *= 1.0 - uVignette * smoothstep(0.1, 1.0, dot(p, p));
+      // film greni: yaklaşık Gauss (4 düzgün toplamı), kare başına yeni tohum
+      vec2 fp = floor(vUv * uResolution);
+      float t = fract(uTime * 0.618) * 97.0;
+      float g = (hash(fp + t) + hash(fp + t + 17.3) + hash(fp + t + 41.7) + hash(fp + t + 63.1) - 2.0) * 1.73;
+      vec3 gc = vec3(hash(fp + t + 5.1), hash(fp + t + 9.7), hash(fp + t + 13.3)) - 0.5;
+      float l = dot(col, vec3(0.2126, 0.7152, 0.0722));
+      // gürültü eğrisi (ekran uzayı): koyu–orta tonlarda en çok, parlakta sönük
+      float amp2 = uGrain / 255.0 * (0.55 + 1.6 * sqrt(l) * (1.0 - l));
+      col += (g + gc * 0.3) * amp2 * vec3(1.0);
+      col += (hash(fp) + hash(fp + 71.0) - 1.0) / 255.0;
+      gl_FragColor = vec4(clamp(col, 0.0, 1.0), 1.0);
+    }`,
+};
+
+/**
  * Son işleme: sahne HDR hedefe çizilir → N8AO (ortam gölgelemesi) → Bloom (gece ışıkları) → SMAA → ton eşleme.
  * KARAR: Düşük kalitede kapalı (mobil); Orta'da AO yarım çözünürlük.
  */
@@ -81,15 +165,20 @@ export class PostFX {
   readonly composer: EffectComposer;
   readonly ao: N8AOPass;
   readonly bloom: UnrealBloomPass;
-  private smaa: SMAAPass;
+  private smaa: SMAAPass | null = null;
   readonly grade: ShaderPass;
   readonly finish: ShaderPass;
+  /** Ultra: zamansal kenar yumuşatma + otomatik pozlama */
+  readonly taa: TAAPass | null = null;
+  readonly exposure: ExposureMeter | null = null;
+  private time = 0;
 
   constructor(
     private readonly renderer: THREE.WebGLRenderer,
     scene: THREE.Scene,
     camera: THREE.PerspectiveCamera,
     quality: Quality,
+    readonly ultra = false,
   ) {
     const size = renderer.getDrawingBufferSize(new THREE.Vector2());
     const rt = new THREE.WebGLRenderTarget(size.x, size.y, { type: THREE.HalfFloatType });
@@ -102,19 +191,44 @@ export class PostFX {
     c.distanceFalloff = 1.2;
     c.intensity = 1.7;
     c.halfRes = quality !== 'high';
-    this.ao.setQualityMode(quality === 'high' ? 'Medium' : 'Low');
+    // Ultra: tam çözünürlük, 64 örnek (TAA gürültüyü biriktirir)
+    this.ao.setQualityMode(ultra ? 'High' : quality === 'high' ? 'Medium' : 'Low');
     this.composer.addPass(this.ao);
+    const q = new URLSearchParams(location.search);
+    if (ultra && !q.has('notaa')) {
+      this.taa = new TAAPass(camera, () => this.ao.beautyRenderTarget.depthTexture, size.x, size.y);
+      this.composer.addPass(this.taa);
+    }
     this.bloom = new UnrealBloomPass(new THREE.Vector2(size.x, size.y), 0.2, 0.5, 0.85);
     this.composer.addPass(this.bloom);
-    this.smaa = new SMAAPass();
-    this.composer.addPass(this.smaa);
+    if (!this.taa) {
+      this.smaa = new SMAAPass();
+      this.composer.addPass(this.smaa);
+    }
     this.grade = new ShaderPass(GradeShader);
+    if (ultra && !q.has('noae')) {
+      this.exposure = new ExposureMeter();
+      const g = this.grade.material;
+      g.defines.AUTO_EXPOSURE = '';
+      g.needsUpdate = true;
+      const u = this.grade.uniforms;
+      u.tExposure.value = this.exposure.texture;
+      // Referans = kalibrasyon görüşlerinin ölçülen log ortalaması (Street View 11 görüş, Neutral ton eşleme öncesi)
+      u.uExpRef.value = Number(q.get('aeref') ?? ULTRA_EXPOSURE_REF);
+      u.uExpStrength.value = Number(q.get('ae') ?? 0.5);
+      u.uExpRange.value.set(0.75, 1.6);
+    }
     this.composer.addPass(this.grade);
     this.composer.addPass(new OutputPass());
-    this.finish = new ShaderPass(FinishShader);
+    this.finish = new ShaderPass(ultra ? FinishUltraShader : FinishShader);
     this.composer.addPass(this.finish);
+    if (ultra) {
+      const f = this.finish.uniforms;
+      if (q.has('grain')) f.uGrain.value = Number(q.get('grain'));
+      if (q.has('ca')) f.uCA.value = Number(q.get('ca'));
+      if (q.has('sharp')) f.uSharpen.value = Number(q.get('sharp'));
+    }
     // Ayar denemesi: ?sat=1.1&con=0.3&vig=0.1
-    const q = new URLSearchParams(location.search);
     if (q.has('sat')) this.grade.uniforms.uSaturation.value = Number(q.get('sat'));
     if (q.has('con')) this.finish.uniforms.uContrast.value = Number(q.get('con'));
     if (q.has('vig')) this.finish.uniforms.uVignette.value = Number(q.get('vig'));
@@ -136,6 +250,15 @@ export class PostFX {
   }
 
   setNight(n: number): void {
+    if (this.ultra && n <= 0.15) {
+      // Ultra gündüz: yalnız çok parlak kaynaklar (güneş diski, camlarda/araçlarda güneş parıltısı) — gökyüzü
+      // eşiğin çok altında kaldığı için mavi perde oluşmaz. Lens saçılması gibi geniş ve zayıf.
+      this.bloom.enabled = true;
+      this.bloom.strength = 0.32;
+      this.bloom.radius = 0.7;
+      this.bloom.threshold = 14;
+      return;
+    }
     // KARAR: gündüz bloom kapalı — HDR gökyüzü eşiği aşıp ağaç/bina silüetlerine mavi bir perde yayıyordu.
     this.bloom.enabled = n > 0.15;
     this.bloom.strength = 0.12 + 0.55 * n;
@@ -151,10 +274,30 @@ export class PostFX {
   }
 
   render(dt: number): void {
+    this.time += dt;
+    if (this.ultra) this.finish.uniforms.uTime.value = this.time;
+    if (this.exposure) {
+      // ölçüm: bir önceki karenin TAA geçmişi yerine bu karenin güzel hedefi (AO öncesi, yeterli)
+      this.exposure.update(this.renderer, this.target.texture, dt);
+      this.grade.uniforms.tExposure.value = this.exposure.texture;
+    }
     this.composer.render(dt);
   }
 
+  /** Hata ayıklama: uyarlanmış ln(ortalama parlaklık) (otomatik pozlama referansı ölçümü için). */
+  readExposure(): number | null {
+    if (!this.exposure) return null;
+    const buf = new Float32Array(4);
+    this.renderer.readRenderTargetPixels(this.exposure.target, 0, 0, 1, 1, buf);
+    return buf[0];
+  }
+
   dispose(): void {
+    this.taa?.dispose();
+    this.exposure?.dispose();
     this.composer.dispose();
   }
 }
+
+/** Ultra otomatik pozlama referansı: kalibrasyon görüşlerinde ölçülen ln(ortalama parlaklık) (bkz. BLENDER_CHANGES). */
+export const ULTRA_EXPOSURE_REF = -1.0;

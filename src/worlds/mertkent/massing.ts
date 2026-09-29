@@ -48,7 +48,12 @@ function shiftItem(it: CItem, s: number, L: number): CItem | null {
     const u0 = it.u0 - s;
     const u1 = it.u1 - s;
     if (u1 <= 0.05 || u0 >= L - 0.05) return null;
-    return { ...it, u0: Math.max(0, u0), u1: Math.min(L, u1) } as CItem;
+    const o = { ...it, u0: Math.max(0, u0), u1: Math.min(L, u1) } as CItem;
+    // Alınlık tepesi ve balkon saksıları da aynı kaydırmayla
+    if (o.t === 'pediment' && it.t === 'pediment') o.apex = it.apex - s;
+    if (o.t === 'bal' && o.pots)
+      o.pots = Object.fromEntries(Object.entries(o.pots).map(([k, us]) => [k, us.map((u) => u - s)]));
+    return o;
   }
   if (!('u' in it) || it.u == null) return it;
   const u = it.u - s;

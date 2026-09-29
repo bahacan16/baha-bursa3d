@@ -2,14 +2,14 @@ import * as THREE from 'three';
 import type { SimpleOsm } from '../osm/simplify';
 import { Builder, type V2 } from './builder';
 import { buildApartment, insidePoly, type ApartmentStyle } from './apartment';
-import { buildFacadeBlock, type CompiledBlock } from './facade';
+import { buildFacadeBlock, type CK, type CompiledBlock } from './facade';
 import { splitMassing } from './massing';
 import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
 import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
 import { buildStreetPlan, streetSignTexture } from './street';
 import { buildMertkentFence, type FenceSpec } from './fence2';
-import { buildGenericFence, type GenericFence } from './fenceGeneric';
+import { buildGenericFence, buildWroughtGate, type GenericFence } from './fenceGeneric';
 import {
   buildSitePlan,
   PARK_PLAN,
@@ -106,8 +106,14 @@ const SALUS_STYLE: ApartmentStyle = {
  * Site kapıları. KARAR: çit hattı ve kapılar OSM site sınırı + yaya yolu düğümlerinden (Street View tahmini çit
  * hattı kuzeyde ~2.4 m sokağa kaymıştı; kuzey kapı karesinde kapı daha uzakta görünüyor).
  */
-/** Ölçülmüş kapılar (street-plan.json; Salusvizyon kapıları salus.ts'de) */
-const SP_GATES = (STREET_PLAN.gates ?? []).filter((g) => !/^salus/.test((g as { id?: string }).id ?? ''));
+/**
+ * Ölçülmüş kapılar (street-plan.json; Salusvizyon kapıları salus.ts'de). Komşu site kapıları (id "da1-…") komşu
+ * çitlerle birlikte ayrıca çizilir — önceden burada da Mertkent yaprak kapısı olarak ikinci kez çiziliyordu
+ * (555/556 önündeki siyah yaya kapıları yeşil yaprak kutusu görünüyordu).
+ */
+const SP_GATES = (STREET_PLAN.gates ?? []).filter(
+  (g) => !/^(salus|da\d-)/.test((g as { id?: string }).id ?? ''),
+);
 const GATES: { c: V2; n: V2 }[] = SP_GATES.length
   ? SP_GATES.filter((g) => g.kind === 'pedestrian' && g.w >= 2).map((g) => ({ c: g.c, n: g.n }))
   : [
@@ -770,7 +776,14 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetUnits: -3,
     }),
     mkNet: std({ map: T.meshFenceTexture(), color: 0x202020, alphaTest: 0.3, side: DS, roughness: 0.9 }),
-    mkShutter: std({ map: T.shutterTexture(), roughness: 0.5, metalness: 0.45, side: DS }),
+    // Kepenk: 5 cm lamelli (eski doku metrede bir çizgiyle düz beyaz kutu gibi görünüyordu)
+    mkShutter: std({
+      map: T.rollerShutterTexture(),
+      color: 0xc9cccc,
+      roughness: 0.55,
+      metalness: 0.3,
+      side: DS,
+    }),
     barrierOrange: std({ color: 0xe06a1e, roughness: 0.5 }),
     barrierWhite: std({ color: 0xeeeeea, roughness: 0.5 }),
     barrierRed: std({ color: 0xc41c22, roughness: 0.5 }),
@@ -1027,36 +1040,42 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const b = new Builder();
   const extraMats: Record<string, THREE.Material> = {};
   // Ölçülen özel renkler (kat kat balkon alını, korkuluk metali, çıkma, tente) ve tabela yüzleri → dinamik malzeme
-  const colorKey = (
-    kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass' | 'frame' | 'tint',
-    hex: string,
-  ): string => {
+  const colorKey = (kind: CK, hex: string): string => {
     const k = `cc_${kind}_${hex.toLowerCase()}`;
     if (!extraMats[k])
       extraMats[k] =
-        kind === 'metal'
-          ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
-          : kind === 'awning'
-            ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.85, side: THREE.DoubleSide })
-            : kind === 'frame'
-              ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.4, metalness: 0.1 })
-              : kind === 'tint'
-                ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.06, metalness: 0.25 })
-                : kind === 'glass'
-                  ? new THREE.MeshStandardMaterial({
-                      // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
-                      color: hex,
-                      roughness: 0.12,
-                      metalness: 0,
-                      transparent: true,
-                      opacity: 0.86,
-                      side: THREE.DoubleSide,
-                      depthWrite: false,
-                    })
-                  : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
-                      roughness: 0.9,
-                      side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
-                    });
+        kind === 'shutter'
+          ? // Kepenk: ölçülen renkte lamelli alüminyum (beyaz tabanlı lamel dokusu × renk)
+            new THREE.MeshStandardMaterial({
+              map: T.rollerShutterTexture(),
+              color: hex,
+              roughness: 0.55,
+              metalness: 0.3,
+              side: THREE.DoubleSide,
+            })
+          : kind === 'metal'
+            ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
+            : kind === 'awning'
+              ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.85, side: THREE.DoubleSide })
+              : kind === 'frame'
+                ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.4, metalness: 0.1 })
+                : kind === 'tint'
+                  ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.06, metalness: 0.25 })
+                  : kind === 'glass'
+                    ? new THREE.MeshStandardMaterial({
+                        // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
+                        color: hex,
+                        roughness: 0.12,
+                        metalness: 0,
+                        transparent: true,
+                        opacity: 0.86,
+                        side: THREE.DoubleSide,
+                        depthWrite: false,
+                      })
+                    : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
+                        roughness: 0.9,
+                        side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
+                      });
     return k;
   };
   const signFace = (sg: {
@@ -1415,32 +1434,42 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         cache.set(k, k);
         const DSd = THREE.DoubleSide;
         extraMats[k] =
-          kind === 'mesh'
-            ? new THREE.MeshStandardMaterial({
-                map: T.meshFenceTexture(),
+          kind === 'welded'
+            ? // 2D kaynaklı tel panel: kalın teller (beyaz doku × ölçülen renk), uzaktan da görünür
+              new THREE.MeshStandardMaterial({
+                map: T.weldedMeshTexture(),
                 color,
-                alphaTest: 0.45,
+                alphaTest: 0.4,
                 side: DSd,
-                roughness: 0.5,
-                metalness: 0.2,
+                roughness: 0.55,
+                metalness: 0.25,
               })
-            : kind === 'bars'
+            : kind === 'mesh'
               ? new THREE.MeshStandardMaterial({
-                  map: T.ironBarsTexture(),
+                  map: T.meshFenceTexture(),
                   color,
-                  alphaTest: 0.5,
+                  alphaTest: 0.45,
                   side: DSd,
-                  roughness: 0.4,
-                  metalness: 0.6,
+                  roughness: 0.5,
+                  metalness: 0.2,
                 })
-              : kind === 'metal'
-                ? new THREE.MeshStandardMaterial({ color, roughness: 0.45, metalness: 0.5 })
-                : granularMaterial(
+              : kind === 'bars'
+                ? new THREE.MeshStandardMaterial({
+                    map: T.ironBarsTexture(),
                     color,
-                    kind === 'brick' ? 14 : kind === 'stone' ? 15 : 13,
-                    { roughness: 0.9 },
-                    kind === 'stone' || kind === 'brick' ? { mottle: 0.12, bump: 2.5 } : undefined,
-                  );
+                    alphaTest: 0.5,
+                    side: DSd,
+                    roughness: 0.4,
+                    metalness: 0.6,
+                  })
+                : kind === 'metal'
+                  ? new THREE.MeshStandardMaterial({ color, roughness: 0.45, metalness: 0.5 })
+                  : granularMaterial(
+                      color,
+                      kind === 'brick' ? 14 : kind === 'stone' ? 15 : 13,
+                      { roughness: 0.9 },
+                      kind === 'stone' || kind === 'brick' ? { mottle: 0.12, bump: 2.5 } : undefined,
+                    );
       }
       return k;
     };
@@ -1452,6 +1481,26 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     for (const f of others) buildGenericFence(b, f, o.H, mat, gapsO, o.collide);
     for (const g of og) {
       const y = o.H(g.c[0], g.c[1]) + 0.05;
+      const gs = g as {
+        style?: string;
+        h?: number;
+        color?: string;
+        leaves?: number;
+        pillars?: { w: number; h: number; color: string };
+        kind?: string;
+      };
+      // Ferforje yaya kapısı: style "wrought" ya da ölçüm notunda "ferforje" yazan yaya kapısı
+      const wrought =
+        gs.style === 'wrought' || (gs.kind === 'pedestrian' && /ferforje|wrought/i.test(g.note ?? ''));
+      if (wrought) {
+        // Ölçülmüş siyah ferforje yaya kapısı (mızrak uçlu çubuklar, alt süs bandı)
+        buildWroughtGate(b, g.c, g.n, y, g.w, gs.h ?? 1.8, mat, {
+          color: gs.color,
+          leaves: gs.leaves,
+          pillars: gs.pillars ?? null,
+        });
+        continue;
+      }
       // Komşu sitelerde yaya kapıları çoğunlukla siyah çubuklu; notta gri lamelli ise gri
       const grey = /gri\b.*(lamel|çıta|slat)|grey slat/i.test(g.note ?? '');
       buildDriveGate(b, g.c, g.n, y, g.w, false, grey);

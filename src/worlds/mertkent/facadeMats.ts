@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { nightUniform } from '../../env/night';
+import { registerReflective, ultraWeather } from '../../env/ultra';
 
 /**
  * Ölçülmüş Mertkent cepheleri için malzemeler (Street View yakın plan karelerine göre):
@@ -156,13 +157,16 @@ export function granularMaterial(
 ): THREE.MeshStandardMaterial {
   if (!hasDom) return new THREE.MeshStandardMaterial({ color: base, roughness: 0.95, ...p });
   const t = granularTextures(base, seed, opts);
-  return new THREE.MeshStandardMaterial({
+  const m = new THREE.MeshStandardMaterial({
     map: t.map,
     normalMap: t.normalMap,
     normalScale: new THREE.Vector2(0.55, 0.55),
     roughness: 0.95,
     ...p,
   });
+  // Ultra: zemine yakın sıçrama kiri + hafif düşey yağmur izi (env/ultra.ts)
+  ultraWeather(m);
+  return m;
 }
 
 /**
@@ -264,6 +268,8 @@ totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
   m.customProgramCacheKey = () => 'mk-winglass-v4';
   m.userData.noReceive = true;
   m.userData.noCast = true;
+  // Ultra: aynasal yansıma yerel küreden (karşı cephe, ağaçlar, gök)
+  registerReflective(m);
   return m;
 }
 
@@ -337,6 +343,7 @@ totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed *
   m.customProgramCacheKey = () => 'mk-camglass-v5';
   m.userData.noReceive = true;
   m.userData.noCast = true;
+  registerReflective(m);
   return m;
 }
 

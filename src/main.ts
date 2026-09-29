@@ -7,6 +7,7 @@ import { DataError, loadOsmData } from './worlds/osm/data';
 import { OsmWorld } from './worlds/osm/world';
 import { loadTerrain } from './env/terrain';
 import { createFarTerrain } from './env/backdrop';
+import { setUltraGround } from './env/ultra';
 import { LoadingScreen, showError, showStartScreen, webglAvailable, type Mode } from './ui/screens';
 
 const app = document.getElementById('app')!;
@@ -51,6 +52,7 @@ async function run(mode: Mode, key: string): Promise<void> {
         if (terrain?.far && settings.quality !== 'low')
           game.setBackdropObject(createFarTerrain(terrain.far, terrain.near.half + 200));
         game.geoCenter = data.center;
+        if (terrain) setUltraGround(terrain.near);
         game.setWorld(world);
         const hud = new Hud(game, world.data);
         if (debug) (window as unknown as { __hud: Hud }).__hud = hud;

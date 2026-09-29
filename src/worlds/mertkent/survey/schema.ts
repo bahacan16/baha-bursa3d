@@ -71,7 +71,8 @@ export interface BlockSurvey {
     color: string;
     band?: { h: number; color: string };
     roofC?: string;
-    parapet?: { h: number; color?: string; rail?: string; railC?: string; glassC?: string };
+    /** Parapet: RoofSpec.parapet ile aynı alanlar (railH, railEdges; burada kenar j = poly[j] → poly[j+1]) */
+    parapet?: ParapetSpec;
     glazing?: {
       edges: number[] | 'all';
       from: number;
@@ -79,10 +80,51 @@ export interface BlockSurvey {
       mullion: number;
       glass: string;
       frame: string;
+      /** Yatay kayıt (travers) aralığı (m) — giydirme cephede her kat / yarım kat yatay profil */
+      transom?: number;
     };
     collide?: boolean;
     note?: string;
   }[];
+  /**
+   * Çatı / teras pergolaları (DÜNYA koordinatı, hava fotoğrafı + Street View): taban çokgeni (genelde 4 köşe),
+   * y0 = dikme tabanı, y1 = üst kiriş üstü (blok tabanına göre gerçek m; çatı terasında y0 = teras döşemesi).
+   * Dikmeler köşelerde ve kenarlar boyunca `every` (m, varsayılan 2.7) arayla, kesit `post` (m, 0.1); çevre kirişi
+   * yüksekliği `beam` (0.14); en uzun kenara dik lameller `slat` (m, 0.5) arayla; `cover` renkliyse üstte örtü
+   * (bez / polikarbon, görünen renk). Renk `color` (antrasit alüminyum #3b3f42 varsayılan).
+   */
+  pergolas?: {
+    poly: [number, number][];
+    y0: number;
+    y1: number;
+    color?: string;
+    post?: number;
+    every?: number;
+    beam?: number;
+    slat?: number;
+    cover?: string;
+  }[];
+}
+
+/**
+ * Parapet (çatı kenarı / ek hacim): yükseklik h (gerçek m), renk, üstünde korkuluk (Bal.rail tipleri) + metal ve
+ * cam rengi. Kenar bazında: `edges` verilirse parapet YALNIZ bu kenarlarda (diğer kenarlarda roof.fasciaH
+ * boyunda saçak alnı); `railEdges` verilirse korkuluk yalnız bu kenarlarda (görülmeyen kenara korkuluk koyma!).
+ * `railH`: küpeşte yüksekliği parapet üstünden (gerçek m; varsayılan 0.92 — çatı korkulukları çoğu zaman ≈0.6).
+ * `coping`: parapet üstü harpuşta (metal / beton şapka): h, iki yana taşma `over` (m, 0.03), renk.
+ * `band`: parapet dış yüzünün alt kısmında farklı renk bant (ör. 0.5 m beyaz döşeme alnı): h, renk.
+ */
+export interface ParapetSpec {
+  h: number;
+  color?: string;
+  rail?: string;
+  railC?: string;
+  glassC?: string;
+  railH?: number;
+  edges?: number[];
+  railEdges?: number[];
+  coping?: { h: number; over?: number; color?: string };
+  band?: { h: number; color: string };
 }
 
 export interface Palette {
@@ -124,7 +166,7 @@ export interface RoofSpec {
    * Çatı kenarında dolu parapet (gerçek m): yükseklik, renk, üstünde korkuluk (Bal.rail tipleri), metal ve cam rengi.
    * Verilirse saçak alnı yerine çizilir; çatı (kırma veya düz) parapetin arkasından saçaksız başlar.
    */
-  parapet?: { h: number; color?: string; rail?: string; railC?: string; glassC?: string };
+  parapet?: ParapetSpec;
 }
 
 export interface EdgeSpec {
@@ -144,7 +186,23 @@ export interface EdgeSpec {
 }
 
 export type FacadeItem =
-  Win | Strip | Bal | Pipe | Unit | Band | Panel | Entrance | Proj | Sign | Awning | Groove | Vent;
+  | Win
+  | Strip
+  | Bal
+  | Pipe
+  | Unit
+  | Band
+  | Panel
+  | Entrance
+  | Proj
+  | Sign
+  | Awning
+  | Groove
+  | Vent
+  | Pilaster
+  | Pediment
+  | Recess
+  | Mast;
 
 /** Pencere / kapı sütunu (her katta aynı yerde tekrar eden açıklık) */
 export interface Win {
@@ -154,9 +212,12 @@ export interface Win {
   /** Referans katta alt (denizlik) ve üst (lento) görünen yükseklik */
   y0: number;
   y1: number;
-  /** Referans kat */
+  /** Referans kat (−1 = bodrum: zemin kat döşemesinin bir kat altı; K0 penceresi gibi ölçülür) */
   k: number;
-  /** Tekrar aralığı */
+  /**
+   * Tekrar aralığı. s: [−1, −1] → bodrum pencereleri (zeminin üstünde kalan kısım çizilir, subasman kesilir; üst
+   * kenar K0 döşemesini en çok 0.3 m aşabilir). Bodrum kat anahtarı perde/parmaklıkta "K-1".
+   */
   s: Storeys;
   /** std: normal pencere, french: boydan (alt kısmı korkuluklu), small: banyo/merdiven, door: balkon kapısı */
   kind?: 'std' | 'french' | 'small' | 'door' | 'shop';
@@ -191,6 +252,100 @@ export interface Win {
   grilleC?: string;
   /** Kat → dış panjur / dükkân kepengi kapanma oranı 0..1 (1 = tamamen inik), fotoğraftaki gibi */
   shut?: Record<string, number>;
+  /**
+   * Kepenk / dış stor rengi "#rrggbb" (fotoğraftan; yoksa açık gri alüminyum). Kepenk 5 cm lamelli çizilir,
+   * kutusu da bu renkte (kepenkli açıklıkta `box` beyaz kutusu çizilmez).
+   */
+  shutC?: string;
+  /**
+   * Yatay kayıtlar (giydirme cephe traversleri, vasistas kaydı): referans kat `k`'de GÖRÜNEN y listesi; her katta
+   * aynı yükseklikte tekrarlanır. Düşey bölme sayısı `split` (≤ 12).
+   */
+  hbars?: number[];
+  /**
+   * Merdiven kovası penceresi: kat çizgisine kırpılmaz (lento kat yüksekliğini aşabilir, denizlik döşemenin altına
+   * inebilir) → yarım kat kaymalı dizi `k` + `s` ile yazılır.
+   */
+  stair?: boolean;
+}
+
+/**
+ * Kabartma pilastır: pencere sütunlarının yanında duvardan d kadar çıkan düşey bant (sıva / taş). Görünen u0..u1
+ * (ya da merkez u + genişlik w) ve görünen y0..y1 — YA DA `s: [k0, k1]` (K k0 döşemesinden k1+1 döşemesine; en üst
+ * katta duvar üstüne kadar). d gerçek m (varsayılan 0.06). Renk palet adı (plaster2 varsayılan) veya "#rrggbb".
+ * `cap` / `base`: üstte başlık / altta kaide (h yükseklik, d ek çıkıntı m, renk).
+ */
+export interface Pilaster {
+  t: 'pilaster';
+  u0?: number;
+  u1?: number;
+  u?: number;
+  w?: number;
+  y0?: number;
+  y1?: number;
+  s?: Storeys;
+  d?: number;
+  color?: string;
+  cap?: { h: number; d?: number; color?: string };
+  base?: { h: number; d?: number; color?: string };
+}
+
+/**
+ * Üçgen alınlık (balkon yığını üstü açık gri alınlık, cephe / çatı katı alınlığı, asimetrik alınlık):
+ * görünen u0..u1 taban genişliği (d > 0 ise ön yüz düzleminde okunur, balkon gibi düzeltilir), `apex` tepe noktasının
+ * görünen u'su (verilmezse orta → simetrik; kaydırılırsa asimetrik), `y` tabanın görünen yüksekliği (verilmezse duvar
+ * üstü / saçak hizası), yükseklik `h` gerçek m YA DA `yTop` tepe noktasının görünen y'si. d: ön yüzün duvardan
+ * taşması (m, balkon yığını üstünde balkonun d'si), depth: eğik üst yüzlerin geriye uzanımı (m). `trim`: çevre
+ * silmesi / damlalık (w genişlik, d çıkıntı, renk). `roofC`: eğik yüzlerin rengi ("tile" = blok kiremidi; yoksa
+ * alınlık rengi).
+ */
+export interface Pediment {
+  t: 'pediment';
+  u0: number;
+  u1: number;
+  apex?: number;
+  y?: number;
+  yTop?: number;
+  h?: number;
+  d?: number;
+  depth?: number;
+  color?: string;
+  trim?: { w?: number; d?: number; color?: string };
+  roofC?: string;
+}
+
+/**
+ * Duvar girintisi: görünen u0..u1 × y0..y1 (ya da `s: [k0, k1]`: K k0 döşemesinden k1+1 döşemesinin altına) boyunca
+ * duvar `depth` (gerçek m) içeri çekilir — çok katlı yüksek loca, girintili dükkân hattı, merdiven kovası
+ * girintisi, kapı yuvası. Ağız duvarda boş kalır; ORTASI girintiye düşen pencere/kapı (`win`), tabela ve menfezler
+ * arka duvarda çizilir (aynı u/y ile yazılır). Renkler: back (arka duvar), side (yan duvarlar; yoksa back), ceil
+ * (tavan; yoksa soffit), floor (taban; yoksa döşeme) — palet adı veya "#rrggbb". Ara kat döşemeleri gerekiyorsa
+ * her kat için ayrı `bal` (d, inset) kullan; girinti ara döşemesizdir.
+ */
+export interface Recess {
+  t: 'recess';
+  u0: number;
+  u1: number;
+  y0?: number;
+  y1?: number;
+  s?: Storeys;
+  depth: number;
+  back?: string;
+  side?: string;
+  ceil?: string;
+  floor?: string;
+}
+
+/** Bayrak direği: görünen u, duvardan uzaklık off (m), taban görünen y0 (verilmezse zemin), boy h (m), renk, bayrak */
+export interface Mast {
+  t: 'mast';
+  u: number;
+  off?: number;
+  y0?: number;
+  h: number;
+  color?: string;
+  /** "tr" (Türk bayrağı) veya "#rrggbb" düz renkli bayrak; yoksa bayraksız */
+  flag?: string;
 }
 
 /** Turuncu yuvarlak şerit (yarım yuvarlak kesitli pilastr, uçları yuvarlak) */
@@ -219,8 +374,8 @@ export interface Bal {
   s: Storeys;
   /** Cam balkon (katlanır cam) olan katlar */
   glazed?: number[];
-  /** Cam balkon görünümü (kat → tür): clear, green (yeşil yansıma), dark, blinds (zebra/stor perde) */
-  tint?: Record<string, 'clear' | 'green' | 'dark' | 'blinds'>;
+  /** Cam balkon görünümü (kat → tür): clear, green (yeşil yansıma), dark, blinds (zebra/stor perde), frosted (buzlu) */
+  tint?: Record<string, 'clear' | 'green' | 'dark' | 'blinds' | 'frosted'>;
   /** En üst katın üstünde büyük düz saçak plağı (koyu gri alınlı "şapka") */
   cap?: boolean;
   /** Yan kapanış: open (iki yan açık), wall (iki yanda duvar/girinti), start-wall / end-wall (tek yan) */
@@ -247,6 +402,29 @@ export interface Bal {
   net?: number[];
   /** Kat → korkuluk camının GÖRÜNEN rengi (füme #66747e, buzlu yeşilimsi #d6ebe3…; "*" varsayılan) */
   glassC?: Record<string, string>;
+  /**
+   * Kavisli ön yüz: ön kenarın ORTADA dışarı taşması (gerçek m, sehim; uçlarda 0). d = 0 + bulge → iki köşe
+   * arasında duvardan duvara yay (kavisli loca/balkon önü). Döşeme, parapet, cam balkon yay boyunca çizilir.
+   */
+  bulge?: number;
+  /** Serbest ön köşelerin yuvarlatma yarıçapı (m): tek sayı ya da [u0 ucu, u1 ucu] */
+  round?: number | [number, number];
+  /** Kat → cam balkon alt/üst profil rengi "#rrggbb" ("*" varsayılan; bronz, antrasit, beyaz…) */
+  frameC?: Record<string, string>;
+  /** Buzlu cam balkon rengi (tint "frosted" katlarında; varsayılan #d9dfdd) */
+  frostC?: string;
+  /** Kat → sarkan kiriş: alın bandı döşemenin bu kadar ALTINDAN başlar (m; toplam alın = kiriş + döşeme + parapet) */
+  beam?: Record<string, number>;
+  /** Kat → küpeşte yüksekliği (gerçek m, varsayılan 0.92) */
+  railH?: Record<string, number>;
+  /**
+   * Kat → saksı konumları (görünen u listesi, balkon ön yüzünde). potsOn: "rail" (korkuluk üstüne asılı dikdörtgen
+   * saksı, varsayılan) / "floor" (döşemede yuvarlak saksı, bitki korkuluktan taşar). potC saksı, plantC bitki rengi.
+   */
+  pots?: Record<string, number[]>;
+  potsOn?: 'rail' | 'floor';
+  potC?: string;
+  plantC?: string;
 }
 
 /**
@@ -274,6 +452,8 @@ export interface Proj {
   topRail?: 'glass' | 'glassFull' | 'tube' | 'bars' | 'solid' | 'solidTube' | 'none';
   topRailC?: string;
   topParH?: number;
+  /** Teras korkuluğu küpeşte yüksekliği (m, varsayılan 0.92) */
+  topRailH?: number;
 }
 
 /**
@@ -352,12 +532,21 @@ export interface Awning {
   textColor?: string;
 }
 
-/** Yağmur borusu (tam boy, koyu gri) */
+/** Yağmur borusu (varsayılan tam boy, koyu gri, Ø10 cm) */
 export interface Pipe {
   t: 'pipe';
   u: number;
   /** Duvardan uzaklık (m) — balkon önünden geçenler için ~1.4 */
   off?: number;
+  /** Renk "#rrggbb" (ince açık gri PVC #d9d9d6, beyaz #f2f2f0, krem…) */
+  color?: string;
+  /** Yarıçap (gerçek m, varsayılan 0.05; ince PVC ≈0.03–0.04) */
+  r?: number;
+  /** Yalnız bu görünen yükseklik aralığında (ör. yalnız K0 boyunca görünen boru) */
+  y0?: number;
+  y1?: number;
+  /** false → kat kelepçeleri çizilmez */
+  brackets?: boolean;
 }
 
 /** Tekil ekipman: klima dış ünitesi, çanak anten, kamera, bayrak */
@@ -382,6 +571,13 @@ export interface Band {
   color: 'plinth' | 'fascia' | 'strip' | 'plaster2' | string;
   /** Duvardan çıkıntı (m) */
   proud?: number;
+  /**
+   * 'louvre': yatay lamelli alüminyum alın / güneşlik (dükkân saçağı): `color` lamel rengi, `shade` lamel arası
+   * gölge rengi, `slats` lamel sayısı (verilmezse ≈0.15 m aralık), `proud` derinlik (≥ 0.06).
+   */
+  style?: 'louvre';
+  slats?: number;
+  shade?: string;
 }
 
 /** Farklı renkli sıva alanı (görünen) */

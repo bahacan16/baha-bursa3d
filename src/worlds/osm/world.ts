@@ -17,7 +17,9 @@ import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
 import { surveyVegetation } from '../mertkent/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../mertkent';
+import { applyBakedLighting, bakeRequested } from '../mertkent/baked';
 import { StreetProps } from './streetprops';
+import { ultraState } from '../../env/ultra';
 import { createDetailedTrees } from './treemesh';
 import { createEzTrees, windTime, type EzTreeKind } from './eztree';
 import { Pedestrians } from '../../sim/pedestrians';
@@ -179,11 +181,12 @@ export class GroundIndex {
   }
 }
 
-const TREE_NEAR_R = 110;
+// Ultra: ayrıntılı ağaç menzilleri daha geniş (güçlü GPU)
+const treeNearR = () => (ultraState.on ? 180 : 110);
 const TREE_NEAR_MAX = 1500;
 /** Dallı-yapraklı (ez-tree) ağaç yarıçapı / tür başına üst sınır — ağaç başı ~2–4k üçgen. */
 const TREE_EZ_R = { low: 0, medium: 65, high: 100 } as const;
-const TREE_EZ_MAX = 600;
+const treeEzMax = () => (ultraState.on ? 1400 : 600);
 
 export class OsmWorld implements IWorld {
   readonly kind = 'osm' as const;
@@ -308,12 +311,12 @@ export class OsmWorld implements IWorld {
       this.object.add(im);
     }
     // En yakın ağaçlar: gerçek dal + yaprak kartlı (ez-tree) model
-    this.ezR = TREE_EZ_R[quality];
+    this.ezR = ultraState.on ? 160 : TREE_EZ_R[quality];
     if (this.ezR > 0 && this.treeGeosHi.length) {
       this.ezKinds = createEzTrees(import.meta.env.BASE_URL);
       for (const k of this.ezKinds) {
         const mk = (g: THREE.BufferGeometry, m: THREE.Material, name: string) => {
-          const im = new THREE.InstancedMesh(g, m, TREE_EZ_MAX);
+          const im = new THREE.InstancedMesh(g, m, treeEzMax());
           im.count = 0;
           im.frustumCulled = false;
           im.castShadow = shadows;
@@ -462,6 +465,16 @@ export class OsmWorld implements IWorld {
     } catch (e) {
       console.warn('Street View cepheleri yüklenemedi', e);
     }
+    // Pişirilmiş dolaylı ışık (docs/BAKE.md): ?bakeexport=1 → dışa aktarma kancası; Ultra/?bake=1 → pişirilmiş parçalar
+    if (handmade) {
+      const mkGroup = world.object.getObjectByName('mertkent (el modeli)');
+      if (new URLSearchParams(location.search).has('bakeexport'))
+        (await import('../mertkent/bakeexport')).installBakeExport(world as never);
+      else if (mkGroup && bakeRequested())
+        await applyBakedLighting(mkGroup, world.materials.ground, import.meta.env.BASE_URL).catch((e) =>
+          console.warn('bake: pişirilmiş ışık uygulanamadı', e),
+        );
+    }
     return world;
   }
 
@@ -533,12 +546,14 @@ export class OsmWorld implements IWorld {
     this.treeLodAt.set(cx, cz);
     const counts = this.treeNear.map(() => 0);
     const ezCounts = this.treeEz.map(() => 0);
-    const r2 = TREE_NEAR_R * TREE_NEAR_R;
+    const nearR = treeNearR();
+    const ezMax = treeEzMax();
+    const r2 = nearR * nearR;
     const e2 = this.ezR * this.ezR;
     const zero = new Float32Array(16);
     const col = new THREE.Color();
     for (const t of this.treeMeshes) {
-      const far = Math.max(Math.abs(t.c.x - cx), Math.abs(t.c.y - cz)) > CHUNK_SIZE / 2 + TREE_NEAR_R;
+      const far = Math.max(Math.abs(t.c.x - cx), Math.abs(t.c.y - cz)) > CHUNK_SIZE / 2 + nearR;
       const arr = t.im.instanceMatrix.array as Float32Array;
       const near = this.treeNear[t.type];
       const ez = this.treeEz[t.type];
@@ -550,7 +565,7 @@ export class OsmWorld implements IWorld {
         const dz = t.mats[o + 14] - cz;
         const d2 = far ? Infinity : dx * dx + dz * dz;
         let hi = 0;
-        if (ez && d2 < e2 && ezCounts[t.type] < TREE_EZ_MAX) {
+        if (ez && d2 < e2 && ezCounts[t.type] < ezMax) {
           const k = ezCounts[t.type]++;
           ez.branches.instanceMatrix.array.set(t.mats.subarray(o, o + 16), k * 16);
           ez.leaves.instanceMatrix.array.set(t.mats.subarray(o, o + 16), k * 16);

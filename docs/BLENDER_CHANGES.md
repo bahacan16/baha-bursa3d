@@ -266,7 +266,10 @@
     `finial` (top / piramit), 2D kaynaklı tel panel (`infillSpec.welded` ya da tipinde "2D"/"kaynaklı": kalın teller,
     V kıvrımları, dikmeler — da1-south-site, da2-fence-503-west, da3-fence-east-site artık böyle), aralıklı çalı
     (`hedge.style: "scattered"` + `gap`), kapı `style: "wrought"` (siyah ferforje, mızrak uçlu; street-plan gates).
-    Kolon listesi dünya noktası başına yinelenmiyor (aynı konumda üst üste kolon hatası).
+    Kolon listesi dünya noktası başına yinelenmiyor (aynı konumda üst üste kolon hatası). **Kapı hatası
+    düzeltildi:** komşu site kapıları (da1-…) ikinci kez Mertkent yaprak kapısı olarak da çiziliyordu (555/556
+    önündeki siyah yaya kapıları yeşil yaprak kutusu görünüyordu); notunda "ferforje" yazan yaya kapısı artık
+    ferforje (mızrak uçlu) çizilir. Kavisli balkon korkuluğunda dikmeler çevre boyunca ~1.2 m arayla.
   - Derleme: `copyOf` (görülmemiş) kenarlara artık yalnız geometri kopyalanır — tabela, bayrak, klima/çanak/kamera,
     perde/kepenk/parmaklık durumu, cam balkon tonu, file, saksı, tente yazısı kopyalanmaz (CLAUDE.md §0.1). Bu,
     yeniden derlemede 13 bloğun kopya kenarlarını değiştirir. Ayrıca balkon `tint` kat anahtarları ("K3" → "3")

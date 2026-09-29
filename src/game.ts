@@ -8,6 +8,8 @@ import { daylight, type Daylight } from './env/daylight';
 import { nightUniform } from './env/night';
 import { GameAudio } from './env/audio';
 import { PostFX } from './env/post';
+import { installUltraChunks, patchSkyClouds, probeUniforms, ultraState, weakGpu } from './env/ultra';
+import { ReflectionProbe } from './env/probe';
 import { facadeSky } from './worlds/osm/facades';
 import { CharacterController } from './player/controller';
 import { Character } from './player/character';
@@ -24,6 +26,8 @@ export interface GameHooks {
 // Görüş mesafesi (chunk kırpma) ve sis — ana sahne ile arka plan (uzak arazi) aynı sisi kullanır, geçiş dikişsiz olur.
 // KARAR: Düşük kalitede yoğun sis + kısa görüş (mobil), yüksekte uzak Uludağ silüeti görünür.
 const VIEW_DIST: Record<Settings['quality'], number> = { low: 650, medium: 2000, high: 4000 };
+/** Ultra: daha uzun görüş (pus uzakta doğal olarak kapatır) */
+const ULTRA_VIEW_DIST = 6500;
 const FOG: Record<Settings['quality'], [number, number]> = {
   low: [120, 650],
   medium: [500, 7000],
@@ -84,6 +88,10 @@ export class Game {
   readonly isTouch: boolean;
   readonly debug = new URLSearchParams(location.search).has('debug');
   readonly viewDistance: number;
+  /** Ultra gerçekçilik paketi etkin mi (ayar + güçlü GPU; ?q=ultra zorlar). */
+  readonly ultra: boolean;
+  private probe: ReflectionProbe | null = null;
+  private time = 0;
 
   constructor(
     readonly container: HTMLElement,
@@ -97,8 +105,16 @@ export class Game {
       powerPreference: 'high-performance',
       preserveDrawingBuffer: new URLSearchParams(location.search).has('debug'),
     }));
+    const forceUltra = new URLSearchParams(location.search).get('q') === 'ultra';
+    // KARAR: Ultra yalnız masaüstü + donanım GPU'da kendiliğinden açılır (yazılım işleyicide çok yavaş)
+    this.ultra =
+      settings.ultra && settings.quality === 'high' && (forceUltra || (!this.isTouch && !weakGpu(r)));
+    ultraState.on = this.ultra;
+    if (this.ultra) installUltraChunks();
     const maxDpr = this.isTouch ? 1.5 : settings.quality === 'high' ? 2 : 1.25;
-    r.setPixelRatio(Math.min(devicePixelRatio || 1, maxDpr, settings.quality === 'low' ? 1 : 2));
+    // Ultra: cihazın tam piksel yoğunluğu (4K/retina'da ağır — bilerek)
+    if (this.ultra) r.setPixelRatio(Math.min(devicePixelRatio || 1, 3));
+    else r.setPixelRatio(Math.min(devicePixelRatio || 1, maxDpr, settings.quality === 'low' ? 1 : 2));
     // KARAR: Neutral ton eşleme — ACES beyaz sıvayı griye, göğü soluk camgöbeğine çekiyordu; Street View
     // kareleriyle (ölçülmüş renkler) en yakın sonuç Neutral + ~1.5 pozlama ile alındı. ?tm=aces eskisi.
     const tm = new URLSearchParams(location.search).get('tm');
@@ -111,24 +127,35 @@ export class Game {
     r.toneMappingExposure = 0.9;
     r.outputColorSpace = THREE.SRGBColorSpace;
     r.shadowMap.enabled = settings.quality !== 'low';
-    r.shadowMap.type = THREE.PCFShadowMap;
+    // Ultra: PCSS ham derinlik okur (karşılaştırmalı örnekleyici değil) → BasicShadowMap türü + kendi süzgecimiz
+    r.shadowMap.type = this.ultra ? THREE.BasicShadowMap : THREE.PCFShadowMap;
     r.domElement.className = 'game';
     container.appendChild(r.domElement);
     if (this.isTouch) container.classList.add('is-touch');
 
-    this.viewDistance = VIEW_DIST[settings.quality];
+    this.viewDistance = this.ultra ? ULTRA_VIEW_DIST : VIEW_DIST[settings.quality];
     this.camera = new THREE.PerspectiveCamera(62, 1, 0.1, 20000);
     this.follow = new FollowCamera(this.camera);
     this.pmrem = new THREE.PMREMGenerator(r);
     this.sky = createSky(this.backdrop);
     this.sky.sky.scale.setScalar(50000);
+    if (this.ultra) {
+      // Street View kareleri çoğunlukla parçalı bulutlu yaz göğü: dünya düzleminde bulutlar (yer gölgesiyle aynı alan)
+      const u = this.sky.sky.material.uniforms;
+      if (patchSkyClouds(this.sky.sky.material)) {
+        u.cloudCoverage.value = ultraState.cloudCover;
+        u.cloudDensity.value = 0.4;
+      }
+    }
     this.backdropLights();
-    this.lights = createLighting(this.scene, settings.quality);
+    this.lights = createLighting(this.scene, settings.quality, this.ultra);
     this.applyTimeOfDay();
 
     const noPost = new URLSearchParams(location.search).has('nopost');
     if (settings.quality !== 'low' && !noPost)
-      this.post = new PostFX(r, this.scene, this.camera, settings.quality);
+      this.post = new PostFX(r, this.scene, this.camera, settings.quality, this.ultra);
+    if (this.ultra && !new URLSearchParams(location.search).has('noprobe'))
+      this.probe = new ReflectionProbe(r, this.pmrem);
     this.desktop = new DesktopInput(this.input, r.domElement);
     this.touch = this.isTouch ? new TouchControls(container, this.input) : null;
 
@@ -188,6 +215,9 @@ export class Game {
     const u = this.sky.sky.material.uniforms;
     const disc = u.showSunDisc?.value ?? 1;
     if (u.showSunDisc) u.showSunDisc.value = 0; // güneş diski ortam haritasını patlatır
+    // Ultra bulutları ortam haritasına girmesin (kalibrasyon bulutsuz gökle yapıldı)
+    const cloud = u.cloudCoverage?.value ?? 0;
+    if (u.cloudCoverage) u.cloudCoverage.value = 0;
     // Ortam haritasının alt yarısı: gök shader'ı ufkun altını mavi-camgöbeği verir → duvarlar camgöbeği
     // görünüyordu. Gerçekte alt yarım küre sıcak gri zemin (asfalt, kilit taşı, çim, cepheler) yansıtır.
     if (!this.envGround) {
@@ -223,12 +253,17 @@ export class Game {
     this.envGround.visible = false;
     if (this.envSkyline) this.envSkyline.visible = false;
     if (u.showSunDisc) u.showSunDisc.value = disc;
+    if (u.cloudCoverage) u.cloudCoverage.value = cloud;
     old?.dispose();
     if (far) far.visible = farVis;
     this.sky.stars.visible = stars;
     this.scene.environment = this.envRT.texture;
     // Sky shader'ı HDR (çok parlak) üretir: ortam katkısı düşük ölçekli
     this.scene.environmentIntensity = this.envScale * (1 - d.night * 0.7);
+    if (!probeUniforms.uProbeReady.value) {
+      probeUniforms.uProbe.value = this.envRT.texture;
+      probeUniforms.uProbeI.value = this.scene.environmentIntensity;
+    }
     // KARAR: Street View kalibrasyonu (71 yama, 11 görüş): ortam ışığı güneşe göre ~2× fazlaydı → soluk/pastel
     this.lights.hemi.intensity = d.hemiIntensity * 0.6;
   }
@@ -239,7 +274,12 @@ export class Game {
     this.lights.apply(d);
     nightUniform.value = d.night;
     // Mod A'da şehir uzakta da görünsün (tile'lar kendi LOD'unu yönetir).
-    const [near, far] = this.world?.kind === 'google' ? [1500, 26000] : FOG[this.settings.quality];
+    // Ultra: Fog near/far = pus sönüm katsayısı / ölçek yüksekliği (ultra.ts fog parçaları)
+    const [near, far] = this.ultra
+      ? [ultraState.hazeDensity, ultraState.hazeHeight]
+      : this.world?.kind === 'google'
+        ? [1500, 26000]
+        : FOG[this.settings.quality];
     if (!(this.scene.fog instanceof THREE.Fog)) this.scene.fog = new THREE.Fog(d.fogColor, near, far);
     if (!(this.backdrop.fog instanceof THREE.Fog)) this.backdrop.fog = new THREE.Fog(d.fogColor, near, far);
     for (const f of [this.scene.fog, this.backdrop.fog] as THREE.Fog[]) {
@@ -287,10 +327,32 @@ export class Game {
     this.scene.add(world.object);
     this.controller.world = world.collision;
     // Google modunda gökyüzü/sis mesafesi daha geniş olabilir; Mod B'de görüş mesafesi sisle sınırlı.
-    this.camera.far = world.kind === 'google' ? 20000 : Math.min(5000, this.viewDistanceSafe * 1.1);
+    this.camera.far =
+      world.kind === 'google' ? 20000 : Math.min(this.ultra ? 8000 : 5000, this.viewDistanceSafe * 1.1);
     this.camera.updateProjectionMatrix();
     this.applyTimeOfDay();
+    if (this.ultra) this.maxAnisotropy(world.object);
     this.teleport(world.spawn.x, world.spawn.y, world.spawn.z);
+  }
+
+  /** Ultra: tüm dokularda donanımın en yüksek anizotropik süzgeci (yere eğik bakışta keskin kaldırım/asfalt). */
+  private maxAnisotropy(root: THREE.Object3D): void {
+    const max = this.renderer.capabilities.getMaxAnisotropy();
+    const seen = new Set<THREE.Texture>();
+    root.traverse((o) => {
+      const mats = (o as THREE.Mesh).material;
+      if (!mats) return;
+      for (const m of Array.isArray(mats) ? mats : [mats]) {
+        for (const v of Object.values(m as unknown as Record<string, unknown>)) {
+          if (!(v instanceof THREE.Texture) || seen.has(v)) continue;
+          seen.add(v);
+          if (v.anisotropy < max) {
+            v.anisotropy = max;
+            if (v.version > 0) v.needsUpdate = true;
+          }
+        }
+      }
+    });
   }
 
   teleport(x: number, y: number, z: number): void {
@@ -390,6 +452,25 @@ export class Game {
     if (this.controller.jumpedThisStep) this.character.jump();
   }
 
+  /** Ultra kare başı: bulut saati (gökyüzü + yer gölgesi aynı zaman), yansıma küresinin bir yüzü. */
+  private ultraFrame(dt: number): void {
+    this.time += dt;
+    const u = this.sky.sky.material.uniforms;
+    if (u.time) u.time.value = this.time;
+    const night = this.daylight?.night ?? 0;
+    const clock = this.lights.sun.userData.ultraClock as { t: number; cover: number } | undefined;
+    if (clock) {
+      clock.t = this.time;
+      clock.cover = u.cloudCoverage ? u.cloudCoverage.value * (1 - night) : 0;
+    }
+    if (this.probe && night < 0.5) {
+      const at = this.renderPos.clone();
+      at.y += 1.7;
+      if (this.debugCam) at.copy(this.camera.position);
+      this.probe.update(this.scene, this.backdrop, at, [this.character.root]);
+    }
+  }
+
   private render(alpha: number, dt: number): void {
     const c = this.controller;
     this.renderPos.lerpVectors(c.prevPosition, c.position, alpha);
@@ -446,6 +527,13 @@ export class Game {
     this.sky.sky.position.copy(bc.position);
     this.sky.stars.position.copy(bc.position);
     const r = this.renderer;
+    if (this.ultra) this.ultraFrame(dt);
+    const taa = this.post?.taa ?? null;
+    if (taa) {
+      const sz = r.getDrawingBufferSize(new THREE.Vector2());
+      this.camera.updateMatrixWorld();
+      taa.jitter(sz.x, sz.y, [bc]);
+    }
     r.autoClear = false;
     r.info.autoReset = false;
     r.info.reset();
@@ -458,6 +546,7 @@ export class Game {
       r.setRenderTarget(null);
       this.post.render(dt);
     }
+    taa?.unjitter([bc]);
     if (this.pendingShot) {
       this.pendingShot = false;
       // Aynı karede (çizim tamponu temizlenmeden) al

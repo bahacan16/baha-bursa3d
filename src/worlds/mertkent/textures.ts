@@ -100,6 +100,39 @@ export function shutterTexture(): THREE.Texture {
   return tex(c);
 }
 
+/**
+ * Sarmal kepenk / dış stor: beyaz tabanlı (renk malzemeden), bir karo = 0.4 m'de 8 lamel (≈5 cm), lamel
+ * arasında gölge çizgisi + üstte parlak kenar. UV: v = y / 0.4.
+ */
+export function rollerShutterTexture(): THREE.Texture {
+  const [c, g] = canvas(16, 64);
+  g.fillStyle = '#ffffff';
+  g.fillRect(0, 0, 16, 64);
+  for (let k = 0; k < 8; k++) {
+    const y = k * 8;
+    g.fillStyle = 'rgba(0,0,0,0.32)';
+    g.fillRect(0, y + 6, 16, 2);
+    g.fillStyle = 'rgba(0,0,0,0.1)';
+    g.fillRect(0, y + 4, 16, 2);
+    g.fillStyle = 'rgba(255,255,255,0.5)';
+    g.fillRect(0, y, 16, 1);
+  }
+  return tex(c);
+}
+
+/** 2D kaynaklı tel panel: dikey teller 5 cm, yatay teller 20 cm (bir karo 0.2 × 0.2 m), kalın teller (uzaktan görünür) */
+export function weldedMeshTexture(): THREE.Texture {
+  const N = 64;
+  const [c, g] = canvas(N, N);
+  g.clearRect(0, 0, N, N);
+  g.fillStyle = '#ffffff';
+  for (let k = 0; k < 4; k++) g.fillRect(k * 16 + 6, 0, 4, N);
+  g.fillRect(0, 28, N, 6);
+  const t = tex(c);
+  t.premultiplyAlpha = false;
+  return t;
+}
+
 /** Güneş enerjili su ısıtıcısı paneli: koyu mavi cam, alüminyum çerçeve, boru ızgarası */
 export function solarTexture(): THREE.Texture {
   const [c, g] = canvas(64, 128);
