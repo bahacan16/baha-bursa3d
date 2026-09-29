@@ -291,3 +291,24 @@
 - **(kamera)** — 1. şahıs görüş açısı 62° → 55° dikey (yumuşak geçiş; geniş açı bozulması), adımla senkron baş
   salınımı (yürüyüş ~1.6 cm, koşu ~3.2 cm; topuk vuruşunda en alçak). `docs/REALISM.md`: gerçekçilik planı.
   Dosya: `src/player/camera.ts`. **Blender:** yok (Blender kamerası için referans: göz 1.65 m, 55° dikey).
+- **(R4 zemin)** — **Gerçek zemin malzemeleri** (`scripts/real-textures.mjs` → `public/textures/real/<ad>/`,
+  `albedo` sRGB + `normal` + `rh` [R yükseklik, G pürüzlülük, B mikro örtünme], 2k ve `-1k`; `manifest.json`
+  ölçüler/kanıtlar). Ölçüler kullanıcı fotoğrafı `502sk-bati-bisiklet.jpg` metrik üst görünüşe düzeltilerek: gri ve
+  kırmızı kilit taşı modülü 200 × 100 mm (uzun kenar yol boyunca, yarım şaşırtmalı), derz ≈3 mm, pah ≈5 mm 45°;
+  kılavuz karo 400 × 400 mm, 6 çubuk (adım 64, üst 25, taban 32, yükseklik ≈5 mm); bordür birimi ≈0.72 m; site içi
+  I taşı 200 × 139 mm adım (uç genişliği 165, uzun kenarlarda bel — eski dokuda çıkıntı yanlış kenardaydı).
+  Doku ortalamaları (doğrusal→sRGB): gri `#9f9d94`, kırmızı `#998f86`, kılavuz `#b3aea2`, bordür `#a19e96`, boyalı
+  bordür `#e2e2de`; taşlar arası ton CV 0.07. Oyunda `src/worlds/mertkent/realtex.ts` malzemeleri anahtar adıyla
+  yükseltir (tek çağrı `index.ts`'de; `?norealtex` kapatır): `spPaverGrey`, `spPaverRed`, `tactile`, `spSiteGrey`,
+  `spSiteRed` (UV metre, dokuda renk → malzeme beyaz), `curb` / `siteKerb` / `edging` / yeni `kerbPaint` (dünya
+  uzayı üç düzlemli: kutu UV'si her birimde sıfırdan başlıyordu). Ultra: paralaks örtünme (derz derinliği).
+  **Geometri:** `street.ts` kaldırım bordürleri 1 m → 0.72 m birim (derz aralığı); 502. Sk. batı (bisiklet şeridi)
+  bordürünün yol yüzü + üstünün dış 8 cm'i beyaz boya (`street-plan.json` `east-west-side.kerbPaint = "white"`),
+  orada yol kotundaki ayrı 10 cm beyaz çizgi kaldırıldı. Kaldırım katman anahtarı baş ifadeden (`layerKey`): 502. Sk.
+  batı/doğu kaldırımları ve doğu kuzey köşesi artık gri kilit taşı + 0.40 m kılavuz şeridi (önce bandın tamamı kılavuz
+  karoydu); kılavuz merkezi taş sayımıyla batı `at` 0.71 → 0.75, doğu 0.61 → 0.65; DA kuzey krem kenar taşı şeritleri
+  çim yerine `edging`, gri ayırıcı kenar taşları `curb` dokusu. Pişirilmiş ışık: bu kaldırım parçalarının imzası değişti →
+  yeniden pişirme gerekir (o parçalar canlı çizilir). **Blender:** `materials.py` → yukarıdaki zemin malzemeleri
+  (Image Texture: albedo sRGB, normal Non-Color, rh.G pürüzlülük; rh.R yükseklik → Displacement/Bump, ölçek
+  0.009 m; UV metre, doku boyu manifest `size`), bordür malzemeleri üç düzlemli (Box projection, 0.5 m);
+  `NW/Mertkent/Street` yeniden kur (0.72 m bordür birimleri + boyalı bordür), `NW/Mertkent/Site` malzemeleri.

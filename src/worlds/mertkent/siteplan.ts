@@ -79,6 +79,8 @@ export interface StreetPlan {
     layers?: { w?: number; material?: string; h?: number; at?: number }[];
     /** Bordüre bitişik mavi bisiklet şeridi genişliği (yol kotunda) */
     bike?: number;
+    /** Bordür boyası (ör. "white": yol yüzü + üstün dış yarısı beyaz boyalı — bisiklet şeridi kenarı) */
+    kerbPaint?: string;
   }[];
   street?: {
     kind: string;
