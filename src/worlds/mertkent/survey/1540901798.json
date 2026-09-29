@@ -8,7 +8,7 @@
     "eave": 0.1,
     "fasciaH": 2,
     "eaveY": {
-      "edge": 6,
+      "edge": 10,
       "y": 27
     }
   },
@@ -31,7 +31,8 @@
     "Çatı: düz; kind 'flat', fasciaH 2.0 (beyaz-mavi parapet/kemer bandı).",
     "v5 (retro, 2026-09-29): renkler yeniden örneklendi (ev6x, doğu cephe güneşli): taupe sıva #c0b3aa (eski #b8ada3 → #bfb2a9), derz #867e6b, sol mavi kule #9db2c2, sağ kule #9ebdd0, güney mavi #a1cae0/#aeccdd → plaster2 #a2c0d4 (eski #8fb0d6 fazla doygundu). Girinti bandı gölgede #676a70, güneşte #c1b6af (aynı sıva).",
     "v5: görülmeyen kenarlar değişmedi (copyOf/tahmin notları geçerli); kenar 0 (batı) artık perdesiz açık ayna öğeleriyle yazıldı.",
-    "v5 (2026-09-29): pending tarandı — dolu parapet küpeştesi v6'ya bırakıldı (ölçüler güncellendi); balkon uçlarının yuvarlak olduğu doğrulanmadı (dik köşe, round kullanılmadı); yeni pending: beyaz kavisli şerit. Doğu cephedeki derinlik farkları (mavi köşe kuleleri ≈2.9 m, bej girinti bantları ≈1.4 m ana düzlemin gerisinde: ev6x görünen kat aralıkları 2.886/2.61/2.36) recess ile ifade EDİLMEDİ: taban izi kenarı 6 düz 30.3 m (görünen 24.6 m) — önce taban izinin (köşe kuleleri ana gövdeden geri) düzeltilmesi gerekir; bu turda değiştirilmedi."
+    "v5 (2026-09-29): pending tarandı — dolu parapet küpeştesi v6'ya bırakıldı (ölçüler güncellendi); balkon uçlarının yuvarlak olduğu doğrulanmadı (dik köşe, round kullanılmadı); yeni pending: beyaz kavisli şerit. Doğu cephedeki derinlik farkları (mavi köşe kuleleri ≈2.9 m, bej girinti bantları ≈1.4 m ana düzlemin gerisinde: ev6x görünen kat aralıkları 2.886/2.61/2.36) recess ile ifade EDİLMEDİ: taban izi kenarı 6 düz 30.3 m (görünen 24.6 m) — önce taban izinin (köşe kuleleri ana gövdeden geri) düzeltilmesi gerekir; bu turda değiştirilmedi.",
+    "FP-v4 (2026-09-29, 20 köşeli taban izi): taban izi 12 → 20 köşe (bu bina için izinli istisna) ve kuzey ucu geri alındı. Önceki \"doğu cephe 24.6 m\" okuması yanlıştı: ortodaki 24.6 m köşe kulelerinin GÖRÜNEN açıklığı; kuleler ana düzlemin 2.5 m gerisinde, ölçek 2.382/2.891 → gerçek 30.0 m. Street View üçgenlemesi (ev6x+lyr3+__by/0Pe2 köşe azimutları, üç ışınlı köşelerde artık ≤0.04 m): doğu cephe güneyden kuzeye kule 3.72 / bant 3.78 / ana düzlem 14.88 / bant 3.74 / kule 3.92 m, bantlar kulelerin 1.30 m, ana düzlem 2.50 m önünde (ortodaki kat aralığı oranları 1.28 / 2.49 ile tutarlı). Mutlak konum: Street View GPS çerçevesi hava fotoğrafına göre (+0.8, −0.25) m ötelendi (KD köşe düşey izi hava fotoğrafı silüetine, GD kule pencere ve beyaz şerit izleri, çit hattı) — ±0.3 m. Kuzey orta bölüm duvarı kule yüzünün 0.34 m kuzeyinde (OSM kuzey çizgisi balkon önü). Kenar eşlemesi: 0–5 aynı, 6 → 6 (GD kule) + 7 (yeni yan) + 8 (G bant) + 9 (yeni yan) + 10 (ana düzlem) + 11 (yeni yan) + 12 (K bant) + 13 (yeni yan) + 14 (KD kule), 7→15, 8→16, 9→17, 10→18, 11→19. Kenar 6 öğeleri (görünen u) ev6x kamerasından kendi düzlemlerine ışınla aktarıldı, gerçek metre; y'ler eski çerçevede. Ref dosya adları ESKİ kenar numaralarını taşır (eski halkayla üretilmiş ortolar; sv-extra girdileri lock) — CORRECTED=1 ile yeniden üretilmemeli."
   ],
   "edges": [
     {
@@ -314,7 +315,7 @@
           "color": "#867e6b"
         }
       ],
-      "note": "Batı cephe; hiçbir panodan görülmedi (bitişik site içi). Doğu cephenin (6) açık ayna kopyası: yalnız geometri (pencere sütunları, köşe kulesi panoları, derzler); perdeler kopyalanmadı.",
+      "note": "Batı cephe; hiçbir panodan görülmedi (bitişik site içi). Doğu cephenin (6) açık ayna kopyası: yalnız geometri (pencere sütunları, köşe kulesi panoları, derzler); perdeler kopyalanmadı. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no aynı (0), uzunluk aynı (30.54 m). Batı cephe hâlâ görülmedi; öğeler eski (düz sayılan) doğu cephenin ayna kopyası — doğu cephenin kademeli olduğu artık biliniyor, batı da kademeli olabilir (görülmedi, çizilmedi).",
       "ref": "1540901798_6_ev6xdUoA.jpg",
       "cal": {
         "u": [
@@ -341,7 +342,7 @@
       "cal": {
         "u": [
           0,
-          3.71
+          3.711
         ],
         "head": [
           [
@@ -362,24 +363,9 @@
           "y0": 0,
           "y1": 27,
           "color": "plaster2"
-        },
-        {
-          "t": "win",
-          "u0": 0.9,
-          "u1": 2.7,
-          "y0": 12.3,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
-          ],
-          "kind": "french",
-          "rail": true,
-          "split": 3
         }
       ],
-      "note": "Güneybatı köşe kulesinin güney yüzü; görülmedi. GD eşi (5) gibi: mavi, tek geniş pencere sütunu. u gerçek metre."
+      "note": "Güneybatı köşe kulesinin güney yüzü; görülmedi. GD eşi (5) gibi: mavi, tek geniş pencere sütunu. u gerçek metre. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no aynı. Eski 5'in (GD kule güney yüzü) 3 bölmeli penceresi aslında kulenin DOĞU yüzünde (bkz. kenar 5 notu); bu kenardaki benzetme penceresi kaldırıldı — yalnız mavi pano (görülmedi)."
     },
     {
       "edge": 2,
@@ -389,7 +375,7 @@
       "cal": {
         "u": [
           0,
-          1.34
+          1.341
         ],
         "head": [
           [
@@ -412,7 +398,7 @@
           "color": "plaster2"
         }
       ],
-      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı."
+      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no aynı (2), köşeler değişmedi (hava fotoğrafına göre tüm bina +0.8 m doğu, 0.25 m kuzey ötelendi)."
     },
     {
       "edge": 3,
@@ -422,7 +408,7 @@
       "cal": {
         "u": [
           0,
-          12.16
+          12.163
         ],
         "head": [
           [
@@ -478,7 +464,15 @@
           "fasciaC": {
             "*": "#a1cae0"
           },
-          "railC": "#8aacc6"
+          "railC": "#8aacc6",
+          "hand": {
+            "K4": 0.04,
+            "K5": 0.04,
+            "K6": 0.04,
+            "K7": 0.04,
+            "K8": 0.04,
+            "K9": 0.04
+          }
         },
         {
           "t": "win",
@@ -509,17 +503,17 @@
           "split": 4
         }
       ],
-      "note": "Güney cephe orta çıkıntısı (Rylq/Hj1L/__by uzaktan, alt yarısı ağaçla kapalı): açık mavi boyalı, tüm genişlikte uçları yuvarlatılmış kesintisiz balkonlar (beyaz çerçeveli katlanır cam; bazı katlarda zebra stor, bazıları açık), balkon alınları mavi. Kat başına camlama kaba tahmin. Doğu ucunda beyaz dikey şerit ve mavi köşe kulesi (5). u gerçek metre (batıdan), yükseklikler kenar 6 çerçevesinde (≈gerçek). v5: Rylq/Hj1L ortoları: balkon parapeti mavi boyalı dolu duvar (döşeme + ≈0.95 m, görünen bant ≈1.2 m) + üstünde ince çelik küpeşte (solid; küpeşte çizilemiyor → pending); cam balkonlar beyaz çerçeveli katlanır cam doğrudan parapet üstünde. Mavi güneşli #a1cae0/#aeccdd, balkon tavanı #a19e89 (gölge). Kat eşlemesi hâlâ kaba (ortofoto üstü kesik, alt yarı ağaçta). v5 (2026-09-29, __by 315_31 / Rylq 317_20 / 0Pe2 250_22 yakın kareler): balkon ön uçları DİK köşeli — doğu uçta döşeme + mavi parapet yan yüze dönüyor, camlı katlarda katlanır cam yan yüzde de 2 panel; \"uçları yuvarlatılmış\" ifadesi doğrulanmadı → bal.round KULLANILMADI. Uçlar köşe kulesi yanındaki beyaz düşey şeride dayanıyor. Döşeme altlarında birer gömme spot görülüyor (üretici balkon başına tek spot çiziyor)."
+      "note": "Güney cephe orta çıkıntısı (Rylq/Hj1L/__by uzaktan, alt yarısı ağaçla kapalı): açık mavi boyalı, tüm genişlikte uçları yuvarlatılmış kesintisiz balkonlar (beyaz çerçeveli katlanır cam; bazı katlarda zebra stor, bazıları açık), balkon alınları mavi. Kat başına camlama kaba tahmin. Doğu ucunda beyaz dikey şerit ve mavi köşe kulesi (5). u gerçek metre (batıdan), yükseklikler kenar 6 çerçevesinde (≈gerçek). v5: Rylq/Hj1L ortoları: balkon parapeti mavi boyalı dolu duvar (döşeme + ≈0.95 m, görünen bant ≈1.2 m) + üstünde ince çelik küpeşte (solid; küpeşte çizilemiyor → pending); cam balkonlar beyaz çerçeveli katlanır cam doğrudan parapet üstünde. Mavi güneşli #a1cae0/#aeccdd, balkon tavanı #a19e89 (gölge). Kat eşlemesi hâlâ kaba (ortofoto üstü kesik, alt yarı ağaçta). v5 (2026-09-29, __by 315_31 / Rylq 317_20 / 0Pe2 250_22 yakın kareler): balkon ön uçları DİK köşeli — doğu uçta döşeme + mavi parapet yan yüze dönüyor, camlı katlarda katlanır cam yan yüzde de 2 panel; \"uçları yuvarlatılmış\" ifadesi doğrulanmadı → bal.round KULLANILMADI. Uçlar köşe kulesi yanındaki beyaz düşey şeride dayanıyor. Döşeme altlarında birer gömme spot görülüyor (üretici balkon başına tek spot çiziyor). | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no aynı (3), köşeler değişmedi (hava fotoğrafına göre tüm bina +0.8 m doğu, 0.25 m kuzey ötelendi). v6: dolu mavi parapet üstündeki Ø≈4 cm çelik küpeşte `hand` 0.04 m (railC #8aacc6) olarak eklendi — yalnız görülen K4–K9 (K0–K3 ağaç arkasında, görülmedi)."
     },
     {
       "edge": 4,
-      "len": 1.39,
+      "len": 1.11,
       "seen": "none",
       "ref": "1540901798_6_ev6xdUoA.jpg",
       "cal": {
         "u": [
           0,
-          1.39
+          1.11
         ],
         "head": [
           [
@@ -536,23 +530,23 @@
         {
           "t": "panel",
           "u0": 0,
-          "u1": 1.39,
+          "u1": 1.11,
           "y0": 0,
           "y1": 27,
           "color": "plaster2"
         }
       ],
-      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı."
+      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no aynı; 1.39 → 1.11 m (GD kule güney yüzü Street View üç ışınlı köşe kestirimiyle 0.24 m güneye)."
     },
     {
       "edge": 5,
-      "len": 4.5,
+      "len": 1.87,
       "seen": "partial",
       "ref": "1540901798_6_ev6xdUoA.jpg",
       "cal": {
         "u": [
           0,
-          4.5
+          1.87
         ],
         "head": [
           [
@@ -569,46 +563,38 @@
         {
           "t": "panel",
           "u0": 0,
-          "u1": 4.5,
+          "u1": 1.87,
           "y0": 0,
           "y1": 27,
           "color": "plaster2"
         },
         {
-          "t": "panel",
-          "u0": 0,
-          "u1": 0.45,
-          "y0": 0,
-          "y1": 27,
-          "color": "fascia"
-        },
-        {
-          "t": "win",
-          "u0": 1.2,
-          "u1": 3,
-          "y0": 12.3,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
+          "t": "ribbon",
+          "pts": [
+            [
+              1.05,
+              27
+            ],
+            [
+              1.05,
+              10.5
+            ]
           ],
-          "kind": "french",
-          "rail": true,
-          "split": 3
+          "w": 0.75,
+          "color": "fascia"
         }
       ],
-      "note": "Güneydoğu köşe kulesinin güney yüzü (__by/Rylq): mavi, her katta 3 bölmeli geniş pencere (alt kısmı cam korkuluklu), balkon bölgesiyle arasında beyaz dikey şerit. Tepede köşede beyaz yuvarlak kemerli parapet. u gerçek metre (batıdan)."
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): GD köşe kulesinin güney yüzü, 4.50 → 1.87 m (kulenin doğu yüzü eski halkadan 2.6 m batıda). Rylq ve __by ortolarında görülen 3 bölmeli pencereler bu yüzde DEĞİL: iki ortoda farklı genişlikte (Rylq 1.5 m, __by 2.3 m → düzleme dik yüz) ve yatay çizgileri doğu yüzü eğiminde (__by 315_31) → kulenin doğu yüzündeki pencere (kenar 6, ev6x) — buradan kaldırıldı. Yüz: açık mavi + beyaz şerit + mavi; pencere yok (K3–K9 görüldü, alt katlar ağaçta). Beyaz şerit v6 `ribbon` (merkez u 1.05, w 0.75): Rylq ortosu 0.70–1.48, __by ortosu 0.20–1.00 ve __by 315_31 karesi 0.49–1.16 (orto düzlemi yeni yüzün 0.24 m kuzeyinde → Rylq +0.12, __by +0.19); hava fotoğrafında şeridin düşey izi u≈1.1; ±0.25 m. Şeridin batısında (u 0–≈0.5) yüz açık mavi — __by'de kenar 4 ile tek parça görünüyor. Görünen y 10.5–27 (daha aşağısı ağaçta; alt kavis pending). u gerçek metre (batı ucu v5'ten)."
     },
     {
       "edge": 6,
-      "len": 30.3,
+      "len": 3.72,
       "seen": "photo",
       "ref": "1540901798_6_ev6xdUoA.jpg",
       "cal": {
         "u": [
-          2.4,
-          27
+          0,
+          3.721
         ],
         "head": [
           [
@@ -624,25 +610,17 @@
       "items": [
         {
           "t": "panel",
-          "u0": 2.4,
-          "u1": 4.6,
-          "y0": 0,
-          "y1": 27,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 24.8,
-          "u1": 27,
+          "u0": 0,
+          "u1": 3.721,
           "y0": 0,
           "y1": 27,
           "color": "plaster2"
         },
         {
           "t": "win",
-          "u0": 2.6,
-          "u1": 4.4,
-          "y0": 12.3,
+          "u0": 0.61,
+          "u1": 3.44,
+          "y0": 11.82,
           "y1": 13.8,
           "k": 4,
           "s": [
@@ -650,124 +628,223 @@
             9
           ],
           "kind": "french",
-          "rail": true,
-          "split": 3
+          "split": 4,
+          "hbars": [
+            12.46
+          ]
         },
         {
-          "t": "win",
-          "u0": 25,
-          "u1": 26.8,
-          "y0": 12.3,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
+          "t": "band",
+          "y0": 0,
+          "y1": 0.6,
+          "color": "plinth",
+          "u0": 0,
+          "u1": 3.721
+        }
+      ],
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — eski kenar 6'nın GD köşe kulesi parçası: kulenin DOĞU yüzü (E1→C2, 3.72 m; ana düzlemin 2.50 m gerisinde). Öğeler ev6x ortosundan (eski kenar 6, görünen u) kule düzlemine ev6x kamerasından ışınla aktarıldı, u gerçek metre (güney köşeden kuzeye); y eski kenar-6 görünen çerçevesinde (cal.head aynı). Kule/bant/ana düzlem derinlikleri: ev6x+lyr3+__by/0Pe2 köşe azimutlarıyla üçgenleme ve ortodaki kat aralığı oranları (2.382/2.618/2.891 → +2.49/+1.21 m). DÜZELTME: kule penceresi 4 bölmeli + alt bant (lyr3 258_22'de tamamı görülüyor), u 0.61–3.44 (lyr3 ışınları; ev6x ortosunda güney kenar görünen 3.08 → 0.62); ev6x'ten kuzey kısmı güney bandın köşesi arkasında kaldığı için eski ölçüm 3 bölme / görünen 2.6–4.4 okunmuştu. Düşeyde lyr3 258_22 sütun kesiti (K3, K4): denizlik döşeme+0.20, yatay kayıt +0.85 (alt bölme cam — \"cam korkuluk\"), lento +2.18 (survey kamera 2.5 m kabulüyle) → eski denizlik (görünen 12.3) aslında kayıttı: y0 11.82 + hbars [12.46]; dış korkuluk borusu görülmediği için rail kaldırıldı."
+    },
+    {
+      "edge": 7,
+      "len": 1.3,
+      "seen": "photo",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.301
+        ],
+        "head": [
+          [
+            1,
+            5.2
           ],
-          "kind": "french",
-          "rail": true,
-          "split": 3
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 5.63,
+          "w": 0.03,
+          "color": "#867e6b"
         },
         {
-          "t": "win",
-          "u0": 5.9,
-          "u1": 7.15,
-          "y0": 12.5,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 6.2,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 8.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 9.09,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 11.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 11.97,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 14.29,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 14.86,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 17.17,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 17.74,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 20.06,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 20.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 22.95,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 23.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 25.83,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.301,
+          "y": 26.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 0.6,
+          "color": "plinth"
+        }
+      ],
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — güney bej bandın güney yan duvarı (C2→E2, 1.30 m, güneye bakar). __by 315_31'de güneşte açık bej düz duvar, pencere yok; yatay derzler köşeden dönüp devam ediyor (aynı görünen y). Taban bandı ana cepheyle aynı (servi arkasında, görülmedi)."
+    },
+    {
+      "edge": 8,
+      "len": 3.78,
+      "seen": "photo",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.781
+        ],
+        "head": [
+          [
+            1,
+            5.2
           ],
-          "split": 2
-        },
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
         {
           "t": "win",
-          "u0": 8.65,
-          "u1": 10.1,
-          "y0": 12.5,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
-          ],
-          "split": 2,
-          "curt": {
-            "K2": "tul",
-            "K3": "karanlik",
-            "K4": "karanlik",
-            "K5": "tul",
-            "K6": "tul",
-            "K7": "tul-yan"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 12.2,
-          "u1": 13.65,
-          "y0": 12.5,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
-          ],
-          "split": 2,
-          "curt": {
-            "K3": "tul",
-            "K4": "tul",
-            "K5": "tul",
-            "K6": "tul",
-            "K7": "tul-yan"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 15.7,
-          "u1": 17.1,
-          "y0": 12.5,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
-          ],
-          "split": 2,
-          "curt": {
-            "K2": "tul",
-            "K3": "tul-yan",
-            "K4": "zebra",
-            "K5": "tul-yan",
-            "K6": "tul",
-            "K7": "tul-yan"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 19.35,
-          "u1": 20.75,
-          "y0": 12.5,
-          "y1": 13.8,
-          "k": 4,
-          "s": [
-            0,
-            9
-          ],
-          "split": 2,
-          "curt": {
-            "K2": "karanlik",
-            "K3": "tul-yan",
-            "K4": "tul",
-            "K5": "karanlik",
-            "K6": "tul",
-            "K7": "tul"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 22.25,
-          "u1": 23.5,
+          "u0": 1.42,
+          "u1": 2.82,
           "y0": 12.5,
           "y1": 13.8,
           "k": 4,
@@ -781,13 +858,15 @@
           "t": "band",
           "y0": 0,
           "y1": 0.6,
-          "color": "plinth"
+          "color": "plinth",
+          "u0": 0,
+          "u1": 3.781
         },
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 5.63,
           "w": 0.03,
           "color": "#867e6b"
@@ -795,8 +874,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 6.2,
           "w": 0.03,
           "color": "#867e6b"
@@ -804,8 +883,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 8.52,
           "w": 0.03,
           "color": "#867e6b"
@@ -813,8 +892,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 9.09,
           "w": 0.03,
           "color": "#867e6b"
@@ -822,8 +901,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 11.4,
           "w": 0.03,
           "color": "#867e6b"
@@ -831,8 +910,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 11.97,
           "w": 0.03,
           "color": "#867e6b"
@@ -840,8 +919,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 14.29,
           "w": 0.03,
           "color": "#867e6b"
@@ -849,8 +928,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 14.86,
           "w": 0.03,
           "color": "#867e6b"
@@ -858,8 +937,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 17.17,
           "w": 0.03,
           "color": "#867e6b"
@@ -867,8 +946,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 17.74,
           "w": 0.03,
           "color": "#867e6b"
@@ -876,8 +955,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 20.06,
           "w": 0.03,
           "color": "#867e6b"
@@ -885,8 +964,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 20.63,
           "w": 0.03,
           "color": "#867e6b"
@@ -894,8 +973,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 22.95,
           "w": 0.03,
           "color": "#867e6b"
@@ -903,8 +982,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 23.52,
           "w": 0.03,
           "color": "#867e6b"
@@ -912,8 +991,8 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 25.83,
           "w": 0.03,
           "color": "#867e6b"
@@ -921,28 +1000,25 @@
         {
           "t": "groove",
           "dir": "h",
-          "u0": 4.6,
-          "u1": 24.8,
+          "u0": 0,
+          "u1": 3.781,
           "y": 26.4,
           "w": 0.03,
           "color": "#867e6b"
+        },
+        {
+          "t": "pipe",
+          "u": 3.7,
+          "color": "#e9dec6",
+          "r": 0.04
         }
       ],
-      "note": "ev6x referans (lyr3 teyit; ortada ≈27 m üstü ortofotoda yok, üst uç yan karelerden). Köşe kulesi ve girinti bandı pencereleri farklı derinlikte: görünen y'leri ana düzlem çerçevesine çevrilerek yazıldı (overlay'de bu sütunlar yarım kat kaymış görünür, normal). Doğu cephe (Hj1L/ev6x sokağı) u≈14.7 eksenine göre simetrik: iki uçta açık mavi köşe kulesi (2.2 m, her katta ≈1.8 m 3 bölmeli, alt kısmı cam korkuluklu geniş pencere; güney/kuzey cephelerin mavi rengi köşeyi döner), yanında ~1.5–2.5 m geride duran bej girinti bandı (tek 2 kanatlı pencere sütunu), ortada 4 pencere sütunu (≈1.45×1.3 m, 2 kanat, koyu gri denizlik, aralık 3.5 m). Sıva bej-gri (taupe), her katta 2 ince yatay derz. Alt ~5 m kalın servi çiti arkasında (K0 ve giriş görülmedi; çitte mavi sac kapılar). Görünen kat aralığı 2.886 ve iki panonun aynı ölçeği → cephe ortofoto düzleminde; görünen genişlik 24.6 m ama taban izi kenarı 30.3 m (bkz. notlar) — cal.u gerçek köşelere verildi, üretici yatayda ×1.23 gerer. v5 (retro): ev6x ortosunda orta 4 sütun K2–K7 perdeleri tek tek okundu (K0–K1 servi arkasında, K8–K9 ortofoto dışında → yazılmadı; girinti bandı ve köşe kulesi pencereleri farklı derinlikte, perdeleri kat eşlemesi belirsiz olduğu için yazılmadı). Her katta iki yatay sıva derzi (lento +0.43 ve +1.00 m, görünen; satır ortalaması minimumlarından ölçüldü: 20.07/20.65, 17.18/17.75, 14.28/14.85, 11.43/11.97, 8.53/9.10) → groove öğeleri, taupe duvar boyunca (girinti bantları dahil; kat çizgileri aynı). Denizlikler koyu gri-mor (#797178). Sağ kulede pencere araları koyu mavi bant (#3c6492) — gölge mi boya mı belirsiz; K6 civarında sağ kule penceresinde gri asılı nesne (klima/çanak?) seçilemedi."
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — eski kenar 6'nın güney bej girinti bandı (E2→C3, 3.78 m; kulenin 1.30 m önünde, ana düzlemin 1.20 m gerisinde); ev6x'ten görünen u → bant düzlemi (ışınla), u gerçek metre. Kuzey ucunda (ana düzlemin iç köşesinde) tam boy açık renk PVC yağmur borusu (lyr3 279_22 x 355–372, __by 315_31; güneşte #e9dec6) — eski ölçümde yoktu, eklendi."
     },
     {
-      "edge": 7,
-      "len": 4.19,
-      "seen": "partial",
-      "copyOf": 5,
-      "mirror": true,
-      "items": [],
-      "note": "Kuzeydoğu köşe kulesinin kuzey yüzü (0Pe2 çok eğik): mavi, her katta geniş pencere — güney eşinin (5) ayna kopyası."
-    },
-    {
-      "edge": 8,
+      "edge": 9,
       "len": 1.2,
-      "seen": "none",
+      "seen": "photo",
       "ref": "1540901798_6_ev6xdUoA.jpg",
       "cal": {
         "u": [
@@ -962,34 +1038,967 @@
       },
       "items": [
         {
-          "t": "panel",
+          "t": "groove",
+          "dir": "h",
           "u0": 0,
           "u1": 1.2,
+          "y": 5.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 6.2,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 8.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 9.09,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 11.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 11.97,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 14.29,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 14.86,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 17.17,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 17.74,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 20.06,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 20.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 22.95,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 23.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 25.83,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 26.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "band",
           "y0": 0,
-          "y1": 27,
-          "color": "plaster2"
+          "y1": 0.6,
+          "color": "plinth"
         }
       ],
-      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı."
-    },
-    {
-      "edge": 9,
-      "len": 12.4,
-      "seen": "partial",
-      "copyOf": 3,
-      "mirror": true,
-      "items": [],
-      "note": "Kuzey cephe orta çıkıntısı (0Pe2'den çok eğik): mavi, camlı balkonlar görülüyor — güney eşinin (3) ayna kopyası (camlama tahmini)."
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — ana düzlemin güney yan duvarı (C3→E3, 1.20 m, güneye bakar). lyr3 279_22 x 362–380 ve __by 315_31'de güneşte açık bej, pencere yok; derzler dönüyor."
     },
     {
       "edge": 10,
-      "len": 1.01,
-      "seen": "none",
+      "len": 14.88,
+      "seen": "photo",
       "ref": "1540901798_6_ev6xdUoA.jpg",
       "cal": {
         "u": [
           0,
-          1.01
+          14.884
+        ],
+        "head": [
+          [
+            1,
+            5.2
+          ],
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 1.36,
+          "u1": 2.82,
+          "y0": 12.5,
+          "y1": 13.8,
+          "k": 4,
+          "s": [
+            0,
+            9
+          ],
+          "split": 2,
+          "curt": {
+            "K2": "tul",
+            "K3": "karanlik",
+            "K4": "karanlik",
+            "K5": "tul",
+            "K6": "tul",
+            "K7": "tul-yan"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 4.95,
+          "u1": 6.41,
+          "y0": 12.5,
+          "y1": 13.8,
+          "k": 4,
+          "s": [
+            0,
+            9
+          ],
+          "split": 2,
+          "curt": {
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul",
+            "K6": "tul",
+            "K7": "tul-yan"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 8.49,
+          "u1": 9.9,
+          "y0": 12.5,
+          "y1": 13.8,
+          "k": 4,
+          "s": [
+            0,
+            9
+          ],
+          "split": 2,
+          "curt": {
+            "K2": "tul",
+            "K3": "tul-yan",
+            "K4": "zebra",
+            "K5": "tul-yan",
+            "K6": "tul",
+            "K7": "tul-yan"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 12.18,
+          "u1": 13.59,
+          "y0": 12.5,
+          "y1": 13.8,
+          "k": 4,
+          "s": [
+            0,
+            9
+          ],
+          "split": 2,
+          "curt": {
+            "K2": "karanlik",
+            "K3": "tul-yan",
+            "K4": "tul",
+            "K5": "karanlik",
+            "K6": "tul",
+            "K7": "tul"
+          }
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 0.6,
+          "color": "plinth",
+          "u0": 0,
+          "u1": 14.884
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 5.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 6.2,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 8.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 9.09,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 11.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 11.97,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 14.29,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 14.86,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 17.17,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 17.74,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 20.06,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 20.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 22.95,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 23.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 25.83,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 14.884,
+          "y": 26.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        }
+      ],
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ numara — eski kenar 6'nın ana düzlemi (E3→E4, 14.88 m). 4 pencere sütunu + perdeler (K2–K7) ev6x ortosundan ana düzleme ışınla (ortho düzlemine ≈0.1–0.3 m yakın: ölçek ≈1.01–1.03), u gerçek metre. ev6x referans (lyr3 teyit; ortada ≈27 m üstü ortofotoda yok, üst uç yan karelerden). Köşe kulesi ve girinti bandı pencereleri farklı derinlikte: görünen y'leri ana düzlem çerçevesine çevrilerek yazıldı (overlay'de bu sütunlar yarım kat kaymış görünür, normal). Doğu cephe (Hj1L/ev6x sokağı) u≈14.7 eksenine göre simetrik: iki uçta açık mavi köşe kulesi (2.2 m, her katta ≈1.8 m 3 bölmeli, alt kısmı cam korkuluklu geniş pencere; güney/kuzey cephelerin mavi rengi köşeyi döner), yanında ~1.5–2.5 m geride duran bej girinti bandı (tek 2 kanatlı pencere sütunu), ortada 4 pencere sütunu (≈1.45×1.3 m, 2 kanat, koyu gri denizlik, aralık 3.5 m). Sıva bej-gri (taupe), her katta 2 ince yatay derz. Alt ~5 m kalın servi çiti arkasında (K0 ve giriş görülmedi; çitte mavi sac kapılar). Görünen kat aralığı 2.886 ve iki panonun aynı ölçeği → cephe ortofoto düzleminde; görünen genişlik 24.6 m ama taban izi kenarı 30.3 m (bkz. notlar) — cal.u gerçek köşelere verildi, üretici yatayda ×1.23 gerer. v5 (retro): ev6x ortosunda orta 4 sütun K2–K7 perdeleri tek tek okundu (K0–K1 servi arkasında, K8–K9 ortofoto dışında → yazılmadı; girinti bandı ve köşe kulesi pencereleri farklı derinlikte, perdeleri kat eşlemesi belirsiz olduğu için yazılmadı). Her katta iki yatay sıva derzi (lento +0.43 ve +1.00 m, görünen; satır ortalaması minimumlarından ölçüldü: 20.07/20.65, 17.18/17.75, 14.28/14.85, 11.43/11.97, 8.53/9.10) → groove öğeleri, taupe duvar boyunca (girinti bantları dahil; kat çizgileri aynı). Denizlikler koyu gri-mor (#797178). Sağ kulede pencere araları koyu mavi bant (#3c6492) — gölge mi boya mı belirsiz; K6 civarında sağ kule penceresinde gri asılı nesne (klima/çanak?) seçilemedi."
+    },
+    {
+      "edge": 11,
+      "len": 1.2,
+      "seen": "partial",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.2
+        ],
+        "head": [
+          [
+            1,
+            5.2
+          ],
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 5.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 6.2,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 8.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 9.09,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 11.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 11.97,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 14.29,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 14.86,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 17.17,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 17.74,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 20.06,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 20.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 22.95,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 23.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 25.83,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.2,
+          "y": 26.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 0.6,
+          "color": "plinth"
+        }
+      ],
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — ana düzlemin kuzey yan duvarı (E4→C4, 1.20 m, kuzeye bakar). Yalnız 0Pe2 180_0 sağ kenarında gölgede görüldü: düz bej, derzler dönüyor; pencere seçilmedi."
+    },
+    {
+      "edge": 12,
+      "len": 3.74,
+      "seen": "photo",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.741
+        ],
+        "head": [
+          [
+            1,
+            5.2
+          ],
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 1.0,
+          "u1": 2.4,
+          "y0": 12.5,
+          "y1": 13.8,
+          "k": 4,
+          "s": [
+            0,
+            9
+          ],
+          "split": 2
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 0.6,
+          "color": "plinth",
+          "u0": 0,
+          "u1": 3.741
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 5.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 6.2,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 8.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 9.09,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 11.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 11.97,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 14.29,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 14.86,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 17.17,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 17.74,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 20.06,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 20.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 22.95,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 23.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 25.83,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 3.741,
+          "y": 26.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        }
+      ],
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — eski kenar 6'nın kuzey bej girinti bandı (C4→E5, 3.74 m). ev6x'ten görünen u → bant düzlemi, u gerçek metre. Güney bandın iç köşesindeki yağmur borusunun eşi burada görülmedi (ev6x/lyr3'ten ana düzlem köşesinin arkasında, 0Pe2'den açı yok) — çizilmedi."
+    },
+    {
+      "edge": 13,
+      "len": 1.3,
+      "seen": "photo",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          1.3
+        ],
+        "head": [
+          [
+            1,
+            5.2
+          ],
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 5.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 6.2,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 8.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 9.09,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 11.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 11.97,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 14.29,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 14.86,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 17.17,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 17.74,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 20.06,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 20.63,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 22.95,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 23.52,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 25.83,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 1.3,
+          "y": 26.4,
+          "w": 0.03,
+          "color": "#867e6b"
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 0.6,
+          "color": "plinth"
+        }
+      ],
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — kuzey bandın kuzey yan duvarı (E5→C5, 1.30 m, kuzeye bakar). 0Pe2 250_22 x 129–163'te gölgede düz bej, derzler dönüyor, pencere yok."
+    },
+    {
+      "edge": 14,
+      "len": 3.92,
+      "seen": "photo",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          3.921
         ],
         "head": [
           [
@@ -1006,42 +2015,151 @@
         {
           "t": "panel",
           "u0": 0,
-          "u1": 1.01,
+          "u1": 3.921,
+          "y0": 0,
+          "y1": 27,
+          "color": "plaster2"
+        },
+        {
+          "t": "win",
+          "u0": 0.35,
+          "u1": 3.16,
+          "y0": 11.82,
+          "y1": 13.8,
+          "k": 4,
+          "s": [
+            0,
+            9
+          ],
+          "kind": "french",
+          "split": 4,
+          "hbars": [
+            12.46
+          ]
+        },
+        {
+          "t": "band",
+          "y0": 0,
+          "y1": 0.6,
+          "color": "plinth",
+          "u0": 0,
+          "u1": 3.921
+        }
+      ],
+      "note": "FP-v4 (2026-09-29, 20 köşeli taban izi): YENİ — eski kenar 6'nın KD köşe kulesi parçası: kulenin DOĞU yüzü (C5→E6, 3.92 m). ev6x'ten görünen u → kule düzlemi, u gerçek metre. DÜZELTME: 0Pe2 250_22'de yüz tam görülüyor: pencere 4 bölmeli + alt bant, u 0.35–3.16 (0Pe2 ışınları; ev6x ortosunda kuzey kenar görünen 26.46 → KD köşeden ≈0.7 m, güney kısmı kuzey bandın arkasında); eski ölçüm 3 bölme / görünen 25–26.8. Pencerenin kuzeyi güneşte açık mavi duvar, güneyi bandın gölgesinde. Düşey: GD kuleyle aynı tip (0Pe2 250_40'ta alt cam bölme + kayıt) → y0 11.82, hbars [12.46], rail yok."
+    },
+    {
+      "edge": 15,
+      "len": 1.56,
+      "seen": "partial",
+      "copyOf": 5,
+      "mirror": true,
+      "items": [],
+      "note": "Kuzeydoğu köşe kulesinin kuzey yüzü (0Pe2 çok eğik): mavi, her katta geniş pencere — güney eşinin (5) ayna kopyası. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no 7→15, 4.19 → 1.56 m (KD kulenin doğu yüzü 1.9 m batıda). Kopya kaynağı 5 (yeni içerik: pencere yok, beyaz şerit). 0Pe2 250_22/40: KD köşe (x 336) ile balkonlar (x≈380) arası gölgede beyaz-gri şerit (x 339–351) + mavi; ayna kopyası şeridi köşeye yakın koyuyor (0Pe2 kenar-7 ortosunda şerit köşeden batıya ≈0–1.4 m) — uyumlu. Pencere yok."
+    },
+    {
+      "edge": 16,
+      "len": 0.34,
+      "seen": "none",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          0.34
+        ],
+        "head": [
+          [
+            1,
+            5.2
+          ],
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 0.34,
           "y0": 0,
           "y1": 27,
           "color": "plaster2"
         }
       ],
-      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı."
+      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no 8→16, 1.20 → 0.34 m: kuzey orta bölümün DUVARI kule yüzünden yalnız ≈0.34 m kuzeyde (0Pe2 250_40: balkonların doğu yan camı (2 panel/kat) z −201.8…−203.2 → duvar −201.8, balkon önü −203.2 = OSM kuzey çizgisi; OSM balkon önünü çizmiş)."
     },
     {
-      "edge": 11,
+      "edge": 17,
+      "len": 12.4,
+      "seen": "partial",
+      "copyOf": 3,
+      "mirror": true,
+      "items": [],
+      "note": "Kuzey cephe orta çıkıntısı (0Pe2'den çok eğik): mavi, camlı balkonlar görülüyor — güney eşinin (3) ayna kopyası (camlama tahmini). | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no 9→17; duvar 1.4 m güneye (kuzey balkonların önü OSM'deki eski kenar çizgisinde kalır). Kopya kaynağı 3 (v6 küpeşte `hand` de kopyalanır)."
+    },
+    {
+      "edge": 18,
+      "len": 0.38,
+      "seen": "none",
+      "ref": "1540901798_6_ev6xdUoA.jpg",
+      "cal": {
+        "u": [
+          0,
+          0.38
+        ],
+        "head": [
+          [
+            1,
+            5.2
+          ],
+          [
+            8,
+            25.4
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 0.38,
+          "y0": 0,
+          "y1": 27,
+          "color": "plaster2"
+        }
+      ],
+      "note": "Orta çıkıntının kısa yan duvarı (balkonların yanında); görülmedi, mavi varsayıldı. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no 10→18, 1.01 → 0.38 m (orta bölüm duvarı güneye alındı; KB kule kuzey yüzü OSM'de kaldı — görülmedi; bu kısa duvar artık doğuya bakar)."
+    },
+    {
+      "edge": 19,
       "len": 3.75,
       "seen": "none",
       "copyOf": 1,
       "mirror": true,
       "items": [],
-      "note": "Kuzeybatı köşe kulesinin kuzey yüzü; görülmedi. 1'in ayna kopyası."
+      "note": "Kuzeybatı köşe kulesinin kuzey yüzü; görülmedi. 1'in ayna kopyası. | FP-v4 (2026-09-29, 20 köşeli taban izi): kenar no 11→19; kopya kaynağı 1 (pencere artık yok)."
     }
   ],
   "pending": [
     {
-      "what": "Dolu balkon parapeti üstünde ince çelik küpeşte",
-      "edges": [
-        3,
-        9
-      ],
-      "desc": "Güney/kuzey orta balkonlarda mavi dolu parapetin (≈0.95 m) üstünde Ø≈4 cm tek çelik boru küpeşte (#8aacc6 görünen). 'solid' tipi yalnız dolu duvar çiziyor. Güncel (2026-09-29): v5'te dolu parapet üstü küpeşte yok (solid tipi yalnız dolu duvar; solidTube alçak parapet + borular çizer) → v6 \"dolu parapet üstü küpeşte\". Ölçü: dolu mavi parapet döşemeden ≈0.95 m (görünen bant ≈1.2 m, döşeme alnı dahil), küpeşte tek boru Ø≈4 cm, parapet üstünde ≈3–5 cm yukarıda kısa dikmelerle, renk görünen #8aacc6 (mavi-gri boyalı çelik); tüm katlar (K0–K9, görülen katlar K4–K9)."
-    },
-    {
       "what": "Beyaz kavisli düşey şerit (balkon bölgesi ile köşe kulesi arası)",
       "edges": [
         5,
-        7,
-        3,
-        9
+        15,
+        1,
+        19
       ],
-      "desc": "Güney ve kuzey orta balkon bölgelerinin iki ucunda, köşe kulesinin mavi yüzü ile balkon uçları arasında tam boy beyaz şerit (kenar 5 u 0–0.45 m panel olarak çiziliyor). 0Pe2 250_22 ve kenar 7 ortosunda şeridin alt kısmı (görünen y≈5.5–9, ≈K1–K2) kavis yaparak genişliyor/dönüyor (çizgi hâlinde kıvrım); kabartma mı boya mı ayırt edilemedi. Düz pano dışında ifade edilemiyor."
+      "desc": "Güney ve kuzey orta balkon bölgelerinin iki ucunda, köşe kulesinin mavi yüzü ile balkon uçları arasında tam boy beyaz şerit (kenar 5 u 0–0.45 m panel olarak çiziliyor). 0Pe2 250_22 ve kenar 7 ortosunda şeridin alt kısmı (görünen y≈5.5–9, ≈K1–K2) kavis yaparak genişliyor/dönüyor (çizgi hâlinde kıvrım); kabartma mı boya mı ayırt edilemedi. Düz pano dışında ifade edilemiyor. | FP-v4 (2026-09-29, 20 köşeli taban izi) + v6: düz kısmı kenar 5'te `ribbon` (u 1.05, w 0.75, görünen y 10.5–27) olarak çizildi, kenar 15 aynası. KALAN: (1) alt kavis (≈K1–K2): hava fotoğrafında şeridin izi yerde batıya kıvrılıp v5 köşesine (orta çıkıntının GD köşesi / balkon yığınının doğu ucu) iniyor; Street View'de ağaç arkasında — kıvrımın biçimi ölçülemedi; 0Pe2 kenar-7 ortosunda kuzey şerit y≈6–9'da batıya genişliyor ve solunda gölge var (kabartma olabilir, d ölçülemedi). (2) batı uçlardaki eşleri (kenar 1/19): yalnız 60–75 m'den (cbC0 0_0, MA-Iz 0_0) sivri kemerin sol ayağı olarak görülüyor, u ölçülemedi. (3) şeritler çatıda sivri beyaz kemere (iki çatı arası katı: 4 pencere + 2 yuvarlak pencere) dönüşüyor — kemer/alınlık bu turda çizilmedi (ayrı pending)."
+    },
+    {
+      "what": "Güney/kuzey sivri kemer alınlığı",
+      "edges": [
+        3,
+        17
+      ],
+      "desc": "FP-v4 (2026-09-29, 20 köşeli taban izi): cbC0 0_0 ve MA-IzPpa 0_0 (60–75 m güneyden): güney orta çıkıntının üstünde çatı kotunun çok üstüne çıkan beyaz SİVRİ kemer (ogival) alınlık; içinde 4 pencereli bir çatı arası sırası ve üstte 2 yuvarlak pencere (oculus); kemerin ayakları mavi balkon bölgesinin iki yanındaki beyaz şeritler. Kuzey yüzde de aynı kemer (kQajs8rr 240_0). Hava fotoğrafında güney balkon şeritlerinin üstünde (z −179.7…−182.5) 4 ek kat izi. Ölçü (kemer genişliği, tepe kotu, pencere u/y) yakın karelerde yok — ortofoto 24 m'de kesik; SURVEY_TOP=40 ile Hj1L/cbC0'dan orto gerekir."
     }
   ]
 }
