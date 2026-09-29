@@ -21,6 +21,16 @@ function clipX(ring: V2[], x0: number, x1: number): V2[] {
   };
   const r = half(ring, (p) => p[0] >= x0, x0);
   const out = half(r, (p) => p[0] <= x1, x1);
+  return dedupe(out);
+}
+
+/** Halkayı z ∈ [z0, z1] şeridine kırp */
+function clipZ(ring: V2[], z0: number, z1: number): V2[] {
+  const sw = (pts: V2[]) => pts.map((p) => [p[1], p[0]] as V2);
+  return sw(clipX(sw(ring), z0, z1));
+}
+
+function dedupe(out: V2[]): V2[] {
   // Çakışık ardışık noktaları at
   return out.filter((p, i) => {
     const q = out[(i + out.length - 1) % out.length];
@@ -53,8 +63,15 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   const ring = blk.ring as V2[];
   const N = ring.length;
   const byEdge = new Map(blk.edges.map((e) => [e.edge, e]));
-  const part = (x0: number, x1: number, storeys: number, tag: number): CompiledBlock | null => {
-    const r = clipX(ring, x0, x1);
+  const part = (
+    x0: number,
+    x1: number,
+    storeys: number,
+    tag: number,
+    z?: [number, number],
+  ): CompiledBlock | null => {
+    let r = clipX(ring, x0, x1);
+    if (z && r.length >= 3) r = clipZ(r, z[0], z[1]);
     if (r.length < 3) return null;
     const edges: CompiledBlock['edges'] = [];
     for (let j = 0; j < r.length; j++) {
@@ -86,8 +103,9 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   };
   const out: CompiledBlock[] = [];
   m.towers.forEach((tw, k) => {
-    const p = part(tw.x[0], tw.x[1], blk.storeys, k + 1);
-    if (p) out.push(p);
+    // Parça kendi kat sayısını / çatısını taşıyabilir (ör. 7 katlı blok + 4 katlı kanat + 1 katlı podyum)
+    const p = part(tw.x[0], tw.x[1], tw.storeys ?? blk.storeys, k + 1, tw.z);
+    if (p) out.push(tw.roof ? { ...p, roof: { ...p.roof, ...tw.roof } } : p);
   });
   if (m.gap) {
     const p = part(m.gap.x[0], m.gap.x[1], 1, 9);

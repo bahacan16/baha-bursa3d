@@ -1006,7 +1006,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const b = new Builder();
   const extraMats: Record<string, THREE.Material> = {};
   // Ölçülen özel renkler (kat kat balkon alını, korkuluk metali, çıkma, tente) ve tabela yüzleri → dinamik malzeme
-  const colorKey = (kind: 'plaster' | 'fascia' | 'metal' | 'awning', hex: string): string => {
+  const colorKey = (kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass', hex: string): string => {
     const k = `cc_${kind}_${hex.toLowerCase()}`;
     if (!extraMats[k])
       extraMats[k] =
@@ -1014,10 +1014,21 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
           ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
           : kind === 'awning'
             ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.85, side: THREE.DoubleSide })
-            : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
-                roughness: 0.9,
-                side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
-              });
+            : kind === 'glass'
+              ? new THREE.MeshStandardMaterial({
+                  // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
+                  color: hex,
+                  roughness: 0.12,
+                  metalness: 0,
+                  transparent: true,
+                  opacity: 0.86,
+                  side: THREE.DoubleSide,
+                  depthWrite: false,
+                })
+              : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
+                  roughness: 0.9,
+                  side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
+                });
     return k;
   };
   const signFace = (sg: {

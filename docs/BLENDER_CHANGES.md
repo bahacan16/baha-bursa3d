@@ -131,3 +131,11 @@
   1550614218 (MOSSA). **1541439439/40 bina değil** (boş arsa, "Vergi Dairesi proje alanı" levhası) → çizilmez
   (`index.ts` `NOT_BUILDINGS`). Dosya: `data/footprints.json`. **Blender:** bu iki OSM kaydını atla; taban
   izleri cephe ölçümü gelince kurulacak.
+- **(bu commit)** — Üretici: balkon `glassC` (kat → korkuluk camının görünen rengi; 1550826982'de füme #66747e,
+  önceden tüm cam korkuluklar açık yeşil buzlu camdı), `proj.topRail/topRailC/topParH` (çıkma / tek katlı ek üstü
+  teras korkuluğu), `massing` parçaları artık z aralığı + kendi kat sayısı + çatısı alabilir (ör. 7/4/1 katlı
+  kompleks; `gap` yoksa kuleler arası açık geçit), blok `pending` listesi (çizilemeyen detayların ölçüleri).
+  `survey-overlay.mjs` tabela/tente/çıkma/derz/menfez çizer; `survey-plan-map.mjs` pafta kenarında kırpar.
+  Dosyalar: `facade.ts`, `massing.ts`, `index.ts` (`colorKey('glass')`), `survey/schema.ts`,
+  `scripts/survey-compile.mjs`, `survey/1550826982.json`, `data/facades.json`. **Blender:** korkuluk camı rengi
+  kat kat; massing parçalarını ayrı kütle olarak kur; `NW/Mertkent/Blocks/1550826982` yeniden kur.

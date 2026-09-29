@@ -161,7 +161,7 @@ export function buildStreetPlan(
       w: number;
       h: number;
     }) => string;
-    colorKey?: (kind: 'plaster' | 'fascia' | 'metal' | 'awning', hex: string) => string;
+    colorKey?: (kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass', hex: string) => string;
   } = {},
 ): StreetResult {
   const raised: StreetResult['raised'] = [];

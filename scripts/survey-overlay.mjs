@@ -181,6 +181,36 @@ async function main() {
         case 'entrance':
           s += rect(it.u0, it.u1, floorY(0), floorY(0) + 2.4 * r, '#30ff60');
           break;
+        case 'sign': {
+          // Tabela: sarı kutu + yazı (ilk satır)
+          s += rect(it.u0, it.u1, it.y0, it.y1, '#ffee00', 'stroke-dasharray="2 2"');
+          const txt = String(it.text ?? '')
+            .split('\n')[0]
+            .replace(/[<&>]/g, '');
+          s += `<text x="${Math.min(X(it.u0), X(it.u1)) + 2}" y="${Y(it.y1) - 3}" font-size="12" fill="#ffee00" stroke="#000" stroke-width="0.4">${txt}</text>`;
+          break;
+        }
+        case 'awning': {
+          const drop = it.drop ?? 0.4;
+          s += rect(it.u0, it.u1, magY(it.y - drop, it.d ?? 1), it.y, '#ff6ad5');
+          break;
+        }
+        case 'proj': {
+          // Çıkma: ön yüz (derinlikle büyütülmüş) + ön yüz pencereleri
+          const M = (y) => magY(y, it.d ?? 0.6);
+          s += rect(it.u0, it.u1, M(it.y0), M(it.y1), '#b070ff');
+          for (const w of it.wins ?? [])
+            s += rect(w.u0, w.u1, M(w.y0), M(w.y1), '#00ffff', 'stroke-dasharray="3 2"');
+          break;
+        }
+        case 'groove':
+          if (it.dir === 'v') s += rect(it.u - 0.03, it.u + 0.03, it.y0, it.y1, '#999');
+          else s += rect(it.u0, it.u1, it.y - 0.03, it.y + 0.03, '#999');
+          break;
+        case 'vent':
+          for (let k = 0; k < Math.max(1, it.count ?? 1); k++)
+            s += `<circle cx="${X(it.u + k * (it.spacing ?? 0))}" cy="${Y(it.y)}" r="${((it.s ?? 0.15) / 2) * PX}" fill="none" stroke="#fff" stroke-width="1.5"/>`;
+          break;
       }
     }
     s += `<text x="8" y="22" font-size="18" fill="#ffe000" stroke="#000" stroke-width="0.6">${f} · kenar ${edge} len ${len.toFixed(2)} m · ${spec.seen} · kat aralığı ${pitch.toFixed(2)} · kamera D ${D.toFixed(1)} m</text></svg>`;

@@ -193,6 +193,7 @@ async function main() {
               ...(it.railC ? { railC: it.railC } : {}),
               ...(it.parapetH ? { parapetH: keyK(it.parapetH) } : {}),
               ...(it.net ? { net: it.net } : {}),
+              ...(it.glassC ? { glassC: keyK(it.glassC) } : {}),
             });
             break;
           }
@@ -213,6 +214,9 @@ async function main() {
                 kind: w.kind ?? 'std',
                 curt: w.curt ?? null,
               })),
+              ...(it.topRail
+                ? { topRail: it.topRail, topRailC: it.topRailC ?? null, topParH: it.topParH ?? null }
+                : {}),
             });
             break;
           case 'sign':

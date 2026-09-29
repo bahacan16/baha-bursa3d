@@ -87,6 +87,8 @@ export interface CBal {
   /** Kat → dolu parapet yüksekliği */
   parapetH?: Record<string, number>;
   net?: number[];
+  /** Kat → korkuluk camı rengi (füme / buzlu / şeffaf; fotoğraftan örneklenen görünen renk) */
+  glassC?: Record<string, string>;
 }
 export interface CProj {
   t: 'proj';
@@ -97,6 +99,10 @@ export interface CProj {
   y1: number;
   color: string;
   wins: { u0: number; u1: number; y0: number; y1: number; kind: string; curt: string | null }[];
+  /** Üstü teras: dış üç kenarda korkuluk (bal.rail tipleri), metal rengi, dolu parapet yüksekliği */
+  topRail?: string | null;
+  topRailC?: string | null;
+  topParH?: number | null;
 }
 export interface CSign {
   t: 'sign';
@@ -171,15 +177,23 @@ export interface CompiledBlock {
   colors: Record<string, string>;
   edges: { edge: number; len: number; seen: string; items: CItem[] }[];
   /** Zemin kat podyumu üstünde ayrık kuleler (x aralıkları) */
-  massing?: { towers: { x: [number, number] }[]; gap?: { x: [number, number] } };
+  massing?: {
+    towers: {
+      x: [number, number];
+      z?: [number, number];
+      storeys?: number;
+      roof?: Partial<CompiledBlock['roof']>;
+    }[];
+    gap?: { x: [number, number] };
+  };
 }
 
 /** Blok paleti: malzeme anahtarı eşlemesi (ör. mkPlaster → mkPlaster_1480041342) */
 let KM: Record<string, string> = {};
 /** Ölçülen özel renk → malzeme anahtarı (buildFacadeBlock süresince) */
-let CKF: ((kind: 'plaster' | 'fascia' | 'metal' | 'awning', hex: string) => string) | null = null;
+let CKF: ((kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass', hex: string) => string) | null = null;
 const ckm = (
-  kind: 'plaster' | 'fascia' | 'metal' | 'awning',
+  kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass',
   hex: string | null | undefined,
   dflt: string,
 ) => (hex && /^#[0-9a-f]{6}$/i.test(hex) && CKF ? CKF(kind, hex) : dflt);
@@ -218,7 +232,7 @@ export interface FacadeOptions {
   /** Blok paleti malzeme anahtarı eşlemesi */
   keys?: Record<string, string>;
   /** Ölçülen özel renk için malzeme anahtarı (tür: plaster/fascia/metal/awning) */
-  colorKey?: (kind: 'plaster' | 'fascia' | 'metal' | 'awning', hex: string) => string;
+  colorKey?: (kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass', hex: string) => string;
   /** Tabela yüzü malzemesi (yazı dokusu) */
   signFace?: (s: {
     text: string;
@@ -340,7 +354,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   const items = (i: number) => byEdge.get(i) ?? [];
   // Ölçülen özel renkler → malzeme anahtarı (yoksa blok paleti)
   const ck = (
-    kind: 'plaster' | 'fascia' | 'metal' | 'awning',
+    kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass',
     hex: string | null | undefined,
     dflt: string,
   ) => (hex && /^#[0-9a-f]{6}$/i.test(hex) && o.colorKey ? o.colorKey(kind, hex) : dflt);
@@ -353,6 +367,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       mKey: ck('metal', it.railC, 'mkRail'),
       parH: it.parapetH?.[kk] ?? it.parapetH?.['*'] ?? PARAPET,
       net: it.net?.includes(k) ?? false,
+      gKey: ck('glass', it.glassC?.[kk] ?? it.glassC?.['*'], K('mkRailGlass')),
     };
   };
   // İçe gömük balkonlar (d ≈ 0): taban izi içinde boşluk (void) dikdörtgenleri, kat başına
@@ -939,6 +954,30 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             base + it.y0 - 0.5,
             base + it.y1,
           );
+        if (it.topRail && it.topRail !== 'none') {
+          // Teras korkuluğu: çıkmanın dış üç kenarı (duvara dayalı kenar hariç)
+          const c0 = P(i, it.u0, 0);
+          const c1 = P(i, it.u0, it.d);
+          const c2 = P(i, it.u1, it.d);
+          const c3 = P(i, it.u1, 0);
+          curPoly = [c0, c1, c2, c3];
+          const spec: RailSpec = {
+            type: it.topRail,
+            fKey: key,
+            mKey: ck('metal', it.topRailC ?? null, 'mkRail'),
+            parH: it.topParH ?? PARAPET,
+            net: false,
+          };
+          let run = 0;
+          for (const [pa, pb] of [
+            [c0, c1],
+            [c1, c2],
+            [c2, c3],
+          ] as [V2, V2][]) {
+            parapet(b, pa, pb, base + it.y1, run, spec);
+            run += Math.hypot(pb[0] - pa[0], pb[1] - pa[1]);
+          }
+        }
         for (const wn of it.wins) {
           const W = wn.u1 - wn.u0;
           const Hh = wn.y1 - wn.y0;
@@ -1328,7 +1367,7 @@ function parapet(b: Builder, p0: V2, q0: V2, y: number, run: number, spec?: Rail
   }
   // Buzlu cam (glass: parapet üstünde; glassFull: döşemeden) + küpeşte
   const gy0 = type === 'glassFull' ? y + 0.03 : y + PH;
-  b.wall(K('mkRailGlass'), g0, g1, gy0, y + RAIL, [0, 0, L, 1]);
+  b.wall(spec?.gKey ?? K('mkRailGlass'), g0, g1, gy0, y + RAIL, [0, 0, L, 1]);
   const m: V2 = mm;
   const yaw = yaw0;
   b.box(mKey, [m[0], y + RAIL + 0.02, m[1]], [L + 0.02, 0.04, 0.05], yaw);
@@ -1354,6 +1393,8 @@ interface RailSpec {
   parH: number;
   /** Korkuluk arkasında koyu file */
   net?: boolean;
+  /** Korkuluk camı malzemesi */
+  gKey?: string;
 }
 
 /** Duvarı açıklıkların etrafında yatay bantlara bölerek örer; UV metre (çevre boyunca sürekli) */

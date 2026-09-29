@@ -32,6 +32,26 @@ export interface BlockSurvey {
   colors?: Partial<Palette>;
   edges: EdgeSpec[];
   notes?: string[];
+  /**
+   * Kütle bölünmesi (DÜNYA koordinatı, metre): taban izi x (ve isteğe bağlı z) aralıklarıyla parçalara kırpılır;
+   * her parça kendi kat sayısı / çatısıyla çizilir. `gap` verilirse o x aralığı 1 katlı düz çatılı podyum olur;
+   * verilmezse kuleler arası boş kalır (ör. iki blok arası açık geçit). Parçalar ÇAKIŞMAMALI. Kesim çizgisindeki
+   * yeni yan duvarlar öğesiz düz sıvadır (bunları notes'ta anlat).
+   */
+  massing?: {
+    towers: {
+      x: [number, number];
+      z?: [number, number];
+      storeys?: number;
+      roof?: Partial<RoofSpec>;
+    }[];
+    gap?: { x: [number, number] };
+  };
+  /**
+   * Üreticinin henüz çizemediği ama fotoğrafta görülen detaylar — ölçüleriyle (kenar, u/y aralığı, derinlik, renk,
+   * malzeme, açıklama). Ana oturum bunları üreticiye ekleyip bağlar.
+   */
+  pending?: Record<string, unknown>[];
 }
 
 export interface Palette {
@@ -183,6 +203,8 @@ export interface Bal {
   parapetH?: Record<string, number>;
   /** Korkuluğun arkasında koyu file/örtü olan katlar (kuş filesi, gölgelik) */
   net?: number[];
+  /** Kat → korkuluk camının GÖRÜNEN rengi (füme #66747e, buzlu yeşilimsi #d6ebe3…; "*" varsayılan) */
+  glassC?: Record<string, string>;
 }
 
 /**
@@ -206,6 +228,10 @@ export interface Proj {
     kind?: 'std' | 'small' | 'glassband';
     curt?: string;
   }[];
+  /** Üstü teras olan çıkma / tek katlı ek: dış üç kenarda korkuluk (Bal.rail tipleri), metal rengi, parapet boyu */
+  topRail?: 'glass' | 'glassFull' | 'tube' | 'bars' | 'solid' | 'solidTube' | 'none';
+  topRailC?: string;
+  topParH?: number;
 }
 
 /**

@@ -27,13 +27,14 @@ async function main() {
   const ring = fp[id].ring;
   const xs = ring.map((p) => p[0]);
   const zs = ring.map((p) => p[1]);
-  const X0 = Math.min(...xs) - pad;
-  const X1 = Math.max(...xs) + pad;
-  const Z0 = Math.min(...zs) - pad;
-  const Z1 = Math.max(...zs) + pad;
   const m = im.metersPerPixel;
   const ox = aidx.cx - aidx.half;
   const oz = aidx.cz - aidx.half;
+  // Hava fotoğrafı paftasının dışına taşan kısım kırpılır (pafta kenarındaki binalar)
+  const X0 = Math.max(ox, Math.min(...xs) - pad);
+  const X1 = Math.min(ox + (im.size ?? 2 * aidx.half / m) * m - 2 * m, Math.max(...xs) + pad);
+  const Z0 = Math.max(oz, Math.min(...zs) - pad);
+  const Z1 = Math.min(oz + (im.size ?? 2 * aidx.half / m) * m - 2 * m, Math.max(...zs) + pad);
   const OW = 1100;
   const S = OW / (X1 - X0);
   const OH = Math.round((Z1 - Z0) * S);
