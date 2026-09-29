@@ -224,6 +224,18 @@ export function buildMertkentFence(
           [t3[0], y0 + hh, t3[1]],
           [U0 / 2, 0, U1 / 2, hedgeD / 2],
         );
+        // Düzensiz, kabarık üst hat: gömülü basık küre topakları (Street View'da çit tepesi cetvel düz değil)
+        if (sc === 'real')
+          for (let uu = u0 + 0.35; uu < u1; uu += 0.75) {
+            const hsh = Math.sin((cum[i] + uu) * 12.9898) * 43758.5453;
+            const rr = hsh - Math.floor(hsh);
+            const bp = P(uu, off0 + hedgeD * (0.35 + 0.3 * rr));
+            const g = new THREE.SphereGeometry(0.5, 9, 6);
+            g.scale(1.1, 0.35 + 0.35 * rr, 0.8);
+            g.rotateY(yaw);
+            g.translate(bp[0], y0 + hh - 0.05, bp[1]);
+            b.geometry('mkHedge', g);
+          }
         // KARAR: yaprak kartı saçağı kaldırıldı (eleştirmen: gerçek budanmış leylandide pençe gibi koyu filizler yok)
       }
       collide?.(

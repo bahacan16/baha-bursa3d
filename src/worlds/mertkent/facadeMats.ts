@@ -298,7 +298,8 @@ float panel = floor(x / 0.72);
 float joint = smoothstep(0.02, 0.0, abs(fract(x / 0.72) - 0.5) - 0.475);
 float prof = step(y, 0.035) + step(0.965, y);
 // Balkon içi: tavan açık, zemin koyu; paneller arası hafif ton farkı (katlanır camların açısı)
-vec3 inside = mix(vec3(0.16, 0.165, 0.16), vec3(0.34, 0.34, 0.33), smoothstep(0.0, 1.0, y));
+// Street View: cam balkonlar koyu mavi-lacivert bant (~50,75,100): içerisi karanlık, yansıma mavimsi
+vec3 inside = mix(vec3(0.035, 0.05, 0.07), vec3(0.08, 0.1, 0.13), smoothstep(0.0, 1.0, y));
 inside *= 0.9 + 0.2 * h1(panel + seed);
 if (tint > 2.5) {
   // Zebra / stor perde (açık yeşil-beyaz bantlar)
@@ -312,7 +313,7 @@ if (tint > 2.5) {
 } else {
   // Açık: tül / eşya lekeleri
   float cur = step(0.55, h1(panel + seed * 3.0));
-  inside = mix(inside, vec3(0.62, 0.62, 0.6), cur * 0.55);
+  inside = mix(inside, vec3(0.4, 0.41, 0.4), cur * 0.35);
 }
 // Sahte gökyüzü yansıması (yukarı bakan camlarda güçlü)
 inside += vec3(0.07, 0.085, 0.1) * (0.6 + 0.4 * y);

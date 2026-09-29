@@ -928,7 +928,7 @@ export function leylandiiTexture(): THREE.Texture {
   const Hh = 512;
   const [c, g] = canvas(W, Hh);
   const r = rng(71);
-  g.fillStyle = '#566b40';
+  g.fillStyle = '#2b3d22';
   g.fillRect(0, 0, W, Hh);
   const wrap = (x: number, y: number, m: number, fn: (X: number, Y: number) => void) => {
     for (const dx of [-W, 0, W])
@@ -953,7 +953,7 @@ export function leylandiiTexture(): THREE.Texture {
     });
   }
   // Pullu dal uçları (çoğu yukarı-yana), yan filizlerle
-  const pal = ['#84a05a', '#92ac64', '#9fb86e', '#adc379', '#bacd86', '#76914f', '#c4d491', '#8da760'];
+  const pal = ['#4f6a33', '#5a763a', '#658242', '#708d4a', '#7d9854', '#435c2c', '#8aa35e', '#5f7b3d'];
   g.lineCap = 'round';
   for (let i = 0; i < 11000; i++) {
     const x = r() * W;
@@ -996,7 +996,7 @@ export function leylandiiTexture(): THREE.Texture {
     const x = r() * W;
     const y = r() * Hh;
     const s = 1.5 + r() * 2.5;
-    const col = r() < 0.5 ? '#d2e08e' : '#c0d27a';
+    const col = r() < 0.5 ? '#a3b86a' : '#8fa75a';
     wrap(x, y, 4, (X, Y) => {
       g.fillStyle = col;
       g.fillRect(X, Y, s, s);

@@ -96,6 +96,15 @@ export function surveyVegetation(): {
   const excludeZones: number[][] = [];
   for (const a of [...(SITE_PLAN.areas ?? []), ...(PARK_PLAN.areas ?? [])])
     if (a.poly?.length >= 3) excludeZones.push(flat(a.poly));
+  // KD köşe adası (budanmış şimşir topları; Street View'da ağaç yok)
+  excludeZones.push(
+    flat([
+      [-16, -150],
+      [6, -150],
+      [6, -128],
+      [-16, -128],
+    ]),
+  );
   // Sokak kaldırımları (bordürden içeri w) + 1.5 m pay
   for (const s of STREET_PLAN.sidewalks ?? []) {
     for (let i = 0; i + 1 < s.pts.length; i++) {

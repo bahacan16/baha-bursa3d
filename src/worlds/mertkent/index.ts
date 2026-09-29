@@ -336,8 +336,8 @@ function materials(base: string): Record<string, THREE.Material> {
     mkStep: std({ color: 0xc9c3b6, roughness: 0.7 }),
     mkEntryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
     // Street View'da güneşte ~#c0b19c (sıcak bej-gri), kiremit bant solgun
-    spPaverGrey: paverMat(['#b6ab99', '#bfb4a2', '#aca190', '#b9ae9c'], 21, -5),
-    spPaverRed: paverMat(['#bea48d', '#c7ae98', '#b39a84', '#c3aa94'], 22, -5),
+    spPaverGrey: paverMat(['#c3beb2', '#ccc7bb', '#b8b3a7', '#c7c2b6'], 21, -5),
+    spPaverRed: paverMat(['#bfae9f', '#c8b7a8', '#b5a496', '#c4b3a4'], 22, -5),
     spRubberRed: std({
       color: 0x7e4a3f,
       roughness: 0.95,
@@ -421,15 +421,15 @@ function materials(base: string): Record<string, THREE.Material> {
       return std({
         map,
         normalMap: nm,
-        normalScale: new THREE.Vector2(0.8, 0.8),
+        normalScale: new THREE.Vector2(0.45, 0.45),
         roughness: 0.8,
-        color: 0xf2f2ee,
+        color: 0xffffff,
       });
     })(),
     mkWallBack: granularMaterial('#e3e2de', 9),
     mkTile: std({ map: T.roofTileTexture('#a0654f'), side: DS, roughness: 0.8 }),
-    mkCoping: granularMaterial('#d7843a', 10, { roughness: 0.8 }),
-    mkPillar: granularMaterial('#d98a3e', 11, { roughness: 0.85 }, { mottle: 0.07, bump: 2.2 }),
+    mkCoping: granularMaterial('#cf9e62', 10, { roughness: 0.8 }),
+    mkPillar: granularMaterial('#d6a466', 11, { roughness: 0.85 }, { mottle: 0.07, bump: 2.2 }),
     mkMesh: std({
       map: T.meshFenceTexture(),
       alphaTest: 0.45,

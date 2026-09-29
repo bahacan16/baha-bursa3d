@@ -9,6 +9,7 @@ import { sideNormal, type StreetPlan } from './siteplan';
  */
 
 const KERB_W = 0.15;
+const SHOW_BIKE = typeof location !== 'undefined' && new URLSearchParams(location.search).has('bike');
 
 export interface StreetResult {
   /** Yürüme yüksekliği için yükseltilmiş alanlar (arazinin üstünde h metre) */
@@ -167,7 +168,8 @@ export function buildStreetPlan(
       if (lay.bands[0]?.v0 >= KERB_W - 1e-6) kerbLine(0, kerbH);
       for (const [v, kh] of lay.kerbs ?? []) kerbLine(v, kh);
       // Bisiklet şeridi (yol kotunda mavi boya) + dış kenarda beyaz kesikli çizgi
-      if (lay.bike) {
+      // KARAR: bisiklet şeridi boyası çizilmez — iki eleştirmen turunda da gerçek karelerde mavi boya seçilemedi
+      if (lay.bike && SHOW_BIKE) {
         strip(-lay.bike, 0, 'spBike', 0.075);
         for (let u = 0.5; u + 1 < L; u += 2) {
           const r: V2[] = [
