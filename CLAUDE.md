@@ -358,6 +358,17 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 - Görülmeyen (`copyOf`) kenarlara yalnız geometri kopyalanır; tabela/bayrak/perde/klima/çanak kopyalanmaz (§0.1).
 - Eski (v1/v2) ölçümler Doğan Avcıoğlu standardına getirildi (retro, 15 blok + Mertkent-2 sokakları); çıkan eksik
   üretici özellikleri `pending` alanlarında ölçüleriyle bekler (sonraki üretici turu).
+- Üretici v6 kararları: `roof.kind: "hipped"` `gables`'ı yok sayar (alınlık görülen blok `gable` + `gableC` kullanır);
+  kavisli iç loca = `inset` + `bulge` (loca derinliği korunur); loca içine düşen ölçülmüş pencere loca arka duvarına
+  çizilir ve o kattaki otomatik balkon kapısının yerini alır; `behind` (ön düzlem ortofotosunu arka duvara ölçekleme)
+  isteğe bağlı; 1.5 cm pah kırma yalnız Yüksek/Ultra (Düşük/Orta çıktısı değişmez). Portre bayrak genel gri madalyon
+  (yüz çizilmez).
+- Street View kamera yüksekliği çekim tarihine göre (2025-09 2.35 m, 2019-05 2.55, 2014-07 2.80; `docs/SV_CAMERA.md`);
+  zemin ölçümleri ve karşılaştırma kamerası bunu kullanır, cephe ortofotoları 2.5 varsayılanında kalır (ölçüler ve
+  `base` onlara göre).
+- Başsız Chromium (SwiftShader) GPU süreci dünya yüklenince 3–4 GB; konteynerde tüm süreçler 14.3 GB'lık ortak bellek
+  sınırını paylaşır → aynı anda birden çok tarayıcı OOM ile öldürülür (siyah tuval / CONTEXT_LOST). Tarayıcı
+  komutları `flock -w 5400 /tmp/claude-0/browser.lock <komut>` ile sıraya alınır.
 
 - Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer).
 - Etiketsiz araç yollarına iki yanlı kaldırım; zemin katında dükkan varsa +0.9 m.
