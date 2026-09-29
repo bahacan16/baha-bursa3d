@@ -560,3 +560,6 @@
   atlas dokusundan; etkilenen bloklar 1480041342/43, 1546358557, 1480163634, 1540901777, 1540901771/94/95/96/98,
   1479658783, 1480041301/44/45, 1540901772, 1546358562, 1550826982, 303738118, 900000101/106 (liste v7 raporunda);
   `NW/Mertkent/Street`: hız kesici, da3 yan sokak çitleri (taban kotu), park levhası kotu.
+- **(karşılaştırma görüşleri)** 23:50 — `scripts/critic-views-da2.json`: MeHpp0ZG / l07hZ6pz panolarının GPS'i ≈4.5 m
+  batıda (eleştirmen: aynı kavşak/çit noktaları) → `dx` +4.5; `critic-views-da3.json` DIKaX 0 görüşü 900000101'e bakıyor
+  (ad düzeltildi). **Blender:** — (karşılaştırma kameraları kullanılıyorsa bu iki panoyu 4.5 m doğuya al)
