@@ -3,6 +3,10 @@ name: Fetch high-res aerial (survey)
 # Site içi ölçümü için yüksek çözünürlüklü hava fotoğrafları → streetview-src/aerial (yayınlanmaz)
 on:
   workflow_dispatch:
+    inputs:
+      tiles:
+        description: 'Paftalar (virgüllü): w,e,n1,n2 — boşsa yalnız yeni paftalar (n1,n2)'
+        default: 'n1,n2'
   push:
     paths:
       - 'scripts/fetch-aerial-hires.mjs'
@@ -26,6 +30,7 @@ jobs:
           cache: npm
       - run: npm ci
       - name: Hava fotoğrafları
+        if: contains(format(',{0},', inputs.tiles || 'n1,n2'), ',w,')
         env:
           AERIAL_SOURCES: google
           # Mertkent + Doğan Avcıoğlu doğu koridoru + Uğur Mumcu (x −160…340, z −390…110)
@@ -34,6 +39,7 @@ jobs:
           AERIAL_HALF: 250
         run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
       - name: Hava fotoğrafları (doğu paftası — Doğan Avcıoğlu → Özlüce kavşağı)
+        if: contains(format(',{0},', inputs.tiles || 'n1,n2'), ',e,')
         env:
           AERIAL_SOURCES: google
           AERIAL_DIR: aerial-e
@@ -42,11 +48,33 @@ jobs:
           AERIAL_CZ: -100
           AERIAL_HALF: 250
         run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
+      # KARAR (2026-09-29): Özlüce Bulvarı kuzey koridoru → Muammer Aksoy Cd. kavşağı (z ≈ −805). Mevcut w/e paftaları
+      # yeniden indirilmez (ölçümler onlara göre; görüntü güncellenirse eski ölçümlerle çelişirdi).
+      - name: Hava fotoğrafları (kuzey paftası 1 — Özlüce Bulvarı, kavşaktan kuzeye)
+        if: contains(format(',{0},', inputs.tiles || 'n1,n2'), ',n1,')
+        env:
+          AERIAL_SOURCES: google
+          AERIAL_DIR: aerial-n1
+          # x 390…890, z −580…−80
+          AERIAL_CX: 640
+          AERIAL_CZ: -330
+          AERIAL_HALF: 250
+        run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
+      - name: Hava fotoğrafları (kuzey paftası 2 — Muammer Aksoy Cd. kavşağına kadar)
+        if: contains(format(',{0},', inputs.tiles || 'n1,n2'), ',n2,')
+        env:
+          AERIAL_SOURCES: google
+          AERIAL_DIR: aerial-n2
+          # x 390…890, z −950…−450
+          AERIAL_CX: 640
+          AERIAL_CZ: -700
+          AERIAL_HALF: 250
+        run: node --experimental-strip-types scripts/fetch-aerial-hires.mjs
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add streetview-src/aerial streetview-src/aerial-e
+          git add -A streetview-src
           if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
           git commit -m "data: high-res aerial survey images"
           git pull --rebase origin "${GITHUB_REF_NAME}"
