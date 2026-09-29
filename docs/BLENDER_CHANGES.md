@@ -96,7 +96,7 @@
   `data/facades.json`. **Blender:** `NW/Mertkent/Blocks/1540901772` (korkuluk tipi boru, tabela).
 - **7be7de4** — Doğu paftası hava fotoğrafı `streetview-src/aerial-e/` (x 230…730, z −350…150) + 18 bina için
   yakın plan kare planı. **Blender:** — (referans)
-- **(bu commit)** — Üretici ek özellikleri (ajan raporlarındaki eksikler):
+- **224de3e** — Üretici ek özellikleri (ajan raporlarındaki eksikler):
   - Pencere `grille` (kat → bars | ornamental | lattice, `grilleC`), `lower` (kapı/fransız pencere alt bölmesi:
     frosted | louvre | solid, `lowerC`); balkon `net` (kuş filesi katları); `groove` (sıva derzi, yatay/düşey),
     `vent` (menfez: yuvarlak/dikdörtgen, adet + aralık); `sign.lines` (çok satırlı, satır başına renk/boy);
@@ -112,7 +112,7 @@
     spotları, raf siluetleri) — `curt` değeri `vitrin` (7), `kind: shop` varsayılanı. Dosya: `facadeMats.ts`,
     `facade.ts`. **Blender:** vitrin camları koyu, iç mekân loş.
   - Kuleli blok podyumu (massing gap) saçaksız düz çatı (açık gri saçak alnı yoktu). Dosya: `massing.ts`.
-- **(bu commit)** — Bloklar v3 (kat kat korkuluk/alın/perde/tabela):
+- **224de3e** — Bloklar v3 (kat kat korkuluk/alın/perde/tabela):
   - **1550826982** (DA kuzey, iki kuleli): 17 tabela (MiA / YÖNETİM VE GAYRİMENKUL, phenomenon KİTAP, EVRENSEL
     KİTAP + EV/REN/SEL logo kutusu, sacperisi.özlüce, Saç Perisi, BAYAN KUAFÖRÜ, Hoşgeldiniz, L'ORÉAL posteri,
     dil okulu yuvarlak tabelası), lamel bant #33393b (3.7–4.65 m, 12 cm çıkıntı), tüm balkonlar `glassFull`
@@ -124,9 +124,9 @@
     Görülmeyen: güney cepheler (rail/alın komşu kolondan, notlu).
   - **1546358554 / 1540901773 / 1540901794**: v3 alanları (korkuluk tipi, alın rengi, perde, tabela).
   Dosyalar: `survey/*.json`, `data/facades.json`. **Blender:** `NW/Mertkent/Blocks/<id>` bu 7 blok yeniden kur.
-- **(bu commit)** — Sokak panoları `da2-board-sehri` (ŞEHR-İ BURSA EVLERİ), `da2-board-uptown`. Dosya:
+- **224de3e** — Sokak panoları `da2-board-sehri` (ŞEHR-İ BURSA EVLERİ), `da2-board-uptown`. Dosya:
   `data/street-plan.json`, `street.ts` (`board`). **Blender:** `NW/Mertkent/Street`.
-- **(bu commit)** — Segment 3 taban izleri (Özlüce kavşağına kadar, 12 bina, hava fotoğrafı + SV, eğim ölçülü):
+- **224de3e** — Segment 3 taban izleri (Özlüce kavşağına kadar, 12 bina, hava fotoğrafı + SV, eğim ölçülü):
   1540901770/71/74/76/77, 1546816193, 1541439435/36/37, 303738118 (Cevher/Delice), 303738122 (Balıkçı Mahmut),
   1550614218 (MOSSA). **1541439439/40 bina değil** (boş arsa, "Vergi Dairesi proje alanı" levhası) → çizilmez
   (`index.ts` `NOT_BUILDINGS`). Dosya: `data/footprints.json`. **Blender:** bu iki OSM kaydını atla; taban
