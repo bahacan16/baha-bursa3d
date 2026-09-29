@@ -75,8 +75,7 @@ async function main() {
       const pano = ent && idx.panos.find((q) => q.id === ent.pano);
       const base = ent?.base ?? baseRun;
       // trueCoords: ölçümler zaten gerçek derinlikte (çift pano stereo) → balkon büyütmesi geri alınmaz
-      if (!pano || Number(m?.[2]) !== e || sv.trueCoords)
-        return { D: 1e6, uF: L / 2, yCam: CAM_H, base };
+      if (!pano || Number(m?.[2]) !== e || sv.trueCoords) return { D: 1e6, uF: L / 2, yCam: CAM_H, base };
       const tx = (b[0] - a[0]) / L;
       const tz = (b[1] - a[1]) / L;
       return {
