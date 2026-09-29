@@ -44,7 +44,9 @@ const GradeShader = {
       #ifdef AUTO_EXPOSURE
       // kalibre pozlamaya göre kısmi uyum: ölçülen log ortalama referanstan sapınca yarı yarıya düzelt
       float lavg = texture2D(tExposure, vec2(0.5)).r;
+      if (isnan(lavg) || isinf(lavg)) lavg = uExpRef;
       c *= clamp(exp((uExpRef - lavg) * uExpStrength), uExpRange.x, uExpRange.y);
+      if (any(isnan(c)) || any(isinf(c))) c = vec3(0.0);
       #endif
       float l0 = dot(c, vec3(0.2126, 0.7152, 0.0722));
       c *= mix(uShadowTint, uHighlightTint, smoothstep(0.02, 0.25, l0));
@@ -216,14 +218,15 @@ export class PostFX {
     }
     this.grade = new ShaderPass(GradeShader);
     if (ultra && !q.has('noae')) {
-      this.exposure = new ExposureMeter();
+      // Referans = kalibrasyon görüşlerinin ölçülen log ortalaması (Street View görüşleri, ton eşleme öncesi)
+      const ref = Number(q.get('aeref') ?? ULTRA_EXPOSURE_REF);
+      this.exposure = new ExposureMeter(ref);
       const g = this.grade.material;
       g.defines.AUTO_EXPOSURE = '';
       g.needsUpdate = true;
       const u = this.grade.uniforms;
       u.tExposure.value = this.exposure.texture;
-      // Referans = kalibrasyon görüşlerinin ölçülen log ortalaması (Street View 11 görüş, Neutral ton eşleme öncesi)
-      u.uExpRef.value = Number(q.get('aeref') ?? ULTRA_EXPOSURE_REF);
+      u.uExpRef.value = ref;
       u.uExpStrength.value = Number(q.get('ae') ?? 0.5);
       u.uExpRange.value.set(0.75, 1.6);
     }

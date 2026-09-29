@@ -449,8 +449,8 @@ describe('cephe üreticisi v6', () => {
             t: 'dormer',
             u0: 3,
             u1: 5.3,
-            setback: 1.5,
-            ridge: 1.2,
+            setback: 0.5,
+            ridge: 2.4,
             h: null,
             wallH: null,
             pitch: 40,
@@ -464,9 +464,9 @@ describe('cephe üreticisi v6', () => {
       ),
     );
     const w = bbox(bk.get('cc_plaster_#f1f1ee'));
-    expect(w.y1).toBeCloseTo(WALL_TOP + 1.2, 1);
-    // Ön yüz duvardan 1.5 m geride (x = +1.5)
-    expect(w.x0).toBeGreaterThan(1.4);
+    expect(w.y1).toBeCloseTo(WALL_TOP + 2.4, 1);
+    // Ön yüz duvardan 0.5 m geride (x = +0.5)
+    expect(w.x0).toBeGreaterThan(0.45);
     expect(bk.has('mkGlass')).toBe(true);
     expect(bk.has('mkTile')).toBe(true);
   });
@@ -546,7 +546,8 @@ describe('cephe üreticisi v6', () => {
       ]),
     );
     // Spot: K1 ve K2 döşemelerinin altında 3'er (K1 döşemesi = K0 tavanı → k>0 koşulu: 2 kat)
-    expect(bk.get('mkDownlight')!.pos.length / 3).toBe(2 * 3 * 13);
+    // CircleGeometry(12 dilim) = 14 köşe
+    expect(bk.get('mkDownlight')!.pos.length / 3).toBe(2 * 3 * 14);
     expect(bk.has('cc_frame_#2e3440')).toBe(true);
     // Küpeşte parapet + harpuşta üstünde
     const hand = bbox(bk.get('cc_metal_#8aacc6'));
@@ -696,7 +697,8 @@ describe('cephe üreticisi v6', () => {
     const gl = bbox(bk.get('cc_tint_#223344'));
     expect(gl.z0).toBeCloseTo(-5, 1);
     expect(gl.z1).toBeCloseTo(-5, 1);
-    expect(bbox(bk.get('mkGlass')).z0).toBeCloseTo(-1 + 0.1, 1);
+    // Kenar 2 (z = −1) penceresi hacmin içine (−z) gömülü
+    expect(bbox(bk.get('mkGlass')).z0).toBeCloseTo(-1 - 0.1, 1);
     expect(bbox(bk.get('cc_plaster_#884422')).y1).toBeGreaterThan(3 + 2 * 0.5);
   });
 

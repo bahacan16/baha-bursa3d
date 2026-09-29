@@ -137,6 +137,15 @@ export class Game {
     r.shadowMap.type = this.ultra ? THREE.BasicShadowMap : THREE.PCFShadowMap;
     r.domElement.className = 'game';
     container.appendChild(r.domElement);
+    // Bağlam kaybı (GPU belleği tükenmesi / sürücü sıfırlaması) siyah ekran bırakır: açıkça günlüğe yaz; geri
+    // gelince Ultra'nın zamansal tamponlarını (TAA geçmişi, pozlama) sıfırla
+    r.domElement.addEventListener('webglcontextlost', () =>
+      console.error('[game] WebGL bağlamı kaybedildi (GPU belleği / sürücü sıfırlaması) — ekran siyah kalır'),
+    );
+    r.domElement.addEventListener('webglcontextrestored', () => {
+      if (this.post?.taa) this.post.taa.reset = true;
+      this.post?.exposure?.snap();
+    });
     if (this.isTouch) container.classList.add('is-touch');
 
     this.viewDistance = this.ultra ? ULTRA_VIEW_DIST : VIEW_DIST[settings.quality];

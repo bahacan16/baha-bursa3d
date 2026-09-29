@@ -350,6 +350,10 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
   `settings.ultra` (masaüstünde varsayılan açık, `?q=ultra`). Blender Cycles yalnız dolaylı ışık oranını pişirir
   (`aoMap`, kanal 1); güneş/gölge gerçek zamanlı kalır (güneş hareket ediyor). Mimari `docs/BAKE.md`, gerçekçilik planı
   ve sırası `docs/REALISM.md`. Mobil/zayıf cihazlar Düşük/Orta/Yüksek ile eskisi gibi.
+  - **Pişirme hattı (uygulandı):** uv1 Blender'da değil `src/worlds/mertkent/lightmap.ts`'te deterministik üretilir;
+    oyun aynı kodu çalıştırdığı için yayına yalnız AO dokuları girer (geometri GLB'si ~190 MB olurdu). Eskime parça
+    parça denetlenir (mm'ye yuvarlanmış üçgen imzası); tutmayan parça canlı ışıkta kalır. CI'da 50 m parça + 2048²
+    atlas (özel depo koşucusu 7 GB). Ayrıntı ve ölçümler `docs/BAKE.md`.
 - 1. şahıs görüş açısı 55° dikey + adımla senkron baş salınımı (3. şahıs 62° kalır).
 - Görülmeyen (`copyOf`) kenarlara yalnız geometri kopyalanır; tabela/bayrak/perde/klima/çanak kopyalanmaz (§0.1).
 - Eski (v1/v2) ölçümler Doğan Avcıoğlu standardına getirildi (retro, 15 blok + Mertkent-2 sokakları); çıkan eksik

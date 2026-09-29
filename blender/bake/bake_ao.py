@@ -262,7 +262,7 @@ def denoise(img):
 
 def save_grey(u8, path):
     if PILImage is not None:
-        PILImage.fromarray(u8, "L").save(path, "WEBP", quality=QUALITY, method=6)
+        PILImage.fromarray(u8, "L").save(path, "WEBP", quality=QUALITY, method=4)
         return
     h, w = u8.shape
     img = bpy.data.images.new("save_tmp", w, h)

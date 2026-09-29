@@ -194,7 +194,8 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
       return outerRings(pc.difference([ring] as pcNs.Polygon, ...others));
     }
     if (tw.poly?.length) return outerRings(pc.intersection([ring] as pcNs.Polygon, [tw.poly as V2[]]));
-    let r = clipX(ring, tw.x![0], tw.x![1]);
+    // x ya da z aralığı tek başına da olabilir (şema ikisini de isteğe bağlı tutar)
+    let r = tw.x ? clipX(ring, tw.x[0], tw.x[1]) : ring;
     if (tw.z && r.length >= 3) r = clipZ(r, tw.z[0], tw.z[1]);
     return r.length >= 3 ? [r] : [];
   };

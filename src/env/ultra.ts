@@ -153,7 +153,8 @@ float ultraPCSS( sampler2D sm, vec2 smSize, mat4 M, int tile, vec3 wp, vec3 nrm,
 }
 float getSunShadowUltra( sampler2D shadowMap, SunLightShadow sls, int shadowIndex ) {
   vec3 wp = vSunShadowWorldPosition.xyz;
-  vec3 nrm = normalize( vSunShadowWorldNormal );
+  float nl = length( vSunShadowWorldNormal );
+  vec3 nrm = nl > 1e-6 ? vSunShadowWorldNormal / nl : vec3( 0.0, 1.0, 0.0 );
   vec3 dwx = dFdx( wp );
   vec3 dwy = dFdy( wp );
   float viewDepth = vSunShadowWorldPosition.w;
@@ -218,6 +219,17 @@ export function installUltraChunks(): void {
   gl_FragColor.rgb = mix( gl_FragColor.rgb, fogColor, fogFactor );
 #endif
 `;
+  // Güvenlik ağı: yarım kayan noktalı hedefe (65504 üstü = Inf) veya NaN (bozuk normal vb.) yazılmasın. Ultra'nın
+  // zamansal tamponları (TAA geçmişi, otomatik pozlama) tek bir bozuk pikseli kalıcı hale getirirdi (siyah ekran).
+  const of = C.opaque_fragment;
+  const out = 'gl_FragColor = vec4( outgoingLight, diffuseColor.a );';
+  if (!of.includes(out)) console.warn('[ultra] opaque_fragment beklenen biçimde değil');
+  C.opaque_fragment = of.replace(
+    out,
+    `vec3 ultraOut = outgoingLight;
+if ( any( isnan( ultraOut ) ) || any( isinf( ultraOut ) ) ) ultraOut = vec3( 0.0 );
+gl_FragColor = vec4( clamp( ultraOut, 0.0, 30000.0 ), diffuseColor.a );`,
+  );
 }
 
 /**
@@ -252,7 +264,9 @@ export function patchSkyClouds(mat: THREE.ShaderMaterial): boolean {
       'float cov = clamp( cloudCoverage + ( region - 0.5 ) * 0.6, 0.0, 1.0 );',
       'float cov = 1.0 - ucf.y;',
     )
-    .replace('void main() {', `${CLOUD_GLSL}\n\t\tvoid main() {`);
+    .replace('void main() {', `${CLOUD_GLSL}\n\t\tvoid main() {`)
+    // güneş diski ~6e4: yarım kayan noktada taşmasın (Inf → TAA/pozlama tamponlarını bozar)
+    .replace('gl_FragColor = vec4( texColor, 1.0 );', 'gl_FragColor = vec4( clamp( texColor, 0.0, 30000.0 ), 1.0 );');
   mat.fragmentShader = fs;
   mat.needsUpdate = true;
   return true;
@@ -360,7 +374,8 @@ export function ultraWeather(m: THREE.Material, amount = 1): void {
     uwn = mat3( instanceMatrix ) * uwn;
   #endif
   vUWPos = ( modelMatrix * uwp ).xyz;
-  vUWNrm = normalize( mat3( modelMatrix ) * uwn );
+  // normalleştirme parçada (sıfır uzunluklu normal → NaN olmasın)
+  vUWNrm = mat3( modelMatrix ) * uwn;
 }`,
       );
     sh.fragmentShader = sh.fragmentShader
@@ -382,13 +397,15 @@ float uwNoise( vec2 p ) {
         '#include <map_fragment>',
         `#include <map_fragment>
 {
-  vec3 wn = normalize( vUWNrm );
+  float wl = length( vUWNrm );
+  vec3 wn = wl > 1e-6 ? vUWNrm / wl : vec3( 0.0, 1.0, 0.0 );
   float vert = 1.0 - smoothstep( 0.35, 0.7, abs( wn.y ) );
   float g0 = 0.0;
   if ( uUGroundRect.w > 0.5 ) g0 = texture2D( uUGround, ( vUWPos.xz - uUGroundRect.xy ) / uUGroundRect.z ).r;
   float hG = vUWPos.y - g0;
   // duvar boyunca yatay koordinat
-  vec2 tg = normalize( vec2( -wn.z, wn.x ) + 1e-5 );
+  vec2 tg0 = vec2( -wn.z, wn.x );
+  vec2 tg = dot( tg0, tg0 ) > 1e-8 ? normalize( tg0 ) : vec2( 1.0, 0.0 );
   float u = dot( vUWPos.xz, tg );
   // sıçrama bandı: ~0.6 m, düzensiz üst kenar
   float edge = 0.45 + 0.35 * uwNoise( vec2( u * 1.7, 3.1 ) ) + 0.15 * uwNoise( vec2( u * 6.0, 7.7 ) );

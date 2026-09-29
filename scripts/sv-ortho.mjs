@@ -16,7 +16,15 @@ const TOP = Number(process.env.SURVEY_TOP ?? 23.5);
 const DELTA = process.env.DELTA ?? '';
 const OUT = process.env.SURVEY_OUT ?? '';
 const ONLY_EDGE = process.env.EDGES ? new Set(process.env.EDGES.split(',').map(Number)) : null;
-const CAM_H = 2.5;
+// KARAR (2026-09-29, docs/SV_CAMERA.md): Street View kamera yüksekliği (yol yüzeyinden) çekim dönemine göre ölçüldü —
+// 2025-09 yeni kamera 2.35 ± 0.07 m, 2019-05 2.55 ± 0.10, 2014-07 2.85 ± 0.15 (eskiden hepsi 2.5 varsayılıyordu).
+// Cephe ortofotosunda kamera yüksekliği yalnızca DÜŞEY KAYMA yapar (yatay konum ve düşey ölçek pano–düzlem
+// mesafesinden gelir). sv-extra.json `base` değerleri 2.5 ile kenar başına görsel oturtuldu, yani bu kaymayı içerir
+// (2025 panolarında +0.15 m): yeni yükseklikle üretilen ortofotoda içerik pencerede 0.15 m aşağı iner, kırmızı zemin
+// çizgisi cephe dibinin 0.15 m üstünde kalır → yeniden oturtururken base −(2.5 − H). Survey ölçüleri bu çizgiye
+// göreli olduğundan derlenmiş cepheler değişmez. Eski ortofotoların aynısı için SV_CAM_H=2.5.
+const CAM_H_BY_DATE = { '2025-09': 2.35, '2019-05': 2.55, '2014-07': 2.85 };
+const camH = (date) => Number(process.env.SV_CAM_H ?? CAM_H_BY_DATE[date] ?? 2.5);
 const S = 640;
 const ONLY = process.argv[2] ? new Set(process.argv[2].split(',').map(Number)) : null;
 const outDir = join(root, 'docs', 'survey', OUT);
@@ -94,7 +102,7 @@ async function main() {
     const dl = deltaOf(s.building, s.edge);
     const p = pos.get(s.pano);
     if (!p) continue;
-    const cy = H(p.x, p.z) + CAM_H;
+    const cy = H(p.x, p.z) + camH(p.date);
     const tiles = [];
     for (const t of s.tiles) {
       const file = join(root, 'streetview-src', 'extra', `${s.pano}_${t.h}_${t.p}_40.jpg`);

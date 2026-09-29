@@ -29,6 +29,9 @@ const ResolveShader = /* glsl */ `
   uniform float uReset;
   varying vec2 vUv;
   float luma(vec3 c) { return dot(c, vec3(0.2126, 0.7152, 0.0722)); }
+  // NaN/Inf tek bir karede bile geçmişe girerse kalıcı olur (karışım NaN'ı korur) → her girişte ayıkla
+  bool bad(vec3 c) { return any(isnan(c)) || any(isinf(c)) || any(greaterThan(abs(c), vec3(1e6))); }
+  vec3 safe(vec3 c) { return bad(c) ? vec3(0.0) : clamp(c, vec3(0.0), vec3(60000.0)); }
   // parlak piksellerin (güneş parıltısı) titreşimini azaltmak için ağırlıklı alan
   vec3 tmap(vec3 c) { return c / (1.0 + luma(c)); }
   vec3 itmap(vec3 c) { return c / max(1.0 - luma(c), 1e-4); }
@@ -54,10 +57,10 @@ const ResolveShader = /* glsl */ `
       + texture2D(tHistory, vec2(tc3.x, tc12.y)).rgb * (w3.x * w12.y)
       + texture2D(tHistory, vec2(tc12.x, tc3.y)).rgb * (w12.x * w3.y);
     float ws = w12.x * w0.y + w0.x * w12.y + w12.x * w12.y + w3.x * w12.y + w12.x * w3.y;
-    return max(r / ws, 0.0);
+    return r / ws;
   }
   void main() {
-    vec3 cur = texture2D(tCurrent, vUv).rgb;
+    vec3 cur = safe(texture2D(tCurrent, vUv).rgb);
     if (uReset > 0.5) { gl_FragColor = vec4(cur, 1.0); return; }
     // 3x3 komşuluk: renk momentleri + en yakın derinlik (kenarlarda ön plan hareketi)
     vec3 m1 = vec3(0.0);
@@ -68,7 +71,7 @@ const ResolveShader = /* glsl */ `
     for (int y = -1; y <= 1; y++) {
       for (int x = -1; x <= 1; x++) {
         vec2 o = vec2(float(x), float(y)) * uTexel;
-        vec3 c = toY(tmap(texture2D(tCurrent, vUv + o).rgb));
+        vec3 c = toY(tmap(safe(texture2D(tCurrent, vUv + o).rgb)));
         m1 += c;
         m2 += c * c;
         mn = min(mn, c);
@@ -96,7 +99,10 @@ const ResolveShader = /* glsl */ `
       gl_FragColor = vec4(cur, 1.0);
       return;
     }
-    vec3 hist = toY(tmap(sampleHistory(puv)));
+    vec3 hs = sampleHistory(puv);
+    // bozuk geçmiş (NaN/Inf) → bu pikselde geçmişi bırak
+    if (bad(hs)) { gl_FragColor = vec4(cur, 1.0); return; }
+    vec3 hist = toY(tmap(clamp(hs, vec3(0.0), vec3(60000.0))));
     // varyans kutusuna kırp (merkeze doğru)
     vec3 c0 = 0.5 * (bmax + bmin);
     vec3 e0 = 0.5 * (bmax - bmin) + 1e-5;
@@ -107,7 +113,7 @@ const ResolveShader = /* glsl */ `
     float motion = length((puv - vUv) / uTexel);
     float alpha = mix(0.085, 0.22, clamp(motion / 12.0, 0.0, 1.0));
     vec3 res = mix(hist, toY(tmap(cur)), alpha);
-    gl_FragColor = vec4(itmap(fromY(res)), 1.0);
+    gl_FragColor = vec4(safe(itmap(fromY(res))), 1.0);
   }`;
 
 /**
@@ -129,6 +135,8 @@ export class TAAPass extends Pass {
   private jx = 0;
   private jy = 0;
   private lastPos = new THREE.Vector3();
+  private lastQuat = new THREE.Quaternion();
+  private lastFov = 0;
   reset = true;
 
   constructor(
@@ -178,9 +186,18 @@ export class TAAPass extends Pass {
   jitter(w: number, h: number, extra: THREE.PerspectiveCamera[] = []): void {
     const cam = this.camera;
     this.unjittered.copy(cam.projectionMatrix);
-    // kamera sıçradıysa (ışınlanma, karşılaştırma kamerası) geçmişi at
-    if (cam.position.distanceTo(this.lastPos) > 6) this.reset = true;
+    // kamera kesmesi (ışınlanma, karşılaştırma kamerası, tepeden bakış): büyük konum/dönüş/fov değişimi → geçmişi at
+    const turn = 2 * Math.acos(Math.min(1, Math.abs(cam.quaternion.dot(this.lastQuat))));
+    if (
+      cam.position.distanceTo(this.lastPos) > 6 ||
+      turn > (35 * Math.PI) / 180 ||
+      Math.abs(cam.fov - this.lastFov) > 0.5 ||
+      !Number.isFinite(cam.position.x + cam.position.y + cam.position.z)
+    )
+      this.reset = true;
     this.lastPos.copy(cam.position);
+    this.lastQuat.copy(cam.quaternion);
+    this.lastFov = cam.fov;
     const j = JITTER[this.frame++ % JITTER.length];
     this.jx = (j[0] * 2) / w;
     this.jy = (j[1] * 2) / h;
@@ -256,7 +273,8 @@ export class ExposureMeter {
   private adaptMat: THREE.ShaderMaterial;
   private first = true;
 
-  constructor() {
+  /** @param fallback ölçüm/uyum bozulursa kullanılacak ln L (kalibre referans → düzeltme 1.0) */
+  constructor(private readonly fallback = -1) {
     const mk = (s: number) =>
       new THREE.WebGLRenderTarget(s, s, {
         type: THREE.FloatType,
@@ -274,7 +292,10 @@ export class ExposureMeter {
           vec2 o = vec2(0.25 / 64.0);
           vec3 c = texture2D(tDiffuse, vUv + vec2(o.x, o.y)).rgb + texture2D(tDiffuse, vUv + vec2(-o.x, o.y)).rgb
             + texture2D(tDiffuse, vUv + vec2(o.x, -o.y)).rgb + texture2D(tDiffuse, vUv - o).rgb;
-          float l = clamp(dot(c * 0.25, vec3(0.2126, 0.7152, 0.0722)), 1e-4, 6.0);
+          float l = dot(c * 0.25, vec3(0.2126, 0.7152, 0.0722));
+          // NaN/Inf örnek ölçüme girmesin (ağırlık 0) — tek bozuk piksel uyarlanmış değeri kalıcı bozardı
+          if (isnan(l) || isinf(l)) { gl_FragColor = vec4(0.0); return; }
+          l = clamp(l, 1e-4, 6.0);
           // merkez ağırlıklı ölçüm (fotoğraf makinesi gibi): kenarlar %35
           vec2 d = (vUv - 0.5) * 2.0;
           float w = mix(1.0, 0.35, smoothstep(0.2, 1.0, dot(d, d)));
@@ -298,18 +319,24 @@ export class ExposureMeter {
       depthWrite: false,
     });
     this.adaptMat = new THREE.ShaderMaterial({
-      uniforms: { tCur: { value: null }, tPrev: { value: null }, uK: { value: 1 } },
+      uniforms: { tCur: { value: null }, tPrev: { value: null }, uK: { value: 1 }, uFallback: { value: -1 } },
       vertexShader: VS,
-      fragmentShader: /* glsl */ `uniform sampler2D tCur; uniform sampler2D tPrev; uniform float uK; varying vec2 vUv;
+      fragmentShader: /* glsl */ `uniform sampler2D tCur; uniform sampler2D tPrev; uniform float uK, uFallback;
+        varying vec2 vUv;
         void main() {
           vec2 s = texture2D(tCur, vec2(0.5)).rg;
-          float cur = s.x / max(s.y, 1e-4);
           float prev = texture2D(tPrev, vec2(0.5)).r;
-          gl_FragColor = vec4(mix(prev, cur, uK), 0.0, 0.0, 1.0);
+          bool prevBad = isnan(prev) || isinf(prev);
+          // ölçülecek geçerli piksel yoksa (tümü ayıklandı) önceki değerde kal
+          float cur = s.y > 1e-3 ? s.x / s.y : (prevBad ? uFallback : prev);
+          if (isnan(cur) || isinf(cur)) cur = prevBad ? uFallback : prev;
+          if (prevBad) prev = cur;
+          gl_FragColor = vec4(clamp(mix(prev, cur, uK), -12.0, 4.0), 0.0, 0.0, 1.0);
         }`,
       depthTest: false,
       depthWrite: false,
     });
+    this.adaptMat.uniforms.uFallback.value = this.fallback;
   }
 
   /** Sonraki ölçümde uyum beklemeden doğrudan ayarla (ışınlanma / kamera sıçraması). */
