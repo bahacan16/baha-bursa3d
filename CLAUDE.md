@@ -369,6 +369,10 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 - Başsız Chromium (SwiftShader) GPU süreci dünya yüklenince 3–4 GB; konteynerde tüm süreçler 14.3 GB'lık ortak bellek
   sınırını paylaşır → aynı anda birden çok tarayıcı OOM ile öldürülür (siyah tuval / CONTEXT_LOST). Tarayıcı
   komutları `flock -w 5400 /tmp/claude-0/browser.lock <komut>` ile sıraya alınır.
+- Street View bütçesi (kullanıcı, 2026-09-29): "google sınırını yükseltebilirsin, ücretsiz 15.000 TL kredim var" →
+  `fetch-streetview.yml` `max` ve ek yakın plan (40° / daha dar fov) istekleri ihtiyaca göre artırılabilir; yine de
+  gereksiz kare çekilmez (hedef bina/cephe başına planlanır). D4 Özlüce Bulvarı kuzeyi (→ Muammer Aksoy Cd. kavşağı,
+  z ≈ −805): bbox 530,-850,760,-60; hava paftaları `streetview-src/aerial-n1`, `aerial-n2`.
 
 - Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer).
 - Etiketsiz araç yollarına iki yanlı kaldırım; zemin katında dükkan varsa +0.9 m.
