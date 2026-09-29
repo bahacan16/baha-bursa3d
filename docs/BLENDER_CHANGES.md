@@ -529,3 +529,9 @@
   loca arka duvar pencereleri), 1540901796 (çatı üçgeni rengi, ayak aplikleri K0–K5, eğik başlık yüzleri, K0–K1 loca
   arka duvarları ölçülü; K0 "kemerli parmaklık" yansımaydı → çizilmedi), 1540901771 (kavisli iç localar S2/S5, ayak
   lamba çiftleri). **Blender:** bu 4 blok yeniden kurulmalı.
+- **(v6 dönüşüm 7)** — Mertkent 2/3 blokları 1480041300/01/42/43: çatılar kırma → beşik (`gable` + `gableC`, gerçek
+  eğim ve duvar üstü ≈1 m yükseldi), sıva/panel/şeritler alınlığa kadar, eğik köşe başlıkları, 42 e8 Atatürk portreli
+  bayrak (`banner portrait`, yalnız okunan metin "…RİMLERİNİN / …NDEYİZ!"), K5 kahve güneşlik bezi, orta direkte çift
+  CCTV kameralar (beyaz "aplik" sanılanlar kamera), bacalar/çanak/anten çatıda, havada duran çanak/klimalar duvara,
+  kat kat perde renkleri, bambu/çizgili storlar, olmayan borular kaldırıldı, görülenler eklendi. **Blender:** bu 4
+  bloğun cephe ve çatı katmanı yeniden kurulmalı.

@@ -783,9 +783,59 @@
             "K1": "#d6d8d8",
             "K2": "#b28352"
           }
+        },
+        {
+          "t": "pipe",
+          "u": 0.3,
+          "color": "#a8abab"
+        },
+        {
+          "t": "camera",
+          "u": 0.65,
+          "s": 0,
+          "y": 3.98,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#2d2b26"
+        },
+        {
+          "t": "camera",
+          "u": 0.65,
+          "s": 1,
+          "y": 6.65,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#2d2b26"
+        },
+        {
+          "t": "camera",
+          "u": 0.65,
+          "s": 2,
+          "y": 9.45,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#2d2b26"
+        },
+        {
+          "t": "camera",
+          "u": 0.65,
+          "s": 3,
+          "y": 12.25,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#2d2b26"
+        },
+        {
+          "t": "camera",
+          "u": 0.65,
+          "s": 5,
+          "y": 17.75,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#2d2b26"
         }
       ],
-      "note": "Batı kanadın girintiye bakan doğu yüzü, ref HZb9 (HAXJ teyit); önünde MERTKENT 3 SİTESİ kapı portalı. Kuzey ucunda e5 locasının yan açıklığı: K0 açık, K1 beyaz-gri çizgili perde (blinds), K2 bambu/kahve stor (blinds; renk pending), K3 şeffaf, K4 koyu cam, K5 açık. Güney kısmı dolu sıva. v6: K1 beyaz-gri dikey çizgili kumaş stor ve K2 bambu/hasır stor açık locada, tavandan korkuluğa iner (HZb9: cam görülmüyor) → bal.blinds (K1 #d6d8d8 = gölgede #909295 çizgili ortalama, K2 bambu); cam balkon K3 şeffaf, K4 koyu."
+      "note": "Batı kanadın girintiye bakan doğu yüzü, ref HZb9 (HAXJ teyit); önünde MERTKENT 3 SİTESİ kapı portalı. Kuzey ucunda e5 locasının yan açıklığı: K0 açık, K1 beyaz-gri çizgili perde (blinds), K2 bambu/kahve stor (blinds; renk pending), K3 şeffaf, K4 koyu cam, K5 açık. Güney kısmı dolu sıva. v6: K1 beyaz-gri dikey çizgili kumaş stor ve K2 bambu/hasır stor açık locada, tavandan korkuluğa iner (HZb9: cam görülmüyor) → bal.blinds (K1 #d6d8d8 = gölgede #909295 çizgili ortalama, K2 bambu); cam balkon K3 şeffaf, K4 koyu. v6: e3 iç köşesine yakın (u 0.3) açık gri PVC iniş borusu (HZb9 #b0aeae / HAXJ #a0a8a7 → #a8abab) ve üzerinde K0–K3, K5’te borudan kuzeye ~0.3 m kollu SİYAH bullet CCTV kamera (gövde görünen u 0.6–0.77, y 3.98/6.65/9.45 HZb9; K3 12.25, K5 17.75 HAXJ’den; renk K0 gövdesinden #2d2b26). K4’te yalnız beyaz kol görüldü (kamera gövdesi görülmedi → çizilmedi). Kameralar gerçekte kuzeye (+u, sokağa) bakıyor; üretici tek bullet’i duvardan dışa çevirir."
     },
     {
       "edge": 5,
@@ -1034,10 +1084,6 @@
           "railC": "#c9cdcc"
         },
         {
-          "t": "pipe",
-          "u": 2.32
-        },
-        {
           "t": "groove",
           "dir": "h",
           "u0": 2.3,
@@ -1100,7 +1146,7 @@
           "color": "#80807a"
         }
       ],
-      "note": "Batı kanadın kuzey (sokak) alınlık cephesi, ref 6eol (qhqN teyit). İki dar pencere aksı (tüm katlarda 2 kanatlı). Perdeler: doğu aks K4 zebra, diğerleri tül; batı aks K1 zebra, K5 sol kanat AÇIK, diğerleri tül. K2/K3 arasında pilastr kesintisi; sıvada her kat hizasında ince yatay derz: v5 ölçümü y 5.45/8.28/11.03/13.85/16.65 (önceki 10.47/15.98 kayıtları fotoğrafla uyuşmuyordu, düzeltildi). Alınlık: apex u 7.5 y ~23.5, taban ~20.1; turuncu dolgular + pilastrlar eğime kadar (proj + pediment; doğu ucu beşgen → düz sıva dolgu proj). Doğu ucunda girintiye açılan loca (K3 şeffaf, K4 koyu cam), yanında boru. Batı ucu düz sıva. v5: üst pilastrlar K3 denizliğinden (y 11.7) başlar (önceki 11.0 düzeltildi). v6: proj + pediment yerine çatı alınlığı (roof gable [5]; üretici tepesi u 7.1 / 23.0, fotoğrafta u 7.5 görünen, tepe K5 lentosunun 5.4 m üstü → üretici ~0.6 m alçak kalır); turuncu dolgular + pilastrlar alınlığa kadar, batı uçtaki beşgen sıva dolgusu alınlık duvarı; doğu ucundaki locanın kalın gri şapkası alınlık eğimine kadar gri pano (görünen 19.5’ten). v6: K5 hizası en üst kat derzi (6eol profil minimumu: sol 19.85, sağ 19.80 görünen → 19.83; 19.34 gerçek) groove eklendi."
+      "note": "Batı kanadın kuzey (sokak) alınlık cephesi, ref 6eol (qhqN teyit). İki dar pencere aksı (tüm katlarda 2 kanatlı). Perdeler: doğu aks K4 zebra, diğerleri tül; batı aks K1 zebra, K5 sol kanat AÇIK, diğerleri tül. K2/K3 arasında pilastr kesintisi; sıvada her kat hizasında ince yatay derz: v5 ölçümü y 5.45/8.28/11.03/13.85/16.65 (önceki 10.47/15.98 kayıtları fotoğrafla uyuşmuyordu, düzeltildi). Alınlık: apex u 7.5 y ~23.5, taban ~20.1; turuncu dolgular + pilastrlar eğime kadar (proj + pediment; doğu ucu beşgen → düz sıva dolgu proj). Doğu ucunda girintiye açılan loca (K3 şeffaf, K4 koyu cam), yanında boru. Batı ucu düz sıva. v5: üst pilastrlar K3 denizliğinden (y 11.7) başlar (önceki 11.0 düzeltildi). v6: proj + pediment yerine çatı alınlığı (roof gable [5]; üretici tepesi u 7.1 / 23.0, fotoğrafta u 7.5 görünen, tepe K5 lentosunun 5.4 m üstü → üretici ~0.6 m alçak kalır); turuncu dolgular + pilastrlar alınlığa kadar, batı uçtaki beşgen sıva dolgusu alınlık duvarı; doğu ucundaki locanın kalın gri şapkası alınlık eğimine kadar gri pano (görünen 19.5’ten). v6: K5 hizası en üst kat derzi (6eol profil minimumu: sol 19.85, sağ 19.80 görünen → 19.83; 19.34 gerçek) groove eklendi. v6: locanın batı köşesindeki boru kaydı (u 2.32) kaldırıldı — 6eol 170_13 / 194_13 / 194_34 yakın karelerinde bu köşe temiz sıva (renksiz olduğu için koyu gri çiziliyordu); görülen açık gri PVC boru girinti tarafında, e4 yüzünde."
     },
     {
       "edge": 6,
@@ -2170,10 +2216,6 @@
           "railC": "#c9cdcc"
         },
         {
-          "t": "pipe",
-          "u": 8.04
-        },
-        {
           "t": "groove",
           "dir": "h",
           "u0": 0,
@@ -2228,7 +2270,7 @@
           "color": "#80807a"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 5'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı. v6: kaynak kenardaki (e5) en üst kat derzi (19.83) aynalandı (yapı; bu cephe görülmedi).",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 5'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı. v6: kaynak kenardaki (e5) en üst kat derzi (19.83) aynalandı (yapı; bu cephe görülmedi). v6: kaynak kenardan (e5) aynalanan boru (u 8.04) kaynağıyla birlikte kaldırıldı.",
       "cal": {
         "u": [
           0,
@@ -2268,9 +2310,14 @@
             "*": 0.5
           },
           "railC": "#c9cdcc"
+        },
+        {
+          "t": "pipe",
+          "u": 3.05,
+          "color": "#a8abab"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, yığın) seçiliyor → kenar 4'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi).",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, yığın) seçiliyor → kenar 4'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v6: kaynak kenardaki (e4) iniş borusu aynalandı (yapı; görülmedi); kameralar aynalanmadı.",
       "cal": {
         "u": [
           0,
@@ -2521,6 +2568,12 @@
     "v5 (2026-09-29): e0 bodrum pencereleri (k:-1) + sıva renkli bodrum duvarı; tüm fotoğraflı kenarlarda (e0, e3, e5, e8) kat hizası derzleri (groove, döşeme çizgisinin 0.05–0.3 m üstünde; rengi güneşli sıva × ~0.6 ≈ #80807a); e5’teki eski derzler (10.47/15.98) yanlış kotta idi → düzeltildi; pilastr kesinti kotları e0/e3/e5/e8’de fotoğrafa göre düzeltildi (güney aynalar e11/e13 aynı). Saçak hizasındaki en üst derzler (e0 18.38, e3 20.32, e5 19.85, e8 20.45 görünen) duvar üstünün üstünde → çizilmedi.",
     "v6 (2026-09-29): duvar üstü ölçüldü (e8 duvar üstü 19.65, e3 19.68 gerçek) → wallTop 19.55 + ince açık saçak kenarı (fasciaH 0.1); önceki 0.85 m’lik saçak bandı yerine yığın başına kalın gri şapkalar (capH 1.0–1.6, e0’da eğik) ve loca uçlarında gri pano. Doğu/kuzey alınlıkları roof gable ile (proj/pediment kaldırıldı). Bambu / çizgili storlar bal.blinds (e4 K1–K2, e8 K2 parçalı), K3 Türk bayrağı banner tr-v, orta direk kameraları (camera pair) v6 öğeleriyle yazıldı."
   ],
-  "pending": [],
+  "pending": [
+    {
+      "what": "Tek bullet kameraların cephe boyunca bakış yönü",
+      "edge": 4,
+      "note": "e4 iniş borusundaki K0–K3, K5 siyah bullet kameralar borudan ~0.3 m kolla KUZEYE (+u, cephe boyunca, sokağa) bakıyor (HZb9 ortofotosunda yandan uzun, 6eol 170_13/34 yakın karelerinde önden yuvarlak görünüyor). Üretici tek bullet’i duvardan dışa çeviriyor, pair iki yana çiziyor → tek kamera için yön (u0/u1) alanı yok; konum/yükseklik yazıldı, yön dışa."
+    }
+  ],
   "wallTop": 19.55
 }

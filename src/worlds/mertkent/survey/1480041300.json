@@ -726,6 +726,11 @@
           "color": "#80807a"
         },
         {
+          "t": "pipe",
+          "u": 0.01,
+          "color": "#aab0b1"
+        },
+        {
           "t": "groove",
           "dir": "h",
           "u0": 0,
@@ -735,7 +740,7 @@
           "color": "#80807a"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 13'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı. v6: kaynak kenardaki (e13) en üst turuncu dolgunun duvar üstüne uzatılması aynalandı (yapı). v6: kaynak kenardaki (e13) en üst kat derzi (17.48) aynalandı (yapı; bu cephe görülmedi).",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 13'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı. v6: kaynak kenardaki (e13) en üst turuncu dolgunun duvar üstüne uzatılması aynalandı (yapı). v6: kaynak kenardaki (e13) batı iç köşe borusu aynalandı (yapı; görülmedi). v6: kaynak kenardaki (e13) en üst kat derzi (17.48) aynalandı (yapı; bu cephe görülmedi).",
       "cal": {
         "u": [
           -0.05,
@@ -775,9 +780,14 @@
             "*": 0.5
           },
           "railC": "#c9cdcc"
+        },
+        {
+          "t": "pipe",
+          "u": 0.79,
+          "color": "#aab0b1"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, yığın) seçiliyor → kenar 12'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi).",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, yığın) seçiliyor → kenar 12'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v6: kaynak kenardaki (e12) iniş borusu aynalandı (yapı; görülmedi); kameralar aynalanmadı.",
       "cal": {
         "u": [
           0,
@@ -981,10 +991,6 @@
           "railC": "#c9cdcc"
         },
         {
-          "t": "pipe",
-          "u": 1.94
-        },
-        {
           "t": "groove",
           "dir": "h",
           "u0": 1.98,
@@ -1030,7 +1036,7 @@
           "color": "#80807a"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 11'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı. v6: kaynak kenardaki (e11) en üst kat derzi (19.07) aynalandı (yapı; bu cephe görülmedi).",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 11'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı. v6: kaynak kenardan (e11) aynalanan boru (u 1.94) kaynağıyla birlikte kaldırıldı. v6: kaynak kenardaki (e11) en üst kat derzi (19.07) aynalandı (yapı; bu cephe görülmedi).",
       "cal": {
         "u": [
           0,
@@ -2042,10 +2048,6 @@
           "railC": "#c9cdcc"
         },
         {
-          "t": "pipe",
-          "u": 7.76
-        },
-        {
           "t": "proj",
           "u0": 0,
           "u1": 0.84,
@@ -2184,7 +2186,7 @@
           "color": "#80807a"
         }
       ],
-      "note": "Doğu kanadın kuzey alınlık cephesi, ref Wi7U (40° yakın kareler 167/189/212°). İki dar pencere aksı (tüm katlarda 2 kanatlı): doğu aks tül; batı aks K0 tül, K1 perdesiz koyu, K2 zebra, K3–K4 tül. K2/K3 arasında pilastr kesintisi. Alınlık: taban y ~19.25 (ince yatay derz), tepe doğu aks üstünde u 1.5 y ~23.6, batıya ~0.46 m/m iner ve loca şapkasına devam eder; turuncu dolgular ve pilastrlar eğime kadar çıkar; doğu aksta çatı arası penceresi (y 19.5–20.65, tül). Batı ucunda loca: K0 şeffaf, K1–K2 koyu, K3 şeffaf (tül), K4 koyu cam; yanında boru. v5: pilastr kesintisi alt 11.63 / üst 13.13 (K3 denizliği) olarak düzeltildi; kat hizası derzleri groove (y 6.07/9.09/12.38/15.52; yakın kamera nedeniyle ortofotoda doğu aks tarafında ~0.1 m yüksek görünüyor, iki bölgenin ortalaması). v6: duvar üstü 18.05’e çıktı (görünen 19.59); üst pilastrlar proj pilastrların başladığı 18.55’te bitirildi (üst üste binmesin); batı ucundaki locanın kalın gri şapka alnı gri pano (duvar üstüne kadar; alınlık/pediment üstündeki eğik gri kısmı pediment tek renk → pending). v6: K5 hizası kat derzi (Wi7U profil minimumu: u 0.3’te 19.18, u 3.2’de 19.10, u 6.75’te 18.93 görünen, alttakiler gibi eğik → ortalama 19.07; eski notlardaki \"alınlık tabanı ~19.25 ince yatay derz\") groove eklendi; turuncu dolgu / pilastr proj’larının arkasında kalır."
+      "note": "Doğu kanadın kuzey alınlık cephesi, ref Wi7U (40° yakın kareler 167/189/212°). İki dar pencere aksı (tüm katlarda 2 kanatlı): doğu aks tül; batı aks K0 tül, K1 perdesiz koyu, K2 zebra, K3–K4 tül. K2/K3 arasında pilastr kesintisi. Alınlık: taban y ~19.25 (ince yatay derz), tepe doğu aks üstünde u 1.5 y ~23.6, batıya ~0.46 m/m iner ve loca şapkasına devam eder; turuncu dolgular ve pilastrlar eğime kadar çıkar; doğu aksta çatı arası penceresi (y 19.5–20.65, tül). Batı ucunda loca: K0 şeffaf, K1–K2 koyu, K3 şeffaf (tül), K4 koyu cam; yanında boru. v5: pilastr kesintisi alt 11.63 / üst 13.13 (K3 denizliği) olarak düzeltildi; kat hizası derzleri groove (y 6.07/9.09/12.38/15.52; yakın kamera nedeniyle ortofotoda doğu aks tarafında ~0.1 m yüksek görünüyor, iki bölgenin ortalaması). v6: duvar üstü 18.05’e çıktı (görünen 19.59); üst pilastrlar proj pilastrların başladığı 18.55’te bitirildi (üst üste binmesin); batı ucundaki locanın kalın gri şapka alnı gri pano (duvar üstüne kadar; alınlık/pediment üstündeki eğik gri kısmı pediment tek renk → pending). v6: locanın doğu köşesindeki boru kaydı (u 7.76) kaldırıldı — Wi7U 212_14 / 212_34 yakın karelerinde bu köşe temiz sıva; açık gri PVC boru locanın BATISINDA, girinti iç köşesinde (e13 kenarında yazıldı). v6: K5 hizası kat derzi (Wi7U profil minimumu: u 0.3’te 19.18, u 3.2’de 19.10, u 6.75’te 18.93 görünen, alttakiler gibi eğik → ortalama 19.07; eski notlardaki \"alınlık tabanı ~19.25 ince yatay derz\") groove eklendi; turuncu dolgu / pilastr proj’larının arkasında kalır."
     },
     {
       "edge": 12,
@@ -2238,9 +2240,59 @@
             "*": 0.5
           },
           "railC": "#c9cdcc"
+        },
+        {
+          "t": "pipe",
+          "u": 1.56,
+          "color": "#aab0b1"
+        },
+        {
+          "t": "camera",
+          "u": 1.84,
+          "s": 0,
+          "y": 4.75,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 1.84,
+          "s": 1,
+          "y": 7.47,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 1.84,
+          "s": 2,
+          "y": 10.31,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 1.84,
+          "s": 3,
+          "y": 13.04,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 1.84,
+          "s": 4,
+          "y": 16.5,
+          "style": "bullet",
+          "off": 0.05,
+          "color": "#dcd8cc"
         }
       ],
-      "note": "Girintiye bakan batı yüzü; ortofoto yok, HAXJ karelerinde e11 locasının camlı yan yüzü görülüyor (kuzey ucu). Güney kısmı dolu sıva."
+      "note": "Girintiye bakan batı yüzü; ortofoto yok, HAXJ karelerinde e11 locasının camlı yan yüzü görülüyor (kuzey ucu). Güney kısmı dolu sıva. v6: e13 iç köşesine yakın açık gri PVC iniş borusu (locanın camlı yan yüzünün bittiği yerde, u 1.56) ve üzerinde her katta (K0–K4) kollu tek bullet CCTV kamera (bej-beyaz gövde, siyah mercek; HAXJ 175_24 yakın karesi — önceki \"silindir aplik\" okuması). Konum HAXJ yakın karelerinden üçgenleme + e13 ortofotosu (e13 hattının 0.35–0.7 m önünde → u 1.84; ±0.2 m); kamera üreticide dışa (batıya) bakar, gerçekte kollar borudan güneye (e13’e) uzanıyor."
     },
     {
       "edge": 13,
@@ -2419,49 +2471,9 @@
           "color": "#80807a"
         },
         {
-          "t": "camera",
-          "u": 0,
-          "s": 0,
-          "y": 5.17,
-          "style": "bullet",
-          "off": 0.35,
-          "color": "#dcd8cc"
-        },
-        {
-          "t": "camera",
-          "u": 0,
-          "s": 1,
-          "y": 7.88,
-          "style": "bullet",
-          "off": 0.35,
-          "color": "#dcd8cc"
-        },
-        {
-          "t": "camera",
-          "u": 0,
-          "s": 2,
-          "y": 10.69,
-          "style": "bullet",
-          "off": 0.35,
-          "color": "#dcd8cc"
-        },
-        {
-          "t": "camera",
-          "u": 0,
-          "s": 3,
-          "y": 13.4,
-          "style": "bullet",
-          "off": 0.35,
-          "color": "#dcd8cc"
-        },
-        {
-          "t": "camera",
-          "u": 0,
-          "s": 4,
-          "y": 16.84,
-          "style": "bullet",
-          "off": 0.35,
-          "color": "#dcd8cc"
+          "t": "pipe",
+          "u": 3.59,
+          "color": "#aab0b1"
         },
         {
           "t": "groove",
@@ -2473,7 +2485,7 @@
           "color": "#80807a"
         }
       ],
-      "note": "Kuzey girintisinin dibi, ref HAXJ (40° 175°: yakın). Tek dar pencere aksı (pilastr + turuncu dolgu, K2/K3 arası kesinti). Perdeler: K0 tül, K1 sol tül + sağ zebra, K2 zebra, K3 zebra, K4 tül. K0–K2 pencerelerinin sol üst camında yuvarlak aspiratör (vent). K0 altında klima. Batıda KB yığının yan yüzü ve açık gri PVC boru (her katta küçük silindir aplik, pending). v5: pilastr kesintisi alt 10.9 / üst 12.26 düzeltildi; kat hizası derzleri (5.72/8.60/11.55/14.40) groove. v6: en üst turuncu dolgu duvar üstüne kadar (HAXJ: dolgu tepesi görünen ~18.4); doğu iç köşedeki (e12 yüzü) açık gri PVC boruda her katta (K0–K4) kollu tek bullet CCTV kamera — önceki \"silindir aplik\" okuması 175_24 yakın karesinde kamera (bej-beyaz gövde, siyah mercek, aşağı bakar) çıktı; görünen y 5.25/8.05/10.95/13.75/17.3 (off 0.35 derinlik düzeltmeli yazıldı), u köşede. v6: K5 hizası en üst kat derzi (görünen 17.48, 17.34 gerçek; HAXJ profil minimumu) groove eklendi."
+      "note": "Kuzey girintisinin dibi, ref HAXJ (40° 175°: yakın). Tek dar pencere aksı (pilastr + turuncu dolgu, K2/K3 arası kesinti). Perdeler: K0 tül, K1 sol tül + sağ zebra, K2 zebra, K3 zebra, K4 tül. K0–K2 pencerelerinin sol üst camında yuvarlak aspiratör (vent). K0 altında klima. Batıda KB yığının yan yüzü ve açık gri PVC boru (her katta küçük silindir aplik, pending). v5: pilastr kesintisi alt 10.9 / üst 12.26 düzeltildi; kat hizası derzleri (5.72/8.60/11.55/14.40) groove. v6: en üst turuncu dolgu duvar üstüne kadar (HAXJ: dolgu tepesi görünen ~18.4). Doğu iç köşede görülen \"silindir aplik\"ler kamera çıktı ve e12 yüzüne (taşıyıcı boruyla birlikte) yazıldı. v6: batı iç köşedeki (e14 yanı) açık gri PVC iniş borusu eklendi (notta vardı, öğe yoktu; HAXJ profilinde görünen u 3.50–3.675, merkez 3.59; renk 175_24’te örneklendi #aab0b1, yarı gölge). Doğu köşedeki kameralı boru e12 yüzünde (v5 notundaki \"batıda … PVC boru (her katta küçük silindir aplik)\" düzeltmesi: kameralar doğu iç köşedeki boruda — HAXJ 175 yakın kareleri, başlık kalibrasyonlu; batı köşe borusunda kamera görülmedi). v6: K5 hizası en üst kat derzi (görünen 17.48, 17.34 gerçek; HAXJ profil minimumu) groove eklendi."
     },
     {
       "edge": 14,
@@ -2567,6 +2579,11 @@
       "what": "e11 batı locasının eğik gri şapkası (pediment üstünde)",
       "edge": 11,
       "note": "Kuzey alınlığının batıya inen kısmı locanın kalın gri şapkasına devam ediyor (Wi7U: loca üstü görünen u 7.7–9.7, y ~19.3–20.3 gri); pediment tek renk (sıva) → duvar üstüne kadar gri pano yazıldı, üstündeki eğik gri kısım çizilemiyor."
+    },
+    {
+      "what": "e12 kameralarının cephe boyunca bakış yönü",
+      "edge": 12,
+      "note": "e12 iniş borusundaki K0–K4 bej-beyaz bullet kameralar borudan güneye (e13 iç köşesine doğru, +u) ~0.25 m kollarda, aşağı eğik (HAXJ 175_24 yakın karesi). Üretici tek bullet’i duvardan dışa (batıya) çeviriyor → tek kamera için yön alanı yok; konum/yükseklik yazıldı."
     },
     {
       "what": "K1 orta sol balkonda beyaz dolap",
