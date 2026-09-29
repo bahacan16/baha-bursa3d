@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { registerReflective } from '../env/ultra';
 
 /**
  * Prosedürel araç modelleri: gövde, boyuna istasyonlarda tanımlı kesitlerin (ring) birleştirilmesiyle (loft) üretilir —
@@ -1130,6 +1131,8 @@ export class CarMaterials {
       metalness: 1,
       envMapIntensity: 10,
     });
+    // Ultra: boya, cam ve krom çevreyi (yerel yansıma küresi) yansıtır
+    for (const m of [paint, glass, chrome]) registerReflective(m);
     const rubber = new THREE.MeshStandardMaterial({ color: 0x19191a, roughness: 0.9 });
     const lights = (this.lights = new THREE.MeshStandardMaterial({
       color: 0xffffff,

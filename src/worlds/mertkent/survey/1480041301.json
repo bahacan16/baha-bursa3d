@@ -51,28 +51,28 @@
         {
           "t": "strip",
           "u": 6.08,
-          "y0": 1.2,
-          "y1": 9.4,
+          "y0": 1.45,
+          "y1": 9.47,
           "w": 0.22
         },
         {
           "t": "strip",
           "u": 7.73,
-          "y0": 1.2,
-          "y1": 9.4,
+          "y0": 1.45,
+          "y1": 9.47,
           "w": 0.2
         },
         {
           "t": "strip",
           "u": 6.08,
-          "y0": 10.45,
+          "y0": 10.67,
           "y1": 20.2,
           "w": 0.22
         },
         {
           "t": "strip",
           "u": 7.73,
-          "y0": 10.45,
+          "y0": 10.67,
           "y1": 20.2,
           "w": 0.2
         },
@@ -162,28 +162,28 @@
         {
           "t": "strip",
           "u": 9.45,
-          "y0": 1.2,
-          "y1": 9.4,
+          "y0": 1.45,
+          "y1": 9.47,
           "w": 0.25
         },
         {
           "t": "strip",
           "u": 11.72,
-          "y0": 1.2,
-          "y1": 9.4,
+          "y0": 1.45,
+          "y1": 9.47,
           "w": 0.25
         },
         {
           "t": "strip",
           "u": 9.45,
-          "y0": 10.45,
+          "y0": 10.15,
           "y1": 20.2,
           "w": 0.25
         },
         {
           "t": "strip",
           "u": 11.72,
-          "y0": 10.45,
+          "y0": 10.15,
           "y1": 20.2,
           "w": 0.25
         },
@@ -425,9 +425,89 @@
           "depth": 3,
           "color": "plaster",
           "roofC": "tile"
+        },
+        {
+          "t": "win",
+          "u0": 6.98,
+          "u1": 7.63,
+          "y0": 0.17,
+          "y1": 1.07,
+          "k": -1,
+          "s": [
+            -1,
+            -1
+          ],
+          "kind": "small",
+          "split": 1
+        },
+        {
+          "t": "win",
+          "u0": 9.44,
+          "u1": 10.09,
+          "y0": 0.17,
+          "y1": 1.07,
+          "k": -1,
+          "s": [
+            -1,
+            -1
+          ],
+          "kind": "small",
+          "split": 1
+        },
+        {
+          "t": "band",
+          "y0": -0.5,
+          "y1": 1.45,
+          "color": "plaster",
+          "proud": 0.02
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.64,
+          "u1": 11.99,
+          "y": 4.66,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.64,
+          "u1": 11.99,
+          "y": 7.42,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.64,
+          "u1": 11.99,
+          "y": 9.93,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.64,
+          "u1": 11.99,
+          "y": 12.75,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.64,
+          "u1": 11.99,
+          "y": 15.45,
+          "w": 0.025,
+          "color": "#80807a"
         }
       ],
-      "note": "Doğu (otopark) alınlık cephesi, ref HAXJ (HZb9 teyit; 40° kareler 232/235/255°). Sol (güney) aks tüm katlarda dar pencere, sağ aks K0–K2 dar / K3–K5 korkuluklu fransız; tül (sağ aks K5 dikey jaluzi); K0 çit arkasında. Köşe yığınları TÜM KATLARDA AÇIK (cam balkon yok), gri parapet + buzlu cam; K2 kuzey yığında arka duvarda klima. Orta bölmede turuncu dolgular ve pilastrlar saçak üstündeki alınlığa kadar çıkar saçak üstünde orta bölme duvarı (u 4.6–13.1, kenar tepe y ~21.0/20.35) + alınlık (apex u 8.4 y ~22.4); K5 üstünde çatı arası penceresi YOK → proj + pediment. Yığın şapkaları çatı eğimini izler (pending)."
+      "note": "Doğu (otopark) alınlık cephesi, ref HAXJ (HZb9 teyit; 40° kareler 232/235/255°). Sol (güney) aks tüm katlarda dar pencere, sağ aks K0–K2 dar / K3–K5 korkuluklu fransız; tül (sağ aks K5 dikey jaluzi); K0 çit arkasında. Köşe yığınları TÜM KATLARDA AÇIK (cam balkon yok), gri parapet + buzlu cam; K2 kuzey yığında arka duvarda klima. Orta bölmede turuncu dolgular ve pilastrlar saçak üstündeki alınlığa kadar çıkar saçak üstünde orta bölme duvarı (u 4.6–13.1, kenar tepe y ~21.0/20.35) + alınlık (apex u 8.4 y ~22.4); K5 üstünde çatı arası penceresi YOK → proj + pediment. Yığın şapkaları çatı eğimini izler (pending). v5: bodrum kotunda (HZb9, çit arkasından) sıva renginde bodrum duvarı ve iki küçük dikey bodrum penceresi (sol aksın sağ yarısı altında, sağ aksın sol pilastrı dibinde; gri/buzlu cam) — k:-1; bodrum duvarı sıva renginde (varsayılan koyu subasman yerine band, görünen kısım u≈3.9–12.4, kalanı site kapısı / çit arkasında GÖRÜLMEDİ). Alt pilastrlar K0 döşemesinde (turuncu dolgu altı, y 1.45; HZb9) başlar; pilastr kesintisi: alt 9.47, üst sol aks 10.67 / sağ aks (fransız) 10.15 düzeltildi; kat hizası derzleri (4.66/7.42/9.93/12.75/15.45) groove."
     },
     {
       "edge": 1,
@@ -519,27 +599,27 @@
           "t": "strip",
           "u": 2.52,
           "y0": 2,
-          "y1": 10.25,
+          "y1": 10.33,
           "w": 0.28
         },
         {
           "t": "strip",
           "u": 4.19,
           "y0": 2,
-          "y1": 10.25,
+          "y1": 10.33,
           "w": 0.28
         },
         {
           "t": "strip",
           "u": 2.52,
-          "y0": 11.45,
+          "y0": 11.56,
           "y1": 20.2,
           "w": 0.28
         },
         {
           "t": "strip",
           "u": 4.19,
-          "y0": 11.45,
+          "y0": 11.56,
           "y1": 20.2,
           "w": 0.28
         },
@@ -621,9 +701,54 @@
             5
           ],
           "split": 2
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 5.17,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 7.93,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 10.9,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 13.78,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 16.55,
+          "w": 0.025,
+          "color": "#80807a"
         }
       ],
-      "note": "Kuzey girintisinin dibi (S66M eğik, IXpd ağaç arkasında). Batı ucunda tek pencere aksı (pilastr + kiremit dolgular, tüm katlarda dar pencere, K2/K3 arasında pilastr kesintisi). Doğu ucunda KD yığının yanında dar pencereler (IXpd)."
+      "note": "Kuzey girintisinin dibi (S66M eğik, IXpd ağaç arkasında). Batı ucunda tek pencere aksı (pilastr + kiremit dolgular, tüm katlarda dar pencere, K2/K3 arasında pilastr kesintisi). Doğu ucunda KD yığının yanında dar pencereler (IXpd). v5: pilastr kesintisi 10.33 / 11.56; kat hizası derzleri (5.17/7.93/10.90/13.78/16.55) groove."
     },
     {
       "edge": 4,
@@ -712,7 +837,7 @@
         {
           "t": "strip",
           "u": 4.05,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.25
         },
@@ -726,7 +851,7 @@
         {
           "t": "strip",
           "u": 5.72,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.23
         },
@@ -809,7 +934,7 @@
         {
           "t": "strip",
           "u": 6.82,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.23
         },
@@ -823,7 +948,7 @@
         {
           "t": "strip",
           "u": 8.46,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.22
         },
@@ -1006,21 +1131,48 @@
           "dir": "h",
           "u0": 2.3,
           "u1": 10.36,
-          "y": 10.47,
-          "w": 0.03,
-          "color": "#b5b7b0"
+          "y": 5.45,
+          "w": 0.025,
+          "color": "#80807a"
         },
         {
           "t": "groove",
           "dir": "h",
           "u0": 2.3,
           "u1": 10.36,
-          "y": 15.98,
-          "w": 0.03,
-          "color": "#b5b7b0"
+          "y": 8.28,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 2.3,
+          "u1": 10.36,
+          "y": 11.03,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 2.3,
+          "u1": 10.36,
+          "y": 13.85,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 2.3,
+          "u1": 10.36,
+          "y": 16.65,
+          "w": 0.025,
+          "color": "#80807a"
         }
       ],
-      "note": "Batı kanadın kuzey (sokak) alınlık cephesi, ref 6eol (qhqN teyit). İki dar pencere aksı (tüm katlarda 2 kanatlı). Perdeler: doğu aks K4 zebra, diğerleri tül; batı aks K1 zebra, K5 sol kanat AÇIK, diğerleri tül. K2/K3 arasında pilastr kesintisi; sıvada y ≈10.47 ve ≈15.98’de (K3 ve K5 döşeme hizası) ince yatay derz. Alınlık: apex u 7.5 y ~23.5, taban ~20.1; turuncu dolgular + pilastrlar eğime kadar (proj + pediment; doğu ucu beşgen → düz sıva dolgu proj). Doğu ucunda girintiye açılan loca (K3 şeffaf, K4 koyu cam), yanında boru. Batı ucu düz sıva."
+      "note": "Batı kanadın kuzey (sokak) alınlık cephesi, ref 6eol (qhqN teyit). İki dar pencere aksı (tüm katlarda 2 kanatlı). Perdeler: doğu aks K4 zebra, diğerleri tül; batı aks K1 zebra, K5 sol kanat AÇIK, diğerleri tül. K2/K3 arasında pilastr kesintisi; sıvada her kat hizasında ince yatay derz: v5 ölçümü y 5.45/8.28/11.03/13.85/16.65 (önceki 10.47/15.98 kayıtları fotoğrafla uyuşmuyordu, düzeltildi). Alınlık: apex u 7.5 y ~23.5, taban ~20.1; turuncu dolgular + pilastrlar eğime kadar (proj + pediment; doğu ucu beşgen → düz sıva dolgu proj). Doğu ucunda girintiye açılan loca (K3 şeffaf, K4 koyu cam), yanında boru. Batı ucu düz sıva. v5: üst pilastrlar K3 denizliğinden (y 11.7) başlar (önceki 11.0 düzeltildi)."
     },
     {
       "edge": 6,
@@ -1113,14 +1265,14 @@
           "t": "strip",
           "u": 5.48,
           "y0": 2.3,
-          "y1": 11,
+          "y1": 11.15,
           "w": 0.26
         },
         {
           "t": "strip",
           "u": 7,
           "y0": 2.3,
-          "y1": 11,
+          "y1": 11.15,
           "w": 0.22
         },
         {
@@ -1219,14 +1371,14 @@
           "t": "strip",
           "u": 15.32,
           "y0": 2.3,
-          "y1": 11,
+          "y1": 11.15,
           "w": 0.24
         },
         {
           "t": "strip",
           "u": 16.86,
           "y0": 2.3,
-          "y1": 11,
+          "y1": 11.15,
           "w": 0.24
         },
         {
@@ -1521,9 +1673,99 @@
           "u": 11.4,
           "s": 0,
           "y": 5
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.4,
+          "u1": 7.17,
+          "y": 6.37,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.4,
+          "u1": 7.17,
+          "y": 8.99,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.4,
+          "u1": 7.17,
+          "y": 11.46,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.4,
+          "u1": 7.17,
+          "y": 14.42,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.4,
+          "u1": 7.17,
+          "y": 17.09,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.07,
+          "u1": 17.7,
+          "y": 6.37,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.07,
+          "u1": 17.7,
+          "y": 8.99,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.07,
+          "u1": 17.7,
+          "y": 11.46,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.07,
+          "u1": 17.7,
+          "y": 14.42,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.07,
+          "u1": 17.7,
+          "y": 17.09,
+          "w": 0.025,
+          "color": "#80807a"
         }
       ],
-      "note": "Batı (sokak) cephesi, ref c3jX (myU6 teyit; 40° kareler 57/83/109°). İki aks: K0–K2 dar, K3–K5 3 bölmeli korkuluklu fransız; tüm pencerelerde tül. Orta yığın ~1.1 m, iki yarım (ortada koyu gri boru + her katta silindir aplikler, pending): sol K0 açık, K1 koyu cam, K2 bambu stor, K3 şeffaf cam, K4 koyu cam, K5 koyu cam (kanatlar kısmen açık); sağ K0 açık (klima), K1 açık (arka duvarda klima + kapı), K2 bambu stor, K3 şeffaf cam (beyaz tül), K4–K5 açık. Bambu stor = blinds (renk/malzeme pending). GB köşe yığını tüm katlar açık, K4 klima; KB köşe yığını K3 koyu cam, K4 ve K1 klima. Güney uçta taban izi ~1.5 m uzun görünüyor → cal.u gerdirildi."
+      "note": "Batı (sokak) cephesi, ref c3jX (myU6 teyit; 40° kareler 57/83/109°). İki aks: K0–K2 dar, K3–K5 3 bölmeli korkuluklu fransız; tüm pencerelerde tül. Orta yığın ~1.1 m, iki yarım (ortada koyu gri boru + her katta silindir aplikler, pending): sol K0 açık, K1 koyu cam, K2 bambu stor, K3 şeffaf cam, K4 koyu cam, K5 koyu cam (kanatlar kısmen açık); sağ K0 açık (klima), K1 açık (arka duvarda klima + kapı), K2 bambu stor, K3 şeffaf cam (beyaz tül), K4–K5 açık. Bambu stor = blinds (renk/malzeme pending). GB köşe yığını tüm katlar açık, K4 klima; KB köşe yığını K3 koyu cam, K4 ve K1 klima. Güney uçta taban izi ~1.5 m uzun görünüyor → cal.u gerdirildi. v5: alt pilastr üstü 11.15; kat hizası derzleri (6.37/8.99/11.46/14.42/17.09) yığınlar arası duvarda groove; K0 derzi site duvarı/çit arkasında GÖRÜLMEDİ."
     },
     {
       "edge": 9,
@@ -1604,7 +1846,7 @@
         {
           "t": "strip",
           "u": 6.31,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.25
         },
@@ -1618,7 +1860,7 @@
         {
           "t": "strip",
           "u": 4.64,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.23
         },
@@ -1693,7 +1935,7 @@
         {
           "t": "strip",
           "u": 3.54,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.23
         },
@@ -1707,7 +1949,7 @@
         {
           "t": "strip",
           "u": 1.9,
-          "y0": 11,
+          "y0": 11.7,
           "y1": 20.2,
           "w": 0.22
         },
@@ -1793,9 +2035,54 @@
         {
           "t": "pipe",
           "u": 8.04
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 8.06,
+          "y": 5.45,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 8.06,
+          "y": 8.28,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 8.06,
+          "y": 11.03,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 8.06,
+          "y": 13.85,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 8.06,
+          "y": 16.65,
+          "w": 0.025,
+          "color": "#80807a"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 5'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi).",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 5'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı.",
       "cal": {
         "u": [
           0,
@@ -1864,27 +2151,27 @@
           "t": "strip",
           "u": 1.83,
           "y0": 2,
-          "y1": 10.25,
+          "y1": 10.33,
           "w": 0.28
         },
         {
           "t": "strip",
           "u": 0.16,
           "y0": 2,
-          "y1": 10.25,
+          "y1": 10.33,
           "w": 0.28
         },
         {
           "t": "strip",
           "u": 1.83,
-          "y0": 11.45,
+          "y0": 11.56,
           "y1": 20.2,
           "w": 0.28
         },
         {
           "t": "strip",
           "u": 0.16,
-          "y0": 11.45,
+          "y0": 11.56,
           "y1": 20.2,
           "w": 0.28
         },
@@ -1961,9 +2248,54 @@
             5
           ],
           "split": 2
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 5.17,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 7.93,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 10.9,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 13.78,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0,
+          "u1": 4.35,
+          "y": 16.55,
+          "w": 0.025,
+          "color": "#80807a"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 3'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi).",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 3'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı.",
       "cal": {
         "u": [
           0,
@@ -2039,11 +2371,12 @@
     "Çatı: kırma kiremit; doğu (e0) ve kuzey (e5) cephelerde orta bölme alınlığı (turuncu dolgular + pilastrlar eğime kadar) → proj + pediment. Bu blokta çatı arası penceresi görülmedi.",
     "Güney cephe (e9–e15) hiçbir karede görülmedi (TUx4 90° karesi yalnız batı cephenin güney ucunu gösteriyor). Hava fotoğrafının eğik görünüşünde yapı kuzeyle aynı → yalnız YAPI aynalandı; cam/perde/klima çizilmedi.",
     "Site kapısı: 1300 ile 1301 arasındaki otopark girişinde gri portal + \"MERTKENT 3 SİTESİ\" harfleri — bina cephesi değil, ayrı yapı (bu dosyada değil).",
-    "Belirsizlikler: groundRaise 1.9 doğu otoparka göre; e8 güney ucunda taban izi ~1.5 m uzun; e10 taban izinde 0.69 m (kuzey eşi e6 1.70 m) — güney aynası ölçekli."
+    "Belirsizlikler: groundRaise 1.9 doğu otoparka göre; e8 güney ucunda taban izi ~1.5 m uzun; e10 taban izinde 0.69 m (kuzey eşi e6 1.70 m) — güney aynası ölçekli.",
+    "v5 (2026-09-29): e0 bodrum pencereleri (k:-1) + sıva renkli bodrum duvarı; tüm fotoğraflı kenarlarda (e0, e3, e5, e8) kat hizası derzleri (groove, döşeme çizgisinin 0.05–0.3 m üstünde; rengi güneşli sıva × ~0.6 ≈ #80807a); e5’teki eski derzler (10.47/15.98) yanlış kotta idi → düzeltildi; pilastr kesinti kotları e0/e3/e5/e8’de fotoğrafa göre düzeltildi (güney aynalar e11/e13 aynı). Saçak hizasındaki en üst derzler (e0 18.38, e3 20.32, e5 19.85, e8 20.45 görünen) duvar üstünün üstünde → çizilmedi."
   ],
   "pending": [
     {
-      "what": "Bambu stor (açık balkonda)",
+      "what": "Bambu stor (açık balkonda) (v6: güneşlik bezi / stor)",
       "edges": [
         4,
         8
@@ -2052,10 +2385,10 @@
         2
       ],
       "color": "#b08a5f",
-      "note": "K2 orta yığın iki yarıda ve e4 locasında korkuluk üstünden tavana inen bambu/hasır stor (gölgede #75563b; güneşli tahmini #b08a5f). Cam balkon DEĞİL; üretici tint:\"blinds\" (beyaz-gri bant) ile yaklaşık çiziyor."
+      "note": "K2 orta yığın iki yarıda (e8 c3jX görünen u 7.17–14.07, balkon tavanından korkuluk üstüne: y ≈10.1–11.7) ve e4 locasında korkuluk üstünden tavana inen bambu/hasır stor (gölgede #75563b; güneşli tahmini #b08a5f). Cam balkon DEĞİL; üretici şimdilik tint:\"blinds\" (beyaz-gri bant) ile yaklaşık çiziyor."
     },
     {
-      "what": "Orta yığın ayağında aplikler",
+      "what": "Orta yığın ayağında aplikler (v6: duvar lambası)",
       "edge": 8,
       "u": [
         10.4,
@@ -2064,18 +2397,13 @@
       "note": "Her katta boru iki yanında beyaz/gri silindir aplik (~0.12 m çap), tavana yakın. Kamera olabilir (belirsiz)."
     },
     {
-      "what": "Eğik balkon şapkaları",
+      "what": "Eğik balkon şapkaları (v6: eğik yığın başlığı)",
       "edges": [
         0,
         5,
         8
       ],
       "note": "Köşe yığını şapkaları kırma çatı eğimini izleyen kalın (~0.9–1.0 m) gri eğik plak; e0 karelerinde belirgin. Üretici düz çiziyor."
-    },
-    {
-      "what": "Bodrum üst pencereleri",
-      "edge": 0,
-      "note": "Doğu otopark kotunda K0 altında (zeminden ~0.4–1.1 m) yatay bodrum pencereleri; k<0 desteklenmiyor."
     }
   ]
 }

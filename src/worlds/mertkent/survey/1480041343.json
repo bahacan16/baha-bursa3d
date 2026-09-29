@@ -416,13 +416,56 @@
         {
           "t": "panel",
           "u0": 2.7,
+          "u1": 9.9,
+          "y0": 10.8,
+          "y1": 13.52,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 2.7,
+          "u1": 9.9,
+          "y0": 13.54,
+          "y1": 20.05,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 9.9,
           "u1": 10.56,
           "y0": 10.8,
           "y1": 20.05,
           "color": "plaster2"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 2.7,
+          "u1": 9.9,
+          "y": 7.97,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 2.7,
+          "u1": 9.9,
+          "y": 10.785,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 2.7,
+          "u1": 9.9,
+          "y": 13.53,
+          "w": 0.03,
+          "color": "#838582"
         }
       ],
-      "note": "h329 (güneydoğudan eğik). Alt katlar ve batı balkon kütlesinin alt kısmı ağaç arkasında; K0 penceresi yalnız doğu sütunda seçiliyor. Duvar doğuda u≈9.9'da bitiyor (GD kütlesi başlıyor). RETRO: gri üst sıva y≈10.8’den (dikey profil). Perdeler (h329, aşırı pozlama, orta güven): batı sütun K2–K5 beyaz tül (K0–K1 ağaç arkasında); doğu sütun K0 tül, K1 tül + koyu kahve yan perde, K2 tül, K3 tül + bej yan perde, K4 tül, K5 sol kanat açık (koyu)."
+      "note": "h329 (güneydoğudan eğik). Alt katlar ve batı balkon kütlesinin alt kısmı ağaç arkasında; K0 penceresi yalnız doğu sütunda seçiliyor. Duvar doğuda u≈9.9'da bitiyor (GD kütlesi başlıyor). RETRO: gri üst sıva y≈10.8’den (dikey profil). Perdeler (h329, aşırı pozlama, orta güven): batı sütun K2–K5 beyaz tül (K0–K1 ağaç arkasında); doğu sütun K0 tül, K1 tül + koyu kahve yan perde, K2 tül, K3 tül + bej yan perde, K4 tül, K5 sol kanat açık (koyu). v5: kat hizası derzleri K2 7.97 / K3 (sıva sınırı 10.80) / K4 13.53 — groove (duvar u 2.7–9.9; pano K4 hizasında bölündü)."
     },
     {
       "edge": 6,
@@ -824,7 +867,20 @@
             "K0": "#1f2322",
             "K4": "#e8e9e4",
             "K5": "#1f2322"
-          }
+          },
+          "pots": {
+            "K1": [
+              11.43,
+              12.02,
+              13.12
+            ],
+            "K2": [
+              11.45,
+              14.2
+            ]
+          },
+          "potsOn": "floor",
+          "plantC": "#5f7a3c"
         },
         {
           "t": "bal",
@@ -959,7 +1015,10 @@
           "u": 11.1,
           "off": 1.25,
           "color": "#838580",
-          "r": 0.07
+          "r": 0.07,
+          "y0": -0.2,
+          "y1": 18.35,
+          "brackets": false
         },
         {
           "t": "ac",
@@ -1051,13 +1110,99 @@
         {
           "t": "panel",
           "u0": 4.5,
-          "u1": 18.44,
+          "u1": 7.75,
+          "y0": 10.5,
+          "y1": 13.29,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 4.5,
+          "u1": 7.75,
+          "y0": 13.31,
+          "y1": 19.8,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 7.75,
+          "u1": 14.47,
           "y0": 10.5,
           "y1": 19.8,
           "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 14.47,
+          "u1": 18.44,
+          "y0": 10.5,
+          "y1": 13.29,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 14.47,
+          "u1": 18.44,
+          "y0": 13.31,
+          "y1": 19.8,
+          "color": "plaster2"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.5,
+          "u1": 7.75,
+          "y": 7.93,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.47,
+          "u1": 18.44,
+          "y": 7.93,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.5,
+          "u1": 7.75,
+          "y": 10.485,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.47,
+          "u1": 18.44,
+          "y": 10.485,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 4.5,
+          "u1": 7.75,
+          "y": 13.3,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 14.47,
+          "u1": 18.44,
+          "y": 13.3,
+          "w": 0.03,
+          "color": "#838582"
         }
       ],
-      "note": "G8RU referans (ChHr ile doğrulandı). 42/8 ile aynı düzen; simetri merkezi kenar ortasında (11.47). Kat aralığı 2.678 (duvar halkanın ~0.2 m gerisinde). Orta ikiz balkon d≈1.25; köşe kütle ön yüzleri 0.4–0.5 m çıkma (+inset), uçları 0.6–0.9 m geride. Çatıda üç piramit başlıklı baca (u≈4.75, 15.0, 18.5) görünür. RETRO (G8RU 12 yakın kare + ortofoto profilleri): sıva iki tonlu (K0–K2 beyaz #dbdcd4, K3 döşemesinden saçağa gri #c2c4c2). Balkon ön yüzü 42 ile aynı: grenli gri alın+alçak parapet bandı ~0.5 m + buzlu cam ~0.4 m + alüminyum küpeşte (tüm katlar). Cam balkonlar: orta sol K0–K1 beyaz ince profil + yeşil dikey jaluzi (blinds), K2 beyaz profil + camgöbeği-yeşil cam, K3 beyaz profil şeffaf (içeride perde), K5 koyu profil koyu cam; orta sağ K0 siyah profil koyu lacivert cam, K4 beyaz profil şeffaf, K5 koyu. Orta sağ balkon K1 ve K2 korkuluğunda küçük saksılar (pots olarak yazılmadı, konum ±0.3 m). Perdeler: sol alt K0 tül + zeytin-kahve yan perde, K1–K2 tül; sağ alt K0–K1 tül, K2 tül + koyu yan perde; sol üst K3 tül + mavi-lila perde, K4–K5 tül; sağ üst K3 tül, K4 sol kanat koyu + tül, K5 tül + gri-mavi perde. Açık gri PVC yağmur boruları köşe kütlelerinin iç kenarında (u 4.45, 18.35). Orta direk koyu gri çelik (~14 cm), kollu lamba/kameralar."
+      "note": "G8RU referans (ChHr ile doğrulandı). 42/8 ile aynı düzen; simetri merkezi kenar ortasında (11.47). Kat aralığı 2.678 (duvar halkanın ~0.2 m gerisinde). Orta ikiz balkon d≈1.25; köşe kütle ön yüzleri 0.4–0.5 m çıkma (+inset), uçları 0.6–0.9 m geride. Çatıda üç piramit başlıklı baca (u≈4.75, 15.0, 18.5) görünür. RETRO (G8RU 12 yakın kare + ortofoto profilleri): sıva iki tonlu (K0–K2 beyaz #dbdcd4, K3 döşemesinden saçağa gri #c2c4c2). Balkon ön yüzü 42 ile aynı: grenli gri alın+alçak parapet bandı ~0.5 m + buzlu cam ~0.4 m + alüminyum küpeşte (tüm katlar). Cam balkonlar: orta sol K0–K1 beyaz ince profil + yeşil dikey jaluzi (blinds), K2 beyaz profil + camgöbeği-yeşil cam, K3 beyaz profil şeffaf (içeride perde), K5 koyu profil koyu cam; orta sağ K0 siyah profil koyu lacivert cam, K4 beyaz profil şeffaf, K5 koyu. Orta sağ balkon K1 ve K2’de korkuluğun arkasında döşemede saksılar (v5: pots, potsOn floor; G8RU 252_24 yakın karesi: K1 u 11.43 yeşil, 12.02 yeşil, 13.12 pembe çiçek; K2 u 11.45 pembe-kırmızı çiçek, 14.2 kırmızı çiçek + yeşil; saksıların kendisi buzlu camın arkasında görülmedi; çiçek renkleri tek plantC ile yazılamadı). Perdeler: sol alt K0 tül + zeytin-kahve yan perde, K1–K2 tül; sağ alt K0–K1 tül, K2 tül + koyu yan perde; sol üst K3 tül + mavi-lila perde, K4–K5 tül; sağ üst K3 tül, K4 sol kanat koyu + tül, K5 tül + gri-mavi perde. Açık gri PVC yağmur boruları köşe kütlelerinin iç kenarında (u 4.45, 18.35). Orta direk koyu gri çelik (~14 cm), kollu lamba/kameralar. v5: kat hizası derzleri K2 7.93 / K3 (sıva sınırı 10.50) / K4 13.30 yığınlar arası duvarlarda groove (pano K4 hizasında bölündü). Orta direk şapkanın üstüne ÇIKMAZ: en üst şapka alnının ortasında biter (görünen 20.64, balkon önü d=1.25 → duvar düzleminde ≈18.35) → pipe y1, kelepçesiz; her katta kollu çift CCTV kamerası (pending). Çatıda üç kiremit başlıklı baca görünen u≈4.9, 15.25, 19.0 (tepe y≈20.1)."
     },
     {
       "edge": 9,
@@ -1311,29 +1456,37 @@
         },
         {
           "t": "win",
-          "u0": 5.75,
-          "u1": 6.6,
-          "y0": 1.18,
-          "y1": 1.75,
-          "k": 0,
+          "u0": 5.77,
+          "u1": 6.67,
+          "y0": 1.12,
+          "y1": 1.72,
+          "k": -1,
           "s": [
-            0,
-            0
+            -1,
+            -1
           ],
-          "kind": "small"
+          "kind": "small",
+          "split": 1,
+          "curt": {
+            "K-1": "karanlik"
+          }
         },
         {
           "t": "win",
-          "u0": 8.1,
-          "u1": 9.1,
-          "y0": 1.18,
-          "y1": 1.75,
-          "k": 0,
+          "u0": 8.2,
+          "u1": 9.17,
+          "y0": 1.12,
+          "y1": 1.72,
+          "k": -1,
           "s": [
-            0,
-            0
+            -1,
+            -1
           ],
-          "kind": "small"
+          "kind": "small",
+          "split": 1,
+          "curt": {
+            "K-1": "karanlik"
+          }
         },
         {
           "t": "band",
@@ -1348,11 +1501,46 @@
           "u0": 0.91,
           "u1": 12.1,
           "y0": 11.2,
+          "y1": 14.12,
+          "color": "plaster2"
+        },
+        {
+          "t": "panel",
+          "u0": 0.91,
+          "u1": 12.1,
+          "y0": 14.14,
           "y1": 20.7,
           "color": "plaster2"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.91,
+          "u1": 12.1,
+          "y": 8.3,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.91,
+          "u1": 12.1,
+          "y": 11.185,
+          "w": 0.03,
+          "color": "#838582"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.91,
+          "u1": 12.1,
+          "y": 14.13,
+          "w": 0.03,
+          "color": "#838582"
         }
       ],
-      "note": "_zvj referans, ağaçsız net görünüm (czGR ile doğrulandı). Duvar halkanın ~0.9–1.2 m önünde (kuzeyinde). Bodrum pencereleri otopark tarafında zeminin hemen üstünde. Alınlıkta çatı arası penceresi YOK (42 bloğunda batı sütun üstünde var). Şerit üst uçları alınlık eğimini izler (üst kısmı ortofotonun dışında; czGR ile tahmin). RETRO: gri üst sıva y≈11.2’den (dikey profil, gölgede #9d9e9a üst / #bdb7a5 alt). Perdeler (_zvj, gölge, orta güven): doğu sütun (A) K0–K1 tül, K2 mavi-koyu fon perde, K3–K4 tül, K5 mavi fon perde; batı sütun (B) K0–K1 tül, K2 zeytin yan perde, K3 mavi fon, K4 tül, K5 mavi fon."
+      "note": "_zvj referans, ağaçsız net görünüm (czGR ile doğrulandı). Duvar halkanın ~0.9–1.2 m önünde (kuzeyinde). Bodrum pencereleri otopark tarafında zeminin hemen üstünde. Alınlıkta çatı arası penceresi YOK (42 bloğunda batı sütun üstünde var). Şerit üst uçları alınlık eğimini izler (üst kısmı ortofotonun dışında; czGR ile tahmin). RETRO: gri üst sıva y≈11.2’den (dikey profil, gölgede #9d9e9a üst / #bdb7a5 alt). Perdeler (_zvj, gölge, orta güven): doğu sütun (A) K0–K1 tül, K2 mavi-koyu fon perde, K3–K4 tül, K5 mavi fon perde; batı sütun (B) K0–K1 tül, K2 zeytin yan perde, K3 mavi fon, K4 tül, K5 mavi fon. v5: bodrum pencereleri (beyaz kasa, koyu cam, tek kanat; görünen u 5.77–6.67 ve 8.20–9.17, y 1.12–1.72) k:-1 olarak (önceden K0 kotuna kırpılıp çizilmiyordu). Kat hizası derzleri K2 8.30 / K3 (sıva sınırı 11.20) / K4 14.13 — groove (pano K4 hizasında bölündü; K1/K5 hizasında derz yok)."
     },
     {
       "edge": 12,
@@ -1494,7 +1682,7 @@
     "Kat yüksekliği 2.72 m: iki bağımsız cephede görünen lento aralığı 2.714 (kenar 0) ve 2.716 (kenar 8); kenar 0'da iki panolu (IXpd/qhqN) test duvarın ortofoto düzleminde olduğunu gösteriyor. Diğer kenarlarda cal.u, halka köşelerinin gerçek duvar derinliğindeki izdüşümü: a = görünen kat aralığı / 2.72, cal.u = [uF(1−a), uF+(len−uF)a].",
     "Balkon derinlikleri korkuluk kat aralığının duvar kat aralığına oranından (tek görüntü, pano konumundan bağımsız): orta ikiz çıkma balkonlar d≈1.0–1.25; batı köşe kütleleri 0.6 çıkma; doğu köşe kütlelerinin ön yüzü duvar çizgisinde (0–0.5 m).",
     "Doğu cephe (8) simetrik: GD köşe kütlesi | şerit çifti + pencere sütunu | orta ikiz çıkma balkon | pencere sütunu | KD köşe kütlesi. Sütunlarda K0–K2 dar (≈1.26 m, 2 kanat) pencere ve pencereye bitişik dar şerit çifti; K3–K5 geniş (≈2.35 m) 3 kanatlı (orta kanat geniş) fransız pencere + paslanmaz yatay borulu korkuluk ve daha geniş şerit çifti. Alt şeritler K2 lentosu hizasında biter, üst şeritler K3 denizliğinin ~0.2 m altından başlayıp duvar üstüne (~0.2 m altına) kadar çıkar.",
-    "Orta ikiz balkonların ayrım çizgisinde, korkuluk önünde tabandan şapka üstüne (~1 m yukarı) çıkan koyu gri metal direk (paratoner/anten direği, üstünde küçük lamba) — 'pipe' (off = balkon derinliği) olarak yazıldı.",
+    "Orta ikiz balkonların ayrım çizgisinde, korkuluk önünde tabandan yükselen koyu gri çelik direk (~14 cm; paratoner/kamera direği) — pipe (off = balkon derinliği). v5 düzeltmesi: direk şapkanın üstüne ÇIKMAZ, en üst şapkanın alnının ortasında biter; her katta tavana yakın kollu çift CCTV kamerası (pending).",
     "Köşe balkon kütleleri: halkanın köşelerindeki kısa kenarlar (1–2, 6–7, 9–10, 14–15) duvar değil, balkon kütlesinin dış hattı; arkadaki duvar kenar 3/5/11/13 hizasında (inset). Doğu cephede köşe kütlesinin kütleden taşan ~1 m'lik ucu duvar çizgisinin 0.6–0.9 m gerisinde (kademeli ön yüz, iki ayrı bal kaydı; ikincisi d=0 + büyük inset ile yazıldı, overlay'de korkuluk bandı üst katlarda ~0.3 m yüksek kalır). Kütlelerin üstünde kalın düz gri şapka: alın ~0.7 m, overlay'deki şapka bandından ~0.5 m yukarıda.",
     "Ortofotolar ile halka arasında ~0.5–1.3 m tutarsızlıklar var (pano konum hataları + halka): bazı duvarlar halkanın önünde (42/3 ~0.6 m güneyde, 42/11 ~0.7 m ve 43/11 ~1.0 m kuzeyde); köşe kütlelerinin uçları halka köşelerinden 0.3–1.3 m sapıyor. Değerler görünen koordinatta ölçüldü; halka düzeltmesi gerekebilir.",
     "Çatı: kırma çatı; 0, 5, 11 kenarlarında duvar üçgen alınlığa yükselir ve şeritler alınlık eğimine kadar çıkar (eğim ~23–25°); hava fotoğrafında çatı ortasında düz teras/merdiven kulesi ve güneş panelli alan; çatıda piramit kiremit başlıklı bacalar (doğu cepheden görünür). Saçak taşması çok küçük: doğu cephede duvar üstü görünüyor, saçak altı görünmüyor.",
@@ -1504,11 +1692,12 @@
     "Cam balkonlar: orta sol K0, K1 (zebra stor/yeşil), K2 yeşil, K3 şeffaf, K5 koyu; orta sağ K0 koyu, K4 şeffaf, K5 koyu; KB kütlesi K5, GB kütlesi K4 camlı. Orta sağ balkonlarda K1–K3 klimaları ayrım duvarında; KD köşe kütlesinde her katta çanak (K0, K1, K2, K4, K5); GD kütlesinde K2 çanak ve K1–K2 klimalar kuzey ucundaki ayakta.",
     "Kenar 0, 3, 4, 12, 13 görülmedi: önceki sürümde ikiz 42’den kopyalanmış/ölçeklenmiş öğeler tahmin yasağı gereği kaldırıldı (düz sıva). Kütle iç yan yüzleri (2, 6, 10, 14) görülmedi: yalnız döşeme/korkuluk sürekliliği, cam katları kaldırıldı.",
     "RETRO (2026-09-29): renkler yeniden örneklendi (43/8 güneşli; 43/11 gölgeli): alt beyaz sıva #dbdcd4 (gölge #bdb7a5), üst gri sıva (plaster2) #c2c4c2 (gölge #9d9e9a), şerit #d8a371 (iki şerit ortalaması #d49f6e/#e0ac7a), balkon alın bandı #949592 (orta #83938b gölgeye yakın, köşe #91908e–#979995), buzlu cam #c1dad5, şapka üst yüzü #919598; balkon tavanları beyaz + spot; pencere doğraması beyaz PVC.",
-    "Eleştirmen maddeleri: balkon alınları bu blokta da beyaz/krem değil, koyu gri grenli ~0.5 m bant + buzlu cam (rail/fasciaC/parapetH/beam/railH yazıldı); kabartma pilastr yok (yalnız turuncu şeritler)."
+    "Eleştirmen maddeleri: balkon alınları bu blokta da beyaz/krem değil, koyu gri grenli ~0.5 m bant + buzlu cam (rail/fasciaC/parapetH/beam/railH yazıldı); kabartma pilastr yok (yalnız turuncu şeritler).",
+    "v5 (2026-09-29): bodrum pencereleri k:-1 (e11); K2/K3/K4 kat hizası derzleri (groove; 42 ile aynı düzen, K1/K5 hizasında yok); orta direk tepe kotu; orta sağ balkon saksıları (pots). Balkon şapkaları 42’deki gibi kalın (~1 m alın) ve üstü eğimli olmalı (42/0 IXpd 52_32’de açık; 43’te batı yüzler görülmedi) — pending."
   ],
   "pending": [
     {
-      "what": "Alınlık üçgenlerinin rengi",
+      "what": "Alınlık üçgenlerinin rengi (v6: alınlık üçgeni rengi)",
       "edges": [
         5,
         11
@@ -1516,7 +1705,7 @@
       "detail": "Alınlık üçgenleri üst gri sıva (plaster2 #c2c4c2); panel saçak kotunda kesildi, üçgen şu an beyaz (plaster) çizilir. Gerekli: alınlık rengi (roof.gableC) veya alınlığa kırpılan panel."
     },
     {
-      "what": "Fon perde rengi",
+      "what": "Fon perde rengi (v6: kat başına perde rengi)",
       "edges": [
         8,
         11
@@ -1526,12 +1715,28 @@
     {
       "what": "GB kütlesi şapka üstü çatı terası + kulübe",
       "edge": 1,
-      "detail": "GB balkon kütlesinin şapkası üstünde çevresi korkuluklu (cam/boru, uzaktan seçilemiyor) teras ve üstünde beyaz sıvalı küçük beşik çatılı kulübe (çatı çıkışı, ~2 × 2 m, ~2.3 m yüksek, alın üçgeni güneye bakar). Yalnız hoOD 14_11 (44 m) ve h329’dan uzaktan görülüyor; taban ölçüsü çıkarılamadı → volume yazılmadı."
+      "detail": "GB balkon kütlesinin şapkası üstünde dört kenarda beyaz çerçeveli cam/metal korkuluk (~0.9 m) ile çevrili teras; ortada beyaz çerçeveli, üçgen (beşik) tepeli küçük yapı (çatı çıkışı / kış bahçesi; genişlik ~1.6 m, tepe korkuluk üstünden ~0.6 m, alın üçgeni batıya bakar) ve sağında kırmızı bir eşya. Yalnız hoOD 14_11’den (44 m) görülüyor; hava fotoğrafında (z21) şapka üstünde ~1.7 × 1.7 m açık gri küçük kütle seçiliyor ama eğiklik düzeltmesiyle konumu ±1 m → volume/pergola yazılmadı. Eğik (beşik) tepe hacim olarak çizilemiyor."
     },
     {
-      "what": "Saksılar",
+      "what": "Kalın eğik balkon şapkaları (v6: eğik yığın başlığı)",
+      "edges": [
+        1,
+        7,
+        8,
+        9,
+        15
+      ],
+      "detail": "Köşe ve orta balkon kütlelerinin tepe şapkaları kalın (43/8 G8RU: orta şapka ön yüzü görünen 20.0–21.35, d≈1.25 → ~1.1 m; köşe şapkaları görünen ~1.0 m) ve 42’deki gibi üstü kırma çatı eğimini izleyen eğik plak (43’te batı/yan yüzler ağaç/uzaklık yüzünden net değil). Üretici düz 0.35 m (roof.fasciaH=0.2) çiziyor."
+    },
+    {
+      "what": "Orta direk kameraları",
       "edge": 8,
-      "detail": "Orta sağ balkon K1 korkuluğunda 2, K2’de 1 küçük saksı (yeşil bitki); konumlar ±0.3 m olduğundan pots yazılmadı."
+      "detail": "Orta direkte (u 11.1, balkon önü d≈1.25) her katta tavanın ~0.3 m altında kollu çift CCTV \"bullet\" kamera (G8RU 252_-2/24/50: K0–K5, biri kuzeye biri güneye); kat döşemesi hizalarında kısa kelepçe kolları. \"camera\" öğesi yalnız duvardan 0.18 m önde çiziliyor → yazılmadı."
+    },
+    {
+      "what": "Çatı bacaları",
+      "edge": 8,
+      "detail": "Kırma çatıda saçağın hemen gerisinde üç küçük baca, üstlerinde kırma kiremit başlık (beyaz sıva gövde, kiremit #a0705e tonu): G8RU görünen u≈4.9, 15.25, 19.0; gövde y 19.1–19.6, başlık tepesi y≈20.1. Üreticide baca öğesi yok."
     }
   ]
 }

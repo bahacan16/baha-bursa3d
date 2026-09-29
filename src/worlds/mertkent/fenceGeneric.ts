@@ -7,6 +7,7 @@ import { Builder, type V2 } from './builder';
  * çit bitkisi, jiletli tel. Renkler ölçümden; malzemeler anahtar+renk başına bir kez üretilir.
  */
 export interface GenericFence {
+  /** "other": komşu site çiti; "wall": serbest duvar (site çitine bağlı değil; dolgu verilmezse yok) */
   kind: string;
   id?: string;
   pts: V2[];
@@ -18,6 +19,11 @@ export interface GenericFence {
     finish?: string;
     /** Kemerli panel üstü: panel boyları (tekrar eden desen, m), ortada yükselme (m), panel arası derz rengi */
     arch?: { pattern: number[]; rise: number; joint?: string };
+    /**
+     * Kabartmalı prekast panel (sokak yüzü): panel genişliği (m, verilmezse kolon aralığı ya da 2 m), motif
+     * (rhombus = baklava, medallion = yuvarlak madalyon, frame = yalnız çerçeve), kabartma rengi ve çıkıntısı.
+     */
+    relief?: { panel?: number; motif?: 'rhombus' | 'medallion' | 'frame'; color?: string; d?: number };
   };
   coping?: { h?: number; color?: string } | string;
   pillars?: {
@@ -28,15 +34,30 @@ export interface GenericFence {
     color?: string;
     cap?: string | boolean;
     lamp?: string | boolean;
+    /** 'ornate': kaideli, kademeli başlıklı, gövdesinde kabartma çerçeveli süslü kolon */
+    style?: 'plain' | 'ornate';
+    /** Kolon tepesi süsü: top (ball) / piramit (pyramid) */
+    finial?: 'ball' | 'pyramid' | 'none';
   };
   infill?: string | { type?: string; h?: number; color?: string };
-  hedge?: { h?: number; depth?: number; species?: string; color?: string } | null;
+  /** style 'scattered': sürekli çit yerine aralıklı çalı öbekleri (gap: öbek aralığı, m) */
+  hedge?: {
+    h?: number;
+    depth?: number;
+    species?: string;
+    color?: string;
+    style?: 'solid' | 'scattered';
+    gap?: number;
+  } | null;
   razor?: boolean;
   screen?: [number, number, string][];
   /** Ölçülmüş kolon konumları polyline boyunca (m) */
   pillarsU?: number[];
-  /** Dolgu ayrıntısı (ölçüm): yükseklik, renk */
-  infillSpec?: { h?: number; color?: string; type?: string };
+  /**
+   * Dolgu ayrıntısı (ölçüm): yükseklik, renk; welded = 2D kaynaklı tel panel (5×20 cm göz, kalın tel, V kıvrımlı,
+   * `post` arayla dikmeli — tip adında "2D"/"kaynaklı"/"welded" geçerse de), post = dikme aralığı (m)
+   */
+  infillSpec?: { h?: number; color?: string; type?: string; welded?: boolean; post?: number };
 }
 
 const hex = (c: unknown, d: string) => (typeof c === 'string' && /^#[0-9a-f]{6}$/i.test(c) ? c : d);
@@ -50,6 +71,8 @@ export function buildGenericFence(
   mat: (kind: string, color: string) => string,
   gaps: { c: V2; w: number }[],
   collide?: Collide,
+  /** Yüksek/Ultra: harpuşta üst kenarları pahlı (m, 0 = yok) */
+  bevel = 0,
 ): void {
   const wallH = f.wall?.h ?? 0.6;
   const wallT = f.wall?.t ?? 0.22;
@@ -71,12 +94,15 @@ export function buildGenericFence(
   const pW = pil.w ?? 0.4;
   const pH = pil.h ?? Math.max(wallH + 0.9, 1.5);
   const pKey = mat('render', hex(pil.color, hex(f.wall?.color, '#e6e3dc')));
-  const inf0 = typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? {});
+  // Serbest duvar (kind "wall"): dolgu verilmemişse yok (yalnız duvar + harpuşta)
+  const inf0 =
+    typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? (f.kind === 'wall' ? { type: 'none' } : {}));
   const inf = { ...inf0, ...(f.infillSpec ?? {}), type: inf0.type ?? f.infillSpec?.type };
   const infType = (inf.type ?? 'railing').toLowerCase();
   // Ayrıntılı tanım (infillSpec.type) kısa tipi (infill: "railing") ezmesin: ikisi birlikte aranır
   const infDesc = `${inf0.type ?? ''} ${f.infillSpec?.type ?? ''}`.toLowerCase();
   const infH = inf.h ?? 1.0;
+  const welded = !!f.infillSpec?.welded || /welded|kaynakl|\b2d\b/.test(infDesc) || /welded/.test(infType);
   const infKey = /mesh|tel|panel/.test(infType)
     ? mat('mesh', hex(inf.color, '#2f4a36'))
     : mat('bars', hex(inf.color, '#202224'));
@@ -109,9 +135,10 @@ export function buildGenericFence(
     if (best.d < 2.5) gapsU.push([best.U - g.w / 2, best.U + g.w / 2]);
   }
   const inGap = (U: number) => gapsU.some(([a, e]) => U > a && U < e);
+  const scattered = f.hedge?.style === 'scattered';
   const screenAt = (U: number) => {
     for (const [a, e, s] of f.screen ?? []) if (U >= a && U <= e) return s;
-    return hedgeH > 0 ? 'real' : 'none';
+    return hedgeH > 0 ? (scattered ? 'shrub' : 'real') : 'none';
   };
   // Kemerli panel üstü (ölçüm: 1540901772 istinat duvarı — panel uçlarında h − rise/2, ortada h + rise/2)
   const arch = f.wall?.arch;
@@ -191,7 +218,9 @@ export function buildGenericFence(
       const wH = wallTop(mid);
       if (wallH > 0.05) {
         b.box(wallKey, [c[0], y0 + (wH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wH + 0.2, wallT], yaw, 1);
-        b.box(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
+        if (bevel > 0)
+          b.bevelBox(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw, Math.min(bevel, copH * 0.4));
+        else b.box(copKey, [c[0], y0 + wH + copH / 2, c[1]], [u1 - u0 + 0.004, copH, wallT + 0.06], yaw);
       }
       if (/yatay|horizontal/.test(infDesc) && !/none|yok/.test(infType)) {
         // Yatay boru korkuluk (ölçüm: "4 sıra yatay gri çelik boru"): eşit aralıklı borular, dikey çubuk yok
@@ -201,6 +230,20 @@ export function buildGenericFence(
         const tk = mat('metal', hex(inf.color, '#61717d'));
         for (let j = 1; j <= nT; j++)
           b.box(tk, [m[0], yb + (infH * j) / nT - 0.02, m[1]], [u1 - u0 + 0.004, 0.04, 0.04], yaw);
+      } else if (welded && !/none|yok/.test(infType)) {
+        // 2D kaynaklı tel panel: kalın dikey teller (5 cm) + yatay teller (20 cm) dokusu, V kıvrımları, üst/alt tel
+        const pa = P(u0, wallT / 2);
+        const pe = P(u1, wallT / 2);
+        const yb = y0 + wH + copH;
+        const wk = mat('welded', hex(inf.color, '#2f4a36'));
+        const rk = mat('metal', hex(inf.color, '#2f4a36'));
+        b.wall(wk, pa, pe, yb, yb + infH, [0, 0, (u1 - u0) / 0.2, infH / 0.2]);
+        b.wall(wk, pe, pa, yb, yb + infH, [0, 0, (u1 - u0) / 0.2, infH / 0.2]);
+        const m = P((u0 + u1) / 2, wallT / 2);
+        for (const fy of [0.03, 0.28, infH < 1.3 ? 0.62 : 0.5, infH - 0.03]) {
+          if (fy > infH) continue;
+          b.box(rk, [m[0], yb + fy, m[1]], [u1 - u0 + 0.004, 0.035, 0.03], yaw);
+        }
       } else if (!/none|yok/.test(infType)) {
         const pa = P(u0, wallT / 2);
         const pe = P(u1, wallT / 2);
@@ -230,7 +273,7 @@ export function buildGenericFence(
       const scr = screenAt(mid);
       if (/shrub|çalı|partial|kesintili/.test(scr) && hedgeH > 0) {
         // Kesintili çalı öbekleri (sürekli çit değil)
-        for (let uu = u0 + 0.5; uu < u1; uu += 1.1) {
+        for (let uu = u0 + 0.5; uu < u1; uu += Math.max(0.5, f.hedge?.gap ?? 1.1)) {
           const hs = Math.sin((cum[i] + uu) * 7.31 + 1.7) * 43758.5453;
           const rr = hs - Math.floor(hs);
           if (rr < 0.35) continue;
@@ -286,14 +329,89 @@ export function buildGenericFence(
       );
     }
   }
-  // Kolonlar
+  // Kabartmalı prekast paneller (sokak yüzü): çerçeve + baklava / madalyon motifi
+  const rel = f.wall?.relief;
+  if (rel && wallH > 0.3) {
+    const rk = mat('render', hex(rel.color, hex(f.wall?.color, '#e6e3dc')));
+    const rd = Math.max(0.01, rel.d ?? 0.025);
+    const pw = Math.max(0.6, rel.panel ?? pil.every ?? 2.0);
+    const bar = (c: V2, yaw: number, lx: number, ly: number, len: number, ang: number, y: number) => {
+      const g = new THREE.BoxGeometry(len, 0.05, rd);
+      g.rotateZ(ang);
+      g.translate(lx, ly, 0);
+      g.rotateY(yaw);
+      g.translate(c[0], y, c[1]);
+      b.geometry(rk, g);
+    };
+    for (let U = 0; U + pw <= total + 0.05; U += pw) {
+      const mid = U + pw / 2;
+      if (inGap(mid) || inGap(U + 0.15) || inGap(U + pw - 0.15)) continue;
+      const { p, t } = at(Math.min(total, mid));
+      const n: V2 = f.n ?? [-t[1], t[0]];
+      const c: V2 = [p[0] + n[0] * (rd / 2 + 0.005), p[1] + n[1] * (rd / 2 + 0.005)];
+      const yaw = Math.atan2(-t[1], t[0]);
+      const y0 = H(p[0], p[1]) + 0.15;
+      const wH = wallTop(mid);
+      const hw = pw / 2 - 0.12;
+      const y1 = wH - 0.12;
+      const yl = 0.12;
+      // Çerçeve
+      bar(c, yaw, 0, yl, 2 * hw, 0, y0);
+      bar(c, yaw, 0, y1, 2 * hw, 0, y0);
+      bar(c, yaw, -hw, (yl + y1) / 2, y1 - yl, Math.PI / 2, y0);
+      bar(c, yaw, hw, (yl + y1) / 2, y1 - yl, Math.PI / 2, y0);
+      const ym = (yl + y1) / 2;
+      if (rel.motif === 'rhombus') {
+        const a = Math.min(hw * 0.7, 0.6);
+        const cc = (y1 - yl) * 0.36;
+        const L = Math.hypot(a, cc);
+        const ang = Math.atan2(cc, a);
+        bar(c, yaw, -a / 2, ym + cc / 2, L, ang, y0);
+        bar(c, yaw, a / 2, ym + cc / 2, L, -ang, y0);
+        bar(c, yaw, -a / 2, ym - cc / 2, L, -ang, y0);
+        bar(c, yaw, a / 2, ym - cc / 2, L, ang, y0);
+      } else if (rel.motif === 'medallion') {
+        const r = Math.min(hw, (y1 - yl) / 2) * 0.55;
+        const ring = new THREE.TorusGeometry(r, 0.03, 6, 24);
+        ring.scale(1, 1, rd / 0.06);
+        ring.translate(0, ym, 0);
+        ring.rotateY(yaw);
+        ring.translate(c[0], y0, c[1]);
+        b.geometry(rk, ring);
+        const disc = new THREE.CylinderGeometry(r * 0.45, r * 0.45, rd, 18);
+        disc.rotateX(Math.PI / 2);
+        disc.translate(0, ym, 0);
+        disc.rotateY(yaw);
+        disc.translate(c[0], y0, c[1]);
+        b.geometry(rk, disc);
+      }
+    }
+  }
+  // 2D tel panel dikmeleri
+  if (welded) {
+    // Dikme aralığı: ölçülmüşse o, yoksa kolon aralığı (dikmeler kolonlarda), yoksa 2.5 m
+    const every = Math.max(0.8, f.infillSpec?.post ?? pil.every ?? 2.5);
+    const pk = mat('metal', hex(inf.color, '#2f4a36'));
+    for (let U = 0; U <= total + 1e-6; U += every) {
+      if (inGap(U)) continue;
+      const { p, t } = at(Math.min(total, U));
+      const yaw = Math.atan2(-t[1], t[0]);
+      const n: V2 = f.n ?? [-t[1], t[0]];
+      const q: V2 = [p[0] - n[0] * (wallT / 2), p[1] - n[1] * (wallT / 2)];
+      const yb = H(p[0], p[1]) + 0.15 + wallTop(U) + copH;
+      b.box(pk, [q[0], yb + (infH + 0.05) / 2, q[1]], [0.06, infH + 0.05, 0.045], yaw);
+    }
+  }
+  // Kolonlar (liste öğesi başına tekrar eden `every` konumları bir kez; önceden her dünya noktası için yineleniyordu)
   const Us: number[] = [];
   if (f.pillarsU?.length) Us.push(...f.pillarsU);
-  else if (pil.list?.length)
-    for (const q of pil.list)
-      if (typeof q === 'number') Us.push(q);
-      else if (pil.every) for (let U = 0; U <= total + 1e-6; U += pil.every) Us.push(U);
+  else if (pil.list?.length) {
+    for (const q of pil.list) if (typeof q === 'number') Us.push(q);
+    if (pil.every && pil.list.some((q) => typeof q !== 'number'))
+      for (let U = 0; U <= total + 1e-6; U += pil.every) Us.push(U);
+  }
   for (const g of gapsU) Us.push(...g);
+  const ornate = pil.style === 'ornate';
   for (const U of Us) {
     if (U < -0.01 || U > total + 0.01) continue;
     if (inGap(U + 0.02) && inGap(U - 0.02)) continue;
@@ -301,13 +419,36 @@ export function buildGenericFence(
     const yaw = Math.atan2(-t[1], t[0]);
     const y0 = H(p[0], p[1]) + 0.15;
     b.box(pKey, [p[0], y0 + pH / 2 - 0.1, p[1]], [pW, pH + 0.2, pW], yaw, 1);
-    if (pil.cap !== false)
-      b.box(
-        mat('render', hex(pil.cap, hex(pil.color, '#e8e4da'))),
-        [p[0], y0 + pH + 0.04, p[1]],
-        [pW + 0.08, 0.08, pW + 0.08],
-        yaw,
-      );
+    const capK = mat('render', hex(pil.cap, hex(pil.color, '#e8e4da')));
+    let yTop = y0 + pH + 0.08;
+    if (ornate) {
+      // Süslü kolon: kaide, iki kademeli başlık, gövdenin iki yüzünde kabartma çerçeve
+      b.box(capK, [p[0], y0 + 0.12, p[1]], [pW + 0.1, 0.24, pW + 0.1], yaw);
+      b.box(capK, [p[0], y0 + pH + 0.035, p[1]], [pW + 0.14, 0.07, pW + 0.14], yaw);
+      b.box(capK, [p[0], y0 + pH + 0.1, p[1]], [pW + 0.06, 0.06, pW + 0.06], yaw);
+      yTop = y0 + pH + 0.13;
+      const n: V2 = [-t[1], t[0]];
+      for (const sg of [1, -1]) {
+        const fc: V2 = [p[0] + n[0] * sg * (pW / 2 + 0.01), p[1] + n[1] * sg * (pW / 2 + 0.01)];
+        const hh = pH - 0.6;
+        if (hh < 0.3) continue;
+        const ym = y0 + 0.3 + hh / 2;
+        for (const du of [-pW / 2 + 0.07, pW / 2 - 0.07]) {
+          const q: V2 = [fc[0] + t[0] * du, fc[1] + t[1] * du];
+          b.box(capK, [q[0], ym, q[1]], [0.035, hh, 0.02], yaw);
+        }
+        for (const yy of [ym - hh / 2, ym + hh / 2])
+          b.box(capK, [fc[0], yy, fc[1]], [pW - 0.1, 0.035, 0.02], yaw);
+      }
+    } else if (pil.cap !== false)
+      b.box(capK, [p[0], y0 + pH + 0.04, p[1]], [pW + 0.08, 0.08, pW + 0.08], yaw);
+    if (pil.finial === 'ball') b.sphere(capK, [p[0], yTop + pW * 0.28, p[1]], pW * 0.3, 10);
+    else if (pil.finial === 'pyramid') {
+      const g = new THREE.ConeGeometry(pW * 0.5, Math.max(0.15, pW * 0.6), 4);
+      g.rotateY(Math.PI / 4 + yaw);
+      g.translate(p[0], yTop + Math.max(0.15, pW * 0.6) / 2, p[1]);
+      b.geometry(capK, g);
+    }
     const lamp = typeof pil.lamp === 'string' ? pil.lamp.toLowerCase() : pil.lamp ? 'globe' : '';
     if (/globe|küre/.test(lamp)) {
       b.cylinder('capDark', [p[0], y0 + pH + 0.08, p[1]], 0.05, 0.1, 8);
@@ -326,4 +467,67 @@ export function buildGenericFence(
       y0 + pH,
     );
   }
+}
+
+/**
+ * Siyah ferforje yaya kapısı (komşu siteler, street-plan gates style 'wrought'): tek/çift kanat, dikey çubuklar
+ * (≈12 cm) mızrak uçlu, altta kıvrımlı süs bandı, orta kuşak; isteğe bağlı kolonlar. c: kapı merkezi (çit hattında),
+ * n: sokak yönü, w: açıklık, h: kanat yüksekliği.
+ */
+export function buildWroughtGate(
+  b: Builder,
+  c: V2,
+  n: V2,
+  y0: number,
+  w: number,
+  h: number,
+  mat: (kind: string, color: string) => string,
+  o: { color?: string; leaves?: number; pillars?: { w: number; h: number; color: string } | null } = {},
+): void {
+  const t: V2 = [n[1], -n[0]];
+  const yaw = Math.atan2(-t[1], t[0]);
+  const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
+  const col = hex(o.color, '#1c1d1f');
+  const k = mat('metal', col);
+  if (o.pillars && o.pillars.w > 0.05) {
+    const pk = mat('render', hex(o.pillars.color, '#d9d5cc'));
+    for (const u of [-w / 2 - o.pillars.w / 2, w / 2 + o.pillars.w / 2]) {
+      const p = P(u, 0);
+      b.box(pk, [p[0], y0 + o.pillars.h / 2 - 0.1, p[1]], [o.pillars.w, o.pillars.h + 0.2, o.pillars.w], yaw);
+      b.box(pk, [p[0], y0 + o.pillars.h + 0.03, p[1]], [o.pillars.w + 0.06, 0.06, o.pillars.w + 0.06], yaw);
+    }
+  }
+  const leaves = Math.max(1, Math.min(2, o.leaves ?? (w > 1.8 ? 2 : 1)));
+  const lw = w / leaves;
+  for (let l = 0; l < leaves; l++) {
+    const ua = -w / 2 + l * lw;
+    const ue = ua + lw;
+    const um = (ua + ue) / 2;
+    // Çerçeve
+    for (const u of [ua + 0.025, ue - 0.025]) {
+      const p = P(u, 0);
+      b.box(k, [p[0], y0 + h / 2, p[1]], [0.05, h, 0.05], yaw);
+    }
+    const m = P(um, 0);
+    for (const yy of [0.06, 0.45, h * 0.62, h - 0.12])
+      b.box(k, [m[0], y0 + yy, m[1]], [lw - 0.05, 0.04, 0.04], yaw);
+    // Alt süs bandı (kıvrımlı), iki yüz
+    const a = P(ua + 0.05, 0);
+    const e = P(ue - 0.05, 0);
+    b.wall('ironScroll', a, e, y0 + 0.08, y0 + 0.43, [0, 0, Math.max(1, Math.round(lw / 0.5)), 1]);
+    b.wall('ironScroll', e, a, y0 + 0.08, y0 + 0.43, [0, 0, Math.max(1, Math.round(lw / 0.5)), 1]);
+    // Dikey çubuklar + mızrak uçları (üst kuşağı aşar)
+    const nb = Math.max(3, Math.round((lw - 0.1) / 0.12));
+    for (let j = 1; j < nb; j++) {
+      const u = ua + 0.05 + ((lw - 0.1) * j) / nb;
+      const p = P(u, 0);
+      b.box(k, [p[0], y0 + 0.45 + (h - 0.45) / 2 + 0.04, p[1]], [0.018, h - 0.45 + 0.08, 0.018], yaw);
+      const g = new THREE.ConeGeometry(0.03, 0.1, 4);
+      g.translate(p[0], y0 + h + 0.13, p[1]);
+      b.geometry(k, g);
+    }
+  }
+  // Kol + kilit
+  const kp = P(leaves === 2 ? -0.08 : w / 2 - 0.12, 0.04);
+  b.box('darkMetal', [kp[0], y0 + 1.0, kp[1]], [0.12, 0.03, 0.04], yaw);
 }

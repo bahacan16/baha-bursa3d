@@ -171,7 +171,7 @@
      "u0": 2.9,
      "u1": 7.5,
      "y0": 0,
-     "y1": 28.1,
+     "y1": 7.5,
      "color": "#6c767d"
     },
     {
@@ -202,58 +202,14 @@
      "color": "plaster"
     },
     {
-     "t": "proj",
-     "u0": 4.0,
-     "u1": 7.55,
-     "d": 0.03,
-     "y0": 9.9,
-     "y1": 10.45,
-     "color": "#a9adb3"
-    },
-    {
-     "t": "proj",
-     "u0": 4.0,
-     "u1": 7.55,
-     "d": 0.03,
-     "y0": 12.85,
-     "y1": 13.4,
-     "color": "#a9adb3"
-    },
-    {
-     "t": "proj",
-     "u0": 4.0,
-     "u1": 7.55,
-     "d": 0.03,
-     "y0": 15.75,
-     "y1": 16.35,
-     "color": "#a9adb3"
-    },
-    {
-     "t": "proj",
-     "u0": 4.0,
-     "u1": 7.55,
-     "d": 0.03,
-     "y0": 18.75,
-     "y1": 19.3,
-     "color": "#a9adb3"
-    },
-    {
-     "t": "proj",
-     "u0": 4.0,
-     "u1": 7.55,
-     "d": 0.03,
-     "y0": 21.65,
-     "y1": 22.25,
-     "color": "#a9adb3"
-    },
-    {
-     "t": "proj",
-     "u0": 4.0,
-     "u1": 7.55,
-     "d": 0.03,
-     "y0": 24.65,
-     "y1": 25.2,
-     "color": "#a9adb3"
+     "t": "recess",
+     "u0": 2.9,
+     "u1": 7.5,
+     "y0": 7.5,
+     "y1": 28.1,
+     "depth": 2.0,
+     "back": "plaster",
+     "side": "plaster"
     },
     {
      "t": "win",
@@ -269,14 +225,6 @@
      "kind": "door",
      "rail": true,
      "split": 2
-    },
-    {
-     "t": "panel",
-     "u0": 5.45,
-     "u1": 5.8,
-     "y0": 9.9,
-     "y1": 27.3,
-     "color": "plaster2"
     },
     {
      "t": "panel",
@@ -431,7 +379,7 @@
      "color": "plaster2"
     }
    ],
-   "note": "Güney (Doğan Avcıoğlu) cephesi. Ref 2QtexqzB (2025-09, 94 m, ~30° eğik, bulutlu); u>14.5 ve renkler UXy7Q7qk (2025-09, 99 m, güneşli) ile — iki ortofoto düzlem üstündeki öğelerde ±0.15 m örtüşüyor; l07hZ6pz eğik bakışla çerçeve/sütun konumlarını doğruladı. Batıdan doğuya: KB köşede beyaz sütun (u −0.25–1.65) + 2 kanatlı fransız pencere (yatay borulu korkuluk) + altında gri çıkıntılı denizlik kutusu; ÇERÇEVE (portal): gri ayaklar u 1.65–2.9 ve 7.5–9.05, üst kiriş 28.1–30.55 (ana parapetin 29.8 üstüne ≈0.75 çıkar); içinde derin yuva (u 2.9–7.5): arka duvar koyu gri, her katta açık gri döşeme alnı (u 4.0–7.55), sol yarıda balkon kapısı (u 4.35–5.45, korkuluklu) ve yanında beyaz düşey dikme/kasa (u 5.45–5.8); beyaz sütun 2 (u 9.05–12.35) + fransız pencere u 9.1–10.95 + gri denizlik kutuları; GD'de loca yığını (u 12.35–14.85) K1–K7 tümü katlanır cam balkon (buzlu alt panel, beyaz alın), K8 yerine kalın beyaz şapka (25.05–26.25) → saçak olarak doğu köşeye kadar sürer (u 14.85–17.95), üstünde gri kiremitli kırma çatı eteği görünür; gri penceresiz duvar u 14.85–17.0; köşede beyaz dikey şerit u 17.0–17.5. K8 (en üst kat) YALNIZ u −0.25–12.35 bandında var (pencereler + parapet 29.8); loca bölümünde yok (bkz. pending). K0 hiç görülmedi (çit/çalı + köprü korkuluğu); K1 yalnız beyaz sütun 2 ve loca (UXy7'de üst yarısı). Klima, çanak, boru görülmedi. Perdeler 95–100 m'den ayırt edilemiyor (açık kanatlar tül mü yansıma mı belirsiz)."
+   "note": "Güney (Doğan Avcıoğlu) cephesi. Ref 2QtexqzB (2025-09, 94 m, ~30° eğik, bulutlu); u>14.5 ve renkler UXy7Q7qk (2025-09, 99 m, güneşli) ile — iki ortofoto düzlem üstündeki öğelerde ±0.15 m örtüşüyor; l07hZ6pz eğik bakışla çerçeve/sütun konumlarını doğruladı. Batıdan doğuya: KB köşede beyaz sütun (u −0.25–1.65) + 2 kanatlı fransız pencere (yatay borulu korkuluk) + altında gri çıkıntılı denizlik kutusu; ÇERÇEVE (portal): gri ayaklar u 1.65–2.9 ve 7.5–9.05, üst kiriş 28.1–30.55 (ana parapetin 29.8 üstüne ≈0.75 çıkar); içinde derin yuva (u 2.9–7.5): v5 `recess` (K2 döşemesinden 28.1'e, derinlik 2.0 m — 2Qtex'te sol iç yan duvar 1.1 m görünür (kamera 81 m / 44 m yanal → 1.9–2.1 m), yuva içi kat aralığı 2.95/3.02 → 2.0 m); arka duvarda her katta balkon kapısı (u 4.35–5.45, korkuluklu, arka duvara çizilir); arka duvardaki açık gri döşeme alınları (u 4.0–7.55) ve beyaz dikme (u 5.45–5.8) üretici girinti arka duvarına bant/pano çizemediği için pending'e taşındı. Yuvanın K0–K1'i görülmedi (koyu pano ağızda, eski kabul); beyaz sütun 2 (u 9.05–12.35) + fransız pencere u 9.1–10.95 + gri denizlik kutuları; GD'de loca yığını (u 12.35–14.85) K1–K7 tümü katlanır cam balkon (buzlu alt panel, beyaz alın), K8 yerine kalın beyaz şapka (25.05–26.25) → saçak olarak doğu köşeye kadar sürer (u 14.85–17.95), üstünde gri kiremitli kırma çatı eteği görünür; gri penceresiz duvar u 14.85–17.0; köşede beyaz dikey şerit u 17.0–17.5. K8 (en üst kat) YALNIZ u −0.25–12.35 bandında var (pencereler + parapet 29.8); loca bölümünde yok (bkz. pending). K0 hiç görülmedi (çit/çalı + köprü korkuluğu); K1 yalnız beyaz sütun 2 ve loca (UXy7'de üst yarısı). Klima, çanak, boru görülmedi. Perdeler 95–100 m'den ayırt edilemiyor (açık kanatlar tül mü yansıma mı belirsiz)."
   },
   {
    "edge": 2,
@@ -1013,68 +961,136 @@
      },
      "glassC": {
       "*": "#5d6469"
-     }
+     },
+     "round": [
+      0.7,
+      0
+     ]
     }
    ],
-   "note": "GB çentiğin güneye bakan arka duvarı (2QtexqzB 2025-09 güneyden, l07hZ6pz batıdan). Çentiğin BATI ucunda köşe balkon yığını: iki görünümden 3B kutu çakıştırmasıyla u≈0–2.2, taşma d≈1.4 (±0.4) — çentiğin tamamını doldurmuyor; doğu kısmı (u 2.2–3.9) açık, arka duvar beyaz (#c0c1c1). Balkon: beyaz yuvarlak uçlu döşeme alınları, alt ≈1 m buzlu cam korkuluk (dikmeli), arkada 4 bölmeli beyaz PVC doğrama (kapı+pencere); K2–K7 görülüyor, K8 düzeyinde kalın beyaz şapka. Hiçbir katta cam balkon görülmedi. K0–K1 görülmedi."
+   "note": "GB çentiğin güneye bakan arka duvarı (2QtexqzB 2025-09 güneyden, l07hZ6pz batıdan). Çentiğin BATI ucunda köşe balkon yığını: iki görünümden 3B kutu çakıştırmasıyla u≈0–2.2, taşma d≈1.4 (±0.4) — çentiğin tamamını doldurmuyor; doğu kısmı (u 2.2–3.9) açık, arka duvar beyaz (#c0c1c1). Balkon: beyaz yuvarlak uçlu döşeme alınları, alt ≈1 m buzlu cam korkuluk (dikmeli), arkada 4 bölmeli beyaz PVC doğrama (kapı+pencere); K2–K7 görülüyor, K8 düzeyinde kalın beyaz şapka. Hiçbir katta cam balkon görülmedi. K0–K1 görülmedi. v5: batı (u0) serbest ön köşesi yuvarlak (round 0.7 — l07 kenar 0/13 ortofotolarında döşeme alınları köşeyi ≈1.2 m görünen yay ile dönüyor; yarıçap ±0.2 tahmin). Doğu (u1, çentik içi) köşesi hiçbir karede eğik görülmedi → köşeli bırakıldı."
   }
  ],
  "notes": [
   "KAYNAKLAR: Doğan Avcıoğlu'nun bu kesiminde cadde üstünde pano yok. Kullanılan 2025-09 kareleri: güney 2QtexqzB + UXy7Q7qk (site içinden, ≈95–100 m, 1771/1770 arasındaki boşluktan), batı l07hZ6pz (≈85 m; SyTaPSlH/nxqvwsSp'de batı cephe 1773 arkasında ve bu panoların konumu ≈3 m kayık), kuzey -5GwXVZp + uJjmdiDN + q0QFA5AO/zNp1JsZE (Uğur Mumcu, ≈95–110 m, yalnız K5–K8). 2019-05 j-FHs_eT (kuzey, K2–K8) yalnız yerleşim için; 2019 JDIgP/KOxFy (docs/survey/c'deki eski ortofotolar) bina inşaat/yeni bitmişken çekilmiş: koyu gri + açık gri — 2025'te cephe açık gri-beyaz + orta gri (renkler yalnız 2025'ten).",
-  "ORTOFOTOLAR: ref'lerdeki dosyalar docs/survey/c'de YOK; sv-ortho.mjs ile aynı algoritmayla (CORRECTED=1, SURVEY_TOP=31, base 0.58) /tmp/claude-0/agent-d3-774/c/ altında üretildi. sv-extra.json survey[]'e rapordaki girişler eklenip sv-ortho yeniden çalıştırılırsa birebir aynı çıkar (doğrulandı) ve compile balkon büyütmesini düzeltir.",
+  "ORTOFOTOLAR: ref dosyaları artık docs/survey/c'de (sv-extra girişleriyle, CORRECTED=1, SURVEY_TOP=31).",
   "Kat: 9 kat (K0–K8), kat aralığı 3.0 (güney pencere lentoları 3.03, loca alınları 2.99, kuzey 2.975, batı 3.06). K0 HİÇBİR cephede görülmedi; groundRaise 1.5 güneyde K1–K7 döşeme kotlarından geri hesap (±0.5). OSM height 28 ile uyumlu (parapet 29.8 + ≈0.9 zemin).",
   "Renkler (2025): ana gri sıva #8a909b (güneşli UXy7 #8e95a5 / bulutlu 2Qtex #868a91; batı gölge #6d7a86, kuzey gölge #3e5159–#64707f); beyaz sıva #c1c3c6 (güneşli #c4c6cc, bulutlu #bec0c0; batı gölge #9aa0a5); döşeme alınları/şapka #c4c6cf (güneşli #c5c8d2, kuzey gölge #8a9ca9); çerçeve yuvası arka duvarı #6c767d (gölgede); yuva içi döşeme alınları #a9adb3; gri denizlik kutuları #838890 (batı sütununda açık gri #a7b1b3); buzlu cam korkuluk görünen #8f99a8 (güneşli), çentik balkonunda #5d6469 (bulutlu, arkası karanlık), kuzey #8096a1/#607880; kiremit #757f8b (güneşli, güney saçak üstü), kuzeyde #566c7b gölge. Doğrama beyaz PVC (örneklenemeyecek kadar ince).",
-  "Çerçeve (kenar 1): 1773'teki gibi derin yuvalı portal; ayaklar ve üst kiriş ana parapetin (29.8) ≈0.75 m üstüne (30.55) çıkar; çıkıntı d 0.2 TAHMİN (iki güney panosu arasındaki paralaks çözemiyor). Yuva derinliği ≈1.6–2.9 m (pending).",
+  "Çerçeve (kenar 1): 1773'teki gibi derin yuvalı portal; ayaklar ve üst kiriş ana parapetin (29.8) ≈0.75 m üstüne (30.55) çıkar; çıkıntı d 0.2 TAHMİN (iki güney panosu arasındaki paralaks çözemiyor). Yuva artık v5 `recess` (derinlik 2.0 m, K2–üst kiriş altı); arka duvar/yan duvar malzemesi blok gri sıvası (ölçülen gölge tonları #6a757d–#737c8e arka, #6f777b yan; aynı ton ailesi, ≈0.8× parlaklık = girinti gölgesi).",
   "Loca/cam balkon: GD loca yığını (kenar 1) K1–K7 hepsi katlanır cam balkon (UXy7 yakın görüntü: tam genişlikte eşit aralıklı beyaz dikmeler, alt buzlu panel); kuzey şerit camlar (7/8) binanın kendi doğraması (2019'da da vardı). Çentik balkonu (kenar 13) açık, arkada doğrama. Loca derinlikleri (inset 1.2) GÖRÜLMEDİ, tahmin.",
   "Çatı: kırma, gri kiremit, tepesi düz teras (kuzeyden ≈29.3–29.9); batıda iki terrakota başlıklı baca (l07); güneyde saçak üstünde kiremit eteği. Eğim ≈30° (kuzey siluetinden 28–34°).",
   "Görülmeyenler: tüm doğu cephe (kenar 2–6), K0 (tüm cepheler), K1 (güney beyaz sütun 2 ve loca dışında), kenar 10'un u 0–2.6 kısmı (1773 arkasında; yalnız KB köşe yanında kahverengi pano seçiliyor), kenar 7'nin doğu ucu u 0–3.5, kenar 8'in K0–K4'ü, kuzey cephenin K0–K1'i, çentik yan duvarının (kenar 0) balkon arkası.",
   "Tabela/levha, klima, çanak anten, kamera, bayrak: görülen hiçbir cephede seçilmedi (uzaklık 85–110 m; küçük öğeler kaçmış olabilir). Perdeler çözülemiyor.",
   "Ayak izi: fotoğraflar ≥0.5 m sapma göstermiyor (kenar 1 köşeleri 2Qtex/UXy7'de u −0.25 ve 17.95; l07 izdüşümü ±0.4 m); çentik balkonu çentiği doldurmuyor (yalnız batı 2.2 m).",
-  "KISMİ K8 (massing): 9 katlı iki şerit — güney şerit kenar 1 boyunca P1'den 12.4 m (çerçeve + iki beyaz sütun; üstü düz, 1.3 m beyaz parapet → 29.8) ve kuzey orta çekirdek kenar 7 u 11.2–17.85 (K8 pencereleri, üstü ≈27.3–28.8). Kalan gövde 8 kat + 1.2 m beyaz saçak alnı (K8 döşeme düzeyi, 25.5–26.7; fotoğraflarda 25.05–27.0) + kırma çatı/teras. Şeritlerin DERİNLİĞİ (4.5 m) GÖRÜLMEDİ — yalnız cephe genişlikleri ölçüldü; yuvanın ≥1.6–2.9 m derinliğini kapsayacak alt sınır olarak seçildi. Şerit–gövde kesim duvarları öğesiz düz sıva (gerçekte kırma çatının arkasında)."
+  "KISMİ K8 (massing): 9 katlı iki şerit — güney şerit kenar 1 boyunca P1'den 12.4 m (çerçeve + iki beyaz sütun; üstü düz, 1.3 m beyaz parapet → 29.8) ve kuzey orta çekirdek kenar 7 u 11.2–17.85 (K8 pencereleri, üstü ≈27.3–28.8). Kalan gövde 8 kat + 1.2 m beyaz saçak alnı (K8 döşeme düzeyi, 25.5–26.7; fotoğraflarda 25.05–27.0) + kırma çatı/teras. Şeritlerin DERİNLİĞİ (4.5 m) GÖRÜLMEDİ — yalnız cephe genişlikleri ölçüldü; yuvanın ≥1.6–2.9 m derinliğini kapsayacak alt sınır olarak seçildi. Şerit–gövde kesim duvarları öğesiz düz sıva (gerçekte kırma çatının arkasında).",
+  "v5 dönüşümü (2026-09-29): çerçeve yuvası → recess 2.0 m; çentik balkonu batı ön köşesi round 0.7; iki baca → volumes (l07 + -5Gw üçgenleme). Yuva arka duvarındaki döşeme alınları + beyaz dikme üretici desteği gelene kadar pending (öğelerden çıkarıldı)."
  ],
  "pending": [
   {
-   "what": "Çerçeve yuvası derinliği",
+   "what": "Girinti (çerçeve yuvası) ARKA DUVARINDAKİ bantlar ve dikme — üretici yalnız win/sign/vent'i arka duvara taşıyor",
    "edge": 1,
    "ref": "1540901774_1_2QtexqzB.jpg",
-   "u": [
-    2.9,
-    7.5
+   "recessDepth": 2.0,
+   "bands": [
+    {
+     "u": [
+      4.0,
+      7.55
+     ],
+     "y": [
+      9.9,
+      10.45
+     ],
+     "proud": 0.03,
+     "color": "#a9adb3"
+    },
+    {
+     "u": [
+      4.0,
+      7.55
+     ],
+     "y": [
+      12.85,
+      13.4
+     ],
+     "proud": 0.03,
+     "color": "#a9adb3"
+    },
+    {
+     "u": [
+      4.0,
+      7.55
+     ],
+     "y": [
+      15.75,
+      16.35
+     ],
+     "proud": 0.03,
+     "color": "#a9adb3"
+    },
+    {
+     "u": [
+      4.0,
+      7.55
+     ],
+     "y": [
+      18.75,
+      19.3
+     ],
+     "proud": 0.03,
+     "color": "#a9adb3"
+    },
+    {
+     "u": [
+      4.0,
+      7.55
+     ],
+     "y": [
+      21.65,
+      22.25
+     ],
+     "proud": 0.03,
+     "color": "#a9adb3"
+    },
+    {
+     "u": [
+      4.0,
+      7.55
+     ],
+     "y": [
+      24.65,
+      25.2
+     ],
+     "proud": 0.03,
+     "color": "#a9adb3"
+    }
    ],
-   "y": [
-    0,
-    28.1
-   ],
-   "depth_m": "1.6–2.9 (yuva içi döşeme alnı aralığı 2.95 vs cephe 3.0–3.04 küçülmesi; 2Qtex'te sol iç yan duvar 1.1 m görünür)",
-   "ceiling": "28.1'de gölgeli yuva tavanı",
-   "colors": {
-    "back": "#6c767d",
-    "sides": "#868a91",
-    "slabEdges": "#a9adb3"
+   "post": {
+    "u": [
+     5.45,
+     5.8
+    ],
+    "y": [
+     9.9,
+     27.3
+    ],
+    "color": "plaster2",
+    "desc": "kapının sağında beyaz düşey dikme/kasa"
    },
-   "desc": "Yuva arka duvarında her katta balkon kapısı (u 4.35–5.45) + beyaz kasa (5.45–5.8); döşeme alınları u 4.0–7.55. Şu an yalnız koyu panel olarak yazıldı; gerçek girinti oyulmalı. Batıdan (l07) yuvanın doğu iç yan duvarı çatının üstüne yükselen gri duvar olarak görünüyor."
-  },
-  {
-   "what": "Çentik balkonu döşeme uçları yuvarlatılmış",
-   "edge": 13,
-   "ref": "1540901774_13_2QtexqzB.jpg",
-   "u": [
-    -0.8,
-    1.2
-   ],
-   "d": 1.4,
-   "desc": "Beyaz döşeme alınlarının serbest köşeleri yuvarlak (l07 ortofotosunda kavisli); korkuluk ≈1 m buzlu cam + dikmeler; K8 düzeyinde kalın beyaz şapka batı saçak bandına bağlanıyor. d 1.4 iki panodan 3B kutu çakıştırması (±0.4)."
-  },
-  {
-   "what": "Bacalar",
-   "count": 2,
-   "ref": "1540901774_12_l07hZ6pz.jpg",
-   "u_apparent": [
-    0.4,
-    2.6
-   ],
-   "top_y": 30.9,
-   "desc": "Çatıda (batı kısmı, saçağın gerisinde) iki beyaz sıvalı baca, terrakota/kırmızı başlıklı (≈0.5×0.5, başlık ≈0.4 m)."
+   "doorPanel": {
+    "u": [
+     4.75,
+     5.6
+    ],
+    "desc": "UXy7 güneşli karede kapının sağ yarısı açık (#a1a4a3–#a6b2a8) panel; arkada gri (#6f798c gölge) duvar"
+   },
+   "colors": {
+    "bands_sun": "#b4b6be (UXy7)",
+    "bands_overcast": "#a9adb0 (2Qtex)",
+    "back_shade": "#6a757d–#737c8e",
+    "side_shade": "#6f777b"
+   },
+   "desc": "Her katta döşeme hizasında (yuva arka duvarında, ≈2 m derinde) açık gri döşeme alnı bantları ve beyaz dikme. Görünen y'ler cephe düzlemi ölçeğinde (derinlik nedeniyle gerçekte ≈0.3 m yukarıda). Girinti ağzına proj olarak çizilince havada kalıyordu → öğelerden çıkarıldı; üretici bant/pano/proj öğelerini (ORTASI girintiye düşenleri) arka duvara taşımalı."
   },
   {
    "what": "Gri çıkıntılı denizlik kutuları derinliği",
@@ -1160,5 +1176,65 @@
     }
    }
   ]
- }
+ },
+ "volumes": [
+  {
+   "poly": [
+    [
+     279.44,
+     -152.46
+    ],
+    [
+     279.87,
+     -152.21
+    ],
+    [
+     279.62,
+     -151.78
+    ],
+    [
+     279.19,
+     -152.03
+    ]
+   ],
+   "y0": 27.0,
+   "y1": 32.0,
+   "color": "#c4c6c9",
+   "band": {
+    "h": 0.4,
+    "color": "#654549"
+   },
+   "collide": false,
+   "note": "Baca (v5 hacim): l07hZ6pz_82_8 (batıdan, 85 m) ve -5GwXVZp_155_14 (kuzeyden, 91 m) karelerinde iki beyaz gövdeli koyu kiremit başlıklı baca; iki ışın kesişimi (eşleme iki karede görünen başlık yüksekliği ve uzaklık tutarlılığıyla seçildi). Konum ±1.5 m (pano yön hataları), tepe ±0.8 m (l07 33.0 / -5Gw 31.3 → 32.0). 0.5×0.5 m, bina eksenine hizalı (görülmedi, kabul). Gövde #c4c6c9 (l07 bulutlu), başlık #654549 (en kızıl pikseller; küçük öğe, JPEG renk alt örneklemesi nedeniyle doygunluk düşük olabilir)."
+  },
+  {
+   "poly": [
+    [
+     278.91,
+     -150.33
+    ],
+    [
+     279.34,
+     -150.08
+    ],
+    [
+     279.09,
+     -149.65
+    ],
+    [
+     278.66,
+     -149.9
+    ]
+   ],
+   "y0": 27.0,
+   "y1": 32.0,
+   "color": "#c4c6c9",
+   "band": {
+    "h": 0.4,
+    "color": "#654549"
+   },
+   "collide": false,
+   "note": "Baca (v5 hacim): l07hZ6pz_82_8 (batıdan, 85 m) ve -5GwXVZp_155_14 (kuzeyden, 91 m) karelerinde iki beyaz gövdeli koyu kiremit başlıklı baca; iki ışın kesişimi (eşleme iki karede görünen başlık yüksekliği ve uzaklık tutarlılığıyla seçildi). Konum ±1.5 m (pano yön hataları), tepe ±0.8 m (l07 33.0 / -5Gw 31.3 → 32.0). 0.5×0.5 m, bina eksenine hizalı (görülmedi, kabul). Gövde #c4c6c9 (l07 bulutlu), başlık #654549 (en kızıl pikseller; küçük öğe, JPEG renk alt örneklemesi nedeniyle doygunluk düşük olabilir)."
+  }
+ ]
 }

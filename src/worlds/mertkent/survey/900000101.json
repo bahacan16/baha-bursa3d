@@ -41,13 +41,13 @@
     ],
     "storeys": 7,
     "roof": {
-     "kind": "gable",
-     "gables": [
-      0
-     ],
-     "pitch": 18,
-     "eave": 0.15,
-     "fasciaH": 0.1
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.02,
+     "parapet": {
+      "h": 0.06,
+      "color": "#afb3b3"
+     }
     }
    },
    {
@@ -65,7 +65,34 @@
    }
   ]
  },
- "volumes": [],
+ "volumes": [
+  {
+   "poly": [
+    [
+     687.26,
+     -93.0
+    ],
+    [
+     695.2,
+     -93.0
+    ],
+    [
+     695.2,
+     -108.95
+    ],
+    [
+     687.26,
+     -108.95
+    ]
+   ],
+   "y0": 25.75,
+   "y1": 26.8,
+   "color": "#afb3b3",
+   "roofC": "#9e978c",
+   "collide": false,
+   "note": "v5: çatı katının doğu yarısı (mahyanın doğusu) batı saçağından yüksek: doğu duvar üstü görünen 22.17 (DIKaX; Q5ICT 12_45 karesinde doğu bloğun çatısı üstünde düşey köşe). Güney yüzü kenar 0'daki iki alınlık arasında kalan dikdörtgeni, doğu yüzü doğu blok çatısı üstünde görünen çatı katı duvarını çizer; kuzey yüzü görülmedi (hava fotoğrafındaki beşik çatı kuzey ucuna kadar uzanıyor → kapatma, öğesiz)."
+  }
+ ],
  "edges": [
   {
    "edge": 0,
@@ -119,8 +146,12 @@
      ],
      "kind": "std",
      "split": 4,
-     "frameC": "#a8aeae",
-     "tint": "#76a1af"
+     "frameC": "#d7dde0",
+     "tint": "#76a1af",
+     "hbars": [
+      10.87
+     ],
+     "stair": true
     },
     {
      "t": "win",
@@ -135,8 +166,12 @@
      ],
      "kind": "std",
      "split": 4,
-     "frameC": "#a8aeae",
-     "tint": "#76a1af"
+     "frameC": "#d7dde0",
+     "tint": "#76a1af",
+     "hbars": [
+      13.47
+     ],
+     "stair": true
     },
     {
      "t": "win",
@@ -151,8 +186,13 @@
      ],
      "kind": "std",
      "split": 4,
-     "frameC": "#a8aeae",
-     "tint": "#76a1af"
+     "frameC": "#d7dde0",
+     "tint": "#76a1af",
+     "hbars": [
+      15.85,
+      16.67
+     ],
+     "stair": true
     },
     {
      "t": "band",
@@ -530,7 +570,7 @@
       4
      ],
      "tint": {
-      "4": "blinds"
+      "4": "frosted"
      },
      "sides": "wall",
      "rail": {
@@ -542,7 +582,8 @@
      "fasciaC": {
       "K4": "#8f928f"
      },
-     "railC": "#8a9193"
+     "railC": "#8a9193",
+     "frostC": "#e8ebe6"
     },
     {
      "t": "bal",
@@ -1333,11 +1374,23 @@
     {
      "t": "band",
      "u0": 5.1,
-     "u1": 21.4,
+     "u1": 18.83,
      "y0": 4.06,
      "y1": 4.85,
      "color": "#f5f5ee",
      "proud": 0.9
+    },
+    {
+     "t": "band",
+     "style": "louvre",
+     "u0": 18.83,
+     "u1": 21.96,
+     "y0": 4.08,
+     "y1": 4.75,
+     "color": "#ebede2",
+     "shade": "#aeac9d",
+     "slats": 6,
+     "proud": 0.55
     },
     {
      "t": "panel",
@@ -1625,7 +1678,31 @@
      },
      "curt": {
       "K6": "tul"
-     }
+     },
+     "stair": true
+    },
+    {
+     "t": "pediment",
+     "u0": 5.446,
+     "u1": 11.16,
+     "apex": 11.16,
+     "yTop": 23.5,
+     "d": 0.03,
+     "depth": 16.03,
+     "color": "plaster",
+     "roofC": "tile"
+    },
+    {
+     "t": "pediment",
+     "u0": 11.16,
+     "u1": 17.582,
+     "apex": 11.16,
+     "y": 22.17,
+     "yTop": 23.5,
+     "d": 0.03,
+     "depth": 16.03,
+     "color": "plaster",
+     "roofC": "tile"
     }
    ],
    "note": "Güney cephe (Doğan Avcıoğlu tarafı otopark). Ref DIKaX37Z (2025-09, 14.9 m), Q5ICTzjr ile doğrulandı. Görünen genişlik 1.58–21.96 (cam GB köşe → beyaz bölüm GD köşe) taban izinin 25.25 m’sine eşlendi (ölçek 1.237; pano mesafeleri GPS hatalı, stereo ~1.5 m geride gösteriyor — köşeler hava fotoğrafına göre alındı). Üç bölüm: batı mavi cam giydirme (u 1.58–5.28, K3–K5 cam, K1 BALENTUR, K2 VİZE KONGRE panoları), orta 2 bölmeli loca yığını (K1–K5, beyaz paye u 5.28–5.45 ve 11.35–11.6, gri dolu parapet + yatay boru korkuluk, çoğu katta cam balkon), doğu beyaz yivli sıva bölüm (tek pencere sütunu, kahve doğrama, gri söve, fransız korkuluk). Zemin kat: batıda Leyla fasıl binası önünde (görülmedi; yalnız 4.06–4.9 koyu gri kaplama), gri kompozit cepheli çift kapılı dükkân, bej taş kaplı iş merkezi girişi (firma panosu + siyah ferforje kapı), pizzabulls (kırmızı), boş eczane dükkânı (afiş), siyah kaplı köşe payesi (kırmızı etek). Tüm cephe boyunca K1 altında beyaz düz saçak (lambalı). Loca derinliği (inset 1.4) ölçülemedi (tahmin). K5 batı locası açık (tavan lambalı), K3 batı locasında içeride klima + beyaz pano görülüyor (çizilmedi)."
@@ -2351,8 +2428,48 @@
    "edge": 4,
    "len": 19.8,
    "seen": "none",
-   "items": [],
-   "note": "Kuzey cephe: hiçbir Street View karesinden görülmedi (arkada site bahçesi). Çizilmedi; hava fotoğrafında kuzeyde x 684.7–688 koyu çıkıntı/ışıklık var."
+   "items": [
+    {
+     "t": "pediment",
+     "u0": 0.0,
+     "u1": 7.94,
+     "apex": 7.94,
+     "y": 26.8,
+     "h": 1.65,
+     "d": 0.03,
+     "depth": 0.01,
+     "color": "plaster",
+     "roofC": "tile"
+    },
+    {
+     "t": "pediment",
+     "u0": 7.94,
+     "u1": 15.0,
+     "apex": 7.94,
+     "h": 2.9,
+     "d": 0.03,
+     "depth": 0.01,
+     "color": "plaster",
+     "roofC": "tile"
+    }
+   ],
+   "note": "Kuzey cephe: hiçbir Street View karesinden görülmedi (arkada site bahçesi). Pencere/öğe yazılmadı. v5: yalnız orta çatı katının (K6) beşik çatı prizmasını kapatan iki düz alınlık üçgeni (kenar 0'daki asimetrik alınlığın aynası; cal gerçek metre: u = 695.2 − x, y = tabandan kot) — hava fotoğrafında mahya kuzey-güney ve çatının kuzey ucu düz (alınlık) görünüyor; renk/pencere bilinmiyor → öğesiz koyu gri sıva. Hava fotoğrafında kuzeyde x 684.7–688 koyu çıkıntı/ışıklık var (görülmedi, çizilmedi).",
+   "cal": {
+    "u": [
+     0,
+     19.8
+    ],
+    "head": [
+     [
+      0,
+      4.28
+     ],
+     [
+      1,
+      7.76
+     ]
+    ]
+   }
   },
   {
    "edge": 5,
@@ -2388,8 +2505,8 @@
      "t": "win",
      "u0": 0.98,
      "u1": 3.63,
-     "y0": 11.1,
-     "y1": 13.48,
+     "y0": 10.975,
+     "y1": 13.525,
      "k": 3,
      "s": [
       3,
@@ -2397,15 +2514,19 @@
      ],
      "kind": "std",
      "split": 3,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      12.25
+     ],
+     "stair": true
     },
     {
      "t": "win",
      "u0": 0.98,
      "u1": 3.63,
-     "y0": 14.21,
-     "y1": 16.81,
+     "y0": 14.175,
+     "y1": 16.73,
      "k": 4,
      "s": [
       4,
@@ -2413,14 +2534,194 @@
      ],
      "kind": "std",
      "split": 3,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      15.45
+     ],
+     "stair": true
     },
     {
      "t": "win",
      "u0": 0.98,
      "u1": 3.63,
-     "y0": 17.54,
+     "y0": 17.375,
+     "y1": 20.3,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      18.425,
+      19.475
+     ],
+     "stair": true
+    },
+    {
+     "t": "band",
+     "u0": 0.98,
+     "u1": 3.63,
+     "y0": 13.525,
+     "y1": 14.175,
+     "color": "#21333c",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 0.98,
+     "u1": 3.63,
+     "y0": 16.73,
+     "y1": 17.375,
+     "color": "#21333c",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 0.98,
+     "u1": 3.63,
+     "y0": 10.4,
+     "y1": 10.975,
+     "color": "#21333c",
+     "proud": 0.02
+    },
+    {
+     "t": "win",
+     "u0": 3.63,
+     "u1": 10.67,
+     "y0": 11.15,
+     "y1": 13.82,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "kind": "std",
+     "split": 6,
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      12.5
+     ],
+     "stair": true
+    },
+    {
+     "t": "win",
+     "u0": 3.63,
+     "u1": 10.67,
+     "y0": 14.43,
+     "y1": 17.1,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "kind": "std",
+     "split": 6,
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      15.775
+     ],
+     "stair": true
+    },
+    {
+     "t": "win",
+     "u0": 3.63,
+     "u1": 10.67,
+     "y0": 17.73,
+     "y1": 20.4,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "kind": "std",
+     "split": 6,
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      18.8,
+      19.875
+     ],
+     "stair": true
+    },
+    {
+     "t": "band",
+     "u0": 3.63,
+     "u1": 10.67,
+     "y0": 13.82,
+     "y1": 14.43,
+     "color": "#21333c",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 3.63,
+     "u1": 10.67,
+     "y0": 17.1,
+     "y1": 17.73,
+     "color": "#21333c",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 3.63,
+     "u1": 10.67,
+     "y0": 10.62,
+     "y1": 11.15,
+     "color": "#21333c",
+     "proud": 0.02
+    },
+    {
+     "t": "win",
+     "u0": 10.67,
+     "u1": 14.6,
+     "y0": 11.15,
+     "y1": 13.82,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "kind": "std",
+     "split": 4,
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      12.5
+     ],
+     "stair": true
+    },
+    {
+     "t": "win",
+     "u0": 10.67,
+     "u1": 14.6,
+     "y0": 14.45,
+     "y1": 17.1,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "kind": "std",
+     "split": 4,
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      15.775
+     ],
+     "stair": true
+    },
+    {
+     "t": "win",
+     "u0": 10.67,
+     "u1": 14.6,
+     "y0": 17.75,
      "y1": 20.35,
      "k": 5,
      "s": [
@@ -2428,166 +2729,21 @@
       5
      ],
      "kind": "std",
-     "split": 3,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
-    },
-    {
-     "t": "band",
-     "u0": 0.98,
-     "u1": 3.63,
-     "y0": 13.48,
-     "y1": 14.21,
-     "color": "#21333c",
-     "proud": 0.02
-    },
-    {
-     "t": "band",
-     "u0": 0.98,
-     "u1": 3.63,
-     "y0": 16.81,
-     "y1": 17.54,
-     "color": "#21333c",
-     "proud": 0.02
-    },
-    {
-     "t": "band",
-     "u0": 0.98,
-     "u1": 3.63,
-     "y0": 10.56,
-     "y1": 11.1,
-     "color": "#21333c",
-     "proud": 0.02
-    },
-    {
-     "t": "win",
-     "u0": 3.63,
-     "u1": 10.67,
-     "y0": 11.4,
-     "y1": 13.79,
-     "k": 3,
-     "s": [
-      3,
-      3
-     ],
-     "kind": "std",
-     "split": 6,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
-    },
-    {
-     "t": "win",
-     "u0": 3.63,
-     "u1": 10.67,
-     "y0": 14.52,
-     "y1": 17.08,
-     "k": 4,
-     "s": [
-      4,
-      4
-     ],
-     "kind": "std",
-     "split": 6,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
-    },
-    {
-     "t": "win",
-     "u0": 3.63,
-     "u1": 10.67,
-     "y0": 17.92,
-     "y1": 20.56,
-     "k": 5,
-     "s": [
-      5,
-      5
-     ],
-     "kind": "std",
-     "split": 6,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
-    },
-    {
-     "t": "band",
-     "u0": 3.63,
-     "u1": 10.67,
-     "y0": 13.79,
-     "y1": 14.52,
-     "color": "#21333c",
-     "proud": 0.02
-    },
-    {
-     "t": "band",
-     "u0": 3.63,
-     "u1": 10.67,
-     "y0": 17.08,
-     "y1": 17.92,
-     "color": "#21333c",
-     "proud": 0.02
-    },
-    {
-     "t": "band",
-     "u0": 3.63,
-     "u1": 10.67,
-     "y0": 10.9,
-     "y1": 11.4,
-     "color": "#21333c",
-     "proud": 0.02
-    },
-    {
-     "t": "win",
-     "u0": 10.67,
-     "u1": 14.6,
-     "y0": 11.1,
-     "y1": 13.48,
-     "k": 3,
-     "s": [
-      3,
-      3
-     ],
-     "kind": "std",
      "split": 4,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
-    },
-    {
-     "t": "win",
-     "u0": 10.67,
-     "u1": 14.6,
-     "y0": 14.21,
-     "y1": 16.81,
-     "k": 4,
-     "s": [
-      4,
-      4
+     "frameC": "#d7dde0",
+     "tint": "#1b4b7b",
+     "hbars": [
+      18.8,
+      19.9
      ],
-     "kind": "std",
-     "split": 4,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
-    },
-    {
-     "t": "win",
-     "u0": 10.67,
-     "u1": 14.6,
-     "y0": 17.54,
-     "y1": 20.35,
-     "k": 5,
-     "s": [
-      5,
-      5
-     ],
-     "kind": "std",
-     "split": 4,
-     "frameC": "#8d98a0",
-     "tint": "#1b4b7b"
+     "stair": true
     },
     {
      "t": "band",
      "u0": 10.67,
      "u1": 14.6,
-     "y0": 13.48,
-     "y1": 14.21,
+     "y0": 13.82,
+     "y1": 14.45,
      "color": "#21333c",
      "proud": 0.02
     },
@@ -2595,8 +2751,8 @@
      "t": "band",
      "u0": 10.67,
      "u1": 14.6,
-     "y0": 16.81,
-     "y1": 17.54,
+     "y0": 17.1,
+     "y1": 17.75,
      "color": "#21333c",
      "proud": 0.02
     },
@@ -2604,8 +2760,8 @@
      "t": "band",
      "u0": 10.67,
      "u1": 14.6,
-     "y0": 10.56,
-     "y1": 11.1,
+     "y0": 10.62,
+     "y1": 11.15,
      "color": "#21333c",
      "proud": 0.02
     },
@@ -2734,16 +2890,19 @@
   "TABELALAR: güney: BALENTUR (cam bölüm K1 + batı loca K1 afişi), VİZE KONGRE, DİŞ HEKİMİ ERTUĞRUL ÖZTÜRK, KURUMSAL HİZMETLER, PILATES house (folyo + turuncu kutu, 0224 413 14 54 / 0533 058 49 18), S.M. MALİ MÜŞAVİR RECEP DÜLGER BAĞIMSIZ DENETÇİ, Sağlık Meslek Hizmet Birimi DİL VE KONUŞMA TERAPİSTİ LALE KORKMAZ TÜRKER, pizzabulls ✆ 256 10 10 (+BURSA), ECZANEMİZ ÇOK YAKINDA BURADA HİZMETİNİZDEYİZ (bez afiş), iş merkezi firma panosu + kapı plakası (okunamadı). Batı: BALENTUR® ... 0850 466 77 00 www.balentur.com, TRANSFER TUR, DİŞ HEKİMİ ERTUĞRUL ÖZTÜRK, alt BALENTUR. Ek: ECZANE (dikey kırmızı), ECZANEMİZ ÇOK YAKINDA HİZMETİNİZDE / ÇÜNKÜ SİZ DEĞERLİSİNİZ! afişi. Tente/kepenk yok.",
   "GÖRÜLMEDİ: kuzey cephe (kenar 2,3,4) tamamen; batı ve güney-batı zemin kat (Leyla fasıl önünde); doğu cephe K0–K1 (ek arkasında); loca iç derinlikleri; çatı katının kuzey ucu.",
   "TABAN İZİ: güney duvar z −93: iki panonun stereo’su duvarı ~1.5 m daha kuzeyde gösteriyor ama pano GPS hataları (±3 m) nedeniyle kesin değil — hava fotoğrafı zemin çizgisi korundu. Doğu 2 katlı ek (x ~700.65–704, z −93…−99.4) taban izinde yok → volumes ile eklendi; önerilir: footprints.json’a ayrı taban izi.",
-  "Doğu 2 katlı ek (eczane + H8 Pilates) ayrı bina 900000103 olarak ölçüldü → buradaki ek hacimleri kaldırıldı (çift çizim)."
+  "Doğu 2 katlı ek (eczane + H8 Pilates) ayrı bina 900000103 olarak ölçüldü → buradaki ek hacimleri kaldırıldı (çift çizim).",
+  "v5 (2026-09-29, pend-g5): (1) Asimetrik çatı katı alınlığı: orta massing parçası düz çatı + 0.06 m koyu gri parapet (beyaz saçak alnı çizilmesin diye), floorHs K6 = 2.52 (duvar üstü 25.55 = sol saçak; ölçülen 25.36, sağ K6 penceresi lentosu 25.52 kırpılmasın diye +0.19); kenar 0'da iki pediment (sol dik üçgen u 5.446→11.16 tepe 23.5; sağ dik üçgen taban görünen 22.17, u 11.16→17.582), derinlik 16.03 = orta parçanın tamamı (eğik yüzler = kiremit çatı, mahya u 11.16 ≈ x 687.26; hava fotoğrafında mahya x≈687.6±0.5), mahyanın doğusunda duvar 25.55→26.8 (ek hacim; doğu yüzü doğu bloğun çatısı üstünde görünen çatı katı duvarı). Kuzey uç görülmedi: kenar 4'te aynı biçimde iki kapatma üçgeni (öğesiz). Sağ K6 penceresi `stair:true` (eğik tavan; kat çizgisi kırpması kapalı). (2) Giydirme cephe: kenar 0 ve 5 K3–K5 pencerelerine ölçülen traversler (hbars, düşey parlaklık profili), doğrama #d7dde0 (güneşli yatay profiller L≈225; kenar 5 kapalı havada aynı profil), `stair:true` (batı cam kütlesinin katları kat çizgilerinden ~1 m aşağıda). Kenar 5 pencere/bant kotları profil ölçüsüyle düzeltildi (0.1–0.25 m), bölüm 3 bölüm 2 ile aynı kota alındı. (3) K4 doğu loca cam balkonu buzlu folyo (tint frosted, #e8ebe6). (4) Doğu dükkân (u 18.83–21.96) önünde 103'ten devam eden lamelli alüminyum güneşlik (band louvre, görünen 4.08–4.75, 6 lamel; çıkma 0.55 103'teki tahminle aynı, yandan görülmedi); beyaz düz saçak bandı burada biter (u 18.83, pizzabulls tabelasının doğu ucu). Not: üreticide hbars'lı pencerelere rastgele vasistas kaydı da eklenebiliyor (Hh>1.3 m)."
  ],
  "pending": [
   {
-   "what": "asymmetric attic gable",
-   "edge": 0,
+   "what": "attic gable black edge profile",
+   "edge": [
+    0,
+    4
+   ],
    "ref": "900000101_0_DIKaX37Z.jpg",
-   "desc": "K6 koyu gri alınlık duvarı asimetrik: sol üst köşe (u 5.63, y 21.05), tepe (u 11.2, y 23.55), sağ üst köşe (u 17.43, y 22.25) — sol eğim ~24°, sağ ~12° (Q5ICT ile aynı). Üst kenarda ~0.08 m siyah alın profili, saçak yok. Şimdi simetrik beşik (pitch 18) ile yaklaşık.",
-   "color": "#afb3b3",
-   "trim": "#2a2c2e"
+   "desc": "Çatı katı alınlığının iki eğik üst kenarında ~0.08 m siyah alın/damlalık profili (DIKaX: sol köşe u 5.6 y 21.0 → tepe u 11.13–11.2 y 23.5 → sağ köşe u 17.44 y 22.17; sağ uçta köşeden ~0.4 m aşağı iner). Alınlık artık pediment ile çizili (v5) ama `trim` taban kenarına da silme çizer — bu cephede taban çizgisi yok (duvar kesintisiz gri) → trim kullanılmadı. Gereken: yalnız eğik kenarlara trim (taban hariç) seçeneği.",
+   "color": "#2a2c2e"
   },
   {
    "what": "W part lower eave",
@@ -2751,22 +2910,13 @@
     0,
     5
    ],
-   "desc": "Batı cam bölüm saçağı K6 döşemesinden ~0.5 m (gerçek) aşağıda: beyaz saçak alnı güneyde görünen 17.92–18.75, batıda 20.35–21.3; eğik gri saçak altı. Band ile çizildi ama kırma çatı parça duvar üstünden (daha yüksek) başlıyor."
-  },
-  {
-   "what": "curtain-wall transoms",
-   "edge": [
-    0,
-    5
-   ],
-   "desc": "Cam cephede her katta yatay ince beyaz/gümüş kayıt: güney K3 y 10.83, K4 13.5, K5 15.92 ve 16.83 (u 1.58–5.28); batıda her katın ortasında (ör. 12.33, 15.46, 18.48, 19.52). win.split yalnız düşey; yatay kayıt eklenemedi. İç tarafta dikey/stor perdeler görünüyor (tint nedeniyle çizilmiyor).",
-   "color": "#d7dde0"
+   "desc": "Batı cam kütlesi (x 675.4–680.19) ayrı kat kotlarında: giydirme cephenin dolgu (spandrel) bantları ve cam bantları diğer bölümlerin kat çizgilerinden ~0.8–1.1 m aşağıda (DIKaX profil: K3 cam 9.82–11.92, K4 12.42–14.50, K5 15.02–17.33 görünen; üretici K3 döşemesi görünen 10.60). v5: pencereler `stair:true` ile kat çizgisine kırpılmadan ölçülen kotlarda çiziliyor. Kalan: bu parçanın saçağı (beyaz saçak alnı güneyde görünen 17.92–18.75 → gerçek 21.54–22.57, batıda 20.35–21.3) üreticinin duvar üstünden (23.03 + alın) ~1.1 m aşağıda; massing parçası için saçak/duvar üstü kot ofseti gerekiyor. Şimdilik band (proud 0.9) ile çizili, kırma çatı yüksekte başlıyor."
   },
   {
    "what": "west mid-section depth",
    "edge": 5,
    "ref": "900000101_5_T1qi7WhR.jpg",
-   "desc": "Orta cam bölüm (u 3.63–10.67) kat bantları yanlardan görünen ~0.35 m yüksek, çatı alnı da biraz yukarıda → ~0.8 m çıkma olabilir (iki pano benzer mesafede, stereo ile ayrılamadı)."
+   "desc": "Batı cephe (T1qi7, ~34 m, tek pano) düşey profil: bölüm 1 (u 0.98–3.63) kat bantları/cam kenarları bölüm 2 (3.63–10.67) ve bölüm 3'ten (10.67–14.6) ~0.2–0.3 m (görünen) AŞAĞIDA; bölüm 2 ile 3 aynı kotta (önceki ölçümdeki '1 ve 3 aynı' fotoğrafla çelişiyordu → bölüm 3 düzeltildi). Üstteki beyaz saçak alnının alt çizgisi (görünen ≈20.5) üç bölümde aynı → en olası: bölüm 1 ~0.8 m geri çekik (ya da 2–3 öne çıkık); yükseklik farkı D=34 m'de 0.8 m derinlik farkına karşılık geliyor. İkinci bir açıdan görülmediği için derinlik kesin değil → v5 `recess` (u 0.98–3.63, y ≈7.23–20.35, depth ≈0.8) uygulanmadı; pencereler görünen kotlarında bırakıldı."
   },
   {
    "what": "wall spot lamps and sign rods",
@@ -2775,15 +2925,19 @@
    "color": "#1c1d1e"
   },
   {
-   "what": "annex ECZANE pier sign",
-   "desc": "Ek binanın GD köşesinde / doğu yüzünde siyah kaplamalı paye üzerinde kırmızı zeminli dikey beyaz \"E C Z A N E\" harfleri (doğu ortofoto zDExp: u 1.25–1.9, y 1.6–4.5), altında kırmızı etek; doğu yüzde klima (u 5–6.9, y 4.1–5.0) ve ~1.8 m yüksek siyah çelik parmaklıklı kapı/çit (u 5.3–10). Volumes tabelayı taşıyamıyor.",
-   "color": "#d0302c"
-  },
-  {
-   "what": "frosted window films",
+   "what": "K0 vertical registration vs neighbours",
    "edge": 0,
-   "desc": "K1 doğu loca (u 12.66–17.66) ve K4 doğu loca (u 11.6–17.85, y 14.25–15.97) camlarında beyaz buzlu folyo; ek üst katında PILATES folyosu. bal.tint seçeneklerinde \"buzlu\" yok (blinds kullanıldı).",
-   "color": "#e8ebe6"
+   "desc": "Aynı düzlemdeki (z −93) 103 öğeleri DIKaX ve pc3Zp ortofotolarında aynı görünen kotta (ECZANEMİZ panosu üstü 3.6; 103 K1 camı ≈5.8–7.1) ama derlemede 101 kenar 0 düşey ölçeği 1.24 (K0 lentosuna bağlı), 103 kenar 0 ölçeği 1.0 → aynı fiziksel öğeler oyunda 101'de 1.2–1.6 m yüksekte: lamelli güneşlik 101'de 4.39–5.22, 103'te 3.09–3.72; 101 beyaz saçak 4.37–5.35 ↔ 103 beyaz alın 3.74–4.67; 101 doğu dükkân K1 penceresi altı 6.33 ↔ 103 K1 camı altı 4.74 (pc3Z 338_10 karesinde hepsi aynı hizada). Çözüm (ana oturum): köşe bloklarının (101/102/103/122) ortak düşey kaydı — pano mesafe/konum sapması; footprints 103 genişliği (≈4 m görünüyor, iz 2.55) da buna bağlı.",
+   "note": "101 kenar 0'a eklenen lamelli güneşlik 101'in kendi çerçevesinde (diğer K0 öğeleriyle tutarlı)."
   }
+ ],
+ "floorHs": [
+  3.48,
+  3.48,
+  3.48,
+  3.48,
+  3.48,
+  3.48,
+  2.52
  ]
 }

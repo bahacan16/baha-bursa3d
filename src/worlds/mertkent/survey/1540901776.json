@@ -157,7 +157,7 @@
      "u0": 7.9,
      "u1": 11.9,
      "y0": 0,
-     "y1": 27.0,
+     "y1": 7.66,
      "color": "#5b666e"
     },
     {
@@ -188,58 +188,14 @@
      "color": "plaster"
     },
     {
-     "t": "proj",
-     "u0": 9.4,
-     "u1": 11.85,
-     "d": 0.03,
-     "y0": 9.85,
-     "y1": 10.45,
-     "color": "#9aa3a8"
-    },
-    {
-     "t": "proj",
-     "u0": 9.4,
-     "u1": 11.85,
-     "d": 0.03,
-     "y0": 12.7,
-     "y1": 13.25,
-     "color": "#9aa3a8"
-    },
-    {
-     "t": "proj",
-     "u0": 9.4,
-     "u1": 11.85,
-     "d": 0.03,
-     "y0": 15.6,
-     "y1": 16.2,
-     "color": "#9aa3a8"
-    },
-    {
-     "t": "proj",
-     "u0": 9.4,
-     "u1": 11.85,
-     "d": 0.03,
-     "y0": 18.45,
-     "y1": 19.0,
-     "color": "#9aa3a8"
-    },
-    {
-     "t": "proj",
-     "u0": 9.4,
-     "u1": 11.85,
-     "d": 0.03,
-     "y0": 21.35,
-     "y1": 21.95,
-     "color": "#9aa3a8"
-    },
-    {
-     "t": "proj",
-     "u0": 9.4,
-     "u1": 11.85,
-     "d": 0.03,
-     "y0": 24.2,
-     "y1": 24.8,
-     "color": "#9aa3a8"
+     "t": "recess",
+     "u0": 7.9,
+     "u1": 11.9,
+     "y0": 7.66,
+     "y1": 27.0,
+     "depth": 2.3,
+     "back": "plaster",
+     "side": "plaster"
     },
     {
      "t": "panel",
@@ -347,7 +303,7 @@
      "sides": "start-wall"
     }
    ],
-   "note": "Kuzey (Bursaray/Uğur Mumcu) cephesi — YALNIZ 2019-05 j-FHs_eT (63 m, neredeyse dik) karesinden; bina o tarihte inşaat asansörlü/yeni bitmiş (koyu gri + açık gri), 2025 renkleri bu cephede GÖRÜLMEDİ (2025 kareleri yalnız çok eğik tepe). Yatay kayıt belirsiz (±1–3 m): ortofotoda binanın doğu ucu u≈1.9'da (doğusu gökyüzü), ayak izindeki çentik (kenar 13/0, u −3.8…0) görülmüyor. Doğudan batıya (görünen): doğu uçta balkon yığını u 1.9–3.6 (K8 düzeyinde şapka, şapka doğuya u −0.3'e kadar taşıyor), beyaz sütun u 3.6–6.6 + 2 kanatlı fransız pencere u 4.75–6.1 + gri çıkıntılı denizlik kutuları, ÇERÇEVE (gri ayaklar 6.6–7.9 ve 11.9–13.65, üst kiriş 27.0–30.3) ve derin yuva u 7.9–11.9 (sol iç yan duvar 1.5 m görünür → derin; her katta açık gri döşeme alnı u 9.4–11.85), beyaz sütun 2 u 13.65–16.8 + fransız pencere u 13.7–15.3, KB köşede köşe balkon u 16.9–17.9 (kenar 2'ye döner). K8 yalnız beyaz sütunlarda ve çerçevede (parapet 29.7, çerçeve 30.3); balkon yığınlarının üstünde K8 yok. K0–K1 istasyon saçağı/çit arkasında. Korkuluk tipleri, cam balkon, perde, klima 2019 karesinde çözülemiyor/geçersiz → yazılmadı."
+   "note": "Kuzey (Bursaray/Uğur Mumcu) cephesi — YALNIZ 2019-05 j-FHs_eT (63 m, neredeyse dik) karesinden; bina o tarihte inşaat asansörlü/yeni bitmiş (koyu gri + açık gri), 2025 renkleri bu cephede GÖRÜLMEDİ (2025 kareleri yalnız çok eğik tepe). Yatay kayıt belirsiz (±1–3 m): ortofotoda binanın doğu ucu u≈1.9'da (doğusu gökyüzü), ayak izindeki çentik (kenar 13/0, u −3.8…0) görülmüyor. Doğudan batıya (görünen): doğu uçta balkon yığını u 1.9–3.6 (K8 düzeyinde şapka, şapka doğuya u −0.3'e kadar taşıyor), beyaz sütun u 3.6–6.6 + 2 kanatlı fransız pencere u 4.75–6.1 + gri çıkıntılı denizlik kutuları, ÇERÇEVE (gri ayaklar 6.6–7.9 ve 11.9–13.65, üst kiriş 27.0–30.3) ve derin yuva u 7.9–11.9 (sol iç yan duvar 1.5 m görünür → derin; her katta açık gri döşeme alnı u 9.4–11.85), beyaz sütun 2 u 13.65–16.8 + fransız pencere u 13.7–15.3, KB köşede köşe balkon u 16.9–17.9 (kenar 2'ye döner). K8 yalnız beyaz sütunlarda ve çerçevede (parapet 29.7, çerçeve 30.3); balkon yığınlarının üstünde K8 yok. K0–K1 istasyon saçağı/çit arkasında. Korkuluk tipleri, cam balkon, perde, klima 2019 karesinde çözülemiyor/geçersiz → yazılmadı. v5: çerçeve yuvası `recess` (u 7.9–11.9, K2 döşemesi 7.66 → üst kiriş altı 27.0, derinlik 2.3 m: j-FHs'te sol iç yan duvar 1.5 m görünür, kamera cepheden 54.8 m / yuvaya 35 m yanal → 2.2–2.6; yuva bantları aralığı 2.85–2.95 < 2.95–3.0 ile uyumlu). Yuva arka duvarındaki açık gri döşeme bantları (u 9.4–11.85) arka duvara çizilemediği için pending'e taşındı. K0–K1 görülmedi (ağızdaki koyu pano eski kabul, 2019 rengi). 2019 karesi: geometri kalıcı, renkler güncel değil."
   },
   {
    "edge": 2,
@@ -712,23 +668,90 @@
   "Kuzey cephe yatay kayıt belirsiz (±1–3 m): j-FHs ortofotosunda binanın doğu ucu u≈1.9 (ötesi gökyüzü) — ayak izindeki KD çentik (kenar 13/0) fotoğrafta görülmüyor; ya pano ≈2–4 m kayık ya da ayak izinin doğu çentiği hatalı. Kullanıcıdan fotoğraf istenmeli.",
   "Görülmeyenler: TÜM doğu cephe (kenar 8–12, 0) ve güney cephe (kenar 7) — yalnız GB köşede şerit camın güneye döndüğü seçiliyor; KD çentik (13); batı cephenin K0–K2/K3'ü; kuzey cephenin K0–K1'i ve 2025 hali; kenar 2'nin balkon arkası ve cam/açık durumu; kenar 4'te u<2 (gerçek) gri bölümün alt katları.",
   "Tabela, klima, çanak anten, kamera görülmedi. Kenar 4'te beyaz sütun önünde koyu düşey yağmur borusu. Perdeler: kenar 4'teki 2 kanatlı pencerelerde beyaz tül seçiliyor ama kat kat güvenle ayrılamıyor → yazılmadı.",
-  "KISMİ K8 (massing): 9 katlı şerit kuzey cephe u 3.6–16.8 (j-FHs 2019 kaydı, ±1–3 m) boyunca, üstü düz + 1.3 m beyaz parapet (29.7); kalan gövde 8 kat + 1.3 m beyaz saçak bandı + kırma çatı/teras (batı cephede 27.0–28.3 bant uJjm kaydında). Şerit DERİNLİĞİ (4.5 m) görülmedi, alt sınır seçimi."
+  "KISMİ K8 (massing): 9 katlı şerit kuzey cephe u 3.6–16.8 (j-FHs 2019 kaydı, ±1–3 m) boyunca, üstü düz + 1.3 m beyaz parapet (29.7); kalan gövde 8 kat + 1.3 m beyaz saçak bandı + kırma çatı/teras (batı cephede 27.0–28.3 bant uJjm kaydında). Şerit DERİNLİĞİ (4.5 m) görülmedi, alt sınır seçimi.",
+  "v5 dönüşümü (2026-09-29): kuzey çerçeve yuvası → recess 2.3 m (2019 j-FHs geometrisi); yuva arka duvarı bantları pending. Çatı üstü panel dizisi ve çatı odası konumları güvenilmez (ayak izi dışına düşüyor) → hâlâ pending; kahverengi pano basamak yüzü (kenar 5) görülmedi."
  ],
  "pending": [
   {
-   "what": "Kuzey cephe çerçeve yuvası derinliği",
+   "what": "Girinti (kuzey çerçeve yuvası) ARKA DUVARINDAKİ döşeme bantları — üretici yalnız win/sign/vent'i arka duvara taşıyor",
    "edge": 1,
    "ref": "1540901776_1_j-FHs_eT.jpg",
-   "u": [
-    7.9,
-    11.9
+   "recessDepth": 2.3,
+   "bands": [
+    {
+     "u": [
+      9.4,
+      11.85
+     ],
+     "y": [
+      9.85,
+      10.45
+     ],
+     "proud": 0.03,
+     "color": "#9aa3a8 (2019 inşaat rengi, güncel değil)"
+    },
+    {
+     "u": [
+      9.4,
+      11.85
+     ],
+     "y": [
+      12.7,
+      13.25
+     ],
+     "proud": 0.03,
+     "color": "#9aa3a8 (2019 inşaat rengi, güncel değil)"
+    },
+    {
+     "u": [
+      9.4,
+      11.85
+     ],
+     "y": [
+      15.6,
+      16.2
+     ],
+     "proud": 0.03,
+     "color": "#9aa3a8 (2019 inşaat rengi, güncel değil)"
+    },
+    {
+     "u": [
+      9.4,
+      11.85
+     ],
+     "y": [
+      18.45,
+      19.0
+     ],
+     "proud": 0.03,
+     "color": "#9aa3a8 (2019 inşaat rengi, güncel değil)"
+    },
+    {
+     "u": [
+      9.4,
+      11.85
+     ],
+     "y": [
+      21.35,
+      21.95
+     ],
+     "proud": 0.03,
+     "color": "#9aa3a8 (2019 inşaat rengi, güncel değil)"
+    },
+    {
+     "u": [
+      9.4,
+      11.85
+     ],
+     "y": [
+      24.2,
+      24.8
+     ],
+     "proud": 0.03,
+     "color": "#9aa3a8 (2019 inşaat rengi, güncel değil)"
+    }
    ],
-   "y": [
-    0,
-    27.0
-   ],
-   "depth_m": "≈1.5–4 (sol iç yan duvar 1.5 m görünür; yuva bantları aralığı 2.85–2.95 < cephe 2.95–3.0)",
-   "desc": "1774'teki portal ile aynı tip; batıdan (uJjm/glMQ/-5Gw_146) kuzey uçta çatının ≈2 m üstüne çıkan geniş gri yüzey (görünen genişlik ≈5 m) bu yuvanın/çerçevenin yan duvarı olmalı."
+   "desc": "Her katta döşeme hizasında yuva arka duvarında (≈2.3 m derinde) açık gri döşeme alnı bantları (sol iç yan duvarın bittiği u 9.4'ten sağ ayağa). Ağızda proj olarak havada kalacağı için öğelerden çıkarıldı."
   },
   {
    "what": "Çatı üstü koyu panel dizisi",
@@ -763,7 +786,7 @@
     4,
     6
    ],
-   "desc": "Ahşap görünümlü pano kolonu kenar 4 sonundan (gerçek u≈7.1) basamak (kenar 5) üzerinden kenar 6'nın u≈1.95'ine kadar sürüyor; kat aralarında beyaz döşeme bantları (≈0.5 m). Basamak yüzü görülmedi."
+   "desc": "Ahşap görünümlü pano kolonu kenar 4 sonundan (gerçek u≈7.1) basamak (kenar 5) üzerinden kenar 6'nın u≈1.95'ine kadar sürüyor; kat aralarında beyaz döşeme bantları (≈0.5 m). Basamak yüzü görülmedi. (ÜRETİCİ İSTEĞİ DEĞİL: kenar 5 basamak yüzü hiçbir karede görülmedi → kural gereği çizilmedi.)"
   }
  ],
  "massing": {

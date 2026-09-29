@@ -127,6 +127,46 @@ export class Builder {
       ]);
   }
 
+  /**
+   * Üst dört kenarı r kadar 45° pahlı kutu (denizlik, harpuşta, bordür taşı): üst yüz r içeride, yan yüzler
+   * y+hy−r'ye kadar, aradaki pahlar yamuk (köşelerde kapalı). r ≤ 0 → düz kutu. 20 üçgen (düz kutu 12).
+   */
+  bevelBox(key: string, c: V3, s: V3, yaw = 0, r = 0.015, uvScale = 1): void {
+    const hx = s[0] / 2;
+    const hy = s[1] / 2;
+    const hz = s[2] / 2;
+    const rr = Math.min(r, hx * 0.45, hz * 0.45, s[1] * 0.45);
+    if (!(rr > 1e-4)) {
+      this.box(key, c, s, yaw, uvScale);
+      return;
+    }
+    const [cx, cy, cz] = c;
+    const co = Math.cos(yaw);
+    const si = Math.sin(yaw);
+    const P = (x: number, y: number, z: number): V3 => [cx + x * co + z * si, cy + y, cz - x * si + z * co];
+    const U = uvScale;
+    const yt = hy - rr;
+    // Yanlar (+z, −z, +x, −x) pah altına kadar
+    this.quad(key, P(-hx, -hy, hz), P(hx, -hy, hz), P(hx, yt, hz), P(-hx, yt, hz), [0, 0, s[0] * U, (yt + hy) * U]);
+    this.quad(key, P(hx, -hy, -hz), P(-hx, -hy, -hz), P(-hx, yt, -hz), P(hx, yt, -hz), [0, 0, s[0] * U, (yt + hy) * U]);
+    this.quad(key, P(hx, -hy, hz), P(hx, -hy, -hz), P(hx, yt, -hz), P(hx, yt, hz), [0, 0, s[2] * U, (yt + hy) * U]);
+    this.quad(key, P(-hx, -hy, -hz), P(-hx, -hy, hz), P(-hx, yt, hz), P(-hx, yt, -hz), [0, 0, s[2] * U, (yt + hy) * U]);
+    // Pahlar (yamuk): alt kenar yan yüz üstü, üst kenar üst yüz kenarı
+    const pr = rr * 1.4142 * U;
+    this.quad(key, P(-hx, yt, hz), P(hx, yt, hz), P(hx - rr, hy, hz - rr), P(-hx + rr, hy, hz - rr), [0, 0, s[0] * U, pr]);
+    this.quad(key, P(hx, yt, -hz), P(-hx, yt, -hz), P(-hx + rr, hy, -hz + rr), P(hx - rr, hy, -hz + rr), [0, 0, s[0] * U, pr]);
+    this.quad(key, P(hx, yt, hz), P(hx, yt, -hz), P(hx - rr, hy, -hz + rr), P(hx - rr, hy, hz - rr), [0, 0, s[2] * U, pr]);
+    this.quad(key, P(-hx, yt, -hz), P(-hx, yt, hz), P(-hx + rr, hy, hz - rr), P(-hx + rr, hy, -hz + rr), [0, 0, s[2] * U, pr]);
+    // Üst ve alt
+    this.quad(key, P(-hx + rr, hy, hz - rr), P(hx - rr, hy, hz - rr), P(hx - rr, hy, -hz + rr), P(-hx + rr, hy, -hz + rr), [
+      0,
+      0,
+      (s[0] - 2 * rr) * U,
+      (s[2] - 2 * rr) * U,
+    ]);
+    this.quad(key, P(-hx, -hy, -hz), P(hx, -hy, -hz), P(hx, -hy, hz), P(-hx, -hy, hz), [0, 0, s[0] * U, s[2] * U]);
+  }
+
   /** Yatay çokgen (üçgenlenmiş), y yüksekliğinde; up=true yukarı bakar. UV = dünya x,z × uvScale. */
   polygon(key: string, ring: V2[], y: number, up = true, uvScale = 1): void {
     const tris = THREE.ShapeUtils.triangulateShape(

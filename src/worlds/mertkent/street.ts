@@ -176,12 +176,118 @@ function kerbStones(b: Builder, a: V2, e: V2, n: V2, kh: number, H: (x: number, 
     const u = (L * (k + 0.5)) / nS;
     const c: V2 = [a[0] + t[0] * u + (n[0] * KERB_W) / 2, a[1] + t[1] * u + (n[1] * KERB_W) / 2];
     const y = H(c[0], c[1]);
-    b.box(
-      'curb',
-      [c[0], y + kh / 2 - 0.05, c[1]],
-      [L / nS - 0.006, kh + 0.1, KERB_W],
-      Math.atan2(-t[1], t[0]),
-    );
+    // Yüksek/Ultra: bordür taşının üst kenarları pahlı (KERB_BEV)
+    if (KERB_BEV > 0)
+      b.bevelBox('curb', [c[0], y + kh / 2 - 0.05, c[1]], [L / nS - 0.006, kh + 0.1, KERB_W], Math.atan2(-t[1], t[0]), KERB_BEV);
+    else
+      b.box(
+        'curb',
+        [c[0], y + kh / 2 - 0.05, c[1]],
+        [L / nS - 0.006, kh + 0.1, KERB_W],
+        Math.atan2(-t[1], t[0]),
+      );
+  }
+}
+
+/** Bordür pahı (buildStreetPlan süresince; 0 = pahsız) */
+let KERB_BEV = 0;
+
+/**
+ * Yol yüzeyi ayrıntısı (street-plan `street[]`, yalnız Street View'da görülen yerlerde — CLAUDE.md §0.5):
+ * - patch: asfalt yaması, `poly` + ölçülen ton `color`; `over: true` → yol çizgilerinin üstünde (yeni yama çizgiyi
+ *   örter), yoksa çizgilerin altında;
+ * - crack: çatlak / çatlak dolgusu, `pts` çoklu çizgi + genişlik `w` (m); `sealed` → parlak zift dolgu;
+ * - pothole: çukur, `r` (m) ya da `poly`, koyu iç + açık kenar halkası (ton ölçülmüşse `color` / `rim`);
+ * - wear: çizgi aşınması, `poly` (ya da `pts` + `w`) içinde yol çizgilerinin `amount` (0..1) kadarını yol tonuyla
+ *   örten gürültülü örtü (ton `color`, yoksa yol ortalaması).
+ * Z-fighting yok: OSM asfaltı +0.03/0.04, çizgiler +0.05 → yama/çatlak/çukur +0.044–0.047 (çizginin altında),
+ * üst yama ve aşınma +0.056–0.058; malzemelerde polygonOffset.
+ */
+export interface RoadDetail {
+  kind: 'patch' | 'crack' | 'pothole' | 'wear';
+  x: number;
+  z: number;
+  poly?: V2[];
+  pts?: V2[];
+  w?: number;
+  r?: number;
+  color?: string;
+  rim?: string;
+  over?: boolean;
+  sealed?: boolean;
+  amount?: number;
+}
+
+/** Yol tonu varsayılanı (OSM roadFill ortalaması, sRGB) */
+const ROAD_TONE = '#8a8b88';
+
+function roadDetail(
+  b: Builder,
+  s: RoadDetail,
+  H: (x: number, z: number) => number,
+  colorKey: StreetExt['colorKey'],
+): void {
+  const ck = (kind: 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3', hex: string | undefined, dflt: string) =>
+    colorKey ? colorKey(kind, hex && /^#[0-9a-f]{6}$/i.test(hex) ? hex : dflt) : 'roadFill';
+  const ring = (r: V2[]) => {
+    const o = r.map((p) => [p[0], p[1]] as V2);
+    if (o.length > 3 && o[0][0] === o[o.length - 1][0] && o[0][1] === o[o.length - 1][1]) o.pop();
+    return o;
+  };
+  /** Çoklu çizgiden şerit çokgenleri (parça başına dörtgen) */
+  const ribbon = (pts: V2[], w: number): V2[][] => {
+    const out: V2[][] = [];
+    for (let i = 0; i + 1 < pts.length; i++) {
+      const a = pts[i];
+      const e = pts[i + 1];
+      const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      if (L < 0.01) continue;
+      const nx = (-(e[1] - a[1]) / L) * (w / 2);
+      const nz = ((e[0] - a[0]) / L) * (w / 2);
+      // Uçlarda hafif uzatma: kırık çizgi parçaları arasında boşluk kalmasın
+      const tx = ((e[0] - a[0]) / L) * (w / 2);
+      const tz = ((e[1] - a[1]) / L) * (w / 2);
+      out.push([
+        [a[0] - tx + nx, a[1] - tz + nz],
+        [e[0] + tx + nx, e[1] + tz + nz],
+        [e[0] + tx - nx, e[1] + tz - nz],
+        [a[0] - tx - nx, a[1] - tz - nz],
+      ]);
+    }
+    return out;
+  };
+  if (s.kind === 'patch') {
+    const r = ring(s.poly ?? []);
+    if (r.length < 3) return;
+    b.drape(ck('asphalt', s.color, ROAD_TONE), r, [], H, s.over ? 0.056 : 0.044, 1, 2);
+  } else if (s.kind === 'crack') {
+    const w = Math.max(0.005, Math.min(0.3, s.w ?? 0.03));
+    for (const q of ribbon(s.pts ?? [], w))
+      b.drape(s.sealed ? ck('tar', s.color, '#2b2b2a') : ck('asphalt', s.color, '#3f403e'), q, [], H, s.over ? 0.057 : 0.046, 1, 2);
+  } else if (s.kind === 'pothole') {
+    let r = ring(s.poly ?? []);
+    if (r.length < 3) {
+      const R = Math.max(0.05, s.r ?? 0.25);
+      r = Array.from({ length: 14 }, (_, k) => {
+        const a = (k / 14) * Math.PI * 2;
+        // Düzensiz kenar (tohum: konum)
+        const f = 0.85 + 0.3 * Math.abs(Math.sin(a * 3 + s.x * 7.1 + s.z * 3.3));
+        return [s.x + Math.cos(a) * R * f, s.z + Math.sin(a) * R * f] as V2;
+      });
+    }
+    // Açık kenar halkası (kırık asfalt) + koyu iç (çukur dibi)
+    const cx = r.reduce((a, p) => a + p[0], 0) / r.length;
+    const cz = r.reduce((a, p) => a + p[1], 0) / r.length;
+    const grow = r.map((p) => [cx + (p[0] - cx) * 1.18, cz + (p[1] - cz) * 1.18] as V2);
+    b.drape(ck('asphalt', s.rim, '#9a9a96'), grow, [], H, 0.045, 1, 2);
+    b.drape(ck('tar', s.color, '#2c2d2c'), r, [], H, 0.047, 1, 2);
+  } else if (s.kind === 'wear') {
+    const polys = s.poly?.length ? [ring(s.poly)] : ribbon(s.pts ?? [], Math.max(0.1, s.w ?? 0.3));
+    // Aşınma oranı üç kademede (~%25 / %50 / %75 örtü): gürültü alfasının eşiği malzemede
+    const amt = Math.max(0, Math.min(1, s.amount ?? 0.5));
+    if (amt <= 0.05) return;
+    const lvl = Math.min(3, Math.max(1, Math.round(amt * 4))) as 1 | 2 | 3;
+    for (const q of polys) if (q.length >= 3) b.drape(ck(`wear${lvl}`, s.color, ROAD_TONE), q, [], H, 0.058, 2, 2);
   }
 }
 
@@ -631,12 +737,8 @@ export function streetSignTexture(kind: 'keepRight' | 'chevron' | 'pedestrian'):
   return t;
 }
 
-export function buildStreetPlan(
-  b: Builder,
-  plan: StreetPlan,
-  H: (x: number, z: number) => number,
-  roadCentre: (x: number, z: number) => number,
-  ext: {
+/** buildStreetPlan ek seçenekleri */
+export interface StreetExt {
     signFace?: (sg: {
       text: string;
       lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
@@ -651,12 +753,50 @@ export function buildStreetPlan(
       h: number;
     }) => string;
     colorKey?: (
-      kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass' | 'frame' | 'tint',
+      kind:
+        | 'plaster'
+        | 'fascia'
+        | 'metal'
+        | 'awning'
+        | 'glass'
+        | 'frame'
+        | 'tint'
+        | 'asphalt'
+        | 'tar'
+        | 'wear1'
+        | 'wear2'
+        | 'wear3',
       hex: string,
     ) => string;
+    /** Yüksek/Ultra kalite: bordür taşı üst kenar pahı (m, 0 = yok) */
+    bevel?: number;
     /** Çarpışma halkası (x/z çokgen, alt–üst kot) */
     collide?: Collide;
-  } = {},
+    /** Noktadan en yakın OSM yol şeridi KENARINA uzaklık (m); asfalt dolgusunun genişliği için */
+    roadEdge?: (x: number, z: number) => number;
+  }
+
+export function buildStreetPlan(
+  b: Builder,
+  plan: StreetPlan,
+  H: (x: number, z: number) => number,
+  roadCentre: (x: number, z: number) => number,
+  ext: StreetExt = {},
+): StreetResult {
+  KERB_BEV = Math.max(0, Math.min(0.03, ext.bevel ?? 0));
+  try {
+    return buildStreet(b, plan, H, roadCentre, ext);
+  } finally {
+    KERB_BEV = 0;
+  }
+}
+
+function buildStreet(
+  b: Builder,
+  plan: StreetPlan,
+  H: (x: number, z: number) => number,
+  roadCentre: (x: number, z: number) => number,
+  ext: StreetExt,
 ): StreetResult {
   const raised: StreetResult['raised'] = [];
   const polys: V2[][] = [];
@@ -665,13 +805,21 @@ export function buildStreetPlan(
     if (!pts || pts.length < 2) continue;
     const kerbH = sw.kerbH ?? 0.15;
     const lay = layoutOf(sw);
+    // Bordürden yola doğru asfalt dolgusu genişliği: OSM şeridi bordürden uzaksa (kavşak köşe kavisleri, OSM ekseni
+    // gerçek yoldan kaymış) şeride kadar uzar — yoksa aradaki üçgende hava fotoğrafı (bej) görünüyordu (502/Doğan
+    // Avcıoğlu köşesi). KARAR: en az 3 m, en çok 10 m; yakında (10 m) OSM yolu yoksa 3 m (otopark/site yolu).
+    const fillW = (x: number, z: number) => {
+      const g = ext.roadEdge?.(x, z) ?? 0;
+      return g <= 10 ? Math.min(10, Math.max(3, g + 0.6)) : 3;
+    };
     // Köşe noktalarında asfalt dolgu diski (parçaların dış köşede bıraktığı kama boşlukları; kaldırım üstte kalır)
     for (let i = 1; i + 1 < pts.length; i++) {
       const c = pts[i];
+      const r = fillW(c[0], c[1]);
       const ring: V2[] = [];
-      for (let k = 0; k < 16; k++) {
-        const a = (k / 16) * Math.PI * 2;
-        ring.push([c[0] + Math.cos(a) * 3, c[1] + Math.sin(a) * 3]);
+      for (let k = 0; k < 20; k++) {
+        const a = (k / 20) * Math.PI * 2;
+        ring.push([c[0] + Math.cos(a) * r, c[1] + Math.sin(a) * r]);
       }
       b.drape('roadFill', ring, [], H, 0.027, 1, 2);
     }
@@ -723,12 +871,15 @@ export function buildStreetPlan(
           const u1 = (L * (k + 1)) / nS;
           const c = q((u0 + u1) / 2, v + KERB_W / 2);
           const y = H(c[0], c[1]);
-          b.box(
-            'curb',
-            [c[0], y + kh / 2 - 0.05, c[1]],
-            [u1 - u0 - 0.006, kh + 0.1, KERB_W],
-            Math.atan2(-t[1], t[0]),
-          );
+          if (KERB_BEV > 0)
+            b.bevelBox('curb', [c[0], y + kh / 2 - 0.05, c[1]], [u1 - u0 - 0.006, kh + 0.1, KERB_W], Math.atan2(-t[1], t[0]), KERB_BEV);
+          else
+            b.box(
+              'curb',
+              [c[0], y + kh / 2 - 0.05, c[1]],
+              [u1 - u0 - 0.006, kh + 0.1, KERB_W],
+              Math.atan2(-t[1], t[0]),
+            );
         }
       };
       if (lay.bands[0]?.v0 >= KERB_W - 1e-6) kerbLine(0, kerbH);
@@ -743,7 +894,8 @@ export function buildStreetPlan(
         strip(-0.1, 0, 'spPaint', 0.08);
       }
       // Bordürle OSM asfaltı arası boşluk kalmasın: yol tarafına asfalt dolgu (OSM yolunun altında kalır)
-      strip(-3, 0.02, 'roadFill', 0.028);
+      const fw = Math.max(fillW(a[0], a[1]), fillW(e[0], e[1]), fillW((a[0] + e[0]) / 2, (a[1] + e[1]) / 2));
+      strip(-fw, 0.02, 'roadFill', 0.028);
       const full: V2[] = [q(0, 0), q(L, 0), q(L, sw.w), q(0, sw.w)];
       polys.push(full);
     }
@@ -965,6 +1117,38 @@ export function buildStreetPlan(
         b.cylinder('bollardOrange', [s.x, g0, s.z], 0.04, s.h ?? 0.75, 8);
         b.cylinder('spPaint', [s.x, g0 + (s.h ?? 0.75) - 0.2, s.z], 0.042, 0.06, 8);
         break;
+      case 'delineator': {
+        // Bisiklet şeridi / yol kenarı esnek dikmesi (tek tek ya da pts + every dizisi): siyah kauçuk taban,
+        // turuncu gövde, iki beyaz yansıtıcı bant. Yol kotunda (kaldırımda değil) — ölçülen konumlarda.
+        const de = s as unknown as { pts?: V2[]; every?: number; color?: string; bands?: number };
+        const hh = s.h ?? 0.75;
+        const bodyK = de.color && ext.colorKey ? ext.colorKey('metal', de.color) : 'bollardOrange';
+        const at: V2[] = [];
+        if (de.pts && de.pts.length >= 2) {
+          const ev = Math.max(0.3, de.every ?? 1.0);
+          for (let i = 0; i + 1 < de.pts.length; i++) {
+            const a = de.pts[i];
+            const e = de.pts[i + 1];
+            const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+            const n = Math.max(1, Math.round(L / ev));
+            for (let k = i ? 1 : 0; k <= n; k++) at.push([a[0] + ((e[0] - a[0]) * k) / n, a[1] + ((e[1] - a[1]) * k) / n]);
+          }
+        } else at.push([s.x, s.z]);
+        for (const [x, z] of at) {
+          const gy = H(x, z);
+          b.cylinder('darkMetal', [x, gy, z], 0.1, 0.04, 10);
+          b.cylinder(bodyK, [x, gy + 0.04, z], 0.04, hh - 0.04, 8);
+          const nb = Math.max(1, Math.min(3, de.bands ?? 2));
+          for (let k = 0; k < nb; k++) b.cylinder('spPaint', [x, gy + hh - 0.09 - k * 0.12, z], 0.042, 0.06, 8);
+        }
+        break;
+      }
+      case 'patch':
+      case 'pothole':
+      case 'crack':
+      case 'wear':
+        roadDetail(b, s as unknown as RoadDetail, H, ext.colorKey);
+        break;
       case 'mirror': {
         // Trafik aynası: turuncu çerçeveli dışbükey daire
         const h = s.h ?? 2.8;
@@ -1062,7 +1246,10 @@ export function buildStreetPlan(
       case 'crossing': {
         // Yaya geçidi (zebra): rot = yayaların yürüdüğü pusula yönü, len = yürüme doğrultusunda boy (yoldan yola),
         // w = yol boyunca genişlik (şerit boyu). Beyaz şeritler yol boyunca uzanır, yürüme yönünde tekrarlanır.
-        const cr = s as unknown as { len?: number; w?: number; stripes?: string };
+        const cr = s as unknown as { len?: number; w?: number; stripes?: string; wear?: number };
+        // Aşınmış boya (ölçülmüşse 0..1): gürültü alfa eşiğiyle boyanın o kadarı eksik
+        const wl = Math.round(Math.max(0, Math.min(1, cr.wear ?? 0)) * 4);
+        const paintK = wl > 0 ? `spPaintWear${Math.min(3, wl)}` : 'spPaint';
         const len = cr.len ?? 4;
         const w = cr.w ?? 3;
         // Şerit/boşluk ölçümden ("≈0.5/0.5 m"); yoksa Türkiye standardı 0.5/0.5
@@ -1079,7 +1266,7 @@ export function buildStreetPlan(
           const P = (a: number, e: number): V2 => [c[0] + d[0] * a + t[0] * e, c[1] + d[1] * a + t[1] * e];
           // Yol boyasının üstünde (roads.ts çizgileri +0.05; spPaint polygonOffset −8)
           b.drape(
-            'spPaint',
+            paintK,
             [P(-sw / 2, -w / 2), P(sw / 2, -w / 2), P(sw / 2, w / 2), P(-sw / 2, w / 2)],
             [],
             H,

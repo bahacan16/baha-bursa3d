@@ -91,7 +91,9 @@
         {
           "t": "pipe",
           "u": 1.55,
-          "off": 0.1
+          "off": 0.1,
+          "color": "#d4d6ce",
+          "r": 0.045
         }
       ],
       "note": "Kuzey cam balkon köşe yığınının (kenar 27 batı ucu) BATI yüzü; çok eğik (Oh3B) çekim, alt katlar ağaç arkasında. Camlama kuzey yüzüyle aynı (K0 açık cam, K1 açık, K2 açık cam, K3–K4 koyu cam, K5 açık) → cam balkon köşeyi sarıyor. Güney ucunda kenar 1 duvarına dayanıyor (iç köşede beyaz boru). Ortofotoda u>1.7 görülen şerit+pencere sütunu kenar 1’e ait."
@@ -467,11 +469,11 @@
           "u0": 0.45,
           "u1": 7.7,
           "y0": 11.2,
-          "y1": 23.5,
+          "y1": 20.83,
           "color": "plaster2"
         }
       ],
-      "note": "Batı ana duvarı, üçgen alınlıklı (çatı kenarı ortofotonun üst sınırına kadar yükseliyor; tepe ≈ orta). İki pencere sütunu: kuzeyde geniş (K0–K2 ≈1.9 m iki kanat?, K3–K5 3 bölmeli fransız + yatay çelik korkuluk) ve güneyde dar (≈1.0 m, tüm katlarda) — her birinin iki yanında şerit (alt/üst çift aynı hizada, K3 döşemesinde ≈0.4 m ara). Çok eğik (Oh3B ≈55°) ve alt katlar ağaç arkasında: alt pencere tipi ve cal.u (±0.4) belirsiz."
+      "note": "Batı ana duvarı, üçgen alınlıklı (çatı kenarı ortofotonun üst sınırına kadar yükseliyor; tepe ≈ orta). İki pencere sütunu: kuzeyde geniş (K0–K2 ≈1.9 m iki kanat?, K3–K5 3 bölmeli fransız + yatay çelik korkuluk) ve güneyde dar (≈1.0 m, tüm katlarda) — her birinin iki yanında şerit (alt/üst çift aynı hizada, K3 döşemesinde ≈0.4 m ara). Çok eğik (Oh3B ≈55°) ve alt katlar ağaç arkasında: alt pencere tipi ve cal.u (±0.4) belirsiz. v5 (2026-09-29): üst gri pano y1 23.5 → 20.83 (duvar + saçak alnı üstü ≈20.3 m, alınlık tabanı); pano dikdörtgeni alınlık eğiminin dışına (gökyüzüne) taşıyordu. Alınlık üçgeni de gri → pending \"Alınlık üçgenlerinin rengi\"."
     },
     {
       "edge": 7,
@@ -856,7 +858,7 @@
           "u0": 1.39,
           "u1": 8.55,
           "y0": 10.65,
-          "y1": 23,
+          "y1": 19.99,
           "color": "plaster2"
         },
         {
@@ -886,7 +888,7 @@
           "kind": "small"
         }
       ],
-      "note": "Güney ana duvarı, üçgen alınlık (tepe u≈6.7, y≈23.0; eğim ≈25°). İki pencere sütunu (tüm katlar aynı 2 kanatlı ≈1.2×1.35 m), her birinin iki yanında şerit; şerit çiftleri alt/üst aynı hizada, K3 döşemesinde (y 10.2–11.3) ara, üst şeritler alınlık kenarına kadar çıkıyor. Batı ucunda dar köşe cam balkon yığını (K1 açık cam, K2–K3 koyu cam, K0/K4/K5 açık; arka duvarda şerit görünüyor), iç köşede beyaz boru. Güneşte üst gri sıva çok açık görünüyor (#eaeae4). v5: G8RU'dan pencere perdeleri bu uzaklıkta seçilemedi (yazılmadı)."
+      "note": "Güney ana duvarı, üçgen alınlık (tepe u≈6.7, y≈23.0; eğim ≈25°). İki pencere sütunu (tüm katlar aynı 2 kanatlı ≈1.2×1.35 m), her birinin iki yanında şerit; şerit çiftleri alt/üst aynı hizada, K3 döşemesinde (y 10.2–11.3) ara, üst şeritler alınlık kenarına kadar çıkıyor. Batı ucunda dar köşe cam balkon yığını (K1 açık cam, K2–K3 koyu cam, K0/K4/K5 açık; arka duvarda şerit görünüyor), iç köşede beyaz boru. Güneşte üst gri sıva çok açık görünüyor (#eaeae4). v5: G8RU'dan pencere perdeleri bu uzaklıkta seçilemedi (yazılmadı). v5 (2026-09-29): üst gri pano y1 23 → 19.99 (duvar + saçak alnı üstü ≈20.3 m, alınlık tabanı); pano dikdörtgeni alınlık eğiminin dışına (gökyüzüne) taşıyordu. Alınlık üçgeni de gri → pending \"Alınlık üçgenlerinin rengi\"."
     },
     {
       "edge": 14,
@@ -1138,12 +1140,16 @@
         {
           "t": "pipe",
           "u": 1.56,
-          "off": 0.1
+          "off": 0.1,
+          "color": "#d4d6ce",
+          "r": 0.045
         },
         {
           "t": "pipe",
           "u": 4.7,
-          "off": 0.1
+          "off": 0.1,
+          "color": "#d4d6ce",
+          "r": 0.045
         },
         {
           "t": "panel",
@@ -1506,12 +1512,16 @@
         {
           "t": "pipe",
           "u": 1.05,
-          "off": 0.1
+          "off": 0.1,
+          "color": "#d4d6ce",
+          "r": 0.045
         },
         {
           "t": "pipe",
           "u": 4.42,
-          "off": 0.1
+          "off": 0.1,
+          "color": "#d4d6ce",
+          "r": 0.045
         },
         {
           "t": "panel",
@@ -1825,11 +1835,11 @@
           "u0": -1.53,
           "u1": 8,
           "y0": 10.7,
-          "y1": 22.7,
+          "y1": 19.66,
           "color": "plaster2"
         }
       ],
-      "note": "Kuzey ana duvarı (502. Sokak cephesi), üçgen alınlık: tepe u≈0.8 (doğu uca yakın), y≈22.7; alınlığın doğu eğimi KD şapkasının üstünde sürüyor. İki pencere sütunu (tüm katlar 2 kanat ≈1.25×1.33 m), her birinin iki yanında şerit; alt çift (K0–K2) üst uçları y≈10.2, üst çift K3 döşemesinden (y≈11.2) alınlık kenarına kadar. u 4.84–6.2 arası düz sıva ayak; batı uçta köşe cam balkon yığını (loggia: ön yüz kenar çizgisinde, arka duvar niş duvarı hizasında ≈3.2 m içeride; batı yüzü = kenar 0). Yığının üstünde kalın şapka (y 18.0–19.5, alınlıktan alçak). Doğu köşe (26/27) ortofoto sol sınırında (2ydc karesinden ≈1.9 m düz duvar) → cal.u[0] tahmini. v5: 2ydc ortosu + 7xGS 178_7/178_32: doğu sütunu K0 koyu (ağaç), K1–K2 tül, K3 sağ kanat açık, K4 perdesiz, K5 sol kanat zebra; batı sütunu K0–K1 çam arkasında, K2 tül, K3 zebra, K4 perdesiz, K5 tül. Batı uç loca: K0 cam + önünde kemerli ferforje (pending), K1 açık (saksılar), K2 şeffaf cam, K3–K4 koyu cam, K5 açık."
+      "note": "Kuzey ana duvarı (502. Sokak cephesi), üçgen alınlık: tepe u≈0.8 (doğu uca yakın), y≈22.7; alınlığın doğu eğimi KD şapkasının üstünde sürüyor. İki pencere sütunu (tüm katlar 2 kanat ≈1.25×1.33 m), her birinin iki yanında şerit; alt çift (K0–K2) üst uçları y≈10.2, üst çift K3 döşemesinden (y≈11.2) alınlık kenarına kadar. u 4.84–6.2 arası düz sıva ayak; batı uçta köşe cam balkon yığını (loggia: ön yüz kenar çizgisinde, arka duvar niş duvarı hizasında ≈3.2 m içeride; batı yüzü = kenar 0). Yığının üstünde kalın şapka (y 18.0–19.5, alınlıktan alçak). Doğu köşe (26/27) ortofoto sol sınırında (2ydc karesinden ≈1.9 m düz duvar) → cal.u[0] tahmini. v5: 2ydc ortosu + 7xGS 178_7/178_32: doğu sütunu K0 koyu (ağaç), K1–K2 tül, K3 sağ kanat açık, K4 perdesiz, K5 sol kanat zebra; batı sütunu K0–K1 çam arkasında, K2 tül, K3 zebra, K4 perdesiz, K5 tül. Batı uç loca: K0 cam + önünde kemerli ferforje (pending), K1 açık (saksılar), K2 şeffaf cam, K3–K4 koyu cam, K5 açık. v5 (2026-09-29): üst gri pano y1 22.7 → 19.66 (duvar + saçak alnı üstü ≈20.3 m, alınlık tabanı); pano dikdörtgeni alınlık eğiminin dışına (gökyüzüne) taşıyordu. Alınlık üçgeni de gri → pending \"Alınlık üçgenlerinin rengi\"."
     }
   ],
   "notes": [
@@ -1848,7 +1858,9 @@
     "Renkler doğu cephenin güneşli yüzünden; kiremit soluk hava fotoğrafından (gerçekte daha doygun kırmızı-kahve), subasman gölgeli bodrum duvarından.",
     "Loca/köşe yığınlarında klima ve dolap kutuları arka duvarda (inset kadar içeride); çanaklar loca korkuluğunda (kenar çizgisinde, onBal=false yazıldı). Şapkalar (kalın gri alın ≈1 m) için roof.fasciaH=1.1: doğu çıkma duvarları da K5 tavanından ≈1.2 m yükselip düz parapetle biter, saçak taşması yok.",
     "v5 (retro, 2026-09-29): renkler yeniden örneklendi. Doğu (czGR, güneşli): alt sıva #dbdad1, üst gri sıva #b4b7b2, şerit #e8aa70, balkon alnı (grenli gri) #a8a8a6, buzlu cam #cbdde0, saçak altı #afada7 (gölgede), boru #8f9491 (açık gri/beyaz). Kuzey (2ydc, gölge): alın #787d78, sıva mavi kayık #6984a9. Palette fascia #a9a9a5, railGlass #cbdcdc; diğerleri eski değerlerle uyumlu, korundu.",
-    "v5 balkon ölçüsü (zvj 16 ortosu, 80 px/m büyütme): alın bandı ≈0.65–0.7 m görünen (döşeme 0.16 + dolu parapet ≈0.45–0.5), üstünde ≈0.3 m buzlu cam → rail glass, parapetH 0.45. Alınlar grenli açık gri (eleştirmenin 'açık gri' notuyla uyumlu), krem değil."
+    "v5 balkon ölçüsü (zvj 16 ortosu, 80 px/m büyütme): alın bandı ≈0.65–0.7 m görünen (döşeme 0.16 + dolu parapet ≈0.45–0.5), üstünde ≈0.3 m buzlu cam → rail glass, parapetH 0.45. Alınlar grenli açık gri (eleştirmenin 'açık gri' notuyla uyumlu), krem değil.",
+    "v5 (2026-09-29): \"Balkon cam korkuluk dikmeleri\" pending maddesi kapatıldı — üretici glass tipinde ≈1.2 m arayla paslanmaz dikme + küpeşte çiziyor (fotoğrafta ≈1.0 m). Alınlıklı kenar panoları (6, 13, 27) duvar/saçak üstünde kesildi (alınlık rengi pending). Yeni pending: eğimli şapka alınları (KD/GD). Kalan: K0 kemerli ferforje (v6), silindir aplikler (v6), gömme spotlar (v6; üretici şu an loca/balkon başına tek spot koyuyor).",
+    "v5 (2026-09-29): yağmur boruları beyaz/açık gri PVC (czGR güneşli kenar 18/22 iç köşe boruları #c9cbc2–#dfe2da, gölgede #838b8c–#888e89) → pipe color #d4d6ce, r 0.045."
   ],
   "pending": [
     {
@@ -1883,8 +1895,21 @@
       "desc": "Her balkon döşemesi altında 1–2 yuvarlak gömme spot (Ø≈10 cm)."
     },
     {
-      "what": "Balkon cam korkuluk dikmeleri",
-      "desc": "Buzlu cam paneller ≈1.0 m aralıklı paslanmaz dikmelerle ayrılı, üstte paslanmaz küpeşte (#c9cdcf)."
+      "what": "Alınlık üçgenlerinin rengi",
+      "edges": [
+        6,
+        13,
+        27
+      ],
+      "desc": "Batı (6), güney (13) ve kuzey (27) üçgen alınlıkları K3 döşemesinden yukarıki açık gri sıvanın (plaster2 #bcbfbb; güneşli güneyde #eaeae4 aşırı pozlu, doğu güneşli #b4b7b2) devamı — alınlık tepesine kadar gri. Pano saçak kotunda kesildi (görünen y1: e6 20.83, e13 19.99, e27 19.66); alınlık üçgeni şu an plaster (kırık beyaz) çizilir. Gerekli: roof.gableC (ya da panelin alınlık hattına kırpılması; eski üst kotlar: e6 23.5, e13 23.0, e27 22.7). Ayrıca alınlıklı kenarlardaki üst şerit çiftleri alınlık eğim çizgisine kadar çıkıyor (e13: u 3.03/4.57/5.78/7.39 → y1 21.5/22.2/22.85/22.9; e27: u 0.29/1.8/2.87/4.5 → 22.55/22.45/21.75/21.05; e6: 23.5) — üretici şeritleri duvar üstünde kesiyor."
+    },
+    {
+      "what": "Eğimli şapka alınları (KD/GD köşe yığınları)",
+      "edges": [
+        15,
+        25
+      ],
+      "desc": "KD ve GD köşe balkon yığınlarının kalın şapkasının dış alnı yamuk: alt kenarı düz (görünen y≈17.8–17.9), üst kenarı ana alınlığın eğimini sürdürür. GD (e15, G8RU görünen): üst kenar u 0.25'te y≈21.2 → u 4.35'te y≈19.3 (doğuya iner). KD (e25, 2ydc görünen): u −1.5'te y≈19.7 → u 2.2'de y≈21.1 (batıya yükselir, kuzey alınlığa birleşir). Renk alın grisi (fascia #a9a9a5 güneşli, kuzeyde gölge #787d78). Şu an cap düz levha çiziliyor → v6 eğimli yığın şapkası."
     }
   ]
 }

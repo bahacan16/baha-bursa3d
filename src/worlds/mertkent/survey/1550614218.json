@@ -55,12 +55,12 @@
    {
     "poly": [
      [
-      690.63,
-      -167.46
+      690.106,
+      -161.466
      ],
      [
-      688.54,
-      -167.64
+      688.016,
+      -161.648
      ],
      [
       687.32,
@@ -71,21 +71,21 @@
       -153.51
      ]
     ],
-    "storeys": 3,
+    "storeys": 4,
     "roof": {
      "eave": 0.05,
-     "fasciaH": 2.8
+     "fasciaH": 0.95
     }
    },
    {
     "poly": [
      [
-      694.17,
-      -167.15
+      693.644,
+      -161.157
      ],
      [
-      690.63,
-      -167.46
+      690.106,
+      -161.466
      ],
      [
       689.41,
@@ -96,10 +96,10 @@
       -153.2
      ]
     ],
-    "storeys": 4,
+    "storeys": 5,
     "roof": {
      "eave": 0.05,
-     "fasciaH": 1.8
+     "fasciaH": 0.25
     }
    },
    {
@@ -125,6 +125,31 @@
     "roof": {
      "eave": 0.05,
      "fasciaH": 1.1
+    }
+   },
+   {
+    "poly": [
+     [
+      694.17,
+      -167.15
+     ],
+     [
+      688.54,
+      -167.64
+     ],
+     [
+      688.016,
+      -161.648
+     ],
+     [
+      693.644,
+      -161.157
+     ]
+    ],
+    "storeys": 1,
+    "roof": {
+     "eave": 0.05,
+     "fasciaH": 0.02
     }
    },
    {
@@ -190,190 +215,6 @@
     ]
    },
    "items": [
-    {
-     "t": "proj",
-     "u0": 13.78,
-     "u1": 14.93,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#72767d"
-    },
-    {
-     "t": "proj",
-     "u0": 20.73,
-     "u1": 21.07,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 21.07,
-     "u1": 21.98,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#4a433e"
-    },
-    {
-     "t": "proj",
-     "u0": 21.98,
-     "u1": 22.32,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 28.3,
-     "u1": 28.65,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 28.65,
-     "u1": 29.57,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#4a433e"
-    },
-    {
-     "t": "proj",
-     "u0": 29.57,
-     "u1": 29.93,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 35.85,
-     "u1": 36.2,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 36.2,
-     "u1": 37.12,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#4a433e"
-    },
-    {
-     "t": "proj",
-     "u0": 37.12,
-     "u1": 37.45,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 43.3,
-     "u1": 44.45,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#72767d"
-    },
-    {
-     "t": "proj",
-     "u0": 50.1,
-     "u1": 51.3,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#72767d"
-    },
-    {
-     "t": "proj",
-     "u0": 55.7,
-     "u1": 56.02,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 56.02,
-     "u1": 56.95,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#4a433e"
-    },
-    {
-     "t": "proj",
-     "u0": 56.95,
-     "u1": 57.3,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 61.73,
-     "u1": 62.08,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 62.08,
-     "u1": 63,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#4a433e"
-    },
-    {
-     "t": "proj",
-     "u0": 63,
-     "u1": 63.35,
-     "d": 1.8,
-     "y0": 0,
-     "y1": 18.85,
-     "color": "#6f7682"
-    },
-    {
-     "t": "proj",
-     "u0": 14.93,
-     "u1": 20.73,
-     "d": 1.8,
-     "y0": 3.9,
-     "y1": 4.45,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
-     "t": "proj",
-     "u0": 14.93,
-     "u1": 20.73,
-     "d": 1.8,
-     "y0": 10.65,
-     "y1": 11.15,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
     {
      "t": "win",
      "u0": 15.5,
@@ -441,28 +282,6 @@
      "curt": {
       "K4": "karanlik"
      }
-    },
-    {
-     "t": "proj",
-     "u0": 22.32,
-     "u1": 28.3,
-     "d": 1.8,
-     "y0": 3.9,
-     "y1": 4.45,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
-     "t": "proj",
-     "u0": 22.32,
-     "u1": 28.3,
-     "d": 1.8,
-     "y0": 10.65,
-     "y1": 11.15,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
     },
     {
      "t": "win",
@@ -550,28 +369,6 @@
      }
     },
     {
-     "t": "proj",
-     "u0": 29.93,
-     "u1": 35.85,
-     "d": 1.8,
-     "y0": 3.9,
-     "y1": 4.45,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
-     "t": "proj",
-     "u0": 29.93,
-     "u1": 35.85,
-     "d": 1.8,
-     "y0": 10.65,
-     "y1": 11.15,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
      "t": "win",
      "u0": 30.6,
      "u1": 34.9,
@@ -655,28 +452,6 @@
      "curt": {
       "K4": "jaluzi"
      }
-    },
-    {
-     "t": "proj",
-     "u0": 37.45,
-     "u1": 43.3,
-     "d": 1.8,
-     "y0": 3.9,
-     "y1": 4.45,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
-     "t": "proj",
-     "u0": 37.45,
-     "u1": 43.3,
-     "d": 1.8,
-     "y0": 10.65,
-     "y1": 11.15,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
     },
     {
      "t": "win",
@@ -764,28 +539,6 @@
      }
     },
     {
-     "t": "proj",
-     "u0": 51.3,
-     "u1": 55.7,
-     "d": 1.8,
-     "y0": 3.9,
-     "y1": 4.45,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
-     "t": "proj",
-     "u0": 51.3,
-     "u1": 55.7,
-     "d": 1.8,
-     "y0": 10.65,
-     "y1": 11.15,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
      "t": "win",
      "u0": 52,
      "u1": 55,
@@ -852,28 +605,6 @@
      "curt": {
       "K4": "karanlik"
      }
-    },
-    {
-     "t": "proj",
-     "u0": 57.3,
-     "u1": 61.73,
-     "d": 1.8,
-     "y0": 3.9,
-     "y1": 4.45,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
-     "t": "proj",
-     "u0": 57.3,
-     "u1": 61.73,
-     "d": 1.8,
-     "y0": 10.65,
-     "y1": 11.15,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
     },
     {
      "t": "win",
@@ -944,28 +675,6 @@
      }
     },
     {
-     "t": "proj",
-     "u0": 63.35,
-     "u1": 67.55,
-     "d": 1.8,
-     "y0": 3.9,
-     "y1": 4.45,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
-     "t": "proj",
-     "u0": 63.35,
-     "u1": 67.55,
-     "d": 1.8,
-     "y0": 10.65,
-     "y1": 11.15,
-     "color": "#4e4a45",
-     "topRail": "glassFull",
-     "topRailC": "#9aa0a3"
-    },
-    {
      "t": "win",
      "u0": 63.95,
      "u1": 66.95,
@@ -1034,30 +743,6 @@
      }
     },
     {
-     "t": "proj",
-     "u0": 13.5,
-     "u1": 44.75,
-     "d": 1.8,
-     "y0": 18.85,
-     "y1": 19.35,
-     "color": "#4f4c4a"
-    },
-    {
-     "t": "proj",
-     "u0": 49.8,
-     "u1": 67.55,
-     "d": 1.8,
-     "y0": 18.85,
-     "y1": 19.35,
-     "color": "#4f4c4a"
-    },
-    {
-     "t": "ac",
-     "u": 42.4,
-     "s": 1,
-     "y": 4.85
-    },
-    {
      "t": "win",
      "u0": 0.1,
      "u1": 4.7,
@@ -1090,15 +775,6 @@
      "curt": {
       "K0": "vitrin"
      }
-    },
-    {
-     "t": "proj",
-     "u0": 0,
-     "u1": 13.78,
-     "d": 1.05,
-     "y0": 4.13,
-     "y1": 5.16,
-     "color": "#706b63"
     },
     {
      "t": "sign",
@@ -1166,12 +842,6 @@
      "logo": "solda ince beyaz halka içinde 'AT' monogramı; yazılar gümüş-beyaz tırnaklı büyük harf, iki satır"
     },
     {
-     "t": "camera",
-     "u": 14.95,
-     "s": 0,
-     "y": 3.6
-    },
-    {
      "t": "win",
      "u0": 22.35,
      "u1": 28.25,
@@ -1187,14 +857,6 @@
      "curt": {
       "K0": "vitrin"
      }
-    },
-    {
-     "t": "panel",
-     "u0": 22.35,
-     "u1": 28.25,
-     "y0": 3.3,
-     "y1": 3.9,
-     "color": "#5a5040"
     },
     {
      "t": "sign",
@@ -1357,19 +1019,10 @@
      }
     },
     {
-     "t": "entrance",
-     "u0": 45.9,
-     "u1": 48.7,
-     "kind": "lobby",
-     "canopy": false,
-     "sign": "MOSSA ROOMS | ÖZLÜCE No:5",
-     "steps": 0
-    },
-    {
      "t": "proj",
      "u0": 43.5,
      "u1": 51,
-     "d": 1.2,
+     "d": 0.5,
      "y0": 4,
      "y1": 4.55,
      "color": "#4a433e"
@@ -1429,59 +1082,6 @@
      "color": "#2b2b2b"
     },
     {
-     "t": "proj",
-     "u0": 48,
-     "u1": 50.1,
-     "d": 0.02,
-     "y0": 11.29,
-     "y1": 14.2,
-     "color": "#4a433e",
-     "wins": [
-      {
-       "u0": 48,
-       "u1": 49.35,
-       "y0": 11.35,
-       "y1": 14.1,
-       "kind": "std",
-       "curt": "karanlik"
-      }
-     ]
-    },
-    {
-     "t": "win",
-     "u0": 48,
-     "u1": 49.35,
-     "y0": 5.9,
-     "y1": 7.6,
-     "k": 1,
-     "s": [
-      1,
-      1
-     ],
-     "kind": "std",
-     "split": 1,
-     "curt": {
-      "K1": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 48,
-     "u1": 49.35,
-     "y0": 7.95,
-     "y1": 11,
-     "k": 2,
-     "s": [
-      2,
-      2
-     ],
-     "kind": "std",
-     "split": 1,
-     "curt": {
-      "K2": "karanlik"
-     }
-    },
-    {
      "t": "win",
      "u0": 51.5,
      "u1": 55.6,
@@ -1531,30 +1131,6 @@
      "curt": {
       "K0": "vitrin"
      }
-    },
-    {
-     "t": "panel",
-     "u0": 51.3,
-     "u1": 55.7,
-     "y0": 3.25,
-     "y1": 3.9,
-     "color": "#5a5040"
-    },
-    {
-     "t": "panel",
-     "u0": 57.3,
-     "u1": 61.73,
-     "y0": 3.25,
-     "y1": 3.9,
-     "color": "#5a5040"
-    },
-    {
-     "t": "panel",
-     "u0": 63.35,
-     "u1": 67.55,
-     "y0": 3.25,
-     "y1": 3.9,
-     "color": "#5a5040"
     },
     {
      "t": "sign",
@@ -1899,9 +1475,533 @@
      "curt": {
       "K0": "vitrin"
      }
+    },
+    {
+     "t": "panel",
+     "u0": 13.78,
+     "u1": 14.93,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#72767d"
+    },
+    {
+     "t": "panel",
+     "u0": 20.73,
+     "u1": 21.07,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 21.98,
+     "u1": 22.32,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 28.3,
+     "u1": 28.65,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 29.57,
+     "u1": 29.93,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 35.85,
+     "u1": 36.2,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 37.12,
+     "u1": 37.45,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 43.3,
+     "u1": 44.45,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#72767d"
+    },
+    {
+     "t": "panel",
+     "u0": 50.1,
+     "u1": 51.3,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#72767d"
+    },
+    {
+     "t": "panel",
+     "u0": 55.7,
+     "u1": 56.02,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 56.95,
+     "u1": 57.3,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 61.73,
+     "u1": 62.08,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "panel",
+     "u0": 63,
+     "u1": 63.35,
+     "y0": 0,
+     "y1": 18.2,
+     "color": "#6f7682"
+    },
+    {
+     "t": "recess",
+     "u0": 14.93,
+     "u1": 20.73,
+     "y0": 0,
+     "y1": 3.9,
+     "depth": 1.8,
+     "back": "#5a5040",
+     "side": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 14.93,
+     "u1": 20.73,
+     "y0": 4.45,
+     "y1": 10.65,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 14.93,
+     "u1": 20.73,
+     "y0": 11.15,
+     "y1": 18.2,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "proj",
+     "u0": 14.93,
+     "u1": 20.73,
+     "d": 0.05,
+     "y0": 3.9,
+     "y1": 4.45,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.85
+    },
+    {
+     "t": "proj",
+     "u0": 14.93,
+     "u1": 20.73,
+     "d": 0.05,
+     "y0": 10.65,
+     "y1": 11.15,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.75
+    },
+    {
+     "t": "recess",
+     "u0": 22.32,
+     "u1": 28.3,
+     "y0": 0,
+     "y1": 3.9,
+     "depth": 1.8,
+     "back": "#5a5040",
+     "side": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 22.32,
+     "u1": 28.3,
+     "y0": 4.45,
+     "y1": 10.65,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 22.32,
+     "u1": 28.3,
+     "y0": 11.15,
+     "y1": 18.2,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "proj",
+     "u0": 22.32,
+     "u1": 28.3,
+     "d": 0.05,
+     "y0": 3.9,
+     "y1": 4.45,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.85
+    },
+    {
+     "t": "proj",
+     "u0": 22.32,
+     "u1": 28.3,
+     "d": 0.05,
+     "y0": 10.65,
+     "y1": 11.15,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.75
+    },
+    {
+     "t": "recess",
+     "u0": 29.93,
+     "u1": 35.85,
+     "y0": 0,
+     "y1": 3.9,
+     "depth": 1.8,
+     "back": "#5a5040",
+     "side": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 29.93,
+     "u1": 35.85,
+     "y0": 4.45,
+     "y1": 10.65,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 29.93,
+     "u1": 35.85,
+     "y0": 11.15,
+     "y1": 18.2,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "proj",
+     "u0": 29.93,
+     "u1": 35.85,
+     "d": 0.05,
+     "y0": 3.9,
+     "y1": 4.45,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.85
+    },
+    {
+     "t": "proj",
+     "u0": 29.93,
+     "u1": 35.85,
+     "d": 0.05,
+     "y0": 10.65,
+     "y1": 11.15,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.75
+    },
+    {
+     "t": "recess",
+     "u0": 37.45,
+     "u1": 43.3,
+     "y0": 0,
+     "y1": 3.9,
+     "depth": 1.8,
+     "back": "#5a5040",
+     "side": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 37.45,
+     "u1": 43.3,
+     "y0": 4.45,
+     "y1": 10.65,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 37.45,
+     "u1": 43.3,
+     "y0": 11.15,
+     "y1": 18.2,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "proj",
+     "u0": 37.45,
+     "u1": 43.3,
+     "d": 0.05,
+     "y0": 3.9,
+     "y1": 4.45,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.85
+    },
+    {
+     "t": "proj",
+     "u0": 37.45,
+     "u1": 43.3,
+     "d": 0.05,
+     "y0": 10.65,
+     "y1": 11.15,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.75
+    },
+    {
+     "t": "recess",
+     "u0": 51.3,
+     "u1": 55.7,
+     "y0": 0,
+     "y1": 3.9,
+     "depth": 1.8,
+     "back": "#5a5040",
+     "side": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 51.3,
+     "u1": 55.7,
+     "y0": 4.45,
+     "y1": 10.65,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 51.3,
+     "u1": 55.7,
+     "y0": 11.15,
+     "y1": 18.2,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "proj",
+     "u0": 51.3,
+     "u1": 55.7,
+     "d": 0.05,
+     "y0": 3.9,
+     "y1": 4.45,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.85
+    },
+    {
+     "t": "proj",
+     "u0": 51.3,
+     "u1": 55.7,
+     "d": 0.05,
+     "y0": 10.65,
+     "y1": 11.15,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.75
+    },
+    {
+     "t": "recess",
+     "u0": 57.3,
+     "u1": 61.73,
+     "y0": 0,
+     "y1": 3.9,
+     "depth": 1.8,
+     "back": "#5a5040",
+     "side": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 57.3,
+     "u1": 61.73,
+     "y0": 4.45,
+     "y1": 10.65,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 57.3,
+     "u1": 61.73,
+     "y0": 11.15,
+     "y1": 18.2,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "proj",
+     "u0": 57.3,
+     "u1": 61.73,
+     "d": 0.05,
+     "y0": 3.9,
+     "y1": 4.45,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.85
+    },
+    {
+     "t": "proj",
+     "u0": 57.3,
+     "u1": 61.73,
+     "d": 0.05,
+     "y0": 10.65,
+     "y1": 11.15,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.75
+    },
+    {
+     "t": "recess",
+     "u0": 63.35,
+     "u1": 67.55,
+     "y0": 0,
+     "y1": 3.9,
+     "depth": 1.8,
+     "back": "#5a5040",
+     "side": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 63.35,
+     "u1": 67.55,
+     "y0": 4.45,
+     "y1": 10.65,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "recess",
+     "u0": 63.35,
+     "u1": 67.55,
+     "y0": 11.15,
+     "y1": 18.2,
+     "depth": 1.8,
+     "back": "#4a433e",
+     "side": "#6f7478",
+     "ceil": "#6f7478"
+    },
+    {
+     "t": "proj",
+     "u0": 63.35,
+     "u1": 67.55,
+     "d": 0.05,
+     "y0": 3.9,
+     "y1": 4.45,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.85
+    },
+    {
+     "t": "proj",
+     "u0": 63.35,
+     "u1": 67.55,
+     "d": 0.05,
+     "y0": 10.65,
+     "y1": 11.15,
+     "color": "#4e4a45",
+     "topRail": "glassFull",
+     "topRailC": "#9aa0a3",
+     "topRailH": 0.75
+    },
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 13.78,
+     "y0": 0,
+     "y1": 4.13,
+     "depth": 1.8,
+     "side": "#706b63",
+     "ceil": "#706b63"
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 13.78,
+     "y0": 4.13,
+     "y1": 5.16,
+     "color": "#706b63",
+     "proud": 0.03
+    },
+    {
+     "t": "recess",
+     "u0": 44.45,
+     "u1": 50.1,
+     "y0": 0,
+     "y1": 4,
+     "depth": 1.8,
+     "side": "#6f7478"
     }
    ],
-   "note": "Kuzey cephe (sokak), 2025-09, üç panorama (1O3d/31V0/TAo7). ÖNEMLİ: bu kenar ve kenar 3 GERÇEK koordinatla yazıldı (ref dosyası docs/survey/c'de yok → derleyici D=1e6, büyütme düzeltmesi yapmaz; cal.u=[0,len], cal.head kat döşemesi+2.25). Resmî ortofotolar bu sokakta kullanılamaz: SV konumları ~4.3 m güneye (binaya) ve ~0.7 m doğuya kaymış, görünen ölçek 0.49–0.55. Kamera pozları üç panoramanın paralaksından + batı blok kat aralığından (3.43 m) çözüldü (1O3d s=47.6, 31V0 s=36.67, TAo7 s=25.6; D=8.8/8.8/8.9 m; kamera bina tabanından 1.78 m yukarıda) ve düzeltilmiş ortofotolar üretildi: taban izi düzlemi (t*) ve 1.8 m içerideki arka duvar düzlemi (b*) — /tmp/claude-0/agent-d3-218/c/ (üretici: fixortho.mjs). Üç düzeltilmiş ortofoto ayaklar/pencereler üzerinde ±0.15 m örtüşüyor. KANAT MODELİ (geçici, bkz. pending[0]): gerçekte ayak/döşeme alnı/saçak önleri taban izi çizgisinde, loca arka duvarları ve dükkân camları 1.8 m içeride. Üretici çok katlı yüksek locayı çizemediği için duvar = arka duvar/dükkân camı hattı alındı, ayaklar-döşemeler-saçak 1.8 m proj → kanat cephesi gerçeğe göre 1.8 m kuzeyde (sokakta) duruyor; batı blok kuzey yüzü ise doğru yerde (taban izinde)."
+   "note": "Kuzey cephe (sokak), 2025-09, üç panorama (1O3d/31V0/TAo7). ÖNEMLİ: bu kenar ve kenar 3 GERÇEK koordinatla yazıldı (ref dosyası docs/survey/c'de yok → derleyici D=1e6, büyütme düzeltmesi yapmaz; cal.u=[0,len], cal.head kat döşemesi+2.25). Resmî ortofotolar bu sokakta kullanılamaz: SV konumları ~4.3 m güneye (binaya) ve ~0.7 m doğuya kaymış, görünen ölçek 0.49–0.55. Kamera pozları üç panoramanın paralaksından + batı blok kat aralığından (3.43 m) çözüldü (1O3d s=47.6, 31V0 s=36.67, TAo7 s=25.6; D=8.8/8.8/8.9 m; kamera bina tabanından 1.78 m yukarıda) ve düzeltilmiş ortofotolar üretildi: taban izi düzlemi (t*) ve 1.8 m içerideki arka duvar düzlemi (b*) — /tmp/claude-0/agent-d3-218/c/ (üretici: fixortho.mjs). Üç düzeltilmiş ortofoto ayaklar/pencereler üzerinde ±0.15 m örtüşüyor. v5 GİRİNTİ MODELİ: duvar = taban izi = ayak / döşeme alnı / saçak önü hattı. Her kanat bölmesinde (ayak çiftleri arası) üç `recess`: dükkân hattı 0→3.9 (1.8 m içeride, arka yüz fasya rengi #5a5040), alt yüksek loca 4.45→10.65 ve üst yüksek loca 11.15→18.2 (1.8 m, ara döşemesiz; arka duvar granit, yan/tavan #6f7478); döşeme alınları 3.9–4.45 / 10.65–11.15 ağızda d 0.05 proj + çerçevesiz cam korkuluk (küpeşte 5.3 / 11.9). Ayak alüminyum kenarları ve köşe ayakları `panel` (granit orta = duvar rengi). Arka duvar pencereleri, dükkân camları ve tabelalar aynı u/y ile girinti arka duvarına çizilir (b* ortofotolarında ölçülmüştü). Podyum: cam 1.8 m içeride (recess 0→4.13, tavan = kanopi #706b63), kanopi alnı panel. MOSSA çekirdeği: massing ile 3.0 m geri (aşağıya bakın), önünde 1 katlı kanopi/giriş parçası (giriş girintisi 0→4.0, 1.8 m). Batı blok kuzey yüzü değişmedi (taban izinde)."
   },
   {
    "edge": 3,
@@ -2198,23 +2298,16 @@
  ],
  "notes": [
   "KAT SAYISI: batı blok zemin + 5 kat = 6 (ayak bandı brifindeki 7 değil): batı cephede her iki ortofotoda ve QZix/_PsLu karelerinde tam 5 balkon sırası (döşeme üstleri görünen 7.08/10.55/14.1/17.6/21.1), kuzey yüzde 5 pencere sırası + zemin; üstte 22.3 m'de saçak. Kat aralığı 3.43 m (batı: görünen 3.48, ortofoto genişliği 24.72/24.33), zemin kat yüksek (K1 döşemesi kuzey kaldırımından 4.43, batı kaldırımından ~4.9 → batı kaldırımı ~0.5 m aşağıda). groundRaise 1.0 = K1 döşemesi 4.43 − 3.43 (sanal; zemin kat camları tabandan 0.1 m'den başlar). floorHs [4.43, 3.43…] + groundRaise 0 daha doğru olurdu, ama survey-compile rel()/absY() hâlâ düzgün kat aralığı (cal.head) kullanıyor → tüm öğeler 1 m kayardı; derleyici floorHs'i desteklediğinde geçilmeli (yan etki: üretici subasmanı tabandan 1.0 m'ye kadar çiziyor, gerçekte 0.05–0.4 renkli seramik).",
-  "KÜTLE (massing, dünya poly): batı blok u 67.5–80 (x ≈ 656–671) (6 kat, düz çatı, 0.33 m saçak/korniş, üst 22.3). Kuzey kanat A (u 50.1–67.5, derinlik 10.2) ve B (u 13.78–44.45, derinlik 12.1; hava fotoğrafı beyaz çatı güney kenarı + 4.35 m eğim): 5 'üretici katı' = gerçekte zemin (0→3.9) + iki YÜKSEK loca katı (döşeme 4.45 ve 11.15, tavanlar 10.65 ve 18.85; her biri ~6.5 m, 4.1–4.3 m genişlikte tavana kadar cam) + saçak 18.85–19.35. Çekirdek (MOSSA ROOMS girişi, girintili koyu granit kule): batı yarısı u 44.45–48 üst 16.6, doğu yarısı u 48–50.1 üst 14.2 (iki massing parçası). Parçalar kenar 2'ye paralel poly şeritler (u aralığı × derinlik: blok 67.5–80, kanat A 10.2 m, çekirdek 11 m, kanat B 12.1 m). Geri kalan her şey (doğu podyum + kanatların güneyindeki avlu podyumu) `rest` tek kat, kanopi üstü 5.16: güney podyumun yüksekliği ve güney yüzleri GÖRÜLMEDİ, doğu podyumla aynı (tek kat) alındı; hava fotoğrafında podyum çatısında ışıklıklar/klima blokları, x 700–735 z −145…−139'da ayrı beyaz membran şerit (alçak güney kanat) var.",
-  "EĞİM/KONUM: kanat 4 değil 3 seviye ama 19.35 m yüksek → hava fotoğrafı eğimi 0.226 m/m ile çatı kayması 4.35 m (ayak bandındaki 3.4 değil). Kanatların çatısı kuzeyinde görülen 2 m kahverengi bant = saçak üstü (granit kaplama), kuzey kenarı ≈ taban izi çizgisi (düzeltilmiş ortofotolarda ayak önleri ve batı blok kuzey yüzü aynı düzlemde, ±0.2 m). Yani kuzey taban izi dış hat olarak doğru; ama dükkân camları ve loca arka duvarları 1.8 m, podyum camı 1.8 m, podyum kanopi önü 0.75 m, çekirdek ön yüzü 1.8–4.5 m (belirsiz) içeride.",
+  "KÜTLE (massing, dünya poly): batı blok u 67.5–80 (x ≈ 656–671) (6 kat, düz çatı, 0.33 m saçak/korniş, üst 22.3). Kuzey kanat A (u 50.1–67.5, derinlik 10.2) ve B (u 13.78–44.45, derinlik 12.1; hava fotoğrafı beyaz çatı güney kenarı + 4.35 m eğim): 5 'üretici katı' = gerçekte zemin (0→3.9) + iki YÜKSEK loca katı (döşeme 4.45 ve 11.15, tavanlar 10.65 ve 18.85; her biri ~6.5 m, 4.1–4.3 m genişlikte tavana kadar cam) + saçak 18.85–19.35. Çekirdek (MOSSA ROOMS girişi, girintili koyu granit kule; v5): ön yüzü kanat ayak önlerinden 3.0 m GERİDE (massing poly kuzey kenarı 3.0 m içeride), doğu yarısı u 44.45–48 üst ≈18.5 (5 kat + 0.25 alın), batı yarısı u 48–50.1 üst ≈15.8 (4 kat + 0.95 alın) — önceki notta doğu/batı yer değiştirmişti ve üstler 1.8 m derinlik varsayımıyla 16.6/14.2 yazılmıştı. Önündeki 3.0 m derin boşluk ayrı 1 katlı parça (üst 4.57 = giriş kanopisi üstü; önünde d 0.5 kanopi proj, iki köşe ayağını da aşar); batı yarısının girintili ön yüzündeki merdiven şerit penceresi volumes[0]. Parçalar kenar 2'ye paralel poly şeritler (u aralığı × derinlik: blok 67.5–80, kanat A 10.2 m, çekirdek 11 m, kanat B 12.1 m). Geri kalan her şey (doğu podyum + kanatların güneyindeki avlu podyumu) `rest` tek kat, kanopi üstü 5.16: güney podyumun yüksekliği ve güney yüzleri GÖRÜLMEDİ, doğu podyumla aynı (tek kat) alındı; hava fotoğrafında podyum çatısında ışıklıklar/klima blokları, x 700–735 z −145…−139'da ayrı beyaz membran şerit (alçak güney kanat) var.",
+  "EĞİM/KONUM: kanat 4 değil 3 seviye ama 19.35 m yüksek → hava fotoğrafı eğimi 0.226 m/m ile çatı kayması 4.35 m (ayak bandındaki 3.4 değil). Kanatların çatısı kuzeyinde görülen 2 m kahverengi bant = saçak üstü (granit kaplama), kuzey kenarı ≈ taban izi çizgisi (düzeltilmiş ortofotolarda ayak önleri ve batı blok kuzey yüzü aynı düzlemde, ±0.2 m). Yani kuzey taban izi dış hat olarak doğru; dükkân camları ve loca arka duvarları 1.8 m, podyum camı 1.8 m, podyum kanopi önü 0.75 m, çekirdek ön yüzü ≈3.0 m içeride (v5 recess/massing ile çizildi).",
   "RENKLER (tümü gölgede ölçüldü — kuzey ve batı yüzde güneşli kare yok; güneşte ~1.3× daha açık olmalı): ana kaplama koyu kahverengi benekli granit #4a433e (örnekler #423c33 #44403d #4c4b48 #525150; 31V0 kanatlarda sıcak #39312f), ayak kenarı ve köşe ayakları açık gri alüminyum #6f7682/#72767d, loca yan duvarı/tavanı açık gri #696d71–#6f7478, döşeme alnı granit #4e4a45, saçak alnı #4f4c4a, cam korkuluk görünen #7e8689 (batı #7f8c95), pencere doğraması koyu bronz/antrasit #3a3b38, batı blok kuzey yüzü ızgara çerçeveleri açık gri #707a8b (dolgu koyu granit), podyum kanopisi #706b63, kanat zemin kat fasya bandı bej-kahve #5a5040 (gölge #534a38), düz çatı membranı hava fotoğrafında beyaz.",
   "KANAT CEPHESİ: her loca iki yanında ayak çifti (0.35 açık gri alüminyum + 0.92 koyu granit + 0.35 açık gri; toplam ~1.6 m), köşelerde tek açık gri ayak (1.15–1.2 m). B kanadı 4 loca (5.8–5.98 m), A kanadı 3 loca (4.2–4.4 m; A3'ün batı yanı batı blok yüzü). Arka duvar pencereleri locada ortalı: B 4.1–4.3 m, A 3.0 m genişlik; alt seviyede kayıtlar 7.1–8.0 ve üstte 14.5–14.9 (üreticide pencere bu kayıtlardan iki kata bölündü). A2/A3 pencere kenarları kısmen ayak arkasında → A1 ile aynı genişlikte ortalı alındı (A3 dMXw karesinde görüldü). Perdeler (K1/K3 = alt camlar, K2/K4 = üst camlar): B2 üst jaluzi, sağ-orta tül; B3 üst jaluzi, sol-orta beyaz stor; B4 sağ-orta tül, alt locada beyaz klima dış ünitesi; A1 beyaz stor; A2 alt yatay jaluzi (zebra ile), üst tül; A3 alt tül (+ masa-sandalye).",
   "TABELALAR: podyum 'SOFT TOWN' ×2 (açık zemin panel, mavi harf, ortada pembe peluş canavar yüzü; oyuncak mağazası); B1 'DR. ALPER YÜKSEL / TERZİOĞLU' (siyah kutu, gümüş tırnaklı harf, solda halka içinde 'AT' logosu; solunda küçük beyaz kamera/lamba); B2 boş dükkân, camda siyah 'SATILIK' levhası, düz bej fasya; B3 'VEFALI KÖFTECİ' kırmızı tente (beyaz yazılı saçak) + kırmızı oval dik bayrak tabela ('Vefalı' el yazısı); B4 'TARİHİ TENCERE KÖFTECİSİ' koyu yeşil fasya levhası + vitrini kaplayan yeşilimsi vinil afiş 'TARİHİ TENCERE KÖFTECİSİ / ÇOK YAKINDA / SİZLERLE!' (şef fotoğrafı, bakır tencereler) + roll-up 'BİZİ TAKİP EDİN!' (QR); çekirdek 'MOSSA' (yeşil kalın logo harf) + 'ROOMS | ÖZLÜCE No:5' giriş kanopisi altında, payede küçük yeşil MOSSA plakası; A1 fasyada okunamayan küçük gri levha; batı 'Karina' (beyaz kutu, gri yazı) ve 'SIEMENS' (beyaz kutu, petrol-camgöbeği harf) siyah fasya bandı üstünde; batı K3 sol loca korkuluğunda 'KİRALIK' afişi. Kepenk/tente başka yok (hepsi açık cam).",
   "ZEMİN KAT: tüm cam cephelerin altında 0.05–0.4 m renkli seramik (gökkuşağı) süpürgelik; dükkân camları koyu bronz ince doğramalı, tavandan (3.1–3.3) tabana; A1–A3 ve batı blok kuzey zemin katı boş vitrin (A3 ve blok zemini ağaç arkasında, kısmen görüldü). MOSSA girişi çift kanat cam kapı, önünde el tırabzanlı rampa (1O3d).",
-  "BATI BLOK KUZEY YÜZÜ: açık gri çerçeve ızgarası (4 düşey payanda: 67.55–69.25, 71.56–72.25, 77.1–77.8, köşe 79.75–80.04; her döşemede çıkıntılı kiriş, her pencere grubunun üstünde ince güneşlik çıkıntısı), aralarda koyu granit dolgu; her katta 4 dar boy penceresi (1.19/1.05/1.0/0.95 m, döşemeden +2.3), β bölmesinde iki pencere arası açık gri pano. Perdeler çözülemedi (kuzey gölgesi, uzak açı)."
+  "BATI BLOK KUZEY YÜZÜ: açık gri çerçeve ızgarası (4 düşey payanda: 67.55–69.25, 71.56–72.25, 77.1–77.8, köşe 79.75–80.04; her döşemede çıkıntılı kiriş, her pencere grubunun üstünde ince güneşlik çıkıntısı), aralarda koyu granit dolgu; her katta 4 dar boy penceresi (1.19/1.05/1.0/0.95 m, döşemeden +2.3), β bölmesinde iki pencere arası açık gri pano. Perdeler çözülemedi (kuzey gölgesi, uzak açı).",
+  "v5 ÇEKİRDEK DERİNLİĞİ ÖLÇÜMÜ (belirsizlik ±): düzeltilmiş 1O3d kamerasıyla (s 47.6, D 8.8, hc 1.78) −2.4/−3.0/−3.2/−4.0 m düzlem ortofotoları üretildi (/tmp/claude-0/pend-g4/fc/). (a) Ön düzlem ortofotosunda aydınlık çekirdek yüzü görünen u 45.8–49.0 (ayak aralığı 44.45–50.1) → genişlik oranı 0.57–0.75 arası okuma; (b) 1O3d 170_54 karesinde çekirdek sol köşesi (u 44.45) d=3.0 hipotez çizgisine oturuyor, üst kenar d=3.0 ile 18.3–19.0; (c) TAo7/31V0’dan kanat A doğu yan duvarı en az 2.3 m / 5.4 m (üst kenar) derinlikte görünüyor; (d) hava fotoğrafında kanatlar arası koyu boşluğun güney kenarı z −165.2 ≈ d 3.0 + üst 18.8 + eğim. 1O3d 170_25 ve ön düzlem profilinde aydınlık/gölge sınırı d≈6’yı gösteriyor ama sınır çapraz (gölge kenarı) → kullanılmadı. Sonuç d ≈ 3.0 (2.8–3.5; en kötü 6), üstler buna bağlı (derinlik–yükseklik aynı ışın üzerinde: 1O3d’den bakışta görünüş değişmez)."
  ],
  "pending": [
-  {
-   "what": "yüksek loca + girintili dükkân hattı (kuzey kanat A/B ve podyum)",
-   "edge": 2,
-   "ranges": "u 13.78–67.55 kanat, 0–13.78 podyum (gerçek u)",
-   "real": "ayak önleri, döşeme alınları (3.9–4.45 ve 10.65–11.15), cam korkuluklar (4.45→5.3, 11.15→11.9) ve saçak (18.85–19.35) TABAN İZİ ÇİZGİSİNDE; loca arka duvarları (koyu granit, tavana kadar pencere) ve zemin kat dükkân camları 1.8 m İÇERİDE; podyum kanopi önü 0.75 m içeride, camı 1.8 m içeride; loca yan duvarları ve tavanları açık gri #6f7478",
-   "now": "duvar = arka duvar hattı (taban izinde) + proj d 1.8 ayak/döşeme/saçak → kanat 1.8 m sokağa taşıyor",
-   "need": "kenar aralığına duvar girintisi (u aralığı, 1.8 m) ya da ara döşemesiz çok katlı loca boşluğu (K1–K2 ve K3–K4 birleşik, arka duvar pencereleri ölçüldüğü gibi)"
-  },
   {
    "what": "gökkuşağı seramik süpürgelik",
    "edges": [
@@ -2229,14 +2322,8 @@
    "what": "batı loca arka duvarları (üretici otomatik kapı+pencere koyuyor)",
    "edge": 3,
    "seen": "her locada tavana kadar sürme cam kapılar: loca 1 bir çift (~u 3.3–5.9), loca 2 iki çift (~9.6–11.8 ve 12.9–15.1), loca 3 bir çift (~18.3–20.8); perdeler K2 loca1-2 beyaz tül, K3 loca2 tül, loca3 yatay jaluzi, K4 loca1 korkuluk arkasında lacivert file/örtü (net), loca3 beyaz dikey perde; K5 hepsi koyu",
-   "depth": 1.3
-  },
-  {
-   "what": "çekirdek girintisi",
-   "edge": 2,
-   "u": "44.45–50.1",
-   "real": "ön yüz kanat ayaklarından 1.8–4.5 m içeride (belirsiz); iki yükseklik artık massing ile çizili (u 44.45–48 üst 16.6, u 48–50.1 üst 14.2; cam şeridin K3 parçası proj ön penceresi)",
-   "now": "ön yüz duvarda (duvar girintisi özelliği bekleniyor)"
+   "depth": 1.3,
+   "need": "v5 recess yalnız ara döşemesiz yüksek locaları karşılıyor; bu locaların her katta kendi döşemesi var → bal inset kalmalı. İstenen: bal inset locada ORTASI boşluğa düşen `win` öğelerinin arka duvara taşınması (otomatik kapı+pencere yerine ölçülen sürme kapılar ve kat kat perdeler)."
   },
   {
    "what": "saçak yan taşmaları",
@@ -2254,6 +2341,111 @@
     "Vefalı terası: kaldırımda ahşap saksı kutuları (yeşil çalı), masa-sandalyeler, beyaz çıtalı çit (dükkân önü, kemer altı)",
     "batı cephe önünde iki 'SIEMENS' yelken bayrak; kaldırım ağaçları (kuzeyde her ~8 m bir küçük yuvarlak taçlı ağaç, batıda zeytin ağaçları)"
    ]
+  },
+  {
+   "what": "kanat saçak alnı ve üst loca ağzı yüksekliği (massing parçası)",
+   "edge": 2,
+   "u": "13.78–44.45 ve 50.1–67.5 (gerçek)",
+   "real": "saçak önü 18.85–19.35 (0.5 m, #4f4c4a), üst loca tavanı/ağız üstü 18.85",
+   "now": "kanat parçası 5 × 3.43 + 1.0 → duvar üstü 18.27, fasciaH 1.1 → alın 18.22–19.37 (1.15 m); üst girinti 18.2’de bitiyor (ağız 0.65 m alçak, alın 0.65 m kalın)",
+   "need": "massing parçasına kendi kat yüksekliği / duvar üstü kotu (ya da saçak alt kotu) verebilmek"
+  },
+  {
+   "what": "girinti arka duvarındaki birimler (üretici win/sign/vent dışındakileri arka duvara taşımıyor)",
+   "edge": 2,
+   "items": [
+    {
+     "t": "ac",
+     "u": 42.4,
+     "y": "≈5.3 (K1 döşemesi 4.43 + 0.85)",
+     "where": "B4 alt locası, cam korkuluğun arkasında loca tabanında, arka duvara yakın (1.8 m içeride)",
+     "color": "beyaz"
+    },
+    {
+     "t": "camera",
+     "u": 14.95,
+     "y": 3.6,
+     "where": "B1 dükkân arka duvarında DR. ALPER tabelasının solunda (1.8 m içeride)",
+     "color": "beyaz küçük kamera/lamba"
+    }
+   ],
+   "note": "v5 öncesi bunlar ön düzlemdeydi; recess ağzında havada kalacakları için öğe listesinden çıkarıldı"
+  },
+  {
+   "what": "tente girinti arka duvarında",
+   "edge": 2,
+   "u": [
+    29.2,
+    33.4
+   ],
+   "y": 3.85,
+   "d": 1,
+   "drop": 0.35,
+   "color": "#b3262c",
+   "text": "VEFALI KÖFTECİ",
+   "real": "tente dükkân fasyasına (1.8 m içeride) asılı, önü taban izinin ≈0.8 m gerisinde",
+   "now": "üretici tenteyi taban izi hattından 1 m dışarı çiziyor (ön kenar 1.8 m fazla dışarıda)"
+  },
+  {
+   "what": "podyum kanopisi ön yüzü girintili",
+   "edge": 2,
+   "u": [
+    0,
+    13.78
+   ],
+   "y": [
+    4.13,
+    5.16
+   ],
+   "real": "kanopi önü taban izinin 0.75 m gerisinde, alt yüzü camdan 1.05 m derin",
+   "now": "kanopi önü taban izi hattında (duvar + alın + #706b63 panel), alt yüzü 1.8 m derin (recess tavanı)"
+  },
+  {
+   "what": "MOSSA giriş kapısı ve rampası",
+   "edge": 2,
+   "u": [
+    45.9,
+    48.7
+   ],
+   "desc": "çift kanat cam kapı (giriş girintisinin arka duvarında, 1.8 m içeride), önünde el tırabzanlı rampa (1O3d). `entrance` öğesi kapı dokusunu duvar hattına (girinti ağzına) çizdiği için kaldırıldı; cam cephe `win` shop (u 44.6–49.9, 0.1–3.2) olarak arka duvarda."
+  }
+ ],
+ "volumes": [
+  {
+   "poly": [
+    [
+     690.11,
+     -161.5
+    ],
+    [
+     688.62,
+     -161.64
+    ],
+    [
+     688.62,
+     -161.6
+    ],
+    [
+     690.11,
+     -161.47
+    ]
+   ],
+   "y0": 5.45,
+   "y1": 14.7,
+   "color": "#4a433e",
+   "glazing": {
+    "edges": [
+     0
+    ],
+    "from": 5.5,
+    "to": 14.65,
+    "mullion": 1.5,
+    "glass": "#909aac",
+    "frame": "#7b8386",
+    "transom": 3.05
+   },
+   "collide": false,
+   "note": "MOSSA çekirdeği batı yarısının girintili ön yüzündeki merdiven şerit penceresi (1O3d, 3.0 m düzleminde ölçüldü: u 48.0–49.5, cam 5.5–14.65, yatay kayıtlar ≈8.6/11.6/14.6)."
   }
  ]
 }

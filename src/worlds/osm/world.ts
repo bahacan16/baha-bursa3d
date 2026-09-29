@@ -17,7 +17,9 @@ import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
 import { surveyVegetation } from '../mertkent/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../mertkent';
+import { applyBakedLighting, bakeRequested } from '../mertkent/baked';
 import { StreetProps } from './streetprops';
+import { ultraState } from '../../env/ultra';
 import { windTime } from './eztree';
 import { TreeField } from './treefield';
 import { Pedestrians } from '../../sim/pedestrians';
@@ -232,9 +234,11 @@ export class OsmWorld implements IWorld {
       this.chunkGroup(c.cx, c.cz).add(m);
     }
 
-    // Ağaçlar: tür kütüphanesi (uzak: chunk × tür; orta/yakın: tür başına, kamera hareket ettikçe doldurulur)
+    // Ağaçlar: tür kütüphanesi (uzak: chunk × tür; orta/yakın: tür başına, kamera hareket ettikçe doldurulur).
+    // Ultra: yakın/orta menziller daha geniş (güçlü GPU)
     this.trees = new TreeField(res.trees, {
       quality,
+      ultra: ultraState.on,
       shadows,
       base: import.meta.env.BASE_URL,
       groundY: H,
@@ -350,6 +354,7 @@ export class OsmWorld implements IWorld {
           shadows: quality !== 'low',
           collide,
           roadMaterial: world.materials.roadFill,
+          quality,
         });
         world.object.add(mk.group);
         fenceSkip = mk.fenceSkip;
@@ -373,6 +378,19 @@ export class OsmWorld implements IWorld {
       if (sv) world.object.add(sv);
     } catch (e) {
       console.warn('Street View cepheleri yüklenemedi', e);
+    }
+    // Pişirilmiş dolaylı ışık (docs/BAKE.md): ?bakeexport=1 → dışa aktarma kancası; Ultra/?bake=1 → pişirilmiş parçalar
+    if (handmade) {
+      const mkGroup = world.object.getObjectByName('mertkent (el modeli)');
+      const q = new URLSearchParams(location.search);
+      if (q.has('debug') && q.has('bakeexport'))
+        (await import('../mertkent/bakeexport')).installBakeExport(world as never);
+      else if (mkGroup && bakeRequested()) {
+        progress(0.97, 'Pişirilmiş ışık yükleniyor');
+        await applyBakedLighting(mkGroup, world.materials.ground, import.meta.env.BASE_URL).catch((e) =>
+          console.warn('bake: pişirilmiş ışık uygulanamadı', e),
+        );
+      }
     }
     return world;
   }

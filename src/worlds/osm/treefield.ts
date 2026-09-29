@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { loadSettings, type Quality } from '../../core/settings';
+import type { Quality } from '../../core/settings';
+import { ultraState } from '../../env/ultra';
 import { CHUNK_SIZE } from './chunks';
 import { SPECIES_SIZE, speciesKey, type SpeciesKey } from './species';
 import { TREE_STRIDE, type TreePayload } from './vegetation';
@@ -19,15 +20,17 @@ import {
  * - yakın: tür başına tek mesh, tam dal + yaprak kartı modeli (NEAR yarıçapı içi)
  * LOD ağaç başına, kamera 4 m yer değiştirince yeniden seçilir; en yakın ağaçlar önce (tür başına üst sınır).
  * KARAR: yakın/orta sınırlar eski ez/küre LOD mesafelerini korur (Orta 65/130 m, Yüksek 100/180 m); Ultra'da
- * 140/260 m (güçlü masaüstü GPU, kullanıcı kabul etti). Düşük kalitede yalnız uzak silüet.
+ * 160/260 m ve tür başına 1400 yakın ağaç (güçlü masaüstü GPU, kullanıcı kabul etti). Düşük kalitede yalnız uzak
+ * silüet.
  */
 const RADII: Record<Quality | 'ultra', { near: number; mid: number }> = {
   low: { near: 0, mid: 0 },
   medium: { near: 65, mid: 130 },
   high: { near: 100, mid: 180 },
-  ultra: { near: 140, mid: 260 },
+  ultra: { near: 160, mid: 260 },
 };
 const NEAR_CAP = 700;
+const NEAR_CAP_ULTRA = 1400;
 const MID_CAP = 1600;
 
 interface FarMesh {
@@ -74,6 +77,7 @@ export class TreeField {
   private species = new Map<number, SpeciesMeshes>();
   private farMat: THREE.MeshStandardMaterial;
   private radii: { near: number; mid: number };
+  private ultra = false;
   private at = new THREE.Vector2(1e9, 1e9);
   private counts = { near: 0, mid: 0, far: 0 };
 
@@ -81,8 +85,9 @@ export class TreeField {
     payload: TreePayload,
     private readonly o: TreeFieldOptions,
   ) {
-    const ultra = o.ultra ?? (typeof localStorage !== 'undefined' && loadSettings().ultra);
-    this.radii = RADII[ultra && o.quality === 'high' ? 'ultra' : o.quality];
+    const ultra = o.ultra ?? ultraState.on;
+    this.ultra = ultra && o.quality === 'high';
+    this.radii = RADII[this.ultra ? 'ultra' : o.quality];
     if (FORCE_LOD === 'far') this.radii = { near: 0, mid: 0 };
     else if (FORCE_LOD === 'mid') this.radii = { near: 0, mid: 1e5 };
     else if (FORCE_LOD === 'near') this.radii = { near: 1e5, mid: 1e5 };
@@ -170,7 +175,7 @@ export class TreeField {
       return im;
     };
     const bark = m.bark[model.def.bark];
-    const nearCap = this.radii.near > 0 ? Math.min(count, NEAR_CAP) : 0;
+    const nearCap = this.radii.near > 0 ? Math.min(count, this.ultra ? NEAR_CAP_ULTRA : NEAR_CAP) : 0;
     const midCap = Math.min(count, MID_CAP);
     s = {
       model,

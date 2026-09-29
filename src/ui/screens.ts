@@ -25,7 +25,7 @@ export function showStartScreen(
     parent.appendChild(el);
 
     const render = () => {
-      const q = settings.quality;
+      const q = settings.ultra && settings.quality === 'high' ? 'ultra' : settings.quality;
       el.innerHTML = `<div class="screen-inner">
         <h1 class="title">Nilüfer <span>Walk</span></h1>
         <p class="subtitle">Bursa · Nilüfer · 29 Ekim Mahallesi. Mertkent 2 ve çevresi gerçek ölçülerle modellendi;
@@ -34,14 +34,15 @@ export function showStartScreen(
         <div class="panel">
           <h4>Grafik kalitesi</h4>
           <div class="seg" data-seg="quality">
-            ${(['low', 'medium', 'high'] as const)
+            ${(['low', 'medium', 'high', 'ultra'] as const)
               .map(
                 (v) =>
-                  `<button data-v="${v}" class="${q === v ? 'on' : ''}">${{ low: 'Düşük', medium: 'Orta', high: 'Yüksek' }[v]}</button>`,
+                  `<button data-v="${v}" class="${q === v ? 'on' : ''}">${{ low: 'Düşük', medium: 'Orta', high: 'Yüksek', ultra: 'Ultra' }[v]}</button>`,
               )
               .join('')}
           </div>
-          <p class="note">Telefonlarda Düşük önerilir.</p>
+          <p class="note">Telefonlarda Düşük önerilir. Ultra: güçlü masaüstü ekran kartı için (yumuşak kademeli
+          gölgeler, bulutlar, pus, TAA, film greni, cam yansımaları).</p>
         </div>
         <div class="panel">
           <h4>Kontroller</h4>
@@ -62,7 +63,10 @@ export function showStartScreen(
       </div>`;
       el.querySelectorAll<HTMLButtonElement>('[data-seg="quality"] button').forEach((b) =>
         b.addEventListener('click', () => {
-          settings.quality = b.dataset.v as Settings['quality'];
+          const v = b.dataset.v!;
+          settings.ultra = v === 'ultra';
+          settings.ultraExplicit = v === 'ultra';
+          settings.quality = (v === 'ultra' ? 'high' : v) as Settings['quality'];
           saveSettings(settings);
           render();
         }),

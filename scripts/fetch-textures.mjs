@@ -110,8 +110,52 @@ async function main() {
       files: got,
     };
   }
+  // Ultra gökyüzü: parçalı bulutlu yaz göğü HDRI (Street View kareleri çoğunlukla böyle). Hata dokuları engellemesin.
+  try {
+    manifest.sky = await fetchSky();
+  } catch (e) {
+    console.warn('⚠ HDRI gökyüzü alınamadı:', e.message);
+  }
   await writeFile(join(outDir, 'manifest.json'), JSON.stringify(manifest, null, 2));
   console.log('✓ manifest yazıldı');
+}
+
+// Tercih: yalnız gök (zeminsiz "puresky"), parçalı bulutlu, güneş yüksek (~45–50°; oyunda güneş 48°).
+// KARAR: 2k .hdr (~6 MB) — 4k ~25 MB repo için büyük; arka planda gökyüzü yumuşak olduğundan 2k yeterli.
+const SKY_PREFER = [
+  'kloofendal_48d_partly_cloudy_puresky',
+  'kloofendal_partly_cloudy_puresky',
+  'kloofendal_43d_clear_puresky',
+  'qwantani_puresky',
+];
+async function fetchSky() {
+  const assets = await json(`${API}/assets?t=hdris`);
+  const ids = Object.keys(assets);
+  let id = SKY_PREFER.find((p) => assets[p]);
+  if (!id) {
+    const hay = (i) => `${i} ${(assets[i].tags ?? []).join(' ')} ${(assets[i].categories ?? []).join(' ')}`;
+    const c = ids.filter((i) => /puresky/.test(i) && /cloud/.test(hay(i)));
+    c.sort((a, b) => (assets[b].download_count ?? 0) - (assets[a].download_count ?? 0));
+    id = c[0];
+  }
+  if (!id) throw new Error('uygun HDRI yok');
+  const files = await json(`${API}/files/${id}`);
+  const url = files.hdri?.['2k']?.hdr?.url;
+  if (!url) throw new Error(`${id}: 2k hdr yok`);
+  const r = await fetch(url, { headers: UA, signal: AbortSignal.timeout(180000) });
+  if (!r.ok) throw new Error(`${url}: HTTP ${r.status}`);
+  const buf = Buffer.from(await r.arrayBuffer());
+  await mkdir(join(outDir, 'sky'), { recursive: true });
+  await writeFile(join(outDir, 'sky', 'sky.hdr'), buf);
+  console.log(`  ✓ sky/sky.hdr ← ${id} (${(buf.length / 1048576).toFixed(1)} MB)`);
+  const info = assets[id];
+  return {
+    id,
+    name: info.name,
+    authors: Object.keys(info.authors ?? {}),
+    url: `https://polyhaven.com/a/${id}`,
+    file: 'sky/sky.hdr',
+  };
 }
 
 main().catch((e) => {

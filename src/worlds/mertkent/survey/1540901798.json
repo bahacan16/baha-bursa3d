@@ -30,7 +30,8 @@
     "Alt kat, giriş ve çevre: kalın servi çiti + mavi sac kapılı çit; giriş görülmedi. Batı cephe hiç görülmedi (ayna kopya).",
     "Çatı: düz; kind 'flat', fasciaH 2.0 (beyaz-mavi parapet/kemer bandı).",
     "v5 (retro, 2026-09-29): renkler yeniden örneklendi (ev6x, doğu cephe güneşli): taupe sıva #c0b3aa (eski #b8ada3 → #bfb2a9), derz #867e6b, sol mavi kule #9db2c2, sağ kule #9ebdd0, güney mavi #a1cae0/#aeccdd → plaster2 #a2c0d4 (eski #8fb0d6 fazla doygundu). Girinti bandı gölgede #676a70, güneşte #c1b6af (aynı sıva).",
-    "v5: görülmeyen kenarlar değişmedi (copyOf/tahmin notları geçerli); kenar 0 (batı) artık perdesiz açık ayna öğeleriyle yazıldı."
+    "v5: görülmeyen kenarlar değişmedi (copyOf/tahmin notları geçerli); kenar 0 (batı) artık perdesiz açık ayna öğeleriyle yazıldı.",
+    "v5 (2026-09-29): pending tarandı — dolu parapet küpeştesi v6'ya bırakıldı (ölçüler güncellendi); balkon uçlarının yuvarlak olduğu doğrulanmadı (dik köşe, round kullanılmadı); yeni pending: beyaz kavisli şerit. Doğu cephedeki derinlik farkları (mavi köşe kuleleri ≈2.9 m, bej girinti bantları ≈1.4 m ana düzlemin gerisinde: ev6x görünen kat aralıkları 2.886/2.61/2.36) recess ile ifade EDİLMEDİ: taban izi kenarı 6 düz 30.3 m (görünen 24.6 m) — önce taban izinin (köşe kuleleri ana gövdeden geri) düzeltilmesi gerekir; bu turda değiştirilmedi."
   ],
   "edges": [
     {
@@ -48,7 +49,7 @@
         },
         {
           "t": "panel",
-          "u0": 0.0,
+          "u0": 0,
           "u1": 2.73,
           "y0": 0,
           "y1": 27,
@@ -508,7 +509,7 @@
           "split": 4
         }
       ],
-      "note": "Güney cephe orta çıkıntısı (Rylq/Hj1L/__by uzaktan, alt yarısı ağaçla kapalı): açık mavi boyalı, tüm genişlikte uçları yuvarlatılmış kesintisiz balkonlar (beyaz çerçeveli katlanır cam; bazı katlarda zebra stor, bazıları açık), balkon alınları mavi. Kat başına camlama kaba tahmin. Doğu ucunda beyaz dikey şerit ve mavi köşe kulesi (5). u gerçek metre (batıdan), yükseklikler kenar 6 çerçevesinde (≈gerçek). v5: Rylq/Hj1L ortoları: balkon parapeti mavi boyalı dolu duvar (döşeme + ≈0.95 m, görünen bant ≈1.2 m) + üstünde ince çelik küpeşte (solid; küpeşte çizilemiyor → pending); cam balkonlar beyaz çerçeveli katlanır cam doğrudan parapet üstünde. Mavi güneşli #a1cae0/#aeccdd, balkon tavanı #a19e89 (gölge). Kat eşlemesi hâlâ kaba (ortofoto üstü kesik, alt yarı ağaçta)."
+      "note": "Güney cephe orta çıkıntısı (Rylq/Hj1L/__by uzaktan, alt yarısı ağaçla kapalı): açık mavi boyalı, tüm genişlikte uçları yuvarlatılmış kesintisiz balkonlar (beyaz çerçeveli katlanır cam; bazı katlarda zebra stor, bazıları açık), balkon alınları mavi. Kat başına camlama kaba tahmin. Doğu ucunda beyaz dikey şerit ve mavi köşe kulesi (5). u gerçek metre (batıdan), yükseklikler kenar 6 çerçevesinde (≈gerçek). v5: Rylq/Hj1L ortoları: balkon parapeti mavi boyalı dolu duvar (döşeme + ≈0.95 m, görünen bant ≈1.2 m) + üstünde ince çelik küpeşte (solid; küpeşte çizilemiyor → pending); cam balkonlar beyaz çerçeveli katlanır cam doğrudan parapet üstünde. Mavi güneşli #a1cae0/#aeccdd, balkon tavanı #a19e89 (gölge). Kat eşlemesi hâlâ kaba (ortofoto üstü kesik, alt yarı ağaçta). v5 (2026-09-29, __by 315_31 / Rylq 317_20 / 0Pe2 250_22 yakın kareler): balkon ön uçları DİK köşeli — doğu uçta döşeme + mavi parapet yan yüze dönüyor, camlı katlarda katlanır cam yan yüzde de 2 panel; \"uçları yuvarlatılmış\" ifadesi doğrulanmadı → bal.round KULLANILMADI. Uçlar köşe kulesi yanındaki beyaz düşey şeride dayanıyor. Döşeme altlarında birer gömme spot görülüyor (üretici balkon başına tek spot çiziyor)."
     },
     {
       "edge": 4,
@@ -1030,7 +1031,17 @@
         3,
         9
       ],
-      "desc": "Güney/kuzey orta balkonlarda mavi dolu parapetin (≈0.95 m) üstünde Ø≈4 cm tek çelik boru küpeşte (#8aacc6 görünen). 'solid' tipi yalnız dolu duvar çiziyor."
+      "desc": "Güney/kuzey orta balkonlarda mavi dolu parapetin (≈0.95 m) üstünde Ø≈4 cm tek çelik boru küpeşte (#8aacc6 görünen). 'solid' tipi yalnız dolu duvar çiziyor. Güncel (2026-09-29): v5'te dolu parapet üstü küpeşte yok (solid tipi yalnız dolu duvar; solidTube alçak parapet + borular çizer) → v6 \"dolu parapet üstü küpeşte\". Ölçü: dolu mavi parapet döşemeden ≈0.95 m (görünen bant ≈1.2 m, döşeme alnı dahil), küpeşte tek boru Ø≈4 cm, parapet üstünde ≈3–5 cm yukarıda kısa dikmelerle, renk görünen #8aacc6 (mavi-gri boyalı çelik); tüm katlar (K0–K9, görülen katlar K4–K9)."
+    },
+    {
+      "what": "Beyaz kavisli düşey şerit (balkon bölgesi ile köşe kulesi arası)",
+      "edges": [
+        5,
+        7,
+        3,
+        9
+      ],
+      "desc": "Güney ve kuzey orta balkon bölgelerinin iki ucunda, köşe kulesinin mavi yüzü ile balkon uçları arasında tam boy beyaz şerit (kenar 5 u 0–0.45 m panel olarak çiziliyor). 0Pe2 250_22 ve kenar 7 ortosunda şeridin alt kısmı (görünen y≈5.5–9, ≈K1–K2) kavis yaparak genişliyor/dönüyor (çizgi hâlinde kıvrım); kabartma mı boya mı ayırt edilemedi. Düz pano dışında ifade edilemiyor."
     }
   ]
 }

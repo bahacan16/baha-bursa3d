@@ -100,6 +100,39 @@ export function shutterTexture(): THREE.Texture {
   return tex(c);
 }
 
+/**
+ * Sarmal kepenk / dış stor: beyaz tabanlı (renk malzemeden), bir karo = 0.4 m'de 8 lamel (≈5 cm), lamel
+ * arasında gölge çizgisi + üstte parlak kenar. UV: v = y / 0.4.
+ */
+export function rollerShutterTexture(): THREE.Texture {
+  const [c, g] = canvas(16, 64);
+  g.fillStyle = '#ffffff';
+  g.fillRect(0, 0, 16, 64);
+  for (let k = 0; k < 8; k++) {
+    const y = k * 8;
+    g.fillStyle = 'rgba(0,0,0,0.32)';
+    g.fillRect(0, y + 6, 16, 2);
+    g.fillStyle = 'rgba(0,0,0,0.1)';
+    g.fillRect(0, y + 4, 16, 2);
+    g.fillStyle = 'rgba(255,255,255,0.5)';
+    g.fillRect(0, y, 16, 1);
+  }
+  return tex(c);
+}
+
+/** 2D kaynaklı tel panel: dikey teller 5 cm, yatay teller 20 cm (bir karo 0.2 × 0.2 m), kalın teller (uzaktan görünür) */
+export function weldedMeshTexture(): THREE.Texture {
+  const N = 64;
+  const [c, g] = canvas(N, N);
+  g.clearRect(0, 0, N, N);
+  g.fillStyle = '#ffffff';
+  for (let k = 0; k < 4; k++) g.fillRect(k * 16 + 6, 0, 4, N);
+  g.fillRect(0, 28, N, 6);
+  const t = tex(c);
+  t.premultiplyAlpha = false;
+  return t;
+}
+
 /** Güneş enerjili su ısıtıcısı paneli: koyu mavi cam, alüminyum çerçeve, boru ızgarası */
 export function solarTexture(): THREE.Texture {
   const [c, g] = canvas(64, 128);
@@ -1302,18 +1335,23 @@ export function shopSignTexture(o: {
   /** Basit simge (metnin solunda): fish | tooth | star; renk icC */
   icon?: string | null;
   iconC?: string | null;
+  /** Monogram / glif: yan yana (bindirmeli) harfler, isteğe bağlı ayna simetrik (ör. ayna K + R) */
+  glyphs?: { ch: string; mirror?: boolean }[] | null;
+  join?: number | null;
 }): THREE.Texture {
   const asp = Math.max(0.05, o.w / Math.max(0.05, o.h));
   const W = asp >= 1 ? 1024 : Math.max(64, Math.round(1024 * asp));
   const H = asp >= 1 ? Math.max(64, Math.round(1024 / asp)) : 1024;
   const [c, g] = canvas(W, H);
   g.clearRect(0, 0, W, H);
-  const round = o.shape === 'round';
+  const oval = o.shape === 'oval';
+  const round = o.shape === 'round' || oval;
   if (round) {
-    // Yuvarlak rozet: daire zemin (+ kenar), köşeler saydam
+    // Yuvarlak rozet / oval (elips) tabela: zemin (+ kenar), köşeler saydam
     const r = Math.min(W, H) / 2 - 2;
     g.beginPath();
-    g.arc(W / 2, H / 2, r, 0, Math.PI * 2);
+    if (oval) g.ellipse(W / 2, H / 2, W / 2 - 2, H / 2 - 2, 0, 0, Math.PI * 2);
+    else g.arc(W / 2, H / 2, r, 0, Math.PI * 2);
     if (o.bg) {
       g.fillStyle = o.bg;
       g.fill();
@@ -1349,6 +1387,28 @@ export function shopSignTexture(o: {
         : o.font === 'condensed'
           ? '"Arial Narrow", "Roboto Condensed", Arial, sans-serif'
           : 'Arial, Helvetica, sans-serif';
+  if (o.glyphs?.length) {
+    // Monogram: harfler yan yana, `join` oranında bindirilir; ayna harfler yatay çevrilir
+    const fs = H * 0.78;
+    g.font = `${o.bold ? 'bold ' : ''}${fs}px ${fam}`;
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    g.fillStyle = o.fg;
+    const ws = o.glyphs.map((q) => g.measureText(q.ch).width);
+    const jn = Math.max(0, Math.min(0.8, o.join ?? 0.25));
+    const tot = ws.reduce((a, v) => a + v, 0) - jn * ws.slice(1).reduce((a, v) => a + v, 0);
+    let x = W / 2 - tot / 2;
+    o.glyphs.forEach((q, k) => {
+      if (k) x -= jn * ws[k];
+      g.save();
+      g.translate(x + ws[k] / 2, H / 2);
+      if (q.mirror) g.scale(-1, 1);
+      g.fillText(q.ch, 0, 0);
+      g.restore();
+      x += ws[k];
+    });
+    return tex(c, false);
+  }
   // Satırlar: ya düz metin ("\n") ya da satır başına renk/boyut
   const rows = (
     o.lines?.length
@@ -1390,4 +1450,164 @@ export function shopSignTexture(o: {
     });
   }
   return tex(c, false);
+}
+
+/**
+ * Bambu / hasır stor (açık balkon): beyaz tabanlı (malzeme rengi çarpar) ince yatay çıtalar (~6 mm) ve ~25 cm
+ * arayla düşey bağ ipleri; 1 doku = 1 m × 1 m.
+ */
+export function bambooBlindTexture(): THREE.Texture {
+  const N = 512;
+  const [c, g] = canvas(N, N);
+  const r = rng(71);
+  g.fillStyle = '#ffffff';
+  g.fillRect(0, 0, N, N);
+  // Çıtalar: her 3 px bir çıta, aralarda koyu çizgi, çıta başına ton farkı
+  for (let y = 0; y < N; y += 3) {
+    const t = 0.82 + r() * 0.18;
+    const v = Math.round(255 * t);
+    g.fillStyle = `rgb(${v},${Math.round(v * 0.97)},${Math.round(v * 0.9)})`;
+    g.fillRect(0, y, N, 2);
+    g.fillStyle = 'rgba(40,28,15,0.45)';
+    g.fillRect(0, y + 2, N, 1);
+  }
+  // Düğüm lekeleri
+  for (let k = 0; k < 900; k++) {
+    g.fillStyle = `rgba(70,50,25,${0.12 + r() * 0.2})`;
+    g.fillRect(r() * N, Math.floor(r() * (N / 3)) * 3, 2 + r() * 4, 2);
+  }
+  // Bağ ipleri (~25 cm)
+  g.fillStyle = 'rgba(55,40,25,0.75)';
+  for (let x = N / 8; x < N; x += N / 4) g.fillRect(x, 0, 3, N);
+  return tex(c);
+}
+
+/**
+ * Korkuluğa asılı bayrak / pankart dokusu:
+ * - portrait: kırmızı zemin, üstte beyaz ay-yıldız, ortada beyaz çerçeveli gri tonlu portre madalyonu (genel büst
+ *   silueti — yüz çizilmez), altta beyaz bant üstünde (ölçülen) kırmızı yazı;
+ * - tr-v: dikey Türk bayrağı (ay-yıldız üstte, yıldız aşağı bakar); tr: yatay Türk bayrağı;
+ * - plain: düz renk + yazı.
+ */
+export function bannerTexture(o: {
+  style: string;
+  bg: string | null;
+  fg: string;
+  text: string;
+  w: number;
+  h: number;
+}): THREE.Texture {
+  const asp = Math.max(0.1, o.w / Math.max(0.05, o.h));
+  const H = 512;
+  const W = Math.max(64, Math.round(H * asp));
+  const [c, g] = canvas(W, H);
+  const red = o.bg ?? '#d21f26';
+  g.fillStyle = red;
+  g.fillRect(0, 0, W, H);
+  const crescent = (cx: number, cy: number, R: number, rot: number) => {
+    // Ay (iki daire farkı) + yıldız (resmî orana yakın: iç daire 0.8 R, kayma 0.25 R, yıldız 0.25 R)
+    g.save();
+    g.translate(cx, cy);
+    g.rotate(rot);
+    g.fillStyle = '#ffffff';
+    g.beginPath();
+    g.arc(0, 0, R, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = red;
+    g.beginPath();
+    g.arc(R * 0.25, 0, R * 0.8, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#ffffff';
+    g.beginPath();
+    for (let k = 0; k < 10; k++) {
+      const rr = k % 2 ? R * 0.1 : R * 0.25;
+      const a = (k / 10) * Math.PI * 2;
+      g.lineTo(R * 1.3 + Math.cos(a) * rr, Math.sin(a) * rr);
+    }
+    g.closePath();
+    g.fill();
+    g.restore();
+  };
+  const text = (t: string, y0: number, y1: number, col: string) => {
+    const rows = t.split('\n').filter((s) => s.length);
+    if (!rows.length) return;
+    let size = ((y1 - y0) / rows.length) * 0.78;
+    g.font = `bold ${size}px Arial, sans-serif`;
+    while (Math.max(...rows.map((r) => g.measureText(r).width)) > W * 0.92 && size > 6) {
+      size *= 0.92;
+      g.font = `bold ${size}px Arial, sans-serif`;
+    }
+    g.fillStyle = col;
+    g.textAlign = 'center';
+    g.textBaseline = 'middle';
+    rows.forEach((r, k) => g.fillText(r, W / 2, y0 + ((k + 0.5) * (y1 - y0)) / rows.length));
+  };
+  if (o.style === 'tr') {
+    const R = H * 0.25;
+    crescent(W * 0.33, H / 2, R, 0);
+  } else if (o.style === 'tr-v') {
+    // Dikey asılı bayrak: gönder üstte → ay-yıldız üst kısımda, yıldız aşağı
+    crescent(W / 2, H * 0.33 * Math.min(1, W / H / 0.66), Math.min(W, H) * 0.25, Math.PI / 2);
+  } else if (o.style === 'portrait') {
+    const R = Math.min(W * 0.2, H * 0.08);
+    crescent(W / 2 - R * 0.35, H * 0.1, R, 0);
+    // Portre madalyonu (beyaz çerçeveli oval, gri tonlu büst silueti)
+    const cx = W / 2;
+    const cy = H * 0.46;
+    const rx = W * 0.36;
+    const ry = H * 0.25;
+    g.fillStyle = '#f2f2f0';
+    g.beginPath();
+    g.ellipse(cx, cy, rx, ry, 0, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#9a9a98';
+    g.beginPath();
+    g.ellipse(cx, cy, rx * 0.9, ry * 0.92, 0, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#2a2a2a';
+    g.beginPath();
+    g.ellipse(cx, cy - ry * 0.22, rx * 0.34, ry * 0.36, 0, 0, Math.PI * 2);
+    g.fill();
+    g.beginPath();
+    g.ellipse(cx, cy + ry * 0.62, rx * 0.8, ry * 0.36, 0, Math.PI, Math.PI * 2);
+    g.fill();
+    // Alt yazı bandı
+    g.fillStyle = '#f7f7f5';
+    g.fillRect(0, H * 0.76, W, H * 0.2);
+    text(o.text, H * 0.77, H * 0.95, o.fg || red);
+  } else text(o.text, H * 0.2, H * 0.8, o.fg);
+  return tex(c, false);
+}
+
+/** Yol boyası aşınması: gri tonlu gürültü (alphaMap = yeşil kanal); alphaTest eşiği aşınma oranını ayarlar */
+export function paintWearTexture(seed = 3): THREE.Texture {
+  const N = 256;
+  const [c, g] = canvas(N, N);
+  const r = rng(seed);
+  const img = g.createImageData(N, N);
+  // Değer gürültüsü (2 oktav) → alfa
+  const cells = [8, 32];
+  const grids = cells.map((n) => Array.from({ length: n * n }, () => r()));
+  for (let y = 0; y < N; y++)
+    for (let x = 0; x < N; x++) {
+      let v = 0;
+      cells.forEach((n, k) => {
+        const fx = (x / N) * n;
+        const fy = (y / N) * n;
+        const x0 = Math.floor(fx);
+        const y0 = Math.floor(fy);
+        const tx = fx - x0;
+        const ty = fy - y0;
+        const G = (i: number, j: number) => grids[k][((j + n) % n) * n + ((i + n) % n)];
+        const a = G(x0, y0) * (1 - tx) + G(x0 + 1, y0) * tx;
+        const e = G(x0, y0 + 1) * (1 - tx) + G(x0 + 1, y0 + 1) * tx;
+        v += (a * (1 - ty) + e * ty) * (k ? 0.35 : 0.65);
+      });
+      // three.js alphaMap yeşil kanalı okur: gürültü RGB'de, alfa tam
+      const i = (y * N + x) * 4;
+      img.data[i] = img.data[i + 1] = img.data[i + 2] = Math.round(Math.min(1, Math.max(0, v)) * 255);
+      img.data[i + 3] = 255;
+    }
+  g.putImageData(img, 0, 0);
+  return tex(c, true, false);
 }

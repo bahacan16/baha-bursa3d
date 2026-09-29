@@ -244,7 +244,7 @@
   cepheler yalnız geometri (perde/afiş kopyalanmaz). Henüz `data/facades.json`'a derlenmedi (diğer retro ajanlarıyla
   birlikte derlenecek) → oyunda değişiklik yok. **Blender:** şimdilik yeniden kurulacak katman yok; derleme sonrası bu
   üç blok.
-- **(bu commit)** — **Cephe / sokak üreticisine yeni öğeler** (eleştirmen + ölçüm ajanlarının `pending` listeleri;
+- **d59f88d (+a59d738)** — **Cephe / sokak üreticisine yeni öğeler** (eleştirmen + ölçüm ajanlarının `pending` listeleri;
   şema `survey/schema.ts`, derleme `scripts/survey-compile.mjs`, çizim `facade.ts`, `fenceGeneric.ts`):
   - `pilaster` (kabartma pilastır: u0..u1 / u+w, y0..y1 ya da kat aralığı `s`, çıkıntı d, renk, başlık/kaide),
     `pediment` (üçgen alınlık; `apex` ile asimetrik, `h`/`yTop`, balkon yığını önünde `d`, eğik üst yüzler, silme),
@@ -266,7 +266,10 @@
     `finial` (top / piramit), 2D kaynaklı tel panel (`infillSpec.welded` ya da tipinde "2D"/"kaynaklı": kalın teller,
     V kıvrımları, dikmeler — da1-south-site, da2-fence-503-west, da3-fence-east-site artık böyle), aralıklı çalı
     (`hedge.style: "scattered"` + `gap`), kapı `style: "wrought"` (siyah ferforje, mızrak uçlu; street-plan gates).
-    Kolon listesi dünya noktası başına yinelenmiyor (aynı konumda üst üste kolon hatası).
+    Kolon listesi dünya noktası başına yinelenmiyor (aynı konumda üst üste kolon hatası). **Kapı hatası
+    düzeltildi:** komşu site kapıları (da1-…) ikinci kez Mertkent yaprak kapısı olarak da çiziliyordu (555/556
+    önündeki siyah yaya kapıları yeşil yaprak kutusu görünüyordu); notunda "ferforje" yazan yaya kapısı artık
+    ferforje (mızrak uçlu) çizilir. Kavisli balkon korkuluğunda dikmeler çevre boyunca ~1.2 m arayla.
   - Derleme: `copyOf` (görülmemiş) kenarlara artık yalnız geometri kopyalanır — tabela, bayrak, klima/çanak/kamera,
     perde/kepenk/parmaklık durumu, cam balkon tonu, file, saksı, tente yazısı kopyalanmaz (CLAUDE.md §0.1). Bu,
     yeniden derlemede 13 bloğun kopya kenarlarını değiştirir. Ayrıca balkon `tint` kat anahtarları ("K3" → "3")
@@ -288,6 +291,65 @@
 - **(kamera)** — 1. şahıs görüş açısı 62° → 55° dikey (yumuşak geçiş; geniş açı bozulması), adımla senkron baş
   salınımı (yürüyüş ~1.6 cm, koşu ~3.2 cm; topuk vuruşunda en alçak). `docs/REALISM.md`: gerçekçilik planı.
   Dosya: `src/player/camera.ts`. **Blender:** yok (Blender kamerası için referans: göz 1.65 m, 55° dikey).
+- **(retro-3)** — Eski ölçümler derlendi ve oyunda: 15 blok (`data/facades.json`: 1480041342/43/44/45, 1480041300/01,
+  1480163634/37/38, 1479658783 Salusvizyon, 1540901795/96/98, 1546358557/61 — 557/561 kat kat balkon camı, pilastırlar,
+  "SATILIK" pankartı pending). Mertkent-2 sokakları yeniden ölçüldü (`data/street-plan.json`): 502. Sokak kesiti
+  (batı kaldırım 1.52 m: gri 0.65 / sarı kılavuz 0.32 / gri 0.40 / bordür 0.15; 1.1 m mavi bisiklet şeridi; yol 6.8 m;
+  doğu kaldırım 1.17 m — eskisi 0.6 m ve ~1 m kaymıştı), 502/504 köşeleri, Şehr-i Bursa Evleri çiti (beyaz prekast
+  madalyon panel, süslü kolon + siyah fener, yeşil 2D tel, jilet tel) ve güney taş duvar + leylandi, 5 yeni direk,
+  pano, ızgara, rögar, Nato Parkı yaya geçidi; "ŞEHR-İ BAHAR" → "ŞEHR-İ BURSA EVLERİ"; olmayan güneydoğu kapısı
+  silindi. **Blender:** bu 15 blok + Mertkent-2 çevresi sokak katmanı (kaldırım, çit, sokak eşyası) yeniden kurulmalı.
+- **(yeniden derleme)** — Üretici v5 derleme kuralları tüm bloklara uygulandı (`data/facades.json`): görülmeyen
+  `copyOf` kenarlarında artık yalnız geometri (tabela/bayrak/perde/klima kopyası yok), "K3" biçimli cam balkon tonu
+  anahtarları normalize → ölçülmüş tonlar görünür. Değişen: 1540901770/71/72, 1541439435, 900000105. CLAUDE.md
+  kararlar güncellendi (Ultra, pişirilmiş ışık, 1. şahıs açısı, copyOf). **Blender:** bu 5 blok yeniden kurulmalı.
+- **(v5 dönüşüm 1)** — Bekleyen (`pending`) ölçümler v5 üretici özellikleriyle veriye çevrildi ve derlendi:
+  1480041300/01/42/43 (bodrum pencereleri `k:-1`, kat derzleri, pilastır aralıkları düzeltildi, saksılar, direk
+  boyu), 1480163637 (orta bölüm 1.5 m girinti + köşe taşları), 1480163638 (iki cephede 1.3 m girinti, K0 pencere/kapı
+  düzeltmesi, çift korkuluk hatası), 1540901795/96/98 (loca derinlikleri, açık gri PVC borular, alınlığı aşan gri
+  panel hatası), 900000104 (çatı katı cephesi, batı teras saçağı, alınlık, pergola, saksılar, kepenk rengi),
+  900000105 (parapet harpuştası, bay penceresi panelleri), 900000106 (KUDRET altın çerçeve, monogram paneli, alarm).
+  Ayrıca kavşak köşelerinde bordürden yola asfalt dolgusu uyarlamalı (3–10 m): 502/Doğan Avcıoğlu köşesindeki bej
+  hava fotoğrafı boşluğu kapandı (`street.ts`, `index.ts`). **Blender:** bu 12 blok + kavşak asfaltı yeniden kurulmalı.
+- **(v5 dönüşüm 2)** — 900000101 (asimetrik çatı katı alınlıkları, giydirme cam kayıtları `hbars`, buzlu loca, panjur
+  bandı), 900000103 (6 lamelli güneşlik, borular, kayıtlar), 900000102 (kablo kanalları), 303738122 (Balıkçı Mahmut
+  lamelli pano, köşe hortumu), 303738118 (Cevher/İskele kış bahçesi kayıtları, taş subasman/parapet, mavi ahşap
+  subasman). **Blender:** bu 5 blok yeniden kurulmalı.
+- **(v5 dönüşüm 3)** — Doğan Avcıoğlu 1. kesim blokları: 1540901770 Tarabya (K0 giriş girintisi + kapı arka duvarda,
+  çift derzler kat kat, balkon derinliği 0.9→0.47, köşe loca 1.77 m), 1540901771 (klima konumları), 1540901774 (çerçeve
+  yuvası 2 m girinti, köşe balkonu yuvarlatma, bacalar), 1540901776 (kuzey çerçeve yuvası 2.3 m girinti), 1540901777
+  Riva (güney girinti yeni ayak izine göre yeniden eşlendi: arka duvar kolonları, kırmızı kaplama, mavi giydirme cam,
+  kanopi, "C" rozeti; loca kirişleri; K5 teras köprüsü). `scripts/sv-extra.json`: 1777 kenar 7 ortofoto girdisi.
+  **Blender:** bu 5 blok yeniden kurulmalı.
+- **(bu commit)** — Pişirilmiş dolaylı ışık hattı (Ultra; ayrıntı `docs/BAKE.md`). Dışa aktarma
+  `scripts/bake-export.mjs`: başsız oyundan (`?debug=1&bakeexport=1`, kanca `src/worlds/mertkent/bakeexport.ts`)
+  el modeli meshleri dünya koordinatında 100 m (CI'da 50 m) parçalar hâlinde `bake-work/src/chunk_<cx>_<cz>.glb`
+  (mesh adı = malzeme anahtarı; `TEXCOORD_1` = ışık haritası uv'si, `src/worlds/mertkent/lightmap.ts` deterministik
+  üretir), `chunk_*.rects.bin` (ada dikdörtgenleri + normal), `occluders.glb` (arazi 0.3 m aşağıda, OSM/Street View
+  binaları, ağaç taçları) ve `export.json`. Pişirme `blender/bake/bake_ao.py` (bpy 4.2 / Blender 4.2, Cycles CPU +
+  OIDN): beyaz gök, lamba yok, albedo 0.6 → dolaylı ışık oranı; çıktı `public/bake/ao_<n>.webp` (8192² sayfalar),
+  `ground_ao.webp` (0.25 m/px), `manifest.json`. Oyun: `src/worlds/mertkent/baked.ts` (Ultra veya `?bake=1`;
+  `?bake=0` kapatır) — imzası tutmayan parça canlı ışıkta kalır. CI: `.github/workflows/bake-lighting.yml` (elle +
+  `main`). **Blender:** el modeli sahnesi (`NW/*`) değişmedi, yeniden kurulum yok. Yerel oturum isterse aynı
+  pişirmeyi kendi Blender'ında çalıştırabilir (önce oyunu derleyip `node scripts/bake-export.mjs`, sonra
+  `BAKE_WORK=bake-work BAKE_CHUNKS=-1_-1 blender --background --python blender/bake/bake_ao.py`). Sonucu Blender'da
+  görmek için `bake-work/src/chunk_*.glb` içe aktarılır; `UVMap.001` (uv1) → sayfa uv'si
+  `((rect.x + u·rect.kenar) / sayfa, (rect.y + v·rect.kenar) / sayfa)` (manifest `chunks[].rect`, v üstten) ile
+  `ao_<n>.webp` bir Emission/AO düğümüne bağlanır. `blender/bake/` bulut oturumunun klasörüdür; `blender-bridge`
+  dalında bu klasörü değiştirme (çakışma olur).
+- **(v5 dönüşüm 4)** — Doğan Avcıoğlu 2. kesim + kavşak: 1550614218 MOSSA (7 bölmede dükkân/alt/üst loca 1.8 m
+  girintileri, girinti ağzında cam korkuluk, çekirdek 3.0 m geride + giriş kanopisi; eski 1.8 m sokağa taşan kanatlar
+  kaldırıldı), 1546816193 (parapet lamelleri, yalnız görülen kenarlarda çatı korkuluğu), 1541439435 (KD çekirdek
+  2.3 m girinti + giydirme cam, bronz cam balkon profilleri), 1541439437 (çekirdek 3.25 m girinti, kat kat profil
+  renkleri, köşe çubukları), 1541439436 (GB başlık çıkması, profil renkleri). **Blender:** bu 5 blok yeniden kurulmalı.
+- **(SV kamera kalibrasyonu)** — Street View kamera yüksekliği ölçüldü (`docs/SV_CAMERA.md`): 2025-09 **2.35 m**,
+  2019-05 2.55 m, 2014-07 2.80 m (hepsi 2.5 varsayılıyordu). Kaldırım noktaları kameradan H − 0.15 aşağıda olduğundan
+  2025 karelerinden 2.5 ile ölçülen kaldırım genişlikleri ×0.88. Düzeltilen sokak girdileri (`street-plan.json`, not:
+  "H-kalibrasyon: a→b"): da2-sw-north-lot 3.70→3.25 m, da2-sw-503-east 2.00→1.75, da2-sw-503-west 2.30→2.05,
+  da2-fence-503-west hattı/duvar/kolon, da2-fence-arch 503 kolu, da3-fence-east-site duvar 1.90→1.65 / pano üstü
+  3.10→2.75 / çit 2.6→2.3, da3-fence-side-n/-s. Karşılaştırma kamerası artık pano tarihine göre göz yüksekliğinde.
+  Cephe ortofotoları varsayılan 2.5 ile kalır (ölçüler/`base` onlara göre; fark yalnız düşey kayma). **Blender:**
+  Doğan Avcıoğlu 2–3. kesim kaldırım/çit katmanı (bu girdiler) yeniden kurulmalı.
 - **(ağaç türleri)** — **Ağaç türü kütüphanesi** (3 genel tür yerine 20 tür anahtarı; kanıt, tanıma ipuçları,
   örneklenen renkler: `docs/TREES.md`). Himalaya sediri (sarkık katlar, eğik tepe), mavi ladin, limoni servi
   (alev konisi), Akdeniz servisi, mazı konisi, Trachycarpus palmiyesi (lifli gövde + 30 yelpaze yaprak), ıhlamur,
