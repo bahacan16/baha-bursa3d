@@ -342,7 +342,6 @@
             5
           ],
           "kind": "french",
-          "rail": true,
           "split": 3,
           "box": true,
           "curt": {
@@ -365,7 +364,6 @@
             5
           ],
           "kind": "french",
-          "rail": true,
           "split": 3,
           "box": true,
           "curt": {
@@ -380,8 +378,8 @@
         },
         {
           "t": "win",
-          "u0": 6.6,
-          "u1": 8,
+          "u0": 6.13,
+          "u1": 7.65,
           "y0": 3.05,
           "y1": 5.1,
           "k": 1,
@@ -402,8 +400,8 @@
         },
         {
           "t": "win",
-          "u0": 9.25,
-          "u1": 10.6,
+          "u0": 9.12,
+          "u1": 10.67,
           "y0": 3.05,
           "y1": 5.1,
           "k": 1,
@@ -421,14 +419,6 @@
             "K4": "tul",
             "K5": "tul"
           }
-        },
-        {
-          "t": "panel",
-          "u0": 6.1,
-          "u1": 10.7,
-          "y0": -0.4,
-          "y1": 18.05,
-          "color": "plaster2"
         },
         {
           "t": "ac",
@@ -525,9 +515,22 @@
           "fasciaC": {
             "*": "#dcdcd6"
           }
+        },
+        {
+          "t": "recess",
+          "u0": 6.08,
+          "u1": 10.72,
+          "s": [
+            1,
+            5
+          ],
+          "depth": 1.3,
+          "back": "plaster2",
+          "side": "plaster",
+          "ceil": "#cfc4a8"
         }
       ],
-      "note": "Doğu cephe (Mertkent'e bakan sokak cephesi), agzp (jeMF ile), 2025-09 sabah güneşli. Beyaz sıvalı (#dadbd8) iki ayak: her katta 3 kanatlı koyu kahve doğramalı fransız pencere, üstünde panjur kutusu, önünde ≈0.35 m beyaz döşeme çıkıntısı + yatay paslanmaz borulu korkuluk (K1–K5 hepsi tube). K5 sağ pencerede dış panjur ~%55 inik. Ortada ≈1.2 m GERİDE gri-bej sıvalı bölüm (jeMF'de kuzey ayağın yan yüzü görünen ≈1.1 m) — iki dar fransız pencere + borulu korkuluk, her katta 2–3 siyah duvar apliki (pending). Köşelerde ≈1.3 m geride K1–K5 camla kapalı yığınlar (yanlarında klimalar). Üstte kahverengi harpuştalı segmental kemerli parapet + iki çatı arası penceresi (sol tül + borulu korkuluk, sağ panjur ~%85 inik) → pending. K0 çit arkasında GÖRÜLMEDİ (eski varsayım pencereleri kaldırıldı). Görünen genişlik taban izinden ~2 m kısa → cal.u gerdirildi."
+      "note": "Doğu cephe (Mertkent'e bakan sokak cephesi), agzp (jeMF ile), 2025-09 sabah güneşli. Beyaz sıvalı (#dadbd8) iki ayak: her katta 3 kanatlı koyu kahve doğramalı fransız pencere, üstünde panjur kutusu, önünde ≈0.35 m beyaz döşeme çıkıntısı + yatay paslanmaz borulu korkuluk (K1–K5 hepsi tube). K5 sağ pencerede dış panjur ~%55 inik. Ortada ≈1.2 m GERİDE gri-bej sıvalı bölüm (jeMF'de kuzey ayağın yan yüzü görünen ≈1.1 m) — iki dar fransız pencere + borulu korkuluk, her katta 2–3 siyah duvar apliki (pending). Köşelerde ≈1.3 m geride K1–K5 camla kapalı yığınlar (yanlarında klimalar). Üstte kahverengi harpuştalı segmental kemerli parapet + iki çatı arası penceresi (sol tül + borulu korkuluk, sağ panjur ~%85 inik) → pending. K0 çit arkasında GÖRÜLMEDİ (eski varsayım pencereleri kaldırıldı). Görünen genişlik taban izinden ~2 m kısa → cal.u gerdirildi. v5 (2026-09-29): orta gri-bej bölüm artık `recess` (u 6.08–10.72 = iki beyaz ayağın iç ön köşeleri, K1 döşemesinden K5 tavanına, derinlik 1.3 m: agzp/jeMF kat aralığı oranı 0.894/0.884 ve jeMF kuzey ayak yan yüzü → 1.26–1.38 m). Ara döşeme YOK (yan yüzler boydan boya düz, girinti tek boşluk). İçindeki iki dar fransız pencere arka duvarda; u değerleri arka duvar görünen koordinatından ayak düzlemine çevrildi (arka duvar köşeleri 6.58/10.71 → ağız 6.08/10.72, k≈1.12; başlar ayak pencereleriyle aynı kotta). Eski plaster2 panosu kaldırıldı (arka duvar rengi back). Tavan sıcak bej (gölgede #a79f8a/#a09a7c → güneş eşdeğeri #cfc4a8, beyaz ayak oranıyla). K0 çit arkasında görülmedi → girinti K1'den başlatıldı (batı eşinde K0 düz, giriş saçağı K1 döşemesinde). Ayak pencerelerinde (3 kanatlı) rail kaldırıldı: fotoğrafta tek korkuluk var, pencereden geniş ve ≈0.35 m döşeme çıkıntısının ön kenarında (bal tube öğesi) — rail:true ikinci, pencereye yapışık korkuluk çiziyordu. Girinti içindeki dar pencerelerde korkuluk pencereye yapışık (rail:true korundu)."
     },
     {
       "edge": 6,
@@ -904,7 +907,6 @@
             5
           ],
           "kind": "french",
-          "rail": true,
           "split": 3,
           "box": true,
           "curt": {
@@ -929,7 +931,6 @@
             5
           ],
           "kind": "french",
-          "rail": true,
           "split": 3,
           "box": true,
           "curt": {
@@ -942,8 +943,8 @@
         },
         {
           "t": "win",
-          "u0": 8.3,
-          "u1": 9.6,
+          "u0": 8.18,
+          "u1": 9.46,
           "y0": 3.4,
           "y1": 5.45,
           "k": 1,
@@ -964,8 +965,8 @@
         },
         {
           "t": "win",
-          "u0": 10.65,
-          "u1": 11.9,
+          "u0": 10.66,
+          "u1": 11.94,
           "y0": 3.4,
           "y1": 5.45,
           "k": 1,
@@ -983,14 +984,6 @@
             "K4": "tul",
             "K5": "karanlik"
           }
-        },
-        {
-          "t": "panel",
-          "u0": 7.9,
-          "u1": 12,
-          "y0": 0.24,
-          "y1": 17.25,
-          "color": "plaster2"
         },
         {
           "t": "ac",
@@ -1024,10 +1017,10 @@
         },
         {
           "t": "win",
-          "u0": 6.45,
-          "u1": 7.8,
-          "y0": 1,
-          "y1": 2.5,
+          "u0": 6.5,
+          "u1": 7.78,
+          "y0": 1.55,
+          "y1": 2.7,
           "k": 0,
           "s": [
             0,
@@ -1037,10 +1030,23 @@
         },
         {
           "t": "win",
-          "u0": 13.4,
-          "u1": 14.8,
-          "y0": 1,
-          "y1": 2.5,
+          "u0": 10.78,
+          "u1": 12.03,
+          "y0": 1.6,
+          "y1": 2.7,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "split": 2
+        },
+        {
+          "t": "win",
+          "u0": 13.85,
+          "u1": 15,
+          "y0": 1.6,
+          "y1": 2.7,
           "k": 0,
           "s": [
             0,
@@ -1050,15 +1056,15 @@
         },
         {
           "t": "entrance",
-          "u0": 8.9,
-          "u1": 10.1,
+          "u0": 8.5,
+          "u1": 10.05,
           "kind": "lobby",
           "canopy": true
         },
         {
           "t": "band",
-          "u0": 7.9,
-          "u1": 11.6,
+          "u0": 7.93,
+          "u1": 12.18,
           "y0": 2.8,
           "y1": 3.35,
           "color": "#5c4034",
@@ -1099,15 +1105,28 @@
           "fasciaC": {
             "*": "#dcdcd6"
           }
+        },
+        {
+          "t": "recess",
+          "u0": 8.05,
+          "u1": 11.97,
+          "s": [
+            1,
+            5
+          ],
+          "depth": 1.3,
+          "back": "plaster2",
+          "side": "plaster",
+          "ceil": "#cfc4a8"
         }
       ],
-      "note": "Batı cephe (sokak, bina girişi), uyko (ktmj ağaç arkasında), 2025-09 sabah GÖLGEDE. Doğu cephenin eşi: iki beyaz ayakta 3 kanatlı fransız pencere + panjur kutusu + ≈0.35 m döşeme çıkıntısı + yatay borulu paslanmaz korkuluk (K1–K5 tube); K5 sol pencerede dış panjur ~%65 inik. Ortada geri çekilmiş gri-bej bölüm (gölgede #757773) iki dar fransız pencere + borulu korkuluk + siyah aplikler; köşelerde K1–K5 camla kapalı yığınlar (sağda klimalar), K0'da dolu beyaz duvar. Zemin katta ortada çift kanatlı koyu kahve giriş kapısı, üstünde koyu kahve saçak bandı (gölgede #483128); iki yanda zemin kat pencereleri. Üstte kemerli parapet + iki çatı arası penceresi (ikisi de panjur tamamen inik) → pending. Görünen genişlik ~16 m (taban izi 16.5 m)."
+      "note": "Batı cephe (sokak, bina girişi), uyko (ktmj ağaç arkasında), 2025-09 sabah GÖLGEDE. Doğu cephenin eşi: iki beyaz ayakta 3 kanatlı fransız pencere + panjur kutusu + ≈0.35 m döşeme çıkıntısı + yatay borulu paslanmaz korkuluk (K1–K5 tube); K5 sol pencerede dış panjur ~%65 inik. Ortada geri çekilmiş gri-bej bölüm (gölgede #757773) iki dar fransız pencere + borulu korkuluk + siyah aplikler; köşelerde K1–K5 camla kapalı yığınlar (sağda klimalar), K0'da dolu beyaz duvar. Zemin katta ortada çift kanatlı koyu kahve giriş kapısı, üstünde koyu kahve saçak bandı (gölgede #483128); iki yanda zemin kat pencereleri. Üstte kemerli parapet + iki çatı arası penceresi (ikisi de panjur tamamen inik) → pending. Görünen genişlik ~16 m (taban izi 16.5 m). v5 (2026-09-29): orta girinti `recess` (u 8.05–11.97 ayak iç köşeleri, K1 döşemesinden K5 tavanına, derinlik 1.3 m; uyko kat aralığı oranı 0.936 → ≈1.5±0.3 m, doğudaki daha yakın ölçüm 1.3 m kullanıldı). K0 orta bölüm GİRİNTİSİZ ve beyaz (uyko K0 bandı): kapı + K1 döşemesi hizasında kahve saçak bandı (u 7.93–12.18, ölçülerek düzeltildi; eski 11.6 kısa idi). Arka duvar pencereleri ayak düzlemine çevrildi. Eski plaster2 panosu kaldırıldı (K0 beyaz, girinti back rengiyle). K0 düzeltme (uyko K0 şeridi): pencereler u 6.5–7.78, 10.78–12.03 (YENİ, kapının sağında, saçak altında), 13.85–15.0; denizlik ≈1.55–1.6, lento ≈2.7 (eski 1.0–2.5 yanlış); giriş kapısı u 8.5–10.05 (çift kanat koyu kahve), kapının solunda beyaz elektrik panosu (u 7.8–8.4) ve u≈12.8'de küçük siyah aplik (çizilmedi). Ayak pencerelerinde (3 kanatlı) rail kaldırıldı: fotoğrafta tek korkuluk var, pencereden geniş ve ≈0.35 m döşeme çıkıntısının ön kenarında (bal tube öğesi) — rail:true ikinci, pencereye yapışık korkuluk çiziyordu. Girinti içindeki dar pencerelerde korkuluk pencereye yapışık (rail:true korundu)."
     }
   ],
   "notes": [
     "Mertkent'in batısında (1637'nin kuzeyi), doğu cephesi (e5) siteye bakar. 6 kat: K0 zemin kat (batıda bina girişi), K1–K5 fransız pencereli; doğu ve batı cephelerde kahverengi harpuştalı kemerli (segmental) parapet duvarı içinde iki çatı arası penceresi (çizilemez). Kuzey cephede merdiven kulesi çatıdan ~2 m yükselir.",
     "Renkler: beyaz/kırık beyaz sıva, orta girintide gri-bej sıva (plaster2), koyu kahverengi dikey kaplama bantları/portal çerçeve (strip), koyu kahverengi pencere doğramaları (frame), kemer harpuştası kahverengi.",
-    "Köşe yığınları geri çekik (~0.7–1.6 m) ve K1–K5 tamamen camla kapalı (d:0 loca olarak), yanlarında klimalar; ayaklarda her katta 3 kanatlı fransız pencere + ince döşeme çıkıntısı + paslanmaz korkuluk (çıkıntı çizilmedi, rail=true), üstlerinde panjur kutusu.",
+    "Köşe yığınları geri çekik (~0.7–1.6 m) ve K1–K5 tamamen camla kapalı (d:0 loca olarak), yanlarında klimalar; ayaklarda her katta 3 kanatlı fransız pencere + ince döşeme çıkıntısı + paslanmaz korkuluk (çıkıntı artık bal d 0.35 tube öğesiyle çiziliyor; pencere rail kaldırıldı), üstlerinde panjur kutusu.",
     "TABAN İZİ UYARISI: doğu/batı cepheler ~16–17 m (taban izi 19 m), kuzey batı köşesi taban izinden ~2.4 m içeride görünüyor → taban izi büyük; cal.u gerçek köşelere göre (gerdirme).",
     "Güney (1637'ye bakan) cephe yalnız 1Jme'den çok eğik: kahverengi portal çerçeveli orta bölüm bir kat alçak görünüyor (üstünde teras olabilir) — doğrulanmadı.",
     "RETRO 2026-09: renkler ham fotoğraftan — beyaz ayak sıvası güneşli #dadbd8 (doğu, agzp) → plaster #dcdcd6; orta girinti gri-bej güneşli kenarda #b3ad99, gölgede #757773–#7e7967 → plaster2 #b3ad99; kahverengi kaplama yalnız gölgede görüldü (#5d4c50) → strip eski #8a5c48 korundu; giriş saçağı koyu kahve (gölgede #483128). Korkuluklar: ayak pencerelerinde K1–K5 yatay borulu paslanmaz (tube, döşeme çıkıntısı ≈0.35 m), orta dar fransız pencerelerde de borulu korkuluk. Doğu cephede K0 görülmedi (eski varsayım pencereleri kaldırıldı)."
@@ -1119,15 +1138,7 @@
         5,
         11
       ],
-      "desc": "Doğu ve batı cephe üstünde segmental kemerli parapet duvarı (K5 üstünden kemer tepesi ≈+5 m, kahverengi #6b4a3e harpuşta ≈0.25 m); içinde iki çatı arası penceresi (doğu: görünen u 5.5–7.6 ve 8.4–10.6, y ≈18.6–21; sol tül + borulu korkuluk, sağ panjur ~%85 inik; batı: ikisi de panjur tamamen inik). Kemerin iki yanında K5 üstünde düz çatı çıkıntıları."
-    },
-    {
-      "what": "recess",
-      "edges": [
-        5,
-        11
-      ],
-      "desc": "Orta gri-bej bölüm beyaz ayaklardan ≈1.2 m geride (jeMF: kuzey ayağın yan yüzü görünen ≈1.1 m). Doğu görünen u 6.1–10.7, batı 7.9–12.0; K0–K5."
+      "desc": "Doğu ve batı cephe üstünde segmental kemerli parapet duvarı (K5 üstünden kemer tepesi ≈+5 m, kahverengi #6b4a3e harpuşta ≈0.25 m); içinde iki çatı arası penceresi (doğu: görünen u 5.5–7.6 ve 8.4–10.6, y ≈18.6–21; sol tül + borulu korkuluk, sağ panjur ~%85 inik; batı: ikisi de panjur tamamen inik). Kemerin iki yanında K5 üstünde düz çatı çıkıntıları. (v5'te kemerli/segmental parapet yok; pediment üçgen olduğu için kullanılmadı.) Ölçü (agzp, doğu, görünen): kemer duvarı u 1.0–16.0; düşey yanlar y 18.2 (K5 döşeme alnı üstü) → 20.3, oradan segmental kemer, tepe y≈23.0 (u≈8.5); kahve harpuşta ≈0.25 m; pencereler u 5.9–7.96 (y 18.57–21.05, sol, tül + borulu korkuluk) ve u 8.73–10.85 (y 18.76–21.53, sağ, panjur ~%85 inik); kemerin iki yanında K5 üstünde düz çatı çıkıntıları (y≈18.3–19.4). K6 satırı üretici tarafından çizilmez (storeys=6)."
     },
     {
       "what": "wall-lamps",
@@ -1135,7 +1146,7 @@
         5,
         11
       ],
-      "desc": "Orta girintide her katta 2–3 siyah duvar apliki (spot), dar pencereler arasında ve üstünde."
+      "desc": "Orta girintinin ARKA DUVARINDA (girinti derinliği 1.3 m) her katta tavana yakın siyah duvar spotları: doğu (agzp) K1–K5 her katta iki adet, pencereler arası, görünen u≈8.29 ve 8.88 (ayak düzlemine çevrilmiş u≈8.0 ve 8.66), kat lentosunun ≈0.3 m üstünde, aşağı eğik silindir (≈Ø8 cm, ≈20 cm boy); batı (uyko) aynı düzen, önden yuvarlak görünür (u≈9.78/10.33 görünen, K1–K5). Ayrıca batı K0'da kapının sağında u≈12.8, y≈2.6 küçük siyah aplik. v6 duvar lambası özelliği bekleniyor."
     },
     {
       "what": "stair-head",

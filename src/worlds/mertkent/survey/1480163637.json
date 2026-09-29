@@ -675,25 +675,9 @@
           "color": "#c79c9c"
         },
         {
-          "t": "panel",
-          "u0": 3,
-          "u1": 8,
-          "y0": 18.8,
-          "y1": 22.5,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 3,
-          "u1": 8,
-          "y0": 3.4,
-          "y1": 6.16,
-          "color": "plaster2"
-        },
-        {
           "t": "win",
-          "u0": 3.31,
-          "u1": 4.91,
+          "u0": 3.65,
+          "u1": 5.19,
           "y0": 7.3,
           "y1": 9,
           "k": 1,
@@ -719,8 +703,8 @@
         },
         {
           "t": "win",
-          "u0": 6.4,
-          "u1": 7.89,
+          "u0": 6.64,
+          "u1": 8.18,
           "y0": 7.3,
           "y1": 9,
           "k": 1,
@@ -745,26 +729,60 @@
         },
         {
           "t": "ac",
-          "u": 3.64,
+          "u": 3.97,
           "s": 5
         },
         {
           "t": "ac",
-          "u": 3.64,
+          "u": 3.97,
           "s": 4
         },
         {
           "t": "ac",
-          "u": 3.64,
+          "u": 3.97,
           "s": 3
         },
         {
           "t": "ac",
-          "u": 7.15,
+          "u": 7.45,
           "s": 2
+        },
+        {
+          "t": "pilaster",
+          "u0": 3.15,
+          "u1": 3.35,
+          "s": [
+            1,
+            4
+          ],
+          "d": 0.03,
+          "color": "#eedacb"
+        },
+        {
+          "t": "pilaster",
+          "u0": 8.45,
+          "u1": 8.65,
+          "s": [
+            1,
+            4
+          ],
+          "d": 0.03,
+          "color": "#eedacb"
+        },
+        {
+          "t": "recess",
+          "u0": 3.35,
+          "u1": 8.45,
+          "s": [
+            0,
+            5
+          ],
+          "depth": 1.5,
+          "back": "plaster",
+          "side": "plaster2"
         }
       ],
-      "note": "Güney orta cephe (sokak), RJuE (aLIW ile), 2025-09 güneşli. İki uçta pembe (K1–K4, derzli) / krem (K0, K5–K6) KULE: her katta kahverengi ahşap görünümlü doğramalı çift kanatlı fransız pencere, kalın krem söve, ≈0.5 m koyu gri profilli döşeme + siyah dikey çubuklu korkuluk (tüm katlar bars; kat kat kontrol edildi). Kuleler arasındaki krem orta bölüm (klimalı iki pencere aksı, beyaz klima boruları) kule ön yüzünden ≈1.5–2 m GERİDE (RJuE'de kat aralığı 2.62/3.13, aLIW'de 2.77/3.10; iki karede kulelerin yan yüzleri görülüyor) — taban izinde bu girinti yok → pending; orta öğeler kenar düzlemine indirgendi (u' = 11.2 + (u−11.2)/0.84). Orta bölüm K0 ve K5–K6 pembe. K6: kulelerde 7. sıra fransız pencere + orta bölümde 7. sıra pencere (kavisli tonoz parapetin içinde) → pending. Perdeler 40° karelerden."
+      "note": "Güney orta cephe (sokak), RJuE (aLIW ile), 2025-09 güneşli. İki uçta pembe (K1–K4, derzli) / krem (K0, K5–K6) KULE: her katta kahverengi ahşap görünümlü doğramalı çift kanatlı fransız pencere, kalın krem söve, ≈0.5 m koyu gri profilli döşeme + siyah dikey çubuklu korkuluk (tüm katlar bars; kat kat kontrol edildi). Kuleler arasındaki krem orta bölüm (klimalı iki pencere aksı, beyaz klima boruları) kule ön yüzünden ≈1.5–2 m GERİDE (RJuE'de kat aralığı 2.62/3.13, aLIW'de 2.77/3.10; iki karede kulelerin yan yüzleri görülüyor) — taban izinde bu girinti yok → pending; orta öğeler kenar düzlemine indirgendi (u' = 11.2 + (u−11.2)/0.84). Orta bölüm K0 ve K5–K6 pembe. K6: kulelerde 7. sıra fransız pencere + orta bölümde 7. sıra pencere (kavisli tonoz parapetin içinde) → pending. Perdeler 40° karelerden. v5 (2026-09-29): orta krem bölüm artık `recess` (u 3.35–8.45 = kule iç ön köşeleri, K0 döşemesinden K5 tavanına, derinlik 1.5 m). Derinlik ölçümü (pencere lento profili, 6 kat aralığı): RJuE kule 3.124 / orta 2.657 (oran 0.851), aLIW 3.156 / 2.744 (0.870) → kule önünden 1.60 / 1.35 m; ara döşeme yok (yan yüzler boydan boya). Kameralar: RJuE ayağı u≈10.48, aLIW u≈0.2 (ortofoto başlangıcı = taban izi köşesi −120.97). Orta bölüm öğeleri yeniden kule düzlemine çevrildi (u′ = 10.48 + (u − 10.48)·1.16; eski formüldeki 11.2 kamera ayağı eski yapılandırma köşesinden geliyordu): pencereler 3.65–5.19 / 6.64–8.18 (orta bölüm lentoları kule lentolarıyla aynı kotta, yc≈2.87), klimalar u 3.97 (K3–K5) ve 7.45 (K2). Orta bölümün K0 ve K5–K6 pembe bantları arka duvarda (girinti tek renk → pending). Kule iç köşelerinde krem köşe bandı (quoin) pilastır: görünen genişlik ≈0.15 (RJuE) – 0.25 m (aLIW), K1–K4 pembe kaplama boyunca; çıkıntı ≈3 cm (gölge çizgisinden, tahmini), renk güneşli #eed6c7–#f4dfcf. Dış köşelerde (cam yığınlarla birleşim) köşe bandı görülmedi."
     },
     {
       "edge": 3,
@@ -2030,27 +2048,24 @@
     "RENKLER (retro 2026-09, ham fotoğraf): krem sıva güneşli #e8e2d1 (güney), gölgede #958679–#978e7a → plaster #e8e2d1; kirli pembe derzli kaplama güneşli #dfb9b9, gölgede #7d6c6c–#9d8886 → plaster2 #dfb9b9 (eski #c29396 fazla koyu/mor idi); söveler krem #ebdbca; doğramalar kahverengi ahşap görünümlü PVC güneşli #bd8461 → frameC #a8714f (blok frame beyaz kaldı: cam balkon çerçeveleri beyaz); fransız balkon döşeme alnı koyu gri #6f6d69, korkuluk siyah çubuk; subasman koyu gri-mavi (gölgede #324151; güneşli ölçülemedi); palet önceki ölçüm #8e97a3 korundu.",
     "KORKULUK (kat kat): güney kulelerde K0–K5 (ve K6) siyah dikey çubuklu (bars); köşe cam balkon yığınlarında her kat krem dolu parapet + katlanır cam (bazılarında cam arkasında/altında koyu demir korkuluk bandı); batı KB balkonlar K0–K2 camlı dolu parapet, K3–K5 açık siyah korkuluk.",
     "Çatı: düz, kalın düz saçak (doğu/batı), güney/kuzey orta bölümde kavisli bakır-kahve kaplamalı tonoz parapet (çizilemez, pending).",
-    "Belirsizlikler: kuzey cephe (e6–e10) yalnız uyko/ktmj karelerinden eğik görüldü, u konumları yaklaşık; e8/e9 görülmedi (öğeleri eski tahmin; bu turda değiştirilmedi ama çizim için güvenilmez). groundRaise 3.0. Doğu/batı cepheler taban izinden ~0.8–1 m kısa görünüyor (cal.u gerdirildi)."
+    "Belirsizlikler: kuzey cephe (e6–e10) yalnız uyko/ktmj karelerinden eğik görüldü, u konumları yaklaşık; e8/e9 görülmedi (öğeleri eski tahmin; bu turda değiştirilmedi ama çizim için güvenilmez). groundRaise 3.0. Doğu/batı cepheler taban izinden ~0.8–1 m kısa görünüyor (cal.u gerdirildi).",
+    "v5 (2026-09-29): Subasman yalnız gölgede görüldü (#324151, batı 8FrZ); güneşli değer ölçülemedi, palet plinth #8e97a3 önceki ölçümden (eski pending maddesi buraya taşındı — üretici eksiği değil, ölçüm sınırı). TABAN İZİ (kenar 2): iki pano parallaksına göre kule ön yüzleri taban izi çizgisinin ≈0.9 m ÖNÜNDE (kule kat aralığı 3.12–3.16 görünen / 2.85 gerçek), orta arka duvar ≈0.4–0.7 m GERİSİNDE; kule iç köşesi gerçek u≈3.9 (RJuE 3.3 ve aLIW 4.29 görünen, ikisi de tutarlı). Üretici kuleleri taban izi çizgisinde çizer; girinti derinliği (1.5 m) kule önüne göre verildi. Güney cam yığınları kulelerden yalnız ≈1.2 m taşıyor olabilir (taban izinde 2.1 m)."
   ],
   "pending": [
     {
-      "what": "recess",
-      "edge": 2,
-      "desc": "Güney orta krem bölüm kule ön yüzlerinden ≈1.5–2.0 m geride: kenar 2 görünen u ≈3.1–8.5 (kenar düzlemi), tam boy (K0–K6). Taban izinde yok; girinti özelliğiyle (recess u 3.1–8.5, depth ≈1.7) çizilebilir. İçindeki öğeler kenar düzlemine indirgendi."
-    },
-    {
       "what": "K6",
       "edge": 2,
-      "desc": "Güney kulelerde ve orta bölümde 7. kat sırası (K6): kulelerde K5 üstünde aynı tip fransız pencere + siyah çubuklu balkon (u 0–1.55 ve 10.2–12.0, RJuE görünen başlık ≈24.5), orta bölümde iki pencere (K6 perde: sol tül, sağ tül). Üstünde bakır-kahve kaplamalı kavisli tonoz parapet (yeşil yama). Batı/doğu cephelerde K6 görünmüyor → kütle bölmesi gerekir (derinlik görülmedi)."
+      "desc": "Güney kulelerde ve orta bölümde 7. kat sırası (K6): kulelerde K5 üstünde aynı tip fransız pencere + siyah çubuklu balkon (u 0–1.55 ve 10.2–12.0, RJuE görünen başlık ≈24.5), orta bölümde iki pencere (K6 perde: sol tül, sağ tül). Üstünde bakır-kahve kaplamalı kavisli tonoz parapet (yeşil yama). Batı/doğu cephelerde K6 görünmüyor → kütle bölmesi gerekir (derinlik görülmedi). Ölçü (2026-09-29, lento profili): K6 kule pencere lentosu RJuE görünen ≈24.7 (K5 21.61 + 3.124), orta bölüm K6 pencereleri arka duvarda görünen lento 21.46 (kule düzlemine çevrilince ≈24.7; orta girinti K6'da da sürüyor). Doğu/batı cephede ve kuzey kanatlarda K6 yok → K6 yalnız güney şeritte; şerit derinliği fotoğraflarda ölçülemedi (hava fotoğrafında tonoz çatı altında). Kuzey kanat yüzlerinde (e6, e10; uyko/ktmj çok eğik) de üstte kavisli parapet + çatı arası penceresi görülüyor (ölçülemedi). v5 özellikleri (massing poly için derinlik, kemerli/tonoz parapet) bunu karşılamıyor → pending kalır."
     },
     {
-      "what": "quoins",
+      "what": "recess-colour-zones",
       "edge": 2,
-      "desc": "Kule köşelerinde krem düşey köşe bantları (≈0.3–0.35 m, hafif çıkıntılı, yatay derzli) — pilastır olarak çizilmeli."
+      "desc": "Kenar 2 orta girintisinde renk bölgeleri (recess tek back/side rengi alıyor): ARKA DUVAR K0 pembe (#dfb9b9, derzli), K1–K4 krem (back=plaster, güneşli #f1ead8), K5–K6 pembe (güneşli #e1b9ba; sınırlar tam kat döşemelerinde: K1 ve K5 döşemesi). YAN YÜZLER (kulelerin iç yan duvarları): K0 krem yatay derzli, K1–K4 pembe yatay derzli kaplama (side=plaster2, güneşli yan yüz #cfa39e; derz aralığı ≈0.55 m, #c79c9c), K5–K6 krem. Eski düz panolar (u 3–8, y 3.4–6.16 ve 18.8–22.5) girinti ağzında kesileceği için kaldırıldı."
     },
     {
-      "what": "plinth-color",
-      "desc": "Subasman yalnız gölgede görüldü (#324151); güneşli değer ölçülemedi, palet önceki ölçüm #8e97a3 olarak korundu."
+      "what": "units-in-recess",
+      "edge": 2,
+      "desc": "Orta girintideki klimalar (u 3.97 K3–K5, u 7.45 K2; arka duvara monteli, pencerelerin solunda/altında, beyaz dış ünite + beyaz klima boruları duvar boyunca) girintinin ARKA DUVARINDA çizilmeli (derinlik 1.5 m); üretici şu an ac/dish/camera öğelerini kenar düzleminde (girinti ağzında) çiziyor."
     }
   ]
 }

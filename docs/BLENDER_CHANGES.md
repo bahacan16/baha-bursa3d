@@ -303,3 +303,11 @@
   `copyOf` kenarlarında artık yalnız geometri (tabela/bayrak/perde/klima kopyası yok), "K3" biçimli cam balkon tonu
   anahtarları normalize → ölçülmüş tonlar görünür. Değişen: 1540901770/71/72, 1541439435, 900000105. CLAUDE.md
   kararlar güncellendi (Ultra, pişirilmiş ışık, 1. şahıs açısı, copyOf). **Blender:** bu 5 blok yeniden kurulmalı.
+- **(v5 dönüşüm 1)** — Bekleyen (`pending`) ölçümler v5 üretici özellikleriyle veriye çevrildi ve derlendi:
+  1480041300/01/42/43 (bodrum pencereleri `k:-1`, kat derzleri, pilastır aralıkları düzeltildi, saksılar, direk
+  boyu), 1480163637 (orta bölüm 1.5 m girinti + köşe taşları), 1480163638 (iki cephede 1.3 m girinti, K0 pencere/kapı
+  düzeltmesi, çift korkuluk hatası), 1540901795/96/98 (loca derinlikleri, açık gri PVC borular, alınlığı aşan gri
+  panel hatası), 900000104 (çatı katı cephesi, batı teras saçağı, alınlık, pergola, saksılar, kepenk rengi),
+  900000105 (parapet harpuştası, bay penceresi panelleri), 900000106 (KUDRET altın çerçeve, monogram paneli, alarm).
+  Ayrıca kavşak köşelerinde bordürden yola asfalt dolgusu uyarlamalı (3–10 m): 502/Doğan Avcıoğlu köşesindeki bej
+  hava fotoğrafı boşluğu kapandı (`street.ts`, `index.ts`). **Blender:** bu 12 blok + kavşak asfaltı yeniden kurulmalı.

@@ -4,73 +4,43 @@
   "storeys": 8,
   "floorH": 3.1,
   "groundRaise": 1.8,
-  "roof": {
-    "kind": "hipped",
-    "eave": 0,
-    "fasciaH": 0.1,
-    "pitch": 20,
-    "terrace": true,
-    "parapet": { "h": 0.45, "color": "#bcbfbf" }
-  },
-  "colors": {
-    "plaster": "#bcbfbf",
-    "plaster2": "#727471",
-    "fascia": "#4e4240",
-    "frame": "#3b3f44",
-    "railGlass": "#2b333d",
-    "tile": "#7a797e"
-  },
+  "roof": {"kind": "hipped", "eave": 0, "fasciaH": 0.1, "pitch": 20, "terrace": true, "parapet": {"h": 0.34, "color": "#bcbfbf", "coping": {"h": 0.11, "over": 0.03, "color": "#4a4d52"}}},
+  "colors": {"plaster": "#bcbfbf", "plaster2": "#727471", "fascia": "#4e4240", "frame": "#3b3f44", "railGlass": "#2b333d", "tile": "#7a797e"},
   "edges": [
     {
       "edge": 0,
       "len": 20.7,
       "seen": "partial",
       "ref": "900000105_0_vXbUE2n9.jpg",
-      "cal": { "u": [-1.95, 18.75], "head": [[3, 13.4], [7, 25.65]] },
+      "cal": {"u": [-1.95, 18.75], "head": [[3, 13.4], [7, 25.65]]},
       "items": [
-        {
-          "t": "win", "u0": 3.53, "u1": 4.44, "y0": 23.45, "y1": 25.65, "k": 7, "s": [3, 7],
-          "kind": "small", "split": 1, "frameC": "#3b3f44",
-          "curt": { "K7": "karanlik", "K6": "karanlik", "K4": "tul", "K3": "tul" },
-          "shut": { "K5": 1 }
-        },
-        { "t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 23.4, "w": 0.03, "color": "#9ea3a5" },
-        { "t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 20.3, "w": 0.03, "color": "#9ea3a5" },
-        { "t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 17.3, "w": 0.03, "color": "#9ea3a5" },
-        { "t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 14.2, "w": 0.03, "color": "#9ea3a5" },
-        { "t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 11.2, "w": 0.03, "color": "#9ea3a5" },
-        {
-          "t": "proj", "u0": 6.59, "u1": 14.33, "d": 1.1, "y0": 10.72, "y1": 16.67, "color": "#727471",
-          "wins": [
-            { "u0": 7.74, "u1": 9.38, "y0": 14.59, "y1": 16.52, "kind": "std", "curt": "tul" },
-            { "u0": 11.37, "u1": 13.06, "y0": 14.59, "y1": 16.52, "kind": "std", "curt": "karanlik" },
-            { "u0": 7.74, "u1": 9.38, "y0": 11.4, "y1": 13.62, "kind": "std", "curt": "karanlik" },
-            { "u0": 11.37, "u1": 13.06, "y0": 11.4, "y1": 13.62, "kind": "std", "curt": "karanlik" }
-          ]
-        },
-        {
-          "t": "proj", "u0": 6.59, "u1": 14.33, "d": 1.1, "y0": 16.67, "y1": 27.25, "color": "#4e4240",
-          "wins": [
-            { "u0": 7.74, "u1": 9.38, "y0": 23.64, "y1": 25.9, "kind": "std", "curt": "karanlik" },
-            { "u0": 11.37, "u1": 13.06, "y0": 23.64, "y1": 25.9, "kind": "std", "curt": "karanlik" },
-            { "u0": 7.74, "u1": 9.38, "y0": 20.58, "y1": 22.81, "kind": "std", "curt": "karanlik" },
-            { "u0": 11.37, "u1": 13.06, "y0": 20.58, "y1": 22.81, "kind": "std", "curt": "karanlik" },
-            { "u0": 7.74, "u1": 9.38, "y0": 17.54, "y1": 19.76, "kind": "std", "curt": "stor" },
-            { "u0": 11.37, "u1": 13.06, "y0": 17.54, "y1": 19.76, "kind": "std", "curt": "stor" }
-          ]
-        }
+        {"t": "win", "u0": 3.53, "u1": 4.44, "y0": 23.45, "y1": 25.65, "k": 7, "s": [3, 7], "kind": "small", "split": 1, "frameC": "#3b3f44", "curt": {"K7": "karanlik", "K6": "karanlik", "K4": "tul", "K3": "tul"}, "shut": {"K5": 1}},
+        {"t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 23.4, "w": 0.03, "color": "#9ea3a5"},
+        {"t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 20.3, "w": 0.03, "color": "#9ea3a5"},
+        {"t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 17.3, "w": 0.03, "color": "#9ea3a5"},
+        {"t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 14.2, "w": 0.03, "color": "#9ea3a5"},
+        {"t": "groove", "dir": "h", "u0": -1.95, "u1": 6.59, "y": 11.2, "w": 0.03, "color": "#9ea3a5"},
+        {"t": "proj", "u0": 6.59, "u1": 14.33, "d": 1.1, "y0": 10.72, "y1": 16.67, "color": "#727471", "wins": [{"u0": 7.74, "u1": 9.38, "y0": 14.59, "y1": 16.52, "kind": "std", "curt": "tul"}, {"u0": 11.37, "u1": 13.06, "y0": 14.59, "y1": 16.52, "kind": "std", "curt": "karanlik"}, {"u0": 7.74, "u1": 9.38, "y0": 11.4, "y1": 13.62, "kind": "std", "curt": "karanlik"}, {"u0": 11.37, "u1": 13.06, "y0": 11.4, "y1": 13.62, "kind": "std", "curt": "karanlik"}]},
+        {"t": "proj", "u0": 6.59, "u1": 14.33, "d": 1.1, "y0": 16.67, "y1": 27.25, "color": "#4e4240", "wins": [{"u0": 7.74, "u1": 9.38, "y0": 23.64, "y1": 25.9, "kind": "std", "curt": "karanlik"}, {"u0": 11.37, "u1": 13.06, "y0": 23.64, "y1": 25.9, "kind": "std", "curt": "karanlik"}, {"u0": 7.74, "u1": 9.38, "y0": 20.58, "y1": 22.81, "kind": "std", "curt": "karanlik"}, {"u0": 11.37, "u1": 13.06, "y0": 20.58, "y1": 22.81, "kind": "std", "curt": "karanlik"}, {"u0": 7.74, "u1": 9.38, "y0": 17.54, "y1": 19.76, "kind": "std", "curt": "stor"}, {"u0": 11.37, "u1": 13.06, "y0": 17.54, "y1": 19.76, "kind": "std", "curt": "stor"}]},
+        {"t": "panel", "u0": 7.74, "u1": 9.38, "y0": 22.85, "y1": 23.62, "color": "#424953", "proud": 1.125},
+        {"t": "panel", "u0": 7.74, "u1": 9.38, "y0": 19.75, "y1": 20.57, "color": "#424953", "proud": 1.125},
+        {"t": "panel", "u0": 7.74, "u1": 9.38, "y0": 17.54, "y1": 19.76, "color": "#6e706b", "proud": 1.125},
+        {"t": "panel", "u0": 11.37, "u1": 13.06, "y0": 22.85, "y1": 23.62, "color": "#424953", "proud": 1.125},
+        {"t": "panel", "u0": 11.37, "u1": 13.06, "y0": 19.75, "y1": 20.57, "color": "#424953", "proud": 1.125},
+        {"t": "panel", "u0": 11.37, "u1": 13.06, "y0": 17.54, "y1": 19.76, "color": "#6e706b", "proud": 1.125},
+        {"t": "band", "u0": 6.59, "u1": 14.33, "y0": 16.63, "y1": 16.69, "color": "#3c3331", "proud": 1.14}
       ],
-      "note": "2025-09. Ref ortofoto bu ajanın ürettiği vXbUE (pano 666.6,−83.1; 3_6/3_23/3_39 karoları, önden bakış) — repoda yok: /tmp/claude-0/agent-d3-n105/c/900000105_0_vXbUE2n9*.jpg (sv-extra girişi: /tmp/claude-0/agent-d3-n105/mycfg.json). GB köşesi görünen u −1.95 (gök sınırı); GD köşesi hiçbir karede net değil → uE = uA+20.7 varsayıldı. Çıkma (cumba) u değerleri duvar düzlemine indirgenmiş (D 32.9, d 1.1); doğu penceresi sütunu ve çıkma doğu ucu T1qi7 60/78 karolarındaki oranlardan aktarıldı (vXbUE’de BALENTUR binası u>8.5’i kapatıyor). Çıkma derinliği 1.1 m: epBrUk ve T1qi7’de görülen batı yan yüzünün genişliğinden (1.06–1.2). Çıkmanın doğusunda duvar (gerçek u≈16.3–20.7) K3–K7’de penceresiz (epBrUk, T1qi7). K0–K2 görülmedi (LEYLA/BALENTUR/balıkçı önde)."
+      "note": "2025-09. Ref ortofoto bu ajanın ürettiği vXbUE (pano 666.6,−83.1; 3_6/3_23/3_39 karoları, önden bakış) — repoda yok: /tmp/claude-0/agent-d3-n105/c/900000105_0_vXbUE2n9*.jpg (sv-extra girişi: /tmp/claude-0/agent-d3-n105/mycfg.json). GB köşesi görünen u −1.95 (gök sınırı); GD köşesi hiçbir karede net değil → uE = uA+20.7 varsayıldı. Çıkma (cumba) u değerleri duvar düzlemine indirgenmiş (D 32.9, d 1.1); doğu penceresi sütunu ve çıkma doğu ucu T1qi7 60/78 karolarındaki oranlardan aktarıldı (vXbUE’de BALENTUR binası u>8.5’i kapatıyor). Çıkma derinliği 1.1 m: epBrUk ve T1qi7’de görülen batı yan yüzünün genişliğinden (1.06–1.2). Çıkmanın doğusunda duvar (gerçek u≈16.3–20.7) K3–K7’de penceresiz (epBrUk, T1qi7). K0–K2 görülmedi (LEYLA/BALENTUR/balıkçı önde). v5: cumba ön yüzünde pencere+pano şeridi: K7 ve K6 pencerelerinin altında koyu gri dolu pano (#424953; vXbUE #434a57/#404851, T1qi7 #4c5358), K5'te iki sütunda da dış stor kepengi tam inik (düz pano #6e706b = lamel+aralık ortalaması, vXbUE kapalı hava; T1qi7 #5f5e59) — iki sütun T1qi7 60_33'te aynı düzende görülüyor (doğu sütunu düşük çözünürlük). Kahverengi kaplamanın alt kenarında 3 cm taşan koyu çizgi (band proud 1.14). Parapet üstünde koyu gri metal harpuşta ~0.11 m (vXbUE, PsLu); harpuşta+parapet üstü 27.17 korundu."
     },
-    { "edge": 1, "len": 19.0, "seen": "none", "items": [], "note": "Doğu cephe hiçbir karede görülmedi (güneyden BALENTUR 900000101, doğudan 104/1550614218 kapatıyor). Çizilmemeli / düz sıva." },
+    {"edge": 1, "len": 19.0, "seen": "none", "items": [], "note": "Doğu cephe hiçbir karede görülmedi (güneyden BALENTUR 900000101, doğudan 104/1550614218 kapatıyor). Çizilmemeli / düz sıva."},
     {
       "edge": 2,
       "len": 20.7,
       "seen": "partial",
       "ref": "900000105_2_urVE3ZYD.jpg",
-      "cal": { "u": [0, 20.7], "head": [[2, 10.0], [7, 24.8]] },
+      "cal": {"u": [0, 20.7], "head": [[2, 10.0], [7, 24.8]]},
       "items": [
-        { "t": "win", "u0": 18.25, "u1": 18.9, "y0": 22.7, "y1": 24.8, "k": 7, "s": [2, 7], "kind": "small", "split": 1, "frameC": "#3b3f44" }
+        {"t": "win", "u0": 18.25, "u1": 18.9, "y0": 22.7, "y1": 24.8, "k": 7, "s": [2, 7], "kind": "small", "split": 1, "frameC": "#3b3f44"}
       ],
       "note": "2025-09, urVE3 112_10/112_20. Yalnız KB ucundaki ~3.7 m (u 17–20.7) görülüyor: dar dikey pencere sütunu (0.65 m), K2–K7 (K4 yaprak arkasında ama seçiliyor). u<17 önündeki koyu kahverengi bina (MOSSA/1550614218) tarafından kapalı → görülmedi. KB köşesi net değil, cal.u özdeşlik (±1 m). Perde çözülemedi."
     },
@@ -79,43 +49,20 @@
       "len": 19.0,
       "seen": "partial",
       "ref": "900000105_3__PsLu7A_.jpg",
-      "cal": { "u": [0.05, 19.95], "head": [[3, 13.85], [7, 26.85]] },
+      "cal": {"u": [0.05, 19.95], "head": [[3, 13.85], [7, 26.85]]},
       "items": [
-        {
-          "t": "bal", "u0": 0.75, "u1": 9.0, "d": 0, "inset": 0.6, "s": [3, 7],
-          "rail": { "*": "glassFull" }, "glassC": { "*": "#2b333d" }, "railC": "#3b3f44",
-          "glazed": [4, 5, 6], "tint": { "K4": "dark", "K5": "blinds", "K6": "dark" }
-        },
-        {
-          "t": "bal", "u0": 10.55, "u1": 19.45, "d": 0, "inset": 0.6, "s": [3, 7],
-          "rail": { "*": "glassFull" }, "glassC": { "*": "#2b333d" }, "railC": "#3b3f44",
-          "glazed": [4, 5, 6], "tint": { "K4": "dark", "K5": "dark", "K6": "dark" }
-        },
-        { "t": "vent", "u": 9.2, "y": 13.75, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e" },
-        { "t": "vent", "u": 9.2, "y": 17.05, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e" },
-        { "t": "vent", "u": 9.2, "y": 20.33, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e" },
-        { "t": "vent", "u": 9.2, "y": 23.55, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e" }
+        {"t": "bal", "u0": 0.75, "u1": 9.0, "d": 0, "inset": 0.6, "s": [3, 7], "rail": {"*": "glassFull"}, "glassC": {"*": "#2b333d"}, "railC": "#3b3f44", "glazed": [4, 5, 6], "tint": {"K4": "dark", "K5": "blinds", "K6": "dark"}},
+        {"t": "bal", "u0": 10.55, "u1": 19.45, "d": 0, "inset": 0.6, "s": [3, 7], "rail": {"*": "glassFull"}, "glassC": {"*": "#2b333d"}, "railC": "#3b3f44", "glazed": [4, 5, 6], "tint": {"K4": "dark", "K5": "dark", "K6": "dark"}},
+        {"t": "vent", "u": 9.2, "y": 13.75, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e"},
+        {"t": "vent", "u": 9.2, "y": 17.05, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e"},
+        {"t": "vent", "u": 9.2, "y": 20.33, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e"},
+        {"t": "vent", "u": 9.2, "y": 23.55, "s": 0.08, "shape": "round", "count": 2, "spacing": 1.0, "color": "#2a2c2e"}
       ],
       "note": "2025-09. Ref ortofoto bu ajanın ürettiği _PsLu (pano 635.1,−132.3; 94/110 × 8/36 karoları, neredeyse dik) — repoda yok: /tmp/claude-0/agent-d3-n105/c/900000105_3__PsLu7A_*.jpg. T1qi7 39_10/39_28 ile doğrulandı. Podyum (900000106) üstünde görünen 5 kat K3–K7: her katta iki geniş loca (kuzey u 0.75–9.0, güney 10.55–19.45, arada 1.55 m ayak, uçlarda 0.7/0.5 m), beyaz döşeme alnı bantları 0.85 m (görünen). K7: açık loca, füme çerçevesiz cam korkuluk; K6: çerçevesiz katlanır cam balkon (dikey derzler ~0.55 m, ~1.1 m’de yatay küpeşte çizgisi); K5: koyu gri çerçeveli 3 bölmeli, 2–3 sıra yatay kayıtlı pencere duvarı (kuzey locada üst camlarda beyaz dikey jaluzi); K4: çerçevesiz cam balkon, güney locanın kuzey ucundaki kanat (u 10.55–11.2) açık; K3: açık loca, füme cam korkuluk; arka duvarda kuzey locada u 1.33–3.9 tüllü çift kanat pencere + u 5.2–8.9 karanlık kapı boşluğu, güney locada u 10.6–14.1 karanlık açıklık + u 15.5–18.2 tüllü pencere. Loca derinliği ~0.5–0.6 m (tavan payı ve T1qi7 yan kasa payından; üretici alt sınırı 0.6). Ayaklarda her katın lento hizasında iki küçük koyu nokta (u 9.2 ve 10.2: spot/sensör). K0–K2 podyumun arkasında, görülmedi."
     }
   ],
   "pending": [
-    {
-      "what": "Çıkma (cumba) kahverengi pencerelerinin altındaki koyu gri dolu panolar (pencere + pano dikey şerit)",
-      "edge": 0, "ref": "900000105_0_vXbUE2n9.jpg",
-      "u": "iki sütun: 7.74–9.38 ve 11.37–13.06 (duvar düzlemine indirgenmiş görünen)",
-      "y": "K7 penceresi altı 22.9–23.64, K6 penceresi altı 19.8–20.58 (görünen, duvar düzlemi)",
-      "color": "#3f4448",
-      "note": "K5 penceresinde dış stor kepengi tam inik (açık gri lamelli #a9abaa); kutusu cumba kaplaması içinde görünmüyor"
-    },
-    {
-      "what": "Cumba kaplaması: koyu kahverengi (#4e4240, yan yüz gölgede #3c3331) ince dikey derzli kompozit/ahşap görünümlü panel; K5–K7 (gerçek ~16.7–27.25 m). Alt kısım K3–K4 aynı çıkma ama gri sıva (#727471). Kahverengi kısım alt kenarında ~3 cm taşma çizgisi.",
-      "edge": 0
-    },
-    {
-      "what": "Parapet üstünde koyu gri metal harpuşta (~0.12 m, #4a4d52) — güney ve batı cephede görülüyor",
-      "edge": [0, 3]
-    }
+    {"what": "Cumba kahverengi kaplamasında ince dikey derzler (proj yüzeyine groove konamıyor)", "edge": 0, "u": [6.59, 14.33], "y": [16.67, 27.25], "color": "#3c3331", "note": "Kaplama #4e4240 (vXbUE kapalı hava #4f4441, T1qi7 güneşli #4f4845, yan yüz gölge #3c3331); dikey derz aralığı bu çözünürlükte ölçülemedi (≈0.1–0.15, 900000106 kaplamasına benzer). groove öğesi yalnız duvar düzleminde; proj ön yüzü için derz/kaplama dokusu gerekli."}
   ],
   "notes": [
     "OSM’de yok; taban izi sentetik. Kat ızgarası: K7 loca döşemesi 23.5 m, lento 25.75 m (PsLu, vXbUE ±0.2), kat yüksekliği 3.1 m (batı cephe: görünen aralık 3.25 × 0.955). Böylece K2 döşemesi ≈8.0 m = podyum çatısı (900000106) — K2 podyum terasına açılıyor olmalı (görülmedi).",
