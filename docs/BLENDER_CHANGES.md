@@ -311,3 +311,7 @@
   900000105 (parapet harpuştası, bay penceresi panelleri), 900000106 (KUDRET altın çerçeve, monogram paneli, alarm).
   Ayrıca kavşak köşelerinde bordürden yola asfalt dolgusu uyarlamalı (3–10 m): 502/Doğan Avcıoğlu köşesindeki bej
   hava fotoğrafı boşluğu kapandı (`street.ts`, `index.ts`). **Blender:** bu 12 blok + kavşak asfaltı yeniden kurulmalı.
+- **(v5 dönüşüm 2)** — 900000101 (asimetrik çatı katı alınlıkları, giydirme cam kayıtları `hbars`, buzlu loca, panjur
+  bandı), 900000103 (6 lamelli güneşlik, borular, kayıtlar), 900000102 (kablo kanalları), 303738122 (Balıkçı Mahmut
+  lamelli pano, köşe hortumu), 303738118 (Cevher/İskele kış bahçesi kayıtları, taş subasman/parapet, mavi ahşap
+  subasman). **Blender:** bu 5 blok yeniden kurulmalı.

@@ -50,13 +50,16 @@
      "color": "#dfe9ef"
     },
     {
-     "t": "proj",
+     "t": "band",
+     "style": "louvre",
      "u0": -0.75,
      "u1": 4.78,
-     "d": 0.25,
      "y0": 4.82,
      "y1": 5.62,
-     "color": "#3b4e51"
+     "color": "#3b4e51",
+     "shade": "#1b2324",
+     "slats": 7,
+     "proud": 0.25
     },
     {
      "t": "sign",
@@ -272,13 +275,16 @@
      "color": "#dfe9ef"
     },
     {
-     "t": "proj",
+     "t": "band",
+     "style": "louvre",
      "u0": -1.03,
      "u1": 8.45,
-     "d": 0.25,
      "y0": 4.47,
      "y1": 5.36,
-     "color": "#3b4e51"
+     "color": "#3b4e51",
+     "shade": "#1b2324",
+     "slats": 7,
+     "proud": 0.25
     },
     {
      "t": "sign",
@@ -505,6 +511,16 @@
      "y0": 0,
      "y1": 1.35,
      "color": "#f0f4f0"
+    },
+    {
+     "t": "pipe",
+     "u": 8.15,
+     "off": 0.15,
+     "color": "#8a7a62",
+     "r": 0.025,
+     "y0": 1.3,
+     "y1": 3.33,
+     "brackets": false
     }
    ],
    "note": "Ön (batı) cephe (2025-09, epBrUk 18 m cepheden; kr3oP ve T1qi7 ile doğrulandı). Cephe baştan sona tabela + tente + cam; sıva görünmüyor. cal.u = tabela uçları (T1qi7 köşe görünüşünde ön ve güney tabelaları tam köşede birleşiyor, köşe kahverengi hortumla işaretli). Tek katlı: cal.head iki kez aynı (ep düşey ölçeği ≈1; yatay 9.23/9.30). Tabela: beyaz/turkuaz ana bant 3.33–4.47 (tente bağlantısı 3.22), lamelli antrasit üst pano 4.47–5.36, yuvarlak BALIK MARKET 5.08–6.25. Tenteler (hepsi turkuaz, ince beyaz çizgili, Hollanda tipi yuvarlak profil, uçları yelpaze dikişli): sol 3.22→2.12, orta (giriş üstü, kısa) 3.22→2.73, sağ 3.22→2.12 + GB köşede çeyrek kubbe. Zemin: minibüs (Ford Transit Custom) orta kısmı her üç karede kapatıyor → giriş kapısının alt kısmı, orta saksıların tam uçları GÖRÜLMEDİ; giriş orta tentenin altındaki koyu açıklık (2.25–4.6), kr3oP’de kuzey saksı sırası u_app 1.98’de bitiyor + koyu mavi dikme, T1qi7’de güney saksı sırası köşeden ~4 m kuzeye uzanıyor. Işıklı tabela olup olmadığı belirlenemedi (gündüz)."
@@ -519,7 +535,8 @@
   "TABAN İZİ UYARISI (düzeltilmedi, rapor): ön cephe x=658 boyunca K–G değil, ~4.5–5.7° dönük görünüyor — KB ucu GB ucundan ~0.7–0.9 m daha doğuda. Kanıt: (1) epBrUk ortofotosunda tabela yüksekliği KB ucunda 2.00, GB ucunda 2.10 m görünüyor (KB ucu ~0.9 m daha uzak); (2) T1qi7 azimut uydurması KB ucunu x≈658.7’de veriyor; (3) hava fotoğrafında tabelanın koyu çizgisi z −110.5’te x 657.6, z −105’te x 657.05. Köşe başına sapma ~±0.4 m.",
   "Güney tente/bant/çit Leyla Fasıl’ın batı pergolasına (x≈664.7–667.3, z≈−102…−94.7; koyu dikmeler, yarı saydam turkuaz çatı, koyu gri tahta güverte + saksılar) dayanıyor; pergola bu binaya ait görünmüyor (güverte Leyla’nın cephesiyle aynı malzeme) — çizilmedi, pending’de.",
   "Tabelalar: ön ve güneyde aynı tasarım (güneyde daha kısa üst pano ve daha küçük harfler). Metinler: ‘Balıkçı Mahmut’ (balık logosu iki kelime arasında), ‘ÇİĞ ve PİŞMİŞ / KİLO İLE BALIK’, ‘Gel Al Paket / 413 47 23’, ‘MEZE ÇEŞİTLERİ / DONUK ÜRÜNLER’, yuvarlak ‘BALIK / MARKET’. Saksı panelindeki iki satır küçük koyu yazı okunamadı.",
-  "v4: balık logosu Mahmut tabelasına icon fish (u aralığı logoyu kapsayacak şekilde genişletildi), beyaz harf konturu outline, BALIK MARKET shape round, sol/sağ/güney tenteler style dutch, yerdeki klima volume olarak eklendi. Saksı/çit kutuları cepheye dayalı olduğu için proj olarak kaldı."
+  "v4: balık logosu Mahmut tabelasına icon fish (u aralığı logoyu kapsayacak şekilde genişletildi), beyaz harf konturu outline, BALIK MARKET shape round, sol/sağ/güney tenteler style dutch, yerdeki klima volume olarak eklendi. Saksı/çit kutuları cepheye dayalı olduğu için proj olarak kaldı.",
+  "v5 (2026-09-29, pend-g5): üst antrasit lamelli pano (iki cephe) proj yerine band louvre (derinlik 0.25 = eski kutu, renk #3b4e51 güneşli düzeltilmiş, lamel arası #1b2324 = ep gölgeli profilde aralık/lamel oranı 0.43); ep batı ucunda (u −0.9…−0.5) düşey parlaklık profili 7 lamel, görünen ~0.125 m aralık (önceki '6 lamel' sayımı düzeltildi). GB köşe bej-kahve esnek hortum pipe (u 8.15, duvardan 0.15, Ø5 cm, görünen 1.3–3.33 = klima üstü → tabela bandı altı, kelepçesiz; alttaki sola kıvrım çizilemiyor, saksı arkasında). 'leyla-pergola' pending'i 900000102 ek hacimleriyle karşılandığı için çıkarıldı."
  ],
  "pending": [
   {
@@ -531,14 +548,6 @@
    "colors": {
     "teal": "#1897af",
     "dots": "#eef2ef"
-   }
-  },
-  {
-   "id": "louvre-board",
-   "what": "Üst antrasit pano yatay lamelli (panjur benzeri): 6 lamel, ~0.14–0.15 m aralık, lamel arası koyu gölge çizgisi; ön cephe 4.47–5.36 m, güney 0–6.2 m (u_gerçek) aynı",
-   "colors": {
-    "slat": "#3b4e51",
-    "gap_shade": "#293c43"
    }
   },
   {
@@ -570,11 +579,6 @@
    "color": "#1d3f7a"
   },
   {
-   "id": "corner-hose",
-   "what": "GB köşede tabela bandı altından (3.3 m) yere, klima ünitesine inen bej-kahverengi esnek hortum (Ø≈5 cm), alt uçta sola (kuzeye) kıvrılıyor",
-   "color": "#8a7a62"
-  },
-  {
    "id": "nw-pot",
    "what": "KB köşede pişmiş toprak saksı (Ø≈0.5, h≈0.5) + koni biçimli mazı (1.85 m’ye kadar); ep u_app −1.05…−0.25 (cephe hattında ±0.3)",
    "colors": {
@@ -590,10 +594,6 @@
    "id": "south-white-wedge",
    "what": "Güney cephede, üst pano bitimi (u_gerçek 6.2) doğusunda ana bandın üstünde beyaz yüzey; üst kenarı doğuya doğru yükseliyor: lI’de u_gerçek 6.2’de 4.50 m → 9.8’de ≈4.9 m → 11.1’de ≈5.1 m (bant düzleminde varsayılarak). T1qi7 (sıyırma açısı) karesinde görünmüyor → bant düzleminin kuzeyinde (arkasında) olabilir: eğimli çatı yüzeyi/arka parapet ya da trapez tabela üstü — niteliği belirlenemedi. Hava fotoğrafında çatının x≈667.7’de beyaz K–G çizgisi var.",
    "color": "#dfe9ef"
-  },
-  {
-   "id": "leyla-pergola",
-   "what": "Leyla Fasıl’ın batı terası (bu binaya ait görünmüyor, OSM’de bina yok): pergola x≈664.7–667.3, z≈−102…−94.7 (hava fotoğrafı), koyu gri/siyah dikmeler (~0.1 m), üst çerçeve ~3.9–4.1 m, yarı saydam turkuaz-yeşil çatı; altında koyu gri yatay tahta kaplı güverte/saksı kutuları (~0.9–1.6 m yüksek), sarı varil saksı, ahşap kutu, sarmaşık; güney cephenin u_gerçek ≈6.7–9.3 kısmının önünde"
   }
  ],
  "volumes": [

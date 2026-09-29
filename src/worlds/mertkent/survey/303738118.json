@@ -1223,7 +1223,8 @@
   "TABELALAR (hepsi): kenar 8 çatı 'DELiCE YENi NESiL EĞLENCE' (siyah levha, ince beyaz harf, uçlarda tüy/çiçek logosu); kenar 6 'ÖZEL / YEŞİL BEYAZ / AĞIZ ve DİŞ SAĞLIĞI POLİKLİNİĞİ' (beyaz kutu, koyu harf, 3 spot), mavi-beyaz diş logosu (fasyada), 'GİRİŞ' (kırmızı diş ikonlu), isim levhaları ('Diş Hekimi' ×~8, 'Ağız, Diş ve Çene Cerrahisi', 'Periodontoloji', 'Ortodonti'; hekim adları okunamadı); kenar 5 'İSKELE BALIK' (beyaz kutu, mavi kalın harf, balık logosu + 'BALIĞIN EN LEZZETLİ HALİ'). EKLERDEKİ tabelalar (bina duvarında değil) pending'de: 'CevheR' altın 3B harf (taş kaplı parapet), 'Delice' pembe neon el yazısı, 'YENi NESiL MEYHANE' siyah levha, Cevher kuzey duvarındaki balık baskılı pano, kış bahçesi köşesindeki 'BURSA İSKELE BALIK / BALIĞIN EN LEZZETLİ HALİ' kutusu ve yan dikey tabelası. Kepenk ve tente binada yok; tenteler Cevher ekinde (krem katlanır tente).",
   "GÖRÜLMEYENLER: güney cephe (kenar 0) tamamı, doğu cephe güney kısmı (kenar 1, 2), doğu cephenin alt ~3 m'si, tüm cephelerin K0'ı batı ve kuzeyde eklerin arkasında (yalnız KB kıvrımda K0 görünür), çatı yüzeyi yalnız kenarlardan. Bunlar için öğe yazılmadı.",
   "FOTO TARİHİ: kullanılan tüm kareler 2025-09.",
-  "DOĞRAMA RENGİ (frameC): klinik #b9c0c3, Cevher #2c4f86 mavi alüminyum, İskele K1 #d7dbdc + koyu füme cam tint #1f3336, Delice (hacim) #2b2d2f. Ek hacimler volumes'da (batı 3 parça, kuzey kış bahçesi, K2 köşkü)."
+  "DOĞRAMA RENGİ (frameC): klinik #b9c0c3, Cevher #2c4f86 mavi alüminyum, İskele K1 #d7dbdc + koyu füme cam tint #1f3336, Delice (hacim) #2b2d2f. Ek hacimler volumes'da (batı 3 parça, kuzey kış bahçesi, K2 köşkü).",
+  "v5 (2026-09-29, pend-g5): kış bahçelerine yatay kayıt (glazing.transom: Cevher 0.88, İskele 1.05); Cevher taş subasmanı ve ön taş parapeti, İskele mavi ahşap subasmanı ince ek hacimler (duvardan 3 cm önde). Hacim çokgenleri ters sıralı olsa da üretici artık kenar indekslerini ölçüm sırasına çeviriyor (orig) — cam kenarları yazıldığı gibi (hacim 0: batı+kuzey, hacim 2: batı+güney) doğru. roofWestHip / roofUpperBlock / roofTerraceClinic / K2 köşkü ayrıntıları v5 öğeleriyle ifade edilemiyor (plan sınırları ve konumlar ±0.7 m, direkli küre lambalar, cam rüzgârlık kenar ortasından başlıyor) → pending'de kaldı."
  ],
  "pending": [
   {
@@ -1265,7 +1266,7 @@
      "logo": "baskılı pano: mavi deniz degrade, 3 tabakta pişmiş balık/karides, sağda beyaz çapraz alan; yazı yok"
     }
    ],
-   "other": "Cevher: taş subasman 0.35–1.45, krem (#e8e4d6) katlanır tente saçakları 3 bölüm (≈3.15 altında, 0.35 m sarkma), kanopi üst kenarında mavi (#2a63b8) metal şerit; Cevher kuzeyinde ~1.75 m yapay şimşir panel duvar, büyük beyaz ısı pompası, ahşap palet saksılar. Ara giriş: çerçevesiz boy cam kapı (ortada kırmızı yatay bant), 2 mermer basamak, CCTV, mavi kapı numarası. Delice: kapı yanı kolonlarında mor-pembe yapay çiçek sarmaşık, alt camlarda EFES çıkartmaları; güneyde gri beton panel + tel çit."
+   "other": "Cevher: taş subasman 0.35–1.45 ve ön taş parapet 4.05–4.85 v5'te ince hacimlerle çizildi; kalan: krem (#e8e4d6) katlanır tente saçakları 3 bölüm (≈3.15 altında, 0.35 m sarkma), kanopi üst kenarında mavi (#2a63b8) metal şerit, parapet ucunda kuğu boyunlu spot (v6 duvar lambası); Cevher kuzeyinde ~1.75 m yapay şimşir panel duvar, büyük beyaz ısı pompası, ahşap palet saksılar. Ara giriş: çerçevesiz boy cam kapı (ortada kırmızı yatay bant), 2 mermer basamak, CCTV, mavi kapı numarası. Delice: kapı yanı kolonlarında mor-pembe yapay çiçek sarmaşık, alt camlarda EFES çıkartmaları; güneyde gri beton panel + tel çit."
   },
   {
    "id": "annexNorthDetails",
@@ -1281,7 +1282,7 @@
      "logo": "mavi balık/dalga logosu; doğu yan yüzünde dikey 'İSKELE BALIK' levhası (5xRC4P9s 131_7)"
     }
    ],
-   "other": "mavi boyalı yatay ahşap subasman 0.4–0.95 (#1a5dac, beyaz ince çizgiler), kiremit-kahve (#6e3a2c) eğimli çatı bandı binaya doğru ≈4.7–5.3, kuzey ön yüz ortasında çift kanat cam kapı + 5 basamak ahşap merdiven, köşede güvenlik kamerası"
+   "other": "Mavi ahşap subasman v5'te ince hacimle çizildi (kenar 2–3); kalan: tahtalar arası ince beyaz çizgiler, kiremit-kahve (#6e3a2c) eğimli çatı bandı binaya doğru ≈4.7–5.3, kuzey ön yüz ortasında çift kanat cam kapı + 5 basamak ahşap merdiven (lIEqc 158_4'te KB önünde açık gri-mavi ahşap platform), köşede güvenlik kamerası"
   },
   {
    "id": "roofPavilionK2Details",
@@ -1291,12 +1292,14 @@
   {
    "id": "roofTerraceClinic",
    "what": "Klinik kısmı üstünde çatı terası donanımı",
-   "items": "fasyanın ~0.5 m gerisinde ≈1.3 m koyu doğramalı cam rüzgârlık (kenar 5 u≈5.5 → kenar 6 → kenar 7 başı); kenar 6 u≈0.5–3.0 üstünde koyu yeşil sarılı tente; direk üstünde kırmızı küre lambalar (çap ~0.3, fasya üstünden ≈0.8–1.1 m): kenar 6 u≈3.1, 4.2, 7.2 ve kenar 5 u≈5.7, 7.8 (gne/lIE/vH6 ortofotolarından, ±0.7)"
+   "items": "fasyanın ~0.5 m gerisinde ≈1.3 m koyu doğramalı cam rüzgârlık (kenar 5 u≈5.5 → kenar 6 → kenar 7 başı); kenar 6 u≈0.5–3.0 üstünde koyu yeşil sarılı tente; direk üstünde kırmızı küre lambalar (çap ~0.3, fasya üstünden ≈0.8–1.1 m): kenar 6 u≈3.1, 4.2, 7.2 ve kenar 5 u≈5.7, 7.8 (gne/lIE/vH6 ortofotolarından, ±0.7)",
+   "v5": "v5 ile ifade edilemedi: roof.parapet railEdges korkuluğu yalnız duvar düzleminde ve tüm kenar boyunca çiziyor; rüzgârlık fasyanın ~0.5 m gerisinde, kenar 5'in ortasından (u≈5.5) başlayıp kenar 7'nin başında bitiyor. Direkli kırmızı küre lambalar (Ø0.3) mast ile çizilemiyor (mast tepe küresi 7 cm, direk rengi; bayrak için)."
   },
   {
    "id": "roofWestHip",
    "what": "Batı kısım koyu kırma çatı + çatı donanımı",
-   "details": "mavi fasyanın arkasından yükselen koyu antrasit-zeytin (#404642 gölge, #5b5a4e) metal/membran kırma çatı, GB köşede mahya-kırma çizgisi görülüyor (G35/G9sc); tepesi fasya üstünden ≈1.3–1.6 m; üstünde Delice tabelası (kenar 8 sign) ve: galvaniz baca borusu Ø≈0.4 m, şapkalı, kenar 8 u≈7.6, fasyanın ≈1.6 m gerisinde, tepe ≈12 m; 2 gri çanak anten (kenar 8 u≈6.3 ve ≈5.2, fasyanın arkasında), 2–3 ince anten direği (u≈−0.5, 0.7, 2.3)"
+   "details": "mavi fasyanın arkasından yükselen koyu antrasit-zeytin (#404642 gölge, #5b5a4e) metal/membran kırma çatı, GB köşede mahya-kırma çizgisi görülüyor (G35/G9sc); tepesi fasya üstünden ≈1.3–1.6 m; üstünde Delice tabelası (kenar 8 sign) ve: galvaniz baca borusu Ø≈0.4 m, şapkalı, kenar 8 u≈7.6, fasyanın ≈1.6 m gerisinde, tepe ≈12 m; 2 gri çanak anten (kenar 8 u≈6.3 ve ≈5.2, fasyanın arkasında), 2–3 ince anten direği (u≈−0.5, 0.7, 2.3)",
+   "v5": "v5 ile ifade edilemedi: anten direkleri ve çanaklar çatıda fasyanın gerisinde — mast yalnız duvarın önüne (off ≥ 0.1), çanak duvardan 0.35 m öne sabit konuyor; kırma çatı planı (sınırları) hava fotoğrafında seçilmiyor; baca tepe kotu 10.7–12 m arası belirsiz (fasyanın 1.6 m gerisinde, ortofotoda küçülmüş)."
   },
   {
    "id": "roofUpperBlock",
@@ -1307,6 +1310,17 @@
    "id": "plaza",
    "what": "KB plaza/kaldırım (sokak planı için)",
    "details": "klinik önünde bej beton karo plaza + ışınsal kiremit renkli bantlar, kuzeybatıdan 5 basamak + paslanmaz tırabzan, beyaz dikey totem tabela (mavi diş logolu, klinik yönlendirme) plazanın batısında, kolon dibinde paslanmaz çöp kovası, alçak beton istinat duvarı ve saksılar (kenar 6 önü)"
+  },
+  {
+   "id": "deliceTerraceRail",
+   "what": "Delice K1 terası korkuluğu (kenar 8 u' 7.35–18.25, loca bal şimdi 'solid' kahverengi #7a5a44 parapetH 1.0 + railC #2b2d2f): gerçekte lazer kesim desenli kahverengi ve koyu gri-mavi desenli paneller (0.95–1.0 m), ince koyu çelik dikmeler ~1.1 m arayla, ortada mavi çelik kolon, üstte kahverengi oluklu saçak şeridi (band 9.0–9.27 çizili); desenli panel (v6 süslü parmaklık) ve dikme aralığı çizilemiyor. Notlarda 'deseni pending'de' deniyordu ama kayıt yoktu → eklendi.",
+   "ref": "303738118_8_C0o_p0qm.jpg",
+   "colors": {
+    "panel": "#7a5a44",
+    "panel2": "#3e4a55",
+    "post": "#2b2d2f",
+    "column": "#2c5fa8"
+   }
   }
  ],
  "volumes": [
@@ -1346,10 +1360,11 @@
     "to": 3.1,
     "mullion": 1.4,
     "glass": "#4b5964",
-    "frame": "#d4d7d6"
+    "frame": "#d4d7d6",
+    "transom": 0.88
    },
    "collide": true,
-   "note": "Cevher kış bahçesi eki (hava foto ±0.5). Kenar 3 = batı ön yüz (Özlüce Blv.), kenar 0 = kuzey (plaza). Alt ~1.1 m taş kaplama subasman (#b9b5a6) ve krem katlanır tente saçakları çizilemiyor → pending annexWestDetails"
+   "note": "Cevher kış bahçesi eki (hava foto ±0.5). Kenar 3 = batı ön yüz (Özlüce Blv.), kenar 0 = kuzey (plaza). v5: camlarda tek yatay beyaz kayıt ≈2.33 (OdoT 84_7 / 106_7: cam yüksekliğinin %51–56'sı → transom 0.88). Taş subasman ve ön kenardaki taş parapet ayrı ince hacimler. Krem katlanır tente saçakları, CevheR harfleri, kuzey yüzdeki balık baskılı pano çizilemiyor → pending annexWestDetails"
   },
   {
    "poly": [
@@ -1463,10 +1478,11 @@
     "to": 3.9,
     "mullion": 1.1,
     "glass": "#3f4c55",
-    "frame": "#eef0ee"
+    "frame": "#eef0ee",
+    "transom": 1.05
    },
    "collide": true,
-   "note": "İskele Balık kuzey kış bahçesi (hava foto ±0.7). Kenar 2 = kuzey ön yüz. Subasman 0.4–0.95 mavi (#1a5dac) yatay ahşap tahta + beyaz çizgiler, arkadaki kiremit-kahve eğimli çatı bandı, orta kapı + 5 basamak ahşap merdiven çizilemiyor → pending"
+   "note": "İskele Balık kuzey kış bahçesi (hava foto ±0.7). Kenar 2 = kuzey ön yüz. v5: camlarda iki yatay beyaz kayıt (BJWF6 160_4/176_4, lIEqc 158_4: cam yüksekliğinin ≈%39 ve %69'u → transom 1.05 → 2.00 ve 3.05). Mavi ahşap subasman kenar 2 ve 3 önünde ayrı ince hacim. Arkadaki kiremit-kahve eğimli çatı bandı, orta kapı + 5 basamak ahşap merdiven, tahta aralarındaki beyaz ince çizgiler çizilemiyor → pending"
   },
   {
    "poly": [
@@ -1512,6 +1528,110 @@
    },
    "collide": true,
    "note": "İskele Balık çatı köşkü (K2). Ön (kuzey) kenarlar 0–1 fotoğraftan (kavisli ön yüz iki kirişle); güney/doğu sınırı hava fotoğrafındaki açık gri beşgenden, YAKLAŞIK (görülmedi). Kenar 0 doğu ucundaki ≈3.2 m duvar resmi camsız olmalı → pending"
+  },
+  {
+   "poly": [
+    [
+     650.3,
+     -47.5
+    ],
+    [
+     650.55,
+     -47.5
+    ],
+    [
+     650.55,
+     -38.5
+    ],
+    [
+     650.3,
+     -38.5
+    ]
+   ],
+   "y0": 4.25,
+   "y1": 4.85,
+   "color": "#b9b5a6",
+   "roofC": "#b9b5a6",
+   "collide": false,
+   "note": "v5: Cevher eki çatısının ön (batı) kenarında taş kaplı parapet 4.05–4.85 (OdoT 106_7: açık bej düzensiz taş; gölgeli örnek #837f78–#807971), z −47.5…−38.5; üstündeki altın 'CevheR' harfleri pending. Kalınlık 0.25 görülmedi (yalnız ön yüz ve uçlar görünür)."
+  },
+  {
+   "poly": [
+    [
+     650.27,
+     -48.0
+    ],
+    [
+     650.57,
+     -48.0
+    ],
+    [
+     650.57,
+     -38.5
+    ],
+    [
+     650.27,
+     -38.5
+    ]
+   ],
+   "y0": 0.55,
+   "y1": 1.45,
+   "color": "#b9b5a6",
+   "roofC": "#b9b5a6",
+   "collide": true,
+   "note": "v5: Cevher ön yüzü taş subasmanı 0.35–1.45 (camın altı; OdoT 84_7/106_7), duvardan 3 cm önde. Kuzey (plaza) yüzü şimşir panel duvar ve ısı pompası arkasında görülmedi → yalnız ön yüz."
+  },
+  {
+   "poly": [
+    [
+     679.5014,
+     -70.03
+    ],
+    [
+     662.0014,
+     -70.83
+    ],
+    [
+     661.9886,
+     -70.5503
+    ],
+    [
+     679.4886,
+     -69.7503
+    ]
+   ],
+   "y0": 0.0,
+   "y1": 0.95,
+   "color": "#1a5dac",
+   "roofC": "#7d8b99",
+   "collide": true,
+   "note": "v5: İskele kış bahçesi kuzey yüzü (hacim 3 kenar 2) önünde mavi boyalı yatay ahşap subasman, cam altına (0.95) kadar, duvardan 3 cm önde; üstü açık gri-mavi denizlik (BJWF6 160_4 örnek #7d8b99, gökyüzü yansıması). Tahta örneği #1b5ba6."
+  },
+  {
+   "poly": [
+    [
+     661.9794,
+     -70.8218
+    ],
+    [
+     658.4794,
+     -67.5218
+    ],
+    [
+     658.6715,
+     -67.3181
+    ],
+    [
+     662.1715,
+     -70.6181
+    ]
+   ],
+   "y0": 0.0,
+   "y1": 0.95,
+   "color": "#1a5dac",
+   "roofC": "#7d8b99",
+   "collide": true,
+   "note": "v5: kış bahçesi KB yüzü (hacim 3 kenar 3) mavi ahşap subasmanı (lIEqc 158_4 alt köşe)."
   }
  ]
 }
