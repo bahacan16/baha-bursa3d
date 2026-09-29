@@ -20,7 +20,9 @@ async function main() {
   const idx = JSON.parse(
     await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
   );
-  const aidx = JSON.parse(await readFile(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', 'index.json'), 'utf8'));
+  const aidx = JSON.parse(
+    await readFile(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', 'index.json'), 'utf8'),
+  );
   const im = aidx.images.find((i) => i.source === 'google');
   const ring = fp[id].ring;
   const xs = ring.map((p) => p[0]);

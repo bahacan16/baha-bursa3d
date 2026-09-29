@@ -27,7 +27,9 @@ async function main() {
   const OW = Number(process.argv[6] ?? 1400);
   const out = process.argv[7] ?? join(root, 'docs', 'survey', 'site', `ov_${X0}_${Z0}_${X1}_${Z1}.jpg`);
   const drawPlan = process.argv[8] !== '0';
-  const aidx = JSON.parse(await readFile(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', 'index.json'), 'utf8'));
+  const aidx = JSON.parse(
+    await readFile(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', 'index.json'), 'utf8'),
+  );
   const im = aidx.images.find((i) => i.source === 'google');
   const m = im.metersPerPixel;
   const ox = aidx.cx - aidx.half;
