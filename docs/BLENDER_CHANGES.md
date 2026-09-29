@@ -131,7 +131,7 @@
   1550614218 (MOSSA). **1541439439/40 bina değil** (boş arsa, "Vergi Dairesi proje alanı" levhası) → çizilmez
   (`index.ts` `NOT_BUILDINGS`). Dosya: `data/footprints.json`. **Blender:** bu iki OSM kaydını atla; taban
   izleri cephe ölçümü gelince kurulacak.
-- **(bu commit)** — Üretici: balkon `glassC` (kat → korkuluk camının görünen rengi; 1550826982'de füme #66747e,
+- **8a28401** — Üretici: balkon `glassC` (kat → korkuluk camının görünen rengi; 1550826982'de füme #66747e,
   önceden tüm cam korkuluklar açık yeşil buzlu camdı), `proj.topRail/topRailC/topParH` (çıkma / tek katlı ek üstü
   teras korkuluğu), `massing` parçaları artık z aralığı + kendi kat sayısı + çatısı alabilir (ör. 7/4/1 katlı
   kompleks; `gap` yoksa kuleler arası açık geçit), blok `pending` listesi (çizilemeyen detayların ölçüleri).
