@@ -19,9 +19,9 @@ const GradeShader = {
   name: 'CameraGrade',
   uniforms: {
     tDiffuse: { value: null },
-    uShadowTint: { value: new THREE.Vector3(1.05, 1.0, 0.9) },
-    uHighlightTint: { value: new THREE.Vector3(1.04, 1.0, 0.96) },
-    uSaturation: { value: 1.04 },
+    uShadowTint: { value: new THREE.Vector3(1.025, 1.0, 0.95) },
+    uHighlightTint: { value: new THREE.Vector3(1.02, 1.0, 0.98) },
+    uSaturation: { value: 1.0 },
   },
   vertexShader: VS,
   fragmentShader: /* glsl */ `
@@ -48,7 +48,7 @@ const FinishShader = {
     tDiffuse: { value: null },
     uResolution: { value: new THREE.Vector2(1, 1) },
     uVignette: { value: 0.1 },
-    uContrast: { value: 0.28 },
+    uContrast: { value: 0.14 },
   },
   vertexShader: VS,
   fragmentShader: /* glsl */ `

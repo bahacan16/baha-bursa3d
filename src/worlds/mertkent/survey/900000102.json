@@ -1,0 +1,101 @@
+{
+ "id": 900000102,
+ "name": "LEYLA fasıl (fasıl / meyhane restoranı)",
+ "storeys": 1,
+ "groundRaise": 0.38,
+ "floorH": 2.52,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.02,
+  "fasciaH": 0.05,
+  "parapet": { "h": 1.04, "color": "#3a3e3f" }
+ },
+ "colors": {
+  "plaster": "#7d8483",
+  "plaster2": "#3a3e3f",
+  "fascia": "#3a3e3f",
+  "frame": "#323c3d",
+  "plinth": "#9e9e97"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 7.5,
+   "seen": "photo",
+   "ref": "900000102_0_BJWF6wJu.jpg",
+   "cal": { "u": [-1.55, 8.06], "head": [[0, 3.92], [1, 6.87]] },
+   "items": [
+    { "t": "sign", "u0": -1.06, "u1": 3.09, "y0": 4.6, "y1": 5.38, "d": 0.05, "text": "LEYLA", "fg": "#fcfef9", "style": "letters", "font": "sans", "bold": true, "logo": "kalın geniş büyük harf; son 'A' yatay çizgisiz, sağ bacağı içe kıvrık stilize A (Λ + kanca); hafif kabartma, harflerin altında ince gölge" },
+    { "t": "sign", "u0": 4.06, "u1": 7.25, "y0": 4.94, "y1": 5.58, "d": 0.05, "text": "fasıl", "fg": "#fcfef9", "style": "letters", "font": "script", "bold": true, "logo": "italik, kalın, tırnaklı el yazısı benzeri küçük harfler; 'f' kutunun üst kenarına kadar uzanır" },
+    { "t": "sign", "u0": 4.66, "u1": 6.72, "y0": 4.57, "y1": 4.8, "d": 0.03, "text": "0532 764 19 32", "fg": "#d9544f", "outline": "#f3ebe6", "style": "letters", "font": "sans", "bold": true },
+    { "t": "sign", "u0": 3.1, "u1": 3.17, "y0": 4.38, "y1": 5.42, "d": 0.08, "text": "", "bg": "#e8ebea", "fg": "#e8ebea", "style": "panel" },
+    { "t": "awning", "u0": -1.5, "u1": 8.06, "y": 4.38, "d": 0.7, "drop": 0.56, "color": "#a8a69c", "stripe": "#e2d9c2" },
+    { "t": "win", "u0": -1.17, "u1": 2.85, "y0": 2.475, "y1": 3.7, "k": 0, "s": [0, 0], "kind": "shop", "split": 3, "frameC": "#323c3d", "curt": { "K0": "vitrin" } },
+    { "t": "win", "u0": 3.1, "u1": 7.56, "y0": 2.475, "y1": 3.7, "k": 0, "s": [0, 0], "kind": "shop", "split": 3, "frameC": "#323c3d", "curt": { "K0": "vitrin" } },
+    { "t": "panel", "u0": -1.17, "u1": 2.85, "y0": 1.475, "y1": 2.475, "color": "#879594" },
+    { "t": "panel", "u0": 3.1, "u1": 7.56, "y0": 1.475, "y1": 2.475, "color": "#929d9a" },
+    { "t": "groove", "dir": "v", "u": 0.09, "y0": 1.475, "y1": 2.475, "w": 0.07, "color": "#323c3d" },
+    { "t": "groove", "dir": "v", "u": 1.5, "y0": 1.475, "y1": 2.475, "w": 0.07, "color": "#323c3d" },
+    { "t": "groove", "dir": "v", "u": 4.56, "y0": 1.475, "y1": 2.475, "w": 0.07, "color": "#323c3d" },
+    { "t": "groove", "dir": "v", "u": 6.03, "y0": 1.475, "y1": 2.475, "w": 0.07, "color": "#323c3d" },
+    { "t": "groove", "dir": "h", "u0": -1.17, "u1": 7.56, "y": 2.475, "w": 0.08, "color": "#323c3d" },
+    { "t": "band", "u0": -1.55, "u1": 8.06, "y0": 1.29, "y1": 1.475, "color": "#a1aaa7", "proud": 0.03 },
+    { "t": "band", "u0": -1.55, "u1": 8.06, "y0": 1.17, "y1": 1.29, "color": "#62533a" },
+    { "t": "band", "u0": -1.55, "u1": 8.06, "y0": 0.84, "y1": 1.17, "color": "#9e9e97", "proud": 0.05 },
+    { "t": "band", "u0": 7.56, "u1": 8.06, "y0": 1.17, "y1": 4.38, "color": "#323c3d" }
+   ],
+   "note": "Güney ön cephe (2025-09, BJWF6 17.8 m; lIEqc, vXbUE 3_6/3_23, BJWF6 347_8, DIKaX 343_3 ile doğrulandı). cal.u = siyah tabela kutusunun uçları (batıda köşe pilastırını ~6 cm aşar; doğuda koyu gri ayak 7.56–8.06’nın doğu yüzü, 101’in cam kulesinin batı kenarı tam üstünde). Düşey ölçek: yatay ölçek (1.281) değil 1.17 kullanıldı (hava fotoğrafına göre bina ~8.2 m; bkz. notes) — cal.head K1 sanal. Döşeme = görünen 1.29 (açık gri alt rayın altı); taban (kaldırım) 0.84. İki vitrin (batı 3 bölme, doğu 3 bölme; alt bölmeler gri-mavi füme cam/panel, üstü karanlık iç mekân + tavan lambaları, perde yok), ortada koyu gri dikme (2.85–3.1). Tente krem/gri dikey çizgili, düz eğimli (Hollanda tipi değil), yazısız; LEYLA/fasıl birleşiminde beyaz dikey çubuk + tentenin katlanır kol mafsalı. Tente doğuda 101’in batı dükkânının önünde kesintisiz devam ediyor (o kısım 101’e ait)."
+  },
+  {
+   "edge": 1,
+   "len": 5.8,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu kenar: 900000101 iş merkezinin batı duvarına bitişik (ortak duvar) — görülmez."
+  },
+  {
+   "edge": 2,
+   "len": 7.5,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey kenar: Balıkçı Mahmut’un (303738122) güney duvarına dayalı — hiçbir karede görülmedi."
+  },
+  {
+   "edge": 3,
+   "len": 5.8,
+   "seen": "partial",
+   "ref": "900000102_3_T1qi7WhR.jpg",
+   "cal": { "u": [-1.31, 6.55], "head": [[0, 3.49], [1, 6.46]] },
+   "items": [
+    { "t": "sign", "u0": -0.875, "u1": 3.0, "y0": 4.15, "y1": 4.9, "d": 0.05, "text": "LEYLA", "fg": "#fcfef9", "style": "letters", "font": "sans", "bold": true, "logo": "güneydekiyle aynı stilize LEYLA (son A çizgisiz, kancalı)" },
+    { "t": "sign", "u0": 3.58, "u1": 6.05, "y0": 4.35, "y1": 5.03, "d": 0.05, "text": "fasıl", "fg": "#fcfef9", "style": "letters", "font": "script", "bold": true },
+    { "t": "sign", "u0": 3.75, "u1": 5.88, "y0": 4.08, "y1": 4.33, "d": 0.03, "text": "0532 764 19 32", "fg": "#d9544f", "outline": "#f3ebe6", "style": "letters", "font": "sans", "bold": true }
+   ],
+   "note": "Batı cephe (2025-09, T1qi7 78_10, 27 m; epBrUk 99_10 ile doğrulandı — iki karede de tabela güney ucu köşede biter, güney tente ucu ile çakışır → tabela duvar düzleminde, pergolanın önünde değil). Yalnız üstteki siyah tabela kutusu görülüyor (cal.u = kutu uçları: kuzeyde Balıkçı Mahmut’un tabelasına değer, güneyde GB köşe). Kutu altında duvar tamamen pergola/teras, sarmaşık ve bitkilerin arkasında → duvar, kapı, pencere GÖRÜLMEDİ (çizilmedi). Düşey ölçek 1.18 (tabela yüksekliği güneydekiyle aynı 1.04 m alınarak; bu kenarın yatay ölçeği 1.357)."
+  }
+ ],
+ "volumes": [
+  { "poly": [[664.7, -101.0], [667.9, -101.0], [667.9, -95.2], [664.7, -95.2]], "y0": 2.2, "y1": 2.32, "color": "#4a4f52", "roofC": "#7d857e", "collide": false, "note": "Batı teras pergolasının düz örtüsü (Leyla’ya ait: batı duvarına, tabela kutusunun hemen altına bağlanıyor; teras Leyla’nın masaları/saksıları). Alttan açık gri-bej (#9a978c, T1 bulutlu #818075), üstten hava fotoğrafında yeşilimsi gri (#7d857e); ön alın koyu gri kiriş. Gerçekte duvara doğru hafif yükselir (ön ≈2.3, duvarda ≈2.9 m) ve yarı saydam olabilir — düz levha ile yaklaşık. Konum hava fotoğrafı (x 664.5–667, z −102…−95) + T1/vXbUE, ±0.4." },
+  { "poly": [[664.7, -101.0], [664.82, -101.0], [664.82, -100.88], [664.7, -100.88]], "y0": 0, "y1": 2.2, "color": "#2a2f31", "collide": true, "note": "Pergola KB dikmesi (siyah-koyu gri metal ~0.1 m)" },
+  { "poly": [[664.7, -95.32], [664.82, -95.32], [664.82, -95.2], [664.7, -95.2]], "y0": 0, "y1": 2.2, "color": "#2a2f31", "collide": true, "note": "Pergola GB dikmesi (T1 78_10 px 412 ve vXbUE 3_6’da görülüyor); vXbUE’de güney kenarda ikinci bir ince dikme de var (konumu ±1 m, çizilmedi)" },
+  { "poly": [[664.7, -101.0], [665.15, -101.0], [665.15, -99.9], [664.7, -99.9]], "y0": 0, "y1": 0.85, "color": "#2f363c", "collide": true, "note": "Terasın batı alçak duvarı / saksı kutusu, kuzey parça: koyu gri yatay ahşap/kompozit lambri, iki kademeli" },
+  { "poly": [[664.7, -98.6], [665.15, -98.6], [665.15, -95.2], [664.7, -95.2]], "y0": 0, "y1": 0.85, "color": "#2f363c", "collide": true, "note": "Terasın batı alçak duvarı, güney parça (koyu gri yatay lambri; üstünde saksılar)" },
+  { "poly": [[665.15, -95.7], [667.9, -95.7], [667.9, -95.2], [665.15, -95.2]], "y0": 0, "y1": 0.85, "color": "#2f363c", "collide": true, "note": "Terasın güney alçak duvarı (vXbUE 3_6: iki kademeli koyu gri lambri kutular)" },
+  { "poly": [[664.25, -99.9], [664.7, -99.9], [664.7, -98.6], [664.25, -98.6]], "y0": 0, "y1": 0.3, "color": "#2f363c", "collide": true, "note": "Teras girişi basamakları (2 basamak, koyu gri); z konumu T1 ışınından (GPS düzeltmeli) ±0.6" }
+ ],
+ "pending": [
+  { "id": "wall-lanterns", "what": "Klasik siyah fener tipi duvar lambaları (camlı, ~0.2×0.35 m) dikmelerin tepesinde, tente altında", "edge0": "ref BJ: GB köşe pilastırı u 1.35±, y 3.35–3.6; orta dikme u 2.97, y 3.35–3.6 (vXbUE 3_6’da ikisi de net)", "color": "#1c1f21" },
+  { "id": "white-conduits", "what": "Pilastır ve orta dikme üzerinde fenerden yere inen beyaz ince kablo borusu (Ø≈3 cm)", "edge0": "u −1.35 ve 2.97, y 0.9–3.4", "color": "#f2f2f0" },
+  { "id": "awning-arm", "what": "Tentenin LEYLA/fasıl birleşimindeki beyaz katlanır kol mafsalı (üçgen, tente üstünde) + tabela kutusu boyunca beyaz dikey çubuk (sign panel olarak çizildi)", "edge0": "u 2.9–3.8, y 3.75–4.4" },
+  { "id": "sign-panels", "what": "Tabela iki panelden oluşuyor: LEYLA paneli siyah (#454a49 güneşte), fasıl paneli çok az daha açık kömür gri (#414245); doğu ucunda (u 7.25–8.06) düz koyu kısım" },
+  { "id": "terrace-plants", "what": "Teras içi ve önü: 6+ pişmiş toprak saksıda (Ø≈0.5, h≈0.45) sarı-yeşil çalılar (taflan), sarı 200 l varil saksı (yaklaşık x 665.3, z −98.4; Ø0.58 h0.88, #d6a21c, siyah etiketli), kahverengi ahşap sandık saksı (terasın güneyinde, Leyla duvarı önü), pergoladan sarkan sarmaşık/çiçekler; önde turuncu-beyaz trafik konileri (geçici)", "colors": { "pot": "#b0724e", "drum": "#d6a21c", "wood": "#7a5436", "plant": "#8a9a3c" } },
+  { "id": "roof-color", "what": "Düz çatı (parapet arkası) hava fotoğrafında açık gri-bej #bfb1a2; roofFlat malzemesi sabit" }
+ ],
+ "notes": [
+  "Tek katlı fasıl restoranı; tüm cephe koyu gri dikmeler + iki büyük vitrin + çizgili tente + tüm çatı çevresinde siyah tabela kutusu (roof.parapet 1.04 m siyah olarak; güney ve batıda LEYLA fasıl + 0532 764 19 32). Tüm kareler 2025-09.",
+  "TABAN İZİ UYARISI (düzeltilmedi): Street View her panoda binayı taban izinden büyük gösteriyor (güney görünen 9.61 m ↔ 7.5; batı tabela 7.85 m ↔ 5.8; BJ/vXbUE/lIEqc/DIKaX ışınları z −95.5’te GB köşeyi x 666.2–667.5, GD’yi 675.7–675.9 veriyor). Hava fotoğrafında (aerial-e) batı tabela kutusu üstü x≈667.0–667.5’te beyaz şerit → batı duvar ≈667.2–667.3 (±0.3); doğu uç 101 kulesinin eğik görüntüsü altında. Güney çatı kenarı z≈−95.3 + eğim ~0.9 → güney duvar ≈−94.4…−94.7. Öneri: taban izi ≈ x 667.25–675.4, z −101.3…−94.6 (≈8.15 × 6.7 m). İki cephedeki tabela yüksekliği bu oranlarla tutarlı (≈1.04 m). DIKaX 343_3’te Leyla cephesi ile 101’in batı dükkânı aynı düzlemde, tente kesintisiz → 101’in güney duvarı (−93.0) ile Leyla’nın cephesi arasındaki 2.5 m basamak şüpheli.",
+  "Yükseklikler (döşemeden, gR 0.38): vitrin alt panel 0.16–1.0, cam 1.0–2.06, tente 2.64→2.08 (0.7 m çıkma, epBrUk/T1’de uç kapağından), tabela kutusu 2.64–3.68; kaldırım → döşeme 0.38 (koyu gri kiriş + bej şerit + açık gri ray). Ölçek belirsizliği ±12%.",
+  "Renkler (BJ, güneşli güney cephe; ortofoto puslu/açık): tabela siyahı güneşte #454a49 (kullanılan #3a3e3f), harfler #fcfef9, telefon somon-kırmızı #d9544f (beyaz kenarlı), tente krem #e2d9c2 / gri #a8a69c şeritler (~0.3 m periyot), dikmeler güneşte #909895 (vXbUE gölgede #3c4148; kullanılan #7d8483), alt paneller #879594/#929d9a (füme cam gibi, arkası hafif görünüyor), cam arkası #162822, doğu ayak #323c3d, alt ray #a1aaa7, bej şerit #62533a, kiriş #9e9e97.",
+  "Pergola 102’ye ait sayıldı (Leyla’nın batı duvarına bağlanıyor, teras Leyla’nın; Balıkçı Mahmut anketindeki 'leyla-pergola' pending’i buradaki volumes ile karşılanıyor). Balıkçı’nın güney duvarına (z −101) kadar."
+ ]
+}

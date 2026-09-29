@@ -1,0 +1,1941 @@
+{
+  "id": 900000104,
+  "name": "Konut + dükkân (GÜLTEN KARADAĞ / TURUNCU Market / cabinas), Özlüce kavşağı KD",
+  "trueCoords": true,
+  "storeys": 6,
+  "roof": {
+    "kind": "hipped",
+    "eave": 0.6,
+    "fasciaH": 0.7,
+    "pitch": 25
+  },
+  "colors": {
+    "plaster": "#f5f0ed",
+    "plaster2": "#808c9b",
+    "strip": "#6d757c",
+    "fascia": "#6d757c",
+    "soffit": "#b4ae9f",
+    "railGlass": "#7b8a92",
+    "frame": "#8a5b3a",
+    "tile": "#a28f84",
+    "plinth": "#4f5457"
+  },
+  "massing": {
+    "towers": [
+      {
+        "x": [
+          709.5,
+          714
+        ],
+        "storeys": 6,
+        "roof": {
+          "kind": "flat",
+          "eave": 0,
+          "fasciaH": 0.1,
+          "parapet": {
+            "h": 1.55,
+            "color": "#6b7480"
+          }
+        }
+      },
+      {
+        "x": [
+          714,
+          727.6
+        ],
+        "storeys": 7,
+        "roof": {
+          "kind": "gable",
+          "gables": [
+            0
+          ],
+          "pitch": 18,
+          "eave": 0.2,
+          "fasciaH": 0.15
+        }
+      },
+      {
+        "rest": true,
+        "storeys": 6
+      }
+    ]
+  },
+  "edges": [
+    {
+      "edge": 0,
+      "len": 22.9,
+      "seen": "photo",
+      "ref": "900000104_0_amsci9pL.jpg",
+      "cal": {
+        "u": [
+          0,
+          22.9
+        ],
+        "head": [
+          [
+            1,
+            5.5
+          ],
+          [
+            5,
+            18.02
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 1.88,
+          "u1": 3.61,
+          "y0": 4.37,
+          "y1": 5.5,
+          "k": 1,
+          "s": [
+            1,
+            1
+          ],
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.14,
+            "d": 0.03,
+            "color": "#5f666d"
+          },
+          "curt": {
+            "K1": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 1.88,
+          "u1": 3.61,
+          "y0": 6.45,
+          "y1": 8.62,
+          "k": 2,
+          "s": [
+            2,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.14,
+            "d": 0.03,
+            "color": "#5f666d"
+          },
+          "curt": {
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "karanlik"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 19.4,
+          "u1": 21.19,
+          "y0": 4.27,
+          "y1": 5.51,
+          "k": 1,
+          "s": [
+            1,
+            1
+          ],
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.14,
+            "d": 0.03,
+            "color": "#5f666d"
+          },
+          "curt": {
+            "K1": "zebra"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 19.4,
+          "u1": 21.19,
+          "y0": 6.44,
+          "y1": 8.63,
+          "k": 2,
+          "s": [
+            2,
+            5
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.14,
+            "d": 0.03,
+            "color": "#5f666d"
+          },
+          "curt": {
+            "K2": "tul-yan",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 4.5,
+          "u1": 11.2,
+          "d": 0.8,
+          "s": [
+            1,
+            1
+          ],
+          "glazed": [
+            1
+          ],
+          "tint": {
+            "1": "blinds"
+          },
+          "sides": "open",
+          "rail": {
+            "K1": "solid"
+          },
+          "parapetH": {
+            "K1": 0.9
+          },
+          "fasciaC": {
+            "K1": "#f4f5f2"
+          },
+          "railC": "#c8ccce"
+        },
+        {
+          "t": "bal",
+          "u0": 4.5,
+          "u1": 11.2,
+          "d": 0.8,
+          "s": [
+            2,
+            5
+          ],
+          "glazed": [
+            3,
+            4
+          ],
+          "tint": {
+            "3": "blinds",
+            "4": "dark"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solid"
+          },
+          "parapetH": {
+            "*": 1
+          },
+          "fasciaC": {
+            "*": "#6d757c"
+          },
+          "railC": "#c8ccce"
+        },
+        {
+          "t": "bal",
+          "u0": 11.4,
+          "u1": 18.1,
+          "d": 0.8,
+          "s": [
+            1,
+            1
+          ],
+          "sides": "open",
+          "rail": {
+            "K1": "solid"
+          },
+          "parapetH": {
+            "K1": 0.9
+          },
+          "fasciaC": {
+            "K1": "#f4f5f2"
+          },
+          "railC": "#c8ccce"
+        },
+        {
+          "t": "bal",
+          "u0": 11.4,
+          "u1": 18.1,
+          "d": 0.8,
+          "s": [
+            2,
+            5
+          ],
+          "glazed": [
+            2,
+            3
+          ],
+          "tint": {
+            "2": "blinds",
+            "3": "clear"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solid"
+          },
+          "parapetH": {
+            "*": 1
+          },
+          "fasciaC": {
+            "*": "#6d757c"
+          },
+          "railC": "#c8ccce"
+        },
+        {
+          "t": "proj",
+          "u0": 11.2,
+          "u1": 11.4,
+          "d": 0.8,
+          "y0": 3.25,
+          "y1": 19,
+          "color": "#f5f0ed"
+        },
+        {
+          "t": "dish",
+          "u": 4.87,
+          "s": 3,
+          "y": 10.91,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 5.15,
+          "s": 2,
+          "y": 7.96,
+          "onBal": true
+        },
+        {
+          "t": "dish",
+          "u": 18.74,
+          "s": 4,
+          "y": 14.05
+        },
+        {
+          "t": "dish",
+          "u": 18.57,
+          "s": 2,
+          "y": 8.02
+        },
+        {
+          "t": "groove",
+          "dir": "v",
+          "u": 0.05,
+          "y0": 3.3,
+          "y1": 19,
+          "w": 0.08,
+          "color": "#4a5056"
+        },
+        {
+          "t": "groove",
+          "dir": "v",
+          "u": 22.85,
+          "y0": 3.3,
+          "y1": 19,
+          "w": 0.08,
+          "color": "#4a5056"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 4.74,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 5.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 5.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 6.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 6.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 7.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 7.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 8.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 8.76,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 9.28,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 9.76,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 10.27,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 10.78,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 11.28,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 11.78,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 12.29,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 12.8,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 13.29,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 13.8,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 14.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 14.82,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 15.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 15.81,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 16.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 16.81,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 0.1,
+          "u1": 4.06,
+          "y": 17.33,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 4.74,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 5.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 5.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 6.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 6.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 7.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 7.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 8.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 8.76,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 9.28,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 9.76,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 10.27,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 10.78,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 11.28,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 11.78,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 12.29,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 12.8,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 13.29,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 13.8,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 14.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 14.82,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 15.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 15.81,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 16.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 16.81,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 18.3,
+          "u1": 22.8,
+          "y": 17.33,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "sign",
+          "u0": 1.25,
+          "u1": 1.65,
+          "y0": 5.2,
+          "y1": 5.45,
+          "d": 0.02,
+          "text": "",
+          "bg": "#2a5aa8",
+          "fg": "#ffffff",
+          "style": "panel",
+          "logo": "mavi kapı numarası / sokak levhası, yazı okunamadı"
+        },
+        {
+          "t": "panel",
+          "u0": 4.5,
+          "u1": 18.1,
+          "y0": 18.95,
+          "y1": 22.4,
+          "color": "#808c9b"
+        },
+        {
+          "t": "win",
+          "u0": 6.17,
+          "u1": 7.72,
+          "y0": 19.12,
+          "y1": 21.23,
+          "k": 6,
+          "s": [
+            6,
+            6
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.15,
+            "d": 0.05,
+            "color": "#f4f4f2"
+          },
+          "curt": {
+            "K6": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 14.9,
+          "u1": 16.45,
+          "y0": 19.08,
+          "y1": 21.27,
+          "k": 6,
+          "s": [
+            6,
+            6
+          ],
+          "kind": "french",
+          "rail": true,
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.15,
+            "d": 0.05,
+            "color": "#f4f4f2"
+          },
+          "curt": {
+            "K6": "tul"
+          }
+        },
+        {
+          "t": "proj",
+          "u0": 0,
+          "u1": 0.25,
+          "d": 0.1,
+          "y0": 0.12,
+          "y1": 3.25,
+          "color": "#3a3f43"
+        },
+        {
+          "t": "win",
+          "u0": 1.09,
+          "u1": 3.44,
+          "y0": 0.15,
+          "y1": 2.54,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "shop",
+          "split": 1,
+          "shut": {
+            "K0": 1
+          }
+        },
+        {
+          "t": "win",
+          "u0": 3.44,
+          "u1": 4.13,
+          "y0": 0.15,
+          "y1": 2.54,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "door",
+          "split": 1,
+          "lower": "solid",
+          "lowerC": "#eeeeec",
+          "frameC": "#eeeeec",
+          "curt": {
+            "K0": "karanlik"
+          }
+        },
+        {
+          "t": "awning",
+          "u0": 0.2,
+          "u1": 4.13,
+          "y": 2.66,
+          "d": 0.9,
+          "drop": 0.08,
+          "color": "#4a5355"
+        },
+        {
+          "t": "panel",
+          "u0": 0.25,
+          "u1": 4.1,
+          "y0": 2.7,
+          "y1": 3.25,
+          "color": "#bcbdbb"
+        },
+        {
+          "t": "win",
+          "u0": 4.75,
+          "u1": 5.88,
+          "y0": 0.2,
+          "y1": 2.54,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "shop",
+          "split": 1,
+          "frameC": "#e8e8e6",
+          "curt": {
+            "K0": "vitrin"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 5.88,
+          "u1": 6.81,
+          "y0": 0.2,
+          "y1": 2.54,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "shop",
+          "split": 1,
+          "frameC": "#e8e8e6",
+          "curt": {
+            "K0": "jaluzi"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 6.81,
+          "u1": 7.32,
+          "y0": 0.2,
+          "y1": 2.54,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "door",
+          "split": 1,
+          "frameC": "#e8e8e6",
+          "curt": {
+            "K0": "karanlik"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 7.32,
+          "u1": 7.85,
+          "y0": 0.2,
+          "y1": 2.54,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "shop",
+          "split": 1,
+          "frameC": "#e8e8e6",
+          "curt": {
+            "K0": "vitrin"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 7.85,
+          "u1": 8.79,
+          "y0": 0.2,
+          "y1": 2.54,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "shop",
+          "split": 1,
+          "frameC": "#e8e8e6",
+          "curt": {
+            "K0": "zebra"
+          }
+        },
+        {
+          "t": "entrance",
+          "u0": 6.81,
+          "u1": 7.32,
+          "kind": "shop",
+          "canopy": false,
+          "sign": "GÜLTEN KARADAĞ",
+          "steps": 0
+        },
+        {
+          "t": "sign",
+          "u0": 4.25,
+          "u1": 4.75,
+          "y0": 0.8,
+          "y1": 2.54,
+          "d": 0.05,
+          "text": "K\nU\nA\nF\nÖ\nR",
+          "bg": "#3a3e3f",
+          "fg": "#f2f2f0",
+          "style": "box",
+          "font": "sans",
+          "bold": true
+        },
+        {
+          "t": "sign",
+          "u0": 4.8,
+          "u1": 5.75,
+          "y0": 0.8,
+          "y1": 2.54,
+          "d": 0.01,
+          "text": "",
+          "bg": "#8a6a55",
+          "fg": "#ffffff",
+          "style": "panel",
+          "logo": "vitrin afişi: kıvırcık kahverengi saçlı kadın portresi (kuaför reklamı)"
+        },
+        {
+          "t": "sign",
+          "u0": 7.35,
+          "u1": 7.82,
+          "y0": 0.6,
+          "y1": 1.5,
+          "d": 0.01,
+          "text": "",
+          "bg": "#d8c9bb",
+          "fg": "#333333",
+          "style": "panel",
+          "logo": "vitrin afişi: kahküllü kadın portresi"
+        },
+        {
+          "t": "sign",
+          "u0": 8.79,
+          "u1": 9.21,
+          "y0": 0.6,
+          "y1": 2.54,
+          "d": 0.05,
+          "text": "B\nA\nY\nA\nN",
+          "bg": "#3a3e3f",
+          "fg": "#f2f2f0",
+          "style": "box",
+          "font": "sans",
+          "bold": true
+        },
+        {
+          "t": "sign",
+          "u0": 4.1,
+          "u1": 8.65,
+          "y0": 2.6,
+          "y1": 3.45,
+          "d": 0.9,
+          "text": "GÜLTEN KARADAĞ\nHAIR DESIGN",
+          "lines": [
+            {
+              "text": "GÜLTEN KARADAĞ",
+              "size": 1,
+              "bold": true
+            },
+            {
+              "text": "— HAIR DESIGN —",
+              "size": 0.32,
+              "bold": false
+            }
+          ],
+          "bg": "#6f777d",
+          "fg": "#eef0ee",
+          "style": "box",
+          "font": "condensed",
+          "bold": true,
+          "logo": "solda beyaz daire içinde G+K monogramı"
+        },
+        {
+          "t": "panel",
+          "u0": 9.23,
+          "u1": 11.88,
+          "y0": 0.15,
+          "y1": 2.58,
+          "color": "#a3937c"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 9.23,
+          "u1": 11.88,
+          "y": 0.81,
+          "w": 0.03,
+          "color": "#5d5245"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 9.23,
+          "u1": 11.88,
+          "y": 1.46,
+          "w": 0.03,
+          "color": "#5d5245"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 9.23,
+          "u1": 11.88,
+          "y": 2.1,
+          "w": 0.03,
+          "color": "#5d5245"
+        },
+        {
+          "t": "ac",
+          "u": 9.48,
+          "s": 0,
+          "y": 0.5
+        },
+        {
+          "t": "win",
+          "u0": 11.88,
+          "u1": 13.49,
+          "y0": 0.18,
+          "y1": 2.58,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "door",
+          "split": 2,
+          "frameC": "#1d2521",
+          "grille": {
+            "K0": "ornamental"
+          },
+          "grilleC": "#1d2521",
+          "curt": {
+            "K0": "karanlik"
+          }
+        },
+        {
+          "t": "entrance",
+          "u0": 11.88,
+          "u1": 13.49,
+          "kind": "lobby",
+          "canopy": false,
+          "steps": 0
+        },
+        {
+          "t": "sign",
+          "u0": 13.68,
+          "u1": 14.12,
+          "y0": 0.32,
+          "y1": 2.42,
+          "d": 0.05,
+          "text": "M\nA\nR\nK\nE\nT",
+          "bg": "#35393a",
+          "fg": "#f2f2f0",
+          "style": "box",
+          "font": "sans",
+          "bold": true
+        },
+        {
+          "t": "win",
+          "u0": 14.12,
+          "u1": 17.9,
+          "y0": 0.2,
+          "y1": 2.42,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "shop",
+          "split": 3,
+          "frameC": "#e8e8e6",
+          "curt": {
+            "K0": "vitrin"
+          }
+        },
+        {
+          "t": "entrance",
+          "u0": 15.2,
+          "u1": 16.4,
+          "kind": "shop",
+          "canopy": false,
+          "sign": "TURUNCU MARKET",
+          "steps": 0
+        },
+        {
+          "t": "sign",
+          "u0": 14.3,
+          "u1": 15.1,
+          "y0": 1.75,
+          "y1": 2.45,
+          "d": 0.01,
+          "text": "BURADA",
+          "shape": "round",
+          "bg": "#764a33",
+          "fg": "#ffffff",
+          "style": "panel",
+          "logo": "beyaz zeminli vitrin etiketinde kırmızı-kahve oval rozet; üstte \"BURADA\", iç yazısı okunamadı (dondurma/tatlı markası)"
+        },
+        {
+          "t": "awning",
+          "u0": 13.49,
+          "u1": 18.59,
+          "y": 2.92,
+          "d": 1.4,
+          "drop": 0.5,
+          "color": "#c46150",
+          "text": "TURUNCU MARKET",
+          "textColor": "#4a2418"
+        },
+        {
+          "t": "awning",
+          "u0": 18.59,
+          "u1": 22.39,
+          "y": 2.9,
+          "d": 1.4,
+          "drop": 0.5,
+          "color": "#c46150",
+          "text": "TURUNCU MARKET",
+          "textColor": "#4a2418"
+        },
+        {
+          "t": "win",
+          "u0": 18.59,
+          "u1": 22.39,
+          "y0": 0.2,
+          "y1": 2.42,
+          "k": 0,
+          "s": [
+            0,
+            0
+          ],
+          "kind": "shop",
+          "split": 3,
+          "frameC": "#e8e8e6",
+          "curt": {
+            "K0": "vitrin"
+          }
+        },
+        {
+          "t": "sign",
+          "u0": 19,
+          "u1": 20.2,
+          "y0": 2.2,
+          "y1": 2.4,
+          "d": 0.01,
+          "text": "\"Lezzet ...\"",
+          "bg": "#f2efe6",
+          "fg": "#8a2a22",
+          "style": "panel",
+          "logo": "tente altı cam etiketi, kamyonet arkasında kısmen okunuyor (\"Lezzet\", kırmızı \"Hmm…\")"
+        },
+        {
+          "t": "sign",
+          "u0": 13.4,
+          "u1": 18.4,
+          "y0": 3.03,
+          "y1": 3.8,
+          "d": 0.9,
+          "text": "TURUNCU Market",
+          "lines": [
+            {
+              "text": "TURUNCU Market",
+              "size": 1,
+              "bold": true
+            }
+          ],
+          "bg": "#f67d5d",
+          "fg": "#ffffff",
+          "outline": "#5a2a1e",
+          "style": "box",
+          "font": "serif",
+          "bold": true,
+          "lit": true,
+          "logo": "\"TURUNCU\" süslü kabartma büyük harf, \"Market\" el yazısı + alt çizgi; harflerde koyu gölge"
+        },
+        {
+          "t": "sign",
+          "u0": 14.2,
+          "u1": 17.3,
+          "y0": 3.82,
+          "y1": 4.88,
+          "d": 0.9,
+          "text": "cabinas®\ndış ticaret",
+          "lines": [
+            {
+              "text": "cabinas®",
+              "size": 1,
+              "bold": true
+            },
+            {
+              "text": "dış ticaret",
+              "size": 0.3,
+              "bold": false
+            }
+          ],
+          "bg": "#4c514c",
+          "fg": "#ffffff",
+          "style": "box",
+          "font": "sans",
+          "bold": true
+        },
+        {
+          "t": "proj",
+          "u0": 22.39,
+          "u1": 22.9,
+          "d": 0.1,
+          "y0": 2.25,
+          "y1": 4.22,
+          "color": "#2b3133"
+        }
+      ],
+      "note": "GERÇEK KOORDİNAT (trueCoords): tüm u/y değerleri kenar başından gerçek metre / taban (-1.02) üstü gerçek metre. Her iki güney ortofotoda (amsci9pL 2025-09, alOgArOd 2025-09) projektif bozulma var (pano yönü ≈4.4° sapık: doğu uçta kat aralığı %8 büyük, pencere genişlikleri %16 büyük); iki ortofoto için ayrı ayrı 1B homografi kuruldu (/tmp/claude-0/agent-d3-n104/model.mjs), iki ortofotodan okunan konumlar ±5–10 cm tutuyor. Bu yüzden standart bindirme (survey-overlay) fotoğrafa oturmaz — ölçüler doğrudur. Zemin kat doğusu (u>18) kamyonetle kısmen kapalı (alOgArOd'dan okundu)."
+    },
+    {
+      "edge": 1,
+      "len": 15.9,
+      "seen": "none",
+      "items": [],
+      "note": "Doğu cephe hiçbir panodan görülmedi (tüm panolar batıda/güneyde; önünde tek katlı ANKARA SİMİT). Çizilmedi."
+    },
+    {
+      "edge": 2,
+      "len": 22.9,
+      "seen": "none",
+      "items": [],
+      "note": "Kuzey cephe görülmedi (footprint notu: x≈717.5–721.5 arası ~1 m çıkıntılı merdiven çekirdeği, çizilmedi)."
+    },
+    {
+      "edge": 3,
+      "len": 15.9,
+      "seen": "partial",
+      "ref": "900000104_3_Q5ICTzjr.jpg",
+      "cal": {
+        "u": [
+          0,
+          15.9
+        ],
+        "head": [
+          [
+            1,
+            5.5
+          ],
+          [
+            5,
+            18.02
+          ]
+        ]
+      },
+      "items": [
+        {
+          "t": "win",
+          "u0": 9.47,
+          "u1": 10.5,
+          "y0": 4.43,
+          "y1": 5.53,
+          "k": 1,
+          "s": [
+            1,
+            5
+          ],
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.14,
+            "d": 0.03,
+            "color": "#5f666d"
+          },
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 12.76,
+          "u1": 13.79,
+          "y0": 4.46,
+          "y1": 5.51,
+          "k": 1,
+          "s": [
+            1,
+            5
+          ],
+          "split": 2,
+          "frameC": "#8a5b3a",
+          "surround": {
+            "w": 0.14,
+            "d": 0.03,
+            "color": "#5f666d"
+          },
+          "curt": {
+            "K1": "tul",
+            "K2": "tul",
+            "K3": "tul",
+            "K4": "tul",
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "bal",
+          "u0": 5.71,
+          "u1": 9.64,
+          "d": 0.8,
+          "s": [
+            1,
+            1
+          ],
+          "glazed": [
+            1
+          ],
+          "tint": {
+            "1": "blinds"
+          },
+          "sides": "open",
+          "rail": {
+            "K1": "solid"
+          },
+          "parapetH": {
+            "K1": 0.9
+          },
+          "fasciaC": {
+            "K1": "#f4f5f2"
+          },
+          "railC": "#c8ccce"
+        },
+        {
+          "t": "bal",
+          "u0": 5.71,
+          "u1": 9.64,
+          "d": 0.8,
+          "s": [
+            2,
+            5
+          ],
+          "glazed": [
+            2,
+            3
+          ],
+          "tint": {
+            "2": "blinds",
+            "3": "blinds"
+          },
+          "cap": true,
+          "sides": "open",
+          "rail": {
+            "*": "solid"
+          },
+          "parapetH": {
+            "*": 1
+          },
+          "fasciaC": {
+            "*": "#6d757c"
+          },
+          "railC": "#c8ccce"
+        },
+        {
+          "t": "ac",
+          "u": 9.13,
+          "s": 4,
+          "y": 13.87
+        },
+        {
+          "t": "ac",
+          "u": 8.91,
+          "s": 1,
+          "y": 4.27
+        },
+        {
+          "t": "ac",
+          "u": 15.8,
+          "s": 0,
+          "y": 0.67
+        },
+        {
+          "t": "pipe",
+          "u": 15.8
+        },
+        {
+          "t": "groove",
+          "dir": "v",
+          "u": 1.56,
+          "y0": 3.45,
+          "y1": 19,
+          "w": 0.06,
+          "color": "#4a5056"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 4.74,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 5.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 5.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 6.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 6.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 7.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 7.75,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 8.25,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 8.76,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 9.28,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 9.76,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 10.27,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 10.78,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 11.28,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 11.78,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 12.29,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 12.8,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 13.29,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 13.8,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 14.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 14.82,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 15.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 15.81,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 16.31,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 16.81,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 1.6,
+          "u1": 15.85,
+          "y": 17.33,
+          "w": 0.02,
+          "color": "#c9c9c6"
+        },
+        {
+          "t": "panel",
+          "u0": 1.56,
+          "u1": 15.2,
+          "y0": 0.12,
+          "y1": 3.45,
+          "color": "#4f5457"
+        },
+        {
+          "t": "proj",
+          "u0": 15.2,
+          "u1": 15.9,
+          "d": 0.2,
+          "y0": 0.12,
+          "y1": 3.31,
+          "color": "#2e3336"
+        }
+      ],
+      "note": "GERÇEK KOORDİNAT. Q5ICTzjr (2025-09) 62° yan bakış; aynı ≈4.6° yön hatası homografiyle düzeltildi (çatı parapeti ucu = KB köşe, pencere lentoları güney cephesiyle ±5 cm). Kuzey uçta (u 0–1.56) duvar girintili görünüyor (derinlik görülmedi, bkz. pending). Zemin kat önündeki yeşil tel çit + kapı parsel sınırında (binaya ait değil, çizilmedi); zemin kat duvarı çit arkasından koyu gri seçiliyor."
+    }
+  ],
+  "pending": [
+    {
+      "what": "Çatı katı güney duvarı balkon ön yüzü hizasında",
+      "edge": 0,
+      "u": [
+        4.5,
+        18.1
+      ],
+      "d": 0.8,
+      "y": [
+        19,
+        21.6
+      ],
+      "note": "Koyu arduvaz gri (#808c9b) çatı katı duvarı K5 balkon tavan plağının üstünde, duvardan 0.8 m önde (iki ortofotonun ıraksaklığından); massing ile duvar hizasında çizildi."
+    },
+    {
+      "what": "Çatı katı alınlığı koyu gri",
+      "edge": 0,
+      "u": [
+        4.5,
+        18.1
+      ],
+      "y": [
+        21.6,
+        24.14
+      ],
+      "apexU": 11.16,
+      "color": "#808c9b",
+      "note": "Üretici alınlık üçgenini beyaz sıva (mkPlaster) çiziyor; gerçekte düz koyu gri, üst kenarda ince siyah damlalık. Kuzey ucu görülmedi (gables [0], kuzeyi kırma kabul)."
+    },
+    {
+      "what": "Çatı katı yan (doğu/batı/kuzey) duvarları koyu gri",
+      "color": "#808c9b",
+      "note": "Batı yüzü GB karelerinden (b2) koyu gri görülüyor; doğu/kuzey görülmedi."
+    },
+    {
+      "what": "Pergola (batı teras)",
+      "world": {
+        "x": [
+          709.5,
+          714
+        ],
+        "z": [
+          -107.4,
+          -91.5
+        ]
+      },
+      "posts": {
+        "edge": 3,
+        "u": [
+          0.06,
+          2.75,
+          5.5,
+          8.24,
+          10.74,
+          13.62,
+          15.95
+        ]
+      },
+      "y": [
+        20.6,
+        22.8
+      ],
+      "color": "#3b3f42",
+      "note": "Antrasit alüminyum pergola: parapet üstünde dikmeler (≈2.7 m ara), üstte eğimli lamel/bez örtü, kirişler batıya ~0.5 m taşar; terasta klima dış ünitesi (çatı katı batı duvarı önünde)."
+    },
+    {
+      "what": "Teras parapeti alt 0.5 m beyaz",
+      "edges": [
+        0,
+        3
+      ],
+      "y": [
+        19,
+        19.5
+      ],
+      "color": "#f5f0ed",
+      "note": "Parapet 1.55 m koyu çizildi; gerçekte 19.0–19.5 beyaz döşeme alnı, 19.5–20.6 koyu gri (#6b7480)."
+    },
+    {
+      "what": "Balkon döşeme alnı beyaz",
+      "edges": [
+        0,
+        3
+      ],
+      "note": "Her balkon katında koyu gri 1.0 m dolu parapetin ALTINDA 0.30 m beyaz döşeme alnı (#fdfdfd) var (kat döşemesi −0.30…0); tavanlar beyaz, tavan lambalı. K1 parapeti beyaz, altında 0.4 m gri (#7a8489) şerit."
+    },
+    {
+      "what": "Parapet üstü ince küpeşte",
+      "note": "Açık katlarda (ve camların önünde) koyu parapet üstünde ~0.15 m yükseklikte paslanmaz ince küpeşte + kısa dikmeler; solid tipinde çizilmiyor."
+    },
+    {
+      "what": "Beyaz yağmur boruları",
+      "edge": 0,
+      "u": [
+        4.06,
+        18.2
+      ],
+      "color": "#f2f2f0",
+      "note": "Batı yığını batı ucunda (u≈4.06) ve doğu yığını doğu ucunda (u≈18.2) beyaz iniş boruları (pipe öğesi koyu gri çizdiğinden eklenmedi)."
+    },
+    {
+      "what": "Dikme apliklerı",
+      "edge": 0,
+      "u": 11.3,
+      "storeys": [
+        1,
+        5
+      ],
+      "note": "Balkonlar arası beyaz dikmede her katta iki yana bakan küçük beyaz aplik/spot."
+    },
+    {
+      "what": "KB köşe girintisi",
+      "edge": 3,
+      "u": [
+        0,
+        1.56
+      ],
+      "y": [
+        8.5,
+        19.9
+      ],
+      "note": "Batı cephenin kuzey 1.56 m’si geri çekik görünüyor (gölgeli yüz + köşe çizgisi u 1.56, üstte çatı plağı/parapet düz devam ediyor). Derinlik ve alt katlar görülmedi (komşu yapı kapatıyor)."
+    },
+    {
+      "what": "Kepenk rengi",
+      "edge": 0,
+      "u": [
+        1.09,
+        3.44
+      ],
+      "color": "#93939b",
+      "note": "Batı dükkân alüminyum kepengi kapalı, açık gri-lila."
+    }
+  ],
+  "notes": [
+    "KAT: zemin (dükkân) + 5 konut katı = 6 (K0–K5), güney cephe ortasında K6 çatı katı (koyu gri, alınlıklı). Kat yüksekliği 3.13 m (iki ortofotodan bağımsız 3.13/3.155; K1–K5 lentoları 5.50→18.02), zemin kat döşemesi taban üstü 0.12 (kaldırım ≈ +0.15). Tüm katlar eşit (dükkân katı da 3.13).",
+    "CEPHE: beyaz yatay derzli lambri/panel kaplama (derz aralığı 0.50 m, gerçek), pencereler koyu gri (#5f666d) 0.14 m çerçeve bantlı, doğrama altın meşe PVC; K2–K5 boy pencereler 4 borulu paslanmaz fransız korkuluk, K1 pencereleri kısa. Köşelerde koyu gri köşe profili.",
+    "BALKONLAR (kat kat): batı yığını u 4.5–11.2: K1 cam balkon (beyaz perde) beyaz parapet; K2 açık; K3 cam (bej perde); K4 cam (koyu yansıma); K5 açık. Doğu yığını u 11.4–18.1: K1 açık (beyaz parapet, boru küpeşte); K2 cam (koyu dikey jaluzi); K3 cam (açık/gök yansıması); K4 açık; K5 açık. Batı cephe yığını (u 5.71–9.64): K1 cam (beyaz perde), K2–K3 cam (beyaz perde), K4–K5 açık. Balkon derinliği 0.8 m (iki ortofoto büyütme farkından, ±0.2). Parapetler 1.0 m dolu koyu gri #6d757c (gölgede #505860).",
+    "ÇATI: batı ucu (x 709.5–714) düz teras + 1 m koyu parapet + pergola; orta (x 714–727.6) çatı katı + alınlıklı beşik (mahya K–G, tepe 24.1 m, eğim ≈18°); doğu ucu (x 727.6–732.4) kiremit kırma çatı, koyu gri saçak alnı (hava foto kiremit #a28f84 soluk).",
+    "TABELALAR: \"GÜLTEN KARADAĞ / HAIR DESIGN\" (gri kutu, gümüş harf, G/K monogram), dikey \"KUAFÖR\" ve \"BAYAN\" siyah bantlar, vitrin kadın afişleri; \"TURUNCU Market\" (turuncu kutu, beyaz kabartma harf) + iki bölmeli somon tente \"TURUNCU MARKET\", dikey \"MARKET\" bant, \"BURADA\" rozet etiketi, \"Lezzet…\" etiketi; \"cabinas® / dış ticaret\" (siyah kutu, K1 balkon önünde). Apartman girişi siyah ferforje camlı kapı (u 11.88–13.49), yanı bej traverten kaplama + yerde klima.",
+    "RENKLER güneşli yüzeyden (amsci ortofoto/kare): beyaz #f5f0ed, parapet #6d757c, çatı katı #808c9b, tabela turuncu #f67d5d, cabinas #4c514c, Gülten #6f777d, tente #c46150, traverten #a3937c. Doğrama rengi ortofoto çözünürlüğünde örneklenemedi, karelerden gözle (#8a5b3a).",
+    "Doğu (kenar 1) ve kuzey (kenar 2) cepheler görülmedi — çizilmedi. Doğu duvar konumu (x 732.4) iki ortofotonun köşe çizgisiyle tutarlı (uzunluk 22.9 kabulüyle kat yüksekliği 3.13 çıkıyor, makul)."
+  ]
+}

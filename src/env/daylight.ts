@@ -81,7 +81,7 @@ export function daylight(t: TimeOfDay, center: { lat: number; lon: number }, now
   const sunDir = dirFrom(e, p.azimuth, new THREE.Vector3());
   // Gece: ay ışığı (güneşin karşısında, yüksekte)
   const lightDir = e > -2 ? sunDir.clone() : dirFrom(35, (p.azimuth + 180) % 360, new THREE.Vector3());
-  const white = new THREE.Color(0xfff4e2);
+  const white = new THREE.Color(0xfaf5ed);
   const orange = new THREE.Color(0xff9a55);
   const moon = new THREE.Color(0x8ea6ff);
   const sunColor = e > -2 ? white.clone().lerp(orange, golden) : moon;
@@ -106,7 +106,8 @@ export function daylight(t: TimeOfDay, center: { lat: number; lon: number }, now
     hemiIntensity: 0.7 + 0.5 * day,
     fogColor,
     // Neutral ton eşleme (ACES'in içindeki 1/0.6 kazancı yok) için ölçekli
-    exposure: (0.95 - 0.05 * day) * 1.42,
+    // Kalibrasyon: ortam ışığı azaldı → pozlama 1.278 → 1.75 (güneşli orta gri aynı parlaklıkta)
+    exposure: (0.95 - 0.05 * day) * 1.945,
     night,
     turbidity: 1.8 + golden * 6.7,
     rayleigh: 0.3 + day * 0.55 + golden * 1.85,

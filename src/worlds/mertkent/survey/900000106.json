@@ -1,0 +1,135 @@
+{
+  "id": 900000106,
+  "name": "KUDRET HOME + LINENS (tek katlı mağaza podyumu)",
+  "storeys": 1,
+  "floorH": 7.0,
+  "groundRaise": 0.9,
+  "roof": {
+    "kind": "flat",
+    "eave": 0,
+    "fasciaH": 0,
+    "parapet": { "h": 0.15, "color": "#3a3130", "rail": "glassFull", "railC": "#4a4d50", "glassC": "#3d4a55" }
+  },
+  "colors": {
+    "plaster": "#3a3130",
+    "plaster2": "#75828c",
+    "fascia": "#202f39",
+    "frame": "#2a2d30",
+    "plinth": "#3a3130"
+  },
+  "edges": [
+    {
+      "edge": 0,
+      "len": 10.55,
+      "seen": "partial",
+      "ref": "900000106_0_drkr98cu.jpg",
+      "cal": { "u": [0.97, 11.1], "head": [[0, 3.2], [1, 10.04]] },
+      "items": [
+        { "t": "panel", "u0": 1.78, "u1": 6.3, "y0": 4.87, "y1": 6.63, "color": "#75828c" },
+        { "t": "panel", "u0": 1.78, "u1": 6.3, "y0": 4.17, "y1": 4.87, "color": "#202f39" },
+        {
+          "t": "win", "u0": 1.78, "u1": 6.3, "y0": 1.0, "y1": 4.17, "k": 0, "s": [0, 0], "kind": "shop", "split": 1,
+          "frameC": "#2a2d30", "curt": { "K0": "vitrin" }
+        },
+        {
+          "t": "sign", "u0": 1.78, "u1": 6.3, "y0": 1.0, "y1": 4.17, "d": 0.01, "text": "LINENS", "style": "panel",
+          "bg": "#c9d3dc", "fg": "#1f2a44", "font": "serif", "bold": false,
+          "logo": "Vitrin camının tamamını kaplayan baskılı afiş: mavi/lacivert yastıklı yatak fotoğrafı, üstte ortada küçük oval 'LINENS' logosu (T1qi7 ve drkr98’de görülüyor)"
+        },
+        {
+          "t": "sign", "u0": 3.45, "u1": 6.17, "y0": 5.25, "y1": 6.42, "d": 0.12, "text": "LINENS", "style": "lightbox",
+          "bg": "#eef0f2", "fg": "#1f2a44", "border": "#1f2a44", "font": "serif", "bold": false, "lit": true,
+          "logo": "Oval (elips) beyaz ışıklı kutu, lacivert kalın çerçeve, lacivert serif büyük harf"
+        }
+      ],
+      "note": "2025-09, drkr98 26_11/26_22 (ref) + T1qi7 39_10 + kr3oP 60/0. GB köşede 0.8 m kahverengi ayak (u 0.97–1.78, blok sıvası), sonra gri pano + oval LINENS, koyu bant, afişle kaplı vitrin. u>6.3 (doğu yarısı) önündeki Balıkçı Mahmut tabelası/ağaç yüzünden görülmedi. GD köşesi görülmedi → uE = uA + 10.55×0.96 (oval boyu batıdakiyle aynı ölçek varsayımı)."
+    },
+    { "edge": 1, "len": 18.3, "seen": "none", "items": [], "note": "900000105 kulesinin batı duvarına bitişik (ortak duvar); dışarıda görünmez." },
+    {
+      "edge": 2,
+      "len": 10.55,
+      "seen": "partial",
+      "ref": "900000106_2_urVE3ZYD.jpg",
+      "cal": { "u": [0, 10.55], "head": [[0, 3.8], [1, 11.17]] },
+      "items": [
+        { "t": "panel", "u0": 3.8, "u1": 10.55, "y0": 7.0, "y1": 8.9, "color": "#3a3130" },
+        { "t": "win", "u0": 3.8, "u1": 10.55, "y0": 5.5, "y1": 7.0, "k": 0, "s": [0, 0], "kind": "shop", "split": 4, "frameC": "#2a2d30", "curt": { "K0": "vitrin" } },
+        { "t": "panel", "u0": 3.8, "u1": 10.55, "y0": 4.4, "y1": 5.4, "color": "#1c2226" },
+        { "t": "win", "u0": 3.8, "u1": 10.55, "y0": 1.4, "y1": 4.4, "k": 0, "s": [0, 0], "kind": "shop", "split": 4, "frameC": "#2a2d30", "curt": { "K0": "vitrin" } }
+      ],
+      "note": "2025-09, urVE3 112_10/120_9 (ref) + byBT3 133_10. KUDRET mağazasının kuzey vitrini: koyu kahverengi çerçeve, iki sıra vitrin (üst sıra rafta ürünler, arada koyu kayıt bandı); alt kısım 3.5 m altında çalılarla kapalı, cam alt kenarı tahmini. u 0–3.8 önündeki bina yüzünden görülmedi; KB köşesi net değil (cal özdeşlik). Dikme aralığı ~1.6 m, çözünürlük düşük."
+    },
+    {
+      "edge": 3,
+      "len": 18.3,
+      "seen": "photo",
+      "ref": "900000106_3__PsLu7A_.jpg",
+      "cal": { "u": [0.1, 19.65], "head": [[0, 3.4], [1, 10.88]] },
+      "items": [
+        { "t": "panel", "u0": 0.98, "u1": 9.53, "y0": 5.19, "y1": 7.1, "color": "#243138" },
+        { "t": "panel", "u0": 0.98, "u1": 9.53, "y0": 4.31, "y1": 5.19, "color": "#1b2226" },
+        {
+          "t": "sign", "u0": 2.5, "u1": 7.84, "y0": 5.56, "y1": 6.84, "d": 0.06, "text": "KUDRET\nHOME", "style": "box",
+          "lines": [ { "text": "KUDRET", "fg": "#c9a55f", "size": 1.35 }, { "text": "HOME", "fg": "#c9a55f", "size": 0.65 } ],
+          "bg": "#243138", "fg": "#c9a55f", "border": "#c9a55f", "font": "serif", "bold": false,
+          "logo": "Altın ince çerçeveli dikdörtgen; 'KUDRET' içindeki E harfi ters/ok biçimli stilize (KUDRƎT gibi), sağ üstte ®, 'HOME' iki yanında çerçeve çizgisi kesilir, sağ altta küçük 'Since 1950'"
+        },
+        {
+          "t": "awning", "u0": 1.06, "u1": 9.5, "y": 4.25, "d": 0.25, "drop": 0.35, "color": "#1c2226",
+          "text": "KUDRET", "textColor": "#c9a55f"
+        },
+        { "t": "win", "u0": 1.06, "u1": 4.06, "y0": 1.06, "y1": 3.9, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": { "K0": "vitrin" } },
+        { "t": "win", "u0": 4.06, "u1": 6.3, "y0": 1.06, "y1": 3.9, "k": 0, "s": [0, 0], "kind": "door", "split": 2, "frameC": "#2a2d30" },
+        { "t": "win", "u0": 6.3, "u1": 9.5, "y0": 1.06, "y1": 3.9, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": { "K0": "vitrin" } },
+        { "t": "camera", "u": 9.94, "s": 0, "y": 4.75 },
+        { "t": "panel", "u0": 10.25, "u1": 19.38, "y0": 5.25, "y1": 7.22, "color": "#75828c" },
+        { "t": "panel", "u0": 10.25, "u1": 19.38, "y0": 4.38, "y1": 5.25, "color": "#202f39" },
+        {
+          "t": "sign", "u0": 13.25, "u1": 16.28, "y0": 5.56, "y1": 6.87, "d": 0.12, "text": "LINENS", "style": "lightbox",
+          "bg": "#eef0f2", "fg": "#1f2a44", "border": "#1f2a44", "font": "serif", "bold": false, "lit": true,
+          "logo": "Oval (elips) beyaz ışıklı kutu, lacivert kalın çerçeve"
+        },
+        { "t": "camera", "u": 10.4, "s": 0, "y": 4.9 },
+        { "t": "camera", "u": 19.2, "s": 0, "y": 4.9 },
+        { "t": "win", "u0": 10.25, "u1": 13.44, "y0": 1.0, "y1": 4.31, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": { "K0": "vitrin" } },
+        { "t": "win", "u0": 13.44, "u1": 15.81, "y0": 1.0, "y1": 3.37, "k": 0, "s": [0, 0], "kind": "door", "split": 2, "frameC": "#2a2d30" },
+        { "t": "win", "u0": 15.81, "u1": 19.1, "y0": 1.0, "y1": 4.31, "k": 0, "s": [0, 0], "kind": "shop", "split": 2, "frameC": "#2a2d30", "curt": { "K0": "vitrin" } },
+        {
+          "t": "sign", "u0": 16.48, "u1": 18.25, "y0": 3.03, "y1": 3.88, "d": 0.01, "text": "5.000 TL", "style": "panel",
+          "bg": "#f0c8cf", "fg": "#c0304a", "font": "sans", "bold": true,
+          "logo": "Vitrin camında pembe kampanya afişi; alt satırlar okunamadı"
+        }
+      ],
+      "note": "2025-09, _PsLu 94/110 (ref, neredeyse dik) + 0oDNp 70/90 (ağaç kapatıyor) + kr3oP 60/0. Cephe tamamı koyu kahverengi ince dikey derzli kaplama (#3a3130). Kuzeyde KUDRET HOME: siyah üst pano + altın çerçeveli tabela, altın ince çerçeve (u 0.85–9.66) yukarıdan zemine kadar iner, altın yazılı siyah kasa-tente, ortada çift kanat cam kapı (üstünde altın monogram), iki yanda vitrin. Güneyde LINENS: gri pano + oval ışıklı tabela, koyu bant, iki vitrin + ortada çift kanat kapı (üstünde kayıt 3.37). Kaplama üstü (parapet) ~8.0 m; çatı terası kenarında füme cam korkuluk + dikme (≈2.4 m ara) ve üst küpeşte."
+    }
+  ],
+  "pending": [
+    {
+      "what": "KUDRET cephesinin altın (#c9a55f) ince çerçevesi (~0.1 m): üstte y 7.22 ve iki yanda u 0.85 ile 9.66’da zemine (y ~1.0) kadar iner; iç siyah pano 0.98–9.53",
+      "edge": 3, "ref": "900000106_3__PsLu7A_.jpg"
+    },
+    {
+      "what": "KUDRET kapısı üstünde camda altın monogram (ayna 'K' + 'R' birleşik, 'ЖR' gibi), u 4.6–5.7, y 3.45–3.9, arka planı küçük siyah pano 'SINCE 1950' yazılı",
+      "edge": 3, "ref": "900000106_3__PsLu7A_.jpg"
+    },
+    {
+      "what": "Oval tabela biçimi (elips 3.0×1.3 m) — shape:'round' yalnız disk çiziyor",
+      "edge": [0, 3]
+    },
+    {
+      "what": "Kaplamada dikey ince derzler (~0.15 m arayla, biraz daha koyu #2e2626), tüm yüzeyde",
+      "edge": [0, 2, 3]
+    },
+    {
+      "what": "Kuzey pier’de (u 9.94, y 4.75) beyaz alarm sireni kutusu ~0.25×0.35 m — camera öğesiyle yaklaşık gösterildi",
+      "edge": 3
+    }
+  ],
+  "notes": [
+    "OSM’de yok. Yükseklik footprint notundaki 5.5–6 m değil: PsLu ortofotosunda kaplama üstü dükkân zemininden 7.1 m (ölçek 0.936), yani blok tabanından ≈8.0 m; bu, 900000105 kulesinin K2 döşemesiyle (≈8.0 m) aynı → podyum çatısı kulenin K2 terası. kr3oP 60/0’da da araca göre ~8 m.",
+    "Tek kat: floorH 7.0 + groundRaise 0.9 (dükkân zemini görünen y≈1.0; kaldırım eğimli). cal.head’deki K1 değeri sanal: dikey ölçek (batı 0.936, güney 1.023, kuzey 0.95) derleyiciye bu yolla verildi.",
+    "Renkler (gölge/yaygın ışık, güneşli yama yok): kaplama #3a3130 (güney #3e2f27), LINENS gri pano #6c7c8b–#727d7d (sunlit tahmini #75828c), koyu bantlar #202f39, KUDRET siyah #243138, altın #c9a55f (ince harflerden örneklenemedi, görsel).",
+    "Batı cephe görünen genişliği 19.55 (iz 18.3); kule batı cephesiyle birlikte pano ~1.45 m GPS kaymasıyla açıklanıyor, iz boyu doğru görünüyor.",
+    "Çatı: hava fotoğrafında açık gri düz (#c4bbb7)."
+  ]
+}

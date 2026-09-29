@@ -65,7 +65,7 @@ export class Game {
   post: PostFX | null = null;
   private pmrem: THREE.PMREMGenerator;
   private envRT: THREE.WebGLRenderTarget | null = null;
-  envScale = Number(new URLSearchParams(location.search).get('env') ?? 0.085);
+  envScale = Number(new URLSearchParams(location.search).get('env') ?? 0.038);
   /** Fotoğraf modu: HUD gizli, serbest kamera, oyuncu donuk. */
   photoMode = false;
   private photo = { pos: new THREE.Vector3(), yaw: 0, pitch: 0 };
@@ -199,7 +199,7 @@ export class Game {
       this.backdrop.add(this.envGround);
     }
     (this.envGround.material as THREE.MeshBasicMaterial).color
-      .setRGB(0.58, 0.57, 0.54)
+      .setRGB(0.534, 0.553, 0.583)
       .multiplyScalar(ENV_GROUND * d.sunIntensity * (1 - d.night));
     // KARAR: şehir silueti — ufuktan ~14°'ye kadar sıcak gri bant (çevre binalar). Gök yalnız üstten görünür;
     // gölgede kalan zemin/cephe gökyüzünün mavisini değil binalardan seken nötr ışığı alır (Street View'da
@@ -213,7 +213,7 @@ export class Game {
     }
     if (this.envSkyline) {
       (this.envSkyline.material as THREE.MeshBasicMaterial).color
-        .setRGB(0.62, 0.6, 0.56)
+        .setRGB(0.57, 0.582, 0.605)
         .multiplyScalar(SKYLINE * ENV_GROUND * d.sunIntensity * (1 - d.night) + 0.02);
       this.envSkyline.visible = true;
     }
@@ -229,7 +229,8 @@ export class Game {
     this.scene.environment = this.envRT.texture;
     // Sky shader'ı HDR (çok parlak) üretir: ortam katkısı düşük ölçekli
     this.scene.environmentIntensity = this.envScale * (1 - d.night * 0.7);
-    this.lights.hemi.intensity = d.hemiIntensity * 0.75;
+    // KARAR: Street View kalibrasyonu (71 yama, 11 görüş): ortam ışığı güneşe göre ~2× fazlaydı → soluk/pastel
+    this.lights.hemi.intensity = d.hemiIntensity * 0.6;
   }
 
   applyTimeOfDay(): void {

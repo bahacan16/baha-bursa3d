@@ -226,3 +226,15 @@
   - Şehr-i Bursa bloklarında koyu gri (plaster2) açıldı: 561 #666b72→#6a727a, 562/556/555 #50575f→#5a636b;
     1546358554 ana sıva #666f71→#707a7e. Dosyalar: `survey/*.json`, `data/facades.json`.
     **Blender:** cam balkon malzemesi (tül), sıva malzemesi, ilgili blok renkleri.
+- **(bu commit)** — **Genel gündüz ışığı Street View'a kalibre edildi** (71 yama, 11 görüş, fotoğraf başına serbest
+  pozlama): ortam ışığı güneşe göre ~2× fazlaydı (soluk/pastel görünümün asıl nedeni). `envScale` 0.085→0.038,
+  yarım küre ×0.75→×0.6, güneş rengi #fff4e2→#faf5ed, env zemin/ufuk bandı nötr-soğuk, pozlama 1.278→1.75, renk
+  düzeltme gölge/parlak tonu nötre yakın, doygunluk 1.04→1.0, kontrast 0.28→0.14. Güneş/gölge oranı hatası 0.56→0.16
+  durak; nötr yüzeylerde ΔE 6.7→4.3; sarı kayma b* +4.4→+1.0. Dosyalar: `src/game.ts`, `src/env/daylight.ts`,
+  `src/env/post.ts`. **Blender:** Cycles'ta fiziksel ışık zaten doğru; referans: güneş #faf5ed, gökyüzü/ortam oranı.
+- **(bu commit)** — Kavşak kuzeydoğusundaki OSM'de olmayan binalar ölçüldü ve çiziliyor: 900000101 (VİZE KONGRE /
+  BALENTUR / KURUMSAL HİZMETLER / H8 PILATES / pizzabulls / DİŞ HEKİMİ ERTUĞRUL ÖZTÜRK / S.M. MALİ MÜŞAVİR RECEP
+  DÜLGER…; mavi giydirme cam, loca bölümü, çatı katı), 102 (LEYLA fasıl + pergola terası), 103 (ECZANEMİZ ÇOK
+  YAKINDA + PILATES house), 104 (GÜLTEN KARADAĞ HAIR DESIGN, TURUNCU Market tenteleri, cabinas), 105 (beyaz kule,
+  kahve kaplamalı çıkma, loca balkonlar), 106 (KUDRET HOME + LINENS podyumu). 107 hiçbir karede ölçülebilir değil →
+  çizilmedi (tahmin yok). Dosyalar: `survey/9000001xx.json`, `data/facades.json`. **Blender:** bu 6 blok kur.
