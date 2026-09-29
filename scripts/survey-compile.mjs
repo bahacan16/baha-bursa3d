@@ -246,6 +246,7 @@ async function main() {
       roof: sv.roof,
       colors: sv.colors ?? {},
       edges,
+      ...(sv.massing ? { massing: sv.massing } : {}),
       notes: sv.notes ?? [],
     };
     console.log(

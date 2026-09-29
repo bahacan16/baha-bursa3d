@@ -90,6 +90,8 @@ export interface CompiledBlock {
   roof: { kind: string; eave: number; fasciaH: number; pitch?: number };
   colors: Record<string, string>;
   edges: { edge: number; len: number; seen: string; items: CItem[] }[];
+  /** Zemin kat podyumu üstünde ayrık kuleler (x aralıkları) */
+  massing?: { towers: { x: [number, number] }[]; gap?: { x: [number, number] } };
 }
 
 /** Blok paleti: malzeme anahtarı eşlemesi (ör. mkPlaster → mkPlaster_1480041342) */
@@ -284,7 +286,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       if (u1 - u0 < MIN_OPEN) continue;
       for (const k of it.storeys) {
         if (k < 0 || k >= S) continue;
-        const y0 = floorY(k) + Math.max(0.02, it.sill);
+        // Dükkân camı zemin kat döşemesinin altına inebilir (yüksek zemin kat, groundRaise sanal)
+        const y0 =
+          floorY(k) +
+          (it.kind === 'shop' ? Math.max(0.1 - blk.groundRaise, it.sill) : Math.max(0.02, it.sill));
         const y1 = floorY(k) + Math.min(FH - 0.25, it.head);
         if (y1 - y0 < 0.3) continue;
         openings[i].push({ u0, u1, y0, y1, win: it, k });

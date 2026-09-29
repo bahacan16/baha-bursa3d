@@ -3,6 +3,7 @@ import type { SimpleOsm } from '../osm/simplify';
 import { Builder, type V2 } from './builder';
 import { buildApartment, insidePoly, type ApartmentStyle } from './apartment';
 import { buildFacadeBlock, type CompiledBlock } from './facade';
+import { splitMassing } from './massing';
 import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
 import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
@@ -924,11 +925,9 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       const fac = FACADES[id];
       const r = fac.ring.map((p) => [p[0], p[1]] as V2);
       const base = ringBase(r);
-      buildFacadeBlock(b, fac, base, {
-        seed: id % 100000,
-        collide: o.collide,
-        keys: paletteKeys(fac, id, extraMats),
-      });
+      const keys = paletteKeys(fac, id, extraMats);
+      for (const part of splitMassing(fac))
+        buildFacadeBlock(b, part, base, { seed: part.id % 100000, collide: o.collide, keys });
       o.collide?.(
         r.map((p) => [p[0], p[1]]),
         base - 1,
