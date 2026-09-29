@@ -208,10 +208,10 @@ vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
     vec3 tul = vec3(0.46, 0.475, 0.49) * (0.94 + 0.06 * fold) * (0.9 + 0.12 * uv.y);
     col = mix(room, tul, 0.8);
     if (kind > 0.5) {
-      // Yan perdeler (renkli fon perde, iki yanda ~%22)
-      float side = step(uv.x, 0.2 + 0.05 * h1(seed)) + step(0.8 - 0.05 * h1(seed + 1.0), uv.x);
-      vec3 drape = mix(vec3(0.42, 0.3, 0.22), vec3(0.62, 0.52, 0.4), h1(seed * 5.3));
-      drape = mix(drape, vec3(0.5, 0.18, 0.16), step(0.8, h1(seed * 9.1)));
+      // Yan perdeler (fon perde, iki yanda ~%12–16, camın arkasında loş; kırmızı fon seyrek)
+      float side = step(uv.x, 0.12 + 0.04 * h1(seed)) + step(0.88 - 0.04 * h1(seed + 1.0), uv.x);
+      vec3 drape = mix(vec3(0.3, 0.24, 0.19), vec3(0.46, 0.4, 0.33), h1(seed * 5.3));
+      drape = mix(drape, vec3(0.36, 0.15, 0.13), step(0.9, h1(seed * 9.1)));
       float df = 0.75 + 0.25 * sin(x * 22.0);
       col = mix(col, drape * df, min(side, 1.0));
     }
@@ -259,7 +259,7 @@ float lit = step(0.45, h1(seed * 17.3));
 totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-winglass-v2';
+  m.customProgramCacheKey = () => 'mk-winglass-v3';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   return m;
@@ -309,9 +309,9 @@ float prof = step(y, 0.035) + step(0.965, y);
 vec3 inside = mix(vec3(0.035, 0.05, 0.07), vec3(0.08, 0.1, 0.13), smoothstep(0.0, 1.0, y));
 inside *= 0.9 + 0.2 * h1(panel + seed);
 if (tint > 2.5) {
-  // Zebra / stor perde (açık yeşil-beyaz bantlar)
+  // Zebra / stor perde camın arkasında: kırık beyaz-krem bantlar, cam geçirgenliğiyle loş (önceden nane yeşili pasteldi)
   float band = step(0.5, fract(y * 7.0 + h1(seed)));
-  inside = mix(vec3(0.5, 0.58, 0.52), vec3(0.72, 0.76, 0.7), band);
+  inside = mix(vec3(0.34, 0.33, 0.31), vec3(0.46, 0.45, 0.42), band) * (0.9 + 0.2 * h1(panel + seed));
 } else if (tint > 0.5 && tint < 1.5) {
   // Yeşil camlı: yansıyan ağaçlar + cam kenar tonu
   inside = inside * vec3(0.72, 1.05, 0.9) + vec3(0.02, 0.09, 0.06);
@@ -333,7 +333,7 @@ diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
 totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 0.55);`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-camglass-v3';
+  m.customProgramCacheKey = () => 'mk-camglass-v4';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   return m;

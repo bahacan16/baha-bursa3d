@@ -139,3 +139,9 @@
   Dosyalar: `facade.ts`, `massing.ts`, `index.ts` (`colorKey('glass')`), `survey/schema.ts`,
   `scripts/survey-compile.mjs`, `survey/1550826982.json`, `data/facades.json`. **Blender:** korkuluk camı rengi
   kat kat; massing parçalarını ayrı kütle olarak kur; `NW/Mertkent/Blocks/1550826982` yeniden kur.
+- **(bu commit)** — Cam balkon başlangıcı korkuluk tipine göre (`camGlassSpan`): dolu parapetli (`solidTube`) balkonlarda
+  cam parapet üstünden ve küpeştenin 13 cm ARKASINDAN, boru/çubuk/tam cam korkulukta döşemeden, buzlu cam
+  korkulukta küpeşte üstünden başlar (562/556/555 yakın planları); alt profil çizilir. Cam balkon perdesi (stor/zebra)
+  nane yeşili pastel yerine kırık beyaz-krem ve camın arkasında loş; pencerelerde yan fon perdeler daraltıldı
+  (%12–16) ve koyulaştırıldı, kırmızı fon seyrek. Dosyalar: `facade.ts`, `facadeMats.ts`. **Blender:** cam balkon
+  camı küpeştenin arkasında; perde dokuları nötr/loş.

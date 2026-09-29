@@ -666,22 +666,26 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             const dn = (m[0] - e.a[0]) * e.n[0] + (m[1] - e.a[1]) * e.n[1];
             return Math.abs(dn) < 0.1 && u > vv.u0 - 0.1 && u < vv.u1 + 0.1;
           }) ?? vs[0];
-        parapet(b, p, q, y, run, railSpecOf(v.it, k));
+        const rs = railSpecOf(v.it, k);
+        parapet(b, p, q, y, run, rs);
         if (v.it.glazed.includes(k)) {
           const tint = v.it.tint[String(k)];
           const tn = tint === 'green' ? 1 : tint === 'dark' ? 2 : tint === 'blinds' ? 3 : 0;
-          const [pp, qq] = outwardOrder(outer, p, q);
+          const [pp0, qq0] = outwardOrder(outer, p, q);
+          const { y0: gy0, inset } = camGlassSpan(rs, y);
+          const [pp, qq] = insetSeg(pp0, qq0, inset);
           const aux: V4 = [hash(o.seed + k * 13 + run + v.id) * 100, tn, 0, 0];
           b.quad(
             'mkCamGlass',
-            [pp[0], y + RAIL + 0.03, pp[1]],
-            [qq[0], y + RAIL + 0.03, qq[1]],
+            [pp[0], gy0, pp[1]],
+            [qq[0], gy0, qq[1]],
             [qq[0], yCeil, qq[1]],
             [pp[0], yCeil, pp[1]],
             [run, 0, run + L, 1],
             aux,
           );
           b.wall(K('mkRail'), pp, qq, yCeil - 0.04, yCeil);
+          b.wall(K('mkRail'), pp, qq, gy0 - 0.02, gy0 + 0.02);
         }
         run += L;
       }
@@ -863,17 +867,21 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         if (info?.glazed && k + 1 <= S) {
           const yTop = floorY(k + 1) - SLAB - 0.01;
           const aux: V4 = [hash(o.seed + k * 13 + run) * 100, info.tint, 0, 0];
+          const { y0: gy0, inset } = camGlassSpan(info.rail, y);
+          const [p0, q0] = outwardOrder(outer, p, q);
+          const [gp, gq] = insetSeg(p0, q0, inset);
           b.quad(
             'mkCamGlass',
-            [p[0], y + RAIL + 0.03, p[1]],
-            [q[0], y + RAIL + 0.03, q[1]],
-            [q[0], yTop, q[1]],
-            [p[0], yTop, p[1]],
+            [gp[0], gy0, gp[1]],
+            [gq[0], gy0, gq[1]],
+            [gq[0], yTop, gq[1]],
+            [gp[0], yTop, gp[1]],
             [run, 0, run + L, 1],
             aux,
           );
           // Alt/üst alüminyum profil
-          b.wall('mkRail', p, q, yTop - 0.04, yTop);
+          b.wall('mkRail', gp, gq, yTop - 0.04, yTop);
+          b.wall('mkRail', gp, gq, gy0 - 0.02, gy0 + 0.02);
         }
         run += L;
       }
@@ -1261,6 +1269,18 @@ function boundarySegs(outer: V2[], building: V2[]): [V2, V2][] {
 }
 
 /** Kenarı, Builder.wall ön yüzü çokgenin dışına bakacak şekilde sırala */
+/** Dış sıralı (outwardOrder) kenarı içe doğru `d` kadar kaydır */
+function insetSeg(p: V2, q: V2, d: number): [V2, V2] {
+  if (d <= 0) return [p, q];
+  const L = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+  const nx = -(q[1] - p[1]) / L;
+  const nz = (q[0] - p[0]) / L;
+  return [
+    [p[0] - nx * d, p[1] - nz * d],
+    [q[0] - nx * d, q[1] - nz * d],
+  ];
+}
+
 function outwardOrder(poly: V2[], p: V2, q: V2): [V2, V2] {
   const L = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
   const nx = -(q[1] - p[1]) / L;
@@ -1395,6 +1415,20 @@ interface RailSpec {
   net?: boolean;
   /** Korkuluk camı malzemesi */
   gKey?: string;
+}
+
+/**
+ * Cam balkonun korkuluğa göre başladığı yükseklik ve içe çekilme: dolu parapetli (solidTube/solid) balkonlarda
+ * cam parapet üstünden, küpeştenin ARKASINDAN başlar; boru/çubuk/tam cam korkulukta döşemeden; buzlu cam (glass)
+ * korkulukta küpeşte üstünden (562/556/555 ve D1 yakın planları).
+ */
+function camGlassSpan(spec: RailSpec | undefined, y: number): { y0: number; inset: number } {
+  const t = spec?.type ?? 'glass';
+  if (t === 'solidTube') return { y0: y + (spec?.parH ?? PARAPET) + 0.02, inset: 0.13 };
+  if (t === 'solid') return { y0: y + Math.max(spec?.parH ?? RAIL, 0.85) + 0.02, inset: 0.02 };
+  if (t === 'tube' || t === 'bars' || t === 'glassFull') return { y0: y + 0.06, inset: 0.13 };
+  if (t === 'none') return { y0: y + 0.06, inset: 0.02 };
+  return { y0: y + RAIL + 0.03, inset: 0 };
 }
 
 /** Duvarı açıklıkların etrafında yatay bantlara bölerek örer; UV metre (çevre boyunca sürekli) */
