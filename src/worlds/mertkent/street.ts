@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Builder, type V2 } from './builder';
+import { Builder, type V2, type V3 } from './builder';
 import { sideNormal, type StreetPlan } from './siteplan';
 
 /**
@@ -69,6 +69,8 @@ function layoutOf(sw: {
   kerbH?: number;
   material?: string;
   layers?: { w?: number; material?: string; h?: number; at?: number }[];
+  /** Yol tarafında, bordüre bitişik mavi bisiklet şeridi genişliği (m) */
+  bike?: number;
 }): Layout {
   const W = sw.w;
   const h = sw.kerbH ?? 0.15;
@@ -91,7 +93,7 @@ function layoutOf(sw: {
       bands.push({ v0: v, v1: Math.min(W, v + w), key, h: lh });
       v += w;
     }
-    return { bands, tactile, kerbs };
+    return { bands, tactile, kerbs, bike: sw.bike };
   }
   switch (sw.id) {
     case 'east-west-side':
@@ -285,6 +287,7 @@ export function buildStreetPlan(
         if (/park/.test(note)) keys.push('signP');
         if (/girilmez|no entry/.test(note)) keys.push('signNoEntry');
         if (/sola dönülmez|no left/.test(note)) keys.push('signNoLeft');
+        if (/\bdur\b|\bstop\b/.test(note)) keys.push('signStop');
         if (!keys.length) break; // yazılı tabelalar (site adı vb.) ayrıca
         const co = Math.cos(yaw);
         const si = Math.sin(yaw);
@@ -300,6 +303,66 @@ export function buildStreetPlan(
           b.wall(`${key}Back`, E, A, top - ph, top);
           top -= ph + 0.04;
         }
+        break;
+      }
+      case 'barrier': {
+        // Otopark bariyeri: turuncu mekanizma kutusu + kırmızı-beyaz kol (rot yönünde, ölçümde uzunluk notta)
+        const co = Math.cos(yaw);
+        const si = Math.sin(yaw);
+        b.box('barrierOrange', [s.x, y + 0.5, s.z], [0.32, 1.0, 0.32], -yaw);
+        const L = Number(/(\d+(?:[.,]\d+)?)\s*m/.exec(note)?.[1]?.replace(',', '.') ?? 4) || 4;
+        const nSeg = Math.max(2, Math.round(L / 0.5));
+        for (let k = 0; k < nSeg; k++) {
+          const u = 0.2 + (L * (k + 0.5)) / nSeg;
+          b.box(
+            k % 2 ? 'barrierWhite' : 'barrierRed',
+            [s.x + si * u, y + 0.9, s.z - co * u],
+            [0.06, 0.08, L / nSeg],
+            -yaw,
+          );
+        }
+        break;
+      }
+      case 'gatehouse': {
+        // Güvenlik kulübesi (kahverengi çerçeve, pencere bandı) + üstte kanopi (w × d)
+        const W = s.w ?? 6;
+        const D = s.d ?? 1.2;
+        const co = Math.cos(yaw);
+        const si = Math.sin(yaw);
+        const at = (u: number, v: number): V3 => [s.x + co * u + si * v, y, s.z - si * u + co * v];
+        const bc = at(-W / 2 + 1.1, 0);
+        b.box('boothFrame', [bc[0], y + 0.45, bc[2]], [2.0, 0.9, 1.8], yaw);
+        b.box('mkCanopyGlass', [bc[0], y + 1.55, bc[2]], [1.96, 1.3, 1.76], yaw);
+        b.box('boothFrame', [bc[0], y + 2.3, bc[2]], [2.1, 0.2, 1.9], yaw);
+        const hh = s.h ?? 3.4;
+        const cc = at(0, 0);
+        b.box('boothFrame', [cc[0], y + hh, cc[2]], [W, 0.18, Math.max(D, 1.2)], yaw);
+        for (const u of [-W / 2 + 0.2, W / 2 - 0.2]) {
+          const p = at(u, 0);
+          b.box('boothFrame', [p[0], y + hh / 2, p[2]], [0.12, hh, 0.12], yaw);
+        }
+        break;
+      }
+      case 'marking': {
+        // Kaldırım bisiklet piktogramı (mavi zemin, beyaz bisiklet) — yere yatık
+        const r = 0.55;
+        const co = Math.cos(yaw);
+        const si = Math.sin(yaw);
+        const q = (u: number, v: number): V2 => [s.x + co * u + si * v, s.z - si * u + co * v];
+        b.drape(
+          'signBikeFlat',
+          [q(-r, -r), q(r, -r), q(r, r), q(-r, r)],
+          [],
+          H,
+          (onWalk?.h ?? 0.15) + 0.012,
+          1,
+          2,
+          {
+            o: q(-r, -r),
+            t: [co / (2 * r), -si / (2 * r)],
+            n: [si / (2 * r), co / (2 * r)],
+          },
+        );
         break;
       }
       case 'bin':

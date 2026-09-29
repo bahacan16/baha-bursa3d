@@ -77,8 +77,20 @@ export interface StreetPlan {
     note?: string;
     /** Bordürden içeri katmanlar: w genişlik, h yükseklik (yoksa kerbH), at: kılavuz şerit merkezi */
     layers?: { w?: number; material?: string; h?: number; at?: number }[];
+    /** Bordüre bitişik mavi bisiklet şeridi genişliği (yol kotunda) */
+    bike?: number;
   }[];
-  street?: { kind: string; x: number; z: number; h?: number; text?: string; rot?: number; note?: string }[];
+  street?: {
+    kind: string;
+    x: number;
+    z: number;
+    h?: number;
+    w?: number;
+    d?: number;
+    text?: string;
+    rot?: number;
+    note?: string;
+  }[];
 }
 
 const PLANS = import.meta.glob('./data/{site,street,park}-plan.json', {
