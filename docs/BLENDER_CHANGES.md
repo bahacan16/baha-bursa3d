@@ -517,3 +517,9 @@
   Atatürk portreli bayrak; köprü altındaki uydurma kahve derzler kaldırıldı), 1480163637 (orta kütle 7 kat, kemerli
   tonoz, girinti renk bölgeleri, klimalar arka duvarda), Salusvizyon 1479658783 (iki kemer yüzlü tonoz çatı, 27 Fransız
   balkon, tavan spotları, bordo panel derzleri, korniş bandı 25.17–26.47). **Blender:** bu 5 blok yeniden kurulmalı.
+- **(FP-v4 1540901798)** — Taban izi 12 → 20 köşe: doğu cephe gerçekte ≈30 m ve basamaklı (GD kule 3.72 m, güney geri
+  bant 3.78, ana duvar 14.88, kuzey geri bant 3.74, KD kule 3.92; bantlar 1.30 m, ana duvar 2.50 m kulelerin önünde;
+  üç panoramadan köşe üçgenlemesi ±0.04 m); bina +0.8 m doğu / −0.25 m kuzey. Survey kenarları yeniden eşlendi (eski 6
+  → 6–14), kule pencereleri 4 bölmeli Fransız pencere (kayıt, korkuluk yok), e5/e1 yanlış pencere kaldırıldı, beyaz
+  PVC boru, dolu parapet üstü çelik küpeşte K4–K9, beyaz dikey şerit. `sv-extra.json` kilitli. Tepedeki sivri kemer
+  bekliyor (üretici v7). **Blender:** bu bloğun taban izi, kütlesi, cepheleri ve çatısı yeniden kurulmalı.
