@@ -381,3 +381,38 @@
   kalitede pahlı bordürler) yeniden kurulmalı; `materials.py`: `clad:*` (derzli kaplama), `blind:*` (bambu stor),
   `asphalt:*` / `tar:*` / `wear1..3` (yol yüzeyi) yeni malzeme aileleri. Pişirilmiş ışık bu bloklar için yeniden
   pişirilmeli (imza değişti).
+- **(bu commit)** — **Ultra gerçekçilik paketi** (gerçek zamanlı; yalnız Ultra — Düşük/Orta/Yüksek davranışı ve maliyeti
+  değişmedi). Kalite menüsünde 4. düğme "Ultra" (başlangıç ekranı + duraklat menüsü), `?q=ultra` zorlar. Ayarda Ultra
+  açık olsa da yazılım işleyici / tümleşik GPU (Intel, Mali, Adreno, Radeon Graphics APU) algılanırsa kendiliğinden
+  Yüksek'e düşer; menüden açıkça seçilirse yine açılır.
+  - Güneş: three `SunLight` (2 kademeli CSM, kademe başına 4096², ~0–115 m / 115–450 m, görüş frustumuna oturur) +
+    PCSS (12 örnekli engel araması, 20 örnekli Vogel PCF, etkin güneş çapı 1.1°, alıcı düzlemi derinlik eğimi → acne
+    yok; kademe texel'ine göre normal ofseti → peter-panning yok): temas noktasında keskin, uzaklaştıkça yumuşayan
+    gölge. Dosyalar: `src/env/lighting.ts`, `src/env/ultra.ts`.
+  - Bulutlar: Street View karelerinin çoğu parçalı bulutlu → Sky bulutları 1600 m'deki dünya düzlemine taşındı (örtü
+    0.32, rüzgâr 6.5 m/s); aynı alan güneş yönünde yere izdüşürülüp yavaş kayan **bulut gölgesi**. Ortam haritası
+    bulutsuz yakalanır (Street View ışık kalibrasyonu korunur). `?clouds=0..1`.
+  - İsteğe bağlı fotoğraf gökyüzü `?sky=hdri`: Poly Haven CC0 "Kloofendal 48d Partly Cloudy (Pure Sky)"
+    (`scripts/fetch-textures.mjs` Actions'ta indirir → `public/textures/sky/sky.hdr`, 2k). HDRI güneşi (az 34°, yük.
+    47.9°) oyundaki güneş azimutuna döndürülür, parlaklığı prosedürel göğe eşitlenir; yalnız arka plan + yansıma
+    (ortam ışığı kalibre gökten). Bu modda bulut gölgesi kapalı (HDRI bulutlarıyla eşleşmez). `src/env/hdrisky.ts`.
+  - Hava perspektifi: yükseklikle azalan üstel pus (σ 0.00021/m, ölçek yüksekliği 1100 m → 500 m'de ~%10, 1 km'de
+    ~%19), gerçek uzaklıkla (derinlik değil). `?haze=`.
+  - Son işlem (`src/env/post.ts`, `src/env/taa.ts`): SMAA yerine TAA (Halton 8, Catmull-Rom geçmiş, YCoCg varyans
+    kırpma; kamera kesmesinde — >6 m, >35° dönüş, fov değişimi — sıfırlanır); CAS keskinleştirme; kenarlarda hafif
+    kromatik sapma; luma'ya bağlı, kare başı değişen ince film greni; yalnız çok parlak kaynaklarda (güneş diski, cam/araç
+    parıltısı) sınırlandırılmış bloom; kısmi otomatik pozlama (merkez ağırlıklı log ortalama, referans ln L = −1.48 =
+    6 eleştirmen görüşünün ortalaması → ortalamada düzeltme 1.0; yarı güç, 0.75–1.45, ~0.8 s uyum); N8AO yüksek kalite,
+    tam çözünürlük. `?grain= ?ca= ?sharp= ?ae= ?notaa ?noae`.
+  - Cam/araç yansıması: oyuncunun çevresini yakalayan yerel yansıma küresi (256², her kare bir yüz, PMREM) → pencere
+    camları, cam balkonlar, araç boyası/camı/kromu karşı cepheyi, ağaçları, sokağı yansıtır (yalnız aynasal; yayınık ışık
+    kalibre gökten). `src/env/probe.ts`; kayıt: `facadeMats.ts` (iki cam malzemesi), `sim/carmodel.ts`. `?noprobe`.
+  - Cephe yıpranması (grenli sıva malzemeleri): yerden ~0.6 m sıçrama kiri (düzensiz üst kenar, en çok %11 koyu), çok
+    hafif düşey yağmur izleri (%5). Yalnız bu iki genel desen (görülmeyen leke uydurulmadı). `?weather=0` kapatır.
+  - Cihazın tam piksel yoğunluğu (≤3), tüm dokularda en yüksek anizotropi, görüş 6.5 km, dallı ağaç menzili 160 m
+    (1400 adede kadar), ayrıntılı ağaç 180 m.
+  - Sağlamlık: Ultra'da malzeme çıkışı ve gökyüzü 3e4'e sınırlı, NaN → 0; TAA geçmişi / pozlama NaN-Inf ayıklar (tek
+    bozuk piksel ekranı kalıcı siyah yapmasın); WebGL bağlam kaybı konsola yazılır (başsız karşılaştırmalardaki siyah
+    ekranın asıl nedeni: ortak bellek grubunda GPU sürecinin OOM ile öldürülmesi → bağlam kaybı).
+  - **Blender:** — (gerçek zamanlı gölge/son işlem; Cycles zaten fiziksel). İsteğe bağlı referans: aynı HDRI
+    (`public/textures/sky/sky.hdr`) Blender dünya dokusu olarak kullanılabilir (güneş azimutu 165°'ye döndürülmüş).

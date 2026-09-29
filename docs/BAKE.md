@@ -106,3 +106,17 @@ Blender kuruluysa aynı betik `blender --background --python blender/bake/bake_a
   isteğe bağlı hafif hareket bulanıklığı. Pozlama otomatik göz uyumu (gölgeye girince açılma).
 - Ekran uzayı yansıma (SSR) camlarda ve ıslak zemin yok; cam için gerçekçi ortam küpü (bölgesel yeniden yakalama).
 - Malzeme: cephe kiri/yağmur izi (pencere altı akıntı, zemine yakın kararma), asfalt yama/çatlak yalnız ölçülen yerde.
+
+**Durum (uygulandı, `src/env/ultra.ts`, `lighting.ts`, `post.ts`, `taa.ts`, `probe.ts`, `hdrisky.ts`):**
+
+- CSM: three `SunLight` 2 kademe × 4096² (0–~115 m, ~115–450 m; kademe sayısı three'de sabit 2) + PCSS (etkin güneş çapı
+  1.1°, alıcı düzlemi eğimi, texel ölçekli normal ofseti). 4 kademe yapılmadı: yakın kademe ~4.6 cm/texel yeterli.
+- Gökyüzü: prosedürel Sky bulutları dünya düzleminde + aynı alandan bulut gölgesi (varsayılan). HDRI (Kloofendal 48d
+  Partly Cloudy Pure Sky) `?sky=hdri` ile yalnız arka plan + yansıma; **ortam haritası olarak kullanılmadı** — Street
+  View ışık kalibrasyonu prosedürel gökle yapıldı (env 0.038), HDRI ile yeniden kalibrasyon gerekirdi.
+- Son işlem: TAA (SMAA yerine), CAS keskinleştirme, kromatik sapma, film greni, sınırlı bloom, kısmi otomatik pozlama.
+  Renk LUT'u eklenmedi (mevcut Grade/Finish kalibrasyonu yeterli); hareket bulanıklığı eklenmedi (Street View
+  karelerinde yok, 3. şahıs kamerada bulanıklık gerçekçilik değil rahatsızlık getiriyor).
+- Yerel yansıma küresi (oyuncu çevresi, 6 karede bir tam güncelleme) camlar + araçlar için. SSR yok.
+- Cephe yıpranması: zemine yakın sıçrama bandı + hafif düşey iz (pencere altı akıntı konumları ölçülmediği için
+  pencereye bağlı akıntı çizilmedi).
