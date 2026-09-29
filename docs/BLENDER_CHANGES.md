@@ -315,3 +315,9 @@
   bandı), 900000103 (6 lamelli güneşlik, borular, kayıtlar), 900000102 (kablo kanalları), 303738122 (Balıkçı Mahmut
   lamelli pano, köşe hortumu), 303738118 (Cevher/İskele kış bahçesi kayıtları, taş subasman/parapet, mavi ahşap
   subasman). **Blender:** bu 5 blok yeniden kurulmalı.
+- **(v5 dönüşüm 3)** — Doğan Avcıoğlu 1. kesim blokları: 1540901770 Tarabya (K0 giriş girintisi + kapı arka duvarda,
+  çift derzler kat kat, balkon derinliği 0.9→0.47, köşe loca 1.77 m), 1540901771 (klima konumları), 1540901774 (çerçeve
+  yuvası 2 m girinti, köşe balkonu yuvarlatma, bacalar), 1540901776 (kuzey çerçeve yuvası 2.3 m girinti), 1540901777
+  Riva (güney girinti yeni ayak izine göre yeniden eşlendi: arka duvar kolonları, kırmızı kaplama, mavi giydirme cam,
+  kanopi, "C" rozeti; loca kirişleri; K5 teras köprüsü). `scripts/sv-extra.json`: 1777 kenar 7 ortofoto girdisi.
+  **Blender:** bu 5 blok yeniden kurulmalı.
