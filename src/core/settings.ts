@@ -9,6 +9,11 @@ export interface Settings {
   runSpeed: number;
   googleErrorTarget: number;
   sound: boolean;
+  /**
+   * Ultra: güçlü masaüstü GPU için en gerçekçi mod (pişirilmiş dolaylı ışık, kademeli yumuşak gölge, HDRI gökyüzü,
+   * film greni, TAA…). `quality` 'high' ile birlikte kullanılır. KARAR (kullanıcı): mobilde açılmasa da olur.
+   */
+  ultra: boolean;
 }
 
 const KEY = 'nilufer-walk.settings';
@@ -31,6 +36,7 @@ export function defaultSettings(): Settings {
     runSpeed: 5.5,
     googleErrorTarget: mobile ? 12 : 6,
     sound: true,
+    ultra: !mobile,
   };
 }
 
@@ -55,7 +61,14 @@ export function loadSettings(): Settings {
   const s = loadStored();
   // Test/karşılaştırma için: ?q=low|medium|high kaliteyi bu oturumda geçersiz kılar (kaydedilmez)
   const q = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('q') : null;
-  if (q === 'low' || q === 'medium' || q === 'high') s.quality = q;
+  if (q === 'low' || q === 'medium' || q === 'high') {
+    s.quality = q;
+    s.ultra = false;
+  }
+  if (q === 'ultra') {
+    s.quality = 'high';
+    s.ultra = true;
+  }
   return s;
 }
 
