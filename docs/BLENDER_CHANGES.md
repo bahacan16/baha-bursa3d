@@ -475,3 +475,8 @@
   (`soundCars()`), `osm/world.ts` (`soundScene()`, `GroundIndex.pavedKind`), `osm/parse.ts` (`mosques`:
   building:part'lı camiler dahil), `hud.ts`, `settings.ts`.
   **Blender:** yok (görsel değişiklik yok; Blender'da ses kullanılmıyor).
+- **(v6 dönüşüm 1)** — 1540901774 (yuva arka duvarında kapı `behind`), 1540901777 (merdiven kulesi kemerli başlık
+  `arch` 0.57 m önde + altlık, kule camı 21.38'de biter, batı çatı katı pencereleri), 1541439435 (kavisli iç loca üç
+  parçada tek kavis `arc`+`bulge` 0.55 + kavisli parapet, 0.9 m saçak, K7'ye uzanan girinti, mavi perdeler),
+  1541439436 (terrakota perdeler), 1541439437 (çatı köşkü tonoz çatı, iki balkon yığını tek dışbükey kavis, K3 bayrak
+  `banner`, kat kat perdeler). **Blender:** bu 6 blok yeniden kurulmalı.
