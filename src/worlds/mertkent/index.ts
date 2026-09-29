@@ -1477,7 +1477,9 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const gt: V2 = [gc.n[1], -gc.n[0]];
     buildBrickFence(b, segs, [{ c: [gc.c[0] + gt[0] * -0.9, gc.c[1] + gt[1] * -0.9], half: 5.4 }], o.collide);
     buildSalusGate(b, gc.c, gc.n, o.H(gc.c[0], gc.c[1]), o.collide);
-    // Salus önü kaldırım: Street View'da bej-gri kilit taşı (kırmızı değil)
+    // Salus önü kaldırım: Street View'da (CrRB_240_0) bordür dibinde kırmızı-pembe bant + koyu ayırıcı + gri kilit taşı
+    // + sarı-krem kılavuz + gri, toplam ≈2.0–2.3 m (street-plan salus-east notu). Bant genişlikleri ölçülmediği için
+    // burada düz gri; sokak planına katmanlı `sidewalks` kaydı girilince o çizer (walkSkip bu şeridi atlar).
     fenceWalk(b, o, segs, 'spPaverGrey', false, walkSkip);
   }
   holes.slice(0, 4).forEach((h, i) => groundHoles.value[i].set(h[0], h[1], h[2], h[3]));

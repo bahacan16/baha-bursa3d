@@ -183,6 +183,8 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
       massing: undefined,
       volumes: null,
       pergolas: null,
+      // Blok düzeyindeki duvar üstü kotu yalnız aynı kat sayılı parçalara geçer
+      wallTop: storeys === blk.storeys ? (blk.wallTop ?? null) : null,
     };
   };
   const out: CompiledBlock[] = [];
@@ -203,7 +205,15 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
     // Parça kendi kat sayısını / çatısını taşıyabilir (ör. 7 katlı blok + 4 katlı kanat + 1 katlı podyum)
     pieces(tw).forEach((r, j) => {
       const p = part(r, tw.storeys ?? blk.storeys, (k + 1) * 10 + j);
-      if (p) out.push(tw.roof ? { ...p, roof: { ...p.roof, ...tw.roof } } : p);
+      if (!p) return;
+      // Parçanın kendi saçak kotu / kat yükseklikleri (ör. 1550614218 kanadı: saçak alnı 18.85–19.35)
+      const q: CompiledBlock = {
+        ...p,
+        ...(tw.wallTop != null ? { wallTop: tw.wallTop } : {}),
+        ...(tw.floorH != null ? { floorH: tw.floorH } : {}),
+        ...(tw.floorHs?.length ? { floorHs: tw.floorHs } : {}),
+      };
+      out.push(tw.roof ? { ...q, roof: { ...q.roof, ...tw.roof } } : q);
     });
   });
   if (m.gap) {

@@ -285,8 +285,16 @@ export interface CBal {
   net?: number[];
   /** Kat → korkuluk camı rengi (füme / buzlu / şeffaf; fotoğraftan örneklenen görünen renk) */
   glassC?: Record<string, string>;
-  /** Kavisli ön yüz: ön kenarın ortada dışarı taşması (m, sehim); d = 0 ile duvardan duvara yay */
+  /**
+   * Kavisli ön yüz: ön kenarın ortada dışarı taşması (m, sehim); d = 0 ile duvardan duvara yay. inset > 0 olan
+   * gömük locada (d < 0.35): loca derinliği korunur, döşeme / korkuluk / cam taban izi hattından yay boyunca taşar.
+   */
   bulge?: number;
+  /**
+   * Ortak yay açıklığı [u0, u1] (gerçek u): bulge parabolü öğenin kendi aralığı yerine bu aralıkta — kat kat ya da
+   * bölmelere ayrılmış öğeler tek sürekli yay oluşturur (uçlarda sehim 0, ortada bulge)
+   */
+  arc?: [number, number] | null;
   /** Serbest ön köşelerin yuvarlatma yarıçapı (m) — tek sayı ya da [başlangıç, bitiş] */
   round?: number | [number, number];
   /** Kat → cam balkon profil rengi */
@@ -591,6 +599,11 @@ export interface CompiledBlock {
   };
   /** Subasman bandı yüksekliği tabandan (m); 0 = subasman yok. Verilmezse zemin kat döşemesine (≤ 1.2 m) */
   plinthH?: number | null;
+  /**
+   * Duvar üstü (saçak alnı / parapet başlangıcı) kotu tabandan gerçek m — verilmezse son kat döşemesi + 0.12.
+   * Kütle parçasında (massing.towers[].wallTop) parçanın kendi saçak kotu.
+   */
+  wallTop?: number | null;
   /** Kat başına kat yüksekliği (K0'dan; eksik katlar floorH) */
   floorHs?: number[] | null;
   /** Ek hacimler (dünya çokgeni): tek katlı ek, kış bahçesi, çatı odası… */
@@ -610,6 +623,10 @@ export interface CompiledBlock {
       rest?: boolean;
       storeys?: number;
       roof?: Partial<CompiledBlock['roof']>;
+      /** Parçanın duvar üstü kotu (tabandan m), kat yüksekliği / kat başına yükseklikleri */
+      wallTop?: number;
+      floorH?: number;
+      floorHs?: number[];
     }[];
     gap?: { x: [number, number] };
   };
@@ -831,7 +848,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   const floorY = (k: number) =>
     base + blk.groundRaise + (FHS ? cum[Math.max(0, Math.min(k, S + 1))] : k * FH);
   const storeyH = (k: number) => FHS?.[k] ?? FH;
-  const wallTop = floorY(S) + 0.12;
+  // Ölçülmüş duvar üstü (saçak alt kotu) verilmişse o; yoksa son kat döşemesi + 0.12
+  const wallTop = blk.wallTop != null && blk.wallTop > 0.5 ? base + blk.wallTop : floorY(S) + 0.12;
   const E: Edge[] = [];
   let per = 0;
   for (let i = 0; i < N; i++) {
@@ -876,8 +894,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     };
   };
   // İçe gömük balkonlar (d ≈ 0): taban izi içinde boşluk (void) dikdörtgenleri, kat başına
-  // Kavisli (bulge) balkon d = 0 olsa da taşan balkondur (duvardan duvara yay)
-  const isRecessed = (it: CBal) => it.d < 0.35 && !(it.bulge && it.bulge > 0.05);
+  // Kavisli (bulge) balkon d = 0 olsa da taşan balkondur (duvardan duvara yay) — inset verilmişse gömük loca kalır:
+  // loca derinliği korunur, kavisli ön kısım (taban izi hattından yaya kadar) ayrıca taşan balkon olarak çizilir
+  const curvedLoggia = (it: CBal) => it.d < 0.35 && (it.inset ?? 0) > 0 && (it.bulge ?? 0) > 0.05;
+  const isRecessed = (it: CBal) => it.d < 0.35 && (!(it.bulge && it.bulge > 0.05) || curvedLoggia(it));
   interface Void {
     id: number;
     edge: number;
@@ -931,6 +951,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
 
   // ── Açıklıklar (pencere/kapı), balkon arkası varsayılan kapılar ──
   const openings: Opening[][] = E.map(() => []);
+  /** Loca (void id) → arka duvara taşınacak ölçülmüş açıklıklar (kenar u'sunda) */
+  const voidOps = new Map<number, Opening[]>();
   /** Çatı arası pencereleri (k = S): alınlıkta, üçgen alınlıkta (pediment) ya da kemerli parapette açılır */
   const attic: Opening[][] = E.map(() => []);
   for (let i = 0; i < N; i++) {
@@ -1042,7 +1064,15 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         }
       }
     }
-    // Loca boşluğuna düşen açıklıklar çizilmez (arka duvara kapı/pencere ayrıca konur)
+    // Loca boşluğuna düşen açıklıklar taban izi hattında çizilmez: ÖLÇÜLMÜŞ olanlar (öğe listesindeki `win`) loca
+    // arka duvarına taşınır (o katta otomatik kapı + pencere yerine); üreticinin varsayılan kapıları atılır
+    for (const op of openings[i]) {
+      const um = (op.u0 + op.u1) / 2;
+      const v = voidsAt(op.k).find((vv) => vv.edge === i && um > vv.u0 + 0.05 && um < vv.u1 - 0.05);
+      if (!v || !its.includes(op.win)) continue;
+      if (!voidOps.has(v.id)) voidOps.set(v.id, []);
+      voidOps.get(v.id)!.push(op);
+    }
     openings[i] = openings[i].filter((op) => !inVoid(i, (op.u0 + op.u1) / 2, op.k));
     // Çakışan açıklıkları ayıkla (ölçüm hatası)
     openings[i].sort((p, q) => p.y0 - q.y0 || p.u0 - q.u0);
@@ -1076,8 +1106,11 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       const u0 = Math.max(0, it.u0);
       const u1 = Math.min(E[i].len, it.u1);
       const Y0 = it.storeys ? floorY(Math.max(0, it.storeys[0])) : base + (it.y0 ?? 0);
+      // Son kata kadar süren girinti, ölçülmüş duvar üstü (wallTop) verilmişse saçak altına kadar
       const Y1 = it.storeys
-        ? floorY(Math.min(S, it.storeys[1] + 1)) - SLAB
+        ? it.storeys[1] + 1 >= S && blk.wallTop != null && blk.wallTop > 0.5
+          ? wallTop
+          : floorY(Math.min(S, it.storeys[1] + 1)) - SLAB
         : base + (it.y1 ?? floorY(S) - base);
       if (u1 - u0 < 0.1 || Y1 - Y0 < 0.1 || it.depth < 0.02) continue;
       const r: Rec = { i, u0, u1, Y0, Y1, depth: it.depth, it, ops: [] };
@@ -1239,9 +1272,14 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       last.k1 = k;
     } else bands.push({ y0, y1, sig: sg, k0: k, k1: k });
   };
-  pushBand(y0w, floorY(0), '', -1);
-  for (let k = 0; k < S; k++) pushBand(floorY(k), floorY(k + 1), sig(k), k);
-  pushBand(floorY(S), wallTop, '', S);
+  // Duvar üstü son kat döşemesinin altındaysa (ölçülmüş wallTop) kat bantları orada kesilir
+  pushBand(y0w, Math.min(floorY(0), wallTop), '', -1);
+  for (let k = 0; k < S; k++) {
+    const ya = floorY(k);
+    const yb = Math.min(floorY(k + 1), wallTop);
+    if (yb - ya > 1e-3) pushBand(ya, yb, sig(k), k);
+  }
+  if (wallTop - floorY(S) > 1e-3) pushBand(floorY(S), wallTop, '', S);
   for (const bd of bands) {
     if (!bd.sig) {
       for (let i = 0; i < N; i++) {
@@ -1315,8 +1353,31 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             parallel &&
             vs.some((v) => Math.abs(Math.abs(E[v.edge].t[0] * tr[0] + E[v.edge].t[1] * tr[1]) - 1) < 0.02);
           const ops: Opening[] = [];
+          // Ölçülmüş loca arka duvarı açıklıkları (sürme kapılar, pencereler): kenar u'su → bu duvar parçasının u'su
+          const measuredK = new Set<number>();
+          if (back)
+            for (const v of vs) {
+              const e = E[v.edge];
+              // Arka duvar bu loca kenarına paralel ve loca derinliğinde mi
+              if (Math.abs(Math.abs(e.t[0] * tr[0] + e.t[1] * tr[1]) - 1) > 0.02) continue;
+              for (const op of voidOps.get(v.id) ?? []) {
+                if (op.k < bd.k0 || op.k > bd.k1) continue;
+                const A = P(v.edge, op.u0, -v.inset);
+                const B = P(v.edge, op.u1, -v.inset);
+                const dn = (x: V2) => Math.abs((x[0] - pp[0]) * Er.n[0] + (x[1] - pp[1]) * Er.n[1]);
+                if (dn(A) > 0.06 || dn(B) > 0.06) continue;
+                const ua = (A[0] - pp[0]) * tr[0] + (A[1] - pp[1]) * tr[1];
+                const ub = (B[0] - pp[0]) * tr[0] + (B[1] - pp[1]) * tr[1];
+                const u0 = Math.max(0.05, Math.min(ua, ub));
+                const u1 = Math.min(Lr - 0.05, Math.max(ua, ub));
+                if (u1 - u0 < MIN_OPEN) continue;
+                ops.push({ ...op, u0, u1 });
+                measuredK.add(op.k);
+              }
+            }
           if (back)
             for (let k = Math.max(0, bd.k0); k <= Math.min(S - 1, bd.k1); k++) {
+              if (measuredK.has(k)) continue;
               const h = hash(o.seed + p[0] * 3.1 + p[1] * 1.7 + k);
               const dc = Lr >= 2.4 ? Lr * (h < 0.5 ? 0.3 : 0.7) : Lr / 2;
               const door: CWin = {
@@ -1453,6 +1514,12 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             const dn = (m[0] - e.a[0]) * e.n[0] + (m[1] - e.a[1]) * e.n[1];
             return Math.abs(dn) < 0.1 && u > vv.u0 - 0.1 && u < vv.u1 + 0.1;
           }) ?? vs[0];
+        // Kavisli gömük loca: ön kenar (parapet, cam, stor) taban izi hattında değil, yay üzerinde (taşan balkon
+        // döngüsü çizer); burada taban izi hattı iç kenar olarak açık kalır
+        if (curvedLoggia(v.it)) {
+          run += L;
+          continue;
+        }
         const rs = railSpecOf(v.it, k);
         parapet(b, p, q, y, run, rs);
         const kk = String(k);
@@ -1812,7 +1879,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   const caps = new Map<number, { poly: V2[]; it: CBal; i: number }[]>();
   for (let i = 0; i < N; i++)
     for (const it of items(i)) {
-      if (it.t !== 'bal' || isRecessed(it)) continue;
+      if (it.t !== 'bal') continue;
+      // Taşan balkon; kavisli gömük locanın taban izi dışındaki yay kısmı da (döşeme, korkuluk, cam yay boyunca).
+      // Düz gömük locada yalnız saksılar (korkuluk taban izi hattında)
+      const proj = !isRecessed(it) || curvedLoggia(it);
       const rect = (grow: number): V2[] =>
         it.bulge || it.round
           ? [P(i, it.u0 - grow, 0), P(i, it.u1 + grow, 0), ...balFront(it, grow).map(([u, f]) => P(i, u, f))]
@@ -1822,7 +1892,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
               P(i, it.u1 + grow, it.d + grow),
               P(i, it.u0 - grow, it.d + grow),
             ];
-      for (const k of it.storeys) {
+      for (const k of proj ? it.storeys : []) {
         if (k < 0 || k >= S) continue;
         if (!balByStorey.has(k)) balByStorey.set(k, []);
         const tint = it.tint[String(k)];
@@ -1874,7 +1944,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           }
         }
       }
-      if (it.cap && it.storeys.length) {
+      if (proj && it.cap && it.storeys.length) {
         const top = Math.max(...it.storeys) + 1;
         if (!caps.has(top)) caps.set(top, []);
         caps.get(top)!.push({ poly: rect(0.2), it, i });
@@ -2003,7 +2073,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           const c = l.poly.reduce((a, p) => [a[0] + p[0] / l.poly.length, a[1] + p[1] / l.poly.length], [0, 0]);
           return inside(outer, c[0], c[1]);
         });
-        if (mine.some((l) => l.it.spots)) for (const l of mine) balSpots(l.it, l.edge, y - SLAB - 0.006);
+        // Kavisli locanın yay şeridi: tavan spotu loca döngüsünde (loca tavanında)
+        if (mine.length && mine.every((l) => curvedLoggia(l.it))) {
+          /* spot yok */
+        } else if (mine.some((l) => l.it.spots)) for (const l of mine) balSpots(l.it, l.edge, y - SLAB - 0.006);
         else {
           const c = centroid(outer);
           const g = new THREE.CircleGeometry(0.08, 12)
@@ -2383,7 +2456,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const Pu: PFn = rdU > 0 ? (ii, u, off = 0) => P(ii, u, off - rdU) : P;
         unit(b, E[i], Pu, i, it, floorY(it.s), o.seed);
       } else if (it.t === 'entrance') {
-        entrance(b, P, E[i], i, it, base, floorY(0), o.signKey);
+        // Girintinin içindeki giriş kapısı (kapı dokusu, basamaklar, saçak) girinti arka duvarında
+        const rdE = recDepthAt(i, (it.u0 + it.u1) / 2, floorY(0) + 1.2);
+        const Pe: PFn = rdE > 0 ? (ii, u, off = 0) => P(ii, u, off - rdE) : P;
+        entrance(b, Pe, E[i], i, it, base, floorY(0), o.signKey);
       } else if (it.t === 'proj') {
         // Dışarı taşan kütle (merdiven kulesi, çıkma, kolon)
         const named: Record<string, string> = {
@@ -2595,14 +2671,16 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           }
         }
       } else if (it.t === 'awning') {
-        // Tente: duvardan eğik, önde sarkan valans
+        // Tente: duvardan eğik, önde sarkan valans. Girintinin içine düşen tente girinti arka duvarına asılı
         const key = ck('awning', it.color, K('mkFascia'));
         const yT = base + it.y;
+        const rdA = recDepthAt(i, (it.u0 + it.u1) / 2, yT - 0.05);
+        const Pa: PFn = rdA > 0 ? (ii, u, off = 0) => P(ii, u, off - rdA) : P;
         const yB = yT - Math.max(0.1, it.drop);
-        const a0 = P(i, it.u0, 0.02);
-        const a1 = P(i, it.u1, 0.02);
-        const f0 = P(i, it.u0, it.d);
-        const f1 = P(i, it.u1, it.d);
+        const a0 = Pa(i, it.u0, 0.02);
+        const a1 = Pa(i, it.u1, 0.02);
+        const f0 = Pa(i, it.u0, it.d);
+        const f1 = Pa(i, it.u1, it.d);
         const dutch = it.style === 'dutch';
         if (dutch) {
           // Hollanda tipi: kesit çeyrek elips (duvarda yatay başlar, önde dikey biter); uçlarda yelpaze kapak.
@@ -2617,17 +2695,17 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             const A = prof(k);
             const B = prof(k + 1);
             const kk = k % 2 && it.stripe ? sk : key;
-            const p0 = P(i, it.u0, A.off);
-            const p1 = P(i, it.u1, A.off);
-            const q0 = P(i, it.u0, B.off);
-            const q1 = P(i, it.u1, B.off);
+            const p0 = Pa(i, it.u0, A.off);
+            const p1 = Pa(i, it.u1, A.off);
+            const q0 = Pa(i, it.u0, B.off);
+            const q1 = Pa(i, it.u1, B.off);
             b.quad(kk, [p0[0], A.y, p0[1]], [p1[0], A.y, p1[1]], [q1[0], B.y, q1[1]], [q0[0], B.y, q0[1]]);
             b.quad(kk, [q0[0], B.y, q0[1]], [q1[0], B.y, q1[1]], [p1[0], A.y, p1[1]], [p0[0], A.y, p0[1]]);
             // Yelpaze uç kapakları (merkez: duvar dibi, yB)
             for (const uu of [it.u0, it.u1]) {
-              const c = P(i, uu, 0.02);
-              const pa = P(i, uu, A.off);
-              const pb = P(i, uu, B.off);
+              const c = Pa(i, uu, 0.02);
+              const pa = Pa(i, uu, A.off);
+              const pb = Pa(i, uu, B.off);
               b.quad(kk, [c[0], yB, c[1]], [pa[0], A.y, pa[1]], [pb[0], B.y, pb[1]], [pb[0], B.y, pb[1]]);
               b.quad(kk, [c[0], yB, c[1]], [pb[0], B.y, pb[1]], [pa[0], A.y, pa[1]], [pa[0], A.y, pa[1]]);
             }
@@ -2654,8 +2732,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             w: it.u1 - it.u0,
             h: dutch ? Math.min(0.32, 0.45 * (yT - yB)) : vh,
           });
-          const g0 = P(i, it.u0, it.d + 0.006);
-          const g1 = P(i, it.u1, it.d + 0.006);
+          const g0 = Pa(i, it.u0, it.d + 0.006);
+          const g1 = Pa(i, it.u1, it.d + 0.006);
           // Hollanda tentesinde yazı kabuğun dikey ön alt kısmında
           if (dutch) b.wall(fk, g0, g1, yB, yB + Math.min(0.32, 0.45 * (yT - yB)), [0, 0, 1, 1]);
           else b.wall(fk, g0, g1, yB - vh, yB, [0, 0, 1, 1]);
@@ -3290,7 +3368,10 @@ export function frontOff(it: CBal, u: number, grow = 0): number {
   const uA = it.u0 - grow;
   const uB = it.u1 + grow;
   const W = Math.max(1e-3, uB - uA);
-  const s = (2 * (u - uA)) / W - 1;
+  // Ortak yay (arc): parabol ölçülen açıklıkta; yoksa öğenin kendi aralığında
+  const cA = it.arc ? Math.min(it.arc[0], it.arc[1]) - grow : uA;
+  const cB = it.arc ? Math.max(it.arc[0], it.arc[1]) + grow : uB;
+  const s = (2 * (u - cA)) / Math.max(1e-3, cB - cA) - 1;
   let f = it.d + grow + (it.bulge ?? 0) * Math.max(0, 1 - s * s);
   const [r0, r1] = roundOf(it);
   const fil = (du: number, r: number) => (du < r ? r - Math.sqrt(Math.max(0, r * r - (r - du) ** 2)) : 0);

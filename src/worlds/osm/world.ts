@@ -469,7 +469,8 @@ export class OsmWorld implements IWorld {
     // Pişirilmiş dolaylı ışık (docs/BAKE.md): ?bakeexport=1 → dışa aktarma kancası; Ultra/?bake=1 → pişirilmiş parçalar
     if (handmade) {
       const mkGroup = world.object.getObjectByName('mertkent (el modeli)');
-      if (new URLSearchParams(location.search).has('bakeexport'))
+      const q = new URLSearchParams(location.search);
+      if (q.has('debug') && q.has('bakeexport'))
         (await import('../mertkent/bakeexport')).installBakeExport(world as never);
       else if (mkGroup && bakeRequested()) {
         progress(0.97, 'Pişirilmiş ışık yükleniyor');

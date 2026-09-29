@@ -48,6 +48,14 @@ export interface BlockSurvey {
       rest?: boolean;
       storeys?: number;
       roof?: Partial<RoofSpec>;
+      /**
+       * Parçanın duvar üstü (saçak alnı alt kenarı / parapet başlangıcı) kotu, blok tabanından GERÇEK m — ör.
+       * 1550614218 kanadı saçak alnı 18.85–19.35 → wallTop 18.85 + roof.fasciaH 0.5. Son kata kadar süren `recess`
+       * (s ile) bu kota kadar çıkar. floorH / floorHs: parçanın kendi kat yükseklikleri (verilmezse bloğunki).
+       */
+      wallTop?: number;
+      floorH?: number;
+      floorHs?: number[];
     }[];
     gap?: { x: [number, number] };
   };
@@ -64,6 +72,11 @@ export interface BlockSurvey {
    * "y 0–2.9 görünen") gerçek yüksekliği yaz; zemin kat açıklıkları ve bodrum pencereleri subasmanı keser.
    */
   plinthH?: number;
+  /**
+   * Duvar üstü kotu (saçak alnı alt kenarı / parapet başlangıcı), blok tabanından GERÇEK m. Verilmezse son kat
+   * döşemesi + 0.12 (kat sayısı × kat yüksekliğinden). Ölçülen saçak kotu bundan farklıysa yaz.
+   */
+  wallTop?: number;
   /**
    * Ek hacimler, DÜNYA koordinatında (hava fotoğrafı + Street View): tek katlı ek, kış bahçesi, çatı odası, merdiven
    * kulesi başlığı… y0/y1 blok tabanına göre gerçek m (çatı odası için y0 = çatı üst kotu). Duvar rengi, üst bant,
@@ -353,6 +366,13 @@ export interface Win {
    * inebilir) → yarım kat kaymalı dizi `k` + `s` ile yazılır.
    */
   stair?: boolean;
+  /**
+   * v6: pencere cephe düzleminin bu kadar GERİSİNDE (gerçek m) — gömük loca arka duvarı (bal inset). Derleyici
+   * ortofotonun ön düzleme göre ölçeğini arka düzleme çevirir (üst katlarda 0.3–0.7 m fark eder). Pencerenin ortası
+   * locaya düşüyorsa üretici onu zaten arka duvarda çizer; `behind` yalnız ölçü düzeltmesidir. Loca yalnız bazı
+   * katlardaysa arka duvar pencerelerini ayrı `win` öğesi (kendi s aralığı) olarak yaz.
+   */
+  behind?: number;
 }
 
 /**
@@ -413,7 +433,9 @@ export interface Pediment {
  * Duvar girintisi: görünen u0..u1 × y0..y1 (ya da `s: [k0, k1]`: K k0 döşemesinden k1+1 döşemesinin altına) boyunca
  * duvar `depth` (gerçek m) içeri çekilir — çok katlı yüksek loca, girintili dükkân hattı, merdiven kovası
  * girintisi, kapı yuvası. Ağız duvarda boş kalır; ORTASI girintiye düşen pencere/kapı (`win`), tabela ve menfezler
- * arka duvarda çizilir (aynı u/y ile yazılır). Renkler: back (arka duvar), side (yan duvarlar; yoksa back), ceil
+ * arka duvarda çizilir (aynı u/y ile yazılır). v6: klima / çanak / kamera / bayrak (ac…), aplik (`lamp`), boru
+ * parçaları, tente (`awning`, arka duvara asılı; d arka duvardan) ve giriş (`entrance`) de arka duvara taşınır.
+ * Son kata kadar süren girinti (s) ölçülmüş `wallTop` varsa saçak altına kadar çıkar. Renkler: back (arka duvar), side (yan duvarlar; yoksa back), ceil
  * (tavan; yoksa soffit), floor (taban; yoksa döşeme) — palet adı veya "#rrggbb". Ara kat döşemeleri gerekiyorsa
  * her kat için ayrı `bal` (d, inset) kullan; girinti ara döşemesizdir.
  */
@@ -633,7 +655,9 @@ export interface Bal {
   sides?: 'open' | 'wall' | 'start-wall' | 'end-wall';
   /**
    * İçe gömük (loca) balkon: d = 0 ve arka duvarın taban izinden içeri çekilme derinliği (m). Köşe locası iki
-   * kenarda yazılırsa derinlikler birbirinin genişliğinden otomatik çıkarılır.
+   * kenarda yazılırsa derinlikler birbirinin genişliğinden otomatik çıkarılır. v6: ORTASI locaya düşen ölçülmüş
+   * `win` öğeleri (aynı kenarın u/y'siyle yazılır) loca ARKA duvarında çizilir — o katta üreticinin otomatik kapı +
+   * penceresi yerine (sürme kapılar, kat kat perdeler; 1550614218 batı locaları). Saksılar (pots) locada da çizilir.
    */
   inset?: number;
   /**
@@ -656,8 +680,17 @@ export interface Bal {
   /**
    * Kavisli ön yüz: ön kenarın ORTADA dışarı taşması (gerçek m, sehim; uçlarda 0). d = 0 + bulge → iki köşe
    * arasında duvardan duvara yay (kavisli loca/balkon önü). Döşeme, parapet, cam balkon yay boyunca çizilir.
+   * v6: d < 0.35 + `inset` + bulge → KAVİSLİ GÖMÜK LOCA: loca derinliği (inset) korunur, döşeme alnı / korkuluk /
+   * cam taban izi hattından yay boyunca dışarı taşar (1540901770/71 güney cumba locaları).
    */
   bulge?: number;
+  /**
+   * v6: ortak yay açıklığı [u0, u1] (görünen, balkon ön yüzünde): bulge parabolü öğenin kendi u0..u1'i yerine bu
+   * aralıkta hesaplanır → füme uç bölmeleri / kat grupları yüzünden ayrı `bal` öğelerine bölünmüş bir yığın TEK
+   * sürekli yay olur (yayın uçlarında sehim 0, ortasında bulge). Aynı yaya ait her öğeye aynı arc + bulge yaz
+   * (1541439435 kenar 1, 1541439437 batı yığınları).
+   */
+  arc?: [number, number];
   /** Serbest ön köşelerin yuvarlatma yarıçapı (m): tek sayı ya da [u0 ucu, u1 ucu] */
   round?: number | [number, number];
   /** Kat → cam balkon alt/üst profil rengi "#rrggbb" ("*" varsayılan; bronz, antrasit, beyaz…) */

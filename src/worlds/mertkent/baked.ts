@@ -66,6 +66,13 @@ export const bakedLighting = { active: false, chunks: 0 };
 
 const GROUP_NAME = 'mertkent (el modeli)';
 
+/** `?bakeao=0..1`: pişirilmiş AO şiddeti (göz ayarı / karşılaştırma için; varsayılan 1 = fiziksel oran) */
+const AO_INTENSITY = (() => {
+  if (typeof location === 'undefined') return 1;
+  const v = Number(new URLSearchParams(location.search).get('bakeao'));
+  return Number.isFinite(v) && v >= 0 && v <= 1 && new URLSearchParams(location.search).has('bakeao') ? v : 1;
+})();
+
 export function bakeRequested(): boolean {
   if (typeof location === 'undefined') return false;
   const p = new URLSearchParams(location.search);
@@ -218,7 +225,7 @@ function aoClone(m: THREE.MeshStandardMaterial, tex: THREE.Texture): THREE.MeshS
   c.customProgramCacheKey = () => `${key()}|bakedAO`;
   c.userData = m.userData;
   c.aoMap = tex;
-  c.aoMapIntensity = 1;
+  c.aoMapIntensity = AO_INTENSITY;
   c.name = `${m.name || ''}+ao`;
   // Ultra yerel yansıma yaması onBeforeCompile ile birlikte kopyalandı → ikinci kez yamalanmasın
   if (reflectiveMaterials.has(m)) reflectiveMaterials.add(c);
@@ -248,7 +255,7 @@ function patchGround(ground: THREE.MeshStandardMaterial, tex: THREE.Texture, rec
     vec2 gw = vec2(vMapUv.x, 1.0 - vMapUv.y) * (2.0 * groundHalf) - groundHalf;
     vec2 gq = (gw - groundAoRect.xy) / (groundAoRect.zw - groundAoRect.xy);
     if (gq.x > 0.0 && gq.x < 1.0 && gq.y > 0.0 && gq.y < 1.0) {
-      float gao = texture2D(groundAoMap, gq).r;
+      float gao = mix(1.0, texture2D(groundAoMap, gq).r, ${AO_INTENSITY.toFixed(3)});
       reflectedLight.indirectDiffuse *= gao;
       reflectedLight.indirectSpecular *= gao;
     }
@@ -262,7 +269,7 @@ function patchGround(ground: THREE.MeshStandardMaterial, tex: THREE.Texture, rec
     if (second > 0)
       sh.fragmentShader = sh.fragmentShader.slice(0, second) + sh.fragmentShader.slice(second + decl.length);
   };
-  ground.customProgramCacheKey = () => `${prevKey()}|groundAO`;
+  ground.customProgramCacheKey = () => `${prevKey()}|groundAO${AO_INTENSITY}`;
   ground.needsUpdate = true;
 }
 

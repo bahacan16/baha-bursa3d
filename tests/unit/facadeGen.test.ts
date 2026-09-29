@@ -767,6 +767,106 @@ describe('cephe üreticisi v6', () => {
   });
 });
 
+describe('cephe üreticisi v6 — ek istekler', () => {
+  it('ortak yay (arc): bölünmüş balkon öğeleri tek sürekli yay', () => {
+    const a = bal1({ u0: 1, u1: 4, d: 0.5, bulge: 0.6, arc: [1, 7], storeys: [1] });
+    const c = bal1({ u0: 4, u1: 7, d: 0.5, bulge: 0.6, arc: [1, 7], storeys: [1] });
+    expect(frontOff(a, 4)).toBeCloseTo(1.1, 5);
+    expect(frontOff(c, 4)).toBeCloseTo(1.1, 5);
+    expect(frontOff(a, 1)).toBeCloseTo(0.5, 5);
+    expect(frontOff(c, 7)).toBeCloseTo(0.5, 5);
+    // arc yoksa her öğe kendi tümseği (u = 4 ucunda sehim 0)
+    expect(frontOff({ ...a, arc: null }, 4)).toBeCloseTo(0.5, 5);
+    const { bk } = runB(block([a, c]));
+    expect(bbox(bk.get('mkSlabTop')).x0).toBeCloseTo(-1.1, 1);
+  });
+
+  it('kavisli gömük loca: derinlik korunur, korkuluk yay üzerinde, taban izi hattında korkuluk yok', () => {
+    const lo = bal1({ d: 0, inset: 1.2, bulge: 0.3, storeys: [1, 2], rail: { '*': 'glass' } });
+    const { bk } = runB(block([lo]));
+    const rg = bbox(bk.get('mkRailGlass'));
+    expect(rg.x0).toBeLessThan(-0.2);
+    // Taban izi hattında (x ≈ 0) açıklık ortasında korkuluk camı yok
+    for (const [x, , z] of tris(bk.get('mkRailGlass'))) expect(Math.abs(x) < 0.08 && z > 3 && z < 5).toBe(false);
+    // Döşeme: loca (x 0..1.2) + yay şeridi (x −0.3..0)
+    const st = bbox(bk.get('mkSlabTop'));
+    expect(st.x0).toBeLessThan(-0.25);
+    expect(st.x1).toBeGreaterThan(1.1);
+    // inset'siz d = 0 + bulge v5 kuralı (duvardan duvara taşan yay, loca yok)
+    const { bk: bk2 } = runB(block([bal1({ d: 0, bulge: 0.3, storeys: [1, 2] })]));
+    expect(bbox(bk2.get('mkSlabTop')).x1).toBeLessThan(0.05);
+  });
+
+  it('gömük loca arka duvarında ölçülmüş pencere: otomatik kapı yerine', () => {
+    const lo = bal1({ d: 0, inset: 1.3, storeys: [1] });
+    const { bk } = runB(
+      block([lo, win1({ u0: 2, u1: 3.5, sill: 0.02, head: 2.4, kind: 'door', storeys: [1], curt: { '1': 'tul' } })]),
+    );
+    const gl = bbox(bk.get('mkGlass'));
+    expect(gl.x0).toBeGreaterThan(1.25);
+    expect(gl.z0).toBeCloseTo(2, 1);
+    expect(gl.z1).toBeCloseTo(3.5, 1);
+    // Ölçüm yoksa otomatik kapı + pencere (başka konumlarda)
+    const { bk: bk2 } = runB(block([lo]));
+    const g2 = bbox(bk2.get('mkGlass'));
+    expect(g2.x0).toBeGreaterThan(1.25);
+    expect(g2.z1 - g2.z0).toBeGreaterThan(2);
+  });
+
+  it('girintideki tente ve giriş arka duvarda', () => {
+    const rec: CItem = {
+      t: 'recess',
+      u0: 2,
+      u1: 6,
+      y0: 0,
+      y1: 4,
+      storeys: null,
+      depth: 1.8,
+      back: null,
+      side: null,
+      ceil: null,
+      floor: null,
+    };
+    const { bk } = runB(
+      block([
+        rec,
+        {
+          t: 'awning',
+          u0: 3,
+          u1: 5,
+          y: 3.2,
+          d: 1.0,
+          drop: 0.35,
+          color: '#b3262c',
+          stripe: null,
+          text: null,
+          textColor: '#ffffff',
+        },
+        { t: 'entrance', u0: 3.5, u1: 4.5, kind: 'lobby', canopy: false, sign: null, steps: 0 },
+      ]),
+    );
+    const aw = bbox(bk.get('cc_awning_#b3262c'));
+    expect(aw.x0).toBeCloseTo(1.8 - 1.0, 1);
+    expect(aw.x1).toBeCloseTo(1.8 - 0.02, 1);
+    expect(bbox(bk.get('mkEntryDoor')).x0).toBeCloseTo(1.78, 1);
+  });
+
+  it('ölçülmüş duvar üstü (wallTop): saçak alnı o kotta; kütle parçasına geçer; subasman yok (plinthH 0)', () => {
+    const { bk } = runB({ ...block([]), wallTop: 14 });
+    // Saçak alnı (varsayılan plaster2 rengi) duvar üstünden fasciaH kadar
+    expect(bbox(bk.get('mkPlaster2')).y1).toBeCloseTo(14 + 0.3, 1);
+    expect(bbox(bk.get('mkPlaster')).y1).toBeCloseTo(14, 2);
+    const parts = splitMassing({
+      ...block([]),
+      massing: { towers: [{ x: [-1, 5], wallTop: 14, storeys: 4 }, { x: [5, 11], storeys: 3 }] },
+    });
+    expect(parts[0].wallTop).toBe(14);
+    expect(parts[1].wallTop ?? null).toBe(null);
+    expect(runB({ ...block([]), plinthH: 0 }).bk.has('mkPlinth')).toBe(false);
+    expect(runB(block([])).bk.has('mkPlinth')).toBe(true);
+  });
+});
+
 describe('sokak / kapı üreticisi v6', () => {
   const ck = (k: string, h: string) => `cc_${k}_${h}`;
   it('yol yüzeyi: yama / çatlak / çukur / aşınma / dikme, geçit boyası aşınması', () => {

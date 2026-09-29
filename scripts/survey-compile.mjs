@@ -150,13 +150,18 @@ async function main() {
       const items = [];
       for (const it of s.items ?? []) {
         switch (it.t) {
-          case 'win':
+          case 'win': {
+            // Loca arka duvarındaki pencere (behind: cephe düzleminin kaç m gerisinde): ortofoto ön düzleme göre
+            // düzeltilmiş → arka düzlemin perspektif ölçeğine çevrilir (kamera ufku etrafında D/(D+behind))
+            const dB = it.behind ? -Math.abs(it.behind) : 0;
+            const Uw = (u) => (dB ? c.Ud(u, dB) : c.U(u));
+            const relW = (y, k) => (dB ? absYd(y, dB) - gR - k * FH : c.rel(y, k));
             items.push({
               t: 'win',
-              u0: r2(c.U(Math.min(it.u0, it.u1))),
-              u1: r2(c.U(Math.max(it.u0, it.u1))),
-              sill: r2(c.rel(it.y0, it.k)),
-              head: r2(c.rel(it.y1, it.k)),
+              u0: r2(Uw(Math.min(it.u0, it.u1))),
+              u1: r2(Uw(Math.max(it.u0, it.u1))),
+              sill: r2(relW(it.y0, it.k)),
+              head: r2(relW(it.y1, it.k)),
               storeys: storeysArr(it.s, it.except),
               kind: it.kind ?? 'std',
               rail: !!it.rail,
@@ -186,10 +191,11 @@ async function main() {
               ...(it.curtC ? { curtC: keyK(it.curtC) } : {}),
               ...(it.curtF ? { curtF: keyK(it.curtF) } : {}),
               // Yatay kayıtlar: referans kattaki görünen y → kat döşemesinden gerçek yükseklik
-              ...(it.hbars?.length ? { hbars: it.hbars.map((y) => r2(c.rel(y, it.k))) } : {}),
+              ...(it.hbars?.length ? { hbars: it.hbars.map((y) => r2(relW(y, it.k))) } : {}),
               ...(it.stair ? { stair: true } : {}),
             });
             break;
+          }
           case 'pilaster': {
             const pu0 = it.u != null ? it.u - (it.w ?? 0.4) / 2 : Math.min(it.u0, it.u1);
             const pu1 = it.u != null ? it.u + (it.w ?? 0.4) / 2 : Math.max(it.u0, it.u1);
@@ -418,6 +424,15 @@ async function main() {
               ...(it.net ? { net: it.net } : {}),
               ...(it.glassC ? { glassC: keyK(it.glassC) } : {}),
               ...(it.bulge ? { bulge: it.bulge } : {}),
+              // Ortak yay açıklığı (görünen u, balkon ön yüzünde) → gerçek u
+              ...(it.arc?.length === 2
+                ? {
+                    arc: [
+                      r2(c.Ud(Math.min(it.arc[0], it.arc[1]), it.d ?? 1.4)),
+                      r2(c.Ud(Math.max(it.arc[0], it.arc[1]), it.d ?? 1.4)),
+                    ],
+                  }
+                : {}),
               ...(it.round ? { round: it.round } : {}),
               ...(it.frameC ? { frameC: keyK(it.frameC) } : {}),
               ...(it.frostC ? { frostC: it.frostC } : {}),
@@ -690,6 +705,7 @@ async function main() {
       ...(sv.floorHs?.length ? { floorHs: sv.floorHs } : {}),
       ...(sv.pergolas?.length ? { pergolas: sv.pergolas } : {}),
       ...(sv.plinthH != null ? { plinthH: sv.plinthH } : {}),
+      ...(sv.wallTop != null ? { wallTop: sv.wallTop } : {}),
       notes: sv.notes ?? [],
     };
     console.log(
