@@ -7,10 +7,19 @@
   "roof": {
     "kind": "flat",
     "eave": 1.2,
-    "fasciaH": 0.95,
+    "fasciaH": 1.3,
     "eaveY": {
       "edge": 0,
-      "y": 26.55
+      "y": 25.2
+    },
+    "fasciaC": "#e2dbcf",
+    "parapet": {
+      "h": 1.3,
+      "edges": [
+        0,
+        2
+      ],
+      "color": "#e2dbcf"
     }
   },
   "colors": {
@@ -5309,7 +5318,12 @@
           "fasciaC": {
             "*": "#f4f5f2"
           },
-          "railC": "#4b5563"
+          "railC": "#4b5563",
+          "spots": {
+            "n": 2,
+            "inset": 0.5,
+            "d": 0.2
+          }
         },
         {
           "t": "bal",
@@ -5334,7 +5348,12 @@
           "fasciaC": {
             "*": "#f4f5f2"
           },
-          "railC": "#4b5563"
+          "railC": "#4b5563",
+          "spots": {
+            "n": 2,
+            "inset": 0.5,
+            "d": 0.2
+          }
         },
         {
           "t": "bal",
@@ -5382,7 +5401,12 @@
           "fasciaC": {
             "*": "#f4f5f2"
           },
-          "railC": "#4b5563"
+          "railC": "#4b5563",
+          "spots": {
+            "n": 2,
+            "inset": 0.5,
+            "d": 0.2
+          }
         },
         {
           "t": "bal",
@@ -6205,8 +6229,8 @@
   ],
   "notes": [
     "Salusvizyon Sitesi apartmanı (OSM 1479658783, Cavit Orhan Tütengil Cd.): Mertkent bloklarından tamamen farklı dil — turuncu şerit YOK. Ana sıva sıcak taupe/bej (plaster), üstüne yığılmış parlak beyaz sıvalı kutular/çerçeveler (plaster2), balkon döşeme alınları kalın beyaz bant + koyu lacivert-füme cam korkuluk (fascia/railGlass), pencere doğramaları kahverengi (ahşap görünümlü PVC).",
-    "Kat sayısı: K0 (yüksek zemin kat, döşeme sokaktan ~1.4 m; GB/KB köşede çilingir dükkanları, güney ortada lobi camı) + K1–K7 = 8 normal kat; üstte K8 çatı katı tonoz (yay) çatının içinde. Kat yüksekliği 3.0 m (güney 2.99, doğu 3.01, batı 3.02 ölçüldü). K8 döşemesinde (~25.0–26.6) tüm cepheyi saran kalın krem korniş bandı; üstündeki K8 cephesi beyaz, 1 m'lik küçük pencereli (k=8 öğeleri bilgi amaçlı; S=8 olduğundan üretici çizmez).",
-    "Çatı: GERÇEKTE kuzey-güney eksenli basık TONOZ (yay) — güney ve kuzey cephede kemerli alınlık (u −1…37.5 arasında 26.8'den ~30.2'ye yükselen yay, kahve-bakır rengi yuvarlak saçak alnı), doğu/batıda ~1.2 m+ saçak; kahverengi-kırmızı kiremit/kenet kaplama. Şemada 'gable' (alınlık kenar 0 ve 2, eğim 10.5°) ile yaklaşıldı; alınlık içinde 2 çatı terası locası (güney u≈9.5–12.5, 13.5–17.5).",
+    "Kat sayısı: K0 (yüksek zemin kat, döşeme sokaktan ~1.4 m; GB/KB köşede çilingir dükkanları, güney ortada lobi camı) + K1–K7 = 8 normal kat; üstte K8 çatı katı tonoz (yay) çatının içinde. Kat yüksekliği 3.0 m (güney 2.99, doğu 3.01, batı 3.02 ölçüldü). K8 döşemesinde (ölçülen 25.17–26.47) tüm cepheyi saran kalın krem korniş bandı; üstündeki K8 cephesi beyaz, 1 m'lik küçük pencereli (k=8 öğeleri v6'da tonoz ön yüzünde — arch — açılır).",
+    "Çatı: GERÇEKTE kuzey-güney eksenli basık TONOZ (yay) — güney ve kuzey cephede kemerli alınlık (u −1…37.5 arasında 26.8'den ~30.2'ye yükselen yay, kahve-bakır rengi yuvarlak saçak alnı), doğu/batıda ~1.2 m+ saçak; kahverengi-kırmızı kiremit/kenet kaplama. v6'da arch + vault ile çizildi (eskiden gable 10.5°); alınlık içinde 2 çatı terası locası (güney u≈9.5–12.5, 13.5–17.5).",
     "Köşe kuleleri (nokta simetrik): GB ve KD köşede dikey 'kule' — iki yanda yatay derzli (≈0.5 m aralık) taupe paye, ortada beyaz çerçeveli sütun: her katta koyu cam korkuluklu fransız pencere, altında beyaz raf, üstünde beyaz başlık (K2–K6). GD ve KB köşede cumba: beyaz çerçeveli 4 kanatlı pencereler, K3 ve K7'de beyaz çıkma kutu (K3 kutusunun damı K4 terası), K1 önünde beyaz tente.",
     "Taupe payeler/kuleler yatay taş derzli (her ~0.5 m bir koyu derz çizgisi) — sıva dokusunda yatay çizgi olarak verilirse gerçeğe yaklaşır.",
     "Lacivert cam giydirme merdiven/asansör kulesi güney cephede u≈25.95–28.1 (K0'dan çatıya), içinde her katta beyaz çerçeveli küçük pencere ve 2 beyaz tente; ana duvardan ~0.4 m daha içeride. Kuzeyde simetriği var.",
@@ -6216,45 +6240,51 @@
     "Taban izi uyumsuzluğu: güney cephe kule önleri taban izinin ~0.4 m, orta duvar ~2 m içinde; doğuda balkon önleri +0.3, duvarlar −1.2; batıda ana duvar +0.8, balkon önleri/beyaz kutular +2.45 DIŞINDA (batı kenar ~1–2 m içeride). Öğeler gerçek (pano çerçevesi) u'da; cal.u gerçek köşeleri taban izi uçlarına eşler.",
     "Renkler güneşli yüzeylerden: taupe #d9ccb8 (#d6cbbb–#e4d7c5), beyaz #f1efe6 (#f5f5fa–#fafaf2), korniş #e0dbcd, bordo güneşte #cdbaac / gölgede #6b626a → #b59f96, cam korkuluk #3b4a63, kiremit hava fotoğrafından #9d807b.",
     "v5 renkler (güneşli / gölgeli): taupe sıva #e4d6c5 (orta duvar) / #8d8b71; derzli paye taşı #dad6ce, #d2cbbd / #a8a295, #707575; beyaz kutular #f1f3f5, #f9f9f7 / #c4c6b5, #aeb1af; balkon alnı #fcfefb / #c4c6b5 (→ fasciaC #f4f5f2, eski krem #ebe8dc fazla kremdi); korniş #e5e1d6, saçak altı #e1dbcc; lacivert korkuluk camı #495c70, #485970 / #384656; K1 gri füme cam #717672 (#70787c gölge); merdiven kulesi camı #617187; ahşap görünümlü PVC doğrama #8d6d5d, #81675a (→ frame #86695a); bordo kaplama #d6c0ad / #6a6263, #68523c (→ strip #cbb3a6); tonoz çatı saçak alnı kahve-bakır #715342.",
-    "v5: balkon alınları beyaz ≈0.43 m (0.16 döşeme + 0.27 dolu), üstünde lacivert-füme cam (glass) — eleştirmen notu doğrulandı. Derzli payeler pilaster (d 0.04, #d3cdc1) + yatay derz (0.603 m aralık). Tabelalar: batıda HAS KİLİT (tam metin), kuzeyde KALE KİLİT. Site kapısı kanopisindeki \"SALUSVİZYON\" harfleri bina değil, sokak planına ait."
+    "v5: balkon alınları beyaz ≈0.43 m (0.16 döşeme + 0.27 dolu), üstünde lacivert-füme cam (glass) — eleştirmen notu doğrulandı. Derzli payeler pilaster (d 0.04, #d3cdc1) + yatay derz (0.603 m aralık). Tabelalar: batıda HAS KİLİT (tam metin), kuzeyde KALE KİLİT. Site kapısı kanopisindeki \"SALUSVİZYON\" harfleri bina değil, sokak planına ait.",
+    "v6 (pending dönüşümü): (1) Çatı = düz çatı + iki kemerli tonoz ön yüzü (arch, segment, spring 0, rise 3.4, kalınlık 0.25, #eaeae3, harpuşta 0.45 m #715342 taşma 0.1, vault 10.2 m her iki yüzden → 20.39 m derinlikte ortada buluşur, tonoz kiremit rengi). Güney kemer görünen u −1.21…35.7 (alt kenar uçları −1.5 / 35.7, tepe harpuşta alt kenarı 29.85), kuzey 1.23…38.99 (görünen uçlar 1.3 / ≥38.5 — ortofoto 38.5'te bitiyor, tepe 30.2; kuzey bant düzlemin ≈0.25 m önünde → görünen kotlar +0.35, kemer tabanı gerçek 26.5). Kemer uçlarından dışarıda harpuşta düz devam eder (güney doğu ucu 35.7–37.6). (2) Korniş bandı ölçüldü: güneyde görünen 25.2–26.5 (düzlem 0, gerçek 25.17–26.47), kuzeyde gölgede 25.5–26.9 görünen (= gerçek ≈25.1–26.5); eski model 25.47–26.47 idi ve güney/kuzeyde 1.2 m saçak plağı alınlığın önüne taşıyordu → wallTop 25.17, fasciaH 1.3, fasciaC #e2dbcf (güneşli #e3dcd1 / #e1dace / #dfd9ca; kuzey gölgede #717c80), parapet yalnız kenar 0/2 (saçaksız; doğu/batıda saçak 1.2 korunur). (3) Juliet: fransız pencerelerin önünde 0.25 m beyaz raf (#f4f5f2) + döşemeden çerçevesiz cam (topRail glassFull, kule 0.65 m, cumba 0.58 m; ölçülen 0.55–0.65) + koyu küpeşte #2c3034; pencerelerde rail kapatıldı (paslanmaz boru yoktu). (4) Tavan spotları n:2 (güney orta yığın K2–K4/K6–K7, doğu K5, batı K2–K4/K6). (5) GD cumba K3: sol yarı tül, sağ yarı folyo (tint #96a8ab), vasistas kaydı 12.17. (6) Bordo kaplama yatay derzi 0.68 m (clad)."
   ],
   "trueCoords": true,
   "pending": [
     {
-      "what": "Fransız pencere önü cam korkuluk (Juliet)",
-      "where": "kenar 0 GB kule 1.12–2.95 K2–K6 ve K7 7.35–9.35; GD cumba 30.65–33.95 K2,K3,K5,K6,K7; kenar 2 KD kule 3.5–5.47 K1–K6, K7 2.75–6.2, KB cumba 33–36.4 K1,K3–K5,K7; kenar 1/3 fransız pencereler",
-      "desc": "Borulu değil: pencere genişliğinde çerçevesiz cam panel (≈0.65 m yüksek, pencere denizliğinden itibaren), üstte ince koyu küpeşte, iki uçta dikme. GB/KD kulede lacivert-füme #485970; GD cumba ve KB cumbada daha açık gri-yeşil #72818b / #7d8a90; kuzey KB K1 neredeyse siyah #2c3034. Altında ≈0.25 m çıkıntılı beyaz raf (#f4f5f2).",
-      "now": "win.rail=true (paslanmaz borular) ile yaklaşıldı"
+      "what": "Juliet cam rengi (cumbalar)",
+      "where": "kenar 0 GD cumba 30.6–33.95 K2,K3,K5,K6,K7; kenar 2 KB cumba 33–36.4 K1,K3–K5,K7",
+      "desc": "v6: 27 fransız pencere önü raf + çerçevesiz cam (proj topRail glassFull, küpeşte #2c3034) yazıldı. Cam rengi proj'da blok railGlass (#495c70) — GB/KD kulede doğru; GD ve KB cumbada gerçek cam daha açık gri-yeşil #72818b / #7d8a90, KB K1 neredeyse siyah #2c3034. Proj topRail için cam rengi alanı yok."
     },
     {
       "what": "Beyaz güvenlik kafesi",
       "where": "kenar 1 K4 loca 4.0–11.0 (EbG3 ortofoto, görünen y 14.3–16.1)",
-      "desc": "Korkuluk camının üstünden tavana beyaz kare kafes (≈0.15 m göz, ince beyaz tel/plastik). net alanı koyu file çiziyor → uygun değil."
+      "desc": "Korkuluk camının üstünden tavana beyaz kare kafes (≈0.15 m göz, ince beyaz tel/plastik). v6 bal.grille yalnız cam balkonda (arched/bars), net koyu file, blinds dolu stor → karşılığı yok."
     },
     {
-      "what": "Balkon altı gömme spot lambalar",
-      "where": "tüm konsol/loca balkon tavanları (güney orta yığınlar, doğu GD yığını, batı balkonlar)",
-      "desc": "Her balkon tavanında 2 (kısa) – 4 (uzun) yuvarlak beyaz gömme armatür, ≈0.2 m çap, ≈2.5–3 m arayla, ön kenardan ≈0.5 m içeride."
+      "what": "Balkon tavanı spot konumları",
+      "where": "kenar 0 orta yığın (öğe 14.67–25.2 K2–K4, K6–K7; K1 10.9–25.9, K5 10.9–25.2), kenar 1 K5 4–11, kenar 3 K2–K4, K6",
+      "desc": "v6 spots n:2 (Ø0.2, ön kenardan 0.5 m) yazıldı; üretici eşit aralıkla dizer. Gerçek konumlar: güney orta yığında her katta u ≈17.5 ve 20.7 (n:2 → 17.3 / 22.6), doğu K5 6.4 / 9.8 (n:2 → 5.75 / 9.25). K1 ve K5 uzun öğelerinde n:2 spotları 14.7 / 22.2'ye koyacağından varsayılan tek orta spot (18.4) bırakıldı. Batı K4 tavanındaki iki armatür dikdörtgen (≈0.25×0.12), yuvarlak çizilir. Konum listesi alanı yok."
     },
     {
-      "what": "Desenli dekor cam folyo",
-      "where": "kenar 0 GD cumba K3 penceresi (30.66–33.89) sağ iki kanat",
-      "desc": "Beyaz-gri damask/çiçek desenli buzlu folyo (tül değil); sol iki kanat tül."
+      "what": "Desenli dekor cam folyo (desen)",
+      "where": "kenar 0 GD cumba K3 penceresi sağ iki kanat (32.3–33.89)",
+      "desc": "v6: pencere ikiye bölündü; sağ yarı tint #96a8ab (örnek #92a5a9 / #9aaaad, güneşli), sol yarı tül. Beyaz-gri damask/çiçek deseni çizilemiyor (düz renkli cam)."
     },
     {
-      "what": "Bordo kompozit kaplama pano derzleri",
+      "what": "Bordo kompozit kaplama düşey derzleri + K4 loca arka duvarı",
       "where": "kenar 1 u 11.0–17.4, y 13.4–21.9 (K4–K6); kenar 2 u 23.9–27.5 (K5–K6)",
-      "desc": "≈1.0 × 1.0 m kare panolar, ince koyu derz (#6a5a55); pano rengi güneşte #d6c0ad, gölgede #6a6263. Kenar 1 K4 locasının arka duvarı da bordo (loca arka duvar rengi şemada yok)."
+      "desc": "v6: yatay derzler clad (h, 0.68 m, #6a5a55) ile 10 bordo panoda yazıldı. Düşey derzler pencerelere göre düzensiz (0.6–0.87 m aralık, pencere kenarlarına hizalı) → düzenli clad ile yazılamadı. Kenar 1 K4 locasının arka duvarı da bordo (#cbb3a6; bal loca arka duvar rengi alanı yok)."
     },
     {
-      "what": "Tonoz (basık yay) çatı",
-      "where": "güney ve kuzey alınlıkta 26.8→≈30.2 yükselen yay",
-      "desc": "Kuzey-güney eksenli basık tonoz; kahve-bakır yuvarlak saçak alnı #715342 (≈0.25 m), alınlık beyaz #eaeae3; çatı arası (K8) cephesi beyaz, kuzeyde u 15.0–24.5 arası çatı terası locası (arka duvar krem, K8 zemini y 27.0), 2 klima (u 12.2, 20.0). Şu an gable 10.5° ile yaklaşık."
+      "what": "Çatı katı (K8) teras locaları",
+      "where": "kenar 0 tonoz ön yüzü görünen u 11.45–14.6 ve 15.45–18.55 (arada 14.65–15.4 beyaz paye), y 26.5–≈29.6; kenar 2 u 12.1–14.95 ve 15.3–24.5 (arada 15.0–15.2 paye)",
+      "desc": "v6 tonoz (arch + vault 10.2 m, güney ve kuzey) + K8 çatı arası pencereleri yazıldı. Ön yüzde oyuk locaları çizilemiyor (arch ön yüzünde yalnız pencere boşluğu var; bal/recess K8 = storeys katında yok): locaların arka duvarı krem (gölgede, güney L≈175), güney B locasında arka duvarda siyah aplik (u 16.6, y 27.4), kuzey C locasında klima (u 12.2) ve D locasında klima (u 20.0) — klimalar şimdilik ön yüze asılı."
+    },
+    {
+      "what": "Doğu / batı derin saçak kutusu",
+      "where": "kenar 1 ve 3, y 25.2–26.5",
+      "desc": "Gerçekte doğu/batıda korniş bandı (1.3 m, #e2dbcf) duvardan dışarıda saçak alnı: altı düz saçak altı ≈25.2 (beyaz K7 kutusunun üstü). Doğuda bant dış yüzü GD köşesinde taban izinden ≈1.84 m dışarıda (güney ortofotoda bant 35.8→37.6 düz devam ediyor), KD köşesinde yalnız ≈0.1 m (kuzey ortofotoda bant ucu u −0.1) → taban izi doğu kenarına göre eğik (iki kemerin doğu uçları dünyada aynı x ≈ −86.2 hattında, taban izi doğu kenarı ise x −86.1 → −85.0 eğik: gerçek doğu yüzü tonoza paralel); batıda ≈1.5–1.7 m. Model: duvar üstü bandı (25.12–26.47) + 1.2 m düz çatı saçağı (0.33 m alın). Eğik / değişken derinlikli saçak kutusu yazılamıyor."
     },
     {
       "what": "Taban izi KD köşesi",
       "where": "kenar 2 u 0–2.08 / kenar 1 kuzey ucu",
-      "desc": "kQajs ortofotosunda K5–K6 düzeyinde u 1.2–2.08 arası gökyüzü: kuzey cephenin KD köşesi taban izi köşesinden ≈2 m batıda (doğu cephe KD kulesi taban izinden 0.6–1.4 m içeride notuyla tutarlı). footprints.json düzenlenmedi."
+      "desc": "kQajs ortofotosunda K5–K6 düzeyinde u 1.2–2.08 arası gökyüzü: kuzey cephenin KD köşesi taban izi köşesinden ≈2 m batıda (doğu cephe KD kulesi taban izinden 0.6–1.4 m içeride notuyla tutarlı; kuzey tonoz kemeri de u 1.23'ten başlıyor). footprints.json düzenlenmedi."
     }
-  ]
+  ],
+  "wallTop": 25.17
 }

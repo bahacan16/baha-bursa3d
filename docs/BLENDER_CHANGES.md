@@ -511,3 +511,9 @@
   ≈%11 kısaldı (mahya 28.5 → 24.6 m), K0 eşikleri gerçek konuma, eksik vitrin eklendi, saçak bantları kütle
   parçalarına. 900000102 (Leyla fenerleri, iki tabela paneli ayrı renk), 900000103 (lamel üstü), 303738122 (turkuaz
   bant kavisli yükselişleri `ribbon`), 303738118 (çatı bacası + iki çanak `roofobj`). **Blender:** bu 5 blok.
+- **(v6 dönüşüm 5)** — 1480041344/45 (kolon başlıkları `gableC` + panel, çatı alın rengi, çatı çanağı `roofobj`,
+  345'te iki çatı penceresi — gerçek konum −64.4 / −53.6, hava fotoğrafındaki eğiklik düzeltildi; şerit uçları sivri/düz,
+  kırmızı kurdele), 1480163634 (çatı katı pencereleri, K5 köprü çıkmaları, giriş kanopisi + fener, direk üstü disk,
+  Atatürk portreli bayrak; köprü altındaki uydurma kahve derzler kaldırıldı), 1480163637 (orta kütle 7 kat, kemerli
+  tonoz, girinti renk bölgeleri, klimalar arka duvarda), Salusvizyon 1479658783 (iki kemer yüzlü tonoz çatı, 27 Fransız
+  balkon, tavan spotları, bordo panel derzleri, korniş bandı 25.17–26.47). **Blender:** bu 5 blok yeniden kurulmalı.
