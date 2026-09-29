@@ -740,7 +740,7 @@ export interface CNeon {
   closed: boolean;
   d: number;
   off: number;
-  color: string;
+  color: string | null;
 }
 export type CItem =
   | CWin
@@ -6631,11 +6631,11 @@ function furnItem(b: Builder, P: PFn, E: Edge, i: number, it: CBox, base: number
   }
   const W = u1 - u0;
   const cc = P(i, (u0 + u1) / 2, (n0 + n1) / 2);
-  const mainK = c.ck('plaster', it.color ?? '#eeeeea', 'mkAc');
+  const mainK = c.ck('plaster', it.color, 'mkAc');
   if (it.kind === 'swing') {
     // Bahçe salıncağı: iki uçta A çerçeve (bacaklar döşemede ±D/2, tepede birleşik), üst kiriş, eğik tente, oturak
     const fk = c.ck('metal', it.color2 ?? '#3a3d40', 'darkMetal');
-    const ak = c.ck('awning', it.color ?? '#b9a88a', 'mkAc');
+    const ak = c.ck('awning', it.color, 'mkAc');
     const nm = (n0 + n1) / 2;
     const yTop = y1 - 0.28;
     const V = (u: number, n: number, y: number): V3 => {

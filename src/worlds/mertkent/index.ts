@@ -2,7 +2,8 @@ import * as THREE from 'three';
 import type { SimpleOsm } from '../osm/simplify';
 import { Builder, type V2 } from './builder';
 import { buildApartment, insidePoly, type ApartmentStyle } from './apartment';
-import { buildFacadeBlock, footCollision, type CK, type CompiledBlock } from './facade';
+import { buildFacadeBlock, footCollision, type CK, type CompiledBlock, type SignSpec } from './facade';
+import { SignAtlas } from './signatlas';
 import { splitMassing } from './massing';
 import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
 import facadesData from './data/facades.json';
@@ -238,23 +239,28 @@ function nightLamp(color: number, strength: number): THREE.Material {
 }
 
 /**
- * Derzli kaplama malzemesi (`clad:<v|h>:<aralık>:<derz genişliği>:<derz rengi>`, taban rengi hex): beyaz tabanlı
- * derz dokusu (derz pikseli = derz rengi / taban rengi) × taban rengi, derz kenarlarında normal; doku tekrarı aralığa
- * göre (dünya UV = metre). Tek tek derz şeridi yerine (0.14 m aralıkta yüzlerce şerit uzakta titreşir).
+ * Derzli kaplama malzemesi (`clad:<v|h|g|n>:<aralık>:<derz genişliği>:<derz rengi>[:<ikinci aralık>][:<acp|matte>]`,
+ * taban rengi hex): beyaz tabanlı derz dokusu (derz pikseli = derz rengi / taban rengi) × taban rengi, derz
+ * kenarlarında normal; doku tekrarı aralığa göre (dünya UV = metre). v7: g = iki yönde derz (kompozit panel ızgarası:
+ * aralık yatay, ikinci aralık düşey), n = derzsiz; bitiş acp (parlak alüminyum kompozit) / matte.
  */
 function cladMaterial(kind: string, hex: string): THREE.Material {
-  const [, dir, ev, wv, gc] = kind.split(':');
+  const [, dir, ev, wv, gc, ev2, fin] = kind.split(':');
   const every = Math.max(0.03, Number(ev) || 0.15);
-  const frac = Math.max(0.02, Math.min(0.4, (Number(wv) || 0.02) / every));
+  const every2 = Math.max(0.03, Number(ev2) || every);
+  const rough = fin === 'acp' ? 0.32 : fin === 'matte' ? 0.92 : 0.75;
+  const metal = fin === 'acp' ? 0.25 : 0;
   const base = new THREE.Color(hex);
   const gcol = new THREE.Color(/^#[0-9a-f]{6}$/i.test(gc ?? '') ? gc : '#000000');
-  if (typeof document === 'undefined') return new THREE.MeshStandardMaterial({ color: hex, roughness: 0.8 });
+  if (typeof document === 'undefined' || dir === 'n')
+    return new THREE.MeshStandardMaterial({ color: hex, roughness: rough, metalness: metal });
   const N = 64;
   const cv = document.createElement('canvas');
   const nv = document.createElement('canvas');
+  const grid = dir === 'g';
   const vert = dir !== 'h';
   cv.width = nv.width = vert ? N : 4;
-  cv.height = nv.height = vert ? 4 : N;
+  cv.height = nv.height = vert && !grid ? 4 : N;
   const g = cv.getContext('2d')!;
   const ng = nv.getContext('2d')!;
   const r = (c: number, bc: number) => Math.round(255 * Math.min(1, bc > 0.01 ? c / bc : 1));
@@ -262,27 +268,200 @@ function cladMaterial(kind: string, hex: string): THREE.Material {
   g.fillRect(0, 0, cv.width, cv.height);
   ng.fillStyle = 'rgb(128,128,255)';
   ng.fillRect(0, 0, nv.width, nv.height);
+  const frac = Math.max(0.02, Math.min(0.4, (Number(wv) || 0.02) / every));
+  const frac2 = Math.max(0.02, Math.min(0.4, (Number(wv) || 0.02) / every2));
   const gw = Math.max(1, Math.round(N * frac));
+  const gh = Math.max(1, Math.round(N * frac2));
   g.fillStyle = `rgb(${r(gcol.r, base.r)},${r(gcol.g, base.g)},${r(gcol.b, base.b)})`;
-  if (vert) g.fillRect(0, 0, gw, 4);
+  if (grid) {
+    g.fillRect(0, 0, gw, N);
+    g.fillRect(0, 0, N, gh);
+  } else if (vert) g.fillRect(0, 0, gw, 4);
   else g.fillRect(0, 0, 4, gw);
   // Derz kenarlarında eğim (normal haritası): derzin iki yanı içe bakar
-  ng.fillStyle = vert ? 'rgb(40,128,215)' : 'rgb(128,40,215)';
-  if (vert) ng.fillRect(gw, 0, 1, 4);
-  else ng.fillRect(0, gw, 4, 1);
-  ng.fillStyle = vert ? 'rgb(216,128,215)' : 'rgb(128,216,215)';
-  if (vert) ng.fillRect(N - 1, 0, 1, 4);
-  else ng.fillRect(0, N - 1, 4, 1);
+  if (grid || vert) {
+    ng.fillStyle = 'rgb(40,128,215)';
+    ng.fillRect(gw, 0, 1, nv.height);
+    ng.fillStyle = 'rgb(216,128,215)';
+    ng.fillRect(N - 1, 0, 1, nv.height);
+  }
+  if (grid || !vert) {
+    ng.fillStyle = 'rgb(128,40,215)';
+    ng.fillRect(0, grid ? gh : gw, nv.width, 1);
+    ng.fillStyle = 'rgb(128,216,215)';
+    ng.fillRect(0, nv.height - 1, nv.width, 1);
+  }
   const map = new THREE.CanvasTexture(cv);
   map.colorSpace = THREE.SRGBColorSpace;
   const nm = new THREE.CanvasTexture(nv);
   for (const t of [map, nm]) {
     t.wrapS = t.wrapT = THREE.RepeatWrapping;
     t.anisotropy = 8;
-    if (vert) t.repeat.set(1 / every, 1);
+    if (grid) t.repeat.set(1 / every, 1 / every2);
+    else if (vert) t.repeat.set(1 / every, 1);
     else t.repeat.set(1, 1 / every);
   }
-  return new THREE.MeshStandardMaterial({ map, normalMap: nm, color: hex, roughness: 0.75 });
+  return new THREE.MeshStandardMaterial({ map, normalMap: nm, color: hex, roughness: rough, metalness: metal });
+}
+
+/** v7: uzakta sönümlenen ince derz (yakında koyu şerit; ~25–40 m arası saydamlaşır → kesikli çizgi titreşimi yok) */
+function grooveMaterial(color: THREE.ColorRepresentation): THREE.Material {
+  const m = new THREE.MeshStandardMaterial({
+    color,
+    roughness: 0.95,
+    transparent: true,
+    depthWrite: false,
+    polygonOffset: true,
+    polygonOffsetFactor: -3,
+    polygonOffsetUnits: -3,
+  });
+  m.userData.noCast = true;
+  m.onBeforeCompile = (sh) => {
+    sh.fragmentShader = sh.fragmentShader.replace(
+      '#include <alphatest_fragment>',
+      '#include <alphatest_fragment>\ndiffuseColor.a *= 1.0 - smoothstep(24.0, 38.0, length(vViewPosition));',
+    );
+  };
+  m.customProgramCacheKey = () => 'mk-groove-fade-v1';
+  return m;
+}
+
+/** v7: neon / LED şerit tüpü: gündüz renkli cam, gece parlak */
+function neonMaterial(hex: string): THREE.Material {
+  const c = new THREE.Color(hex);
+  const m = new THREE.MeshStandardMaterial({
+    color: c.clone().lerp(new THREE.Color(0xffffff), 0.35),
+    emissive: c,
+    emissiveIntensity: 1,
+    roughness: 0.3,
+  });
+  m.onBeforeCompile = (sh) => {
+    sh.uniforms.uNight = nightUniform;
+    sh.fragmentShader = sh.fragmentShader
+      .replace('#include <common>', '#include <common>\nuniform float uNight;')
+      .replace(
+        '#include <emissivemap_fragment>',
+        '#include <emissivemap_fragment>\ntotalEmissiveRadiance *= mix(0.12, 1.8, uNight);',
+      );
+  };
+  m.customProgramCacheKey = () => 'mk-neon-v1';
+  return m;
+}
+
+/**
+ * v7: çok renkli karo bandı (`tiles:<karo m>:<#renk,…>:<sıra>`, hex = derz rengi): karolar kare, sıra verilirse
+ * palet indeksleri (u boyunca döngü), yoksa tohumlu; satırlar birer kaydırmalı. UV = metre.
+ */
+function tilesMaterial(kind: string, hex: string): THREE.Material {
+  const [, ts, cs, sq] = kind.split(':');
+  const tile = Math.max(0.03, Number(ts) || 0.2);
+  const cols = (cs ?? '').split(',').filter((c) => /^#[0-9a-f]{6}$/i.test(c));
+  if (typeof document === 'undefined' || !cols.length)
+    return new THREE.MeshStandardMaterial({ color: cols[0] ?? hex, roughness: 0.3 });
+  const seq = (sq ?? '')
+    .split('.')
+    .map((x) => Number(x))
+    .filter((x) => Number.isInteger(x) && x >= 0 && x < cols.length);
+  const NX = seq.length || 12;
+  const NY = 4;
+  const P = 32;
+  const cv = document.createElement('canvas');
+  cv.width = NX * P;
+  cv.height = NY * P;
+  const g = cv.getContext('2d')!;
+  g.fillStyle = hex;
+  g.fillRect(0, 0, cv.width, cv.height);
+  let s0 = 7;
+  const rnd = () => {
+    s0 = (s0 * 16807) % 2147483647;
+    return s0 / 2147483647;
+  };
+  for (let yy = 0; yy < NY; yy++)
+    for (let xx = 0; xx < NX; xx++) {
+      const ci = seq.length ? seq[(xx + yy * 3) % seq.length] : Math.floor(rnd() * cols.length);
+      g.fillStyle = cols[ci];
+      g.fillRect(xx * P + 1, yy * P + 1, P - 2, P - 2);
+    }
+  const map = new THREE.CanvasTexture(cv);
+  map.colorSpace = THREE.SRGBColorSpace;
+  map.wrapS = map.wrapT = THREE.RepeatWrapping;
+  map.repeat.set(1 / (NX * tile), 1 / (NY * tile));
+  map.anisotropy = 8;
+  return new THREE.MeshStandardMaterial({ map, roughness: 0.22, metalness: 0.05 });
+}
+
+/** v7: kare güvenlik kafesi (`cage:<göz m>`, hex = tel rengi): alfa testli ızgara, iki yüz; UV = metre */
+function cageMaterial(kind: string, hex: string): THREE.Material {
+  const ev = Math.max(0.03, Number(kind.split(':')[1]) || 0.15);
+  if (typeof document === 'undefined') return new THREE.MeshStandardMaterial({ color: hex, side: THREE.DoubleSide });
+  const N = 32;
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = N;
+  const g = cv.getContext('2d')!;
+  g.clearRect(0, 0, N, N);
+  g.fillStyle = '#ffffff';
+  g.fillRect(0, 0, 3, N);
+  g.fillRect(0, 0, N, 3);
+  const map = new THREE.CanvasTexture(cv);
+  map.wrapS = map.wrapT = THREE.RepeatWrapping;
+  map.repeat.set(1 / ev, 1 / ev);
+  return new THREE.MeshStandardMaterial({ map, color: hex, alphaTest: 0.4, side: THREE.DoubleSide, roughness: 0.5 });
+}
+
+/**
+ * v7: desenli cam folyo (`film:<damask|dots|frost>`, hex = folyo rengi): yarı saydam desen (yaklaşık — damask
+ * motifi birebir değil), 0.5 m tekrar; UV = metre
+ */
+function filmMaterial(kind: string, hex: string): THREE.Material {
+  const pat = kind.split(':')[1] ?? 'frost';
+  if (typeof document === 'undefined')
+    return new THREE.MeshStandardMaterial({ color: hex, transparent: true, opacity: 0.6 });
+  const N = 128;
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = N;
+  const g = cv.getContext('2d')!;
+  g.clearRect(0, 0, N, N);
+  if (pat === 'dots') {
+    g.fillStyle = 'rgba(255,255,255,0.85)';
+    for (let y = 8; y < N; y += 16) for (let x = (y / 16) % 2 ? 16 : 8; x < N; x += 16) g.fillRect(x - 3, y - 3, 6, 6);
+  } else if (pat === 'damask') {
+    // Yaklaşık damask: yarı saydam zemin + simetrik yaprak / kıvrım motifi (her 0.5 m)
+    g.fillStyle = 'rgba(255,255,255,0.35)';
+    g.fillRect(0, 0, N, N);
+    g.strokeStyle = 'rgba(255,255,255,0.9)';
+    g.lineWidth = 4;
+    for (const [cx, cy] of [
+      [N / 2, N / 2],
+      [0, 0],
+      [N, 0],
+      [0, N],
+      [N, N],
+    ]) {
+      g.beginPath();
+      g.ellipse(cx, cy, N * 0.18, N * 0.3, 0, 0, Math.PI * 2);
+      g.stroke();
+      g.beginPath();
+      g.moveTo(cx - N * 0.18, cy);
+      g.quadraticCurveTo(cx, cy - N * 0.12, cx + N * 0.18, cy);
+      g.stroke();
+    }
+  } else {
+    g.fillStyle = 'rgba(255,255,255,0.7)';
+    g.fillRect(0, 0, N, N);
+  }
+  const map = new THREE.CanvasTexture(cv);
+  map.wrapS = map.wrapT = THREE.RepeatWrapping;
+  map.repeat.set(2, 2);
+  return new THREE.MeshStandardMaterial({
+    map,
+    color: hex,
+    transparent: true,
+    depthWrite: false,
+    roughness: 0.4,
+    polygonOffset: true,
+    polygonOffsetFactor: -2,
+    polygonOffsetUnits: -2,
+  });
 }
 
 /** Blok paleti: ölçümde örneklenen renklerden bloğa özel malzemeler (güneşli yüzden alındığı için hafif koyu) */
@@ -841,13 +1020,8 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetUnits: -9,
     }),
     gateGrey: std({ color: 0x8e9194, roughness: 0.45, metalness: 0.5 }),
-    mkGroove: std({
-      color: 0x55544f,
-      roughness: 0.95,
-      polygonOffset: true,
-      polygonOffsetFactor: -3,
-      polygonOffsetUnits: -3,
-    }),
+    // v7: uzakta sönümlenen derz (kesikli çizgi titreşimi olmasın)
+    mkGroove: grooveMaterial(0x55544f),
     mkNet: std({ map: T.meshFenceTexture(), color: 0x202020, alphaTest: 0.3, side: DS, roughness: 0.9 }),
     // Kepenk: 5 cm lamelli (eski doku metrede bir çizgiyle düz beyaz kutu gibi görünüyordu)
     mkShutter: std({
@@ -1123,7 +1297,17 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     if (!extraMats[k])
       extraMats[k] = kind.startsWith('clad:')
         ? cladMaterial(kind, hex)
-        : kind === 'blind'
+        : kind.startsWith('tiles:')
+          ? tilesMaterial(kind, hex)
+          : kind.startsWith('cage:')
+            ? cageMaterial(kind, hex)
+            : kind.startsWith('film:')
+              ? filmMaterial(kind, hex)
+              : kind === 'groove'
+                ? grooveMaterial(hex)
+                : kind === 'neon'
+                  ? neonMaterial(hex)
+                  : kind === 'blind'
           ? // Bambu / hasır stor: çıtalı doku × ölçülen renk, iki yüz
             new THREE.MeshStandardMaterial({
               map: typeof document === 'undefined' ? null : T.bambooBlindTexture(),
@@ -1178,59 +1362,12 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
                           });
     return k;
   };
-  const signFace = (sg: {
-    text: string;
-    lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
-    bg: string | null;
-    fg: string;
-    border: string | null;
-    font: string;
-    bold: boolean;
-    lit: boolean;
-    style: string;
-    w: number;
-    h: number;
-    outline?: string | null;
-    shape?: string | null;
-    icon?: string | null;
-    iconC?: string | null;
-    banner?: string | null;
-    side?: boolean;
-    glyphs?: { ch: string; mirror?: boolean }[] | null;
-    join?: number | null;
-  }): string => {
-    const k = `sign_${JSON.stringify([sg.text, sg.lines ?? null, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10), sg.outline ?? null, sg.shape ?? null, sg.icon ?? null, sg.iconC ?? null, ...(sg.banner ? [sg.banner] : []), ...(sg.side ? ['side'] : []), ...(sg.glyphs?.length ? [sg.glyphs, sg.join ?? null] : [])])}`;
-    if (!extraMats[k]) {
-      if (typeof document === 'undefined')
-        extraMats[k] = new THREE.MeshStandardMaterial({ color: sg.bg ?? sg.fg });
-      else if (sg.banner) {
-        // Korkuluğa asılı bayrak / portreli pankart (kumaş, iki yüz)
-        extraMats[k] = new THREE.MeshStandardMaterial({
-          map: T.bannerTexture({ style: sg.banner, bg: sg.bg, fg: sg.fg, text: sg.text, w: sg.w, h: sg.h }),
-          roughness: 0.85,
-          side: THREE.DoubleSide,
-        });
-      } else {
-        const map = T.shopSignTexture(sg);
-        const transparent = !sg.bg || sg.style === 'letters' || sg.shape === 'round' || sg.shape === 'oval';
-        // Kalın harflerin yan katmanları: aynı harf dokusu, koyulaştırılmış ve ışıksız (yan yüz gölgesi)
-        extraMats[k] = new THREE.MeshStandardMaterial({
-          map,
-          color: sg.side ? 0x8c8c8c : 0xffffff,
-          transparent,
-          alphaTest: transparent ? 0.35 : 0,
-          roughness: sg.lit ? 0.35 : 0.6,
-          emissive: sg.lit && !sg.side ? 0xffffff : 0x000000,
-          emissiveMap: sg.lit && !sg.side ? map : null,
-          emissiveIntensity: sg.lit && !sg.side ? 0.35 : 0,
-          polygonOffset: true,
-          polygonOffsetFactor: -2,
-          polygonOffsetUnits: -2,
-        });
-      }
-    }
-    return k;
-  };
+  // v7: tabela atlası — tabela başına doku / malzeme yerine sayfa başına tek malzeme (gerçek boy, px/m)
+  const atlas = new SignAtlas(
+    o.quality === 'low' ? 96 : o.quality === 'medium' ? 128 : 160,
+    o.quality === 'low' ? 1024 : 2048,
+  );
+  const signFace = (sg: SignSpec): string => atlas.face(sg);
   // Ölçülmüş sokak: kaldırım, bordür, sokak eşyası (street-plan.json); varsa eski tahmini kaldırım çizilmez
   const street =
     (STREET_PLAN.sidewalks?.length ?? 0) + (STREET_PLAN.street?.length ?? 0) > 0
@@ -1618,6 +1755,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const mats = materials(o.base);
   upgradeRealMaterials(mats, o.base);
   extraMats.roadFill = o.roadMaterial ?? mats.drive;
+  atlas.finalize(b, extraMats);
   b.build({ ...mats, ...extraMats }, group, o.shadows);
   // Özhan önünde (vitrin, otopark) ağaç yok
   if (oz) {

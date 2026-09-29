@@ -90,7 +90,11 @@ export interface BlockSurvey {
     color: string;
     band?: { h: number; color: string };
     roofC?: string;
-    /** Parapet: RoofSpec.parapet ile aynı alanlar (railH, railEdges; burada kenar j = poly[j] → poly[j+1]) */
+    /**
+     * Parapet: RoofSpec.parapet ile aynı alanlar (edges, railH, railEdges; burada kenar j = poly[j] → poly[j+1]).
+     * v7 (hata düzeltmesi): `edges` artık uygulanıyor — parapet YALNIZ bu kenarlarda, uçlarda kapak yüzü
+     * (önceden tüm kenarlarda; 1540901777 volumes[2]).
+     */
     parapet?: ParapetSpec;
     glazing?: {
       edges: number[] | 'all';
@@ -119,7 +123,24 @@ export interface BlockSurvey {
       axis?: number;
       color?: string;
       gableC?: string;
+      /**
+       * v7 (tonoz): yayı izleyen kaburgalar — tonoz ekseni boyunca `every` m arayla (uçlardan yarım aralık içeride),
+       * genişlik w (m, 0.06), yüzeyden yükseklik h (m, 0.04), renk (1541439437 köşk: beyaz, ≈1 m).
+       */
+      ribs?: { every: number; w?: number; h?: number; color?: string };
+      /**
+       * v7 (tonoz): camlı alın yüzü: ends "both" | "start" (eksen kenarının başındaki alın) | "end"; glass cam
+       * rengi, frame dikme rengi, mullion dikme aralığı (m, 0.8), band = yayın altında dolu kavisli bant kalınlığı
+       * (m, gableC renginde; 0 = yok). Ör. 1541439437 batı alnı: cam #919a93, dikme #626c65 / 0.8 m.
+       */
+      endGlass?: { ends?: 'both' | 'start' | 'end'; glass: string; frame?: string; mullion?: number; band?: number };
     };
+    /**
+     * v7: hacim çatısı üstü öğeler (baca, havalandırma, çanak, anten, direk): `at` DÜNYA [x, z]; diğer alanlar
+     * RoofObj ile aynı (h çatı yüzeyinden, düz çatıda y1'den; tonoz / eğik çatıda yüzey kotundan). Boyu
+     * görülmeyen öğe yazılmaz (1541439437 tonoz üstü 4 beyaz nokta: boy görülmedi).
+     */
+    objs?: (Omit<RoofObj, 't' | 'u' | 'x' | 'z' | 'setback'> & { at: [number, number] })[];
     /**
      * Hacim yüzündeki pencere / kapılar (çatıdan yükselen merdiven kulesi başlığının penceresi gibi): edge = poly
      * kenar indeksi (poly[edge] → poly[edge+1]), u0..u1 bu kenar boyunca gerçek m (poly[edge]'den), y0..y1 blok
@@ -156,6 +177,25 @@ export interface BlockSurvey {
     beam?: number;
     slat?: number;
     cover?: string;
+    /**
+     * v7 eğim: üst kot `slopeEdge` kenarında (poly kenar indeksi, varsayılan 0) y1, o kenardan en uzak noktada y1s
+     * (gerçek m, blok tabanından) — tek yöne eğik örtü (900000104: güneye alçalan).
+     */
+    y1s?: number;
+    slopeEdge?: number;
+    /** v7: lameller bu poly kenarına PARALEL (verilmezse en uzun kenara dik) — 900000104 K–G lameller */
+    slatEdge?: number;
+    /**
+     * v7: dikmeler yalnız bu poly kenarlarında (görülen kenarlar; verilmezse tüm kenarlar) ya da açık DÜNYA konumları
+     * `posts` [[x, z], …] (verilirse postEdges yerine). Görülmeyen kenara dikme yazma.
+     */
+    postEdges?: number[];
+    posts?: [number, number][];
+    /**
+     * v7: kirişler `edge` kenarına DİK, o kenardaki her dikmeden çokgenin karşı kenarına uzanır ve kenardan dışarı
+     * `over` m taşar; taşan uçta `capC` renkli kapak (900000104: batı parapetinden 0.5 m taşan, uçları beyaz).
+     */
+    beams?: { edge: number; over?: number; capC?: string };
   }[];
 }
 
@@ -243,6 +283,47 @@ export interface RoofSpec {
    * çizilir (kenar bazında saçak).
    */
   parapet?: ParapetSpec;
+  /**
+   * v7: AÇIK MAHYALI kanat çatıları (hava fotoğrafındaki mahya çizgisinden) — birleşik kırma çatının otomatik mahyası
+   * fotoğrafla çelişiyorsa (1546358557 batı kanat mahyası 3.3 m kaçık, 1480163634 kütle başına farklı tepe, 1546358561
+   * geri çekik kule yüzlerinde alınlık). Her kanat: `poly` DÜNYA dışbükey taban çokgeni (verilmezse tüm taban izi),
+   * `ridge` DÜNYA [[x0, z0], [x1, z1]] mahya uçları, `apex` mahya kotu (blok tabanından gerçek m; verilirse iki yanın
+   * eğimi saçak uzaklığından türetilir — kaçık mahya asimetrik eğim verir, saçaklar aynı kotta) ya da `pitch` (ortalama
+   * eğim, derece), `ends` [ridge[0] ucu, ridge[1] ucu]: "gable" (alınlık duvarı; kanat uç kenarı taban izi kenarı
+   * üzerindeyse o kenarda çatı arası pencereleri / şerit / pano kırpması), "hip" (kırma), "open" (başka çatıya dayanır:
+   * alın / saçak yok). `eave` saçak (m; verilmezse blok). Taban izinin kanatlar dışında kalan kısmı birleşik kırma
+   * çatıyla örtülür (alınlıksız). Kanat çokgenleri ÇAKIŞABİLİR (yüksek olan görünür).
+   */
+  wings?: {
+    poly?: [number, number][];
+    ridge: [[number, number], [number, number]];
+    apex?: number;
+    pitch?: number;
+    ends?: ['gable' | 'hip' | 'open', 'gable' | 'hip' | 'open'];
+    eave?: number;
+  }[];
+  /**
+   * v7: kenar bazında saçak taşması: `at` DÜNYA noktasına (≤ 1.5 m) en yakın taban izi kenarında saçak `eave` m —
+   * kütle kesim kenarları dahil (massing parçasının roof'unda da yazılabilir; 1550614218 kanat yan uçları).
+   */
+  eaves?: { at: [number, number]; eave: number }[];
+  /** v7: düz çatı / teras yüzeyi rengi (hava fotoğrafından; 900000102 #bfb1a2, 900000103 #a88d86) */
+  flatC?: string;
+}
+
+/**
+ * Derzli kaplama (panel / band / proj / recess): dir v (düşey derz, varsayılan) | h (yatay) | grid (iki yönde:
+ * every = düşey derzler arası yatay aralık, every2 = yatay derzler arası düşey aralık; ACP kompozit panel), every
+ * aralık (m), w derz genişliği (m, 0.02), color derz rengi. v7: us = düzensiz düşey derzlerin GÖRÜNEN u listesi
+ * (pencere kenarlarına hizalı 0.6–0.87 m gibi düzensiz aralıklar; every ile birlikte ya da yerine).
+ */
+export interface CladSpec {
+  dir?: 'v' | 'h' | 'grid';
+  every: number;
+  every2?: number;
+  w?: number;
+  color?: string;
+  us?: number[];
 }
 
 export interface EdgeSpec {
@@ -253,7 +334,12 @@ export interface EdgeSpec {
   seen: 'photo' | 'partial' | 'none';
   /** Referans ortofoto (docs/survey/c/…jpg) — tüm görünen koordinatlar buna göre */
   ref?: string;
-  cal?: { u: [number, number]; head: [[number, number], [number, number]] };
+  /**
+   * v7 `dist`: ortofotonun ÜRETİLDİĞİ kamera–cephe uzaklığı (m). Ortofoto eski bir taban izi üzerinde üretildiyse
+   * (1480163638 e5 14.02, e6 11.67, e10 11.52; 1540901796 e20 9.68, e16 10.12, e24 9.98) derinlik düzeltmeleri
+   * (balkon d, win behind, tabela off, çatı öğesi setback …) bu uzaklıkla yapılır; verilmezse güncel taban izinden.
+   */
+  cal?: { u: [number, number]; head: [[number, number], [number, number]]; dist?: number };
   /** 'none' kenarlar: öğeleri bu kenardan kopyala (benzer kenar); `mirror`: u'yu ters çevir */
   copyOf?: number;
   mirror?: boolean;
@@ -285,7 +371,15 @@ export type FacadeItem =
   | Dormer
   | Arch
   | RoofObj
-  | Ribbon;
+  | Ribbon
+  | Rod
+  | Steps
+  | Box
+  | Blade
+  | Vinyl
+  | RoofSign
+  | Screen
+  | Neon;
 
 /** Pencere / kapı sütunu (her katta aynı yerde tekrar eden açıklık) */
 export interface Win {
@@ -376,6 +470,16 @@ export interface Win {
    * katlardaysa arka duvar pencerelerini ayrı `win` öğesi (kendi s aralığı) olarak yaz.
    */
   behind?: number;
+  /**
+   * v7: "round" → yuvarlak / oval pencere (oculus): y0..y1 × u0..u1 kutusunun içine elips (Ø ölçülen); söve, kasa ve
+   * cam elips boyunca; `split` düşey kayıt. Duvarda, alınlıkta, kemerde ve pediment içinde açılır (1540901798).
+   */
+  shape?: 'round';
+  /**
+   * v7: desenli dekor cam folyo (camın önünde, yarı saydam): renk + pattern damask (yaklaşık kıvrım motifi — desen
+   * birebir çizilmez, notta anlat) | dots | frost (düz buzlu). Yalnız görülen pencerede; kat kat farklıysa ayrı `win`.
+   */
+  film?: { color: string; pattern?: 'damask' | 'dots' | 'frost' };
 }
 
 /**
@@ -460,6 +564,8 @@ export interface Recess {
    */
   backS?: Record<string, string>;
   sideS?: Record<string, string>;
+  /** v7: arka / yan duvarlarda derzli kaplama (1480163637 pembe yatay derz 0.55 m #c79c9c) */
+  clad?: CladSpec;
 }
 
 /** Bayrak direği: görünen u, duvardan uzaklık off (m), taban görünen y0 (verilmezse zemin), boy h (m), renk, bayrak */
@@ -508,10 +614,19 @@ export interface Banner {
   y0: number;
   y1: number;
   d?: number;
-  style?: 'portrait' | 'tr-v' | 'tr' | 'plain';
+  style?: 'portrait' | 'tr-v' | 'tr' | 'plain' | 'print';
   bg?: string;
   fg?: string;
   text?: string;
+  /**
+   * v7 style "print" (çok katlı asılı pankart / file pankart, cepheye asılı reklam bezi): `lines` satır satır OKUNAN
+   * yazı {text, fg, size (göreli boy), bold, y (satır merkezi, pankart yüksekliğinde ALTTAN 0..1)}; `blocks` renk
+   * alanları {x0, x1, y0, y1 (pankart oranında 0..1, alt sol köşe 0,0), color} — logo / fotoğraf yerine görülen renk
+   * blokları; `mesh` true → delikli file baskı (arkası seçilir). d duvardan uzaklık (cepheye asılıysa ≈0.05).
+   */
+  lines?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[];
+  blocks?: { x0: number; x1: number; y0: number; y1: number; color: string }[];
+  mesh?: boolean;
 }
 
 /**
@@ -536,6 +651,18 @@ export interface Lamp {
   color?: string;
   tip?: string;
   dir?: 'down' | 'up' | 'both';
+  /**
+   * v7: kol boyu (m, duvardan başa; proud'dan büyükse baş kolun ucunda) ve baş eğimi tilt (derece, düşeyden; spot
+   * dir "up" → yukarı-dışa, tabelaya bakan; 900000104 paye lambaları ≈45°, 900000101 orta paye spotları yukarı).
+   */
+  arm?: number;
+  tilt?: number;
+  /**
+   * v7: payenin YAN yüzüne monte (cepheye dik yüz): "start" → yüz −u yönüne bakar, "end" → +u; `u` yan yüzün
+   * görünen konumu, `off` lambanın cephe düzleminden dışarı uzaklığı (m).
+   */
+  side?: 'start' | 'end';
+  off?: number;
 }
 
 /**
@@ -561,8 +688,21 @@ export interface Dormer {
   pitch?: number;
   color?: string;
   roofC?: string;
+  /** Rüzgârlık tahtası: w bant genişliği (m; v7 ölçülen değer çizilir, varsayılan 0.12 — 1480041345 0.17), renk */
   trim?: { w?: number; color?: string };
-  win?: { w?: number; h?: number; sill?: number; split?: number; curt?: string; frameC?: string };
+  /**
+   * v7 win.shape "gable": beşgen pencere — düşey yanlar + üstü dormer eğimine paralel, alınlığın çoğunu kaplar
+   * (1540901795 gabletleri, 3–4 dikey kayıt: split).
+   */
+  win?: {
+    w?: number;
+    h?: number;
+    sill?: number;
+    split?: number;
+    curt?: string;
+    frameC?: string;
+    shape?: 'gable';
+  };
 }
 
 /**
@@ -581,12 +721,20 @@ export interface Arch {
   rise?: number;
   spring?: number;
   d?: number;
-  shape?: 'segment' | 'semi';
+  /** v7 "pointed": sivri (ogival / lanset) kemer — iki yay tepede birleşir (1540901798 beyaz sivri kemer) */
+  shape?: 'segment' | 'semi' | 'pointed';
   thick?: number;
   color?: string;
   coping?: { h: number; over?: number; color?: string };
   vault?: number;
   roofC?: string;
+  /**
+   * v7: yalnız bu GÖRÜNEN u aralığı çizilir (kısmi kemer: kanat yüzünde tonoz ucunun yükselen / alçalan yarısı;
+   * 1480163637 e6 u 4.8→10.54). Kemer biçimi u0..u1 (kenarı aşabilir) üzerinden hesaplanır.
+   */
+  clip?: [number, number];
+  /** v7: false → tonozun arka alın yüzü çizilmez (arka uçta kendi `arch` öğesi olan tonoz; kuzey alnı ayrı) */
+  backFace?: boolean;
 }
 
 /**
@@ -597,7 +745,8 @@ export interface Arch {
  */
 export interface RoofObj {
   t: 'roofobj';
-  kind: 'chimney' | 'antenna' | 'dish' | 'vent';
+  /** v7 post: ince direk (teras direği; tepede `top`) */
+  kind: 'chimney' | 'antenna' | 'dish' | 'vent' | 'post';
   u?: number;
   x?: number;
   z?: number;
@@ -606,7 +755,20 @@ export interface RoofObj {
   w?: number;
   depth?: number;
   color?: string;
-  cap?: { kind: 'hip' | 'pyramid' | 'flat' | 'none'; h?: number; color?: string };
+  /**
+   * Başlık. v7: kind "disc" (vent borusunun koyu yuvarlak şapkası: d çap, h kalınlık, renk; 303738118 Ø0.73
+   * #242c34); trim {h, color} başlığın alt (saçak) kenarında ikinci renk bant (1480041343 kiremit başlıkların beyaz
+   * alt kenarı).
+   */
+  cap?: {
+    kind: 'hip' | 'pyramid' | 'flat' | 'none' | 'disc';
+    h?: number;
+    color?: string;
+    d?: number;
+    trim?: { h: number; color?: string };
+  };
+  /** v7 (kind post): direk tepesi ball (küre; lit → gece yanar, 303738118 kırmızı küre lambalar Ø0.3), plate */
+  top?: { kind: 'ball' | 'plate'; d?: number; color?: string; lit?: boolean };
 }
 
 /**
@@ -657,6 +819,8 @@ export interface Bal {
   /** Yan kapanış: open (iki yan açık), wall (iki yanda duvar/girinti), start-wall / end-wall (tek yan) */
   sides?: 'open' | 'wall' | 'start-wall' | 'end-wall';
   /**
+   * v7 (hata düzeltmesi): d ≥ 0.35 + inset → TAŞAN + GÖMÜK balkon: loca derinliği inset (taban izi içinde) + döşeme
+   * d kadar dışarı taşar (1546358557 d 0.55 + inset 0.95 = 1.5 m; önceden inset yok sayılıyordu).
    * İçe gömük (loca) balkon: d = 0 ve arka duvarın taban izinden içeri çekilme derinliği (m). Köşe locası iki
    * kenarda yazılırsa derinlikler birbirinin genişliğinden otomatik çıkarılır. v6: ORTASI locaya düşen ölçülmüş
    * `win` öğeleri (aynı kenarın u/y'siyle yazılır) loca ARKA duvarında çizilir — o katta üreticinin otomatik kapı +
@@ -731,7 +895,19 @@ export interface Bal {
    * Tavan gömme spotları (verilmezse tavan ortasında 1 adet): n adet ya da every (m, 2.7) aralık, ön kenardan
    * inset (m, 0.5), çap d (m, 0.1); cap: true → tepe şapkasının altında da.
    */
-  spots?: { n?: number; every?: number; inset?: number; d?: number; cap?: boolean };
+  spots?: {
+    n?: number;
+    every?: number;
+    inset?: number;
+    d?: number;
+    cap?: boolean;
+    /** v7: ölçülen spot konumları (GÖRÜNEN u listesi; eşit aralık yerine) */
+    us?: number[];
+    /** v7: dikdörtgen armatür (shape "rect", l × w m) */
+    shape?: 'rect';
+    l?: number;
+    w?: number;
+  };
   /** Cam korkuluk dikme aralığı (m, varsayılan 1.2; ör. 1540901795 ≈1.0) ve kesiti (m, 0.03); dikmeler railC renginde */
   postEvery?: number;
   postW?: number;
@@ -767,6 +943,49 @@ export interface Bal {
    * 1480041300 K1 orta yığın beyaz parmaklıklı pencere + kapı).
    */
   keepDoor?: boolean;
+  /**
+   * v7 saksı başına ayrıntı: kat → [{u (pots listesindeki görünen u ile aynı), on: "rail" | "floor", plant (false →
+   * bitkisiz boş saksı), potC, plantC}] — aynı balkonda korkuluk + döşeme saksıları karışık olabilir.
+   */
+  potSpec?: Record<
+    string,
+    { u: number; on?: 'rail' | 'floor'; plant?: boolean; potC?: string; plantC?: string }[]
+  >;
+  /** v7: serbest ön köşelerde 45° PAH (m; round çeyrek daire yay yapar) — tek sayı ya da [u0 ucu, u1 ucu] */
+  chamfer?: number | [number, number];
+  /**
+   * v7: köşeyi saran balkon: öğenin binanın gerçek köşesindeki ucunda (u1 ≥ kenar boyu ya da u0 ≤ 0) ön kenar komşu
+   * kenarın balkonuyla r yarıçaplı yay (kind "round") ya da r pahla ("chamfer") birleşir; şapka (cap) da izler.
+   * Komşu kenardaki balkonu da yaz (köşeye kadar). 1541439436 GB kule.
+   */
+  wrap?: { r: number; kind?: 'round' | 'chamfer' };
+  /** v7: false → köşe locası komşu kenardaki locayla tek dikdörtgende BİRLEŞTİRİLMEZ (ayrı hacimler; 1480163634 e5) */
+  merge?: boolean;
+  /**
+   * v7: gömük locanın ön kenarı uçlarda taban izi İÇİNE döner: yarıçap / pah (m) — tek sayı ya da [u0 ucu, u1 ucu];
+   * endShape "round" (varsayılan) | "chamfer". Döşeme, tavan, korkuluk dönüşü izler (1541439435 e1, 1541439437).
+   */
+  endIn?: number | [number, number];
+  endShape?: 'round' | 'chamfer';
+  /** v7: şapka altında kare ızgara tavan (pergola ızgarası): göz aralığı every (m), çubuk w, derinlik, renk */
+  capGrid?: { every: number; w?: number; depth?: number; color?: string };
+  /**
+   * v7: kat → parmaklık yüksekliği (m, cam alt kotundan; kısmi boy) ve grilleIn true → parmaklık camın ARKASINDA
+   * (1480163637 eski demir korkuluk alt cam bandının arkasında, ≈0.55 m).
+   */
+  grilleH?: Record<string, number>;
+  grilleIn?: boolean;
+  /**
+   * v7: kat → AÇIK balkonda korkuluk üstünden tavana kare güvenlik kafesi rengi, göz aralığı cageEvery (m, 0.15)
+   * (1479658783 e1 K4 beyaz kafes).
+   */
+  cage?: Record<string, string>;
+  cageEvery?: number;
+  /**
+   * v7: GÖMÜK locada (d < 0.35) tepe şapkası (cap: true): şapka alnının taban izi hattından dışarı taşması (m; köşe
+   * kütle şapkaları 1480041342/43 ≈0.25–0.5). capSlope ile eğik üst yüz (alınlık olmayan kenarlarda da).
+   */
+  capOver?: number;
 }
 
 /**
@@ -812,7 +1031,13 @@ export interface Proj {
    * Derzli kaplama dokusu (ön ve yan yüzler): dir v (dikey derz, varsayılan) / h, every aralık (m), w derz genişliği
    * (m, 0.02), color derz rengi. Tek tek groove yerine (0.14 m aralıkta yüzlerce şerit titreşir; 900000105 / 106).
    */
-  clad?: { dir?: 'v' | 'h'; every: number; w?: number; color?: string };
+  clad?: CladSpec;
+  /** v7: terasın cam korkuluk rengi (Salus Juliet camları #72818b / #7d8a90; verilmezse blok railGlass) */
+  topGlassC?: string;
+  /** v7: u1 ucundaki derinlik (m): d → d1 doğrusal (eğik) çıkma / saçak kutusu (Salus doğu/batı saçak kutusu) */
+  d1?: number;
+  /** v7: yüzey bitişi: acp (parlak alüminyum kompozit panel) | matte; verilmezse sıva */
+  finish?: 'acp' | 'matte';
 }
 
 /**
@@ -830,7 +1055,7 @@ export interface Sign {
   d?: number;
   text: string;
   /** Satır satır farklı renk/boyut gerekiyorsa (text yerine): boyut satır yüksekliği oranı (varsayılan 1) */
-  lines?: { text: string; fg?: string; size?: number; bold?: boolean }[];
+  lines?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[];
   /** Zemin rengi (letters için yok) */
   bg?: string;
   /** Yazı rengi */
@@ -853,6 +1078,19 @@ export interface Sign {
   glyphs?: { ch: string; mirror?: boolean }[];
   join?: number;
   /** Harfler 3B (katmanlı) çizilir: style "letters" ve d ≥ 0.015 (derinlik); varsayılan d 0.04 */
+  /**
+   * v7: duvardan montaj uzaklığı (m): balkon alnına / başka yüzeye monte (1546358561 balkon alnındaki "A", off 1.3);
+   * u/y o düzlemde görünen değerlerdir (derinlik düzeltmesi yapılır). Verilmezse bant / pano / çıkma önü ya da duvar.
+   */
+  off?: number;
+  /** v7: arkadan aydınlatmalı harflerin duvardaki ışık halesi rengi (yalnız gece görünür) */
+  halo?: string;
+  /** v7: kanal harflerin arkasında taşıyıcı pano (renk, kalınlık d m, harflerden taşma pad m) */
+  back?: { color: string; d?: number; pad?: number };
+  /** v7: ölçülen büyük harf (majüskül) yüksekliği, GÖRÜNEN m — yazı bu boyda çizilir (sığmazsa küçülür) */
+  capH?: number;
+  /** v7: yazı hizası (varsayılan center) */
+  align?: 'left' | 'center' | 'right';
 }
 
 /**
@@ -901,6 +1139,29 @@ export interface Awning {
   /** Sarkan saçak (valans) üstündeki yazı */
   text?: string;
   textColor?: string;
+  /**
+   * dutch: çeyrek yuvarlak kabuk + yelpaze uç kapakları (Hollanda tipi); retract: katlanır kollu düz tente (ön profil +
+   * kollar, 900000102 LEYLA); yoksa düz eğik tente
+   */
+  style?: 'dutch' | 'retract';
+  /**
+   * v7: valansta birden çok yazı / monogram (kendi GÖRÜNEN u aralıklarında): text ya da glyphs (+ join), fg renk,
+   * font, bold (900000106 KUDRET kasa-tente: bölme uçlarında altın monogramlar).
+   */
+  texts?: {
+    u0: number;
+    u1: number;
+    text?: string;
+    glyphs?: { ch: string; mirror?: boolean }[];
+    join?: number;
+    fg?: string;
+    font?: string;
+    bold?: boolean;
+  }[];
+  /** v7: katlanır kollar: adet n ya da GÖRÜNEN u listesi us, renk (retract'ta varsayılan ~2.5 m arayla) */
+  arms?: { n?: number; us?: number[]; color?: string };
+  /** v7 (dutch): köşeyi saran çeyrek kubbe uç — start | end | both (303738122 GB köşe, r ≈0.7) */
+  dome?: 'start' | 'end' | 'both';
 }
 
 /** Yağmur borusu (varsayılan tam boy, koyu gri, Ø10 cm) */
@@ -918,6 +1179,11 @@ export interface Pipe {
   y1?: number;
   /** false → kat kelepçeleri çizilmez */
   brackets?: boolean;
+  /**
+   * v7 balkon gider boruları: s [k0, k1] katlarında döşemenin altından düşey boruya yatay parça + dirsek; len boy
+   * (gerçek m), side −1 (düşük u yönüne) / 1, y döşemeden kot (m, varsayılan −0.3). 1546358557 e0 ≈0.6 m, K1–K5.
+   */
+  stubs?: { s: [number, number]; len: number; side?: number; y?: number };
 }
 
 /** Tekil ekipman: klima dış ünitesi, çanak anten, kamera, bayrak */
@@ -940,6 +1206,13 @@ export interface Unit {
   off?: number;
   /** Kamera: çift (cephe boyunca iki yana bakan iki bullet kamera) */
   pair?: boolean;
+  /**
+   * v7: loca / girinti YAN duvarına monte (en yakın yan duvar; ön yüzü açıklığa bakar), off = cephe düzleminden içeri
+   * uzaklık (m). 1550614218 batı loca 2 K4 klima (güney yan duvar).
+   */
+  side?: boolean;
+  /** v7 kamera bakış yönü (derece): 0 = duvardan dışarı, +90 = cephe boyunca +u, −90 = −u (1480041300 e12) */
+  yaw?: number;
 }
 
 /** Yatay bant (görünen): subasman, kat silmesi vb. */
@@ -956,11 +1229,21 @@ export interface Band {
    * 'louvre': yatay lamelli alüminyum alın / güneşlik (dükkân saçağı): `color` lamel rengi, `shade` lamel arası
    * gölge rengi, `slats` lamel sayısı (verilmezse ≈0.15 m aralık), `proud` derinlik (≥ 0.06).
    */
-  style?: 'louvre';
+  /**
+   * v7 'tiles': çok renkli karo bandı (gökkuşağı seramik süpürgelik): `tile` karo boyu (m, 0.2), `colors` palet
+   * ("#rrggbb" listesi), `seq` görülen renk sırası (palet indeksleri; görülmediyse verme → tohumlu sıra, notta yaz),
+   * `color` derz rengi.
+   */
+  style?: 'louvre' | 'tiles';
   slats?: number;
   shade?: string;
   /** Derzli kaplama dokusu (Proj.clad ile aynı) */
-  clad?: { dir?: 'v' | 'h'; every: number; w?: number; color?: string };
+  clad?: CladSpec;
+  tile?: number;
+  colors?: string[];
+  seq?: number[];
+  /** v7: yüzey bitişi acp (kompozit panel) | matte */
+  finish?: 'acp' | 'matte';
 }
 
 /** Farklı renkli sıva alanı (görünen) */
@@ -971,8 +1254,16 @@ export interface Panel {
   y0: number;
   y1: number;
   color: 'plaster2' | 'strip' | 'fascia' | string;
+  /** Duvardan çıkıntı (m) */
+  proud?: number;
   /** Derzli kaplama dokusu (Proj.clad ile aynı; ör. 900000106 kahverengi kaplama 0.14 m dikey derz) */
-  clad?: { dir?: 'v' | 'h'; every: number; w?: number; color?: string };
+  clad?: CladSpec;
+  /** v7: Band ile aynı: tiles (karo bandı), finish (acp / matte) */
+  style?: 'louvre' | 'tiles';
+  tile?: number;
+  colors?: string[];
+  seq?: number[];
+  finish?: 'acp' | 'matte';
 }
 
 /** Bina girişi (görünen u; yükseklik zemin kattan) */
@@ -984,4 +1275,163 @@ export interface Entrance {
   canopy?: boolean;
   sign?: string;
   steps?: number;
+  /**
+   * v7: kapı eşiğinin GÖRÜNEN y'si — verilmezse zemin kat döşemesi (subasmansız blokta, plinthH 0, zemin). Sanal
+   * groundRaise'li bloklarda (MOSSA) kapı havada kalmasın.
+   */
+  y?: number;
+}
+
+/** Tabela yazı alanları (Sign ile aynı anlamda; blade / vinyl / roofsign / screen) */
+export interface SignTextSpec {
+  text?: string;
+  lines?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[];
+  bg?: string;
+  fg: string;
+  border?: string;
+  font?: 'sans' | 'serif' | 'script' | 'condensed';
+  bold?: boolean;
+  lit?: boolean;
+  shape?: 'round' | 'oval';
+  glyphs?: { ch: string; mirror?: boolean }[];
+  join?: number;
+  /** Görünen büyük harf yüksekliği (m) */
+  capH?: number;
+  align?: 'left' | 'center' | 'right';
+  /** Okunamayan yazı / logo tarifi (çizilmez) */
+  logo?: string;
+}
+
+/**
+ * v7: çapraz tabela çubuğu / gergi / konsol: uçlar a, e = [GÖRÜNEN u, GÖRÜNEN y, duvardan uzaklık m], yarıçap r (m,
+ * 0.015), renk (900000101 K4 DİL VE KONUŞMA tabelasının siyah çapraz çubukları).
+ */
+export interface Rod {
+  t: 'rod';
+  a: [number, number, number];
+  e: [number, number, number];
+  r?: number;
+  color?: string;
+}
+
+/**
+ * v7: giriş basamak bloğu: görünen u0..u1 (off düzleminde), en üst basamak kotu `top` (gerçek m, tabandan) ya da
+ * `yTop` (görünen y), n basamak, tread basamak derinliği (m, 0.3), off duvardan uzaklık (m; en üst basamağın arka
+ * kenarı), renk. Yandan görülmeyen derinlik yazılmaz (303738122 beyaz basamak: derinlik görülmedi → bekliyor).
+ */
+export interface Steps {
+  t: 'steps';
+  u0: number;
+  u1: number;
+  top?: number;
+  yTop?: number;
+  n?: number;
+  tread?: number;
+  off?: number;
+  color?: string;
+}
+
+/**
+ * v7: balkon / loca EŞYASI (ölçülen boy ve renk): kind "box" (dolap, beyaz kutu; color gövde, color2 ön yüz) |
+ * "swing" (örtülü bahçe salıncağı: color tente + minder, color2 metal çerçeve). Görünen u0..u1 × y0..y1 (ön yüzü `at`
+ * düzleminde: + önde / − cephe hattının gerisinde m), s kat (loca araması), d derinlik (m; görülmediyse YAZMA — öğe
+ * pending'de kalsın), mount: wall (duvara / loca arka duvarına dayalı, arkası off kadar açık) | side (loca yan
+ * duvarına dayalı: u0..u1 yan duvardan çıkıntısı, d yan duvar boyunca boyu, off cephe hattından içeri) | front
+ * (balkon ön kenarının off gerisinde). 1480041300 e8 K0 salıncak, K1 beyaz dolap.
+ */
+export interface Box {
+  t: 'box';
+  kind?: 'box' | 'swing';
+  u0: number;
+  u1: number;
+  y0: number;
+  y1: number;
+  at?: number;
+  s: number;
+  d: number;
+  off?: number;
+  mount?: 'wall' | 'side' | 'front';
+  color?: string;
+  color2?: string;
+}
+
+/**
+ * v7: BAYRAK (cepheye dik, çift yüzlü) tabela: görünen u (duvardaki montaj noktası), görünen y0..y1; pano duvardan
+ * `gap` (m, 0.1) ile gap + w (m, 0.8) arasında, kalınlık d (m, 0.12). Yüz A +u yönüne bakar (text / lines), yüz B −u
+ * yönüne (textB / linesB; verilmezse A ile aynı — B yüzü görülmediyse notta yaz). bracket kind arm (üstte yatay kol,
+ * varsayılan) | plate (duvar plakası) | none, renk. Işıklıysa lit.
+ */
+export interface Blade extends SignTextSpec {
+  t: 'blade';
+  u: number;
+  y0: number;
+  y1: number;
+  w?: number;
+  gap?: number;
+  d?: number;
+  textB?: string;
+  linesB?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[];
+  bracket?: { kind?: 'arm' | 'plate' | 'none'; color?: string };
+}
+
+/**
+ * v7: CAM ÜSTÜ FOLYO YAZI (ofis adı, "KİRALIK / SATILIK", vitrin yazısı; herhangi bir katta): pencere camı düzleminde
+ * (kutu değil) görünen u0..u1 × y0..y1 — pencerenin yalnız bir kısmını kaplayabilir. bg verilirse dolu folyo bandı
+ * (buzlu şerit), yoksa yalnız harfler. off: duvar düzleminden uzaklık (m; verilmezse pencere camı, −0.096; çıkma
+ * camında çıkma d + 0.016).
+ */
+export interface Vinyl extends SignTextSpec {
+  t: 'vinyl';
+  u0: number;
+  u1: number;
+  y0: number;
+  y1: number;
+  off?: number;
+}
+
+/**
+ * v7: ÇATI HARF TABELASI: çatı kenarının `setback` (m) gerisinde çelik iskelet üstünde tek tek 3B harfler; görünen
+ * u0..u1 × y0..y1 harf alt / üst (setback düzleminde düzeltilir), d harf derinliği (m, 0.1), frame {color, h (harf
+ * altı kafes yüksekliği m), posts (dikme sayısı)}. bg → harflerin arkasında dolu levha.
+ */
+export interface RoofSign extends SignTextSpec {
+  t: 'roofsign';
+  u0: number;
+  u1: number;
+  y0: number;
+  y1: number;
+  setback?: number;
+  d?: number;
+  frame?: { color?: string; h?: number; posts?: number };
+}
+
+/**
+ * v7: LED EKRAN (gündüz de parlak): kasa görünen u0..u1 × y0..y1 (ön yüzü off + d düzleminde), kasa derinliği d (m,
+ * 0.12), off duvardan (m), frame kasa rengi, bezel çerçeve payı (m, 0.05), görülen içerik: blocks (renk alanları, 0..1
+ * alt sol 0,0) + text / lines. İçerik değişkense görülen karedeki hali yazılır (tarih notta).
+ */
+export interface Screen extends SignTextSpec {
+  t: 'screen';
+  u0: number;
+  u1: number;
+  y0: number;
+  y1: number;
+  d?: number;
+  off?: number;
+  frame?: string;
+  bezel?: number;
+  blocks?: { x0: number; x1: number; y0: number; y1: number; color: string }[];
+}
+
+/**
+ * v7: NEON / LED ŞERİT (gece parlar): cephe düzleminde görünen [u, y] çoklu çizgi (off düzleminde), closed (kapalı
+ * çevre), tüp çapı d (m, 0.02), off duvardan (m, 0.03), color ışık rengi (gündüz renkli cam).
+ */
+export interface Neon {
+  t: 'neon';
+  pts: [number, number][];
+  closed?: boolean;
+  d?: number;
+  off?: number;
+  color: string;
 }

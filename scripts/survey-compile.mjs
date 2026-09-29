@@ -81,8 +81,11 @@ async function main() {
       if (!pano || Number(m?.[2]) !== e || sv.trueCoords) return { D: 1e6, uF: L / 2, yCam: CAM_H, base };
       const tx = (b[0] - a[0]) / L;
       const tz = (b[1] - a[1]) / L;
+      // v7: cal.dist — ortofoto eski bir taban izi üzerinde üretildiyse (kamera–cephe uzaklığı farklı) derinlik
+      // düzeltmeleri (balkon d, behind, lamba, tabela off …) ortofotonun üretildiği uzaklıkla yapılır
+      const dist = Number(spec.cal?.dist);
       return {
-        D: Math.abs((pano.x - a[0]) * -tz + (pano.z - a[1]) * tx),
+        D: dist > 0.5 ? dist : Math.abs((pano.x - a[0]) * -tz + (pano.z - a[1]) * tx),
         uF: (pano.x - a[0]) * tx + (pano.z - a[1]) * tz,
         yCam: H(pano.x, pano.z) + CAM_H - base,
         base,
@@ -147,6 +150,23 @@ async function main() {
         const Le = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
         return ((x - a[0]) * (b[0] - a[0]) + (z - a[1]) * (b[1] - a[1])) / Le;
       };
+      // v7: düzensiz düşey kaplama derzleri (clad.us, görünen) → gerçek u
+      const cladOf = (cl) => (cl?.us?.length ? { ...cl, us: cl.us.map((u) => r2(c.U(u))) } : cl);
+      // v7: tabela yazı alanları (sign / blade / vinyl / roofsign / screen): capH görünen harf boyu → gerçek (düzlem d)
+      const textOf = (it, d = 0) => ({
+        text: it.text ?? '',
+        lines: it.lines ?? null,
+        bg: it.bg ?? null,
+        fg: it.fg ?? '#ffffff',
+        border: it.border ?? null,
+        font: it.font ?? 'sans',
+        bold: it.bold !== false,
+        lit: !!it.lit,
+        ...(it.shape ? { shape: it.shape } : {}),
+        ...(it.glyphs ? { glyphs: it.glyphs, join: it.join ?? null } : {}),
+        ...(it.capH ? { capH: r2(it.capH * c.sY * c.depthK(d)) } : {}),
+        ...(it.align ? { align: it.align } : {}),
+      });
       const items = [];
       for (const it of s.items ?? []) {
         switch (it.t) {
@@ -193,6 +213,9 @@ async function main() {
               // Yatay kayıtlar: referans kattaki görünen y → kat döşemesinden gerçek yükseklik
               ...(it.hbars?.length ? { hbars: it.hbars.map((y) => r2(relW(y, it.k))) } : {}),
               ...(it.stair ? { stair: true } : {}),
+              // v7: yuvarlak pencere (oculus: u0..u1 × y0..y1 kutusunda elips), desenli cam folyo
+              ...(it.shape === 'round' ? { shape: 'round' } : {}),
+              ...(it.film?.color ? { film: { color: it.film.color, pattern: it.film.pattern ?? null } } : {}),
             });
             break;
           }
@@ -250,6 +273,7 @@ async function main() {
               floor: it.floor ?? null,
               ...(it.backS ? { backS: keyK(it.backS) } : {}),
               ...(it.sideS ? { sideS: keyK(it.sideS) } : {}),
+              ...(it.clad ? { clad: it.clad } : {}),
             });
             break;
           case 'mast':
@@ -291,6 +315,10 @@ async function main() {
               bg: it.bg ?? null,
               fg: it.fg ?? null,
               text: it.text ?? null,
+              // v7 (style print): satırlar, renk blokları (pankart oranında), file pankart
+              ...(it.lines?.length ? { lines: it.lines } : {}),
+              ...(it.blocks?.length ? { blocks: it.blocks } : {}),
+              ...(it.mesh ? { mesh: true } : {}),
             });
             break;
           }
@@ -310,6 +338,10 @@ async function main() {
               color: it.color ?? null,
               tip: it.tip ?? null,
               dir: it.dir ?? 'down',
+              // v7: kollu / eğik baş, payenin yan yüzünde montaj
+              ...(it.arm != null ? { arm: it.arm } : {}),
+              ...(it.tilt != null ? { tilt: it.tilt } : {}),
+              ...(it.side ? { side: it.side, off: it.off ?? null } : {}),
             });
             break;
           }
@@ -359,6 +391,7 @@ async function main() {
               d: it.depth ?? it.w ?? 0.45,
               color: it.color ?? null,
               cap: it.cap ?? (it.kind === 'chimney' || !it.kind ? { kind: 'hip' } : null),
+              ...(it.top ? { top: it.top } : {}),
             });
             break;
           }
@@ -388,6 +421,16 @@ async function main() {
               coping: it.coping ?? null,
               vault: it.vault ?? 0,
               roofC: it.roofC ?? null,
+              // v7: kısmi kemer (görünen u aralığı) ve arka alın yüzü
+              ...(it.clip?.length === 2
+                ? {
+                    clip: [
+                      r2(c.Ud(Math.min(it.clip[0], it.clip[1]), d)),
+                      r2(c.Ud(Math.max(it.clip[0], it.clip[1]), d)),
+                    ],
+                  }
+                : {}),
+              ...(it.backFace === false ? { backFace: false } : {}),
             });
             break;
           }
@@ -457,7 +500,17 @@ async function main() {
               ...(it.grille
                 ? { grille: keyK(it.grille), grilleC: it.grilleC ?? null, grilleW: it.grilleW ?? null }
                 : {}),
-              ...(it.spots ? { spots: it.spots } : {}),
+              // v7: ölçülen spot konumları (görünen u, tavanda ön kenardan inset içeride) → gerçek u
+              ...(it.spots
+                ? {
+                    spots: it.spots.us?.length
+                      ? {
+                          ...it.spots,
+                          us: it.spots.us.map((u) => r2(c.Ud(u, (it.d ?? 1.4) - (it.spots.inset ?? 0.5)))),
+                        }
+                      : it.spots,
+                  }
+                : {}),
               ...(it.postEvery ? { postEvery: it.postEvery } : {}),
               ...(it.postW ? { postW: it.postW } : {}),
               ...(it.hand ? { hand: keyK(it.hand) } : {}),
@@ -474,6 +527,26 @@ async function main() {
               ...(it.capTrim ? { capTrim: it.capTrim } : {}),
               ...(it.keepDoor ? { keepDoor: true } : {}),
               ...(it.flowerC?.length ? { flowerC: it.flowerC } : {}),
+              // v7 alanları
+              ...(it.potSpec
+                ? {
+                    potSpec: Object.fromEntries(
+                      Object.entries(keyK(it.potSpec)).map(([k, arr]) => [
+                        k,
+                        arr.map((q) => ({ ...q, u: r2(c.Ud(q.u, it.d ?? 1.4)) })),
+                      ]),
+                    ),
+                  }
+                : {}),
+              ...(it.chamfer != null ? { chamfer: it.chamfer } : {}),
+              ...(it.wrap ? { wrap: it.wrap } : {}),
+              ...(it.merge === false ? { merge: false } : {}),
+              ...(it.endIn != null ? { endIn: it.endIn, endShape: it.endShape ?? null } : {}),
+              ...(it.capGrid ? { capGrid: it.capGrid } : {}),
+              ...(it.grilleH ? { grilleH: keyK(it.grilleH) } : {}),
+              ...(it.grilleIn ? { grilleIn: true } : {}),
+              ...(it.cage ? { cage: keyK(it.cage), cageEvery: it.cageEvery ?? null } : {}),
+              ...(it.capOver != null ? { capOver: it.capOver } : {}),
             });
             break;
           }
@@ -497,7 +570,7 @@ async function main() {
                 ...(w.split ? { split: w.split } : {}),
                 ...(w.frameC ? { frameC: w.frameC } : {}),
               })),
-              ...(it.clad ? { clad: it.clad } : {}),
+              ...(it.clad ? { clad: cladOf(it.clad) } : {}),
               ...(it.topRail
                 ? {
                     topRail: it.topRail,
@@ -509,15 +582,22 @@ async function main() {
               ...(it.back ? { back: it.back } : {}),
               ...(it.topC ? { topC: it.topC } : {}),
               ...(it.cap ? { cap: it.cap } : {}),
+              ...(it.topGlassC ? { topGlassC: it.topGlassC } : {}),
+              ...(it.d1 != null ? { d1: it.d1 } : {}),
+              ...(it.finish ? { finish: it.finish } : {}),
             });
             break;
-          case 'sign':
+          case 'sign': {
+            // v7: off → tabela duvardan uzakta (balkon alnına monte): o düzlemde görünen u / y düzeltilir
+            const so = it.off != null ? it.off : null;
+            const Us = (u) => (so != null ? c.Ud(u, so) : c.U(u));
+            const Ys = (y) => (so != null ? absYd(y, so) : absY(y));
             items.push({
               t: 'sign',
-              u0: r2(c.U(Math.min(it.u0, it.u1))),
-              u1: r2(c.U(Math.max(it.u0, it.u1))),
-              y0: r2(absY(Math.min(it.y0, it.y1))),
-              y1: r2(absY(Math.max(it.y0, it.y1))),
+              u0: r2(Us(Math.min(it.u0, it.u1))),
+              u1: r2(Us(Math.max(it.u0, it.u1))),
+              y0: r2(Ys(Math.min(it.y0, it.y1))),
+              y1: r2(Ys(Math.max(it.y0, it.y1))),
               d: it.d ?? (it.style === 'letters' ? 0.04 : 0.12),
               text: it.text ?? '',
               lines: it.lines ?? null,
@@ -532,8 +612,15 @@ async function main() {
               ...(it.shape ? { shape: it.shape } : {}),
               ...(it.icon ? { icon: it.icon, iconC: it.iconC ?? null } : {}),
               ...(it.glyphs ? { glyphs: it.glyphs, join: it.join ?? null } : {}),
+              // v7: montaj uzaklığı, arkadan aydınlatma halesi, kanal harf arkası pano, ölçülen harf boyu, hiza
+              ...(so != null ? { off: so } : {}),
+              ...(it.halo ? { halo: it.halo } : {}),
+              ...(it.back ? { back: it.back } : {}),
+              ...(it.capH ? { capH: r2(it.capH * c.sY * c.depthK(so ?? 0)) } : {}),
+              ...(it.align ? { align: it.align } : {}),
             });
             break;
+          }
           case 'groove':
             items.push(
               it.dir === 'v'
@@ -582,6 +669,20 @@ async function main() {
               text: it.text ?? null,
               textColor: it.textColor ?? '#ffffff',
               ...(it.style ? { style: it.style } : {}),
+              // v7: valansta birden çok yazı / monogram, katlanır kollar, köşe çeyrek kubbesi
+              ...(it.texts?.length
+                ? {
+                    texts: it.texts.map((q) => ({
+                      ...q,
+                      u0: r2(c.U(Math.min(q.u0, q.u1))),
+                      u1: r2(c.U(Math.max(q.u0, q.u1))),
+                    })),
+                  }
+                : {}),
+              ...(it.arms
+                ? { arms: { ...it.arms, ...(it.arms.us?.length ? { us: it.arms.us.map((u) => r2(c.U(u))) } : {}) } }
+                : {}),
+              ...(it.dome ? { dome: it.dome } : {}),
             });
             break;
           case 'pipe':
@@ -595,6 +696,7 @@ async function main() {
                 ? { y0: r2(absY(Math.min(it.y0, it.y1))), y1: r2(absY(Math.max(it.y0, it.y1))) }
                 : {}),
               ...(it.brackets === false ? { brackets: false } : {}),
+              ...(it.stubs ? { stubs: it.stubs } : {}),
             });
             break;
           case 'ac':
@@ -611,6 +713,8 @@ async function main() {
               ...(it.color ? { color: it.color } : {}),
               ...(it.off != null ? { off: it.off } : {}),
               ...(it.pair ? { pair: true } : {}),
+              ...(it.side ? { side: true } : {}),
+              ...(it.yaw != null ? { yaw: it.yaw } : {}),
             });
             break;
           case 'band':
@@ -626,7 +730,12 @@ async function main() {
               ...(it.style ? { style: it.style } : {}),
               ...(it.slats ? { slats: it.slats } : {}),
               ...(it.shade ? { shade: it.shade } : {}),
-              ...(it.clad ? { clad: it.clad } : {}),
+              ...(it.clad ? { clad: cladOf(it.clad) } : {}),
+              // v7: çok renkli karo bandı (style tiles), yüzey bitişi (acp / matte)
+              ...(it.tile ? { tile: it.tile } : {}),
+              ...(it.colors?.length ? { colors: it.colors } : {}),
+              ...(it.seq?.length ? { seq: it.seq } : {}),
+              ...(it.finish ? { finish: it.finish } : {}),
             });
             break;
           case 'entrance':
@@ -638,8 +747,128 @@ async function main() {
               canopy: !!it.canopy,
               sign: it.sign ?? null,
               steps: it.steps ?? null,
+              // v7: kapı eşiği (görünen y → tabandan gerçek)
+              ...(it.y != null ? { y: r2(absY(it.y)) } : {}),
             });
             break;
+          // ── v7 öğeleri ──
+          case 'rod': {
+            // Tabela çubuğu / gergi: uçlar [görünen u, görünen y, duvardan uzaklık m]
+            const cv = (q) => {
+              const off = q[2] ?? 0;
+              return [r2(c.Ud(q[0], off)), r2(absYd(q[1], off)), off];
+            };
+            items.push({ t: 'rod', a: cv(it.a), e: cv(it.e), r: it.r ?? 0.015, color: it.color ?? null });
+            break;
+          }
+          case 'steps': {
+            const off = it.off ?? 0;
+            items.push({
+              t: 'steps',
+              u0: r2(c.Ud(Math.min(it.u0, it.u1), off)),
+              u1: r2(c.Ud(Math.max(it.u0, it.u1), off)),
+              top: it.top != null ? it.top : it.yTop != null ? r2(absYd(it.yTop, off)) : 0,
+              n: it.n ?? 2,
+              tread: it.tread ?? 0.3,
+              off,
+              color: it.color ?? null,
+            });
+            break;
+          }
+          case 'box': {
+            // Balkon / loca eşyası: görünen ön yüzü `at` düzleminde (+ önde / − geride m)
+            const at = it.at ?? 0;
+            items.push({
+              t: 'box',
+              kind: it.kind ?? 'box',
+              u0: r2(c.Ud(Math.min(it.u0, it.u1), at)),
+              u1: r2(c.Ud(Math.max(it.u0, it.u1), at)),
+              y0: r2(absYd(Math.min(it.y0, it.y1), at)),
+              y1: r2(absYd(Math.max(it.y0, it.y1), at)),
+              s: it.s ?? 0,
+              d: it.d ?? 0.4,
+              off: it.off ?? 0.02,
+              mount: it.mount ?? 'wall',
+              color: it.color ?? null,
+              color2: it.color2 ?? null,
+            });
+            break;
+          }
+          case 'blade': {
+            const w = it.w ?? 0.8;
+            const gap = it.gap ?? 0.1;
+            const dm = gap + w / 2;
+            items.push({
+              t: 'blade',
+              ...textOf(it, dm),
+              u: r2(c.U(it.u)),
+              y0: r2(absYd(Math.min(it.y0, it.y1), dm)),
+              y1: r2(absYd(Math.max(it.y0, it.y1), dm)),
+              w,
+              gap,
+              d: it.d ?? 0.12,
+              ...(it.textB != null ? { textB: it.textB } : {}),
+              ...(it.linesB?.length ? { linesB: it.linesB } : {}),
+              ...(it.bracket ? { bracket: it.bracket } : {}),
+            });
+            break;
+          }
+          case 'vinyl':
+            items.push({
+              t: 'vinyl',
+              ...textOf(it),
+              u0: r2(c.U(Math.min(it.u0, it.u1))),
+              u1: r2(c.U(Math.max(it.u0, it.u1))),
+              y0: r2(absY(Math.min(it.y0, it.y1))),
+              y1: r2(absY(Math.max(it.y0, it.y1))),
+              ...(it.off != null ? { off: it.off } : {}),
+            });
+            break;
+          case 'roofsign': {
+            const sb = it.setback ?? 1.0;
+            items.push({
+              t: 'roofsign',
+              ...textOf(it, -sb),
+              u0: r2(c.Ud(Math.min(it.u0, it.u1), -sb)),
+              u1: r2(c.Ud(Math.max(it.u0, it.u1), -sb)),
+              y0: r2(absYd(Math.min(it.y0, it.y1), -sb)),
+              y1: r2(absYd(Math.max(it.y0, it.y1), -sb)),
+              setback: sb,
+              d: it.d ?? 0.1,
+              ...(it.frame ? { frame: it.frame } : {}),
+            });
+            break;
+          }
+          case 'screen': {
+            const off = it.off ?? 0;
+            const dd = it.d ?? 0.12;
+            items.push({
+              t: 'screen',
+              ...textOf(it, off + dd),
+              u0: r2(c.Ud(Math.min(it.u0, it.u1), off + dd)),
+              u1: r2(c.Ud(Math.max(it.u0, it.u1), off + dd)),
+              y0: r2(absYd(Math.min(it.y0, it.y1), off + dd)),
+              y1: r2(absYd(Math.max(it.y0, it.y1), off + dd)),
+              d: dd,
+              off,
+              frame: it.frame ?? null,
+              ...(it.bezel != null ? { bezel: it.bezel } : {}),
+              ...(it.blocks?.length ? { blocks: it.blocks } : {}),
+            });
+            break;
+          }
+          case 'neon': {
+            const off = it.off ?? 0.03;
+            items.push({
+              t: 'neon',
+              pts: (it.pts ?? []).map(([u, y]) => [r2(c.Ud(u, off)), r2(absYd(y, off))]),
+              closed: !!it.closed,
+              d: it.d ?? 0.02,
+              off,
+              color: it.color ?? null,
+            });
+            break;
+          }
         }
       }
       return items;
@@ -666,6 +895,15 @@ async function main() {
           'cloth',
           'lamp',
           'roofobj',
+          // v7: tabela / ışık / eşya / basamak öğeleri de yalnız görüldüğü yerde
+          'blade',
+          'vinyl',
+          'roofsign',
+          'screen',
+          'neon',
+          'rod',
+          'box',
+          'steps',
         ]);
         items = src
           .filter((it) => !OBSERVED_ONLY.has(it.t))
@@ -675,16 +913,25 @@ async function main() {
               delete o.curt;
               delete o.shut;
               delete o.grille;
+              delete o.film;
             } else if (o.t === 'bal') {
               o.tint = {};
               delete o.net;
               delete o.pots;
+              delete o.potSpec;
+              delete o.cage;
+              delete o.cageEvery;
+              delete o.grilleH;
+              delete o.grilleIn;
               // Görülmemiş kenarda perde / parmaklık / stor durumu bilinmez
               delete o.curtC;
               delete o.curtF;
               delete o.grille;
               delete o.blinds;
-            } else if (o.t === 'awning') o.text = null;
+            } else if (o.t === 'awning') {
+              o.text = null;
+              delete o.texts;
+            }
             if (o.t === 'win') {
               delete o.curtC;
               delete o.curtF;
@@ -692,6 +939,15 @@ async function main() {
             if ('u' in o) o.u = r2(M(o.u));
             if (o.t === 'ribbon') o.pts = o.pts.map(([u, y]) => [r2(M(u)), y]);
             if ('apex' in o && o.apex != null) o.apex = r2(M(o.apex));
+            // v7: kenar boyu u listeleri / aralıkları da aynalanır
+            if (o.clip) {
+              const a = M(o.clip[0]);
+              const b = M(o.clip[1]);
+              o.clip = [r2(Math.min(a, b)), r2(Math.max(a, b))];
+            }
+            if (o.clad?.us) o.clad = { ...o.clad, us: o.clad.us.map((u) => r2(M(u))) };
+            if (o.spots?.us) o.spots = { ...o.spots, us: o.spots.us.map((u) => r2(M(u))) };
+            if (o.arms?.us) o.arms = { ...o.arms, us: o.arms.us.map((u) => r2(M(u))) };
             if ('u0' in o) {
               const a = M(o.u0);
               const b = M(o.u1);
