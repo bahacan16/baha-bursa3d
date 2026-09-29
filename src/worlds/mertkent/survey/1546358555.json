@@ -35,7 +35,9 @@
     "Kanat kuzey cepheleri (10, 14): bir yanda büyük, diğer yanda köşeyi saran balkon yığını, ortada koyu gri duvarda 3 bölmeli pencere sütunu; beyaz panolar yalnız K1 hizasında (556'da K0/K3). Yığınların üstünde açık gri, ortada koyu gri alınlık → roof gable [10, 14].",
     "Balkonlar 556’dan daha az camlı: doğu kanat kuzeyi tamamen açık (saksı bitkileri), batı kanatta K0/K2/K3 camlı. Doğu (7) ve batı (17) cepheleri tüm genişlikte balkon yığını; doğuda ortada boru.",
     "Güney cepheler (0–6, 18, 19) görülmedi (XBa6 karesi önündeki başka binanın tabelasıyla kapalı); hava fotoğrafındaki tüm genişlik balkon döşemelerinden tahmin. Giriş görülmedi; çekirdeğin güney yüzüne (2) tahmini lobi girişi.",
-    "Çekirdeğin kuzeyinde (12) çitte kırmızı SATILIK/KİRALIK levhası (bina değil)."
+    "Çekirdeğin kuzeyinde (12) çitte kırmızı SATILIK/KİRALIK levhası (bina değil).",
+    "v3 (korkuluk/renk): görünen tüm yığınlarda döşeme alnı + dolu parapet (döşemeden ≈0.55 m) + tek ara borulu, ~1.2 m dikmeli paslanmaz küpeşte (≈0.92 m) → rail solidTube, parapetH 0.55, railC #d0d6d9. 562/556’dan farklı olarak bu blokta koyu gri alın K3 (en üst balkon) ve K0’da (#50575f; gölgede ölçülen K0 bandı #2e3940 ≈ koyu duvar #333e47, beyaz K1 bandı #8e949f); K1 ve K2 alınları beyaz.",
+    "v3: binada tabela yok. Batı çitinde kırmızı-beyaz emlak levhası (“…ADA … 345 52 88”, okunamıyor) ve elektrik panosunda SİNEKLİK etiketi, kuzeyde SATILIK/KİRALIK levhası — hepsi çit/sokak eşyası, binada değil. Çekirdek terasındaki yeşil çatılı pergola şemada yazılamaz."
   ],
   "edges": [
     {
@@ -69,7 +71,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "bal",
@@ -81,7 +94,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "pipe",
@@ -95,7 +119,7 @@
           "color": "plinth"
         }
       ],
-      "note": "Batı kanat güney cephesi; görülmedi. Hava fotoğrafı: tüm genişlikte balkon döşemeleri → iki açık yığın + boru (tahmini). u gerçek metre (batıdan)."
+      "note": "Batı kanat güney cephesi; görülmedi. Hava fotoğrafı: tüm genişlikte balkon döşemeleri → iki açık yığın + boru (tahmini). u gerçek metre (batıdan). v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     },
     {
       "edge": 1,
@@ -128,7 +152,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "panel",
@@ -139,7 +174,7 @@
           "color": "plaster2"
         }
       ],
-      "note": "Güney girintisinin batı duvarı; görülmedi (tahmini yığın ucu + koyu duvar)."
+      "note": "Güney girintisinin batı duvarı; görülmedi (tahmini yığın ucu + koyu duvar). v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     },
     {
       "edge": 2,
@@ -192,7 +227,7 @@
           "canopy": true
         }
       ],
-      "note": "Çekirdeğin güney yüzü; görülmedi. Merdiven pencereleri + tahmini lobi girişi."
+      "note": "Çekirdeğin güney yüzü; görülmedi. Merdiven pencereleri + tahmini lobi girişi. v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     },
     {
       "edge": 3,
@@ -201,7 +236,7 @@
       "copyOf": 1,
       "mirror": true,
       "items": [],
-      "note": "Güney girintisinin doğu duvarı; batı eşi (1) ayna kopyası."
+      "note": "Güney girintisinin doğu duvarı; batı eşi (1) ayna kopyası. v3: 1’in ayna kopyası (korkuluk/alın tahmini dahil)."
     },
     {
       "edge": 4,
@@ -234,7 +269,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "bal",
@@ -246,7 +292,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "pipe",
@@ -260,7 +317,7 @@
           "color": "plinth"
         }
       ],
-      "note": "Doğu kanat güney cephesi; görülmedi. 0 ile aynı tahmin. u gerçek metre (batıdan)."
+      "note": "Doğu kanat güney cephesi; görülmedi. 0 ile aynı tahmin. u gerçek metre (batıdan). v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     },
     {
       "edge": 5,
@@ -293,10 +350,21 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         }
       ],
-      "note": "GD köşenin doğu yüzü; XBa6 karesi başka binanın tabelasıyla kapalı. Güney yığınının köşe devamı (tahmini)."
+      "note": "GD köşenin doğu yüzü; XBa6 karesi başka binanın tabelasıyla kapalı. Güney yığınının köşe devamı (tahmini). v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     },
     {
       "edge": 6,
@@ -318,7 +386,8 @@
           ]
         ]
       },
-      "items": []
+      "items": [],
+      "note": "undefined v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     },
     {
       "edge": 7,
@@ -358,6 +427,17 @@
           ],
           "tint": {
             "0": "blinds"
+          },
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
           }
         },
         {
@@ -370,7 +450,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "pipe",
@@ -384,7 +475,7 @@
           "color": "plinth"
         }
       ],
-      "note": "nxqv referans (SyTa teyit, 26 m eğik). Doğu cephe: tüm genişlikte iki açık balkon yığını (koyu gri arka duvar, beyaz alınlıklar, borulu korkuluk), arada tam boy boru; güney yığında K0 stor perdeli cam; tepede düz saçak plağı, üstünde iki küçük üçgen havalandırma alınlığı. Kat çizgileri korkuluk hizalarından."
+      "note": "nxqv referans (SyTa teyit, 26 m eğik). Doğu cephe: tüm genişlikte iki açık balkon yığını (koyu gri arka duvar, beyaz alınlıklar, borulu korkuluk), arada tam boy boru; güney yığında K0 stor perdeli cam; tepede düz saçak plağı, üstünde iki küçük üçgen havalandırma alınlığı. Kat çizgileri korkuluk hizalarından. v3: iki yığın da beyaz dolu parapet (~0.55 m) + tek ara borulu paslanmaz korkuluk; K3 alnı koyu gri (nxqv ortofotosu); K0 alnı çit/ağaç arkasında, bloğun diğer cephelerindeki gibi koyu yazıldı."
     },
     {
       "edge": 8,
@@ -418,10 +509,21 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         }
       ],
-      "note": "5Owm referans (nxqv teyit). KD girintisinin kuzey yüzü: köşeyi saran açık balkon yığını, üstünde açık gri alınlık."
+      "note": "5Owm referans (nxqv teyit). KD girintisinin kuzey yüzü: köşeyi saran açık balkon yığını, üstünde açık gri alınlık. v3: korkuluk solidTube, K3 alnı koyu (5Owm); K0 görünmüyor (blok dili: koyu)."
     },
     {
       "edge": 9,
@@ -463,10 +565,21 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         }
       ],
-      "note": "nxqv referans (SyTa teyit). KD köşenin doğu yüzü: güneyde koyu gri duvar (açık gri silmeler), kuzeyde kuzey cephenin doğu yığınının köşeyi dönen açık balkonları."
+      "note": "nxqv referans (SyTa teyit). KD köşenin doğu yüzü: güneyde koyu gri duvar (açık gri silmeler), kuzeyde kuzey cephenin doğu yığınının köşeyi dönen açık balkonları. v3: korkuluk solidTube; K2 korkuluğunda kırmızı örtü (10 ile aynı daire); K3 ve K0 alnı koyu (blok dili, K3 ortofotoda seçiliyor)."
     },
     {
       "edge": 10,
@@ -500,7 +613,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "panel",
@@ -545,7 +669,13 @@
             0,
             3
           ],
-          "split": 3
+          "split": 3,
+          "curt": {
+            "K0": "tul-yan",
+            "K1": "tul-yan",
+            "K2": "tul",
+            "K3": "tul"
+          }
         },
         {
           "t": "panel",
@@ -581,7 +711,18 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         },
         {
           "t": "band",
@@ -590,7 +731,7 @@
           "color": "plinth"
         }
       ],
-      "note": "4hcO teyit. Doğu kanat kuzey cephesi: doğuda açık balkon yığını (K1 korkuluğunda kırmızı örtü; doğusunda KD girintisine dönen balkonlar), beyaz pano (yalnız K1 hizası), koyu gri duvarda 3 bölmeli pencere sütunu, beyaz pano, batıda geniş açık balkon yığını (saksı bitkileri, kenar 11’e döner). Tüm balkonlar açık (cam yok). Üstte açık gri alınlıklar, ortada koyu gri alınlık tepesi."
+      "note": "4hcO teyit. Doğu kanat kuzey cephesi: doğuda açık balkon yığını (K1 korkuluğunda kırmızı örtü; doğusunda KD girintisine dönen balkonlar), beyaz pano (yalnız K1 hizası), koyu gri duvarda 3 bölmeli pencere sütunu, beyaz pano, batıda geniş açık balkon yığını (saksı bitkileri, kenar 11’e döner). Tüm balkonlar açık (cam yok). Üstte açık gri alınlıklar, ortada koyu gri alınlık tepesi. v3 (RW5 ortofotosu yakın): iki yığın tüm katlar açık; K1, K2 alınları beyaz, K3 alnı KOYU gri, K0 alnı koyu gri (bodrum duvarıyla aynı ton); beyaz dolu parapet (~0.55 m) + tek ara borulu paslanmaz korkuluk, K3 üstünde gri şapka. Doğu yığın K2 korkuluğunda kırmızı örtüler; batı yığın K0–K3 korkuluklarında beyaz saksılar/çiçekler, K3 üstünde çekirdek terasının yeşil pergolası görünüyor. Pencere perdeleri: K0 tül + bej fon, K1 tül + turuncu/bej fon, K2 beyaz tül, K3 beyaz tül (bir kanat perdesiz)."
     },
     {
       "edge": 11,
@@ -624,10 +765,21 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         }
       ],
-      "note": "TRta referans (eğik). Doğu kanadın kuzey ucunun batı yüzü: kuzeydeki geniş açık yığının köşeyi saran devamı (saksılar), camsız. Kat çizgileri korkuluk hizalarından."
+      "note": "TRta referans (eğik). Doğu kanadın kuzey ucunun batı yüzü: kuzeydeki geniş açık yığının köşeyi saran devamı (saksılar), camsız. Kat çizgileri korkuluk hizalarından. v3: korkuluk solidTube, K3/K0 alnı koyu (10 ile sürekli)."
     },
     {
       "edge": 12,
@@ -674,7 +826,7 @@
           "split": 1
         }
       ],
-      "note": "4hcO referans. Geri çekilmiş çekirdeğin kuzey yüzü: önünde doğu kanadın batı balkonları (11) görünüyor; arkada koyu gri kule. 556/13 gibi merdiven pencereleri varsayıldı. Çitte kırmızı SATILIK levhası."
+      "note": "4hcO referans. Geri çekilmiş çekirdeğin kuzey yüzü: önünde doğu kanadın batı balkonları (11) görünüyor; arkada koyu gri kule. 556/13 gibi merdiven pencereleri varsayıldı. Çitte kırmızı SATILIK levhası. v3: merdiven pencereleri perdesiz — perde yazılmadı."
     },
     {
       "edge": 13,
@@ -724,10 +876,21 @@
           "tint": {
             "2": "clear",
             "3": "clear"
+          },
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
           }
         }
       ],
-      "note": "4hcO referans (RW5 teyit). Batı kanadın kuzey ucunun doğu yüzü: güneyde koyu gri çekirdek duvarı, kuzeyde kuzey cephedeki camlı yığının (14 başı) köşeyi saran devamı (K2–K3 camlı). Üstte çekirdek terasında yeşil pergola."
+      "note": "4hcO referans (RW5 teyit). Batı kanadın kuzey ucunun doğu yüzü: güneyde koyu gri çekirdek duvarı, kuzeyde kuzey cephedeki camlı yığının (14 başı) köşeyi saran devamı (K2–K3 camlı). Üstte çekirdek terasında yeşil pergola. v3: korkuluk solidTube, K3 ve K0 alnı koyu (14 doğu yığınıyla sürekli)."
     },
     {
       "edge": 14,
@@ -771,6 +934,17 @@
             "0": "blinds",
             "2": "clear",
             "3": "dark"
+          },
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
           }
         },
         {
@@ -816,7 +990,13 @@
             0,
             3
           ],
-          "split": 3
+          "split": 3,
+          "curt": {
+            "K0": "tul",
+            "K1": "tul-yan",
+            "K2": "tul-yan",
+            "K3": "tul"
+          }
         },
         {
           "t": "panel",
@@ -858,6 +1038,17 @@
           ],
           "tint": {
             "2": "clear"
+          },
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
           }
         },
         {
@@ -867,7 +1058,7 @@
           "color": "plinth"
         }
       ],
-      "note": "TRta referans (XO-B teyit). Batı kanat kuzey cephesi: doğuda büyük yığın (K0 beyaz stor, K2 şeffaf, K3 koyu yansımalı cam balkon; K1 açık, arkada balkon kapıları), beyaz pano (K1 hizası), koyu gri duvarda 3 bölmeli pencere sütunu, beyaz pano, batıda KB köşesini saran yığın (K2 camlı, diğerleri açık; üstünde geniş saçak). Üstte alınlıklar (tepe ≈15.6 görünen)."
+      "note": "TRta referans (XO-B teyit). Batı kanat kuzey cephesi: doğuda büyük yığın (K0 beyaz stor, K2 şeffaf, K3 koyu yansımalı cam balkon; K1 açık, arkada balkon kapıları), beyaz pano (K1 hizası), koyu gri duvarda 3 bölmeli pencere sütunu, beyaz pano, batıda KB köşesini saran yığın (K2 camlı, diğerleri açık; üstünde geniş saçak). Üstte alınlıklar (tepe ≈15.6 görünen). v3 (TRta ortofotosu yakın): doğu yığın K0 camlı beyaz yatay lamelli stor, K1 açık, K2 camlı şeffaf, K3 camlı; K3 ve K0 alnı KOYU gri, K1/K2 beyaz; tümü beyaz/koyu dolu parapet + tek ara borulu korkuluk. Batı (KB) yığın: K2 camlı şeffaf, K0/K1/K3 açık, K3 alnı koyu, K3 tavanında sarkan bitki/file. Pencere perdeleri: K0 beyaz tül, K1 tül + koyu şerit fon, K2 tül + koyu fon, K3 beyaz tül."
     },
     {
       "edge": 15,
@@ -907,6 +1098,17 @@
           ],
           "tint": {
             "2": "clear"
+          },
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
           }
         },
         {
@@ -916,7 +1118,7 @@
           "y": 4.6
         }
       ],
-      "note": "n1yU referans (4bB2 teyit). KB girintisinin batı yüzü: köşe balkon yığını (K2 camlı, diğerleri açık borulu korkuluk), K0 arka duvarında klima. Kat çizgileri korkuluk hizalarından."
+      "note": "n1yU referans (4bB2 teyit). KB girintisinin batı yüzü: köşe balkon yığını (K2 camlı, diğerleri açık borulu korkuluk), K0 arka duvarında klima. Kat çizgileri korkuluk hizalarından. v3 (n1yU 150 yakın): K2 camlı (içeride kapı), K0/K1/K3 açık; K3 ve K0 alnı koyu gri (K0 bandı ölçüldü #2e3940 gölge, koyu duvar #333e47), K1/K2 beyaz; K0 arka duvarında klima."
     },
     {
       "edge": 16,
@@ -956,10 +1158,21 @@
           ],
           "tint": {
             "2": "blinds"
+          },
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
           }
         }
       ],
-      "note": "XO-B referans (n1yU teyit). KB girintisinin kuzey yüzü: aynı köşe yığını (K2 beyaz stor perdeli cam, diğerleri açık), tepede kalın saçak plağı."
+      "note": "XO-B referans (n1yU teyit). KB girintisinin kuzey yüzü: aynı köşe yığını (K2 beyaz stor perdeli cam, diğerleri açık), tepede kalın saçak plağı. v3: korkuluk solidTube, K3/K0 alnı koyu."
     },
     {
       "edge": 17,
@@ -1001,6 +1214,17 @@
           "tint": {
             "2": "dark",
             "3": "blinds"
+          },
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
           }
         },
         {
@@ -1010,7 +1234,7 @@
           "color": "plinth"
         }
       ],
-      "note": "n1yU referans (4bB2 teyit; yakın ve eğik, büyütme çok). Batı cephe: tüm genişlikte, köşeleri saran balkon yığını; K3 tül perdeli cam, K2 koyu cam (güney yarı), K0–K1 açık; koyu gri arka duvar. Kat çizgileri korkuluk hizalarından."
+      "note": "n1yU referans (4bB2 teyit; yakın ve eğik, büyütme çok). Batı cephe: tüm genişlikte, köşeleri saran balkon yığını; K3 tül perdeli cam, K2 koyu cam (güney yarı), K0–K1 açık; koyu gri arka duvar. Kat çizgileri korkuluk hizalarından. v3 (n1yU 150/159): K3 camlı (kısmen beyaz tül) + koyu alın, K2 camlı + beyaz alın, K1 ve K0 açık; K0 alnı koyu gri. Tümü dolu parapet + tek ara borulu korkuluk."
     },
     {
       "edge": 18,
@@ -1043,10 +1267,21 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         }
       ],
-      "note": "GB girintisinin güney yüzü; görülmedi. Balkon döşemeleri (tahmini)."
+      "note": "GB girintisinin güney yüzü; görülmedi. Balkon döşemeleri (tahmini). v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     },
     {
       "edge": 19,
@@ -1079,10 +1314,21 @@
             3
           ],
           "cap": true,
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "*": "solidTube"
+          },
+          "railC": "#d0d6d9",
+          "parapetH": {
+            "*": 0.55
+          },
+          "fasciaC": {
+            "K0": "#50575f",
+            "K3": "#50575f"
+          }
         }
       ],
-      "note": "GB girintisinin batı yüzü; görülmedi. Balkon döşemeleri (tahmini)."
+      "note": "GB girintisinin batı yüzü; görülmedi. Balkon döşemeleri (tahmini). v3: korkuluk/alın (solidTube, K0 ve K3 alnı koyu) GÖRÜLMEDİ — bloğun görünen yığınlarındaki dilden tahmini; cam/perde bilinmiyor."
     }
   ]
 }

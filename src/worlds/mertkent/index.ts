@@ -71,11 +71,18 @@ const FACADES_ALL = facadesData as unknown as Record<string, CompiledBlock>;
 const SURVEYED_EXTRA = Object.keys(FACADES_ALL)
   .map(Number)
   .filter((id) => !MERTKENT_BUILDINGS.includes(id) && id !== SALUS_BUILDING);
+/**
+ * OSM'de bina diye çizilmiş ama bina olmayan kayıtlar (doğrulandı, çizilmez).
+ * 1541439439/40: Özlüce kavşağı batısı boş arsa — hava fotoğrafında gölgesiz, çim bitmiş beton plaklar; Street View
+ * 2014 ve 2025'te boş alan + "Bursa Vergi Dairesi Başkanlığı Hizmet Binası Proje Alanıdır" levhası.
+ */
+const NOT_BUILDINGS = [1541439439, 1541439440];
 export const HANDMADE_IDS = new Set([
   ...MERTKENT_BUILDINGS,
   OZHAN_BUILDING,
   SALUS_BUILDING,
   ...SURVEYED_EXTRA,
+  ...NOT_BUILDINGS,
 ]);
 
 const SALUS_STYLE: ApartmentStyle = {
@@ -734,6 +741,14 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetUnits: -9,
     }),
     gateGrey: std({ color: 0x8e9194, roughness: 0.45, metalness: 0.5 }),
+    mkGroove: std({
+      color: 0x55544f,
+      roughness: 0.95,
+      polygonOffset: true,
+      polygonOffsetFactor: -3,
+      polygonOffsetUnits: -3,
+    }),
+    mkNet: std({ map: T.meshFenceTexture(), color: 0x202020, alphaTest: 0.3, side: DS, roughness: 0.9 }),
     mkShutter: std({ map: T.shutterTexture(), roughness: 0.5, metalness: 0.45, side: DS }),
     barrierOrange: std({ color: 0xe06a1e, roughness: 0.5 }),
     barrierWhite: std({ color: 0xeeeeea, roughness: 0.5 }),
@@ -1007,6 +1022,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   };
   const signFace = (sg: {
     text: string;
+    lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
     bg: string | null;
     fg: string;
     border: string | null;
@@ -1017,7 +1033,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     w: number;
     h: number;
   }): string => {
-    const k = `sign_${JSON.stringify([sg.text, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10)])}`;
+    const k = `sign_${JSON.stringify([sg.text, sg.lines ?? null, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10)])}`;
     if (!extraMats[k]) {
       if (typeof document === 'undefined')
         extraMats[k] = new THREE.MeshStandardMaterial({ color: sg.bg ?? sg.fg });
@@ -1043,7 +1059,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // Ölçülmüş sokak: kaldırım, bordür, sokak eşyası (street-plan.json); varsa eski tahmini kaldırım çizilmez
   const street =
     (STREET_PLAN.sidewalks?.length ?? 0) + (STREET_PLAN.street?.length ?? 0) > 0
-      ? buildStreetPlan(b, STREET_PLAN, o.H, roadGapFn(o.simple, true))
+      ? buildStreetPlan(b, STREET_PLAN, o.H, roadGapFn(o.simple, true), { signFace, colorKey })
       : null;
   const walkSkip = street ? street.covers : undefined;
   const ringBase = (r: V2[]) => Math.min(...r.map((p) => o.H(p[0], p[1])));

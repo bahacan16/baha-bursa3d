@@ -230,8 +230,14 @@ vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
     // Zebra perde: yatay bantlar (yarı saydam / opak)
     float band = step(0.5, fract(y * 5.5 + h1(seed) ));
     col = mix(mix(room, vec3(0.8, 0.78, 0.74), 0.55), vec3(0.83, 0.82, 0.78), band);
-  } else {
+  } else if (kind < 6.5) {
     col = room * 0.6;
+  } else {
+    // Vitrin: derin, loş dükkân içi — tavanda spot sırası, alt yarıda raf/tezgâh siluetleri (gündüz cam koyu görünür)
+    vec3 shop = mix(vec3(0.035, 0.037, 0.04), vec3(0.075, 0.075, 0.07), smoothstep(0.0, 1.0, uv.y));
+    float spot = step(0.9, uv.y) * step(0.7, fract(x * 0.8 + h1(seed)));
+    float shelf = step(uv.y, 0.45) * step(0.35, fract(x * 0.45 + h1(seed * 2.0))) * (0.6 + 0.4 * step(0.5, fract(y * 3.3)));
+    col = shop + vec3(0.5, 0.48, 0.44) * spot * 0.35 + vec3(0.1, 0.095, 0.09) * shelf;
   }
   return col;
 }
@@ -253,7 +259,7 @@ float lit = step(0.45, h1(seed * 17.3));
 totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-winglass-v1';
+  m.customProgramCacheKey = () => 'mk-winglass-v2';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   return m;
@@ -295,7 +301,8 @@ float x = vWUv.x;
 float y = vWUv.y;
 float panel = floor(x / 0.72);
 // Derzler (çerçevesiz panel kenarları ~0.72 m) + alt/üst alüminyum profil
-float joint = smoothstep(0.02, 0.0, abs(fract(x / 0.72) - 0.5) - 0.475);
+// (Önceki sürümde smoothstep kenarları tersti → GLSL'de tanımsız, tüm panel çerçeve rengine dönüp beyaz çıkıyordu)
+float joint = smoothstep(0.455, 0.475, abs(fract(x / 0.72) - 0.5));
 float prof = step(y, 0.035) + step(0.965, y);
 // Balkon içi: tavan açık, zemin koyu; paneller arası hafif ton farkı (katlanır camların açısı)
 // Street View: cam balkonlar koyu mavi-lacivert bant (~50,75,100): içerisi karanlık, yansıma mavimsi
@@ -326,7 +333,7 @@ diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
 totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 0.55);`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-camglass-v2';
+  m.customProgramCacheKey = () => 'mk-camglass-v3';
   m.userData.noReceive = true;
   m.userData.noCast = true;
   return m;

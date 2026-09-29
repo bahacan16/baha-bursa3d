@@ -1235,6 +1235,7 @@ export function meshFenceTexture(): THREE.Texture {
  */
 export function shopSignTexture(o: {
   text: string;
+  lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
   bg: string | null;
   fg: string;
   border: string | null;
@@ -1265,21 +1266,36 @@ export function shopSignTexture(o: {
         : o.font === 'condensed'
           ? '"Arial Narrow", "Roboto Condensed", Arial, sans-serif'
           : 'Arial, Helvetica, sans-serif';
-  const lines = (o.text || '').split('\n').filter((l) => l.length);
-  if (lines.length) {
+  // Satırlar: ya düz metin ("\n") ya da satır başına renk/boyut
+  const rows = (
+    o.lines?.length
+      ? o.lines
+      : (o.text || '').split('\n').map((t) => ({ text: t, fg: o.fg, size: 1, bold: o.bold }))
+  ).filter((l) => l.text.length);
+  if (rows.length) {
     const pad = Math.min(W, H) * 0.1;
-    let size = (H - pad * 2) / lines.length / 1.15;
+    const rel = rows.map((r) => r.size ?? 1);
+    const sumRel = rel.reduce((a, v) => a + v, 0);
+    let unit = (H - pad * 2) / sumRel / 1.15;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
-    const fit = () => {
-      g.font = `${o.bold ? 'bold ' : ''}${size}px ${fam}`;
-      return Math.max(...lines.map((l) => g.measureText(l).width));
-    };
-    while (fit() > W - pad * 2 && size > 6) size *= 0.92;
-    g.fillStyle = o.fg;
-    const lh = size * 1.15;
-    const y0 = H / 2 - (lh * (lines.length - 1)) / 2;
-    lines.forEach((l, k) => g.fillText(l, W / 2, y0 + k * lh));
+    const fontOf = (k: number) => `${(rows[k].bold ?? o.bold) ? 'bold ' : ''}${unit * rel[k]}px ${fam}`;
+    const widest = () =>
+      Math.max(
+        ...rows.map((r, k) => {
+          g.font = fontOf(k);
+          return g.measureText(r.text).width;
+        }),
+      );
+    while (widest() > W - pad * 2 && unit > 4) unit *= 0.92;
+    let y = H / 2 - (unit * sumRel * 1.15) / 2;
+    rows.forEach((r, k) => {
+      const lh = unit * rel[k] * 1.15;
+      g.font = fontOf(k);
+      g.fillStyle = r.fg ?? o.fg;
+      g.fillText(r.text, W / 2, y + lh / 2);
+      y += lh;
+    });
   }
   return tex(c, false);
 }

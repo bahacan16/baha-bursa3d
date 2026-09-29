@@ -147,6 +147,22 @@ export function buildStreetPlan(
   plan: StreetPlan,
   H: (x: number, z: number) => number,
   roadCentre: (x: number, z: number) => number,
+  ext: {
+    signFace?: (sg: {
+      text: string;
+      lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
+      bg: string | null;
+      fg: string;
+      border: string | null;
+      font: string;
+      bold: boolean;
+      lit: boolean;
+      style: string;
+      w: number;
+      h: number;
+    }) => string;
+    colorKey?: (kind: 'plaster' | 'fascia' | 'metal' | 'awning', hex: string) => string;
+  } = {},
 ): StreetResult {
   const raised: StreetResult['raised'] = [];
   const polys: V2[][] = [];
@@ -302,6 +318,69 @@ export function buildStreetPlan(
           b.wall(key, A, E, top - ph, top);
           b.wall(`${key}Back`, E, A, top - ph, top);
           top -= ph + 0.04;
+        }
+        break;
+      }
+      case 'board': {
+        // Tabela panosu: tek/çift direkli pano veya kapı kirişi üstü yazı (ölçüm: metin, renk, boyut, alt kot)
+        const bo = s as unknown as {
+          w?: number;
+          h?: number;
+          y0?: number;
+          d?: number;
+          text?: string;
+          lines?: { text: string; fg?: string; size?: number; bold?: boolean }[];
+          bg?: string;
+          fg?: string;
+          border?: string;
+          font?: string;
+          bold?: boolean;
+          lit?: boolean;
+          style?: string;
+          poles?: number;
+          poleC?: string;
+        };
+        const W = bo.w ?? 1;
+        const Hh = bo.h ?? 0.6;
+        const yb = g0 + (bo.y0 ?? 2);
+        const d = bo.d ?? 0.08;
+        const co = Math.cos(yaw);
+        const si = Math.sin(yaw);
+        // rot: tabelanın baktığı pusula yönü; yüz normali (sin, −cos)
+        const fn: V2 = [Math.sin(yaw), -Math.cos(yaw)];
+        const ft: V2 = [-fn[1], fn[0]];
+        const at = (u: number, off: number): V2 => [
+          s.x + ft[0] * u + fn[0] * off,
+          s.z + ft[1] * u + fn[1] * off,
+        ];
+        void co;
+        void si;
+        const poleK = bo.poleC && ext.colorKey ? ext.colorKey('metal', bo.poleC) : 'pole';
+        const np = bo.poles ?? 1;
+        const pu = np === 1 ? [0] : [-W / 2 + 0.08, W / 2 - 0.08];
+        for (const u of pu) {
+          const p = at(u, -d / 2 - 0.05);
+          b.cylinder(poleK, [p[0], g0 - 0.05, p[1]], 0.05, yb - g0 + Hh + 0.05, 8);
+        }
+        const c = at(0, 0);
+        const yawB = Math.atan2(-ft[1], ft[0]);
+        const sideK = bo.bg && ext.colorKey ? ext.colorKey('fascia', bo.border ?? bo.bg) : 'pole';
+        b.box(sideK, [c[0], yb + Hh / 2, c[1]], [W, Hh, d], yawB);
+        if (ext.signFace) {
+          const key = ext.signFace({
+            text: bo.text ?? '',
+            lines: bo.lines ?? null,
+            bg: bo.bg ?? null,
+            fg: bo.fg ?? '#ffffff',
+            border: bo.border ?? null,
+            font: bo.font ?? 'sans',
+            bold: bo.bold !== false,
+            lit: !!bo.lit,
+            style: bo.style ?? 'box',
+            w: W,
+            h: Hh,
+          });
+          b.wall(key, at(-W / 2, d / 2 + 0.006), at(W / 2, d / 2 + 0.006), yb, yb + Hh, [0, 0, 1, 1]);
         }
         break;
       }

@@ -14,39 +14,25 @@
     ]
   },
   "massing": {
-    "podiumTop": 4.9,
     "towers": [
       {
-        "name": "batı kule",
         "x": [
-          95.66,
+          85,
           127.85
-        ],
-        "edges": "0–14 ve 49–64"
+        ]
       },
       {
-        "name": "doğu kule",
         "x": [
           139.73,
-          173.2
-        ],
-        "edges": "18–45"
+          185
+        ]
       }
     ],
     "gap": {
       "x": [
         127.85,
         139.73
-      ],
-      "edges": [
-        15,
-        16,
-        17,
-        46,
-        47,
-        48
-      ],
-      "note": "yalnız zemin kat podyum; üstü açık (kuzeyden güneye gökyüzü görünüyor)"
+      ]
     }
   },
   "roof": {
@@ -58,9 +44,9 @@
     "plaster": "#a9aeb3",
     "plaster2": "#dcdcd8",
     "strip": "#c4874f",
-    "fascia": "#7e8387",
+    "fascia": "#8e9798",
     "soffit": "#d6d5cf",
-    "railGlass": "#4b5661",
+    "railGlass": "#66747e",
     "frame": "#3b4146",
     "tile": "#6d7073",
     "plinth": "#2b2f31"
@@ -392,7 +378,7 @@
           "t": "band",
           "y0": 2.62,
           "y1": 3.69,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": 5,
           "u1": 8.9,
           "proud": 0.12
@@ -525,7 +511,28 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "win",
@@ -545,18 +552,45 @@
           "t": "band",
           "y0": 2.76,
           "y1": 3.9,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": 0.83,
           "u1": 3.6,
           "proud": 0.12
         },
         {
-          "t": "panel",
-          "u0": 1.13,
+          "t": "sign",
+          "u0": 2.74,
+          "u1": 3.41,
+          "y0": 2.94,
+          "y1": 3.78,
+          "text": "MiA",
+          "fg": "#f1f1ee",
+          "d": 0.05,
+          "style": "letters",
+          "font": "sans",
+          "bold": true
+        },
+        {
+          "t": "sign",
+          "u0": 2.22,
+          "u1": 3.56,
+          "y0": 2.79,
+          "y1": 2.98,
+          "text": "YÖNETİM VE GAYRİMENKUL",
+          "fg": "#eeeeeb",
+          "d": 0.04,
+          "style": "letters",
+          "font": "sans",
+          "bold": false
+        },
+        {
+          "t": "proj",
+          "u0": 3.3,
           "u1": 3.6,
-          "y0": 2.88,
-          "y1": 3.84,
-          "color": "#e9e6de"
+          "d": 0.15,
+          "y0": -1.47,
+          "y1": 2.76,
+          "color": "#181c21"
         }
       ],
       "note": "Batı cephe GB kısmı: sağır duvar, turuncu pano K1–K2 ve K7; güney ucunda GB köşe balkon yığınının yan uçları (kenar 5 ile sarar). Zemin: MİA köşe vitrini + \"MİA YÖNETİM VE GAYRİMENKUL\" tabelası. Not: yan görünüşte köşe taban izi köşesinden ~2.6 m kuzeyde çıktı (pano yön hatası?) → köşe eşlendi."
@@ -604,7 +638,20 @@
             "3": "clear",
             "4": "dark"
           },
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -615,7 +662,14 @@
             5,
             5
           ],
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -632,7 +686,14 @@
           "tint": {
             "5": "dark"
           },
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -643,7 +704,14 @@
             6,
             6
           ],
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K6": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -663,7 +731,16 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "win",
@@ -683,7 +760,7 @@
           "t": "band",
           "y0": 3.68,
           "y1": 4.76,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -2.65,
           "u1": 3.6,
           "proud": 0.12
@@ -878,7 +955,7 @@
           "t": "band",
           "y0": 3.63,
           "y1": 4.68,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -1.81,
           "u1": 2.75,
           "proud": 0.12
@@ -924,7 +1001,14 @@
             1,
             1
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -941,7 +1025,14 @@
           "tint": {
             "2": "dark"
           },
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K2": "glassFull"
+          },
+          "fasciaC": {
+            "K2": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -952,7 +1043,14 @@
             3,
             3
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K3": "glassFull"
+          },
+          "fasciaC": {
+            "K3": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -969,7 +1067,14 @@
           "tint": {
             "4": "clear"
           },
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K4": "glassFull"
+          },
+          "fasciaC": {
+            "K4": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -980,7 +1085,14 @@
             5,
             5
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -1002,7 +1114,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "win",
@@ -1017,7 +1140,10 @@
           ],
           "kind": "door",
           "split": 1,
-          "box": true
+          "box": true,
+          "shut": {
+            "K1": 1
+          }
         },
         {
           "t": "win",
@@ -1032,7 +1158,10 @@
           ],
           "kind": "door",
           "split": 1,
-          "box": true
+          "box": true,
+          "shut": {
+            "K1": 1
+          }
         },
         {
           "t": "win",
@@ -1047,7 +1176,10 @@
           ],
           "kind": "door",
           "split": 1,
-          "box": true
+          "box": true,
+          "shut": {
+            "K1": 0.85
+          }
         },
         {
           "t": "win",
@@ -1062,7 +1194,10 @@
           ],
           "kind": "door",
           "split": 2,
-          "box": true
+          "box": true,
+          "shut": {
+            "K1": 1
+          }
         },
         {
           "t": "win",
@@ -1208,7 +1343,7 @@
           "t": "band",
           "y0": 3.88,
           "y1": 5,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -2.24,
           "u1": 12,
           "proud": 0.12
@@ -1219,8 +1354,35 @@
           "u1": 7,
           "kind": "shop",
           "canopy": false,
-          "sign": "MİA YÖNETİM VE GAYRİMENKUL",
+          "sign": "MiA YÖNETİM VE GAYRİMENKUL",
           "steps": 0
+        },
+        {
+          "t": "sign",
+          "u0": -0.35,
+          "u1": 1.65,
+          "y0": 4,
+          "y1": 4.82,
+          "text": "MiA",
+          "fg": "#f1f1ee",
+          "d": 0.05,
+          "style": "letters",
+          "font": "sans",
+          "bold": true,
+          "logo": "kalın yuvarlatılmış logo harfleri, i noktalı küçük harf (MiA)"
+        },
+        {
+          "t": "sign",
+          "u0": 1.75,
+          "u1": 8.45,
+          "y0": 4.2,
+          "y1": 4.55,
+          "text": "YÖNETİM VE GAYRİMENKUL",
+          "fg": "#eeeeeb",
+          "d": 0.04,
+          "style": "letters",
+          "font": "sans",
+          "bold": false
         }
       ],
       "note": "Batı kule ana balkon bandı (iki pencere kulesi arası). Camlı katlar K2,K4,K6,K7(+K8 varsayım); K1/K3/K5 açık cam korkuluklu. K1 arka duvarda 4 siyah panjur (kepenkli kapı). Klima K1/K3/K5 arka duvarda (loca içinde, korkuluk arkasında). Zemin: \"MİA YÖNETİM VE GAYRİMENKUL\" beyaz harfli tabela siyah lamel bant üstünde (u −0.3…8.4)."
@@ -1380,7 +1542,7 @@
           "t": "band",
           "y0": 4.05,
           "y1": 5.15,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -1.9,
           "u1": 2.62,
           "proud": 0.12
@@ -1436,7 +1598,18 @@
             "2": "dark",
             "3": "clear"
           },
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -1447,7 +1620,14 @@
             4,
             4
           ],
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K4": "glassFull"
+          },
+          "fasciaC": {
+            "K4": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -1464,7 +1644,14 @@
           "tint": {
             "5": "clear"
           },
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -1475,7 +1662,14 @@
             6,
             6
           ],
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K6": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -1495,7 +1689,16 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "win",
@@ -1515,7 +1718,7 @@
           "t": "band",
           "y0": 4.09,
           "y1": 5.19,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -1.69,
           "u1": 4.2,
           "proud": 0.12
@@ -1557,9 +1760,36 @@
           "u0": 0,
           "u1": 2.25,
           "kind": "lobby",
-          "canopy": true,
-          "sign": "ONAL 51",
+          "canopy": false,
           "steps": 0
+        },
+        {
+          "t": "awning",
+          "u0": -1.25,
+          "u1": 3.25,
+          "y": 3.83,
+          "d": 1.4,
+          "drop": 0.12,
+          "color": "#1b1e21",
+          "stripe": "#d4d6d6"
+        },
+        {
+          "t": "proj",
+          "u0": 3.8,
+          "u1": 4.3,
+          "d": 0.15,
+          "y0": -0.33,
+          "y1": 4.15,
+          "color": "#181c21"
+        },
+        {
+          "t": "proj",
+          "u0": -0.45,
+          "u1": 0,
+          "d": 0.15,
+          "y0": -0.33,
+          "y1": 4.15,
+          "color": "#181c21"
         },
         {
           "t": "win",
@@ -1593,21 +1823,26 @@
           "t": "band",
           "y0": 4.15,
           "y1": 5.35,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -0.03,
           "u1": 6.85,
           "proud": 0.12
         },
         {
-          "t": "panel",
-          "u0": -0.25,
-          "u1": 0.25,
-          "y0": 4.4,
+          "t": "sign",
+          "u0": -0.5,
+          "u1": 0.05,
+          "y0": 4.34,
           "y1": 5.09,
-          "color": "#e3b21c"
+          "text": "",
+          "fg": "#3a2c14",
+          "d": 0.06,
+          "bg": "#ce9d3e",
+          "style": "box",
+          "logo": "sarı yuvarlak bayrak (kanat) tabela, duvara dik; üzeri koyu logo, yandan görüldüğü için okunamadı — OSM: Wimbledon Language Academy (dil okulu)"
         }
       ],
-      "note": "Batı kule köşesinde sarı yuvarlak tabela (dil okulu logosu, ~4 m). İki kule arasındaki boşluk: yalnızca zemin kat (podyum, ~4.9 m). Kule yok → üst katlar ÜRETİLMEMELİ (bkz. notlar). Site/blok girişi: siyah kanopi, çift kanat cam kapı, iki yanda saksı. Giriş levhası adı (\"ONAL 51\") sokak girişindeki totemden; kesin değil."
+      "note": "Batı kule köşesindeki siyah kaplamalı kolonun tepesinde sarı yuvarlak dik tabela (dil okulu logosu, ~4 m). Giriş saçağı: siyah çerçeveli, beyaz nervürlü düz metal saçak (awning). İki kule arasındaki boşluk: yalnızca zemin kat (podyum, ~4.9 m). Kule yok → üst katlar ÜRETİLMEMELİ (bkz. notlar). Site/blok girişi: çift kanat cam kapı (siyah kasa), iki yanda saksı; binada ad levhası görülmedi (\"ONAL 51 özlüce\" yazısı batıdaki sokak totemi/saçağında → sokak planı)."
     },
     {
       "edge": 16,
@@ -1660,10 +1895,19 @@
           "split": 2
         },
         {
+          "t": "proj",
+          "u0": 3.5,
+          "u1": 3.85,
+          "d": 0.15,
+          "y0": 0.19,
+          "y1": 4.3,
+          "color": "#181c21"
+        },
+        {
           "t": "band",
           "y0": 4.3,
           "y1": 5.4,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -0.67,
           "u1": 6.19,
           "proud": 0.12
@@ -1730,7 +1974,28 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "win",
@@ -1750,7 +2015,7 @@
           "t": "band",
           "y0": 4.59,
           "y1": 5.7,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -2.85,
           "u1": 4.05,
           "proud": 0.12
@@ -1765,12 +2030,20 @@
           "steps": 0
         },
         {
-          "t": "panel",
+          "t": "sign",
           "u0": -1.3,
           "u1": 1.2,
-          "y0": 4.77,
-          "y1": 5.58,
-          "color": "#c98d54"
+          "y0": 4.64,
+          "y1": 5.66,
+          "text": "phenomenon\nKİTAP",
+          "fg": "#1e1612",
+          "d": 0.1,
+          "bg": "#9c714b",
+          "border": "#1e1612",
+          "style": "box",
+          "font": "sans",
+          "bold": true,
+          "logo": "siyah küçük harf \"phenomenon\" (kalın), altında sağda küçük \"KİTAP\"; sol alt ve sağ üst köşede siyah L köşebentler; zeminde soluk bej kuş/çizim deseni"
         }
       ],
       "note": "Doğu kulenin GB köşe balkon yığını, tüm katlar camlı (K8 görülmedi, camlı varsayıldı). Zemin: \"phenomenon KİTAP\" (turuncu kutu harf tabela lamel bant üstünde)."
@@ -1962,7 +2235,7 @@
           "t": "band",
           "y0": 4.51,
           "y1": 5.59,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -2.74,
           "u1": 1.95,
           "proud": 0.12
@@ -2016,7 +2289,16 @@
             "1": "dark",
             "2": "dark"
           },
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -2027,7 +2309,14 @@
             3,
             3
           ],
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K3": "glassFull"
+          },
+          "fasciaC": {
+            "K3": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -2044,7 +2333,14 @@
           "tint": {
             "3": "dark"
           },
-          "sides": "open"
+          "sides": "open",
+          "rail": {
+            "K3": "glassFull"
+          },
+          "fasciaC": {
+            "K3": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -2055,7 +2351,14 @@
             3,
             3
           ],
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K3": "glassFull"
+          },
+          "fasciaC": {
+            "K3": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -2066,7 +2369,18 @@
             4,
             6
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K4": "glassFull",
+            "K5": "glassFull",
+            "K6": "glassFull"
+          },
+          "fasciaC": {
+            "K4": "#8e9798",
+            "K5": "#8e9798",
+            "K6": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -2086,7 +2400,16 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "win",
@@ -2237,24 +2560,55 @@
           "t": "band",
           "y0": 4.64,
           "y1": 5.8,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -4,
           "u1": 11.1,
           "proud": 0.12
         },
         {
-          "t": "panel",
+          "t": "sign",
           "u0": 0,
-          "u1": 0.8,
-          "y0": 4.77,
-          "y1": 5.86,
-          "color": "#e9e6de"
+          "u1": 0.85,
+          "y0": 4.72,
+          "y1": 5.74,
+          "text": "EV\nREN\nSEL",
+          "fg": "#8b7fb8",
+          "d": 0.08,
+          "bg": "#f1f0ec",
+          "style": "box",
+          "font": "sans",
+          "bold": true,
+          "logo": "beyaz kare logo kutusu, üç satır leylak/mor harf"
+        },
+        {
+          "t": "sign",
+          "u0": 0.95,
+          "u1": 8.5,
+          "y0": 4.67,
+          "y1": 5.79,
+          "text": "EVRENSEL KİTAP",
+          "fg": "#c7c9cb",
+          "d": 0.1,
+          "bg": "#1c1e20",
+          "style": "box",
+          "font": "sans",
+          "bold": true,
+          "logo": "siyah kutu üstünde krom/gümüş kabartma harfler; \"KİTAP\" daha küçük"
         },
         {
           "t": "ac",
           "u": 10.1,
           "s": 0,
           "y": 2.33
+        },
+        {
+          "t": "proj",
+          "u0": 10.55,
+          "u1": 10.95,
+          "d": 0.15,
+          "y0": 0.32,
+          "y1": 4.64,
+          "color": "#181c21"
         }
       ],
       "note": "Doğu kule ana balkon bandı: K1,K2 camlı; K3 ortası (u 0.35–7.25) camlı, iki ucu açık; K4–K6 açık (cam korkuluk, arka duvarda beyaz bölme payesi u≈0–0.7, tavan spotları); K7 camlı; K8 görülmedi (camlı varsayım). Zemin: \"EVRENSEL KİTAP\" (gümüş harf + beyaz logo kutusu), u>10.6 \"Saç Perisi\" buzlu camları; zeminde bir klima dış ünitesi (u≈10.1)."
@@ -2414,21 +2768,43 @@
           "t": "band",
           "y0": 4.63,
           "y1": 5.75,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -1.88,
           "u1": 2.8,
           "proud": 0.12
         },
         {
-          "t": "panel",
-          "u0": 0.9,
-          "u1": 5,
-          "y0": 4.75,
-          "y1": 5.81,
-          "color": "#f1e9dc"
+          "t": "sign",
+          "u0": -1.59,
+          "u1": -0.14,
+          "y0": 5.1,
+          "y1": 5.36,
+          "text": "sacperisi.özlüce",
+          "fg": "#2a2e33",
+          "d": 0.03,
+          "bg": "#a3acb4",
+          "border": "#e8e8e8",
+          "style": "box",
+          "font": "sans",
+          "bold": false,
+          "logo": "solda pembe Instagram simgesi"
+        },
+        {
+          "t": "sign",
+          "u0": -0.6,
+          "u1": 2.7,
+          "y0": 4.04,
+          "y1": 4.39,
+          "text": "Saç Perisi  Saç Perisi",
+          "fg": "#8e9090",
+          "d": 0.01,
+          "style": "letters",
+          "font": "script",
+          "bold": false,
+          "logo": "buzlu cam folyo grafiği"
         }
       ],
-      "note": "Pencere kulesi D (B’nin eşi): turuncu yalnız K1,K5. Zemin: \"Saç Perisi\" (beyaz el yazısı + altın kanat) tabela, buzlu cam."
+      "note": "Pencere kulesi D (B’nin eşi): turuncu yalnız K1,K5. Zemin: Saç Perisi buzlu vitrin camı + Instagram levhası (ana tabela kenar 26’da)."
     },
     {
       "edge": 25,
@@ -2489,7 +2865,28 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "win",
@@ -2511,8 +2908,65 @@
           "u1": 1.2,
           "kind": "shop",
           "canopy": false,
-          "sign": "Saç Perisi KADIN KUAFÖRÜ",
+          "sign": "Saç Perisi BAYAN KUAFÖRÜ",
           "steps": 0
+        },
+        {
+          "t": "sign",
+          "u0": -2.66,
+          "u1": 2.4,
+          "y0": 4.58,
+          "y1": 5.62,
+          "text": "Saç Perisi",
+          "fg": "#eeeeea",
+          "d": 0.05,
+          "style": "letters",
+          "font": "script",
+          "bold": false,
+          "lit": false,
+          "logo": "\"Saç\" ile \"Perisi\" arasında altın-turuncu (#b9814d) melek kanatları"
+        },
+        {
+          "t": "sign",
+          "u0": 2.5,
+          "u1": 3.9,
+          "y0": 4.98,
+          "y1": 5.2,
+          "text": "BAYAN KUAFÖRÜ",
+          "fg": "#1e2224",
+          "d": 0.03,
+          "bg": "#e9ecec",
+          "style": "box",
+          "font": "serif",
+          "bold": true
+        },
+        {
+          "t": "sign",
+          "u0": 0.7,
+          "u1": 1.8,
+          "y0": 4.26,
+          "y1": 4.49,
+          "text": "Hoşgeldiniz",
+          "fg": "#161819",
+          "d": 0.02,
+          "bg": "#3a3e3f",
+          "style": "panel",
+          "font": "script",
+          "bold": false
+        },
+        {
+          "t": "sign",
+          "u0": 1.9,
+          "u1": 3.4,
+          "y0": 2.64,
+          "y1": 3.1,
+          "text": "Saç Perisi",
+          "fg": "#8e9090",
+          "d": 0.01,
+          "style": "letters",
+          "font": "script",
+          "bold": false,
+          "logo": "buzlu cam folyo grafiği + altın kanat"
         },
         {
           "t": "win",
@@ -2532,13 +2986,13 @@
           "t": "band",
           "y0": 4.58,
           "y1": 5.66,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": -3.17,
           "u1": 4.3,
           "proud": 0.12
         }
       ],
-      "note": "Doğu kule GD köşe balkon yığını (doğu cephe kenar 27 ile köşeyi sarar), tüm katlar camlı. Zemin: Saç Perisi kuaförü girişi."
+      "note": "Doğu kule GD köşe balkon yığını (doğu cephe kenar 27 ile köşeyi sarar), tüm katlar camlı. Zemin: Saç Perisi bayan kuaförü: beyaz el yazısı harfler + altın kanat, BAYAN KUAFÖRÜ levhası, kapı üstünde Hoşgeldiniz levhası, buzlu camlar."
     },
     {
       "edge": 27,
@@ -2659,18 +3113,53 @@
           "t": "band",
           "y0": 4.13,
           "y1": 4.97,
-          "color": "#2e3233",
+          "color": "#33393b",
           "u0": 2.95,
           "u1": 8.37,
           "proud": 0.12
         },
         {
-          "t": "panel",
+          "t": "sign",
           "u0": 3,
-          "u1": 4.7,
-          "y0": 4.27,
+          "u1": 5.6,
+          "y0": 4.15,
           "y1": 4.92,
-          "color": "#f1e9dc"
+          "text": "Saç Perisi",
+          "fg": "#eeeeea",
+          "d": 0.05,
+          "style": "letters",
+          "font": "script",
+          "bold": false,
+          "logo": "ortada altın-turuncu melek kanatları"
+        },
+        {
+          "t": "sign",
+          "u0": 5.65,
+          "u1": 6.4,
+          "y0": 4.35,
+          "y1": 4.53,
+          "text": "BAYAN KUAFÖRÜ",
+          "fg": "#1e2224",
+          "d": 0.03,
+          "bg": "#e9ecec",
+          "style": "box",
+          "font": "serif",
+          "bold": true
+        },
+        {
+          "t": "sign",
+          "u0": 4.4,
+          "u1": 6.45,
+          "y0": 1.25,
+          "y1": 4,
+          "text": "L’ORÉAL\nPROFESSIONNEL PARIS",
+          "fg": "#f2f2f2",
+          "d": 0.02,
+          "bg": "#101214",
+          "style": "panel",
+          "font": "serif",
+          "bold": false,
+          "logo": "vitrin arkası büyük afiş: siyah zemin, koyu saçlı kadın portresi, yeşil daire çerçeve, üstte küçük beyaz \"INOA\" kutusu ve yazılar"
         }
       ],
       "note": "Doğu kule doğu cephesi (GD kısım): penceresiz sağır duvar, turuncu panolar K3–K4 ve K7; güney köşede GD balkon yığınının yan uçları (u 2.95–3.6). Zemin: Saç Perisi köşe vitrini + tabela, büyük LOREAL afişi."
@@ -3067,7 +3556,18 @@
             "2": "dark",
             "3": "dark"
           },
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3078,7 +3578,14 @@
             4,
             4
           ],
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K4": "glassFull"
+          },
+          "fasciaC": {
+            "K4": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3102,7 +3609,20 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         }
       ],
       "note": "Doğu kule KD köşe: köşe payesi (turuncu K1–K4) + cam balkon yığını (K4 açık). Alt katlar 2.3 m leylandi çitinin arkasında."
@@ -3155,7 +3675,18 @@
             "2": "dark",
             "3": "dark"
           },
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3166,7 +3697,14 @@
             4,
             4
           ],
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K4": "glassFull"
+          },
+          "fasciaC": {
+            "K4": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3190,7 +3728,20 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "panel",
@@ -3491,7 +4042,16 @@
             "1": "dark",
             "2": "dark"
           },
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3502,7 +4062,18 @@
             3,
             5
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3524,7 +4095,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         }
       ],
       "note": "Pencere kulesi E batı payesi + balkon bandı başı."
@@ -3575,7 +4157,16 @@
             "1": "dark",
             "2": "dark"
           },
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3586,7 +4177,18 @@
             3,
             5
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3608,7 +4210,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "ac",
@@ -3691,7 +4304,16 @@
             "1": "dark",
             "2": "dark"
           },
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3702,7 +4324,18 @@
             3,
             5
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -3724,7 +4357,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "panel",
@@ -3997,7 +4641,20 @@
             "3": "dark",
             "4": "dark"
           },
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -4008,7 +4665,14 @@
             5,
             5
           ],
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
@@ -4030,7 +4694,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         }
       ],
       "note": "Pencere kulesi F doğu payesi + KB köşe cam balkon yığını (K5 açık). Kulenin batı yan cephesi (avluya/boşluğa bakar) taban izinde kenar 45."
@@ -4167,84 +4842,8 @@
           ]
         ]
       },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 1,
-          "u1": 6.9,
-          "y0": 6.14,
-          "y1": 11.19,
-          "color": "strip"
-        },
-        {
-          "t": "win",
-          "u0": 6.9,
-          "u1": 7.5,
-          "y0": 14.34,
-          "y1": 16.49,
-          "k": 4,
-          "s": [
-            1,
-            8
-          ],
-          "split": 1
-        },
-        {
-          "t": "band",
-          "y0": 11.19,
-          "y1": 11.59,
-          "u0": 0.7,
-          "u1": 6.74,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 13.92,
-          "y1": 14.32,
-          "u0": 0.7,
-          "u1": 6.74,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 16.65,
-          "y1": 17.05,
-          "u0": 0.7,
-          "u1": 6.74,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 19.38,
-          "y1": 19.78,
-          "u0": 0.7,
-          "u1": 6.74,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 22.1,
-          "y1": 22.51,
-          "u0": 0.7,
-          "u1": 6.74,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 24.83,
-          "y1": 25.24,
-          "u0": 0.7,
-          "u1": 6.74,
-          "color": "fascia",
-          "proud": 0.04
-        }
-      ],
-      "note": "Doğu kule batı yan cephesi (güney kısmı): sağır gri duvar, alt katlarda (K1–K2) turuncu pano, güney ucunda dar pencere sütunu. Uzaktan (28 m) kısmen."
+      "items": [],
+      "note": "massing kesimi x=139.73 → bu kenar podyum parçasında kalır (üstü 1 kat); öğeler kaldırıldı. Gerçekte: doğu kule batı yan cephesi (güney kısmı): sağır gri duvar, alt katlarda (K1–K2) turuncu pano, güney ucunda dar pencere sütunu. Uzaktan (28 m) kısmen."
     },
     {
       "edge": 48,
@@ -4274,80 +4873,8 @@
           ]
         ]
       },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 1.5,
-          "u1": 3.05,
-          "y0": 6.14,
-          "y1": 19.38,
-          "color": "strip"
-        },
-        {
-          "t": "band",
-          "y0": 8.46,
-          "y1": 8.86,
-          "u0": -2.88,
-          "u1": 3.05,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 11.19,
-          "y1": 11.59,
-          "u0": -2.88,
-          "u1": 3.05,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 13.92,
-          "y1": 14.32,
-          "u0": -2.88,
-          "u1": 3.05,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 16.65,
-          "y1": 17.05,
-          "u0": -2.88,
-          "u1": 3.05,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 19.38,
-          "y1": 19.78,
-          "u0": -2.88,
-          "u1": 3.05,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 22.1,
-          "y1": 22.51,
-          "u0": -2.88,
-          "u1": 3.05,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 24.83,
-          "y1": 25.24,
-          "u0": -2.88,
-          "u1": 3.05,
-          "color": "fascia",
-          "proud": 0.04
-        }
-      ],
-      "note": "Batı kulenin doğu yan cephesi (boşluğa bakar): K1–K5 yüksek turuncu pano (pencere sütunu kenarın kuzey ucunun ötesinde → kenar 52); uzaktan (33 m) kısmen."
+      "items": [],
+      "note": "massing kesimi x=127.85 → podyum parçasında (öğeler kaldırıldı). Gerçekte: batı kulenin doğu yan cephesi (boşluğa bakar): K1–K5 yüksek turuncu pano (pencere sütunu kenarın kuzey ucunun ötesinde → kenar 52); uzaktan (33 m) kısmen."
     },
     {
       "edge": 50,
@@ -4384,101 +4911,8 @@
           ]
         ]
       },
-      "items": [
-        {
-          "t": "win",
-          "u0": 0.9,
-          "u1": 1.8,
-          "y0": 14.34,
-          "y1": 16.49,
-          "k": 4,
-          "s": [
-            1,
-            8
-          ],
-          "split": 1
-        },
-        {
-          "t": "panel",
-          "u0": 1.9,
-          "u1": 5,
-          "y0": 6.14,
-          "y1": 13.92,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 1.9,
-          "u1": 5,
-          "y0": 25.24,
-          "y1": 27.56,
-          "color": "strip"
-        },
-        {
-          "t": "band",
-          "y0": 8.46,
-          "y1": 8.86,
-          "u0": -2.39,
-          "u1": 3.25,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 11.19,
-          "y1": 11.59,
-          "u0": -2.39,
-          "u1": 3.25,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 13.92,
-          "y1": 14.32,
-          "u0": -2.39,
-          "u1": 3.25,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 16.65,
-          "y1": 17.05,
-          "u0": -2.39,
-          "u1": 3.25,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 19.38,
-          "y1": 19.78,
-          "u0": -2.39,
-          "u1": 3.25,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 22.1,
-          "y1": 22.51,
-          "u0": -2.39,
-          "u1": 3.25,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 24.83,
-          "y1": 25.24,
-          "u0": -2.39,
-          "u1": 3.25,
-          "color": "fascia",
-          "proud": 0.04
-        }
-      ],
-      "note": "Batı kule doğu yan cephesi (kuzey kısmı): dar pencere sütunu, turuncu panolar K1–K3 ve K8; KD köşe balkonlarının yan uçları kuzey köşede."
+      "items": [],
+      "note": "massing kesimi x=127.85 → podyum parçasında (öğeler kaldırıldı). Gerçekte: batı kule doğu yan cephesi (kuzey kısmı): dar pencere sütunu, turuncu panolar K1–K3 ve K8; KD köşe balkonlarının yan uçları kuzey köşede."
     },
     {
       "edge": 53,
@@ -4487,8 +4921,8 @@
       "ref": "1550826982_53_c85sxN_N.jpg",
       "cal": {
         "u": [
-          0.28,
-          6.92
+          -1.81,
+          5.22
         ],
         "head": [
           [
@@ -4504,7 +4938,7 @@
       "items": [
         {
           "t": "panel",
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "y0": 4.83,
           "y1": 17.26,
@@ -4514,7 +4948,7 @@
           "t": "band",
           "y0": 7.58,
           "y1": 8.06,
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "color": "fascia",
           "proud": 0.04
@@ -4523,7 +4957,7 @@
           "t": "band",
           "y0": 10.81,
           "y1": 11.28,
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "color": "fascia",
           "proud": 0.04
@@ -4532,7 +4966,7 @@
           "t": "band",
           "y0": 14.03,
           "y1": 14.51,
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "color": "fascia",
           "proud": 0.04
@@ -4541,7 +4975,7 @@
           "t": "band",
           "y0": 17.26,
           "y1": 17.74,
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "color": "fascia",
           "proud": 0.04
@@ -4550,7 +4984,7 @@
           "t": "band",
           "y0": 20.49,
           "y1": 20.96,
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "color": "fascia",
           "proud": 0.04
@@ -4559,7 +4993,7 @@
           "t": "band",
           "y0": 23.71,
           "y1": 24.19,
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "color": "fascia",
           "proud": 0.04
@@ -4568,7 +5002,7 @@
           "t": "band",
           "y0": 26.94,
           "y1": 27.42,
-          "u0": 0.28,
+          "u0": 0.47,
           "u1": 1.53,
           "color": "fascia",
           "proud": 0.04
@@ -4576,18 +5010,25 @@
         {
           "t": "bal",
           "u0": 1.53,
-          "u1": 6.56,
+          "u1": 5.22,
           "d": 0.8,
           "s": [
             1,
             1
           ],
-          "sides": "start-wall"
+          "sides": "start-wall",
+          "rail": {
+            "K1": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
           "u0": 1.53,
-          "u1": 6.56,
+          "u1": 5.22,
           "d": 0.8,
           "s": [
             2,
@@ -4612,97 +5053,29 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "start-wall"
-        },
-        {
-          "t": "panel",
-          "u0": 6.56,
-          "u1": 6.92,
-          "y0": 4.83,
-          "y1": 7.58,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 6.56,
-          "u1": 6.92,
-          "y0": 14.51,
-          "y1": 17.26,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 6.56,
-          "u1": 6.92,
-          "y0": 27.42,
-          "y1": 30.17,
-          "color": "strip"
-        },
-        {
-          "t": "band",
-          "y0": 7.58,
-          "y1": 8.06,
-          "u0": 6.56,
-          "u1": 6.92,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 10.81,
-          "y1": 11.28,
-          "u0": 6.56,
-          "u1": 6.92,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 14.03,
-          "y1": 14.51,
-          "u0": 6.56,
-          "u1": 6.92,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 17.26,
-          "y1": 17.74,
-          "u0": 6.56,
-          "u1": 6.92,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 20.49,
-          "y1": 20.96,
-          "u0": 6.56,
-          "u1": 6.92,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 23.71,
-          "y1": 24.19,
-          "u0": 6.56,
-          "u1": 6.92,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 26.94,
-          "y1": 27.42,
-          "u0": 6.56,
-          "u1": 6.92,
-          "color": "fascia",
-          "proud": 0.04
+          "sides": "start-wall",
+          "rail": {
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         }
       ],
-      "note": "Batı kule KD köşe: köşe payesi (turuncu K1–K4) + cam balkon yığını (K1 açık). Fotoğraf konumu taban izinden ~1.6 m batıda çıktı (pano GPS) → kaydırıldı."
+      "note": "Batı kule KD köşe: köşe payesi (turuncu K1–K4) + cam balkon yığını (K1 açık). Kuzey fotoğraflarında kule x 94.9–128.3 çıktı (pano GPS); taban izi 96.33–127.85’e doğrusal eşlendi."
     },
     {
       "edge": 54,
@@ -4718,8 +5091,8 @@
       "ref": "1550826982_55_YTAXEyzL.jpg",
       "cal": {
         "u": [
-          1.79,
-          5.63
+          0.1,
+          4.16
         ],
         "head": [
           [
@@ -4734,8 +5107,75 @@
       },
       "items": [
         {
+          "t": "bal",
+          "u0": 0.1,
+          "u1": 1.46,
+          "d": 0.8,
+          "s": [
+            1,
+            1
+          ],
+          "sides": "start-wall",
+          "rail": {
+            "K1": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798"
+          },
+          "railC": "#b9bec1"
+        },
+        {
+          "t": "bal",
+          "u0": 0.1,
+          "u1": 1.46,
+          "d": 0.8,
+          "s": [
+            2,
+            8
+          ],
+          "glazed": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "tint": {
+            "2": "dark",
+            "3": "dark",
+            "4": "dark",
+            "5": "dark",
+            "6": "dark",
+            "7": "dark",
+            "8": "dark"
+          },
+          "cap": true,
+          "sides": "start-wall",
+          "rail": {
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
+        },
+        {
           "t": "panel",
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "y0": 4.83,
           "y1": 7.58,
@@ -4743,7 +5183,7 @@
         },
         {
           "t": "panel",
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "y0": 14.51,
           "y1": 17.26,
@@ -4751,7 +5191,7 @@
         },
         {
           "t": "panel",
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "y0": 27.42,
           "y1": 30.17,
@@ -4761,7 +5201,7 @@
           "t": "band",
           "y0": 7.58,
           "y1": 8.06,
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "color": "fascia",
           "proud": 0.04
@@ -4770,7 +5210,7 @@
           "t": "band",
           "y0": 10.81,
           "y1": 11.28,
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "color": "fascia",
           "proud": 0.04
@@ -4779,7 +5219,7 @@
           "t": "band",
           "y0": 14.03,
           "y1": 14.51,
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "color": "fascia",
           "proud": 0.04
@@ -4788,7 +5228,7 @@
           "t": "band",
           "y0": 17.26,
           "y1": 17.74,
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "color": "fascia",
           "proud": 0.04
@@ -4797,7 +5237,7 @@
           "t": "band",
           "y0": 20.49,
           "y1": 20.96,
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "color": "fascia",
           "proud": 0.04
@@ -4806,7 +5246,7 @@
           "t": "band",
           "y0": 23.71,
           "y1": 24.19,
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "color": "fascia",
           "proud": 0.04
@@ -4815,7 +5255,7 @@
           "t": "band",
           "y0": 26.94,
           "y1": 27.42,
-          "u0": 1.79,
+          "u0": 1.46,
           "u1": 2.18,
           "color": "fascia",
           "proud": 0.04
@@ -4823,7 +5263,7 @@
         {
           "t": "win",
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "y0": 14.53,
           "y1": 17.07,
           "k": 4,
@@ -4838,7 +5278,7 @@
           "y0": 7.58,
           "y1": 8.06,
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "color": "fascia",
           "proud": 0.04
         },
@@ -4847,7 +5287,7 @@
           "y0": 10.81,
           "y1": 11.28,
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "color": "fascia",
           "proud": 0.04
         },
@@ -4856,7 +5296,7 @@
           "y0": 14.03,
           "y1": 14.51,
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "color": "fascia",
           "proud": 0.04
         },
@@ -4865,7 +5305,7 @@
           "y0": 17.26,
           "y1": 17.74,
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "color": "fascia",
           "proud": 0.04
         },
@@ -4874,7 +5314,7 @@
           "y0": 20.49,
           "y1": 20.96,
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "color": "fascia",
           "proud": 0.04
         },
@@ -4883,7 +5323,7 @@
           "y0": 23.71,
           "y1": 24.19,
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "color": "fascia",
           "proud": 0.04
         },
@@ -4892,129 +5332,9 @@
           "y0": 26.94,
           "y1": 27.42,
           "u0": 2.18,
-          "u1": 4.19,
+          "u1": 4.16,
           "color": "fascia",
           "proud": 0.04
-        },
-        {
-          "t": "panel",
-          "u0": 4.19,
-          "u1": 5.24,
-          "y0": 4.83,
-          "y1": 7.58,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 4.19,
-          "u1": 5.24,
-          "y0": 14.51,
-          "y1": 17.26,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 4.19,
-          "u1": 5.24,
-          "y0": 27.42,
-          "y1": 30.17,
-          "color": "strip"
-        },
-        {
-          "t": "band",
-          "y0": 7.58,
-          "y1": 8.06,
-          "u0": 4.19,
-          "u1": 5.24,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 10.81,
-          "y1": 11.28,
-          "u0": 4.19,
-          "u1": 5.24,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 14.03,
-          "y1": 14.51,
-          "u0": 4.19,
-          "u1": 5.24,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 17.26,
-          "y1": 17.74,
-          "u0": 4.19,
-          "u1": 5.24,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 20.49,
-          "y1": 20.96,
-          "u0": 4.19,
-          "u1": 5.24,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 23.71,
-          "y1": 24.19,
-          "u0": 4.19,
-          "u1": 5.24,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 26.94,
-          "y1": 27.42,
-          "u0": 4.19,
-          "u1": 5.24,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "bal",
-          "u0": 5.24,
-          "u1": 5.63,
-          "d": 0.8,
-          "s": [
-            1,
-            5
-          ],
-          "sides": "wall"
-        },
-        {
-          "t": "bal",
-          "u0": 5.24,
-          "u1": 5.63,
-          "d": 0.8,
-          "s": [
-            6,
-            8
-          ],
-          "glazed": [
-            6,
-            7,
-            8
-          ],
-          "tint": {
-            "6": "dark",
-            "7": "dark",
-            "8": "dark"
-          },
-          "cap": true,
-          "sides": "wall"
         }
       ],
       "note": "Pencere kulesi G (turuncu K1,K4,K8)."
@@ -5033,8 +5353,8 @@
       "ref": "1550826982_57_YTAXEyzL.jpg",
       "cal": {
         "u": [
-          1.61,
-          5.04
+          0.15,
+          3.77
         ],
         "head": [
           [
@@ -5049,20 +5369,122 @@
       },
       "items": [
         {
+          "t": "panel",
+          "u0": 0.15,
+          "u1": 1.18,
+          "y0": 4.83,
+          "y1": 7.58,
+          "color": "strip"
+        },
+        {
+          "t": "panel",
+          "u0": 0.15,
+          "u1": 1.18,
+          "y0": 14.51,
+          "y1": 17.26,
+          "color": "strip"
+        },
+        {
+          "t": "panel",
+          "u0": 0.15,
+          "u1": 1.18,
+          "y0": 27.42,
+          "y1": 30.17,
+          "color": "strip"
+        },
+        {
+          "t": "band",
+          "y0": 7.58,
+          "y1": 8.06,
+          "u0": 0.15,
+          "u1": 1.18,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 10.81,
+          "y1": 11.28,
+          "u0": 0.15,
+          "u1": 1.18,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 14.03,
+          "y1": 14.51,
+          "u0": 0.15,
+          "u1": 1.18,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 17.26,
+          "y1": 17.74,
+          "u0": 0.15,
+          "u1": 1.18,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 20.49,
+          "y1": 20.96,
+          "u0": 0.15,
+          "u1": 1.18,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 23.71,
+          "y1": 24.19,
+          "u0": 0.15,
+          "u1": 1.18,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 26.94,
+          "y1": 27.42,
+          "u0": 0.15,
+          "u1": 1.18,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
           "t": "bal",
-          "u0": 1.61,
-          "u1": 5.04,
+          "u0": 1.18,
+          "u1": 3.77,
           "d": 0.8,
           "s": [
             1,
             5
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
-          "u0": 1.61,
-          "u1": 5.04,
+          "u0": 1.18,
+          "u1": 3.77,
           "d": 0.8,
           "s": [
             6,
@@ -5079,7 +5501,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         }
       ],
       "note": "Pencere kulesi G batı payesi + balkon bandı başı."
@@ -5098,8 +5531,8 @@
       "ref": "1550826982_59_36bFyqcH.jpg",
       "cal": {
         "u": [
-          1.88,
-          7.59
+          0.63,
+          6.67
         ],
         "head": [
           [
@@ -5115,19 +5548,34 @@
       "items": [
         {
           "t": "bal",
-          "u0": 1.88,
-          "u1": 7.59,
+          "u0": 0.63,
+          "u1": 6.67,
           "d": 0.8,
           "s": [
             1,
             5
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
-          "u0": 1.88,
-          "u1": 7.59,
+          "u0": 0.63,
+          "u1": 6.67,
           "d": 0.8,
           "s": [
             6,
@@ -5144,7 +5592,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "ac",
@@ -5181,8 +5640,8 @@
       "ref": "1550826982_61_36bFyqcH.jpg",
       "cal": {
         "u": [
-          1.61,
-          4.68
+          0.69,
+          3.94
         ],
         "head": [
           [
@@ -5198,18 +5657,33 @@
       "items": [
         {
           "t": "bal",
-          "u0": 1.61,
+          "u0": 0.69,
           "u1": 3.7,
           "d": 0.8,
           "s": [
             1,
             5
           ],
-          "sides": "wall"
+          "sides": "wall",
+          "rail": {
+            "K1": "glassFull",
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798",
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
-          "u0": 1.61,
+          "u0": 0.69,
           "u1": 3.7,
           "d": 0.8,
           "s": [
@@ -5227,94 +5701,18 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "wall"
-        },
-        {
-          "t": "panel",
-          "u0": 3.7,
-          "u1": 4.47,
-          "y0": 7.46,
-          "y1": 10.04,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 3.7,
-          "u1": 4.47,
-          "y0": 16.55,
-          "y1": 19.13,
-          "color": "strip"
-        },
-        {
-          "t": "panel",
-          "u0": 3.7,
-          "u1": 4.47,
-          "y0": 28.67,
-          "y1": 31.25,
-          "color": "strip"
-        },
-        {
-          "t": "band",
-          "y0": 10.04,
-          "y1": 10.49,
-          "u0": 3.7,
-          "u1": 4.47,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 13.07,
-          "y1": 13.52,
-          "u0": 3.7,
-          "u1": 4.47,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 16.1,
-          "y1": 16.55,
-          "u0": 3.7,
-          "u1": 4.47,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 19.13,
-          "y1": 19.58,
-          "u0": 3.7,
-          "u1": 4.47,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 22.16,
-          "y1": 22.61,
-          "u0": 3.7,
-          "u1": 4.47,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 25.19,
-          "y1": 25.64,
-          "u0": 3.7,
-          "u1": 4.47,
-          "color": "fascia",
-          "proud": 0.04
-        },
-        {
-          "t": "band",
-          "y0": 28.22,
-          "y1": 28.67,
-          "u0": 3.7,
-          "u1": 4.47,
-          "color": "fascia",
-          "proud": 0.04
+          "sides": "wall",
+          "rail": {
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         }
       ],
       "note": "Balkon bandı sonu + pencere kulesi H doğu payesi."
@@ -5340,8 +5738,8 @@
       "ref": "1550826982_64_zTcuCMW1.jpg",
       "cal": {
         "u": [
-          1.66,
-          11.16
+          0.94,
+          11
         ],
         "head": [
           [
@@ -5356,8 +5754,95 @@
       },
       "items": [
         {
+          "t": "panel",
+          "u0": 0.94,
+          "u1": 1.48,
+          "y0": 7.15,
+          "y1": 9.66,
+          "color": "strip"
+        },
+        {
+          "t": "panel",
+          "u0": 0.94,
+          "u1": 1.48,
+          "y0": 15.98,
+          "y1": 18.49,
+          "color": "strip"
+        },
+        {
+          "t": "panel",
+          "u0": 0.94,
+          "u1": 1.48,
+          "y0": 27.76,
+          "y1": 30.27,
+          "color": "strip"
+        },
+        {
+          "t": "band",
+          "y0": 9.66,
+          "y1": 10.1,
+          "u0": 0.94,
+          "u1": 1.48,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 12.61,
+          "y1": 13.04,
+          "u0": 0.94,
+          "u1": 1.48,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 15.55,
+          "y1": 15.98,
+          "u0": 0.94,
+          "u1": 1.48,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 18.49,
+          "y1": 18.93,
+          "u0": 0.94,
+          "u1": 1.48,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 21.44,
+          "y1": 21.87,
+          "u0": 0.94,
+          "u1": 1.48,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 24.38,
+          "y1": 24.81,
+          "u0": 0.94,
+          "u1": 1.48,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
+          "t": "band",
+          "y0": 27.32,
+          "y1": 27.76,
+          "u0": 0.94,
+          "u1": 1.48,
+          "color": "fascia",
+          "proud": 0.04
+        },
+        {
           "t": "win",
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "y0": 16,
           "y1": 18.32,
@@ -5366,13 +5851,13 @@
             1,
             8
           ],
-          "split": 2
+          "split": 3
         },
         {
           "t": "band",
           "y0": 9.66,
           "y1": 10.1,
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "color": "fascia",
           "proud": 0.04
@@ -5381,7 +5866,7 @@
           "t": "band",
           "y0": 12.61,
           "y1": 13.04,
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "color": "fascia",
           "proud": 0.04
@@ -5390,7 +5875,7 @@
           "t": "band",
           "y0": 15.55,
           "y1": 15.98,
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "color": "fascia",
           "proud": 0.04
@@ -5399,7 +5884,7 @@
           "t": "band",
           "y0": 18.49,
           "y1": 18.93,
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "color": "fascia",
           "proud": 0.04
@@ -5408,7 +5893,7 @@
           "t": "band",
           "y0": 21.44,
           "y1": 21.87,
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "color": "fascia",
           "proud": 0.04
@@ -5417,7 +5902,7 @@
           "t": "band",
           "y0": 24.38,
           "y1": 24.81,
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "color": "fascia",
           "proud": 0.04
@@ -5426,7 +5911,7 @@
           "t": "band",
           "y0": 27.32,
           "y1": 27.76,
-          "u0": 1.66,
+          "u0": 1.48,
           "u1": 3.37,
           "color": "fascia",
           "proud": 0.04
@@ -5521,18 +6006,25 @@
         {
           "t": "bal",
           "u0": 4.03,
-          "u1": 11.16,
+          "u1": 11,
           "d": 0.8,
           "s": [
             1,
             1
           ],
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K1": "glassFull"
+          },
+          "fasciaC": {
+            "K1": "#8e9798"
+          },
+          "railC": "#b9bec1"
         },
         {
           "t": "bal",
           "u0": 4.03,
-          "u1": 11.16,
+          "u1": 11,
           "d": 0.8,
           "s": [
             2,
@@ -5557,15 +6049,37 @@
             "8": "dark"
           },
           "cap": true,
-          "sides": "end-wall"
+          "sides": "end-wall",
+          "rail": {
+            "K2": "glassFull",
+            "K3": "glassFull",
+            "K4": "glassFull",
+            "K5": "glassFull",
+            "K6": "glassFull",
+            "K7": "glassFull",
+            "K8": "glassFull"
+          },
+          "fasciaC": {
+            "K2": "#8e9798",
+            "K3": "#8e9798",
+            "K4": "#8e9798",
+            "K5": "#8e9798",
+            "K6": "#8e9798",
+            "K7": "#8e9798",
+            "K8": "#8e9798"
+          },
+          "railC": "#b9bec1"
         }
       ],
       "note": "Pencere kulesi H (turuncu K1?,K4,K8) + KB köşe cam balkon yığını (batı cephe kenar 0 ile köşeyi sarar)."
     }
   ],
   "notes": [
-    "KÜTLE (önemli): bina iki ayrı 9 katlı kuleden oluşur (batı x≈95.7–127.9, doğu x≈139.7–173); aradaki ~9–12 m boşlukta yalnız ~4.9 m yüksek tek katlı podyum (dükkân + site girişi) var, üstü açık — güneyden (XO-B02gS, TRtaimPV) ve kuzeyden (c85sxN_N kenar 48) boşluktan gökyüzü/uzak binalar görünüyor. Taban izi zemin kat izidir; üretici 15/16/17 ve 46–48 kenarlarında K1+ duvar ÜRETMEMELİ (podyum yüksekliği 4.9 m, üstünde düz çatı + lamel parapet). Kulelerin boşluğa bakan yan cepheleri (batı kule doğu yüzü x≈127.9→130, doğu kule batı yüzü x≈139.7→141) taban izinde yalnız kuzey uçlarda (45/47, 49/52) var; güney kısımları için kenar yok.",
-    "KAT: 9 kat = K0 dükkân katı + K1–K8 konut. floorH 3.05 (ortofoto görünen kat aralıkları × yatay ölçek 2.9–3.2; güney 3.08, doğu 3.12, kuzey ~3.0–3.3 → 3.05). K1 döşemesi sokaktan ≈4.65 m (lamel bandın üstü). groundRaise=1.6 SANALDIR: K1–K8 ve çatı (≈29.05 + 0.6 parapet ≈29.7 m; OSM height=26) doğru kotta olsun diye K0 döşemesi 1.6’da tanımlandı. Gerçek zemin kat 0.15–4.65 m arası yüksek dükkân katıdır (bkz. groundFloor). Bu yüzden K0 \"shop\" pencerelerinin sill değeri NEGATİF (≈ −1.45 = sokaktan 0.15 m): üretici K0 shop açıklıklarında sill’i 0.02’ye kırpmamalı ve kaide (plinth) bandını dükkân camlarının arkasında çizmemeli; aksi halde vitrinler 1.6 m’den başlar.",
+    "TABELALAR (sign öğeleri, hepsi siyah lamel bant 3.7–4.65 m üstünde): kenar 9 \"MiA\" (beyaz kalın logo harf, i küçük/noktalı) + \"YÖNETİM VE GAYRİMENKUL\" (beyaz ince harf); kenar 4 aynı tabelanın GB köşe kopyası; kenar 15 sarı yuvarlak dik bayrak tabela (dil okulu, okunamadı); kenar 18 \"phenomenon / KİTAP\" (koyu turuncu kutu #9c714b, siyah harf, siyah köşebentler); kenar 22 \"EV/REN/SEL\" beyaz logo kutusu + \"EVRENSEL KİTAP\" (siyah kutu, gümüş kabartma harf); kenar 24 \"sacperisi.özlüce\" Instagram levhası; kenar 26 ve 27 \"Saç Perisi\" (beyaz el yazısı + altın kanatlar) + \"BAYAN KUAFÖRÜ\" levhası, kapı üstü \"Hoşgeldiniz\"; buzlu cam folyolarında gri \"Saç Perisi\"; kenar 27 vitrin arkasında büyük L’ORÉAL PROFESSIONNEL afişi. Dükkânlarda kepenk/tente YOK (tüm vitrinler açık cam); site girişinde siyah, beyaz nervürlü düz metal saçak (awning). Dükkân arası siyah kaplamalı kolonlar proj (d 0.15).",
+    "SOKAK PLANI İÇİN: \"ONAL 51 özlüce\" yazısı binada değil; blok batısındaki komşu/site girişi yapısında (turuncu kaplamalı büyük saçak + gri kolonlar, alt kısmında \"ONA|151 özlüce\" beyaz harf) — taban izi dışında, bu dosyada yok.",
+    "KORKULUK (her kat ayrı incelendi): fotoğraflı tüm katlarda (güney K1–K7, kuzey K2–K8, köşe yığınları) balkon önü aynı: ~0.35 m gri döşeme alnı (#8e9798) + döşemeden çerçevesiz füme cam korkuluk (glassFull, cam #66747e, ince alüminyum üst profil #b9bec1); cam balkonlu katlarda katlanır camın altında da aynı cam. Boru/çubuk/dolu parapet hiçbir katta görülmedi. K8 (güney) ve K1 (kuzey, çit arkası) görülmedi → aynı kabul edildi.",
+    "KÜTLE (önemli): bina iki ayrı 9 katlı kuleden oluşur (batı x≈95.7–127.9, doğu x≈139.7–173); aradaki ~9–12 m boşlukta yalnız ~4.9 m yüksek tek katlı podyum (dükkân + site girişi) var, üstü açık — güneyden (XO-B02gS, TRtaimPV) ve kuzeyden (c85sxN_N kenar 48) boşluktan gökyüzü/uzak binalar görünüyor. Taban izi zemin kat izidir; `massing` ile bölünür: batı kule x≤127.85, doğu kule x≥139.73, arası 1 katlı podyum (K0 üstü ≈4.77 m). Düz kesim nedeniyle 47/49/52 (kule yan cepheleri, gerçekte x≈128–131 ve ≈138.4) podyum parçasına düşer → öğeleri kaldırıldı; kulelerin boşluğa bakan yüzleri kesim düzleminde düz sıva olarak çıkar (gerçekte turuncu panolu, dar pencere sütunlu). Kulelerin boşluğa bakan yan cepheleri (batı kule doğu yüzü x≈127.9→130, doğu kule batı yüzü x≈139.7→141) taban izinde yalnız kuzey uçlarda (45/47, 49/52) var; güney kısımları için kenar yok.",
+    "KAT: 9 kat = K0 dükkân katı + K1–K8 konut. floorH 3.05 (ortofoto görünen kat aralıkları × yatay ölçek 2.9–3.2; güney 3.08, doğu 3.12, kuzey ~3.0–3.3 → 3.05). K1 döşemesi sokaktan ≈4.65 m (lamel bandın üstü). groundRaise=1.6 SANALDIR: K1–K8 ve çatı (≈29.05 + 0.6 parapet ≈29.7 m; OSM height=26) doğru kotta olsun diye K0 döşemesi 1.6’da tanımlandı. Gerçek zemin kat 0.15–4.65 m arası yüksek dükkân katıdır (bkz. groundFloor). Bu yüzden K0 \"shop\" pencerelerinin sill değeri NEGATİF (≈ −1.45 = sokaktan 0.15 m; üretici artık 0.1−groundRaise’e kadar izin veriyor).",
     "ZEMİN KAT (güney, sokak): kesintisiz siyah doğramalı boy vitrin (sokaktan ≈0.15–3.5 m), üstünde tüm cephe boyunca siyah yatay lamelli bant (3.7–4.65 m, ~0.12 m çıkıntılı; band #2e3233) — tabelalar bu bandın üstünde: batı kule \"MİA YÖNETİM VE GAYRİMENKUL\" (beyaz harf, u 9’da), boşlukta site girişi (siyah kanopi, çift cam kapı, iki saksı; köşede sarı yuvarlak dil okulu logosu — OSM: Wimbledon Language Academy), doğu kule \"phenomenon KİTAP\" (turuncu kutu harf), \"EVRENSEL KİTAP\" (gümüş harf + beyaz logo kutusu), \"Saç Perisi\" kadın kuaförü (beyaz el yazısı + altın kanat, buzlu cam, GD köşeyi sarar; doğu yüzde büyük LOREAL afişi). OSM düğümleri de aynı dükkânları veriyor.",
     "CEPHE DİLİ (her iki kule aynı, doğu kule batı kulenin ötelenmiş kopyası): açık gri sıvalı \"pencere kuleleri\" (≈4 m genişlik: ~1 m gri paye + 2.2–2.4 m boy pencere, 3 kanatlı, alt sabit bölmeli + ~1 m gri paye), aralarında sürekli balkon bantları (koyu gri döşeme alnı + koyu füme cam korkuluk; birçok katta katlanır cam balkon). Her kat hizasında pencere kulelerinde koyu gri döşeme bandı (~0.45 m). Turuncu kompozit panolar payelerde, kat kat değişen düzenle: güneyde kule A/C K1,K2,K4,K7; B/D K1,K5; kuzeyde E/G/H K1,K4,K8, F K5; köşe payeleri K1–K4.",
     "BALKONLAR: güneyde loca gibi (arka duvar pencere kulesi ön yüzünün ~1.5–2 m gerisinde, döşeme önü paye yüzüne yakın); taban izinde kuleler ~0.2–0.8 m çıkıntı yaptığı için d=0.8 çıkma olarak yazıldı (ön yüz ≈ paye hizası). Açık katlarda tavan spotları, arka duvarda beyaz sıva, K1’de siyah kepenkli kapılar. Loca içindeki klimalar arka duvara (taban izi hattına) yazıldı — korkuluğun arkasında kalmalı. Köşe balkon yığınları (GB, GD, KD, KB her iki kulede) köşeyi sarar; yan uçlar cam.",

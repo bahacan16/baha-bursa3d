@@ -96,3 +96,38 @@
   `data/facades.json`. **Blender:** `NW/Mertkent/Blocks/1540901772` (korkuluk tipi boru, tabela).
 - **7be7de4** — Doğu paftası hava fotoğrafı `streetview-src/aerial-e/` (x 230…730, z −350…150) + 18 bina için
   yakın plan kare planı. **Blender:** — (referans)
+- **(bu commit)** — Üretici ek özellikleri (ajan raporlarındaki eksikler):
+  - Pencere `grille` (kat → bars | ornamental | lattice, `grilleC`), `lower` (kapı/fransız pencere alt bölmesi:
+    frosted | louvre | solid, `lowerC`); balkon `net` (kuş filesi katları); `groove` (sıva derzi, yatay/düşey),
+    `vent` (menfez: yuvarlak/dikdörtgen, adet + aralık); `sign.lines` (çok satırlı, satır başına renk/boy);
+    `panel`/`band` hex rengi; sokak planında `board` (direk/kapı panosu).
+  - **Tabela montajı:** tabela altındaki `band`/`panel`/`proj`'un ön yüzüne oturur (önceden 12 cm dışarıdaki lamel
+    bandın arkasında kalıp görünmüyordu). Dosya: `facade.ts` (sign dalı). **Blender:** tabela y-ofseti = altındaki
+    bant/panel çıkıntısı + tabela derinliği.
+  - **Cam balkon gölgelendiricisi hatası düzeltildi:** derz `smoothstep` kenarları tersti (GLSL'de tanımsız) → tüm
+    panel çerçeve renginde, yani BEYAZ çıkıyordu. Artık koyu cam + 0.72 m derz (Street View'daki gibi). Tüm camlı
+    balkonları etkiler. Dosya: `facadeMats.ts` (`camGlassMaterial`). **Blender:** cam balkon malzemesi koyu füme
+    cam (iç ≈ #0b0d12, yansıma), beyaz değil.
+  - **Vitrin camı:** dükkân camlarına artık ev perdesi atanmaz; yeni `vitrin` iç mekânı (loş dükkân içi, tavan
+    spotları, raf siluetleri) — `curt` değeri `vitrin` (7), `kind: shop` varsayılanı. Dosya: `facadeMats.ts`,
+    `facade.ts`. **Blender:** vitrin camları koyu, iç mekân loş.
+  - Kuleli blok podyumu (massing gap) saçaksız düz çatı (açık gri saçak alnı yoktu). Dosya: `massing.ts`.
+- **(bu commit)** — Bloklar v3 (kat kat korkuluk/alın/perde/tabela):
+  - **1550826982** (DA kuzey, iki kuleli): 17 tabela (MiA / YÖNETİM VE GAYRİMENKUL, phenomenon KİTAP, EVRENSEL
+    KİTAP + EV/REN/SEL logo kutusu, sacperisi.özlüce, Saç Perisi, BAYAN KUAFÖRÜ, Hoşgeldiniz, L'ORÉAL posteri,
+    dil okulu yuvarlak tabelası), lamel bant #33393b (3.7–4.65 m, 12 cm çıkıntı), tüm balkonlar `glassFull`
+    (çerçevesiz füme cam #66747e, alın #8e9798), K1 kepenkli kapılar (`shut`), 5 siyah kaplı ayak (`proj`),
+    site girişi siyah tente. Görülmeyen: güney K8, kuzey K1 (varsayım olarak işaretli).
+  - **1546358562 / 1546358556 / 1546358555**: tüm balkonlar `solidTube` (0.55 m dolu parapet + paslanmaz küpeşte
+    #d0d6d9); dolu alın katları 562/556'da K2 koyu #50575f, 555'te K0 ve K3 koyu; kat kat perdeler; 562'de
+    siyah çörtenler (`vent`), açık gri iniş boruları, güneybatı cam balkon kolonu; 556 kenar 8 yeniden ölçüldü.
+    Görülmeyen: güney cepheler (rail/alın komşu kolondan, notlu).
+  - **1546358554 / 1540901773 / 1540901794**: v3 alanları (korkuluk tipi, alın rengi, perde, tabela).
+  Dosyalar: `survey/*.json`, `data/facades.json`. **Blender:** `NW/Mertkent/Blocks/<id>` bu 7 blok yeniden kur.
+- **(bu commit)** — Sokak panoları `da2-board-sehri` (ŞEHR-İ BURSA EVLERİ), `da2-board-uptown`. Dosya:
+  `data/street-plan.json`, `street.ts` (`board`). **Blender:** `NW/Mertkent/Street`.
+- **(bu commit)** — Segment 3 taban izleri (Özlüce kavşağına kadar, 12 bina, hava fotoğrafı + SV, eğim ölçülü):
+  1540901770/71/74/76/77, 1546816193, 1541439435/36/37, 303738118 (Cevher/Delice), 303738122 (Balıkçı Mahmut),
+  1550614218 (MOSSA). **1541439439/40 bina değil** (boş arsa, "Vergi Dairesi proje alanı" levhası) → çizilmez
+  (`index.ts` `NOT_BUILDINGS`). Dosya: `data/footprints.json`. **Blender:** bu iki OSM kaydını atla; taban
+  izleri cephe ölçümü gelince kurulacak.

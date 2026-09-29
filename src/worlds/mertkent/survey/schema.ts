@@ -87,7 +87,8 @@ export interface EdgeSpec {
   note?: string;
 }
 
-export type FacadeItem = Win | Strip | Bal | Pipe | Unit | Band | Panel | Entrance | Proj | Sign | Awning;
+export type FacadeItem =
+  Win | Strip | Bal | Pipe | Unit | Band | Panel | Entrance | Proj | Sign | Awning | Groove | Vent;
 
 /** Pencere / kapı sütunu (her katta aynı yerde tekrar eden açıklık) */
 export interface Win {
@@ -118,7 +119,14 @@ export interface Win {
    * Pencere sütununda soldan sağa birden çok pencere varsa "K3": "tul" hepsi için geçerlidir; ayrı ayrı gerekiyorsa
    * sütunu ayrı `win` öğelerine böl.
    */
-  curt?: Record<string, 'tul' | 'tul-yan' | 'stor' | 'jaluzi' | 'zebra' | 'karanlik' | 'acik'>;
+  curt?: Record<string, 'tul' | 'tul-yan' | 'stor' | 'jaluzi' | 'zebra' | 'karanlik' | 'acik' | 'vitrin'>;
+  /** Fransız pencere / kapı alt bölmesi: frosted (buzlu cam), louvre (panjur lamelli), solid (dolu panel) + renk */
+  lower?: 'frosted' | 'louvre' | 'solid';
+  lowerC?: string;
+  /** Kat → pencere önü demir parmaklık: bars (dikey çubuk), ornamental (çubuk + kıvrımlı orta bant), lattice (kafes) */
+  grille?: Record<string, 'bars' | 'ornamental' | 'lattice'>;
+  /** Parmaklık rengi "#rrggbb" */
+  grilleC?: string;
   /** Kat → dış panjur / dükkân kepengi kapanma oranı 0..1 (1 = tamamen inik), fotoğraftaki gibi */
   shut?: Record<string, number>;
 }
@@ -173,6 +181,8 @@ export interface Bal {
   railC?: string;
   /** Kat → dolu parapet yüksekliği (m, gerçek; solid/solidTube/glass için) */
   parapetH?: Record<string, number>;
+  /** Korkuluğun arkasında koyu file/örtü olan katlar (kuş filesi, gölgelik) */
+  net?: number[];
 }
 
 /**
@@ -212,6 +222,8 @@ export interface Sign {
   /** Kutu derinliği (m, varsayılan 0.12); letters için 0.04 */
   d?: number;
   text: string;
+  /** Satır satır farklı renk/boyut gerekiyorsa (text yerine): boyut satır yüksekliği oranı (varsayılan 1) */
+  lines?: { text: string; fg?: string; size?: number; bold?: boolean }[];
   /** Zemin rengi (letters için yok) */
   bg?: string;
   /** Yazı rengi */
@@ -225,6 +237,35 @@ export interface Sign {
   lit?: boolean;
   /** Yazı dışında görülen logo/şekil tarifi (çizilemiyorsa not) */
   logo?: string;
+}
+
+/**
+ * Sıva derzi / kanal (görünen): h = yatay (u0..u1, y), v = dikey (u, y0..y1). Çift derzleri iki öğe olarak yaz.
+ */
+export interface Groove {
+  t: 'groove';
+  dir: 'h' | 'v';
+  u0?: number;
+  u1?: number;
+  u?: number;
+  y?: number;
+  y0?: number;
+  y1?: number;
+  /** Genişlik (m, varsayılan 0.03) */
+  w?: number;
+  color?: string;
+}
+
+/** Havalandırma deliği / menfez (görünen merkez u,y; boyut s m; adet ve yatay aralık) */
+export interface Vent {
+  t: 'vent';
+  u: number;
+  y: number;
+  s?: number;
+  shape?: 'round' | 'rect';
+  count?: number;
+  spacing?: number;
+  color?: string;
 }
 
 /** Tente (dükkân önü): duvarda görünen y yüksekliğinden d kadar dışarı, drop kadar aşağı eğik */

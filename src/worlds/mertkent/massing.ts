@@ -30,12 +30,13 @@ function clipX(ring: V2[], x0: number, x1: number): V2[] {
 
 /** Öğeyi [s, s+L] aralığına taşı (u → u − s); dışarıda kalırsa null */
 function shiftItem(it: CItem, s: number, L: number): CItem | null {
-  if ('u0' in it) {
+  if ('u0' in it && it.u0 != null && it.u1 != null) {
     const u0 = it.u0 - s;
     const u1 = it.u1 - s;
     if (u1 <= 0.05 || u0 >= L - 0.05) return null;
     return { ...it, u0: Math.max(0, u0), u1: Math.min(L, u1) } as CItem;
   }
+  if (!('u' in it) || it.u == null) return it;
   const u = it.u - s;
   if (u < 0 || u > L) return null;
   return { ...it, u } as CItem;
@@ -90,7 +91,8 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   });
   if (m.gap) {
     const p = part(m.gap.x[0], m.gap.x[1], 1, 9);
-    if (p) out.push({ ...p, roof: { ...p.roof, kind: 'flat' } });
+    // Podyum üstü sokaktan görünmez; kenarı zemin kat bandıyla biter (açık gri saçak alnı yok — Street View)
+    if (p) out.push({ ...p, roof: { ...p.roof, kind: 'flat', eave: 0.02, fasciaH: 0.02 } });
   }
   return out;
 }

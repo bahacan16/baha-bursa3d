@@ -146,6 +146,9 @@ async function main() {
               rail: !!it.rail,
               split: it.split ?? 2,
               box: !!it.box,
+              ...(it.grille ? { grille: keyK(it.grille) } : {}),
+              ...(it.lower ? { lower: it.lower, lowerC: it.lowerC ?? null } : {}),
+              ...(it.grilleC ? { grilleC: it.grilleC } : {}),
               ...(it.curt
                 ? {
                     curt: Object.fromEntries(
@@ -189,6 +192,7 @@ async function main() {
               ...(it.fasciaC ? { fasciaC: keyK(it.fasciaC) } : {}),
               ...(it.railC ? { railC: it.railC } : {}),
               ...(it.parapetH ? { parapetH: keyK(it.parapetH) } : {}),
+              ...(it.net ? { net: it.net } : {}),
             });
             break;
           }
@@ -220,6 +224,7 @@ async function main() {
               y1: r2(absY(Math.max(it.y0, it.y1))),
               d: it.d ?? (it.style === 'letters' ? 0.04 : 0.12),
               text: it.text ?? '',
+              lines: it.lines ?? null,
               bg: it.bg ?? null,
               fg: it.fg ?? '#ffffff',
               border: it.border ?? null,
@@ -227,6 +232,41 @@ async function main() {
               font: it.font ?? 'sans',
               bold: it.bold !== false,
               lit: !!it.lit,
+            });
+            break;
+          case 'groove':
+            items.push(
+              it.dir === 'v'
+                ? {
+                    t: 'groove',
+                    dir: 'v',
+                    u: r2(c.U(it.u)),
+                    y0: r2(absY(Math.min(it.y0, it.y1))),
+                    y1: r2(absY(Math.max(it.y0, it.y1))),
+                    w: it.w ?? 0.03,
+                    color: it.color ?? null,
+                  }
+                : {
+                    t: 'groove',
+                    dir: 'h',
+                    u0: r2(it.u0 != null ? c.U(Math.min(it.u0, it.u1)) : 0),
+                    u1: r2(it.u1 != null ? c.U(Math.max(it.u0, it.u1)) : c.L),
+                    y: r2(absY(it.y)),
+                    w: it.w ?? 0.03,
+                    color: it.color ?? null,
+                  },
+            );
+            break;
+          case 'vent':
+            items.push({
+              t: 'vent',
+              u: r2(c.U(it.u)),
+              y: r2(absY(it.y)),
+              s: it.s ?? 0.12,
+              shape: it.shape ?? 'round',
+              count: it.count ?? 1,
+              spacing: it.spacing ?? 0.3,
+              color: it.color ?? null,
             });
             break;
           case 'awning':
