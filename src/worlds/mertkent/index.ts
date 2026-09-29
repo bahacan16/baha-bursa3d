@@ -7,7 +7,7 @@ import { splitMassing } from './massing';
 import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
 import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
-import { buildStreetPlan } from './street';
+import { buildStreetPlan, streetSignTexture } from './street';
 import { buildMertkentFence, type FenceSpec } from './fence2';
 import { buildGenericFence, type GenericFence } from './fenceGeneric';
 import {
@@ -735,6 +735,24 @@ function materials(base: string): Record<string, THREE.Material> {
       emissive: 0x7d8286,
       alphaTest: 0.5,
     }),
+    // Özlüce kavşağı (street-plan da3-*): ada başı levhaları, trafik ışığı mercekleri, reklam panosu yüzü
+    signKeepRight: std({ map: streetSignTexture('keepRight'), alphaTest: 0.5, roughness: 0.4 }),
+    signKeepRightBack: std({
+      map: streetSignTexture('keepRight'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signChevron: std({ map: streetSignTexture('chevron'), roughness: 0.4 }),
+    signChevronBack: std({ color: 0x7d8286, roughness: 0.5 }),
+    signPedestrian: std({ map: streetSignTexture('pedestrian'), roughness: 0.4 }),
+    signPedestrianBack: std({ color: 0x7d8286, roughness: 0.5 }),
+    // KARAR: sinyal mercekleri sönük renkli cam — hangi ışığın yandığı anlık, hiçbiri yanık çizilmez
+    sigRed: std({ color: 0x6e1410, emissive: 0xff2a1a, emissiveIntensity: 0.18, roughness: 0.2 }),
+    sigAmber: std({ color: 0x6e4a0c, emissive: 0xffa21a, emissiveIntensity: 0.18, roughness: 0.2 }),
+    sigGreen: std({ color: 0x0c5a3c, emissive: 0x1ae08c, emissiveIntensity: 0.18, roughness: 0.2 }),
+    // KARAR: pano içeriği değişken / ölçülmedi → nötr kırık beyaz yüz (reklam içeriği uydurulmaz)
+    billboardFace: std({ color: 0xdcdad4, roughness: 0.75 }),
     signBikeFlat: std({
       map: T.roadSignTexture('bike'),
       alphaTest: 0.5,
@@ -1009,7 +1027,10 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const b = new Builder();
   const extraMats: Record<string, THREE.Material> = {};
   // Ölçülen özel renkler (kat kat balkon alını, korkuluk metali, çıkma, tente) ve tabela yüzleri → dinamik malzeme
-  const colorKey = (kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass', hex: string): string => {
+  const colorKey = (
+    kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass' | 'frame' | 'tint',
+    hex: string,
+  ): string => {
     const k = `cc_${kind}_${hex.toLowerCase()}`;
     if (!extraMats[k])
       extraMats[k] =
@@ -1017,21 +1038,25 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
           ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
           : kind === 'awning'
             ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.85, side: THREE.DoubleSide })
-            : kind === 'glass'
-              ? new THREE.MeshStandardMaterial({
-                  // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
-                  color: hex,
-                  roughness: 0.12,
-                  metalness: 0,
-                  transparent: true,
-                  opacity: 0.86,
-                  side: THREE.DoubleSide,
-                  depthWrite: false,
-                })
-              : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
-                  roughness: 0.9,
-                  side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
-                });
+            : kind === 'frame'
+              ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.4, metalness: 0.1 })
+              : kind === 'tint'
+                ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.06, metalness: 0.25 })
+                : kind === 'glass'
+                  ? new THREE.MeshStandardMaterial({
+                      // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
+                      color: hex,
+                      roughness: 0.12,
+                      metalness: 0,
+                      transparent: true,
+                      opacity: 0.86,
+                      side: THREE.DoubleSide,
+                      depthWrite: false,
+                    })
+                  : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
+                      roughness: 0.9,
+                      side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
+                    });
     return k;
   };
   const signFace = (sg: {
@@ -1046,14 +1071,18 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     style: string;
     w: number;
     h: number;
+    outline?: string | null;
+    shape?: string | null;
+    icon?: string | null;
+    iconC?: string | null;
   }): string => {
-    const k = `sign_${JSON.stringify([sg.text, sg.lines ?? null, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10)])}`;
+    const k = `sign_${JSON.stringify([sg.text, sg.lines ?? null, sg.bg, sg.fg, sg.border, sg.font, sg.bold, sg.lit, sg.style, Math.round((sg.w / sg.h) * 10), sg.outline ?? null, sg.shape ?? null, sg.icon ?? null, sg.iconC ?? null])}`;
     if (!extraMats[k]) {
       if (typeof document === 'undefined')
         extraMats[k] = new THREE.MeshStandardMaterial({ color: sg.bg ?? sg.fg });
       else {
         const map = T.shopSignTexture(sg);
-        const transparent = !sg.bg || sg.style === 'letters';
+        const transparent = !sg.bg || sg.style === 'letters' || sg.shape === 'round';
         extraMats[k] = new THREE.MeshStandardMaterial({
           map,
           transparent,
@@ -1073,7 +1102,11 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // Ölçülmüş sokak: kaldırım, bordür, sokak eşyası (street-plan.json); varsa eski tahmini kaldırım çizilmez
   const street =
     (STREET_PLAN.sidewalks?.length ?? 0) + (STREET_PLAN.street?.length ?? 0) > 0
-      ? buildStreetPlan(b, STREET_PLAN, o.H, roadGapFn(o.simple, true), { signFace, colorKey })
+      ? buildStreetPlan(b, STREET_PLAN, o.H, roadGapFn(o.simple, true), {
+          signFace,
+          colorKey,
+          collide: o.collide,
+        })
       : null;
   const walkSkip = street ? street.covers : undefined;
   const ringBase = (r: V2[]) => Math.min(...r.map((p) => o.H(p[0], p[1])));

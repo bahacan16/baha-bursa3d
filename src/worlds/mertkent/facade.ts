@@ -36,6 +36,12 @@ export interface CWin {
   grilleC?: string;
   lower?: string;
   lowerC?: string | null;
+  /** Doğrama rengi (ölçülmüş; yoksa blok paleti) */
+  frameC?: string | null;
+  /** Renkli / yansıtıcı cam (giydirme cephe paneli): oda gölgelendiricisi yerine düz renkli cam */
+  tint?: string | null;
+  /** Söve: açıklığın çevresinde çıkıntılı çerçeve (genişlik, çıkıntı, renk) */
+  surround?: { w: number; d: number; color?: string | null } | null;
 }
 export interface CGroove {
   t: 'groove';
@@ -120,6 +126,10 @@ export interface CSign {
   font: string;
   bold: boolean;
   lit: boolean;
+  outline?: string | null;
+  shape?: string | null;
+  icon?: string | null;
+  iconC?: string | null;
 }
 export interface CAwning {
   t: 'awning';
@@ -132,6 +142,8 @@ export interface CAwning {
   stripe: string | null;
   text: string | null;
   textColor: string;
+  /** 'dutch': çeyrek yuvarlak kabuk + yelpaze uç kapakları (Hollanda tipi); yoksa düz eğik tente */
+  style?: string | null;
 }
 export interface CPipe {
   t: 'pipe';
@@ -166,6 +178,34 @@ export interface CEntrance {
 export type CItem =
   CWin | CStrip | CBal | CPipe | CUnit | CPanel | CEntrance | CProj | CSign | CAwning | CGroove | CVent;
 
+/**
+ * Ek hacim: dünya koordinatında çokgen taban, blok tabanına göre y0..y1. Duvar rengi, üst bant, düz çatı (+ parapet /
+ * korkuluk), seçili kenarlarda giydirme cam (dikme aralığı, cam ve doğrama rengi). Ölçüm dosyasından aynen gelir.
+ */
+export interface CVolume {
+  poly: [number, number][];
+  y0: number;
+  y1: number;
+  color: string;
+  band?: { h: number; color: string } | null;
+  roofC?: string | null;
+  parapet?: {
+    h: number;
+    color?: string | null;
+    rail?: string | null;
+    railC?: string | null;
+    glassC?: string | null;
+  } | null;
+  glazing?: {
+    edges: number[] | 'all';
+    from: number;
+    to: number;
+    mullion: number;
+    glass: string;
+    frame: string;
+  } | null;
+  collide?: boolean;
+}
 export interface CompiledBlock {
   id: number;
   name: string | null;
@@ -173,14 +213,35 @@ export interface CompiledBlock {
   storeys: number;
   floorH: number;
   groundRaise: number;
-  roof: { kind: string; eave: number; fasciaH: number; pitch?: number };
+  roof: {
+    kind: string;
+    eave: number;
+    fasciaH: number;
+    pitch?: number;
+    /** Çatı kenarında dolu parapet (+ üstünde korkuluk); varsa saçak alnı yerine çizilir */
+    parapet?: {
+      h: number;
+      color?: string | null;
+      rail?: string | null;
+      railC?: string | null;
+      glassC?: string | null;
+    } | null;
+  };
+  /** Kat başına kat yüksekliği (K0'dan; eksik katlar floorH) */
+  floorHs?: number[] | null;
+  /** Ek hacimler (dünya çokgeni): tek katlı ek, kış bahçesi, çatı odası… */
+  volumes?: CVolume[] | null;
   colors: Record<string, string>;
   edges: { edge: number; len: number; seen: string; items: CItem[] }[];
   /** Zemin kat podyumu üstünde ayrık kuleler (x aralıkları) */
   massing?: {
     towers: {
-      x: [number, number];
+      x?: [number, number];
       z?: [number, number];
+      /** Dünya çokgeni (döndürülmüş şerit vb.) */
+      poly?: [number, number][];
+      /** Taban izinin diğer parçalar dışında kalanı */
+      rest?: boolean;
       storeys?: number;
       roof?: Partial<CompiledBlock['roof']>;
     }[];
@@ -191,9 +252,11 @@ export interface CompiledBlock {
 /** Blok paleti: malzeme anahtarı eşlemesi (ör. mkPlaster → mkPlaster_1480041342) */
 let KM: Record<string, string> = {};
 /** Ölçülen özel renk → malzeme anahtarı (buildFacadeBlock süresince) */
-let CKF: ((kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass', hex: string) => string) | null = null;
+let CKF:
+  | ((kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass' | 'frame' | 'tint', hex: string) => string)
+  | null = null;
 const ckm = (
-  kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass',
+  kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass' | 'frame' | 'tint',
   hex: string | null | undefined,
   dflt: string,
 ) => (hex && /^#[0-9a-f]{6}$/i.test(hex) && CKF ? CKF(kind, hex) : dflt);
@@ -232,7 +295,10 @@ export interface FacadeOptions {
   /** Blok paleti malzeme anahtarı eşlemesi */
   keys?: Record<string, string>;
   /** Ölçülen özel renk için malzeme anahtarı (tür: plaster/fascia/metal/awning) */
-  colorKey?: (kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass', hex: string) => string;
+  colorKey?: (
+    kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass' | 'frame' | 'tint',
+    hex: string,
+  ) => string;
   /** Tabela yüzü malzemesi (yazı dokusu) */
   signFace?: (s: {
     text: string;
@@ -245,6 +311,11 @@ export interface FacadeOptions {
     border: string | null;
     w: number;
     h: number;
+    lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
+    outline?: string | null;
+    shape?: string | null;
+    icon?: string | null;
+    iconC?: string | null;
   }) => string;
 }
 
@@ -334,7 +405,13 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   const N = ring.length;
   const FH = blk.floorH;
   const S = blk.storeys;
-  const floorY = (k: number) => base + blk.groundRaise + k * FH;
+  // Kat yükseklikleri eşit değilse (ör. 4.0 m dükkân katı + 2.7 m üst kat) birikimli toplam
+  const FHS = blk.floorHs?.length ? blk.floorHs : null;
+  const cum: number[] = [0];
+  for (let k = 0; k < S + 1; k++) cum.push(cum[k] + (FHS?.[k] ?? FH));
+  const floorY = (k: number) =>
+    base + blk.groundRaise + (FHS ? cum[Math.max(0, Math.min(k, S + 1))] : k * FH);
+  const storeyH = (k: number) => FHS?.[k] ?? FH;
   const wallTop = floorY(S) + 0.12;
   const E: Edge[] = [];
   let per = 0;
@@ -354,7 +431,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   const items = (i: number) => byEdge.get(i) ?? [];
   // Ölçülen özel renkler → malzeme anahtarı (yoksa blok paleti)
   const ck = (
-    kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass',
+    kind: 'plaster' | 'fascia' | 'metal' | 'awning' | 'glass' | 'frame' | 'tint',
     hex: string | null | undefined,
     dflt: string,
   ) => (hex && /^#[0-9a-f]{6}$/i.test(hex) && o.colorKey ? o.colorKey(kind, hex) : dflt);
@@ -438,7 +515,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const y0 =
           floorY(k) +
           (it.kind === 'shop' ? Math.max(0.1 - blk.groundRaise, it.sill) : Math.max(0.02, it.sill));
-        const y1 = floorY(k) + Math.min(FH - 0.25, it.head);
+        const y1 = floorY(k) + Math.min(storeyH(k) - 0.25, it.head);
         if (y1 - y0 < 0.3) continue;
         openings[i].push({ u0, u1, y0, y1, win: it, k });
       }
@@ -860,14 +937,50 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const c = l.poly.reduce((a, p) => [a[0] + p[0] / 4, a[1] + p[1] / 4], [0, 0]);
         return inside(outer, c[0], c[1]);
       });
-      let run = 0;
+      // Bitişik balkonlar tek plakada birleşir; korkuluk tipi / camlılık / cam tonu her parçada KENDİ balkonundan
+      // (önceden çokgenin ilk balkonundan alınıyordu: yan yana camlı-açık balkonlar aynı çıkıyordu)
+      const ownerAt = (m: V2) => {
+        let best = info;
+        let bd = Infinity;
+        for (const l of list) {
+          const d = inside(l.poly, m[0], m[1]) ? 0 : distToRing(l.poly, m[0], m[1]);
+          if (d < bd) {
+            bd = d;
+            best = l;
+          }
+        }
+        return best;
+      };
+      const pieces: [V2, V2][] = [];
       for (const [p, q] of segs) {
+        const Ls = Math.hypot(q[0] - p[0], q[1] - p[1]);
+        if (Ls < 1e-3) continue;
+        const tx = (q[0] - p[0]) / Ls;
+        const tz = (q[1] - p[1]) / Ls;
+        const cuts = [0, Ls];
+        for (const l of list)
+          for (const c of l.poly) {
+            const sAl = (c[0] - p[0]) * tx + (c[1] - p[1]) * tz;
+            const off = Math.abs((c[0] - p[0]) * tz - (c[1] - p[1]) * tx);
+            if (off < 0.05 && sAl > 0.05 && sAl < Ls - 0.05) cuts.push(sAl);
+          }
+        cuts.sort((a, e) => a - e);
+        for (let j = 0; j + 1 < cuts.length; j++)
+          if (cuts[j + 1] - cuts[j] > 0.02)
+            pieces.push([
+              [p[0] + tx * cuts[j], p[1] + tz * cuts[j]],
+              [p[0] + tx * cuts[j + 1], p[1] + tz * cuts[j + 1]],
+            ]);
+      }
+      let run = 0;
+      for (const [p, q] of pieces) {
         const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
-        parapet(b, p, q, y, run, info?.rail);
-        if (info?.glazed && k + 1 <= S) {
+        const own = ownerAt([(p[0] + q[0]) / 2, (p[1] + q[1]) / 2]);
+        parapet(b, p, q, y, run, own?.rail);
+        if (own?.glazed && k + 1 <= S) {
           const yTop = floorY(k + 1) - SLAB - 0.01;
-          const aux: V4 = [hash(o.seed + k * 13 + run) * 100, info.tint, 0, 0];
-          const { y0: gy0, inset } = camGlassSpan(info.rail, y);
+          const aux: V4 = [hash(o.seed + k * 13 + run) * 100, own.tint, 0, 0];
+          const { y0: gy0, inset } = camGlassSpan(own.rail, y);
           const [p0, q0] = outwardOrder(outer, p, q);
           const [gp, gq] = insetSeg(p0, q0, inset);
           b.quad(
@@ -1032,7 +1145,16 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           const oy = Math.min(it.y1, q.y1) - Math.max(it.y0, q.y0);
           if (ov > 0.05 && oy > 0.3 * h) mount = qd;
         }
-        if (!letters) {
+        if (it.shape === 'round') {
+          // Yuvarlak rozet: duvara dik disk (kenar rengi), yüz dokusu köşeleri saydam
+          const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
+          const r = Math.min(w, h) / 2;
+          const g = new THREE.CylinderGeometry(r, r, d, 32);
+          g.rotateX(Math.PI / 2);
+          g.rotateY(E[i].yaw);
+          g.translate(c[0], base + (it.y0 + it.y1) / 2, c[1]);
+          b.geometry(ck('fascia', it.border ?? it.bg, 'mkRail'), g);
+        } else if (!letters) {
           const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
           const side = ck('fascia', it.border ?? it.bg, 'mkRail');
           b.box(side, [c[0], base + (it.y0 + it.y1) / 2, c[1]], [w, h, d], E[i].yaw);
@@ -1084,11 +1206,44 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const a1 = P(i, it.u1, 0.02);
         const f0 = P(i, it.u0, it.d);
         const f1 = P(i, it.u1, it.d);
-        b.quad(key, [a0[0], yT, a0[1]], [a1[0], yT, a1[1]], [f1[0], yB, f1[1]], [f0[0], yB, f0[1]]);
-        b.quad(key, [f0[0], yB, f0[1]], [f1[0], yB, f1[1]], [a1[0], yT, a1[1]], [a0[0], yT, a0[1]]);
-        const vh = 0.22;
-        b.wall(key, f0, f1, yB - vh, yB);
-        b.wall(key, f1, f0, yB - vh, yB);
+        const dutch = it.style === 'dutch';
+        if (dutch) {
+          // Hollanda tipi: kesit çeyrek elips (duvarda yatay başlar, önde dikey biter); uçlarda yelpaze kapak.
+          // Şerit rengi (stripe) varsa kabuk dilimleri iki renk sırayla (fotoğraftaki açık/koyu turkuaz bantlar)
+          const NS = 10;
+          const prof = (k: number) => {
+            const th = (k / NS) * (Math.PI / 2);
+            return { off: 0.02 + (it.d - 0.02) * Math.sin(th), y: yB + (yT - yB) * Math.cos(th) };
+          };
+          const sk = it.stripe ? ck('awning', it.stripe, key) : key;
+          for (let k = 0; k < NS; k++) {
+            const A = prof(k);
+            const B = prof(k + 1);
+            const kk = k % 2 && it.stripe ? sk : key;
+            const p0 = P(i, it.u0, A.off);
+            const p1 = P(i, it.u1, A.off);
+            const q0 = P(i, it.u0, B.off);
+            const q1 = P(i, it.u1, B.off);
+            b.quad(kk, [p0[0], A.y, p0[1]], [p1[0], A.y, p1[1]], [q1[0], B.y, q1[1]], [q0[0], B.y, q0[1]]);
+            b.quad(kk, [q0[0], B.y, q0[1]], [q1[0], B.y, q1[1]], [p1[0], A.y, p1[1]], [p0[0], A.y, p0[1]]);
+            // Yelpaze uç kapakları (merkez: duvar dibi, yB)
+            for (const uu of [it.u0, it.u1]) {
+              const c = P(i, uu, 0.02);
+              const pa = P(i, uu, A.off);
+              const pb = P(i, uu, B.off);
+              b.quad(kk, [c[0], yB, c[1]], [pa[0], A.y, pa[1]], [pb[0], B.y, pb[1]], [pb[0], B.y, pb[1]]);
+              b.quad(kk, [c[0], yB, c[1]], [pb[0], B.y, pb[1]], [pa[0], A.y, pa[1]], [pa[0], A.y, pa[1]]);
+            }
+          }
+        } else {
+          b.quad(key, [a0[0], yT, a0[1]], [a1[0], yT, a1[1]], [f1[0], yB, f1[1]], [f0[0], yB, f0[1]]);
+          b.quad(key, [f0[0], yB, f0[1]], [f1[0], yB, f1[1]], [a1[0], yT, a1[1]], [a0[0], yT, a0[1]]);
+        }
+        const vh = dutch ? 0 : 0.22;
+        if (vh > 0) {
+          b.wall(key, f0, f1, yB - vh, yB);
+          b.wall(key, f1, f0, yB - vh, yB);
+        }
         if (it.text && o.signFace) {
           const fk = o.signFace({
             text: it.text,
@@ -1100,29 +1255,161 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             style: 'panel',
             border: null,
             w: it.u1 - it.u0,
-            h: vh,
+            h: dutch ? Math.min(0.32, 0.45 * (yT - yB)) : vh,
           });
           const g0 = P(i, it.u0, it.d + 0.006);
           const g1 = P(i, it.u1, it.d + 0.006);
-          b.wall(fk, g0, g1, yB - vh, yB, [0, 0, 1, 1]);
+          // Hollanda tentesinde yazı kabuğun dikey ön alt kısmında
+          if (dutch) b.wall(fk, g0, g1, yB, yB + Math.min(0.32, 0.45 * (yT - yB)), [0, 0, 1, 1]);
+          else b.wall(fk, g0, g1, yB - vh, yB, [0, 0, 1, 1]);
         }
       }
     }
 
-  // ── Çatı: saçak alnı + kırma kiremit ──
-  const eave = blk.roof.eave ?? 0.6;
-  const fH = blk.roof.fasciaH ?? 0.45;
-  for (let i = 0; i < N; i++) {
-    const { len } = E[i];
-    if (len < 0.05) continue;
-    // Saçak alnı: Street View'da açık gri (koyu balkon alnı renginde değil)
-    b.wall(K('mkPlaster2'), P(i, 0, 0.02), P(i, len, 0.02), wallTop - 0.05, wallTop + fH, [
-      E[i].s0,
-      wallTop - 0.05,
-      E[i].s0 + len,
-      wallTop + fH,
-    ]);
+  // ── Ek hacimler (dünya çokgeni): tek katlı ek, kış bahçesi, çatı odası ──
+  for (const v of blk.volumes ?? []) {
+    let pl = v.poly.map((p) => [p[0], p[1]] as V2);
+    if (pl.length < 3) continue;
+    // Taban izleri gibi negatif alanlı: (−dz, dx) dış normal, wall(a→e) dışa bakar
+    const ar = pl.reduce(
+      (a, p, j) => a + p[0] * pl[(j + 1) % pl.length][1] - pl[(j + 1) % pl.length][0] * p[1],
+      0,
+    );
+    if (ar > 0) pl = pl.slice().reverse();
+    const vy0 = base + v.y0;
+    const vy1 = base + v.y1;
+    const wk = ck('plaster', v.color, K('mkPlaster'));
+    const L = pl.length;
+    const gl = v.glazing;
+    const glazed = (j: number) => !!gl && (gl.edges === 'all' || gl.edges.includes(j));
+    for (let j = 0; j < L; j++) {
+      const a = pl[j];
+      const e = pl[(j + 1) % L];
+      const len = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      if (len < 0.02) continue;
+      const tx = (e[0] - a[0]) / len;
+      const tz = (e[1] - a[1]) / len;
+      const at = (u: number, off: number): V2 => [a[0] + tx * u - tz * off, a[1] + tz * u + tx * off];
+      const yaw = Math.atan2(-tz, tx);
+      if (glazed(j) && gl) {
+        // Giydirme cam: gl.from..gl.to arası renkli cam + dikmeler + alt/üst kayıt; kalanı duvar
+        const g0 = base + gl.from;
+        const g1 = base + gl.to;
+        if (g0 > vy0 + 0.01) b.wall(wk, a, e, vy0 - 0.2, g0, [0, vy0 - 0.2, len, g0]);
+        if (g1 < vy1 - 0.01) b.wall(wk, a, e, g1, vy1, [0, g1, len, vy1]);
+        b.wall(ck('tint', gl.glass, 'mkGlass'), at(0, 0.01), at(len, 0.01), g0, g1);
+        const fk = ck('frame', gl.frame, K('mkFrame'));
+        const n = Math.max(1, Math.round(len / Math.max(0.3, gl.mullion)));
+        for (let k = 0; k <= n; k++) {
+          const c = at((len * k) / n, 0.04);
+          b.box(fk, [c[0], (g0 + g1) / 2, c[1]], [0.06, g1 - g0, 0.06], yaw);
+        }
+        for (const yy of [g0 + 0.03, g1 - 0.03]) {
+          const c = at(len / 2, 0.04);
+          b.box(fk, [c[0], yy, c[1]], [len, 0.06, 0.06], yaw);
+        }
+      } else b.wall(wk, a, e, vy0 - 0.2, vy1, [0, vy0 - 0.2, len, vy1]);
+      if (v.band && v.band.h > 0.01)
+        b.wall(
+          ck('plaster', v.band.color, K('mkPlaster2')),
+          at(0, 0.012),
+          at(len, 0.012),
+          vy1 - v.band.h,
+          vy1,
+        );
+    }
+    slab(b, pl, [], vy1, v.roofC ? ck('plaster', v.roofC, 'roofFlat') : 'roofFlat', wk);
+    const vp = v.parapet && v.parapet.h > 0.02 ? v.parapet : null;
+    if (vp) {
+      const pk = ck('plaster', vp.color ?? v.color, wk);
+      curPoly = pl;
+      let run = 0;
+      for (let j = 0; j < L; j++) {
+        const a = pl[j];
+        const e = pl[(j + 1) % L];
+        const len = Math.hypot(e[0] - a[0], e[1] - a[1]);
+        if (len < 0.02) continue;
+        const tx = (e[0] - a[0]) / len;
+        const tz = (e[1] - a[1]) / len;
+        const ai: V2 = [a[0] + tz * 0.15, a[1] - tx * 0.15];
+        const ei: V2 = [e[0] + tz * 0.15, e[1] - tx * 0.15];
+        b.wall(pk, a, e, vy1, vy1 + vp.h, [0, 0, len, vp.h]);
+        b.wall(pk, ei, ai, vy1, vy1 + vp.h, [0, 0, len, vp.h]);
+        b.quad(
+          pk,
+          [ai[0], vy1 + vp.h, ai[1]],
+          [ei[0], vy1 + vp.h, ei[1]],
+          [e[0], vy1 + vp.h, e[1]],
+          [a[0], vy1 + vp.h, a[1]],
+        );
+        if (vp.rail && vp.rail !== 'none')
+          parapet(b, a, e, vy1 + vp.h, run, {
+            type: vp.rail,
+            fKey: pk,
+            mKey: ck('metal', vp.railC ?? null, 'mkRail'),
+            parH: 0.04,
+            net: false,
+            gKey: ck('glass', vp.glassC ?? null, K('mkRailGlass')),
+          });
+        run += len;
+      }
+    }
+    if (v.collide !== false && v.y0 < 2.5) o.collide?.(pl, vy0 - 0.5, vy1);
   }
+
+  // ── Çatı: saçak alnı + kırma kiremit ──
+  const par = blk.roof.parapet && blk.roof.parapet.h > 0.05 ? blk.roof.parapet : null;
+  // Parapetli çatı: çatı parapetin arkasından, saçaksız başlar (ör. 1541439435: 1.4 m parapet + küpeşte)
+  const eave = par ? 0.02 : (blk.roof.eave ?? 0.6);
+  const fH = par ? 0.05 : (blk.roof.fasciaH ?? 0.45);
+  if (par) {
+    const pk = ck('plaster', par.color, K('mkPlaster2'));
+    curPoly = ring;
+    let run = 0;
+    for (let i = 0; i < N; i++) {
+      const { len } = E[i];
+      if (len < 0.05) continue;
+      const a = P(i, 0, 0.02);
+      const e = P(i, len, 0.02);
+      const ai = P(i, 0, -0.2);
+      const ei = P(i, len, -0.2);
+      b.wall(pk, a, e, wallTop - 0.05, wallTop + par.h, [
+        E[i].s0,
+        wallTop - 0.05,
+        E[i].s0 + len,
+        wallTop + par.h,
+      ]);
+      b.wall(pk, ei, ai, wallTop, wallTop + par.h, [0, 0, len, par.h]);
+      b.quad(
+        pk,
+        [ai[0], wallTop + par.h, ai[1]],
+        [ei[0], wallTop + par.h, ei[1]],
+        [e[0], wallTop + par.h, e[1]],
+        [a[0], wallTop + par.h, a[1]],
+      );
+      if (par.rail && par.rail !== 'none')
+        parapet(b, P(i, 0, 0), P(i, len, 0), wallTop + par.h, run, {
+          type: par.rail,
+          fKey: pk,
+          mKey: ck('metal', par.railC ?? null, 'mkRail'),
+          parH: 0.04,
+          net: false,
+          gKey: ck('glass', par.glassC ?? null, K('mkRailGlass')),
+        });
+      run += len;
+    }
+  } else
+    for (let i = 0; i < N; i++) {
+      const { len } = E[i];
+      if (len < 0.05) continue;
+      // Saçak alnı: Street View'da açık gri (koyu balkon alnı renginde değil)
+      b.wall(K('mkPlaster2'), P(i, 0, 0.02), P(i, len, 0.02), wallTop - 0.05, wallTop + fH, [
+        E[i].s0,
+        wallTop - 0.05,
+        E[i].s0 + len,
+        wallTop + fH,
+      ]);
+    }
   const gables = (blk.roof as { gables?: number[] }).gables ?? [];
   let top: number;
   if (!OLD_ROOF) {
@@ -1484,6 +1771,22 @@ function addWindow(b: Builder, P: PFn, E: Edge, i: number, op: Opening, seed: nu
   const a1 = P(i, u1);
   const b0 = P(i, u0, -REVEAL);
   const b1 = P(i, u1, -REVEAL);
+  // Ölçülmüş doğrama rengi (ör. bronz, antrasit, mavi) — yoksa blok paleti
+  const FK = win.frameC ? ckm('frame', win.frameC, K('mkFrame')) : K('mkFrame');
+  if (win.surround && win.surround.w > 0.01) {
+    // Söve: açıklığın çevresinde duvardan taşan çerçeve (üst, iki yan; kapı değilse alt denizlik ayrıca)
+    const sw = win.surround.w;
+    const sd = Math.max(0.01, win.surround.d);
+    const sk = ckm('plaster', win.surround.color ?? null, K('mkPlaster2'));
+    const m0 = P(i, (u0 + u1) / 2, sd / 2);
+    b.box(sk, [m0[0], y1 + sw / 2, m0[1]], [W + 2 * sw, sw, sd], E.yaw);
+    for (const uu of [u0 - sw / 2, u1 + sw / 2]) {
+      const q = P(i, uu, sd / 2);
+      b.box(sk, [q[0], (y0 + y1) / 2, q[1]], [sw, Hh, sd], E.yaw);
+    }
+    if (win.kind !== 'door' && win.kind !== 'shop')
+      b.box(sk, [m0[0], y0 - sw / 2, m0[1]], [W + 2 * sw, sw, sd], E.yaw);
+  }
   // Söveler + lento + iç denizlik
   b.wall(K('mkReveal'), a0, b0, y0, y1, [0, y0, REVEAL, y1]);
   b.wall(K('mkReveal'), b1, a1, y0, y1, [0, y0, REVEAL, y1]);
@@ -1498,7 +1801,7 @@ function addWindow(b: Builder, P: PFn, E: Edge, i: number, op: Opening, seed: nu
   const d = -REVEAL + 0.02;
   const bar = (uA: number, uB: number, yA: number, yB: number) => {
     const c = P(i, (uA + uB) / 2, d + 0.03);
-    b.box(K('mkFrame'), [c[0], (yA + yB) / 2, c[1]], [uB - uA, yB - yA, 0.06], E.yaw);
+    b.box(FK, [c[0], (yA + yB) / 2, c[1]], [uB - uA, yB - yA, 0.06], E.yaw);
   };
   const F = W < 0.8 ? 0.05 : FRAME;
   bar(u0, u1, y1 - F, y1);
@@ -1518,7 +1821,7 @@ function addWindow(b: Builder, P: PFn, E: Edge, i: number, op: Opening, seed: nu
       const e = u0 + F + ((W - 2 * F) * (s + 1)) / split - (s < split - 1 ? 0.035 : 0);
       const c = (yA: number, yB: number, uA: number, uB: number) => {
         const q = P(i, (uA + uB) / 2, d + 0.045);
-        b.box(K('mkFrame'), [q[0], (yA + yB) / 2, q[1]], [uB - uA, yB - yA, 0.03], E.yaw);
+        b.box(FK, [q[0], (yA + yB) / 2, q[1]], [uB - uA, yB - yA, 0.03], E.yaw);
       };
       c(y1 - F - sw, y1 - F, a, e);
       c(y0 + F, y0 + F + sw, a, e);
@@ -1547,7 +1850,10 @@ function addWindow(b: Builder, P: PFn, E: Edge, i: number, op: Opening, seed: nu
           : KINDS[Math.floor(h * KINDS.length)];
   const g0 = P(i, u0, d);
   const g1 = P(i, u1, d);
-  b.quad('mkGlass', V(g0, y0), V(g1, y0), V(g1, y1), V(g0, y1), [0, 0, 1, 1], [h * 100, kind, W, Hh]);
+  if (win.tint)
+    // Giydirme cephe / renkli cam: düz renkli yansıtıcı cam (oda gölgelendiricisi değil)
+    b.quad(ckm('tint', win.tint, 'mkGlass'), V(g0, y0), V(g1, y0), V(g1, y1), V(g0, y1), [0, 0, 1, 1]);
+  else b.quad('mkGlass', V(g0, y0), V(g1, y0), V(g1, y1), V(g0, y1), [0, 0, 1, 1], [h * 100, kind, W, Hh]);
   // Dış panjur / dükkân kepengi (ölçüm: kat → kapanma oranı)
   const shut = win.shut?.[String(op.k)];
   if (shut && shut > 0.02) {

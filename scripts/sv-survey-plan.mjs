@@ -36,6 +36,13 @@ async function main() {
   const buildings = osm.ways
     .filter((w) => w.t && w.t.building && w.p.length >= 6)
     .map((w) => ({ id: w.i, ring: ring(w.p) }));
+  // OSM'de olmayan, hava fotoğrafı + Street View'dan çizilmiş binalar (footprints.json `synthetic: true`)
+  const fpAll = JSON.parse(
+    await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+  );
+  for (const [k, f] of Object.entries(fpAll))
+    if (f.synthetic && f.ring?.length >= 3 && !buildings.some((b) => b.id === Number(k)))
+      buildings.push({ id: Number(k), ring: f.ring.flat() });
   const occ = new Occluders(buildings);
   const cfgPath = join(root, 'scripts', 'sv-extra.json');
   const cfg = JSON.parse(await readFile(cfgPath, 'utf8'));

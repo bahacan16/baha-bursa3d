@@ -40,8 +40,12 @@ export interface BlockSurvey {
    */
   massing?: {
     towers: {
-      x: [number, number];
+      x?: [number, number];
       z?: [number, number];
+      /** Dünya çokgeni (döndürülmüş şerit: ör. yalnız güney şeritte K8) */
+      poly?: [number, number][];
+      /** Taban izinin diğer parçalar dışında kalanı (ör. 8 katlı gövde, şerit 9 katlı) */
+      rest?: boolean;
       storeys?: number;
       roof?: Partial<RoofSpec>;
     }[];
@@ -52,6 +56,33 @@ export interface BlockSurvey {
    * malzeme, açıklama). Ana oturum bunları üreticiye ekleyip bağlar.
    */
   pending?: Record<string, unknown>[];
+  /** Kat başına kat yüksekliği (gerçek m, K0'dan) — katlar eşit değilse (ör. [4.0, 2.7]); eksikler floorH */
+  floorHs?: number[];
+  /**
+   * Ek hacimler, DÜNYA koordinatında (hava fotoğrafı + Street View): tek katlı ek, kış bahçesi, çatı odası, merdiven
+   * kulesi başlığı… y0/y1 blok tabanına göre gerçek m (çatı odası için y0 = çatı üst kotu). Duvar rengi, üst bant,
+   * düz çatı rengi, parapet (+ korkuluk), seçili çokgen kenarlarında giydirme cam (from..to yükseklik, dikme aralığı,
+   * cam ve doğrama rengi). Kenar j = poly[j] → poly[j+1].
+   */
+  volumes?: {
+    poly: [number, number][];
+    y0: number;
+    y1: number;
+    color: string;
+    band?: { h: number; color: string };
+    roofC?: string;
+    parapet?: { h: number; color?: string; rail?: string; railC?: string; glassC?: string };
+    glazing?: {
+      edges: number[] | 'all';
+      from: number;
+      to: number;
+      mullion: number;
+      glass: string;
+      frame: string;
+    };
+    collide?: boolean;
+    note?: string;
+  }[];
 }
 
 export interface Palette {
@@ -89,6 +120,11 @@ export interface RoofSpec {
   gables?: number[];
   /** Saçak alt çizgisinin görünen yüksekliği (referans kenarın ortofotosunda) ve o kenar */
   eaveY?: { edge: number; y: number };
+  /**
+   * Çatı kenarında dolu parapet (gerçek m): yükseklik, renk, üstünde korkuluk (Bal.rail tipleri), metal ve cam rengi.
+   * Verilirse saçak alnı yerine çizilir; çatı (kırma veya düz) parapetin arkasından saçaksız başlar.
+   */
+  parapet?: { h: number; color?: string; rail?: string; railC?: string; glassC?: string };
 }
 
 export interface EdgeSpec {
@@ -143,6 +179,12 @@ export interface Win {
   /** Fransız pencere / kapı alt bölmesi: frosted (buzlu cam), louvre (panjur lamelli), solid (dolu panel) + renk */
   lower?: 'frosted' | 'louvre' | 'solid';
   lowerC?: string;
+  /** Doğrama rengi "#rrggbb" (bronz, antrasit, mavi… — bloğun `frame` renginden farklıysa) */
+  frameC?: string;
+  /** Renkli / yansıtıcı cam (giydirme cephe paneli): perde/oda yerine düz renkli cam, görünen renk "#rrggbb" */
+  tint?: string;
+  /** Söve: açıklığın çevresinde çıkıntılı çerçeve — genişlik w, çıkıntı d (gerçek m), renk */
+  surround?: { w: number; d: number; color?: string };
   /** Kat → pencere önü demir parmaklık: bars (dikey çubuk), ornamental (çubuk + kıvrımlı orta bant), lattice (kafes) */
   grille?: Record<string, 'bars' | 'ornamental' | 'lattice'>;
   /** Parmaklık rengi "#rrggbb" */

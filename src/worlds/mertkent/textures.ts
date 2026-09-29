@@ -1233,6 +1233,58 @@ export function meshFenceTexture(): THREE.Texture {
  * Dükkân / apartman tabelası yüzü: ölçülen yazı, zemin/yazı/kenar rengi, yazı tipi. Metin satırları "\n" ile.
  * Genişlik/yükseklik oranı korunur (uzun kenar 1024 px); bg null → saydam (tek tek harf).
  */
+/** Tabela simgeleri (basit vektör; logonun birebir kopyası değil, fotoğraftaki biçim ve renk) */
+function drawIcon(
+  g: CanvasRenderingContext2D,
+  kind: string,
+  cx: number,
+  cy: number,
+  s: number,
+  col: string,
+): void {
+  g.save();
+  g.translate(cx, cy);
+  g.fillStyle = col;
+  g.strokeStyle = col;
+  if (kind === 'fish') {
+    // Balık: gövde elips + kuyruk üçgeni + göz
+    g.beginPath();
+    g.ellipse(-s * 0.05, 0, s * 0.34, s * 0.2, 0, 0, Math.PI * 2);
+    g.fill();
+    g.beginPath();
+    g.moveTo(s * 0.25, 0);
+    g.lineTo(s * 0.48, -s * 0.18);
+    g.lineTo(s * 0.48, s * 0.18);
+    g.closePath();
+    g.fill();
+    g.fillStyle = '#ffffff';
+    g.beginPath();
+    g.arc(-s * 0.24, -s * 0.04, s * 0.035, 0, Math.PI * 2);
+    g.fill();
+  } else if (kind === 'tooth') {
+    // Diş: taç + iki kök
+    g.beginPath();
+    g.moveTo(-s * 0.3, -s * 0.25);
+    g.quadraticCurveTo(-s * 0.15, -s * 0.42, 0, -s * 0.3);
+    g.quadraticCurveTo(s * 0.15, -s * 0.42, s * 0.3, -s * 0.25);
+    g.quadraticCurveTo(s * 0.36, s * 0.05, s * 0.2, s * 0.42);
+    g.quadraticCurveTo(s * 0.08, s * 0.1, 0, s * 0.08);
+    g.quadraticCurveTo(-s * 0.08, s * 0.1, -s * 0.2, s * 0.42);
+    g.quadraticCurveTo(-s * 0.36, s * 0.05, -s * 0.3, -s * 0.25);
+    g.fill();
+  } else if (kind === 'star') {
+    g.beginPath();
+    for (let k = 0; k < 10; k++) {
+      const r = k % 2 ? s * 0.2 : s * 0.45;
+      const a = (k / 10) * Math.PI * 2 - Math.PI / 2;
+      g.lineTo(Math.cos(a) * r, Math.sin(a) * r);
+    }
+    g.closePath();
+    g.fill();
+  }
+  g.restore();
+}
+
 export function shopSignTexture(o: {
   text: string;
   lines?: { text: string; fg?: string; size?: number; bold?: boolean }[] | null;
@@ -1243,21 +1295,52 @@ export function shopSignTexture(o: {
   bold: boolean;
   w: number;
   h: number;
+  /** Harf konturu (ör. mavi harf + beyaz kontur) */
+  outline?: string | null;
+  /** 'round': yuvarlak rozet (zemin daire) */
+  shape?: string | null;
+  /** Basit simge (metnin solunda): fish | tooth | star; renk icC */
+  icon?: string | null;
+  iconC?: string | null;
 }): THREE.Texture {
   const asp = Math.max(0.05, o.w / Math.max(0.05, o.h));
   const W = asp >= 1 ? 1024 : Math.max(64, Math.round(1024 * asp));
   const H = asp >= 1 ? Math.max(64, Math.round(1024 / asp)) : 1024;
   const [c, g] = canvas(W, H);
   g.clearRect(0, 0, W, H);
-  if (o.bg) {
-    g.fillStyle = o.bg;
-    g.fillRect(0, 0, W, H);
+  const round = o.shape === 'round';
+  if (round) {
+    // Yuvarlak rozet: daire zemin (+ kenar), köşeler saydam
+    const r = Math.min(W, H) / 2 - 2;
+    g.beginPath();
+    g.arc(W / 2, H / 2, r, 0, Math.PI * 2);
+    if (o.bg) {
+      g.fillStyle = o.bg;
+      g.fill();
+    }
+    if (o.border) {
+      g.strokeStyle = o.border;
+      g.lineWidth = Math.max(4, r * 0.08);
+      g.stroke();
+    }
+  } else {
+    if (o.bg) {
+      g.fillStyle = o.bg;
+      g.fillRect(0, 0, W, H);
+    }
+    if (o.border) {
+      g.strokeStyle = o.border;
+      g.lineWidth = Math.max(4, Math.min(W, H) * 0.06);
+      g.strokeRect(g.lineWidth / 2, g.lineWidth / 2, W - g.lineWidth, H - g.lineWidth);
+    }
   }
-  if (o.border) {
-    g.strokeStyle = o.border;
-    g.lineWidth = Math.max(4, Math.min(W, H) * 0.06);
-    g.strokeRect(g.lineWidth / 2, g.lineWidth / 2, W - g.lineWidth, H - g.lineWidth);
-  }
+  // Simge alanı (metnin solunda, yükseklik kadar kare)
+  let x0 = 0;
+  if (o.icon && !round) {
+    const s0 = H * 0.8;
+    drawIcon(g, o.icon, H * 0.1 + s0 / 2, H / 2, s0, o.iconC ?? o.fg);
+    x0 = H;
+  } else if (o.icon && round) drawIcon(g, o.icon, W / 2, H * 0.28, H * 0.3, o.iconC ?? o.fg);
   const fam =
     o.font === 'serif'
       ? 'Georgia, "Times New Roman", serif'
@@ -1287,13 +1370,22 @@ export function shopSignTexture(o: {
           return g.measureText(r.text).width;
         }),
       );
-    while (widest() > W - pad * 2 && unit > 4) unit *= 0.92;
-    let y = H / 2 - (unit * sumRel * 1.15) / 2;
+    const avail = (round ? W * 0.72 : W - x0) - pad * 2;
+    while (widest() > avail && unit > 4) unit *= 0.92;
+    let y = H / 2 - (unit * sumRel * 1.15) / 2 + (round && o.icon ? H * 0.1 : 0);
+    const cx = x0 + (W - x0) / 2;
     rows.forEach((r, k) => {
       const lh = unit * rel[k] * 1.15;
       g.font = fontOf(k);
+      if (o.outline) {
+        // Harf konturu (fotoğraftaki beyaz/koyu kenar)
+        g.strokeStyle = o.outline;
+        g.lineJoin = 'round';
+        g.lineWidth = Math.max(2, unit * rel[k] * 0.12);
+        g.strokeText(r.text, cx, y + lh / 2);
+      }
       g.fillStyle = r.fg ?? o.fg;
-      g.fillText(r.text, W / 2, y + lh / 2);
+      g.fillText(r.text, cx, y + lh / 2);
       y += lh;
     });
   }

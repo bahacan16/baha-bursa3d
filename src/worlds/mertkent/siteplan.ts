@@ -139,6 +139,19 @@ export function surveyVegetation(): {
   const excludeZones: number[][] = [];
   for (const a of [...(SITE_PLAN.areas ?? []), ...(PARK_PLAN.areas ?? [])])
     if (a.poly?.length >= 3) excludeZones.push(flat(a.poly));
+  // Ölçülmüş kavşak adası / ayrım adaları: yalnız ölçülen ağaç (hava fotoğrafı tespiti çiçeklik ve lamba
+  // gölgelerinden kavşak adasına 6 sahte taç koyuyordu; ölçümde adada tek ağaç var)
+  for (const p of STREET_PLAN.street ?? []) {
+    const q = p as unknown as { rx?: number; rz?: number; poly?: V2[] };
+    if (p.kind === 'roundabout-island' && q.rx) {
+      const ring: V2[] = [];
+      for (let k = 0; k < 32; k++) {
+        const a = (k / 32) * Math.PI * 2;
+        ring.push([p.x + Math.cos(a) * (q.rx + 0.5), p.z + Math.sin(a) * ((q.rz ?? q.rx) + 0.5)]);
+      }
+      excludeZones.push(flat(ring));
+    } else if (p.kind === 'island' && q.poly && q.poly.length >= 3) excludeZones.push(flat(q.poly));
+  }
   // KD köşe adası (budanmış şimşir topları; Street View'da ağaç yok)
   excludeZones.push(
     flat([

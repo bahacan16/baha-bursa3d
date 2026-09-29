@@ -149,6 +149,9 @@ async function main() {
               ...(it.grille ? { grille: keyK(it.grille) } : {}),
               ...(it.lower ? { lower: it.lower, lowerC: it.lowerC ?? null } : {}),
               ...(it.grilleC ? { grilleC: it.grilleC } : {}),
+              ...(it.frameC ? { frameC: it.frameC } : {}),
+              ...(it.tint ? { tint: it.tint } : {}),
+              ...(it.surround ? { surround: it.surround } : {}),
               ...(it.curt
                 ? {
                     curt: Object.fromEntries(
@@ -236,6 +239,9 @@ async function main() {
               font: it.font ?? 'sans',
               bold: it.bold !== false,
               lit: !!it.lit,
+              ...(it.outline ? { outline: it.outline } : {}),
+              ...(it.shape ? { shape: it.shape } : {}),
+              ...(it.icon ? { icon: it.icon, iconC: it.iconC ?? null } : {}),
             });
             break;
           case 'groove':
@@ -285,6 +291,7 @@ async function main() {
               stripe: it.stripe ?? null,
               text: it.text ?? null,
               textColor: it.textColor ?? '#ffffff',
+              ...(it.style ? { style: it.style } : {}),
             });
             break;
           case 'pipe':
@@ -363,6 +370,9 @@ async function main() {
       colors: sv.colors ?? {},
       edges,
       ...(sv.massing ? { massing: sv.massing } : {}),
+      // Dünya koordinatlı ek hacimler ve kat başına yükseklikler aynen (ölçüm dosyasında gerçek metre)
+      ...(sv.volumes?.length ? { volumes: sv.volumes } : {}),
+      ...(sv.floorHs?.length ? { floorHs: sv.floorHs } : {}),
       notes: sv.notes ?? [],
     };
     console.log(

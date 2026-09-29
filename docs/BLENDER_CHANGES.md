@@ -182,3 +182,23 @@
   `public/textures/asphalt-clean/`, oyun bu kopyayı kullanır; `pbr.ts`). Gerçek hasar yalnız Street View'da
   görülen yerde çizilecek (kullanıcı kuralı). **Blender:** asfalt malzemesi `asphalt-clean` dokusu.
 - **841f093** — `scripts/sv-extra.json`'a 1540901774/76 için 2025 karelerinden 11 ortofoto kaydı.
+- **(bu commit)** — Üretici (D3 ajanlarının `pending` listelerinden):
+  - `massing` parçaları: dünya çokgeni (`poly`, döndürülmüş şerit) ve `rest` (taban izinin kalanı), parça başına kat /
+    çatı (ör. yalnız güney şeritte K8). Dosya: `massing.ts`.
+  - Blok `volumes`: dünya çokgenli ek hacimler (tek katlı ek, kış bahçesi, çatı odası) — duvar rengi, üst bant, düz
+    çatı, parapet + korkuluk, seçili kenarlarda giydirme cam (dikme aralığı, cam/doğrama rengi), çarpışma.
+  - `roof.parapet`: çatı kenarında dolu parapet + korkuluk (saçak alnı yerine, çatı arkada saçaksız).
+  - `floorHs`: kat başına farklı kat yüksekliği.
+  - Pencere `frameC` (doğrama rengi), `tint` (renkli/yansıtıcı giydirme cam), `surround` (söve).
+  - Tabela `outline` (harf konturu), `shape: round` (yuvarlak rozet, disk), `icon` (fish / tooth / star).
+  - Tente `style: dutch` (çeyrek yuvarlak kabuk, yelpaze uç kapakları, şeritli dilimler).
+  - **Hata düzeltmesi:** bitişik balkonlar tek plakada birleşince korkuluk tipi, camlılık ve cam tonu çokgenin ilk
+    balkonundan alınıyordu → artık parapet balkon sınırlarından bölünüp her parça kendi balkonundan (ör. 1550826982
+    kenar 22 K3: açık–camlı–açık).
+    Dosyalar: `facade.ts`, `massing.ts`, `index.ts`, `textures.ts`, `survey/schema.ts`, `scripts/survey-compile.mjs`,
+    `scripts/sv-survey-plan.mjs` (OSM'de olmayan `synthetic` taban izleri). **Blender:** `mk_facade.py` aynı özellikler.
+- **(bu commit)** — Sokak türleri (`street.ts`, `siteplan.ts`): Özlüce döner kavşak adası (bordür, kırmızı parke
+  bandı, iç bordür, çim, çiçek halkası, kenar çizgisi, yürünebilir), yaya geçitleri (0.5/0.5 m zebra), ayırıcı
+  adacıklar, trafik ışıkları (3 lamba, siperlik), reklam panosu sırası (içerik yok — uydurulmadı), "sağdan gidiniz"
+  ve sarı-siyah ok levhaları, kazıklı genç ağaçlar; ada ve adacıklarda hava fotoğrafı ağaç adayları kaldırıldı.
+  **Blender:** `NW/Mertkent/Street` kavşak.

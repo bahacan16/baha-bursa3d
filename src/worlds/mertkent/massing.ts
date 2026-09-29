@@ -1,4 +1,8 @@
+import * as pcNs from 'polygon-clipping';
 import type { CItem, CompiledBlock } from './facade';
+
+type Pc = typeof pcNs;
+const pc: Pc = (pcNs as unknown as { default?: Pc }).default ?? pcNs;
 
 type V2 = [number, number];
 
@@ -57,21 +61,54 @@ function shiftItem(it: CItem, s: number, L: number): CItem | null {
  * izi + `massing` x aralıklarıyla verilir; çalışma anında kulelere (tam kat) ve ara podyuma (yalnız zemin kat)
  * bölünür. Kesim kenarları (kuleler arası yan duvarlar) öğesiz, düz sıva.
  */
+type Tower = NonNullable<CompiledBlock['massing']>['towers'][number];
+
+/** Çokgen işareti (ayak bağı alanı): taban izleri negatif alanlı saklanır */
+const area2 = (r: V2[]) =>
+  r.reduce((a, p, i) => a + p[0] * r[(i + 1) % r.length][1] - r[(i + 1) % r.length][0] * p[1], 0);
+
+/** Parça kapsamı dünya çokgeni olarak (x/z aralığı → dikdörtgen) */
+function towerPoly(tw: Tower): V2[] {
+  if (tw.poly?.length) return tw.poly as V2[];
+  const [x0, x1] = tw.x ?? [-1e4, 1e4];
+  const [z0, z1] = tw.z ?? [-1e4, 1e4];
+  return [
+    [x0, z0],
+    [x1, z0],
+    [x1, z1],
+    [x0, z1],
+  ];
+}
+
+/** polygon-clipping çıktısı → negatif alanlı, kapanış tekrarı atılmış halkalar (delikler yok sayılır) */
+function outerRings(mp: pcNs.MultiPolygon): V2[][] {
+  const out: V2[][] = [];
+  for (const poly of mp) {
+    let r = poly[0].map((p) => [p[0], p[1]] as V2);
+    const f = r[0];
+    const l = r[r.length - 1];
+    if (r.length > 1 && Math.hypot(f[0] - l[0], f[1] - l[1]) < 1e-9) r = r.slice(0, -1);
+    r = dedupe(r);
+    if (r.length < 3 || Math.abs(area2(r)) < 0.02) continue;
+    if (area2(r) > 0) r.reverse();
+    out.push(r);
+  }
+  return out;
+}
+
+/**
+ * KARAR: zemin katı ortak, üstü ayrık kuleli bloklar (ör. Doğan Avcıoğlu kuzey bloğu) ölçüm dosyasında tek taban
+ * izi + `massing` parçalarıyla verilir; çalışma anında parçalara bölünür. Parça: x (ve z) aralığı, dünya çokgeni
+ * (`poly`, döndürülmüş şeritler — ör. yalnız güney şeritte K8) ya da `rest` (taban izinin diğer parçalar dışında
+ * kalanı). Her parça kendi kat sayısı / çatısıyla. Kesim kenarları (parçalar arası yan duvarlar) öğesiz, düz sıva.
+ */
 export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   const m = blk.massing;
   if (!m?.towers?.length) return [blk];
   const ring = blk.ring as V2[];
   const N = ring.length;
   const byEdge = new Map(blk.edges.map((e) => [e.edge, e]));
-  const part = (
-    x0: number,
-    x1: number,
-    storeys: number,
-    tag: number,
-    z?: [number, number],
-  ): CompiledBlock | null => {
-    let r = clipX(ring, x0, x1);
-    if (z && r.length >= 3) r = clipZ(r, z[0], z[1]);
+  const part = (r: V2[], storeys: number, tag: number): CompiledBlock | null => {
     if (r.length < 3) return null;
     const edges: CompiledBlock['edges'] = [];
     for (let j = 0; j < r.length; j++) {
@@ -99,16 +136,31 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
         break;
       }
     }
-    return { ...blk, id: blk.id * 10 + tag, ring: r, storeys, edges, massing: undefined };
+    return { ...blk, id: blk.id * 100 + tag, ring: r, storeys, edges, massing: undefined };
   };
   const out: CompiledBlock[] = [];
+  const pieces = (tw: Tower): V2[][] => {
+    if (tw.rest) {
+      // Taban izinin diğer (rest olmayan) parçalar dışında kalan kısmı
+      const others = m.towers.filter((o) => o !== tw && !o.rest).map((o) => [towerPoly(o)] as pcNs.Polygon);
+      if (!others.length) return [ring];
+      return outerRings(pc.difference([ring] as pcNs.Polygon, ...others));
+    }
+    if (tw.poly?.length) return outerRings(pc.intersection([ring] as pcNs.Polygon, [tw.poly as V2[]]));
+    let r = clipX(ring, tw.x![0], tw.x![1]);
+    if (tw.z && r.length >= 3) r = clipZ(r, tw.z[0], tw.z[1]);
+    return r.length >= 3 ? [r] : [];
+  };
   m.towers.forEach((tw, k) => {
     // Parça kendi kat sayısını / çatısını taşıyabilir (ör. 7 katlı blok + 4 katlı kanat + 1 katlı podyum)
-    const p = part(tw.x[0], tw.x[1], tw.storeys ?? blk.storeys, k + 1, tw.z);
-    if (p) out.push(tw.roof ? { ...p, roof: { ...p.roof, ...tw.roof } } : p);
+    pieces(tw).forEach((r, j) => {
+      const p = part(r, tw.storeys ?? blk.storeys, (k + 1) * 10 + j);
+      if (p) out.push(tw.roof ? { ...p, roof: { ...p.roof, ...tw.roof } } : p);
+    });
   });
   if (m.gap) {
-    const p = part(m.gap.x[0], m.gap.x[1], 1, 9);
+    const r = clipX(ring, m.gap.x[0], m.gap.x[1]);
+    const p = part(r, 1, 9);
     // Podyum üstü sokaktan görünmez; kenarı zemin kat bandıyla biter (açık gri saçak alnı yok — Street View)
     if (p) out.push({ ...p, roof: { ...p.roof, kind: 'flat', eave: 0.02, fasciaH: 0.02 } });
   }
