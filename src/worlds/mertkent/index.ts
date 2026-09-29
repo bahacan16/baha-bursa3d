@@ -921,7 +921,9 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       );
     }
   // Özhan
-  const oz = ringOf(o.simple, OZHAN_BUILDING);
+  // Düzeltilmiş taban izi (hava fotoğrafı; OSM ile aynı köşe sırası), yoksa OSM
+  const oz = (FOOT[OZHAN_BUILDING]?.ring.map((p) => [p[0], p[1]] as V2) ??
+    ringOf(o.simple, OZHAN_BUILDING)) as V2[] | null;
   if (oz) buildOzhan(b, oz, ringBase(oz), o.collide);
   // Site sınırı: bake edilen çit hatlarından Mertkent 2 çevresindekiler
   const site = o.simple.ways.find((w) => w.t?.name === 'Mertkent 2. Etap');
