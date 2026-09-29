@@ -19,7 +19,7 @@ const GradeShader = {
   name: 'CameraGrade',
   uniforms: {
     tDiffuse: { value: null },
-    uShadowTint: { value: new THREE.Vector3(0.98, 0.995, 1.02) },
+    uShadowTint: { value: new THREE.Vector3(1.05, 1.0, 0.9) },
     uHighlightTint: { value: new THREE.Vector3(1.04, 1.0, 0.96) },
     uSaturation: { value: 1.04 },
   },
@@ -100,7 +100,7 @@ export class PostFX {
     c.gammaCorrection = false; // OutputPass yapıyor
     c.aoRadius = 2.2;
     c.distanceFalloff = 1.2;
-    c.intensity = 2.6;
+    c.intensity = 1.7;
     c.halfRes = quality !== 'high';
     this.ao.setQualityMode(quality === 'high' ? 'Medium' : 'Low');
     this.composer.addPass(this.ao);

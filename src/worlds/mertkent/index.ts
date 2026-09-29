@@ -337,7 +337,7 @@ function materials(base: string): Record<string, THREE.Material> {
     mkEntryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
     // Street View'da güneşte ~#c0b19c (sıcak bej-gri), kiremit bant solgun
     spPaverGrey: paverMat(['#b6ab99', '#bfb4a2', '#aca190', '#b9ae9c'], 21, -5),
-    spPaverRed: paverMat(['#a87a6c', '#b28476', '#9d7064', '#ad7e70'], 22, -5),
+    spPaverRed: paverMat(['#bea48d', '#c7ae98', '#b39a84', '#c3aa94'], 22, -5),
     spRubberRed: std({
       color: 0x7e4a3f,
       roughness: 0.95,
@@ -397,7 +397,7 @@ function materials(base: string): Record<string, THREE.Material> {
     spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
     // Bisiklet şeridi boyası (502. Sk. Street View: soluk mavi, yer yer aşınmış)
     spBike: std({
-      color: 0x93b1c4,
+      color: 0xa7b6c0,
       roughness: 0.85,
       polygonOffset: true,
       polygonOffsetFactor: -6,
@@ -588,7 +588,7 @@ function materials(base: string): Record<string, THREE.Material> {
       roughness: 0.5,
     }),
     hedge: std({ map: T.hedgeTexture(), roughness: 0.95 }),
-    wire: std({ color: 0xa3a7ab, metalness: 0.8, roughness: 0.3 }),
+    wire: std({ color: 0xcdd1d5, metalness: 0.85, roughness: 0.25 }),
     capDark: std({ color: 0x2b2b2b }),
     globe: std({ color: 0xf6f4ee, emissive: 0x3a3a34, roughness: 0.3 }),
     black: std({ color: 0x1c1e1d, roughness: 0.6 }),

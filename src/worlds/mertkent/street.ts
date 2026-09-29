@@ -103,6 +103,16 @@ export function buildStreetPlan(
     if (!pts || pts.length < 2) continue;
     const kerbH = sw.kerbH ?? 0.15;
     const lay = layoutOf(sw as { id?: string; w: number; kerbH?: number; material?: string });
+    // Köşe noktalarında asfalt dolgu diski (parçaların dış köşede bıraktığı kama boşlukları; kaldırım üstte kalır)
+    for (let i = 1; i + 1 < pts.length; i++) {
+      const c = pts[i];
+      const ring: V2[] = [];
+      for (let k = 0; k < 16; k++) {
+        const a = (k / 16) * Math.PI * 2;
+        ring.push([c[0] + Math.cos(a) * 3, c[1] + Math.sin(a) * 3]);
+      }
+      b.drape('roadFill', ring, [], H, 0.027, 1, 2);
+    }
     for (let i = 0; i + 1 < pts.length; i++) {
       const a = pts[i];
       const e = pts[i + 1];
@@ -170,7 +180,7 @@ export function buildStreetPlan(
         }
       }
       // Bordürle OSM asfaltı arası boşluk kalmasın: yol tarafına asfalt dolgu (OSM yolunun altında kalır)
-      strip(-1.2, 0.02, 'roadFill', 0.028);
+      strip(-3, 0.02, 'roadFill', 0.028);
       const full: V2[] = [q(0, 0), q(L, 0), q(L, sw.w), q(0, sw.w)];
       polys.push(full);
     }
@@ -261,6 +271,16 @@ export function buildStreetPlan(
         const r = new THREE.TorusGeometry(0.2, 0.035, 6, 20).rotateY(yaw);
         r.translate(s.x, y + h + 0.1, s.z);
         b.geometry('bollardOrange', r);
+        break;
+      }
+      case 'tree': {
+        // Budanmış yuvarlak çalı (Street View: ~1.2 m şimşir topları); büyük ağaçlar vegetation'da
+        if ((s.h ?? 5) >= 2) break;
+        const h = s.h ?? 1.3;
+        const g = new THREE.SphereGeometry(0.62, 14, 10);
+        g.scale(1, (h * 0.9) / 1.24, 1);
+        g.translate(s.x, g0 + 0.05 + h * 0.45, s.z);
+        b.geometry('boxwood', g);
         break;
       }
       case 'hydrant':

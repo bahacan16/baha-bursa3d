@@ -194,7 +194,7 @@ export class Game {
       this.backdrop.add(this.envGround);
     }
     (this.envGround.material as THREE.MeshBasicMaterial).color
-      .setRGB(0.62, 0.58, 0.5)
+      .setRGB(0.58, 0.57, 0.54)
       .multiplyScalar(ENV_GROUND * d.sunIntensity * (1 - d.night));
     this.envGround.visible = true;
     const old = this.envRT;

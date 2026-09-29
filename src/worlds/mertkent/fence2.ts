@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { Builder, leafFringe, type V2 } from './builder';
+import { Builder, type V2 } from './builder';
 
 /**
  * Mertkent 2 site çiti (Street View yakın planlarından, street-plan.json ölçüleriyle):
@@ -224,20 +224,7 @@ export function buildMertkentFence(
           [t3[0], y0 + hh, t3[1]],
           [U0 / 2, 0, U1 / 2, hedgeD / 2],
         );
-        if (sc === 'real')
-          leafFringe(
-            b,
-            'hedgeLeaf',
-            P(u0, off0 - 0.02),
-            P(u1, off0 - 0.02),
-            y0 + wallH + meshH * 0.6,
-            y0 + hh,
-            hedgeD,
-            n,
-            2.2,
-            Math.floor(U0 * 37) + 11,
-            0.3,
-          );
+        // KARAR: yaprak kartı saçağı kaldırıldı (eleştirmen: gerçek budanmış leylandide pençe gibi koyu filizler yok)
       }
       collide?.(
         [P(u0, -0.02), P(u1, -0.02), P(u1, WALL_T + hedgeD * 0.6), P(u0, WALL_T + hedgeD * 0.6)],
@@ -254,11 +241,12 @@ export function buildMertkentFence(
     }
     // Jiletli tel (halkalar)
     if (f.razor !== false)
-      for (let U = cum[i] + 0.2; U < cum[i + 1]; U += 0.38) {
+      // Street View: sık, iç içe geçmiş parlak gümüş halkalar (~0.3 m çap)
+      for (let U = cum[i] + 0.1; U < cum[i + 1]; U += 0.2) {
         if (inGap(U)) continue;
         const p = P(U - cum[i], WALL_T / 2);
         const y0 = H(p[0], p[1]) + 0.15;
-        const ring = new THREE.TorusGeometry(0.24, 0.007, 3, 12);
+        const ring = new THREE.TorusGeometry(0.28, 0.005, 3, 14);
         ring.rotateY(yaw + Math.PI / 2 + 0.4);
         ring.translate(p[0], y0 + wallH + meshH + 0.28, p[1]);
         b.geometry('wire', ring);

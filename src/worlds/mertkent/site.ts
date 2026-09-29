@@ -223,7 +223,7 @@ export function buildSideDoor(b: Builder, c: V2, n: V2, y0: number, w: number, h
   b.wall('mkFoliage', ga, ge, y0 + 0.06, y0 + h - 0.04, [0, 0, w, h]);
   // Küçük kahverengi levha + kol
   const lp = P(0, 0.035);
-  b.box('wood', [lp[0], y0 + 1.5, lp[1]], [0.3, 0.2, 0.02], yaw);
+  b.box('darkMetal', [lp[0], y0 + 1.5, lp[1]], [0.12, 0.08, 0.015], yaw);
   const kp = P(w / 2 - 0.12, 0.04);
   b.box('darkMetal', [kp[0], y0 + 1.0, kp[1]], [0.12, 0.03, 0.04], yaw);
 }

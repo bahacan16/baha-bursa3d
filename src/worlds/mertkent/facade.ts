@@ -618,9 +618,12 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   sc.getHSL(hsl, THREE.SRGBColorSpace);
   const roundStrip = hsl.s > 0.3 && hsl.h > 0.03 && hsl.h < 0.14;
   for (let i = 0; i < N; i++)
-    for (const it of items(i)) {
-      if (it.t !== 'strip') continue;
-      if (voids.some((v) => v.edge === i && it.u > v.u0 + 0.1 && it.u < v.u1 - 0.1)) continue;
+    for (const it0 of items(i)) {
+      if (it0.t !== 'strip') continue;
+      if (voids.some((v) => v.edge === i && it0.u > v.u0 + 0.1 && it0.u < v.u1 - 0.1)) continue;
+      // Şerit saçak altında biter (ölçümde çatı hizasını aşan uçlar çatıdan taşıyordu)
+      const it = { ...it0, y1: Math.min(it0.y1, wallTop - base - 0.05) };
+      if (it.y1 - it.y0 < 0.3) continue;
       if (!roundStrip) {
         const w = Math.max(0.18, Math.min(0.5, it.w));
         const p = P(i, it.u, 0.03);
@@ -776,7 +779,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   for (let i = 0; i < N; i++) {
     const { len } = E[i];
     if (len < 0.05) continue;
-    b.wall(K('mkFascia'), P(i, 0, 0.02), P(i, len, 0.02), wallTop - 0.05, wallTop + fH, [
+    // Saçak alnı: Street View'da açık gri (koyu balkon alnı renginde değil)
+    b.wall(K('mkPlaster2'), P(i, 0, 0.02), P(i, len, 0.02), wallTop - 0.05, wallTop + fH, [
       E[i].s0,
       wallTop - 0.05,
       E[i].s0 + len,
@@ -797,7 +801,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       keys: {
         roof: K('mkTile'),
         soffit: K('mkSoffit'),
-        fascia: K('mkFascia'),
+        fascia: K('mkPlaster2'),
         gable: K('mkPlaster'),
         terrace: 'roofFlat',
       },

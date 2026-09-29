@@ -174,7 +174,7 @@ export function windowGlassMaterial(): THREE.MeshStandardMaterial {
     color: 0xffffff,
     roughness: 0.04,
     metalness: 0.0,
-    envMapIntensity: 1.6,
+    envMapIntensity: 2.3,
   });
   m.onBeforeCompile = (sh) => {
     sh.uniforms.uNight = nightUniform;
@@ -195,7 +195,8 @@ float h1(float n) { return fract(sin(n * 127.1) * 43758.5453); }
 float h2(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
 vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh) {
   // Oda derinliği hissi: üstte tavan açık, altta koyu, kenarlarda koyulaşma
-  vec3 room = mix(vec3(0.035, 0.032, 0.03), vec3(0.11, 0.1, 0.09), smoothstep(0.1, 0.95, uv.y));
+  // Street View: cam mavi-gri (gökyüzü/karşı cephe yansıması), iç mekân sıcak kahve değil
+  vec3 room = mix(vec3(0.03, 0.034, 0.042), vec3(0.09, 0.1, 0.115), smoothstep(0.1, 0.95, uv.y));
   room *= 0.75 + 0.25 * h1(seed * 3.1);
   float x = uv.x * W;
   float y = uv.y * Hh;

@@ -90,7 +90,8 @@ export function surveyVegetation(): {
   for (const p of [...(SITE_PLAN.points ?? []), ...(PARK_PLAN.points ?? [])])
     if (p.kind === 'tree') add(p.x, p.z, p.r, p.h, speciesType(p.species, p.note));
   for (const p of STREET_PLAN.street ?? [])
-    if (p.kind === 'tree')
+    // 2 m altı "ağaçlar" (köşe adasındaki budanmış şimşir/ardıçlar) street.ts'de çalı olarak kurulur
+    if (p.kind === 'tree' && (p.h ?? 5) >= 2)
       add(p.x, p.z, undefined, p.h, speciesType(undefined, `${p.text ?? ''} ${p.note ?? ''}`));
   const excludeZones: number[][] = [];
   for (const a of [...(SITE_PLAN.areas ?? []), ...(PARK_PLAN.areas ?? [])])
