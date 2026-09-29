@@ -314,6 +314,18 @@ export class TreeField {
     return { treesNear: this.counts.near, treesMid: this.counts.mid, treesFar: this.counts.far };
   }
 
+  /** Kalan (kaldırılmamış) ağaçların konumları [x, z, …] — ses manzarası (kuş sesleri ağaç kümelerinde) için */
+  positions(): Float32Array {
+    const out: number[] = [];
+    for (const f of this.far)
+      for (let i = 0; i < f.lod.length; i++) {
+        if (f.removed[i]) continue;
+        const o = i * 16;
+        out.push(f.mats[o + 12], f.mats[o + 14]);
+      }
+    return new Float32Array(out);
+  }
+
   dispose(): void {
     for (const f of this.far) f.im.dispose();
     for (const s of this.species.values())

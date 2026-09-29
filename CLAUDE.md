@@ -381,7 +381,14 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 - Alan kullanımı ayrı mesh değil, arazi mesh'inin dokusuna boyanır (eğimde boşluk/z-fighting yok).
 - Sokak lambaları: OSM'de bölgede yalnızca 3 lamba var; araç yolu kenarına ~32 m arayla eklenir (konumlar yaklaşık). Banklar ve duraklar yalnızca OSM'deki gerçek konumlar.
 - Işınlanma menüsü OSM'deki gerçek adları gösterir; OSM'de bulunamayanlar (Tarabya Sitesi, Mertkent 3, Kışlalı Bulvarı) listelenmez.
-- Sesler dosya değil Web Audio sentezi (CC0 ses kaynağı indirilemedi).
+- Sesler dosya değil Web Audio sentezi (CC0 ses kaynağı indirilemedi). → **Yerine geçti (ses v2):** gerçek kayıtlar
+  (CC0/CC BY, `scripts/sounds.json` → Actions `fetch-sounds.yml` → `public/sounds/`, lisans kaynak sayfasından
+  doğrulanır), konumlu ses manzarası `src/env/sound/` (HRTF, bina örtmesi, bina taban izlerinden kanyon/avlu/açık
+  yankı IR'ı, iskelete eşli ayak sesleri, araç başına motor+lastik+Doppler, BursaRay sefer aralığı 5–15 dk / 00:30–06
+  yok, saate göre kuş/çocuk/cırcır/köpek). Ezan yalnız lisanslı İstanbul kaydıyla, OSM cami konumlarından, Diyanet
+  yöntemiyle (imsak −18°, yatsı −17°, ikindi asr-ı evvel, temkin güneş −7 / öğle +5 / ikindi +4 / akşam +7; Diyanet
+  Bursa vakitleriyle ±1 dk). Hazır zaman ayarlarında ses saati temsilî saatten gerçek zamanla ilerler (gündüz 10:30,
+  gün batımı = batış −12 dk, gece 22:30). Tren modeli yok → BursaRay yalnız ses. Kayıt yoksa prosedürel yedek.
 - Yayalar: oyuncuya en yakın 14/8/4 yaya iskeletli insan (Michelle + Ready Player Me, Mixamo yürüyüşü dünya uzayında aktarılır), uzaktakiler kutu parçalı figür. `skeleton.pose()` kullanılmaz (ölçekli ebeveynli iskeleti 100× küçültüyordu); dinlenme duruşu önbellekten.
 - Araçlar tamamen kodla (`sim/carmodel.ts`): kesit loft gövde (çamurluk kavisleri, tumblehome, ön/arka cam, omuz çizgisi, kapı derzleri), jantlı lastikler, far/stop/sis, ızgara, ayna, kol, silecek, Bursa "16 …" plakaları (atlas + instance başına plaka no). 4 tip (sedan/hatchback/SUV/hafif ticari, Türkiye dağılımına yakın). Park edenler yakın/uzak LOD; trafikte tekerler döner.
 - Sis ana sahne ve uzak arka plan için ortak; Düşük kalitede uzak arazi kapalı.

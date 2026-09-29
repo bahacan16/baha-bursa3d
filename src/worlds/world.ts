@@ -1,5 +1,6 @@
 import type * as THREE from 'three';
 import type { ICollisionWorld } from '../player/colliders';
+import type { SoundScene } from '../env/sound/types';
 
 /** Oyun dünyası (Mod A / Mod B / test kutuları) ortak arayüzü. */
 export interface IWorld {
@@ -16,6 +17,8 @@ export interface IWorld {
   findFreeSpot?(x: number, z: number): { x: number; z: number };
   /** Ses için: ayak altındaki zemin ve en yakın araç mesafesi. */
   audioInfo?(x: number, z: number): { surface: 'hard' | 'soft' | 'gravel'; nearestCar: number };
+  /** Ses manzarası için dünya bilgisi (zemin, binalar, yollar, raylar, camiler, ağaçlar, araçlar). */
+  soundScene?(): SoundScene | null;
   /** Ekrandaki atıf metni (HTML). */
   attributionHtml(): string;
   /** debug göstergeleri için */

@@ -10,6 +10,7 @@ import {
 } from '3d-tiles-renderer/plugins';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import type { IWorld } from '../world';
+import type { SoundScene } from '../../env/sound/types';
 import type { LatLon } from '../../core/geo';
 import { TilesCollisionWorld } from './collision';
 import { googleAttributionHtml } from './attribution';
@@ -42,6 +43,11 @@ export class GoogleWorld implements IWorld {
   private attrHtml = '';
   lastError: string | null = null;
   onError: (msg: string) => void = () => {};
+  /** Ses: HUD için ayrıştırılan OSM verisinden (start.ts) */
+  sound: SoundScene | null = null;
+  soundScene(): SoundScene | null {
+    return this.sound;
+  }
 
   constructor(private readonly opts: GoogleWorldOptions) {
     this.object.name = 'google-world';

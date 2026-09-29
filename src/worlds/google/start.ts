@@ -6,6 +6,7 @@ import { Hud } from '../../hud/hud';
 import { isMobileDevice } from '../../core/settings';
 import { GoogleWorld } from './tiles';
 import { showError } from '../../ui/screens';
+import { OsmSoundScene } from '../../env/sound/osmscene';
 
 function calibration(): { x: number; z: number } | undefined {
   const v = new URLSearchParams(location.search).get('gcal');
@@ -34,6 +35,7 @@ export async function startGoogle(
     camera: game.camera,
     offset: calibration(),
   });
+  world.sound = new OsmSoundScene(osm, { real: data.centerSource !== 'fixture' });
   game.setWorld(world);
   // Yüksekten başla, kamera aşağı baksın
   game.teleport(0, 450, 0);

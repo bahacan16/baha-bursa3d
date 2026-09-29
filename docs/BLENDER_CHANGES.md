@@ -465,3 +465,13 @@
   **Blender:** `NW/Vegetation` yeniden kurulmalı (tür başına model; konum/boy/taç ölçüleri planlardan; tür →
   `docs/TREES.md` tablosu); `NW/Mertkent/Site` (konik servi ve mazı çalıları buradan kalktı → Vegetation'a),
   `NW/Mertkent/Street` (KD köşe adası küreleri kalktı → mazı konisi Vegetation'da).
+- **6273d2d** — Gerçekçi konumlu ses manzarası (yalnız ses): `src/env/sound/*` (HRTF + bina örtmesi, bina taban
+  izlerinden kanyon/avlu/açık alan yankısı, zemine göre ayak sesi — ölçülmüş site/park alanları, rögar/ızgara
+  noktaları, kaldırım/araç yolu, hava fotoğrafı rengi; araç başına motor/lastik/Doppler/korna, uzak cadde uğultusu,
+  BursaRay geçişleri, kuş/rüzgâr/cırcır/köpek/çocuk, Diyanet vakitlerinde gerçek cami konumlarından ezan), ayarlar
+  (Ana ses, Ambiyans, Trafik, Ayak sesi, Ezan + "Ezan sesi"), kayıt hattı `scripts/sounds.json` +
+  `scripts/fetch-sounds.mjs` + `.github/workflows/fetch-sounds.yml` → `public/sounds/` (CC0/CC BY, ATTRIBUTION.md).
+  Küçük bağlantılar: `game.ts` (ses güncelleme çağrısı), `camera.ts` (`step` okuyucu), `sim/traffic.ts`
+  (`soundCars()`), `osm/world.ts` (`soundScene()`, `GroundIndex.pavedKind`), `osm/parse.ts` (`mosques`:
+  building:part'lı camiler dahil), `hud.ts`, `settings.ts`.
+  **Blender:** yok (görsel değişiklik yok; Blender'da ses kullanılmıyor).

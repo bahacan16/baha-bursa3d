@@ -559,18 +559,7 @@ export class Game {
     }
     this.world?.update(this.camera, this.renderPos, dt);
     this.hooks.onFrame?.(this, dt);
-    const ai = this.world?.audioInfo?.(this.renderPos.x, this.renderPos.z) ?? {
-      surface: 'hard' as const,
-      nearestCar: Infinity,
-    };
-    this.audio.update(
-      dt,
-      c.horizontalSpeed,
-      c.onGround && !c.frozen,
-      ai.surface,
-      ai.nearestCar,
-      this.daylight?.night ?? 0,
-    );
+    this.audio.update(dt, this);
     // Arka plan: aynı konum/yön, uzun menzil
     const bc = this.backdropCamera;
     bc.position.copy(this.camera.position);

@@ -9,6 +9,7 @@ on:
       - 'scripts/fetch-*.mjs'
       - '!scripts/fetch-streetview.mjs'
       - '!scripts/fetch-streetview-extra.mjs'
+      - '!scripts/fetch-sounds.mjs'
       - 'src/worlds/osm/simplify.ts'
       - '.github/workflows/fetch-data.yml'
 
