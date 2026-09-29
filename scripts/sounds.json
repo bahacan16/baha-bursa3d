@@ -1,5 +1,5 @@
 {
-  "$comment": "Gerçek ses kayıtları (scripts/fetch-sounds.mjs, Actions: fetch-sounds.yml). src: freesound:<id> | freesound-pack:<kullanıcı>/<paket> (+match, take) | bigsoundbank:<id> (+page) | archive:<öğe>[/<dosya>]. Lisans kaynak sayfasından doğrulanır; yalnız 'accept' içindekiler alınır. 'license'/'author' beklenen değerdir (bilgi). 'expect' başlıkta aranan düzenli ifade (yanlış kimlik koruması). at/len saniye. Yuva adları src/env/sound/engine.ts PRELOAD_SLOTS ile aynı.",
+  "$comment": "Gerçek ses kayıtları (scripts/fetch-sounds.mjs, Actions: fetch-sounds.yml). src: freesound:<id> | freesound-pack:<kullanıcı>/<paket> (+match, take, q: paket sayfası eşleşme vermezse kullanıcının seslerinde arama) | bigsoundbank:<id> (+page) | archive:<öğe>[/<dosya>]. Lisans kaynak sayfasından doğrulanır; yalnız 'accept' içindekiler alınır. 'license'/'author' beklenen değerdir (bilgi). 'expect' başlıkta aranan düzenli ifade (yanlış kimlik koruması). at/len saniye. Yuva adları src/env/sound/engine.ts PRELOAD_SLOTS ile aynı.",
   "accept": ["cc0", "by", "pdm"],
   "slots": {
     "step_asphalt": {
@@ -38,13 +38,22 @@
           "match": "_(low)?sneakers_walk",
           "take": 2,
           "tag": "walk",
-          "note": "Footsteps pavement (kaldırım plakaları), spor ayakkabı"
+          "note": "Footsteps pavement (kaldırım plakaları), spor ayakkabı",
+          "q": "paving sneakers"
         },
         {
           "src": "freesound-pack:sturmankin/16811",
           "match": "_(low)?sneakers_run",
           "take": 1,
-          "tag": "run"
+          "tag": "run",
+          "q": "paving sneakers"
+        },
+        {
+          "src": "freesound:345560",
+          "expect": "stone|footstep",
+          "author": "InspectorJ",
+          "tag": "walk",
+          "note": "yedek: taş zemin (kilit taşına yakın)"
         }
       ]
     },
@@ -57,9 +66,16 @@
           "match": "_(low)?sneakers_walk",
           "take": 2,
           "tag": "walk",
-          "note": "Footsteps concrete, spor ayakkabı"
+          "note": "Footsteps concrete, spor ayakkabı",
+          "q": "concrete sneakers"
         },
-        { "src": "freesound-pack:sturmankin/16790", "match": "_(low)?sneakers_run", "take": 1, "tag": "run" },
+        {
+          "src": "freesound-pack:sturmankin/16790",
+          "match": "_(low)?sneakers_run",
+          "take": 1,
+          "tag": "run",
+          "q": "concrete sneakers"
+        },
         {
           "src": "bigsoundbank:0514",
           "page": "https://bigsoundbank.com/detail-0514-footsteps-shoe-on-concrete.html",
@@ -72,14 +88,25 @@
       "kind": "steps",
       "maxSlices": 32,
       "sources": [
-        { "src": "freesound:206030", "expect": "grass", "license": "cc0", "author": "Yuval", "tag": "walk" },
+        {
+          "src": "freesound:206030",
+          "expect": "grass",
+          "license": "cc0",
+          "author": "Yuval",
+          "tag": "walk"
+        },
         {
           "src": "bigsoundbank:1254",
           "page": "https://bigsoundbank.com/steps-in-the-grass-quick-s1254.html",
           "expect": "grass|herbe",
           "tag": "run"
         },
-        { "src": "freesound-pack:Nox_Sound/29889", "match": "grass", "take": 1, "tag": "walk" }
+        {
+          "src": "freesound-pack:Nox_Sound/29889",
+          "match": "grass",
+          "take": 1,
+          "tag": "walk"
+        }
       ]
     },
     "step_soil": {
@@ -91,10 +118,22 @@
           "match": "_(low)?sneakers_walk",
           "take": 2,
           "tag": "walk",
-          "note": "Footsteps soil (toprak/malç), spor ayakkabı"
+          "note": "Footsteps soil (toprak/malç), spor ayakkabı",
+          "q": "soil sneakers"
         },
-        { "src": "freesound-pack:sturmankin/17191", "match": "_(low)?sneakers_run", "take": 1, "tag": "run" },
-        { "src": "freesound:352870", "expect": "dirt|gravel", "license": "cc0", "author": "PotatokingXII" }
+        {
+          "src": "freesound-pack:sturmankin/17191",
+          "match": "_(low)?sneakers_run",
+          "take": 1,
+          "tag": "run",
+          "q": "soil sneakers"
+        },
+        {
+          "src": "freesound:352870",
+          "expect": "dirt|gravel",
+          "license": "cc0",
+          "author": "PotatokingXII"
+        }
       ]
     },
     "step_gravel": {
@@ -118,6 +157,11 @@
           "src": "bigsoundbank:1117",
           "page": "https://bigsoundbank.com/footsteps-on-gravels-2-s1117.html",
           "expect": "gravel|gravier"
+        },
+        {
+          "src": "freesound:463560",
+          "expect": "gravel|stone",
+          "author": "arnaud coutancier"
         }
       ]
     },
@@ -131,7 +175,11 @@
           "author": "SoftDistortionFX",
           "note": "Metal Footsteps — metal ızgara (rögar/ızgara için)"
         },
-        { "src": "freesound-pack:Nox_Sound/29889", "match": "metal", "take": 1 }
+        {
+          "src": "freesound-pack:Nox_Sound/29889",
+          "match": "metal",
+          "take": 1
+        }
       ]
     },
     "step_wood": {
@@ -163,9 +211,20 @@
           "src": "freesound:147242",
           "expect": "engine|motor",
           "author": "qubodup",
-          "note": "Opel Astra 1.6 16V motoru (Türkiye'de de yaygın)"
+          "note": "Opel Astra 1.6 16V motoru (Türkiye'de de yaygın); kayıt 4.0 s → 3 s döngü",
+          "len": 3
         },
-        { "src": "freesound:443269", "expect": "idl", "author": "alec_havinmaa", "note": "Car idling, loop" }
+        {
+          "src": "freesound:443269",
+          "expect": "idl",
+          "author": "alec_havinmaa",
+          "note": "Car idling, loop"
+        },
+        {
+          "src": "freesound:349171",
+          "expect": "idle|engine",
+          "note": "yedek: rölanti"
+        }
       ]
     },
     "car_passby": {
@@ -185,7 +244,12 @@
           "expect": "car|road|voiture",
           "len": 20
         },
-        { "src": "freesound:425527", "expect": "pass", "author": "Soundholder", "len": 20 }
+        {
+          "src": "freesound:425527",
+          "expect": "pass",
+          "author": "Soundholder",
+          "len": 20
+        }
       ]
     },
     "car_horn": {
@@ -193,7 +257,12 @@
       "maxLen": 1.2,
       "minGap": 0.25,
       "sources": [
-        { "src": "freesound:182474", "expect": "horn", "license": "cc0", "author": "keweldog" },
+        {
+          "src": "freesound:182474",
+          "expect": "horn",
+          "license": "cc0",
+          "author": "keweldog"
+        },
         {
           "src": "bigsoundbank:0968",
           "page": "https://bigsoundbank.com/sound-0968-recent-car-horn-6.html",
@@ -217,8 +286,18 @@
           "len": 14,
           "note": "moto kurye yerine: scooter geçişi"
         },
-        { "src": "freesound:111949", "expect": "scooter", "author": "dobroide", "len": 14 },
-        { "src": "freesound:54901", "expect": "moped", "author": "Satoration", "len": 14 }
+        {
+          "src": "freesound:111949",
+          "expect": "scooter",
+          "author": "dobroide",
+          "len": 14
+        },
+        {
+          "src": "freesound:54901",
+          "expect": "moped",
+          "author": "Satoration",
+          "len": 14
+        }
       ]
     },
     "traffic_bed": {
@@ -234,6 +313,20 @@
           "expect": "highway|autoroute",
           "at": 5,
           "note": "yoldan ~50 m: uzak cadde uğultusu (mesafe/örtme oyunda eklenir)"
+        },
+        {
+          "src": "freesound:750144",
+          "expect": "traffic",
+          "author": "DataJuggler",
+          "at": 5,
+          "note": "yedek: şehir trafiği uğultusu"
+        },
+        {
+          "src": "freesound:705049",
+          "expect": "traffic|city",
+          "author": "felix.blume",
+          "at": 20,
+          "note": "yedek: küçük şehir trafiği (siren/müzik anları at ile atlanır)"
         }
       ]
     },
@@ -256,7 +349,16 @@
           "page": "https://bigsoundbank.com/tram-starts-and-departs-2-s3540.html",
           "expect": "tram"
         },
-        { "src": "freesound:398461", "expect": "tram", "author": "KAMARIN" }
+        {
+          "src": "freesound:398461",
+          "expect": "tram",
+          "author": "KAMARIN"
+        },
+        {
+          "src": "freesound:455873",
+          "expect": "tram",
+          "note": "yedek: tramvay geçişi"
+        }
       ]
     },
     "rail_brake": {
@@ -286,7 +388,12 @@
           "at": 10,
           "note": "geniş stereo dış mekân: tahtalı güvercin, karatavuk (Bursa'da da yaygın), uzak araçlar"
         },
-        { "src": "freesound:275237", "expect": "ambien", "author": "lwdickens", "at": 5 }
+        {
+          "src": "freesound:275237",
+          "expect": "ambien",
+          "author": "lwdickens",
+          "at": 5
+        }
       ]
     },
     "amb_night": {
@@ -295,7 +402,14 @@
       "len": 40,
       "xfade": 4,
       "take": 1,
-      "sources": [{ "src": "freesound:417864", "expect": "night|neighbo", "author": "bolkmar", "at": 5 }]
+      "sources": [
+        {
+          "src": "freesound:417864",
+          "expect": "night|neighbo",
+          "author": "bolkmar",
+          "at": 5
+        }
+      ]
     },
     "wind_trees": {
       "kind": "loop",
@@ -310,8 +424,22 @@
           "expect": "wind|vent",
           "at": 20
         },
-        { "src": "freesound:381381", "expect": "wind", "author": "FunWithSound", "at": 5 },
-        { "src": "freesound:751473", "expect": "wind|leaves", "author": "Borgory" }
+        {
+          "src": "freesound:381381",
+          "expect": "wind",
+          "author": "FunWithSound",
+          "at": 5
+        },
+        {
+          "src": "freesound:751473",
+          "expect": "wind|leaves",
+          "author": "Borgory"
+        },
+        {
+          "src": "freesound:523389",
+          "expect": "wind|rustl",
+          "author": "arpeggio1980"
+        }
       ]
     },
     "bird_sparrows": {
@@ -382,7 +510,13 @@
     "bird_pigeon": {
       "kind": "calls",
       "maxLen": 3,
-      "sources": [{ "src": "freesound-pack:5ro4/33678", "match": "coo|pigeon", "take": 2 }]
+      "sources": [
+        {
+          "src": "freesound-pack:5ro4/33678",
+          "match": "coo|pigeon",
+          "take": 2
+        }
+      ]
     },
     "crickets": {
       "kind": "loop",
@@ -398,8 +532,18 @@
           "author": "SiliconeSound",
           "note": "ağaç cırcırı (Oecanthus pellucens) — Türkiye'de yaygın"
         },
-        { "src": "freesound:175020", "expect": "cricket", "license": "cc0", "author": "sengjinn" },
-        { "src": "freesound:522298", "expect": "cricket", "license": "cc0", "author": "Defelozedd94" },
+        {
+          "src": "freesound:175020",
+          "expect": "cricket",
+          "license": "cc0",
+          "author": "sengjinn"
+        },
+        {
+          "src": "freesound:522298",
+          "expect": "cricket",
+          "license": "cc0",
+          "author": "Defelozedd94"
+        },
         {
           "src": "bigsoundbank:1020",
           "page": "https://bigsoundbank.com/field-cricket-s1020.html",
@@ -421,6 +565,17 @@
           "src": "bigsoundbank:0288",
           "page": "https://bigsoundbank.com/sound-0288-barking-dogs.html",
           "expect": "bark|dog|chien"
+        },
+        {
+          "src": "freesound:406085",
+          "expect": "dog|bark",
+          "author": "InspectorJ",
+          "note": "komşu köpeği, doğal yankı"
+        },
+        {
+          "src": "freesound:274471",
+          "expect": "dog|bark",
+          "author": "nick121087"
         }
       ]
     },
@@ -438,7 +593,11 @@
           "author": "InspectorJ",
           "note": "uzak oyun alanı; oyunda yalnız uzaktan/örtülü (dil seçilemesin)"
         },
-        { "src": "freesound:333324", "expect": "children", "author": "SonidoDiegetico_UPV" }
+        {
+          "src": "freesound:333324",
+          "expect": "children",
+          "author": "SonidoDiegetico_UPV"
+        }
       ]
     },
     "construction": {

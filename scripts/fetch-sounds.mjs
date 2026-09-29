@@ -49,11 +49,12 @@ mkdirSync(TMP, { recursive: true });
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-async function get(url, as = 'text', tries = 3) {
+async function get(url, as = 'text', tries = 3, referer = '') {
   let last;
+  const headers = referer ? { ...UA, Referer: referer } : UA;
   for (let i = 0; i < tries; i++) {
     try {
-      const r = await fetch(url, { headers: UA, redirect: 'follow' });
+      const r = await fetch(url, { headers, redirect: 'follow' });
       if (r.status === 429 || r.status >= 500) throw new Error(`HTTP ${r.status}`);
       if (!r.ok) return { ok: false, status: r.status, url: r.url };
       const body =
@@ -101,25 +102,59 @@ async function freesoundSound(id) {
 
 const packCache = new Map();
 
-async function freesoundPack(user, pack, match, take) {
+async function freesoundPack(user, pack, match, take, q) {
   const re = new RegExp(match, 'i');
   const key = `${user}/${pack}`;
   if (!packCache.has(key)) packCache.set(key, await packList(user, pack));
   const list = packCache.get(key);
-  const out = [];
-  let lookups = 0;
-  for (const s of list) {
-    if (out.length >= take) break;
-    // Paket sayfasında ad yoksa ses sayfasından başlığı oku (en çok 80 istek)
-    if (!s.name && lookups < 80) {
-      lookups++;
-      const m = await freesoundSound(s.id);
-      s.name = m.title ?? '';
-      await sleep(300);
+  const pick = async (from) => {
+    const out = [];
+    let lookups = 0;
+    for (const s of from) {
+      if (out.length >= take) break;
+      // Paket sayfasında ad yoksa ses sayfasından başlığı oku (en çok 80 istek)
+      if (!s.name && lookups < 80) {
+        lookups++;
+        const m = await freesoundSound(s.id);
+        s.name = m.title ?? '';
+        await sleep(300);
+      }
+      if (re.test(s.name)) out.push(s);
     }
-    if (re.test(s.name)) out.push(s);
+    return out;
+  };
+  let out = await pick(list);
+  // Paket sayfası yalnız ilk ~12 sesi listeliyor (sayfalama çalışmadı, Eylül 2026 çalıştırması) → kullanıcının
+  // sesleri arasında arama (sounds.json "q"), sonuç yine paket adı kalıbıyla (match) süzülür
+  if (!out.length && q) {
+    const key2 = `${user}?${q}`;
+    if (!packCache.has(key2)) packCache.set(key2, await userSearch(user, q));
+    out = await pick(packCache.get(key2));
   }
+  if (!out.length)
+    console.log(
+      `    /${match}/ eşleşmedi; listelenen adlar: ${list
+        .slice(0, 30)
+        .map((s) => s.name || s.id)
+        .join(' | ')}`,
+    );
   return out;
+}
+
+async function userSearch(user, q) {
+  const list = [];
+  for (let page = 1; page <= 4; page++) {
+    const r = await get(
+      `https://freesound.org/search/?q=${encodeURIComponent(q)}&f=${encodeURIComponent(`username:"${user}"`)}&page=${page}`,
+    );
+    if (!r.ok) break;
+    const fresh = parseFreesoundPack(r.body, user).filter((i) => !list.some((l) => l.id === i.id));
+    if (!fresh.length) break;
+    list.push(...fresh);
+    await sleep(400);
+  }
+  console.log(`  (arama ${user} "${q}": ${list.length} ses)`);
+  return list;
 }
 
 async function packList(user, pack) {
@@ -131,14 +166,17 @@ async function packList(user, pack) {
     );
     if (r.ok) list = r.body.results.map((s) => ({ id: String(s.id), name: s.name }));
   } else {
-    for (let page = 1; page <= 12; page++) {
-      const r = await get(`https://freesound.org/people/${user}/packs/${pack}/?page=${page}`);
-      if (!r.ok) break;
-      const items = parseFreesoundPack(r.body, user);
-      const fresh = items.filter((i) => !list.some((l) => l.id === i.id));
-      if (!fresh.length) break;
-      list.push(...fresh);
-      await sleep(400);
+    // İki sayfa biçimi denenir: paket sayfası ve paketin ses listesi (hangisi sayfalıyorsa)
+    for (const base of [`/people/${user}/packs/${pack}/`, `/people/${user}/packs/${pack}/sounds/`]) {
+      for (let page = 1; page <= 12; page++) {
+        const r = await get(`https://freesound.org${base}?page=${page}`);
+        if (!r.ok) break;
+        const items = parseFreesoundPack(r.body, user);
+        const fresh = items.filter((i) => !list.some((l) => l.id === i.id));
+        if (!fresh.length) break;
+        list.push(...fresh);
+        await sleep(400);
+      }
     }
   }
   console.log(`  (paket ${user}/${pack}: ${list.length} ses)`);
@@ -149,6 +187,7 @@ async function bigsoundbank(id, page) {
   let title = `BigSoundBank #${id}`;
   let titleVerified = false;
   let licenseOk = null;
+  const urls = [];
   if (page) {
     const r = await get(page);
     if (r.ok) {
@@ -158,6 +197,18 @@ async function bigsoundbank(id, page) {
         titleVerified = true;
       }
       licenseOk = /CC0|publicdomain\/zero/i.test(r.body);
+      // Sayfadaki gerçek indirme/oynatma bağlantıları önce denenir: UPLOAD/<ext>/<id>.<ext> kalıbı bazı seslerde
+      // 30–40 kB'lık, ffmpeg'in açamadığı (büyük olasılıkla HTML) içerik döndürdü (Eylül 2026 Actions: düşen 10 yuvanın 8'i)
+      for (const m of r.body.matchAll(
+        /(?:href|src|data-src)=["']([^"']+?\.(?:flac|wav|mp3|ogg)(?:\?[^"']*)?)["']/gi,
+      )) {
+        try {
+          const u = new URL(m[1].replace(/&amp;/g, '&'), r.url || page).href;
+          if (u.includes(id) && !urls.includes(u)) urls.push(u);
+        } catch {
+          /* geçersiz bağlantı */
+        }
+      }
     }
   }
   if (licenseOk === null) {
@@ -173,14 +224,12 @@ async function bigsoundbank(id, page) {
     titleVerified,
     page: page ?? `https://bigsoundbank.com/search?q=${id}`,
   };
-  for (const ext of ['flac', 'wav', 'mp3']) {
-    const url = `https://bigsoundbank.com/UPLOAD/${ext}/${id}.${ext}`;
-    const h = await fetch(url, { method: 'HEAD', headers: UA }).catch(() => null);
-    if (h && h.ok) return { url, ...meta };
-    // HEAD desteklenmiyorsa (405/403) GET ile denenir
-    if (h && (h.status === 405 || h.status === 403)) return { url, ...meta };
+  // HEAD 200 dönse de gövde HTML olabiliyordu → hiçbir aday burada elenmez; indirme döngüsü içeriği doğrular
+  for (const ext of ['flac', 'wav', 'mp3', 'ogg']) {
+    const u = `https://bigsoundbank.com/UPLOAD/${ext}/${id}.${ext}`;
+    if (!urls.includes(u)) urls.push(u);
   }
-  return { error: 'dosya yok' };
+  return { url: urls[0], urls, referer: page ?? 'https://bigsoundbank.com/', ...meta };
 }
 
 async function archiveItem(ident, file) {
@@ -210,7 +259,7 @@ async function resolve(src) {
   if (kind === 'freesound') return [{ ...(await freesoundSound(id)), id: `fs:${id}` }];
   if (kind === 'freesound-pack') {
     const [user, pack] = id.split('/');
-    const items = await freesoundPack(user, pack, src.match ?? '.', src.take ?? 2);
+    const items = await freesoundPack(user, pack, src.match ?? '.', src.take ?? 2, src.q);
     const out = [];
     for (const it of items) {
       out.push({ ...(await freesoundSound(it.id)), id: `fs:${it.id}` });
@@ -227,6 +276,51 @@ async function resolve(src) {
 }
 
 // ------------------------------------------------------------------ ffmpeg
+
+/** İndirilen gövde ses değilse nedeni (HTML hata/yönlendirme sayfası, boş dosya), ses ise null */
+function notAudio(buf) {
+  if (buf.length < 2048) return `çok küçük (${buf.length} B)`;
+  const head = buf.subarray(0, 512).toString('latin1').trimStart().toLowerCase();
+  if (head.startsWith('<') || head.includes('<html') || head.includes('<!doctype'))
+    return 'HTML sayfası (ses değil)';
+  return null;
+}
+
+/** ffprobe ile ses akışı var mı; varsa süresi (s, bilinmiyorsa 0), yoksa null */
+function probeAudio(file) {
+  try {
+    const out = execFileSync(
+      'ffprobe',
+      [
+        '-v',
+        'error',
+        '-select_streams',
+        'a:0',
+        '-show_entries',
+        'stream=codec_name:format=duration',
+        '-of',
+        'json',
+        file,
+      ],
+      { maxBuffer: 1 << 20 },
+    ).toString();
+    const j = JSON.parse(out);
+    if (!j.streams?.length) return null;
+    return { dur: Number(j.format?.duration) || 0 };
+  } catch {
+    return null;
+  }
+}
+
+/** Tek kaydın çözülmesi; hata yuvanın tamamını değil yalnız o kaydı düşürür */
+function tryDecode(it, ...args) {
+  try {
+    return decode(it.file, ...args);
+  } catch (e) {
+    console.log(`    ${it.meta.id}: çözülemedi → atlandı (${String(e).split('\n')[0].slice(0, 160)})`);
+    return null;
+  }
+}
 
 function decode(file, ch, at = 0, len = 0) {
   const args = ['-v', 'error'];
@@ -270,7 +364,8 @@ const r4 = (v) => +v.toFixed(4);
 function processSteps(slot, cfg, items) {
   const parts = [];
   for (const it of items) {
-    const ch = decode(it.file, 1, it.src.at ?? 0, it.src.len ?? 0);
+    const ch = tryDecode(it, 1, it.src.at ?? 0, it.src.len ?? 0);
+    if (!ch) continue;
     const x = highpass(ch[0], SR, cfg.hp ?? 60);
     const ev = detectEvents(x, SR, {
       minGap: cfg.minGap ?? 0.2,
@@ -287,6 +382,7 @@ function processSteps(slot, cfg, items) {
       parts.push({
         chans: prepareSlice([x], SR, e.start, e.end, { targetDb: -20, win: cfg.win ?? 0.08 }),
         tag: it.src.tag,
+        it,
       });
       n++;
     }
@@ -296,6 +392,7 @@ function processSteps(slot, cfg, items) {
   const max = cfg.maxSlices ?? 40;
   const picked = parts.length > max ? parts.filter((_, i) => i % Math.ceil(parts.length / max) === 0) : parts;
   if (!picked.length) return null;
+  for (const p of picked) p.it.used = true;
   const sp = packSprite(picked, SR);
   const file = `${slot}.mp3`;
   encode(sp.chans, join(OUT, file), cfg.kbps ?? 96);
@@ -312,17 +409,23 @@ function processSteps(slot, cfg, items) {
 
 function processLoops(slot, cfg, items) {
   const out = [];
-  items.forEach((it, k) => {
+  const take = cfg.take ?? 99;
+  items.forEach((it) => {
+    if (out.length >= take) return;
     const ch = cfg.channels ?? 2;
     const len = it.src.len ?? cfg.len ?? 40;
     const need = len + (cfg.xfade ?? 2) + 0.5;
     let chans;
     if (cfg.atPeak) {
       // Geçiş kaydı → en yüksek enerjili bölümden döngü (ör. tramvayın tam önümüzden geçtiği saniyeler)
-      const all = decode(it.file, ch);
+      const all = tryDecode(it, ch);
+      if (!all) return;
       const w = loudestWindow(all[0], SR, need);
       chans = all.map((c) => c.slice(w.at, w.at + Math.round(need * SR)));
-    } else chans = decode(it.file, ch, it.src.at ?? cfg.at ?? 0, need);
+    } else {
+      chans = tryDecode(it, ch, it.src.at ?? cfg.at ?? 0, need);
+      if (!chans) return;
+    }
     if (chans[0].length < SR * Math.min(6, need * 0.8)) {
       console.log(`    ${it.meta.id}: çok kısa (${(chans[0].length / SR).toFixed(1)} s) → atlandı`);
       return;
@@ -330,8 +433,9 @@ function processLoops(slot, cfg, items) {
     chans = chans.map((c) => highpass(c, SR, cfg.hp ?? 30));
     chans = makeLoop(chans, SR, cfg.xfade ?? 2);
     chans = normalize(chans, -20, -1);
-    const file = `${slot}.${k}.mp3`;
+    const file = `${slot}.${out.length}.mp3`;
     encode(chans, join(OUT, file), cfg.kbps ?? (ch > 1 ? 128 : 96));
+    it.used = true;
     out.push({ file, dur: r4(chans[0].length / SR), ch, loop: true, src: it.meta.id, region: it.src.region });
   });
   return out.length ? out : null;
@@ -339,16 +443,17 @@ function processLoops(slot, cfg, items) {
 
 function processEvents(slot, cfg, items, long) {
   const out = [];
-  items.forEach((it, k) => {
+  items.forEach((it) => {
     const ch = it.src.channels ?? cfg.channels ?? 1;
-    let chans = decode(it.file, ch, it.src.at ?? 0, it.src.len ?? cfg.len ?? 0);
-    if (chans[0].length < SR * 0.5) return;
+    let chans = tryDecode(it, ch, it.src.at ?? 0, it.src.len ?? cfg.len ?? 0);
+    if (!chans || chans[0].length < SR * 0.5) return;
     chans = chans.map((c) => highpass(c, SR, cfg.hp ?? 40));
     fade(chans, SR, long ? 1.5 : 0.15, long ? 2.5 : 0.4);
     chans = normalize(chans, -20, -1, SR, long ? 3 : 1);
     const pk = loudestWindow(chans[0], SR, 0.25).center;
-    const file = `${slot}.${k}.mp3`;
+    const file = `${slot}.${out.length}.mp3`;
     encode(chans, join(OUT, file), cfg.kbps ?? (long ? 96 : 112));
+    it.used = true;
     out.push({
       file,
       dur: r4(chans[0].length / SR),
@@ -395,7 +500,8 @@ for (const [slot, cfg] of Object.entries(CFG.slots)) {
   if (only.size && !only.has(slot)) continue;
   console.log(`\n[${slot}] ${cfg.kind}`);
   const items = [];
-  const want = cfg.take ?? 99;
+  // Döngülerde "take" işleme aşamasında uygulanır: indirilen aday işlenemezse (çok kısa vb.) sıradaki denenir
+  const want = cfg.kind === 'loop' ? 99 : (cfg.take ?? 99);
   for (const src of cfg.sources) {
     if (items.length >= want) break;
     let resolved;
@@ -426,19 +532,37 @@ for (const [slot, cfg] of Object.entries(CFG.slots)) {
         );
         continue;
       }
-      const dl = await get(meta.url, 'buf');
-      if (!dl.ok) {
-        console.log(`  - ${meta.id}: indirilemedi (${dl.status || dl.error})`);
+      // Adaylar sırayla indirilir; ilk geçerli ses dosyası alınır (HTML/bozuk gövde elenir)
+      let got = null;
+      const why = [];
+      for (const url of meta.urls ?? [meta.url]) {
+        const dl = await get(url, 'buf', 3, meta.referer ?? '');
+        if (!dl.ok) {
+          why.push(`${url.split('/').pop()}: ${dl.status || dl.error}`);
+          continue;
+        }
+        const bad = notAudio(dl.body);
+        const sha = createHash('sha256').update(dl.body).digest('hex');
+        const ext = /\.(\w+)(?:\?|$)/.exec(url)?.[1] ?? 'bin';
+        const file = join(TMP, `${sha.slice(0, 16)}.${ext}`);
+        if (!bad) writeFileSync(file, dl.body);
+        const probe = bad ? null : probeAudio(file);
+        if (bad || !probe) {
+          why.push(`${url.split('/').pop()}: ${bad ?? 'ffprobe ses akışı bulamadı'}`);
+          rmSync(file, { force: true });
+          continue;
+        }
+        got = { url, sha, file, bytes: dl.body.length, dur: probe.dur };
+        break;
+      }
+      if (!got) {
+        console.log(`  - ${meta.id}: geçerli ses dosyası alınamadı (${why.join('; ')})`);
         continue;
       }
-      const sha = createHash('sha256').update(dl.body).digest('hex');
-      const ext = /\.(\w+)(?:\?|$)/.exec(meta.url)?.[1] ?? 'bin';
-      const file = join(TMP, `${sha.slice(0, 16)}.${ext}`);
-      writeFileSync(file, dl.body);
       console.log(
-        `  + ${meta.id} "${meta.title}" — ${meta.author} — ${meta.license.family} ${meta.license.version} (${(dl.body.length / 1e6).toFixed(2)} MB)`,
+        `  + ${meta.id} "${meta.title}" — ${meta.author} — ${meta.license.family} ${meta.license.version} (${(got.bytes / 1e6).toFixed(2)} MB, ${got.dur ? `${got.dur.toFixed(1)} s` : 'süre ?'})`,
       );
-      items.push({ src, meta: { ...meta, sha256: sha }, file });
+      items.push({ src, meta: { ...meta, url: got.url, sha256: got.sha }, file: got.file });
       await sleep(300);
     }
   }
@@ -468,16 +592,19 @@ for (const [slot, cfg] of Object.entries(CFG.slots)) {
     continue;
   }
   manifest.slots[slot] = { kind: cfg.kind === 'calls' ? 'calls' : cfg.kind, files };
-  credits.slots[slot] = items.map((i) => ({
-    id: i.meta.id,
-    title: i.meta.title,
-    author: i.meta.author,
-    license: i.meta.license,
-    page: i.meta.page,
-    url: i.meta.url,
-    sha256: i.meta.sha256,
-    note: i.src.note,
-  }));
+  // Atıf yalnız çıktıya gerçekten giren kayıtlar için (işlenemeyen / dilim vermeyen aday listelenmez)
+  credits.slots[slot] = items
+    .filter((i) => i.used)
+    .map((i) => ({
+      id: i.meta.id,
+      title: i.meta.title,
+      author: i.meta.author,
+      license: i.meta.license,
+      page: i.meta.page,
+      url: i.meta.url,
+      sha256: i.meta.sha256,
+      note: i.src.note,
+    }));
   okSlots++;
 }
 

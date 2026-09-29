@@ -535,3 +535,8 @@
   CCTV kameralar (beyaz "aplik" sanılanlar kamera), bacalar/çanak/anten çatıda, havada duran çanak/klimalar duvara,
   kat kat perde renkleri, bambu/çizgili storlar, olmayan borular kaldırıldı, görülenler eklendi. **Blender:** bu 4
   bloğun cephe ve çatı katmanı yeniden kurulmalı.
+- **(ses betiği)** 23:10 — `scripts/fetch-sounds.mjs` + `scripts/sounds.json`: indirilen her aday içerikten
+  doğrulanır (HTML/bozuk gövde + ffprobe), BigSoundBank sayfasındaki gerçek bağlantılar önce denenir, tek kaydın
+  hatası yuvayı düşürmez, döngülerde işlenemeyen aday yerine sıradaki alınır, atıf yalnız kullanılan kayda;
+  Freesound paket listesi için kullanıcı içi arama (`q`); 10 boş yuvaya (araç, trafik, köpek, rüzgâr, parke/çakıl
+  adımı, tramvay) yedek kaynaklar. **Blender:** —
