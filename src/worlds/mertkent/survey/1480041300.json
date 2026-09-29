@@ -4,14 +4,13 @@
   "groundRaise": 2.6,
   "floorH": 2.9,
   "roof": {
-    "kind": "hipped",
+    "kind": "gable",
     "eave": 0.3,
-    "fasciaH": 0.85,
+    "fasciaH": 0.1,
+    "fasciaC": "#dcdedd",
     "pitch": 25,
     "gables": [
-      0,
-      5,
-      11
+      0
     ]
   },
   "colors": {
@@ -59,8 +58,9 @@
           "t": "strip",
           "u": 4.32,
           "y0": 11.9,
-          "y1": 18.1,
-          "w": 0.22
+          "y1": 25,
+          "w": 0.22,
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -73,8 +73,9 @@
           "t": "strip",
           "u": 6.68,
           "y0": 11.9,
-          "y1": 18.1,
-          "w": 0.22
+          "y1": 25,
+          "w": 0.22,
+          "top": "flat"
         },
         {
           "t": "win",
@@ -150,7 +151,7 @@
           "u0": 4.45,
           "u1": 6.57,
           "y0": 16.55,
-          "y1": 17.25,
+          "y1": 25,
           "color": "#d88f69"
         },
         {
@@ -164,8 +165,9 @@
           "t": "strip",
           "u": 8.4,
           "y0": 12.45,
-          "y1": 18.1,
-          "w": 0.23
+          "y1": 25,
+          "w": 0.23,
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -178,8 +180,9 @@
           "t": "strip",
           "u": 10.07,
           "y0": 12.45,
-          "y1": 18.1,
-          "w": 0.23
+          "y1": 25,
+          "w": 0.23,
+          "top": "flat"
         },
         {
           "t": "win",
@@ -238,7 +241,7 @@
           "u0": 8.53,
           "u1": 9.97,
           "y0": 16.55,
-          "y1": 17.25,
+          "y1": 25,
           "color": "#d88f69"
         },
         {
@@ -269,7 +272,17 @@
           "parapetH": {
             "*": 0.5
           },
-          "railC": "#c9cdcc"
+          "railC": "#c9cdcc",
+          "curtC": {
+            "K1": "#4f3526",
+            "K2": "#694d31",
+            "K3": "#62463b"
+          },
+          "curtF": {
+            "K1": 0.25,
+            "K2": 0.4,
+            "K3": 0.3
+          }
         },
         {
           "t": "bal",
@@ -299,7 +312,27 @@
           "parapetH": {
             "*": 0.5
           },
-          "railC": "#c9cdcc"
+          "railC": "#c9cdcc",
+          "capH": 1.7,
+          "capC": "#afb2b0",
+          "capSlope": {
+            "dir": "u0",
+            "pitch": 22
+          },
+          "capTrim": {
+            "h": 0.05,
+            "color": "#dfe2e2"
+          },
+          "curtC": {
+            "K1": "#4f3526",
+            "K2": "#694d31",
+            "K3": "#62463b"
+          },
+          "curtF": {
+            "K1": 0.25,
+            "K2": 0.4,
+            "K3": 0.3
+          }
         },
         {
           "t": "bal",
@@ -327,7 +360,17 @@
           "parapetH": {
             "*": 0.5
           },
-          "railC": "#c9cdcc"
+          "railC": "#c9cdcc",
+          "capH": 1.6,
+          "capC": "#afb2b0",
+          "capSlope": {
+            "dir": "u1",
+            "pitch": 22
+          },
+          "capTrim": {
+            "h": 0.05,
+            "color": "#dfe2e2"
+          }
         },
         {
           "t": "bal",
@@ -362,101 +405,6 @@
           "u": 3.3,
           "s": 0,
           "y": 3.9
-        },
-        {
-          "t": "proj",
-          "u0": 4.1,
-          "u1": 11.1,
-          "d": 0.02,
-          "y0": 17.1,
-          "y1": 20.2,
-          "color": "plaster"
-        },
-        {
-          "t": "proj",
-          "u0": 4.45,
-          "u1": 6.57,
-          "d": 0.06,
-          "y0": 17.2,
-          "y1": 20.6,
-          "color": "#d88f69",
-          "wins": [
-            {
-              "u0": 4.5,
-              "u1": 6.52,
-              "y0": 18.1,
-              "y1": 19.05,
-              "kind": "std",
-              "curt": "tul"
-            }
-          ]
-        },
-        {
-          "t": "proj",
-          "u0": 8.53,
-          "u1": 9.97,
-          "d": 0.06,
-          "y0": 17.2,
-          "y1": 20.6,
-          "color": "#d88f69",
-          "wins": [
-            {
-              "u0": 8.55,
-              "u1": 9.95,
-              "y0": 18.2,
-              "y1": 19.05,
-              "kind": "std",
-              "curt": "tul"
-            }
-          ]
-        },
-        {
-          "t": "proj",
-          "u0": 4.21,
-          "u1": 4.43,
-          "d": 0.09,
-          "y0": 17.1,
-          "y1": 20.3,
-          "color": "strip"
-        },
-        {
-          "t": "proj",
-          "u0": 6.57,
-          "u1": 6.79,
-          "d": 0.09,
-          "y0": 17.1,
-          "y1": 20.9,
-          "color": "strip"
-        },
-        {
-          "t": "proj",
-          "u0": 8.29,
-          "u1": 8.52,
-          "d": 0.09,
-          "y0": 17.1,
-          "y1": 21.1,
-          "color": "strip"
-        },
-        {
-          "t": "proj",
-          "u0": 9.96,
-          "u1": 10.19,
-          "d": 0.09,
-          "y0": 17.1,
-          "y1": 20.6,
-          "color": "strip"
-        },
-        {
-          "t": "pediment",
-          "u0": 4.1,
-          "u1": 11.1,
-          "apex": 7.5,
-          "y": 20.2,
-          "yTop": 21.5,
-          "d": 0.03,
-          "depth": 3,
-          "color": "plaster",
-          "roofC": "tile"
         },
         {
           "t": "win",
@@ -545,9 +493,57 @@
           "y": 14.6,
           "w": 0.025,
           "color": "#80807a"
+        },
+        {
+          "t": "win",
+          "u0": 4.5,
+          "u1": 6.52,
+          "y0": 18.1,
+          "y1": 19.05,
+          "k": 5,
+          "s": [
+            5,
+            5
+          ],
+          "split": 2,
+          "curt": {
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "win",
+          "u0": 8.55,
+          "u1": 9.95,
+          "y0": 18.2,
+          "y1": 19.05,
+          "k": 5,
+          "s": [
+            5,
+            5
+          ],
+          "split": 2,
+          "curt": {
+            "K5": "tul"
+          }
+        },
+        {
+          "t": "panel",
+          "u0": -1.1,
+          "u1": 4.1,
+          "y0": 17.02,
+          "y1": 25,
+          "color": "#afb2b0"
+        },
+        {
+          "t": "panel",
+          "u0": 11.1,
+          "u1": 16.1,
+          "y0": 17.02,
+          "y1": 25,
+          "color": "#afb2b0"
         }
       ],
-      "note": "Batı alınlık cephesi (otopark / MERTKENT 3 SİTESİ kapısı tarafı), ref 6eol (S66M ile doğrulandı; S66M alt katları ve bodrumu da gösteriyor). Kuzey aks K0–K2 dar / K3–K4 korkuluklu 3 bölmeli fransız, güney aks tüm katlarda dar; tüm pencerelerde beyaz tül. Kuzey yığın (loca + 0.4 m taşan): K0 AÇIK (arka duvarda kapı + klima), K1–K3 şeffaf cam balkon (içeride kiremit/kahve fon perdeler), K4 koyu mavi yansımalı cam. Güney yığın: K0 açık, K1 koyu cam, K2 açık, K3–K4 koyu mavi cam. Korkuluk tüm katlarda gri dolu parapet (~0.5 m) + buzlu cam, alüminyum küpeşte. Orta bölme (u 4.1–11.1) saçak üstüne yükselir: iki akstaki turuncu dolgular + çatı arası pencereleri (K5 hizası, y ~18.1–19.05) + alınlık (kenar tepe y ~20.2, apex u 7.5 y ~21.5) — proj + pediment ile çizildi. Bodrum (S66M 134/139_5): K0 döşemesine kadar koyu gri subasman (band) ve orta bölmede iki dikey bodrum penceresi (beyaz PVC kasa, tek kanat, derin söveli, koyu cam; kuzey aksın altında ve güney aksın sol pilastrı dibinde) — k:-1. Kuzey yığının altında (u<4) görünen kısımda bodrum penceresi YOK (eski notlardaki u≈1.5 penceresi görülmedi); güney yığın altı araç arkasında GÖRÜLMEDİ. v5: alt pilastrlar K0 döşemesinden (y 3.13) başlar (S66M), kuzey aks üst pilastrları 11.9’dan; kat hizası derzleri (y 3.60/6.33/9.05/11.78/14.60, orta bölmede) groove; alınlık duvarındaki derz (y 17.57) proj önünde kaldığı için çizilmedi. Orta bölme–güney yığın iç köşesinde açık gri PVC boru (u 10.95)."
+      "note": "Batı alınlık cephesi (otopark / MERTKENT 3 SİTESİ kapısı tarafı), ref 6eol (S66M ile doğrulandı; S66M alt katları ve bodrumu da gösteriyor). Kuzey aks K0–K2 dar / K3–K4 korkuluklu 3 bölmeli fransız, güney aks tüm katlarda dar; tüm pencerelerde beyaz tül. Kuzey yığın (loca + 0.4 m taşan): K0 AÇIK (arka duvarda kapı + klima), K1–K3 şeffaf cam balkon (içeride kiremit/kahve fon perdeler), K4 koyu mavi yansımalı cam. Güney yığın: K0 açık, K1 koyu cam, K2 açık, K3–K4 koyu mavi cam. Korkuluk tüm katlarda gri dolu parapet (~0.5 m) + buzlu cam, alüminyum küpeşte. Orta bölme (u 4.1–11.1) saçak üstüne yükselir: iki akstaki turuncu dolgular + çatı arası pencereleri (K5 hizası, y ~18.1–19.05) + alınlık (kenar tepe y ~20.2, apex u 7.5 y ~21.5) — proj + pediment ile çizildi. Bodrum (S66M 134/139_5): K0 döşemesine kadar koyu gri subasman (band) ve orta bölmede iki dikey bodrum penceresi (beyaz PVC kasa, tek kanat, derin söveli, koyu cam; kuzey aksın altında ve güney aksın sol pilastrı dibinde) — k:-1. Kuzey yığının altında (u<4) görünen kısımda bodrum penceresi YOK (eski notlardaki u≈1.5 penceresi görülmedi); güney yığın altı araç arkasında GÖRÜLMEDİ. v5: alt pilastrlar K0 döşemesinden (y 3.13) başlar (S66M), kuzey aks üst pilastrları 11.9’dan; kat hizası derzleri (y 3.60/6.33/9.05/11.78/14.60, orta bölmede) groove; alınlık duvarındaki derz (y 17.57) proj önünde kaldığı için çizilmedi. Orta bölme–güney yığın iç köşesinde açık gri PVC boru (u 10.95). v6: orta bölmenin saçak üstü duvarı (proj) + alınlığı (pediment) yerine çatı alınlığı (roof gable [0]; üretici tepesi u≈8.7 gerçek / 21.6, fotoğrafta u 7.5 görünen → 8.8, 21.66 gerçek): turuncu dolgular ve pilastrlar alınlık eğimine kadar (panel / strip üstleri üreticide kırpılır), çatı arası pencereleri k 5 (alınlıkta, tül). Köşe yığınlarının kalın gri şapkası alınlık çizgisini sürdürür (6eol: kuzey şapka dış uçta görünen 17.35–18.25, orta bölmeye doğru 20.35’e yükselir, ~21°): 0.4 m taşan kısımlarda eğik şapka (capH 1.7 / 1.6 düşük uçta, u0 / u1 yönünde 22°, üstte açık renk ince bant), loca kısımları + alınlık duvarında gri pano. Kuzey yığın K1–K3 şeffaf cam balkonda kiremit-kahve fon perdeler (bal curtC, cam arkasından görünen sıcak tonlar: K1 #4f3526 (S66M), K2 #694d31, K3 #62463b (6eol); cam yansıması/gölge nedeniyle koyu; kapanma K1 ~0.25, K2 ~0.4, K3 ~0.3)."
     },
     {
       "edge": 1,
@@ -681,7 +677,7 @@
           "u0": 1.93,
           "u1": 3.33,
           "y0": 16.6,
-          "y1": 17.33,
+          "y1": 18.19,
           "color": "#d88f69"
         },
         {
@@ -721,7 +717,7 @@
           "color": "#80807a"
         }
       ],
-      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 13'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı.",
+      "note": "GÖRÜLMEDİ (hiçbir Street View karesi bu cepheyi göstermiyor). Yalnız YAPI: Google z21 hava fotoğrafının eğik görünüşünde güney cephede aynı düzen (köşe balkon yığınları, girinti locası, pencere aksları) seçiliyor → kenar 13'in (kuzey) aynası, görünen koordinatları onun kalibrasyonunda. Cam balkon, perde, klima, çanak, saksı GÖRÜLMEDİ → çizilmedi (balkonlar açık cam korkuluklu varsayıldı; kuzeydeki alınlık/çatı arası da görülmediği için eklenmedi). v5: kaynak kenarın (kuzey) düzeltilen pilastr kesintisi ve derzleri (geometri, görülmedi) aynalandı. v6: kaynak kenardaki (e13) en üst turuncu dolgunun duvar üstüne uzatılması aynalandı (yapı).",
       "cal": {
         "u": [
           -0.05,
@@ -1199,7 +1195,7 @@
           "u0": 8.52,
           "u1": 10.95,
           "y0": 15.4,
-          "y1": 16.1,
+          "y1": 16.9,
           "color": "#d88f69"
         },
         {
@@ -1304,7 +1300,7 @@
           "u0": 18.3,
           "u1": 20.7,
           "y0": 15.4,
-          "y1": 16.1,
+          "y1": 16.9,
           "color": "#d88f69"
         },
         {
@@ -1353,7 +1349,13 @@
           "parapetH": {
             "*": 0.5
           },
-          "railC": "#c9cdcc"
+          "railC": "#c9cdcc",
+          "capH": 1.1,
+          "capC": "#afb2b0",
+          "capTrim": {
+            "h": 0.05,
+            "color": "#dfe2e2"
+          }
         },
         {
           "t": "bal",
@@ -1383,7 +1385,13 @@
           "parapetH": {
             "*": 0.5
           },
-          "railC": "#c9cdcc"
+          "railC": "#c9cdcc",
+          "capH": 1.1,
+          "capC": "#afb2b0",
+          "capTrim": {
+            "h": 0.05,
+            "color": "#dfe2e2"
+          }
         },
         {
           "t": "bal",
@@ -1425,7 +1433,13 @@
           },
           "potsOn": "rail",
           "potC": "#c8602c",
-          "plantC": "#6f8a3a"
+          "plantC": "#6f8a3a",
+          "capH": 1.1,
+          "capC": "#afb2b0",
+          "capTrim": {
+            "h": 0.05,
+            "color": "#dfe2e2"
+          }
         },
         {
           "t": "bal",
@@ -1443,7 +1457,13 @@
           "parapetH": {
             "*": 0.5
           },
-          "railC": "#c9cdcc"
+          "railC": "#c9cdcc",
+          "capH": 1.1,
+          "capC": "#afb2b0",
+          "capTrim": {
+            "h": 0.05,
+            "color": "#dfe2e2"
+          }
         },
         {
           "t": "bal",
@@ -1493,103 +1513,200 @@
           "t": "ac",
           "u": 6.55,
           "s": 2,
-          "y": 9.35,
-          "onBal": true
+          "y": 9.35
         },
         {
           "t": "ac",
           "u": 23.1,
           "s": 1,
-          "y": 6.7,
-          "onBal": true
+          "y": 6.7
         },
         {
           "t": "ac",
           "u": 23.1,
           "s": 0,
-          "y": 4.2,
-          "onBal": true
+          "y": 4.2
         },
         {
-          "t": "dish",
-          "u": 19.7,
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.75,
+          "u1": 11.12,
+          "y": 5.35,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.75,
+          "u1": 11.12,
+          "y": 7.97,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.75,
+          "u1": 11.12,
+          "y": 10.75,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 7.75,
+          "u1": 11.12,
+          "y": 13.5,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 17.6,
+          "u1": 21.45,
+          "y": 5.35,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 17.6,
+          "u1": 21.45,
+          "y": 7.97,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 17.6,
+          "u1": 21.45,
+          "y": 10.75,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "groove",
+          "dir": "h",
+          "u0": 17.6,
+          "u1": 21.45,
+          "y": 13.5,
+          "w": 0.025,
+          "color": "#80807a"
+        },
+        {
+          "t": "panel",
+          "u0": 3.5,
+          "u1": 4.81,
+          "y0": 15.86,
+          "y1": 16.9,
+          "color": "#afb2b0"
+        },
+        {
+          "t": "panel",
+          "u0": 23.84,
+          "u1": 25.7,
+          "y0": 15.86,
+          "y1": 16.9,
+          "color": "#afb2b0"
+        },
+        {
+          "t": "camera",
+          "u": 14.69,
+          "s": 0,
+          "y": 4.5,
+          "style": "bullet",
+          "pair": true,
+          "off": 0.75,
+          "color": "#e6e7e3"
+        },
+        {
+          "t": "camera",
+          "u": 14.69,
+          "s": 1,
+          "y": 7.22,
+          "style": "bullet",
+          "pair": true,
+          "off": 0.75,
+          "color": "#e6e7e3"
+        },
+        {
+          "t": "camera",
+          "u": 14.69,
+          "s": 2,
+          "y": 9.95,
+          "style": "bullet",
+          "pair": true,
+          "off": 0.75,
+          "color": "#e6e7e3"
+        },
+        {
+          "t": "camera",
+          "u": 14.69,
+          "s": 3,
+          "y": 12.68,
+          "style": "bullet",
+          "pair": true,
+          "off": 0.75,
+          "color": "#e6e7e3"
+        },
+        {
+          "t": "camera",
+          "u": 14.69,
           "s": 4,
-          "y": 18
+          "y": 15.4,
+          "style": "bullet",
+          "pair": true,
+          "off": 0.75,
+          "color": "#e6e7e3"
         },
         {
-          "t": "groove",
-          "dir": "h",
-          "u0": 7.75,
-          "u1": 11.12,
-          "y": 5.35,
-          "w": 0.025,
-          "color": "#80807a"
+          "t": "win",
+          "u0": 12.3,
+          "u1": 12.58,
+          "y0": 6.4,
+          "y1": 7.05,
+          "k": 1,
+          "s": [
+            1,
+            1
+          ],
+          "split": 1,
+          "curt": {
+            "K1": "acik"
+          }
         },
         {
-          "t": "groove",
-          "dir": "h",
-          "u0": 7.75,
-          "u1": 11.12,
-          "y": 7.97,
-          "w": 0.025,
-          "color": "#80807a"
+          "t": "win",
+          "u0": 12.58,
+          "u1": 14,
+          "y0": 6.4,
+          "y1": 7.05,
+          "k": 1,
+          "s": [
+            1,
+            1
+          ],
+          "split": 3,
+          "curt": {
+            "K1": "zebra"
+          }
         },
         {
-          "t": "groove",
-          "dir": "h",
-          "u0": 7.75,
-          "u1": 11.12,
-          "y": 10.75,
-          "w": 0.025,
-          "color": "#80807a"
-        },
-        {
-          "t": "groove",
-          "dir": "h",
-          "u0": 7.75,
-          "u1": 11.12,
-          "y": 13.5,
-          "w": 0.025,
-          "color": "#80807a"
-        },
-        {
-          "t": "groove",
-          "dir": "h",
-          "u0": 17.6,
-          "u1": 21.45,
-          "y": 5.35,
-          "w": 0.025,
-          "color": "#80807a"
-        },
-        {
-          "t": "groove",
-          "dir": "h",
-          "u0": 17.6,
-          "u1": 21.45,
-          "y": 7.97,
-          "w": 0.025,
-          "color": "#80807a"
-        },
-        {
-          "t": "groove",
-          "dir": "h",
-          "u0": 17.6,
-          "u1": 21.45,
-          "y": 10.75,
-          "w": 0.025,
-          "color": "#80807a"
-        },
-        {
-          "t": "groove",
-          "dir": "h",
-          "u0": 17.6,
-          "u1": 21.45,
-          "y": 13.5,
-          "w": 0.025,
-          "color": "#80807a"
+          "t": "roofobj",
+          "kind": "dish",
+          "u": 19.5,
+          "setback": 0.5,
+          "h": 0.95,
+          "w": 0.75
         }
       ],
-      "note": "Doğu (502. Sokak) uzun cephesi, ref BwVc (40° yakın kareler 229–311°; Qemm ağaç arkasında; CoE3 90° GD köşeyi teyit). İki pencere aksı: K0–K2 dar 2 kanatlı, K3–K4 geniş 3 bölmeli (orta geniş sabit) fransız + 5 yatay borulu paslanmaz korkuluk; tül (sol aks K0 ve sağ aks K0–K1 perdesiz/karanlık). Pilastrlar düz, sıvadan ~5 cm çıkık, grenli gri (#a2a499 güneşli / #66696b gölgede) — koyu değil. Orta yığın ~0.75 m, iki yarım (arada açık gri PVC boru + her katta 2 beyaz silindir aplik → pending): sol K0 koyu cam, K1 açık (arka duvarda beyaz kafesli pencere + kapı), K2 beyaz stor perdeli cam, K3 şeffaf cam, K4 koyu cam; sağ K0 zebra perdeli cam (+ parapet önünde 2 turuncu saksı), K1–K2 koyu cam, K3 açık (parapette turuncu çiçek saksısı), K4 koyu cam. GD köşe yığını K3 şeffaf cam (tül), diğerleri açık; K2 arka duvarda VESTEL klima; K0 balkonunda bahçe salıncağı (çizilmedi). KD köşe yığını tüm katlar açık, K0/K1 klima. Çatıda kuzey aks üstünde çanak. v5: kat hizası derzleri (ince koyu yatay çizgi, y 5.35/7.97/10.75/13.50 görünen) yığınlar arası düz duvarda groove; K0 derzi çit arkasında GÖRÜLMEDİ."
+      "note": "Doğu (502. Sokak) uzun cephesi, ref BwVc (40° yakın kareler 229–311°; Qemm ağaç arkasında; CoE3 90° GD köşeyi teyit). İki pencere aksı: K0–K2 dar 2 kanatlı, K3–K4 geniş 3 bölmeli (orta geniş sabit) fransız + 5 yatay borulu paslanmaz korkuluk; tül (sol aks K0 ve sağ aks K0–K1 perdesiz/karanlık). Pilastrlar düz, sıvadan ~5 cm çıkık, grenli gri (#a2a499 güneşli / #66696b gölgede) — koyu değil. Orta yığın ~0.75 m, iki yarım (arada açık gri PVC boru + her katta 2 beyaz silindir aplik → pending): sol K0 koyu cam, K1 açık (arka duvarda beyaz kafesli pencere + kapı), K2 beyaz stor perdeli cam, K3 şeffaf cam, K4 koyu cam; sağ K0 zebra perdeli cam (+ parapet önünde 2 turuncu saksı), K1–K2 koyu cam, K3 açık (parapette turuncu çiçek saksısı), K4 koyu cam. GD köşe yığını K3 şeffaf cam (tül), diğerleri açık; K2 arka duvarda VESTEL klima; K0 balkonunda bahçe salıncağı (çizilmedi). KD köşe yığını tüm katlar açık, K0/K1 klima. Çatıda kuzey aks üstünde çanak. v5: kat hizası derzleri (ince koyu yatay çizgi, y 5.35/7.97/10.75/13.50 görünen) yığınlar arası düz duvarda groove; K0 derzi çit arkasında GÖRÜLMEDİ. v6: duvar üstü görünen 16.9–17.0 (turuncu dolgu tepesi 18.04 gerçek, üstte açık renk ince saçak kenarı → 18.15): wallTop 18.05 + fasciaH 0.1 (önceki 0.85 m’lik sıva renkli saçak bandı yerine); turuncu dolgular duvar üstüne kadar (15.4–16.9). Şapkalar ~1.1 m (GD alnı görünen 16.5–17.85, orta 17.1–18.15, KD 16.4–17.6; üstleri düz, üstte açık ince bant) → capH 1.1 + capC + capTrim; köşe loca uçları (u 3.5–4.81, 23.84–25.7) şapka alnı gri pano. Orta direkte K0–K4 kollu çift bullet kamera (camera pair, off 0.75, u direk düzlemine göre 14.69) — önceki \"beyaz silindir aplik\" okuması yakın karelerde (256_24/284_24: beyaz gövde + siyah mercek, direğe kollu) kamera çıktı. K1 orta sol açık balkonun arka duvarında sol kanadı açık, yatay jaluzi/stor perdeli 3 bölmeli pencere (üst kenar 7.05; alt kısmı korkuluk arkasında GÖRÜLMEDİ → görünen alt sınır 6.4 yazıldı) — önceki \"beyaz desenli parmaklık\" okuması düzeltildi (camın arkasındaki yatay lameller); sağında beyaz dolap (u 14.05–14.45, kapı değil; çizilmedi). Kuzey aks üstündeki çanak çatıda (roofobj; merkez görünen ~17.4, setback 0.5 varsayıldı). Klimalar (GD K2 VESTEL, KD K0/K1) balkon arka duvarında → onBal değil."
     },
     {
       "edge": 9,
@@ -1630,9 +1747,17 @@
             "*": 0.5
           },
           "railC": "#c9cdcc"
+        },
+        {
+          "t": "panel",
+          "u0": 0,
+          "u1": 3.45,
+          "y0": 16.74,
+          "y1": 17.85,
+          "color": "#afb2b0"
         }
       ],
-      "note": "KD köşe yığınının kuzey ön yüzü: ortofoto yok; Wi7U 167° (55°/34°/14° eğim) karelerinde alttan görülüyor: K1–K4 açık balkon, gri dolu parapet + buzlu cam, tavanda yuvarlak lamba, üstte kalın gri şapka. K0 çit arkasında GÖRÜLMEDİ. Loca derinliği (inset 2.3) 1301/e7 düzeninden; kesin değil."
+      "note": "KD köşe yığınının kuzey ön yüzü: ortofoto yok; Wi7U 167° (55°/34°/14° eğim) karelerinde alttan görülüyor: K1–K4 açık balkon, gri dolu parapet + buzlu cam, tavanda yuvarlak lamba, üstte kalın gri şapka. K0 çit arkasında GÖRÜLMEDİ. Loca derinliği (inset 2.3) 1301/e7 düzeninden; kesin değil. v6: üstteki kalın gri şapka alnı gri pano (loca, K4 tavanı–duvar üstü)."
     },
     {
       "edge": 10,
@@ -1674,7 +1799,7 @@
           "t": "strip",
           "u": 0.7,
           "y0": 13.13,
-          "y1": 19.6,
+          "y1": 18.55,
           "w": 0.25
         },
         {
@@ -1688,7 +1813,7 @@
           "t": "strip",
           "u": 2.57,
           "y0": 13.13,
-          "y1": 19.6,
+          "y1": 18.55,
           "w": 0.28
         },
         {
@@ -1762,7 +1887,7 @@
           "t": "strip",
           "u": 3.84,
           "y0": 13.13,
-          "y1": 19.6,
+          "y1": 18.55,
           "w": 0.25
         },
         {
@@ -1776,7 +1901,7 @@
           "t": "strip",
           "u": 5.7,
           "y0": 13.13,
-          "y1": 19.6,
+          "y1": 18.55,
           "w": 0.25
         },
         {
@@ -1995,9 +2120,17 @@
           "y": 15.52,
           "w": 0.025,
           "color": "#80807a"
+        },
+        {
+          "t": "panel",
+          "u0": 7.72,
+          "u1": 9.7,
+          "y0": 18.38,
+          "y1": 19.59,
+          "color": "#afb2b0"
         }
       ],
-      "note": "Doğu kanadın kuzey alınlık cephesi, ref Wi7U (40° yakın kareler 167/189/212°). İki dar pencere aksı (tüm katlarda 2 kanatlı): doğu aks tül; batı aks K0 tül, K1 perdesiz koyu, K2 zebra, K3–K4 tül. K2/K3 arasında pilastr kesintisi. Alınlık: taban y ~19.25 (ince yatay derz), tepe doğu aks üstünde u 1.5 y ~23.6, batıya ~0.46 m/m iner ve loca şapkasına devam eder; turuncu dolgular ve pilastrlar eğime kadar çıkar; doğu aksta çatı arası penceresi (y 19.5–20.65, tül). Batı ucunda loca: K0 şeffaf, K1–K2 koyu, K3 şeffaf (tül), K4 koyu cam; yanında boru. v5: pilastr kesintisi alt 11.63 / üst 13.13 (K3 denizliği) olarak düzeltildi; kat hizası derzleri groove (y 6.07/9.09/12.38/15.52; yakın kamera nedeniyle ortofotoda doğu aks tarafında ~0.1 m yüksek görünüyor, iki bölgenin ortalaması)."
+      "note": "Doğu kanadın kuzey alınlık cephesi, ref Wi7U (40° yakın kareler 167/189/212°). İki dar pencere aksı (tüm katlarda 2 kanatlı): doğu aks tül; batı aks K0 tül, K1 perdesiz koyu, K2 zebra, K3–K4 tül. K2/K3 arasında pilastr kesintisi. Alınlık: taban y ~19.25 (ince yatay derz), tepe doğu aks üstünde u 1.5 y ~23.6, batıya ~0.46 m/m iner ve loca şapkasına devam eder; turuncu dolgular ve pilastrlar eğime kadar çıkar; doğu aksta çatı arası penceresi (y 19.5–20.65, tül). Batı ucunda loca: K0 şeffaf, K1–K2 koyu, K3 şeffaf (tül), K4 koyu cam; yanında boru. v5: pilastr kesintisi alt 11.63 / üst 13.13 (K3 denizliği) olarak düzeltildi; kat hizası derzleri groove (y 6.07/9.09/12.38/15.52; yakın kamera nedeniyle ortofotoda doğu aks tarafında ~0.1 m yüksek görünüyor, iki bölgenin ortalaması). v6: duvar üstü 18.05’e çıktı (görünen 19.59); üst pilastrlar proj pilastrların başladığı 18.55’te bitirildi (üst üste binmesin); batı ucundaki locanın kalın gri şapka alnı gri pano (duvar üstüne kadar; alınlık/pediment üstündeki eğik gri kısmı pediment tek renk → pending)."
     },
     {
       "edge": 12,
@@ -2162,7 +2295,7 @@
           "u0": 0.27,
           "u1": 1.67,
           "y0": 16.6,
-          "y1": 17.33,
+          "y1": 18.19,
           "color": "#d88f69"
         },
         {
@@ -2230,9 +2363,54 @@
           "y": 14.4,
           "w": 0.025,
           "color": "#80807a"
+        },
+        {
+          "t": "camera",
+          "u": 0,
+          "s": 0,
+          "y": 5.17,
+          "style": "bullet",
+          "off": 0.35,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 0,
+          "s": 1,
+          "y": 7.88,
+          "style": "bullet",
+          "off": 0.35,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 0,
+          "s": 2,
+          "y": 10.69,
+          "style": "bullet",
+          "off": 0.35,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 0,
+          "s": 3,
+          "y": 13.4,
+          "style": "bullet",
+          "off": 0.35,
+          "color": "#dcd8cc"
+        },
+        {
+          "t": "camera",
+          "u": 0,
+          "s": 4,
+          "y": 16.84,
+          "style": "bullet",
+          "off": 0.35,
+          "color": "#dcd8cc"
         }
       ],
-      "note": "Kuzey girintisinin dibi, ref HAXJ (40° 175°: yakın). Tek dar pencere aksı (pilastr + turuncu dolgu, K2/K3 arası kesinti). Perdeler: K0 tül, K1 sol tül + sağ zebra, K2 zebra, K3 zebra, K4 tül. K0–K2 pencerelerinin sol üst camında yuvarlak aspiratör (vent). K0 altında klima. Batıda KB yığının yan yüzü ve açık gri PVC boru (her katta küçük silindir aplik, pending). v5: pilastr kesintisi alt 10.9 / üst 12.26 düzeltildi; kat hizası derzleri (5.72/8.60/11.55/14.40) groove."
+      "note": "Kuzey girintisinin dibi, ref HAXJ (40° 175°: yakın). Tek dar pencere aksı (pilastr + turuncu dolgu, K2/K3 arası kesinti). Perdeler: K0 tül, K1 sol tül + sağ zebra, K2 zebra, K3 zebra, K4 tül. K0–K2 pencerelerinin sol üst camında yuvarlak aspiratör (vent). K0 altında klima. Batıda KB yığının yan yüzü ve açık gri PVC boru (her katta küçük silindir aplik, pending). v5: pilastr kesintisi alt 10.9 / üst 12.26 düzeltildi; kat hizası derzleri (5.72/8.60/11.55/14.40) groove. v6: en üst turuncu dolgu duvar üstüne kadar (HAXJ: dolgu tepesi görünen ~18.4); doğu iç köşedeki (e12 yüzü) açık gri PVC boruda her katta (K0–K4) kollu tek bullet CCTV kamera — önceki \"silindir aplik\" okuması 175_24 yakın karesinde kamera (bej-beyaz gövde, siyah mercek, aşağı bakar) çıktı; görünen y 5.25/8.05/10.95/13.75/17.3 (off 0.35 derinlik düzeltmeli yazıldı), u köşede."
     },
     {
       "edge": 14,
@@ -2292,59 +2470,46 @@
             "*": 0.5
           },
           "railC": "#c9cdcc"
+        },
+        {
+          "t": "panel",
+          "u0": -0.25,
+          "u1": 4.1,
+          "y0": 17.38,
+          "y1": 18.51,
+          "color": "#afb2b0"
         }
       ],
-      "note": "KB köşe yığınının kuzey ön yüzü (d:0 loca, içeri e14 kadar), ref HAXJ (BfxM teyit). Tüm genişlik balkon; K1–K4 çerçevesiz koyu mavi cam balkon (K3’te içeride tül), K0 çit arkasında GÖRÜLMEDİ (açık varsayıldı). Üstte koyu gri şapka."
+      "note": "KB köşe yığınının kuzey ön yüzü (d:0 loca, içeri e14 kadar), ref HAXJ (BfxM teyit). Tüm genişlik balkon; K1–K4 çerçevesiz koyu mavi cam balkon (K3’te içeride tül), K0 çit arkasında GÖRÜLMEDİ (açık varsayıldı). Üstte koyu gri şapka. v6: üstteki kalın gri şapka alnı gri pano (HAXJ: alın görünen 16.93–18.3, K4 tavanı–duvar üstü)."
     }
   ],
   "notes": [
     "MERTKENT 3 SİTESİ (kapı portalındaki harflerden, S66M/HZb9 kareleri) doğu bloğu; 1480041301 ile aynı proje. 5 normal kat K0–K4 (OSM building:levels=6). K0 döşemesi sokaktan ~2.3–2.7 m yukarıda (yükseltilmiş bahçe + bodrum; batıda S66M karesinde bodrum pencereleri).",
     "RENKLER (retro, 40° ham karelerden, güneşli / gölgeli): sıva grenli açık gri #d5d6cb / #8d8e8f–#7c8a94; turuncu dolgular #da926c–#d48861 / #965434 (panellere doğrudan hex yazıldı); pilastrlar #a2a499 (güneşli ön yüz, sıvanın ~0.75’i) / #66696b; balkon parapeti ve şapkalar grenli gri #a4a49b / #585c5c; buzlu korkuluk camı #bfd1cb / #67757e; balkon tavanı krem (gölgede #817962); koyu cam balkon #1c354e; PVC boru #a4a397; subasman açık gri (gölgede #858889).",
     "plaster2 = sıva rengi (üretici saçak altı kuşağını plaster2 ile çiziyor; gerçekte o kuşak sıva/turuncu dolgu, turuncu değil). Turuncu dolgular panel.color hex.",
-    "Balkonlar: tüm görünen yığınlarda aynı korkuluk — gri grenli dolu parapet (döşemeden ~0.5 m) + ~0.45 m buzlu cam panel, alüminyum küpeşte/dikme (#c9cdcc). Beyaz/krem alın YOK. Tavanlarda yuvarlak gömme lamba. Köşe yığınları uzun cephede ~0.35 m, orta yığın ~0.75 m taşar; şapkalar çatı eğimini izleyen kalın gri eğik plak (pending: üretici düz çiziyor).",
-    "Çatı: kırma kiremit. Batı (e0) ve kuzey (e11) cephelerde saçak üstüne yükselen alınlık + çatı arası pencereleri → proj + pediment ile. roof.gables yalnız kind:\"gable\"da kullanılıyor (burada etkisiz).",
+    "Balkonlar: tüm görünen yığınlarda aynı korkuluk — gri grenli dolu parapet (döşemeden ~0.5 m) + ~0.45 m buzlu cam panel, alüminyum küpeşte/dikme (#c9cdcc). Beyaz/krem alın YOK. Tavanlarda yuvarlak gömme lamba. Köşe yığınları uzun cephede ~0.35 m, orta yığın ~0.75 m taşar; şapkalar kalın gri plak (v6: capH/capSlope, gri pano).",
+    "Çatı: kırma kiremit; batı (e0) cephesi v6’da roof gable [0] alınlığı (orta bölme + köşe şapkaları alınlık çizgisinde), kuzey (e11) cephesinin asimetrik alınlığı (tepe doğu aks üstünde) proj + pediment ile korunur (üreticinin dikdörtgen çatı planı bu alınlığı ortalar).",
     "Güney cephe (e1–e7) hiçbir karede görülmedi (CoE3 90° karesi GD köşeyi 14° sıyırarak görüyor, okunamaz). Hava fotoğrafının eğik görünüşünde yapı (köşe yığınları, girinti locası, e5’te iki pencere aksı) kuzeyle aynı → yalnız YAPI aynalandı; cam/perde/klima çizilmedi.",
     "Belirsizlikler: floorH 2.9 (kenarlar 2.84–3.0); e8 kuzey ucu ortofoto dışında (cal.u simetriden); e9 loca derinliği; e5 pencere aksları hava fotoğrafında ~1.5 m doğuda olabilir (eğiklik düzeltmesi kaba).",
-    "v5 (2026-09-29): bodrum pencereleri (e0, k:-1) + e0 subasmanı, e0 iç köşe PVC borusu, tüm fotoğraflı kenarlarda kat hizası derzleri (groove, ölçülü: döşeme çizgisinin ~0.15–0.25 m üstünde, yığınlar arası düz duvarda; derz rengi güneşli sıva × ~0.6 ≈ #80807a) eklendi; pilastr kesinti kotları e0/e11/e13’te fotoğrafa göre düzeltildi (güney aynalar e3/e5 aynı). Saçak hizasındaki en üst derzler (e8 16.18, e11 ~19.0, e13 17.48 görünen) duvar üstünün üstünde kaldığı için çizilmedi."
+    "v5 (2026-09-29): bodrum pencereleri (e0, k:-1) + e0 subasmanı, e0 iç köşe PVC borusu, tüm fotoğraflı kenarlarda kat hizası derzleri (groove, ölçülü: döşeme çizgisinin ~0.15–0.25 m üstünde, yığınlar arası düz duvarda; derz rengi güneşli sıva × ~0.6 ≈ #80807a) eklendi; pilastr kesinti kotları e0/e11/e13’te fotoğrafa göre düzeltildi (güney aynalar e3/e5 aynı). Saçak hizasındaki en üst derzler (e8 16.18, e11 ~19.0, e13 17.48 görünen) duvar üstünün üstünde kaldığı için çizilmedi.",
+    "v6 (2026-09-29): duvar üstü ölçüldü (e8 turuncu dolgu tepesi 18.04, e13 18.16 gerçek) → wallTop 18.05 + ince açık saçak kenarı (fasciaH 0.1, #dcdedd); önceki 0.85 m’lik sıva renkli saçak bandı yerine kalın gri şapkalar yığın başına (capH 1.1–1.7, capC #afb2b0, e0’da eğik) ve loca uçlarında gri pano. Batı alınlığı roof gable ile (proj/pediment kaldırıldı, çatı arası pencereleri k 5). Orta direk ve iç köşe borusu \"aplikleri\" kamera çıktı (camera bullet). K1 orta sol balkon arka duvarı penceresi (jaluzili, sol kanat açık) ve kuzey yığın cam balkon fon perdeleri (bal curtC/curtF) v6 ile yazıldı."
   ],
   "pending": [
-    {
-      "what": "Orta yığın ayağında aplikler (v6: duvar lambası)",
-      "edge": 8,
-      "u": [
-        14.2,
-        14.93
-      ],
-      "note": "Her katta (K0–K4) orta yığının iki yarısı arasındaki PVC borunun iki yanında tavana yakın beyaz silindir aplik/lamba (~0.12 m çap, 0.25 m boy, aşağı bakar): BwVc görünen u 14.20–14.36 ve 14.74–14.93, y ≈ kat döşemesi + 2.3 m (K3’te y 10.5–10.8 görünen). Aynı tip koyu gri silindirler e13 yanındaki boruda da var (kamera olabilir, belirsiz)."
-    },
-    {
-      "what": "Eğik balkon şapkaları (v6: eğik yığın başlığı)",
-      "edges": [
-        0,
-        8,
-        11,
-        15
-      ],
-      "note": "Köşe yığınlarının tepe şapkası düz değil: kırma çatı eğimini izleyen kalın (~0.9 m) gri grenli eğik plak, dış kenarda alçak (y≈saçak), iç kenarda yüksek. Üretici düz şapka çiziyor."
-    },
-    {
-      "what": "Cam balkon içi fon perdeler (v6: kat başına perde rengi)",
-      "edge": 0,
-      "note": "Kuzey yığın K1–K3 şeffaf cam balkonun arkasında kiremit-kahve fon perdeler (6eol/S66M; tül-yan benzeri, iki yanda toplanmış). bal.tint yalnız clear/green/dark/blinds/frosted; renkli fon perde yok."
-    },
     {
       "what": "Bahçe salıncağı (balkon eşyası)",
       "edge": 8,
       "note": "GD köşe yığınının K0 balkonunda örtülü bahçe salıncağı (bej/kahve tente + metal çerçeve), BwVc görünen u ≈5.0–7.0, y ≈3.0–4.6. Üreticide balkon eşyası öğesi yok."
     },
     {
-      "what": "Orta yığın sol yarı K1 arka duvarında beyaz desenli parmaklıklı pencere (v6: süslü parmaklık)",
+      "what": "e11 batı locasının eğik gri şapkası (pediment üstünde)",
+      "edge": 11,
+      "note": "Kuzey alınlığının batıya inen kısmı locanın kalın gri şapkasına devam ediyor (Wi7U: loca üstü görünen u 7.7–9.7, y ~19.3–20.3 gri); pediment tek renk (sıva) → duvar üstüne kadar gri pano yazıldı, üstündeki eğik gri kısım çizilemiyor."
+    },
+    {
+      "what": "K1 orta sol balkonda beyaz dolap",
       "edge": 8,
-      "u": [
-        12.34,
-        14.05
-      ],
-      "note": "BwVc 256_24 + ortofoto: açık K1 balkonunun arka duvarında beyaz, geometrik desenli (kafes) parmaklıklı pencere; görünen üst kenar y 7.06, alt kısmı korkuluk/buzlu cam arkasında GÖRÜLMEDİ; solunda (u≈14.1–14.5) beyaz kasa/kapı kenarı. Açık balkon arkasına win yazılırsa üretici o katın varsayılan balkon kapısını kaldırıyor → yazılmadı."
+      "note": "Arka duvarda pencerenin sağında beyaz, düz yüzlü dolap/kutu (BwVc görünen u 14.05–14.45, y 6.4–7.3; 284_24 yakın karesinde kapı değil). Balkon eşyası öğesi yok."
     }
-  ]
+  ],
+  "wallTop": 18.05
 }
