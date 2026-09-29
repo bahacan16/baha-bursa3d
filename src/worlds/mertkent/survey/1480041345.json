@@ -18,6 +18,13 @@
     "eaveY": {
       "edge": 4,
       "y": 16.6
+    },
+    "fasciaC": "#bbbdba",
+    "gableC": {
+      "5": "#cbccc6",
+      "7": "plaster2",
+      "9": "plaster2",
+      "11": "#cbccc6"
     }
   },
   "colors": {
@@ -57,13 +64,15 @@
           "t": "strip",
           "u": 3.33,
           "y0": 11.38,
-          "y1": 16.6
+          "y1": 16.6,
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 6.15,
           "y0": 11.38,
-          "y1": 16.6
+          "y1": 16.6,
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -158,6 +167,28 @@
           "y0": 11.13,
           "y1": 16.6,
           "color": "plaster2"
+        },
+        {
+          "t": "dormer",
+          "u": 4.46,
+          "w": 2.15,
+          "ridge": 3.15,
+          "setback": 1.8,
+          "pitch": 45,
+          "color": "#aaaeae",
+          "roofC": "tile",
+          "trim": {
+            "w": 0.17,
+            "color": "#a08462"
+          },
+          "win": {
+            "w": 0.65,
+            "h": 0.63,
+            "sill": 0.15,
+            "split": 2,
+            "curt": "tul",
+            "frameC": "#f2f2f0"
+          }
         }
       ],
       "note": "Batı kanat güney (sokak) cephesi; 6eol karesi aşırı pozlanmış ve ağaç arkasında: fransız pencereler, üst şerit başları, saçak ve girinti köşesi (u 8.4) okundu; alt pencere/şerit u'ları e4'ün girintiye göre aynası (ikiz kanat). cal.u[0] ölçekten (köşe ağaç arkasında). u −1.08–0.4: GB yığının (ön yüzü e11) yan yüzü. Saçağın üstünde, ~2–3 m geride üçgen alınlıklı çatı penceresi (dormer, ~2.3 m genişlik, tepe saçaktan ~1.2 m yukarıda, x≈−66.8). v-retro: S66M 335 / 6eol 344 yakın kareleri (güneşli, aşırı pozlu, ağaç arkası): bütün pencerelerde beyaz tül görülüyor (K0–K2 dar pencere, K3–K4 fransız pencere + yatay borulu korkuluk); kombi baca çıkışı / derz aşırı pozlamada seçilemedi (kayıt yok). Dormer 'pending'de."
@@ -301,13 +332,15 @@
           "t": "strip",
           "u": 1.57,
           "y0": 11.25,
-          "y1": 16.58
+          "y1": 16.58,
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 4.22,
           "y0": 11.25,
-          "y1": 16.58
+          "y1": 16.58,
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -430,6 +463,28 @@
           "s": 1,
           "y": 6.6,
           "onBal": false
+        },
+        {
+          "t": "dormer",
+          "u": 3.8,
+          "w": 2.15,
+          "ridge": 3.45,
+          "setback": 1.8,
+          "pitch": 45,
+          "color": "#aaaeae",
+          "roofC": "tile",
+          "trim": {
+            "w": 0.17,
+            "color": "#a08462"
+          },
+          "win": {
+            "w": 0.79,
+            "h": 0.58,
+            "sill": 0.15,
+            "split": 2,
+            "curt": "tul",
+            "frameC": "#f2f2f0"
+          }
         }
       ],
       "note": "Doğu kanat güney cephesi (344/e4'ün ikizi, bir kat eksik); S66M (güneşli, aşırı pozlu, ağaç arkası) + S66M 346 / hoOD 308 yakın kareleri. Perdeler: bütün pencerelerde beyaz tül (K3–K4 fransız pencere + borulu korkuluk). K1 penceresinin altında, sol şerit önünde klima (bakır boru yukarı kıvrılıyor). u 6.63–8.1: GD yığının (ön yüzü e5) yan yüzü: K0–K2 şeffaf cam, K3 koyu gri cam, K4 açık (buzlu cam korkuluk). Köşede korkuluğa takılı çanaklar: K3 iki (üstte beyaz, altta siyah), K1 bir beyaz (hoOD 308_4) — d:0 yığında parapet duvar çizgisinde, onBal kapalı. Saçak üstünde ~2–3 m geride dormer (x≈−56.0) → pending."
@@ -489,6 +544,24 @@
           "frameC": {
             "*": "#e9eae6"
           }
+        },
+        {
+          "t": "panel",
+          "u0": -0.15,
+          "u1": 5.08,
+          "y0": 15.52,
+          "y1": 23.0,
+          "color": "#cbccc6"
+        },
+        {
+          "t": "banner",
+          "u0": 3.35,
+          "u1": 3.8,
+          "y0": 7.78,
+          "y1": 8.12,
+          "d": 0.05,
+          "style": "plain",
+          "bg": "#e0454d"
         }
       ],
       "note": "GD köşe yığınının ön yüzü = bu kenar (doğu, otopark; hoOD 22 m + hoOD 308 yakın kareleri çok net). Parapet kenar çizgisinde (d:0). Kat kat: K0 çerçevesiz şeffaf cam (içeride sarkıt lamba), K1 şeffaf, K2 şeffaf (korkuluğunda küçük kırmızı süs/kurdele — çizilmedi), K3 koyu gri camlı katlanır cam, K4 AÇIK (buzlu cam korkuluk, tavan lambası görünüyor). Korkuluk: gri alın + dolu parapet (≈0.58) + buzlu cam şerit. Üstte gri eğik şapka (alınlık eğimi)."
@@ -577,49 +650,61 @@
           "t": "strip",
           "u": 4.05,
           "y0": 11.54,
-          "y1": 20.96
+          "y1": 20.96,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 5.73,
           "y0": 11.54,
-          "y1": 20.23
+          "y1": 20.23,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 7.35,
           "y0": 11.54,
-          "y1": 19.71
+          "y1": 19.71,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 9.12,
           "y0": 11.54,
-          "y1": 19.04
+          "y1": 19.04,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 4.05,
           "y0": 2.2,
-          "y1": 10.48
+          "y1": 10.48,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 5.73,
           "y0": 2.2,
-          "y1": 10.48
+          "y1": 10.48,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 7.35,
           "y0": 2.2,
-          "y1": 10.48
+          "y1": 10.48,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 9.12,
           "y0": 2.2,
-          "y1": 10.48
+          "y1": 10.48,
+          "top": "point"
         },
         {
           "t": "win",
@@ -824,6 +909,14 @@
           "y": 10.95,
           "w": 0.03,
           "color": "#70757a"
+        },
+        {
+          "t": "panel",
+          "u0": 11.1,
+          "u1": 12.61,
+          "y0": 16.17,
+          "y1": 23.0,
+          "color": "#cbccc6"
         }
       ],
       "note": "Doğu alınlık cephesi (otopark tarafı; hoOD 22 m, sabah güneşi + GD yığının gölgesi; BfxM ile doğrulandı). Mahya bina ortasında (≈u 4.0); üst şeritler eğime kadar; alt şeritlerin üst uçları sivri/pahlı görünüyor (şemada yuvarlak uç). k=5 = çatı arası (yalnız dar sütun ve A sütunu). Perdeler (kat kat): A sütunu K0 sol kanat dikey lamel (jaluzi), K1 beyaz tül, K2 mavi fon perde, K3 tül, K4 dikey lamel, K5 tül; B sütunu K0 jaluzi, K1 tül, K2–K4 dikey lamel (sağ kanatta tül); dar sütun K0–K1 dantel tül, K2 mavi perde, K3–K4 perdesiz karanlık, K5 tül. Derzler: y 5.16 (K0/K1 arası), 10.95 (renk sınırı). Çitin aralığından K0 altında bodrum: A/B sütunları altında küçük bodrum pencereleri, GD yığın yanında zemin kotunda süslü koyu metal-cam bina giriş kapısı (entrance; hoOD 308_4'te de görülüyor). u 11.1–12.61: KD gömülü loggianın yan açıklığı (ön yüzü e8): K1–K3 camlı (K2 koyu), K0/K4 açık."
@@ -854,49 +947,61 @@
           "t": "strip",
           "u": 7.62,
           "y0": 11.1,
-          "y1": 15.9
+          "y1": 15.9,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 9.03,
           "y0": 11.1,
-          "y1": 15.9
+          "y1": 15.9,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 11.35,
           "y0": 11.1,
-          "y1": 15.9
+          "y1": 15.9,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 12.7,
           "y0": 11.1,
-          "y1": 15.9
+          "y1": 15.9,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 7.68,
           "y0": 3.2,
-          "y1": 10.71
+          "y1": 10.71,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 9.03,
           "y0": 3.2,
-          "y1": 10.71
+          "y1": 10.71,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 11.29,
           "y0": 3.2,
-          "y1": 10.71
+          "y1": 10.71,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 12.73,
           "y0": 3.2,
-          "y1": 10.71
+          "y1": 10.71,
+          "top": "point"
         },
         {
           "t": "win",
@@ -1063,49 +1168,61 @@
           "t": "strip",
           "u": 4.5,
           "y0": 12.43,
-          "y1": 19.59
+          "y1": 19.59,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 6.15,
           "y0": 12.43,
-          "y1": 20.26
+          "y1": 20.26,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 7.62,
           "y0": 12.43,
-          "y1": 20.91
+          "y1": 20.91,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 9.25,
           "y0": 12.43,
-          "y1": 21.62
+          "y1": 21.62,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 4.38,
           "y0": 3.3,
-          "y1": 11.32
+          "y1": 11.32,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 6.06,
           "y0": 3.3,
-          "y1": 11.32
+          "y1": 11.32,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 7.63,
           "y0": 3.3,
-          "y1": 11.32
+          "y1": 11.32,
+          "top": "point"
         },
         {
           "t": "strip",
           "u": 9.22,
           "y0": 3.3,
-          "y1": 11.32
+          "y1": 11.32,
+          "top": "point"
         },
         {
           "t": "win",
@@ -1288,6 +1405,14 @@
           "y": 16.72,
           "w": 0.03,
           "color": "#70757a"
+        },
+        {
+          "t": "panel",
+          "u0": 0.9,
+          "u1": 2.72,
+          "y0": 16.85,
+          "y1": 23.0,
+          "color": "#cbccc6"
         }
       ],
       "note": "Batı alınlık cephesi (sokak, 1Jme 12.8 m — en net cephe; iLoV ile doğrulandı). Mahya u≈9.4 (görünen), eğim ~23°; dört üst şerit eğime kadar. C sütunu (GB yığın yanında) tüm katlarda; k=5 çatı arası B ve C sütunlarında. Perdeler (kat kat): A K0 dantel tül, K1–K2 beyaz tül, K3 lacivert zebra, K4 tül; B K0 tül, K1 zebra, K2 açık mavi tül, K3 zebra, K4 sol tül + sağ lacivert (tul-yan), K5 zebra; C K0 tül (camda yuvarlak etiket), K1–K2 mavi fon perde, K3–K5 zebra. Yatay derzler: y 6.27 (K0/K1 arası), 11.8 (beyaz/gri renk sınırı), 16.72 (saçak hizası, alınlıkta). u 0.9–2.72: KB gömülü loggianın yan açıklığı (üstünde gri şapka): K1–K3 çerçevesiz şeffaf katlanır cam (1Jme 56_26 yakın karesi), K0 ve K4 açık (buzlu cam korkuluk)."
@@ -1431,6 +1556,14 @@
           "s": 4,
           "y": 13.7,
           "onBal": false
+        },
+        {
+          "t": "panel",
+          "u0": 1.1,
+          "u1": 5.4,
+          "y0": 14.54,
+          "y1": 23.0,
+          "color": "#cbccc6"
         }
       ],
       "note": "GB köşe yığınının ön yüzü = bu kenar (sokak; iLoV 10 m + JDL6). Parapet kenar çizgisinde (d:0). Kat kat: K0 açık, K1 çerçeveli koyu cam (içerisi görünüyor), K2 çerçevesiz şeffaf cam, K3 ve K4 açık (buzlu cam korkuluk, tavan görünüyor). Güney ucunda korkuluklara takılı çanaklar (K0, K1, K2, K4) ve K2'de klima (d:0 yığın: onBal kapalı). Üstte gri eğik şapka (güneye alçalan). iLoV çok yakın: cal.head korkuluklardan."
@@ -1448,34 +1581,8 @@
     "Belirsizlikler: e0 ağaç arkasında (ikiz e4'ten aynalandı); e7/e8 eğik (u ±0.4); kuzey loggiaların K0 katları ağaç arkasında; e2 merdiven pencereleri 344'ten oranlandı; e6/e10 görülmedi.",
     "v-retro: korkuluklar 344 ile aynı ('glass': koyu gri alın + dolu parapet ≈0.58 m + ≈0.3 m buzlu cam şerit + alüminyum küpeşte). Renkler 344'ten (aynı tasarım; bu bloğun güney cepheleri aşırı pozlu/ağaç arkası): alt beyaz #f1f2ed, üst mavi-gri #dde1e1, şerit #df8d47, alın #a6a9a2; batı alınlıkta (1Jme, güneşli) üst/alt ayrımı net.",
     "Eleştirmen notları: balkon alınları bu blokta koyu gri (beyaz/krem değil); pilastr = turuncu şeritler (strip); soffit açık gri-beyaz yapıldı.",
-    "Görülmeyenler: e6 (GD yığın iç yanı) camlı varsayıldı; e0 kombi çıkışları/derzleri aşırı pozlamada seçilemedi (344'te var); e8 perdeleri okunamadı; kuzey loggiaların K0 katları kısmen ağaç arkasında."
+    "Görülmeyenler: e6 (GD yığın iç yanı) camlı varsayıldı; e0 kombi çıkışları/derzleri aşırı pozlamada seçilemedi (344'te var); e8 perdeleri okunamadı; kuzey loggiaların K0 katları kısmen ağaç arkasında.",
+    "v6 (2026-09-29): (1) ÇATI PENCERELERİ (dormer, 2 adet, eski pending): S66M 335_19 / 346 + 6eol 344_22 kareleri ve e0 (6eol) / e4 (S66M) ortofotoları. Konum: fransız pencere sütunlarının üstünde DEĞİL, ≈0.4–0.7 m dışında (e0: sütun ortasından ≈0.7 m batıda, e4: ≈0.35 m doğuda); iki kameranın paralaksından setback ≈1.8 m (±0.4; 6eol görünür kayma −0.25 m, S66M +0.38 m), aynı sonuç hava fotoğrafında eğiklik düzeltilmiş konumla (dormer x ≈ −64.4 / −53.6). Hava fotoğrafındaki x −66.8 / −56.0 eğik çekim kaymasıydı (≈−0.11 m/m yükseklik). Genişlik (ön yüz) 2.15 m (e4 net ölçü; e0 bulanık), eğim 45° (rüzgârlık eğimi ölçüldü). Tepe duvar üstünden: e4 3.45 m, e0 3.15 m (görünen tepe 19.16 / 18.78, setback düzeltmeli; ikiz olmalarına rağmen ölçü farkı ≈0.3 m, ölçüldüğü gibi). Ön yüz açık gri (S66M #b2b7b8, 6eol #b1a0a2–#b5a9a2; alın bandıyla aynı gri tonda) → #aaaeae; kalın ahşap görünümlü altın-kahve rüzgârlık tahtaları (gölgeli #846547–#897244, güneşli #cbb9a1–#e4ccb7) → trim #a08462 (üretici kalınlığı sabit 0.12 çiziyor, gerçek ≈0.17); ortada kalın beyaz PVC çerçeveli 2 kanatlı pencere (e4: 0.79 m geniş, üst kenar çatı yüzünden ≈0.73 m; e0: ≈0.65 m, 0.78 m), alt kısmı saçak arkasında GÖRÜLMEDİ (denizlik 0.15 varsayılan). Küçük beşik çatısı kiremit (üstte kiremit çizgisi görünüyor). (2) Saçak alın bandı roof.fasciaC #bbbdba: S66M e4 güneşli #d8dcd5–#dbdcda, aynı karede balkon alnı #c2c1bc (palet #a6a9a2) → pozlama oranıyla düzeltildi; kuzey gölgede #757775 (jeMF e8). (3) Şapkalar (d:0 gömük yığında `cap` çizilmediği için): gableC e5/e11 #cbccc6 + loca tavanından yukarı pano — GD e5 (hoOD güneşli #a3a6a9, aynı karede balkon alnı #989ea3–#a3a7ad; 344'teki şapka/alın oranıyla aynı), GB e11 (iLoV), KB loca yanı e9 u 0.9–2.72 (1Jme gölgede #616e78, alınlık #7d8c99), KD loca yanı e7 u 11.1–12.61 (hoOD #a2adae, alınlık #bacad3). Ana alınlıklar e7/e9 gableC plaster2. (4) Şerit uçları (1Jme e9, hoOD e7, jeMF e8 net): alt şerit çiftlerinin ÜST ucu SİVRİ (point), üst şeritlerin alt ucu DÜZ, üst ucu düz (saçak altında / alınlık çizgisinde küçük düz başlık). e0/e4'te alt uçlar ağaç / aşırı pozlama arkasında → yalnız üst uçlar (saçak altında düz, 6eol/S66M) yazıldı. (5) e5 K2 korkuluk alnında küçük kırmızı bez / fiyonk (≈0.45 × 0.34 m, #c4353a gölge – #fe6c70 ışık, hoOD) → banner \"plain\" #e0454d (biçimi fiyonk; düz bez olarak çizilir)."
   ],
-  "pending": [
-    {
-      "what": "Çatı penceresi (dormer), üçgen alınlıklı, 2 adet",
-      "edge": [
-        0,
-        4
-      ],
-      "world": {
-        "x": [
-          -66.8,
-          -56.0
-        ],
-        "z": -44.5
-      },
-      "w": 2.3,
-      "ridgeAboveEave": 1.2,
-      "setback": [
-        2,
-        3
-      ],
-      "note": "Güney (sokak) çatı yüzünde, saçaktan ~2–3 m geride, her kanadın fransız pencere sütunu üstünde (x≈−66.8 ve x≈−56.0; 6eol/S66M 335/346 yakın kareleri). Beyaz sıvalı ön yüz, kiremit kaplı küçük beşik çatı, ortada 2 kanatlı beyaz pencere (perde beyaz tül), alınlıkta ince koyu damlalık. Şemada dormer yok."
-    },
-    {
-      "what": "Köşe yığını şapkası rengi",
-      "color": "#cbccc6",
-      "note": "Yığınların üstündeki gri eğik 'şapka' (alınlık eğiminin devamı) güneşte #cbccc6 — balkon alnından (#a6a9a2) açık; üretici şapkayı fascia rengiyle çiziyorsa ayrı renk gerekir. 344'te de aynı."
-    }
-  ]
+  "pending": []
 }

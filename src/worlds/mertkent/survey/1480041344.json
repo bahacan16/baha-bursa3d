@@ -18,6 +18,13 @@
     "eaveY": {
       "edge": 0,
       "y": 19.9
+    },
+    "fasciaC": "#c0c3c2",
+    "gableC": {
+      "5": "#cbccc6",
+      "7": "plaster2",
+      "9": "plaster2",
+      "11": "#cbccc6"
     }
   },
   "colors": {
@@ -57,13 +64,17 @@
           "t": "strip",
           "u": 3.92,
           "y0": 11.72,
-          "y1": 19.72
+          "y1": 19.72,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 6.61,
           "y0": 11.72,
-          "y1": 19.72
+          "y1": 19.72,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -390,13 +401,17 @@
           "t": "strip",
           "u": 2.08,
           "y0": 11.52,
-          "y1": 19.25
+          "y1": 19.25,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 4.72,
           "y0": 11.52,
-          "y1": 19.25
+          "y1": 19.25,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -637,6 +652,14 @@
             "*": "#e9eae6",
             "K0": "#2b2e30"
           }
+        },
+        {
+          "t": "panel",
+          "u0": 1.0,
+          "u1": 5.84,
+          "y0": 18.87,
+          "y1": 26.0,
+          "color": "#cbccc6"
         }
       ],
       "note": "GB köşe balkon yığınının ön yüzü = bu kenar (güneşli, 1Jme 46/56 yakın kareleri çok net). Ön yüz kenar çizgisinde → d:0. Her kat: koyu gri döşeme alnı + dolu parapet (≈0.75 m görünen, döşemeden ≈0.58) + ≈0.25 m beyazımsı buzlu cam şerit, üstü beyaz dikmeli katlanır cam (≈0.6 m panel). Kat kat cam: K0 koyu (siyah dikmeli, içerisi karanlık), K1 ve K2 şeffaf + arkada boydan beyaz perde, K3 yeşil camlı yatay zebra stor, K4 koyu (mavi-lacivert), K5 yeşil/turkuaz cam. Üstte gri sıvalı eğik 'şapka' (alınlık eğimi yığının üstünden devam eder; güneşte #cbccc6, fascia'dan açık), altı beyaz. Doğu uç görünmüyor, cal.u[1] ölçekten."
@@ -730,25 +753,33 @@
           "t": "strip",
           "u": 5.27,
           "y0": 12.39,
-          "y1": 24.4
+          "y1": 24.4,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 6.86,
           "y0": 12.39,
-          "y1": 23.75
+          "y1": 23.75,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 8.53,
           "y0": 12.39,
-          "y1": 23.0
+          "y1": 23.0,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 10.18,
           "y0": 12.39,
-          "y1": 22.3
+          "y1": 22.3,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -932,6 +963,14 @@
           "y": 11.9,
           "w": 0.03,
           "color": "#70757a"
+        },
+        {
+          "t": "panel",
+          "u0": 11.85,
+          "u1": 13.68,
+          "y0": 19.72,
+          "y1": 26.0,
+          "color": "plaster2"
         }
       ],
       "note": "Güney alınlık cephesi (güneşli; 1Jme ortofotosu uzak/aşırı pozlu, 1Jme 46/56 yakın kareleriyle okundu, u ±0.4). Mahya bina ortasında (≈u 5.4 görünen); dört üst şerit alınlık eğimine kadar çıkar, uçları eğimi izler. Alt bölge beyaz, üst bölge (K3–) + alınlık açık mavi-gri; sınırda koyu derz. Alınlık üst kenarında ince koyu gri damlalık/alın. Perdeler: A/B sütunları K1–K5 beyaz tül (K0 palmiye arkasında, görülmedi). Yığın yanı dar sütun: K0 karanlık, K1 dantel tül, K2–K3 mavi fon perde, K4–K5 ve çatı arası (k=6) perdesiz. u 11.85–13.68: GD gömülü köşe loggiasının yan açıklığı (ön yüzü e8): K0 açık, K1–K2 şeffaf + beyaz perde, K3–K4 koyu, K5 yeşil cam (hoOD 342 yakın karesi). Giriş GÖRÜLMEDİ (palmiye/çit arkasında): 345 ikizinde aynı konumda (yığın yanı, zemin kotu) görülen kapıya göre bırakıldı — doğrulanmadı."
@@ -1138,10 +1177,12 @@
           "r": 0.04
         },
         {
-          "t": "dish",
-          "u": 5.6,
-          "s": 5,
-          "y": 20.3
+          "t": "roofobj",
+          "kind": "dish",
+          "u": 5.3,
+          "setback": 0.6,
+          "h": 0.45,
+          "w": 0.65
         },
         {
           "t": "panel",
@@ -1196,25 +1237,33 @@
           "t": "strip",
           "u": 2.91,
           "y0": 12.1,
-          "y1": 22.02
+          "y1": 22.02,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 4.55,
           "y0": 12.1,
-          "y1": 22.72
+          "y1": 22.72,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 6.19,
           "y0": 12.1,
-          "y1": 23.42
+          "y1": 23.42,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
           "u": 7.83,
           "y0": 12.1,
-          "y1": 24.1
+          "y1": 24.1,
+          "bottom": "flat",
+          "top": "flat"
         },
         {
           "t": "strip",
@@ -1351,6 +1400,14 @@
           "y": 11.5,
           "w": 0.03,
           "color": "#70757a"
+        },
+        {
+          "t": "panel",
+          "u0": -0.4,
+          "u1": 1.1,
+          "y0": 19.35,
+          "y1": 26.0,
+          "color": "#cbccc6"
         }
       ],
       "note": "Kuzey alınlık cephesi (WDsd 32.6 m, gölgede, bulanık; perdeler çözünürlükte okunamıyor → kayıt yok). e7'nin aynası: iki şerit çifti + KB yığın yanında dar pencere sütunu (k=6 çatı arası). Duvar gerçekte e10 köşesinden ~0.9 m daha batıya uzanıyor; cal.u[1] metrik tutarlılık için. u −0.4–1.1: KD gömülü loggianın yan açıklığı: K3–K5 açıklığında gök görünüyor (köşe loggia iki yandan açık) → cam balkon YOK (eski kayıt [3,4,5] düzeltildi; hoOD karesiyle tutarlı). Alt katlar ağaç arkasında."
@@ -1556,6 +1613,14 @@
           "frameC": {
             "*": "#e9eae6"
           }
+        },
+        {
+          "t": "panel",
+          "u0": 1.25,
+          "u1": 6.14,
+          "y0": 18.3,
+          "y1": 26.0,
+          "color": "#cbccc6"
         }
       ],
       "note": "KB köşe yığınının ön yüzü = bu kenar (kuzey, sokağa dönük); WDsd + JY5o + WDsd 123 yakın karesi. Parapet kenar çizgisinde (d:0). Her kat koyu gri alın/parapet + buzlu cam şerit + çerçevesiz katlanır cam. Kat kat: K0 şeffaf (ağaç arkasında, kısmen), K1 belirgin yeşil cam, K2 şeffaf ama batı ucunda (u 3.6–6.14 görünen) beyaz yatay zebra stor (e0 yan yüzünde de), K3 şeffaf (içeride eşya), K4 şeffaf + üst yarıda inik beyaz stor, K5 şeffaf. Üstte gri eğik şapka (alınlık eğimi), altı beyaz."
@@ -1574,22 +1639,8 @@
     "v-retro (kat kat yeniden inceleme, 40° yakın kareler): bütün yığın/loggia korkulukları aynı tip: döşeme alnı + koyu gri dolu parapet (döşemeden ≈0.58 m; görünen toplam bant ≈0.75 m) + üstünde ≈0.3 m buzlu cam şerit, alüminyum küpeşte → rail 'glass', parapetH 0.58. Cam balkonlar çerçevesiz/ince beyaz dikmeli katlanır cam; kat kat tintler kenar notlarında.",
     "Renkler (güneşli / gölgeli): alt sıva beyaz #f1f2ed (güneşte ortofoto #fcfefe aşırı pozlu, 1Jme 46 yakın #fbfbf5–#e7e6e1; gölgede e0/e4 #a0a1a1–#a4a5a3); üst sıva açık mavi-gri #dde1e1 (güneşte #dbe0e0–#e8eae2; gölgede #899099/#88929b — gölgede beyazdan belirgin koyu ve mavimsi); turuncu şerit #df8d47 (gölgede #9c612f/#956234, güneşte ortofoto aşırı pozlu #f0cba2 → gölge/güneş oranından türetildi); balkon alnı/parapet #a6a9a2 (güneşte #a0a49c–#bfc4b8, gölgede #4b5256–#5d6c7e); yığın şapkası gri sıva güneşte #cbccc6; saçak alın bandı gölgede #636b74 / #5c6464; soffit beyaz-açık gri (krem değil).",
     "Eleştirmen notları: (1) 'beyaz/krem kalın balkon alnı' bu blokta geçerli değil — alınlar koyu gri, kalınlık parapetle birlikte ≈0.75 m görünen (doğru). (2) Pilastr: bu bloktaki tek pilastr turuncu yuvarlak şeritler (strip ile çizili); başka pilastr yok. (3) Soffit rengi krem → açık gri-beyaz yapıldı.",
-    "Görülmeyenler: e6 ve e10 (yığınların iç yan yüzleri) — camlı varsayıldı; e7 girişi (ikizden); e8/e9 perdeleri (uzak, çözünürlük yok); K0 satırlarının bir kısmı çit/palmiye/ağaç arkasında; subasman (çit arkasında) görülmedi."
+    "Görülmeyenler: e6 ve e10 (yığınların iç yan yüzleri) — camlı varsayıldı; e7 girişi (ikizden); e8/e9 perdeleri (uzak, çözünürlük yok); K0 satırlarının bir kısmı çit/palmiye/ağaç arkasında; subasman (çit arkasında) görülmedi.",
+    "v6 (2026-09-29): (1) Saçak alın bandı roof.fasciaC #c0c3c2 — doğrudan güneşli örnek (hoOD e8 u 7–13, y 19.15–19.6: #bfc2c2 / #c0c4c2; aynı karede üst sıva #d6dad7). Eski tahmin #8f979e fazla koyuydu (gölge/güneş oranından). Gölgede #626c77–#68707b (agzp e0), #646c77 (jeMF e4). (2) Yığın şapkaları: d:0 gömük yığında `cap` şapkası çizilmez (üretici yalnız taşan balkona şapka koyar) → şapka = alınlık üçgeni + loca boşluğu tavanından yukarı pano: roof.gableC e5/e11 #cbccc6 (güneşli, 1Jme e5 y 19.3–20.5: #cacbc5–#cbcbc6; KB e11 yalnız gölgede #73767c, aynı gri kabul edildi) + e5/e11 pano #cbccc6 (y0 = K5 loca tavanı, görünen 18.87 / 18.30; fotoğrafta şapka alt kenarı 18.9 / 18.2–18.3 ✓). KD köşe locası üstü de koyu gri şapka (WDsd e9 gölgede #656660, yanındaki alınlık #909293) → e9 u −0.4–1.1 pano #cbccc6. GD loca üstü (e7 u 11.85–13.68) güneşte #d8d7d3 ≈ alınlık sıvası (#e6ebea) → plaster2 pano (şapka değil). Ana alınlıklar e7/e9 gableC plaster2 (üst sıva alınlığa devam eder). Şapkaların eğik üst kenarındaki ince koyu metal damlalık: v6 alınlık rüzgârlığıyla çizilir. (3) e8 çatı çanağı: saçak alnının hemen arkasında, beyaz, ortasında turuncu LNB (hoOD 342_14): roofobj dish u 5.3 (görünen), setback 0.6, h 0.45 (merkez, çatı yüzünden), çap ≈0.65 (342_14'te ≈13 px @ 43 m). DİKKAT: hoOD çok eğik (uF −31.5) → setback 0.5 m değişirse u ≈1.3 m kayar; çatı kotu görülmediğinden setback tahmini (çanak saçak üstünden ≈0.4 m yükseliyor). (4) Şerit uçları (agzp/jeMF/1Jme/WDsd yakın): üst şerit çiftlerinin ALT ucu düz (pencere denizliği hizasında kare), üst uçları düz (e0/e4 saçak altında ≈0.15 m boşlukla, e7/e9 alınlık çizgisinde küçük başlıkla) → bottom/top flat. Alt şeritlerin üst ucu e0/e4 yuvarlak (varsayılan, doğrulandı); e7/e9/e8 alt uçları ve e8 şeritleri bulanık → varsayılan bırakıldı."
   ],
-  "pending": [
-    {
-      "what": "Köşe yığını şapkası rengi",
-      "color": "#cbccc6",
-      "edges": [
-        5,
-        11
-      ],
-      "note": "KB/GB yığınlarının üstündeki gri eğik 'şapka' (alınlık eğiminin devamı, alt kenarı düz) güneşte #cbccc6 (1Jme 46_32) — balkon alnından (#a6a9a2) açık; üretici şapkayı fascia rengiyle çiziyorsa ayrı renk gerekir."
-    },
-    {
-      "what": "Saçak alın bandı rengi",
-      "color": "#8f979e",
-      "note": "Batı/doğu saçağının ~0.95 m koyu gri alın bandı gölgede #636b74 / #5c6464 (e0/e4), güneşte ~#8f979e (tahmini, gölge/güneş oranı). Balkon alnıyla aynı palet anahtarını kullanıyorsa daha koyu ayrı renk gerekir."
-    }
-  ]
+  "pending": []
 }

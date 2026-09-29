@@ -294,9 +294,19 @@
      "fg": "#e6e6e2",
      "style": "box",
      "logo": "beyaz kutu/pano (içeriği okunamadı; posta/elektrik panosu olabilir)"
+    },
+    {
+     "t": "banner",
+     "u0": 5.02,
+     "u1": 5.8,
+     "y0": 11.66,
+     "y1": 12.05,
+     "d": 0.03,
+     "style": "plain",
+     "bg": "#ae6f70"
     }
    ],
-   "note": "Batı orta çıkma (kavisli/pahlı cam balkon cumbası), JWAU (2025-09, 39 m, site batı kapısı kirişinin altından) + xaRAH (2025-09, 54 m, temiz) + WdXs. K1–K6: iki cam balkon yığını (loca: ön yüz taban izi çizgisinde, arka duvar içeride; derinlik açık K5'ten ≈1.3–1.5 m tahmini) ve ortada düz sıvalı ayak (2.85–4.75; üçgenlemede ön yüzü taban izinin ~0.75 m batısında). Kuzey yığın: K5 açık loca (cam korkuluk, arkada pencereli duvar), diğerleri katlanır cam; güney yığın tüm katlar camlı; güney yığın K3 korkuluğunda küçük kırmızı bayrak/örtü. Korkuluk her katta ≈0.45 m dolu parapet + buzlu cam (dikmeli). K0: cumbanın altı açık, gölgeli giriş sundurması (arkası içeride; kolonlar u≈−0.2 ve 5.3, beyaz kutu/pano u 0.3–1.25, koyu camlı apartman giriş kapısı u 4.1–5.25) → sundurma pending'de. Kuzey yığın kuzey ucu u≈−1.15 (taban izi köşesinin ~1.2 m kuzeyi). v5 (2026-09-29): K0 sundurması `recess` (u −0.67…5.3 = iki kolonun iç yüzleri, y 1.4–4.65 = sundurma tabanı → K1 alnı altı; derinlik 1.5 m ÖLÇÜLEMEDİ: önceki ölçümün alt sınırı, üstteki localar 1.4 m — JWAU cepheden, WdXs/xaRAH çitle kapalı). Kolonlar girinti dışında kalan duvar (sol u −0.92…−0.67, sağ 5.3–5.58; sağ kolonun ötesi 5.6–8.1 K0'da düz duvar, güneşli). Apartman giriş kapısı arka duvarda: koyu camlı (gölgede #111413) alüminyum çerçeveli kapı, sokak kotuna indiği için kind 'shop' (eşik K0 döşemesinin altında) — önceki `entrance` ağızda çiziliyordu. Beyaz kutu (u 0.3–1.25) arka duvarda kutu tabela (yazısız). Arka duvar gölgede #312a24 → blok sıvası kabul (aynı bej, derin gölge). K3 güney yığın korkuluğunda kırmızı örtü/bayrak → pending (v6)."
+   "note": "Batı orta çıkma (kavisli/pahlı cam balkon cumbası), JWAU (2025-09, 39 m, site batı kapısı kirişinin altından) + xaRAH (2025-09, 54 m, temiz) + WdXs. K1–K6: iki cam balkon yığını (loca: ön yüz taban izi çizgisinde, arka duvar içeride; derinlik açık K5'ten ≈1.3–1.5 m tahmini) ve ortada düz sıvalı ayak (2.85–4.75; üçgenlemede ön yüzü taban izinin ~0.75 m batısında). Kuzey yığın: K5 açık loca (cam korkuluk, arkada pencereli duvar), diğerleri katlanır cam; güney yığın tüm katlar camlı; güney yığın K3 korkuluğunda küçük kırmızı bayrak/örtü. Korkuluk her katta ≈0.45 m dolu parapet + buzlu cam (dikmeli). K0: cumbanın altı açık, gölgeli giriş sundurması (arkası içeride; kolonlar u≈−0.2 ve 5.3, beyaz kutu/pano u 0.3–1.25, koyu camlı apartman giriş kapısı u 4.1–5.25) → sundurma pending'de. Kuzey yığın kuzey ucu u≈−1.15 (taban izi köşesinin ~1.2 m kuzeyi). v5 (2026-09-29): K0 sundurması `recess` (u −0.67…5.3 = iki kolonun iç yüzleri, y 1.4–4.65 = sundurma tabanı → K1 alnı altı; derinlik 1.5 m ÖLÇÜLEMEDİ: önceki ölçümün alt sınırı, üstteki localar 1.4 m — JWAU cepheden, WdXs/xaRAH çitle kapalı). Kolonlar girinti dışında kalan duvar (sol u −0.92…−0.67, sağ 5.3–5.58; sağ kolonun ötesi 5.6–8.1 K0'da düz duvar, güneşli). Apartman giriş kapısı arka duvarda: koyu camlı (gölgede #111413) alüminyum çerçeveli kapı, sokak kotuna indiği için kind 'shop' (eşik K0 döşemesinin altında) — önceki `entrance` ağızda çiziliyordu. Beyaz kutu (u 0.3–1.25) arka duvarda kutu tabela (yazısız). Arka duvar gölgede #312a24 → blok sıvası kabul (aynı bej, derin gölge). K3 güney yığın korkuluğunda kırmızı örtü/bayrak → pending (v6). | v6 (2026-09-29): güney cam yığını K3 korkuluğundaki kırmızı örtü banner (plain) olarak: JWAU u 5.02–5.8, y 11.66–12.05 (WdXs/xaRAH aynı); renk en doygun %12 piksel ort. #ae7273 (JWAU, bulutlu; bulanık → gerçek ton daha doygun olabilir) → #ae6f70. Ortasında açık pembe-beyaz leke var ama ay-yıldız seçilemedi → Türk bayrağı YAZILMADI (tr değil plain)."
   },
   {
    "edge": 9,
@@ -950,9 +960,28 @@
      "glassC": {
       "*": "#a1a9a6"
      }
+    },
+    {
+     "t": "lamp",
+     "us": [
+      1.83,
+      2.35
+     ],
+     "s": [
+      1,
+      6
+     ],
+     "yRel": 2.3,
+     "style": "cylinder",
+     "dir": "down",
+     "d": 0.12,
+     "h": 0.18,
+     "proud": 0.1,
+     "color": "#bbb9a6",
+     "tip": "#33332d"
     }
    ],
-   "note": "Güney cumba batı yarısı. Konumlar EIX3i6 (2014-07, 11 m, tam cepheden) ortofotosundan; kat durumları 2025-09 2Qtex karelerinden (2014'ten farklı: 2014'te K2–K3 açık, bambu stor): K1 camlı (dikey stor), K2 camlı, K3–K5 açık (tavanda yuvarlak spot), K6 camlı; korkuluk K1–K2 buzlu cam panel + dikme, K3–K6 dikey çubuklu. Orta ayak u 1.25–2.95 (üçgenleme: x 289.5–291.1, ön yüz z≈−61.7; ayakta her katta iki küçük silindir aplik → pending). 2.95 sonrası doğu yarının locası başlar (durumları 14. kenarda)."
+   "note": "Güney cumba batı yarısı. Konumlar EIX3i6 (2014-07, 11 m, tam cepheden) ortofotosundan; kat durumları 2025-09 2Qtex karelerinden (2014'ten farklı: 2014'te K2–K3 açık, bambu stor): K1 camlı (dikey stor), K2 camlı, K3–K5 açık (tavanda yuvarlak spot), K6 camlı; korkuluk K1–K2 buzlu cam panel + dikme, K3–K6 dikey çubuklu. Orta ayak u 1.25–2.95 (üçgenleme: x 289.5–291.1, ön yüz z≈−61.7; ayakta her katta iki küçük silindir aplik → pending). 2.95 sonrası doğu yarının locası başlar (durumları 14. kenarda). | v6 (2026-09-29): orta ayak aplikleri lamp olarak (us 1.83/2.35 görünen = EIX3i6 ortosunda 5 kat çiftinin koyu uç merkezleri ort., sol 1.79–1.88, sağ 2.28–2.41; eski pending 1.64/2.2 idi). Kat kat: EIX3i6 2014 K1 7.05, K2 10.33, K3 13.6, K4 16.85, K5 20.05, K6 ≈23.1 (sol aplik; sağdaki saçak gölgesinde seçilemiyor), 2Qtex 2025 K1–K5 çiftleri + K6 lekesi, Dr35 2019 → K1–K6. Yükseklik: aynı ortoda loca döşeme çizgilerine (koyu derz 4.65/7.85/11.05/14.3/17.5/20.75, kat aralığı 3.2 görünen) göre döşemeden 2.16–2.34 m (ort. 2.3; eski pending 2.55 — bu kenarın cal.head aralığı 2.98, gerçek görünen aralık 3.15–3.25 olduğundan y yerine yRel yazıldı). Görünüm: kısa silindir, açık gri-bej gövde (2014 güneşte kenar #b5b2a2–#bbb9a6), altta koyu açıklık (#37361d–#6e6b5c; 2019 bulutlu Dr35: gövde #9aa096–#a3a598, uç #1a1d14) → eski \"koyu gövde, beyaz uç\" ters okunmuştu. Uç rengi koyu yazıldığından gece ışığı yok (gece görülmedi)."
   },
   {
    "edge": 14,
@@ -1302,30 +1331,10 @@
   "Tarihler: 6, 8, 9, 10, 11 ve güney cumba batı yarısının kat durumları 2025-09. Güney cumba konumları EIX3i6 2014-07 (en cepheden kare), doğu yarı kat durumları Dr35 2019-05 (2025'te çok yatık). 16. kenar düzeni 2014/2019/2025 uyumlu; K2–K3 klimaları 2019. Güney cumba batı yarısında 2014→2025 değişim: K2 ve K6 camlanmış, bambu storlar kalkmış.",
   "Sokak/site eşyası (bina değil): 11. kenar önünde beyaz sokak lambası direği; batı cumba önünde bayrak direği (Türk bayrağı) + güvenlik kamerası + projektör; batı site kapısı kahverengi kirişli kapı ve '7/24 KAMERA SİSTEMİ İLE İZLENMEKTEDİR' levhası; sokak kenarında kemerli istinat duvarı + paslanmaz boru korkuluk + yeşil panel çit + selvi çit.",
   "v5 geçişi (2026-09-29): (1) Taban izi 13:54 uzlaştırmasında güney kanatta değişti (9: 4.94→6.12, 10: 9.23→7.18, 11/16 1–1.1 m kuzeye, 12/15 cumba yanları 1.0→2.0/2.1) → 9/10/11/16 ortofotoları yeni izle yeniden üretildi (eski kopyalar /tmp/claude-0/pend-g3/oldc) ve öğeler yeni ortolarda yeniden ölçüldü. (2) Dönüşenler: K0 sundurması (recess + arka duvarda kapı/kutu), K0 yağmur borusu (pipe y0/y1/renk/r), çift sıva derzleri (9, 10, 11, 16; kat kat profil ölçümü; 6. kenarda 41–52 m'den çözülmedi → yazılmadı), 'girinti duvarı' (izde çözüldü), tavan spotları (üretici her loca tavanına bir spot koyuyor — fotoğraftaki tek yuvarlak spotla uyumlu). (3) Düzeltmeler: 11/16 konsol balkon derinliği 0.9→0.47 (iki pano tutarlılığı + döşeme bandı yüksekliği), klimalar/çanak balkon zemininde (onBal:false), 16. kenar 2019 klimaları K3/K4, cumba batı köşe locası inset 1.77. (4) Hâlâ pending: kavisli/pahlı loca önleri (gömük locada bulge yok), apliklar (v6), K3 korkuluğunda kırmızı örtü/bayrak (v6). TABAN İZİ (rapor): GD köşe (17. nokta) fotoğraflara göre ≈1.5 m batıda (x≈298.9); 11/16 duvarları SV üçgenlemesine göre ≈0.3–1 m daha kuzeyde olabilir.",
-  "FP-v3 (2026-09-29, taban izi): GD köşe (17. nokta) güney duvar hattı boyunca 0.85 m BATIYA: (300.5,−64.40)→(299.651,-64.353); 16. kenar 5.85→5.00, 17. kenar 6.94. Kanıtlar (hepsi x≈299.5–300.0): (a) hava fotoğrafında doğu cephe şeridinin ek yapı çatısıyla (5.1 m) birleşme çizgisi görünen x 299.25 (z −67/−69) → duvar ≈299.75; aynı yöntem v18 için (−71.4) 299.95 veriyor (halkayla aynı); (b) ek yapının güney parapet bandının batı ucu → ≈299.5; (c) camlı odanın çatı kenarı → duvar ≤300.0; (d) SV ortosunda köşe u 4.28 (x 298.93) + 11. kenarda ölçülen aynı panoların 0.65–0.92 m batı kayması → 299.6–299.85; (e) hava fotoğrafındaki balkon yığını SV konumunun ≈0.7 m doğusunda. Ölçüm ajanının 298.9'u (1.5 m) SV çerçeve kaymasından; eski 300.5 ≈0.8 m doğudaydı. 16. kenar öğeleri cal.u ile köşeye göre fotoğraftaki yerlerine (+0.72 m) alındı; ek yapı ve camlı oda batı kenarları yeni duvara bağlandı. Değiştirilmeyenler: güney duvarlar 11/16 (SV: 0.3–1 m kuzey; hava saçağı: saçak dış kenarı görünen −69.45 (x 283) / −70.25 (x 298), eğim 0.311, saçak ≈22.9 m, taşma 0.6–0.9 → duvar izle aynı ya da 0.3–0.6 m güneyde — çelişkili, ±0.5); 10. kenar ≈0.4 m kısalığı (UXy7 6.75 / 2Qtex 6.9 — 10. nokta girinti yedirmesinin ±0.4 belirsizliği içinde, güney duvar kararıyla bağlantılı). Doğu kavisli çıkma (18–20): hava saçağı + 0.6 taşma duvarı 0.1–0.65 m batıda gösteriyor, cephe şeridi daha fazla — tutarsız, değiştirilmedi (±0.6)."
+  "FP-v3 (2026-09-29, taban izi): GD köşe (17. nokta) güney duvar hattı boyunca 0.85 m BATIYA: (300.5,−64.40)→(299.651,-64.353); 16. kenar 5.85→5.00, 17. kenar 6.94. Kanıtlar (hepsi x≈299.5–300.0): (a) hava fotoğrafında doğu cephe şeridinin ek yapı çatısıyla (5.1 m) birleşme çizgisi görünen x 299.25 (z −67/−69) → duvar ≈299.75; aynı yöntem v18 için (−71.4) 299.95 veriyor (halkayla aynı); (b) ek yapının güney parapet bandının batı ucu → ≈299.5; (c) camlı odanın çatı kenarı → duvar ≤300.0; (d) SV ortosunda köşe u 4.28 (x 298.93) + 11. kenarda ölçülen aynı panoların 0.65–0.92 m batı kayması → 299.6–299.85; (e) hava fotoğrafındaki balkon yığını SV konumunun ≈0.7 m doğusunda. Ölçüm ajanının 298.9'u (1.5 m) SV çerçeve kaymasından; eski 300.5 ≈0.8 m doğudaydı. 16. kenar öğeleri cal.u ile köşeye göre fotoğraftaki yerlerine (+0.72 m) alındı; ek yapı ve camlı oda batı kenarları yeni duvara bağlandı. Değiştirilmeyenler: güney duvarlar 11/16 (SV: 0.3–1 m kuzey; hava saçağı: saçak dış kenarı görünen −69.45 (x 283) / −70.25 (x 298), eğim 0.311, saçak ≈22.9 m, taşma 0.6–0.9 → duvar izle aynı ya da 0.3–0.6 m güneyde — çelişkili, ±0.5); 10. kenar ≈0.4 m kısalığı (UXy7 6.75 / 2Qtex 6.9 — 10. nokta girinti yedirmesinin ±0.4 belirsizliği içinde, güney duvar kararıyla bağlantılı). Doğu kavisli çıkma (18–20): hava saçağı + 0.6 taşma duvarı 0.1–0.65 m batıda gösteriyor, cephe şeridi daha fazla — tutarsız, değiştirilmedi (±0.6).",
+  "v6 geçişi (2026-09-29): orta ayak aplikleri (13, lamp K1–K6, yRel 2.3), K3 kırmızı örtü (8, banner plain), ek yapı korkuluğu yalnız güney yüzü (railEdges). Kavisli loca önleri: fotoğraflarda ön kenar kirişler boyunca düz, kavis köşelerde → bulge yazılmadı (pending). Camlı oda glazing.edges [2] v6 hacim kenarı düzeltmesiyle güney yüzünde (değişiklik yok)."
  ],
  "pending": [
-  {
-   "what": "apartment-sconces",
-   "edge": 13,
-   "ref": "1540901770_13_EIX3i6Md.jpg",
-   "u": [
-    1.64,
-    2.2
-   ],
-   "yRel": "her katta lento çizgisinin ≈0.3 m üstü (döşemeden ≈2.55 m)",
-   "storeys": [
-    1,
-    6
-   ],
-   "size": [
-    0.12,
-    0.22
-   ],
-   "proud": 0.12,
-   "color": "#3a3a38",
-   "desc": "Güney cumba orta ayağında her katta yan yana iki küçük silindir duvar aplik (koyu gri gövde, beyaz uç); 2014, 2019 ve 2025 karelerinde var. (v6: duvar aplikleri bekleniyor.)"
-  },
   {
    "what": "curved-loggia-fronts",
    "edges": [
@@ -1335,23 +1344,7 @@
     13,
     14
    ],
-   "desc": "Batı cam yığınlarının uçları 45° pahlı (9. kenar YENİ ortoda u 2.25–3.05; kuzey uç 7. kenarda görülmedi); güney cumba locaalarının döşeme alınları planda dışbükey kavisli (ayaktan köşeye geri kıvrılıyor), köşede cumba batı yan yüzüne (12) dönüyor (2Qtex 12. kenar ortosunda korkuluklar köşede yay çiziyor). v5 `bulge`/`round` yalnız TAŞAN balkonda çalışıyor; bunlar 1.4 m derin gömük localar (tavan spotu, arka duvar görülüyor) — bulge ile taşan balkona çevirmek loca derinliğini yok ediyor. İz kirişleri (12/13/14) kavsi zaten yaklaşık izliyor. ÜRETİCİ İSTEĞİ: gömük locada kavisli ön kenar (sehim ≈0.1–0.2, 13/14 kirişleri) ve pah/yuvarlatma (9. kenar ucu 0.8 m pah)."
-  },
-  {
-   "what": "balcony flag/cloth (v6)",
-   "edge": 8,
-   "ref": "1540901770_8_JWAUhRP4.jpg",
-   "storey": 3,
-   "u": [
-    5.1,
-    5.85
-   ],
-   "y": [
-    11.66,
-    11.98
-   ],
-   "color": "#a46d73 (bulutlu, küçük öğe; doygunluk düşük ölçülmüş olabilir)",
-   "desc": "Güney cam yığınının K3 buzlu cam korkuluğunun dış yüzüne asılı ≈0.75×0.3 m kırmızı örtü/bayrak (içinde beyaz leke — Türk bayrağı olabilir, seçilemedi). JWAU 2025-09."
+   "desc": "v6 kontrolü (2026-09-29): kavisli gömük loca (d<0.35 + inset + bulge) desteklendi ama fotoğraflar ÖN KENARIN kiriş boyunca düz olduğunu gösteriyor: EIX3i6 (2014, 10.8 m, cepheden) 13. kenar batı locası K6 korkuluk üstü u −1.2/−0.6/0/0.6/1.1 → y 21.98/22.00/22.02/22.05/22.00 (K6 ≈19 m kamera ufkunun üstünde: 0.1 m sehim ≈0.18 m görünen kayma yapardı → ön kenar ±0.02 m düz); 14. kenar (EIX3i6) doğu locası korkulukları da yatay-düz. Kavis yalnız köşelerde (12/13 ve 14/15 dönüşleri, 2Qtex 12 ortosunda korkuluk köşede yay çiziyor) ve loca tavan/arka duvar çizgilerinde → taban izi İÇİNDE yuvarlatma, v6'da da desteklenmiyor. Hava fotoğrafında güney cumba döşeme şeritleri her locada düz, cumba saçağı kavisli (≈8.2 m kirişte ≈1.2 m sehim, köşeler dahil). Batı cam yığınlarının uçları 45° pahlı (9. kenar u 2.25–3.05; kuzey uç 7. kenarda görülmedi) — taban izi içinde pah, desteklenmiyor. bulge YAZILMADI (düz ön kenarı eğmek fotoğrafa aykırı)."
   }
  ],
  "volumes": [
@@ -1411,10 +1404,13 @@
     "color": "#b8c6ca",
     "rail": "glassFull",
     "railC": "#bfc3c1",
-    "glassC": "#a1a9a6"
+    "glassC": "#a1a9a6",
+    "railEdges": [
+     2
+    ]
    },
    "collide": true,
-   "note": "Doğudaki 1 katlı ek yapı. Güney yüzü EIX3i6 2014 / Dr35 2019 / 2Qtex 2025: bordo-kırmızı sıva (#79504f 2025), üstte ≈0.4 m açık gri-beyaz alın (#b8c6ca), üstünde çerçevesiz buzlu cam korkuluk + paslanmaz dikme/küpeşte (#a1a9a6). Dış hat: doğu x≈304.9 (SV üçgenleme 304.8–305.5 + hava), güney z≈−63.8, kuzey z≈−97.5 (hava), batı binanın doğu duvarı. Çatı ≈5.1 m. Doğu/kuzey yüzleri, kapı/pencereleri ve teras döşeme rengi görülmedi (roofC hava fotoğrafındaki açık teras tonu, yaklaşık). Bina duvarına dayalı kenarlarda da parapet çiziliyor (orada korkuluk görülmedi). | FP-v3 (2026-09-29, taban izi): batı kenarı binanın yeni doğu duvarına bağlandı: (300.5,−63.8)→(299.651,−63.8), eski GD köşe (300.5,−63.47)→yeni GD köşe (299.651,-64.353). Hava fotoğrafında ek yapının güney parapet bandının batı ucu x≈299.5 (5.1 m, eğim düzeltmeli) ile uyumlu."
+   "note": "Doğudaki 1 katlı ek yapı. Güney yüzü EIX3i6 2014 / Dr35 2019 / 2Qtex 2025: bordo-kırmızı sıva (#79504f 2025), üstte ≈0.4 m açık gri-beyaz alın (#b8c6ca), üstünde çerçevesiz buzlu cam korkuluk + paslanmaz dikme/küpeşte (#a1a9a6). Dış hat: doğu x≈304.9 (SV üçgenleme 304.8–305.5 + hava), güney z≈−63.8, kuzey z≈−97.5 (hava), batı binanın doğu duvarı. Çatı ≈5.1 m. Doğu/kuzey yüzleri, kapı/pencereleri ve teras döşeme rengi görülmedi (roofC hava fotoğrafındaki açık teras tonu, yaklaşık). Bina duvarına dayalı kenarlarda da parapet çiziliyor (orada korkuluk görülmedi). | FP-v3 (2026-09-29, taban izi): batı kenarı binanın yeni doğu duvarına bağlandı: (300.5,−63.8)→(299.651,−63.8), eski GD köşe (300.5,−63.47)→yeni GD köşe (299.651,-64.353). Hava fotoğrafında ek yapının güney parapet bandının batı ucu x≈299.5 (5.1 m, eğim düzeltmeli) ile uyumlu. | v6 (2026-09-29): parapet.railEdges [2] (poly[2]→poly[3] = güney yüzü z −63.8): buzlu cam korkuluk yalnız görülen güney yüzünde; doğu/kuzey yüzleri görülmedi, bina duvarına dayalı kenarlarda korkuluk yok."
   },
   {
    "poly": [

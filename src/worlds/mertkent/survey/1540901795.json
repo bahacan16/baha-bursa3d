@@ -8,7 +8,8 @@
     "eave": 0.5,
     "fasciaH": 0.9,
     "pitch": 30,
-    "terrace": true
+    "terrace": true,
+    "fasciaC": "#939796"
   },
   "colors": {
     "plaster": "#d9d9d2",
@@ -75,7 +76,7 @@
           ]
         ]
       },
-      "note": "Kuzey orta çıkıntı (0.8-0.9 m) = koyu gri kutu; her katta iki içe gömük loca, K0-K5 hepsi cam balkon (koyu cam; K5 sağ bölmede beyaz tül → 'blinds' olabilir); aradaki pilastrda boru. Kutu üst saçak alnına kadar çıkar, üstünde iki çatı penceresi (gablet). En alt kat camlarında ferforje. DİKKAT: kutu bu ortoda taban izine göre ~0.8 m batıda (u 0.81-7.25 görünen). v5 (retro): 178_22/Oh3B 200 yakın karelerle kat kat: sol loca K0–K5 cam (K0 önünde kemerli ferforje parmaklık, K4'te arkada beyaz dolap/kapı), sağ loca K0–K4 koyu cam, K5 camın arkasında beyaz tül/stor → blinds. Cam altında ≈0.4 m buzlu cam şerit + ≈0.8 m koyu gri alın bandı (parapetH 0.5). Kutu rengi = balkon alın grisi (gölgede #556775, alın #485b5e ile aynı oran). Eski ölçümdeki orta boru yakın karelerde YOK (iki loca arası düz gri ayak) → silindi.",
+      "note": "Kuzey orta çıkıntı (0.8-0.9 m) = koyu gri kutu; her katta iki içe gömük loca, K0-K5 hepsi cam balkon (koyu cam; K5 sağ bölmede beyaz tül → 'blinds' olabilir); aradaki pilastrda boru. Kutu üst saçak alnına kadar çıkar, üstünde iki çatı penceresi (gablet). En alt kat camlarında ferforje. DİKKAT: kutu bu ortoda taban izine göre ~0.8 m batıda (u 0.81-7.25 görünen). v5 (retro): 178_22/Oh3B 200 yakın karelerle kat kat: sol loca K0–K5 cam (K0 önünde kemerli ferforje parmaklık, K4'te arkada beyaz dolap/kapı), sağ loca K0–K4 koyu cam, K5 camın arkasında beyaz tül/stor → blinds. Cam altında ≈0.4 m buzlu cam şerit + ≈0.8 m koyu gri alın bandı (parapetH 0.5). Kutu rengi = balkon alın grisi (gölgede #556775, alın #485b5e ile aynı oran). Eski ölçümdeki orta boru yakın karelerde YOK (iki loca arası düz gri ayak) → silindi. v6 (2026-09-29): K0 iki locada camın önünde kemerli ferforje parmaklık → bal grille K0 arched, #2f3438 (gölgede), kemer bölmesi ≈0.9 m (Oh3B 200_10: loca başına ≈3 kemer); cam korkuluk dikmeleri postEvery 1.0. Kutunun üstündeki iki gablet (x −52.15 / −56.82) çizilmedi → pending (model çatısı kutu saçağından yükseliyor; gerçek dormer tabanı kutu üstünün arkasında gizli).",
       "items": [
         {
           "t": "panel",
@@ -121,7 +122,13 @@
             "3": "dark",
             "4": "dark",
             "5": "dark"
-          }
+          },
+          "grille": {
+            "K0": "arched"
+          },
+          "grilleC": "#2f3438",
+          "grilleW": 0.9,
+          "postEvery": 1.0
         },
         {
           "t": "bal",
@@ -159,7 +166,13 @@
             "3": "dark",
             "4": "dark",
             "5": "blinds"
-          }
+          },
+          "grille": {
+            "K0": "arched"
+          },
+          "grilleC": "#2f3438",
+          "grilleW": 0.9,
+          "postEvery": 1.0
         }
       ]
     },
@@ -217,7 +230,7 @@
           ]
         ]
       },
-      "note": "Kuzey cephe batı yarısı (kenar 35 aynası). KB köşe: ana balkon (d≈1.5) + köşede sığ parça (d≈0.75). K0 cam balkon; üst katlar açık. Alt katlar ağaç arkasında (otngugWf ile doğrulandı). Balkon arka duvarında küçük pencere, K4'te klima. v5: perdeler Oh3B 200_10 + 8QlT 178_22: K5 tül + lacivert fon (tul-yan), K4 beyaz tül, K3 zebra, K2 tül, K1 tül + koyu fon, K0 çit/ağaç arkasında. Köşe yığını kat kat: K0 cam (önünde kemerli ferforje, bkz. pending), K1–K5 açık buzlu cam korkuluk (dikmeli paneller, üstte paslanmaz küpeşte). K4 arka duvarda klima (K5 döşemesi altında). Alın bandı ≈0.8 m koyu gri, cam ≈0.3–0.4 m.",
+      "note": "Kuzey cephe batı yarısı (kenar 35 aynası). KB köşe: ana balkon (d≈1.5) + köşede sığ parça (d≈0.75). K0 cam balkon; üst katlar açık. Alt katlar ağaç arkasında (otngugWf ile doğrulandı). Balkon arka duvarında küçük pencere, K4'te klima. v5: perdeler Oh3B 200_10 + 8QlT 178_22: K5 tül + lacivert fon (tul-yan), K4 beyaz tül, K3 zebra, K2 tül, K1 tül + koyu fon, K0 çit/ağaç arkasında. Köşe yığını kat kat: K0 cam (önünde kemerli ferforje, bkz. pending), K1–K5 açık buzlu cam korkuluk (dikmeli paneller, üstte paslanmaz küpeşte). K4 arka duvarda klima (K5 döşemesi altında). Alın bandı ≈0.8 m koyu gri, cam ≈0.3–0.4 m. v6: köşe yığını K0 camı önünde kemerli ferforje (Oh3B 200_10 sağ kenar, 178_9) → grille K0 arched (ana + sığ parça); şapka altında gömme spot görüldü (178_22) → ana parçada spots {n 1, cap}; her döşeme altında parça başına 1 spot (üretici varsayılanı zaten); postEvery 1.0. Çatı: gablet (8QlT 178_22, e3 ortosu): tepe görünen u 4.78 y 21.69 → dünya x −62.17 (hava fotoğrafı eğiklik düzeltmesiyle aynı), ön yüz duvar hattında (hava fotoğrafında ön kenar saçak çizgisinde → setback 0), tepe duvar üstünden 2.3 m (22.12), rüzgârlık eğimi ≈41–42° (ortoda), taban genişliği 2.6 (eğim + tepe yüksekliğinden; görünen rüzgârlık açıklığı 2.85 ≈ w + 2·0.1), ön yüz kiremit tonlu (gölgede #87746d–#9d8484 → #b99a92), rüzgârlık kiremit #a4735f, beyaz çerçeveli pencere (gerçekte alınlık biçimli beşgen, üretici dikdörtgen: 1.2 m, 3 bölme). Alt kısmı saçak alnı arkasında görülmedi.",
       "items": [
         {
           "t": "panel",
@@ -310,6 +323,16 @@
           "railC": "#c9cdcf",
           "glassC": {
             "*": "#b9cac8"
+          },
+          "grille": {
+            "K0": "arched"
+          },
+          "grilleC": "#2f3438",
+          "grilleW": 0.9,
+          "postEvery": 1.0,
+          "spots": {
+            "n": 1,
+            "cap": true
           }
         },
         {
@@ -335,7 +358,13 @@
           "railC": "#c9cdcf",
           "glassC": {
             "*": "#b9cac8"
-          }
+          },
+          "grille": {
+            "K0": "arched"
+          },
+          "grilleC": "#2f3438",
+          "grilleW": 0.9,
+          "postEvery": 1.0
         },
         {
           "t": "pipe",
@@ -364,6 +393,28 @@
           "except": [
             4
           ]
+        },
+        {
+          "t": "dormer",
+          "x": -62.17,
+          "z": -123.09,
+          "w": 2.6,
+          "setback": 0,
+          "ridge": 2.3,
+          "wallH": 0,
+          "pitch": 42,
+          "color": "#b99a92",
+          "roofC": "tile",
+          "trim": {
+            "w": 0.12,
+            "color": "#a4735f"
+          },
+          "win": {
+            "w": 1.2,
+            "h": 0.8,
+            "sill": 0.1,
+            "split": 3
+          }
         }
       ]
     },
@@ -445,7 +496,8 @@
           "railC": "#c9cdcf",
           "glassC": {
             "*": "#b9cac8"
-          }
+          },
+          "postEvery": 1.0
         }
       ]
     },
@@ -655,7 +707,7 @@
           ]
         ]
       },
-      "note": "SATILIK/KİRALIK tabelalı balkon yığını: taban izinin 7-8-9 çıkıntısı balkon kütlesinin kendisi (ön yüz kenar 8 çizgisinde, WD ile kat aralığı ~2.86 → düzlemde). Balkonların arka duvarı ~0.95 m içeride (kenar 6 hizası); üretici bunu loca/içe gömük balkon olarak yapmalı. K0-K2 ve K5 cam balkon (K1'de KİRALIK afişi), K3-K4 açık cam korkuluk; arkada 3 kanatlı kapı-pencere; üstte şapka. WD'de yığın taban izine göre ~1.4 m kuzeyde. v5: K0–K2 koyu yansımalı cam, K1 camında KİRALIK brandası, K3–K4 açık buzlu cam korkuluk (arkada beyaz tüllü 3 kanatlı kapı-pencere), K5 çerçevesiz şeffaf cam. Cam korkuluk dikmeli paneller (≈1 m), üst küpeşte paslanmaz. Yığının güney yanında açık gri yağmur borusu. v5 (2026-09-29): loca derinliği inset 0.95 (arka duvar kenar 6 hizasında, ≈0.95 m = kenar 7 boyu; WD/ybQK; önceden üretici varsayılanı 1.1).",
+      "note": "SATILIK/KİRALIK tabelalı balkon yığını: taban izinin 7-8-9 çıkıntısı balkon kütlesinin kendisi (ön yüz kenar 8 çizgisinde, WD ile kat aralığı ~2.86 → düzlemde). Balkonların arka duvarı ~0.95 m içeride (kenar 6 hizası); üretici bunu loca/içe gömük balkon olarak yapmalı. K0-K2 ve K5 cam balkon (K1'de KİRALIK afişi), K3-K4 açık cam korkuluk; arkada 3 kanatlı kapı-pencere; üstte şapka. WD'de yığın taban izine göre ~1.4 m kuzeyde. v5: K0–K2 koyu yansımalı cam, K1 camında KİRALIK brandası, K3–K4 açık buzlu cam korkuluk (arkada beyaz tüllü 3 kanatlı kapı-pencere), K5 çerçevesiz şeffaf cam. Cam korkuluk dikmeli paneller (≈1 m), üst küpeşte paslanmaz. Yığının güney yanında açık gri yağmur borusu. v5 (2026-09-29): loca derinliği inset 0.95 (arka duvar kenar 6 hizasında, ≈0.95 m = kenar 7 boyu; WD/ybQK; önceden üretici varsayılanı 1.1). v6: loca arka duvarı pencereleri behind 0.95 (ortofoto ön düzlem ölçeği arka duvara çevrilir). postEvery 1.0.",
       "items": [
         {
           "t": "win",
@@ -672,7 +724,8 @@
           "curt": {
             "K3": "tul",
             "K4": "tul"
-          }
+          },
+          "behind": 0.95
         },
         {
           "t": "bal",
@@ -707,7 +760,8 @@
           "glassC": {
             "*": "#b9cac8"
           },
-          "inset": 0.95
+          "inset": 0.95,
+          "postEvery": 1.0
         },
         {
           "t": "sign",
@@ -994,7 +1048,7 @@
           ]
         ]
       },
-      "note": "Girintinin güneyindeki balkon kütlesi (taban izi çıkıntısı = balkon, derinlik ≈ kenar 13 = 1.4 m; ön yüz düzlemde). K0 koyu cam, K1 beyaz katlanır cam, K5 cam; K2-K4 açık cam korkuluk; arkada 3 kanatlı pencere/kapı. Kuzey ucunda boru; üstte büyük şapka. v5: WD 96_4/83_4: K0 koyu yansımalı cam, K1 beyaz çerçeveli katlanır cam (yarı açık, sağda açık kapı), K2–K4 açık buzlu cam korkuluk (arkada tüllü pencere-kapı), K5 çerçevesiz şeffaf cam. Güney ucunda (u≈4.2) çatıdan inen açık gri boru ortoda görüldü; kuzey ucundaki boru (u 0.8) kenar 11 kaydından. v5 (2026-09-29): loca derinliği inset 1.41 (kütle derinliği = kenar 13 boyu 1.41 m; WD 96_4; önceden üretici varsayılanı 1.1).",
+      "note": "Girintinin güneyindeki balkon kütlesi (taban izi çıkıntısı = balkon, derinlik ≈ kenar 13 = 1.4 m; ön yüz düzlemde). K0 koyu cam, K1 beyaz katlanır cam, K5 cam; K2-K4 açık cam korkuluk; arkada 3 kanatlı pencere/kapı. Kuzey ucunda boru; üstte büyük şapka. v5: WD 96_4/83_4: K0 koyu yansımalı cam, K1 beyaz çerçeveli katlanır cam (yarı açık, sağda açık kapı), K2–K4 açık buzlu cam korkuluk (arkada tüllü pencere-kapı), K5 çerçevesiz şeffaf cam. Güney ucunda (u≈4.2) çatıdan inen açık gri boru ortoda görüldü; kuzey ucundaki boru (u 0.8) kenar 11 kaydından. v5 (2026-09-29): loca derinliği inset 1.41 (kütle derinliği = kenar 13 boyu 1.41 m; WD 96_4; önceden üretici varsayılanı 1.1). v6: arka duvar pencereleri behind 1.41; postEvery 1.0.",
       "items": [
         {
           "t": "win",
@@ -1012,7 +1066,8 @@
             "K2": "tul",
             "K3": "tul",
             "K4": "tul"
-          }
+          },
+          "behind": 1.41
         },
         {
           "t": "bal",
@@ -1045,7 +1100,8 @@
           "glassC": {
             "*": "#b9cac8"
           },
-          "inset": 1.41
+          "inset": 1.41,
+          "postEvery": 1.0
         },
         {
           "t": "pipe",
@@ -1298,7 +1354,8 @@
           "railC": "#c9cdcf",
           "glassC": {
             "*": "#b9cac8"
-          }
+          },
+          "postEvery": 1.0
         }
       ]
     },
@@ -1323,7 +1380,7 @@
           ]
         ]
       },
-      "note": "Güney cephe batı yarısı, çok eğik (agzpWIde u_cam −12.7): GB köşe balkonları (K5 cam) + şerit sütunu (K3-K5 fransız pencere, K0-K2 dar pencere) + kutuya komşu boru. Güney cephede üst gri pano yok, duvar açık krem. Balkon bantları bindirmede ~0.5 m yüksek çıkıyor (eğik bakışta büyütme modeli), pencereler oturuyor. v5: agzp güneşli: K3–K5 fransız pencerelerde beyaz tül, K2 tül; K0–K1 çam ağacı arkasında. Güneşli sıva aşırı pozlanmış (#ece9e0), şerit #f7d3a9 (patlamış) → palet gölge oranlarından.",
+      "note": "Güney cephe batı yarısı, çok eğik (agzpWIde u_cam −12.7): GB köşe balkonları (K5 cam) + şerit sütunu (K3-K5 fransız pencere, K0-K2 dar pencere) + kutuya komşu boru. Güney cephede üst gri pano yok, duvar açık krem. Balkon bantları bindirmede ~0.5 m yüksek çıkıyor (eğik bakışta büyütme modeli), pencereler oturuyor. v5: agzp güneşli: K3–K5 fransız pencerelerde beyaz tül, K2 tül; K0–K1 çam ağacı arkasında. Güneşli sıva aşırı pozlanmış (#ece9e0), şerit #f7d3a9 (patlamış) → palet gölge oranlarından. v6: çatının güney yüzünde gablet: agzp ortosunda yalnız tepesi (u≈1.6, y≈21.5), hava fotoğrafında güney eğimde 4 gablet (beyaz ön yüz + gölge kaması, x −63.4, −58.5, −53.7, −48.8, eğiklik düzeltmeli) → bu kenarda x −63.6 (SV −63.8 / hava −63.4); ön yüzü görülmedi → ölçüleri kuzey gabletlerinden (simetrik tasarım, ridge 2.35, w 2.6, pencere). postEvery 1.0.",
       "items": [
         {
           "t": "strip",
@@ -1414,13 +1471,36 @@
           "railC": "#c9cdcf",
           "glassC": {
             "*": "#b9cac8"
-          }
+          },
+          "postEvery": 1.0
         },
         {
           "t": "pipe",
           "u": 6.4,
           "color": "#d9d9d6",
           "r": 0.045
+        },
+        {
+          "t": "dormer",
+          "x": -63.6,
+          "z": -95.4,
+          "w": 2.6,
+          "setback": 0,
+          "ridge": 2.35,
+          "wallH": 0,
+          "pitch": 42,
+          "color": "#b99a92",
+          "roofC": "tile",
+          "trim": {
+            "w": 0.12,
+            "color": "#a4735f"
+          },
+          "win": {
+            "w": 1.2,
+            "h": 0.8,
+            "sill": 0.1,
+            "split": 3
+          }
         }
       ]
     },
@@ -1568,7 +1648,8 @@
             5
           ],
           "kind": "door",
-          "split": 3
+          "split": 3,
+          "behind": 1.1
         },
         {
           "t": "win",
@@ -1582,7 +1663,8 @@
             5
           ],
           "kind": "door",
-          "split": 3
+          "split": 3,
+          "behind": 1.1
         }
       ]
     },
@@ -1637,7 +1719,7 @@
       "edge": 21,
       "len": 8.33,
       "seen": "none",
-      "note": "Güney cephenin doğu yarısı; görülmedi. Kenar 17 aynası (yalnız geometri: şerit, pencere, balkon; perde/cam balkon bilinmiyor).",
+      "note": "Güney cephenin doğu yarısı; görülmedi. Kenar 17 aynası (yalnız geometri: şerit, pencere, balkon; perde/cam balkon bilinmiyor). v6: güney çatıda gablet x −48.8 (yalnız hava fotoğrafı; SV'de görülmedi; ölçüler kuzey gabletlerinden).",
       "items": [
         {
           "t": "strip",
@@ -1721,6 +1803,28 @@
           "u": -0.06,
           "color": "#d9d9d6",
           "r": 0.045
+        },
+        {
+          "t": "dormer",
+          "x": -48.8,
+          "z": -94.6,
+          "w": 2.6,
+          "setback": 0,
+          "ridge": 2.35,
+          "wallH": 0,
+          "pitch": 42,
+          "color": "#b99a92",
+          "roofC": "tile",
+          "trim": {
+            "w": 0.12,
+            "color": "#a4735f"
+          },
+          "win": {
+            "w": 1.2,
+            "h": 0.8,
+            "sill": 0.1,
+            "split": 3
+          }
         }
       ],
       "ref": "1540901795_17_agzpWIde.jpg",
@@ -1967,7 +2071,8 @@
             0,
             5
           ],
-          "split": 3
+          "split": 3,
+          "behind": 1.25
         },
         {
           "t": "bal",
@@ -2223,7 +2328,8 @@
             0,
             5
           ],
-          "split": 3
+          "split": 3,
+          "behind": 1.0
         },
         {
           "t": "bal",
@@ -2503,7 +2609,7 @@
           ]
         ]
       },
-      "note": "Kuzey cephe doğu yarısı. KD köşe balkon yığını: ana ön (d≈1.5) + köşe ucunda sığ parça (d≈0.75, 1.3 m) — köşe basamaklı, balkonlar doğuya taşmaz, doğuda ayrı balkon (kenar 34). K0 ve K4 cam balkon (K0 ferforje korumalı). Balkon iç ucunda boru; balkon arka duvarında küçük pencere + K5'te klima. Şerit sütunu: K3-K5 geniş 3 kanatlı fransız pencere + çelik korkuluk, üst şerit çifti geniş aralıklı; K0-K2 dar pencere, alt şerit çifti dar. K3 pencere altından saçağa kadar orta gri sıva panosu, altı açık. KD duvar köşesi balkonların arkasında görünmez; uA sığ parçanın ucundan tahmin. Orto kuzey (gölge). v5: 178_22 yakın kare: K3–K5 fransız pencerelerde beyaz tül + gri-mavi kruvaze fon (tul-yan), K1–K2 dar pencerelerde beyaz tül; K3 korkuluğunun sol altında asılı Türk bayrağı. Köşe yığını: K4 koyu mavi cam balkon (sığ parça dahil), K0 cam + ferforje, K1–K3 ve K5 açık buzlu cam korkuluk. K5 arka duvarda klima, K2/K3/K5 arka duvarda küçük beyaz pencere. Balkon ve saçak altlarında gömme spot (pending). Boru açık gri (#9ea3a5 gölgede).",
+      "note": "Kuzey cephe doğu yarısı. KD köşe balkon yığını: ana ön (d≈1.5) + köşe ucunda sığ parça (d≈0.75, 1.3 m) — köşe basamaklı, balkonlar doğuya taşmaz, doğuda ayrı balkon (kenar 34). K0 ve K4 cam balkon (K0 ferforje korumalı). Balkon iç ucunda boru; balkon arka duvarında küçük pencere + K5'te klima. Şerit sütunu: K3-K5 geniş 3 kanatlı fransız pencere + çelik korkuluk, üst şerit çifti geniş aralıklı; K0-K2 dar pencere, alt şerit çifti dar. K3 pencere altından saçağa kadar orta gri sıva panosu, altı açık. KD duvar köşesi balkonların arkasında görünmez; uA sığ parçanın ucundan tahmin. Orto kuzey (gölge). v5: 178_22 yakın kare: K3–K5 fransız pencerelerde beyaz tül + gri-mavi kruvaze fon (tul-yan), K1–K2 dar pencerelerde beyaz tül; K3 korkuluğunun sol altında asılı Türk bayrağı. Köşe yığını: K4 koyu mavi cam balkon (sığ parça dahil), K0 cam + ferforje, K1–K3 ve K5 açık buzlu cam korkuluk. K5 arka duvarda klima, K2/K3/K5 arka duvarda küçük beyaz pencere. Balkon ve saçak altlarında gömme spot (pending). Boru açık gri (#9ea3a5 gölgede). v6: K0 kemerli ferforje (ana + sığ parça) → grille K0 arched; şapka altında spot (178_22) → ana parçada spots {n 1, cap}; postEvery 1.0. K3 fransız pencere korkuluğunun sol ucuna asılı, kıvrılmış Türk bayrağı (8QlT 178_9/178_22, ortoda u 6.45–7.07 y 10.73–11.9) → banner tr-v d 0.08 (eski düz `flag` u 6.1 kaldırıldı; bayrak asılı olduğu için yassı dikey bayrak yaklaşımı). Gablet: tepe görünen u 4.73 y 21.86 → dünya x −46.85, setback 0, ridge 2.45 (22.27), w 2.7, eğim 42° (görünen rüzgârlık açıklığı 2.96), renkler kenar 3'teki gibi.",
       "items": [
         {
           "t": "panel",
@@ -2601,6 +2707,16 @@
           "railC": "#c9cdcf",
           "glassC": {
             "*": "#b9cac8"
+          },
+          "grille": {
+            "K0": "arched"
+          },
+          "grilleC": "#2f3438",
+          "grilleW": 0.9,
+          "postEvery": 1.0,
+          "spots": {
+            "n": 1,
+            "cap": true
           }
         },
         {
@@ -2631,7 +2747,13 @@
           "railC": "#c9cdcf",
           "glassC": {
             "*": "#b9cac8"
-          }
+          },
+          "grille": {
+            "K0": "arched"
+          },
+          "grilleC": "#2f3438",
+          "grilleW": 0.9,
+          "postEvery": 1.0
         },
         {
           "t": "pipe",
@@ -2663,10 +2785,35 @@
           ]
         },
         {
-          "t": "flag",
-          "u": 6.1,
-          "s": 3,
-          "y": 11
+          "t": "banner",
+          "u0": 6.45,
+          "u1": 7.07,
+          "y0": 10.73,
+          "y1": 11.9,
+          "d": 0.08,
+          "style": "tr-v"
+        },
+        {
+          "t": "dormer",
+          "x": -46.85,
+          "z": -122.37,
+          "w": 2.7,
+          "setback": 0,
+          "ridge": 2.45,
+          "wallH": 0,
+          "pitch": 42,
+          "color": "#b99a92",
+          "roofC": "tile",
+          "trim": {
+            "w": 0.12,
+            "color": "#a4735f"
+          },
+          "win": {
+            "w": 1.2,
+            "h": 0.8,
+            "sill": 0.1,
+            "split": 3
+          }
         }
       ]
     }
@@ -2686,34 +2833,21 @@
     "v5 balkon ölçüsü: koyu gri alın bandı (döşeme + dolu parapet) görünen ≈0.76–0.8 m, üstünde ≈0.3–0.45 m buzlu cam + paslanmaz küpeşte → rail 'glass', parapetH 0.6 (kuzey kutusu locaları 0.5). Eleştirmenin 'alın 35–45 cm beyaz/açık gri' notu BU blok için geçerli değil: fotoğraflarda alınlar koyu gri ve kalın.",
     "v5 görülmeyen kenarlar (19–33 doğu ve güney-doğu): copyOf yerine açık ayna öğeleri yazıldı; perde, ilan, klima, cam balkon katları kopyalanmadı (bilinmiyor). Kenar 19 (güney kutusu önü) hâlâ tahmini düzen.",
     "v5 (2026-09-29): \"Cam korkuluk dikmeleri\" pending maddesi kapatıldı — üretici glass tipinde cam panelleri ≈1.2 m arayla paslanmaz dikme + küpeşte ile çiziyor (fotoğrafta ≈1.0 m arayla; fark küçük). Balkon kütlelerinin (8, 12 ve aynaları 30, 26) loca derinlikleri inset ile verildi (not 4'teki \"üretici loca yapmalı\" isteği karşılandı: d<0.35 balkonlar loca olarak çiziliyor). Kalan pending: K0 kemerli ferforje (v6 süs parmaklığı), gömme spotlar (v6), çatı gabletleri (v6 çatı penceresi).",
-    "v5 (2026-09-29): yağmur boruları açık gri ince PVC (8QlT kenar 35 ortosunda görünen genişlik ≈0.09 m, gölgede #9ea3a5 — duvarla aynı açıklıkta; WD kenar 8/12 \"açık gri boru\") → pipe color #d9d9d6, r 0.045 (tüm borular; görülmeyen ayna kenarlarda aynı sistem varsayıldı)."
+    "v5 (2026-09-29): yağmur boruları açık gri ince PVC (8QlT kenar 35 ortosunda görünen genişlik ≈0.09 m, gölgede #9ea3a5 — duvarla aynı açıklıkta; WD kenar 8/12 \"açık gri boru\") → pipe color #d9d9d6, r 0.045 (tüm borular; görülmeyen ayna kenarlarda aynı sistem varsayıldı).",
+    "v6 (2026-09-29): saçak alnı rengi roof.fasciaC #939796 — kuzey gölgede saçak alnı #66717a/#596a73, üst gri pano #7b858a (plaster2 #aeb0ad) → oran 0.84; önceden plaster2 çiziliyordu (fotoğrafta panodan koyu, balkon alınlarından açık). Gabletler: kuzeyde 4 (x −46.85 e35, −52.15 ve −56.82 e1 kutusu üstü, −62.17 e3), güneyde hava fotoğrafında 4 (x −63.4, −58.5, −53.7, −48.8); kanat üstündekiler (e3, e35, e17, e21) dormer olarak çizildi, kutu (e1, e19) üstündekiler pending. Cam korkuluk dikmeleri görülen kenarlarda postEvery 1.0 (görülmeyen ayna kenarlarda varsayılan 1.2 kaldı). Loca arka duvar pencerelerine behind eklendi (8, 12; görülmeyen 19, 26, 30'da etkisiz, belge için)."
   ],
   "pending": [
     {
-      "what": "K0 cam balkon/loca önünde kemerli ferforje parmaklık",
+      "what": "gablet-over-box",
       "edges": [
         1,
-        3,
-        35
+        19
       ],
-      "storey": 0,
-      "desc": "K0 cam balkonların (kuzey kutusu iki loca, KB ve KD köşe yığınları) camın dış yüzünde koyu antrasit (#2f3438 gölgede) demir parmaklık: dikey çubuklar ≈12 cm aralık, üstte yarım daire kemerler (her cam bölmesine bir kemer, ≈0.9 m genişlik), camın tam yüksekliği. Bal öğesinde grille alanı yok. v5'te karşılığı yok (win.grille yalnız pencere; bal öğesinde parmaklık alanı yok) → v6 süs parmaklığı."
+      "desc": "Orta kutuların (kuzey e1, güney e19) üstündeki gabletler: kuzey x −52.15 ve −56.82 (e1 ortosu tepe görünen u 1.81/6.35, y 21.16/21.175; rüzgârlık uçları görünen u 0.45 → y 20.0), güney x −58.5 ve −53.7 (yalnız hava fotoğrafı). Kutu üstü (y≈20.5 görünen) gabletlerin alt yarısını gizliyor; boyut oranından ön yüzleri kutu yüzünün ≈1.2–2.5 m gerisinde (kanat duvar hattında), tepe ≈22.0–22.2. Modeldeki birleşik kırma çatı kutu saçağından yükseldiği için bu noktada çatı zaten ≈21.55–21.94 → dormer 0.3–0.6 m yüksekliğe iniyor / pencere sığmıyor. Gerekli: kutu üstünde düz dam (ya da çatı eğiminin kanat duvar hattından başlaması) → sonra dormer {x, z, w 2.6–2.7, ridge ≈2.3–2.4, wallH 0, pitch 42}."
     },
     {
-      "what": "Balkon ve saçak altı gömme spotlar",
-      "edges": [
-        3,
-        4,
-        8,
-        12,
-        16,
-        35
-      ],
-      "desc": "Her balkon döşemesi altında ve köşe şapka altında 1–2 adet yuvarlak gömme spot (Ø≈10 cm, beyaz). Gece ışığı değil, yalnız görsel. Not: üretici loca tavanlarına ve taşan balkon altlarına (K>0) şu an kat başına tek spot koyuyor (merkezde); köşe şapkası altı ve 2. spot yok → v6."
-    },
-    {
-      "what": "Kuzey çatı yüzünde üçgen alınlı çatı pencereleri (gablet)",
-      "desc": "Kuzey kiremit yüzünde 4 adet (x≈−46.9, −52.1, −56.8, −62.2), güneyde en az 2: ≈1.6 m geniş, ≈1.2 m yüksek, alın kırmızı-kahve kiremit kenarlı, beyaz çerçeveli iki kanatlı pencere, üçgen alınlık krem. 8QlT 178_22'de net görülüyor."
+      "what": "gablet-window-shape",
+      "desc": "Tüm gabletlerde pencere alınlık biçimli (düşey yanlar ≈0.3 m + üstü alınlık eğimine paralel, 3–4 dikey kayıt, beyaz çerçeve; 8QlT 178_22) ve alınlığın çoğunu kaplıyor; üretici dikdörtgen (1.2 m) çiziyor."
     }
   ]
 }
