@@ -14,6 +14,8 @@ export interface Settings {
    * film greni, TAA…). `quality` 'high' ile birlikte kullanılır. KARAR (kullanıcı): mobilde açılmasa da olur.
    */
   ultra: boolean;
+  /** Kullanıcı Ultra'yı menüden kendisi seçti → zayıf/tümleşik GPU algılansa da açılır. */
+  ultraExplicit?: boolean;
 }
 
 const KEY = 'nilufer-walk.settings';

@@ -109,9 +109,12 @@ export class Game {
       preserveDrawingBuffer: new URLSearchParams(location.search).has('debug'),
     }));
     const forceUltra = new URLSearchParams(location.search).get('q') === 'ultra';
-    // KARAR: Ultra yalnız masaüstü + donanım GPU'da kendiliğinden açılır (yazılım işleyicide çok yavaş)
+    // KARAR: Ultra kendiliğinden yalnız masaüstü + ayrık GPU'da açılır (yazılım işleyici / tümleşik GPU'da çok
+    // yavaş); menüden açıkça seçilirse veya ?q=ultra ile her zaman.
     this.ultra =
-      settings.ultra && settings.quality === 'high' && (forceUltra || (!this.isTouch && !weakGpu(r)));
+      settings.ultra &&
+      settings.quality === 'high' &&
+      (forceUltra || !!settings.ultraExplicit || (!this.isTouch && !weakGpu(r)));
     ultraState.on = this.ultra;
     if (this.ultra) installUltraChunks();
     const maxDpr = this.isTouch ? 1.5 : settings.quality === 'high' ? 2 : 1.25;

@@ -201,6 +201,15 @@ export class PostFX {
     }
     this.bloom = new UnrealBloomPass(new THREE.Vector2(size.x, size.y), 0.2, 0.5, 0.85);
     this.composer.addPass(this.bloom);
+    if (ultra) {
+      // Ultra: parlak kaynakları sensör doygunluğu gibi sınırla (güneş diski ~6e4 → tüm kareye perde yaymasın)
+      const hp = this.bloom.materialHighPassFilter;
+      hp.fragmentShader = hp.fragmentShader.replace(
+        'vec4 texel = texture2D( tDiffuse, vUv );',
+        'vec4 texel = texture2D( tDiffuse, vUv );\n\t\t\ttexel.rgb *= min( 1.0, 40.0 / max( max( texel.r, max( texel.g, texel.b ) ), 1e-4 ) );',
+      );
+      hp.needsUpdate = true;
+    }
     if (!this.taa) {
       this.smaa = new SMAAPass();
       this.composer.addPass(this.smaa);
@@ -254,9 +263,9 @@ export class PostFX {
       // Ultra gündüz: yalnız çok parlak kaynaklar (güneş diski, camlarda/araçlarda güneş parıltısı) — gökyüzü
       // eşiğin çok altında kaldığı için mavi perde oluşmaz. Lens saçılması gibi geniş ve zayıf.
       this.bloom.enabled = true;
-      this.bloom.strength = 0.32;
-      this.bloom.radius = 0.7;
-      this.bloom.threshold = 14;
+      this.bloom.strength = 0.25;
+      this.bloom.radius = 0.6;
+      this.bloom.threshold = 6;
       return;
     }
     // KARAR: gündüz bloom kapalı — HDR gökyüzü eşiği aşıp ağaç/bina silüetlerine mavi bir perde yayıyordu.

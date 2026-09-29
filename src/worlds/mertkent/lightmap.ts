@@ -364,8 +364,10 @@ export function unwrapChunk(
       const h = Math.ceil(c.h / texel);
       const tiny = w <= 2 && h <= 2;
       tinyF[i] = tiny ? 1 : 0;
-      dims[i * 2] = tiny ? 4 : Math.max(1, w) + 2 * opts.pad;
-      dims[i * 2 + 1] = tiny ? 4 : Math.max(1, h) + 2 * opts.pad;
+      // 4 px ızgarasına hizalı dikdörtgenler: mip 0–2 seviyelerinde adalar birbirine karışmaz (gizli yüzlerin siyahı
+      // uzakta görünen yüzlere sızmaz)
+      dims[i * 2] = tiny ? 4 : (Math.max(1, w) + 2 * opts.pad + 3) & ~3;
+      dims[i * 2 + 1] = tiny ? 4 : (Math.max(1, h) + 2 * opts.pad + 3) & ~3;
       area += dims[i * 2] * dims[i * 2 + 1];
     });
     let S = 64;

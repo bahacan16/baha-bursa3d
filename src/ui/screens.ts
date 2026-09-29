@@ -65,6 +65,7 @@ export function showStartScreen(
         b.addEventListener('click', () => {
           const v = b.dataset.v!;
           settings.ultra = v === 'ultra';
+          settings.ultraExplicit = v === 'ultra';
           settings.quality = (v === 'ultra' ? 'high' : v) as Settings['quality'];
           saveSettings(settings);
           render();

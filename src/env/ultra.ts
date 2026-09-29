@@ -33,13 +33,15 @@ if (q.has('haze')) ultraState.hazeDensity = Number(q.get('haze'));
  * kenarı daha yumuşak görünür → ~1.1° (Street View ağaç gölgelerinden göz kararı; ?pcss= ile denenebilir). */
 const SUN_DIAM = (Number(q.get('pcss') ?? 1.1) * Math.PI) / 180;
 
-/** Yazılım işleyici (SwiftShader/llvmpipe) veya bilinen zayıf GPU → Ultra otomatik açılmaz (açıkça ?q=ultra hariç). */
+/** Yazılım işleyici (SwiftShader/llvmpipe) veya tümleşik/mobil GPU → Ultra kendiliğinden açılmaz. */
 export function weakGpu(renderer: THREE.WebGLRenderer): boolean {
   try {
     const gl = renderer.getContext();
     const ext = gl.getExtension('WEBGL_debug_renderer_info');
     const name = String(ext ? gl.getParameter(ext.UNMASKED_RENDERER_WEBGL) : gl.getParameter(gl.RENDERER));
-    return /swiftshader|llvmpipe|software|softpipe|microsoft basic/i.test(name);
+    return /swiftshader|llvmpipe|software|softpipe|microsoft basic|intel|mali|adreno|powervr|radeon\(tm\) graphics|vega \d+ graphics/i.test(
+      name,
+    );
   } catch {
     return false;
   }

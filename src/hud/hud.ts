@@ -267,6 +267,7 @@ export class Hud {
             v !== (s.ultra && s.quality === 'high' ? 'ultra' : s.quality)
           ) {
             s.ultra = v === 'ultra';
+            s.ultraExplicit = v === 'ultra';
             s.quality = (v === 'ultra' ? 'high' : v) as Quality;
             saveSettings(s);
             location.reload();

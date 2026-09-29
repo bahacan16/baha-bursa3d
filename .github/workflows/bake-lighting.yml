@@ -1,0 +1,103 @@
+# Pişirilmiş dolaylı ışık (docs/BAKE.md): oyunu derle → el modelini dışa aktar → Blender (bpy) Cycles ile pişir →
+# public/bake/ commit'le. Oyun Ultra kalitede (veya ?bake=1) bu dokuları kullanır; kaynak değişince eski parçalar
+# kendiliğinden canlı ışığa döner (parça imzası).
+name: Bake lighting
+
+on:
+  workflow_dispatch:
+    inputs:
+      samples:
+        description: 'Cycles örnek sayısı (ratio)'
+        default: '64'
+      texel:
+        description: 'Doku yoğunluğu (m/px)'
+        default: '0.08'
+      method:
+        description: 'ratio (gerçek dolaylı oran) | ao'
+        default: 'ratio'
+      chunks:
+        description: 'Yalnız bu parçalar (virgüllü, ör. -1_-2,-1_-1); boş = tümü'
+        default: ''
+  # KARAR: yalnız main'e (yayın) itmede ve elle; özellik dalına çok sık itildiği için her itmede pişirme Actions
+  # dakikalarını tüketir ve itmelerle yarışır.
+  push:
+    branches: [main]
+    paths:
+      - 'src/worlds/mertkent/**'
+      - '!src/worlds/mertkent/baked.ts'
+      - 'public/data/osm.json'
+      - 'public/data/terrain.bin'
+      - 'src/worlds/osm/height.ts'
+      - 'scripts/bake-export.mjs'
+      - 'scripts/bake-hash.mjs'
+      - 'blender/bake/**'
+
+concurrency:
+  group: bake-lighting-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  bake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    env:
+      BAKE_SAMPLES: ${{ github.event.inputs.samples || '64' }}
+      BAKE_TEXEL: ${{ github.event.inputs.texel || '0.08' }}
+      BAKE_METHOD: ${{ github.event.inputs.method || 'ratio' }}
+      BAKE_CHUNKS: ${{ github.event.inputs.chunks || '' }}
+      # Toplam süre bütçesi (s): ilk parçadan kestirilir, aşılırsa örnek düşer / AO'ya geçilir
+      BAKE_TIME_BUDGET: '12000'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: lts/*
+          cache: npm
+
+      - run: npm ci
+
+      - name: Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Oyunu derle (ayrı klasör)
+        run: npx vite build --outDir /tmp/bake-dist
+
+      - name: Dışa aktar (başsız oyun → bake-work/src)
+        run: |
+          npx vite preview --outDir /tmp/bake-dist --port 4180 --strictPort > /tmp/preview.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf http://localhost:4180/ > /dev/null && break; sleep 1; done
+          ARGS=""
+          if [ -n "$BAKE_CHUNKS" ]; then ARGS="--chunks $BAKE_CHUNKS"; fi
+          node scripts/bake-export.mjs --out bake-work/src --texel "$BAKE_TEXEL" $ARGS
+          du -sh bake-work/src
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: bpy 4.2
+        run: pip install bpy==4.2.0 pillow numpy
+
+      - name: Pişir (Cycles CPU + OIDN)
+        run: |
+          nproc; free -g
+          python blender/bake/bake_ao.py
+
+      - name: Boyut sınırı (< 150 MB)
+        run: |
+          du -sh public/bake
+          test $(du -sm public/bake | cut -f1) -lt 150
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/bake
+          if git diff --cached --quiet; then echo "değişiklik yok"; exit 0; fi
+          HASH=$(node -e "console.log(require('./public/bake/manifest.json').srcHash.slice(0,10))")
+          git commit -m "Bake lighting (srcHash $HASH)"
+          for i in 1 2 3; do git pull --rebase && git push && break; sleep 5; done

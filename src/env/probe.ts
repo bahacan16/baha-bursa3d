@@ -45,6 +45,10 @@ export class ReflectionProbe {
     const vis = hide.map((o) => o.visible);
     for (const o of hide) o.visible = false;
     const sky = backdrop.getObjectByName('sky');
+    // güneş diski yansımada olmasın: güneşin aynasal parıltısını SunLight zaten veriyor (çift sayım + perde)
+    const su = (sky as THREE.Mesh | undefined)?.material as THREE.ShaderMaterial | undefined;
+    const disc = su?.uniforms?.showSunDisc?.value;
+    if (su?.uniforms?.showSunDisc) su.uniforms.showSunDisc.value = 0;
     const skyPos = sky?.position.clone();
     sky?.position.copy(this.pos);
     r.setRenderTarget(this.rt, this.face);
@@ -53,6 +57,7 @@ export class ReflectionProbe {
     r.clearDepth();
     r.render(scene, cam);
     if (sky && skyPos) sky.position.copy(skyPos);
+    if (su?.uniforms?.showSunDisc) su.uniforms.showSunDisc.value = disc;
     hide.forEach((o, i) => (o.visible = vis[i]));
     r.shadowMap.autoUpdate = autoShadow;
     r.setRenderTarget(prevTarget);
