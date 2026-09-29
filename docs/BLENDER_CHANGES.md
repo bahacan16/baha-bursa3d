@@ -182,7 +182,7 @@
   `public/textures/asphalt-clean/`, oyun bu kopyayı kullanır; `pbr.ts`). Gerçek hasar yalnız Street View'da
   görülen yerde çizilecek (kullanıcı kuralı). **Blender:** asfalt malzemesi `asphalt-clean` dokusu.
 - **841f093** — `scripts/sv-extra.json`'a 1540901774/76 için 2025 karelerinden 11 ortofoto kaydı.
-- **(bu commit)** — Üretici (D3 ajanlarının `pending` listelerinden):
+- **d078e71** — Üretici (D3 ajanlarının `pending` listelerinden):
   - `massing` parçaları: dünya çokgeni (`poly`, döndürülmüş şerit) ve `rest` (taban izinin kalanı), parça başına kat /
     çatı (ör. yalnız güney şeritte K8). Dosya: `massing.ts`.
   - Blok `volumes`: dünya çokgenli ek hacimler (tek katlı ek, kış bahçesi, çatı odası) — duvar rengi, üst bant, düz
@@ -197,7 +197,7 @@
     kenar 22 K3: açık–camlı–açık).
     Dosyalar: `facade.ts`, `massing.ts`, `index.ts`, `textures.ts`, `survey/schema.ts`, `scripts/survey-compile.mjs`,
     `scripts/sv-survey-plan.mjs` (OSM'de olmayan `synthetic` taban izleri). **Blender:** `mk_facade.py` aynı özellikler.
-- **(bu commit)** — Sokak türleri (`street.ts`, `siteplan.ts`): Özlüce döner kavşak adası (bordür, kırmızı parke
+- **d078e71** — Sokak türleri (`street.ts`, `siteplan.ts`): Özlüce döner kavşak adası (bordür, kırmızı parke
   bandı, iç bordür, çim, çiçek halkası, kenar çizgisi, yürünebilir), yaya geçitleri (0.5/0.5 m zebra), ayırıcı
   adacıklar, trafik ışıkları (3 lamba, siperlik), reklam panosu sırası (içerik yok — uydurulmadı), "sağdan gidiniz"
   ve sarı-siyah ok levhaları, kazıklı genç ağaçlar; ada ve adacıklarda hava fotoğrafı ağaç adayları kaldırıldı.
