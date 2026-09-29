@@ -27,6 +27,10 @@ export interface CWin {
   rail: boolean;
   split: number;
   box: boolean;
+  /** Ölçülmüş perde türü (kat → tür adı) */
+  curt?: Record<string, string>;
+  /** Ölçülmüş panjur kapanma oranı (kat → 0..1) */
+  shut?: Record<string, number>;
 }
 export interface CStrip {
   t: 'strip';
@@ -104,6 +108,17 @@ const SLAB = 0.16;
 const PARAPET = 0.38; // gri dolu parapet üstü (döşemeden)
 const RAIL = 0.92; // küpeşte
 const MIN_OPEN = 0.25;
+
+/** Ölçüm perde adları → cam gölgelendiricisi türü (facadeMats.windowGlassMaterial) */
+const CURT: Record<string, number> = {
+  tul: 0,
+  'tul-yan': 1,
+  stor: 2,
+  jaluzi: 3,
+  karanlik: 4,
+  zebra: 5,
+  acik: 6,
+};
 
 function hash(n: number): number {
   const s = Math.sin(n * 12.9898) * 43758.5453;
@@ -1117,7 +1132,13 @@ function addWindow(b: Builder, P: PFn, E: Edge, i: number, op: Opening, seed: nu
   }
   // Cam (oda gölgelendiricisi): tek parça, kasanın arkasında
   const h = hash(seed * 1.7 + i * 17.3 + u0 * 5.1 + op.k * 11.9);
-  const kind = win.kind === 'small' ? 4 : KINDS[Math.floor(h * KINDS.length)];
+  const measured = win.curt?.[String(op.k)];
+  const kind =
+    measured != null
+      ? (CURT[measured] ?? KINDS[Math.floor(h * KINDS.length)])
+      : win.kind === 'small'
+        ? 4
+        : KINDS[Math.floor(h * KINDS.length)];
   const g0 = P(i, u0, d);
   const g1 = P(i, u1, d);
   b.quad('mkGlass', V(g0, y0), V(g1, y0), V(g1, y1), V(g0, y1), [0, 0, 1, 1], [h * 100, kind, W, Hh]);

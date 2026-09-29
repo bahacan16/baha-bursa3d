@@ -64,6 +64,20 @@ async function main() {
   );
   for (const f of Object.values(fp))
     s += `<polygon points="${pts(f.ring)}" fill="none" stroke="#ffe000" stroke-width="1.5" stroke-dasharray="6 3"/>`;
+  // OSM_IDS=a,b → OSM taban halkaları (camgöbeği) + köşe indeksleri
+  if (process.env.OSM_IDS) {
+    const osm = JSON.parse(await readFile(join(root, 'public', 'data', 'osm.json'), 'utf8'));
+    for (const id of process.env.OSM_IDS.split(',').map(Number)) {
+      const w = osm.ways.find((q) => q.i === id);
+      if (!w) continue;
+      const r = [];
+      for (let i = 0; i + 1 < w.p.length; i += 2) r.push([w.p[i], w.p[i + 1]]);
+      s += `<polygon points="${pts(r)}" fill="none" stroke="#00ffff" stroke-width="1.5"/>`;
+      r.forEach((q, i) => {
+        s += `<text x="${tx(q[0])}" y="${tz(q[1])}" font-size="11" fill="#0ff" stroke="#000" stroke-width="0.4">${i}</text>`;
+      });
+    }
+  }
   if (drawPlan) {
     const plan = {};
     for (const fn of ['site-plan.json', 'street-plan.json']) {

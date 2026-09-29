@@ -111,6 +111,16 @@ export interface Win {
   box?: boolean;
   /** Bu katlarda yok */
   except?: number[];
+  /**
+   * Perde / cam arkası görünümü, kat → tür (fotoğrafta görüldüğü gibi; görülmeyen katlar yazılmaz):
+   * tul (beyaz tül), tul-yan (tül + iki yanda renkli fon perde), stor (stor perde, yarı inik), jaluzi (dikey
+   * beyaz lameller), zebra (yatay bantlı), karanlik (perdesiz, karanlık oda), acik (kanat açık).
+   * Pencere sütununda soldan sağa birden çok pencere varsa "K3": "tul" hepsi için geçerlidir; ayrı ayrı gerekiyorsa
+   * sütunu ayrı `win` öğelerine böl.
+   */
+  curt?: Record<string, 'tul' | 'tul-yan' | 'stor' | 'jaluzi' | 'zebra' | 'karanlik' | 'acik'>;
+  /** Kat → görünen panjur/stor kutusu kapanma oranı 0..1 (dış kepenk/panjur inik) */
+  shut?: Record<string, number>;
 }
 
 /** Turuncu yuvarlak şerit (yarım yuvarlak kesitli pilastr, uçları yuvarlak) */

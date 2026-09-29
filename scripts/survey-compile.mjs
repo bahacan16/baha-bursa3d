@@ -143,6 +143,20 @@ async function main() {
               rail: !!it.rail,
               split: it.split ?? 2,
               box: !!it.box,
+              ...(it.curt
+                ? {
+                    curt: Object.fromEntries(
+                      Object.entries(it.curt).map(([k, v]) => [String(k).replace(/^K/, ''), v]),
+                    ),
+                  }
+                : {}),
+              ...(it.shut
+                ? {
+                    shut: Object.fromEntries(
+                      Object.entries(it.shut).map(([k, v]) => [String(k).replace(/^K/, ''), v]),
+                    ),
+                  }
+                : {}),
             });
             break;
           case 'strip':
