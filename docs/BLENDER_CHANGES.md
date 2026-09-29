@@ -291,3 +291,11 @@
 - **(kamera)** — 1. şahıs görüş açısı 62° → 55° dikey (yumuşak geçiş; geniş açı bozulması), adımla senkron baş
   salınımı (yürüyüş ~1.6 cm, koşu ~3.2 cm; topuk vuruşunda en alçak). `docs/REALISM.md`: gerçekçilik planı.
   Dosya: `src/player/camera.ts`. **Blender:** yok (Blender kamerası için referans: göz 1.65 m, 55° dikey).
+- **(retro-3)** — Eski ölçümler derlendi ve oyunda: 15 blok (`data/facades.json`: 1480041342/43/44/45, 1480041300/01,
+  1480163634/37/38, 1479658783 Salusvizyon, 1540901795/96/98, 1546358557/61 — 557/561 kat kat balkon camı, pilastırlar,
+  "SATILIK" pankartı pending). Mertkent-2 sokakları yeniden ölçüldü (`data/street-plan.json`): 502. Sokak kesiti
+  (batı kaldırım 1.52 m: gri 0.65 / sarı kılavuz 0.32 / gri 0.40 / bordür 0.15; 1.1 m mavi bisiklet şeridi; yol 6.8 m;
+  doğu kaldırım 1.17 m — eskisi 0.6 m ve ~1 m kaymıştı), 502/504 köşeleri, Şehr-i Bursa Evleri çiti (beyaz prekast
+  madalyon panel, süslü kolon + siyah fener, yeşil 2D tel, jilet tel) ve güney taş duvar + leylandi, 5 yeni direk,
+  pano, ızgara, rögar, Nato Parkı yaya geçidi; "ŞEHR-İ BAHAR" → "ŞEHR-İ BURSA EVLERİ"; olmayan güneydoğu kapısı
+  silindi. **Blender:** bu 15 blok + Mertkent-2 çevresi sokak katmanı (kaldırım, çit, sokak eşyası) yeniden kurulmalı.
