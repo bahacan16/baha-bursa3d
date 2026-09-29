@@ -2,6 +2,9 @@
  "id": 900000101,
  "name": "İş merkezi (VİZE KONGRE / BALENTUR, Özlüce kavşağı KD)",
  "storeys": 7,
+ "floorH": 3.1,
+ "groundRaise": 0.773,
+ "plinthH": 0.3,
  "roof": {
   "kind": "hipped",
   "eave": 0.9,
@@ -17,7 +20,7 @@
   "railGlass": "#76a1af",
   "frame": "#8a5a3c",
   "tile": "#9e978c",
-  "plinth": "#666a63"
+  "plinth": "#e3e1d2"
  },
  "massing": {
   "towers": [
@@ -30,9 +33,11 @@
     "roof": {
      "kind": "hipped",
      "eave": 0.9,
-     "fasciaH": 0.6,
-     "pitch": 26
-    }
+     "fasciaH": 0.92,
+     "pitch": 26,
+     "fasciaC": "#d1d4d0"
+    },
+    "wallTop": 18.4
    },
    {
     "x": [
@@ -59,9 +64,11 @@
     "roof": {
      "kind": "hipped",
      "eave": 0.9,
-     "fasciaH": 1.2,
-     "pitch": 26
-    }
+     "fasciaH": 1.1,
+     "pitch": 26,
+     "fasciaC": "#d1d2c7"
+    },
+    "wallTop": 19.7
    }
   ]
  },
@@ -85,12 +92,12 @@
      -108.95
     ]
    ],
-   "y0": 25.75,
-   "y1": 26.8,
+   "y0": 21.97,
+   "y1": 23.09,
    "color": "#afb3b3",
    "roofC": "#9e978c",
    "collide": false,
-   "note": "v5: çatı katının doğu yarısı (mahyanın doğusu) batı saçağından yüksek: doğu duvar üstü görünen 22.17 (DIKaX; Q5ICT 12_45 karesinde doğu bloğun çatısı üstünde düşey köşe). Güney yüzü kenar 0'daki iki alınlık arasında kalan dikdörtgeni, doğu yüzü doğu blok çatısı üstünde görünen çatı katı duvarını çizer; kuzey yüzü görülmedi (hava fotoğrafındaki beşik çatı kuzey ucuna kadar uzanıyor → kapatma, öğesiz)."
+   "note": "v5/v6: çatı katının doğu yarısı (mahyanın doğusu) batı saçağından yüksek: doğu duvar üstü görünen 22.17 (DIKaX; Q5ICT 12_45 karesinde doğu bloğun çatısı üstünde düşey köşe). Güney yüzü kenar 0'daki iki alınlık arasında kalan dikdörtgeni, doğu yüzü doğu blok çatısı üstünde görünen çatı katı duvarını çizer; kuzey yüzü görülmedi (hava fotoğrafındaki beşik çatı kuzey ucuna kadar uzanıyor → kapatma, öğesiz). v6 (pend6-g5): ortak kot çerçevesinde y0 21.97 = orta parça duvar üstü (gR 0.773 + 6×3.1 + K6 2.48 + 0.12), y1 23.09 = kenar 0 sağ alınlık tabanı (görünen 22.17)."
   }
  ],
  "edges": [
@@ -238,15 +245,6 @@
      "y1": 17.92,
      "color": "#6f7775",
      "proud": 0.02
-    },
-    {
-     "t": "band",
-     "u0": 0.5,
-     "u1": 5.58,
-     "y0": 17.92,
-     "y1": 18.75,
-     "color": "#d1d4d0",
-     "proud": 0.9
     },
     {
      "t": "sign",
@@ -849,7 +847,7 @@
      "t": "panel",
      "u0": 17.9,
      "u1": 21.96,
-     "y0": 0.0,
+     "y0": 1.53,
      "y1": 19.1,
      "color": "#f9faf9"
     },
@@ -902,15 +900,6 @@
      "curt": {
       "K1": "jaluzi"
      }
-    },
-    {
-     "t": "band",
-     "u0": 17.45,
-     "u1": 23.4,
-     "y0": 19.1,
-     "y1": 20.1,
-     "color": "#d1d2c7",
-     "proud": 0.9
     },
     {
      "t": "groove",
@@ -1385,8 +1374,8 @@
      "style": "louvre",
      "u0": 18.83,
      "u1": 21.96,
-     "y0": 4.08,
-     "y1": 4.75,
+     "y0": 4.02,
+     "y1": 4.51,
      "color": "#ebede2",
      "shade": "#aeac9d",
      "slats": 6,
@@ -1396,7 +1385,7 @@
      "t": "panel",
      "u0": 5.28,
      "u1": 9.42,
-     "y0": 0.0,
+     "y0": 1.53,
      "y1": 4.06,
      "color": "#666a63"
     },
@@ -1404,7 +1393,7 @@
      "t": "win",
      "u0": 6.6,
      "u1": 8.17,
-     "y0": 0.3,
+     "y0": 1.66,
      "y1": 3.52,
      "k": 0,
      "s": [
@@ -1436,9 +1425,27 @@
     },
     {
      "t": "win",
+     "u0": 5.45,
+     "u1": 6.55,
+     "y0": 2.54,
+     "y1": 3.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#636e66",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
      "u0": 8.17,
      "u1": 9.27,
-     "y0": 0.3,
+     "y0": 2.55,
      "y1": 3.98,
      "k": 0,
      "s": [
@@ -1456,7 +1463,7 @@
      "t": "panel",
      "u0": 9.42,
      "u1": 13.44,
-     "y0": 0.0,
+     "y0": 1.53,
      "y1": 4.06,
      "color": "#af9977"
     },
@@ -1478,7 +1485,7 @@
      "t": "win",
      "u0": 11.53,
      "u1": 12.78,
-     "y0": 0.1,
+     "y0": 1.8,
      "y1": 3.67,
      "k": 0,
      "s": [
@@ -1514,7 +1521,7 @@
      "u0": 13.44,
      "u1": 13.75,
      "d": 0.12,
-     "y0": 0.0,
+     "y0": 1.52,
      "y1": 4.06,
      "color": "#c0473b"
     },
@@ -1523,7 +1530,7 @@
      "u0": 17.5,
      "u1": 17.81,
      "d": 0.12,
-     "y0": 0.0,
+     "y0": 1.52,
      "y1": 4.06,
      "color": "#c0473b"
     },
@@ -1531,7 +1538,7 @@
      "t": "win",
      "u0": 13.75,
      "u1": 17.5,
-     "y0": 0.25,
+     "y0": 1.75,
      "y1": 3.95,
      "k": 0,
      "s": [
@@ -1571,8 +1578,8 @@
      "t": "sign",
      "u0": 13.95,
      "u1": 14.8,
-     "y0": 2.05,
-     "y1": 2.35,
+     "y0": 1.95,
+     "y1": 2.2,
      "d": 0.01,
      "text": "BURSA",
      "fg": "#d63a33",
@@ -1628,7 +1635,7 @@
      "u0": 21.4,
      "u1": 21.96,
      "d": 0.17,
-     "y0": 1.3,
+     "y0": 1.26,
      "y1": 1.7,
      "color": "#df7268"
     },
@@ -1690,7 +1697,13 @@
      "d": 0.03,
      "depth": 16.03,
      "color": "plaster",
-     "roofC": "tile"
+     "roofC": "tile",
+     "trim": {
+      "w": 0.08,
+      "d": 0.04,
+      "color": "#2a2c2e",
+      "base": false
+     }
     },
     {
      "t": "pediment",
@@ -1702,10 +1715,53 @@
      "d": 0.03,
      "depth": 16.03,
      "color": "plaster",
-     "roofC": "tile"
+     "roofC": "tile",
+     "trim": {
+      "w": 0.08,
+      "d": 0.04,
+      "color": "#2a2c2e",
+      "base": false
+     }
+    },
+    {
+     "t": "lamp",
+     "us": [
+      11.15,
+      11.72
+     ],
+     "s": [
+      1,
+      5
+     ],
+     "yRel": 2.28,
+     "style": "spot",
+     "d": 0.09,
+     "h": 0.2,
+     "proud": 0.25,
+     "color": "#1c1d1e"
+    },
+    {
+     "t": "lamp",
+     "u": 9.27,
+     "y": 3.37,
+     "style": "lantern",
+     "d": 0.16,
+     "h": 0.3,
+     "proud": 0.15,
+     "color": "#1c1d1e"
+    },
+    {
+     "t": "pipe",
+     "u": 9.27,
+     "off": 0.03,
+     "color": "#f2f2f0",
+     "r": 0.015,
+     "y0": 2.74,
+     "y1": 4.06,
+     "brackets": false
     }
    ],
-   "note": "Güney cephe (Doğan Avcıoğlu tarafı otopark). Ref DIKaX37Z (2025-09, 14.9 m), Q5ICTzjr ile doğrulandı. Görünen genişlik 1.58–21.96 (cam GB köşe → beyaz bölüm GD köşe) taban izinin 25.25 m’sine eşlendi (ölçek 1.237; pano mesafeleri GPS hatalı, stereo ~1.5 m geride gösteriyor — köşeler hava fotoğrafına göre alındı). Üç bölüm: batı mavi cam giydirme (u 1.58–5.28, K3–K5 cam, K1 BALENTUR, K2 VİZE KONGRE panoları), orta 2 bölmeli loca yığını (K1–K5, beyaz paye u 5.28–5.45 ve 11.35–11.6, gri dolu parapet + yatay boru korkuluk, çoğu katta cam balkon), doğu beyaz yivli sıva bölüm (tek pencere sütunu, kahve doğrama, gri söve, fransız korkuluk). Zemin kat: batıda Leyla fasıl binası önünde (görülmedi; yalnız 4.06–4.9 koyu gri kaplama), gri kompozit cepheli çift kapılı dükkân, bej taş kaplı iş merkezi girişi (firma panosu + siyah ferforje kapı), pizzabulls (kırmızı), boş eczane dükkânı (afiş), siyah kaplı köşe payesi (kırmızı etek). Tüm cephe boyunca K1 altında beyaz düz saçak (lambalı). Loca derinliği (inset 1.4) ölçülemedi (tahmin). K5 batı locası açık (tavan lambalı), K3 batı locasında içeride klima + beyaz pano görülüyor (çizilmedi)."
+   "note": "Güney cephe (Doğan Avcıoğlu tarafı otopark). Ref DIKaX37Z (2025-09, 14.9 m), Q5ICTzjr ile doğrulandı. Görünen genişlik 1.58–21.96 (cam GB köşe → beyaz bölüm GD köşe) taban izinin 25.25 m’sine eşlendi (ölçek 1.237; pano mesafeleri GPS hatalı, stereo ~1.5 m geride gösteriyor — köşeler hava fotoğrafına göre alındı). Üç bölüm: batı mavi cam giydirme (u 1.58–5.28, K3–K5 cam, K1 BALENTUR, K2 VİZE KONGRE panoları), orta 2 bölmeli loca yığını (K1–K5, beyaz paye u 5.28–5.45 ve 11.35–11.6, gri dolu parapet + yatay boru korkuluk, çoğu katta cam balkon), doğu beyaz yivli sıva bölüm (tek pencere sütunu, kahve doğrama, gri söve, fransız korkuluk). Zemin kat: batıda Leyla fasıl binası önünde (görülmedi; yalnız 4.06–4.9 koyu gri kaplama), gri kompozit cepheli çift kapılı dükkân, bej taş kaplı iş merkezi girişi (firma panosu + siyah ferforje kapı), pizzabulls (kırmızı), boş eczane dükkânı (afiş), siyah kaplı köşe payesi (kırmızı etek). Tüm cephe boyunca K1 altında beyaz düz saçak (lambalı). Loca derinliği (inset 1.4) ölçülemedi (tahmin). K5 batı locası açık (tavan lambalı), K3 batı locasında içeride klima + beyaz pano görülüyor (çizilmedi). v6 (pend6-g5): KOT DÜZELTMESİ — K0 öğelerinin altı ortofotonun kırmızı çizgisine (görünen 0) uzatılmıştı; gerçek kaldırım DIKaX’ta görünen ≈1.26 (103/102 ile ortak zemin), dükkân önleri/basamak altları 1.52–1.69. Kapı/vitrin altları fotoğraftaki eşiklere, panolar subasman üstüne (1.53) alındı; batı dükkânda kapının solundaki vitrin eklendi (u 5.45–6.55, cam 2.54–3.93). Güneşlik 4.02–4.51 (üst lameller pozlamada siliniyor; pc3Zp profili 4.12–4.68 ile eşlendi). Saçak bantları (10, 47) kütle parçalarının kendi saçak kotu + alın bandına (massing wallTop/fasciaH/fasciaC) taşındı."
   },
   {
    "edge": 1,
@@ -1733,7 +1789,7 @@
      "t": "panel",
      "u0": -3.4,
      "u1": 10.75,
-     "y0": 0.0,
+     "y0": 1.16,
      "y1": 18.1,
      "color": "#f9faf9"
     },
@@ -2434,8 +2490,8 @@
      "u0": 0.0,
      "u1": 7.94,
      "apex": 7.94,
-     "y": 26.8,
-     "h": 1.65,
+     "y": 23.09,
+     "h": 1.47,
      "d": 0.03,
      "depth": 0.01,
      "color": "plaster",
@@ -2446,14 +2502,14 @@
      "u0": 7.94,
      "u1": 15.0,
      "apex": 7.94,
-     "h": 2.9,
+     "h": 2.59,
      "d": 0.03,
      "depth": 0.01,
      "color": "plaster",
      "roofC": "tile"
     }
    ],
-   "note": "Kuzey cephe: hiçbir Street View karesinden görülmedi (arkada site bahçesi). Pencere/öğe yazılmadı. v5: yalnız orta çatı katının (K6) beşik çatı prizmasını kapatan iki düz alınlık üçgeni (kenar 0'daki asimetrik alınlığın aynası; cal gerçek metre: u = 695.2 − x, y = tabandan kot) — hava fotoğrafında mahya kuzey-güney ve çatının kuzey ucu düz (alınlık) görünüyor; renk/pencere bilinmiyor → öğesiz koyu gri sıva. Hava fotoğrafında kuzeyde x 684.7–688 koyu çıkıntı/ışıklık var (görülmedi, çizilmedi).",
+   "note": "Kuzey cephe: hiçbir Street View karesinden görülmedi (arkada site bahçesi). Pencere/öğe yazılmadı. v5: yalnız orta çatı katının (K6) beşik çatı prizmasını kapatan iki düz alınlık üçgeni (kenar 0'daki asimetrik alınlığın aynası; cal gerçek metre: u = 695.2 − x, y = tabandan kot; v6: yeni kot çerçevesinde head [[0,3.023],[1,6.123]] = özdeşlik) — hava fotoğrafında mahya kuzey-güney ve çatının kuzey ucu düz (alınlık) görünüyor; renk/pencere bilinmiyor → öğesiz koyu gri sıva. Hava fotoğrafında kuzeyde x 684.7–688 koyu çıkıntı/ışıklık var (görülmedi, çizilmedi).",
    "cal": {
     "u": [
      0,
@@ -2462,11 +2518,11 @@
     "head": [
      [
       0,
-      4.28
+      3.023
      ],
      [
       1,
-      7.76
+      6.123
      ]
     ]
    }
@@ -2775,15 +2831,6 @@
      "proud": 0.02
     },
     {
-     "t": "band",
-     "u0": -0.7,
-     "u1": 15.45,
-     "y0": 20.35,
-     "y1": 21.3,
-     "color": "#d1d4d0",
-     "proud": 0.9
-    },
-    {
      "t": "sign",
      "u0": 0.98,
      "u1": 10.67,
@@ -2879,7 +2926,7 @@
      "logo": "alt kısmı Leyla fasıl tabelası arkasında; solda \"B\" monogramı"
     }
    ],
-   "note": "Batı cephe (kavşağa bakan mavi cam cephe). Ref = ajanın kendi ortofotosu T1qi7WhR (2025-09, ~34 m, kapalı hava; /tmp/claude-0/agent-d3-n101/c/, sv-extra.json’da YOK → derlemede doğrusal); epBrUk-A ile doğrulandı. u 0.04 KB köşe (beyaz dikey paye 0.04–0.98), u 14.6 GB köşe. Tüm yükseklik mavi yansıtıcı cam giydirme, 3 düşey bölüm (0.98–3.63 / 3.63–10.67 / 10.67–14.6); orta bölümün koyu kat bantları yanlardan ~0.35 m (görünen) yüksek — orta bölüm ~0.8 m çıkma olabilir, ayırt edilemedi (pending). Kafa çizgisi = kat bandı üstü (güney cephedeki K2/K4 lento eşlemesi). K0–K1 (y<6) Leyla fasıl ve Balıkçı Mahmut binalarının arkasında: görülmedi. Önlerindeki mavi \"BALENTUR\" kutu ve beyaz \"BALENTUR\" tabela kutuları komşu tek katlı binaların çatısında — bu binaya yazılmadı."
+   "note": "Batı cephe (kavşağa bakan mavi cam cephe). Ref = ajanın kendi ortofotosu T1qi7WhR (2025-09, ~34 m, kapalı hava; /tmp/claude-0/agent-d3-n101/c/, sv-extra.json’da YOK → derlemede doğrusal); epBrUk-A ile doğrulandı. u 0.04 KB köşe (beyaz dikey paye 0.04–0.98), u 14.6 GB köşe. Tüm yükseklik mavi yansıtıcı cam giydirme, 3 düşey bölüm (0.98–3.63 / 3.63–10.67 / 10.67–14.6); orta bölümün koyu kat bantları yanlardan ~0.35 m (görünen) yüksek — orta bölüm ~0.8 m çıkma olabilir, ayırt edilemedi (pending). Kafa çizgisi = kat bandı üstü (güney cephedeki K2/K4 lento eşlemesi). K0–K1 (y<6) Leyla fasıl ve Balıkçı Mahmut binalarının arkasında: görülmedi. Önlerindeki mavi \"BALENTUR\" kutu ve beyaz \"BALENTUR\" tabela kutuları komşu tek katlı binaların çatısında — bu binaya yazılmadı. v6: üst beyaz saçak alnı bandı (görünen 20.35–21.3) kütle parçası saçağına (wallTop 18.4 + fasciaH 0.92) taşındı; bu kenarın kafa çizgileri kenar 0’a göre ≈0.27 m aşağıda kalıyor (T1qi7 tek pano, çözülemedi)."
   }
  ],
  "notes": [
@@ -2891,27 +2938,11 @@
   "GÖRÜLMEDİ: kuzey cephe (kenar 2,3,4) tamamen; batı ve güney-batı zemin kat (Leyla fasıl önünde); doğu cephe K0–K1 (ek arkasında); loca iç derinlikleri; çatı katının kuzey ucu.",
   "TABAN İZİ: güney duvar z −93: iki panonun stereo’su duvarı ~1.5 m daha kuzeyde gösteriyor ama pano GPS hataları (±3 m) nedeniyle kesin değil — hava fotoğrafı zemin çizgisi korundu. Doğu 2 katlı ek (x ~700.65–704, z −93…−99.4) taban izinde yok → volumes ile eklendi; önerilir: footprints.json’a ayrı taban izi.",
   "Doğu 2 katlı ek (eczane + H8 Pilates) ayrı bina 900000103 olarak ölçüldü → buradaki ek hacimleri kaldırıldı (çift çizim).",
-  "v5 (2026-09-29, pend-g5): (1) Asimetrik çatı katı alınlığı: orta massing parçası düz çatı + 0.06 m koyu gri parapet (beyaz saçak alnı çizilmesin diye), floorHs K6 = 2.52 (duvar üstü 25.55 = sol saçak; ölçülen 25.36, sağ K6 penceresi lentosu 25.52 kırpılmasın diye +0.19); kenar 0'da iki pediment (sol dik üçgen u 5.446→11.16 tepe 23.5; sağ dik üçgen taban görünen 22.17, u 11.16→17.582), derinlik 16.03 = orta parçanın tamamı (eğik yüzler = kiremit çatı, mahya u 11.16 ≈ x 687.26; hava fotoğrafında mahya x≈687.6±0.5), mahyanın doğusunda duvar 25.55→26.8 (ek hacim; doğu yüzü doğu bloğun çatısı üstünde görünen çatı katı duvarı). Kuzey uç görülmedi: kenar 4'te aynı biçimde iki kapatma üçgeni (öğesiz). Sağ K6 penceresi `stair:true` (eğik tavan; kat çizgisi kırpması kapalı). (2) Giydirme cephe: kenar 0 ve 5 K3–K5 pencerelerine ölçülen traversler (hbars, düşey parlaklık profili), doğrama #d7dde0 (güneşli yatay profiller L≈225; kenar 5 kapalı havada aynı profil), `stair:true` (batı cam kütlesinin katları kat çizgilerinden ~1 m aşağıda). Kenar 5 pencere/bant kotları profil ölçüsüyle düzeltildi (0.1–0.25 m), bölüm 3 bölüm 2 ile aynı kota alındı. (3) K4 doğu loca cam balkonu buzlu folyo (tint frosted, #e8ebe6). (4) Doğu dükkân (u 18.83–21.96) önünde 103'ten devam eden lamelli alüminyum güneşlik (band louvre, görünen 4.08–4.75, 6 lamel; çıkma 0.55 103'teki tahminle aynı, yandan görülmedi); beyaz düz saçak bandı burada biter (u 18.83, pizzabulls tabelasının doğu ucu). Not: üreticide hbars'lı pencerelere rastgele vasistas kaydı da eklenebiliyor (Hh>1.3 m)."
+  "v5 (2026-09-29, pend-g5): (1) Asimetrik çatı katı alınlığı: orta massing parçası düz çatı + 0.06 m koyu gri parapet (beyaz saçak alnı çizilmesin diye), floorHs K6 = 2.52 (duvar üstü 25.55 = sol saçak; ölçülen 25.36, sağ K6 penceresi lentosu 25.52 kırpılmasın diye +0.19); kenar 0'da iki pediment (sol dik üçgen u 5.446→11.16 tepe 23.5; sağ dik üçgen taban görünen 22.17, u 11.16→17.582), derinlik 16.03 = orta parçanın tamamı (eğik yüzler = kiremit çatı, mahya u 11.16 ≈ x 687.26; hava fotoğrafında mahya x≈687.6±0.5), mahyanın doğusunda duvar 25.55→26.8 (ek hacim; doğu yüzü doğu bloğun çatısı üstünde görünen çatı katı duvarı). Kuzey uç görülmedi: kenar 4'te aynı biçimde iki kapatma üçgeni (öğesiz). Sağ K6 penceresi `stair:true` (eğik tavan; kat çizgisi kırpması kapalı). (2) Giydirme cephe: kenar 0 ve 5 K3–K5 pencerelerine ölçülen traversler (hbars, düşey parlaklık profili), doğrama #d7dde0 (güneşli yatay profiller L≈225; kenar 5 kapalı havada aynı profil), `stair:true` (batı cam kütlesinin katları kat çizgilerinden ~1 m aşağıda). Kenar 5 pencere/bant kotları profil ölçüsüyle düzeltildi (0.1–0.25 m), bölüm 3 bölüm 2 ile aynı kota alındı. (3) K4 doğu loca cam balkonu buzlu folyo (tint frosted, #e8ebe6). (4) Doğu dükkân (u 18.83–21.96) önünde 103'ten devam eden lamelli alüminyum güneşlik (band louvre, görünen 4.08–4.75, 6 lamel; çıkma 0.55 103'teki tahminle aynı, yandan görülmedi); beyaz düz saçak bandı burada biter (u 18.83, pizzabulls tabelasının doğu ucu). Not: üreticide hbars'lı pencerelere rastgele vasistas kaydı da eklenebiliyor (Hh>1.3 m).",
+  "v6 (2026-09-29, pend6-g5) KOT / ÖLÇEK DÜZELTMESİ (101/102/103/122 köşesi): derleme bu cephede düşey homotetiyi DIKaX ortofotosunun nominal kamera ufkuna (görünen 2.81) bağlıyordu; kaldırım (görünen ≈1.26) 1.1–1.4 m yukarıda, komşularla ortak öğeler (güneşlik, K1 camı, LEYLA tabela kutusu) 1.2–1.6 m yüksek çıkıyordu. Ortak zemin: 103 (pc3Zp, kaide altı = kaldırım) ve 102 (BJWF6, kaldırım) ile aynı fiziksel öğelerin DIKaX görünen kotlarına en küçük kareler uyumu (10 öğe: güneşlik alt/üst, gri çizgi, 103 K1 camı alt/üst, koyu alın üstü, LEYLA kutusu alt/üst, Leyla vitrin alt/üst; artık rms 0.05 m) → DIKaX görünen 1.255 = zemin, düşey ölçek 1.104 (eskiden taban izi genişliğinden 1.24). Bağımsız kontroller: Q5ICT–pc3Zp stereo (cephe z −92.8…−93.2, ölçek ≈1.0–1.05; DIKaX/Q5ICT görünen oranı 1.048 tüm cephede, pc3Zp/DIKaX 1.10–1.12), dört panoda kamera kaldırımın 1.66–1.72 m üstünde (tutarlı), Q5ICT’de cephe kliması 0.97×0.77 m (1.24 ile 1.2×0.95 olurdu). Sonuç: floorH 3.10 (K1–K5), groundRaise 0.773, K6 2.48 (duvar üstü 21.97 = sağ K6 penceresi lentosu 21.95 + pay), plinthH 0.3 (dükkân önleri ortak zeminden 0.3–0.45 m yüksek sekide: basamak altları DIKaX 1.52–1.69; açık krem taş #e3e1d2 Q5ICT güneşli, DIKaX #eae6ce). Yükseklikler ≈%11 azaldı (alınlık tepesi 28.5→24.6 m). UYARI (taban izi, düzeltilmedi): aynı ölçekle cephe genişliği ≈21.9 m (DIKaX/Q5ICT köşeleri 20.32/20.40 görünen); Q5ICT–pc3Zp stereo GD köşeyi x≈698.55, hava fotoğrafı 101 doğu cephe bandının ≈699.8’de bittiğini gösteriyor (iz 700.65) — iz saçak çizgisinden (673.75–698.75) saçak taşması düşülmeden türetilmiş olabilir; yatay ölçek (1.239) bu yüzden düşeyden (1.104) büyük kaldı.",
+  "v6 (pend6-g5) dönüşümler: çatı katı alınlığının iki eğik kenarına siyah damlalık (pediment trim base:false, 0.08 m #2a2c2e); batı/doğu kütle parçalarının alçak saçağı massing wallTop (batı 18.4, doğu 19.7) + fasciaH (0.92 / 1.1) + fasciaC (#d1d4d0 / #d1d2c7) ile — eski proud 0.9 saçak bantları kaldırıldı; orta loca payesinin iki yanında K1–K5 her katta kollu siyah spot (lamp spot, yRel 2.28; gerçekte kafa yukarı/tabelaya bakıyor, üretici aşağı-dışa eğik çiziyor); iş merkezi girişi solunda beyaz kablo borusu üstünde klasik siyah fener (lamp lantern). v5 notlarındaki mutlak kotlar (25.55, 26.8, 21.54–22.57, 23.03…) eski çerçevededir."
  ],
  "pending": [
-  {
-   "what": "attic gable black edge profile",
-   "edge": [
-    0,
-    4
-   ],
-   "ref": "900000101_0_DIKaX37Z.jpg",
-   "desc": "Çatı katı alınlığının iki eğik üst kenarında ~0.08 m siyah alın/damlalık profili (DIKaX: sol köşe u 5.6 y 21.0 → tepe u 11.13–11.2 y 23.5 → sağ köşe u 17.44 y 22.17; sağ uçta köşeden ~0.4 m aşağı iner). Alınlık artık pediment ile çizili (v5) ama `trim` taban kenarına da silme çizer — bu cephede taban çizgisi yok (duvar kesintisiz gri) → trim kullanılmadı. Gereken: yalnız eğik kenarlara trim (taban hariç) seçeneği.",
-   "color": "#2a2c2e"
-  },
-  {
-   "what": "W part lower eave",
-   "edge": [
-    0,
-    5
-   ],
-   "desc": "Batı cam kütlesi (x 675.4–680.19) ayrı kat kotlarında: giydirme cephenin dolgu (spandrel) bantları ve cam bantları diğer bölümlerin kat çizgilerinden ~0.8–1.1 m aşağıda (DIKaX profil: K3 cam 9.82–11.92, K4 12.42–14.50, K5 15.02–17.33 görünen; üretici K3 döşemesi görünen 10.60). v5: pencereler `stair:true` ile kat çizgisine kırpılmadan ölçülen kotlarda çiziliyor. Kalan: bu parçanın saçağı (beyaz saçak alnı güneyde görünen 17.92–18.75 → gerçek 21.54–22.57, batıda 20.35–21.3) üreticinin duvar üstünden (23.03 + alın) ~1.1 m aşağıda; massing parçası için saçak/duvar üstü kot ofseti gerekiyor. Şimdilik band (proud 0.9) ile çizili, kırma çatı yüksekte başlıyor."
-  },
   {
    "what": "west mid-section depth",
    "edge": 5,
@@ -2919,25 +2950,20 @@
    "desc": "Batı cephe (T1qi7, ~34 m, tek pano) düşey profil: bölüm 1 (u 0.98–3.63) kat bantları/cam kenarları bölüm 2 (3.63–10.67) ve bölüm 3'ten (10.67–14.6) ~0.2–0.3 m (görünen) AŞAĞIDA; bölüm 2 ile 3 aynı kotta (önceki ölçümdeki '1 ve 3 aynı' fotoğrafla çelişiyordu → bölüm 3 düzeltildi). Üstteki beyaz saçak alnının alt çizgisi (görünen ≈20.5) üç bölümde aynı → en olası: bölüm 1 ~0.8 m geri çekik (ya da 2–3 öne çıkık); yükseklik farkı D=34 m'de 0.8 m derinlik farkına karşılık geliyor. İkinci bir açıdan görülmediği için derinlik kesin değil → v5 `recess` (u 0.98–3.63, y ≈7.23–20.35, depth ≈0.8) uygulanmadı; pencereler görünen kotlarında bırakıldı."
   },
   {
-   "what": "wall spot lamps and sign rods",
+   "what": "sign rods and canopy fixtures",
    "edge": 0,
-   "desc": "Loca payelerinde/lentolarında siyah kollu spot aplikler: K1 u ~10.95 ve 11.55 (y ~6.5), K2 u 11.1 (y 9.2), K3 u 17.4 (y 11.8), K4 doğu bölme DİL tabelasını taşıyan iki çapraz siyah çubuk (u 13.6→14.3, 15.2→15.8, y 15.2→14.2). Zemin kat saçağı üstünde küçük siyah armatür sırası (u 7–21, y ~4.85). İş merkezi girişinde siyah fener aplik u 9.3 y 3.4.",
+   "ref": "900000101_0_DIKaX37Z.jpg",
+   "desc": "v6’da loca payesi spotları (K1–K5 çift, lamp spot) ve giriş feneri (lamp lantern) çizildi. Kalan: (1) K4 doğu bölmede DİL VE KONUŞMA tabelasını taşıyan çapraz siyah çubuklar (görünen u≈14.6–14.9, y 14.84→14.28 ve u 16.5–17.3, y 14.8→13.6) — üreticide çubuk/gergi öğesi yok. (2) Zemin kat beyaz düz saçağın ön yüzünde küçük koyu armatür/kol braketleri (u≈7.1, 8.6, 10.55, 11.45 …, y≈4.2–4.4): lamba mı katlanır tente kolu bağlantısı mı ayırt edilemedi → çizilmedi. Önceki listedeki ‘K3 u 17.4 y 11.8’ spotu fotoğrafta bulunamadı (u 17.4 K2/K4’teki çanaklar).",
    "color": "#1c1d1e"
-  },
-  {
-   "what": "K0 vertical registration vs neighbours",
-   "edge": 0,
-   "desc": "Aynı düzlemdeki (z −93) 103 öğeleri DIKaX ve pc3Zp ortofotolarında aynı görünen kotta (ECZANEMİZ panosu üstü 3.6; 103 K1 camı ≈5.8–7.1) ama derlemede 101 kenar 0 düşey ölçeği 1.24 (K0 lentosuna bağlı), 103 kenar 0 ölçeği 1.0 → aynı fiziksel öğeler oyunda 101'de 1.2–1.6 m yüksekte: lamelli güneşlik 101'de 4.39–5.22, 103'te 3.09–3.72; 101 beyaz saçak 4.37–5.35 ↔ 103 beyaz alın 3.74–4.67; 101 doğu dükkân K1 penceresi altı 6.33 ↔ 103 K1 camı altı 4.74 (pc3Z 338_10 karesinde hepsi aynı hizada). Çözüm (ana oturum): köşe bloklarının (101/102/103/122) ortak düşey kaydı — pano mesafe/konum sapması; footprints 103 genişliği (≈4 m görünüyor, iz 2.55) da buna bağlı.",
-   "note": "101 kenar 0'a eklenen lamelli güneşlik 101'in kendi çerçevesinde (diğer K0 öğeleriyle tutarlı)."
   }
  ],
  "floorHs": [
-  3.48,
-  3.48,
-  3.48,
-  3.48,
-  3.48,
-  3.48,
-  2.52
+  3.1,
+  3.1,
+  3.1,
+  3.1,
+  3.1,
+  3.1,
+  2.48
  ]
 }

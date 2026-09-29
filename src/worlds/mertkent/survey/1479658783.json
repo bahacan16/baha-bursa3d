@@ -5,14 +5,9 @@
   "groundRaise": 1.4,
   "floorH": 3,
   "roof": {
-    "kind": "gable",
+    "kind": "flat",
     "eave": 1.2,
     "fasciaH": 0.95,
-    "pitch": 10.5,
-    "gables": [
-      0,
-      2
-    ],
     "eaveY": {
       "edge": 0,
       "y": 26.55
@@ -64,7 +59,7 @@
             6
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2,
           "curt": {
             "K2": "stor",
@@ -112,7 +107,7 @@
             7
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2,
           "curt": {
             "K7": "stor"
@@ -346,7 +341,7 @@
             2
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 4,
           "curt": {
             "K2": "tul"
@@ -355,6 +350,27 @@
         {
           "t": "win",
           "u0": 30.66,
+          "u1": 32.3,
+          "y0": 11.02,
+          "y1": 12.66,
+          "k": 3,
+          "s": [
+            3,
+            3
+          ],
+          "kind": "french",
+          "rail": false,
+          "split": 2,
+          "curt": {
+            "K3": "tul"
+          },
+          "hbars": [
+            12.17
+          ]
+        },
+        {
+          "t": "win",
+          "u0": 32.3,
           "u1": 33.89,
           "y0": 11.02,
           "y1": 12.66,
@@ -364,11 +380,12 @@
             3
           ],
           "kind": "french",
-          "rail": true,
-          "split": 4,
-          "curt": {
-            "K3": "tul"
-          }
+          "rail": false,
+          "split": 2,
+          "hbars": [
+            12.17
+          ],
+          "tint": "#96a8ab"
         },
         {
           "t": "win",
@@ -399,7 +416,7 @@
             6
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 4,
           "curt": {
             "K5": "tul",
@@ -418,7 +435,7 @@
             7
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 4,
           "curt": {
             "K7": "tul-yan"
@@ -560,7 +577,12 @@
           "fasciaC": {
             "*": "#f4f5f2"
           },
-          "railC": "#4b5563"
+          "railC": "#4b5563",
+          "spots": {
+            "n": 2,
+            "inset": 0.5,
+            "d": 0.2
+          }
         },
         {
           "t": "bal",
@@ -610,7 +632,12 @@
           "fasciaC": {
             "*": "#f4f5f2"
           },
-          "railC": "#4b5563"
+          "railC": "#4b5563",
+          "spots": {
+            "n": 2,
+            "inset": 0.5,
+            "d": 0.2
+          }
         },
         {
           "t": "bal",
@@ -2107,6 +2134,156 @@
           "y": 13.92,
           "w": 0.025,
           "color": "#9c968a"
+        },
+        {
+          "t": "arch",
+          "u0": -1.21,
+          "u1": 35.7,
+          "y": 26.5,
+          "spring": 0,
+          "shape": "segment",
+          "rise": 3.4,
+          "thick": 0.25,
+          "color": "#eaeae3",
+          "coping": {
+            "h": 0.45,
+            "over": 0.1,
+            "color": "#715342"
+          },
+          "vault": 10.2,
+          "roofC": "tile"
+        },
+        {
+          "t": "proj",
+          "u0": 1.02,
+          "u1": 3.05,
+          "d": 0.25,
+          "y0": 7.91,
+          "y1": 8.01,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 1.02,
+          "u1": 3.05,
+          "d": 0.25,
+          "y0": 10.9,
+          "y1": 11.0,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 1.02,
+          "u1": 3.05,
+          "d": 0.25,
+          "y0": 13.89,
+          "y1": 13.99,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 1.02,
+          "u1": 3.05,
+          "d": 0.25,
+          "y0": 16.88,
+          "y1": 16.98,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 1.02,
+          "u1": 3.05,
+          "d": 0.25,
+          "y0": 19.87,
+          "y1": 19.97,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 7.25,
+          "u1": 9.45,
+          "d": 0.25,
+          "y0": 23.2,
+          "y1": 23.3,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 30.55,
+          "u1": 34.05,
+          "d": 0.25,
+          "y0": 7.9,
+          "y1": 8.0,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 30.56,
+          "u1": 33.99,
+          "d": 0.25,
+          "y0": 10.92,
+          "y1": 11.02,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 30.61,
+          "u1": 34.05,
+          "d": 0.25,
+          "y0": 16.45,
+          "y1": 16.55,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 30.61,
+          "u1": 34.05,
+          "d": 0.25,
+          "y0": 19.44,
+          "y1": 19.54,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 30.51,
+          "u1": 34.04,
+          "d": 0.25,
+          "y0": 22.98,
+          "y1": 23.08,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
         }
       ],
       "note": "GERÇEK koordinat (pano çerçevesi, her öğe kendi derinliğinde okundu). Düzlem-0 ortofotoda içerideki duvar öğeleri görünen yerinden ~1–1.7 m sola kayık durur (bindirme bu yüzden kayık). Zarf: GB kule önü (s3hr düzlem −0.4); orta taupe duvar + cam kule 1.4 m içeride (−1.8), cam bölge −0.7, GD cumba −1.0. Orta duvardaki küçük pencere sütunları (A,B) ve cam kule üreticide zarfta kalır (gerçekte 1.4 m içeride). v5 (retro): kat kat korkuluk/alın/cam rengi, perdeler (s3hr + CrRB 40° kareleri), merdiven kulesi giydirme cam (tint, 0.95 m kare kayıt), K1 tentesi (awning), kule tenteleri, derzli payeler (pilaster + 0.603 m aralıklı yatay derz). Orta yığınlar: beyaz alın ≈0.43 m + lacivert-füme cam (glass, parapetH 0.27). K1 uzun balkon: gri füme cam, döşemeden (glassFull), alın sıva tonunda. GD cumba K3 penceresinin sağ iki kanadında desenli dekor folyo (pending). K0 lobi/K0 küçük pencere ve K1 GB penceresi çit + lamba arkasında: perde görülmedi."
@@ -2345,7 +2522,7 @@
             7
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2
         },
         {
@@ -2481,7 +2658,12 @@
           "fasciaC": {
             "*": "#f4f5f2"
           },
-          "railC": "#4b5563"
+          "railC": "#4b5563",
+          "spots": {
+            "n": 2,
+            "inset": 0.5,
+            "d": 0.2
+          }
         },
         {
           "t": "bal",
@@ -2725,7 +2907,13 @@
           "u1": 11.47,
           "y0": 17.05,
           "y1": 18.55,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2733,7 +2921,13 @@
           "u1": 11.47,
           "y0": 20.06,
           "y1": 21.56,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2741,7 +2935,13 @@
           "u1": 17.4,
           "y0": 16.26,
           "y1": 17.05,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2749,7 +2949,13 @@
           "u1": 17.4,
           "y0": 18.55,
           "y1": 20.06,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2757,7 +2963,13 @@
           "u1": 17.4,
           "y0": 21.56,
           "y1": 21.9,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2765,7 +2977,13 @@
           "u1": 14.67,
           "y0": 17.05,
           "y1": 18.55,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2773,7 +2991,13 @@
           "u1": 14.67,
           "y0": 20.06,
           "y1": 21.56,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2781,7 +3005,13 @@
           "u1": 17.4,
           "y0": 17.05,
           "y1": 18.55,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "panel",
@@ -2789,7 +3019,13 @@
           "u1": 17.4,
           "y0": 20.06,
           "y1": 21.56,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "pilaster",
@@ -3303,6 +3539,18 @@
           "y": 2.46,
           "w": 0.025,
           "color": "#9c968a"
+        },
+        {
+          "t": "proj",
+          "u0": 14.3,
+          "u1": 16.5,
+          "d": 0.25,
+          "y0": 23.1,
+          "y1": 23.2,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
         }
       ],
       "note": "GERÇEK koordinat (EbG3+57pX, derinlik düzlemlerine kaydırılmış ortofotolarda iki pano uyuşturularak). Derinlikler (taban izi = 0, dışarı +): K1/K7 beyaz kutular ve GD balkon önleri +0.2…+0.45, K3 kutusu −0.5, bordo kaplama ve balkon arka duvarları −1.2…−1.3, GD taupe paye −1.2 (2.0–4.0), KD taupe kule −0.6…−1.4 (17.75–20.85). Balkon önleri taban izinde olduğundan balkonlar loca olarak yazıldı; K2 uzun balkonu (3.95–17.75) arkasında 3 pencere var (8.64–10.5 fransız, 11.56–12.81, 14.79–16.1; −1.27), K4 terasında bordo pencereler (11.55–12.85, 14.75–16.05) — loca içinde kaldıkları için üretici bunları kendi kapı/penceresiyle değiştirir. K4–K6 GD yığını 4.0’dan başlar (0.8–2.0 arası boşluk, 2.0–4.0 taupe paye); K1/K3/K7 balkonları köşeye (0.95) uzanır. K0 girişi (18.9–20.7, cam lobi + beyaz tabela panosu) tahmini. v5 (retro): perdeler ve kat kat korkuluk rengi EbG3 ortofotosundan (doğu cephe gölgede; renkler gölge değeri, güneşli eşdeğerleri güneyden). K1/K3 fransız pencere önleri: beyaz raf + lacivert cam (d 0.4–0.5). K2 lacivert, K3 sol balkon gri-mavi (gökyüzü yansıması), K4 ve K5 gri füme cam. K4 GD balkonunda (4–11) korkuluk üstünden tavana beyaz kare kafes (pending). Bordo kaplama ≈1.0 m kare panolu (derzler pending). K7 korkuluğu görülmedi."
@@ -3872,7 +4120,7 @@
             6
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2,
           "curt": {
             "K5": "tul",
@@ -3917,7 +4165,7 @@
             7
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 4,
           "curt": {
             "K7": "tul"
@@ -4156,7 +4404,13 @@
           "u1": 27.5,
           "y0": 15.8,
           "y1": 22.0,
-          "color": "strip"
+          "color": "strip",
+          "clad": {
+            "dir": "h",
+            "every": 0.68,
+            "w": 0.015,
+            "color": "#6a5a55"
+          }
         },
         {
           "t": "bal",
@@ -4261,7 +4515,7 @@
             1
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2,
           "curt": {
             "K1": "tul"
@@ -4421,7 +4675,7 @@
             4
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 4
         },
         {
@@ -4444,7 +4698,7 @@
             5
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 4,
           "curt": {
             "K5": "tul"
@@ -4505,7 +4759,7 @@
             7
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 4,
           "curt": {
             "K7": "tul"
@@ -4612,6 +4866,168 @@
           "u": 20.0,
           "s": 8,
           "y": 27.4
+        },
+        {
+          "t": "arch",
+          "u0": 1.23,
+          "u1": 38.99,
+          "y": 26.55,
+          "spring": 0,
+          "shape": "segment",
+          "rise": 3.4,
+          "thick": 0.25,
+          "color": "#eaeae3",
+          "coping": {
+            "h": 0.45,
+            "over": 0.1,
+            "color": "#715342"
+          },
+          "vault": 10.2,
+          "roofC": "tile"
+        },
+        {
+          "t": "proj",
+          "u0": 3.4,
+          "u1": 5.57,
+          "d": 0.25,
+          "y0": 4.76,
+          "y1": 4.86,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 3.4,
+          "u1": 5.57,
+          "d": 0.25,
+          "y0": 7.77,
+          "y1": 7.87,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 3.4,
+          "u1": 5.57,
+          "d": 0.25,
+          "y0": 10.78,
+          "y1": 10.88,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 3.4,
+          "u1": 5.57,
+          "d": 0.25,
+          "y0": 13.79,
+          "y1": 13.89,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 3.4,
+          "u1": 5.57,
+          "d": 0.25,
+          "y0": 16.8,
+          "y1": 16.9,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 3.4,
+          "u1": 5.57,
+          "d": 0.25,
+          "y0": 19.81,
+          "y1": 19.91,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 2.65,
+          "u1": 6.3,
+          "d": 0.25,
+          "y0": 23.0,
+          "y1": 23.1,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 34.2,
+          "u1": 36.4,
+          "d": 0.25,
+          "y0": 4.8,
+          "y1": 4.9,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 32.9,
+          "u1": 36.5,
+          "d": 0.25,
+          "y0": 10.9,
+          "y1": 11.0,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 32.9,
+          "u1": 36.5,
+          "d": 0.25,
+          "y0": 13.91,
+          "y1": 14.01,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 33.0,
+          "u1": 36.5,
+          "d": 0.25,
+          "y0": 16.6,
+          "y1": 16.7,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
+        },
+        {
+          "t": "proj",
+          "u0": 32.9,
+          "u1": 36.5,
+          "d": 0.25,
+          "y0": 22.8,
+          "y1": 22.9,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.58
         }
       ],
       "note": "v5 (retro) YENİDEN ÖLÇÜLDÜ — önceki copyOf 0 (nokta simetri) YANLIŞ: kuzey cephe güneyin kopyası değil. Ana kaynak kQajs (Uğur Mumcu tarafı, D≈33 m, 2025-09) 40° kareleri, sv-ortho ile kenar 2 düzlemine ortofoto (1479658783_2_kQajs8rr.jpg — sv-extra.json'a kQajs girişi eklenmeli: h 163/188/212/237 × p 2/23/44, base 0.54, SURVEY_TOP=31). K5–K8 tam görülüyor; K0–K4 Özhan binasının arkasında: KD kule ve KB cumba alt katları _-ul (KD) ve 0Pe2 (KB) eğik karelerinden. Orta kısmın (u 8.7–30) K0–K4'ü GÖRÜLMEDİ → öğe yok (K4 cam kutu altı _-ul'da kısmen). Koordinatlar düzlem-0 görünen = gerçek; orta gri duvar ve bordo bölüm ≈1.4 m içeride (görünen ölçek 0.96, pencereler uF≈8.3 etrafında düzeltildi). Kuzey cephe gölgede: renkler güneyden. Farklar: KD kulede K7 beyaz kutu + fransız pencere (güneyde GB K7 cam balkon), KB cumbada K1 kutu / K2 teras / K5 kutu / K6 teras / K7 kutu (güney GD: K3 kutu / K4 teras / K7 kutu), ortada K5–K6 camlı çıkma kutu (17.0–23.9), merdiven kulesi 27.5–30.25 (lacivert giydirme, üstünde krem duvar), KD köşede K5–K6 düzeyinde u 0–2.08 arası gökyüzü görünüyor (duvar taban izi köşesinden ≈2 m içeride; taban izi düzeltilmedi, rapor edildi). K0 KD: koyu yeşil zebra perdeli büyük pencere (_-ul 212°). K0 KB: KALE KİLİT.",
@@ -4717,7 +5133,7 @@
             1
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2,
           "curt": {
             "K1": "tul"
@@ -4771,7 +5187,7 @@
             5
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2,
           "curt": {
             "K5": "tul"
@@ -4847,7 +5263,7 @@
             7
           ],
           "kind": "french",
-          "rail": true,
+          "rail": false,
           "split": 2
         },
         {
@@ -5746,6 +6162,42 @@
           "y": 7.89,
           "w": 0.025,
           "color": "#9c968a"
+        },
+        {
+          "t": "proj",
+          "u0": 10.48,
+          "u1": 12.5,
+          "d": 0.25,
+          "y0": 4.75,
+          "y1": 4.85,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 7.78,
+          "u1": 9.79,
+          "d": 0.25,
+          "y0": 16.9,
+          "y1": 17.0,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
+        },
+        {
+          "t": "proj",
+          "u0": 13.52,
+          "u1": 15.77,
+          "d": 0.25,
+          "y0": 23.5,
+          "y1": 23.6,
+          "color": "#f4f5f2",
+          "topRail": "glassFull",
+          "topRailC": "#2c3034",
+          "topRailH": 0.65
         }
       ],
       "note": "GERÇEK koordinat (ev6x+lyr3, +2.45 / +1.65 / +0.8 düzlemlerine kaydırılmış ortofotolardan). Bu cephe taban izinin DIŞINDA: ana taupe duvar +0.8, KB paye +1.2…+1.6, K5 kutusu +1.65, K1/K7 beyaz kutular ve balkon önleri +2.45 (taban izi batı kenarı gerçek cepheden ~0.8–2.45 m içeride). Ana duvar taban izine oturtulup balkonlar d≈1.65 çıkma yazıldı; beyaz kutular (K1 3.05–13.15, K5 7.6–17.06, K7 5.45–16.9) düz pano (gerçekte 0.85–1.7 m çıkıntılı hacimler). K7 pencereleri kısmen yalnız ev6x’te (güneş parlaması). K1 GB balkonu (13.2–19.3) ağaç arkasında, iki panoda farklı parçaları görülüyor — tahmini. v5 (retro): K0 KB dükkânı HAS KİLİT (tabela metni tam okundu); vitrin 3.62–6.75 (önceki 1–4.6 tabela/köşe bölgesine denk geliyordu; ev6x 89° karesinde vitrin payenin sağında, +0.8 derinlikten düzeltildi), kapalı zebra perde. Batı cephe gölgede: cam renkleri gölge değeri. K3 balkon camı solda gri (#56606a, içerisi görünür), sağda lacivert. Perdeler ev6x/lyr3."

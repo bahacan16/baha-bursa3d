@@ -2,20 +2,21 @@ import * as THREE from 'three';
 import { HDRLoader } from 'three/examples/jsm/loaders/HDRLoader.js';
 
 /**
- * Ultra, isteğe bağlı (?sky=hdri): gerçek fotoğraf gökyüzü (Poly Haven CC0 "puresky" HDRI, `scripts/fetch-textures.mjs`
- * Actions'ta indirir → public/textures/sky/sky.hdr). Yalnız ARKA PLAN ve cam yansıması; ortam aydınlatması kalibre
- * prosedürel gökten kalır (Street View kalibrasyonu bozulmasın).
- * - Güneş hizası: HDRI'deki en parlak piksel = güneş; azimutu oyundaki güneş azimutuna döndürülür (yükseklik farkı
- *   düzeltilemez — HDRI güneşi ~45–50° seçildi).
+ * Ultra gökyüzü (varsayılan, dosya varsa; `?sky=proc` kapatır): gerçek fotoğraf gökyüzü (Poly Haven CC0 "Kloofendal
+ * 48d Partly Cloudy (Pure Sky)", `scripts/fetch-textures.mjs` Actions'ta indirir → public/textures/sky/sky.hdr).
+ * Yalnız ARKA PLAN ve cam yansıması; ortam aydınlatması kalibre prosedürel gökten kalır (Street View kalibrasyonu
+ * bozulmasın).
+ * - Güneş hizası: HDRI'deki en parlak piksel = güneş; azimutu oyundaki güneş azimutuna döndürülür. Yükseklik farkı
+ *   düzeltilemez → oyundaki güneş HDRI güneşinden (47.9°) 15°'den fazla farklıysa prosedürel gök kullanılır.
  * - Parlaklık: güneşten uzak üç yönde (yükseklik 35°) prosedürel gök ile HDRI ortalaması eşitlenir.
- * - Bulut gölgesi HDRI bulutlarıyla eşleşmez → bu modda kapalı.
- * KARAR: varsayılan prosedürel (bulutlar ve yer gölgeleri tutarlı); HDRI bu ortamda indirilemediği için sahada
- * görsel olarak doğrulanmadı.
+ * - Güneş diski dışında yumuşak üst sınır (bloom perdesi olmasın).
  */
 export interface HdriSky {
   mesh: THREE.Mesh;
+  /** HDRI'deki güneşin yüksekliği (°): oyundaki güneş bundan çok farklıysa (sabah/akşam) HDRI kullanılmaz. */
+  sunElevation: number;
   /** Oyundaki güneş azimutuna göre döndür ve parlaklığı prosedürel göğe eşitle. */
-  align(sunAzimuthDeg: number, measureProc: (dirs: THREE.Vector3[]) => number): void;
+  align(sunAzimuthDeg: number, sunDir: THREE.Vector3, measureProc: (dirs: THREE.Vector3[]) => number): void;
 }
 
 const VS = /* glsl */ `
@@ -30,6 +31,7 @@ const FS = /* glsl */ `
   uniform sampler2D tSky;
   uniform float uRot;
   uniform float uScale;
+  uniform vec3 uSunDir;
   varying vec3 vDir;
   void main() {
     vec3 d = normalize(vDir);
@@ -39,7 +41,12 @@ const FS = /* glsl */ `
     vec3 c = texture2D(tSky, uv).rgb * uScale;
     // ufkun altı: HDRI'nin alt yarısı boş olabilir → ufuk rengini uzat
     if (d.y < 0.0) c = texture2D(tSky, vec2(uv.x, 0.502)).rgb * uScale;
-    gl_FragColor = vec4(c, 1.0);
+    // Güneş diski dışında yumuşak sınır: güneşe yakın hale ve güneşli bulut kenarları HDRI'de mavi gökten 100×
+    // parlak; ekranda zaten beyaz, ama bloom eşiğini aşıp tüm kareye perde yayıyordu. Disk (≈0.6°) korunur.
+    float m = max(c.r, max(c.g, c.b));
+    float knee = 20.0;
+    if (dot(d, uSunDir) < 0.99994 && m > knee) c *= (knee + log(1.0 + m - knee)) / m;
+    gl_FragColor = vec4(clamp(c, 0.0, 30000.0), 1.0);
   }`;
 
 export async function loadHdriSky(url: string): Promise<HdriSky | null> {
@@ -86,7 +93,12 @@ export async function loadHdriSky(url: string): Promise<HdriSky | null> {
   const sunEl = ((by + 0.5) / H - 0.5) * 180;
   console.info(`[ultra] HDRI güneşi: azimut ${sunAz.toFixed(1)}°, yükseklik ${sunEl.toFixed(1)}°`);
   const mat = new THREE.ShaderMaterial({
-    uniforms: { tSky: { value: tex }, uRot: { value: 0 }, uScale: { value: 1 } },
+    uniforms: {
+      tSky: { value: tex },
+      uRot: { value: 0 },
+      uScale: { value: 1 },
+      uSunDir: { value: new THREE.Vector3(0, 1, 0) },
+    },
     vertexShader: VS,
     fragmentShader: FS,
     side: THREE.BackSide,
@@ -112,9 +124,10 @@ export async function loadHdriSky(url: string): Promise<HdriSky | null> {
       }
     return s / n;
   };
-  const align = (gameAz: number, measureProc: (dirs: THREE.Vector3[]) => number) => {
+  const align = (gameAz: number, sunDir: THREE.Vector3, measureProc: (dirs: THREE.Vector3[]) => number) => {
     const rot = gameAz - sunAz;
     mat.uniforms.uRot.value = (rot * Math.PI) / 180;
+    mat.uniforms.uSunDir.value.copy(sunDir).normalize();
     // güneşten uzak, gökyüzünün mavi bandı: güneşe göre +90°, 180°, −90°, yükseklik 35°
     const rel = [90, 180, 270];
     const hd = rel.reduce((a, r) => a + sample(sunAz + r, 35), 0) / rel.length;
@@ -127,7 +140,7 @@ export async function loadHdriSky(url: string): Promise<HdriSky | null> {
     if (hd > 0 && pr > 0) mat.uniforms.uScale.value = pr / hd;
     console.info(`[ultra] HDRI parlaklık ölçeği ${mat.uniforms.uScale.value.toExponential(3)}`);
   };
-  return { mesh, align };
+  return { mesh, align, sunElevation: sunEl };
 }
 
 /** Prosedürel göğün verilen yönlerdeki ortalama parlaklığı (dar açılı kamera, 4×4 kayan noktalı hedef). */

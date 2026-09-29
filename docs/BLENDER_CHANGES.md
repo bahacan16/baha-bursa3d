@@ -386,24 +386,31 @@
   açık olsa da yazılım işleyici / tümleşik GPU (Intel, Mali, Adreno, Radeon Graphics APU) algılanırsa kendiliğinden
   Yüksek'e düşer; menüden açıkça seçilirse yine açılır.
   - Güneş: three `SunLight` (2 kademeli CSM, kademe başına 4096², ~0–115 m / 115–450 m, görüş frustumuna oturur) +
-    PCSS (12 örnekli engel araması, 20 örnekli Vogel PCF, etkin güneş çapı 1.1°, alıcı düzlemi derinlik eğimi → acne
-    yok; kademe texel'ine göre normal ofseti → peter-panning yok): temas noktasında keskin, uzaklaştıkça yumuşayan
-    gölge. Dosyalar: `src/env/lighting.ts`, `src/env/ultra.ts`.
-  - Bulutlar: Street View karelerinin çoğu parçalı bulutlu → Sky bulutları 1600 m'deki dünya düzlemine taşındı (örtü
-    0.32, rüzgâr 6.5 m/s); aynı alan güneş yönünde yere izdüşürülüp yavaş kayan **bulut gölgesi**. Ortam haritası
-    bulutsuz yakalanır (Street View ışık kalibrasyonu korunur). `?clouds=0..1`.
-  - İsteğe bağlı fotoğraf gökyüzü `?sky=hdri`: Poly Haven CC0 "Kloofendal 48d Partly Cloudy (Pure Sky)"
+    PCSS (merkez + 12 örnekli engel araması — yarıçap ~45 m'lik engelin yarı gölgesine göre, ince direk/tel gölgeleri
+    kaybolmasın —, 20 örnekli Vogel PCF, etkin güneş çapı 1.1°, alıcı düzlemi derinlik eğimi → acne yok; kademe
+    texel'ine göre normal ofseti → peter-panning yok): temas noktasında keskin, uzaklaştıkça yumuşayan gölge.
+    Dosyalar: `src/env/lighting.ts`, `src/env/ultra.ts`.
+  - Gökyüzü (varsayılan): fotoğraf gökyüzü — Poly Haven CC0 "Kloofendal 48d Partly Cloudy (Pure Sky)"
     (`scripts/fetch-textures.mjs` Actions'ta indirir → `public/textures/sky/sky.hdr`, 2k). HDRI güneşi (az 34°, yük.
-    47.9°) oyundaki güneş azimutuna döndürülür, parlaklığı prosedürel göğe eşitlenir; yalnız arka plan + yansıma
-    (ortam ışığı kalibre gökten). Bu modda bulut gölgesi kapalı (HDRI bulutlarıyla eşleşmez). `src/env/hdrisky.ts`.
+    47.9°) oyundaki güneş azimutuna döndürülür, parlaklığı prosedürel göğe eşitlenir, güneş diski dışı yumuşak üst
+    sınırlı; yalnız arka plan + yansıma (ortam ışığı kalibre prosedürel gökten). Oyundaki güneş 47.9°'den 15°'den fazla
+    saparsa (sabah/akşam/gün batımı) ve `?sky=proc` ile prosedürel gök: Sky bulutları 1600 m'deki dünya düzleminde
+    (örtü 0.32, rüzgâr 6.5 m/s). `src/env/hdrisky.ts`.
+  - **Bulut gölgesi**: aynı bulut alanının yoğun çekirdekleri (örtü − 0.15 → zeminin ~%10–15'i) güneş yönünde yere
+    izdüşürülür, yavaş kayar. Ortam haritası bulutsuz yakalanır (Street View ışık kalibrasyonu korunur).
+    `?clouds=0..1`.
   - Hava perspektifi: yükseklikle azalan üstel pus (σ 0.00021/m, ölçek yüksekliği 1100 m → 500 m'de ~%10, 1 km'de
     ~%19), gerçek uzaklıkla (derinlik değil). `?haze=`.
   - Son işlem (`src/env/post.ts`, `src/env/taa.ts`): SMAA yerine TAA (Halton 8, Catmull-Rom geçmiş, YCoCg varyans
     kırpma; kamera kesmesinde — >6 m, >35° dönüş, fov değişimi — sıfırlanır); CAS keskinleştirme; kenarlarda hafif
-    kromatik sapma; luma'ya bağlı, kare başı değişen ince film greni; yalnız çok parlak kaynaklarda (güneş diski, cam/araç
-    parıltısı) sınırlandırılmış bloom; kısmi otomatik pozlama (merkez ağırlıklı log ortalama, referans ln L = −1.48 =
-    6 eleştirmen görüşünün ortalaması → ortalamada düzeltme 1.0; yarı güç, 0.75–1.45, ~0.8 s uyum); N8AO yüksek kalite,
-    tam çözünürlük. `?grain= ?ca= ?sharp= ?ae= ?notaa ?noae`.
+    kromatik sapma; luma'ya bağlı, kare başı değişen ince film greni; yalnız çok parlak kaynaklarda (eşik 30: güneş
+    diski, cam/araç parıltısı; girdi 300'de sınırlı) bloom; kısmi otomatik pozlama (merkez ağırlıklı log ortalama,
+    referans ln L = −1.48 = 6 eleştirmen görüşünün ortalaması → ortalamada düzeltme 1.0; yarı güç, 0.85–1.45, ~0.8 s
+    uyum); N8AO yüksek kalite, tam çözünürlük. `?grain= ?ca= ?sharp= ?ae= ?aeref= ?notaa ?noae`.
+  - Pişirilmiş ışık kancası: ışık kalibrasyonu tek yerde (`src/env/calibration.ts`); `bakedLighting.active` iken ayrı
+    küme (env / yarım küre / pozlama şimdilik canlıyla aynı — Street View yama setiyle yeniden oturtulacak:
+    `?benv= ?bhemi= ?bexp=`) ve N8AO pişirmenin üstüne ikinci kez karartmasın diye 0.9 / 1.0 m (`?bssao= ?bssaor=`).
+    Yeniden oturtmada otomatik pozlamayı kapatın (`?noae`) ya da referansı yeniden ölçün (`?aeref=`).
   - Cam/araç yansıması: oyuncunun çevresini yakalayan yerel yansıma küresi (256², her kare bir yüz, PMREM) → pencere
     camları, cam balkonlar, araç boyası/camı/kromu karşı cepheyi, ağaçları, sokağı yansıtır (yalnız aynasal; yayınık ışık
     kalibre gökten). `src/env/probe.ts`; kayıt: `facadeMats.ts` (iki cam malzemesi), `sim/carmodel.ts`. `?noprobe`.

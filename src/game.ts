@@ -173,7 +173,8 @@ export class Game {
       this.post = new PostFX(r, this.scene, this.camera, settings.quality, this.ultra);
     if (this.ultra && !new URLSearchParams(location.search).has('noprobe'))
       this.probe = new ReflectionProbe(r, this.pmrem);
-    if (this.ultra && new URLSearchParams(location.search).get('sky') === 'hdri') void this.loadHdri();
+    // Ultra: fotoğraf gökyüzü (HDRI, varsa) varsayılan; ?sky=proc prosedürel gök (bulutlar + tutarlı bulut gölgesi)
+    if (this.ultra && new URLSearchParams(location.search).get('sky') !== 'proc') void this.loadHdri();
     this.desktop = new DesktopInput(this.input, r.domElement);
     this.touch = this.isTouch ? new TouchControls(container, this.input) : null;
 
@@ -293,9 +294,8 @@ export class Game {
     if (!h) return;
     this.hdri = h;
     this.backdrop.add(h.mesh);
-    // HDRI bulutlarıyla eşleşmeyen prosedürel bulut gölgesi kapalı
-    const u = this.sky.sky.material.uniforms;
-    if (u.cloudCoverage) u.cloudCoverage.value = 0;
+    // KARAR: bulut gölgesi HDRI ile de açık (yalnız yoğun bulut çekirdekleri, bkz. ultraFrame): 1.6 km yukarıdaki bulut
+    // ile yerdeki gölgesi sokak seviyesinden eşleştirilemez; parçalı bulutlu günün yer gölgeleri gerçekçilik katar
     this.alignHdri();
   }
 
@@ -311,10 +311,11 @@ export class Game {
     const sv = this.sky.sky.visible;
     this.sky.sky.visible = true;
     this.sky.sky.position.set(0, 0, 0);
-    h.align(d.azimuth, (dirs) => measureSky(this.renderer, this.backdrop, dirs, new THREE.Vector3()));
+    h.align(d.azimuth, d.sunDir, (dirs) => measureSky(this.renderer, this.backdrop, dirs, new THREE.Vector3()));
     this.sky.sky.visible = sv;
     hide.forEach((o, i) => (o.visible = vis[i]));
-    h.mesh.visible = d.night < 0.3;
+    // HDRI tek bir öğle göğü: güneş yüksekliği HDRI'dekinden çok farklıysa (sabah, gün batımı, gece) prosedürel gök
+    h.mesh.visible = d.night < 0.3 && Math.abs(d.elevation - h.sunElevation) < 15;
   }
 
   applyTimeOfDay(): void {
@@ -521,7 +522,9 @@ export class Game {
     const clock = this.lights.sun.userData.ultraClock as { t: number; cover: number } | undefined;
     if (clock) {
       clock.t = this.time;
-      clock.cover = u.cloudCoverage ? u.cloudCoverage.value * (1 - night) : 0;
+      // yer gölgesi yalnız yoğun çekirdeklerden (örtü − 0.15 → alanın ~%10–15'i): Street View kareleri güneşli çekim;
+      // görünen bulutlarla aynı alanın çekirdekleri olduğu için tutarlı
+      clock.cover = u.cloudCoverage ? Math.max(0, u.cloudCoverage.value - 0.15) * (1 - night) : 0;
     }
     if (this.probe && night < 0.5) {
       const at = this.renderPos.clone();

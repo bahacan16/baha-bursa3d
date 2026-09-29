@@ -129,9 +129,12 @@ Blender kuruluysa aynı betik `blender --background --python blender/bake/bake_a
 
 - CSM: three `SunLight` 2 kademe × 4096² (0–~115 m, ~115–450 m; kademe sayısı three'de sabit 2) + PCSS (etkin güneş çapı
   1.1°, alıcı düzlemi eğimi, texel ölçekli normal ofseti). 4 kademe yapılmadı: yakın kademe ~4.6 cm/texel yeterli.
-- Gökyüzü: prosedürel Sky bulutları dünya düzleminde + aynı alandan bulut gölgesi (varsayılan). HDRI (Kloofendal 48d
-  Partly Cloudy Pure Sky) `?sky=hdri` ile yalnız arka plan + yansıma; **ortam haritası olarak kullanılmadı** — Street
-  View ışık kalibrasyonu prosedürel gökle yapıldı (env 0.038), HDRI ile yeniden kalibrasyon gerekirdi.
+- Gökyüzü: HDRI (Kloofendal 48d Partly Cloudy Pure Sky) varsayılan arka plan + yansıma (güneş azimutu hizalı, parlaklık
+  prosedürel göğe eşit); **ortam haritası olarak kullanılmadı** — Street View ışık kalibrasyonu prosedürel gökle yapıldı
+  (env 0.038), HDRI ile yeniden kalibrasyon gerekirdi. Güneş HDRI güneşinden (47.9°) 15°'den fazla saparsa ve
+  `?sky=proc` ile prosedürel Sky bulutları (dünya düzleminde). Bulut gölgesi: aynı alanın yoğun çekirdeklerinden.
+- Pişirilmiş ışık ile birlikte: ışık kalibrasyonu `src/env/calibration.ts` (`bakedLighting.active` iken ayrı küme; N8AO
+  pişirme varken yalnız temas ölçeğinde). Yeniden oturtma yapılmadı (pişirme sonrası Street View yama seti gerekir).
 - Son işlem: TAA (SMAA yerine), CAS keskinleştirme, kromatik sapma, film greni, sınırlı bloom, kısmi otomatik pozlama.
   Renk LUT'u eklenmedi (mevcut Grade/Finish kalibrasyonu yeterli); hareket bulanıklığı eklenmedi (Street View
   karelerinde yok, 3. şahıs kamerada bulanıklık gerçekçilik değil rahatsızlık getiriyor).

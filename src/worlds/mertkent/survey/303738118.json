@@ -1208,6 +1208,33 @@
      "bold": false,
      "lit": false,
      "logo": "çatıda, fasya bandının hemen üstünde duran siyah levha; ince beyaz büyük harf, 'i' harfleri noktalı küçük i (logo yazımı; Türkçe: DELİCE YENİ NESİL EĞLENCE); iki uçta gri-lila tüy/çiçek çizimi (sol beyazımsı, sağ mor)"
+    },
+    {
+     "t": "roofobj",
+     "kind": "vent",
+     "u": 7.46,
+     "setback": 1.6,
+     "h": 2.4,
+     "w": 0.36,
+     "color": "#5b6c7f"
+    },
+    {
+     "t": "roofobj",
+     "kind": "dish",
+     "u": 6.3,
+     "setback": 1.0,
+     "h": 0.74,
+     "w": 0.68,
+     "color": "#414947"
+    },
+    {
+     "t": "roofobj",
+     "kind": "dish",
+     "u": 5.05,
+     "setback": 1.0,
+     "h": 1.0,
+     "w": 0.65,
+     "color": "#616157"
     }
    ],
    "note": "Batı cephe (Özlüce Bulvarı). Ref C0o_p0 (2025-09). Pano konumları bu bölgede ~3.2 m batıya kaymış (sapma çözümü, bkz. notes); cal.u buna göre (u 0 = kuzey uç, kıvrım başlangıcı; 17.57 = GB köşe), yükseklik ölçeği fasya üst kenarı ile. Görülen: K1 + fasya + çatı tabelası. K0 bu kenarda GÖRÜLMEZ: önünde ~6.5–7.5 m derin tek katlı ek (Cevher kış bahçesi + tuğla kaplı ara giriş + Delice dükkânı) var → pending 'annexWest'. K1 kuzeyden güneye: Cevher (u' −2.21…6.69) mavi alüminyum doğramalı boy cam + ~1 m'de paslanmaz küpeşte (cam korkuluk etkisi), içeride beyaz sandalye/masa; beyaz kare paye (u' 6.69–7.35, 7.54–7.69'da mavi şerit); Delice (u' 7.35–18.25) üstü kapalı teras: önde lazer kesim desenli kahverengi (#7a5a44) ve koyu gri-mavi desenli panellerden korkuluk (0.95–1.0 m), ince koyu çelik dikmeler (~1.1 m ara), ortada mavi çelik kolon, üstte kahverengi oluklu saçak şeridi, terasta 3–4 klima dış ünitesi, arkada koyu doğramalı cam duvar (derinlik tahmini 1.4 m, görülmedi). GB uçta beyaz paye/duvar (mavi şeritli). Fasya: beyaz kompozit panel (~1.1 m modül) – mavi şerit – beyaz; gerçek kot ≈7.85–9.07 (tabandan)."
@@ -1224,7 +1251,8 @@
   "GÖRÜLMEYENLER: güney cephe (kenar 0) tamamı, doğu cephe güney kısmı (kenar 1, 2), doğu cephenin alt ~3 m'si, tüm cephelerin K0'ı batı ve kuzeyde eklerin arkasında (yalnız KB kıvrımda K0 görünür), çatı yüzeyi yalnız kenarlardan. Bunlar için öğe yazılmadı.",
   "FOTO TARİHİ: kullanılan tüm kareler 2025-09.",
   "DOĞRAMA RENGİ (frameC): klinik #b9c0c3, Cevher #2c4f86 mavi alüminyum, İskele K1 #d7dbdc + koyu füme cam tint #1f3336, Delice (hacim) #2b2d2f. Ek hacimler volumes'da (batı 3 parça, kuzey kış bahçesi, K2 köşkü).",
-  "v5 (2026-09-29, pend-g5): kış bahçelerine yatay kayıt (glazing.transom: Cevher 0.88, İskele 1.05); Cevher taş subasmanı ve ön taş parapeti, İskele mavi ahşap subasmanı ince ek hacimler (duvardan 3 cm önde). Hacim çokgenleri ters sıralı olsa da üretici artık kenar indekslerini ölçüm sırasına çeviriyor (orig) — cam kenarları yazıldığı gibi (hacim 0: batı+kuzey, hacim 2: batı+güney) doğru. roofWestHip / roofUpperBlock / roofTerraceClinic / K2 köşkü ayrıntıları v5 öğeleriyle ifade edilemiyor (plan sınırları ve konumlar ±0.7 m, direkli küre lambalar, cam rüzgârlık kenar ortasından başlıyor) → pending'de kaldı."
+  "v5 (2026-09-29, pend-g5): kış bahçelerine yatay kayıt (glazing.transom: Cevher 0.88, İskele 1.05); Cevher taş subasmanı ve ön taş parapeti, İskele mavi ahşap subasmanı ince ek hacimler (duvardan 3 cm önde). Hacim çokgenleri ters sıralı olsa da üretici artık kenar indekslerini ölçüm sırasına çeviriyor (orig) — cam kenarları yazıldığı gibi (hacim 0: batı+kuzey, hacim 2: batı+güney) doğru. roofWestHip / roofUpperBlock / roofTerraceClinic / K2 köşkü ayrıntıları v5 öğeleriyle ifade edilemiyor (plan sınırları ve konumlar ±0.7 m, direkli küre lambalar, cam rüzgârlık kenar ortasından başlıyor) → pending'de kaldı.",
+  "v6 (2026-09-29, pend6-g5): batı çatıdaki baca borusu ve iki çanak `roofobj` ile (kenar 8, C0o_p0qm); kalan çatı öğeleri pending roofWestHip. Hacim cam/korkuluk kenar indeksleri poly[j]→poly[j+1] kuralıyla yeniden kontrol edildi (v6 hata düzeltmesi): hacim 0 [3,0] = batı + kuzey, hacim 2 [3,2] = batı + güney, hacim 3 [1,2,3] = doğu + kuzey + KB, hacim 4 [0,1] = kuzey + KB kavis — hepsi fotoğrafla uyumlu, değişiklik gerekmedi."
  ],
  "pending": [
   {
@@ -1293,13 +1321,14 @@
    "id": "roofTerraceClinic",
    "what": "Klinik kısmı üstünde çatı terası donanımı",
    "items": "fasyanın ~0.5 m gerisinde ≈1.3 m koyu doğramalı cam rüzgârlık (kenar 5 u≈5.5 → kenar 6 → kenar 7 başı); kenar 6 u≈0.5–3.0 üstünde koyu yeşil sarılı tente; direk üstünde kırmızı küre lambalar (çap ~0.3, fasya üstünden ≈0.8–1.1 m): kenar 6 u≈3.1, 4.2, 7.2 ve kenar 5 u≈5.7, 7.8 (gne/lIE/vH6 ortofotolarından, ±0.7)",
-   "v5": "v5 ile ifade edilemedi: roof.parapet railEdges korkuluğu yalnız duvar düzleminde ve tüm kenar boyunca çiziyor; rüzgârlık fasyanın ~0.5 m gerisinde, kenar 5'in ortasından (u≈5.5) başlayıp kenar 7'nin başında bitiyor. Direkli kırmızı küre lambalar (Ø0.3) mast ile çizilemiyor (mast tepe küresi 7 cm, direk rengi; bayrak için)."
+   "v5": "v5 ile ifade edilemedi: roof.parapet railEdges korkuluğu yalnız duvar düzleminde ve tüm kenar boyunca çiziyor; rüzgârlık fasyanın ~0.5 m gerisinde, kenar 5'in ortasından (u≈5.5) başlayıp kenar 7'nin başında bitiyor. Direkli kırmızı küre lambalar (Ø0.3) mast ile çizilemiyor (mast tepe küresi 7 cm, direk rengi; bayrak için).",
+   "v6": "v6 mast top {kind:\"ball\"} kırmızı küreyi çizebilir ama direk duvarın önüne (off ≥ 0.1) konuyor; lambalar fasyanın ≈0.5 m gerisinde teras üstünde → hâlâ ifade edilemiyor (roofobj’da küreli direk yok). Rüzgârlık için hacim çizgisi (±0.7 m) tahmin olur."
   },
   {
    "id": "roofWestHip",
    "what": "Batı kısım koyu kırma çatı + çatı donanımı",
-   "details": "mavi fasyanın arkasından yükselen koyu antrasit-zeytin (#404642 gölge, #5b5a4e) metal/membran kırma çatı, GB köşede mahya-kırma çizgisi görülüyor (G35/G9sc); tepesi fasya üstünden ≈1.3–1.6 m; üstünde Delice tabelası (kenar 8 sign) ve: galvaniz baca borusu Ø≈0.4 m, şapkalı, kenar 8 u≈7.6, fasyanın ≈1.6 m gerisinde, tepe ≈12 m; 2 gri çanak anten (kenar 8 u≈6.3 ve ≈5.2, fasyanın arkasında), 2–3 ince anten direği (u≈−0.5, 0.7, 2.3)",
-   "v5": "v5 ile ifade edilemedi: anten direkleri ve çanaklar çatıda fasyanın gerisinde — mast yalnız duvarın önüne (off ≥ 0.1), çanak duvardan 0.35 m öne sabit konuyor; kırma çatı planı (sınırları) hava fotoğrafında seçilmiyor; baca tepe kotu 10.7–12 m arası belirsiz (fasyanın 1.6 m gerisinde, ortofotoda küçülmüş)."
+   "details": "mavi fasyanın arkasından yükselen koyu antrasit-zeytin (#404642 gölge, #5b5a4e) metal/membran kırma çatı, GB köşede mahya-kırma çizgisi görülüyor (G35/G9sc); görünen üst kenarı fasya üstünden ≈1.3–1.6 m. v6’da çizildi: galvaniz baca borusu (roofobj vent, görünen u 7.25–7.67, gövde 11.3→12.84, şapka 12.84–13.15; setback 1.6 → gerçek taban ≈10.0 (eğik çatı), şapka üstü ≈11.6 m; düz çatıdan h 2.4, Ø0.36, #5b6c7f) ve 2 çanak (roofobj dish u 6.3 Ø≈0.68 #414947, u 5.05 Ø≈0.65 #616157; setback görülmedi → 1.0 varsayıldı, kot farkı ±0.1). Kalan: (1) kırma çatının kendisi (plan sınırları hava fotoğrafında seçilmiyor); (2) baca şapkası gerçekte ≈0.73 m koyu disk (#242c34) — vent başlığı Ø≈0.46 metal renginde çizilir; (3) fasya arkasında 3 ince kısa direk (görünen u −0.57, 0.83 (üstünde koyu kare levha), 2.35; boy fasya üstünden ≈0.5–0.8 m, C0o 3. kare): TV anteni elemanı görünmüyor → antenna çizmek tahmin olur, düz direk öğesi yok.",
+   "v5": "v5 ile ifade edilemedi: anten direkleri ve çanaklar çatıda fasyanın gerisinde — mast yalnız duvarın önüne (off ≥ 0.1), çanak duvardan 0.35 m öne sabit konuyor; kırma çatı planı (sınırları) hava fotoğrafında seçilmiyor; baca tepe kotu 10.7–12 m arası belirsiz (fasyanın 1.6 m gerisinde, ortofotoda küçülmüş). v6: roofobj ile baca + çanaklar çizildi (yukarıda); kırma çatı ve ince direkler kaldı."
   },
   {
    "id": "roofUpperBlock",

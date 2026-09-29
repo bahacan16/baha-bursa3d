@@ -86,6 +86,30 @@
      "style": "panel"
     },
     {
+     "t": "ribbon",
+     "pts": [
+      [
+       4.4,
+       3.97
+      ],
+      [
+       4.55,
+       4.13
+      ],
+      [
+       4.66,
+       4.33
+      ],
+      [
+       4.78,
+       4.45
+      ]
+     ],
+     "w": 0.2,
+     "d": 0.29,
+     "color": "#1897af"
+    },
+    {
      "t": "sign",
      "u0": -0.45,
      "u1": 1.3,
@@ -300,15 +324,67 @@
     },
     {
      "t": "sign",
-     "u0": 7.75,
+     "u0": 7.62,
      "u1": 8.2,
      "y0": 3.7,
-     "y1": 4.2,
+     "y1": 4.02,
      "d": 0.02,
      "text": "",
      "bg": "#1897af",
      "fg": "#1897af",
      "style": "panel"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       7.49,
+       3.6
+      ],
+      [
+       7.6,
+       3.88
+      ],
+      [
+       7.72,
+       3.99
+      ],
+      [
+       7.85,
+       4.07
+      ],
+      [
+       8.02,
+       4.12
+      ],
+      [
+       8.2,
+       4.14
+      ]
+     ],
+     "w": 0.24,
+     "d": 0.29,
+     "color": "#1897af"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       -1.03,
+       3.77
+      ],
+      [
+       -0.77,
+       3.72
+      ],
+      [
+       -0.5,
+       3.62
+      ]
+     ],
+     "w": 0.16,
+     "d": 0.29,
+     "color": "#1897af"
     },
     {
      "t": "sign",
@@ -536,14 +612,13 @@
   "Güney tente/bant/çit Leyla Fasıl’ın batı pergolasına (x≈664.7–667.3, z≈−102…−94.7; koyu dikmeler, yarı saydam turkuaz çatı, koyu gri tahta güverte + saksılar) dayanıyor; pergola bu binaya ait görünmüyor (güverte Leyla’nın cephesiyle aynı malzeme) — çizilmedi, pending’de.",
   "Tabelalar: ön ve güneyde aynı tasarım (güneyde daha kısa üst pano ve daha küçük harfler). Metinler: ‘Balıkçı Mahmut’ (balık logosu iki kelime arasında), ‘ÇİĞ ve PİŞMİŞ / KİLO İLE BALIK’, ‘Gel Al Paket / 413 47 23’, ‘MEZE ÇEŞİTLERİ / DONUK ÜRÜNLER’, yuvarlak ‘BALIK / MARKET’. Saksı panelindeki iki satır küçük koyu yazı okunamadı.",
   "v4: balık logosu Mahmut tabelasına icon fish (u aralığı logoyu kapsayacak şekilde genişletildi), beyaz harf konturu outline, BALIK MARKET shape round, sol/sağ/güney tenteler style dutch, yerdeki klima volume olarak eklendi. Saksı/çit kutuları cepheye dayalı olduğu için proj olarak kaldı.",
-  "v5 (2026-09-29, pend-g5): üst antrasit lamelli pano (iki cephe) proj yerine band louvre (derinlik 0.25 = eski kutu, renk #3b4e51 güneşli düzeltilmiş, lamel arası #1b2324 = ep gölgeli profilde aralık/lamel oranı 0.43); ep batı ucunda (u −0.9…−0.5) düşey parlaklık profili 7 lamel, görünen ~0.125 m aralık (önceki '6 lamel' sayımı düzeltildi). GB köşe bej-kahve esnek hortum pipe (u 8.15, duvardan 0.15, Ø5 cm, görünen 1.3–3.33 = klima üstü → tabela bandı altı, kelepçesiz; alttaki sola kıvrım çizilemiyor, saksı arkasında). 'leyla-pergola' pending'i 900000102 ek hacimleriyle karşılandığı için çıkarıldı."
+  "v5 (2026-09-29, pend-g5): üst antrasit lamelli pano (iki cephe) proj yerine band louvre (derinlik 0.25 = eski kutu, renk #3b4e51 güneşli düzeltilmiş, lamel arası #1b2324 = ep gölgeli profilde aralık/lamel oranı 0.43); ep batı ucunda (u −0.9…−0.5) düşey parlaklık profili 7 lamel, görünen ~0.125 m aralık (önceki '6 lamel' sayımı düzeltildi). GB köşe bej-kahve esnek hortum pipe (u 8.15, duvardan 0.15, Ø5 cm, görünen 1.3–3.33 = klima üstü → tabela bandı altı, kelepçesiz; alttaki sola kıvrım çizilemiyor, saksı arkasında). 'leyla-pergola' pending'i 900000102 ek hacimleriyle karşılandığı için çıkarıldı.",
+  "v6 (2026-09-29, pend6-g5): turkuaz bandın uçlardaki kavisli yükselişi `ribbon` (w 0.16–0.24, d 0.29 = lamelli/beyaz bant kutusu 0.25 + panel önü) ile — dikdörtgen yaklaşım (7.75–8.20 × 3.70–4.20) 7.62–8.20 × 3.70–4.02 dolguya indirildi. KOT KONTROLÜ (101/102/103/122 köşesi): bu blokta zemin ep ortofotosunda görünen ≈0.1 (saksı ve saksı kutusu altları) → 0 m, düşey ölçek ≈1 — doğru; batıdaki kavşak yolundan bakan ep kamerası cephe zemininin ≈2.4 m üstünde (güneydeki panolarda 101–103 önü sekisi kameranın 1.66–1.72 m altında: güney ön avlu yoldan ≈0.7 m yüksek). Değişiklik yok."
  ],
  "pending": [
   {
    "id": "band-wave",
-   "what": "Ana bantta turkuaz alanın üst kenarı dalga biçimli (düz dikdörtgen değil); altta beyaz noktalı dalga çizgisi şeridi",
-   "edge3": "ref ep: turkuaz alt şerit 3.33–3.70 boyunca; sol uçta (u_app −1.03…−0.5) 3.85’e kadar hafif yükselir; sağ uçta ‘Mahmut’ sonrası (u_app 7.49→8.20) 3.72’den 4.26’ya kavisle yükselir (u 7.6: 4.0, u 7.85: 4.19, u 8.2: 4.26). Şimdilik 7.75–8.20 × 3.70–4.20 dikdörtgenle yaklaşıldı.",
-   "edge0": "ref lI: alt şerit y_app 3.80–4.03; ‘Mahmut’ sonrası u_app 4.47→4.75 arasında kavisle y_app 4.55’e (gerçek 4.17) yükselir ve görünen uca (u_app 8.0) kadar düz sürer.",
+   "what": "Ana bantta turkuaz alanın üst kenarı dalga biçimli; altta beyaz noktalı dalga çizgisi şeridi. v6: iki uçtaki ölçülü kavisli yükselişler `ribbon` ile çizildi (ön cephe sağ uç u 7.49→8.2, sol uç u −1.03→−0.5; güney cephe u 4.47→4.75). Kalan: (1) aradaki dalga profili ölçülmedi (harflerin arkasında, ep/lI çözünürlüğü yetmiyor); (2) nokta şeridi: turkuaz üstüne ~4 cm beyaz halkalar dizisi — üreticide nokta/halka deseni yok (düz ribbon çizgi olur, yanlış).",
    "dots": "noktalı dalga şeridi: gerçek 3.35–3.49 m, turkuaz üstüne beyaz küçük halkalar (~4 cm), iki cephede de tüm boy",
    "colors": {
     "teal": "#1897af",
