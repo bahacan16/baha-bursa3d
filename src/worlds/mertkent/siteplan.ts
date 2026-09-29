@@ -1,16 +1,7 @@
 import * as THREE from 'three';
 import { Builder, leafFringe, type V2, type V3 } from './builder';
-import {
-  binStand,
-  cypressCone,
-  goal,
-  kamelya,
-  lamp2,
-  panelFence,
-  pitchFence,
-  playSet,
-  roseBush,
-} from './sitekit';
+import { parseSpecies, speciesIndex } from '../osm/species';
+import { binStand, goal, kamelya, lamp2, panelFence, pitchFence, playSet, roseBush } from './sitekit';
 
 /**
  * Ölçülmüş site planı (data/site-plan.json: Google z21 hava fotoğrafından; data/street-plan.json: sokaklar):
@@ -102,11 +93,33 @@ export const STREET_PLAN: StreetPlan = PLANS['./data/street-plan.json'] ?? {};
 /** Komşu parklar (kuzey park, Nato Parkı): site planıyla aynı şema */
 export const PARK_PLAN: SitePlan = PLANS['./data/park-plan.json'] ?? {};
 
-function speciesType(s?: string, note?: string): number {
-  const t = `${s ?? ''} ${note ?? ''}`.toLowerCase();
-  if (/pine|çam|cedar|sedir|cypress|servi|thuja|leyland|fir|köknar|conifer|ibreli/.test(t)) return 1;
-  if (/birch|huş|aspen|kavak|poplar|söğüt|willow/.test(t)) return 2;
-  return 0;
+/**
+ * Ölçüm noktasının türü → ağaç kütüphanesi tür indeksi (src/worlds/osm/species.ts). `species` alanı ve not
+ * metni Türkçe / İngilizce / Latince ad ya da doğrudan tür anahtarı olabilir; daha belirli olan kazanır.
+ * Anket ajanları için sözlük (anahtar — tanınan adlar; ayrıntı, tanıma ipuçları ve kanıt kareleri docs/TREES.md):
+ *   cedrus (sedir, Himalaya sediri, Cedrus deodara) · picea-pungens (mavi ladin) · goldcrest (limoni servi,
+ *   Cupressus macrocarpa, tek leylandi) · cupressus (servi/selvi, Akdeniz servisi, sütun) · thuja (mazı, tuja,
+ *   Platycladus, küçük konik ardıç) · trachycarpus (palmiye, yelpaze palmiyesi) · tilia (ıhlamur) · ulmus
+ *   (karaağaç, çitlembik, geniş kubbe) · robinia (akasya, yalancı akasya) · robinia-globe (top akasya) ·
+ *   koelreuteria (sabun ağacı) · prunus-purple (kan erik, mor yapraklı) · eriobotrya (yenidünya) · fruit (meyve
+ *   ağacı, tür belirsiz) · glossy (alev ağacı/Photinia, kurtbağrı/Ligustrum, taflan) · sapling (fidan, kazıklı
+ *   genç ağaç) · boxwood (şimşir topu) · conifer (çam / iğne yapraklı, tür belirsiz) · deciduous-oval (kavak,
+ *   huş) · deciduous (yaprak döken, tür belirsiz). Görülmeyen tür yazılmaz → genel anahtar.
+ */
+export function speciesType(s?: string, note?: string): number {
+  return speciesIndex(parseSpecies(s, note));
+}
+
+/**
+ * Ağaç kütüphanesinin çizdiği site noktaları: ağaçlar, konik servi sıraları ('cone' = limoni servi, kullanıcı
+ * fotoğrafları), iğne yapraklı çalılar (mazı sırası) ve çalı diye ölçülmüş genç ağaçlar ("ince gövdeli genç
+ * ağaç"). Diğer çalılar ve güller site planında kalır.
+ */
+function treeLibPoint(p: SitePoint): boolean {
+  if (p.kind === 'tree' || p.kind === 'cone') return true;
+  if (p.kind !== 'shrub') return false;
+  const k = parseSpecies(p.species, p.note);
+  return k === 'thuja' || k === 'goldcrest' || k === 'cupressus' || k === 'boxwood' || k === 'sapling';
 }
 
 function flat(r: V2[]): number[] {
@@ -115,27 +128,30 @@ function flat(r: V2[]): number[] {
   return o;
 }
 
-/** Ağaç sistemi için: ölçülmüş ağaçlar [x, z, tür, ölçek]* + otomatik ağaç konmayacak bölgeler */
+/**
+ * Ağaç sistemi için: ölçülmüş ağaçlar [x, z, tür, boy m, taç yarıçapı m]* (0 = ölçülmedi; vegetation.ts
+ * FIXED_STRIDE) + otomatik ağaç konmayacak bölgeler.
+ */
 export function surveyVegetation(): {
   fixedTrees: number[];
   excludeZones: number[][];
   noSidewalkZones: number[][];
 } {
   const fixedTrees: number[] = [];
-  const add = (x: number, z: number, r: number | undefined, h: number | undefined, type: number) => {
-    const byR = (r ?? 2.3) / 2.3;
-    const byH = h ? h / 8 : byR;
-    // Yalnızca boy verilmişse (sokak fidanları, ardıçlar) boya göre; küçük bitkiler de küçük kalsın
-    const s =
-      r == null && h ? Math.max(0.18, Math.min(1.9, byH)) : Math.max(0.35, Math.min(1.9, (byR + byH) / 2));
-    fixedTrees.push(x, z, type, s);
-  };
-  for (const p of [...(SITE_PLAN.points ?? []), ...(PARK_PLAN.points ?? [])])
-    if (p.kind === 'tree') add(p.x, p.z, p.r, p.h, speciesType(p.species, p.note));
+  const add = (x: number, z: number, r: number | undefined, h: number | undefined, type: number) =>
+    fixedTrees.push(x, z, type, h ?? 0, r ?? 0);
+  for (const p of [...(SITE_PLAN.points ?? []), ...(PARK_PLAN.points ?? [])]) {
+    if (!treeLibPoint(p)) continue;
+    // Konik servi noktaları (tür alanı yok): kullanıcı fotoğraflarındaki limoni servi sıraları
+    const sp = p.kind === 'cone' ? (p.species ?? 'goldcrest') : p.species;
+    add(p.x, p.z, p.r, p.h ?? (p.kind === 'cone' ? 2.4 : undefined), speciesType(sp, p.note));
+  }
+  // Sokak ağaçları (2 m altındakiler dahil: köşe adasının mazı konileri de ağaç kütüphanesinde)
   for (const p of STREET_PLAN.street ?? [])
-    // 2 m altı "ağaçlar" (köşe adasındaki budanmış şimşir/ardıçlar) street.ts'de çalı olarak kurulur
-    if (p.kind === 'tree' && (p.h ?? 5) >= 2)
-      add(p.x, p.z, undefined, p.h, speciesType(undefined, `${p.text ?? ''} ${p.note ?? ''}`));
+    if (p.kind === 'tree') {
+      const q = p as { species?: string; r?: number };
+      add(p.x, p.z, q.r, p.h, speciesType(q.species, `${p.text ?? ''} ${p.note ?? ''}`));
+    }
   const excludeZones: number[][] = [];
   for (const a of [...(SITE_PLAN.areas ?? []), ...(PARK_PLAN.areas ?? [])])
     if (a.poly?.length >= 3) excludeZones.push(flat(a.poly));
@@ -558,7 +574,8 @@ export function buildSitePlan(
     const yaw = ((p.rot ?? 0) * Math.PI) / 180;
     switch (p.kind) {
       case 'shrub':
-        bush(b, c, p.r ?? 0.7, p.h ?? (p.r ?? 0.7) * 1.2, (seed += 7));
+        // İğne yapraklı çalılar (mazı sırası) ağaç kütüphanesinde (surveyVegetation)
+        if (!treeLibPoint(p)) bush(b, c, p.r ?? 0.7, p.h ?? (p.r ?? 0.7) * 1.2, (seed += 7));
         break;
       case 'lamp':
         gardenLamp(b, c, p.h ?? 3.2);
@@ -629,7 +646,7 @@ export function buildSitePlan(
         roseBush(b, [p.x, y, p.z], (seed += 13));
         break;
       case 'cone':
-        cypressCone(b, [p.x, y, p.z], p.r ?? 0.6, p.h ?? 2.4);
+        // Limoni servi konileri ağaç kütüphanesinde (surveyVegetation → vegetation, tür 'goldcrest')
         break;
       case 'bollard':
         b.cylinder('darkMetal', [p.x, y, p.z], 0.07, 0.8, 8);

@@ -4,7 +4,7 @@ import type { Quality } from '../../core/settings';
 import { PolygonCollisionWorld } from './collision';
 import { CHUNK_SIZE, MAT_KEYS, type MatKey } from './chunks';
 import { buildWorld, type BuildResult } from './build';
-import { createOsmMaterials, createTreeGeometries, groundHalf, type OsmMaterials } from './materials';
+import { createOsmMaterials, groundHalf, type OsmMaterials } from './materials';
 import { orient } from './buildings';
 import { barrierThickness } from './landuse';
 import { parseOsm, pointInPolygon, type OsmWorldData } from './parse';
@@ -18,8 +18,8 @@ import { loadStreetViewFacades } from './streetview';
 import { surveyVegetation } from '../mertkent/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../mertkent';
 import { StreetProps } from './streetprops';
-import { createDetailedTrees } from './treemesh';
-import { createEzTrees, windTime, type EzTreeKind } from './eztree';
+import { windTime } from './eztree';
+import { TreeField } from './treefield';
 import { Pedestrians } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
 import { ParkedCars } from '../../sim/parked';
@@ -179,12 +179,6 @@ export class GroundIndex {
   }
 }
 
-const TREE_NEAR_R = 110;
-const TREE_NEAR_MAX = 1500;
-/** Dallı-yapraklı (ez-tree) ağaç yarıçapı / tür başına üst sınır — ağaç başı ~2–4k üçgen. */
-const TREE_EZ_R = { low: 0, medium: 65, high: 100 } as const;
-const TREE_EZ_MAX = 600;
-
 export class OsmWorld implements IWorld {
   readonly kind = 'osm' as const;
   readonly object = new THREE.Group();
@@ -192,23 +186,8 @@ export class OsmWorld implements IWorld {
   readonly spawn = new THREE.Vector3();
   private chunkGroups = new Map<string, THREE.Group>();
   readonly materials: OsmMaterials;
-  private treeGeos: THREE.BufferGeometry[] = [];
-  private treeGeosHi: THREE.BufferGeometry[] = [];
-  private treeMatHi = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.85 });
-  private treeMeshes: {
-    im: THREE.InstancedMesh;
-    type: number;
-    c: THREE.Vector2;
-    mats: Float32Array;
-    hi: Uint8Array;
-    /** Ağaç gövdesi çarpışma kutusunun ilk segmenti */
-    seg: Uint32Array;
-  }[] = [];
-  private treeNear: THREE.InstancedMesh[] = [];
-  private ezKinds: EzTreeKind[] = [];
-  private treeEz: { branches: THREE.InstancedMesh; leaves: THREE.InstancedMesh }[] = [];
-  private ezR = 0;
-  private treeLodAt = new THREE.Vector2(1e9, 1e9);
+  /** Ağaç türü kütüphanesi: tür başına örneklenmiş yakın/orta/uzak LOD (treefield.ts, docs/TREES.md) */
+  private trees!: TreeField;
   private stat: Record<string, number> = {};
   private viewDist: number;
   private props!: StreetProps;
@@ -253,83 +232,16 @@ export class OsmWorld implements IWorld {
       this.chunkGroup(c.cx, c.cz).add(m);
     }
 
-    // Ağaçlar: chunk × tür başına InstancedMesh
-    this.treeGeos = createTreeGeometries();
-    this.treeGeosHi = quality === 'low' ? [] : createDetailedTrees();
-    const mtx = new THREE.Matrix4();
-    const q = new THREE.Quaternion();
-    const up = new THREE.Vector3(0, 1, 0);
-    const col = new THREE.Color();
-    for (const t of res.trees.chunks) {
-      const n = t.data.length / 5;
-      const im = new THREE.InstancedMesh(this.treeGeos[t.type], this.materials.trees, n);
-      const segStart = new Uint32Array(n);
-      for (let i = 0; i < n; i++) {
-        const x = t.data[i * 5];
-        const z = t.data[i * 5 + 1];
-        const s = t.data[i * 5 + 2];
-        q.setFromAxisAngle(up, t.data[i * 5 + 3]);
-        mtx.compose(
-          new THREE.Vector3(x, H(x, z) - 0.1, z),
-          q,
-          new THREE.Vector3(s, s * (0.9 + (i % 5) * 0.05), s),
-        );
-        im.setMatrixAt(i, mtx);
-        const sh = t.data[i * 5 + 4];
-        col.setRGB(sh, sh * (0.95 + (i % 3) * 0.04), sh * 0.9);
-        im.setColorAt(i, col);
-        // Gövde çarpışması
-        segStart[i] = this.collision.segmentCount;
-        this.collision.addBox(x, z, 0.4 * s, 0.4 * s, 3, H(x, z) - 0.5);
-      }
-      im.computeBoundingSphere();
-      im.castShadow = shadows;
-      im.receiveShadow = false;
-      im.name = `trees${t.type}@${t.cx},${t.cz}`;
-      this.treeMeshes.push({
-        im,
-        type: t.type,
-        c: new THREE.Vector2((t.cx + 0.5) * CHUNK_SIZE, (t.cz + 0.5) * CHUNK_SIZE),
-        mats: (im.instanceMatrix.array as Float32Array).slice(),
-        hi: new Uint8Array(n),
-        seg: segStart,
-      });
-      this.chunkGroup(t.cx, t.cz).add(im);
-    }
-
-    // Yakın ağaçlar: tür başına tek ayrıntılı InstancedMesh (her karede değil, oyuncu hareket ettikçe doldurulur)
-    for (let k = 0; k < this.treeGeosHi.length; k++) {
-      const im = new THREE.InstancedMesh(this.treeGeosHi[k], this.treeMatHi, TREE_NEAR_MAX);
-      im.count = 0;
-      im.frustumCulled = false;
-      im.castShadow = shadows;
-      im.name = `treesNear${k}`;
-      this.treeNear.push(im);
-      this.object.add(im);
-    }
-    // En yakın ağaçlar: gerçek dal + yaprak kartlı (ez-tree) model
-    this.ezR = TREE_EZ_R[quality];
-    if (this.ezR > 0 && this.treeGeosHi.length) {
-      this.ezKinds = createEzTrees(import.meta.env.BASE_URL);
-      for (const k of this.ezKinds) {
-        const mk = (g: THREE.BufferGeometry, m: THREE.Material, name: string) => {
-          const im = new THREE.InstancedMesh(g, m, TREE_EZ_MAX);
-          im.count = 0;
-          im.frustumCulled = false;
-          im.castShadow = shadows;
-          im.receiveShadow = shadows;
-          im.name = name;
-          im.setColorAt(0, new THREE.Color(1, 1, 1));
-          this.object.add(im);
-          return im;
-        };
-        const i = this.treeEz.length;
-        this.treeEz.push({
-          branches: mk(k.branches, k.bark, `treesEzBark${i}`),
-          leaves: mk(k.leaves, k.leaf, `treesEzLeaf${i}`),
-        });
-      }
-    }
+    // Ağaçlar: tür kütüphanesi (uzak: chunk × tür; orta/yakın: tür başına, kamera hareket ettikçe doldurulur)
+    this.trees = new TreeField(res.trees, {
+      quality,
+      shadows,
+      base: import.meta.env.BASE_URL,
+      groundY: H,
+      chunkGroup: (cx, cz) => this.chunkGroup(cx, cz),
+      root: this.object,
+      collision: this.collision,
+    });
 
     // Çarpışma: binalar, duvarlar, köprü ayakları
     for (const b of data.buildings) {
@@ -516,76 +428,12 @@ export class OsmWorld implements IWorld {
     const cx = camera.position.x;
     const cz = camera.position.z;
     windTime.value += dt;
-    if (this.treeNear.length && this.treeLodAt.distanceTo(new THREE.Vector2(cx, cz)) > 4)
-      this.updateTreeLod(cx, cz);
+    this.trees.update(cx, cz);
     const lim = this.viewDist + CHUNK_SIZE * 0.75;
     for (const g of this.chunkGroups.values()) {
       const c = g.userData.center as THREE.Vector2;
       g.visible = Math.hypot(c.x - cx, c.y - cz) < lim;
     }
-  }
-
-  /**
-   * Ağaç LOD'u ağaç başına: TREE_NEAR_R içindekiler ayrıntılı modelle çizilir, uzak kopyası sıfır ölçekle gizlenir.
-   * KARAR: chunk başına LOD 400 m chunk'larda ~1.8M üçgen ediyordu; ağaç başına ~150k.
-   */
-  private updateTreeLod(cx: number, cz: number): void {
-    this.treeLodAt.set(cx, cz);
-    const counts = this.treeNear.map(() => 0);
-    const ezCounts = this.treeEz.map(() => 0);
-    const r2 = TREE_NEAR_R * TREE_NEAR_R;
-    const e2 = this.ezR * this.ezR;
-    const zero = new Float32Array(16);
-    const col = new THREE.Color();
-    for (const t of this.treeMeshes) {
-      const far = Math.max(Math.abs(t.c.x - cx), Math.abs(t.c.y - cz)) > CHUNK_SIZE / 2 + TREE_NEAR_R;
-      const arr = t.im.instanceMatrix.array as Float32Array;
-      const near = this.treeNear[t.type];
-      const ez = this.treeEz[t.type];
-      let changed = false;
-      for (let i = 0; i < t.hi.length; i++) {
-        const o = i * 16;
-        if (t.mats[o + 15] === 0) continue; // kaldırılmış
-        const dx = t.mats[o + 12] - cx;
-        const dz = t.mats[o + 14] - cz;
-        const d2 = far ? Infinity : dx * dx + dz * dz;
-        let hi = 0;
-        if (ez && d2 < e2 && ezCounts[t.type] < TREE_EZ_MAX) {
-          const k = ezCounts[t.type]++;
-          ez.branches.instanceMatrix.array.set(t.mats.subarray(o, o + 16), k * 16);
-          ez.leaves.instanceMatrix.array.set(t.mats.subarray(o, o + 16), k * 16);
-          t.im.getColorAt(i, col);
-          // Uzak modelin gölge tonu (≈0.6–1.0) yaprağa hafif varyasyon olarak
-          col.multiplyScalar(1.15);
-          ez.leaves.setColorAt(k, col);
-          ez.branches.setColorAt(k, col.setScalar(0.9 + ((i * 7) % 5) * 0.04));
-          hi = 1;
-        } else if (d2 < r2 && counts[t.type] < TREE_NEAR_MAX) {
-          near.instanceMatrix.array.set(t.mats.subarray(o, o + 16), counts[t.type] * 16);
-          t.im.getColorAt(i, col);
-          near.setColorAt(counts[t.type]++, col);
-          hi = 1;
-        }
-        if (hi !== t.hi[i]) {
-          t.hi[i] = hi;
-          arr.set(hi ? zero : t.mats.subarray(o, o + 16), o);
-          changed = true;
-        }
-      }
-      if (changed) t.im.instanceMatrix.needsUpdate = true;
-    }
-    this.treeNear.forEach((im, k) => {
-      im.count = counts[k];
-      im.instanceMatrix.needsUpdate = true;
-      if (im.instanceColor) im.instanceColor.needsUpdate = true;
-    });
-    this.treeEz.forEach((e, k) => {
-      for (const im of [e.branches, e.leaves]) {
-        im.count = ezCounts[k];
-        im.instanceMatrix.needsUpdate = true;
-        if (im.instanceColor) im.instanceColor.needsUpdate = true;
-      }
-    });
   }
 
   /** Yükseltilmiş yürüme alanı ekle (ölçülmüş kaldırımlar, güverteler) */
@@ -601,23 +449,7 @@ export class OsmWorld implements IWorld {
 
   /** El modeli bölgesinde (havuz, yol, bina) kalan ağaçları kaldır: çizim + gövde çarpışması */
   removeTrees(pred: (x: number, z: number) => boolean): number {
-    let n = 0;
-    for (const t of this.treeMeshes) {
-      const arr = t.im.instanceMatrix.array as Float32Array;
-      let changed = false;
-      for (let i = 0; i < t.hi.length; i++) {
-        const o = i * 16;
-        if (t.mats[o + 15] === 0 || !pred(t.mats[o + 12], t.mats[o + 14])) continue;
-        t.mats.fill(0, o, o + 16);
-        arr.fill(0, o, o + 16);
-        this.collision.disableSegments(t.seg[i], 4);
-        changed = true;
-        n++;
-      }
-      if (changed) t.im.instanceMatrix.needsUpdate = true;
-    }
-    this.treeLodAt.set(1e9, 1e9);
-    return n;
+    return this.trees.remove(pred);
   }
 
   private soft = new Set(['park', 'grass', 'wood', 'scrub', 'pitch', 'cemetery', 'farmland']);
@@ -689,23 +521,17 @@ export class OsmWorld implements IWorld {
       lamps: this.props.lampCount,
       pedestrians: this.peds.count,
       cars: this.traffic.count,
+      ...this.trees.stats(),
     };
   }
 
   dispose(): void {
     this.object.traverse((o) => {
       const m = o as THREE.Mesh;
-      if (m.isMesh && !this.treeGeos.includes(m.geometry) && !this.treeGeosHi.includes(m.geometry))
-        m.geometry.dispose();
+      // Ağaç geometrileri tür başına paylaşılır → TreeField bırakır
+      if (m.isMesh && !m.userData.treeShared) m.geometry.dispose();
     });
-    for (const g of [...this.treeGeos, ...this.treeGeosHi]) g.dispose();
-    this.treeMatHi.dispose();
-    for (const k of this.ezKinds)
-      for (const m of [k.bark, k.leaf]) {
-        m.map?.dispose();
-        m.normalMap?.dispose();
-        m.dispose();
-      }
+    this.trees.dispose();
     this.props.dispose();
     this.peds.dispose();
     this.traffic.dispose();
