@@ -15,7 +15,7 @@ export interface GenericFence {
   coping?: { h?: number; color?: string } | string;
   pillars?: {
     every?: number;
-    list?: number[];
+    list?: (number | [number, number])[];
     w?: number;
     h?: number;
     color?: string;
@@ -26,7 +26,13 @@ export interface GenericFence {
   hedge?: { h?: number; depth?: number; species?: string; color?: string } | null;
   razor?: boolean;
   screen?: [number, number, string][];
+  /** Ölçülmüş kolon konumları polyline boyunca (m) */
+  pillarsU?: number[];
+  /** Dolgu ayrıntısı (ölçüm): yükseklik, renk */
+  infillSpec?: { h?: number; color?: string; type?: string };
 }
+
+const hex = (c: unknown, d: string) => (typeof c === 'string' && /^#[0-9a-f]{6}$/i.test(c) ? c : d);
 
 type Collide = (ring: [number, number][], bottom: number, top: number) => void;
 
@@ -57,16 +63,14 @@ export function buildGenericFence(
   const pil = f.pillars ?? {};
   const pW = pil.w ?? 0.4;
   const pH = pil.h ?? Math.max(wallH + 0.9, 1.5);
-  const pKey = mat(
-    /brick|tuğla/.test(pil.color ?? '') ? 'brick' : 'render',
-    pil.color ?? f.wall?.color ?? '#e6e3dc',
-  );
-  const inf = typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? {});
+  const pKey = mat('render', hex(pil.color, hex(f.wall?.color, '#e6e3dc')));
+  const inf0 = typeof f.infill === 'string' ? { type: f.infill } : (f.infill ?? {});
+  const inf = { ...inf0, ...(f.infillSpec ?? {}), type: inf0.type ?? f.infillSpec?.type };
   const infType = (inf.type ?? 'railing').toLowerCase();
   const infH = inf.h ?? 1.0;
   const infKey = /mesh|tel|panel/.test(infType)
-    ? mat('mesh', inf.color ?? '#2f4a36')
-    : mat('bars', inf.color ?? '#202224');
+    ? mat('mesh', hex(inf.color, '#2f4a36'))
+    : mat('bars', hex(inf.color, '#202224'));
   const hedgeH = f.hedge?.h ?? 0;
   const hedgeD = f.hedge?.depth ?? 0.8;
   const pts = f.pts;
@@ -149,7 +153,21 @@ export function buildGenericFence(
           yaw,
         );
       }
-      if (screenAt(mid) === 'real' && hedgeH > 0) {
+      const scr = screenAt(mid);
+      if (/shrub|çalı|partial|kesintili/.test(scr) && hedgeH > 0) {
+        // Kesintili çalı öbekleri (sürekli çit değil)
+        for (let uu = u0 + 0.5; uu < u1; uu += 1.1) {
+          const hs = Math.sin((cum[i] + uu) * 7.31 + 1.7) * 43758.5453;
+          const rr = hs - Math.floor(hs);
+          if (rr < 0.35) continue;
+          const bp = P(uu, wallT + 0.5 + rr * 0.6);
+          const g = new THREE.SphereGeometry(0.55 + rr * 0.35, 9, 7);
+          g.scale(1, (hedgeH * (0.6 + 0.5 * rr)) / (1.1 + rr * 0.7), 1);
+          g.translate(bp[0], y0 + hedgeH * 0.45, bp[1]);
+          b.geometry('boxwood', g);
+        }
+      }
+      if (scr === 'real' && hedgeH > 0) {
         const hc = P((u0 + u1) / 2, wallT + hedgeD / 2 + 0.05);
         b.box(
           'mkHedge',
@@ -196,8 +214,11 @@ export function buildGenericFence(
   }
   // Kolonlar
   const Us: number[] = [];
-  if (pil.list?.length) Us.push(...pil.list);
-  else if (pil.every) for (let U = 0; U <= total + 1e-6; U += pil.every) Us.push(U);
+  if (f.pillarsU?.length) Us.push(...f.pillarsU);
+  else if (pil.list?.length)
+    for (const q of pil.list)
+      if (typeof q === 'number') Us.push(q);
+      else if (pil.every) for (let U = 0; U <= total + 1e-6; U += pil.every) Us.push(U);
   for (const g of gapsU) Us.push(...g);
   for (const U of Us) {
     if (U < -0.01 || U > total + 0.01) continue;
@@ -208,7 +229,7 @@ export function buildGenericFence(
     b.box(pKey, [p[0], y0 + pH / 2 - 0.1, p[1]], [pW, pH + 0.2, pW], yaw, 1);
     if (pil.cap !== false)
       b.box(
-        mat('render', typeof pil.cap === 'string' ? pil.cap : '#e8e4da'),
+        mat('render', hex(pil.cap, hex(pil.color, '#e8e4da'))),
         [p[0], y0 + pH + 0.04, p[1]],
         [pW + 0.08, 0.08, pW + 0.08],
         yaw,

@@ -1201,8 +1201,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     for (const f of others) buildGenericFence(b, f, o.H, mat, gapsO, o.collide);
     for (const g of og) {
       const y = o.H(g.c[0], g.c[1]) + 0.05;
-      if (g.kind === 'vehicle') buildDriveGate(b, g.c, g.n, y, g.w, false);
-      else buildSideDoor(b, g.c, g.n, y + 0.1, g.w, (g as { h?: number }).h ?? 2);
+      // Komşu sitelerde yaya kapıları da siyah çubuklu (ölçüm notları)
+      buildDriveGate(b, g.c, g.n, y, g.w, false);
     }
   }
   // Park Koza Sitesi girişi (502. Sk doğu yakası, güney uç; Street View l4zd… kuzey karesi)

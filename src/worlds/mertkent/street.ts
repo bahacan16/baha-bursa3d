@@ -325,6 +325,23 @@ export function buildStreetPlan(
         b.geometry('boxwood', g);
         break;
       }
+      case 'drain': {
+        // Yağmur ızgarası (bordür dibinde)
+        const g = new THREE.PlaneGeometry(0.8, 0.4).rotateX(-Math.PI / 2).rotateY(yaw);
+        g.translate(s.x, g0 + 0.035, s.z);
+        b.geometry('darkMetal', g);
+        break;
+      }
+      case 'bike-rack': {
+        const co = Math.cos(yaw);
+        const si = Math.sin(yaw);
+        for (let k = -2; k <= 2; k++) {
+          const g = new THREE.TorusGeometry(0.38, 0.025, 6, 16, Math.PI).rotateY(yaw + Math.PI / 2);
+          g.translate(s.x + co * k * 0.7, y, s.z - si * k * 0.7);
+          b.geometry('steel', g);
+        }
+        break;
+      }
       case 'hydrant':
         b.cylinder('hydrant', [s.x, y - 0.05, s.z], 0.1, 0.75, 10);
         break;
