@@ -221,7 +221,8 @@ describe('v8 derleyici (survey-compile.mjs)', () => {
   it('gerçek m / cal kesim kenarları, copyOf ayna, startK → baseH; cutEdges yokken çıktı alanı yok', () => {
     const root = join(__dirname, '..', '..');
     const id = 1551828351;
-    const sv = JSON.parse(readFileSync(join(root, 'src/worlds/mertkent/survey', `${id}.json`), 'utf8'));
+    // Sabit örnek (v8 yazılırkenki Kent Park ölçümü): gerçek dosya ölçüm turlarında değişiyor
+    const sv = JSON.parse(readFileSync(join(root, 'tests/fixtures', `cut-${id}.json`), 'utf8'));
     const dir = mkdtempSync(join(tmpdir(), 'cut-'));
     const outP = join(dir, 'out.json');
     const compile = (s: unknown) => {
