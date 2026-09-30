@@ -756,3 +756,4 @@
 - **(commit edilmedi)** — `data/site-plan.json` ağaçlar: (−7.2,−71.9) yaprak döken h 8→4.2, r 2.5→1.05 (not artık
   kavak/ıhlamur demiyor → genel `deciduous`); (−3.4,−72.6) r 1.8→1.2; sedir (−66.8,−128.7) r 1.8→1.6; sedir
   (−69.5,−92.3) r 2.2→2.0. **Blender:** `NW/Mertkent/Site` ağaç örnekleri (boy/taç/tür) yeniden kurulur.
+- **(küçük veri düzeltmeleri)** — cam balkon kayıtları gerçekte açık gri alüminyum (556/555 #a0a6a7, 554 #acafa8, ONAL 51 #a0a5a4; kayıt aralıkları ölçüldü), site-plan ağaçları (tür, boy, taç), sedirler r; Mertkent çit tepesi doğu 2.05 / batı 1.85 m (dikmeler batıda ~0.25 m görünür). **Blender:** bu 4 bloğun cam balkonları, çit bitkisi yüksekliği, ilgili ağaçlar.
