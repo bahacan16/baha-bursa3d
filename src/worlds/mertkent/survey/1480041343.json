@@ -1760,16 +1760,122 @@
     {
       "edge": 12,
       "len": 2.21,
-      "seen": "none",
-      "items": [],
-      "note": "Görülmedi (kuzey girintisi). Önceki kenar 4 ayna kopyası kaldırıldı: düz sıva."
+      "seen": "partial",
+      "items": [
+        {
+          "t": "bal",
+          "u0": 0,
+          "u1": 2.21,
+          "d": 0,
+          "s": [
+            2,
+            5
+          ],
+          "sides": "open",
+          "rail": {
+            "*": "glass"
+          },
+          "fasciaC": {
+            "*": "#949592"
+          },
+          "railC": "#c9ccc7",
+          "parapetH": {
+            "*": 0.28
+          },
+          "beam": {
+            "*": 0.1
+          },
+          "railH": {
+            "*": 0.85
+          },
+          "glassC": {
+            "*": "#c1dad5"
+          }
+        }
+      ],
+      "note": "Eleştirmen düzeltmesi (2026-09-30): 8QlT 142_11 karesinde (≈55 m, cepheye ≈60° eğik) girintinin doğu ucunda (bu kenar, batıya bakan yüz; 42'de aynası e4 loca yığını) her katta gri alın + açık renk cam korkuluk bandı olan balkon/loca yığını GÖRÜLDÜ (K2–K5; K0–K1 çit arkasında GÖRÜLMEDİ). Ortofoto 1480041343_12_8QlTFCwl çok eğik ve bulanık: kalibrasyon öğesi yok (u gerçek m, ±1 m), loca derinliği ölçülemedi (inset verilmedi → üretici varsayılanı), şapka seçilemedi. Kat kat: K5 açık loca, arkada koyu pencere/kapı; K4 açıklıkta açık krem geniş yüzey (cam balkon + perde olabilir — emin değil, cam çizilmedi); K3 koyu (cam mı açık mı seçilemedi); K2 çitin üstünde kısmen. Perde/ekipman okunamadı.",
+      "ref": "1480041343_12_8QlTFCwl.jpg",
+      "cal": {
+        "u": [
+          0,
+          2.21
+        ],
+        "head": [
+          [
+            3,
+            13.2
+          ],
+          [
+            5,
+            18.7
+          ]
+        ]
+      }
     },
     {
       "edge": 13,
       "len": 4.46,
-      "seen": "none",
-      "items": [],
-      "note": "Görülmedi (kuzey girinti duvarı). Önceki kenar 3 ayna kopyası kaldırıldı: düz sıva."
+      "seen": "partial",
+      "items": [
+        {
+          "t": "strip",
+          "u": 2.13,
+          "w": 0.25,
+          "y0": 11.35,
+          "y1": 20.4
+        },
+        {
+          "t": "strip",
+          "u": 3.81,
+          "w": 0.25,
+          "y0": 11.35,
+          "y1": 20.4
+        },
+        {
+          "t": "strip",
+          "u": 2.44,
+          "w": 0.25,
+          "y0": 5.0,
+          "y1": 10.7
+        },
+        {
+          "t": "strip",
+          "u": 4.0,
+          "w": 0.25,
+          "y0": 5.0,
+          "y1": 10.7
+        },
+        {
+          "t": "win",
+          "u0": 2.63,
+          "u1": 3.69,
+          "y0": 17.66,
+          "y1": 18.7,
+          "k": 5,
+          "s": [
+            2,
+            5
+          ]
+        }
+      ],
+      "note": "Eleştirmen düzeltmesi (2026-09-30): yeni ortofoto 1480041343_13_8QlTFCwl (8QlT 142_11 / 164_10 / 164_21 karoları, ≈56 m, cepheye ≈30° eğik; Oh3B'den 96 bloğu önünü kapatıyor, kullanılamadı). DÜŞÜK HASSASİYET: 56 m'den, u ±0.4 m, y ±0.3 m; pano konumu ≈1.8 m kaçık (KB kütle köşesi ve şeritler ortofotoda +1.8 m kayık) → cal.u[0] = e12/e13 iç köşesi (görünen 1.78; ilk şeridin köşeye uzaklığı ≈0.35 m, 42 e3 güney girintisindeki 0.25 m ile uyumlu), cal.u[1] ölçekten (kat aralığı görünen 2.75 ≈ gerçek 2.72 → ölçek ≈1). Görülen: iki turuncu şerit (üst çift görünen u 2.13 / 3.81, y 11.35–20.4; alt çift u 2.44 / 4.0, y 10.7'den çit/çitin arkasındaki çalıya kadar ≈5.0 — alt uçları GÖRÜLMEDİ) ve aralarında tek pencere sütunu (u 2.63–3.69, K2–K5 lento 10.5 / 13.2 / 15.98 / 18.7, pencere ≈1.05 m yüksek, 2 kanat). K0–K1 çit + çalı arkasında GÖRÜLMEDİ. Batı kısmı (gerçek u ≳3.6) KB kütlesinin arkasında GÖRÜLMEDİ (42 e3'teki dar banyo penceresi burada doğrulanamadı → çizilmedi). Perdeler çözünürlükte okunamıyor (yazılmadı). Üst gri sıva sınırı seçilemedi → pano yazılmadı (düz beyaz sıva kalır; diğer cephelerde K3 döşemesinden gri).",
+      "ref": "1480041343_13_8QlTFCwl.jpg",
+      "cal": {
+        "u": [
+          1.78,
+          6.24
+        ],
+        "head": [
+          [
+            3,
+            13.2
+          ],
+          [
+            5,
+            18.7
+          ]
+        ]
+      }
     },
     {
       "edge": 14,
@@ -1897,7 +2003,7 @@
           "color": "#a5a8aa"
         }
       ],
-      "note": "KB balkon kütlesinin kuzey ön yüzü, _zvj'den çok eğik ve bulanık. K5 koyu/mavi camlı (42'de aynı kütlede K4 camlıydı). v6: şapka alnı gri pano (düz; gerçek üst kenar alınlığa doğru eğimli → pending)."
+      "note": "KB balkon kütlesinin kuzey ön yüzü, _zvj'den çok eğik ve bulanık. K5 koyu/mavi camlı (42'de aynı kütlede K4 camlıydı). v6: şapka alnı gri pano (düz; gerçek üst kenar alınlığa doğru eğimli → pending). Eleştirmen kontrolü (8QlT 142_11, 55 m): K5 koyu mavi cam doğrulandı; K4'te dikmeli cam + beyaz perde gibi görünüyor ama daha yakın _zvj'de açık okunmuştu → çelişkili, değiştirilmedi."
     }
   ],
   "notes": [
@@ -1917,7 +2023,8 @@
     "RETRO (2026-09-29): renkler yeniden örneklendi (43/8 güneşli; 43/11 gölgeli): alt beyaz sıva #dbdcd4 (gölge #bdb7a5), üst gri sıva (plaster2) #c2c4c2 (gölge #9d9e9a), şerit #d8a371 (iki şerit ortalaması #d49f6e/#e0ac7a), balkon alın bandı #949592 (orta #83938b gölgeye yakın, köşe #91908e–#979995), buzlu cam #c1dad5, şapka üst yüzü #919598; balkon tavanları beyaz + spot; pencere doğraması beyaz PVC.",
     "Eleştirmen maddeleri: balkon alınları bu blokta da beyaz/krem değil, koyu gri grenli ~0.5 m bant + buzlu cam (rail/fasciaC/parapetH/beam/railH yazıldı); kabartma pilastr yok (yalnız turuncu şeritler).",
     "v5 (2026-09-29): bodrum pencereleri k:-1 (e11); K2/K3/K4 kat hizası derzleri (groove; 42 ile aynı düzen, K1/K5 hizasında yok); orta direk tepe kotu; orta sağ balkon saksıları (pots). Balkon şapkaları 42’deki gibi kalın (~1 m alın) ve üstü eğimli olmalı (42/0 IXpd 52_32’de açık; 43’te batı yüzler görülmedi) — pending.",
-    "v6 (2026-09-29): duvar üstü ölçüldü (doğu cephede K5 lentosunun ~1.7 m üstü → wallTop 19.76, üstte 0.14 m koyu saçak bandı fasciaC #6d798d); beşik çatı + alınlıklar 5/11 (gri); kalın şapkalar capH 1.0–1.15 + capC + koyu damlalık (taşan yığınlar), gömük loca köşe kütlelerinde şapka alnı gri pano (e1, e5 ucu, e7, e8 uçları, e9, e15); orta direk kameraları (K0–K5 çift bullet), üç çatı bacası (roofobj), saksı çiçek renkleri, kat kat perde renkleri (curtC/curtF, fon) v6 öğeleriyle yazıldı; loca ve sığ yığın korkuluklarındaki çanaklar onBal değil (önceden 1.35 m önde havada)."
+    "v6 (2026-09-29): duvar üstü ölçüldü (doğu cephede K5 lentosunun ~1.7 m üstü → wallTop 19.76, üstte 0.14 m koyu saçak bandı fasciaC #6d798d); beşik çatı + alınlıklar 5/11 (gri); kalın şapkalar capH 1.0–1.15 + capC + koyu damlalık (taşan yığınlar), gömük loca köşe kütlelerinde şapka alnı gri pano (e1, e5 ucu, e7, e8 uçları, e9, e15); orta direk kameraları (K0–K5 çift bullet), üç çatı bacası (roofobj), saksı çiçek renkleri, kat kat perde renkleri (curtC/curtF, fon) v6 öğeleriyle yazıldı; loca ve sığ yığın korkuluklarındaki çanaklar onBal değil (önceden 1.35 m önde havada).",
+    "Klima dış üniteleri: fotoğraflarda BEYAZ kutu + gri ızgaralı fan yüzü (eleştirmen V1; oyunda siyah fan diski — model kodda)."
   ],
   "pending": [
     {
@@ -1944,6 +2051,15 @@
       "what": "Baca başlıklarının beyaz alt kenarı",
       "edge": 8,
       "detail": "Üç bacanın kiremit piramit başlıklarının alt (saçak) kenarı beyaz çerçeveli; roofobj cap tek renk."
+    },
+    {
+      "what": "gable-barge-thin",
+      "edges": [
+        5,
+        11,
+        8
+      ],
+      "detail": "Eleştirmen V2: oyunda alınlık eğik kenarı ve doğu saçağında kalın koyu bant (rüzgârlık tahtası ≈0.22 m, roof.fasciaC #6d798d). Fotoğrafta (czGR 217_22 yakın) alınlık duvarı eğik kenara kadar çıkıyor, üstünde yalnız ≈3–5 cm ince koyu metal damlalık; taşma çok az. Rüzgârlık tahtası yüksekliği üreticide sabit (roof.ts 0.22 m) → ölçülen ≈0.05 m kalınlık için alan gerekiyor. Rengi koyu kalmalı (eleştirmenin 'açık alın' okuması uzak karede ışık yansıması)."
     }
   ],
   "wallTop": 19.76
