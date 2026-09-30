@@ -1798,7 +1798,12 @@
             2.5
           ],
           "rise": 0.4,
-          "joint": "#2c3a33"
+          "joint": "#2c3a33",
+          "legs": {
+            "spread": 1.3,
+            "top": 2.1,
+            "color": "#2c2d22"
+          }
         }
       },
       "pillars": {
@@ -1814,7 +1819,8 @@
         "from": 1.9,
         "to": 2.5,
         "color": "#0b1d12",
-        "type": "duvar kemerlerini izleyen koyu yeşil çelik kemerli korkuluk, üst boru gümüş-beyaz (≈#859696), arkasında yeşil tel — 2025'te var, 2019'da yok"
+        "type": "duvar kemerlerini izleyen koyu yeşil çelik kemerli korkuluk, üst boru gümüş-beyaz (≈#859696), arkasında yeşil tel — 2025'te var, 2019'da yok",
+        "topRails": 2
       },
       "screen": [
         [
@@ -1824,7 +1830,7 @@
         ]
       ],
       "pillarsU": [],
-      "note": "Bej-kum rengi taneli sıvalı betonarme duvar (2025 difüz ≈#7d6f5b, 2019 ≈#71665d; kuzeye baktığı için güneşli yama yok). Panellerin üst kenarı yay biçiminde (yüksekliği ≈1.7 m panel uçlarında, ≈2.1 m panel ortasında; ortalama 1.9), paneller arası koyu yeşil/antrasit sivri kemer biçimli derz şeritleri (yerden yükselip komşu kemerle kesişen); JDIg_180_-50'de derz ayakları duvar boyunca −4.6, +1.0, +3.6 m (düzen ≈5.7 + 2.5 m, ±0.5). Duvar hattı = bordür+3.8 (da2-sw-south-arch notu). Duvar dibinde bank ve turuncu çöp kutusu (street). Doğu ucu ≈(251.7,-136.3): hava fotoğrafında duvar/çalı bandı köşe yapıp güneye döner (dönüş kolu ölçülmedi). Batı ucu köşe (202.3,-151.4) dik köşe varsayıldı; 503. Sk. kolu x≈202.3 (bordür 200.3 + 2.0; HVLz_90_-50 2025 yakın kare: aynı duvar, gümüş boru korkuluk + sarmaşık), güneyde z≈-128'e kadar kaydedildi. H-kalibrasyon (HVLz 2025, kamera 2.35 m, kaldırım kotunda ×0.88): 503. Sk. kolu bordür+2.0 → bordür+1.75; noktalar x 202.3/202.3/202.2/202.1 → 202.05/202.05/201.95/201.85 (DA kolu hava fotoğrafı + 2019 oranından, değişmedi)."
+      "note": "Bej-kum rengi taneli sıvalı betonarme duvar (2025 difüz ≈#7d6f5b, 2019 ≈#71665d; kuzeye baktığı için güneşli yama yok). Panellerin üst kenarı yay biçiminde (yüksekliği ≈1.7 m panel uçlarında, ≈2.1 m panel ortasında; ortalama 1.9), paneller arası koyu yeşil/antrasit sivri kemer biçimli derz şeritleri (yerden yükselip komşu kemerle kesişen); JDIg_180_-50'de derz ayakları duvar boyunca −4.6, +1.0, +3.6 m (düzen ≈5.7 + 2.5 m, ±0.5). Duvar hattı = bordür+3.8 (da2-sw-south-arch notu). Duvar dibinde bank ve turuncu çöp kutusu (street). Doğu ucu ≈(251.7,-136.3): hava fotoğrafında duvar/çalı bandı köşe yapıp güneye döner (dönüş kolu ölçülmedi). Batı ucu köşe (202.3,-151.4) dik köşe varsayıldı; 503. Sk. kolu x≈202.3 (bordür 200.3 + 2.0; HVLz_90_-50 2025 yakın kare: aynı duvar, gümüş boru korkuluk + sarmaşık), güneyde z≈-128'e kadar kaydedildi. H-kalibrasyon (HVLz 2025, kamera 2.35 m, kaldırım kotunda ×0.88): 503. Sk. kolu bordür+2.0 → bordür+1.75; noktalar x 202.3/202.3/202.2/202.1 → 202.05/202.05/201.95/201.85 (DA kolu hava fotoğrafı + 2019 oranından, değişmedi). 2026-09-30 bacaklar (legs): JDIgP_Yq_180_0 (2019-05, DA kolu cepheden, duvara 7.1 m): X derzleri x 213.7 / 208.0 (aralık 5.7 m), ayaklar derzin 1.0–1.6 m ötesinde (ort. 1.3 → spread), X kesişimi ≈1.5 m, yay tepesi panel ortasında ≈2.1 (X yüksekliğinden elips: 2.06) → top 2.1; renk koyu zeytin-antrasit #2c2d22 (difüz, en koyu %12). 2025’te DA kolunu cepheden gösteren kare yok — bacakların 2025 durumu görülmedi (V derz yerine aynı öğe çizilir). Üst boru: HVLzs4Gw_135_4_40 / _118_4_40 (2025-09, 503. Sk. kolu) paslanmaz çift boru (≈0.2–0.3 m arayla; üretici 8 cm çizer) + gümüş dikmeler → topRails 2; DA kolunda 2025 çift boru görülmedi."
     },
     {
       "kind": "other",
@@ -11286,19 +11292,7 @@
       "d": 1.2,
       "h": 0.8,
       "color": "#6c6758",
-      "note": "Orta refüjde taş dolgulu galvaniz tel kafes kutu (gabion), ≈3.5 m (yol boyunca) × 1.2 × 0.8 m; taşlar gri-bej (SV Y0ipTyGc_120_0 difüz #6c6758). Hava fotoğrafı: refüjde gri dikdörtgen x 623.7–627.2?, z −189…−184 (eğiklik dahil). Yeni tür (üretici desteği yok). ±0.5."
-    },
-    {
-      "id": "d4-median-gabion-2",
-      "kind": "gabion",
-      "x": 623,
-      "z": -209,
-      "rot": 90,
-      "w": 3,
-      "d": 1.1,
-      "h": 0.8,
-      "color": "#6c6758",
-      "note": "İkinci gabion kutu, aQL7Z-OX_120_0 (2025-09) uzakta refüjde (sağda kırmızı-beyaz levha direğinin yanında); konum yalnız bu kareden kerteriz (≈10 m güneydoğu) — ±3. Ölçü birinciye benzer (oransal). Yönü karede seçilmedi (görülmedi); dar refüje sığması için birinci gibi yol boyunca (rot 90) alındı."
+      "note": "Orta refüjde taş dolgulu galvaniz tel kafes kutu (gabion), ≈3.5 m (yol boyunca) × 1.2 × 0.8 m; taşlar gri-bej (SV Y0ipTyGc_120_0 difüz #6c6758). Hava fotoğrafı: refüjde gri dikdörtgen x 623.7–627.2?, z −189…−184 (eğiklik dahil). Yeni tür (üretici desteği yok). ±0.5. 2026-09-30: aQL7Z-OX_120_0’daki kutu da bu kutu (kerteriz 135–149°, yer temasından d ≈16.7 → (626.4,−187.2)); aynı karedeki kırmızı-beyaz direk bu kutunun batısında. Eski d4-median-gabion-2 (623,−209) kaydı bu görünümün yanlış kerterizi olduğu için silindi: aerial-n1’de refüjde z −221.7…−171.7 arasında tek dikdörtgen var (x 622.8–626.3, z −188.5…−185.7, gölge dahil), M5jJI6Ox_90_-50 / 18z5hyLs_270_-50 zemin karelerinde z −209’da kutu yok."
     },
     {
       "id": "d4-median-tree-1",
@@ -11791,9 +11785,12 @@
       "kind": "traffic-signal",
       "x": 622,
       "z": -341.5,
-      "h": 5.5,
+      "h": 7.9,
       "pole": "#2f3336",
-      "note": "Uğur Mumcu kavşağı kuzey kolu ağzı, ayrım adası (d4-rb2-split-n) üzerinde koyu yeşil-gri boyalı eğik konsol direk: gövde yola doğru eğik kalkıp kolla şeritlerin üstüne uzanıyor, uçta 3’lü siyah sinyal başı (HLqDkBMA_60_0, 2025-09: baş ≈5.5–6 m). Taban uv (622.75,−344.1, d 13.8, GPS pozu) → adaya çekildi ±1.5. Konsol kol üretici tarafından çizilmiyor (yalnız dikey direk + baş; bkz. rapor: traffic-signal.arm)."
+      "note": "Uğur Mumcu kavşağı kuzey kolu ağzı, ayrım adası (d4-rb2-split-n) üzerinde koyu yeşil-gri boyalı eğik konsol direk: gövde yola doğru eğik kalkıp kolla şeritlerin üstüne uzanıyor, uçta 3’lü siyah sinyal başı (HLqDkBMA_60_0, 2025-09: baş ≈5.5–6 m). Taban uv (622.75,−344.1, d 13.8, GPS pozu) → adaya çekildi ±1.5. 2026-09-30 kol ölçümü: HLqDkBMA_60_0 × IuajFRyf_120_0 (2025-09, ikisi aynı sürüş) kerteriz kesişimi — taban (621.0,−343.6), baş (616.8,−343.9) → kol yatayda ≈4.2 m, pusula ≈270° (batı, güneye inen şeritlerin üstüne); baş ucu kol boyu − 0.2 → arm 4.4. Dirsek (düşeyden eğik kola geçiş) iki karede de ≈6.35 m; kol dirsekten başa doğru yükselen düz boru (üretici yatay kol çiziyor). Baş tepesi ≈7.9 (iki kare 7.9 / 8.0, ±0.5; önceki 5.5–6 tahmini düzeltildi). Baş yüzü IuajFRyf_120_0’da cepheden (yeşil yanıyor), HLqDkBMA’dan arkası → rot ≈320 (kuzeyden gelen şeritlere), ±20. Direk üstündeki ikinci küçük baş (≈3.8 m) çizilmez.",
+      "arm": 4.4,
+      "armRot": 270,
+      "rot": 320
     },
     {
       "id": "d4-sig-rb2-n-2",
@@ -11818,9 +11815,47 @@
       "kind": "traffic-signal",
       "x": 632.7,
       "z": -599.6,
-      "h": 5.5,
+      "h": 7.5,
       "pole": "#2f3336",
-      "note": "z −598 geçidinde orta refüj ucunda eğik konsol direkli araç sinyali (6DCZ26nX_60_0 + NgRc7tO0_60_0 kerteriz kesişimi) ±1.5. Konsol kol çizilmez."
+      "note": "z −598 geçidinde orta refüj ucunda eğik konsol direkli araç sinyali (6DCZ26nX_60_0 + NgRc7tO0_60_0 kerteriz kesişimi) ±1.5. 2026-09-30 kol ölçümü: 6DCZ26nX_0_0 (2025-09): taban kerteriz 32.3° (yer teması, d ≈13.7), baş 11.8° (baş boyu 1.05 m varsayımıyla d ≈10.3) → kol yatayda ≈5.4 m (±1), pusula ≈255° (batı-güneybatı, şeritlerin üstüne); arm 5.2. Dirsek ≈6.85 m, baş ortası ≈7.0, tepe ≈7.5 (önceki 5.5 düzeltildi). NgRc7tO0_60_0’da gövde kare üstünden çıkıyor, baş karede yok. Başın baktığı yön görülmedi (6DCZ’dan yan/arka siluet).",
+      "arm": 5.2,
+      "armRot": 255
+    },
+    {
+      "id": "d4-sig-mak-s-mast",
+      "kind": "traffic-signal",
+      "x": 643.7,
+      "z": -794.5,
+      "h": 7.1,
+      "pole": "#34423a",
+      "arm": 4.5,
+      "armRot": 95,
+      "rot": 180,
+      "note": "Muammer Aksoy kavşağı güney kolu, yaya geçidi ortasındaki refüj burnunda koyu yeşil konsol direkli araç sinyali (2026-09-30, 2025-09 kareleri). Kerteriz: ZnVLBlgx_120_0 taban 121.8° / baş 111.1°, bzM-Ekix_240_0 taban 230.2° / baş 210.2°, SkO2cvAJ_240_0 taban 208.6° / baş 195.9° (üçüncü ışın artığı taban 0.2 m, baş 0.05 m) → taban (642.5,−794.5), baş (646.7,−794.1); taban ZnVL_120_0’da görülen refüj burnuna x +1.2 kaydırıldı (baş da aynı ortak GPS kaymasıyla), ±1. Kol ≈4.3 m doğuya (kuzeye çıkan şeritlerin üstüne) → arm 4.5, armRot 95. Baş ortası 6.2–7.2 (dört kare) → tepe ≈7.1. Baş yüzü rxGw6Z1I_0_0 / _300_0’da cepheden yeşil yanıyor → rot 180 (güneyden gelen trafiğe). Gövde rengi SkO2cvAJ_300_0 güneşli karede yan yüz #34423a. Gövdede alçak ek başlar (≈3 m, kırmızı ok yanan) ve mavi yaya geçidi levhası var — çizilmez.",
+      "evidence": [
+        "ZnVLBlgxvHniKpZ3NN-79A_120_0.jpg",
+        "bzM-EkixBR7PoIIrBzgT3g_240_0.jpg",
+        "SkO2cvAJpDv1hhvNcahyoQ_240_0.jpg",
+        "rxGw6Z1IGIz6hdurq64z9A_0_0.jpg"
+      ]
+    },
+    {
+      "id": "d4-sig-mak-n-mast",
+      "kind": "traffic-signal",
+      "x": 647.6,
+      "z": -817,
+      "h": 6.6,
+      "pole": "#34423a",
+      "arm": 4.1,
+      "armRot": 282,
+      "rot": 0,
+      "note": "Muammer Aksoy kavşağı kuzey kolu, yaya geçidi refüjünde (x 647.3–648.7) koyu yeşil konsol direkli araç sinyali (2026-09-30, 2025-09 kareleri). Taban kerterizleri ZnVLBlgx_60_0 27.7°, 6PN_foln_60_0 50.8°, SkO2cvAJ_300_0 321.3° (ikili kesişimler (646.3,−815.7) / (647.4,−817.6) / (647.9,−817.0)), ZkIEgQL1_60_0 93.9° (artık 0.8 m) → (647.6,−817.0) ±1. Baş: 6PN_foln_60_0 34.6° × SkO2cvAJ_300_0 305.4° → (643.8,−817.8), ZkIEgQL1_60_0 95.1° artığı 0.17 m. Kol ≈3.9 m batıya (güneye inen şeritlerin üstüne) → arm 4.1, armRot 282. Baş ortası 5.6–6.4 (üç kare) → tepe ≈6.6. ZkIEgQL1_60_0’da başın yan siluetinde siperlikler kuzeye bakıyor, SkO2’dan arkası → rot 0, ±20. Gövde rengi d4-sig-mak-s-mast ile aynı (#34423a, SkO2cvAJ_300_0).",
+      "evidence": [
+        "ZnVLBlgxvHniKpZ3NN-79A_60_0.jpg",
+        "6PN_folnAZ8UChjw4X4Z7Q_60_0.jpg",
+        "SkO2cvAJpDv1hhvNcahyoQ_300_0.jpg",
+        "ZkIEgQL1-k138NKR7BuVAg_60_0.jpg"
+      ]
     },
     {
       "id": "d4-sign-mak-nose",
@@ -11839,13 +11874,15 @@
       "z": -796.2,
       "w": 0.9,
       "d": 0.5,
-      "h": 9,
+      "h": 15,
       "color": "#e8ebe6",
       "text": "",
-      "bg": "#6aa84f",
+      "bg": "#d6e7c5",
       "fg": "#ffffff",
       "faces": 2,
-      "note": "GD köşede (BIGCHEFS önü) ≈9 m yeşil-beyaz pilon: üst kısım yeşil, üzerinde açık yaprak motifi (yTuS1M5c/jf3Ylg0a/ZnVLBlgx 60_0 üç kerteriz, artık < 0.05 m). Yazısı bu karelerde okunmadı; motif çizilmez. Boy yükselme açısından ≈8.5–9.5."
+      "note": "GD köşede (BIGCHEFS önü) ≈9 m yeşil-beyaz pilon: üst kısım yeşil, üzerinde açık yaprak motifi (yTuS1M5c/jf3Ylg0a/ZnVLBlgx 60_0 üç kerteriz, artık < 0.05 m). Yazısı bu karelerde okunmadı; motif çizilmez. Boy yükselme açısından ≈8.5–9.5. 2026-09-30 DÜZELTME (boy): ≈9 m halka kotu, pilon tepesi ≈15 m. ZnVLBlgx_60_0 (taban yer temasıyla mesafe doğrulandı, d 21.7): halka 8.5, tepe 14.8; AHDBxraz_60_0 (d 8.8): halka 9.1; rxGw6Z1I_0_0: tepe/halka oranı aynı → halka 8.8, tepe 15.0 (±0.6). Biçim: ince beyaz gövde (Ø≈0.45, #e9f0e4 güneşli) üstünde beyaz halka + ≈1.5 m enli, uçları yuvarlak dikey kapsül pano (açık yeşil kenarlı, beyaz sarmaşık/yaprak motifli; güneşli ortalama #d6e7c5, yeşil kısım #bedcab — rxGw6Z1I_0_0) → panels yerine y0 8.8 / y1 15 panosu. Kapsülün derinliği/kesiti görülmedi; üretici tek kutu çiziyor (w 0.9 bırakıldı: gövde 0.45, kapsül 1.5 — ayrı gövde/pano üretici özelliği gerek). Yazı yok (dört karede de görülmedi).",
+      "y0": 8.8,
+      "y1": 15
     },
     {
       "id": "d4-mark-signal-465",
@@ -14779,6 +14816,34 @@
       "note": "Trafik ışığı direği (Uğur Mumcu doğu kolu). Baktığı yön ölçülmedi. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
     },
     {
+      "id": "d4-erenkozan-board",
+      "kind": "board",
+      "x": 773.2,
+      "z": -326.6,
+      "rot": 13,
+      "w": 3,
+      "h": 2.1,
+      "y0": 3.1,
+      "d": 0.1,
+      "lines": [
+        {
+          "text": "EREN KOZAN",
+          "fg": "#101216",
+          "bold": true
+        }
+      ],
+      "bg": "#82868d",
+      "fg": "#101216",
+      "font": "sans",
+      "poles": 1,
+      "poleC": "#868d85",
+      "note": "EREN KOZAN ayaklı panosu (kaldırımda, Poyraz Optik / 1476599912 önünde, siyah demir çitin önünde). DJSsoANi_216_9_40 / _234_9_40 (2025-09, bulutlu): beyaz-açık gri pano, üst yarıda siyah çizgi erkek portresi (çizilmez), ortada siyah kalın \"EREN KOZAN\", altında sağa (batıya, dükkâna) bakan siyah ok (üretici çizmiyor). Konum ±1 (veri listesi); mesafe ≈21 m ile: en ≈3.0 (±0.4; sol kenar sağdan ≈%7 yakın → yüz ≈13° pusulaya dönük, ±15), alt kenar ≈3.1, üst ≈5.2. Zemin #82868d (yüz gölgede), yazı #101216, tek ortada beyaz-gri direk #868d85. Arka yüzü görülmedi (faces 1).",
+      "evidence": [
+        "DJSsoANiLPMOEvGnE1M2Kw_216_9_40.jpg",
+        "DJSsoANiLPMOEvGnE1M2Kw_234_9_40.jpg"
+      ]
+    },
+    {
       "id": "d4-bona-planter-1",
       "kind": "planter",
       "x": 617.5,
@@ -15169,7 +15234,13 @@
       "h": 2.6,
       "rot": 0,
       "color": "#8c9295",
-      "note": "Otobüs durağı sığınağı (bank + çöp kutusu) x 750.1–754.9, z≈−271…−276. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+      "note": "Otobüs durağı sığınağı (bank + çöp kutusu) x 750.1–754.9, z≈−271…−276. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30: DOĞU ucunda (rot 0 → start = doğu) reklam kutusu: batıya bakan yüzde krem-sarı gıda afişi (7ip2B_ZE_120_0 / _180_0, bulutlu, çatı gölgesinde #636254), doğuya bakan yüzü boş açık gri-mavi (2LX4ejfo_240_0, #617279; üretici tek renk kullanır → batı yüzü yazıldı). BATI ucu cam (7ip2B_ZE_180_0); arka camın batı yarısında koyu küçük pano (çizilmez). Işık durumu görülmedi.",
+      "ads": [
+        {
+          "end": "start",
+          "color": "#636254"
+        }
+      ]
     },
     {
       "id": "d4-popeyes-parasol-1",
@@ -15784,7 +15855,7 @@
         "material": "çim"
       },
       "planting": "çim içinde hava fotoğrafında X biçiminde koyu yeşil (sık/sulanan) dört kol ve aralarında dört açık renk (kuru/biçilmiş) çim dilimi; ada merkezinde (622,−298.5) ≈3×1 m koyu dikdörtgen nesne (tabela/anıt? — SV'de görülmedi).",
-      "note": "Uğur Mumcu Blv. × Özlüce Blv. dönel kavşağı (OSM 233456729 'Özlüce Kavşağı'). Hava fotoğrafı (aerial-n1) enine/boyuna profiller: dış bordür x 600.6–645.5 (z −298.5), z −322.9…−274.1 (x 622.5); çim kenarı x 602.4–642.8, z −321.5…−275.7 → merkez (623.0,−298.5), rx 22.4, rz 24.4; bant doğuda ≈2.2 m, batıda ≈1.4 m (ortalama yazıldı). SV j83sBTWj_270_-50 (2025-09): bordür yüzü yeşil/beyaz dönüşümlü boyalı, arkasında açık gri beton bant, alçak iç bordür, çim. Çevre yolunda kesikli şerit çizgileri (A68JK4N9/28liXUPN_120_0), batı kolunda yol kenarında çelik bariyer (28liXUPN_120_0). Ada üstünde lamba/ışık görülmedi (ada merkezine bakan ufuk karesi yok). ±0.5."
+      "note": "Uğur Mumcu Blv. × Özlüce Blv. dönel kavşağı (OSM 233456729 'Özlüce Kavşağı'). Hava fotoğrafı (aerial-n1) enine/boyuna profiller: dış bordür x 600.6–645.5 (z −298.5), z −322.9…−274.1 (x 622.5); çim kenarı x 602.4–642.8, z −321.5…−275.7 → merkez (623.0,−298.5), rx 22.4, rz 24.4; bant doğuda ≈2.2 m, batıda ≈1.4 m (ortalama yazıldı). SV j83sBTWj_270_-50 (2025-09): bordür yüzü yeşil/beyaz dönüşümlü boyalı, arkasında açık gri beton bant, alçak iç bordür, çim. Çevre yolunda kesikli şerit çizgileri (A68JK4N9/28liXUPN_120_0), batı kolunda yol kenarında çelik bariyer (28liXUPN_120_0). Ada üstünde lamba/ışık görülmedi (ada merkezine bakan ufuk karesi yok). ±0.5. 2026-09-30: giriş kollarında kesikli \"yol ver\" çizgisi görülmedi (Nj_jj1KQ / xFHUdC91 / wHgKQ7C4 180_-50, FD8KJP6P / NdCfk7Bj / JsbllX49 0_-50, hjrWP_Nb 90_-50, j83sBTWj / T4qvgi40 270_-50 zemin kareleri; birçoğunda pano GPS’i ada çimine düşüyor). Kuzeybatı girişinde (Nj_jj1KQ_180_-50) bordüre dik tek kalın beyaz şerit parçası var, anlamı seçilemedi; ring üstünde kesikli şerit çizgileri (xFHUdC91_180_-50). Kavşak sinyalize (d4-sig-rb2-*), dur çizgisi güney kolda (d4r-stop-rb2-s)."
     },
     {
       "id": "d4-rb2-split-e",
@@ -17466,7 +17537,11 @@
           "u1": 13.7
         }
       ],
-      "note": "Özdemiroğlu restoran (1546358563) doğu cephesi önünde kış bahçesi. Cephe ajanı ölçümü (±1) + aerial-n1 doğrulaması: hava fotoğrafında açık renk panelli çatı x 587.3–593.6, z −236.5…−214 (≈4 m kot için eğiklik (−0.35,−1.2) düzeltilince poly ile uyumlu), çatıda ≈3.4 m aralıklı koyu mertekler (z −232/−228.3/−224.8/−221.2/−217.7). Çatı: bej açılır-kapanır branda (gölgede #a19f93, hava fotoğrafında #d0c5b9 → roofC ortalama), koyu gri mertekler (üretici mertek çizmiyor), koyu cam çerçeveler. h = duvar tarafı ≈4.1 m (cephe ajanı); brandanın dış kenara eğimi ölçülmedi → düz alındı.3 varsayım DEĞİL — eğimli branda için yalnız görünüm; ±0.5). Kapı doğu kenarında z −225.8…−227.7, üstünde küçük gri saçak (saçak çizilmez). Kenar 0 = bina duvarı (batı), kenar 2 = doğu (z −214 → −235.3; kapı u0/u1 = kenar başından m)."
+      "note": "Özdemiroğlu restoran (1546358563) doğu cephesi önünde kış bahçesi. Cephe ajanı ölçümü (±1) + aerial-n1 doğrulaması: hava fotoğrafında açık renk panelli çatı x 587.3–593.6, z −236.5…−214 (≈4 m kot için eğiklik (−0.35,−1.2) düzeltilince poly ile uyumlu), çatıda ≈3.4 m aralıklı koyu mertekler (z −232/−228.3/−224.8/−221.2/−217.7). Çatı: bej açılır-kapanır branda (gölgede #a19f93, hava fotoğrafında #d0c5b9 → roofC ortalama), koyu gri mertekler (2026-09-30: aerial-n1 çatıda 5 koyu çizgi, satır 4166/4208/4249/4289/4330 → aralık 3.41 m; renk OHftRqTt_264_10_40 kolların gölgeli yan yüzü #3c3f3a. Üretici mertekleri kenar 0 başından every/2’de başlatıyor, gerçek ilk mertek ≈3.3 m’de — yarım aralık kayık), koyu cam çerçeveler. h = duvar tarafı ≈4.1 m (cephe ajanı); brandanın dış kenara eğimi ölçülmedi → düz alındı.3 varsayım DEĞİL — eğimli branda için yalnız görünüm; ±0.5). Kapı doğu kenarında z −225.8…−227.7, üstünde küçük gri saçak (saçak çizilmez). Kenar 0 = bina duvarı (batı), kenar 2 = doğu (z −214 → −235.3; kapı u0/u1 = kenar başından m).",
+      "rafters": {
+        "every": 3.4,
+        "color": "#3c3f3a"
+      }
     },
     {
       "id": "d4-ozd-wg-se",
@@ -17526,7 +17601,8 @@
       "frame": "#f0f0ec",
       "mullion": 1.2,
       "roofC": "#c9c3b6",
-      "note": "Özdemiroğlu kuzey kış bahçesi: yeşil alın bandı #253837, beyaz dikmeler, cam (cephe ajanı; x 572–594.5, z −245.3…−235.6, derinlik ±2). aerial-n1: açık renk panelli çatı x 571–594.3, z −246.2…−240 görünür (güney kısmı ana binanın eğik çatı görüntüsü altında). Yeşil alın bandı üreticide yok (bkz. rapor: enclosure.fasciaC). Yükseklik ölçülmedi (3.6 ±0.5)."
+      "note": "Özdemiroğlu kuzey kış bahçesi: yeşil alın bandı #253837, beyaz dikmeler, cam (cephe ajanı; x 572–594.5, z −245.3…−235.6, derinlik ±2). aerial-n1: açık renk panelli çatı x 571–594.3, z −246.2…−240 görünür (güney kısmı ana binanın eğik çatı görüntüsü altında). Alın bandı rengi 2026-09-30: _8KTVbWS_182_4_22 / _192_4_22 (2025-09, bulutlu difüz) koyu yeşil-camgöbeği bant ortalaması #1f3a3b (#092621–#233d47); bant yüksekliği ölçülmedi (fasciaH verilmedi). Yükseklik ölçülmedi (3.6 ±0.5).",
+      "fasciaC": "#1f3a3b"
     },
     {
       "id": "d4-ozd-pergola-s",
@@ -17595,7 +17671,7 @@
       "x": 597.5,
       "z": -236.1,
       "h": 8,
-      "note": "İkinci bayrak direği (mavi-beyaz kurumsal bayrak — deseni seçilemedi). ±1.5."
+      "note": "İkinci bayrak direği (kuzeydeki). 2026-09-30: OHftRqTt_300_0 ve 8lJUsB-6_240_0’da (2025-09) kumaş gönderde sarkık, açık gri-beyaz (karşı ışıkta #9ea5a9–#adb2bb, kenarda mavimsi #6d7b8d); desen/logo görülmedi → flag verilmedi (düz renk bayrak desensizliği iddia ederdi). Aynı karelerde üç direk seçiliyor: güneyde bayraksız, ortada Türk bayrağı, kuzeyde bu beyaz bayrak (kerteriz sırası iki panoda aynı); d4-ozd-flag-1 (z −231.6) kerteriz açısıyla güneydeki bayraksız direğe düşüyor — üçüncü direk kaydı yok. ±1.5."
     },
     {
       "id": "d4-ozd-palm",
@@ -17708,7 +17784,13 @@
       "h": 2.6,
       "rot": 180,
       "color": "#8c9295",
-      "note": "Otobüs durağı sığınağı (x 727.5–734, z≈−304; cephe ajanı + SV ClwC9NKO_0_0): gri alüminyum çerçeve, cam arka panel, iki koyu (siyah) reklam/bilgi panosu, düz çatı, oturak. Yeni tür (üretici desteği yok)."
+      "note": "Otobüs durağı sığınağı (x 727.5–734, z≈−304; cephe ajanı + SV ClwC9NKO_0_0): gri alüminyum çerçeve, cam arka panel, arka camda üç siyah dikdörtgen pano (ClwC9NKO_0_0 / _300_0 / _343_1_40; üretici arka cam panosu çizmiyor), düz çatı, oturak. 2026-09-30: BATI ucunda (rot 180 → start = batı) çerçeveli reklam kutusu, doğuya bakan yüzünde gri-beyaz saat afişi (ClwC9NKO_300_0, çatı gölgesinde #6a6e6c); DOĞU ucu cam (ClwC9NKO_0_0). Batı panonun batı yüzü görülmedi; ışıklı olup olmadığı görülmedi.",
+      "ads": [
+        {
+          "end": "start",
+          "color": "#6a6e6c"
+        }
+      ]
     },
     {
       "id": "d4-um-busstop-pole",
@@ -18097,7 +18179,8 @@
       "color": "#6b705f",
       "text": "NİLÜFER BELEDİYESİ",
       "rot": 270,
-      "note": "Galvaniz 1100 L tekerlekli çöp konteyneri, yüzünde yeşil \"NİLÜFER BELEDİYESİ\" yazısı + logo (dZQ2YFC-_60_0 / _120_0). Konum kerteriz ±1.5. Yeni tür."
+      "note": "Galvaniz 1100 L tekerlekli çöp konteyneri, yüzünde yeşil \"NİLÜFER BELEDİYESİ\" yazısı + logo (dZQ2YFC-_60_0 / _120_0). Konum kerteriz ±1.5. Yeni tür. Yazı rengi (fg) 2026-09-30: dZQ2YFC-_60_0 / _120_0, yüz kendi gölgesinde (güneşli gün; güneşli kaldırım #b9ad98), en yeşil %4 piksel ortalaması ≈#556641 (iki konteynerde aynı).",
+      "fg": "#556641"
     },
     {
       "id": "d4-e8-container-2",
@@ -18110,7 +18193,8 @@
       "color": "#6b705f",
       "text": "NİLÜFER BELEDİYESİ",
       "rot": 270,
-      "note": "İkinci galvaniz konteyner (içinde mavi torbalar). ±1.5. Yeni tür."
+      "note": "İkinci galvaniz konteyner (içinde mavi torbalar). ±1.5. Yeni tür. 2026-09-30: yüzünde de yeşil \"NİLÜFER BELEDİYESİ\" + logo + alt satır yazısı görülüyor (dZQ2YFC-_60_0 / _120_0; alt satır okunmadı), fg #556641 (yüz gölgede, en yeşil %4 piksel ortalaması).",
+      "fg": "#556641"
     },
     {
       "id": "d4-bus-e4",
@@ -18122,7 +18206,13 @@
       "h": 2.5,
       "rot": 270,
       "color": "#9aa0a3",
-      "note": "Otobüs durağı sığınağı, doğu kaldırımı (X0NY1chl_60_0, _u_LjgZ2_60_0, 2025-09): gri alüminyum çerçeve, cam arka/yan paneller, ince düz çatı, güney ucunda turuncu ışıklı reklam panosu (içerik değişken). Konum SV ızgarası (GPS ofseti düzeltilmedi) ±1.5; ölçüler oransal. Yeni tür."
+      "note": "Otobüs durağı sığınağı, doğu kaldırımı (X0NY1chl_60_0, _u_LjgZ2_60_0, 2025-09): gri alüminyum çerçeve, cam arka/yan paneller, ince düz çatı, KUZEY ucunda (rot 270 → start = kuzey) turuncu reklam panosu (içerik değişken; burger afişi). 2026-09-30: X0NY1chl_64_6_40 ve _u_LjgZ2_60_0 / _0_0 üç karede de pano kuzey uçta, güney uç cam (X0NY1chl_64_6_40, _u_LjgZ2_60_0; H7s4cksD_108_6_40’ta kuzey uç minibüs arkasında). Renk X0NY1chl_64_6_40 pano zemini, çatı gölgesinde #d65f38. Işıklı olup olmadığı gündüz karesinden görülmedi (lit verilmedi). Konum SV ızgarası (GPS ofseti düzeltilmedi) ±1.5; ölçüler oransal. Yeni tür.",
+      "ads": [
+        {
+          "end": "start",
+          "color": "#d65f38"
+        }
+      ]
     },
     {
       "id": "d4-sign-ped-476-e",
