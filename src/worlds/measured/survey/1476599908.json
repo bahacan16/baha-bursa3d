@@ -1,0 +1,1068 @@
+{
+ "id": 1476599908,
+ "name": "Taşyakan kuzey sıra orta kule (Roswell coffee)",
+ "storeys": 9,
+ "floorH": 3.05,
+ "floorHs": [
+  3.6,
+  3.3,
+  3.05,
+  3.05,
+  3.05,
+  3.05,
+  3.05,
+  3.05,
+  3.05
+ ],
+ "groundRaise": 0,
+ "plinthH": 0,
+ "wallTop": 28.0,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.1,
+  "fasciaH": 0.3,
+  "fasciaC": "#a8927a",
+  "flatC": "#5b5354"
+ },
+ "colors": {
+  "plaster": "#a8927a",
+  "plaster2": "#b5a18a",
+  "strip": "#a8927a",
+  "fascia": "#a8927a",
+  "soffit": "#6d5f52",
+  "railGlass": "#8e9a9c",
+  "frame": "#3b2c27",
+  "tile": "#8f6f60",
+  "plinth": "#a79e90"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 18.78,
+   "seen": "none",
+   "items": [],
+   "note": "B yüz: görülmedi (907 ile arasındaki alçak şerit/Getir deposu tarafı)."
+  },
+  {
+   "edge": 1,
+   "len": 23.12,
+   "seen": "none",
+   "items": [],
+   "note": "G yüz: yalnız çatı üstündeki alınlık uçları 909–912 arasından (ClwC9/wFJN 0_0, podyum 201 parapetinin üstünde) görüldü; cephe görülmedi."
+  },
+  {
+   "edge": 2,
+   "len": 18.07,
+   "seen": "none",
+   "items": [],
+   "note": "D yüz: görülmedi."
+  },
+  {
+   "edge": 3,
+   "len": 9.58,
+   "seen": "photo",
+   "ref": "1476599908_3_tYhalz-w.jpg",
+   "cal": {
+    "u": [
+     0,
+     9.58
+    ],
+    "head": [
+     [
+      2,
+      8.88
+     ],
+     [
+      8,
+      26.69
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 3.5,
+     "s": [
+      2,
+      8
+     ],
+     "d": 1.0,
+     "sides": "end-wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      2,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "K2": "dark",
+      "K4": "clear",
+      "K5": "clear",
+      "K6": "clear",
+      "K7": "clear",
+      "K8": "clear"
+     },
+     "fasciaC": {
+      "*": "#9a9486"
+     },
+     "railC": "#d9dbd8",
+     "glassC": {
+      "*": "#8e9a9c"
+     },
+     "beam": {
+      "*": 0.3
+     },
+     "postEvery": 0.7,
+     "frameC": {
+      "*": "#e6e6e3"
+     },
+     "glazeEvery": 0.7
+    },
+    {
+     "t": "panel",
+     "u0": 0.4,
+     "u1": 2.6,
+     "y0": 19.3,
+     "y1": 20.1,
+     "color": "#e8ecef",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "u0": 4.4,
+     "u1": 6.0,
+     "y0": 25.44,
+     "y1": 26.69,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b2c27",
+     "surround": {
+      "w": 0.12,
+      "d": 0.04,
+      "color": "#cbbaa2"
+     },
+     "curt": {
+      "K8": "tul",
+      "K7": "tul",
+      "K6": "tul",
+      "K5": "tul",
+      "K4": "tul",
+      "K3": "tul",
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 7.18,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 6.83,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 6.48,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 10.14,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 9.79,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 9.44,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 13.11,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 12.76,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 12.41,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 16.08,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 15.73,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 15.38,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 19.05,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 18.7,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 18.35,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 22.02,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 21.67,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 21.32,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 24.99,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 24.64,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.7,
+     "u1": 6.7,
+     "y": 24.29,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "proj",
+     "u0": 2.9,
+     "u1": 7.0,
+     "d": 0.6,
+     "y0": 27.4,
+     "y1": 28.6,
+     "color": "#a8927a"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.2,
+     "y0": 27.8,
+     "y1": 28.56,
+     "color": "#a8927a",
+     "proud": 0.02
+    },
+    {
+     "t": "pediment",
+     "u0": 0,
+     "u1": 9.2,
+     "apex": 0,
+     "y": 28.56,
+     "yTop": 31.76,
+     "depth": 0.3,
+     "color": "#a8927a"
+    },
+    {
+     "t": "win",
+     "u0": 3.5,
+     "u1": 4.75,
+     "y0": 29.5,
+     "y1": 30.9,
+     "k": 9,
+     "s": [
+      9,
+      9
+     ],
+     "kind": "small",
+     "split": 2,
+     "frameC": "#3b2c27",
+     "curt": {
+      "K9": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.58,
+     "y0": 6.1,
+     "y1": 6.67,
+     "color": "#a79e90",
+     "proud": 0.1
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.58,
+     "y0": 6.67,
+     "y1": 6.9,
+     "color": "#3a2f24",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.58,
+     "y0": 5.76,
+     "y1": 6.1,
+     "color": "#3a2f24",
+     "proud": 0.12
+    },
+    {
+     "t": "sign",
+     "u0": 2.99,
+     "u1": 6.34,
+     "y0": 7.3,
+     "y1": 7.92,
+     "d": 0.04,
+     "off": 0.15,
+     "style": "panel",
+     "text": "AZUL TARIM",
+     "bg": "#eef0f1",
+     "fg": "#3d5f86",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "logo": "solda küçük logo (okunmuyor) — çizilmedi; d görülmedi"
+    },
+    {
+     "t": "dish",
+     "u": -0.13,
+     "y": 7.35,
+     "s": 1
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 0.3,
+     "u1": 7.1,
+     "y0": 1.16,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 5,
+     "frameC": "#d9dbd8",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 0,
+     "u1": 7.48,
+     "y0": 3.32,
+     "y1": 5.14,
+     "d": 0.3,
+     "style": "panel",
+     "text": "",
+     "bg": "#5f9e86",
+     "lit": false,
+     "logo": "nane yeşili alın/kanopi (yazı görülmedi), üstünde gri eğik saçak dudağı y 5.1–5.76; ölçülen gölge tonu #42705d"
+    },
+    {
+     "t": "win",
+     "u0": 7.93,
+     "u1": 9.47,
+     "y0": 3.94,
+     "y1": 5.48,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#e6e6e3",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 7.1,
+     "u1": 9.58,
+     "y": 3.32,
+     "d": 1.2,
+     "color": "#a3a58e",
+     "drop": 0.25
+    }
+   ],
+   "note": "K yüz doğu parça (kuzey sokak, tYhalz-w 180_0/180_40 90° kareleri, 25 m; ortofoto bu çalışmada scratch ortho2.mjs ile üretildi, sv-extra girdisi yok). Kat adımı görünen 2.97 (FH 3.05). KD köşe yığını (u 0–3.5, köşeyi sarıyor, u<0 kenar 2 tarafında görülmedi): K2 mavi-koyu cam balkon, K3 açık, K4–K8 cam balkon; K6 korkuluğunda beyaz-mavi pankart (yazı okunmuyor). Derzli pencere sütunu u 4.4–6.0 (K2–K8, beyaz tül), üstünde koyu altlı saçak kutusu, tepede batıya alçalan tek eğimli alınlık (kalkan) + çatı arası küçük pencere. Podyum: K0 nane yeşili kanopili dükkân (yazı görülmedi), K1 pencere; taş parapet bandı + koyu silmeler, parapet üstünde AZUL TARIM levhası ve gri çanak. Balkon derinliği görülmedi (1.0). Renkler bulutlu kuzey yüzde, gölge."
+  },
+  {
+   "edge": 4,
+   "len": 3.44,
+   "seen": "partial",
+   "items": [],
+   "note": "Girinti yan duvarı (batıya bakan): tYhal karesinde koyu, öğe seçilmedi."
+  },
+  {
+   "edge": 5,
+   "len": 4.49,
+   "seen": "partial",
+   "items": [],
+   "note": "Girinti dibi (3.4 m geride): tYhal karesinde gölgede, düz sıva gibi; zeminde Roswell teras örtüsü/tente önde. Ölçülmedi."
+  },
+  {
+   "edge": 6,
+   "len": 4.16,
+   "seen": "none",
+   "items": [],
+   "note": "Girinti doğu yan duvarı: kameraya arkası dönük, görülmedi."
+  },
+  {
+   "edge": 7,
+   "len": 9.04,
+   "seen": "photo",
+   "ref": "1476599908_7_tYhalz-w.jpg",
+   "cal": {
+    "u": [
+     0,
+     9.04
+    ],
+    "head": [
+     [
+      2,
+      8.25
+     ],
+     [
+      8,
+      25.44
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.0,
+     "u1": 1.06,
+     "y0": 24.19,
+     "y1": 25.44,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b2c27",
+     "surround": {
+      "w": 0.12,
+      "d": 0.04,
+      "color": "#cbbaa2"
+     },
+     "curt": {
+      "K8": "tul",
+      "K7": "tul",
+      "K6": "tul",
+      "K5": "tul",
+      "K4": "tul",
+      "K3": "tul",
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 6.55,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 6.2,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 5.85,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 9.52,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 9.17,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 8.82,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 12.33,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 11.98,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 11.63,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 15.14,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 14.79,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 14.44,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 17.96,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 17.61,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 17.26,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 20.83,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 20.48,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 20.13,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 23.74,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 23.39,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": -0.5,
+     "u1": 1.3,
+     "y": 23.04,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "bal",
+     "u0": 1.75,
+     "u1": 7.06,
+     "s": [
+      2,
+      8
+     ],
+     "d": 1.0,
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "K4": "clear",
+      "K5": "dark",
+      "K6": "clear",
+      "K7": "blinds",
+      "K8": "clear"
+     },
+     "fasciaC": {
+      "*": "#9a9486"
+     },
+     "railC": "#d9dbd8",
+     "glassC": {
+      "*": "#8e9a9c"
+     },
+     "beam": {
+      "*": 0.3
+     },
+     "postEvery": 0.7,
+     "frameC": {
+      "*": "#e6e6e3"
+     },
+     "glazeEvery": 0.7
+    },
+    {
+     "t": "sign",
+     "u0": 1.8,
+     "u1": 7.06,
+     "y0": 7.98,
+     "y1": 8.49,
+     "d": 0.03,
+     "off": 1.0,
+     "style": "panel",
+     "text": "Krem Mekanik",
+     "lines": [
+      {
+       "text": "Krem Mekanik",
+       "fg": "#c8262b",
+       "bold": true
+      }
+     ],
+     "bg": "#f1f1ef",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "logo": "“Krem” koyu gri/siyah, “Mekanik” kırmızı (tek satır; ilk harfin biçimi okunmuyor); K2 balkon önünde"
+    },
+    {
+     "t": "pediment",
+     "u0": 0,
+     "u1": 7.3,
+     "apex": 0,
+     "y": 28.1,
+     "yTop": 31.5,
+     "depth": 0.3,
+     "color": "#a8927a"
+    },
+    {
+     "t": "win",
+     "u0": 0.0,
+     "u1": 0.9,
+     "y0": 29.5,
+     "y1": 31.0,
+     "k": 9,
+     "s": [
+      9,
+      9
+     ],
+     "kind": "small",
+     "split": 2,
+     "frameC": "#3b2c27",
+     "curt": {
+      "K9": "karanlik"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 8.2,
+     "s": 6,
+     "y": 17.9
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.04,
+     "y0": 6.1,
+     "y1": 6.67,
+     "color": "#a79e90",
+     "proud": 0.1
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.04,
+     "y0": 6.67,
+     "y1": 6.9,
+     "color": "#3a2f24",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.04,
+     "y0": 5.76,
+     "y1": 6.1,
+     "color": "#3a2f24",
+     "proud": 0.12
+    },
+    {
+     "t": "win",
+     "u0": 0,
+     "u1": 1.23,
+     "y0": 3.94,
+     "y1": 5.27,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#121b17",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.19,
+     "u1": 3.73,
+     "y0": 3.94,
+     "y1": 5.27,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#121b17",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.92,
+     "u1": 6.42,
+     "y0": 3.94,
+     "y1": 5.27,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#121b17",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 0,
+     "u1": 6.5,
+     "y0": 0.3,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 4,
+     "frameC": "#1f2522",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 1.1,
+     "u1": 6.5,
+     "y": 3.32,
+     "d": 1.4,
+     "color": "#a3a58e",
+     "drop": 0.25
+    },
+    {
+     "t": "sign",
+     "u0": 0,
+     "u1": 1.68,
+     "y0": 3.15,
+     "y1": 4.4,
+     "d": 0.05,
+     "off": 1.5,
+     "style": "panel",
+     "text": "ROSWELL\ncoffee",
+     "lines": [
+      {
+       "text": "ROSWELL",
+       "fg": "#f2f2ee",
+       "bold": true,
+       "size": 0.45
+      },
+      {
+       "text": "coffee",
+       "fg": "#f2f2ee",
+       "size": 0.3
+      }
+     ],
+     "bg": "#1e4b56",
+     "border": "#e8e8e2",
+     "font": "sans",
+     "lit": false,
+     "logo": "oval (elips) pano, beyaz kenar; alt satır el yazısı “coffee”; tente çerçevesinin önünde, dikme üstünde (d, off görülmedi)"
+    },
+    {
+     "t": "pipe",
+     "u": 7.0,
+     "y0": 3.4,
+     "y1": 5.9,
+     "color": "#c9cbc8",
+     "r": 0.04
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 6.74,
+     "u1": 9.04,
+     "y0": 0.3,
+     "y1": 2.75,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#43221d",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 6.74,
+     "u1": 9.04,
+     "y": 2.75,
+     "d": 1.0,
+     "color": "#8a2e24",
+     "drop": 0.25
+    }
+   ],
+   "note": "K yüz batı parça (tYhalz-w, 17 m). Kat adımı görünen 2.87. Pencere sütunu u 0–1.06 (K2–K8 tül), cam balkon yığını u 1.75–7.06 (K2 açık — önünde Krem Mekanik levhası, K3 açık, K4–K8 cam balkon; K7’de mavi perde), KB köşede dar servis sütunu u 7.3–9.04 (küçük pencereler, K6’da klima; tepesi ≈20 m’de biter, üstü gökyüzü → pending). Tepede tek eğimli alınlık + çatı arası pencere. Podyum: K0 Roswell coffee (koyu doğramalı cam cephe, iki haki tente, çelik pergola, oval pano), K1 üç siyah kafesli pencere, KB uçta Getir deposu (koyu kırmızı saçak, önünde içecek kolileri — sokak katmanı), taş parapet bandı."
+  }
+ ],
+ "notes": [
+  "D4-A düzeltme (2026-09-30): Önceden OSM varsayılanıyla 5 kat. KAT SAYISI 9 (K0 dükkân ≈3.6, K1 podyum üst katı ≈3.3, K2–K8 konut 7 kat × 3.05) + alınlıklarda çatı arası penceresi; tYhal 180_40 karesinde sayıldı. Yükseklik hava fotoğrafıyla tutarlı (eğim (−2.7,−8.84)@28.5 m ile çatı dış hattı OSM halkasına oturuyor). K0/K1 kat yükseklikleri görünen kotlardan (±0.3).",
+  "Kuzey cephe iki parçalı (girintiyle ayrılmış), her parçanın tepesinde batıya alçalan tek eğimli kalkan duvar; hava fotoğrafında çatı koyu düz (flatC 909 ile aynı ton ölçüldü)."
+ ],
+ "pending": [
+  {
+   "type": "corner-setback",
+   "edge": 7,
+   "u": [
+    7.3,
+    9.04
+   ],
+   "note": "KB köşedeki dar sütun ≈20 m (görünen) üstünde bitiyor, üstü gökyüzü → kule gövdesi o köşede K6 üstünde geri çekiliyor olabilir; B yüz görülmediği için derinlik bilinmiyor → kütle bölünmesi yapılmadı"
+  },
+  {
+   "type": "notch-terrace",
+   "edge": 5,
+   "note": "Girinti önünde Roswell’in ikinci tentesi / teras örtüsü (e3 u 7.1–9.58 → girinti ağzı boyunca devam ediyor); girinti ağzı boyunca tente sokak katmanına ya da e5’e yazılmalı — ölçülmedi"
+  },
+  {
+   "type": "west-strip",
+   "note": "907 ile 908 arasındaki (x 713–723) alçak şerit (Getir deposu mor camlı K1, koyu kırmızı saçak) OSM’de yok; bu turda çizilmedi"
+  }
+ ]
+}

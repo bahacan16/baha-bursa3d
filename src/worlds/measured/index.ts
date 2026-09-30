@@ -1776,7 +1776,15 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   }
   if (STREET_PLAN.areas?.length) {
     // v8: sokak planı zemin alanları (döşeme / çakıl / asfalt — site planı alan şeması, kaldırımlardan kırpılır)
-    const sa = buildSitePlan(b, { areas: STREET_PLAN.areas }, o.H, o.collide, colorKey, street?.coverPolys);
+    const sa = buildSitePlan(
+      b,
+      { areas: STREET_PLAN.areas },
+      o.H,
+      o.collide,
+      colorKey,
+      street?.coverPolys,
+      true,
+    );
     holes.push(...sa.holes);
   }
   // ── Salusvizyon ──

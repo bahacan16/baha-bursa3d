@@ -717,6 +717,11 @@ export function buildSitePlan(
    * yukarıda örtüyordu (kırmızı bant / kılavuz görünmüyor, yola bakan kenarında karanlık bordür + yan yüz; critic c-02).
    */
   streetCuts: V2[][] = [],
+  /**
+   * v8 sokak planı alanları: asfalt alan (kind asphalt / malzeme asfalt, level 0) OSM yol şeridinin ALTINDA (+0.027;
+   * şerit +0.04, çizgiler +0.05) — şeritler arası / kavşak boşluğu dolgusu çizgileri örtmesin
+   */
+  underRoads = false,
 ): SitePlanResult {
   const hexOk = (h: unknown): h is string => typeof h === 'string' && /^#[0-9a-f]{6}$/i.test(h);
   const holes: [number, number, number, number][] = [];
@@ -735,9 +740,12 @@ export function buildSitePlan(
     // v8: kaldırım kotundaki sert zemin (level ≈ bordür kotu, ör. köşe meydanı) kaldırım bantlarıyla aynı kotta
     // (+4 mm); önceden yığılan ofsetlerle (+0.11) kaldırımın üstünde duruyordu
     const flushPave = a.kind === 'paving' && (a.level ?? 0) > 0.05 && (a.level ?? 0) <= 0.3;
-    const off = flushPave
-      ? (a.level ?? 0) + 0.004 + Math.min(0.004, idx * 0.0001)
-      : 0.03 + Math.min(0.06, idx * 0.0015) + (a.level ?? 0) + (a.kind === 'lawn' ? 0 : 0.03);
+    const off =
+      underRoads && key === 'drive' && !((a.level ?? 0) > 0)
+        ? 0.027
+        : flushPave
+          ? (a.level ?? 0) + 0.004 + Math.min(0.004, idx * 0.0001)
+          : 0.03 + Math.min(0.06, idx * 0.0015) + (a.level ?? 0) + (a.kind === 'lawn' ? 0 : 0.03);
     const hard = a.kind !== 'lawn' && a.kind !== 'deck';
     const parts = hard && streetCuts.length ? cutAreaBy(a.poly, streetCuts) : [[a.poly, ...inner]];
     for (const [outer, ...hs] of parts)

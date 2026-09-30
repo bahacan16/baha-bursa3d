@@ -293,6 +293,17 @@ describe('D4 düzeltmeleri: kış bahçesi yazısı ve mor fidan', () => {
     expect(s).toEqual([{ edge: 1, u0: 0.2, u1: 2.8, text: 'Mandıra', fg: '#f0d040' }]);
   });
 
+  it('fasciaText varsayılan kenarı yola bakan kenar (toRoad)', () => {
+    // Yol batıda (−x): batı kenarı 3 ([0,3] → [0,0])
+    const s = fasciaSigns(
+      { kind: 'enclosure', x: 0, z: 0, fasciaText: 'Tarz-ı Pide' },
+      poly,
+      new Set(),
+      () => [-1, 0],
+    );
+    expect(s.map((q) => q.edge)).toEqual([3]);
+  });
+
   it('mor yapraklı fidan türü', () => {
     expect(parseSpecies('sapling-purple')).toBe('sapling-purple');
     expect(parseSpecies(undefined, 'Mor yapraklı fidan, çift kazıklı')).toBe('sapling-purple');
