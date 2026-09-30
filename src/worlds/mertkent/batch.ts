@@ -57,6 +57,9 @@ const SKIP_PROPS = new Set([
   'customProgramCacheKey',
 ]);
 
+/** Malzeme kimliği (oluşturma sırası; tiplerde yok) */
+const mid = (m: THREE.Material): number => (m as unknown as { id: number }).id;
+
 const fnIds = new WeakMap<object, number>();
 let fnSeq = 0;
 function objId(o: object): number {
@@ -508,6 +511,8 @@ function mergeByColor(group: THREE.Group, meshes: Mesh[]): { merged: number; out
       left.push(...list);
       continue;
     }
+    // eşit derinlikte (eş düzlemli) çakışmada özgün çizim sırası: malzeme kimliği sırası (three opak sıralaması)
+    list.sort((a, b) => mid(a.material) - mid(b.material));
     const first = list[0];
     const mat = cloneWithPatch(first.material as THREE.MeshStandardMaterial);
     mat.color.setRGB(1, 1, 1);
@@ -540,6 +545,7 @@ function mergeByColor(group: THREE.Group, meshes: Mesh[]): { merged: number; out
       const g = mergePieces(pieces, attrs, rm ? { color: 3, batchRM: 2 } : { color: 3 });
       const bm = new THREE.Mesh(g, mat);
       bm.name = `mertkent-batch vc ${cell}`;
+      bm.userData.batchRank = mid(first.material);
       copyMeshState(first, bm);
       group.add(bm);
       out++;
@@ -694,6 +700,7 @@ function mergeGranular(group: THREE.Group, meshes: Mesh[]): { merged: number; ou
         return L >= s && L < s + MAX_LAYERS;
       });
       if (sub.length < 2) continue;
+      sub.sort((a, b) => mid(a.material) - mid(b.material));
       const first = sub[0];
       const fm = first.material as THREE.MeshStandardMaterial;
       const w = (slice[0].image as HTMLCanvasElement).width;
@@ -777,6 +784,7 @@ function mergeGranular(group: THREE.Group, meshes: Mesh[]): { merged: number; ou
         const g = mergePieces(pieces, attrs, { granLayer: 1 });
         const bm = new THREE.Mesh(g, mat);
         bm.name = `mertkent-batch gran ${cell}`;
+        bm.userData.batchRank = mid(first.material);
         copyMeshState(first, bm);
         group.add(bm);
         out++;
@@ -822,6 +830,47 @@ export function mergeSameMaterial(meshes: Mesh[], parent: THREE.Object3D, name: 
   return out;
 }
 
+/**
+ * three opak nesneleri önce malzeme kimliğine (oluşturma sırası) göre çizer; eş düzlemli yüzlerde eşit derinlikte sonra
+ * çizilen kazanır. Birleşik malzemeler yeni (büyük kimlikli) olduğu için bu sırayı bozardı (ör. panel önündeki sıva
+ * beneklenir). Grup içindeki tüm ana geçiş malzemeleri özgün sıraya göre (birleşik: en küçük kaynak kimliği) yeniden
+ * klonlanır → kimlik sırası özgün sırayı izler. Grup dışında da kullanılan malzemeler (ör. OSM yol dolgusu) olduğu gibi.
+ */
+function restoreDrawOrder(group: THREE.Group): number {
+  const inside = new Set<THREE.Object3D>();
+  group.traverse((o) => inside.add(o));
+  const external = new Set<THREE.Material>();
+  let root: THREE.Object3D = group;
+  while (root.parent) root = root.parent;
+  root.traverse((o) => {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh || inside.has(o)) return;
+    for (const x of Array.isArray(m.material) ? m.material : [m.material]) external.add(x);
+  });
+  const items: { mesh: THREE.Mesh; rank: number }[] = [];
+  for (const o of group.children) {
+    const m = o as THREE.Mesh;
+    if (!m.isMesh || Array.isArray(m.material)) continue;
+    const mat = m.material as THREE.Material;
+    items.push({ mesh: m, rank: (m.userData.batchRank as number | undefined) ?? mid(mat) });
+  }
+  items.sort((a, b) => a.rank - b.rank);
+  const re = new Map<THREE.Material, THREE.Material>();
+  for (const { mesh } of items) {
+    const mat = mesh.material as THREE.Material;
+    if (external.has(mat)) continue;
+    let c = re.get(mat);
+    if (!c) {
+      c = cloneWithPatch(mat);
+      const arr = (mat as unknown as { granArray?: THREE.Texture }).granArray;
+      if (arr) (c as unknown as { granArray: THREE.Texture }).granArray = arr;
+      re.set(mat, c);
+    }
+    mesh.material = c;
+  }
+  return re.size;
+}
+
 export function batchHandModel(group: THREE.Group): BatchStats {
   const t0 = performance.now();
   group.updateMatrixWorld(true);
@@ -832,6 +881,7 @@ export function batchHandModel(group: THREE.Group): BatchStats {
   const col = mergeByColor(group, all);
   const t2 = performance.now();
   const gran = mergeGranular(group, col.left);
+  restoreDrawOrder(group);
   const t3 = performance.now();
   return {
     phaseMs: [t1 - t0, t2 - t1, t3 - t2],

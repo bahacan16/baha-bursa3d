@@ -41,8 +41,9 @@ describe('el modeli birleştirme (Ultra)', () => {
     expect(merged.geometry.index!.count).toBe(72);
     expect(merged.geometry.attributes.batchRM).toBeUndefined();
     // farklı yüz ve saydam ayrı kalır
-    expect(group.children.filter((o) => (o as THREE.Mesh).material === rough)).toHaveLength(1);
-    expect(group.children.filter((o) => (o as THREE.Mesh).material === glass)).toHaveLength(1);
+    const mats = group.children.map((o) => (o as THREE.Mesh).material as THREE.MeshStandardMaterial);
+    expect(mats.filter((m) => m?.side === THREE.DoubleSide && !m.vertexColors)).toHaveLength(1);
+    expect(mats.filter((m) => m?.transparent)).toHaveLength(1);
 
     // gölge: özgün meshler dökmez; vekil kök görünmez, gölge köklerine kayıtlı, üçgenlerin hepsi
     for (const o of group.children)
@@ -133,6 +134,23 @@ describe('el modeli birleştirme (Ultra)', () => {
     expect(sh.fragmentShader).toContain('float roughnessFactor = vBatchRM.x;');
     expect(sh.fragmentShader).toContain('float metalnessFactor = vBatchRM.y;');
     expect(sh.vertexShader).toContain('vBatchRM = batchRM;');
+    for (const r of [...shadowOnlyRoots]) shadowOnlyRoots.delete(r);
+  });
+
+  it('çizim sırası (malzeme kimliği) özgün sırayı izler', () => {
+    const group = new THREE.Group();
+    const wall = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    const panel = new THREE.MeshStandardMaterial({ color: 0x2255aa, side: THREE.DoubleSide });
+    const wall2 = new THREE.MeshStandardMaterial({ color: 0xeeeeee });
+    group.add(boxMesh(0, wall), boxMesh(3, panel), boxMesh(6, wall2));
+    batchHandModel(group);
+    const id = (o: THREE.Object3D) => ((o as THREE.Mesh).material as unknown as { id: number }).id;
+    const merged = group.children.find((o) => o.name.startsWith('mertkent-batch vc'))!;
+    const pan = group.children.find(
+      (o) => ((o as THREE.Mesh).material as THREE.Material | undefined)?.side === THREE.DoubleSide,
+    )!;
+    // duvar grubu (en küçük kaynak: wall) panelden önce çizilir, özgündeki gibi panel eşit derinlikte kazanır
+    expect(id(merged)).toBeLessThan(id(pan));
     for (const r of [...shadowOnlyRoots]) shadowOnlyRoots.delete(r);
   });
 });
