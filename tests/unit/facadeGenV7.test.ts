@@ -168,6 +168,57 @@ describe('üretici v7 — hata düzeltmeleri', () => {
   });
 });
 
+describe('üretici v7 — köşe locası (eleştirmen: 1480041344 e5 düz duvar)', () => {
+  // e0 sonu (u 6.5–8) + e1 başı (u 0–5) gömük cam loca; e1 hafif eğik (köşe tam dik değil → eski kama hatası)
+  const corner = (): CompiledBlock => {
+    const bal = (u0: number, u1: number): CBal => ({
+      t: 'bal',
+      u0,
+      u1,
+      d: 0,
+      storeys: [0, 1, 2, 3],
+      glazed: [0, 1, 2, 3],
+      tint: {},
+      cap: false,
+      sides: 'open',
+      inset: null,
+    });
+    const blk = block([bal(6.5, 8)]);
+    blk.ring[2] = [10, 8.005];
+    blk.edges[1].items = [bal(0, 5)];
+    return blk;
+  };
+  const onE1 = (bk: Bucket | undefined, y0: number, y1: number, x1: number) => {
+    let n = 0;
+    if (!bk) return 0;
+    for (let j = 0; j < bk.idx.length; j += 3) {
+      let ok = true;
+      for (let c = 0; c < 3; c++) {
+        const i = bk.idx[j + c] * 3;
+        const [x, y, z] = [bk.pos[i], bk.pos[i + 1], bk.pos[i + 2]];
+        if (Math.abs(z - (8 + 0.0005 * x)) > 0.03 || x > x1 || y < y0 || y > y1) ok = false;
+      }
+      if (ok) n++;
+    }
+    return n;
+  };
+  it('birleştirilen yüzde loca ağzının üstüne duvar çizilmez; B açıklığı 3.2 m yerine ölçülen 5 m', () => {
+    const bk = run(corner());
+    // K1 bandı (3.5–6.5): e1'in x < 4.9 kısmında sıva yok, cam var ve 5 m'ye kadar uzanıyor
+    expect(onE1(bk.get('mkPlaster'), 3.6, 6.4, 4.9)).toBe(0);
+    expect(onE1(bk.get('mkCamGlass'), 3.5, 6.5, 5.1)).toBeGreaterThan(0);
+    const g = bbox(bk.get('mkCamGlass'));
+    expect(g.x1).toBeGreaterThan(4.9);
+  });
+  it('cam balkon: ölçülen dikme aralığı + profil rengi ayrı malzeme', () => {
+    const blk = corner();
+    (blk.edges[0].items[0] as CBal).glazeEvery = 0.9;
+    (blk.edges[0].items[0] as CBal).frameC = { '*': '#2f3438' };
+    const bk = run(blk);
+    expect(bk.get('cc_camglass:0.9_#2f3438')?.idx.length ?? 0).toBeGreaterThan(0);
+  });
+});
+
 describe('üretici v7 — yeni öğeler', () => {
   it('sivri kemer: tepe açıklığın √3/2 katı (rise verilmezse)', () => {
     const bk = run(

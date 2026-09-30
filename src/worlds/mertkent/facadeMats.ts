@@ -297,7 +297,11 @@ totalEmissiveRadiance += rc * (0.12 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
 }
 
 /** Cam balkon: çerçevesiz katlanır cam; uv.x metre (derzler ~0.7 m), arkada balkon içi/perde */
-export function camGlassMaterial(): THREE.MeshStandardMaterial {
+export function camGlassMaterial(opt?: { pitch?: number; frame?: string }): THREE.MeshStandardMaterial {
+  // v7: ölçülen dikme aralığı / profil rengi (verilmezse eski sabitler, aynı gölgelendirici)
+  const pitch = opt?.pitch && opt.pitch > 0.2 ? opt.pitch : 0.72;
+  const fc = opt?.frame ? new THREE.Color(opt.frame) : new THREE.Color().setRGB(0.68, 0.7, 0.71);
+  const glsl = (x: number) => x.toFixed(4);
   const m = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     roughness: 0.03,
@@ -330,9 +334,9 @@ float seed = vAux.x;
 float tint = vAux.y; // 0 açık, 1 yeşil, 2 koyu, 3 perdeli
 float x = vWUv.x;
 float y = vWUv.y;
-float panel = floor(x / 0.72);
-// Derzler (çerçevesiz panel kenarları ~0.72 m, ince beyaz/açık gri profil) + alt/üst alüminyum profil
-float joint = smoothstep(0.462, 0.478, abs(fract(x / 0.72) - 0.5));
+float panel = floor(x / ${glsl(pitch)});
+// Derzler (çerçevesiz panel kenarları ~0.72 m ya da ölçülen aralık, ince profil) + alt/üst alüminyum profil
+float joint = smoothstep(0.5 - 0.0274 / ${glsl(pitch)}, 0.5 - 0.0158 / ${glsl(pitch)}, abs(fract(x / ${glsl(pitch)}) - 0.5));
 float prof = step(y, 0.035) + step(0.965, y);
 // Eleştirmen (yakın plan): cam balkon = şeffaf cam, arkasında ince BEYAZ TÜL, gökyüzü yansıması; panel başına
 // rastgele parlaklık mozaik gibi görünüyordu → kaldırıldı. Balkon içi karanlık, tül yumuşak dikey kıvrımlı.
@@ -346,7 +350,9 @@ if (tint > 2.5) {
   // Yeşil camlı: yansıyan ağaçlar + cam kenar tonu
   inside = inside * vec3(0.72, 1.05, 0.9) + vec3(0.02, 0.09, 0.06);
 } else if (tint > 1.5) {
-  inside *= 0.55;
+  // Koyu (füme / içi karanlık): v7 — önceden ×0.55 ile kuzey (gölgeli) cephelerde saf siyah görünüyordu; dumanlı
+  // koyu gri + gök yansıması (aşağıda ayrıca yöne bağımsız ışıma)
+  inside = vec3(0.055, 0.063, 0.078) * (0.8 + 0.3 * y);
 } else {
   // Şeffaf: çoğu dairede ince tül (yükseklik ~%85, alt kenar yumuşak), bazılarında açık
   float has = step(0.25, h1(seed * 3.0 + floor(x / 2.9)));
@@ -364,16 +370,18 @@ if (vAux.z > 0.5) {
 }
 // Gökyüzü yansıması (yukarı doğru güçlenen, yumuşak)
 inside += vec3(0.06, 0.072, 0.088) * (0.55 + 0.45 * y);
-vec3 frameCol = vec3(0.68, 0.7, 0.71);
+vec3 frameCol = vec3(${glsl(fc.r)}, ${glsl(fc.g)}, ${glsl(fc.b)});
 diffuseColor.rgb = mix(mix(inside, frameCol, joint), frameCol, prof);`,
       )
       .replace(
         '#include <emissivemap_fragment>',
         `#include <emissivemap_fragment>
-totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 0.55);`,
+totalEmissiveRadiance += diffuseColor.rgb * (0.12 + uNight * step(0.5, h1(seed * 13.7)) * 0.55);
+// v7: koyu camda gök yansıması / odadan sızan ışık cephe yönünden bağımsız (gölgeli cephede siyah kalmasın)
+if (tint > 1.5 && tint < 2.5) totalEmissiveRadiance += (1.0 - uNight * 0.8) * vec3(0.03, 0.036, 0.046) * (0.6 + 0.4 * y) * (1.0 - max(joint, prof));`,
       );
   };
-  m.customProgramCacheKey = () => 'mk-camglass-v6';
+  m.customProgramCacheKey = () => `mk-camglass-v7-${glsl(pitch)}-${fc.getHexString()}`;
   m.userData.noReceive = true;
   m.userData.noCast = true;
   registerReflective(m);

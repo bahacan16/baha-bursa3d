@@ -1345,7 +1345,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     const dep = -((ec.a[0] - ea.a[0]) * ea.n[0] + (ec.a[1] - ea.a[1]) * ea.n[1]);
     if (Math.abs(dep - v.inset) > 0.05) continue;
     const open = items(c).some(
-      (it) => it.t === 'bal' && isRecessed(it) && it.u0 < 0.3 && it.storeys.some((k) => v.it.storeys.includes(k)),
+      (it) =>
+        it.t === 'bal' && isRecessed(it) && it.u0 < 0.3 && it.storeys.some((k) => v.it.storeys.includes(k)),
     );
     if (open) v.backOut = c;
   }
@@ -1359,7 +1360,12 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
    * duvarını loca ağzının üstüne çizdiriyordu (1480041344 e5, 1480041343 e15 ve ~20 köşe locası)
    */
   const voidRect = (v: Void): [number, number][] => {
-    const r = [P(v.edge, v.u0, 0.02), P(v.edge, v.u1, 0.02), P(v.edge, v.u1, -v.inset), P(v.edge, v.u0, -v.inset)];
+    const r = [
+      P(v.edge, v.u0, 0.02),
+      P(v.edge, v.u1, 0.02),
+      P(v.edge, v.u1, -v.inset),
+      P(v.edge, v.u0, -v.inset),
+    ];
     if (v.absorbed != null || v.backOut != null) {
       const ea = E[v.edge];
       // Doğru: nokta + yön; kesişim
