@@ -1,7 +1,7 @@
 {
  "id": 1552992538,
  "name": "TİME Özlüce (ticari podyum + konut kulesi), Muammer Aksoy × Özlüce Blv. GB köşesi",
- "storeys": 10,
+ "storeys": 9,
  "floorH": 2.95,
  "plinthH": 0,
  "roof": {
@@ -30,23 +30,23 @@
    {
     "poly": [
      [
-      545.54,
-      -764.28
+      546.8,
+      -764.23
      ],
      [
-      597.21,
-      -762.05
+      597,
+      -762.06
      ],
      [
-      597.93,
-      -778.83
+      597,
+      -778.87
      ],
      [
-      546.26,
-      -781.06
+      546.8,
+      -781.04
      ]
     ],
-    "storeys": 10,
+    "storeys": 9,
     "floorHs": [
      5.7,
      2.95,
@@ -56,16 +56,110 @@
      2.95,
      2.95,
      2.95,
-     2.95,
-     2.95
+     2.4
     ],
+    "wallTop": 28.75,
     "roof": {
      "kind": "flat",
      "eave": 0.02,
      "fasciaH": 0.3,
      "parapet": {
-      "h": 0.6,
+      "h": 0.95,
       "color": "#5d6166"
+     }
+    }
+   },
+   {
+    "poly": [
+     [
+      597,
+      -762.06
+     ],
+     [
+      600.9,
+      -761.9
+     ],
+     [
+      600.9,
+      -778.72
+     ],
+     [
+      597,
+      -778.87
+     ]
+    ],
+    "storeys": 6,
+    "floorHs": [
+     5.7,
+     2.95,
+     2.95,
+     2.95,
+     2.95,
+     2.95
+    ],
+    "wallTop": 20.1,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 1.2,
+     "fasciaC": "#3a3d40",
+     "parapet": {
+      "h": 0.05,
+      "color": "#3a3d40",
+      "rail": "glassFull",
+      "railC": "#3a3d40",
+      "glassC": "#6f7c82",
+      "railH": 0.8,
+      "railEdges": [
+       2
+      ]
+     }
+    }
+   },
+   {
+    "poly": [
+     [
+      542.6,
+      -764.4
+     ],
+     [
+      546.8,
+      -764.23
+     ],
+     [
+      546.8,
+      -781.04
+     ],
+     [
+      542.6,
+      -781.22
+     ]
+    ],
+    "storeys": 6,
+    "floorHs": [
+     5.7,
+     2.95,
+     2.95,
+     2.95,
+     2.95,
+     2.95
+    ],
+    "wallTop": 20.4,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.7,
+     "fasciaC": "#3a3d40",
+     "parapet": {
+      "h": 0.05,
+      "color": "#3a3d40",
+      "rail": "glassFull",
+      "railC": "#3a3d40",
+      "glassC": "#6f7c82",
+      "railH": 0.8,
+      "railEdges": [
+       2
+      ]
      }
     }
    },
@@ -1139,26 +1233,11 @@
   }
  ],
  "notes": [
-  "KÜTLE: taban izi podyumun zemin duvarları. Güney şeritte (z −781…−762) 10 katlı konut kulesi (zemin + 9; K0 podyumla aynı 5.2 m, üst katlar ≈2.95), kuzey (Muammer Aksoy) ve doğu (bulvar) boyunca tek katlı dükkân podyumu, çatısı cam korkuluklu teras. Kule kat sayısı: kuzey cephede 8 balkon sırası + K1 ofis bandı + K0.",
-  "Kule cephesi: krem taş kaplama (#d9cfbf) + koyu gri pilastr şeritler (#6a6e72), balkon alınları ahşap görünümlü kahverengi (#8a5a3e), cam korkuluklu balkonlar; ayrıntı pending’de (kule ayrı taban izi olarak eklenirse survey edilebilir)."
+  "KÜTLE: taban izi podyumun zemin duvarları. Güney şeritte (z −781…−762) 9 katlı konut kulesi (K0 podyumla aynı 5.7 m, K1 ofis, K2–K8 konut ≈2.95, K8 2.4), kuzey (Muammer Aksoy) ve doğu (bulvar) boyunca tek katlı dükkân podyumu, çatısı cam korkuluklu teras. Kule kat sayısı: kuzey cephede 8 balkon sırası + K1 ofis bandı + K0.",
+  "Kule cephesi: krem taş kaplama (#d9cfbf) + koyu gri pilastr şeritler (#6a6e72), balkon alınları ahşap görünümlü kahverengi (#8a5a3e), cam korkuluklu balkonlar; ayrıntı pending’de (kule ayrı taban izi olarak eklenirse survey edilebilir).",
+  "v8 (D4-v8): kule + iki alçak kanat massing parçaları (0 kule K0–K8, 1 doğu kanat, 2 batı kanat; K0–K1 podyumla ortak 5.7 m); kuzey yüzleri cutEdges ile (K1 ofis bandı 8 tabela, 13 balkon levhası, klima, bayrak, baca). Kat sayısı 9 (önceki 10 yanlıştı: K2–K8 yedi konut katı sayıldı)."
  ],
  "pending": [
-  {
-   "what": "KULE AYRI TABAN İZİ ÖNERİSİ",
-   "desc": "kule kuzey yüzü (Muammer Aksoy tarafı) podyum cephesinin ≈12–16 m gerisinde; kütle kesim duvarına öğe yazılamadığı için kule cephesi çizilemiyor. Kule için ayrı taban izi (hava fotoğrafı, eğim düzeltmeli: GB (545.54,−764.28), GD (597.21,−762.05), KD (597.93,−778.83), KB (546.26,−781.06) ±1; batı/doğu uçlarda 7 katlı + çatı teraslı alçak kanatlar u 2.5–6.3 ve 50.8–55.8) eklenirse aşağıdaki ölçüler cepheye dönüştürülür."
-  },
-  {
-   "what": "kule kuzey cephesi (DELTA=−12.2 ortofotosunda görünen ölçüler, 1cWb f22; görünen ölçek ≈0.88±0.05 — kule biraz daha geride)",
-   "desc": "Ana gövde görünen u 6.25–50.8 (u 0 = x 600.4, doğudan batıya), çatı saçağı görünen 27.2, çatıda baca (u 7.9, 27.2–28.0). Krem taş kaplama + 7 koyu gri düşey pilastr şeridi (≈0.35 m, görünen u ≈7.7, 12.5, 17.4, 22.4, 27.3, 32.3, 37.3, 42.3, 47.3?). Her bölmede: bir balkon yığını (ahşap görünümlü kahverengi alınlı, füme cam korkuluklu, K2–K9) + 1–2 pencere sütunu (koyu antrasit doğrama). Balkon sıraları görünen y ≈11.3, 13.9, 16.2, 19.0, 21.6, 24.3 (+2 alt sıra podyum terası arkasında). Doğu ve batı uçta 7 katlı kanatlar, çatılarında cam korkuluklu teras (görünen 19.4–20.0)."
-  },
-  {
-   "what": "kule K1 ofis tabela bandı (podyum terası arkasında, kule kuzey yüzü K1 alın bandı)",
-   "desc": "soldan sağa (DELTA −12.2, görünen u; siyah zemin, beyaz yazı, y ≈7.6–8.2): \"ALMİNAZ TURİZM\" (u 8.6–13.4; \"TURİZM\" turuncu, solda mavi küre/figür logo), \"Fatma Erden HAIR STUDIO\" (13.9–18.2, pembe saç logosu), \"RETROPEREST\" (18.8–24.0, solda altın daire içinde kadeh/figür logo), \"FABRİKA BERBER\" (24.3–30.0, solda beyaz daire içinde makas-bıyık logosu, altında küçük \"Since…\"), \"EA SHOPMEN'S\" (30.2–35.6), \"VINTAGE BLACK STUDIO\" (35.9–41.1, solda altın madalyon), \"RISE TIME GAYRİMENKUL\" (41.5–49.8, solda mavi kule ikonlu kare \"RISE TIME\"), \"HSD SİGORTA\" (51.2–58.0, solda küre logo, HSD beyaz ok biçimli zeminde). Önünde podyum çatı terasının füme cam korkuluğu."
-  },
-  {
-   "what": "kule kuzey yüzündeki balkon/pencere levhaları (DELTA −12.2, görünen)",
-   "desc": "\"LİFTELSİM ASANSÖR 0532 205 83 33\"? (u 18.6–20.8, y 20.1–21.3, beyaz-lacivert, solda iki logo); \"Uzm. Dyt.? … DİYETİSYEN …\" (u 18.8–20.6, y 16.3–17.3); \"FİZYOTERAPİST SERKAN YAVUZ 0 534 812 74 42\" (u 28.5–30.2, y 16.5–17.4); \"DİYETİSYEN … \" (u 26.0–28.0, y 14.0–15.0; u 28.6–30.5, y 14.2–15.1); \"DİYETİSYEN GÜLÇİN … 0542 …\" (u 36.3–38.3, y 13.8–15.1); \"YUNUS YILMAZ …\" (u 28.4–30.0, y 19.2–19.8); \"…Özcan … Onur …\" (u 36.3–38.2, y 21.5–22.8); \"LIN ART …\" (u 48.0–49.8, y 19.3–20.8); \"Saf…\" (u 7.4–9.3, y 16.7–17.4); \"…\" (u 2.3–3.6, y 13.2–14.0, dikey); \"DİYETİSYEN Ayşenur KASAN ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ 0507 … \" (u 17.6–20.0, y 9.2–9.9); \"DURMAZ AGRO\" (u 27.5–29.4, y 9.2–9.8, siyah); \"fortuna …\" (u 35.7–37.5, y 9.2–9.9). Harf düzeyi okumalar düşük çözünürlükte (…)."
-  },
   {
    "what": "TIME dış merdivenleri",
    "edge": 2,
@@ -1168,6 +1247,1359 @@
    "what": "destan çatı teras restoranı",
    "edge": 13,
    "desc": "doğu bölüm çatısında (görünen u 5–16, kenar 13) kırmızı-bordo tenteli teras: tente saçağı görünen 6.95–7.2, üstte ahşap kaplı çerçeve 7.2–7.95; derinliği ve arka sınırı görülmedi (hava fotoğrafında x≈614–623, z≈−785…−762 aralığında olabilir)."
+  }
+ ],
+ "cutEdges": [
+  {
+   "part": 0,
+   "a": [
+    597,
+    -778.87
+   ],
+   "e": [
+    546.8,
+    -781.04
+   ],
+   "tol": 1.5,
+   "seen": "photo",
+   "ref": "1552992538_2_1cWbg2oy_f22_dm12.jpg (DELTA=-12.2)",
+   "cal": {
+    "u": [
+     6.3,
+     50.85
+    ],
+    "head": [
+     [
+      2,
+      10.89
+     ],
+     [
+      7,
+      23.85
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 6.3,
+     "u1": 7.37,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 12.04,
+     "u1": 12.72,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 17.44,
+     "u1": 17.78,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 22.88,
+     "u1": 23.27,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 28.34,
+     "u1": 28.7,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 33.51,
+     "u1": 33.9,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 38.95,
+     "u1": 39.4,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 44.18,
+     "u1": 44.85,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "pilaster",
+     "u0": 49.78,
+     "u1": 50.85,
+     "y0": 9.09,
+     "y1": 26.47,
+     "d": 0.15,
+     "color": "#6a6e72"
+    },
+    {
+     "t": "bal",
+     "u0": 7.51,
+     "u1": 9.53,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 15.28,
+     "u1": 17.25,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 18.06,
+     "u1": 19.97,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 25.94,
+     "u1": 27.77,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 28.92,
+     "u1": 30.79,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 36.76,
+     "u1": 38.72,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 39.57,
+     "u1": 41.56,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 47.44,
+     "u1": 49.58,
+     "d": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4d5559"
+     },
+     "railC": "#3a3d40",
+     "fasciaC": {
+      "*": "#8a5a3e"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.3
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.69,
+     "u1": 11.82,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 10.69,
+     "u1": 11.82,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 13.28,
+     "u1": 14.37,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 13.28,
+     "u1": 14.37,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 21.31,
+     "u1": 22.46,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 21.31,
+     "u1": 22.46,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 23.78,
+     "u1": 24.94,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 23.78,
+     "u1": 24.94,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 31.8,
+     "u1": 32.98,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 31.8,
+     "u1": 32.98,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 34.28,
+     "u1": 35.45,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 34.28,
+     "u1": 35.45,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 42.49,
+     "u1": 43.67,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 42.49,
+     "u1": 43.67,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 45.14,
+     "u1": 46.32,
+     "y0": 9.15,
+     "y1": 10.89,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.72
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 45.14,
+     "u1": 46.32,
+     "y0": 24.56,
+     "y1": 26.02,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      25.05
+     ]
+    },
+    {
+     "t": "band",
+     "u0": 6.3,
+     "u1": 50.85,
+     "y0": 8.41,
+     "y1": 9.09,
+     "color": "#1b1c1e",
+     "proud": 0.12
+    },
+    {
+     "t": "sign",
+     "u0": 7.09,
+     "u1": 11.93,
+     "y0": 8.43,
+     "y1": 9.07,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": true,
+     "text": "ALMİNAZ TURİZM",
+     "lit": false,
+     "lines": [
+      {
+       "text": "ALMİNAZ",
+       "size": 1
+      },
+      {
+       "text": "TURİZM",
+       "size": 0.45,
+       "fg": "#e39a2b"
+      }
+     ],
+     "align": "left",
+     "logo": "solda mavi-beyaz dondurma külahı/figür biçimli maskot logo (u 7.09–7.7), çizilmez"
+    },
+    {
+     "t": "sign",
+     "u0": 13.06,
+     "u1": 16.37,
+     "y0": 8.43,
+     "y1": 9.07,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "script",
+     "bold": true,
+     "text": "Fatma Erden\nHAIR STUDIO",
+     "lit": false,
+     "lines": [
+      {
+       "text": "Fatma Erden",
+       "size": 1,
+       "bold": false
+      },
+      {
+       "text": "HAIR STUDIO",
+       "size": 0.4
+      }
+     ],
+     "logo": "solda pembe saç/kadın profili logosu (u 13.06–13.6)"
+    },
+    {
+     "t": "sign",
+     "u0": 17.84,
+     "u1": 22.54,
+     "y0": 8.43,
+     "y1": 9.07,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": true,
+     "text": "RETROPEREST",
+     "lit": false,
+     "logo": "solda siyah daire içinde altın figür/kadeh amblemi (u 17.84–18.4)"
+    },
+    {
+     "t": "sign",
+     "u0": 22.88,
+     "u1": 28.28,
+     "y0": 8.43,
+     "y1": 9.07,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "serif",
+     "bold": true,
+     "text": "FABRİKA BERBER",
+     "lit": false,
+     "border": "#f2f2f0",
+     "logo": "solda beyaz daire içinde makas-bıyık monogramı (u 22.88–23.72; üstünde küçük \"Fabrika Berber\"? okunamadı); yazı beyaz çerçeveli, sağ altta küçük el yazısı okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 28.95,
+     "u1": 33.23,
+     "y0": 8.43,
+     "y1": 9.07,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": true,
+     "text": "EA SHOPMEN'S",
+     "lit": false,
+     "logo": "altında çok küçük satır okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 33.96,
+     "u1": 39.12,
+     "y0": 8.43,
+     "y1": 9.07,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "serif",
+     "bold": false,
+     "text": "VINTAGE BLACK STUDIO",
+     "lit": false,
+     "logo": "solda altın madalyon (u 33.96–34.45)"
+    },
+    {
+     "t": "sign",
+     "u0": 39.93,
+     "u1": 48.34,
+     "y0": 8.43,
+     "y1": 9.07,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": true,
+     "text": "RİSE  TİME  GAYRİMENKUL",
+     "lit": false,
+     "logo": "solda mavi kare içinde beyaz kule silueti + küçük \"RISE TIME\" (u 39.93–40.64)"
+    },
+    {
+     "t": "sign",
+     "u0": 18.04,
+     "u1": 20.63,
+     "y0": 9.15,
+     "y1": 9.93,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#f2f2f0",
+     "fg": "#2d3f73",
+     "text": "DİYETİSYEN\nAyşenur KASAN\nÖZEL SAĞLIK MESLEK HİZMET BİRİMİ\n0507 044 11 81",
+     "lines": [
+      {
+       "text": "DİYETİSYEN",
+       "size": 1
+      },
+      {
+       "text": "Ayşenur KASAN",
+       "size": 0.7
+      },
+      {
+       "text": "ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ",
+       "size": 0.4
+      },
+      {
+       "text": "0507 044 11 81",
+       "size": 0.45
+      }
+     ],
+     "logo": "K2; telefon rakamları bulanık (0507 044 11 8?)"
+    },
+    {
+     "t": "sign",
+     "u0": 25.94,
+     "u1": 27.72,
+     "y0": 9.15,
+     "y1": 9.88,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#2a2c2e",
+     "fg": "#f2f2f0",
+     "text": "DURMAZ AGRO",
+     "logo": "K2; solda beyaz yaprak/boğa başı logosu"
+    },
+    {
+     "t": "sign",
+     "u0": 36.87,
+     "u1": 38.72,
+     "y0": 9.15,
+     "y1": 9.99,
+     "off": 1.25,
+     "style": "panel",
+     "font": "script",
+     "bold": false,
+     "lit": false,
+     "bg": "#f4f2ee",
+     "fg": "#6a4a3a",
+     "text": "fortuna\n…",
+     "lines": [
+      {
+       "text": "fortuna",
+       "size": 1
+      },
+      {
+       "text": "…",
+       "size": 0.35
+      }
+     ],
+     "logo": "K2; alt küçük satır (\"Gelişim Danışmanlık\"?) okunamadı, üstte küçük yıldız"
+    },
+    {
+     "t": "sign",
+     "u0": 25.88,
+     "u1": 27.77,
+     "y0": 13.76,
+     "y1": 15.25,
+     "off": 1.25,
+     "style": "panel",
+     "font": "serif",
+     "bold": true,
+     "lit": false,
+     "bg": "#f4f4f2",
+     "fg": "#2a2d33",
+     "border": "#2a2d33",
+     "text": "ÖZEL\nSAĞLIK MESLEK\nHİZMET BİRİMİ\nKLİNİK PSİKOLOG\nMEHMET ERGÜL\n0537 859 53 19",
+     "logo": "K4; telefonun başında ahize simgesi, satırlar arası ince çizgi"
+    },
+    {
+     "t": "sign",
+     "u0": 28.98,
+     "u1": 30.72,
+     "y0": 14.38,
+     "y1": 15.16,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#f4f4f2",
+     "fg": "#2d3f73",
+     "text": "DİYETİSYEN\n…\nÖZEL SAĞLIK HİZMET BİRİMİ\n0543 … 29 36",
+     "lines": [
+      {
+       "text": "DİYETİSYEN",
+       "size": 1
+      },
+      {
+       "text": "…",
+       "size": 0.35
+      },
+      {
+       "text": "ÖZEL SAĞLIK HİZMET BİRİMİ",
+       "size": 0.35
+      },
+      {
+       "text": "0543 … 29 36",
+       "size": 0.35
+      }
+     ],
+     "logo": "K4; ad satırı (\"SELİN S…\"?) okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 36.81,
+     "u1": 38.78,
+     "y0": 13.7,
+     "y1": 15.19,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#f4f4f2",
+     "fg": "#2d3f73",
+     "border": "#2d3f73",
+     "text": "DİYETİSYEN\nGÜLÇİN DARICI SIVRIOĞLU\nÖZEL SAĞLIK MESLEK HİZMET BİRİMİ\n0542 199 99 67",
+     "lines": [
+      {
+       "text": "DİYETİSYEN",
+       "size": 1
+      },
+      {
+       "text": "GÜLÇİN DARICI SIVRIOĞLU",
+       "size": 0.45
+      },
+      {
+       "text": "ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ",
+       "size": 0.3
+      },
+      {
+       "text": "0542 199 99 67",
+       "size": 0.45
+      }
+     ],
+     "logo": "K4; telefonun başında ahize simgesi"
+    },
+    {
+     "t": "sign",
+     "u0": 7.6,
+     "u1": 9.29,
+     "y0": 16.85,
+     "y1": 17.55,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#2a2c2e",
+     "fg": "#e3c25a",
+     "text": "Saf\nKUYUMCULUK",
+     "lines": [
+      {
+       "text": "Saf",
+       "size": 1
+      },
+      {
+       "text": "KUYUMCULUK",
+       "size": 0.55
+      }
+     ],
+     "border": "#c8a84a",
+     "logo": "K5; \"Saf\" iki yanında altın kanat/yaprak motifleri"
+    },
+    {
+     "t": "sign",
+     "u0": 18.12,
+     "u1": 19.88,
+     "y0": 16.95,
+     "y1": 17.58,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#f4f4f2",
+     "fg": "#3a3d45",
+     "text": "AİLE ve YETİŞKİN\nDANIŞMANI",
+     "logo": "K5 üst panel; solda kırmızı Ψ (psi) simgesi"
+    },
+    {
+     "t": "sign",
+     "u0": 18.12,
+     "u1": 19.88,
+     "y0": 16.35,
+     "y1": 16.92,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#f4f4f2",
+     "fg": "#3a3d45",
+     "text": "Psk. Gülten BAHAR\n…\n0545 … 7 70",
+     "lines": [
+      {
+       "text": "Psk. Gülten BAHAR",
+       "size": 1
+      },
+      {
+       "text": "…",
+       "size": 0.5
+      },
+      {
+       "text": "0545 … 7 70",
+       "size": 0.8
+      }
+     ],
+     "logo": "K5 alt panel; orta satır (web adresi?) ve telefonun ortası okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 28.88,
+     "u1": 30.79,
+     "y0": 16.49,
+     "y1": 17.89,
+     "off": 1.25,
+     "style": "panel",
+     "font": "condensed",
+     "bold": true,
+     "lit": false,
+     "bg": "#f4f4f2",
+     "fg": "#2d3f73",
+     "text": "ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ\nFİZYOTERAPİST\nSERKAN YAVUZ\n0 534 812 74 42",
+     "lines": [
+      {
+       "text": "ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ",
+       "size": 0.3
+      },
+      {
+       "text": "FİZYOTERAPİST",
+       "size": 1
+      },
+      {
+       "text": "SERKAN YAVUZ",
+       "size": 1
+      },
+      {
+       "text": "0 534 812 74 42",
+       "size": 0.9
+      }
+     ],
+     "logo": "K5"
+    },
+    {
+     "t": "sign",
+     "u0": 17.61,
+     "u1": 20.35,
+     "y0": 19.04,
+     "y1": 20.73,
+     "off": 1.25,
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "d": 0.12,
+     "bg": "#1d2640",
+     "fg": "#ffffff",
+     "border": "#9aa0a8",
+     "text": "LİFTELSİM\nASANSÖR\n0532 205 83 33",
+     "lines": [
+      {
+       "text": "LİFTELSİM",
+       "size": 1
+      },
+      {
+       "text": "ASANSÖR",
+       "size": 1
+      },
+      {
+       "text": "0532 205 83 33",
+       "size": 0.45
+      }
+     ],
+     "logo": "K6 kutu levha (gri metal çerçeve): üstte solda kırmızı-beyaz baklava logo, ortada mavi-beyaz dişli/yıldız rozet, sağda \"CE\" işareti; telefon başında ahize"
+    },
+    {
+     "t": "sign",
+     "u0": 28.96,
+     "u1": 30.75,
+     "y0": 19.04,
+     "y1": 19.61,
+     "off": 1.25,
+     "style": "panel",
+     "font": "serif",
+     "bold": false,
+     "lit": false,
+     "bg": "#f4f4f2",
+     "fg": "#6a6e74",
+     "text": "YUNUS YILMAZ\nMİMARLIK\n…",
+     "lines": [
+      {
+       "text": "YUNUS YILMAZ",
+       "size": 1
+      },
+      {
+       "text": "MİMARLIK",
+       "size": 0.6
+      },
+      {
+       "text": "…",
+       "size": 0.4
+      }
+     ],
+     "logo": "K6; solda gri \"Y\" monogramı; alt satır telefon okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 47.78,
+     "u1": 49.58,
+     "y0": 19.16,
+     "y1": 20.54,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": false,
+     "lit": false,
+     "bg": "#f2f2f0",
+     "fg": "#8a8d92",
+     "text": "LIN ART\nBEAUTY STUDIO",
+     "lines": [
+      {
+       "text": "LIN ART",
+       "size": 1
+      },
+      {
+       "text": "BEAUTY STUDIO",
+       "size": 0.35
+      }
+     ],
+     "logo": "K6; \"A\" harfi yatay çizgisiz (Λ)"
+    },
+    {
+     "t": "sign",
+     "u0": 36.76,
+     "u1": 38.84,
+     "y0": 21.74,
+     "y1": 23.15,
+     "off": 1.25,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "bg": "#2d3033",
+     "fg": "#f2f2f0",
+     "text": "…AİLE DANIŞMANLIK MERKEZİ\n… …  / … ÖZTÜRK\n0532 … … …",
+     "logo": "K7 koyu levha: sol üstte beyaz yuvarlak logo; üst satır (\"ÖZEL H…\"?) ve iki ad (sol \"C… Y…\", sağ \"S… ÖZTÜRK\") ve alt küçük satırlar (unvan, web, telefon) büyük ölçüde okunamadı"
+    },
+    {
+     "t": "ac",
+     "u": 18.6,
+     "s": 8,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 19.2,
+     "s": 8,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 37.2,
+     "s": 8,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 38.2,
+     "s": 8,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 48.1,
+     "s": 8,
+     "onBal": true
+    },
+    {
+     "t": "flag",
+     "u": 46,
+     "s": 4,
+     "y": 14.75
+    },
+    {
+     "t": "roofobj",
+     "kind": "chimney",
+     "u": 7.65,
+     "setback": 0.6,
+     "h": 1.25,
+     "w": 0.85,
+     "depth": 0.6,
+     "color": "#6a6e72",
+     "cap": {
+      "kind": "flat",
+      "h": 0.1,
+      "color": "#3a3d40"
+     }
+    }
+   ],
+   "note": "TİME kulesi kuzey yüzü (DELTA −12.2 ortofotosu: CORRECTED=1 SURVEY_TOP=38 DELTA=\"1552992538:2=-12.2\", f22; docs/survey/c/1552992538_2_1cWbg2oy_f22_dm12.jpg). Görünen ölçek 0.886 (düzeltilmiş kamera 1cWb dz −3.9). Kat: K2–K8 konut (K8 kısa: pencere 1.8 m, duvar üstü 28.75), 8 bölme (pilastrlar arası ≈5.4 m), her bölmede bir balkon yığını + bir pencere sütunu (sıra dönüşümlü). Balkon d 1.2 yandan görülmedi (tahmin). K1 ofis bandı ve 13 balkon levhası kat kat (not alanlarında kat)."
+  },
+  {
+   "part": 1,
+   "a": [
+    600.9,
+    -778.72
+   ],
+   "e": [
+    597,
+    -778.87
+   ],
+   "tol": 1.5,
+   "seen": "photo",
+   "ref": "1552992538_2_1cWbg2oy_f22_dm12.jpg (DELTA=-12.2)",
+   "cal": {
+    "u": [
+     2.84,
+     6.3
+    ],
+    "head": [
+     [
+      2,
+      10.57
+     ],
+     [
+      5,
+      18
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 4.92,
+     "u1": 6.05,
+     "y0": 8.85,
+     "y1": 10.57,
+     "k": 2,
+     "s": [
+      2,
+      5
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.4
+     ]
+    },
+    {
+     "t": "band",
+     "u0": 2.84,
+     "u1": 6.3,
+     "y0": 8.45,
+     "y1": 9.1,
+     "color": "#1b1c1e",
+     "proud": 0.12
+    },
+    {
+     "t": "sign",
+     "u0": 4.59,
+     "u1": 6,
+     "y0": 13.12,
+     "y1": 14.34,
+     "off": 0.05,
+     "style": "panel",
+     "bg": "#f4f2ee",
+     "fg": "#c8a84a",
+     "font": "script",
+     "bold": false,
+     "text": "S…\n…",
+     "logo": "K3–K4 arası duvar levhası: altın el yazısı \"S…\" (Serap?) ve altında küçük satırlar okunamadı",
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 5.02,
+     "u1": 6.05,
+     "y0": 11.32,
+     "y1": 11.89,
+     "off": 0.05,
+     "style": "panel",
+     "bg": "#2a2c2e",
+     "fg": "#f2f2f0",
+     "text": "…\nKAŞ TASARIM\n…",
+     "logo": "K3 pencere altına asılı koyu levha; üst ve alt satır okunamadı",
+     "lit": false
+    }
+   ],
+   "note": "Doğu kanat (K0–K5, çatısı cam korkuluklu teras, koyu gri saçak plağı 1.3 m doğuya taşar: görünen 18.12–19.3, korkuluk 19.3–20.0). Kanat derinliği (z) görülmedi → kule ile aynı alındı."
+  },
+  {
+   "part": 2,
+   "a": [
+    546.8,
+    -781.04
+   ],
+   "e": [
+    542.6,
+    -781.22
+   ],
+   "tol": 1.5,
+   "seen": "photo",
+   "ref": "1552992538_2_1cWbg2oy_f22_dm12.jpg (DELTA=-12.2)",
+   "cal": {
+    "u": [
+     50.85,
+     54.5
+    ],
+    "head": [
+     [
+      2,
+      10.61
+     ],
+     [
+      5,
+      18.33
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 51.14,
+     "u1": 52.38,
+     "y0": 8.9,
+     "y1": 10.61,
+     "k": 2,
+     "s": [
+      2,
+      5
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3a3d40",
+     "hbars": [
+      9.45
+     ]
+    },
+    {
+     "t": "band",
+     "u0": 50.85,
+     "u1": 54.5,
+     "y0": 8.55,
+     "y1": 9.2,
+     "color": "#1b1c1e",
+     "proud": 0.12
+    },
+    {
+     "t": "sign",
+     "u0": 50.96,
+     "u1": 54.5,
+     "y0": 8.57,
+     "y1": 9.18,
+     "off": 0.13,
+     "style": "panel",
+     "bg": "#1b1c1e",
+     "fg": "#f2f2f0",
+     "font": "serif",
+     "bold": true,
+     "text": "HSD  SİGORTA",
+     "lines": [
+      {
+       "text": "HSD  SİGORTA",
+       "size": 1
+      }
+     ],
+     "logo": "solda küre logosu (u 50.96–51.49); \"HSD\" beyaz ok biçimli zemin üzerinde lacivert harfler (u 51.73–53.44); \"SİGORTA\" beyaz serif (u 53.86–56.34, kanat köşesini aşar → yazı kırpılabilir); altında küçük satır okunamadı",
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 51.08,
+     "u1": 52.56,
+     "y0": 14,
+     "y1": 14.6,
+     "off": 0.05,
+     "style": "panel",
+     "bg": "#2a2c2e",
+     "fg": "#e8d6c8",
+     "font": "script",
+     "bold": false,
+     "text": "H…",
+     "logo": "K4 pencere altı koyu levha, el yazısı (\"Helya\"?) okunamadı; sağ altta turuncu çizgi",
+     "lit": false
+    }
+   ],
+   "note": "Batı kanat (K0–K5; çatı plağı görünen 18.95–19.66, cam korkuluk 19.7–20.4). Kanat derinliği görülmedi → kule ile aynı alındı."
   }
  ]
 }

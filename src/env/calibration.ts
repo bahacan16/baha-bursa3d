@@ -26,7 +26,8 @@
  *    yarıçap 2.2→1.6 m, gölge tonu soğuk (post.ts). Sonuç: zemin çifti −0.42→−0.22 durak, içbükey −0.35→−0.17,
  *    nötr ΔE(a*b*) 4.6→3.2, b* +3.8→+1.9, açık cephe mutlak +0.01→+0.03. Ortam ölçeği (0.038) değişmedi: açık
  *    cephelerin ~%60'ı ortam haritasının zemin/siluet bandından; veri düşürmeyi de artırmayı da desteklemiyor.
- *    Araçlar: ajan çalışma alanı `recal/` (cap.mjs, model.mjs, cls.mjs), ölçüm tablosu docs/BLENDER_CHANGES.md.
+ *    Araçlar: kalibrasyon ajanının çalışma alanı `scratchpad/recal/` (cap.mjs bileşen yakalama, model.mjs yeniden
+ *    kurulum, cls.mjs ölçütler); yama seti `p_all.json` (7 görüş, 22 yama).
  *
  * KARAR: `baked` env/yarım küre/pozlama `live` ile aynı — tahmini bir telafi uydurulmadı; pişirme ajanı yeniden
  * oturtunca değerler buraya yazılır. Deneme: canlı `?env= ?hemi= ?lexp= ?ao= ?aor=`, pişirilmiş `?benv= ?bhemi=
