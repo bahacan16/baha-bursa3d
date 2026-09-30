@@ -46,7 +46,8 @@
     "Kuzeybatıdaki 'Delice / YENİ NESİL MEYHANE / DELICE YENİ NESİL EĞLENCE' ve 'Cevher' tabelaları bu binada değil, önündeki alçak restoran binasında (taban izi dışı).",
     "TABAN İZİ KANITI (düzeltilmedi): (a) G35 cepheden görünüşte batı cephe genişliği/kat aralığı oranı ≈4.9 → 3.2 m katla ≈15.7 m; halkada kenar 10 = 13.22 m. Hava fotoğrafında batı yüzün eğimle izdüşümü z −18.3 … −2.5'e uzanıyor → GB köşe (667.33,−4.9) büyük olasılıkla ~1.5–2.4 m daha güneyde (±1). (b) Üç panodan (otFK, sa-WfHt0, G9) üçgenlenen kenar 0/11 iç köşesi (674.3,−5.4): halkadan ≈1.4 m doğuda (pano konum hataları ±1 m). Ölçümler halkaya göre ölçeklendi (cal.u = görünen köşeler).",
     "v4 (d078e71): çatı parapeti roof.parapet (0.95 m antrasit + füme cam korkuluk), çatı köşkü volumes, füme cam parapet bölmeleri bölünmüş bal öğeleri, pencere frameC/tint, giriş saçağı proj. Kalan pending: tonoz kemeri, uzun balkon uçları, köşe boruları, dışbükey balkon önleri, GD pencere sütunu, cam balkon doğrama rengi, çekirdek girinti derinliği. v5 (bu tur): cam balkon profil rengi (bal.frameC), çekirdek girintisi (recess 3.25 m), köşe loca çubukları (pipe), çatı korkuluğu kenar bazında (railEdges) çizildi.",
-    "v6 dönüşümü (2026-09-29): çatı köşkü tonozu (volumes[0].roof vault), batı yığınları tek dışbükey yay (arc [−0.45, 12.8] + bulge 0.75, G35 paralaksından ölçüldü) + yayı izleyen çatı parapeti (cap). Çekirdek girintisi arka duvar camına `behind` EKLENMEDİ: G35'te arka duvar kat ritmi (kayıt aralığı görünen 1.065 m, cephe 1.255) derinlik düzeltmesiyle kat yüksekliğini 3.6 m'ye çıkarıyor (ortonun düşey basıklığı yüzünden model tutarsız) → cam kat çizgilerine hizalı kaldı. Hâlâ pending: alın dikmeleri/kaburgalar + tonoz üstü havalandırmalar, GB uçta K2/K4 döşeme ucu, kuzey uç yuvarlatması, GD pencere sütunu."
+    "v6 dönüşümü (2026-09-29): çatı köşkü tonozu (volumes[0].roof vault), batı yığınları tek dışbükey yay (arc [−0.45, 12.8] + bulge 0.75, G35 paralaksından ölçüldü) + yayı izleyen çatı parapeti (cap). Çekirdek girintisi arka duvar camına `behind` EKLENMEDİ: G35'te arka duvar kat ritmi (kayıt aralığı görünen 1.065 m, cephe 1.255) derinlik düzeltmesiyle kat yüksekliğini 3.6 m'ye çıkarıyor (ortonun düşey basıklığı yüzünden model tutarsız) → cam kat çizgilerine hizalı kaldı. Hâlâ pending: alın dikmeleri/kaburgalar + tonoz üstü havalandırmalar, GB uçta K2/K4 döşeme ucu, kuzey uç yuvarlatması, GD pencere sütunu.",
+    "v8 düzeltme (2026-09-30): kenar 0/8/9/11 plaster2 panelleri çatı üstüne 5 m taşıyordu (\"boynuz\"); parapet tepesinde (derlenmiş y ≈27.72) bitirildi."
   ],
   "edges": [
     {
@@ -132,7 +133,7 @@
           "u0": 1.81,
           "u1": 5.5,
           "y0": 24.15,
-          "y1": 33,
+          "y1": 28.14,
           "color": "plaster2"
         },
         {
@@ -505,7 +506,7 @@
           "u0": 1,
           "u1": 4.1,
           "y0": 24.35,
-          "y1": 33,
+          "y1": 28.15,
           "color": "plaster2"
         }
       ],
@@ -593,7 +594,7 @@
           "u0": 0,
           "u1": 4.77,
           "y0": 23.87,
-          "y1": 31,
+          "y1": 27.72,
           "color": "plaster2"
         },
         {
@@ -1406,7 +1407,7 @@
           "u0": 1.2,
           "u1": 6.54,
           "y0": 27.45,
-          "y1": 34,
+          "y1": 32.01,
           "color": "plaster2"
         },
         {

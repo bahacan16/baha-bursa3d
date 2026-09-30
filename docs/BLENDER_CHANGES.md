@@ -818,3 +818,8 @@
   ×(0.82, 0.9, 1.8) (daha az doygun / sarı). Dosyalar: `facadeMats.ts`, `index.ts`. **Blender:** `materials.py` →
   `mkGlass`/cam balkon (Glass/Principled: iç renk koyu, yansıma baskın), `mkWave` (bump yarıya, albedo açık),
   `mkHedge` renk çarpanı.
+- **(Kod turu w5 + veri)** — Kod ajanının turu (ağaç taç genişliği, kaldırım boyası, D4 sokak eşyası türleri, d4r yol
+  işaretleri, KB köşe, cam/çit/site duvarı malzemeleri; ayrıntılar yukarıdaki kendi girdilerinde) doğrulandı. Veri:
+  1541439437 kenar 0/8/9/11 `plaster2` panelleri parapet tepesinde (derlenmiş y 27.72) bitiyor (çatı üstündeki
+  "boynuz"lar kalktı); D4 refüj gabionları `rot: 90` (yol boyunca). **Blender:** `NW/D4/1541439437` cephe
+  panelleri + `NW/Street/D4` gabionlar yeniden kurulur.
