@@ -18,10 +18,10 @@ async function main() {
   const id = Number(process.argv[2]);
   const only = process.argv[3] ? new Set(process.argv[3].split(',').map(Number)) : null;
   const sv = JSON.parse(
-    await readFile(join(root, 'src', 'worlds', 'mertkent', 'survey', `${id}.json`), 'utf8'),
+    await readFile(join(root, 'src', 'worlds', 'measured', 'survey', `${id}.json`), 'utf8'),
   );
   const fp = JSON.parse(
-    await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+    await readFile(join(root, 'src', 'worlds', 'measured', 'data', 'footprints.json'), 'utf8'),
   );
   const ring = fp[id].ring;
   const cdir = join(root, 'docs', 'survey', 'c');
@@ -30,9 +30,7 @@ async function main() {
   const floorH = sv.floorH ?? 2.95;
   // Balkon ön yüzleri duvar düzleminin önünde → ortofotoda kamera merkezli büyütme (m = D / (D − d))
   const cfg = JSON.parse(await readFile(join(root, 'scripts', 'sv-extra.json'), 'utf8'));
-  const idx = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const idx = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   const tb = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const T = parseTerrain(tb.buffer.slice(tb.byteOffset, tb.byteOffset + tb.byteLength));
   const Hg = (x, z) => sampleGrid(T.near, x, z);

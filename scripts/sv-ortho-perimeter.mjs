@@ -89,9 +89,7 @@ function gridSvg(W, Hh, xs, ys, title) {
 
 async function main() {
   const osm = JSON.parse(await readFile(join(root, 'public', 'data', 'osm.json'), 'utf8'));
-  const idx = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const idx = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   const tb = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const T = parseTerrain(tb.buffer.slice(tb.byteOffset, tb.byteOffset + tb.byteLength));
   const H = (x, z) => sampleGrid(T.near, x, z);

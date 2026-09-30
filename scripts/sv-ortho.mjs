@@ -69,9 +69,7 @@ function project(cam, P) {
 
 async function main() {
   const cfg = JSON.parse(await readFile(join(root, 'scripts', 'sv-extra.json'), 'utf8'));
-  const idx = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const idx = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   const pos = new Map(idx.panos.map((p) => [p.id, p]));
   const tb = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const T = parseTerrain(tb.buffer.slice(tb.byteOffset, tb.byteOffset + tb.byteLength));
@@ -89,7 +87,7 @@ async function main() {
   let fp = null;
   if (process.env.CORRECTED) {
     fp = JSON.parse(
-      await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+      await readFile(join(root, 'src', 'worlds', 'measured', 'data', 'footprints.json'), 'utf8'),
     );
   }
   let made = 0;

@@ -6,8 +6,8 @@ import {
   splitChunks,
   unwrapChunk,
   type BakeSource,
-} from '../../src/worlds/mertkent/lightmap';
-import { partGeometry } from '../../src/worlds/mertkent/baked';
+} from '../../src/worlds/measured/lightmap';
+import { partGeometry } from '../../src/worlds/measured/baked';
 
 function box(x: number, z: number, s = 2): THREE.BufferGeometry {
   const g = new THREE.BoxGeometry(s, s * 1.5, s);

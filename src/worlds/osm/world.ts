@@ -17,12 +17,12 @@ import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
-import { surveyVegetation } from '../mertkent/siteplan';
-import { buildMertkent, HANDMADE_IDS } from '../mertkent';
-import { applyBakedLighting, bakeRequested } from '../mertkent/baked';
+import { surveyVegetation } from '../measured/siteplan';
+import { buildMertkent, HANDMADE_IDS } from '../measured';
+import { applyBakedLighting, bakeRequested } from '../measured/baked';
 import { StreetProps } from './streetprops';
 import { shadowOnlyRoots, ultraState } from '../../env/ultra';
-import { batchHandModel, buildShadowProxies, mergeSameMaterial, plain } from '../mertkent/batch';
+import { batchHandModel, buildShadowProxies, mergeSameMaterial, plain } from '../measured/batch';
 import { windTime } from './eztree';
 import { TreeField } from './treefield';
 import { Pedestrians } from '../../sim/pedestrians';
@@ -438,7 +438,7 @@ export class OsmWorld implements IWorld {
       const mkGroup = world.object.getObjectByName('mertkent (el modeli)');
       const q = new URLSearchParams(location.search);
       if (q.has('debug') && q.has('bakeexport'))
-        (await import('../mertkent/bakeexport')).installBakeExport(world as never);
+        (await import('../measured/bakeexport')).installBakeExport(world as never);
       else if (mkGroup && bakeRequested()) {
         progress(0.97, 'Pişirilmiş ışık yükleniyor');
         await applyBakedLighting(mkGroup, world.materials.ground, import.meta.env.BASE_URL).catch((e) =>

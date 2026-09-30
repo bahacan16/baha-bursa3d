@@ -2,14 +2,14 @@
 // Bina taban izi düzeltmesi: sv-plane.mjs'nin kenar başına düzlem ofseti (δ) ölçümlerine, binanın ana eksenlerinde
 // öteleme + eksen başına ölçek (4 parametre) sağlam en küçük kareler ile oturtulur. OSM izleri eğik hava
 // fotoğraflarından çizildiği için birkaç metre kayık / geniş olabiliyor (ör. doğu cepheler ~3 m içeride).
-// Girdi: docs/survey/planes/<id>.json  Çıktı: src/worlds/mertkent/data/footprints.json (id → halka, yerel m)
+// Girdi: docs/survey/planes/<id>.json  Çıktı: src/worlds/measured/data/footprints.json (id → halka, yerel m)
 // Kullanım: node scripts/sv-footprint-fit.mjs [id,...]
 import { readFile, writeFile, readdir, mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const outPath = join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json');
+const outPath = join(root, 'src', 'worlds', 'measured', 'data', 'footprints.json');
 
 function orient(p) {
   const r =

@@ -1,10 +1,10 @@
 import { it, expect } from 'vitest';
-import { Builder } from '../../src/worlds/mertkent/builder';
-import { buildStreetPlan } from '../../src/worlds/mertkent/street';
-import { buildSitePlan } from '../../src/worlds/mertkent/siteplan';
-import STREET_PLAN from '../../src/worlds/mertkent/data/street-plan.json';
-import SITE from '../../src/worlds/mertkent/data/site-plan.json';
-import PARK from '../../src/worlds/mertkent/data/park-plan.json';
+import { Builder } from '../../src/worlds/measured/builder';
+import { buildStreetPlan } from '../../src/worlds/measured/street';
+import { buildSitePlan } from '../../src/worlds/measured/siteplan';
+import STREET_PLAN from '../../src/worlds/measured/data/street-plan.json';
+import SITE from '../../src/worlds/measured/data/site-plan.json';
+import PARK from '../../src/worlds/measured/data/park-plan.json';
 it('sokak + site + park planı geometrisi sonlu (NaN yok)', () => {
   const b = new Builder();
   const r = buildStreetPlan(

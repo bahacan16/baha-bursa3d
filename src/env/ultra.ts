@@ -294,7 +294,7 @@ export const probeUniforms = {
 export const reflectiveMaterials = new Set<THREE.Material>();
 
 /**
- * Yalnız gölge haritasında çizilen kökler (el modeli gölge vekilleri, worlds/mertkent/batch.ts). Kök normalde
+ * Yalnız gölge haritasında çizilen kökler (el modeli gölge vekilleri, worlds/measured/batch.ts). Kök normalde
  * görünmez (ana geçiş, yansıma küresi, AO görmez); `installShadowOnly` gölge haritası çizimi süresince açar.
  */
 export const shadowOnlyRoots = new Set<THREE.Object3D>();

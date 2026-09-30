@@ -1,6 +1,6 @@
 import type { OsmWorldData, Ring } from '../../worlds/osm/parse';
 import { pointInPolygon, pointInRing, ringCentroid, signedArea } from '../../worlds/osm/parse';
-import { PARK_PLAN, SITE_PLAN, STREET_PLAN } from '../../worlds/mertkent/siteplan';
+import { PARK_PLAN, SITE_PLAN, STREET_PLAN } from '../../worlds/measured/siteplan';
 import { aerialSurface, osmAreaSurface, planSurface, type FootSurface } from './surfaces';
 import type {
   SoundBuilding,

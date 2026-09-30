@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
-import { batchHandModel } from '../../src/worlds/mertkent/batch';
+import { batchHandModel } from '../../src/worlds/measured/batch';
 import { shadowOnlyRoots } from '../../src/env/ultra';
 
 function boxMesh(x: number, mat: THREE.Material, cast = true): THREE.Mesh {

@@ -1,4 +1,4 @@
-name: Fetch Street View (pilot)
+name: Fetch Street View
 
 # Seçilen sitenin Street View karelerini indirip streetview-src'ye commit eder (bake: scripts/bake-streetview.mjs).
 # Anahtar: repo → Settings → Secrets and variables → Actions → GOOGLE_STREETVIEW_KEY
@@ -6,8 +6,8 @@ on:
   workflow_dispatch:
     inputs:
       area:
-        description: 'OSM alan adı (landuse name)'
-        default: 'Mertkent 2. Etap'
+        description: 'OSM alan adı (landuse name) — bbox verilmezse zorunlu'
+        default: ''
       max:
         description: 'En fazla yeni ücretli kare'
         default: '2000'
@@ -48,7 +48,7 @@ jobs:
       - name: Street View
         env:
           GOOGLE_STREETVIEW_KEY: ${{ secrets.GOOGLE_STREETVIEW_KEY }}
-          SV_AREA: ${{ inputs.area || 'Mertkent 2. Etap' }}
+          SV_AREA: ${{ inputs.area }}
           SV_MAX: ${{ inputs.max || '2000' }}
           SV_BBOX: ${{ inputs.bbox }}
           SV_SLUG: ${{ inputs.slug }}
@@ -61,6 +61,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add streetview-src
           if git diff --cached --quiet; then echo "Değişiklik yok"; exit 0; fi
-          git commit -m "data: Street View pilot images"
+          git commit -m "data: Street View images"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"

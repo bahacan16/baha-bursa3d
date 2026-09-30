@@ -3,15 +3,15 @@ import { execFileSync } from 'node:child_process';
 import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { Builder } from '../../src/worlds/mertkent/builder';
+import { Builder } from '../../src/worlds/measured/builder';
 import {
   buildFacadeBlock,
   clipItemsAbove,
   type CItem,
   type CompiledBlock,
   type CWin,
-} from '../../src/worlds/mertkent/facade';
-import { splitMassing } from '../../src/worlds/mertkent/massing';
+} from '../../src/worlds/measured/facade';
+import { splitMassing } from '../../src/worlds/measured/massing';
 
 type Bucket = { pos: number[] };
 const buckets = (b: Builder) => (b as unknown as { buckets: Map<string, Bucket> }).buckets;

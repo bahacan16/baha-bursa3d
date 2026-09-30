@@ -9,7 +9,7 @@ import { nightUniform } from './env/night';
 import { GameAudio } from './env/audio';
 import { PostFX } from './env/post';
 import { lightCalibration } from './env/calibration';
-import { bakedLighting } from './worlds/mertkent/baked';
+import { bakedLighting } from './worlds/measured/baked';
 import {
   installShadowOnly,
   installUltraChunks,
@@ -182,7 +182,7 @@ export class Game {
     // (?noprobe görünümü tercih edildi); ?probe=1 (değer = yoğunluk) ile açılır.
     const probeQ = new URLSearchParams(location.search).get('probe');
     if (this.ultra && probeQ !== null && probeQ !== '0') this.probe = new ReflectionProbe(r, this.pmrem);
-    // Ultra: el modeli gölge vekilleri yalnız gölge haritasında görünür (worlds/mertkent/batch.ts)
+    // Ultra: el modeli gölge vekilleri yalnız gölge haritasında görünür (worlds/measured/batch.ts)
     if (this.ultra) installShadowOnly(r);
     // Ultra: fotoğraf gökyüzü (HDRI, varsa) varsayılan; ?sky=proc prosedürel gök (bulutlar + tutarlı bulut gölgesi)
     if (this.ultra && new URLSearchParams(location.search).get('sky') !== 'proc') void this.loadHdri();

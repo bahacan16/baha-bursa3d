@@ -20,7 +20,7 @@ güçlü GPU içindir; Düşük/Orta/Yüksek mobil/zayıf cihazlar için eskisi 
 
 ## Hat (uygulandı — 2026-09-29)
 
-Dosyalar: `src/worlds/mertkent/lightmap.ts` (parça bölme, imza, uv1), `bakeexport.ts` (dışa aktarma kancası),
+Dosyalar: `src/worlds/measured/lightmap.ts` (parça bölme, imza, uv1), `bakeexport.ts` (dışa aktarma kancası),
 `baked.ts` (oyun tarafı), `scripts/bake-hash.mjs`, `scripts/bake-export.mjs`, `blender/bake/bake_ao.py`,
 `.github/workflows/bake-lighting.yml`, `tests/unit/lightmap.test.ts`. Kancalar: `src/worlds/osm/world.ts`
 (`OsmWorld.create` sonu), `vite.config.ts` (`define: __BAKE_SRC_HASH__`).
@@ -64,7 +64,7 @@ Dosyalar: `src/worlds/mertkent/lightmap.ts` (parça bölme, imza, uv1), `bakeexp
 4. **Manifest** `public/bake/manifest.json`: `{ version, uvVersion, srcHash, createdAt, blender, method, samples,
 bounces, denoise, texel, unwrap:{texel,pad,maxAtlas}, pages:[{file,size}], chunks:[{id,bbox,sig,size,texel,page,
 rect:[x,y,kenar],meshes}], groundAo:{file,rect:[x0,z0,x1,z1],mpp}, seconds }`. `srcHash` = `scripts/bake-hash.mjs`
-   (SHA-1: `src/worlds/mertkent/**/*.ts` (baked/bakeexport hariç), `src/worlds/mertkent/data/*.json`,
+   (SHA-1: `src/worlds/measured/**/*.ts` (baked/bakeexport hariç), `src/worlds/measured/data/*.json`,
    `public/data/osm.json`, `terrain.bin`, `src/worlds/osm/height.ts`, `src/env/terrain.ts`; CRLF→LF). Oyun aynı
    özeti derleme anında alır (`vite.config.ts` → `define`).
 5. **Oyun** (`baked.ts`, `OsmWorld.create` sonunda): `ultraState.on` (oyunun Ultra kararı: ayar + GPU denetimi) veya

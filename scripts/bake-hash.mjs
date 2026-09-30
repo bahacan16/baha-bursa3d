@@ -22,10 +22,10 @@ export function bakeSourceFiles(root = ROOT) {
       else if (filter(f)) out.push(relative(root, p).split(sep).join('/'));
     }
   };
-  // Üretici: src/worlds/mertkent/**/*.ts (baked.ts/bakeexport.ts/batch.ts yalnız oyun tarafı → hariç)
-  walk('src/worlds/mertkent', (f) => f.endsWith('.ts') && !/^(bake(d|export)|batch)\.ts$/.test(f));
+  // Üretici: src/worlds/measured/**/*.ts (baked.ts/bakeexport.ts/batch.ts yalnız oyun tarafı → hariç)
+  walk('src/worlds/measured', (f) => f.endsWith('.ts') && !/^(bake(d|export)|batch)\.ts$/.test(f));
   // Ölçüm verisi (facades, footprints, street/site/park planı…)
-  walk('src/worlds/mertkent/data', (f) => f.endsWith('.json'));
+  walk('src/worlds/measured/data', (f) => f.endsWith('.json'));
   for (const f of [
     'public/data/osm.json',
     'public/data/terrain.bin',

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
-import { REAL_SPECS } from '../../src/worlds/mertkent/realtex';
-import { buildStreetPlan, layerKey } from '../../src/worlds/mertkent/street';
-import { Builder } from '../../src/worlds/mertkent/builder';
+import { REAL_SPECS } from '../../src/worlds/measured/realtex';
+import { buildStreetPlan, layerKey } from '../../src/worlds/measured/street';
+import { Builder } from '../../src/worlds/measured/builder';
 
 type Buckets = { buckets: Map<string, { pos: number[]; nor: number[] }> };
 

@@ -113,7 +113,7 @@ export function headingOf(dx, dz) {
 }
 
 /** Seçilen alanı ve hedef binaları seç. */
-export function pilotArea(osm, areaName, buffer) {
+export function namedArea(osm, areaName, buffer) {
   const area = osm.ways.find((w) => w.t && w.t.name === areaName && !w.t.highway);
   if (!area) throw new Error(`Alan bulunamadı: ${areaName}`);
   const poly = ring(area.p);

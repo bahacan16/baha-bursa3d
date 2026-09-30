@@ -6,7 +6,7 @@
  *   albedo : sRGB, yalnız yüzey rengi (gölge / AO yok)
  *   normal : teğet uzayı (OpenGL, +Y = +v), yükseklik haritasından
  *   rh     : R = yükseklik (0..1 → heightRangeMM), G = pürüzlülük, B = mikro örtünme (yalnız dolaylı ışığa)
- * Tüketen: src/worlds/mertkent/realtex.ts (UV metre, repeat = 1 / size).
+ * Tüketen: src/worlds/measured/realtex.ts (UV metre, repeat = 1 / size).
  *
  * Yöntem (CLAUDE.md §0: yalnız görülen; renkler fotoğraftan; hasar uydurulmaz):
  *  1. ÖLÇÜ — yer fotoğrafı ref-01.jpg (ıslak, bulutlu, ~1 mm/px yakın alan) perspektiften metrik
@@ -135,42 +135,42 @@ const EVIDENCE = [
     clipped: true,
   },
   // 2019-05, bulutlu (yayınık ışık, kırpılma yok) — Doğan Avcıoğlu 2. bölüm
-  { f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'grey', l: 'overcast', r: [40, 88, 600, 108] },
+  { f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'grey', l: 'overcast', r: [40, 88, 600, 108] },
   {
-    f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg',
+    f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg',
     m: 'tactile',
     l: 'overcast',
     r: [40, 113, 600, 120],
   },
-  { f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'grey', l: 'overcast', r: [40, 125, 600, 139] },
-  { f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'red', l: 'overcast', r: [40, 148, 600, 172] },
-  { f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'kerb', l: 'overcast', r: [40, 177, 600, 183] },
+  { f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'grey', l: 'overcast', r: [40, 125, 600, 139] },
+  { f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'red', l: 'overcast', r: [40, 148, 600, 172] },
+  { f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg', m: 'kerb', l: 'overcast', r: [40, 177, 600, 183] },
   {
-    f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg',
+    f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_0_-50.jpg',
     m: 'asphalt',
     l: 'overcast',
     r: [40, 240, 600, 330],
   },
   {
-    f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
+    f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
     m: 'grey',
     l: 'overcast',
     r: [40, 185, 600, 215],
   },
   {
-    f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
+    f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
     m: 'red',
     l: 'overcast',
     r: [40, 235, 600, 280],
   },
   {
-    f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
+    f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
     m: 'kerb',
     l: 'overcast',
     r: [40, 287, 600, 297],
   },
   {
-    f: 'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
+    f: 'sv-main/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
     m: 'asphalt',
     l: 'overcast',
     r: [40, 380, 600, 460],
@@ -650,7 +650,7 @@ async function measure(model) {
       4,
     ],
     [
-      'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
+      'sv-main/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
       [
         [40, 235],
         [600, 235],
@@ -661,7 +661,7 @@ async function measure(model) {
       7,
     ],
     [
-      'mertkent-2-etap/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
+      'sv-main/JDIgP_YqV92AywXf0SHNFw_180_-50.jpg',
       [
         [40, 185],
         [600, 185],

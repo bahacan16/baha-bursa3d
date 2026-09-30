@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // El modeli binalarının gerçek konumu: OSM taban izini (şekil/yön korunarak) ±R m öteleyip, farklı panoramalardan
 // gelen karelerin üst katlarda (çit/ağaç üstü) en tutarlı (NCC) olduğu ötelemeyi bulur.
-// Çıktı: public/streetview/mertkent-2-etap/align.json { [osmId]: { dx, dz, score, base } }
+// Çıktı: public/streetview/sv-main/align.json { [osmId]: { dx, dz, score, base } }
 import { readFile, writeFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,9 +52,7 @@ async function main() {
   const tb = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const T = parseTerrain(tb.buffer.slice(tb.byteOffset, tb.byteOffset + tb.byteLength));
   const H = (x, z) => sampleGrid(T.near, x, z);
-  const main = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const main = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   const extra = JSON.parse(await readFile(join(root, 'streetview-src', 'extra', 'extra.json'), 'utf8'));
   const pos = new Map(main.panos.filter((p) => !p.date || p.date >= '2020').map((p) => [p.id, p]));
   // Kameralar: ana kareler (fov 90) + ek kareler (fov değişken)
@@ -69,7 +67,7 @@ async function main() {
     cams.push({ pano: p.id, file: join(dir, v.file), c: [p.x, H(p.x, p.z) + 2.5, p.z], f, r, u, focal });
   };
   for (const p of pos.values())
-    for (const v of p.views) if (!v.ground) add(p, v, join(root, 'streetview-src', 'mertkent-2-etap'));
+    for (const v of p.views) if (!v.ground) add(p, v, join(root, 'streetview-src', 'sv-main'));
   for (const fr of extra.frames) {
     const p = pos.get(fr.pano);
     if (p) add(p, fr, join(root, 'streetview-src', 'extra'));
@@ -200,10 +198,7 @@ async function main() {
     for (const c of near) c.g = null;
     gray.clear();
   }
-  await writeFile(
-    join(root, 'public', 'streetview', 'mertkent-2-etap', 'align.json'),
-    JSON.stringify(out, null, 1),
-  );
+  await writeFile(join(root, 'public', 'streetview', 'sv-main', 'align.json'), JSON.stringify(out, null, 1));
 }
 
 main().catch((e) => {

@@ -29,8 +29,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'src/worlds/mertkent/**'
-      - '!src/worlds/mertkent/baked.ts'
+      - 'src/worlds/measured/**'
+      - '!src/worlds/measured/baked.ts'
       - 'public/data/osm.json'
       - 'public/data/terrain.bin'
       - 'src/worlds/osm/height.ts'

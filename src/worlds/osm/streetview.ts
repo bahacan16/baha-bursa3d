@@ -26,7 +26,7 @@ interface FenceSeg {
 }
 
 /** Street View'dan bake edilmiş alanlar (public/streetview/<slug>/) */
-export const STREETVIEW_SLUGS = ['mertkent-2-etap'];
+export const STREETVIEW_SLUGS = ['sv-main'];
 
 const MIN_COVER = 0.5;
 const LIFT = 0.05; // prosedürel duvarın hemen önünde (z-fighting yok)

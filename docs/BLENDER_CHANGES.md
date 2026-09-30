@@ -9,7 +9,7 @@
 ## 2026-09-29
 
 - **c9bb320** 07:02 — Site içi renk ayarı: kemik kilit taşı sıcak gri `#9d968e…`, kauçuk karo `#6a4f4b…`,
-  havuz camı daha saydam (renk `#b4d2c8`, opaklık 0.42). Dosyalar: `src/worlds/mertkent/index.ts` (materials).
+  havuz camı daha saydam (renk `#b4d2c8`, opaklık 0.42). Dosyalar: `src/worlds/measured/index.ts` (materials).
   **Blender:** `materials.py` → `spSiteGrey`, `rubberTile`, `glassFrost`; `NW/Mertkent/Site` malzemeleri.
 - **8c6d3bd** 07:19 — Giriş ekranı sadeleşti (Mod A/anahtar kutusu kalktı). **Blender:** —
 - **d168f16 / 62d71fd** 07:32 — Street View çekim aracı + yeni kareler (Uğur Mumcu, 503. Sk.). **Blender:** — (yalnız
@@ -35,7 +35,7 @@
   `survey/schema.ts`, `scripts/survey-compile.mjs`, `facade.ts`.
   **Blender:** `mk_facade.py` pencere camı arkası: ölçülen perde türünü kullan (yoksa eskisi gibi tohumlu rastgele).
 - **bbd9176** 08:31 — Yeni taban izleri: 1546358554, 1540901772, 1540901794, 1540901773
-  (`src/worlds/mertkent/data/footprints.json`). **Blender:** bu 4 bina için OSM genel bina yerine ölçülmüş bina
+  (`src/worlds/measured/data/footprints.json`). **Blender:** bu 4 bina için OSM genel bina yerine ölçülmüş bina
   kurulacak (cephe ölçümleri geldikçe, aşağıya bak).
 - **2585ed9** 08:32 — Karşılaştırma kameraları `scripts/critic-views-da2.json`. **Blender:** render kameraları.
 - **75c9035** 08:49 — Sokak planı, Doğan Avcıoğlu 2. bölüm (`street-plan.json`, `da2-*` girdileri): kaldırım
@@ -73,7 +73,7 @@
 - **dbb6868** — Kemerli istinat duvarı (`street-plan.json` → `da2-fence-arch`): duvar rengi `#a79880`, yeni
   `wall.arch = {pattern:[5.7, 2.5], rise:0.4, joint:"#2c3a33"}` — panel üstü yay (uçlarda 1.7 m, ortada 2.1 m),
   panel arası sivri kemer derzi (iki koyu 6 cm şerit, 0.25 m'den çeyrek elipsle 1.4 m yana kıvrılır), üstteki koyu
-  yeşil korkuluk kemeri izler. Dosya: `src/worlds/mertkent/fenceGeneric.ts`. **Blender:** `mk_fences.py` kemerli
+  yeşil korkuluk kemeri izler. Dosya: `src/worlds/measured/fenceGeneric.ts`. **Blender:** `mk_fences.py` kemerli
   duvar desteği; `NW/Mertkent/Street` yeniden kur.
 - **f9bdb42** — Kullanıcı kalite kuralları `CLAUDE.md` §0'a yazıldı (tahmin yok, kat kat inceleme, en ince
   detay, dükkân tabelaları, Street View'a sadık sokak/ağaç/asfalt hasarı). **Blender:** aynı kurallar Blender
@@ -275,7 +275,7 @@
     yeniden derlemede 13 bloğun kopya kenarlarını değiştirir. Ayrıca balkon `tint` kat anahtarları ("K3" → "3")
     artık normalize ediliyor: 11 blokta "K"li yazılmış ölçülmüş cam balkon tonları yok sayılıyordu. İkisi de henüz
     `data/facades.json`'a derlenmedi (ölçüm ajanları derleyecek).
-  - Dosyalar: `src/worlds/mertkent/{facade,fenceGeneric,index,textures}.ts`, `survey/schema.ts`,
+  - Dosyalar: `src/worlds/measured/{facade,fenceGeneric,index,textures}.ts`, `survey/schema.ts`,
     `scripts/survey-compile.mjs`, `tests/unit/facadeGen.test.ts`. **Blender:** kepenkli açıklıklar (lamel dokusu),
     borular, 5+ bölmeli giydirme camlar ve üç 2D tel panelli çit yeniden kurulmalı; yeni öğeler ölçümlere girdikçe
     ilgili bloklar.
@@ -322,13 +322,13 @@
   kanopi, "C" rozeti; loca kirişleri; K5 teras köprüsü). `scripts/sv-extra.json`: 1777 kenar 7 ortofoto girdisi.
   **Blender:** bu 5 blok yeniden kurulmalı.
 - **(pişirme hattı, WIP 71e108a…c3f+)** — Pişirilmiş dolaylı ışık hattı (Ultra; ayrıntı `docs/BAKE.md`). Dışa aktarma
-  `scripts/bake-export.mjs`: başsız oyundan (`?debug=1&bakeexport=1`, kanca `src/worlds/mertkent/bakeexport.ts`)
+  `scripts/bake-export.mjs`: başsız oyundan (`?debug=1&bakeexport=1`, kanca `src/worlds/measured/bakeexport.ts`)
   el modeli meshleri dünya koordinatında 100 m (CI'da 50 m) parçalar hâlinde `bake-work/src/chunk_<cx>_<cz>.glb`
-  (mesh adı = malzeme anahtarı; `TEXCOORD_1` = ışık haritası uv'si, `src/worlds/mertkent/lightmap.ts` deterministik
+  (mesh adı = malzeme anahtarı; `TEXCOORD_1` = ışık haritası uv'si, `src/worlds/measured/lightmap.ts` deterministik
   üretir), `chunk_*.rects.bin` (ada dikdörtgenleri + normal), `occluders.glb` (arazi 0.3 m aşağıda, OSM/Street View
   binaları, ağaç taçları) ve `export.json`. Pişirme `blender/bake/bake_ao.py` (bpy 4.2 / Blender 4.2, Cycles CPU +
   OIDN): beyaz gök, lamba yok, albedo 0.6 → dolaylı ışık oranı; çıktı `public/bake/ao_<n>.webp` (8192² sayfalar),
-  `ground_ao.webp` (0.25 m/px), `manifest.json`. Oyun: `src/worlds/mertkent/baked.ts` (Ultra veya `?bake=1`;
+  `ground_ao.webp` (0.25 m/px), `manifest.json`. Oyun: `src/worlds/measured/baked.ts` (Ultra veya `?bake=1`;
   `?bake=0` kapatır) — imzası tutmayan parça canlı ışıkta kalır. CI: `.github/workflows/bake-lighting.yml` (elle +
   `main`). **Blender:** el modeli sahnesi (`NW/*`) değişmedi, yeniden kurulum yok. Yerel oturum isterse aynı
   pişirmeyi kendi Blender'ında çalıştırabilir (önce oyunu derleyip `node scripts/bake-export.mjs`, sonra
@@ -437,7 +437,7 @@
   kılavuz karo 400 × 400 mm, 6 çubuk (adım 64, üst 25, taban 32, yükseklik ≈5 mm); bordür birimi ≈0.72 m; site içi
   I taşı 200 × 139 mm adım (uç genişliği 165, uzun kenarlarda bel — eski dokuda çıkıntı yanlış kenardaydı).
   Doku ortalamaları (doğrusal→sRGB): gri `#9f9d94`, kırmızı `#998f86`, kılavuz `#b3aea2`, bordür `#a19e96`, boyalı
-  bordür `#e2e2de`; taşlar arası ton CV 0.07. Oyunda `src/worlds/mertkent/realtex.ts` malzemeleri anahtar adıyla
+  bordür `#e2e2de`; taşlar arası ton CV 0.07. Oyunda `src/worlds/measured/realtex.ts` malzemeleri anahtar adıyla
   yükseltir (tek çağrı `index.ts`'de; `?norealtex` kapatır): `spPaverGrey`, `spPaverRed`, `tactile`, `spSiteGrey`,
   `spSiteRed` (UV metre, dokuda renk → malzeme beyaz), `curb` / `siteKerb` / `edging` / yeni `kerbPaint` (dünya
   uzayı üç düzlemli: kutu UV'si her birimde sıfırdan başlıyordu). Ultra: paralaks örtünme (derz derinliği).
@@ -467,7 +467,7 @@
   aynı ağacın yanlış konumlu kopyaları park-plan `n164Y` ve street-plan `da1-tree-park-1` **silindi** (Blender'da
   da kaldırılmalı). `fixedTrees` artık ağaç başına 5 sayı
   (`x, z, tür, boy, taç yarıçapı`, metre). Dosyalar: `src/worlds/osm/` altında `species`, `treelib`, `leafcards`,
-  `treefield`, `treemesh`, `eztree`, `vegetation`, `world` (.ts); `src/worlds/mertkent/{siteplan,street}.ts`,
+  `treefield`, `treemesh`, `eztree`, `vegetation`, `world` (.ts); `src/worlds/measured/{siteplan,street}.ts`,
   `data/{site,park,street}-plan.json`, `tests/unit/species.test.ts`.
   **Blender:** `NW/Vegetation` yeniden kurulmalı (tür başına model; konum/boy/taç ölçüleri planlardan; tür →
   `docs/TREES.md` tablosu); `NW/Mertkent/Site` (konik servi ve mazı çalıları buradan kalktı → Vegetation'a),
@@ -636,7 +636,7 @@
   - Ağaç dışlama: kaldırım bandı dışlaması duvar tarafında yalnız w + 0.3 (duvar arkası ağaçları kalır);
     `treeExclude` (plan dosyaları) çokgen/daire. **Blender:** `NW/Trees` (hava fotoğrafı ağaçları) yeniden dağıt.
 - **(veri, commit bekliyor)** 2026-09-30 — Eleştirmen (M2 + Doğan Avcıoğlu) veri düzeltmeleri, yalnız
-  `src/worlds/mertkent/data/{street,site,park}-plan.json`:
+  `src/worlds/measured/data/{street,site,park}-plan.json`:
   - Ağaçlar: Cavit Orhan batı çiti içinde Himalaya sediri (−69.5,−92.3) h 8.5; Nato Parkı KD tek olgun ağaç
     `NATO_NE_BIG` (−9.8,−28.3) h 14 r 7 — taç altındaki 17 hava-fotoğrafı "genç ağaç" noktası silindi; KB kuzey çimde 4
     meyve ağacı → 2 geniş taç (h 5.8 / 4.4); palmiye h 3.7 r 1.7; güney şeritte fidan konumu + mor yapraklı fidan;
@@ -843,9 +843,14 @@
   kendi kopyanı `streetview-src/private/` altına koy.
 - **(Cam düzeltmesi)** — Vitrin camı (pencere türü 7) artık pencere camının gök çarpanını almıyor (`shopEnvUniform`
   9): D4/DA vitrinleri bembeyaz çıkıyordu. Konut pencere camı ×45 / oda ×0.2 → ×14 / ×0.7 (doygun maviydi; 4 karede
-  denendi). Dosya: `src/worlds/mertkent/facadeMats.ts`. **Blender:** `materials.py` pencere camı: yansıma daha zayıf,
+  denendi). Dosya: `src/worlds/measured/facadeMats.ts`. **Blender:** `materials.py` pencere camı: yansıma daha zayıf,
   tül/oda daha görünür; vitrin camı koyu.
-- **(Ultra performans)** — Ultra'da el modeli çizim çağrıları birleştirildi (`src/worlds/mertkent/batch.ts`: gölge
+- **(Ultra performans)** — Ultra'da el modeli çizim çağrıları birleştirildi (`src/worlds/measured/batch.ts`: gölge
   vekilleri, köşe rengi, sıva doku dizisi; `src/env/ultra.ts` `shadowOnlyRoots`), boş park aracı örnekleri gizlenir
   (`src/sim/parked.ts`), yerel yansıma küresi varsayılan kapalı (`?probe=1`). Görünüm ve geometri aynı.
   **Blender:** — (katman değişmez)
+- **(Klasör adları)** — `src/worlds/mertkent/` → `src/worlds/measured/`, `streetview-src/mertkent-2-etap/` →
+  `streetview-src/sv-main/`, `public/streetview/mertkent-2-etap/` → `public/streetview/sv-main/`,
+  `docs/compare/mertkent2-elmodeli.jpg` → `elmodeli.jpg`; betik/iş akışı yolları güncellendi, Street View indirme
+  iş akışında varsayılan alan adı kaldırıldı (alan ya da bbox zorunlu). İçerik aynı. **Blender:** yerel betiklerdeki
+  / `blender/SYNC.md`'deki yol başvurularını yeni klasör adlarına çevir (katman değişmez).

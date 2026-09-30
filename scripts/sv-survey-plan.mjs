@@ -28,9 +28,7 @@ async function main() {
   const tb = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const T = parseTerrain(tb.buffer.slice(tb.byteOffset, tb.byteOffset + tb.byteLength));
   const H = (x, z) => sampleGrid(T.near, x, z);
-  const idx = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const idx = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   // 2020 öncesi kareler yalnız SURVEY_ALLOW_OLD=1 ile ve düşük puanla (yeni kare yoksa; ör. Doğan Avcıoğlu doğusu 2019-05)
   const ALLOW_OLD = process.env.SURVEY_ALLOW_OLD === '1';
   const panos = idx.panos.filter((p) => ALLOW_OLD || !p.date || p.date >= '2020');
@@ -40,7 +38,7 @@ async function main() {
     .map((w) => ({ id: w.i, ring: ring(w.p) }));
   // OSM'de olmayan, hava fotoğrafı + Street View'dan çizilmiş binalar (footprints.json `synthetic: true`)
   const fpAll = JSON.parse(
-    await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+    await readFile(join(root, 'src', 'worlds', 'measured', 'data', 'footprints.json'), 'utf8'),
   );
   for (const [k, f] of Object.entries(fpAll))
     if (f.synthetic && f.ring?.length >= 3 && !buildings.some((b) => b.id === Number(k)))

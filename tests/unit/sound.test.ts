@@ -15,7 +15,7 @@ import { birdActivity, childrenActivity } from '../../src/env/sound/nature';
 import type { SoundBuilding } from '../../src/env/sound/types';
 import { OsmSoundScene } from '../../src/env/sound/osmscene';
 import { parseOsm, type OsmWorldData } from '../../src/worlds/osm/parse';
-import { SITE_PLAN, STREET_PLAN } from '../../src/worlds/mertkent/siteplan';
+import { SITE_PLAN, STREET_PLAN } from '../../src/worlds/measured/siteplan';
 import {
   detectEvents,
   makeLoop,

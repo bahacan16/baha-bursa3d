@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
-import { Builder } from '../../src/worlds/mertkent/builder';
-import { buildStreetPlan, kerbPaintOf, signTextKeys } from '../../src/worlds/mertkent/street';
-import { wordTone } from '../../src/worlds/mertkent/streetKinds';
-import STREET_PLAN from '../../src/worlds/mertkent/data/street-plan.json';
+import { Builder } from '../../src/worlds/measured/builder';
+import { buildStreetPlan, kerbPaintOf, signTextKeys } from '../../src/worlds/measured/street';
+import { wordTone } from '../../src/worlds/measured/streetKinds';
+import STREET_PLAN from '../../src/worlds/measured/data/street-plan.json';
 
 type Bk = { pos: number[]; idx: number[]; uv: number[] };
 const bks = (b: Builder) => (b as unknown as { buckets: Map<string, Bk> }).buckets;
@@ -283,7 +283,7 @@ describe('v8 D4 sokak eşyası türleri', () => {
 
 describe('v8 köşe meydanı kaldırımla örtüşmez (critic c-02)', () => {
   it('site sert zemini kaldırım çokgenlerinden kırpılır', async () => {
-    const { cutAreaBy } = await import('../../src/worlds/mertkent/siteplan');
+    const { cutAreaBy } = await import('../../src/worlds/measured/siteplan');
     const area: [number, number][] = [
       [0, 0],
       [10, 0],

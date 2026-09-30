@@ -16,13 +16,13 @@ import {
   headingOf,
   outwardNormal,
   bboxArea,
-  pilotArea,
+  namedArea,
   siteFences,
 } from './sv-common.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const KEY = process.env.GOOGLE_STREETVIEW_KEY;
-const AREA = process.env.SV_AREA || 'Mertkent 2. Etap';
+const AREA = process.env.SV_AREA || '';
 const BUFFER = Number(process.env.SV_BUFFER ?? 60);
 const MAX = Number(process.env.SV_MAX ?? 2000);
 const GROUND = process.env.SV_GROUND !== '0'; // yere bakan kareler (asfalt/kaldırım dokusu)
@@ -89,7 +89,8 @@ async function main() {
   } catch {
     /* varsayılan */
   }
-  const { bbox, all, targets } = BBOX ? bboxArea(osm, BBOX) : pilotArea(osm, AREA, BUFFER);
+  if (!BBOX && !AREA) throw new Error('SV_AREA (OSM alan adı) ya da SV_BBOX gerekli');
+  const { bbox, all, targets } = BBOX ? bboxArea(osm, BBOX) : namedArea(osm, AREA, BUFFER);
   console.log(
     `Alan: ${AREA} — ${targets.length} hedef bina, kutu ${bbox.map((v) => v.toFixed(0)).join(',')}`,
   );

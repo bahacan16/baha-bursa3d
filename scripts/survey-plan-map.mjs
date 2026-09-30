@@ -14,12 +14,10 @@ async function main() {
   const id = Number(process.argv[2]);
   const pad = Number(process.argv[3] ?? 12);
   const fp = JSON.parse(
-    await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+    await readFile(join(root, 'src', 'worlds', 'measured', 'data', 'footprints.json'), 'utf8'),
   );
   const osm = JSON.parse(await readFile(join(root, 'public', 'data', 'osm.json'), 'utf8'));
-  const idx = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const idx = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   const aidx = JSON.parse(
     await readFile(join(root, 'streetview-src', process.env.AERIAL_DIR || 'aerial', 'index.json'), 'utf8'),
   );

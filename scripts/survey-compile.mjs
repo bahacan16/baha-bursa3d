@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Cephe ölçümlerini (survey/<id>.json, ortofoto "görünen" koordinatları) gerçek metreye çevirir:
-// → src/worlds/mertkent/data/facades.json  { <id>: CompiledBlock }  (oyun bu dosyayı kullanır)
+// → src/worlds/measured/data/facades.json  { <id>: CompiledBlock }  (oyun bu dosyayı kullanır)
 //
 // Dönüşüm (kenar başına, referans ortofotonun kamera pozu ile):
 // - u: iki duvar köşesi (cal.u) → [0, len] doğrusal.
@@ -25,22 +25,20 @@ const median = (a) => {
 const r2 = (v) => Math.round(v * 100) / 100;
 
 async function main() {
-  const sdir = join(root, 'src', 'worlds', 'mertkent', 'survey');
+  const sdir = join(root, 'src', 'worlds', 'measured', 'survey');
   const ids = process.argv[2]
     ? process.argv[2].split(',').map(Number)
     : (await readdir(sdir)).filter((f) => /^\d+\.json$/.test(f)).map((f) => Number(f.slice(0, -5)));
   const fp = JSON.parse(
-    await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+    await readFile(join(root, 'src', 'worlds', 'measured', 'data', 'footprints.json'), 'utf8'),
   );
   const cfg = JSON.parse(await readFile(join(root, 'scripts', 'sv-extra.json'), 'utf8'));
-  const idx = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const idx = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   const tb = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const T = parseTerrain(tb.buffer.slice(tb.byteOffset, tb.byteOffset + tb.byteLength));
   const H = (x, z) => sampleGrid(T.near, x, z);
   // SURVEY_OUT: deneme derlemesi için başka dosyaya yaz (repo verisine dokunmadan)
-  const outPath = process.env.SURVEY_OUT ?? join(root, 'src', 'worlds', 'mertkent', 'data', 'facades.json');
+  const outPath = process.env.SURVEY_OUT ?? join(root, 'src', 'worlds', 'measured', 'data', 'facades.json');
   let out = {};
   try {
     out = JSON.parse(await readFile(outPath, 'utf8'));

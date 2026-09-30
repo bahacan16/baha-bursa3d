@@ -5,9 +5,9 @@ tanındığını, bölgede örneklenen renkleri ve kanıt karelerini listeler. K
 ayrıştırma), `treelib.ts` (modeller), `leafcards.ts` (yaprak kartı atlası), `treemesh.ts` (uzak silüetler),
 `treefield.ts` (örnekleme + LOD), `vegetation.ts` (yerleştirme).
 
-Kaynaklar: Street View 2025-09 kareleri (`streetview-src/mertkent-2-etap`, `streetview-src/extra`; güneşli),
+Kaynaklar: Street View 2025-09 kareleri (`streetview-src/sv-main`, `streetview-src/extra`; güneşli),
 yer fotoğrafları `streetview-src/private/` (2026-09, bulutlu/yağmurlu), ölçüm verisi
-`src/worlds/mertkent/data/{site,park,street}-plan.json`.
+`src/worlds/measured/data/{site,park,street}-plan.json`.
 
 **Kural (CLAUDE.md §0.1):** tür yalnızca görülen ağaca yazılır. Görülmeyen ağaç genel anahtarla kalır
 (`deciduous`, `conifer`, `deciduous-oval`) ve aşağıda "görülmedi" diye listelenir.

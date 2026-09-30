@@ -172,9 +172,7 @@ async function main() {
   const id = Number(process.argv[2]);
   const onlyEdges = process.argv[3] ? new Set(process.argv[3].split(',').map(Number)) : null;
   const cfg = JSON.parse(await readFile(join(root, 'scripts', 'sv-extra.json'), 'utf8'));
-  const idx = JSON.parse(
-    await readFile(join(root, 'streetview-src', 'mertkent-2-etap', 'index.json'), 'utf8'),
-  );
+  const idx = JSON.parse(await readFile(join(root, 'streetview-src', 'sv-main', 'index.json'), 'utf8'));
   const pos = new Map(idx.panos.map((p) => [p.id, p]));
   const tb = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const T = parseTerrain(tb.buffer.slice(tb.byteOffset, tb.byteOffset + tb.byteLength));

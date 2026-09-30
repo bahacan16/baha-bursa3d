@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { Builder } from '../../src/worlds/mertkent/builder';
+import { Builder } from '../../src/worlds/measured/builder';
 import {
   balFront,
   buildFacadeBlock,
@@ -7,8 +7,8 @@ import {
   type CBal,
   type CItem,
   type CompiledBlock,
-} from '../../src/worlds/mertkent/facade';
-import { buildGenericFence, buildWroughtGate } from '../../src/worlds/mertkent/fenceGeneric';
+} from '../../src/worlds/measured/facade';
+import { buildGenericFence, buildWroughtGate } from '../../src/worlds/measured/fenceGeneric';
 
 type Bucket = { pos: number[]; idx: number[] };
 const buckets = (b: Builder) => (b as unknown as { buckets: Map<string, Bucket> }).buckets;
@@ -329,10 +329,10 @@ describe('çit üreticisi — yeni öğeler', () => {
 });
 
 // ── Üretici v6 ──
-import { footCollision } from '../../src/worlds/mertkent/facade';
-import { splitMassing } from '../../src/worlds/mertkent/massing';
-import { buildStreetPlan } from '../../src/worlds/mertkent/street';
-import { buildPlanGate } from '../../src/worlds/mertkent/site';
+import { footCollision } from '../../src/worlds/measured/facade';
+import { splitMassing } from '../../src/worlds/measured/massing';
+import { buildStreetPlan } from '../../src/worlds/measured/street';
+import { buildPlanGate } from '../../src/worlds/measured/site';
 
 type BucketA = Bucket & { aux: number[] | null };
 const runB = (blk: CompiledBlock, extra: Partial<Parameters<typeof buildFacadeBlock>[3]> = {}) => {

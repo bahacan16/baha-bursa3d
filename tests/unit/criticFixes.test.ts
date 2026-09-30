@@ -24,11 +24,11 @@ describe('dropHandmadeWays', () => {
 import type { Road } from '../../src/worlds/osm/parse';
 import { junctionMarkSkip } from '../../src/worlds/osm/roads';
 import { inPropZone } from '../../src/worlds/osm/props';
-import { hedgeSpan } from '../../src/worlds/mertkent/fenceGeneric';
-import { tactileKey } from '../../src/worlds/mertkent/street';
-import { bargeDrop } from '../../src/worlds/mertkent/roof';
-import { nearPlanLine, planLines } from '../../src/worlds/mertkent/siteplan';
-import type { V2 } from '../../src/worlds/mertkent/builder';
+import { hedgeSpan } from '../../src/worlds/measured/fenceGeneric';
+import { tactileKey } from '../../src/worlds/measured/street';
+import { bargeDrop } from '../../src/worlds/measured/roof';
+import { nearPlanLine, planLines } from '../../src/worlds/measured/siteplan';
+import type { V2 } from '../../src/worlds/measured/builder';
 
 const road = (id: string, pts: [number, number][], width = 8, kind = 'tertiary'): Road => ({
   id,
@@ -173,8 +173,8 @@ describe('small street helpers', () => {
   });
 });
 
-import { Builder } from '../../src/worlds/mertkent/builder';
-import { buildStreetPlan, ROAD_FLUSH } from '../../src/worlds/mertkent/street';
+import { Builder } from '../../src/worlds/measured/builder';
+import { buildStreetPlan, ROAD_FLUSH } from '../../src/worlds/measured/street';
 
 type Bk = { pos: number[] };
 const bks = (b: Builder) => (b as unknown as { buckets: Map<string, Bk> }).buckets;
@@ -298,8 +298,8 @@ describe('street plan renderer (critic fixes)', () => {
   });
 });
 
-import { signKeysOf } from '../../src/worlds/mertkent/street';
-import { buildPlanGate, buildParkKoza } from '../../src/worlds/mertkent/site';
+import { signKeysOf } from '../../src/worlds/measured/street';
+import { buildPlanGate, buildParkKoza } from '../../src/worlds/measured/site';
 
 describe('follow-up renderer fields', () => {
   const ck = (k: string, h: string) => `cc_${k}_${h}`;

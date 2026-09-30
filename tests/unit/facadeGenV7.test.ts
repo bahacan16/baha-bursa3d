@@ -1,17 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
-import { Builder } from '../../src/worlds/mertkent/builder';
+import { Builder } from '../../src/worlds/measured/builder';
 import {
   buildFacadeBlock,
   type CBal,
   type CItem,
   type CompiledBlock,
   type SignSpec,
-} from '../../src/worlds/mertkent/facade';
-import { SignAtlas } from '../../src/worlds/mertkent/signatlas';
-import { wingGables, wingHeightAt } from '../../src/worlds/mertkent/roofWing';
-import { buildStreetFurniture } from '../../src/worlds/mertkent/streetFurniture';
-import { buildGenericFence } from '../../src/worlds/mertkent/fenceGeneric';
+} from '../../src/worlds/measured/facade';
+import { SignAtlas } from '../../src/worlds/measured/signatlas';
+import { wingGables, wingHeightAt } from '../../src/worlds/measured/roofWing';
+import { buildStreetFurniture } from '../../src/worlds/measured/streetFurniture';
+import { buildGenericFence } from '../../src/worlds/measured/fenceGeneric';
 
 type Bucket = { pos: number[]; idx: number[]; uv: number[]; aux: number[] | null };
 const buckets = (b: Builder) => (b as unknown as { buckets: Map<string, Bucket> }).buckets;

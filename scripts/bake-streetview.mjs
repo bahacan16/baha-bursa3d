@@ -9,10 +9,10 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import sharp from 'sharp';
 import { parseTerrain, sampleGrid } from '../src/env/terrain.ts';
-import { FENCE_H, Occluders, centroid, inside, outwardNormal, pilotArea, siteFences } from './sv-common.mjs';
+import { FENCE_H, Occluders, centroid, inside, outwardNormal, namedArea, siteFences } from './sv-common.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
-const SLUG = process.env.SV_SLUG || 'mertkent-2-etap';
+const SLUG = process.env.SV_SLUG || 'sv-main';
 const BUFFER = Number(process.env.SV_BUFFER ?? 60);
 const PPM = Number(process.env.SV_PPM ?? 16); // cephe piksel / metre
 const ATLAS_W = 4096;
@@ -47,7 +47,7 @@ async function main() {
   const tbuf = await readFile(join(root, 'public', 'data', 'terrain.bin'));
   const terrain = parseTerrain(tbuf.buffer.slice(tbuf.byteOffset, tbuf.byteOffset + tbuf.byteLength));
   const H = (x, z) => sampleGrid(terrain.near, x, z);
-  const { all, targets, bbox } = pilotArea(osm, index.area, BUFFER);
+  const { all, targets, bbox } = namedArea(osm, index.area, BUFFER);
   const occ = new Occluders(all);
   const S = index.size;
   const half = S / 2;

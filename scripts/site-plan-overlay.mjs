@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Site planı kontrolü: src/worlds/mertkent/data/site-plan.json + street-plan.json öğelerini Google z21 hava fotoğrafına çizer.
+// Site planı kontrolü: src/worlds/measured/data/site-plan.json + street-plan.json öğelerini Google z21 hava fotoğrafına çizer.
 // Izgara 1 m (ince) / 5 m (etiketli). Taban izleri (footprints.json) sarı.
 // Kullanım: node scripts/site-plan-overlay.mjs x0 z0 x1 z1 [genişlik=1400] [çıktı] [plan=0|1]
 //   plan=0 → yalnızca hava fotoğrafı + ızgara (çizim öncesi okuma için)
@@ -77,7 +77,7 @@ async function main() {
       s += `<text x="2" y="${+tz(g) - 2}" font-size="11" fill="#ff0" stroke="#000" stroke-width="0.3">z${g}</text>`;
   }
   const fp = JSON.parse(
-    await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', 'footprints.json'), 'utf8'),
+    await readFile(join(root, 'src', 'worlds', 'measured', 'data', 'footprints.json'), 'utf8'),
   );
   for (const f of Object.values(fp))
     s += `<polygon points="${pts(f.ring)}" fill="none" stroke="#ffe000" stroke-width="1.5" stroke-dasharray="6 3"/>`;
@@ -99,7 +99,7 @@ async function main() {
     const plan = {};
     for (const fn of ['site-plan.json', 'street-plan.json']) {
       try {
-        const j = JSON.parse(await readFile(join(root, 'src', 'worlds', 'mertkent', 'data', fn), 'utf8'));
+        const j = JSON.parse(await readFile(join(root, 'src', 'worlds', 'measured', 'data', fn), 'utf8'));
         for (const [k, v] of Object.entries(j)) if (Array.isArray(v)) plan[k] = [...(plan[k] ?? []), ...v];
       } catch {
         /* henüz yok */

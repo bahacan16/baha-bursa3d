@@ -98,7 +98,7 @@ roof lean). 2Qtex (2025) also puts the south wall base at z≈−48.8 at x 274 (
   ground measurements (street widths: use H − kerb height) and the comparison camera (`compare.tmp.mjs` eye by date).
 - `compare.tmp.mjs` (gitignored): default eye = camera height of the view's pano date (photos keep 2.5);
   `scripts/compare-views.json`, `critic-views*.json`: explicit `eye` per view from its pano date.
-- `src/worlds/mertkent/data/street-plan.json` (da entries only; every change is written into the entry note as
+- `src/worlds/measured/data/street-plan.json` (da entries only; every change is written into the entry note as
   "H-kalibrasyon …"). Only values that came from 2025 SV ground/level frames with the 2.5 m formula and were not
   checked against the aerial or stone counts:
   - `da2-sw-north-lot` (SyTa): w 3.70→3.25, grey 2.40→1.95.
