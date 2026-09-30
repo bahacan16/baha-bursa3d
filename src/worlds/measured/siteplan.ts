@@ -480,6 +480,28 @@ function unflat(f: number[]): V2[] {
   return o;
 }
 
+/**
+ * v8: ölçülmüş kaldırımların yaya yürüme hatları (sim/pedestrians SidewalkResolver): bordürden min(w/2, 2) m içeride,
+ * kot = kerbH (yoksa 0.15). KARAR: geniş ön bahçeli / teraslı kaldırımda (w 8–20 m) yaya bordüre yakın yürür (masa,
+ * saksı, pano bandı cephe tarafında).
+ */
+export function measuredWalkLines(plan: StreetPlan = STREET_PLAN): { pts: V2[]; h: number }[] {
+  const out: { pts: V2[]; h: number }[] = [];
+  for (const s of plan.sidewalks ?? []) {
+    if (!s.pts || s.pts.length < 2 || !(s.w > 0)) continue;
+    const off = Math.min(s.w / 2, 2);
+    const pts: V2[] = s.pts.map((p, i) => {
+      const a = s.pts[Math.max(0, i - 1)];
+      const e = s.pts[Math.min(s.pts.length - 1, i + 1)];
+      const L = Math.hypot(e[0] - a[0], e[1] - a[1]) || 1;
+      const n = sideNormal([(e[0] - a[0]) / L, (e[1] - a[1]) / L], s.side);
+      return [p[0] + n[0] * off, p[1] + n[1] * off];
+    });
+    out.push({ pts, h: typeof s.kerbH === 'number' && Number.isFinite(s.kerbH) ? s.kerbH : 0.15 });
+  }
+  return out;
+}
+
 /** street-plan roads[] → OSM yol kimliği ("w…") → çizgi / kaldırım / şerit düzeltmesi (roads.ts RoadMarkSpec) */
 export function roadMarksOf(plan: StreetPlan): Record<string, RoadMark> {
   const roadMarks: Record<string, RoadMark> = {};

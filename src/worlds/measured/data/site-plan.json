@@ -1,3969 +1,3969 @@
 {
-  "areas": [
+ "areas": [
+  {
+   "kind": "lawn",
+   "poly": [
+    [
+     -73.6,
+     -38.3
+    ],
+    [
+     -3.9,
+     -36.2
+    ],
+    [
+     -3.2,
+     -50
+    ],
+    [
+     -2.4,
+     -70
+    ],
+    [
+     -1.6,
+     -90
+    ],
+    [
+     -0.6,
+     -110
+    ],
+    [
+     0,
+     -125
+    ],
+    [
+     -0.2,
+     -131.5
+    ],
+    [
+     -8.4,
+     -142
+    ],
+    [
+     -40,
+     -143.3
+    ],
+    [
+     -69,
+     -144.5
+    ],
+    [
+     -72.6,
+     -142.4
+    ]
+   ],
+   "material": "çim (site geneli taban)",
+   "note": "Tüm site içi taban çimi; üzerine yollar/otopark/havuz çizilir. Dış sınır çitin iç yüzüne yakın (±0.5 m)."
+  },
+  {
+   "kind": "deck",
+   "level": 0.45,
+   "rail": "glass",
+   "gates": [
     {
-      "kind": "lawn",
-      "poly": [
-        [
-          -73.6,
-          -38.3
-        ],
-        [
-          -3.9,
-          -36.2
-        ],
-        [
-          -3.2,
-          -50
-        ],
-        [
-          -2.4,
-          -70
-        ],
-        [
-          -1.6,
-          -90
-        ],
-        [
-          -0.6,
-          -110
-        ],
-        [
-          0,
-          -125
-        ],
-        [
-          -0.2,
-          -131.5
-        ],
-        [
-          -8.4,
-          -142
-        ],
-        [
-          -40,
-          -143.3
-        ],
-        [
-          -69,
-          -144.5
-        ],
-        [
-          -72.6,
-          -142.4
-        ]
-      ],
-      "material": "çim (site geneli taban)",
-      "note": "Tüm site içi taban çimi; üzerine yollar/otopark/havuz çizilir. Dış sınır çitin iç yüzüne yakın (±0.5 m)."
-    },
-    {
-      "kind": "deck",
-      "level": 0.45,
-      "rail": "glass",
-      "gates": [
-        {
-          "c": [
-            -35.2,
-            -89.6
-          ],
-          "w": 1
-        }
-      ],
-      "material": "krem traverten plak (havuz platformu, bordür taşı traverten)",
-      "poly": [
-        [
-          -49.6,
-          -93.4
-        ],
-        [
-          -35.2,
-          -93.4
-        ],
-        [
-          -35.2,
-          -86
-        ],
-        [
-          -32.5,
-          -86
-        ],
-        [
-          -32.5,
-          -63.6
-        ],
-        [
-          -49.6,
-          -63.6
-        ]
-      ],
-      "note": "Yer fotoğrafları (ref-04, ref-05, ref-09): havuz alanı ~0.55 m yükseltilmiş traverten kaideli platform, çevresi buzlu cam panel + paslanmaz küpeşte; doğuda basamaklı kapı. Sınırlar Google z21."
-    },
-    {
-      "kind": "pool",
-      "poly": [
-        [
-          -44.8,
-          -86.6
-        ],
-        [
-          -35.4,
-          -86.6
-        ],
-        [
-          -35.4,
-          -69
-        ],
-        [
-          -44.8,
-          -69
-        ]
-      ],
-      "material": "açık mavi seramik, 3 koyu kulvar çizgisi"
-    },
-    {
-      "kind": "pool",
-      "poly": [
-        [
-          -47.4,
-          -72
-        ],
-        [
-          -44.8,
-          -72
-        ],
-        [
-          -44.8,
-          -69
-        ],
-        [
-          -42.2,
-          -69
-        ],
-        [
-          -42.2,
-          -65.8
-        ],
-        [
-          -47.4,
-          -65.8
-        ]
-      ],
-      "material": "çocuk havuzu (sığ), açık mavi"
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -34,
-          -113.2
-        ],
-        [
-          -28.4,
-          -112.9
-        ],
-        [
-          -28.3,
-          -111.5
-        ],
-        [
-          -10.7,
-          -111.5
-        ],
-        [
-          -10.6,
-          -110.6
-        ],
-        [
-          -7.1,
-          -110.5
-        ],
-        [
-          -7.2,
-          -114.7
-        ],
-        [
-          -0.6,
-          -114.4
-        ],
-        [
-          -0.8,
-          -105.6
-        ],
-        [
-          -0.9,
-          -100.4
-        ],
-        [
-          -7.5,
-          -100.6
-        ],
-        [
-          -7.6,
-          -99.6
-        ],
-        [
-          -30.8,
-          -100.6
-        ],
-        [
-          -34.2,
-          -100.8
-        ]
-      ],
-      "material": "gri beton kilit taşı 10x20 (araç yolu + otopark)",
-      "note": "Kuzey otopark: doğu kapıdan (x≈−1, z −105.5…−100.5) girilir; kuzey kenarda dik park yerleri. Güney yarısı C blok çatı gölgesinde (z > −104 görünmüyor), güney kenar varsayım."
-    },
-    {
-      "kind": "bed",
-      "poly": [
-        [
-          -28.3,
-          -114.1
-        ],
-        [
-          -25.4,
-          -114.1
-        ],
-        [
-          -25.4,
-          -115
-        ],
-        [
-          -20.5,
-          -114.9
-        ],
-        [
-          -20.5,
-          -112.4
-        ],
-        [
-          -10.7,
-          -112.2
-        ],
-        [
-          -10.7,
-          -111.5
-        ],
-        [
-          -28.3,
-          -111.5
-        ]
-      ],
-      "material": "süs çalısı + malç (bina önü şerit)",
-      "note": "D blok güney cephesi önündeki dar bitki şeridi; küçük çalılar."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -30.8,
-          -100.6
-        ],
-        [
-          -7.6,
-          -99.6
-        ],
-        [
-          -7.4,
-          -98.3
-        ],
-        [
-          -11.4,
-          -98.6
-        ],
-        [
-          -11.5,
-          -96.4
-        ],
-        [
-          -22,
-          -96.9
-        ],
-        [
-          -22.1,
-          -94.7
-        ],
-        [
-          -26.5,
-          -95
-        ],
-        [
-          -26.4,
-          -96.4
-        ],
-        [
-          -30.9,
-          -96.6
-        ]
-      ],
-      "material": "gri kilit taşı yaya kaldırımı",
-      "note": "C blok kuzey cephesi önü; çatı gölgesinde görünmüyor — varsayım (kapı girişleri)."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -31.9,
-          -143
-        ],
-        [
-          -29.2,
-          -142.9
-        ],
-        [
-          -29,
-          -113
-        ],
-        [
-          -31.9,
-          -113.1
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu 2.5 m",
-      "note": "Kuzey yaya kapısından (Doğan Avcıoğlu Cd.) otoparka inen yol; Street View 4RYuHvKz'den görünüyor."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -48,
-          -111.1
-        ],
-        [
-          -34,
-          -111.2
-        ],
-        [
-          -34,
-          -107.7
-        ],
-        [
-          -44.3,
-          -107.6
-        ],
-        [
-          -44.3,
-          -106.6
-        ],
-        [
-          -48,
-          -106.7
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu",
-      "note": "B blok (1540901795) doğu girişinden otoparka yol; iki çim alanı arasında."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -44.6,
-          -138.4
-        ],
-        [
-          -43.3,
-          -138.4
-        ],
-        [
-          -43.2,
-          -123
-        ],
-        [
-          -44.5,
-          -123
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu 1.2 m",
-      "note": "Saha doğu kenarı boyunca yol."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -43.2,
-          -134.8
-        ],
-        [
-          -35.4,
-          -134.6
-        ],
-        [
-          -35.4,
-          -130.2
-        ],
-        [
-          -43.2,
-          -130.4
-        ]
-      ],
-      "material": "gri kilit taşı meydan",
-      "note": "Oyun kauçuğunun kuzeyindeki açık gri döşeme."
-    },
-    {
-      "kind": "court",
-      "poly": [
-        [
-          -63,
-          -139
-        ],
-        [
-          -43.2,
-          -139
-        ],
-        [
-          -43.2,
-          -130.2
-        ],
-        [
-          -63,
-          -130.2
-        ]
-      ],
-      "material": "bej/kum renkli beton-akrilik spor zemini",
-      "note": "Halı saha: 4 m yeşil tel çit, doğu yüzünde kapı (yer fotoğrafı ref-07.jpg: kapıda Atatürk posteri)",
-      "fence": true,
-      "gates": [
-        {
-          "c": [
-            -43.2,
-            -133.5
-          ],
-          "w": 1.2
-        }
-      ]
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -53.3,
-          -94.8
-        ],
-        [
-          -45.3,
-          -94.5
-        ],
-        [
-          -45.3,
-          -93.5
-        ],
-        [
-          -48.9,
-          -93.6
-        ],
-        [
-          -53.3,
-          -93.8
-        ]
-      ],
-      "material": "gri kilit taşı",
-      "note": "B blok güney cephesi → havuz girişi yolu."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -33,
-          -100.6
-        ],
-        [
-          -31.8,
-          -100.6
-        ],
-        [
-          -31.8,
-          -80.2
-        ],
-        [
-          -30,
-          -80.2
-        ],
-        [
-          -29.8,
-          -67
-        ],
-        [
-          -28.4,
-          -66.8
-        ],
-        [
-          -28.3,
-          -61.4
-        ],
-        [
-          -32.4,
-          -61.4
-        ],
-        [
-          -32.6,
-          -79
-        ],
-        [
-          -32.9,
-          -80.2
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu",
-      "note": "Havuz doğusu ile C blok arasındaki yol; güneyde A2 blok (1480041342) kuzeybatısında küçük meydan. Kuzey kısmı gölgede."
-    },
-    {
-      "kind": "playground",
-      "poly": [
-        [
-          -22.8,
-          -75.6
-        ],
-        [
-          -12.4,
-          -75.6
-        ],
-        [
-          -12.4,
-          -68.4
-        ],
-        [
-          -22.8,
-          -68.4
-        ]
-      ],
-      "material": "koyu mor-kahve kauçuk karo 50×50 (yer fotoğrafı ref-10.jpg)",
-      "note": "Ana oyun alanı ≈11.7×8 m; güney yarısı A2 blok çatı gölgesinde (güney kenar varsayım). Üzerinde oyun kulesi+kaydırak, beyaz direkler.",
-      "fence": true
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -29.9,
-          -77.4
-        ],
-        [
-          -12.4,
-          -77
-        ],
-        [
-          -12.4,
-          -75.1
-        ],
-        [
-          -29.9,
-          -75.4
-        ]
-      ],
-      "material": "gri kilit taşı",
-      "note": "C blok güney cephesi önünde yol (oyun alanının kuzeyi)."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -48.8,
-          -63.3
-        ],
-        [
-          -32.6,
-          -62.6
-        ],
-        [
-          -32,
-          -44.2
-        ],
-        [
-          -34.3,
-          -44.2
-        ],
-        [
-          -34.4,
-          -37.6
-        ],
-        [
-          -48.3,
-          -38
-        ],
-        [
-          -48.3,
-          -44
-        ],
-        [
-          -48.8,
-          -44.2
-        ]
-      ],
-      "material": "gri beton kilit taşı (park yerleri kırmızımsı taş sıralarıyla ayrılmış olabilir)",
-      "note": "Güney otopark: güney kapıdan (x −44…−37) girilir; batıda 8, doğuda ~7 dik park yeri (araçlar D-B yönünde)."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -51.7,
-          -60.6
-        ],
-        [
-          -49.9,
-          -60.6
-        ],
-        [
-          -49.9,
-          -42.8
-        ],
-        [
-          -50.5,
-          -42.8
-        ],
-        [
-          -50.5,
-          -47.8
-        ],
-        [
-          -51.9,
-          -47.8
-        ]
-      ],
-      "material": "gri kilit taşı",
-      "note": "A1 blok (1480041345) doğu cephesi boyunca yol."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -7.2,
-          -98.3
-        ],
-        [
-          -5.3,
-          -98.2
-        ],
-        [
-          -5.4,
-          -75.4
-        ],
-        [
-          -8.6,
-          -75.4
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu ~2 m",
-      "note": "C blok doğu cephesi boyunca."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -6.3,
-          -132.7
-        ],
-        [
-          -4.4,
-          -132.6
-        ],
-        [
-          -4.4,
-          -114.5
-        ],
-        [
-          -6.3,
-          -114.5
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu ~1.6 m",
-      "note": "D blok doğu cephesi boyunca."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -9.4,
-          -63.2
-        ],
-        [
-          -7.1,
-          -63.2
-        ],
-        [
-          -7.1,
-          -40.2
-        ],
-        [
-          -10.2,
-          -40.1
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu ~2 m",
-      "note": "A2 blok (1480041342) doğu cephesi boyunca."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -7.4,
-          -100.5
-        ],
-        [
-          -3.8,
-          -100.4
-        ],
-        [
-          -3.9,
-          -95.4
-        ],
-        [
-          -7.2,
-          -95.5
-        ]
-      ],
-      "material": "gri kilit taşı park cebi",
-      "note": "C blok kuzeydoğusunda tek araçlık cep (araç duruyor)."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -73.4,
-          -66
-        ],
-        [
-          -49.8,
-          -65
-        ],
-        [
-          -49.8,
-          -63.3
-        ],
-        [
-          -73.4,
-          -64.2
-        ]
-      ],
-      "material": "gri kilit taşı yaya yolu ~1.8 m",
-      "note": "Batı yaya kapısından (Cavit Orhan Tütengil Cd.) otoparka; A1 blok çatı eğikliği altında → konum OSM 1550820685 + görünen çim şeridinden."
-    },
-    {
-      "kind": "bed",
-      "poly": [
-        [
-          -37.4,
-          -117.2
-        ],
-        [
-          -36.7,
-          -117.9
-        ],
-        [
-          -36,
-          -117.2
-        ],
-        [
-          -36.7,
-          -116.5
-        ]
-      ],
-      "material": "yuvarlak çiçeklik, beyaz bordür (Ø1.4 m)",
-      "note": "Orta çimde beyaz halka."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -123.4,
-          -134.5
-        ],
-        [
-          -83.9,
-          -134.3
-        ],
-        [
-          -83.7,
-          -163.5
-        ],
-        [
-          -83.6,
-          -189
-        ],
-        [
-          -122.9,
-          -190.4
-        ]
-      ],
-      "material": "kırmızı-kahve / gri beton kilit taşı (SV: kırmızımsı parke, park yerleri beyaz taş sıralı)",
-      "note": "Salusvizyon: çit içi tamamı araç yolu/otopark kaplaması; bina, havuz, oyun alanı ve çiçeklikler üstte."
-    },
-    {
-      "kind": "lawn",
-      "poly": [
-        [
-          -123.2,
-          -168.2
-        ],
-        [
-          -117.2,
-          -168
-        ],
-        [
-          -117.2,
-          -163.4
-        ],
-        [
-          -123.2,
-          -163.6
-        ]
-      ],
-      "material": "çim + çalı (büyük ağacın altı)",
-      "note": "Bina güneybatı önü yeşil alan."
-    },
-    {
-      "kind": "bed",
-      "poly": [
-        [
-          -112.6,
-          -168
-        ],
-        [
-          -98.8,
-          -167.5
-        ],
-        [
-          -99,
-          -163.1
-        ],
-        [
-          -112.8,
-          -163.6
-        ]
-      ],
-      "material": "çim + budanmış çit bordürlü çiçeklik",
-      "note": "Bina güney cephesi önü, havuzun kuzeyi."
-    },
-    {
-      "kind": "bed",
-      "poly": [
-        [
-          -94.4,
-          -167.5
-        ],
-        [
-          -86.4,
-          -167.2
-        ],
-        [
-          -86.4,
-          -163
-        ],
-        [
-          -94.4,
-          -163.2
-        ]
-      ],
-      "material": "çim + çalı çiçekliği",
-      "note": "Bina girişinin doğusundaki çiçeklik."
-    },
-    {
-      "kind": "deck",
-      "poly": [
-        [
-          -116.5,
-          -162
-        ],
-        [
-          -99,
-          -161.3
-        ],
-        [
-          -99.6,
-          -147.3
-        ],
-        [
-          -114.7,
-          -147.9
-        ],
-        [
-          -114.6,
-          -150.6
-        ],
-        [
-          -117,
-          -150.7
-        ]
-      ],
-      "material": "pembe-bej doğal taş / traverten plak",
-      "note": "Salus havuz güvertesi ≈17.5×14 m; güneyde güverte yok (çit havuz kenarında), güneybatıda girinti."
-    },
-    {
-      "kind": "deck",
-      "poly": [
-        [
-          -114.2,
-          -156.6
-        ],
-        [
-          -99.5,
-          -156.1
-        ],
-        [
-          -99.8,
-          -147.2
-        ],
-        [
-          -114.5,
-          -147.8
-        ]
-      ],
-      "material": "beyaz mermer/traverten havuz kenar taşı 0.45 m",
-      "note": "Havuz kenar taşı (coping)."
-    },
-    {
-      "kind": "pool",
-      "poly": [
-        [
-          -113.7,
-          -156.2
-        ],
-        [
-          -100,
-          -155.6
-        ],
-        [
-          -100.3,
-          -147.7
-        ],
-        [
-          -114,
-          -148.2
-        ]
-      ],
-      "material": "mavi cam mozaik",
-      "depth": 1.5,
-      "note": "Salus havuzu ≈13.8×7.95 m (OSM çokgeni güverteyi de kapsıyor)."
-    },
-    {
-      "kind": "pool",
-      "poly": [
-        [
-          -113.7,
-          -156.2
-        ],
-        [
-          -110.8,
-          -156.1
-        ],
-        [
-          -110.9,
-          -153.5
-        ],
-        [
-          -113.8,
-          -153.6
-        ]
-      ],
-      "material": "açık mavi mozaik (sığ basamak/oturma rafı)",
-      "depth": 0.5,
-      "note": "Kuzeybatı köşede açık renkli kare (2.9×2.6 m): sığ bölüm veya geniş giriş basamağı; içinde iki koyu nokta."
-    },
-    {
-      "kind": "playground",
-      "poly": [
-        [
-          -121.7,
-          -162.3
-        ],
-        [
-          -117.2,
-          -162.1
-        ],
-        [
-          -117.7,
-          -150.1
-        ],
-        [
-          -122.2,
-          -150.3
-        ]
-      ],
-      "material": "koyu gri kauçuk/sentetik zemin (belirsiz)",
-      "note": "Oyun alanı (SV __byIuk-: mavi kaydırak + ahşap üçgen çatılı ev); üstü kısmen gölgelikli olabilir."
-    },
-    {
-      "kind": "paving",
-      "poly": [
-        [
-          -74.2,
-          -138.2
-        ],
-        [
-          -74.6,
-          -149.4
-        ],
-        [
-          -63.2,
-          -149.2
-        ],
-        [
-          -63.6,
-          -145.9
-        ],
-        [
-          -69.8,
-          -140.5
-        ]
-      ],
-      "material": "gri kilit taşı 10x20",
-      "level": 0.15,
-      "note": "KB köşe meydanı (Street View: döşeli köşe, kırmızı bant + sarı kılavuz) — eleştirmen düzeltmesi"
-    },
-    {
-      "kind": "paving",
-      "id": "uptown-lot",
-      "poly": [
-        [
-          193.8,
-          -166.8
-        ],
-        [
-          198.8,
-          -166.8
-        ],
-        [
-          198.8,
-          -197.2
-        ],
-        [
-          221,
-          -197.2
-        ],
-        [
-          221,
-          -201.9
-        ],
-        [
-          195.2,
-          -201.9
-        ]
-      ],
-      "material": "gri beton kilit taşı 10×20 (otopark girişi yolu + arka otopark), sarı boya park çizgileri",
-      "note": "2026-09 (eleştirmen da2-04/08/09/10): UPTOWN (1540901794) batısındaki giriş yolu ve kuzeyindeki arka otopark: gri kilit taşı (oyunda çim/kum çiziliyordu). SV SyTa_60_0 (giriş: kaldırımla aynı gri kilit taşı, bariyer), glMQ_180_0 / 0tTf_180_0 (arka otopark: gri kilit taşı, çite dik sarı park çizgileri ≈2.5 m arayla — çizgi konumları ÖLÇÜLMEDİ, parking-bay çizilmedi). Doğu kenarı x 198.8 = binanın batısındaki tek katlı mavi-gri ek yapının batı yüzü (hava fotoğrafı koyu çatı şeridi x ≈198.8–203.5; ek yapı taban izi yok → taban izi ajanına bildirildi). Güney ucu Doğan Avcıoğlu kaldırımı arkası (z −166.8)."
+     "c": [
+      -35.2,
+      -89.6
+     ],
+     "w": 1.0
     }
-  ],
-  "lines": [
-    {
-      "kind": "railing",
-      "pts": [
-        [
-          -63.1,
-          -138.8
-        ],
-        [
-          -44.5,
-          -137.8
-        ],
-        [
-          -45.2,
-          -125
-        ],
-        [
-          -63.8,
-          -126
-        ],
-        [
-          -63.1,
-          -138.8
-        ]
-      ],
-      "h": 4,
-      "w": 0.05,
-      "note": "Saha tel çiti (koyu yeşil panel/tel örgü) ~4 m; kapı yeri bilinmiyor."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -63.3,
-          -139.4
-        ],
-        [
-          -44.3,
-          -138.4
-        ]
-      ],
-      "h": 1.5,
-      "w": 1,
-      "note": "Saha kuzey çiti önünde çit bitkisi (zeytin yeşili bant)."
-    },
-    {
-      "kind": "pool-lane",
-      "pts": [
-        [
-          -42.2,
-          -85.1
-        ],
-        [
-          -43,
-          -70.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.25,
-      "note": "Havuz tabanı koyu mavi kulvar çizgisi (T uçlu)."
-    },
-    {
-      "kind": "pool-lane",
-      "pts": [
-        [
-          -39.7,
-          -85
-        ],
-        [
-          -40.5,
-          -70.3
-        ]
-      ],
-      "h": 0,
-      "w": 0.25,
-      "note": "Havuz tabanı koyu mavi kulvar çizgisi (T uçlu)."
-    },
-    {
-      "kind": "pool-lane",
-      "pts": [
-        [
-          -37.2,
-          -84.9
-        ],
-        [
-          -38,
-          -70.2
-        ]
-      ],
-      "h": 0,
-      "w": 0.25,
-      "note": "Havuz tabanı koyu mavi kulvar çizgisi (T uçlu)."
-    },
-    {
-      "kind": "railing",
-      "pts": [
-        [
-          -45.2,
-          -73.5
-        ],
-        [
-          -44.3,
-          -72.7
-        ],
-        [
-          -43.8,
-          -71.7
-        ]
-      ],
-      "h": 0.9,
-      "w": 0.05,
-      "note": "Havuz merdiveni paslanmaz tırabzan (kıvrık)."
-    },
-    {
-      "kind": "low-wall",
-      "pts": [
-        [
-          -45.6,
-          -69.4
-        ],
-        [
-          -42.2,
-          -69.2
-        ]
-      ],
-      "h": 0,
-      "w": 0.3,
-      "note": "Ana havuz–çocuk havuzu ayırma duvarı (su seviyesinde)."
-    },
-    {
-      "kind": "low-wall",
-      "pts": [
-        [
-          -45.4,
-          -72.1
-        ],
-        [
-          -45.6,
-          -69.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.3,
-      "note": "Ana havuz–çocuk havuzu ayırma duvarı (su seviyesinde)."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -49.3,
-          -93.4
-        ],
-        [
-          -49.8,
-          -63.9
-        ]
-      ],
-      "h": 1,
-      "w": 0.9,
-      "note": "Havuz batı çiti (bitki), güverte ile A blok arası."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -45.3,
-          -94.3
-        ],
-        [
-          -32.9,
-          -93.6
-        ]
-      ],
-      "h": 1.1,
-      "w": 1,
-      "note": "Havuz kuzey çiti; batı ucunda (x≈−45.5) giriş boşluğu."
-    },
-    {
-      "kind": "railing",
-      "pts": [
-        [
-          -48.9,
-          -93.7
-        ],
-        [
-          -49.8,
-          -64
-        ],
-        [
-          -33.6,
-          -63.1
-        ],
-        [
-          -32.1,
-          -92.8
-        ],
-        [
-          -45.3,
-          -93.5
-        ]
-      ],
-      "h": 1.2,
-      "w": 0.05,
-      "note": "Havuz çevresi siyah demir korkuluk, altın rengi mızrak uçlu (Street View güneyden). Kuzeybatıda (x −48.9…−45.3) giriş."
-    },
-    {
-      "kind": "low-wall",
-      "pts": [
-        [
-          -49.8,
-          -63.8
-        ],
-        [
-          -33.6,
-          -63
-        ]
-      ],
-      "h": 0.6,
-      "w": 0.25,
-      "note": "Güverte güney kenarı beyaz istinat duvarı (otopark tarafı)."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -29.8,
-          -79.8
-        ],
-        [
-          -29.7,
-          -67.2
-        ]
-      ],
-      "h": 1,
-      "w": 0.6,
-      "note": "Yol ile oyun alanı arasında alçak çit."
-    },
-    {
-      "kind": "path-edge",
-      "pts": [
-        [
-          -24.1,
-          -75
-        ],
-        [
-          -24.1,
-          -71
-        ]
-      ],
-      "h": 0.3,
-      "w": 0.3,
-      "note": "İki kauçuk alan arasında açık renk bordür/duvar, üzerinde beyaz nesneler."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -49.8,
-          -63.3
-        ],
-        [
-          -49.9,
-          -57
-        ]
-      ],
-      "h": 1,
-      "w": 0.7,
-      "note": "Otopark batı çiti (kuzey parça)."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -49.9,
-          -47.6
-        ],
-        [
-          -50,
-          -38.3
-        ]
-      ],
-      "h": 1,
-      "w": 0.7,
-      "note": "Otopark batı çiti (güney parça)."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -34.3,
-          -44.2
-        ],
-        [
-          -34.4,
-          -38
-        ]
-      ],
-      "h": 1,
-      "w": 0.7,
-      "note": "Otopark güneydoğu çiti."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -33.5,
-          -113
-        ],
-        [
-          -33.6,
-          -108
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -31,
-          -113
-        ],
-        [
-          -31.1,
-          -108
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -28.5,
-          -113
-        ],
-        [
-          -28.6,
-          -108
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -26,
-          -111.5
-        ],
-        [
-          -26.1,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -23.5,
-          -111.5
-        ],
-        [
-          -23.6,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -21,
-          -111.5
-        ],
-        [
-          -21.1,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -18.5,
-          -111.5
-        ],
-        [
-          -18.6,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -16,
-          -111.5
-        ],
-        [
-          -16.1,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -13.5,
-          -111.5
-        ],
-        [
-          -13.6,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -11,
-          -111.5
-        ],
-        [
-          -11.1,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -8.5,
-          -111.5
-        ],
-        [
-          -8.6,
-          -106.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -6.9,
-          -113.4
-        ],
-        [
-          -6.9,
-          -108.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "note": "D blok doğusundaki park cepleri."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -4.4,
-          -113.4
-        ],
-        [
-          -4.4,
-          -108.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "note": "D blok doğusundaki park cepleri."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -1.9,
-          -113.4
-        ],
-        [
-          -1.9,
-          -108.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "note": "D blok doğusundaki park cepleri."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -61.8
-        ],
-        [
-          -43.1,
-          -61.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -59.3
-        ],
-        [
-          -43.1,
-          -59.3
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -56.9
-        ],
-        [
-          -43.1,
-          -56.9
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -54.4
-        ],
-        [
-          -43.1,
-          -54.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -52
-        ],
-        [
-          -43.1,
-          -52
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -49.5
-        ],
-        [
-          -43.1,
-          -49.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -47.1
-        ],
-        [
-          -43.1,
-          -47.1
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -44.6
-        ],
-        [
-          -43.1,
-          -44.6
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -48.1,
-          -42.2
-        ],
-        [
-          -43.1,
-          -42.2
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -61.8
-        ],
-        [
-          -32.2,
-          -61.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -59.3
-        ],
-        [
-          -32.2,
-          -59.3
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -56.9
-        ],
-        [
-          -32.2,
-          -56.9
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -54.4
-        ],
-        [
-          -32.2,
-          -54.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -52
-        ],
-        [
-          -32.2,
-          -52
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -49.5
-        ],
-        [
-          -32.2,
-          -49.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -47.1
-        ],
-        [
-          -32.2,
-          -47.1
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -37.2,
-          -44.6
-        ],
-        [
-          -32.2,
-          -44.6
-        ]
-      ],
-      "h": 0,
-      "w": 0.1
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -112.6,
-          -168
-        ],
-        [
-          -98.8,
-          -167.5
-        ],
-        [
-          -99,
-          -163.1
-        ],
-        [
-          -112.8,
-          -163.6
-        ],
-        [
-          -112.6,
-          -168
-        ]
-      ],
-      "h": 0.7,
-      "w": 0.5,
-      "note": "Çiçeklik çevresi alçak budanmış çit."
-    },
-    {
-      "kind": "hedge",
-      "pts": [
-        [
-          -117.3,
-          -150.7
-        ],
-        [
-          -116.8,
-          -162.3
-        ],
-        [
-          -98.7,
-          -161.6
-        ],
-        [
-          -99.3,
-          -147.1
-        ],
-        [
-          -114.7,
-          -147.7
-        ],
-        [
-          -114.6,
-          -150.4
-        ]
-      ],
-      "h": 1,
-      "w": 0.5,
-      "note": "Havuz çevresi alçak çit (koyu çizgi); içinde demir parmaklık olabilir."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -122.4,
-          -134.8
-        ],
-        [
-          -122.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12,
-      "note": "Salus güney sıra park yerleri (beyaz taş çizgi)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -119.9,
-          -134.8
-        ],
-        [
-          -119.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -117.4,
-          -134.8
-        ],
-        [
-          -117.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -114.9,
-          -134.8
-        ],
-        [
-          -114.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -112.4,
-          -134.8
-        ],
-        [
-          -112.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -109.9,
-          -134.8
-        ],
-        [
-          -109.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -107.4,
-          -134.8
-        ],
-        [
-          -107.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -104.9,
-          -134.8
-        ],
-        [
-          -104.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -102.4,
-          -134.8
-        ],
-        [
-          -102.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99.9,
-          -134.8
-        ],
-        [
-          -99.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -97.4,
-          -134.8
-        ],
-        [
-          -97.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -94.9,
-          -134.8
-        ],
-        [
-          -94.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -92.4,
-          -134.8
-        ],
-        [
-          -92.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -89.9,
-          -134.8
-        ],
-        [
-          -89.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -87.4,
-          -134.8
-        ],
-        [
-          -87.4,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -84.9,
-          -134.8
-        ],
-        [
-          -84.9,
-          -139.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99,
-          -146.6
-        ],
-        [
-          -94,
-          -146.6
-        ]
-      ],
-      "h": 0,
-      "w": 0.12,
-      "note": "Salus doğu sıra (havuz çitine burunlu)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99,
-          -149
-        ],
-        [
-          -94,
-          -149
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99,
-          -151.5
-        ],
-        [
-          -94,
-          -151.5
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99,
-          -153.9
-        ],
-        [
-          -94,
-          -153.9
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99,
-          -156.4
-        ],
-        [
-          -94,
-          -156.4
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99,
-          -158.8
-        ],
-        [
-          -94,
-          -158.8
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -99,
-          -161.3
-        ],
-        [
-          -94,
-          -161.3
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -122.9,
-          -150.2
-        ],
-        [
-          -122.9,
-          -145.2
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -120.4,
-          -150.2
-        ],
-        [
-          -120.4,
-          -145.2
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -117.9,
-          -150.2
-        ],
-        [
-          -117.9,
-          -145.2
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          -115.4,
-          -150.2
-        ],
-        [
-          -115.4,
-          -145.2
-        ]
-      ],
-      "h": 0,
-      "w": 0.12
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          128.47,
-          -169.35
-        ],
-        [
-          128.76,
-          -174.25
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          131.1,
-          -169.19
-        ],
-        [
-          131.4,
-          -174.09
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          133.75,
-          -169.04
-        ],
-        [
-          134.04,
-          -173.94
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          136.38,
-          -168.88
-        ],
-        [
-          136.68,
-          -173.78
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          139.03,
-          -168.72
-        ],
-        [
-          139.32,
-          -173.62
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          141.66,
-          -168.56
-        ],
-        [
-          141.96,
-          -173.46
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          144.31,
-          -168.4
-        ],
-        [
-          144.6,
-          -173.3
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          146.94,
-          -168.24
-        ],
-        [
-          147.24,
-          -173.14
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          149.59,
-          -168.08
-        ],
-        [
-          149.88,
-          -172.98
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          152.22,
-          -167.93
-        ],
-        [
-          152.52,
-          -172.83
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
-    },
-    {
-      "kind": "parking-bay",
-      "pts": [
-        [
-          154.87,
-          -167.77
-        ],
-        [
-          155.16,
-          -172.67
-        ]
-      ],
-      "h": 0,
-      "w": 0.1,
-      "base": 0.15,
-      "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+   ],
+   "material": "krem traverten plak (havuz platformu, bordür taşı traverten)",
+   "poly": [
+    [
+     -49.6,
+     -93.4
+    ],
+    [
+     -35.2,
+     -93.4
+    ],
+    [
+     -35.2,
+     -86.0
+    ],
+    [
+     -32.5,
+     -86.0
+    ],
+    [
+     -32.5,
+     -63.6
+    ],
+    [
+     -49.6,
+     -63.6
+    ]
+   ],
+   "note": "Yer fotoğrafları (ref-04, ref-05, ref-09): havuz alanı ~0.55 m yükseltilmiş traverten kaideli platform, çevresi buzlu cam panel + paslanmaz küpeşte; doğuda basamaklı kapı. Sınırlar Google z21."
+  },
+  {
+   "kind": "pool",
+   "poly": [
+    [
+     -44.8,
+     -86.6
+    ],
+    [
+     -35.4,
+     -86.6
+    ],
+    [
+     -35.4,
+     -69.0
+    ],
+    [
+     -44.8,
+     -69.0
+    ]
+   ],
+   "material": "açık mavi seramik, 3 koyu kulvar çizgisi"
+  },
+  {
+   "kind": "pool",
+   "poly": [
+    [
+     -47.4,
+     -72.0
+    ],
+    [
+     -44.8,
+     -72.0
+    ],
+    [
+     -44.8,
+     -69.0
+    ],
+    [
+     -42.2,
+     -69.0
+    ],
+    [
+     -42.2,
+     -65.8
+    ],
+    [
+     -47.4,
+     -65.8
+    ]
+   ],
+   "material": "çocuk havuzu (sığ), açık mavi"
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -34,
+     -113.2
+    ],
+    [
+     -28.4,
+     -112.9
+    ],
+    [
+     -28.3,
+     -111.5
+    ],
+    [
+     -10.7,
+     -111.5
+    ],
+    [
+     -10.6,
+     -110.6
+    ],
+    [
+     -7.1,
+     -110.5
+    ],
+    [
+     -7.2,
+     -114.7
+    ],
+    [
+     -0.6,
+     -114.4
+    ],
+    [
+     -0.8,
+     -105.6
+    ],
+    [
+     -0.9,
+     -100.4
+    ],
+    [
+     -7.5,
+     -100.6
+    ],
+    [
+     -7.6,
+     -99.6
+    ],
+    [
+     -30.8,
+     -100.6
+    ],
+    [
+     -34.2,
+     -100.8
+    ]
+   ],
+   "material": "gri beton kilit taşı 10x20 (araç yolu + otopark)",
+   "note": "Kuzey otopark: doğu kapıdan (x≈−1, z −105.5…−100.5) girilir; kuzey kenarda dik park yerleri. Güney yarısı C blok çatı gölgesinde (z > −104 görünmüyor), güney kenar varsayım."
+  },
+  {
+   "kind": "bed",
+   "poly": [
+    [
+     -28.3,
+     -114.1
+    ],
+    [
+     -25.4,
+     -114.1
+    ],
+    [
+     -25.4,
+     -115
+    ],
+    [
+     -20.5,
+     -114.9
+    ],
+    [
+     -20.5,
+     -112.4
+    ],
+    [
+     -10.7,
+     -112.2
+    ],
+    [
+     -10.7,
+     -111.5
+    ],
+    [
+     -28.3,
+     -111.5
+    ]
+   ],
+   "material": "süs çalısı + malç (bina önü şerit)",
+   "note": "D blok güney cephesi önündeki dar bitki şeridi; küçük çalılar."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -30.8,
+     -100.6
+    ],
+    [
+     -7.6,
+     -99.6
+    ],
+    [
+     -7.4,
+     -98.3
+    ],
+    [
+     -11.4,
+     -98.6
+    ],
+    [
+     -11.5,
+     -96.4
+    ],
+    [
+     -22,
+     -96.9
+    ],
+    [
+     -22.1,
+     -94.7
+    ],
+    [
+     -26.5,
+     -95
+    ],
+    [
+     -26.4,
+     -96.4
+    ],
+    [
+     -30.9,
+     -96.6
+    ]
+   ],
+   "material": "gri kilit taşı yaya kaldırımı",
+   "note": "C blok kuzey cephesi önü; çatı gölgesinde görünmüyor — varsayım (kapı girişleri)."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -31.9,
+     -143
+    ],
+    [
+     -29.2,
+     -142.9
+    ],
+    [
+     -29,
+     -113
+    ],
+    [
+     -31.9,
+     -113.1
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu 2.5 m",
+   "note": "Kuzey yaya kapısından (Doğan Avcıoğlu Cd.) otoparka inen yol; Street View 4RYuHvKz'den görünüyor."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -48,
+     -111.1
+    ],
+    [
+     -34,
+     -111.2
+    ],
+    [
+     -34,
+     -107.7
+    ],
+    [
+     -44.3,
+     -107.6
+    ],
+    [
+     -44.3,
+     -106.6
+    ],
+    [
+     -48,
+     -106.7
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu",
+   "note": "B blok (1540901795) doğu girişinden otoparka yol; iki çim alanı arasında."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -44.6,
+     -138.4
+    ],
+    [
+     -43.3,
+     -138.4
+    ],
+    [
+     -43.2,
+     -123
+    ],
+    [
+     -44.5,
+     -123
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu 1.2 m",
+   "note": "Saha doğu kenarı boyunca yol."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -43.2,
+     -134.8
+    ],
+    [
+     -35.4,
+     -134.6
+    ],
+    [
+     -35.4,
+     -130.2
+    ],
+    [
+     -43.2,
+     -130.4
+    ]
+   ],
+   "material": "gri kilit taşı meydan",
+   "note": "Oyun kauçuğunun kuzeyindeki açık gri döşeme."
+  },
+  {
+   "kind": "court",
+   "poly": [
+    [
+     -63,
+     -139
+    ],
+    [
+     -43.2,
+     -139
+    ],
+    [
+     -43.2,
+     -130.2
+    ],
+    [
+     -63,
+     -130.2
+    ]
+   ],
+   "material": "bej/kum renkli beton-akrilik spor zemini",
+   "note": "Halı saha: 4 m yeşil tel çit, doğu yüzünde kapı (yer fotoğrafı ref-07.jpg: kapıda Atatürk posteri)",
+   "fence": true,
+   "gates": [
+    {
+     "c": [
+      -43.2,
+      -133.5
+     ],
+     "w": 1.2
     }
-  ],
-  "structures": [
-    {
-      "kind": "stair",
-      "poly": [
-        [
-          -45.3,
-          -73.9
-        ],
-        [
-          -45.4,
-          -72.4
-        ],
-        [
-          -44.2,
-          -71
-        ],
-        [
-          -43.4,
-          -71.8
-        ]
-      ],
-      "h": 0,
-      "note": "Ana havuza giriş basamakları (beyaz, köşegen); yanında koyu kıvrık tırabzan gölgesi."
-    },
-    {
-      "kind": "bin-shelter",
-      "poly": [
-        [
-          -68.5,
-          -140.8
-        ],
-        [
-          -63.7,
-          -144.5
-        ],
-        [
-          -62.8,
-          -143.4
-        ],
-        [
-          -67.6,
-          -139.7
-        ]
-      ],
-      "h": 2.3,
-      "note": "Kuzeybatı köşede çite paralel dar yapı (6.1×1.4 m): kırmızı eğimli çatı + beyaz GD yüzü; önünde beyaz nesneler → çöp konteyner barınağı olabilir (belirsiz). SV'de çitin üstünden görünmüyor → h ≤ 2.4 m."
-    },
-    {
-      "kind": "shed",
-      "poly": [
-        [
-          -120.8,
-          -161.5
-        ],
-        [
-          -117.4,
-          -161.4
-        ],
-        [
-          -117.6,
-          -158.1
-        ],
-        [
-          -121,
-          -158.2
-        ]
-      ],
-      "h": 3,
-      "note": "Ahşap oyun evi/depo: kahverengi ahşap, beşik çatı (SV'de çitin üstünden görünüyor), 3.4×3.3 m."
-    },
-    {
-      "kind": "pergola",
-      "poly": [
-        [
-          -85.4,
-          -161.8
-        ],
-        [
-          -83,
-          -161.8
-        ],
-        [
-          -83,
-          -151.4
-        ],
-        [
-          -85.4,
-          -151.4
-        ]
-      ],
-      "h": 3.3,
-      "note": "Giriş kanopisi (koyu gri çatı ~10.4×2.4 m hava fotoğrafında, eğiklik düzeltildi) — salus.ts buildSalusGate ile zaten modelleniyor (orada 11.4×3.6 m, sokağa 1.2 m taşma); kapı merkezi z≈−157.6."
-    },
-    {
-      "kind": "guard-house",
-      "poly": [
-        [
-          -86.4,
-          -154.3
-        ],
-        [
-          -83.8,
-          -154.3
-        ],
-        [
-          -83.8,
-          -151.7
-        ],
-        [
-          -86.4,
-          -151.7
-        ]
-      ],
-      "h": 2.8,
-      "note": "Tuğla kaplı güvenlik kulübesi (kanopi altında, kapının güneyi) — salus.ts ile zaten modelleniyor."
-    },
-    {
-      "kind": "kamelya",
-      "poly": [
-        [
-          -29.4,
-          -75
-        ],
-        [
-          -24.2,
-          -75
-        ],
-        [
-          -24.2,
-          -71.2
-        ],
-        [
-          -29.4,
-          -71.2
-        ]
-      ],
-      "rot": 90,
-      "h": 2.8,
-      "note": "Kamelya 1 (ref-08.jpg): somon dikmeler, oluklu ahşap saçak, ferforje korkuluk; arkasında oyun parkı"
-    },
-    {
-      "kind": "kamelya",
-      "poly": [
-        [
-          -41.2,
-          -131.2
-        ],
-        [
-          -35.6,
-          -131.2
-        ],
-        [
-          -35.6,
-          -125.4
-        ],
-        [
-          -41.2,
-          -125.4
-        ]
-      ],
-      "h": 2.8,
-      "note": "Kamelya 2 (ref-07.jpg), halı saha yanında"
-    }
-  ],
-  "points": [
-    {
-      "kind": "car",
-      "x": -29.8,
-      "z": -109.5,
-      "rot": 0,
-      "note": "koyu renk"
-    },
-    {
-      "kind": "car",
-      "x": -22.2,
-      "z": -109,
-      "rot": 0,
-      "note": "koyu kahve/siyah"
-    },
-    {
-      "kind": "car",
-      "x": -14.7,
-      "z": -108.7,
-      "rot": 0,
-      "note": "koyu"
-    },
-    {
-      "kind": "car",
-      "x": -4.3,
-      "z": -108,
-      "rot": 0,
-      "note": "siyah"
-    },
-    {
-      "kind": "car",
-      "x": -4.6,
-      "z": -97.8,
-      "rot": 0,
-      "note": "koyu (C blok kuzeydoğu cebi)"
-    },
-    {
-      "kind": "car",
-      "x": -44.8,
-      "z": -60.6,
-      "rot": 90,
-      "note": "bordo"
-    },
-    {
-      "kind": "car",
-      "x": -45,
-      "z": -58.2,
-      "rot": 90,
-      "note": "beyaz"
-    },
-    {
-      "kind": "car",
-      "x": -45.3,
-      "z": -52.9,
-      "rot": 90,
-      "note": "koyu gri"
-    },
-    {
-      "kind": "car",
-      "x": -45.1,
-      "z": -43,
-      "rot": 90,
-      "note": "beyaz"
-    },
-    {
-      "kind": "car",
-      "x": -34.4,
-      "z": -47.6,
-      "rot": 270,
-      "note": "gölgede, koyu (belirsiz)"
-    },
-    {
-      "kind": "tree",
-      "x": -65.9,
-      "z": -140.4,
-      "r": 1.6,
-      "h": 7,
-      "species": "cedrus",
-      "note": "Konik iğne yapraklı (ladin/çam); SV zvwRPFEW+otngugWf+CrRBte3A üçgenleme. TÜR (docs/TREES.md): Himalaya sediri — otng_181_-5_40 ve otng_174_21_40 karelerinde (kerteriz 188°) yatay sarkık katlar, yumuşak sarkık uçlar, eğik tepe sürgünü."
-    },
-    {
-      "kind": "tree",
-      "x": -66.8,
-      "z": -128.7,
-      "r": 1.6,
-      "h": 7,
-      "species": "cedrus",
-      "note": "Konik iğne yapraklı; 3 panodan üçgenleme (hata <0.1 m). Hava fotoğrafında B blok çatısı altında. TÜR (docs/TREES.md): Himalaya sediri — ybQK_60_0 (kerteriz 65°) ve CrRB_120_0 (142°) karelerinde katlı sarkık dallar, eğik tepe. | 2026-09-30 (eleştirmen V7 #16): s3hr_120_0'da (12.7 m, kerteriz 111°) çit üstü taç genişliği ≈3.1 m → r 1.6 (eski 1.8); tepe +19.8° → h≈6.9 (7, değişmedi); taç koyu, yoğun."
-    },
-    {
-      "kind": "tree",
-      "x": -37.9,
-      "z": -135.8,
-      "r": 1.2,
-      "h": 8,
-      "species": "cedrus",
-      "note": "İnce uzun çam/ladin; SV Oh3BP1hy+8QlTFCwl üçgenleme. TÜR (docs/TREES.md): genç Himalaya sediri — Oh3BP_153_11_40'ta (kerteriz 157°) ince koyu sivri tepe; yer fotoğrafı ref-07'nda eğik tepe sürgünlü seyrek sedir."
-    },
-    {
-      "kind": "tree",
-      "x": -68.1,
-      "z": -62.6,
-      "r": 1.7,
-      "h": 3.7,
-      "species": "trachycarpus",
-      "note": "Çin yelpaze palmiyesi (Trachycarpus fortunei): lifli koyu gövde, uzun saplı yelpaze yapraklar, alt yapraklar sarkık. Batı yaya kapısının (Cavit Orhan Tütengil) doğusunda, A–B blok arası, çitin arkasında. SV 1Jme_46_4_40 (kerteriz 58.8°) × jeMF_127_5_40 (133.5°) üçgenleme, yz6q_92_-5_40 (97.2°) teyit (±0.5 m); tepe sokak kotundan ≈3.9 m, taç Ø≈3 m. 1480041344 güney alınlığı notundaki palmiye budur. | 2026-09: 1Jme_56_6_40 (14.8 m) yaprak tepesi +5.3° → ≈3.7 m, yelpazeler 52.4–65.4° → yayılım ≈3.4 m (r 1.7)."
-    },
-    {
-      "kind": "tree",
-      "x": -57.4,
-      "z": -62.7,
-      "r": 1.4,
-      "h": 7.4,
-      "species": "cedrus",
-      "note": "Genç Himalaya sediri (ince, koyu, sarkık katlı, eğik tepe): A–B blok arası çimde, palmiyenin ~11 m doğusunda. SV jeMF_127_5_40 (kerteriz 116.4°) × yz6q_92_-5_40 (94°) üçgenleme ±1 m; boy iki kareden 7.2 / 7.6 m."
-    },
-    {
-      "kind": "tree",
-      "x": -34.9,
-      "z": -139.6,
-      "r": 3,
-      "h": 7.5,
-      "species": "deciduous",
-      "note": "Büyük yapraklı ağaç (kuzey kapının batısı); SV 4RYuHvKz+Oh3BP1hy."
-    },
-    {
-      "kind": "tree",
-      "x": -9.4,
-      "z": -67,
-      "r": 3.8,
-      "h": 10,
-      "species": "cedar",
-      "note": "Büyük sedir (mavi-yeşil katlı dallar); SV h329R2Bx+Y11WZ üçgenleme, h≈10 m."
-    },
-    {
-      "kind": "tree",
-      "x": -7.2,
-      "z": -71.9,
-      "r": 1.05,
-      "h": 4.2,
-      "species": "deciduous",
-      "note": "Yaprak döken ağaç, küçük yuvarlak açık yeşil taç (tür belirsiz → genel anahtar). SV kgyFwJxh+Y11WZ. 2026-09-30 (eleştirmen V1 #15): konum Y11WZ_300_0 (kerteriz 279.9°) × kgyF_240_0 üçgenlemesiyle (−7.0,−71.7) doğrulandı; boy/taç Y11WZ_273_-5_40'ta binaya karşı serbest görünüşten (10.7 m, tepe +9.4° → h≈4.2; taç ≈2.0–2.1 m → r 1.05). Eski h 8 / r 2.5 görülmedi. kgyF_240'taki koyu sivri taç bu nokta DEĞİL: kerteriz 225.8°, tepe +20.3° → 18.4 m'deki büyük koyu ağacın (−9.4,−67) tepesi."
-    },
-    {
-      "kind": "tree",
-      "x": -29.8,
-      "z": -41.2,
-      "r": 2.2,
-      "h": 4.5,
-      "species": "fruit",
-      "note": "Yenidünya (Eriobotrya, iri deri yapraklı) — SV BfxM4qYI."
-    },
-    {
-      "kind": "tree",
-      "x": -60.8,
-      "z": -142.8,
-      "r": 3.1,
-      "h": 5.8,
-      "species": "deciduous",
-      "note": "KB kuzey çim: sık, açık yeşil yapraklı tek geniş taç (eskiden 4 küçük meyve ağacı; eleştirmen V5). SV 8QlT_180_0: taç 180–225° boyunca kesintisiz, en yüksek lob 214.5° / +18.5° → x≈−60.4, tepe ≈5.8 m (95'in K2–K3 hizası); hava fotoğrafında x −66…−55 koyu taç şeridi. Tür görülmedi (yaprak döken)."
-    },
-    {
-      "kind": "tree",
-      "x": -55.8,
-      "z": -142.9,
-      "r": 1.8,
-      "h": 4.4,
-      "species": "deciduous",
-      "note": "Aynı taç kümesinin doğu, alçak lobu: 8QlT_180_0 185.4° / +13.1° → tepe ≈4.4 m. Ayrı gövde görülmedi (çit arkası); tür görülmedi."
-    },
-    {
-      "kind": "tree",
-      "x": -44.9,
-      "z": -141,
-      "r": 1.6,
-      "h": 4,
-      "species": "fruit"
-    },
-    {
-      "kind": "tree",
-      "x": -43.2,
-      "z": -142.5,
-      "r": 2.2,
-      "h": 5,
-      "species": "fruit",
-      "note": "Kuzey koru (meyve ağaçları, sık taç)."
-    },
-    {
-      "kind": "tree",
-      "x": -40,
-      "z": -141,
-      "r": 2,
-      "h": 5,
-      "species": "fruit"
-    },
-    {
-      "kind": "tree",
-      "x": -40.5,
-      "z": -136.8,
-      "r": 1.8,
-      "h": 4.5,
-      "species": "fruit"
-    },
-    {
-      "kind": "tree",
-      "x": -26.6,
-      "z": -139.8,
-      "r": 1.5,
-      "h": 4,
-      "species": "deciduous",
-      "note": "Kuzey şeritte koyu taçlı küçük ağaç."
-    },
-    {
-      "kind": "shrub",
-      "x": -17.4,
-      "z": -143.2,
-      "r": 0.8,
-      "h": 1.8,
-      "species": "deciduous"
-    },
-    {
-      "kind": "shrub",
-      "x": -14,
-      "z": -142.9,
-      "r": 0.8,
-      "h": 1.8,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -37.4,
-      "z": -123.5,
-      "r": 1.2,
-      "h": 3.5,
-      "species": "deciduous",
-      "note": "Orta çimde küçük süs ağacı."
-    },
-    {
-      "kind": "tree",
-      "x": -38.6,
-      "z": -122.4,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -38.5,
-      "z": -119.4,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "shrub",
-      "x": -43.1,
-      "z": -117.3,
-      "r": 1.2,
-      "h": 2,
-      "species": "deciduous",
-      "note": "B blok doğu cephesi dibinde iri çalı."
-    },
-    {
-      "kind": "tree",
-      "x": -38.6,
-      "z": -114.9,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -35,
-      "z": -111.7,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -35.3,
-      "z": -107.2,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -37.6,
-      "z": -105.8,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "shrub",
-      "x": -43,
-      "z": -106.9,
-      "r": 1,
-      "h": 2,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -41.2,
-      "z": -100.5,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -39.8,
-      "z": -100.3,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "tree",
-      "x": -40.2,
-      "z": -98.4,
-      "r": 1,
-      "h": 3,
-      "species": "deciduous"
-    },
-    {
-      "kind": "shrub",
-      "x": -41.1,
-      "z": -94.6,
-      "r": 0.8,
-      "h": 2.2,
-      "species": "deciduous",
-      "note": "Havuz kuzey çiti içinde küçük ağaç/çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -39.3,
-      "z": -94.6,
-      "r": 0.7,
-      "h": 2,
-      "species": "deciduous"
-    },
-    {
-      "kind": "shrub",
-      "x": -36.1,
-      "z": -95,
-      "r": 0.8,
-      "h": 2,
-      "species": "deciduous"
-    },
-    {
-      "kind": "bench",
-      "x": -38.4,
-      "z": -102.3,
-      "r": 0.5,
-      "h": 0.8,
-      "rot": 60,
-      "note": "Çimde beyaz nesne (bank/masa? belirsiz)."
-    },
-    {
-      "kind": "tree",
-      "x": -3.4,
-      "z": -72.6,
-      "r": 1.2,
-      "h": 6,
-      "species": "deciduous",
-      "note": "Doğu çit hattında yaprak döken ağaç: ince gövdeli, dik, seyrek açık yeşil taç (tür belirsiz → genel anahtar). SV Y11WZ. 2026-09-30 (eleştirmen V1 #15): Y11WZ_300_0'da (7.2 m) tepe +26° → h≈6.0 (değişmedi), taç ≈2.3 m → r 1.2 (eski 1.8); kgyF_240_0'daki geniş açık yeşil taç bu ağaç (kerteriz kesişimi ±1.5 m). kgyF karesinde arkasında görünen koyu sivri taç (−9.4,−67) noktasındaki büyük ağaç."
-    },
-    {
-      "kind": "tree",
-      "x": -11.8,
-      "z": -72,
-      "r": 0.7,
-      "h": 6,
-      "species": "cypress",
-      "note": "İnce servi (taç izi K-G uzamış)."
-    },
-    {
-      "kind": "shrub",
-      "x": -9.8,
-      "z": -72.2,
-      "r": 0.8,
-      "h": 1.5,
-      "species": "deciduous"
-    },
-    {
-      "kind": "shrub",
-      "x": -9.6,
-      "z": -69.2,
-      "r": 0.8,
-      "h": 1.5,
-      "species": "deciduous"
-    },
-    {
-      "kind": "shrub",
-      "x": -4.3,
-      "z": -115.5,
-      "r": 1.3,
-      "h": 2.5,
-      "species": "deciduous",
-      "note": "Doğu çit dibinde koyu yeşil iri çalı/küçük ağaç."
-    },
-    {
-      "kind": "shrub",
-      "x": -31.5,
-      "z": -43.3,
-      "r": 1.2,
-      "h": 2.5,
-      "species": "deciduous",
-      "note": "Yenidünya yanında çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -69.7,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -66,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -63.3,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -60.8,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -58.9,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -56.6,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -54.5,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -52.6,
-      "z": -67,
-      "r": 0.6,
-      "h": 1.5,
-      "species": "thuja",
-      "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
-    },
-    {
-      "kind": "shrub",
-      "x": -70,
-      "z": -41.2,
-      "r": 0.7,
-      "h": 1.5,
-      "species": "deciduous",
-      "note": "A1 blok güney cephesi önünde çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -58,
-      "z": -41.2,
-      "r": 0.9,
-      "h": 1.5,
-      "species": "deciduous",
-      "note": "A1 blok güney cephesi önünde çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -53.1,
-      "z": -41.2,
-      "r": 0.8,
-      "h": 1.5,
-      "species": "deciduous",
-      "note": "A1 blok güney cephesi önünde çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -51.3,
-      "z": -41.2,
-      "r": 0.7,
-      "h": 1.5,
-      "species": "deciduous",
-      "note": "A1 blok güney cephesi önünde çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -19,
-      "z": -40,
-      "r": 0.6,
-      "h": 3.5,
-      "species": "deciduous",
-      "note": "İnce gövdeli genç ağaç (uzun ince gölge)."
-    },
-    {
-      "kind": "lamp",
-      "x": -29,
-      "z": -141,
-      "h": 3.2,
-      "note": "Çift beyaz küreli bahçe lambası, kuzey kapı yolunun doğusu (SV 4RYuHvKz)."
-    },
-    {
-      "kind": "lamp",
-      "x": -7.6,
-      "z": -41.3,
-      "h": 3,
-      "note": "Beyaz küre görülüyor (bahçe lambası?), A2 blok güneydoğu köşesi."
-    },
-    {
-      "kind": "bench",
-      "x": -7.8,
-      "z": -48.9,
-      "r": 0.5,
-      "h": 0.8,
-      "rot": 90,
-      "note": "Koyu küçük nesne (bank/çöp kovası? belirsiz)."
-    },
-    {
-      "kind": "slide",
-      "x": -119.8,
-      "z": -154.3,
-      "r": 1.2,
-      "h": 2.2,
-      "rot": 90,
-      "note": "Mavi plastik kaydırak (SV __byIuk-)."
-    },
-    {
-      "kind": "umbrella",
-      "x": -120,
-      "z": -151,
-      "r": 1.3,
-      "h": 2.6,
-      "note": "Beyaz şemsiye (SV __byIuk- 60/91 yönü), oyun alanı güney ucu."
-    },
-    {
-      "kind": "tree",
-      "x": -121.6,
-      "z": -164.1,
-      "r": 3,
-      "h": 8,
-      "species": "deciduous",
-      "note": "Açık yeşil geniş taçlı ağaç (bina güneybatısı)."
-    },
-    {
-      "kind": "shrub",
-      "x": -111.5,
-      "z": -165.2,
-      "r": 0.6,
-      "h": 1.2,
-      "species": "deciduous",
-      "note": "Çiçeklikte çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -106.2,
-      "z": -165,
-      "r": 0.6,
-      "h": 1.2,
-      "species": "deciduous",
-      "note": "Çiçeklikte çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -103.7,
-      "z": -164.9,
-      "r": 0.6,
-      "h": 1.2,
-      "species": "deciduous",
-      "note": "Çiçeklikte çalı."
-    },
-    {
-      "kind": "shrub",
-      "x": -100.2,
-      "z": -164.6,
-      "r": 0.6,
-      "h": 1.2,
-      "species": "deciduous",
-      "note": "Çiçeklikte çalı."
-    },
-    {
-      "kind": "car",
-      "x": -116.2,
-      "z": -136.7,
-      "rot": 0,
-      "note": "Salus: siyah"
-    },
-    {
-      "kind": "car",
-      "x": -109,
-      "z": -137,
-      "rot": 0,
-      "note": "Salus: koyu, beyaz tavan"
-    },
-    {
-      "kind": "car",
-      "x": -104.5,
-      "z": -136.7,
-      "rot": 0,
-      "note": "Salus: koyu"
-    },
-    {
-      "kind": "car",
-      "x": -101.4,
-      "z": -136.1,
-      "rot": 0,
-      "note": "Salus: koyu"
-    },
-    {
-      "kind": "car",
-      "x": -85.8,
-      "z": -136.3,
-      "rot": 0,
-      "note": "Salus: beyaz"
-    },
-    {
-      "kind": "car",
-      "x": -118.7,
-      "z": -146.3,
-      "rot": 0,
-      "note": "Salus: siyah"
-    },
-    {
-      "kind": "car",
-      "x": -95.6,
-      "z": -157.8,
-      "rot": 90,
-      "note": "Salus: beyaz"
-    },
-    {
-      "kind": "car",
-      "x": -96,
-      "z": -149.7,
-      "rot": 90,
-      "note": "Salus: siyah"
-    },
-    {
-      "kind": "car",
-      "x": -96.4,
-      "z": -147.3,
-      "rot": 90,
-      "note": "Salus: koyu"
-    },
-    {
-      "kind": "playset",
-      "x": -17.8,
-      "z": -72,
-      "rot": -90,
-      "note": "ref-10.jpg"
-    },
-    {
-      "kind": "lamp2",
-      "x": -33.6,
-      "z": -96
-    },
-    {
-      "kind": "lamp2",
-      "x": -33.6,
-      "z": -110
-    },
-    {
-      "kind": "lamp2",
-      "x": -30,
-      "z": -121
-    },
-    {
-      "kind": "lamp2",
-      "x": -30,
-      "z": -136
-    },
-    {
-      "kind": "lamp2",
-      "x": -44.5,
-      "z": -112
-    },
-    {
-      "kind": "lamp2",
-      "x": -20,
-      "z": -99.5
-    },
-    {
-      "kind": "lamp2",
-      "x": -8.5,
-      "z": -104
-    },
-    {
-      "kind": "lamp2",
-      "x": -8.5,
-      "z": -86
-    },
-    {
-      "kind": "lamp2",
-      "x": -8.5,
-      "z": -60
-    },
-    {
-      "kind": "lamp2",
-      "x": -51,
-      "z": -78
-    },
-    {
-      "kind": "lamp2",
-      "x": -51,
-      "z": -55
-    },
-    {
-      "kind": "lamp2",
-      "x": -33.8,
-      "z": -66.5
-    },
-    {
-      "kind": "lamp2",
-      "x": -25,
-      "z": -78
-    },
-    {
-      "kind": "lamp2",
-      "x": -42,
-      "z": -123.5
-    },
-    {
-      "kind": "lamp2",
-      "x": -47,
-      "z": -104
-    },
-    {
-      "kind": "bin-stand",
-      "x": -31.3,
-      "z": -92.5,
-      "rot": 0
-    },
-    {
-      "kind": "bin-stand",
-      "x": -31.6,
-      "z": -63,
-      "rot": 0
-    },
-    {
-      "kind": "bin-stand",
-      "x": -34,
-      "z": -123,
-      "rot": 0
-    },
-    {
-      "kind": "bin-stand",
-      "x": -21,
-      "z": -77.2,
-      "rot": 0
-    },
-    {
-      "kind": "bin-stand",
-      "x": -8.2,
-      "z": -110,
-      "rot": 0
-    },
-    {
-      "kind": "cone",
-      "x": -49,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -48,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -47,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -46,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -45,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -44,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -43,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -42,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -41,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -40,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -39,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -38,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -37,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -36,
-      "z": -94.2,
-      "r": 0.45,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -93,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -92,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -91,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -90,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -89,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -88,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -87,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -86,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -85,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -84,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -83,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -82,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -81,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -80,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -79,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -78,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -77,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -76,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -75,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -74,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -73,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -72,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -71,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -70,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -69,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -68,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -67,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -66,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "cone",
-      "x": -50.5,
-      "z": -65,
-      "r": 0.45,
-      "h": 2.1
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -138
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -135
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -132
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -129
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -126
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -123
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -120
-    },
-    {
-      "kind": "rose",
-      "x": -33.4,
-      "z": -117
-    },
-    {
-      "kind": "rose",
-      "x": -28,
-      "z": -101.5
-    },
-    {
-      "kind": "rose",
-      "x": -25,
-      "z": -101.5
-    },
-    {
-      "kind": "rose",
-      "x": -22,
-      "z": -101.5
-    },
-    {
-      "kind": "rose",
-      "x": -19,
-      "z": -101.5
-    },
-    {
-      "kind": "rose",
-      "x": -16,
-      "z": -101.5
-    },
-    {
-      "kind": "rose",
-      "x": -45.5,
-      "z": -114
-    },
-    {
-      "kind": "rose",
-      "x": -46,
-      "z": -117
-    },
-    {
-      "kind": "rose",
-      "x": -45.8,
-      "z": -120
-    },
-    {
-      "kind": "rose",
-      "x": -36,
-      "z": -114.5
-    },
-    {
-      "kind": "rose",
-      "x": -39,
-      "z": -114.5
-    },
-    {
-      "kind": "cone",
-      "x": -36.5,
-      "z": -118,
-      "r": 0.55,
-      "h": 2.6
-    },
-    {
-      "kind": "cone",
-      "x": -34.5,
-      "z": -129,
-      "r": 0.55,
-      "h": 2.3
-    },
-    {
-      "kind": "cone",
-      "x": -26.5,
-      "z": -67.5,
-      "r": 0.55,
-      "h": 2.2
-    },
-    {
-      "kind": "cone",
-      "x": -11.5,
-      "z": -66.5,
-      "r": 0.55,
-      "h": 2.4
-    },
-    {
-      "kind": "cone",
-      "x": -47,
-      "z": -108.5,
-      "r": 0.55,
-      "h": 2
-    },
-    {
-      "kind": "cone",
-      "x": -10,
-      "z": -92,
-      "r": 0.55,
-      "h": 2.5
-    },
-    {
-      "kind": "cone",
-      "x": -10,
-      "z": -80,
-      "r": 0.55,
-      "h": 2.2
-    },
-    {
-      "kind": "cone",
-      "x": -26,
-      "z": -102.5,
-      "r": 0.55,
-      "h": 1.8
-    },
-    {
-      "kind": "tree",
-      "x": -69.5,
-      "z": -92.3,
-      "r": 2,
-      "h": 8.5,
-      "species": "cedrus",
-      "id": "cedar-west-95-44",
-      "note": "Himalaya sediri (koyu, katlı sarkık dallar, eğik tepe sürgünü): batı çitinin (Cavit Orhan) ~3 m içinde, 95 ile 44 arası. SV oQX1_120_0 (kerteriz 100.2°) × jeMF_60_0 (31.3°) üçgenleme ±1 m; boy oQX1_120_0'dan (11 m, tepe +29°) ≈8.5 m, taç çit hizasında ≈4.4 m (oQX1). Taç tabanı çit arkasında: görülmedi. | 2026-09-30 kontrol: oQX1_120_0'da (11 m) çit hizasında taç kenarları −29.6° / −9.2° → ≈3.96 m → r 2.0 (eski 2.2); tepe +29.4° → h 8.5 doğrulandı."
-    },
-    {
-      "kind": "car",
-      "x": 0.7,
-      "z": -47.4,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): koyu (siyah/antrasit) sedan; SV U-Oz8_240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 0.93,
-      "z": -52.3,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): beyaz SUV; SV U-Oz8_300_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 1.14,
-      "z": -57,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): gri hatchback; SV U-Oz8_300_0 + 0_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 1.69,
-      "z": -68.9,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): beyaz; SV U-Oz8_0_0 + kgyF_240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 2.19,
-      "z": -79.6,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): beyaz hafif ticari (Doblo tipi); SV kgyF_240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 2.39,
-      "z": -84,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): siyah sedan (BMW tipi); SV kgyF_300_0 + 0_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 2.65,
-      "z": -89.7,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): siyah hafif ticari/minivan; SV kgyF_300_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 3.67,
-      "z": -111.7,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): gri sedan; SV czGR_180_0 + 240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "car",
-      "x": 3.93,
-      "z": -117.3,
-      "rot": 0,
-      "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): mavi hatchback; SV czGR_180_0 + 240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
-    },
-    {
-      "kind": "shrub",
-      "id": "east-hedge-red-shrub",
-      "x": 0.5,
-      "z": -120,
-      "r": 0.45,
-      "h": 2.3,
-      "species": "glossy",
-      "color": "#8e5e42",
-      "note": "2026-09 (eleştirmen V2): doğu çiti leylandi çitinin içinde kızıl-bronz yapraklı çalı (alev ağacı / Photinia görünüşü — yeni sürgün rengi; tür kesin değil), tepesi çit tepesi hizasında ≈2.3 m. SV czGR_240_0 (güneşli, 6.2 m): kerteriz × çit hattı → z −119.7…−120.4, genişlik ≈0.6 m; çitin 0.9 m içinde. Renk güneşli yaprak ≈#8e5e42 / #7f5b3c. color: çalı yaprak rengi (site-plan shrub çizimi şu an rengi kullanmıyor → kod)."
-    }
-  ],
-  "notes": [
-    "Koordinatlar yerel metre (x doğu, z güney, −z kuzey), 0.1 m. Ana kaynak Google z21 hava fotoğrafı (≈0.057 m/px, neredeyse dik); Street View yalnızca çit üstünden görülen ağaç/yapı konumlarını üçgenlemek ve malzemeyi doğrulamak için kullanıldı.",
-    "Hizalama kontrolü: bina tabanlarının (footprints.json) G ve D cephe alt kenarları fotoğrafla örtüşüyor; havuz kulvar çizgileri ve C/A2 blok batı kenarları aynı ~3° dönüklüğü veriyor → Mertkent havuzu, saha ve otopark ızgarası kuzeye göre 3° saat yönünde döndürüldü (yerel doğu = (0.9986, 0.0523)). Salus ızgarası 2.2°.",
-    "Yüksek nesnelerin tepesi fotoğrafta KKB’ye kayıyor (h başına ≈0.19 m B, 0.33 m K); ağaç/yapı konumları TABAN konumudur. Gölgeler BKB yönünde, boy ≈0.47·h (güneş GD’dan, yüksek) — yükseklik tahmini buradan.",
-    "Binaların kuzey ve batı kenarlarındaki 4–7 m’lik şeritler çatı eğikliği/gölge altında: C blok önü kaldırım, A–B blok arası batı kapısı yolu, saha güney kenarı, oyun alanı güney kenarı VARSAYIMDIR (not alanında belirtildi).",
-    "Havuz: ana havuz 10×18 m, tabanda 3 koyu kulvar çizgisi (2.5 m ara), kuzey/doğu/güneyde koyu taşma ızgarası; güneybatı köşeye bitişik L biçimli çocuk havuzu (≈5.2×5.9 m, sığ, açık renk), ayırma duvarında beyaz mantar şelale; ana havuza köşegen beyaz basamak + kıvrık tırabzan. Güverte ≈16.2×29.7 m krem traverten; batı ve kuzeyde ~1 m budanmış çit, çevrede siyah demir altın mızrak uçlu korkuluk, güneyde otoparka bakan beyaz istinat duvarı; giriş kuzeybatıda.",
-    "Otoparklar: kuzey otopark (doğu araç kapısı, z −105.5…−100.5) kuzey kenarında 10 adet 2.5×5 m dik park yeri + D blok doğusunda 2–3 cep; güney otopark (güney kapı) batıda 8, doğuda 7 adet 2.45×5 m park yeri, araçlar D-B yönünde. Kaplama gri beton kilit taşı; park çizgisi boya görülmüyor (Street View: kırmızımsı taş sıraları olabilir).",
-    "Spor sahası ≈18.6×13.3 m bej zemin, ~4 m koyu yeşil tel örgü çit (Street View’de çitin üstünden görünüyor), kuzeyinde çit bitkisi. Oyun alanları: C–A2 blokları arasında mor-gri + kahverengi kauçuk (kule/kaydırak, beyaz direkler), kuzeyde saha doğusunda 5×5 m kahverengi kauçuk ped.",
-    "Ağaç türleri: Street View’den doğrulananlar — büyük sedir (doğu), yenidünya (güney), konik çam/ladinler (kuzeybatı, kuzey), kuzey şeritte meyve ağaçları; çitteki leylandi çit street-plan’da. Diğer küçük ağaç/çalılar hava fotoğrafındaki koyu taç/gölge lekelerinden (tür tahmini).",
-    "Lamba/bank: hava fotoğrafında seçilemiyor; yalnızca Street View’de görülen kuzey kapı yolundaki çift küreli bahçe lambası kesin. Yollar boyunca ~12 m arayla aynı tip lamba konması makul varsayım.",
-    "Çim–kaplama sınırlarında 10–12 cm beton bordür olduğu varsayılabilir (fotoğrafta ince açık çizgi).",
-    "Ek türler: lines.kind \"pool-lane\" (havuz kulvar çizgisi), points.kind \"ladder\" (havuz merdiveni); areas.depth (havuz derinliği, m) isteğe bağlı.",
-    "Salusvizyon: bina güneyinde havuz (≈13.8×7.95 m mavi mozaik, beyaz kenar taşı, kuzeybatıda sığ kare), pembe-bej güverte, batıda oyun alanı (ahşap oyun evi + mavi kaydırak), güney ve doğuda dik park yerli otopark, bina önü çiçeklikler; doğu girişinde kanopi + kulübe (salus.ts zaten çiziyor).",
-    "2026-09: site içi yer fotoğraflarıyla yeniden (streetview-src/private/site-*.jpg): havuz yükseltilmiş cam korkuluklu platform, iki kamelya (eski \"oyun alanı\" çatıları), oyun parkı doğuda (kauçuk karo + panel çit), halı saha çitli, çift küreli lambalar, sarı ayaklı mavi çöp kovaları, güller, konik serviler, sarı park çizgileri, yollarda beton bordür, kemik kilit taşı."
-  ]
+   ]
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -53.3,
+     -94.8
+    ],
+    [
+     -45.3,
+     -94.5
+    ],
+    [
+     -45.3,
+     -93.5
+    ],
+    [
+     -48.9,
+     -93.6
+    ],
+    [
+     -53.3,
+     -93.8
+    ]
+   ],
+   "material": "gri kilit taşı",
+   "note": "B blok güney cephesi → havuz girişi yolu."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -33,
+     -100.6
+    ],
+    [
+     -31.8,
+     -100.6
+    ],
+    [
+     -31.8,
+     -80.2
+    ],
+    [
+     -30,
+     -80.2
+    ],
+    [
+     -29.8,
+     -67
+    ],
+    [
+     -28.4,
+     -66.8
+    ],
+    [
+     -28.3,
+     -61.4
+    ],
+    [
+     -32.4,
+     -61.4
+    ],
+    [
+     -32.6,
+     -79
+    ],
+    [
+     -32.9,
+     -80.2
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu",
+   "note": "Havuz doğusu ile C blok arasındaki yol; güneyde A2 blok (1480041342) kuzeybatısında küçük meydan. Kuzey kısmı gölgede."
+  },
+  {
+   "kind": "playground",
+   "poly": [
+    [
+     -22.8,
+     -75.6
+    ],
+    [
+     -12.4,
+     -75.6
+    ],
+    [
+     -12.4,
+     -68.4
+    ],
+    [
+     -22.8,
+     -68.4
+    ]
+   ],
+   "material": "koyu mor-kahve kauçuk karo 50×50 (yer fotoğrafı ref-10.jpg)",
+   "note": "Ana oyun alanı ≈11.7×8 m; güney yarısı A2 blok çatı gölgesinde (güney kenar varsayım). Üzerinde oyun kulesi+kaydırak, beyaz direkler.",
+   "fence": true
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -29.9,
+     -77.4
+    ],
+    [
+     -12.4,
+     -77
+    ],
+    [
+     -12.4,
+     -75.1
+    ],
+    [
+     -29.9,
+     -75.4
+    ]
+   ],
+   "material": "gri kilit taşı",
+   "note": "C blok güney cephesi önünde yol (oyun alanının kuzeyi)."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -48.8,
+     -63.3
+    ],
+    [
+     -32.6,
+     -62.6
+    ],
+    [
+     -32,
+     -44.2
+    ],
+    [
+     -34.3,
+     -44.2
+    ],
+    [
+     -34.4,
+     -37.6
+    ],
+    [
+     -48.3,
+     -38
+    ],
+    [
+     -48.3,
+     -44
+    ],
+    [
+     -48.8,
+     -44.2
+    ]
+   ],
+   "material": "gri beton kilit taşı (park yerleri kırmızımsı taş sıralarıyla ayrılmış olabilir)",
+   "note": "Güney otopark: güney kapıdan (x −44…−37) girilir; batıda 8, doğuda ~7 dik park yeri (araçlar D-B yönünde)."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -51.7,
+     -60.6
+    ],
+    [
+     -49.9,
+     -60.6
+    ],
+    [
+     -49.9,
+     -42.8
+    ],
+    [
+     -50.5,
+     -42.8
+    ],
+    [
+     -50.5,
+     -47.8
+    ],
+    [
+     -51.9,
+     -47.8
+    ]
+   ],
+   "material": "gri kilit taşı",
+   "note": "A1 blok (1480041345) doğu cephesi boyunca yol."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -7.2,
+     -98.3
+    ],
+    [
+     -5.3,
+     -98.2
+    ],
+    [
+     -5.4,
+     -75.4
+    ],
+    [
+     -8.6,
+     -75.4
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu ~2 m",
+   "note": "C blok doğu cephesi boyunca."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -6.3,
+     -132.7
+    ],
+    [
+     -4.4,
+     -132.6
+    ],
+    [
+     -4.4,
+     -114.5
+    ],
+    [
+     -6.3,
+     -114.5
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu ~1.6 m",
+   "note": "D blok doğu cephesi boyunca."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -9.4,
+     -63.2
+    ],
+    [
+     -7.1,
+     -63.2
+    ],
+    [
+     -7.1,
+     -40.2
+    ],
+    [
+     -10.2,
+     -40.1
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu ~2 m",
+   "note": "A2 blok (1480041342) doğu cephesi boyunca."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -7.4,
+     -100.5
+    ],
+    [
+     -3.8,
+     -100.4
+    ],
+    [
+     -3.9,
+     -95.4
+    ],
+    [
+     -7.2,
+     -95.5
+    ]
+   ],
+   "material": "gri kilit taşı park cebi",
+   "note": "C blok kuzeydoğusunda tek araçlık cep (araç duruyor)."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -73.4,
+     -66
+    ],
+    [
+     -49.8,
+     -65
+    ],
+    [
+     -49.8,
+     -63.3
+    ],
+    [
+     -73.4,
+     -64.2
+    ]
+   ],
+   "material": "gri kilit taşı yaya yolu ~1.8 m",
+   "note": "Batı yaya kapısından (Cavit Orhan Tütengil Cd.) otoparka; A1 blok çatı eğikliği altında → konum OSM 1550820685 + görünen çim şeridinden."
+  },
+  {
+   "kind": "bed",
+   "poly": [
+    [
+     -37.4,
+     -117.2
+    ],
+    [
+     -36.7,
+     -117.9
+    ],
+    [
+     -36,
+     -117.2
+    ],
+    [
+     -36.7,
+     -116.5
+    ]
+   ],
+   "material": "yuvarlak çiçeklik, beyaz bordür (Ø1.4 m)",
+   "note": "Orta çimde beyaz halka."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -123.4,
+     -134.5
+    ],
+    [
+     -83.9,
+     -134.3
+    ],
+    [
+     -83.7,
+     -163.5
+    ],
+    [
+     -83.6,
+     -189
+    ],
+    [
+     -122.9,
+     -190.4
+    ]
+   ],
+   "material": "kırmızı-kahve / gri beton kilit taşı (SV: kırmızımsı parke, park yerleri beyaz taş sıralı)",
+   "note": "Salusvizyon: çit içi tamamı araç yolu/otopark kaplaması; bina, havuz, oyun alanı ve çiçeklikler üstte."
+  },
+  {
+   "kind": "lawn",
+   "poly": [
+    [
+     -123.2,
+     -168.2
+    ],
+    [
+     -117.2,
+     -168
+    ],
+    [
+     -117.2,
+     -163.4
+    ],
+    [
+     -123.2,
+     -163.6
+    ]
+   ],
+   "material": "çim + çalı (büyük ağacın altı)",
+   "note": "Bina güneybatı önü yeşil alan."
+  },
+  {
+   "kind": "bed",
+   "poly": [
+    [
+     -112.6,
+     -168
+    ],
+    [
+     -98.8,
+     -167.5
+    ],
+    [
+     -99,
+     -163.1
+    ],
+    [
+     -112.8,
+     -163.6
+    ]
+   ],
+   "material": "çim + budanmış çit bordürlü çiçeklik",
+   "note": "Bina güney cephesi önü, havuzun kuzeyi."
+  },
+  {
+   "kind": "bed",
+   "poly": [
+    [
+     -94.4,
+     -167.5
+    ],
+    [
+     -86.4,
+     -167.2
+    ],
+    [
+     -86.4,
+     -163
+    ],
+    [
+     -94.4,
+     -163.2
+    ]
+   ],
+   "material": "çim + çalı çiçekliği",
+   "note": "Bina girişinin doğusundaki çiçeklik."
+  },
+  {
+   "kind": "deck",
+   "poly": [
+    [
+     -116.5,
+     -162
+    ],
+    [
+     -99,
+     -161.3
+    ],
+    [
+     -99.6,
+     -147.3
+    ],
+    [
+     -114.7,
+     -147.9
+    ],
+    [
+     -114.6,
+     -150.6
+    ],
+    [
+     -117,
+     -150.7
+    ]
+   ],
+   "material": "pembe-bej doğal taş / traverten plak",
+   "note": "Salus havuz güvertesi ≈17.5×14 m; güneyde güverte yok (çit havuz kenarında), güneybatıda girinti."
+  },
+  {
+   "kind": "deck",
+   "poly": [
+    [
+     -114.2,
+     -156.6
+    ],
+    [
+     -99.5,
+     -156.1
+    ],
+    [
+     -99.8,
+     -147.2
+    ],
+    [
+     -114.5,
+     -147.8
+    ]
+   ],
+   "material": "beyaz mermer/traverten havuz kenar taşı 0.45 m",
+   "note": "Havuz kenar taşı (coping)."
+  },
+  {
+   "kind": "pool",
+   "poly": [
+    [
+     -113.7,
+     -156.2
+    ],
+    [
+     -100,
+     -155.6
+    ],
+    [
+     -100.3,
+     -147.7
+    ],
+    [
+     -114,
+     -148.2
+    ]
+   ],
+   "material": "mavi cam mozaik",
+   "depth": 1.5,
+   "note": "Salus havuzu ≈13.8×7.95 m (OSM çokgeni güverteyi de kapsıyor)."
+  },
+  {
+   "kind": "pool",
+   "poly": [
+    [
+     -113.7,
+     -156.2
+    ],
+    [
+     -110.8,
+     -156.1
+    ],
+    [
+     -110.9,
+     -153.5
+    ],
+    [
+     -113.8,
+     -153.6
+    ]
+   ],
+   "material": "açık mavi mozaik (sığ basamak/oturma rafı)",
+   "depth": 0.5,
+   "note": "Kuzeybatı köşede açık renkli kare (2.9×2.6 m): sığ bölüm veya geniş giriş basamağı; içinde iki koyu nokta."
+  },
+  {
+   "kind": "playground",
+   "poly": [
+    [
+     -121.7,
+     -162.3
+    ],
+    [
+     -117.2,
+     -162.1
+    ],
+    [
+     -117.7,
+     -150.1
+    ],
+    [
+     -122.2,
+     -150.3
+    ]
+   ],
+   "material": "koyu gri kauçuk/sentetik zemin (belirsiz)",
+   "note": "Oyun alanı (SV __byIuk-: mavi kaydırak + ahşap üçgen çatılı ev); üstü kısmen gölgelikli olabilir."
+  },
+  {
+   "kind": "paving",
+   "poly": [
+    [
+     -74.2,
+     -138.2
+    ],
+    [
+     -74.6,
+     -149.4
+    ],
+    [
+     -63.2,
+     -149.2
+    ],
+    [
+     -63.6,
+     -145.9
+    ],
+    [
+     -69.8,
+     -140.5
+    ]
+   ],
+   "material": "gri kilit taşı 10x20",
+   "level": 0.15,
+   "note": "KB köşe meydanı (Street View: döşeli köşe, kırmızı bant + sarı kılavuz) — eleştirmen düzeltmesi"
+  },
+  {
+   "kind": "paving",
+   "id": "uptown-lot",
+   "poly": [
+    [
+     193.8,
+     -166.8
+    ],
+    [
+     198.8,
+     -166.8
+    ],
+    [
+     198.8,
+     -197.2
+    ],
+    [
+     221,
+     -197.2
+    ],
+    [
+     221,
+     -201.9
+    ],
+    [
+     195.2,
+     -201.9
+    ]
+   ],
+   "material": "gri beton kilit taşı 10×20 (otopark girişi yolu + arka otopark), sarı boya park çizgileri",
+   "note": "2026-09 (eleştirmen da2-04/08/09/10): UPTOWN (1540901794) batısındaki giriş yolu ve kuzeyindeki arka otopark: gri kilit taşı (oyunda çim/kum çiziliyordu). SV SyTa_60_0 (giriş: kaldırımla aynı gri kilit taşı, bariyer), glMQ_180_0 / 0tTf_180_0 (arka otopark: gri kilit taşı, çite dik sarı park çizgileri ≈2.5 m arayla — çizgi konumları ÖLÇÜLMEDİ, parking-bay çizilmedi). Doğu kenarı x 198.8 = binanın batısındaki tek katlı mavi-gri ek yapının batı yüzü (hava fotoğrafı koyu çatı şeridi x ≈198.8–203.5; ek yapı taban izi yok → taban izi ajanına bildirildi). Güney ucu Doğan Avcıoğlu kaldırımı arkası (z −166.8)."
+  }
+ ],
+ "lines": [
+  {
+   "kind": "railing",
+   "pts": [
+    [
+     -63.1,
+     -138.8
+    ],
+    [
+     -44.5,
+     -137.8
+    ],
+    [
+     -45.2,
+     -125
+    ],
+    [
+     -63.8,
+     -126
+    ],
+    [
+     -63.1,
+     -138.8
+    ]
+   ],
+   "h": 4,
+   "w": 0.05,
+   "note": "Saha tel çiti (koyu yeşil panel/tel örgü) ~4 m; kapı yeri bilinmiyor."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -63.3,
+     -139.4
+    ],
+    [
+     -44.3,
+     -138.4
+    ]
+   ],
+   "h": 1.5,
+   "w": 1,
+   "note": "Saha kuzey çiti önünde çit bitkisi (zeytin yeşili bant)."
+  },
+  {
+   "kind": "pool-lane",
+   "pts": [
+    [
+     -42.2,
+     -85.1
+    ],
+    [
+     -43,
+     -70.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.25,
+   "note": "Havuz tabanı koyu mavi kulvar çizgisi (T uçlu)."
+  },
+  {
+   "kind": "pool-lane",
+   "pts": [
+    [
+     -39.7,
+     -85
+    ],
+    [
+     -40.5,
+     -70.3
+    ]
+   ],
+   "h": 0,
+   "w": 0.25,
+   "note": "Havuz tabanı koyu mavi kulvar çizgisi (T uçlu)."
+  },
+  {
+   "kind": "pool-lane",
+   "pts": [
+    [
+     -37.2,
+     -84.9
+    ],
+    [
+     -38,
+     -70.2
+    ]
+   ],
+   "h": 0,
+   "w": 0.25,
+   "note": "Havuz tabanı koyu mavi kulvar çizgisi (T uçlu)."
+  },
+  {
+   "kind": "railing",
+   "pts": [
+    [
+     -45.2,
+     -73.5
+    ],
+    [
+     -44.3,
+     -72.7
+    ],
+    [
+     -43.8,
+     -71.7
+    ]
+   ],
+   "h": 0.9,
+   "w": 0.05,
+   "note": "Havuz merdiveni paslanmaz tırabzan (kıvrık)."
+  },
+  {
+   "kind": "low-wall",
+   "pts": [
+    [
+     -45.6,
+     -69.4
+    ],
+    [
+     -42.2,
+     -69.2
+    ]
+   ],
+   "h": 0,
+   "w": 0.3,
+   "note": "Ana havuz–çocuk havuzu ayırma duvarı (su seviyesinde)."
+  },
+  {
+   "kind": "low-wall",
+   "pts": [
+    [
+     -45.4,
+     -72.1
+    ],
+    [
+     -45.6,
+     -69.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.3,
+   "note": "Ana havuz–çocuk havuzu ayırma duvarı (su seviyesinde)."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -49.3,
+     -93.4
+    ],
+    [
+     -49.8,
+     -63.9
+    ]
+   ],
+   "h": 1,
+   "w": 0.9,
+   "note": "Havuz batı çiti (bitki), güverte ile A blok arası."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -45.3,
+     -94.3
+    ],
+    [
+     -32.9,
+     -93.6
+    ]
+   ],
+   "h": 1.1,
+   "w": 1,
+   "note": "Havuz kuzey çiti; batı ucunda (x≈−45.5) giriş boşluğu."
+  },
+  {
+   "kind": "railing",
+   "pts": [
+    [
+     -48.9,
+     -93.7
+    ],
+    [
+     -49.8,
+     -64
+    ],
+    [
+     -33.6,
+     -63.1
+    ],
+    [
+     -32.1,
+     -92.8
+    ],
+    [
+     -45.3,
+     -93.5
+    ]
+   ],
+   "h": 1.2,
+   "w": 0.05,
+   "note": "Havuz çevresi siyah demir korkuluk, altın rengi mızrak uçlu (Street View güneyden). Kuzeybatıda (x −48.9…−45.3) giriş."
+  },
+  {
+   "kind": "low-wall",
+   "pts": [
+    [
+     -49.8,
+     -63.8
+    ],
+    [
+     -33.6,
+     -63
+    ]
+   ],
+   "h": 0.6,
+   "w": 0.25,
+   "note": "Güverte güney kenarı beyaz istinat duvarı (otopark tarafı)."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -29.8,
+     -79.8
+    ],
+    [
+     -29.7,
+     -67.2
+    ]
+   ],
+   "h": 1,
+   "w": 0.6,
+   "note": "Yol ile oyun alanı arasında alçak çit."
+  },
+  {
+   "kind": "path-edge",
+   "pts": [
+    [
+     -24.1,
+     -75
+    ],
+    [
+     -24.1,
+     -71
+    ]
+   ],
+   "h": 0.3,
+   "w": 0.3,
+   "note": "İki kauçuk alan arasında açık renk bordür/duvar, üzerinde beyaz nesneler."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -49.8,
+     -63.3
+    ],
+    [
+     -49.9,
+     -57
+    ]
+   ],
+   "h": 1,
+   "w": 0.7,
+   "note": "Otopark batı çiti (kuzey parça)."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -49.9,
+     -47.6
+    ],
+    [
+     -50,
+     -38.3
+    ]
+   ],
+   "h": 1,
+   "w": 0.7,
+   "note": "Otopark batı çiti (güney parça)."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -34.3,
+     -44.2
+    ],
+    [
+     -34.4,
+     -38
+    ]
+   ],
+   "h": 1,
+   "w": 0.7,
+   "note": "Otopark güneydoğu çiti."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -33.5,
+     -113
+    ],
+    [
+     -33.6,
+     -108
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -31,
+     -113
+    ],
+    [
+     -31.1,
+     -108
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -28.5,
+     -113
+    ],
+    [
+     -28.6,
+     -108
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -26,
+     -111.5
+    ],
+    [
+     -26.1,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -23.5,
+     -111.5
+    ],
+    [
+     -23.6,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -21,
+     -111.5
+    ],
+    [
+     -21.1,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -18.5,
+     -111.5
+    ],
+    [
+     -18.6,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -16,
+     -111.5
+    ],
+    [
+     -16.1,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -13.5,
+     -111.5
+    ],
+    [
+     -13.6,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -11,
+     -111.5
+    ],
+    [
+     -11.1,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -8.5,
+     -111.5
+    ],
+    [
+     -8.6,
+     -106.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -6.9,
+     -113.4
+    ],
+    [
+     -6.9,
+     -108.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "note": "D blok doğusundaki park cepleri."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -4.4,
+     -113.4
+    ],
+    [
+     -4.4,
+     -108.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "note": "D blok doğusundaki park cepleri."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -1.9,
+     -113.4
+    ],
+    [
+     -1.9,
+     -108.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "note": "D blok doğusundaki park cepleri."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -61.8
+    ],
+    [
+     -43.1,
+     -61.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -59.3
+    ],
+    [
+     -43.1,
+     -59.3
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -56.9
+    ],
+    [
+     -43.1,
+     -56.9
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -54.4
+    ],
+    [
+     -43.1,
+     -54.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -52
+    ],
+    [
+     -43.1,
+     -52
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -49.5
+    ],
+    [
+     -43.1,
+     -49.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -47.1
+    ],
+    [
+     -43.1,
+     -47.1
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -44.6
+    ],
+    [
+     -43.1,
+     -44.6
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -48.1,
+     -42.2
+    ],
+    [
+     -43.1,
+     -42.2
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -61.8
+    ],
+    [
+     -32.2,
+     -61.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -59.3
+    ],
+    [
+     -32.2,
+     -59.3
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -56.9
+    ],
+    [
+     -32.2,
+     -56.9
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -54.4
+    ],
+    [
+     -32.2,
+     -54.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -52
+    ],
+    [
+     -32.2,
+     -52
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -49.5
+    ],
+    [
+     -32.2,
+     -49.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -47.1
+    ],
+    [
+     -32.2,
+     -47.1
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -37.2,
+     -44.6
+    ],
+    [
+     -32.2,
+     -44.6
+    ]
+   ],
+   "h": 0,
+   "w": 0.1
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -112.6,
+     -168
+    ],
+    [
+     -98.8,
+     -167.5
+    ],
+    [
+     -99,
+     -163.1
+    ],
+    [
+     -112.8,
+     -163.6
+    ],
+    [
+     -112.6,
+     -168
+    ]
+   ],
+   "h": 0.7,
+   "w": 0.5,
+   "note": "Çiçeklik çevresi alçak budanmış çit."
+  },
+  {
+   "kind": "hedge",
+   "pts": [
+    [
+     -117.3,
+     -150.7
+    ],
+    [
+     -116.8,
+     -162.3
+    ],
+    [
+     -98.7,
+     -161.6
+    ],
+    [
+     -99.3,
+     -147.1
+    ],
+    [
+     -114.7,
+     -147.7
+    ],
+    [
+     -114.6,
+     -150.4
+    ]
+   ],
+   "h": 1,
+   "w": 0.5,
+   "note": "Havuz çevresi alçak çit (koyu çizgi); içinde demir parmaklık olabilir."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -122.4,
+     -134.8
+    ],
+    [
+     -122.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12,
+   "note": "Salus güney sıra park yerleri (beyaz taş çizgi)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -119.9,
+     -134.8
+    ],
+    [
+     -119.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -117.4,
+     -134.8
+    ],
+    [
+     -117.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -114.9,
+     -134.8
+    ],
+    [
+     -114.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -112.4,
+     -134.8
+    ],
+    [
+     -112.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -109.9,
+     -134.8
+    ],
+    [
+     -109.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -107.4,
+     -134.8
+    ],
+    [
+     -107.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -104.9,
+     -134.8
+    ],
+    [
+     -104.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -102.4,
+     -134.8
+    ],
+    [
+     -102.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99.9,
+     -134.8
+    ],
+    [
+     -99.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -97.4,
+     -134.8
+    ],
+    [
+     -97.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -94.9,
+     -134.8
+    ],
+    [
+     -94.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -92.4,
+     -134.8
+    ],
+    [
+     -92.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -89.9,
+     -134.8
+    ],
+    [
+     -89.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -87.4,
+     -134.8
+    ],
+    [
+     -87.4,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -84.9,
+     -134.8
+    ],
+    [
+     -84.9,
+     -139.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99,
+     -146.6
+    ],
+    [
+     -94,
+     -146.6
+    ]
+   ],
+   "h": 0,
+   "w": 0.12,
+   "note": "Salus doğu sıra (havuz çitine burunlu)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99,
+     -149
+    ],
+    [
+     -94,
+     -149
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99,
+     -151.5
+    ],
+    [
+     -94,
+     -151.5
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99,
+     -153.9
+    ],
+    [
+     -94,
+     -153.9
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99,
+     -156.4
+    ],
+    [
+     -94,
+     -156.4
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99,
+     -158.8
+    ],
+    [
+     -94,
+     -158.8
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -99,
+     -161.3
+    ],
+    [
+     -94,
+     -161.3
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -122.9,
+     -150.2
+    ],
+    [
+     -122.9,
+     -145.2
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -120.4,
+     -150.2
+    ],
+    [
+     -120.4,
+     -145.2
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -117.9,
+     -150.2
+    ],
+    [
+     -117.9,
+     -145.2
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     -115.4,
+     -150.2
+    ],
+    [
+     -115.4,
+     -145.2
+    ]
+   ],
+   "h": 0,
+   "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     128.47,
+     -169.35
+    ],
+    [
+     128.76,
+     -174.25
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     131.1,
+     -169.19
+    ],
+    [
+     131.4,
+     -174.09
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     133.75,
+     -169.04
+    ],
+    [
+     134.04,
+     -173.94
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     136.38,
+     -168.88
+    ],
+    [
+     136.68,
+     -173.78
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     139.03,
+     -168.72
+    ],
+    [
+     139.32,
+     -173.62
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     141.66,
+     -168.56
+    ],
+    [
+     141.96,
+     -173.46
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     144.31,
+     -168.4
+    ],
+    [
+     144.6,
+     -173.3
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     146.94,
+     -168.24
+    ],
+    [
+     147.24,
+     -173.14
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     149.59,
+     -168.08
+    ],
+    [
+     149.88,
+     -172.98
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     152.22,
+     -167.93
+    ],
+    [
+     152.52,
+     -172.83
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     154.87,
+     -167.77
+    ],
+    [
+     155.16,
+     -172.67
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  }
+ ],
+ "structures": [
+  {
+   "kind": "stair",
+   "poly": [
+    [
+     -45.3,
+     -73.9
+    ],
+    [
+     -45.4,
+     -72.4
+    ],
+    [
+     -44.2,
+     -71
+    ],
+    [
+     -43.4,
+     -71.8
+    ]
+   ],
+   "h": 0,
+   "note": "Ana havuza giriş basamakları (beyaz, köşegen); yanında koyu kıvrık tırabzan gölgesi."
+  },
+  {
+   "kind": "bin-shelter",
+   "poly": [
+    [
+     -68.5,
+     -140.8
+    ],
+    [
+     -63.7,
+     -144.5
+    ],
+    [
+     -62.8,
+     -143.4
+    ],
+    [
+     -67.6,
+     -139.7
+    ]
+   ],
+   "h": 2.3,
+   "note": "Kuzeybatı köşede çite paralel dar yapı (6.1×1.4 m): kırmızı eğimli çatı + beyaz GD yüzü; önünde beyaz nesneler → çöp konteyner barınağı olabilir (belirsiz). SV'de çitin üstünden görünmüyor → h ≤ 2.4 m."
+  },
+  {
+   "kind": "shed",
+   "poly": [
+    [
+     -120.8,
+     -161.5
+    ],
+    [
+     -117.4,
+     -161.4
+    ],
+    [
+     -117.6,
+     -158.1
+    ],
+    [
+     -121,
+     -158.2
+    ]
+   ],
+   "h": 3,
+   "note": "Ahşap oyun evi/depo: kahverengi ahşap, beşik çatı (SV'de çitin üstünden görünüyor), 3.4×3.3 m."
+  },
+  {
+   "kind": "pergola",
+   "poly": [
+    [
+     -85.4,
+     -161.8
+    ],
+    [
+     -83,
+     -161.8
+    ],
+    [
+     -83,
+     -151.4
+    ],
+    [
+     -85.4,
+     -151.4
+    ]
+   ],
+   "h": 3.3,
+   "note": "Giriş kanopisi (koyu gri çatı ~10.4×2.4 m hava fotoğrafında, eğiklik düzeltildi) — salus.ts buildSalusGate ile zaten modelleniyor (orada 11.4×3.6 m, sokağa 1.2 m taşma); kapı merkezi z≈−157.6."
+  },
+  {
+   "kind": "guard-house",
+   "poly": [
+    [
+     -86.4,
+     -154.3
+    ],
+    [
+     -83.8,
+     -154.3
+    ],
+    [
+     -83.8,
+     -151.7
+    ],
+    [
+     -86.4,
+     -151.7
+    ]
+   ],
+   "h": 2.8,
+   "note": "Tuğla kaplı güvenlik kulübesi (kanopi altında, kapının güneyi) — salus.ts ile zaten modelleniyor."
+  },
+  {
+   "kind": "kamelya",
+   "poly": [
+    [
+     -29.4,
+     -75.0
+    ],
+    [
+     -24.2,
+     -75.0
+    ],
+    [
+     -24.2,
+     -71.2
+    ],
+    [
+     -29.4,
+     -71.2
+    ]
+   ],
+   "rot": 90,
+   "h": 2.8,
+   "note": "Kamelya 1 (ref-08.jpg): somon dikmeler, oluklu ahşap saçak, ferforje korkuluk; arkasında oyun parkı"
+  },
+  {
+   "kind": "kamelya",
+   "poly": [
+    [
+     -41.2,
+     -131.2
+    ],
+    [
+     -35.6,
+     -131.2
+    ],
+    [
+     -35.6,
+     -125.4
+    ],
+    [
+     -41.2,
+     -125.4
+    ]
+   ],
+   "h": 2.8,
+   "note": "Kamelya 2 (ref-07.jpg), halı saha yanında"
+  }
+ ],
+ "points": [
+  {
+   "kind": "car",
+   "x": -29.8,
+   "z": -109.5,
+   "rot": 0,
+   "note": "koyu renk"
+  },
+  {
+   "kind": "car",
+   "x": -22.2,
+   "z": -109,
+   "rot": 0,
+   "note": "koyu kahve/siyah"
+  },
+  {
+   "kind": "car",
+   "x": -14.7,
+   "z": -108.7,
+   "rot": 0,
+   "note": "koyu"
+  },
+  {
+   "kind": "car",
+   "x": -4.3,
+   "z": -108,
+   "rot": 0,
+   "note": "siyah"
+  },
+  {
+   "kind": "car",
+   "x": -4.6,
+   "z": -97.8,
+   "rot": 0,
+   "note": "koyu (C blok kuzeydoğu cebi)"
+  },
+  {
+   "kind": "car",
+   "x": -44.8,
+   "z": -60.6,
+   "rot": 90,
+   "note": "bordo"
+  },
+  {
+   "kind": "car",
+   "x": -45,
+   "z": -58.2,
+   "rot": 90,
+   "note": "beyaz"
+  },
+  {
+   "kind": "car",
+   "x": -45.3,
+   "z": -52.9,
+   "rot": 90,
+   "note": "koyu gri"
+  },
+  {
+   "kind": "car",
+   "x": -45.1,
+   "z": -43,
+   "rot": 90,
+   "note": "beyaz"
+  },
+  {
+   "kind": "car",
+   "x": -34.4,
+   "z": -47.6,
+   "rot": 270,
+   "note": "gölgede, koyu (belirsiz)"
+  },
+  {
+   "kind": "tree",
+   "x": -65.9,
+   "z": -140.4,
+   "r": 1.6,
+   "h": 7,
+   "species": "cedrus",
+   "note": "Konik iğne yapraklı (ladin/çam); SV zvwRPFEW+otngugWf+CrRBte3A üçgenleme. TÜR (docs/TREES.md): Himalaya sediri — otng_181_-5_40 ve otng_174_21_40 karelerinde (kerteriz 188°) yatay sarkık katlar, yumuşak sarkık uçlar, eğik tepe sürgünü."
+  },
+  {
+   "kind": "tree",
+   "x": -66.8,
+   "z": -128.7,
+   "r": 1.6,
+   "h": 7,
+   "species": "cedrus",
+   "note": "Konik iğne yapraklı; 3 panodan üçgenleme (hata <0.1 m). Hava fotoğrafında B blok çatısı altında. TÜR (docs/TREES.md): Himalaya sediri — ybQK_60_0 (kerteriz 65°) ve CrRB_120_0 (142°) karelerinde katlı sarkık dallar, eğik tepe. | 2026-09-30 (eleştirmen V7 #16): s3hr_120_0'da (12.7 m, kerteriz 111°) çit üstü taç genişliği ≈3.1 m → r 1.6 (eski 1.8); tepe +19.8° → h≈6.9 (7, değişmedi); taç koyu, yoğun."
+  },
+  {
+   "kind": "tree",
+   "x": -37.9,
+   "z": -135.8,
+   "r": 1.2,
+   "h": 8,
+   "species": "cedrus",
+   "note": "İnce uzun çam/ladin; SV Oh3BP1hy+8QlTFCwl üçgenleme. TÜR (docs/TREES.md): genç Himalaya sediri — Oh3BP_153_11_40'ta (kerteriz 157°) ince koyu sivri tepe; yer fotoğrafı ref-07'nda eğik tepe sürgünlü seyrek sedir."
+  },
+  {
+   "kind": "tree",
+   "x": -68.1,
+   "z": -62.6,
+   "r": 1.7,
+   "h": 3.7,
+   "species": "trachycarpus",
+   "note": "Çin yelpaze palmiyesi (Trachycarpus fortunei): lifli koyu gövde, uzun saplı yelpaze yapraklar, alt yapraklar sarkık. Batı yaya kapısının (Cavit Orhan Tütengil) doğusunda, A–B blok arası, çitin arkasında. SV 1Jme_46_4_40 (kerteriz 58.8°) × jeMF_127_5_40 (133.5°) üçgenleme, yz6q_92_-5_40 (97.2°) teyit (±0.5 m); tepe sokak kotundan ≈3.9 m, taç Ø≈3 m. 1480041344 güney alınlığı notundaki palmiye budur. | 2026-09: 1Jme_56_6_40 (14.8 m) yaprak tepesi +5.3° → ≈3.7 m, yelpazeler 52.4–65.4° → yayılım ≈3.4 m (r 1.7)."
+  },
+  {
+   "kind": "tree",
+   "x": -57.4,
+   "z": -62.7,
+   "r": 1.4,
+   "h": 7.4,
+   "species": "cedrus",
+   "note": "Genç Himalaya sediri (ince, koyu, sarkık katlı, eğik tepe): A–B blok arası çimde, palmiyenin ~11 m doğusunda. SV jeMF_127_5_40 (kerteriz 116.4°) × yz6q_92_-5_40 (94°) üçgenleme ±1 m; boy iki kareden 7.2 / 7.6 m."
+  },
+  {
+   "kind": "tree",
+   "x": -34.9,
+   "z": -139.6,
+   "r": 3,
+   "h": 7.5,
+   "species": "deciduous",
+   "note": "Büyük yapraklı ağaç (kuzey kapının batısı); SV 4RYuHvKz+Oh3BP1hy."
+  },
+  {
+   "kind": "tree",
+   "x": -9.4,
+   "z": -67,
+   "r": 3.8,
+   "h": 10,
+   "species": "cedar",
+   "note": "Büyük sedir (mavi-yeşil katlı dallar); SV h329R2Bx+Y11WZ üçgenleme, h≈10 m."
+  },
+  {
+   "kind": "tree",
+   "x": -7.2,
+   "z": -71.9,
+   "r": 1.05,
+   "h": 4.2,
+   "species": "deciduous",
+   "note": "Yaprak döken ağaç, küçük yuvarlak açık yeşil taç (tür belirsiz → genel anahtar). SV kgyFwJxh+Y11WZ. 2026-09-30 (eleştirmen V1 #15): konum Y11WZ_300_0 (kerteriz 279.9°) × kgyF_240_0 üçgenlemesiyle (−7.0,−71.7) doğrulandı; boy/taç Y11WZ_273_-5_40'ta binaya karşı serbest görünüşten (10.7 m, tepe +9.4° → h≈4.2; taç ≈2.0–2.1 m → r 1.05). Eski h 8 / r 2.5 görülmedi. kgyF_240'taki koyu sivri taç bu nokta DEĞİL: kerteriz 225.8°, tepe +20.3° → 18.4 m'deki büyük koyu ağacın (−9.4,−67) tepesi."
+  },
+  {
+   "kind": "tree",
+   "x": -29.8,
+   "z": -41.2,
+   "r": 2.2,
+   "h": 4.5,
+   "species": "fruit",
+   "note": "Yenidünya (Eriobotrya, iri deri yapraklı) — SV BfxM4qYI."
+  },
+  {
+   "kind": "tree",
+   "x": -60.8,
+   "z": -142.8,
+   "r": 3.1,
+   "h": 5.8,
+   "species": "deciduous",
+   "note": "KB kuzey çim: sık, açık yeşil yapraklı tek geniş taç (eskiden 4 küçük meyve ağacı; eleştirmen V5). SV 8QlT_180_0: taç 180–225° boyunca kesintisiz, en yüksek lob 214.5° / +18.5° → x≈−60.4, tepe ≈5.8 m (95'in K2–K3 hizası); hava fotoğrafında x −66…−55 koyu taç şeridi. Tür görülmedi (yaprak döken)."
+  },
+  {
+   "kind": "tree",
+   "x": -55.8,
+   "z": -142.9,
+   "r": 1.8,
+   "h": 4.4,
+   "species": "deciduous",
+   "note": "Aynı taç kümesinin doğu, alçak lobu: 8QlT_180_0 185.4° / +13.1° → tepe ≈4.4 m. Ayrı gövde görülmedi (çit arkası); tür görülmedi."
+  },
+  {
+   "kind": "tree",
+   "x": -44.9,
+   "z": -141,
+   "r": 1.6,
+   "h": 4,
+   "species": "fruit"
+  },
+  {
+   "kind": "tree",
+   "x": -43.2,
+   "z": -142.5,
+   "r": 2.2,
+   "h": 5,
+   "species": "fruit",
+   "note": "Kuzey koru (meyve ağaçları, sık taç)."
+  },
+  {
+   "kind": "tree",
+   "x": -40,
+   "z": -141,
+   "r": 2,
+   "h": 5,
+   "species": "fruit"
+  },
+  {
+   "kind": "tree",
+   "x": -40.5,
+   "z": -136.8,
+   "r": 1.8,
+   "h": 4.5,
+   "species": "fruit"
+  },
+  {
+   "kind": "tree",
+   "x": -26.6,
+   "z": -139.8,
+   "r": 1.5,
+   "h": 4,
+   "species": "deciduous",
+   "note": "Kuzey şeritte koyu taçlı küçük ağaç."
+  },
+  {
+   "kind": "shrub",
+   "x": -17.4,
+   "z": -143.2,
+   "r": 0.8,
+   "h": 1.8,
+   "species": "deciduous"
+  },
+  {
+   "kind": "shrub",
+   "x": -14,
+   "z": -142.9,
+   "r": 0.8,
+   "h": 1.8,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -37.4,
+   "z": -123.5,
+   "r": 1.2,
+   "h": 3.5,
+   "species": "deciduous",
+   "note": "Orta çimde küçük süs ağacı."
+  },
+  {
+   "kind": "tree",
+   "x": -38.6,
+   "z": -122.4,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -38.5,
+   "z": -119.4,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "shrub",
+   "x": -43.1,
+   "z": -117.3,
+   "r": 1.2,
+   "h": 2,
+   "species": "deciduous",
+   "note": "B blok doğu cephesi dibinde iri çalı."
+  },
+  {
+   "kind": "tree",
+   "x": -38.6,
+   "z": -114.9,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -35,
+   "z": -111.7,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -35.3,
+   "z": -107.2,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -37.6,
+   "z": -105.8,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "shrub",
+   "x": -43,
+   "z": -106.9,
+   "r": 1,
+   "h": 2,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -41.2,
+   "z": -100.5,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -39.8,
+   "z": -100.3,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "tree",
+   "x": -40.2,
+   "z": -98.4,
+   "r": 1,
+   "h": 3,
+   "species": "deciduous"
+  },
+  {
+   "kind": "shrub",
+   "x": -41.1,
+   "z": -94.6,
+   "r": 0.8,
+   "h": 2.2,
+   "species": "deciduous",
+   "note": "Havuz kuzey çiti içinde küçük ağaç/çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -39.3,
+   "z": -94.6,
+   "r": 0.7,
+   "h": 2,
+   "species": "deciduous"
+  },
+  {
+   "kind": "shrub",
+   "x": -36.1,
+   "z": -95,
+   "r": 0.8,
+   "h": 2,
+   "species": "deciduous"
+  },
+  {
+   "kind": "bench",
+   "x": -38.4,
+   "z": -102.3,
+   "r": 0.5,
+   "h": 0.8,
+   "rot": 60,
+   "note": "Çimde beyaz nesne (bank/masa? belirsiz)."
+  },
+  {
+   "kind": "tree",
+   "x": -3.4,
+   "z": -72.6,
+   "r": 1.2,
+   "h": 6,
+   "species": "deciduous",
+   "note": "Doğu çit hattında yaprak döken ağaç: ince gövdeli, dik, seyrek açık yeşil taç (tür belirsiz → genel anahtar). SV Y11WZ. 2026-09-30 (eleştirmen V1 #15): Y11WZ_300_0'da (7.2 m) tepe +26° → h≈6.0 (değişmedi), taç ≈2.3 m → r 1.2 (eski 1.8); kgyF_240_0'daki geniş açık yeşil taç bu ağaç (kerteriz kesişimi ±1.5 m). kgyF karesinde arkasında görünen koyu sivri taç (−9.4,−67) noktasındaki büyük ağaç."
+  },
+  {
+   "kind": "tree",
+   "x": -11.8,
+   "z": -72,
+   "r": 0.7,
+   "h": 6,
+   "species": "cypress",
+   "note": "İnce servi (taç izi K-G uzamış)."
+  },
+  {
+   "kind": "shrub",
+   "x": -9.8,
+   "z": -72.2,
+   "r": 0.8,
+   "h": 1.5,
+   "species": "deciduous"
+  },
+  {
+   "kind": "shrub",
+   "x": -9.6,
+   "z": -69.2,
+   "r": 0.8,
+   "h": 1.5,
+   "species": "deciduous"
+  },
+  {
+   "kind": "shrub",
+   "x": -4.3,
+   "z": -115.5,
+   "r": 1.3,
+   "h": 2.5,
+   "species": "deciduous",
+   "note": "Doğu çit dibinde koyu yeşil iri çalı/küçük ağaç."
+  },
+  {
+   "kind": "shrub",
+   "x": -31.5,
+   "z": -43.3,
+   "r": 1.2,
+   "h": 2.5,
+   "species": "deciduous",
+   "note": "Yenidünya yanında çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -69.7,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -66,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -63.3,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -60.8,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -58.9,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -56.6,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -54.5,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -52.6,
+   "z": -67,
+   "r": 0.6,
+   "h": 1.5,
+   "species": "thuja",
+   "note": "A–B blok arası çim şeridinde sıra çalı (koyu, konik)."
+  },
+  {
+   "kind": "shrub",
+   "x": -70,
+   "z": -41.2,
+   "r": 0.7,
+   "h": 1.5,
+   "species": "deciduous",
+   "note": "A1 blok güney cephesi önünde çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -58,
+   "z": -41.2,
+   "r": 0.9,
+   "h": 1.5,
+   "species": "deciduous",
+   "note": "A1 blok güney cephesi önünde çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -53.1,
+   "z": -41.2,
+   "r": 0.8,
+   "h": 1.5,
+   "species": "deciduous",
+   "note": "A1 blok güney cephesi önünde çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -51.3,
+   "z": -41.2,
+   "r": 0.7,
+   "h": 1.5,
+   "species": "deciduous",
+   "note": "A1 blok güney cephesi önünde çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -19,
+   "z": -40,
+   "r": 0.6,
+   "h": 3.5,
+   "species": "deciduous",
+   "note": "İnce gövdeli genç ağaç (uzun ince gölge)."
+  },
+  {
+   "kind": "lamp",
+   "x": -29,
+   "z": -141,
+   "h": 3.2,
+   "note": "Çift beyaz küreli bahçe lambası, kuzey kapı yolunun doğusu (SV 4RYuHvKz)."
+  },
+  {
+   "kind": "lamp",
+   "x": -7.6,
+   "z": -41.3,
+   "h": 3,
+   "note": "Beyaz küre görülüyor (bahçe lambası?), A2 blok güneydoğu köşesi."
+  },
+  {
+   "kind": "bench",
+   "x": -7.8,
+   "z": -48.9,
+   "r": 0.5,
+   "h": 0.8,
+   "rot": 90,
+   "note": "Koyu küçük nesne (bank/çöp kovası? belirsiz)."
+  },
+  {
+   "kind": "slide",
+   "x": -119.8,
+   "z": -154.3,
+   "r": 1.2,
+   "h": 2.2,
+   "rot": 90,
+   "note": "Mavi plastik kaydırak (SV __byIuk-)."
+  },
+  {
+   "kind": "umbrella",
+   "x": -120,
+   "z": -151,
+   "r": 1.3,
+   "h": 2.6,
+   "note": "Beyaz şemsiye (SV __byIuk- 60/91 yönü), oyun alanı güney ucu."
+  },
+  {
+   "kind": "tree",
+   "x": -121.6,
+   "z": -164.1,
+   "r": 3,
+   "h": 8,
+   "species": "deciduous",
+   "note": "Açık yeşil geniş taçlı ağaç (bina güneybatısı)."
+  },
+  {
+   "kind": "shrub",
+   "x": -111.5,
+   "z": -165.2,
+   "r": 0.6,
+   "h": 1.2,
+   "species": "deciduous",
+   "note": "Çiçeklikte çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -106.2,
+   "z": -165,
+   "r": 0.6,
+   "h": 1.2,
+   "species": "deciduous",
+   "note": "Çiçeklikte çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -103.7,
+   "z": -164.9,
+   "r": 0.6,
+   "h": 1.2,
+   "species": "deciduous",
+   "note": "Çiçeklikte çalı."
+  },
+  {
+   "kind": "shrub",
+   "x": -100.2,
+   "z": -164.6,
+   "r": 0.6,
+   "h": 1.2,
+   "species": "deciduous",
+   "note": "Çiçeklikte çalı."
+  },
+  {
+   "kind": "car",
+   "x": -116.2,
+   "z": -136.7,
+   "rot": 0,
+   "note": "Salus: siyah"
+  },
+  {
+   "kind": "car",
+   "x": -109,
+   "z": -137,
+   "rot": 0,
+   "note": "Salus: koyu, beyaz tavan"
+  },
+  {
+   "kind": "car",
+   "x": -104.5,
+   "z": -136.7,
+   "rot": 0,
+   "note": "Salus: koyu"
+  },
+  {
+   "kind": "car",
+   "x": -101.4,
+   "z": -136.1,
+   "rot": 0,
+   "note": "Salus: koyu"
+  },
+  {
+   "kind": "car",
+   "x": -85.8,
+   "z": -136.3,
+   "rot": 0,
+   "note": "Salus: beyaz"
+  },
+  {
+   "kind": "car",
+   "x": -118.7,
+   "z": -146.3,
+   "rot": 0,
+   "note": "Salus: siyah"
+  },
+  {
+   "kind": "car",
+   "x": -95.6,
+   "z": -157.8,
+   "rot": 90,
+   "note": "Salus: beyaz"
+  },
+  {
+   "kind": "car",
+   "x": -96,
+   "z": -149.7,
+   "rot": 90,
+   "note": "Salus: siyah"
+  },
+  {
+   "kind": "car",
+   "x": -96.4,
+   "z": -147.3,
+   "rot": 90,
+   "note": "Salus: koyu"
+  },
+  {
+   "kind": "playset",
+   "x": -17.8,
+   "z": -72.0,
+   "rot": -90,
+   "note": "ref-10.jpg"
+  },
+  {
+   "kind": "lamp2",
+   "x": -33.6,
+   "z": -96
+  },
+  {
+   "kind": "lamp2",
+   "x": -33.6,
+   "z": -110
+  },
+  {
+   "kind": "lamp2",
+   "x": -30,
+   "z": -121
+  },
+  {
+   "kind": "lamp2",
+   "x": -30,
+   "z": -136
+  },
+  {
+   "kind": "lamp2",
+   "x": -44.5,
+   "z": -112
+  },
+  {
+   "kind": "lamp2",
+   "x": -20,
+   "z": -99.5
+  },
+  {
+   "kind": "lamp2",
+   "x": -8.5,
+   "z": -104
+  },
+  {
+   "kind": "lamp2",
+   "x": -8.5,
+   "z": -86
+  },
+  {
+   "kind": "lamp2",
+   "x": -8.5,
+   "z": -60
+  },
+  {
+   "kind": "lamp2",
+   "x": -51,
+   "z": -78
+  },
+  {
+   "kind": "lamp2",
+   "x": -51,
+   "z": -55
+  },
+  {
+   "kind": "lamp2",
+   "x": -33.8,
+   "z": -66.5
+  },
+  {
+   "kind": "lamp2",
+   "x": -25,
+   "z": -78
+  },
+  {
+   "kind": "lamp2",
+   "x": -42,
+   "z": -123.5
+  },
+  {
+   "kind": "lamp2",
+   "x": -47,
+   "z": -104
+  },
+  {
+   "kind": "bin-stand",
+   "x": -31.3,
+   "z": -92.5,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -31.6,
+   "z": -63,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -34,
+   "z": -123,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -21,
+   "z": -77.2,
+   "rot": 0
+  },
+  {
+   "kind": "bin-stand",
+   "x": -8.2,
+   "z": -110,
+   "rot": 0
+  },
+  {
+   "kind": "cone",
+   "x": -49.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -48.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -47.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -46.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -45.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -44.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -43.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -42.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -41.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -40.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -39.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -38.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -37.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -36.0,
+   "z": -94.2,
+   "r": 0.45,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -93,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -92.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -91.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -90.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -89.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -88.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -87.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -86.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -85.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -84.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -83.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -82.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -81.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -80.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -79.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -78.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -77.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -76.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -75.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -74.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -73.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -72.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -71.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -70.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -69.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -68.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -67.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -66.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "cone",
+   "x": -50.5,
+   "z": -65.0,
+   "r": 0.45,
+   "h": 2.1
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -138
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -135
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -132
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -129
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -126
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -123
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -120
+  },
+  {
+   "kind": "rose",
+   "x": -33.4,
+   "z": -117
+  },
+  {
+   "kind": "rose",
+   "x": -28,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -25,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -22,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -19,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -16,
+   "z": -101.5
+  },
+  {
+   "kind": "rose",
+   "x": -45.5,
+   "z": -114
+  },
+  {
+   "kind": "rose",
+   "x": -46,
+   "z": -117
+  },
+  {
+   "kind": "rose",
+   "x": -45.8,
+   "z": -120
+  },
+  {
+   "kind": "rose",
+   "x": -36,
+   "z": -114.5
+  },
+  {
+   "kind": "rose",
+   "x": -39,
+   "z": -114.5
+  },
+  {
+   "kind": "cone",
+   "x": -36.5,
+   "z": -118,
+   "r": 0.55,
+   "h": 2.6
+  },
+  {
+   "kind": "cone",
+   "x": -34.5,
+   "z": -129,
+   "r": 0.55,
+   "h": 2.3
+  },
+  {
+   "kind": "cone",
+   "x": -26.5,
+   "z": -67.5,
+   "r": 0.55,
+   "h": 2.2
+  },
+  {
+   "kind": "cone",
+   "x": -11.5,
+   "z": -66.5,
+   "r": 0.55,
+   "h": 2.4
+  },
+  {
+   "kind": "cone",
+   "x": -47,
+   "z": -108.5,
+   "r": 0.55,
+   "h": 2.0
+  },
+  {
+   "kind": "cone",
+   "x": -10,
+   "z": -92,
+   "r": 0.55,
+   "h": 2.5
+  },
+  {
+   "kind": "cone",
+   "x": -10,
+   "z": -80,
+   "r": 0.55,
+   "h": 2.2
+  },
+  {
+   "kind": "cone",
+   "x": -26,
+   "z": -102.5,
+   "r": 0.55,
+   "h": 1.8
+  },
+  {
+   "kind": "tree",
+   "x": -69.5,
+   "z": -92.3,
+   "r": 2.0,
+   "h": 8.5,
+   "species": "cedrus",
+   "id": "cedar-west-95-44",
+   "note": "Himalaya sediri (koyu, katlı sarkık dallar, eğik tepe sürgünü): batı çitinin (Cavit Orhan) ~3 m içinde, 95 ile 44 arası. SV oQX1_120_0 (kerteriz 100.2°) × jeMF_60_0 (31.3°) üçgenleme ±1 m; boy oQX1_120_0'dan (11 m, tepe +29°) ≈8.5 m, taç çit hizasında ≈4.4 m (oQX1). Taç tabanı çit arkasında: görülmedi. | 2026-09-30 kontrol: oQX1_120_0'da (11 m) çit hizasında taç kenarları −29.6° / −9.2° → ≈3.96 m → r 2.0 (eski 2.2); tepe +29.4° → h 8.5 doğrulandı."
+  },
+  {
+   "kind": "car",
+   "x": 0.7,
+   "z": -47.4,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): koyu (siyah/antrasit) sedan; SV U-Oz8_240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 0.93,
+   "z": -52.3,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): beyaz SUV; SV U-Oz8_300_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 1.14,
+   "z": -57.0,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): gri hatchback; SV U-Oz8_300_0 + 0_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 1.69,
+   "z": -68.9,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): beyaz; SV U-Oz8_0_0 + kgyF_240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 2.19,
+   "z": -79.6,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): beyaz hafif ticari (Doblo tipi); SV kgyF_240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 2.39,
+   "z": -84.0,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): siyah sedan (BMW tipi); SV kgyF_300_0 + 0_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 2.65,
+   "z": -89.7,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): siyah hafif ticari/minivan; SV kgyF_300_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 3.67,
+   "z": -111.7,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): gri sedan; SV czGR_180_0 + 240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "car",
+   "x": 3.93,
+   "z": -117.3,
+   "rot": 0,
+   "note": "502 Sk batı bisiklet şeridi üstünde bordüre paralel park etmiş araç (eleştirmen V0–V2 #18): mavi hatchback; SV czGR_180_0 + 240_0 (2025-09, pano GPS'i +3.9 m doğuya düzeltilerek; z ±1.5 m, x = bordür + 1.15). Burnu güneye (rot 0). Renk/model bilgisi yalnız not — araç modeli tohumla seçilir."
+  },
+  {
+   "kind": "shrub",
+   "id": "east-hedge-red-shrub",
+   "x": 0.5,
+   "z": -120.0,
+   "r": 0.45,
+   "h": 2.3,
+   "species": "glossy",
+   "color": "#8e5e42",
+   "note": "2026-09 (eleştirmen V2): doğu çiti leylandi çitinin içinde kızıl-bronz yapraklı çalı (alev ağacı / Photinia görünüşü — yeni sürgün rengi; tür kesin değil), tepesi çit tepesi hizasında ≈2.3 m. SV czGR_240_0 (güneşli, 6.2 m): kerteriz × çit hattı → z −119.7…−120.4, genişlik ≈0.6 m; çitin 0.9 m içinde. Renk güneşli yaprak ≈#8e5e42 / #7f5b3c. color: çalı yaprak rengi (site-plan shrub çizimi şu an rengi kullanmıyor → kod)."
+  }
+ ],
+ "notes": [
+  "Koordinatlar yerel metre (x doğu, z güney, −z kuzey), 0.1 m. Ana kaynak Google z21 hava fotoğrafı (≈0.057 m/px, neredeyse dik); Street View yalnızca çit üstünden görülen ağaç/yapı konumlarını üçgenlemek ve malzemeyi doğrulamak için kullanıldı.",
+  "Hizalama kontrolü: bina tabanlarının (footprints.json) G ve D cephe alt kenarları fotoğrafla örtüşüyor; havuz kulvar çizgileri ve C/A2 blok batı kenarları aynı ~3° dönüklüğü veriyor → Mertkent havuzu, saha ve otopark ızgarası kuzeye göre 3° saat yönünde döndürüldü (yerel doğu = (0.9986, 0.0523)). Salus ızgarası 2.2°.",
+  "Yüksek nesnelerin tepesi fotoğrafta KKB’ye kayıyor (h başına ≈0.19 m B, 0.33 m K); ağaç/yapı konumları TABAN konumudur. Gölgeler BKB yönünde, boy ≈0.47·h (güneş GD’dan, yüksek) — yükseklik tahmini buradan.",
+  "Binaların kuzey ve batı kenarlarındaki 4–7 m’lik şeritler çatı eğikliği/gölge altında: C blok önü kaldırım, A–B blok arası batı kapısı yolu, saha güney kenarı, oyun alanı güney kenarı VARSAYIMDIR (not alanında belirtildi).",
+  "Havuz: ana havuz 10×18 m, tabanda 3 koyu kulvar çizgisi (2.5 m ara), kuzey/doğu/güneyde koyu taşma ızgarası; güneybatı köşeye bitişik L biçimli çocuk havuzu (≈5.2×5.9 m, sığ, açık renk), ayırma duvarında beyaz mantar şelale; ana havuza köşegen beyaz basamak + kıvrık tırabzan. Güverte ≈16.2×29.7 m krem traverten; batı ve kuzeyde ~1 m budanmış çit, çevrede siyah demir altın mızrak uçlu korkuluk, güneyde otoparka bakan beyaz istinat duvarı; giriş kuzeybatıda.",
+  "Otoparklar: kuzey otopark (doğu araç kapısı, z −105.5…−100.5) kuzey kenarında 10 adet 2.5×5 m dik park yeri + D blok doğusunda 2–3 cep; güney otopark (güney kapı) batıda 8, doğuda 7 adet 2.45×5 m park yeri, araçlar D-B yönünde. Kaplama gri beton kilit taşı; park çizgisi boya görülmüyor (Street View: kırmızımsı taş sıraları olabilir).",
+  "Spor sahası ≈18.6×13.3 m bej zemin, ~4 m koyu yeşil tel örgü çit (Street View’de çitin üstünden görünüyor), kuzeyinde çit bitkisi. Oyun alanları: C–A2 blokları arasında mor-gri + kahverengi kauçuk (kule/kaydırak, beyaz direkler), kuzeyde saha doğusunda 5×5 m kahverengi kauçuk ped.",
+  "Ağaç türleri: Street View’den doğrulananlar — büyük sedir (doğu), yenidünya (güney), konik çam/ladinler (kuzeybatı, kuzey), kuzey şeritte meyve ağaçları; çitteki leylandi çit street-plan’da. Diğer küçük ağaç/çalılar hava fotoğrafındaki koyu taç/gölge lekelerinden (tür tahmini).",
+  "Lamba/bank: hava fotoğrafında seçilemiyor; yalnızca Street View’de görülen kuzey kapı yolundaki çift küreli bahçe lambası kesin. Yollar boyunca ~12 m arayla aynı tip lamba konması makul varsayım.",
+  "Çim–kaplama sınırlarında 10–12 cm beton bordür olduğu varsayılabilir (fotoğrafta ince açık çizgi).",
+  "Ek türler: lines.kind \"pool-lane\" (havuz kulvar çizgisi), points.kind \"ladder\" (havuz merdiveni); areas.depth (havuz derinliği, m) isteğe bağlı.",
+  "Salusvizyon: bina güneyinde havuz (≈13.8×7.95 m mavi mozaik, beyaz kenar taşı, kuzeybatıda sığ kare), pembe-bej güverte, batıda oyun alanı (ahşap oyun evi + mavi kaydırak), güney ve doğuda dik park yerli otopark, bina önü çiçeklikler; doğu girişinde kanopi + kulübe (salus.ts zaten çiziyor).",
+  "2026-09: site içi yer fotoğraflarıyla yeniden (streetview-src/private/site-*.jpg): havuz yükseltilmiş cam korkuluklu platform, iki kamelya (eski \"oyun alanı\" çatıları), oyun parkı doğuda (kauçuk karo + panel çit), halı saha çitli, çift küreli lambalar, sarı ayaklı mavi çöp kovaları, güller, konik serviler, sarı park çizgileri, yollarda beton bordür, kemik kilit taşı."
+ ]
 }

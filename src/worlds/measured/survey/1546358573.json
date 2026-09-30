@@ -135,7 +135,7 @@
      ]
     ]
    },
-   "note": "Uğur Mumcu Bulvarı cephesi, D→B: (u<49 görülmedi/bulanık: SALOONBURGER vb. pending) · pembe yuvarlak rozetli restoran · BOĞA BURGER · ARMILLA HAYVAN HASTANESİ · mavi boyalı boş dükkân (KİRALIK) · HASKÖYÜM PİDECİSİ · yataş bedding · POPEYES · VESTEL EKSPRES · … DENT PALACE diş kliniği (neoklasik beyaz cephe) · DÜRÜMLE · McDonald’s/McCafé kuzey yüzü. Kaynak: 12 yakın şerit panosu (akza…XfCj, 2025-09, 12–14.5 m) + 2LX4 22° karolar; her öğe kendi en dik panosundan okundu ve o panonun konumuyla gerçek koordinata çevrildi (trueCoords). Dükkân döşemeleri kaldırımdan 0–1.2 m yüksek (Vestel, Yataş, Popeyes önünde 3 basamak, mavi dükkân önünde 3 basamak) — kaldırım doğuya alçalıyor, çatı düz. Renkler bulutlu havada (kuzey cephe gölgede) örneklendi. Dükkân önü teraslar / şemsiyeler / bayraklar street-plan raporunda.",
+   "note": "Uğur Mumcu Bulvarı cephesi, D→B: (u<49 görülmedi/bulanık: SALOONBURGER vb. pending) · pembe yuvarlak rozetli restoran · BOĞA BURGER · ARMILLA HAYVAN HASTANESİ · mavi boyalı boş dükkân (KİRALIK) · HASKÖYÜM PİDECİSİ · yataş bedding · POPEYES · VESTEL EKSPRES · … DENT PALACE diş kliniği (neoklasik beyaz cephe) · DÜRÜMLE · McDonald’s/McCafé kuzey yüzü. Kaynak: 12 yakın şerit panosu (akza…XfCj, 2025-09, 12–14.5 m) + 2LX4 22° karolar; her öğe kendi en dik panosundan okundu ve o panonun konumuyla gerçek koordinata çevrildi (trueCoords). Dükkân döşemeleri kaldırımdan 0–1.2 m yüksek (Vestel, Yataş, Popeyes önünde 3 basamak, mavi dükkân önünde 3 basamak) — kaldırım doğuya alçalıyor, çatı düz. Renkler bulutlu havada (kuzey cephe gölgede) örneklendi. Dükkân önü teraslar / şemsiyeler / bayraklar street-plan raporunda. | D4-A düzeltme (2026-09-30): mavi dükkân (u 73.88–91.78) ve üstündeki K1 cam bandı f22 ortofotoda yeniden ölçüldü (eski öğeler 1–2.5 m batıya kaymıştı; mavi pano lila kavisli duvarın üstüne taşıyordu): 4 yuvarlak köşeli açıklık (O1 74.32–77.5, O2 77.92–82.38 kapılı, O3 83.57–88.9 kapılı, O4 89.34–91.4 kör niş) — köşe yuvarlaklığı üretici özelliği bekliyor (pending roundedOpenings). Renk #5e95b0 fotoğraf örneğiyle aynı (#5f98b3, bulutlu K yüz, gölge) — oyundaki doygun/koyu görünüm veri değil ışık.",
    "items": [
     {
      "t": "sign",
@@ -907,28 +907,28 @@
     },
     {
      "t": "panel",
-     "u0": 71.33,
-     "u1": 91.43,
-     "y0": 2.1,
-     "y1": 6.2,
+     "u0": 73.88,
+     "u1": 91.78,
+     "y0": 2.39,
+     "y1": 6.16,
      "color": "#5e95b0"
     },
     {
      "t": "win",
-     "u0": 71.87,
-     "u1": 73.67,
-     "y0": 2.74,
-     "y1": 5.15,
+     "u0": 74.32,
+     "u1": 77.5,
+     "y0": 2.97,
+     "y1": 5.19,
      "k": 0,
      "s": [
       0,
       0
      ],
      "stair": true,
-     "split": 1,
+     "split": 2,
      "frameC": "#1e2224",
      "hbars": [
-      4.33
+      4.45
      ],
      "curt": {
       "K0": "vitrin"
@@ -936,31 +936,10 @@
     },
     {
      "t": "win",
-     "u0": 73.67,
-     "u1": 75.42,
-     "y0": 2.74,
-     "y1": 5.15,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#1e2224",
-     "hbars": [
-      4.33
-     ],
-     "curt": {
-      "K0": "vitrin"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 75.94,
-     "u1": 77.03,
-     "y0": 2.22,
-     "y1": 4.33,
+     "u0": 77.92,
+     "u1": 78.9,
+     "y0": 2.44,
+     "y1": 5.19,
      "k": 0,
      "s": [
       0,
@@ -973,35 +952,20 @@
     },
     {
      "t": "win",
-     "u0": 75.94,
-     "u1": 77.03,
-     "y0": 4.33,
-     "y1": 5.15,
+     "u0": 78.9,
+     "u1": 82.38,
+     "y0": 2.97,
+     "y1": 5.19,
      "k": 0,
      "s": [
       0,
       0
      ],
      "stair": true,
-     "split": 1,
-     "frameC": "#1e2224"
-    },
-    {
-     "t": "win",
-     "u0": 77.11,
-     "u1": 79.06,
-     "y0": 2.74,
-     "y1": 5.15,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
+     "split": 2,
      "frameC": "#1e2224",
      "hbars": [
-      4.33
+      4.45
      ],
      "curt": {
       "K0": "vitrin"
@@ -1009,30 +973,9 @@
     },
     {
      "t": "win",
-     "u0": 79.06,
-     "u1": 80.94,
-     "y0": 2.74,
-     "y1": 5.15,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#1e2224",
-     "hbars": [
-      4.33
-     ],
-     "curt": {
-      "K0": "vitrin"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 82.28,
-     "u1": 87.23,
-     "y0": 2.16,
+     "u0": 83.57,
+     "u1": 88.0,
+     "y0": 2.44,
      "y1": 5.41,
      "k": 0,
      "s": [
@@ -1043,7 +986,7 @@
      "split": 3,
      "frameC": "#1e2224",
      "hbars": [
-      4.27
+      4.45
      ],
      "curt": {
       "K0": "karanlik"
@@ -1051,10 +994,10 @@
     },
     {
      "t": "win",
-     "u0": 87.23,
-     "u1": 88.27,
-     "y0": 2.19,
-     "y1": 4.27,
+     "u0": 88.0,
+     "u1": 88.9,
+     "y0": 2.44,
+     "y1": 5.41,
      "k": 0,
      "s": [
       0,
@@ -1066,35 +1009,20 @@
      "frameC": "#1e2224"
     },
     {
-     "t": "win",
-     "u0": 87.23,
-     "u1": 88.27,
-     "y0": 4.27,
-     "y1": 5.41,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#1e2224"
-    },
-    {
      "t": "recess",
-     "u0": 88.67,
-     "u1": 91.07,
-     "y0": 2.95,
-     "y1": 5.39,
+     "u0": 89.34,
+     "u1": 91.4,
+     "y0": 2.68,
+     "y1": 5.41,
      "depth": 0.12,
-     "back": "#5a8faa"
+     "back": "#5a93af"
     },
     {
      "t": "vinyl",
-     "u0": 84.53,
-     "u1": 85.15,
-     "y0": 3.63,
-     "y1": 3.85,
+     "u0": 85.63,
+     "u1": 86.15,
+     "y0": 3.76,
+     "y1": 3.94,
      "text": "KİRALIK",
      "fg": "#d9c44a",
      "bold": true,
@@ -1102,10 +1030,10 @@
     },
     {
      "t": "vinyl",
-     "u0": 84.53,
-     "u1": 85.15,
-     "y0": 3.39,
-     "y1": 3.61,
+     "u0": 85.63,
+     "u1": 86.15,
+     "y0": 3.57,
+     "y1": 3.75,
      "text": "0536 46… 39 …1",
      "bg": "#d9c44a",
      "fg": "#1c1c1c",
@@ -1122,20 +1050,20 @@
     },
     {
      "t": "win",
-     "u0": 71.79,
-     "u1": 73.67,
+     "u0": 74.21,
+     "u1": 77.65,
      "y0": 6.23,
-     "y1": 8.33,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
       0
      ],
      "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
+     "split": 3,
+     "frameC": "#2c3334",
      "hbars": [
-      7.04
+      6.9
      ],
      "curt": {
       "K0": "karanlik"
@@ -1143,20 +1071,20 @@
     },
     {
      "t": "win",
-     "u0": 73.67,
-     "u1": 75.52,
+     "u0": 77.92,
+     "u1": 82.42,
      "y0": 6.23,
-     "y1": 8.33,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
       0
      ],
      "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
+     "split": 4,
+     "frameC": "#2c3334",
      "hbars": [
-      7.04
+      6.9
      ],
      "curt": {
       "K0": "karanlik"
@@ -1164,20 +1092,20 @@
     },
     {
      "t": "win",
-     "u0": 75.89,
-     "u1": 77.11,
+     "u0": 83.13,
+     "u1": 86.46,
      "y0": 6.23,
-     "y1": 8.33,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
       0
      ],
      "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
+     "split": 3,
+     "frameC": "#2c3334",
      "hbars": [
-      7.04
+      6.9
      ],
      "curt": {
       "K0": "karanlik"
@@ -1185,146 +1113,20 @@
     },
     {
      "t": "win",
-     "u0": 77.11,
-     "u1": 79.06,
+     "u0": 86.86,
+     "u1": 91.33,
      "y0": 6.23,
-     "y1": 8.33,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
       0
      ],
      "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
+     "split": 4,
+     "frameC": "#2c3334",
      "hbars": [
-      7.04
-     ],
-     "curt": {
-      "K0": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 79.06,
-     "u1": 80.99,
-     "y0": 6.23,
-     "y1": 8.33,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
-     "hbars": [
-      7.04
-     ],
-     "curt": {
-      "K0": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 81.78,
-     "u1": 83.64,
-     "y0": 6.23,
-     "y1": 8.33,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
-     "hbars": [
-      7.04
-     ],
-     "curt": {
-      "K0": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 83.64,
-     "u1": 85.51,
-     "y0": 6.23,
-     "y1": 8.33,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
-     "hbars": [
-      7.04
-     ],
-     "curt": {
-      "K0": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 85.92,
-     "u1": 87.09,
-     "y0": 6.23,
-     "y1": 8.33,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
-     "hbars": [
-      7.04
-     ],
-     "curt": {
-      "K0": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 87.09,
-     "u1": 89.06,
-     "y0": 6.23,
-     "y1": 8.33,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
-     "hbars": [
-      7.04
-     ],
-     "curt": {
-      "K0": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 89.06,
-     "u1": 90.97,
-     "y0": 6.23,
-     "y1": 8.33,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "split": 1,
-     "frameC": "#c9cfd3",
-     "hbars": [
-      7.04
+      6.9
      ],
      "curt": {
       "K0": "karanlik"
@@ -1332,15 +1134,15 @@
     },
     {
      "t": "vinyl",
-     "u0": 78.13,
-     "u1": 78.88,
+     "u0": 80.0,
+     "u1": 80.66,
      "y0": 6.28,
      "y1": 7,
      "text": "",
      "shape": "round",
      "bg": "#9aa3a8",
      "fg": "#b03030",
-     "logo": "K1 camında yuvarlak renkli çıkartma (kırmızı-yeşil bayrak benzeri çizim) — okunamadı"
+     "logo": "K1 camında yuvarlak renkli çıkartma (kırmızı-yeşil bayrak benzeri çizim) — okunamadı (konum f22 ortofotoda yeniden okundu: K1 P2 camında, vantilatör benzeri yuvarlak nesne olabilir)"
     },
     {
      "t": "lamp",
@@ -5585,6 +5387,62 @@
    "id": "dentSign",
    "edge": 6,
    "what": "diş kliniği levhası: ana satır “… DENT PALACE”, ilk kelime + alt satır + 2 telefon okunamadı (Z8hc, 14 m, çözünürlük sınırı)"
+  },
+  {
+   "id": "roundedOpenings",
+   "edge": 6,
+   "what": "mavi dükkânın yuvarlak köşeli (stadyum benzeri) açıklıkları: win’e köşe yarıçapı (ör. `corner: r`) gerekiyor",
+   "list": [
+    {
+     "u": [
+      74.32,
+      77.5
+     ],
+     "y": [
+      2.97,
+      5.19
+     ],
+     "r": 0.45,
+     "corners": "4"
+    },
+    {
+     "u": [
+      77.92,
+      82.38
+     ],
+     "y": [
+      2.44,
+      5.19
+     ],
+     "r": 0.45,
+     "corners": "üst 2 (alt uç zemine iniyor, kapı solda)"
+    },
+    {
+     "u": [
+      83.57,
+      88.9
+     ],
+     "y": [
+      2.44,
+      5.41
+     ],
+     "r": 0.8,
+     "corners": "üst 2 (kapı sağda)"
+    },
+    {
+     "u": [
+      89.34,
+      91.4
+     ],
+     "y": [
+      2.68,
+      5.41
+     ],
+     "r": 0.9,
+     "corners": "4 (kör niş, recess)"
+    }
+   ],
+   "note": "görünen koordinat (2LX4ejfo f22 ortofoto); açıklıklar şimdilik dikdörtgen çizildi"
   }
  ]
 }

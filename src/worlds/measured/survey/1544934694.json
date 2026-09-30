@@ -25,7 +25,7 @@
    "len": 4.66,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi (pending)"
+   "note": "D4-C: görüldü (8W7W _f22) ama taban izine oturmuyor: yüzde tek pencere sütunu (görünen u 4.1–5.59, 7 kat) ve KB köşede cam balkon yığını (görünen u −1.23…1.94: K0 açık + klima, K1 cam, K2 koyu cam, K3 cam, K4 açık siyah korkuluk + klima, K5 cam, K6 cam; gri-bej döşeme alınları). Kat aralığı görünen 3.5 (gerçek 2.88) → yüz taban izi kenarının ≈4 m önünde (x≈672); taban izi düzeltilmeden çizilmedi (pending)."
   },
   {
    "edge": 1,
@@ -37,9 +37,85 @@
   {
    "edge": 2,
    "len": 6.27,
-   "seen": "none",
-   "items": [],
-   "note": "görülmedi / ölçülmedi (pending)"
+   "seen": "photo",
+   "items": [
+    {
+     "t": "win",
+     "u0": -0.44,
+     "u1": 0.78,
+     "y0": 20.9,
+     "y1": 22.2,
+     "k": 6,
+     "s": [
+      0,
+      6
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#f4f4f2",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#7d7a74"
+     },
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.22,
+     "u1": 3.4,
+     "y0": 20.9,
+     "y1": 22.2,
+     "k": 6,
+     "s": [
+      0,
+      6
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#f4f4f2",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#7d7a74"
+     },
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul-yan",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    }
+   ],
+   "note": "D4-C: batı basamak yüzü (x≈672.2), 8W7W _f22 (ağaç güney yarıyı K1–K4'te kısmen örtüyor). 7 kat × 2 pencere sütunu, söveli beyaz PVC, beyaz tül; K3 sağ pencerede desenli tül. Görünen güney köşe 5.05 (koyu gri köşe kanalı), kat aralığı 2.92 → ölçek 1.01; yüz taban izinin ≈1 m kuzeyinden başlıyor (u −1) — taban izi basamakları SV ile tam uymuyor (rapor). Güney ucun arkasında (görünen u 5.3–5.8) yarım kat kaymalı küçük merdiven pencereleri: pending.",
+   "ref": "1544934694_2_8W7W-zW-_f22.jpg",
+   "cal": {
+    "u": [
+     -0.97,
+     5.05
+    ],
+    "head": [
+     [
+      0,
+      4.69
+     ],
+     [
+      6,
+      22.2
+     ]
+    ]
+   }
   },
   {
    "edge": 3,
@@ -51,9 +127,56 @@
   {
    "edge": 4,
    "len": 3.18,
-   "seen": "none",
-   "items": [],
-   "note": "görülmedi / ölçülmedi (pending)"
+   "seen": "photo",
+   "items": [
+    {
+     "t": "win",
+     "u0": 2.83,
+     "u1": 4.17,
+     "y0": 22.38,
+     "y1": 23.67,
+     "k": 6,
+     "s": [
+      0,
+      6
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#f4f4f2",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#7d7a74"
+     },
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul-yan",
+      "K6": "tul-yan"
+     }
+    }
+   ],
+   "note": "D4-C: batı basamak yüzü (taban izinde x≈674.3), RwEp _f22. Tek pencere sütunu (7 kat, beyaz tül; K5–K6 sağda fon perde görünümü). Görünen yüz u 0.83–4.69 (3.9 m; taban izi 3.18) ve kat aralığı 3.16 (ölçek 1.10) → bu yüz taban izinin ≈1.8 m önünde, ≈edge 2 düzleminde görünüyor (rapor). Solunda (görünen u −0.6…0.83) geride dar yüz ve yarım kat kaymalı küçük merdiven pencereleri (pending).",
+   "ref": "1544934694_4_RwEpIZ9R_f22.jpg",
+   "cal": {
+    "u": [
+     0.83,
+     4.69
+    ],
+    "head": [
+     [
+      0,
+      4.71
+     ],
+     [
+      6,
+      23.67
+     ]
+    ]
+   }
   },
   {
    "edge": 5,
@@ -65,9 +188,85 @@
   {
    "edge": 6,
    "len": 5.45,
-   "seen": "none",
-   "items": [],
-   "note": "görülmedi / ölçülmedi (pending)"
+   "seen": "photo",
+   "items": [
+    {
+     "t": "win",
+     "u0": -0.1,
+     "u1": 1.0,
+     "y0": 19.96,
+     "y1": 21.07,
+     "k": 6,
+     "s": [
+      0,
+      6
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#f4f4f2",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#7d7a74"
+     },
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.33,
+     "u1": 3.44,
+     "y0": 19.96,
+     "y1": 21.07,
+     "k": 6,
+     "s": [
+      0,
+      6
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#f4f4f2",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#7d7a74"
+     },
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    }
+   ],
+   "note": "D4-C (2026-09-30): bulvara bakan batı basamak yüzü (x≈671.4), RwEp _f22 (19 m, düz bakış; AHDB 0_0 karesinde de görülüyor — önceki 'görülmedi' notu yanlıştı). 7 kat, katta 2 pencere sütunu (koyu gri-bej söveli beyaz PVC, çoğunda beyaz tül). cal.u: güney köşe görünen 5.11, kat aralığı görünen 2.77 (gerçek 2.88) → ölçek 0.96. Duvar bu yüzde gölgede açık gri görünüyor (#989893; blok paletinin beyazı güneyde aşırı pozlanmış), söve #7d7a74.",
+   "ref": "1544934694_6_RwEpIZ9R_f22.jpg",
+   "cal": {
+    "u": [
+     -0.12,
+     5.11
+    ],
+    "head": [
+     [
+      0,
+      4.49
+     ],
+     [
+      6,
+      21.07
+     ]
+    ]
+   }
   },
   {
    "edge": 7,
@@ -79,9 +278,80 @@
   {
    "edge": 8,
    "len": 2.27,
-   "seen": "none",
-   "items": [],
-   "note": "görülmedi / ölçülmedi (pending)"
+   "seen": "photo",
+   "items": [
+    {
+     "t": "bal",
+     "u0": -0.26,
+     "u1": 2.27,
+     "d": 0.3,
+     "s": [
+      0,
+      6
+     ],
+     "glazed": [
+      1,
+      2,
+      3,
+      6
+     ],
+     "tint": {
+      "K2": "blinds"
+     },
+     "curtC": {
+      "K1": "#695a43"
+     },
+     "curtF": {
+      "K1": 0.8
+     },
+     "rail": {
+      "K0": "solid",
+      "K4": "solidTube",
+      "K5": "tube",
+      "*": "solid"
+     },
+     "railC": "#2f3136",
+     "net": [
+      4
+     ],
+     "fasciaC": {
+      "*": "#918b81"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "ac",
+     "u": 0.3,
+     "s": 5,
+     "y": 17.7,
+     "onBal": true
+    },
+    {
+     "t": "ac",
+     "u": 0.2,
+     "s": 3,
+     "y": 12.5,
+     "onBal": true
+    }
+   ],
+   "note": "D4-C: GB köşe cumba (cam balkon) yığınının BATI yüzü, xp5S _f22 (22 m). Yığın bu kenarı tümüyle kaplıyor ve ≈1 m güneye taşıyor (güney yüzü kenar 9 bal). Kat kat (batıdan): K0 açık (beyaz dolu korkuluk), K1 cam (arkada kahverengi perde/iç), K2 cam + beyaz yatay stor, K3 cam (içeride klima), K4 açık, bej kuş filesi + siyah küpeşte, K5 AÇIK (klima + siyah boru korkuluk — kenar 9'da K5 camlı yazılmış, pending), K6 cam. Döşeme alınları gri-bej (#918b81). Derinlik: batı yüz duvar düzlemine yakın (ortofotoda boy/ölçek duvarla aynı) → d 0.3.",
+   "ref": "1544934694_8_xp5SrtOz_f22.jpg",
+   "cal": {
+    "u": [
+     -0.26,
+     2.27
+    ],
+    "head": [
+     [
+      0,
+      5.0
+     ],
+     [
+      6,
+      21.6
+     ]
+    ]
+   }
   },
   {
    "edge": 9,
@@ -207,7 +477,13 @@
      "fasciaC": {
       "*": "#ece9e2"
      },
-     "sides": "open"
+     "sides": "open",
+     "curtC": {
+      "K1": "#9c7a55"
+     },
+     "curtF": {
+      "K1": 0.65
+     }
     },
     {
      "t": "pipe",
@@ -216,7 +492,7 @@
      "r": 0.05
     }
    ],
-   "note": "fq8W (f22 ile okundu, GY1l ile doğrulandı). Pano konumu düzeltildi (ma_offsets.json: dz −5.6 / −6.5): gerçek kamera–cephe uzaklığı ≈12.0 (ortofoto düzlemi index konumundan 17.57) → görünen büyütme 1.46; kat aralığı görünen 4.2 → gerçek 2.88. cal.u: GD köşesi görünen 10.5 (krem duvarın doğu kenarı; ötesinde kenar 10’un balkon yığını kenardan) ve büyütmeden türetilen GB köşesi −8.82 (kamera x ofseti ≈ +6 m, yatay kayıt ±0.7 m). Doğu kısım (görünen 5.65–10.5, pencere sütunu B) batı kısımdan ≈1.0 m geride (B sütununun kat aralığı 3.88 = 1.35 büyütme; iki sütunun gerçek lento kotları aynı) → recess; görünen 5.4–5.9 koyu şerit girintinin yan yüzü. Batı balkon yığını: u0 hava fotoğrafından (x≈675.5, ±1 m), d 1.4 tahmin (yandan görülmedi); kat kat: K0 açık, beyaz dikey çubuklu (masa-sandalye), K1 cam balkon, K2 cam + zebra perde, K3 cam, K4 açık + bej kuş filesi, K5–K6 cam. K5 B penceresi parlama arkasında (sütun ritmi ve silik çerçeve görüldü)."
+   "note": "fq8W (f22 ile okundu, GY1l ile doğrulandı). Pano konumu düzeltildi (ma_offsets.json: dz −5.6 / −6.5): gerçek kamera–cephe uzaklığı ≈12.0 (ortofoto düzlemi index konumundan 17.57) → görünen büyütme 1.46; kat aralığı görünen 4.2 → gerçek 2.88. cal.u: GD köşesi görünen 10.5 (krem duvarın doğu kenarı; ötesinde kenar 10’un balkon yığını kenardan) ve büyütmeden türetilen GB köşesi −8.82 (kamera x ofseti ≈ +6 m, yatay kayıt ±0.7 m). Doğu kısım (görünen 5.65–10.5, pencere sütunu B) batı kısımdan ≈1.0 m geride (B sütununun kat aralığı 3.88 = 1.35 büyütme; iki sütunun gerçek lento kotları aynı) → recess; görünen 5.4–5.9 koyu şerit girintinin yan yüzü. Batı balkon yığını: u0 hava fotoğrafından (x≈675.5, ±1 m), d 1.4 tahmin (yandan görülmedi); kat kat: K0 açık, beyaz dikey çubuklu (masa-sandalye), K1 cam balkon, K2 cam + zebra perde, K3 cam, K4 açık + bej kuş filesi, K5–K6 cam. K5 B penceresi parlama arkasında (sütun ritmi ve silik çerçeve görüldü). | D4-C: K1 cam balkonda sol ≈2/3'te kahverengi bambu/stor perde (GY1l 0_0; batıdan xp5S'de de kahverengi) → curtC K1 #9c7a55, curtF 0.65 (şema cam balkonda stor rengi desteklemiyor: fon perde olarak)."
   },
   {
    "edge": 10,
@@ -272,7 +548,17 @@
   },
   {
    "what": "diğer kenarlar",
-   "desc": "kenar 0–8 batı kanat girinti/çıkıntıları (8W7W, RwEp, xp5S, -Bd1 kareleri; bulvar tarafı, yeşil alan arkasında), kenar 10/14 doğu (AZNL, qo16 — çok eğik), kenar 15 kuzey (8NHY, CQlr): kat aralıkları kenar 9 ile aynı çelişkiyi taşıyor; taban izi/pano konumu çözülünce ölçülmeli."
+   "desc": "kenar 10/14 doğu (AZNL, qo16 — çok eğik: K1 kahverengi stor, doğu cam cumba — ölçülmedi), kenar 15 kuzey (8NHY, CQlr). D4-C turunda batı kenarları 2, 4, 6, 8 ölçüldü; kenar 0 ve merdiven pencereleri pending (taban izi uyumsuz)."
+  },
+  {
+   "what": "batı basamaklı yüz taban izi / merdiven pencereleri",
+   "note": "SV kat aralığı ölçeklerinden (8W7W, RwEp; boulevard panoları, MA ofseti yok) kenar 2 (x 672.2) ölçek 1.01, kenar 4 (x 674.3) 1.10, kenar 6 (x 671.4) 0.96, kenar 0 (x 676.1) 1.22 → dört yüz de x≈672±0.7 düzleminde görünüyor; taban izindeki 2–4 m basamaklar görülmüyor (yalnız dar koyu gri köşe kanalları). Yarım kat kaymalı küçük kare merdiven pencereleri (≈0.45 × 0.35, koyu çerçeve) kenar 4 görünen u −0.39…0.23, y 24.1/20.7/18.0/15.4/12.6/9.9/7.1 (ve kenar 2 görünen u 5.3–5.8) — hangi yüzde oldukları (girinti) taban izi düzeltilmeden belirlenemedi."
+  },
+  {
+   "what": "GB cumba K5",
+   "note": "batıdan (xp5S) K5 açık balkon (klima + siyah boru korkuluk) görünüyor; kenar 9 bal öğesi K5'i camlı yazıyor (fq8W/GY1l). Güney yüzden yeniden bakılmalı."
   }
- ]
+ ],
+ "floorH": 2.88,
+ "groundRaise": 2.26
 }

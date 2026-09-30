@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import * as THREE from 'three';
+import { Pedestrians, SidewalkResolver } from '../../src/sim/pedestrians';
 import { ChunkedGeometry } from '../../src/worlds/osm/chunks';
 import { buildRoads, laneDividerOffsets, sidewalkSides } from '../../src/worlds/osm/roads';
 import type { Road } from '../../src/worlds/osm/parse';
@@ -8,6 +10,7 @@ import { parseSpecies } from '../../src/worlds/osm/species';
 import {
   bufferedRings,
   handFootprints,
+  measuredWalkLines,
   roadMarksOf,
   STREET_PLAN,
   surveyGroundPolys,
@@ -311,5 +314,97 @@ describe('D4 düzeltmeleri: kış bahçesi yazısı ve mor fidan', () => {
       'prunus-purple',
     );
     expect(parseSpecies(undefined, 'kan erik')).toBe('prunus-purple');
+  });
+});
+
+describe('D4 düzeltmeleri: yayalar kaldırımı kapatılmış yolda', () => {
+  // Kuzeye giden yol (x = 0, z 0 → −100): yan +1 → +x (doğu), −1 → −x
+  const r = road({ id: 'w9' });
+  it('ölçüm yoksa OSM kaldırımı (eski davranış)', () => {
+    const q = new SidewalkResolver().resolve(r, 0, -50, 0, -1, 1);
+    expect(q!.x).toBeCloseTo(4.8 + 1);
+    expect(q!.h).toBeCloseTo(0.15);
+  });
+
+  it('sidewalk none: kaldırım yok; ölçülmüş hat varsa yalnız o yanda', () => {
+    const none = new SidewalkResolver({ marks: { w9: { sidewalk: 'none' } } });
+    expect(none.resolve(r, 0, -50, 0, -1, 1)).toBeNull();
+    expect(none.resolve(r, 0, -50, 0, -1, -1)).toBeNull();
+    expect(none.walkable(r)).toBe(false);
+    const withLine = new SidewalkResolver({
+      marks: { w9: { sidewalk: 'none' } },
+      walkLines: [
+        {
+          pts: [
+            [9, 0],
+            [9, -100],
+          ],
+          h: 0.18,
+        },
+      ],
+    });
+    expect(withLine.walkable(r)).toBe(true);
+    const q = withLine.resolve(r, 0, -50, 0, -1, 1);
+    expect(q!.x).toBeCloseTo(9);
+    expect(q!.z).toBeCloseTo(-50);
+    expect(q!.h).toBeCloseTo(0.18);
+    expect(withLine.resolve(r, 0, -50, 0, -1, -1)).toBeNull();
+  });
+
+  it('OSM kaldırım konumu kaldırımsız bölgedeyse (refüj) yok', () => {
+    const z = new SidewalkResolver({ noSidewalk: [[-8, 0, -4, 0, -4, -100, -8, -100]] });
+    expect(z.resolve(r, 0, -50, 0, -1, -1)).toBeNull();
+    expect(z.resolve(r, 0, -50, 0, -1, 1)).not.toBeNull();
+  });
+
+  it('Pedestrians: bölünmüş bulvarda refüjde / park şeridinde yaya yok', () => {
+    // İki tek yönlü kol (x = −8 kuzeye, x = +8 güneye), aralarında refüj x −3..3; ölçülmüş kaldırımlar x = ±16
+    const west = road({
+      id: 'wW',
+      pts: [
+        [-8, 60],
+        [-8, -60],
+      ],
+      sidewalkLeft: true,
+      sidewalkRight: true,
+    });
+    const east = road({
+      id: 'wE',
+      pts: [
+        [8, -60],
+        [8, 60],
+      ],
+    });
+    const p = new Pedestrians([west, east], 'low', {
+      marks: { wW: { sidewalk: 'none' }, wE: { sidewalk: 'none' } },
+      noSidewalk: [[-3, 70, 3, 70, 3, -70, -3, -70]],
+      walkLines: [
+        {
+          pts: [
+            [-16, 70],
+            [-16, -70],
+          ],
+          h: 0.15,
+        },
+        {
+          pts: [
+            [16, -70],
+            [16, 70],
+          ],
+          h: 0.15,
+        },
+      ],
+    });
+    const walkers = (p as unknown as { walkers: { x: number; z: number }[] }).walkers;
+    expect(walkers.length).toBeGreaterThan(0);
+    for (let i = 0; i < 90; i++) p.update(1 / 30, new THREE.Vector3(0, 0, 0));
+    for (const w of walkers) expect(Math.abs(Math.abs(w.x) - 16)).toBeLessThan(0.05);
+  });
+
+  it('gerçek veride yürüme hatları sonlu', () => {
+    const l = measuredWalkLines();
+    expect(l.length).toBeGreaterThan(20);
+    for (const q of l)
+      for (const p of q.pts) expect(Number.isFinite(p[0]) && Number.isFinite(p[1])).toBe(true);
   });
 });

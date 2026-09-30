@@ -4,7 +4,7 @@ import { buildGraph, pointOn, type Graph } from './graph';
 import type { Road } from '../worlds/osm/parse';
 import type { Quality } from '../core/settings';
 import { H } from '../worlds/osm/height';
-import { SIDEWALK_W, CURB_H } from '../worlds/osm/roads';
+import { SIDEWALK_W, CURB_H, sidewalkSides, type RoadMarkSpec } from '../worlds/osm/roads';
 
 const WALKABLE = new Set([
   'footway',
@@ -19,6 +19,122 @@ const WALKABLE = new Set([
   'secondary',
   'primary',
 ]);
+
+/** Ölçülmüş kaldırım yürüme hattı (siteplan.measuredWalkLines): polyline + yürüme yüzeyi kotu (arazinin üstünde m) */
+export interface WalkLine {
+  pts: [number, number][];
+  h: number;
+}
+
+/** Yaya yerleşimi için ölçülmüş sokak bilgisi (world.ts → surveyVegetation + street-plan kaldırımları) */
+export interface PedestrianSurvey {
+  /** OSM yol kimliği → düzeltme (sidewalk none | left | right | both) */
+  marks?: Record<string, RoadMarkSpec>;
+  /** OSM kaldırımı olmayan bölgeler (düz [x, z, …] halkalar; refüj, ada, ölçülmüş kaldırım bandı) */
+  noSidewalk?: number[][];
+  /** Ölçülmüş kaldırımların yürüme hatları */
+  walkLines?: WalkLine[];
+}
+
+function inFlatRing(r: number[], x: number, z: number): boolean {
+  let c = false;
+  for (let i = 0, j = r.length - 2; i < r.length; j = i, i += 2) {
+    const xi = r[i];
+    const zi = r[i + 1];
+    const xj = r[j];
+    const zj = r[j + 1];
+    if (zi > z !== zj > z && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) c = !c;
+  }
+  return c;
+}
+
+/**
+ * v8 (D4): araç yolundaki yayanın konumu. Önce ölçülmüş kaldırım hattı (yolun o yanında, eksenden en çok yarı genişlik
+ * + 16 m, en yakın nokta), yoksa OSM kaldırımı (yalnız kaldırımı olan yanda ve OSM kaldırım bölgesi dışında). Hiçbiri
+ * yoksa null → yaya orada yürümez (refüj / park şeridi / kaldırımı kapatılmış bulvar).
+ */
+export class SidewalkResolver {
+  private static CELL = 20;
+  private grid = new Map<string, { a: [number, number]; b: [number, number]; h: number }[]>();
+  constructor(private readonly survey: PedestrianSurvey = {}) {
+    const C = SidewalkResolver.CELL;
+    for (const l of survey.walkLines ?? [])
+      for (let i = 0; i + 1 < l.pts.length; i++) {
+        const a = l.pts[i];
+        const b = l.pts[i + 1];
+        for (let gx = Math.floor(Math.min(a[0], b[0]) / C); gx <= Math.floor(Math.max(a[0], b[0]) / C); gx++)
+          for (
+            let gz = Math.floor(Math.min(a[1], b[1]) / C);
+            gz <= Math.floor(Math.max(a[1], b[1]) / C);
+            gz++
+          ) {
+            const k = `${gx},${gz}`;
+            let v = this.grid.get(k);
+            if (!v) this.grid.set(k, (v = []));
+            v.push({ a, b, h: l.h });
+          }
+      }
+  }
+
+  /** Yolda yayaya izin var mı (graf filtresi): OSM/ölçülmüş kaldırımı olan yan ya da ölçülmüş yürüme hattı */
+  walkable(r: Road): boolean {
+    const sw = sidewalkSides(r, this.survey.marks?.[r.id]);
+    return sw.left || sw.right || (this.survey.walkLines?.length ?? 0) > 0;
+  }
+
+  /**
+   * Eksen noktası (px, pz), birim yön (dx, dz), yan (±1; offset normali (−dz, dx) · side, roads.ts ile aynı).
+   * Döner: dünya x, z ve arazinin üstündeki yürüme kotu.
+   */
+  resolve(
+    r: Road,
+    px: number,
+    pz: number,
+    dx: number,
+    dz: number,
+    side: number,
+  ): { x: number; z: number; h: number } | null {
+    const nx = -dz * side;
+    const nz = dx * side;
+    const half = r.width / 2;
+    // 1) Ölçülmüş kaldırım hattı: bu yanda (normal yönünde ≥ half − 1), eksene dik uzaklığı ≤ half + 16
+    const C = SidewalkResolver.CELL;
+    let best: { x: number; z: number; h: number } | null = null;
+    let bestD = Infinity;
+    const reach = half + 16;
+    const seen = new Set<unknown>();
+    for (let gx = Math.floor((px - reach) / C); gx <= Math.floor((px + reach) / C); gx++)
+      for (let gz = Math.floor((pz - reach) / C); gz <= Math.floor((pz + reach) / C); gz++)
+        for (const s of this.grid.get(`${gx},${gz}`) ?? []) {
+          if (seen.has(s)) continue;
+          seen.add(s);
+          const ex = s.b[0] - s.a[0];
+          const ez = s.b[1] - s.a[1];
+          const L2 = ex * ex + ez * ez || 1;
+          const t = Math.max(0, Math.min(1, ((px - s.a[0]) * ex + (pz - s.a[1]) * ez) / L2));
+          const qx = s.a[0] + ex * t;
+          const qz = s.a[1] + ez * t;
+          const lat = (qx - px) * nx + (qz - pz) * nz;
+          const along = Math.abs((qx - px) * dx + (qz - pz) * dz);
+          if (lat < half - 1 || lat > reach || along > 3) continue;
+          const d = Math.hypot(qx - px, qz - pz);
+          if (d < bestD) {
+            bestD = d;
+            best = { x: qx, z: qz, h: s.h };
+          }
+        }
+    if (best) return best;
+    // 2) OSM kaldırımı
+    const sw = sidewalkSides(r, this.survey.marks?.[r.id]);
+    // parse/roads: side +1 = sidewalkLeft (offsetPolyline +half)
+    if (!(side > 0 ? sw.left : sw.right)) return null;
+    const off = half + SIDEWALK_W / 2;
+    const x = px + nx * off;
+    const z = pz + nz * off;
+    if ((this.survey.noSidewalk ?? []).some((q) => inFlatRing(q, x, z))) return null;
+    return { x, z, h: CURB_H };
+  }
+}
 
 interface Walker {
   edge: number;
@@ -57,11 +173,14 @@ export class Pedestrians {
   private geos: THREE.BufferGeometry[] = [];
   private mat: THREE.MeshStandardMaterial;
 
-  constructor(roads: Road[], quality: Quality) {
+  private walk: SidewalkResolver;
+
+  constructor(roads: Road[], quality: Quality, survey: PedestrianSurvey = {}) {
     this.group.name = 'pedestrians';
+    this.walk = new SidewalkResolver(survey);
     this.graph = buildGraph(
       roads,
-      (r) => WALKABLE.has(r.kind) && (r.vehicular ? r.sidewalkLeft || r.sidewalkRight : true),
+      (r) => WALKABLE.has(r.kind) && (r.vehicular ? this.walk.walkable(r) : true),
     );
     let seed = 1234;
     this.rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
@@ -129,7 +248,7 @@ export class Pedestrians {
       const ss = this.rnd() * E[e].len;
       const p = pointOn(E[e], ss);
       const d = Math.hypot(p.x - px, p.z - pz);
-      const ok = d < radius && (anywhere || d > radius * 0.6);
+      const ok = d < radius && (anywhere || d > radius * 0.6) && this.placeable(E[e].road, p);
       if (ok || d < bestD) {
         edge = e;
         s = ss;
@@ -151,6 +270,14 @@ export class Pedestrians {
       yaw: 0,
       wait: 0,
     };
+  }
+
+  /** Bu eksen noktasında yayanın durabileceği bir yan var mı */
+  private placeable(r: Road, p: { x: number; z: number; dx: number; dz: number }): boolean {
+    if (!r.vehicular) return true;
+    return !!(
+      this.walk.resolve(r, p.x, p.z, p.dx, p.dz, 1) || this.walk.resolve(r, p.x, p.z, p.dx, p.dz, -1)
+    );
   }
 
   /** Hareketli engel daireleri [x, z, r] (oyuncu çarpışması). */
@@ -185,10 +312,27 @@ export class Pedestrians {
       }
       const p = pointOn(e, w.s);
       const r = e.road;
-      const off = r.vehicular ? (r.width / 2 + SIDEWALK_W / 2) * w.side : 0;
-      w.x = p.x - p.dz * off;
-      w.z = p.z + p.dx * off;
-      w.y = H(w.x, w.z) + (r.vehicular ? CURB_H : 0.03);
+      if (r.vehicular) {
+        // Ölçülmüş kaldırım / izinli OSM kaldırımı; bu yanda yoksa karşı yan, o da yoksa yeniden doğ
+        let q = this.walk.resolve(r, p.x, p.z, p.dx, p.dz, w.side);
+        if (!q) {
+          q = this.walk.resolve(r, p.x, p.z, p.dx, p.dz, -w.side);
+          if (q) w.side = -w.side;
+        }
+        if (!q) {
+          Object.assign(w, this.spawn(player.x, player.z, 130, false));
+          for (const part of this.parts) part.setMatrixAt(i, this.hidden);
+          this.movingFlags[i] = false;
+          return;
+        }
+        w.x = q.x;
+        w.z = q.z;
+        w.y = H(w.x, w.z) + q.h;
+      } else {
+        w.x = p.x;
+        w.z = p.z;
+        w.y = H(w.x, w.z) + 0.03;
+      }
       const dir = w.fwd ? 1 : -1;
       w.yaw = Math.atan2(p.dx * dir, p.dz * dir);
       // Uzaklaştıysa oyuncunun yakınında yeniden doğ

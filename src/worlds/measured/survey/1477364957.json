@@ -749,9 +749,120 @@
   {
    "edge": 4,
    "len": 10,
-   "seen": "none",
-   "items": [],
-   "note": "v8: KB pah (podyum köşesi, ALTAY pankartı burada çapraz dönüyor — pending); dZQ2/rxGw’de çok yatık, ölçülmedi"
+   "seen": "partial",
+   "items": [
+    {
+     "t": "win",
+     "u0": 0,
+     "u1": 10,
+     "y0": 0.3,
+     "y1": 5.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#2e2c2a",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 10,
+     "y0": 5.5,
+     "y1": 8.3,
+     "color": "#524939",
+     "proud": 0.08
+    },
+    {
+     "t": "sign",
+     "u0": 0.2,
+     "u1": 4.8,
+     "y0": 6.0,
+     "y1": 7.4,
+     "style": "letters",
+     "d": 0.06,
+     "fg": "#e8e4e8",
+     "font": "sans",
+     "bold": true,
+     "text": "…CHEFS",
+     "lit": true,
+     "logo": "BIGCHEFS kanal harflerinin köşeyi dönen kısmı; konum ±1.5 (yatık görüş); gece görülmedi"
+    },
+    {
+     "t": "win",
+     "u0": 0,
+     "u1": 10,
+     "y0": 8.4,
+     "y1": 11.2,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "kind": "std",
+     "split": 7,
+     "frameC": "#3a3935",
+     "tint": "#3c4448"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 10,
+     "y0": 11.3,
+     "y1": 12.2,
+     "color": "#4a463c",
+     "style": "louvre",
+     "shade": "#1f1e19",
+     "slats": 6,
+     "proud": 0.08
+    },
+    {
+     "t": "sign",
+     "u0": 0,
+     "u1": 10,
+     "y0": 12.3,
+     "y1": 13.9,
+     "style": "panel",
+     "d": 0.03,
+     "bg": "#c0392b",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "text": "…KİRALIK DAİRELER VE OFİSLER   0 532 660 0 562 altaygroup.com",
+     "lines": [
+      {
+       "text": "…KİRALIK DAİRELER VE OFİSLER",
+       "size": 1,
+       "y": 0.5
+      }
+     ],
+     "align": "left",
+     "logo": "sağ uçta (u 7.4–8.3) turuncu-sarı yuvarlak logo, yanında (u 8.5–10) iki satır küçük beyaz: '0 532 660 0 562' / 'altaygroup.com'; kenar 0 pankartının devamı"
+    }
+   ],
+   "note": "v8: KB pah (podyum köşesi). D4-C (2026-09-30): rxGw / AHDB / dZQ2 90° kareleri ve dZQ2 _f22 ile bu kenarın kendi düzleminde üretilmiş ortofotolardan (scratch cfg_57.json; docs/survey/c/57). Düşey: kenar 0 ile aynı öğeler üzerinden eşlendi (K1 camı 8.4–11.2 ↔ kenar 0 9.8–13.1, lamel saçak 11.3–12.2 ↔ 13.3–14.25) → cal.head kenar 0'ın kat çizgilerinden türetildi. Zemin kat camı kırmızı BIGCHEFS şemsiyeleri ve saksılar arkasında; BIGCHEFS harflerinin köşedeki kısmı (AHDB'de '…CHEFS' u −1.6…2.7, dZQ2'de 'GC' u 0…5 — pah çok yatık, ±1.5) kuzey yüzden köşeyi dönerek geliyor. ALTAY pankartının köşe bölümü bu yüzde.",
+   "ref": "57/1477364957_4x_rxGw6Z1I.jpg",
+   "cal": {
+    "u": [
+     0,
+     10
+    ],
+    "head": [
+     [
+      0,
+      7.1
+     ],
+     [
+      1,
+      11.55
+     ]
+    ]
+   }
   },
   {
    "edge": 0,
@@ -885,9 +996,25 @@
      "align": "left",
      "logo": "baskılı branda pankart podyum çatı korkuluğunda (parapet üstü; gerçek ≈11.0–11.5 m): solda beyaz ALTAY logosu (üçgen dağ + ALTAY), \"TESLİME HAZIR\" sarı rozet üzerinde koyu kırmızı; sonda ikinci ALTAY logosu (u >28.8, ortofoto dışı). \"& KİRALIK\" dZQ2’de ağaç arkasında, rxGw’de okunuyor. KB köşede çapraz dönen bölüm (\"…SATILIK KİRALIK DAİRELER VE OFİSLER\" + dikey \"0 532 660 0 562 altaygroup.com\") kuzey cepheye bağlanıyor (pending).",
      "lit": false
+    },
+    {
+     "t": "win",
+     "u0": -1.5,
+     "u1": 7.9,
+     "y0": 9.8,
+     "y1": 12.4,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "kind": "std",
+     "split": 6,
+     "frameC": "#3a3935",
+     "tint": "#3c4448"
     }
    ],
-   "note": "v8: batı podyum yüzü (taban izi e0 x≈671.4’e taşındı). Görünen koordinatlar dZQ2 ortofotosunda (eski düzlem x 679.8); podyum düzleminin gerçek kamera uzaklığı 16.8 (stereo, düzeltilmiş kamera x≈654.6) → büyütme 1.795; cal.u ve cal.head bu büyütmeden türetildi (sanal groundRaise 4.02: K0 lento 6.27, K1 9.19 gerçek). Dükkân camı, asma kat camı, lamelli saçak, koyu alın, BIGCHEFS / STARBUCKS kanal harfleri, çatı korkuluğunda ALTAY pankartı. Önündeki kırmızı BIGCHEFS şemsiyeleri, Starbucks tenteli teras çiti ve elektrik panosu kaldırım katmanında."
+   "note": "v8: batı podyum yüzü (taban izi e0 x≈671.4’e taşındı). Görünen koordinatlar dZQ2 ortofotosunda (eski düzlem x 679.8); podyum düzleminin gerçek kamera uzaklığı 16.8 (stereo, düzeltilmiş kamera x≈654.6) → büyütme 1.795; cal.u ve cal.head bu büyütmeden türetildi (sanal groundRaise 4.02: K0 lento 6.27, K1 9.19 gerçek). Dükkân camı, asma kat camı, lamelli saçak, koyu alın, BIGCHEFS / STARBUCKS kanal harfleri, çatı korkuluğunda ALTAY pankartı. Önündeki kırmızı BIGCHEFS şemsiyeleri, Starbucks tenteli teras çiti ve elektrik panosu kaldırım katmanında. | D4-C (2026-09-30): K1 asma kat camı kuzey ucta da sürüyor (u −1.5…7.9, üstü lamel saçak arkasında 12.4'e kadar görülüyor; yer yer dışa açılır vasistas kanatları) — eklendi. Fotoğrafta ayrı 'bronz' cam yok: koyu yansımalı cam (#3c4448), doğrama koyu."
   }
  ],
  "notes": [
@@ -911,8 +1038,8 @@
    "desc": "sd8u/GKHZ: podyumun doğu ucunda açık gri saçaklı araç girişi, zemin katta koyu dükkân camı ve ROSSMANN yuvarlak logo kutusu (kırmızı daire, görünen u −0.5…1.2, y 13.2–14.2 sd8u), yeşil bitkili teras, üstte kanat teraslarının doğu uçları. Çok eğik → çizilmedi."
   },
   {
-   "what": "ALTAY pankartının KB köşe çapraz bölümü",
-   "desc": "kenar 4 (KB pah (679.82,−784.47)→(671.21,−779.39)) pankart 45° dönerek kuzey cepheye bağlanıyor: \"…SATILIK KİRALIK DAİRELER VE OFİSLER\" + dikey \"0 532 660 0 562 altaygroup.com\"; köşe pahı taban izinde yok."
+   "what": "KB köşede kıvrılan kule balkonları",
+   "note": "rxGw 120 karesinde K4–K8 balkon döşemeleri KB köşeyi yuvarlak dönerek kuzey yüze geçiyor. Kule batı yüzü cutEdges[0] balkonları u −2.9'dan başlıyor (köşeyi 2.9 m aşıyor), kuzey yüz (kenar 3) balkonları u 40.3'te bitiyor (köşe u 43.13) — iki ölçüm çelişiyor; `wrap` için iki kenarın köşeye kadar yeniden ölçülmesi gerekli (yarıçap görülmedi)."
   }
  ],
  "cutEdges": [

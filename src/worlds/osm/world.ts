@@ -17,7 +17,7 @@ import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture, drawSurveyMask, surveyMaskRect } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
-import { surveyGroundPolys, surveyVegetation } from '../measured/siteplan';
+import { measuredWalkLines, surveyGroundPolys, surveyVegetation } from '../measured/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../measured';
 import { applyBakedLighting, bakeRequested } from '../measured/baked';
 import { StreetProps } from './streetprops';
@@ -25,7 +25,7 @@ import { shadowOnlyRoots, ultraState } from '../../env/ultra';
 import { batchHandModel, buildShadowProxies, mergeSameMaterial, plain } from '../measured/batch';
 import { windTime } from './eztree';
 import { TreeField } from './treefield';
-import { Pedestrians } from '../../sim/pedestrians';
+import { Pedestrians, type PedestrianSurvey } from '../../sim/pedestrians';
 import { Traffic } from '../../sim/traffic';
 import { ParkedCars } from '../../sim/parked';
 import { nightUniform } from '../../env/night';
@@ -233,6 +233,7 @@ export class OsmWorld implements IWorld {
     viewDist: number,
     readonly terrain: TerrainData | null,
     aerial: HTMLImageElement | null = null,
+    pedSurvey: PedestrianSurvey = {},
   ) {
     this.viewDist = viewDist;
     this.object.name = 'osm-world';
@@ -359,7 +360,7 @@ export class OsmWorld implements IWorld {
     this.collision.ground = (x, z) => H(x, z) + ground2.height(x, z);
 
     this.findSpawn();
-    this.peds = new Pedestrians(data.roads, quality);
+    this.peds = new Pedestrians(data.roads, quality, pedSurvey);
     this.traffic = new Traffic(data.roads, quality);
     this.object.add(this.peds.group, this.traffic.group);
   }
@@ -386,6 +387,7 @@ export class OsmWorld implements IWorld {
     const real = simple.centerSource !== 'fixture';
     const handmade = real && !new URLSearchParams(location.search).has('nohand');
     const simpleBuild = handmade ? { ...simple, ways: dropHandmadeWays(simple.ways, HANDMADE_IDS) } : simple;
+    const veg = handmade ? surveyVegetation() : null;
     const res = await buildInWorker(
       simpleBuild,
       quality,
@@ -393,10 +395,14 @@ export class OsmWorld implements IWorld {
       roofColors,
       aerialTrees,
       progress,
-      handmade ? surveyVegetation() : {},
+      veg ?? {},
     );
     progress(0.95, 'Sahne kuruluyor');
-    const world = new OsmWorld(parsed, res, quality, viewDist, terrain, aerial);
+    // v8: yayalar ölçülmüş kaldırımda; kaldırımı kapatılmış yol / refüj / ada bölgesinde OSM kaldırım hattında değil
+    const pedSurvey: PedestrianSurvey = veg
+      ? { marks: veg.roadMarks, noSidewalk: veg.noSidewalkZones, walkLines: measuredWalkLines() }
+      : {};
+    const world = new OsmWorld(parsed, res, quality, viewDist, terrain, aerial, pedSurvey);
     const collide = (ring: [number, number][], b: number, t: number) => world.collision.addRing(ring, b, t);
     let fenceSkip: ((x: number, z: number) => boolean) | undefined;
     if (handmade) {
