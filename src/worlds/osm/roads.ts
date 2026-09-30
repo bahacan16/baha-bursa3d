@@ -305,7 +305,20 @@ function offsetPts(pts: Pt[], d: number): Pt[] {
   });
 }
 
-function dashes(geo: ChunkedGeometry, pts: Pt[], on: number, off: number, w: number, y: number): void {
+/** Çizgi parçası bastırma sorgusu: (x, z, yön) → true ise o noktada çizgi çizilmez */
+export type MarkSkip = (x: number, z: number, ux: number, uz: number) => boolean;
+/** Bastırma sorgusunun çözünürlüğü (m): düz çizgiler bu boyda parçalara bölünür */
+const SKIP_STEP = 1;
+
+function dashes(
+  geo: ChunkedGeometry,
+  pts: Pt[],
+  on: number,
+  off: number,
+  w: number,
+  y: number,
+  skip?: MarkSkip,
+): void {
   let phase = 0;
   for (let i = 0; i + 1 < pts.length; i++) {
     const p = pts[i];
@@ -318,9 +331,18 @@ function dashes(geo: ChunkedGeometry, pts: Pt[], on: number, off: number, w: num
     const uz = dz / d;
     let s = -phase;
     while (s < d) {
-      const s0 = Math.max(0, s);
-      const s1 = Math.min(d, s + on);
-      if (s1 > s0 + 0.2) {
+      const d0 = Math.max(0, s);
+      const d1 = Math.min(d, s + on);
+      // Bastırma varsa parça SKIP_STEP boyunda alt parçalara bölünür (düz kenar çizgisi kavşakta kesilir)
+      const nSub = skip ? Math.max(1, Math.ceil((d1 - d0) / SKIP_STEP)) : 1;
+      for (let k = 0; k < nSub; k++) {
+        const s0 = d0 + ((d1 - d0) * k) / nSub;
+        const s1 = d0 + ((d1 - d0) * (k + 1)) / nSub;
+        if (!(s1 > s0 + (nSub > 1 ? 0.01 : 0.2))) continue;
+        if (skip) {
+          const sm = (s0 + s1) / 2;
+          if (skip(p[0] + ux * sm, p[1] + uz * sm, ux, uz)) continue;
+        }
         const ax = p[0] + ux * s0;
         const az = p[1] + uz * s0;
         const bx = p[0] + ux * s1;
@@ -369,6 +391,78 @@ function zebra(geo: ChunkedGeometry, at: Pt, dir: Pt, width: number): void {
   }
 }
 
+/**
+ * Kavşak çizgi bastırması: r'nin çizgi noktası BAŞKA bir araç yolunun şeridinin içindeyse (kavşak ağzı, üst üste
+ * binen tek yönlü kollar, göbek) çizgi çizilmez. Aynı caddenin devam eden parçası (uç noktası ortak, uçtaki yönü
+ * ≤ 15° farklı) sayılmaz. Paralel (≤ 8°) şeritler de sayılmaz: çift yönlü caddenin bitişik şeritleri çizgisini korur.
+ * KARAR: kavşak alanında kenar/orta çizgi yok (Street View: Özlüce kavşağında yalnız aşınmış kılavuz çizgi).
+ */
+export function junctionMarkSkip(roads: Road[]): (r: Road) => MarkSkip {
+  const veh = roads.filter((r) => r.vehicular && r.pts.length >= 2);
+  const CELL = 25;
+  const grid = new Map<string, { r: Road; a: Pt; b: Pt }[]>();
+  for (const r of veh)
+    for (let i = 0; i + 1 < r.pts.length; i++) {
+      const a = r.pts[i];
+      const b = r.pts[i + 1];
+      const pad = r.width / 2;
+      for (let gx = Math.floor((Math.min(a[0], b[0]) - pad) / CELL); gx <= Math.floor((Math.max(a[0], b[0]) + pad) / CELL); gx++)
+        for (let gz = Math.floor((Math.min(a[1], b[1]) - pad) / CELL); gz <= Math.floor((Math.max(a[1], b[1]) + pad) / CELL); gz++) {
+          const k = `${gx},${gz}`;
+          let v = grid.get(k);
+          if (!v) grid.set(k, (v = []));
+          v.push({ r, a, b });
+        }
+    }
+  const tangent = (r: Road, end: 0 | 1): Pt => {
+    const n = r.pts.length;
+    const [p, q] = end === 0 ? [r.pts[0], r.pts[1]] : [r.pts[n - 1], r.pts[n - 2]];
+    const l = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+    return [(q[0] - p[0]) / l, (q[1] - p[1]) / l];
+  };
+  const same = (p: Pt, q: Pt) => Math.abs(p[0] - q[0]) < 0.05 && Math.abs(p[1] - q[1]) < 0.05;
+  /** o, r'nin devamı mı: ortak uçta (içe bakan teğetler zıt yönde, ≤ 15°) */
+  const continues = (r: Road, o: Road): boolean => {
+    for (const er of [0, 1] as const)
+      for (const eo of [0, 1] as const) {
+        const pr = er === 0 ? r.pts[0] : r.pts[r.pts.length - 1];
+        const po = eo === 0 ? o.pts[0] : o.pts[o.pts.length - 1];
+        if (!same(pr, po)) continue;
+        const tr = tangent(r, er);
+        const to = tangent(o, eo);
+        if (tr[0] * to[0] + tr[1] * to[1] < -Math.cos((15 * Math.PI) / 180)) return true;
+      }
+    return false;
+  };
+  const COS_PAR = Math.cos((8 * Math.PI) / 180);
+  return (r: Road) => {
+    const cont = new Map<Road, boolean>();
+    return (x, z, ux, uz) => {
+      for (const s of grid.get(`${Math.floor(x / CELL)},${Math.floor(z / CELL)}`) ?? []) {
+        if (s.r === r) continue;
+        if (distToSeg(x, z, s.a, s.b) >= s.r.width / 2 - 0.05) continue;
+        const ex = s.b[0] - s.a[0];
+        const ez = s.b[1] - s.a[1];
+        const el = Math.hypot(ex, ez) || 1;
+        if (Math.abs((ex * ux + ez * uz) / el) > COS_PAR) continue;
+        let c = cont.get(s.r);
+        if (c === undefined) cont.set(s.r, (c = continues(r, s.r)));
+        if (c) continue;
+        return true;
+      }
+      return false;
+    };
+  };
+}
+
+function distToSeg(px: number, pz: number, a: Pt, b: Pt): number {
+  const ex = b[0] - a[0];
+  const ez = b[1] - a[1];
+  const l2 = ex * ex + ez * ez;
+  const t = l2 > 0 ? Math.max(0, Math.min(1, ((px - a[0]) * ex + (pz - a[1]) * ez) / l2)) : 0;
+  return Math.hypot(px - a[0] - ex * t, pz - a[1] - ez * t);
+}
+
 /** Tüm yolları, kaldırımları, çizgileri ve yaya geçitlerini üretir. */
 export function buildRoads(
   geo: ChunkedGeometry,
@@ -393,6 +487,7 @@ export function buildRoads(
       if (!a.includes(r)) a.push(r);
     }
   }
+  const markSkipFor = junctionMarkSkip(visible);
   // Önce geniş yollar: aynı y'de üst üste binmeler aynı renkte olduğundan görünmez.
   const sorted = visible.slice().sort((a, b) => a.width - b.width);
   for (const r of sorted) {
@@ -429,15 +524,19 @@ export function buildRoads(
     // Orta çizgi: primary ve üstü kesikli beyaz; iki yönlü cadde/sokaklarda da kesikli (Street View: Cavit Orhan
     // Tütengil, Doğan Avcıoğlu, 502. Sokak), caddelerde kenar çizgisi düz beyaz
     const mk = marks[r.id];
-    if (mk?.centre === 'dashed') dashes(geo, dense, 3, 5, 0.12, Y_MARK);
-    else if (mk?.centre === 'solid') dashes(geo, dense, 1e6, 0, 0.12, Y_MARK);
+    // Kavşak / üst üste binen şeritlerde (tek yönlü kollar + göbek) çizgi yok: Street View'da orada yalnız aşınmış
+    // kılavuz çizgi, dur çizgisi ve yaya geçidi var (Özlüce kavşağı da3-01/05)
+    const skip = r.vehicular ? markSkipFor(r) : undefined;
+    if (mk?.centre === 'dashed') dashes(geo, dense, 3, 5, 0.12, Y_MARK, skip);
+    else if (mk?.centre === 'solid') dashes(geo, dense, 1e6, 0, 0.12, Y_MARK, skip);
     else if (mk?.centre === 'none') {
       /* ölçüm: orta çizgi yok */
-    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, dense, 3, 6, 0.15, Y_MARK);
+    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, dense, 3, 6, 0.15, Y_MARK, skip);
     else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
-      dashes(geo, dense, 3, 5, 0.12, Y_MARK);
+      dashes(geo, dense, 3, 5, 0.12, Y_MARK, skip);
     if (mk?.edges === 'solid' || (mk?.edges !== 'none' && /^(secondary|tertiary)$/.test(r.kind)))
-      for (const sd of [-1, 1]) dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK);
+      for (const sd of [-1, 1])
+        dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK, skip);
   }
 
   // Kaldırımlar: kavşak düğümlerinde parçalara böl ve kırp
