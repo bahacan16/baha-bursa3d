@@ -874,3 +874,10 @@
   1476599910 e0, 1476599909 e0, 1476599912 e0. KuveytTürk e6 giydirme cephe (dikey ölçek ×1.34 düzeltmesi), Biaport
   tabelaları (HASKÖYÜM, PİDECİSİ, 413 45 45, BOĞA BURGER, ARMILLA, mavi dükkân), mion, 900000203 K1 camı, TAŞYAKAN
   levhası, güney kule balkon uç duvarı. **Blender:** `NW/Measured/Facades` bu bloklar + 4 yeni kütle yeniden kurulur.
+- **(D4 eleştirmen düzeltmeleri: kod + sokak / zemin verisi)** — Kod: ada/refüjler OSM kaldırımını bastırır, yol
+  başına `sidewalk` / `lanes`, çok şeritli tek yönlü yollarda kesikli şerit çizgisi, ölçülmüş zemin maskesi (gölge →
+  çim dönüşümü yok), `street-plan.areas[]`, el modeli taban izleri içindeki hava ağaçları elenir, saydam kış bahçesi +
+  alın yazısı, `sapling-purple`, yayalar yalnız ölçülmüş kaldırımda. Veri: 49 sokak ağacı ölçüldü, 11 zemin alanı,
+  8 kaldırım, Uğur Mumcu doğu kolu refüjü + manolyalar, cepler, ayırıcı ada, saksı yönleri, durak konumları, cam
+  sıra, bayrak direkleri, totem, çitler. **Blender:** `NW/Street/D4` (kaldırım, ada, zemin alanları, ağaçlar, sokak
+  eşyası) ve `NW/Park` çizgileri yeniden kurulur; yol şerit çizgileri eklenir.
