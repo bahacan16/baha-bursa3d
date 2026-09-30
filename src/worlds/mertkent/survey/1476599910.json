@@ -12,6 +12,9 @@
   "fasciaH": 0.2,
   "parapet": {
    "h": 1.13,
+   "edges": [
+    11
+   ],
    "color": "#bca089",
    "coping": {
     "h": 0.08,
@@ -2765,6 +2768,886 @@
     }
    ],
    "note": "GB bulvar cephesi (Özlüce Blv.). ÖLÇEK/DERİNLİK (önemli): dacCo ve Tv5er panolarının indeks konumu ~6 m yanlış (ortofoto 1.3–1.6× büyük). Aynı ortofotodaki kat aralığı oranlarından (sabit adım kabulü FH 3.03, 909/912 ile aynı tip) düzlemler: podyum önü (bankalar, hat = taban izi) 0; 3. yığın balkon önleri +0.2; A sütunu + KB yığını −0.7; C sütunu loca önleri −1.1; B sütunu duvarı −2.7; GD köşe yığını korkuluk önleri −2.9 (±0.5). Üretici çizimi: A sütunu hatta (0.7 ileri), 3. yığın d 0.9, C locaları hatta (inset 1.6), B sütunu girinti 2.0, GD yığın girinti 2.2 (korkuluklar arka duvara pano olarak; loca derinliği görülmedi). Tüm u/y ölçüleri görünen koordinatlardan kendi düzlemlerine göre hesapla dönüştürüldü (cal.dist = gerçek uzaklık 14.37). cal.u köşeleri görüntü dışında: 0 = KB köşe (Tv5er'de görünen podyum köşesi), 23.33 = Akbank/İş Bankası sınırı (her iki panoda). K0 KB kısmı (u < −5) ağaç arkasında: Tv5er ortofotosundan dönüştürüldü (±0.5). K2 KB yığını ağaç arkasında görülmedi."
+  },
+  {
+   "edge": 2,
+   "len": 13.55,
+   "seen": "photo",
+   "ref": "1476599910_2_TQv3-5Y-.jpg",
+   "cal": {
+    "u": [
+     0,
+     12.25
+    ],
+    "head": [
+     [
+      3,
+      10.75
+     ],
+     [
+      8,
+      24.45
+     ]
+    ],
+    "dist": 18.9
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 12.25,
+     "y0": 0.4,
+     "y1": 3.05,
+     "color": "#d6d6d2"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 12.25,
+     "y0": 3.05,
+     "y1": 3.8,
+     "color": "#26396a",
+     "proud": 0.14
+    },
+    {
+     "t": "sign",
+     "u0": 5.05,
+     "u1": 8.2,
+     "y0": 3.12,
+     "y1": 3.72,
+     "d": 0.05,
+     "off": 0.14,
+     "text": "YapıKredi",
+     "fg": "#e9e9e7",
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "logo": "gümüş/beyaz 3B kanal harf; gece görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 3.8,
+     "u1": 5,
+     "y0": 3.12,
+     "y1": 3.72,
+     "d": 0.05,
+     "off": 0.14,
+     "text": "",
+     "fg": "#e9e9e7",
+     "style": "letters",
+     "logo": "YapıKredi amblemi (çift spiral gümüş şekil) — çizilmedi"
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 12.25,
+     "y0": 3.8,
+     "y1": 5.3,
+     "color": "#b8aa8e"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 12.25,
+     "y0": 5.3,
+     "y1": 5.9,
+     "color": "#a6966f",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 12.25,
+     "y0": 5.9,
+     "y1": 6.2,
+     "color": "#6a5746",
+     "proud": 0.12
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 12.25,
+     "y0": 6.2,
+     "y1": 6.65,
+     "color": "#bfb19a",
+     "proud": 0.08
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 12.25,
+     "y0": 6.65,
+     "y1": 6.95,
+     "color": "#655343",
+     "proud": 0.25
+    },
+    {
+     "t": "panel",
+     "u0": 0.7,
+     "u1": 2.9,
+     "y0": 2,
+     "y1": 2.95,
+     "color": "#7d8083",
+     "proud": 0.02,
+     "clad": {
+      "dir": "h",
+      "every": 0.08,
+      "w": 0.02,
+      "color": "#55585b"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 3.4,
+     "u1": 5.8,
+     "y0": 0.5,
+     "y1": 3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c3c6c6",
+     "tint": "#8fa39c"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 6.6,
+     "u1": 8.85,
+     "y0": 0.5,
+     "y1": 3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 3,
+     "frameC": "#c3c6c6",
+     "tint": "#8fa39c"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 9.6,
+     "u1": 11.9,
+     "y0": 0.5,
+     "y1": 3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c3c6c6",
+     "tint": "#8fa39c"
+    },
+    {
+     "t": "panel",
+     "u0": 0.7,
+     "u1": 2.9,
+     "y0": 3.95,
+     "y1": 5.2,
+     "color": "#7d8083",
+     "proud": 0.02,
+     "clad": {
+      "dir": "h",
+      "every": 0.08,
+      "w": 0.02,
+      "color": "#55585b"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.6,
+     "u1": 6.1,
+     "y0": 3.95,
+     "y1": 5.2,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#e6e6e1",
+     "tint": "#7d8a7e"
+    },
+    {
+     "t": "win",
+     "u0": 6.4,
+     "u1": 8.9,
+     "y0": 3.95,
+     "y1": 5.2,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#e6e6e1",
+     "tint": "#7d8a7e"
+    },
+    {
+     "t": "win",
+     "u0": 9.4,
+     "u1": 11.9,
+     "y0": 3.95,
+     "y1": 5.2,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#e6e6e1",
+     "tint": "#7d8a7e"
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 5.35,
+     "y0": 6.95,
+     "y1": 8,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#2a2422",
+     "surround": {
+      "w": 0.15,
+      "d": 0.05,
+      "color": "#d6ccab"
+     },
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 5.35,
+     "y0": 9.5,
+     "y1": 10.75,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#2a2422",
+     "surround": {
+      "w": 0.15,
+      "d": 0.05,
+      "color": "#d6ccab"
+     },
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 9.08,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 8.770000000000001,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 8.46,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 5.35,
+     "y0": 12.2,
+     "y1": 13.45,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "frameC": "#2a2422",
+     "surround": {
+      "w": 0.15,
+      "d": 0.05,
+      "color": "#d6ccab"
+     },
+     "curt": {
+      "K4": "stor"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 11.78,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 11.47,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 11.16,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 5.35,
+     "y0": 14.95,
+     "y1": 16.15,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "split": 2,
+     "frameC": "#2a2422",
+     "surround": {
+      "w": 0.15,
+      "d": 0.05,
+      "color": "#d6ccab"
+     },
+     "curt": {
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 14.53,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 14.22,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 13.91,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 5.35,
+     "y0": 17.75,
+     "y1": 18.95,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "split": 2,
+     "frameC": "#2a2422",
+     "surround": {
+      "w": 0.15,
+      "d": 0.05,
+      "color": "#d6ccab"
+     },
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 17.33,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 17.02,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 16.709999999999997,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 5.35,
+     "y0": 20.55,
+     "y1": 21.7,
+     "k": 7,
+     "s": [
+      7,
+      7
+     ],
+     "split": 2,
+     "frameC": "#2a2422",
+     "surround": {
+      "w": 0.15,
+      "d": 0.05,
+      "color": "#d6ccab"
+     },
+     "curt": {
+      "K7": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 20.13,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 19.82,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 19.509999999999998,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 5.35,
+     "y0": 23.3,
+     "y1": 24.45,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2a2422",
+     "surround": {
+      "w": 0.15,
+      "d": 0.05,
+      "color": "#d6ccab"
+     },
+     "curt": {
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 22.88,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 22.57,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 3.65,
+     "u1": 5.5,
+     "y": 22.259999999999998,
+     "w": 0.025,
+     "color": "#8a7058"
+    },
+    {
+     "t": "bal",
+     "u0": 5.95,
+     "u1": 7.9,
+     "s": [
+      3,
+      8
+     ],
+     "d": 1.2,
+     "sides": "open",
+     "fasciaC": {
+      "*": "#bfae98"
+     },
+     "railC": "#e6e7e3",
+     "glassC": {
+      "*": "#a9b6b3"
+     },
+     "postEvery": 0.6,
+     "beam": {
+      "*": 0.3
+     },
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      3,
+      6,
+      7
+     ],
+     "tint": {
+      "K3": "dark",
+      "K6": "dark",
+      "K7": "dark"
+     },
+     "frameC": {
+      "K3": "#e6e6e3",
+      "K6": "#e6e6e3",
+      "K7": "#3a3d40"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 7.9,
+     "u1": 9.6,
+     "s": [
+      3,
+      8
+     ],
+     "d": 1.2,
+     "sides": "open",
+     "fasciaC": {
+      "*": "#bfae98"
+     },
+     "railC": "#e6e7e3",
+     "glassC": {
+      "*": "#a9b6b3"
+     },
+     "postEvery": 0.6,
+     "beam": {
+      "*": 0.3
+     },
+     "rail": {
+      "*": "solid"
+     },
+     "parapetH": {
+      "*": 1
+     },
+     "hand": {
+      "K3": 0.03,
+      "K4": 0.03,
+      "K5": 0.03
+     },
+     "glazed": [
+      3,
+      6,
+      7
+     ],
+     "tint": {
+      "K3": "dark",
+      "K6": "dark",
+      "K7": "dark"
+     },
+     "frameC": {
+      "K3": "#e6e6e3",
+      "K6": "#e6e6e3",
+      "K7": "#3a3d40"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 6.3,
+     "u1": 7.8,
+     "y0": 7,
+     "y1": 7.9,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#4a3226",
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 9.3,
+     "y0": 7,
+     "y1": 8.4,
+     "color": "#eeeeea",
+     "r": 0.035
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 3,
+     "y0": 24.2,
+     "y1": 25.2,
+     "color": "#b9a58f",
+     "proud": 0.6
+    },
+    {
+     "t": "proj",
+     "u0": 3,
+     "u1": 5.9,
+     "d": 0.03,
+     "back": 0.25,
+     "y0": 25.2,
+     "y1": 26.8,
+     "color": "#c6ad90"
+    },
+    {
+     "t": "proj",
+     "u0": 5.95,
+     "u1": 9.6,
+     "d": 1.2,
+     "back": 0.25,
+     "y0": 25.2,
+     "y1": 27.6,
+     "color": "#c6ad90"
+    },
+    {
+     "t": "recess",
+     "u0": 9.5,
+     "u1": 12.1,
+     "s": [
+      2,
+      7
+     ],
+     "depth": 3.6,
+     "back": "#6f6457",
+     "side": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 9.6,
+     "u1": 12,
+     "y0": 7.05,
+     "y1": 9.7,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "stair": true,
+     "hbars": [
+      8.35
+     ],
+     "frameC": "#8a6a3a",
+     "tint": "#7e8a92"
+    }
+   ],
+   "note": "KB cephe (kuzey sokak). TQv3 (f22) + AKvwu. Ölçek kat aralığından (görünen 2.74 / FH 3.03 → 0.904; pano konumu ±2 m). KD köşe (u 0) iki panoda da ±0.3 tutuyor. UYARI: taban izinde girinti (kenar 3–5) u 13.55–15.46’da; fotoğrafta aynı girinti (arkasında kahve-altın doğramalı cam kule) u ≈10.4–12.7’de ve ~2.3 m genişlikte (AKvwu ve TQv3 bağımsız, ikisi de) → kenar 2 ≈10.4 m olmalı; burada girinti u 9.5–12.1 görünen (gerçek ≈10.5–13.4) recess ile çizildi, taban izi girintisi (kenar 3–5) ve kenar 6 görüldüğü yerde değil. Balkon yığını önü duvardan ≈1.2 m (adım oranı). Kat 2 pencere sütunu solundaki düz duvar penceresiz (u 0–3.6). Sol uçtaki (u<0) köşe balkonları kenar 1’in KB ucuna ait. Sağdaki blok (u>12.1) kenar 6."
+  },
+  {
+   "edge": 10,
+   "len": 2.97,
+   "seen": "partial",
+   "ref": "1476599910_10_Og0XQwVM.jpg",
+   "cal": {
+    "u": [
+     0,
+     2.97
+    ],
+    "head": [
+     [
+      1,
+      6.11
+     ],
+     [
+      2,
+      8.96
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 2.97,
+     "y0": 0.4,
+     "y1": 3.5,
+     "color": "#d6d6d2"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 0,
+     "u1": 2,
+     "y0": 0.8,
+     "y1": 3.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c3c6c6",
+     "tint": "#8fa39c"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 2.97,
+     "y0": 3.5,
+     "y1": 4.5,
+     "color": "#26396a",
+     "proud": 0.14
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 2.97,
+     "y0": 4.5,
+     "y1": 6,
+     "color": "#b8aa8e"
+    },
+    {
+     "t": "win",
+     "u0": 0,
+     "u1": 1.8,
+     "y0": 4.6,
+     "y1": 5.95,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#e6e6e1",
+     "tint": "#7d8a7e"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 2.97,
+     "y0": 6,
+     "y1": 6.5,
+     "color": "#a6966f",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 2.97,
+     "y0": 6.5,
+     "y1": 6.8,
+     "color": "#6a5746",
+     "proud": 0.12
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 2.97,
+     "y0": 6.8,
+     "y1": 7.3,
+     "color": "#bfb19a",
+     "proud": 0.08
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 2.97,
+     "y0": 7.3,
+     "y1": 7.55,
+     "color": "#655343",
+     "proud": 0.25
+    },
+    {
+     "t": "sign",
+     "u0": -0.1,
+     "u1": 2.97,
+     "y0": 7.9,
+     "y1": 8.95,
+     "d": 0.18,
+     "text": "HİLAL TOURS\nsince 1983",
+     "lines": [
+      {
+       "text": "HİLAL TOURS",
+       "fg": "#ffffff",
+       "size": 1,
+       "bold": false
+      },
+      {
+       "text": "since 1983",
+       "fg": "#ffffff",
+       "size": 0.25,
+       "bold": false
+      }
+     ],
+     "bg": "#1d93a8",
+     "fg": "#ffffff",
+     "border": "#177a8c",
+     "style": "box",
+     "font": "sans",
+     "bold": false,
+     "lit": true,
+     "align": "right",
+     "capH": 0.45,
+     "logo": "solda beyaz halka + koyu mavi daire amblemi (u 0.0–0.5); kutu köşede kenar 11’deki kutuyla birleşir (görünen 3.9’a kadar, köşeyi aşar); gece görülmedi"
+    }
+   ],
+   "note": "KB köşe kısa yüzü: podyum (YapıKredi fasyası yazısız lacivert, K1 buzlu cam) + korniş üstünde HİLAL TOURS kutu tabela. Kule duvarı bu yüzde penceresiz; sağdaki balkon uçları kenar 11 KB yığınının yanları. Kat başları kat aralığından (2.85 görünen) türetildi."
   }
  ],
  "notes": [],

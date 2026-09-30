@@ -8,19 +8,182 @@
   "kind": "flat",
   "eave": 0.36,
   "fasciaH": 1.05,
-  "fasciaC": "#2f2826"
+  "fasciaC": "#2f2826",
+  "flatC": "#6b5a52"
  },
  "wallTop": 21.8,
  "colors": {
-  "plaster": "#c3bfb2",
-  "plaster2": "#82817b",
-  "strip": "#2f2422",
+  "plaster": "#bcbbb6",
+  "plaster2": "#a2a49e",
+  "strip": "#483d3b",
   "fascia": "#969591",
   "soffit": "#8f9087",
   "railGlass": "#466973",
   "frame": "#ecece8",
-  "tile": "#6b4b40",
+  "tile": "#6b5a52",
   "plinth": "#6d706c"
+ },
+ "massing": {
+  "towers": [
+   {
+    "poly": [
+     [
+      650,
+      -620
+     ],
+     [
+      673.5,
+      -620
+     ],
+     [
+      673.5,
+      -593.8
+     ],
+     [
+      650,
+      -593.8
+     ]
+    ],
+    "storeys": 4,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.05,
+     "fasciaH": 0.1,
+     "fasciaC": "#a2a49e"
+    },
+    "wallTop": 11.9
+   },
+   {
+    "poly": [
+     [
+      650,
+      -593.8
+     ],
+     [
+      673.5,
+      -593.8
+     ],
+     [
+      673.5,
+      -620
+     ],
+     [
+      696,
+      -620
+     ],
+     [
+      696,
+      -550
+     ],
+     [
+      650,
+      -550
+     ]
+    ],
+    "storeys": 7
+   },
+   {
+    "poly": [
+     [
+      696,
+      -620
+     ],
+     [
+      699.4,
+      -620
+     ],
+     [
+      699.4,
+      -550
+     ],
+     [
+      696,
+      -550
+     ]
+    ],
+    "storeys": 4,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.05,
+     "fasciaH": 0.1,
+     "fasciaC": "#a2a49e"
+    },
+    "wallTop": 11.35
+   },
+   {
+    "poly": [
+     [
+      699.4,
+      -620
+     ],
+     [
+      718.3,
+      -620
+     ],
+     [
+      718.3,
+      -581.189
+     ],
+     [
+      717.87,
+      -581.21
+     ],
+     [
+      717.86,
+      -580.84
+     ],
+     [
+      717.61,
+      -575.81
+     ],
+     [
+      717.28,
+      -567.44
+     ],
+     [
+      717.28,
+      -550
+     ],
+     [
+      699.4,
+      -550
+     ]
+    ],
+    "storeys": 7
+   },
+   {
+    "poly": [
+     [
+      717.28,
+      -550
+     ],
+     [
+      740,
+      -550
+     ],
+     [
+      740,
+      -575.81
+     ],
+     [
+      717.61,
+      -575.81
+     ],
+     [
+      717.28,
+      -567.44
+     ]
+    ],
+    "storeys": 2,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.05,
+     "fasciaH": 0.15,
+     "fasciaC": "#b6b5ad"
+    },
+    "wallTop": 7.6
+   }
+  ]
  },
  "edges": [
   {
@@ -1352,8 +1515,2451 @@
      "color": "#d0d0cc"
     }
    ]
+  },
+  {
+   "edge": 1,
+   "len": 8.21,
+   "seen": "none",
+   "items": [],
+   "note": "Güney (E3 ile arası rampa/geçit) cephesi: 2025-09 panoramasında görülmedi (yalnız 2025-11 ZN5m karesinde uzaktan kahverengi podyum + kule balkonları) → düz bırakıldı."
+  },
+  {
+   "edge": 2,
+   "len": 9.01,
+   "seen": "none",
+   "items": [],
+   "note": "Güney (E3 ile arası rampa/geçit) cephesi: 2025-09 panoramasında görülmedi (yalnız 2025-11 ZN5m karesinde uzaktan kahverengi podyum + kule balkonları) → düz bırakıldı."
+  },
+  {
+   "edge": 3,
+   "len": 15.71,
+   "seen": "none",
+   "items": [],
+   "note": "Güney (E3 ile arası rampa/geçit) cephesi: 2025-09 panoramasında görülmedi (yalnız 2025-11 ZN5m karesinde uzaktan kahverengi podyum + kule balkonları) → düz bırakıldı."
+  },
+  {
+   "edge": 4,
+   "len": 9.19,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 5,
+   "len": 4.97,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 6,
+   "len": 1.49,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 7,
+   "len": 1.04,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 8,
+   "len": 0.65,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 9,
+   "len": 4.73,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 10,
+   "len": 8.38,
+   "seen": "photo",
+   "ref": "1552093106_10__YCGz-R0.jpg",
+   "cal": {
+    "u": [
+     -1.35,
+     8.38
+    ],
+    "head": [
+     [
+      4,
+      15.38
+     ],
+     [
+      6,
+      21.18
+     ]
+    ]
+   },
+   "note": "GD ek (doğu, arka sokak/park yolu): 2 katlı podyum parçası (massing). Podyum ön yüzü ortofoto düzleminde (kat çizgileri gerçek boy); GD köşe kahverengi kolonu görünen −1.35’te (taban izi köşesinin ≈1.35 m güneyinde; kenar 9 z −567.4 yerine ≈−565.9 olabilir). Üstündeki kule cephesi 4.4 m geride (x≈717.6; T2 parçasının kesim yüzü → düz). Gündüz güneşli. | ÖĞE NOTLARI: [panel u -1.35–0.13] GD köşe kahverengi kolon ; [win u 0.13–7.31 K1–1] K1 bant cam (yeşil yansımalı) ; [win u 7.31–8.38 K1–1] üstten asılı kanat açık ; [win u 0.13–5.06 K0–0] zemin kat üst bant cam ; [panel u 0.13–7.88] SANREMO ahşap (koyu kahve) alın bandı ; [win u 0.44–2.06 K0–0] beyaz (buzlu) bölmeli ahşap vitrin ; [win u 2.12–7.75 K0–0] ahşap çerçeveli cam kapı/vitrinler ; [awning u 2.69–5.62] koyu gri katlanır tente (yarı açık, eğik)",
+   "items": [
+    {
+     "t": "panel",
+     "u0": -1.35,
+     "u1": 0.13,
+     "y0": 3.19,
+     "y1": 7.19,
+     "color": "#4b3a34",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.52,
+      "w": 0.01,
+      "color": "#3a2c27"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 0.13,
+     "u1": 8.38,
+     "y0": 6.25,
+     "y1": 7.6,
+     "color": "#b6b5ad",
+     "clad": {
+      "dir": "grid",
+      "every": 1.24,
+      "every2": 0.7,
+      "w": 0.012,
+      "color": "#8f8e86"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 0.13,
+     "u1": 8.38,
+     "y0": 4.25,
+     "y1": 5.19,
+     "color": "#b6b5ad",
+     "clad": {
+      "dir": "grid",
+      "every": 1.24,
+      "every2": 0.47,
+      "w": 0.012,
+      "color": "#8f8e86"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 0.13,
+     "u1": 7.31,
+     "y0": 5.19,
+     "y1": 5.88,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 8,
+     "frameC": "#3a3d3d",
+     "tint": "#3f6b62"
+    },
+    {
+     "t": "win",
+     "u0": 7.31,
+     "u1": 8.38,
+     "y0": 5.19,
+     "y1": 5.88,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#3a3d3d",
+     "tint": "#2c3a3a"
+    },
+    {
+     "t": "sign",
+     "u0": 3.5,
+     "u1": 4.44,
+     "y0": 6.75,
+     "y1": 7.19,
+     "d": 0.02,
+     "style": "panel",
+     "text": "SM\nHUKUK & DANIŞMANLIK\n…",
+     "bg": "#1c1d20",
+     "fg": "#ffffff",
+     "border": "#8a8a8a",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "SM",
+       "size": 1,
+       "bold": true,
+       "y": 0.75
+      },
+      {
+       "text": "HUKUK & DANIŞMANLIK",
+       "size": 0.35,
+       "bold": false,
+       "y": 0.48
+      },
+      {
+       "text": "…",
+       "size": 0.3,
+       "y": 0.2
+      }
+     ],
+     "logo": "siyah levha, alt iki satır küçük \"Av. …\" adları (okunamadı)"
+    },
+    {
+     "t": "sign",
+     "u0": 0.19,
+     "u1": 4.31,
+     "y0": 4.78,
+     "y1": 5.13,
+     "d": 0.03,
+     "style": "letters",
+     "text": "SAFARİ SÜRÜCÜ KURSU",
+     "fg": "#c8323c",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.33,
+     "lines": [
+      {
+       "text": "SAFARİ SÜRÜCÜ KURSU",
+       "fg": "#c8323c",
+       "size": 1,
+       "bold": true
+      }
+     ],
+     "logo": "\"SAFARİ\" ve \"KURSU\" kırmızı, \"SÜRÜCÜ\" koyu gri (Ü noktaları kırmızı); gri kompozit bant üstünde tek tek harf"
+    },
+    {
+     "t": "win",
+     "u0": 0.13,
+     "u1": 5.06,
+     "y0": 3.69,
+     "y1": 4.25,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 4,
+     "frameC": "#3a3d3d",
+     "tint": "#2c3434"
+    },
+    {
+     "t": "panel",
+     "u0": 0.13,
+     "u1": 7.88,
+     "y0": 3.13,
+     "y1": 3.69,
+     "color": "#4a3526",
+     "proud": 0.12
+    },
+    {
+     "t": "sign",
+     "u0": 3.25,
+     "u1": 4.94,
+     "y0": 3.2,
+     "y1": 3.62,
+     "d": 0.14,
+     "style": "letters",
+     "text": "SANREMO\n…",
+     "fg": "#f2f0ea",
+     "font": "serif",
+     "bold": false,
+     "lines": [
+      {
+       "text": "SANREMO",
+       "size": 1,
+       "y": 0.62
+      },
+      {
+       "text": "…",
+       "size": 0.35,
+       "y": 0.12
+      }
+     ],
+     "logo": "ahşap alın üstünde beyaz serif harfler; altında küçük satır (…STERIA?) okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 0.35,
+     "u1": 0.94,
+     "y0": 3.18,
+     "y1": 3.62,
+     "d": 0.14,
+     "style": "letters",
+     "text": "GELATO\nCOFFEE\nPASTA\nCOLD DRINKS",
+     "fg": "#f2f0ea",
+     "font": "sans",
+     "bold": true,
+     "align": "left"
+    },
+    {
+     "t": "sign",
+     "u0": 7.25,
+     "u1": 8,
+     "y0": 3.18,
+     "y1": 3.62,
+     "d": 0.14,
+     "style": "letters",
+     "text": "DONDURMA\nKAHVE\nMAKARNA\nSOĞUK İÇECEKLER",
+     "fg": "#f2f0ea",
+     "font": "sans",
+     "bold": true,
+     "align": "right"
+    },
+    {
+     "t": "win",
+     "u0": 0.44,
+     "u1": 2.06,
+     "y0": 1.25,
+     "y1": 3.06,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#4a3526",
+     "tint": "#e2e0da",
+     "hbars": [
+      1.85,
+      2.45
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 2.12,
+     "u1": 7.75,
+     "y0": 1,
+     "y1": 3.06,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 5,
+     "frameC": "#4a3526",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 2.69,
+     "u1": 5.62,
+     "y": 4.5,
+     "d": 1.2,
+     "drop": 1.1,
+     "color": "#3a3d40",
+     "style": "retract",
+     "text": ""
+    }
+   ]
+  },
+  {
+   "edge": 11,
+   "len": 4.81,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 12,
+   "len": 5.04,
+   "seen": "partial",
+   "ref": "1552093106_12_AvflKtAH.jpg",
+   "cal": {
+    "u": [
+     0.188,
+     4.664
+    ],
+    "head": [
+     [
+      4,
+      12.25
+     ],
+     [
+      6,
+      17.4
+     ]
+    ]
+   },
+   "note": "Doğu kule yüzü (x≈717.6), kuzey–güney girinti içinde. Ortofoto ölçeği 0.888 (kule pencere lentoları 12.25/14.8/17.4 görünen; uF 1.68). Yeşil cam merdiven çekirdeği kahverengi çerçeve içinde; zemin önü ağaçlarla kapalı (siyah ferforje apartman giriş kapısı + posta kutuları görünen u 1.8–2.5, alt 1.2–2.1; üstü ağaç arkasında — çizilmedi). | ÖĞE NOTLARI: [panel u 0.188–4.664] podyum üst bandı (GD ek çatı hizası) ; [win u 2.13–4.1 K4–4] yeşil cam merdiven şeridi",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0.188,
+     "u1": 4.664,
+     "y0": 8.1,
+     "y1": 9,
+     "color": "#b6b5ad"
+    },
+    {
+     "t": "panel",
+     "u0": 1.55,
+     "u1": 4.664,
+     "y0": 9,
+     "y1": 19.3,
+     "color": "#3c3431",
+     "proud": 0.04
+    },
+    {
+     "t": "win",
+     "u0": 2.13,
+     "u1": 4.1,
+     "y0": 9,
+     "y1": 18.35,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "stair": true,
+     "split": 2,
+     "frameC": "#3c3431",
+     "tint": "#3f6f63",
+     "hbars": [
+      10.15,
+      11.3,
+      12.45,
+      13.6,
+      14.75,
+      15.9,
+      17.05
+     ]
+    }
+   ]
+  },
+  {
+   "edge": 13,
+   "len": 0.37,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 14,
+   "len": 3.93,
+   "seen": "none",
+   "items": [],
+   "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
+  },
+  {
+   "edge": 15,
+   "len": 14.29,
+   "seen": "photo",
+   "ref": "1552093106_15__XtPil5H.jpg",
+   "cal": {
+    "u": [
+     0,
+     14.29
+    ],
+    "head": [
+     [
+      4,
+      15.38
+     ],
+     [
+      6,
+      21.18
+     ]
+    ]
+   },
+   "items": [],
+   "note": "KD terasın doğu kenarı: bina değil (nöww kafe terası + tente; bina doğu yüzü ≈3.7 m geride x≈718.3, massing kesimi → düz). Doğu yüz öğeleri pending’de."
+  },
+  {
+   "edge": 16,
+   "len": 14.13,
+   "seen": "partial",
+   "ref": "1552093106_16_4JhpvS4z.jpg",
+   "cal": {
+    "u": [
+     11.495,
+     16.92
+    ],
+    "head": [
+     [
+      4,
+      7.836
+     ],
+     [
+      6,
+      10.063
+     ]
+    ]
+   },
+   "note": "KD uç (325. Sk.). Taban izinin x 718.3–722.5 kısmı bina değil, nöww kafenin açık terası (massing dışında bırakıldı; bkz. taban izi düzeltmesi). Bu ortofoto kötü ölçekli (≈0.38: pano 4JhpvS4z konumu / cephe gerçekte ≈2.4 m geride, z≈−593.5) — ölçek yükseklik çizgilerinden (podyum üstü, kule saçağı), KD köşe (kahverengi L çerçeve dış kenarı) görünen 13.11 = x 718.3 (hava fotoğrafı kule KD köşesi ile aynı). ZUHAL BAŞ bölmesi x ≈708.4–714.9, batı ucu kenar 19 ortofotosundan (görünen >15.63 dışarıda). Görünen u 13.11–13.65 × 3.56–5.63 arası açık (arkası görünüyor; köşe altı boşluk/giriş) — çizilemedi. | ÖĞE NOTLARI: [panel u 13.12–14.43] KD köşe kahverengi L çerçeve üst bandı ; [panel u 13.65–14.43] L çerçeve düşey bacağı ; [win u 14.47–16.92 K1–1] kafe tentesi üstündeki cam (ZUHAL BAŞ alt katı) ; [bal u 16.2–16.92 K4–6] doğu kule loca bloğunun doğu ucu (x 708.4–710.3; kenar 20 ortofotosundan)",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 13.12,
+     "u1": 14.43,
+     "y0": 5.63,
+     "y1": 6.29,
+     "color": "#483d3b",
+     "proud": 0.05
+    },
+    {
+     "t": "panel",
+     "u0": 13.65,
+     "u1": 14.43,
+     "y0": 3.56,
+     "y1": 5.63,
+     "color": "#483d3b",
+     "proud": 0.05
+    },
+    {
+     "t": "panel",
+     "u0": 14.43,
+     "u1": 16.92,
+     "y0": 4.25,
+     "y1": 6.29,
+     "color": "#a2a49e"
+    },
+    {
+     "t": "win",
+     "u0": 14.47,
+     "u1": 16.92,
+     "y0": 3.56,
+     "y1": 4.25,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#3a3d3d",
+     "tint": "#5c6f77"
+    },
+    {
+     "t": "sign",
+     "u0": 14.47,
+     "u1": 16.92,
+     "y0": 4.74,
+     "y1": 4.96,
+     "d": 0.05,
+     "style": "box",
+     "text": "BEAUTY & PERMANENT MAKEUP",
+     "bg": "#17191c",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": false,
+     "capH": 0.14
+    },
+    {
+     "t": "win",
+     "u0": 14.47,
+     "u1": 16.92,
+     "y0": 5.03,
+     "y1": 5.58,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 3,
+     "frameC": "#3a3d3d",
+     "tint": "#4e6b5e"
+    },
+    {
+     "t": "sign",
+     "u0": 14.47,
+     "u1": 16.92,
+     "y0": 5.63,
+     "y1": 6.01,
+     "d": 0.1,
+     "style": "box",
+     "text": "ZUHAL BAŞ",
+     "bg": "#17191c",
+     "fg": "#ffffff",
+     "font": "serif",
+     "bold": false,
+     "capH": 0.2,
+     "align": "right",
+     "logo": "solda beyaz el yazısı \"zh\" monogramı + yatay çizgi; sağda ince serif \"ZUHAL BAŞ\""
+    },
+    {
+     "t": "blade",
+     "u": 13.67,
+     "y0": 3.98,
+     "y1": 4.69,
+     "w": 0.75,
+     "gap": 0.08,
+     "d": 0.1,
+     "text": "nöww\nCroissants\n&\nCoffee",
+     "bg": "#e9e9e6",
+     "fg": "#1f2a36",
+     "border": "#1b1b1b",
+     "font": "sans",
+     "bold": false,
+     "lines": [
+      {
+       "text": "nöww",
+       "size": 1,
+       "y": 0.72
+      },
+      {
+       "text": "Croissants",
+       "size": 0.5,
+       "y": 0.45
+      },
+      {
+       "text": "&",
+       "size": 0.45,
+       "y": 0.33
+      },
+      {
+       "text": "Coffee",
+       "size": 0.5,
+       "y": 0.2
+      }
+     ],
+     "bracket": {
+      "kind": "arm",
+      "color": "#1b1b1b"
+     },
+     "logo": "üstte kruvasan simgesi; siyah çerçeveli beyaz yüz; ilk sözcük \"nöww\" (ö noktaları seçiliyor); yüz B görülmedi"
+    },
+    {
+     "t": "bal",
+     "u0": 16.2,
+     "u1": 16.92,
+     "d": 1.2,
+     "s": [
+      4,
+      6
+     ],
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green",
+      "K6": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 14.45,
+     "y0": 6.3,
+     "y1": 10,
+     "color": "#e2e2e0",
+     "r": 0.04
+    }
+   ]
+  },
+  {
+   "edge": 17,
+   "len": 0.94,
+   "seen": "partial",
+   "ref": "1552093106_18_WifkBXIN.jpg",
+   "cal": {
+    "u": [
+     0,
+     0.94
+    ],
+    "head": [
+     [
+      4,
+      15.38
+     ],
+     [
+      6,
+      21.18
+     ]
+    ]
+   },
+   "note": "0.94 m; kendi ortofotosu yok → gerçek koordinatla yazıldı (ref başka kenar: derinlik düzeltmesi yok). ZUHAL BAŞ – GENTAŞ arası kahverengi paye + doğu kule loca bloğu.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 0.94,
+     "y0": 1.7,
+     "y1": 11.35,
+     "color": "#483d3b",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.52,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 0.94,
+     "d": 1.2,
+     "s": [
+      4,
+      6
+     ],
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green",
+      "K6": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    }
+   ]
+  },
+  {
+   "edge": 18,
+   "len": 2.56,
+   "seen": "partial",
+   "ref": "1552093106_19_4JhpvS4z.jpg",
+   "cal": {
+    "u": [
+     0,
+     2.56
+    ],
+    "head": [
+     [
+      4,
+      15.38
+     ],
+     [
+      6,
+      21.18
+     ]
+    ]
+   },
+   "note": "Taban izindeki 2.56 m kuzey–güney çıkıntı yüzü (batıya bakar). Fotoğraflarda ZUHAL BAŞ ve GENTAŞ bölmeleri aynı düzlemde görünüyor → bu çıkıntı büyük olasılıkla yok (taban izi düzeltmesi). Gerçek koordinatla: kahverengi paye kaplaması podyum boyu, üstü düz sıva.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 2.56,
+     "y0": 1.7,
+     "y1": 11.35,
+     "color": "#483d3b",
+     "proud": 0.02,
+     "clad": {
+      "dir": "h",
+      "every": 0.52,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    }
+   ]
+  },
+  {
+   "edge": 19,
+   "len": 3.61,
+   "seen": "photo",
+   "ref": "1552093106_19_4JhpvS4z.jpg",
+   "cal": {
+    "u": [
+     1.365,
+     3.606
+    ],
+    "head": [
+     [
+      4,
+      10.832
+     ],
+     [
+      6,
+      14.434
+     ]
+    ]
+   },
+   "note": "325. Sk. cephesi (4JhpvS4z, bulutlu). Ortofoto ölçeği ≈0.62 (görünen y = 1.283 + 0.621·gerçek; uF 3.60). GENTAŞ bölmesinin batı ucu ve AVUKAT levhası kenar 20 ortofotosundan dönüştürüldü (WifkBXIN → 4JhpvS4z, benzerlik modelleri; kahverengi paye iki karede ±0.13 uyumlu). | ÖĞE NOTLARI: [panel u 1.365–2.45] ZUHAL BAŞ ile GENTAŞ arasındaki kahverengi paye (doğusu kenar 18/17) ; [bal u 1.365–3.606 K4–6] doğu kule taşan loca bloğu (iki bölme, ortada iniş borusu); K4–K6 cam balkon, yer yer açık kanat ; [pipe u 1.6] loca bloğu ortasında beyaz iniş borusu, her katta dallı ek",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 1.365,
+     "u1": 3.606,
+     "y0": 3.9,
+     "y1": 8.25,
+     "color": "#a2a49e",
+     "clad": {
+      "dir": "grid",
+      "every": 0.94,
+      "every2": 0.58,
+      "w": 0.012,
+      "color": "#86887f"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 1.365,
+     "u1": 2.45,
+     "y0": 1.93,
+     "y1": 8.2,
+     "color": "#483d3b",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.37,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.45,
+     "u1": 3.606,
+     "y0": 2.342,
+     "y1": 3.615,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#8a8f93",
+     "curt": {
+      "K0": "zebra"
+     },
+     "curtC": {
+      "K0": "#e8e8e6"
+     },
+     "curtF": {
+      "K0": 1
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.68,
+     "u1": 3.606,
+     "y0": 4.265,
+     "y1": 5.388,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "curt": {
+      "K1": "zebra"
+     },
+     "curtC": {
+      "K1": "#e8e8e6"
+     },
+     "curtF": {
+      "K1": 1
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.576,
+     "u1": 3.606,
+     "y0": 6.46,
+     "y1": 7.311,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#5f6468",
+     "tint": "#5c6d69"
+    },
+    {
+     "t": "sign",
+     "u0": 2.699,
+     "u1": 3.866,
+     "y0": 3.624,
+     "y1": 3.913,
+     "d": 0.02,
+     "style": "panel",
+     "text": "GENTAŞ\n…",
+     "bg": "#111e61",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "GENTAŞ",
+       "size": 1,
+       "bold": true,
+       "y": 0.62
+      },
+      {
+       "text": "…",
+       "size": 0.35,
+       "bold": false,
+       "y": 0.2
+      }
+     ],
+     "logo": "solda beyaz daire amblem; alt satır küçük (MÜHENDİSLİK İNŞAAT A.Ş.? — okunamadı)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 3.182,
+     "u1": 3.945,
+     "y0": 6.486,
+     "y1": 7.311,
+     "text": "AY & AR\n…\nAVUKAT\nYaş… DEMİR",
+     "bg": "#3f4a4a",
+     "fg": "#ffffff",
+     "bold": true,
+     "lines": [
+      {
+       "text": "AY & AR",
+       "size": 1,
+       "bold": false,
+       "y": 0.85
+      },
+      {
+       "text": "…",
+       "size": 0.3,
+       "y": 0.68
+      },
+      {
+       "text": "AVUKAT",
+       "size": 0.8,
+       "bold": true,
+       "y": 0.42
+      },
+      {
+       "text": "Yaş… DEMİR",
+       "size": 0.6,
+       "bold": true,
+       "y": 0.18
+      }
+     ],
+     "logo": "koyu yeşil-gri levha, açık (üstten asılı) kanadın önünde; alt satır bej bant içinde koyu yazı; küçük ikinci satır okunamadı"
+    },
+    {
+     "t": "camera",
+     "u": 2.576,
+     "s": 1,
+     "y": 4.142,
+     "style": "bullet",
+     "color": "#e8e8e8"
+    },
+    {
+     "t": "bal",
+     "u0": 1.365,
+     "u1": 3.606,
+     "d": 1.2,
+     "s": [
+      4,
+      6
+     ],
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green",
+      "K6": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 1.6,
+     "y0": 9,
+     "y1": 15.5,
+     "color": "#d9d9d6",
+     "r": 0.045
+    }
+   ]
+  },
+  {
+   "edge": 20,
+   "len": 15.7,
+   "seen": "photo",
+   "ref": "1552093106_20_WifkBXIN.jpg",
+   "cal": {
+    "u": [
+     3.224,
+     14.327
+    ],
+    "head": [
+     [
+      4,
+      11.771
+     ],
+     [
+      6,
+      15.872
+     ]
+    ]
+   },
+   "note": "325. Sokak (kuzey) cephesi, WifkBXIN (bulutlu, dağınık ışık; renkler gölgesiz). Bu ortofoto gerçek cepheye göre ≈0.71 ölçekli (pano konumu/kamera kotu hatası): görünen y = 0.894 + 0.707·gerçek, u merkez uF 11.01 — cal.u / cal.head bu benzerlikten hesaplandı (kule loca korkulukları K4–K6 ve podyum üstü ile uyum ±0.1). Kule katları podyum cephesinden ~1.5–2.5 m geride (OSM building:part + görüntü) ama düz cephede çizildi (bkz. pending). Kuleler arası boşluk (görünen u 6.2–7.9 ≈ x 697.1–699.5, gökyüzü) massing GAP parçası. | ÖĞE NOTLARI: [panel u 6.11–7.76] kahverengi kompozit paye ; [win u 3.58–4.8 K0–0] GENTAŞ cam giriş kapısı ; [win u 3.61–4.83 K1–1] stor yalnız üst %45; altta 2×2 kayıtlı pencere ; [panel u 7.85–11.79] zemin katta beyaz dikey çubuklu parmaklık arkasında çok sayıda klima dış ünitesi (kafes) ; [win u 7.85–11.79 K0–0] klima kafesi: beyaz çubuklu kapak, arkada koyu ; [bal u 3.224–4.09 K4–6] doğu kule loca bloğunun batı ucu (blok x ≈702.3–710.3, taşan kutu; alt yüzü görünüyor). K6 u 3.75–4.09 kanat açık ; [pipe u 12.25] batı kulenin doğu ucunda beyaz PVC iniş borusu",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 3.224,
+     "u1": 14.327,
+     "y0": 3.95,
+     "y1": 8.9,
+     "color": "#a2a49e",
+     "clad": {
+      "dir": "grid",
+      "every": 0.94,
+      "every2": 0.58,
+      "w": 0.012,
+      "color": "#86887f"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 6.11,
+     "u1": 7.76,
+     "y0": 2.1,
+     "y1": 8.9,
+     "color": "#483d3b",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.37,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 11.83,
+     "u1": 13.53,
+     "y0": 2.1,
+     "y1": 8.9,
+     "color": "#504443",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.37,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.58,
+     "u1": 4.8,
+     "y0": 2.1,
+     "y1": 3.55,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#8a8f93"
+    },
+    {
+     "t": "win",
+     "u0": 3.224,
+     "u1": 3.52,
+     "y0": 2.1,
+     "y1": 3.55,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#8a8f93",
+     "curt": {
+      "K0": "zebra"
+     },
+     "curtC": {
+      "K0": "#e8e8e6"
+     },
+     "curtF": {
+      "K0": 1
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.86,
+     "u1": 6.08,
+     "y0": 2.1,
+     "y1": 3.55,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#8a8f93",
+     "curt": {
+      "K0": "zebra"
+     },
+     "curtC": {
+      "K0": "#e8e8e6"
+     },
+     "curtF": {
+      "K0": 1
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.224,
+     "u1": 3.55,
+     "y0": 4.29,
+     "y1": 5.57,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "curt": {
+      "K1": "zebra"
+     },
+     "curtC": {
+      "K1": "#e8e8e6"
+     },
+     "curtF": {
+      "K1": 1
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.61,
+     "u1": 4.83,
+     "y0": 4.29,
+     "y1": 5.57,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#8a8f93",
+     "curt": {
+      "K1": "zebra"
+     },
+     "curtC": {
+      "K1": "#e8e8e6"
+     },
+     "curtF": {
+      "K1": 0.45
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.89,
+     "u1": 6.08,
+     "y0": 4.29,
+     "y1": 5.57,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "curt": {
+      "K1": "zebra"
+     },
+     "curtC": {
+      "K1": "#e8e8e6"
+     },
+     "curtF": {
+      "K1": 1
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.224,
+     "u1": 3.61,
+     "y0": 6.79,
+     "y1": 7.76,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#5f6468",
+     "tint": "#5c6d69"
+    },
+    {
+     "t": "win",
+     "u0": 3.64,
+     "u1": 4.46,
+     "y0": 6.79,
+     "y1": 7.76,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#5f6468",
+     "tint": "#6c8c88"
+    },
+    {
+     "t": "win",
+     "u0": 4.49,
+     "u1": 5.3,
+     "y0": 6.79,
+     "y1": 7.76,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#5f6468",
+     "tint": "#4c637c"
+    },
+    {
+     "t": "win",
+     "u0": 5.33,
+     "u1": 6.08,
+     "y0": 6.79,
+     "y1": 7.76,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#5f6468",
+     "tint": "#5c6d69"
+    },
+    {
+     "t": "sign",
+     "u0": 2.05,
+     "u1": 6.08,
+     "y0": 3.95,
+     "y1": 4.28,
+     "d": 0.1,
+     "style": "box",
+     "lit": true,
+     "text": "GENTAŞ",
+     "bg": "#17232c",
+     "fg": "#3f6fd0",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.26,
+     "logo": "lacivert alın kutusu; solda mavi-turuncu daire/kanat amblemi, beyaz kenarlı mavi \"GENTAŞ\" (u 3.14–5.11)"
+    },
+    {
+     "t": "sign",
+     "u0": 4.86,
+     "u1": 6.08,
+     "y0": 3.56,
+     "y1": 3.89,
+     "d": 0.02,
+     "style": "panel",
+     "text": "çeltaş\nİNŞAAT A.Ş.",
+     "bg": "#0b125e",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "çeltaş",
+       "size": 1,
+       "bold": true,
+       "y": 0.62
+      },
+      {
+       "text": "İNŞAAT A.Ş.",
+       "size": 0.35,
+       "bold": false,
+       "y": 0.2
+      }
+     ],
+     "logo": "solda beyaz bina/kule simgesi"
+    },
+    {
+     "t": "vinyl",
+     "u0": 4.49,
+     "u1": 5.3,
+     "y0": 6.82,
+     "y1": 7.76,
+     "text": "SMMM\nOnur DEMİR\nİlkay TURHAN",
+     "bg": "#3b5c9b",
+     "fg": "#ffffff",
+     "bold": true,
+     "lines": [
+      {
+       "text": "SMMM",
+       "size": 1,
+       "bold": true,
+       "y": 0.42
+      },
+      {
+       "text": "Onur DEMİR",
+       "size": 0.75,
+       "bold": true,
+       "y": 0.24
+      },
+      {
+       "text": "İlkay TURHAN",
+       "size": 0.75,
+       "bold": true,
+       "y": 0.08
+      }
+     ],
+     "logo": "üstte beyaz kare çerçeve içinde \"M\" + üs \"m\" monogramı; camın arkasına dayalı mavi levha"
+    },
+    {
+     "t": "panel",
+     "u0": 7.85,
+     "u1": 11.79,
+     "y0": 2.2,
+     "y1": 3.76,
+     "color": "#5b5e5e",
+     "proud": 0.02
+    },
+    {
+     "t": "win",
+     "u0": 7.85,
+     "u1": 11.79,
+     "y0": 2.2,
+     "y1": 3.76,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#dcdcd8",
+     "grille": {
+      "K0": "bars"
+     },
+     "grilleC": "#e8e8e4",
+     "tint": "#3c4040"
+    },
+    {
+     "t": "sign",
+     "u0": 8,
+     "u1": 8.55,
+     "y0": 3.66,
+     "y1": 3.9,
+     "d": 0.01,
+     "style": "panel",
+     "text": "",
+     "bg": "#d6d6d2",
+     "fg": "#333333",
+     "logo": "küçük beyaz levha, okunamadı"
+    },
+    {
+     "t": "win",
+     "u0": 7.85,
+     "u1": 9.2,
+     "y0": 4.22,
+     "y1": 5.6,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "tint": "#5c6f77"
+    },
+    {
+     "t": "win",
+     "u0": 9.2,
+     "u1": 10.5,
+     "y0": 4.22,
+     "y1": 5.6,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "tint": "#5c6f77"
+    },
+    {
+     "t": "win",
+     "u0": 10.5,
+     "u1": 11.79,
+     "y0": 4.22,
+     "y1": 5.6,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "tint": "#5c6f77"
+    },
+    {
+     "t": "win",
+     "u0": 7.85,
+     "u1": 11.79,
+     "y0": 6.79,
+     "y1": 7.8,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 3,
+     "frameC": "#5f6468",
+     "tint": "#4e6b5e"
+    },
+    {
+     "t": "ac",
+     "u": 8.8,
+     "s": 1,
+     "y": 6.6
+    },
+    {
+     "t": "win",
+     "u0": 13.57,
+     "u1": 14.327,
+     "y0": 2.2,
+     "y1": 3.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#b0b3b3",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 13.57,
+     "u1": 14.327,
+     "y0": 4.3,
+     "y1": 5.6,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#b0b3b3",
+     "tint": "#5c6f77"
+    },
+    {
+     "t": "win",
+     "u0": 13.57,
+     "u1": 14.327,
+     "y0": 6.85,
+     "y1": 7.8,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#5f6468",
+     "tint": "#4e6b5e"
+    },
+    {
+     "t": "sign",
+     "u0": 13.53,
+     "u1": 14.45,
+     "y0": 6.28,
+     "y1": 6.73,
+     "d": 0.02,
+     "style": "panel",
+     "text": "SARDES\n…\nAv. Büşra F…Z",
+     "bg": "#e2e2e0",
+     "fg": "#1a1a1a",
+     "border": "#1a1a1a",
+     "font": "serif",
+     "bold": false,
+     "lines": [
+      {
+       "text": "SARDES",
+       "size": 1,
+       "bold": false,
+       "y": 0.55
+      },
+      {
+       "text": "…",
+       "size": 0.3,
+       "y": 0.3
+      },
+      {
+       "text": "Av. Büşra F…Z",
+       "size": 0.3,
+       "y": 0.12
+      }
+     ],
+     "logo": "üstte çatı (üçgen) simgesi; beyaz zemin siyah çerçeve"
+    },
+    {
+     "t": "bal",
+     "u0": 3.224,
+     "u1": 4.09,
+     "d": 1.2,
+     "s": [
+      4,
+      6
+     ],
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green",
+      "K6": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 12.25,
+     "y0": 9.1,
+     "y1": 17,
+     "color": "#e2e2e0",
+     "r": 0.04
+    }
+   ]
+  },
+  {
+   "edge": 21,
+   "len": 8.65,
+   "seen": "photo",
+   "ref": "1552093106_21_7Pj5V3it.jpg",
+   "cal": {
+    "u": [
+     1.757,
+     8.169
+    ],
+    "head": [
+     [
+      4,
+      12.829
+     ],
+     [
+      6,
+      17.128
+     ]
+    ]
+   },
+   "note": "325. Sk. cephesi (7Pj5V3it, bulutlu). Ortofoto ölçeği ≈0.74 (görünen y = 1.429 + 0.741·gerçek; uF 6.79). Batı kulenin kuzey yüzü: düz sıva + taşan loca bloğu (görünen u 2.91–9.06, alt kutusu 9.95–10.96). | ÖĞE NOTLARI: [win u 1.757–4.26 K0–0] vitrin (içeride aydınlatma / mobilya) ; [panel u 6.82–8.169] beyaz alın bandı ; [bal u 2.91–5.9 K6–6] K6 sol bölme açık loca (tavan spotu) ; [bal u 6–8.169 K5–5] K5 sağ bölme açık loca ; [pipe u 5.95] loca bloğu ortasında beyaz iniş borusu",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 1.757,
+     "u1": 8.169,
+     "y0": 4.3,
+     "y1": 9.9,
+     "color": "#a2a49e",
+     "clad": {
+      "dir": "grid",
+      "every": 0.94,
+      "every2": 0.58,
+      "w": 0.012,
+      "color": "#86887f"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 5,
+     "u1": 6.82,
+     "y0": 2,
+     "y1": 9.9,
+     "color": "#483d3b",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.37,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.757,
+     "u1": 4.26,
+     "y0": 2.5,
+     "y1": 4.23,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#c8cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.26,
+     "u1": 4.98,
+     "y0": 2.5,
+     "y1": 4.23,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 1,
+     "frameC": "#c8cbcb"
+    },
+    {
+     "t": "win",
+     "u0": 6.82,
+     "u1": 8.169,
+     "y0": 2.5,
+     "y1": 4.23,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#c8cbcb",
+     "curt": {
+      "K0": "stor"
+     },
+     "curtC": {
+      "K0": "#dcdcd8"
+     },
+     "curtF": {
+      "K0": 0.9
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 6.82,
+     "u1": 8.169,
+     "y0": 4.23,
+     "y1": 5.03,
+     "color": "#dcdcd8",
+     "proud": 0.02
+    },
+    {
+     "t": "win",
+     "u0": 1.757,
+     "u1": 4.98,
+     "y0": 4.67,
+     "y1": 6.04,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#8a8f93",
+     "tint": "#6f7f80"
+    },
+    {
+     "t": "win",
+     "u0": 6.82,
+     "u1": 8.169,
+     "y0": 5.03,
+     "y1": 6.04,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "tint": "#6f7f80"
+    },
+    {
+     "t": "win",
+     "u0": 1.757,
+     "u1": 4.97,
+     "y0": 7.32,
+     "y1": 8.42,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 4,
+     "frameC": "#5f6468",
+     "tint": "#4e6b5e"
+    },
+    {
+     "t": "win",
+     "u0": 6.8,
+     "u1": 8.169,
+     "y0": 7.32,
+     "y1": 8.42,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#5f6468",
+     "tint": "#4e6b5e"
+    },
+    {
+     "t": "vinyl",
+     "u0": 3.22,
+     "u1": 4.11,
+     "y0": 7.46,
+     "y1": 8.37,
+     "text": "",
+     "bg": "#3b5c9b",
+     "fg": "#ffffff",
+     "logo": "mavi levha: beyaz kare çerçeve içinde büyük \"M\" + üs \"m\" monogramı (açık kanat önünde)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 4.16,
+     "u1": 4.99,
+     "y0": 7.35,
+     "y1": 8.37,
+     "text": "SERBEST MUHASEBECİ\nMALİ MÜŞAVİR\n…",
+     "bg": "#3b5c9b",
+     "fg": "#ffffff",
+     "bold": true,
+     "lines": [
+      {
+       "text": "SERBEST MUHASEBECİ",
+       "size": 0.35,
+       "bold": true,
+       "y": 0.8
+      },
+      {
+       "text": "MALİ MÜŞAVİR",
+       "size": 0.7,
+       "bold": true,
+       "y": 0.6
+      },
+      {
+       "text": "…",
+       "size": 0.4,
+       "y": 0.25
+      }
+     ]
+    },
+    {
+     "t": "vinyl",
+     "u0": 6.85,
+     "u1": 7.72,
+     "y0": 7.41,
+     "y1": 8.42,
+     "text": "",
+     "bg": "#3b5c9b",
+     "fg": "#ffffff",
+     "logo": "ikinci \"M\"+\"m\" monogram levhası"
+    },
+    {
+     "t": "bal",
+     "u0": 2.91,
+     "u1": 5.9,
+     "d": 1.2,
+     "s": [
+      4,
+      5
+     ],
+     "glazed": [
+      4,
+      5
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 2.91,
+     "u1": 5.9,
+     "d": 1.2,
+     "s": [
+      6,
+      6
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "spots": {
+      "n": 1
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 6,
+     "u1": 8.169,
+     "d": 1.2,
+     "s": [
+      4,
+      4
+     ],
+     "glazed": [
+      4
+     ],
+     "tint": {
+      "K4": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 6,
+     "u1": 8.169,
+     "d": 1.2,
+     "s": [
+      5,
+      5
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "spots": {
+      "n": 1
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 6,
+     "u1": 8.169,
+     "d": 1.2,
+     "s": [
+      6,
+      6
+     ],
+     "glazed": [
+      6
+     ],
+     "tint": {
+      "K6": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 5.95,
+     "y0": 9.95,
+     "y1": 17.9,
+     "color": "#d9d9d6",
+     "r": 0.045
+    }
+   ]
+  },
+  {
+   "edge": 22,
+   "len": 1.73,
+   "seen": "photo",
+   "ref": "1552093106_23_o207isLZ.jpg",
+   "cal": {
+    "u": [
+     -0.042,
+     1.347
+    ],
+    "head": [
+     [
+      4,
+      13.3
+     ],
+     [
+      6,
+      17.956
+     ]
+    ]
+   },
+   "note": "Kenar 22 (1.73 m) ortofotosu yok; kenar 23 ortofotosunda (o207isLZ) okundu, aynı benzerlik modeli (görünen y = 0.953 + 0.803·gerçek). | ÖĞE NOTLARI: [bal u -0.042–1.347 K4–6] batı kule loca bloğunun batı ucu",
+   "items": [
+    {
+     "t": "panel",
+     "u0": -0.042,
+     "u1": 1.347,
+     "y0": 5.2,
+     "y1": 10.12,
+     "color": "#a2a49e",
+     "clad": {
+      "dir": "grid",
+      "every": 0.94,
+      "every2": 0.58,
+      "w": 0.012,
+      "color": "#86887f"
+     }
+    },
+    {
+     "t": "win",
+     "u0": -0.042,
+     "u1": 1.347,
+     "y0": 2.6,
+     "y1": 4.39,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#c8cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": -0.042,
+     "u1": 1.347,
+     "y0": 5.28,
+     "y1": 6.31,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#8a8f93",
+     "tint": "#6f7f80"
+    },
+    {
+     "t": "win",
+     "u0": -0.042,
+     "u1": 1.347,
+     "y0": 7.69,
+     "y1": 8.79,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#5f6468",
+     "tint": "#4e6b5e"
+    },
+    {
+     "t": "vinyl",
+     "u0": -0.45,
+     "u1": 0.49,
+     "y0": 7.7,
+     "y1": 8.75,
+     "text": "SERBEST MUHASEBECİ\nMALİ MÜŞAVİR\nSEZGİN ERDEM",
+     "bg": "#3b5c9b",
+     "fg": "#ffffff",
+     "bold": true,
+     "lines": [
+      {
+       "text": "SERBEST MUHASEBECİ",
+       "size": 0.35,
+       "bold": true,
+       "y": 0.82
+      },
+      {
+       "text": "MALİ MÜŞAVİR",
+       "size": 0.7,
+       "bold": true,
+       "y": 0.6
+      },
+      {
+       "text": "SEZGİN ERDEM",
+       "size": 0.45,
+       "bold": true,
+       "y": 0.3
+      }
+     ]
+    },
+    {
+     "t": "bal",
+     "u0": -0.042,
+     "u1": 1.347,
+     "d": 1.2,
+     "s": [
+      4,
+      6
+     ],
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green",
+      "K6": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     }
+    }
+   ]
+  },
+  {
+   "edge": 23,
+   "len": 6.81,
+   "seen": "photo",
+   "ref": "1552093106_23_o207isLZ.jpg",
+   "cal": {
+    "u": [
+     1.347,
+     7.7
+    ],
+    "head": [
+     [
+      4,
+      13.3
+     ],
+     [
+      6,
+      17.956
+     ]
+    ]
+   },
+   "note": "325. Sk. cephesinin batı ucu (o207isLZ, bulutlu). Ortofoto ölçeği ≈0.80 (görünen y = 0.953 + 0.803·gerçek; uF 6.83). KB köşe kolonu görünen 7.7’de, taban izi köşesinin (görünen 6.81) ≈1.1 m batısında → cal.u sonu görünen köşe. Kulenin KB köşesi görünen 4.7 (x≈673.5): batısı yalnız podyum (massing KB parçası, 4 kat). | ÖĞE NOTLARI: [panel u 6.2–7.7] köşede beyaz duvar (QNB) ; [panel u 6.27–7.72] KB köşe kahverengi kolon ; [win u 1.347–6.27 K2–2] üç üstten asılı kanat açık (yeşilimsi) ; [ac u 3.74 K2] Samsung beyaz klima ; [pipe u 4.55] kule KB köşesinde beyaz PVC iniş borusu",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 1.347,
+     "u1": 6.27,
+     "y0": 6.31,
+     "y1": 10.12,
+     "color": "#a2a49e",
+     "clad": {
+      "dir": "grid",
+      "every": 0.94,
+      "every2": 0.58,
+      "w": 0.012,
+      "color": "#86887f"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 6.2,
+     "u1": 7.7,
+     "y0": 2.6,
+     "y1": 5.8,
+     "color": "#c9ccce"
+    },
+    {
+     "t": "panel",
+     "u0": 6.27,
+     "u1": 7.72,
+     "y0": 5.28,
+     "y1": 10.16,
+     "color": "#483d3b",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.37,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.347,
+     "u1": 1.8,
+     "y0": 2.6,
+     "y1": 4.39,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#c8cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.8,
+     "u1": 3.25,
+     "y0": 2.6,
+     "y1": 4.39,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#c8cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.25,
+     "u1": 4.76,
+     "y0": 2.6,
+     "y1": 4.39,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#c8cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.76,
+     "u1": 6.2,
+     "y0": 2.6,
+     "y1": 4.39,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#c8cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "vinyl",
+     "u0": 2.24,
+     "u1": 2.93,
+     "y0": 3,
+     "y1": 4.1,
+     "text": "",
+     "bg": "#7d8fa6",
+     "fg": "#ffffff",
+     "logo": "QNB reklam afişi (iki kişi fotoğrafı, mavi tonlar) cam arkasında"
+    },
+    {
+     "t": "vinyl",
+     "u0": 5.17,
+     "u1": 5.86,
+     "y0": 3,
+     "y1": 4.1,
+     "text": "",
+     "bg": "#8da0b5",
+     "fg": "#ffffff",
+     "logo": "QNB reklam afişi (kadın fotoğrafı)"
+    },
+    {
+     "t": "win",
+     "u0": 1.347,
+     "u1": 6.2,
+     "y0": 5.28,
+     "y1": 6.31,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 4,
+     "frameC": "#c8cbcb",
+     "tint": "#5f7a8a"
+    },
+    {
+     "t": "win",
+     "u0": 1.347,
+     "u1": 6.27,
+     "y0": 7.69,
+     "y1": 8.79,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 5,
+     "frameC": "#5f6468",
+     "tint": "#4e6b5e"
+    },
+    {
+     "t": "ac",
+     "u": 2.8,
+     "s": 2,
+     "y": 7.66
+    },
+    {
+     "t": "ac",
+     "u": 3.74,
+     "s": 2,
+     "y": 7.66
+    },
+    {
+     "t": "sign",
+     "u0": -1.5,
+     "u1": 4.48,
+     "y0": 4.46,
+     "y1": 5.21,
+     "d": 0.15,
+     "style": "box",
+     "lit": true,
+     "text": "QNB",
+     "bg": "#c9ccce",
+     "fg": "#1c2a55",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.38,
+     "logo": "lacivert-kırmızı yıldız amblem (u 1.6–2.1) + lacivert \"QNB\"; kutunun batısı (u 4.48–7.85) kırmızı ok + lacivert — kutu köşeyi dönüp bulvar cephesine devam eder; doğu ucu kenar 22"
+    },
+    {
+     "t": "sign",
+     "u0": 4.48,
+     "u1": 7.75,
+     "y0": 4.46,
+     "y1": 5.21,
+     "d": 0.15,
+     "style": "box",
+     "text": "",
+     "bg": "#0c1a44",
+     "fg": "#ffffff"
+    },
+    {
+     "t": "sign",
+     "u0": 4.35,
+     "u1": 6.27,
+     "y0": 7.18,
+     "y1": 7.72,
+     "d": 0.05,
+     "style": "panel",
+     "text": "PEGASUS",
+     "bg": "#e79c34",
+     "fg": "#c0262a",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.2,
+     "logo": "turuncu-sarı zemin, kırmızı eğik \"PEGASUS\" + solunda küçük uçak silueti"
+    },
+    {
+     "t": "sign",
+     "u0": 4.35,
+     "u1": 6.27,
+     "y0": 9.02,
+     "y1": 9.55,
+     "d": 0.05,
+     "style": "panel",
+     "text": "TURKISH\nAIRLINES",
+     "bg": "#b7282e",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.14,
+     "align": "right",
+     "logo": "kırmızı zemin, solda beyaz daire içinde kırmızı kuş"
+    },
+    {
+     "t": "pipe",
+     "u": 4.55,
+     "y0": 10.2,
+     "y1": 18,
+     "color": "#e2e2e0",
+     "r": 0.04
+    }
+   ]
   }
  ],
- "notes": [],
- "pending": []
+ "notes": [
+  "BİNA: Özlüce Bulvarı doğusu, 325. Sokak güneyi. Zemin + asma kat + ofis katı + teknik bant (K0–K3, \"podyum\", üstü ≈11.9 bulvarda / ≈11.35 325. Sk.) üstünde iki konut kulesi (K4–K6, kat 2.9 m, saçak 21.8–22.8, koyu kahve saçak alnı; doğu cephesinde geri çekik camlı çatı katı görüldü (görünen 14.9–16.1, _YCGz 10 ortofotosu) — çizilmedi, pending). floorH 2.9 + groundRaise 1.53: bulvar ortofotosunda kule döşemeleri 13.13/16.03/18.93, podyum çizgileri K1 4.43 (QNB/TEB alın bandı üstü), K2 7.33 (TK/Sultan Sarsıcı panosu altı), K3 10.23 (işstur panosu) ile tutarlı.",
+  "MASSING (dünya): KB köşe yalnız podyum (x<673.5, z<−593.8; 4 kat — bulvarda kule KB köşesi görünen u 1.47, 325. Sk.’ta görünen 4.7 = x≈673.5); batı kule x<696.0 (7 kat); kuleler arası boşluk x 696.0–699.4 (4 kat; kuzeyde gökyüzü görünüyor, WifkBXIN görünen 6.2–7.9; güney yarısında camlı çekirdek olabilir, görülmedi); doğu kule x 699.4–718.3 (7 kat); GD ek (SANREMO / SAFARİ, x>717.3, z>−575.8; 2 kat, üst 7.6). KD taban izi parçası (x>718.3, z<−581.2) BİNA DEĞİL: nöww kafenin tenteli açık terası → hiçbir parçaya verilmedi (boş).",
+  "KULE GERİ ÇEKİLMELERİ (çizilemedi, düz cephede): OSM building:part 1552093107/08 ve görüntüye göre kuleler podyum cephesinden batıda ≈2.5 m (x 672.2–673.5), kuzeyde ≈0–1.7 m (loca blokları taşar), doğuda ≈4 m (x≈717.6–718.3) geride. Kule öğeleri kendi ortofotolarındaki ölçekle podyum düzleminde yazıldı. Kule çatıları kuzey–güney eksenli basık tonoz görünümlü (kuzey yüzde kavisli saçak alnı: kenar 20/21/23 ortofotolarında uçlarda 17.0 → ortada 18.7 görünen) — üretici düz çatı çiziyor (pending).",
+  "KUZEY ORTOFOTOLARI: 325. Sk. panolarının (WifkBXIN, 7Pj5V3it, o207isLZ, 4JhpvS4z) ortofotoları gerçek cepheye göre 0.62–0.80 ölçekli (kamera konum/kot hatası). Her kenarda kule loca korkulukları (K4–K6) + podyum üstü + GENTAŞ alın bandı ile doğrusal model (görünen = a + s·gerçek, yatay merkez uF) kuruldu, cal.u/cal.head bundan; komşu kenarlar arası öğe dönüşümü aynı modellerle (kahverengi payeler iki karede ±0.2–0.4 m uyumlu).",
+  "RENKLER: bulvar (batı) cephesi fotoğrafta gölgede → sıcak koyu örnekler (#86857c kule sıvası); kule sıvası güneşli örnek #bcbbb6 (ZN5m 2025-11, güney yüz) palete alındı. Podyum gri kompozit panel #a2a49e (kuzey, bulutlu) / #82817b (batı, gölge), kahverengi kompozit kolon/paye #483d3b (kuzey) / #2f2422 (batı gölge), koyu saçak alnı #2f2826, cam korkuluk mavi-yeşil #466973 (batı) / buzlu açık yeşil #8aa3a3 (kuzey).",
+  "TABELA ÖZETİ: bulvar — QNB (ışıklı kutu + dik tabela), TURKISH AIRLINES + Emirates/Lufthansa/…/QATAR rozetleri, PEGASUS, işstur / VİZE İŞLEMLERİ / EJDER TURİZM, TEB (+ Türk Ekonomi Bankası), SULTAN SARSICI Güzellik Salonu (+ 0532 … tel.), ALTUNTAS PARK bina adı, çekirdekte KİRALIK 0530 968 81 10 (?) kartonu, K4 loca korkuluğunda \"…eslek Hizmet Birimi / …onuşma Terapisti / …e SERT ALLIŞ / 0 541 585 96 99\" brandası. 325. Sk. — GENTAŞ (alın + iki küçük levha), çeltaş İNŞAAT A.Ş., AY & AR … AVUKAT Yaş… DEMİR, SMMM Onur DEMİR / İlkay TURHAN, \"M\" monogram levhaları ×2, SERBEST MUHASEBECİ MALİ MÜŞAVİR (…/SEZGİN ERDEM), SARDES (Av. Büşra F…Z), QNB (kuzey), PEGASUS, TURKISH AIRLINES (kuzey köşe), ZUHAL BAŞ + BEAUTY & PERMANENT MAKEUP, nöww Croissants & Coffee (dik tabela). Doğu — SANREMO (+ GELATO/COFFEE/PASTA/COLD DRINKS, DONDURMA/KAHVE/MAKARNA/SOĞUK İÇECEKLER), SAFARİ SÜRÜCÜ KURSU, SM HUKUK & DANIŞMANLIK.",
+  "YALNIZ 2025-11 KARESİNDE (ZN5m7C0H, çizilmedi): batı kulenin K5–K6 balkonundan sarkan büyük Türk bayrağı (29 Ekim).",
+  "GÖRÜLMEYENLER: güney cephe (kenar 1–3; rampa tarafı), kenar 4–9/11/13/14 (yalnız çok yatık), kule doğu yüzü (kesim), kuleler arası boşluğun iç yüzleri, çatı (hava fotoğrafında kahverengi membran + açık renk loca şapkaları; çatı katı)."
+ ],
+ "pending": [
+  {
+   "what": "kule geri çekilmesi (setback) — üretici podyum üstündeki kuleyi taban izi kenarından içeride çizemiyor (massing kesim kenarları öğesiz)",
+   "where": "batı: kule yüzü x≈672.2–673.5 (podyum 669.5–670.9); kuzey: loca blokları z≈−593.5, düz duvar ≈−592.5…−593.6; doğu: x≈717.6–718.3 (podyum/teras 722)",
+   "storeys": "K4–K6",
+   "note": "öğeler şimdilik podyum düzleminde"
+  },
+  {
+   "what": "kule tonoz çatısı / kavisli saçak alnı",
+   "edges": [
+    19,
+    20,
+    21,
+    23
+   ],
+   "shape": "kuzey yüzde saçak alnı uçlarda aşağı kıvrılır: görünen (kenar 21) u −0.78…2.6 arası 17.0→17.9, düz 2.6–9.35 17.9–18.7; batı cephede (kenar 0) düz 21.77–22.82",
+   "color": "#6a6d74"
+  },
+  {
+   "what": "çekirdek başlığı (merdiven kulesi tepesi) duvar üstünün üstünde",
+   "edge": 0,
+   "u": [
+    11.2,
+    15.97
+   ],
+   "y": [
+    22.82,
+    23.64
+   ],
+   "color": "#3c3937",
+   "depth": "görülmedi (≈3 m geride)"
+  },
+  {
+   "what": "doğu kule çatı katı (geri çekik camlı kat)",
+   "edge": 10,
+   "note": "_YCGz 10 ortofotosunda görünen u 1.9–7.0, y 14.9–16.1, koyu çerçeveli cam; konum/derinlik ölçülemedi"
+  },
+  {
+   "what": "doğu podyum yüzü x≈718.3 (KD teras arkası, massing kesimi → öğesiz)",
+   "edge": 15,
+   "ref": "1552093106_15__XtPil5H.jpg",
+   "scale": "görünen ≈0.80 (uF 5.83)",
+   "items": "K1 koyu cam bant görünen 5.49–6.18 (u −1.5…8.3, açık kanat u 1.4–2.2); üstünde beyaz folyo \"zh\" + \"ZUHAL BAŞ\" + \"BEAUTY & PERMANENT MAKEUP\" (u 3.74–7.0, y 5.66–6.27); zemin kat cam u 3.05–8.55 y 3.26–4.41; siyah ferforje apartman kapısı u 0.05–0.73 y 1.37–2.66; KD kahverengi köşe kolonu u 8.64–10.3 (0.4–7.8) üstünde \"nöww\" dik tabelası (u 10.24–10.73, y 3.86–4.72); kule doğu yüzü (pencereler, yeşil cam çekirdek) görünen 0–8 × 8–19"
+  },
+  {
+   "what": "KD köşe altı boşluk (açık geçit?)",
+   "edge": 16,
+   "u": [
+    13.11,
+    13.65
+   ],
+   "y": [
+    3.56,
+    5.63
+   ],
+   "note": "kahverengi L çerçevenin altında arkası görünüyor; derinlik görülmedi"
+  }
+ ]
 }
