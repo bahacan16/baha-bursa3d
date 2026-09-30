@@ -38,7 +38,8 @@
   "Güney cepheler (0–7, 19, 20) Street View ile görülmedi; hava fotoğrafında her kanatta tüm genişlikte balkon döşemeleri (GB köşede yuvarlak) → tahmini açık yığınlar; camlar bilinmiyor. Giriş görülmedi; çekirdeğin güney yüzüne (3) tahmini lobi girişi konuldu.",
   "v3 (korkuluk/renk): görünen tüm yığınlarda döşeme alnı + beyaz dolu parapet (döşemeden ≈0.55 m) + tek ara borulu, ~1.2 m dikmeli paslanmaz küpeşte (≈0.92 m) → rail solidTube, parapetH 0.55, railC #d0d6d9; camlı katlarda cam parapetten tavana, küpeşte önünde. K2 alnı/parapeti tüm yığınlarda koyu gri (#50575f). İstisna: kuzey cephe doğu yığını (11/10) K2 korkuluğu 4–5 yatay borulu ve daha yüksek.",
   "v3: binada tabela/levha görülmedi (giriş güneyde, görülmedi); doğudaki çitte kırmızı SATILIK levhası ve elektrik panosu bina değil. Balkon uçlarında kat kat açık gri çörtenler (vent olarak yazıldı).",
-  "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster2': '#50575f'} → {'plaster2': '#5a636b'}"
+  "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster2': '#50575f'} → {'plaster2': '#5a636b'}",
+  "critic-fix 2026-09-30: K2 koyu alın: nB9G 145_32 karesinde K2 alnı #4a555b / #454d51 ≈ aynı düzlemdeki koyu duvar #4c575e (oran 0.97–1.0) → fasciaC K2 = plaster2 #5a636b (eski #50575f). Kalınlık ≈ beyaz alınlarla aynı (solidTube 0.55 + döşeme, değişmedi); oyundaki neredeyse siyah ton ışık. Cam balkon perdeleri NNxF 164_23 / 184_21'de kat kat kontrol edildi: 11 batı yığın K1–K3 ve 12 K1–K3 kapalı beyaz tül (K1 biraz daha saydam, 12 K3'te sağ kanat açık), K0 koyu şeffaf, K4 şeffaf → mevcut tint kayıtlarıyla uyumlu; hepsinin oyunda beyaz görünmesi 'clear'/'blinds' malzemesinden (A10)."
  ],
  "edges": [
   {
@@ -81,7 +82,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     }
    ],
@@ -127,7 +128,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -149,7 +150,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -206,7 +207,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -322,7 +323,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -344,7 +345,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -401,7 +402,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     }
    ],
@@ -484,7 +485,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -518,7 +519,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -595,7 +596,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -667,7 +668,7 @@
       "K2": 0.45
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -729,7 +730,7 @@
       "K2": 0.45
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -873,7 +874,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -985,7 +986,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     }
    ],
@@ -1099,7 +1100,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     }
    ],
@@ -1158,7 +1159,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -1379,7 +1380,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -1442,7 +1443,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -1502,7 +1503,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     },
     {
@@ -1554,7 +1555,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     }
    ],
@@ -1600,7 +1601,7 @@
       "*": 0.55
      },
      "fasciaC": {
-      "K2": "#50575f"
+      "K2": "#5a636b"
      }
     }
    ],

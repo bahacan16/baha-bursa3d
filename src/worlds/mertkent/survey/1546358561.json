@@ -1,1242 +1,1323 @@
 {
-  "id": 1546358561,
-  "name": "Şehr-i Bursa Evleri",
-  "storeys": 5,
-  "groundRaise": 2.6,
-  "floorH": 2.85,
-  "roof": {
-    "kind": "hipped",
-    "eave": 0.1,
-    "fasciaH": 0.7,
-    "pitch": 25,
-    "eaveY": {
-      "edge": 19,
-      "y": 20.7
-    }
+ "id": 1546358561,
+ "name": "Şehr-i Bursa Evleri",
+ "storeys": 5,
+ "groundRaise": 2.6,
+ "floorH": 2.85,
+ "roof": {
+  "kind": "hipped",
+  "eave": 0.1,
+  "fasciaH": 0.7,
+  "pitch": 25,
+  "eaveY": {
+   "edge": 19,
+   "y": 20.7
+  }
+ },
+ "colors": {
+  "plaster": "#c4c9cd",
+  "plaster2": "#6a727a",
+  "fascia": "#eeeeea",
+  "soffit": "#d8d2c4",
+  "railGlass": "#c7ced2",
+  "frame": "#efefec",
+  "tile": "#9a6f60",
+  "plinth": "#4f555b"
+ },
+ "notes": [
+  "Aynı site: 'ŞEHR-İ BURSA EVLERİ' (kuzeyde giriş önünde direkte levha; B57 ile aynı müteahhit dili: beyaz balkon alınları, borulu korkuluk, yığınların üstünde üçgen alınlık).",
+  "Kat: 5 normal kat (K0–K4) + yarı bodrum (batı ve kuzeyde küçük bodrum pencereleri). K0 döşemesi ≈2.6 m. Kat yüksekliği 2.85 korundu. Kuzey ve güney orta kulelerde K4 üstünde çatı arası (6.) pencere sırası var (pending; üretici çizemiyor).",
+  "Renk dili (v5): açık gri sıva (gölgede #9eabb6–#a1adbb, güneşte örnek yok → eski #c4c9cd korundu) + koyu antrasit (gölgede #3e4552–#7c8593; eleştirmen düzeltmesi #6a727a korundu): batı cephede K0 ve K3 hizasında yatay koyu bantlar, kuzey orta kule, merdiven kulesi ve balkon arka duvarları koyu; GÜNEY orta kule AÇIK gri. Pencereler beyaz PVC (batı 3 bölmeli ≈2.36 m, kulelerde 2 kanatlı 0.95–1.25 m). Batı pencere sütunlarının iki yanında açık gri sıva pilastrları (koyu bantları keserek), güney kulede 3 düşey pilastr/derz.",
+  "Kuzey cephe (sokak), doğudan: KD köşe balkonları (12, boşlukta geride, doğu cepheye 45° pahlı dönüş) – D yığını (14) – koyu kule (16, taban izinde 0.8 m geride) – B yığını (18). Güney cephe aynı düzen (4 GB yığını, 6 açık gri kule, 8 GD yığını, 10 GD köşe) — _zvj karelerinden kısmen görüldü; artık kuzeyden KOPYALANMIYOR (her kenar kendi gözlemiyle; görülmeyenler camsız).",
+  "Balkonlar (v5, kat kat): kalın beyaz döşeme alınları (≈0.5 m dolu alın) + dikmeli paslanmaz borulu küpeşte → rail solidTube, parapetH 0.5, railC #d0d6d9; K2 alnı TÜM yığınlarda KOYU gri (#50575f, kuzey ve doğuda net görüldü — 1546358562 ile aynı dil); krem tavan + spot. Yığın üstlerinde üçgen alınlıklar: kuzeyde açık gri, güneyde BEYAZ ('cap' ile düz plak).",
+  "Çatı: yığın ve kule üstlerinde K–G yönlü beşik alınlıklar, ortada kiremit çatı (hava fotoğrafı: kırma/çok parçalı); batı duvarın üstü düz parapet + beyaz harpuşta (≈17.3–17.6). Merdiven kulesi (1) çatının ~0.6 m üstünde. Üretici için 'hipped' + fasciaH 0.7.",
+  "v5 taban izi kanıtı (değiştirilmedi): Xe8P'de batı-kuzey duvarı (19) gerçek ≈7.3 m (iz 8.56); d_xi'de B yığınının batısı gökyüzü (KB köşe izin ≈1 m içinde); TRTB + d_xi'ye göre kuzey kule x≈21.8–26.7 (iz kademesi 20.2–25.4, ≈1.2–1.4 m doğuya kayık). Ortofotolar düzeltilmiş halkayla yeniden üretildi (CORRECTED=1; docs/survey/c'deki eski dosyalar eski halkaya göre, adlar aynı — yeniden üretilmeli).",
+  "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster2': '#666b72'} → {'plaster2': '#6a727a'}",
+  "v6 geçişi (2026-09-29): dönüşenler — batı cephe (3, 19) kat başına siyah silindirler (lamp, işlev seçilemedi, gece ışıksız), B yığını K2 Türk bayrağı ölçülü dikey bayrak (banner tr-v). Kalanlar: kule çatı arası pencereleri (alınlık üretilmiyor / pencereler üçgene sığmıyor), KD köşe pahı, 'A' harfi (balkon alnına montaj yok), site levhası (sokak planı), merdiven kulesi başlığı (derinlik görülmedi).",
+  "critic-fix 2026-09-30: Kuzey alınlıklar (gnXj 180, TRTB ortoları 14/16/18): D (14) ve B (18) yığınlarının üstünde düz 'cap' değil açık gri eğik KUTU: alt kenarı K4 tavanı (gerçek ≈16.7), üst kenarı kuleye doğru yükselir — D: 19.2 (doğu uç) → 20.7 (kule yanı), B: 17.9 (batı uç) → 19.95 (kule yanı) (TRTB ortosunda ölçülüp ön yüz kat aralığı 1.084 ile gerçeğe, sonra kenarın kendi kalibrasyonuyla görünene çevrildi) → proj (ön yüz d 1.3, balkon önüyle aynı) + dik üçgen pediment (derinlik 1.3 = duvar hattına kadar; daha gerisi görülmedi). Renk: TRTB'de kutu #7b8794 / aynı karedeki koyu kule #4b5664 oranı (1.48–1.64) × plaster2 → #aab1b6. Kuzey kule (16): duvar üstünden (görünen 15.25) omuzlara (18.1–18.3) dikdörtgen yükselip u 1.3'te 19.3 tepeli alınlıkla biter; içinde çatı arası pencereleri (16.15–17.05, iki sütun, tül) → proj (d 0.02, geriye 0.3 = alınlık duvarı kalınlığı VARSAYIM, arkası görülmedi) + wins + pediment. hipped çatının gables'ı yok saydığı için eskiden düz kalıyordu."
+ ],
+ "edges": [
+  {
+   "edge": 0,
+   "len": 1.25,
+   "seen": "none",
+   "items": [],
+   "note": "v5: Merdiven girintisinin kuzey yan duvarı (güneye bakar); hiçbir karede görülmedi → öğe yok."
   },
-  "colors": {
-    "plaster": "#c4c9cd",
-    "plaster2": "#6a727a",
-    "fascia": "#eeeeea",
-    "soffit": "#d8d2c4",
-    "railGlass": "#c7ced2",
-    "frame": "#efefec",
-    "tile": "#9a6f60",
-    "plinth": "#4f555b"
+  {
+   "edge": 1,
+   "len": 2.35,
+   "seen": "partial",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     2.35
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 2.35,
+     "y0": 0,
+     "y1": 21.4,
+     "color": "plaster2"
+    },
+    {
+     "t": "win",
+     "u0": 0.75,
+     "u1": 1.6,
+     "y0": 3.6,
+     "y1": 5.3,
+     "k": 0,
+     "s": [
+      0,
+      4
+     ],
+     "split": 2,
+     "curt": {}
+    },
+    {
+     "t": "win",
+     "u0": 0.75,
+     "u1": 1.6,
+     "y0": 0.6,
+     "y1": 1.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "small"
+    }
+   ],
+   "note": "v5 (2ydc ortofotosu + Xe8P sağ kenarı; gerçek metre, yükseklik Xe8P çerçevesinde): merdiven kulesi — baştan sona koyu antrasit, ortada 2 kanatlı beyaz PVC sahanlık pencereleri (≈0.85×1.2 m), katlara göre yarım kat aşağıda; kule tepesi komşu çatıdan ≈1 m yüksek (2ydc), üstü paslı kahve saç (pending). Sahanlık pencere yükseklikleri yaklaşık (çerçeveler arası eşleme)."
   },
-  "notes": [
-    "Aynı site: 'ŞEHR-İ BURSA EVLERİ' (kuzeyde giriş önünde direkte levha; B57 ile aynı müteahhit dili: beyaz balkon alınları, borulu korkuluk, yığınların üstünde üçgen alınlık).",
-    "Kat: 5 normal kat (K0–K4) + yarı bodrum (batı ve kuzeyde küçük bodrum pencereleri). K0 döşemesi ≈2.6 m. Kat yüksekliği 2.85 korundu. Kuzey ve güney orta kulelerde K4 üstünde çatı arası (6.) pencere sırası var (pending; üretici çizemiyor).",
-    "Renk dili (v5): açık gri sıva (gölgede #9eabb6–#a1adbb, güneşte örnek yok → eski #c4c9cd korundu) + koyu antrasit (gölgede #3e4552–#7c8593; eleştirmen düzeltmesi #6a727a korundu): batı cephede K0 ve K3 hizasında yatay koyu bantlar, kuzey orta kule, merdiven kulesi ve balkon arka duvarları koyu; GÜNEY orta kule AÇIK gri. Pencereler beyaz PVC (batı 3 bölmeli ≈2.36 m, kulelerde 2 kanatlı 0.95–1.25 m). Batı pencere sütunlarının iki yanında açık gri sıva pilastrları (koyu bantları keserek), güney kulede 3 düşey pilastr/derz.",
-    "Kuzey cephe (sokak), doğudan: KD köşe balkonları (12, boşlukta geride, doğu cepheye 45° pahlı dönüş) – D yığını (14) – koyu kule (16, taban izinde 0.8 m geride) – B yığını (18). Güney cephe aynı düzen (4 GB yığını, 6 açık gri kule, 8 GD yığını, 10 GD köşe) — _zvj karelerinden kısmen görüldü; artık kuzeyden KOPYALANMIYOR (her kenar kendi gözlemiyle; görülmeyenler camsız).",
-    "Balkonlar (v5, kat kat): kalın beyaz döşeme alınları (≈0.5 m dolu alın) + dikmeli paslanmaz borulu küpeşte → rail solidTube, parapetH 0.5, railC #d0d6d9; K2 alnı TÜM yığınlarda KOYU gri (#50575f, kuzey ve doğuda net görüldü — 1546358562 ile aynı dil); krem tavan + spot. Yığın üstlerinde üçgen alınlıklar: kuzeyde açık gri, güneyde BEYAZ ('cap' ile düz plak).",
-    "Çatı: yığın ve kule üstlerinde K–G yönlü beşik alınlıklar, ortada kiremit çatı (hava fotoğrafı: kırma/çok parçalı); batı duvarın üstü düz parapet + beyaz harpuşta (≈17.3–17.6). Merdiven kulesi (1) çatının ~0.6 m üstünde. Üretici için 'hipped' + fasciaH 0.7.",
-    "v5 taban izi kanıtı (değiştirilmedi): Xe8P'de batı-kuzey duvarı (19) gerçek ≈7.3 m (iz 8.56); d_xi'de B yığınının batısı gökyüzü (KB köşe izin ≈1 m içinde); TRTB + d_xi'ye göre kuzey kule x≈21.8–26.7 (iz kademesi 20.2–25.4, ≈1.2–1.4 m doğuya kayık). Ortofotolar düzeltilmiş halkayla yeniden üretildi (CORRECTED=1; docs/survey/c'deki eski dosyalar eski halkaya göre, adlar aynı — yeniden üretilmeli).",
-    "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster2': '#666b72'} → {'plaster2': '#6a727a'}",
-    "v6 geçişi (2026-09-29): dönüşenler — batı cephe (3, 19) kat başına siyah silindirler (lamp, işlev seçilemedi, gece ışıksız), B yığını K2 Türk bayrağı ölçülü dikey bayrak (banner tr-v). Kalanlar: kule çatı arası pencereleri (alınlık üretilmiyor / pencereler üçgene sığmıyor), KD köşe pahı, 'A' harfi (balkon alnına montaj yok), site levhası (sokak planı), merdiven kulesi başlığı (derinlik görülmedi)."
-  ],
-  "edges": [
+  {
+   "edge": 2,
+   "len": 1.67,
+   "seen": "none",
+   "items": [],
+   "note": "v5: Merdiven girintisinin güney yan duvarı; görülmedi → öğe yok."
+  },
+  {
+   "edge": 3,
+   "len": 8.21,
+   "seen": "photo",
+   "ref": "1546358561_3_77ueXJiN.jpg",
+   "cal": {
+    "u": [
+     -3.13,
+     8.2
+    ],
+    "head": [
+     [
+      0,
+      5.6
+     ],
+     [
+      4,
+      21.35
+     ]
+    ]
+   },
+   "items": [
     {
-      "edge": 0,
-      "len": 1.25,
-      "seen": "none",
-      "items": [],
-      "note": "v5: Merdiven girintisinin kuzey yan duvarı (güneye bakar); hiçbir karede görülmedi → öğe yok."
+     "t": "panel",
+     "u0": -3.13,
+     "u1": 8.2,
+     "y0": 2.2,
+     "y1": 7.3,
+     "color": "plaster2"
     },
     {
-      "edge": 1,
-      "len": 2.35,
-      "seen": "partial",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          2.35
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 2.35,
-          "y0": 0,
-          "y1": 21.4,
-          "color": "plaster2"
-        },
-        {
-          "t": "win",
-          "u0": 0.75,
-          "u1": 1.6,
-          "y0": 3.6,
-          "y1": 5.3,
-          "k": 0,
-          "s": [
-            0,
-            4
-          ],
-          "split": 2,
-          "curt": {}
-        },
-        {
-          "t": "win",
-          "u0": 0.75,
-          "u1": 1.6,
-          "y0": 0.6,
-          "y1": 1.9,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small"
-        }
-      ],
-      "note": "v5 (2ydc ortofotosu + Xe8P sağ kenarı; gerçek metre, yükseklik Xe8P çerçevesinde): merdiven kulesi — baştan sona koyu antrasit, ortada 2 kanatlı beyaz PVC sahanlık pencereleri (≈0.85×1.2 m), katlara göre yarım kat aşağıda; kule tepesi komşu çatıdan ≈1 m yüksek (2ydc), üstü paslı kahve saç (pending). Sahanlık pencere yükseklikleri yaklaşık (çerçeveler arası eşleme)."
+     "t": "panel",
+     "u0": -3.13,
+     "u1": 8.2,
+     "y0": 14.8,
+     "y1": 18.3,
+     "color": "plaster2"
     },
     {
-      "edge": 2,
-      "len": 1.67,
-      "seen": "none",
-      "items": [],
-      "note": "v5: Merdiven girintisinin güney yan duvarı; görülmedi → öğe yok."
+     "t": "win",
+     "u0": 1.0,
+     "u1": 4.1,
+     "y0": 11.7,
+     "y1": 13.4,
+     "k": 2,
+     "s": [
+      0,
+      4
+     ],
+     "split": 3,
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul"
+     }
     },
     {
-      "edge": 3,
-      "len": 8.21,
-      "seen": "photo",
-      "ref": "1546358561_3_77ueXJiN.jpg",
-      "cal": {
-        "u": [
-          -3.13,
-          8.2
-        ],
-        "head": [
-          [
-            0,
-            5.6
-          ],
-          [
-            4,
-            21.35
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": -3.13,
-          "u1": 8.2,
-          "y0": 2.2,
-          "y1": 7.3,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": -3.13,
-          "u1": 8.2,
-          "y0": 14.8,
-          "y1": 18.3,
-          "color": "plaster2"
-        },
-        {
-          "t": "win",
-          "u0": 1.0,
-          "u1": 4.1,
-          "y0": 11.7,
-          "y1": 13.4,
-          "k": 2,
-          "s": [
-            0,
-            4
-          ],
-          "split": 3,
-          "curt": {
-            "K0": "tul",
-            "K1": "tul",
-            "K2": "tul",
-            "K3": "tul",
-            "K4": "tul"
-          }
-        },
-        {
-          "t": "pilaster",
-          "u0": 0.6,
-          "u1": 0.95,
-          "s": [
-            0,
-            4
-          ],
-          "d": 0.06,
-          "color": "plaster"
-        },
-        {
-          "t": "pilaster",
-          "u0": 4.2,
-          "u1": 4.6,
-          "s": [
-            0,
-            4
-          ],
-          "d": 0.06,
-          "color": "plaster"
-        },
-        {
-          "t": "win",
-          "u0": 0.0,
-          "u1": 1.75,
-          "y0": 0.6,
-          "y1": 2.0,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small"
-        },
-        {
-          "t": "win",
-          "u0": 2.9,
-          "u1": 4.25,
-          "y0": 0.6,
-          "y1": 2.0,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small"
-        },
-        {
-          "t": "band",
-          "y0": 0,
-          "y1": 2.2,
-          "color": "plinth"
-        },
-        {
-          "t": "lamp",
-          "us": [
-            6.43
-          ],
-          "s": [
-            0,
-            4
-          ],
-          "yRel": 2.36,
-          "style": "cylinder",
-          "dir": "down",
-          "d": 0.12,
-          "h": 0.12,
-          "proud": 0.14,
-          "color": "#1e2124",
-          "tip": "#1e2124"
-        }
-      ],
-      "note": "v5 (yeni ortofoto; 77ue referans, cn-4 teyit): batı cephenin güney parçası (502. Sokak). Tek 3 bölmeli pencere sütunu (beyaz PVC, tüm katlarda beyaz tül; K0 denizliğinde vazo), iki yanında açık gri sıva pilastrları (tam boy, koyu bantların üstünden de açık renk geçer), K0 (2.2–7.3) ve K3 (14.8–18.3) hizasında koyu antrasit yatay bantlar, arası açık gri; yarı bodrumda iki küçük pencere. Pencere sütununun sağında her katta küçük siyah duvar apliği/uydu kablo kancası (u≈6.6; pending). Görünen kat aralığı 3.94 → kalibrasyon genişliği pencere/kat oranıyla (1.38) kuruldu; güney köşe u 8.2, kuzey ucu görülmedi. Güney ucun ötesinde güney yığın balkonları (4) yandan görülür (K3'te kuş ağı). | v6 (2026-09-29): aynı siyah silindirler (19. kenarın simetriği, güney uçta) lamp: 77ue ortosunda duvar dibi (beyaz flanş) u ≈6.43; K0 5.62, K1 9.62, K2 13.8, K3 17.85, K4 22.0 görünen. Bu orto çok yatık (yatay bantlar eğik): koyu bant kenarlarına göre döşemeden 2.36 / 2.38 / 2.5 / 2.55 / 2.67 → alt katların değeri 2.36 yazıldı (19. kenar 2.3). Silindirler duvardan ≈0.25 m çıkıyor, dipte krem/beyaz flanş; işlevi seçilemedi (aplik ya da kombi baca ucu)."
+     "t": "pilaster",
+     "u0": 0.6,
+     "u1": 0.95,
+     "s": [
+      0,
+      4
+     ],
+     "d": 0.06,
+     "color": "plaster"
     },
     {
-      "edge": 4,
-      "len": 5.7,
-      "seen": "partial",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          5.7
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": -0.3,
-          "u1": 5.7,
-          "d": 1.3,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "open",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          },
-          "glazed": [
-            0
-          ],
-          "tint": {
-            "0": "blinds"
-          },
-          "net": [
-            3
-          ]
-        }
-      ],
-      "note": "v5 (_zvj 26 m, çok eğik, ağaç/kameriye arkasında; czGR çam arkasında; gerçek metre): GB balkon yığını — beyaz kalın alınlar + borulu küpeşte, K2 alnı koyu gri, K1/K2/K4 AÇIK, K3 AÇIK + beyaz kuş/güvenlik ağı, K0 cam + beyaz dikey stor (czGR, eski ölçüm), üstte BEYAZ büyük üçgen alınlık (kuzeydekiler gri). Arka duvar kapıları görülmedi (çizilmedi)."
+     "t": "pilaster",
+     "u0": 4.2,
+     "u1": 4.6,
+     "s": [
+      0,
+      4
+     ],
+     "d": 0.06,
+     "color": "plaster"
     },
     {
-      "edge": 5,
-      "len": 1.35,
-      "seen": "none",
-      "items": [],
-      "note": "v5: kısa kademe duvarı; görülmedi → öğe yok."
+     "t": "win",
+     "u0": 0.0,
+     "u1": 1.75,
+     "y0": 0.6,
+     "y1": 2.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "small"
     },
     {
-      "edge": 6,
-      "len": 5.19,
-      "seen": "partial",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          5.19
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "pilaster",
-          "u0": 0.0,
-          "u1": 0.3,
-          "s": [
-            0,
-            4
-          ],
-          "d": 0.06,
-          "color": "plaster"
-        },
-        {
-          "t": "pilaster",
-          "u0": 1.55,
-          "u1": 2.6,
-          "s": [
-            0,
-            4
-          ],
-          "d": 0.05,
-          "color": "plaster"
-        },
-        {
-          "t": "pilaster",
-          "u0": 4.9,
-          "u1": 5.19,
-          "s": [
-            0,
-            4
-          ],
-          "d": 0.06,
-          "color": "plaster"
-        },
-        {
-          "t": "win",
-          "u0": 0.4,
-          "u1": 1.35,
-          "y0": 17.62,
-          "y1": 19.01,
-          "k": 4,
-          "s": [
-            1,
-            4
-          ],
-          "split": 2,
-          "curt": {
-            "K1": "tul",
-            "K2": "tul",
-            "K3": "zebra",
-            "K4": "tul"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 3.5,
-          "u1": 4.75,
-          "y0": 17.62,
-          "y1": 19.01,
-          "k": 4,
-          "s": [
-            1,
-            4
-          ],
-          "split": 2,
-          "curt": {
-            "K1": "tul",
-            "K2": "tul",
-            "K3": "tul",
-            "K4": "tul"
-          }
-        },
-        {
-          "t": "band",
-          "u0": 0.3,
-          "u1": 1.55,
-          "y0": 10.62,
-          "y1": 10.76,
-          "color": "#50575f",
-          "proud": 0.06
-        },
-        {
-          "t": "band",
-          "u0": 2.6,
-          "u1": 4.9,
-          "y0": 10.62,
-          "y1": 10.76,
-          "color": "#50575f",
-          "proud": 0.06
-        }
-      ],
-      "note": "v5 (_zvj 4/6, 26–31 m eğik; gerçek metre, yükseklik Xe8P çerçevesinde): güney orta kule (taban izinde 1.2 m geride) — AÇIK GRİ sıva (kuzeydeki koyu kulenin eşi), 3 düşey pilastr/derz (kenarlarda ve pencere sütunları arasında ≈1 m geniş orta ayak), 2 kanatlı beyaz PVC pencere sütunları (batı ≈0.95 m, doğu ≈1.25 m), K2 pencerelerinin altında koyu gri denizlik bandı. Perdeler: batı sütun K1 tül, K2 tül (içeride yuvarlak lamba), K3 beyaz zebra, K4 tül; doğu sütun K1–K4 tül. K0 ağaç/kameriye arkasında görülmedi (s 1–4). Kule tepesinde çatı arası pencere sırası (pending)."
+     "t": "win",
+     "u0": 2.9,
+     "u1": 4.25,
+     "y0": 0.6,
+     "y1": 2.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "small"
     },
     {
-      "edge": 7,
-      "len": 0.84,
-      "seen": "none",
-      "items": [],
-      "note": "v5: kısa kademe duvarı; görülmedi → öğe yok."
+     "t": "band",
+     "y0": 0,
+     "y1": 2.2,
+     "color": "plinth"
     },
     {
-      "edge": 8,
-      "len": 4.23,
-      "seen": "partial",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          4.23
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": 0,
-          "u1": 4.23,
-          "d": 1.3,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "open",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          }
-        }
-      ],
-      "note": "v5 (_zvj 6, 31 m, direk/ağaç arasından; XRdO'da ağaç + trafik aynası): GD balkon yığını — K1–K4 AÇIK (tavan spotları, borulu küpeşte, beyaz alınlar; K2 alnı koyu gri), üstte beyaz üçgen alınlık. K0 görülmedi. Arka duvar kapıları çizilmedi."
-    },
-    {
-      "edge": 9,
-      "len": 3.97,
-      "seen": "none",
-      "items": [],
-      "note": "v5: GD köşe boşluğunun batı yan duvarı; görülmedi → öğe yok."
-    },
-    {
-      "edge": 10,
-      "len": 3.97,
-      "seen": "none",
-      "items": [
-        {
-          "t": "bal",
-          "u0": -0.2,
-          "u1": 5.2,
-          "d": 3.9,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "open",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          }
-        }
-      ],
-      "note": "v5: GD köşe boşluğu (güneye bakan arka duvar). Street View'de görülmedi; hava fotoğrafında boşluk boyunca balkon döşeme şeritleri (doğu cephe balkonlarının dönüşü) → yalnız döşeme + borulu küpeşte yazıldı, cam/perde/kapı BİLİNMİYOR (camsız). KD eşi (12) 45° pahlı köşeli; burada doğrulanmadı."
-    },
-    {
-      "edge": 11,
-      "len": 10.13,
-      "seen": "photo",
-      "ref": "1546358561_11_Ng8IaLOy.jpg",
-      "cal": {
-        "u": [
-          0.0,
-          10.4
-        ],
-        "head": [
-          [
-            1,
-            8.1
-          ],
-          [
-            4,
-            16.6
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": -0.3,
-          "u1": 4.6,
-          "d": 1.5,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "open",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          }
-        },
-        {
-          "t": "bal",
-          "u0": 5.2,
-          "u1": 10.6,
-          "d": 1.5,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "open",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          },
-          "glazed": [
-            2,
-            4
-          ],
-          "tint": {
-            "2": "clear",
-            "4": "dark"
-          }
-        },
-        {
-          "t": "proj",
-          "u0": 4.6,
-          "u1": 5.2,
-          "d": 1.55,
-          "y0": 2.6,
-          "y1": 17.4,
-          "color": "plaster2"
-        },
-        {
-          "t": "pipe",
-          "u": 4.9,
-          "off": 1.6,
-          "color": "#5a6068"
-        }
-      ],
-      "note": "v5 (Ng8I 36 m, 4Vcm teyit; sol-üst kısmı önündeki 1546358562 balkonları kapatıyor): doğu cephe (otopark) tüm genişlikte ≈1.5 m balkon, ortada tam boy koyu antrasit ayırıcı ayak (u 4.6–5.2) + koyu boru. Kuzey yarı: K0 AÇIK, K1 AÇIK, K2 şeffaf cam + beyaz tül, K3 AÇIK, K4 koyu cam (koyu stor). Güney yarı: K0–K1 AÇIK; K2–K4 yalnız ayak yanında görüldü, AÇIK. Üstte beyaz eğimli kapak. Tüm alınlar beyaz, K2 alnı koyu gri. Eski ölçümdeki 'güney yarıda K2/K3 cam' ters kenar yönündendi — düzeltildi."
-    },
-    {
-      "edge": 12,
-      "len": 2.89,
-      "seen": "photo",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          2.89
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 2.89,
-          "y0": 0,
-          "y1": 20.8,
-          "color": "plaster2"
-        },
-        {
-          "t": "bal",
-          "u0": -1.5,
-          "u1": 2.89,
-          "d": 3.74,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "end-wall",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          },
-          "glazed": [
-            2,
-            4
-          ],
-          "tint": {
-            "2": "clear",
-            "4": "dark"
-          }
-        }
-      ],
-      "note": "v5 (gnXj/4Vcm; gerçek metre): KD köşe boşluğundaki köşe balkonları — doğu cepheye 45° pahlı köşeyle döner (pending): K0 AÇIK, K1 AÇIK, K2 şeffaf cam (koyu gri K2 alnı üstünde), K3 AÇIK, K4 koyu cam; arka duvar koyu antrasit, beyaz doğramalı kapılar (çizilmedi). Önü D yığınının (14) ön yüzünün ≈2.4 m gerisinde. Eski 'giriş (lobi)' öğesi kaldırıldı: bina girişi görülmedi; 'ŞEHR-İ BURSA EVLERİ' levhası site çiti önünde direkte (pending)."
-    },
-    {
-      "edge": 13,
-      "len": 4.53,
-      "seen": "partial",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          4.53
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 4.53,
-          "y0": 0,
-          "y1": 20.8,
-          "color": "plaster2"
-        },
-        {
-          "t": "ac",
-          "u": 4.2,
-          "s": 4,
-          "y": 19.0
-        }
-      ],
-      "note": "v5 (4Vcm/Ng8I): D yığınının doğu yan duvarı / KD boşluğunun batı duvarı (doğuya bakar): koyu antrasit, K4 hizasında kuzey ucunda klima dış ünitesi. Önünde KD köşe balkonlarının yanı. Gerçek metre."
-    },
-    {
-      "edge": 14,
-      "len": 5.9,
-      "seen": "photo",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          5.9
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "bal",
-          "u0": 0,
-          "u1": 4.6,
-          "d": 1.3,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "end-wall",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          },
-          "glazed": [
-            2,
-            4
-          ],
-          "tint": {
-            "2": "clear",
-            "4": "dark"
-          }
-        },
-        {
-          "t": "panel",
-          "u0": 4.6,
-          "u1": 5.9,
-          "y0": 0,
-          "y1": 21.4,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": 4.6,
-          "u1": 4.95,
-          "y0": 11.84,
-          "y1": 16.75,
-          "color": "fascia"
-        },
-        {
-          "t": "panel",
-          "u0": 4.6,
-          "u1": 4.95,
-          "y0": 3.7,
-          "y1": 8.33,
-          "color": "fascia"
-        },
-        {
-          "t": "win",
-          "u0": 1.3,
-          "u1": 2.3,
-          "y0": 3.2,
-          "y1": 5.25,
-          "k": 0,
-          "s": [
-            0,
-            1
-          ],
-          "kind": "door",
-          "split": 2,
-          "curt": {
-            "K0": "tul",
-            "K1": "tul-yan"
-          }
-        }
-      ],
-      "note": "v5 (TRTB referansı 16 m, gnXj teyit; gerçek metre, yükseklik Xe8P çerçevesinde): kuzey cephe (sokak) D yığını: K0 AÇIK (beyaz balkon kapısı + tül), K1 AÇIK (kapı/pencere, tül + yan perde, saksı), K2 şeffaf cam (içeride mavi eşyalar) — K2 alnı KOYU gri, K3 AÇIK (tavan spotu), K4 koyu cam; üstte açık gri üçgen alınlık (kuleye doğru yükselir). Yığının batı yanında beyaz dikey pano şeridi (K0–K1 ve K2–K3 hizası), sonra koyu kule. K0 balkon alnının batı ucunda siyah 'A' harfi (blok adı; pending). Kule doğu kenarı TRTB ve d_xi'ye göre x≈26.6–26.7 (taban izi kademesi x 25.4 — ≈1.2 m fark; kule öğeleri 16'ya yazıldı)."
-    },
-    {
-      "edge": 15,
-      "len": 0.81,
-      "seen": "none",
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 0.81,
-          "y0": 0,
-          "y1": 21.4,
-          "color": "plaster2"
-        }
-      ],
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          0.81
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "note": "v5: kule ile D yığını arası kademe; kule koyu antrasit (TRTB'de kule yanı koyu). Gerçek metre."
-    },
-    {
-      "edge": 16,
-      "len": 5.2,
-      "seen": "photo",
-      "ref": "1546358561_16_TRTBVUFi.jpg",
-      "cal": {
-        "u": [
-          -1.35,
-          3.1
-        ],
-        "head": [
-          [
-            0,
-            4.35
-          ],
-          [
-            4,
-            14.6
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": -1.35,
-          "u1": 3.1,
-          "y0": 0,
-          "y1": 19.3,
-          "color": "plaster2"
-        },
-        {
-          "t": "win",
-          "u0": -0.47,
-          "u1": 0.8,
-          "y0": 13.45,
-          "y1": 14.6,
-          "k": 4,
-          "s": [
-            0,
-            4
-          ],
-          "split": 2,
-          "curt": {
-            "K0": "tul",
-            "K1": "tul",
-            "K2": "zebra",
-            "K3": "tul",
-            "K4": "tul"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 2.03,
-          "u1": 3.0,
-          "y0": 13.45,
-          "y1": 14.6,
-          "k": 4,
-          "s": [
-            1,
-            4
-          ],
-          "split": 2,
-          "curt": {
-            "K1": "tul",
-            "K2": "tul",
-            "K3": "stor",
-            "K4": "karanlik"
-          }
-        },
-        {
-          "t": "win",
-          "u0": 2.03,
-          "u1": 3.0,
-          "y0": 3.2,
-          "y1": 4.35,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "split": 2
-        },
-        {
-          "t": "win",
-          "u0": -0.47,
-          "u1": 0.8,
-          "y0": 0.3,
-          "y1": 1.2,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small"
-        }
-      ],
-      "note": "v5 (TRTB 18 m, d_xi teyit): kuzey orta KULE, koyu antrasit (gölgede #3e4552–#4b5563), iki 2 kanatlı beyaz PVC pencere sütunu (doğu ≈1.25 m, batı ≈0.95 m). Kat kat perde — doğu sütun: K0 tül (+ pembe çiçekler), K1 tül, K2 beyaz zebra, K3 tül, K4 tül; batı sütun: K0 görülmedi (perde yazılmadı), K1 tül, K2 tül, K3 beyaz stor, K4 karanlık (camda yuvarlak beyaz nesne). Bodrumda küçük pencere. Kulenin tepesinde K4 üstünde 6. (çatı arası) pencere sırası (görünen 16.15–17.05; pending) ve beşik alınlık (tepe ≈19.3 görünen). Kulede çok hafif açık gri düşey pilastr şeritleri seçiliyor, ölçülemedi. Kule duvarı görünen kat aralığı 2.54 (d_xi, TRTB) → duvar yığın önlerinin ≈2 m gerisinde."
-    },
-    {
-      "edge": 17,
-      "len": 0.79,
-      "seen": "none",
-      "items": [
-        {
-          "t": "panel",
-          "u0": 0,
-          "u1": 0.79,
-          "y0": 0,
-          "y1": 21.4,
-          "color": "plaster2"
-        }
-      ],
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          0,
-          0.79
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "note": "v5: kule ile B yığını arası kademe, koyu antrasit (TRTB 16'da yığın yanının gölgesinde). Gerçek metre."
-    },
-    {
-      "edge": 18,
-      "len": 4.7,
-      "seen": "photo",
-      "ref": "1546358561_18_d_xiNdWl.jpg",
-      "cal": {
-        "u": [
-          -1.0,
-          3.75
-        ],
-        "head": [
-          [
-            1,
-            6.65
-          ],
-          [
-            4,
-            13.86
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": -1.0,
-          "u1": 3.75,
-          "y0": 0,
-          "y1": 17.2,
-          "color": "plaster2"
-        },
-        {
-          "t": "bal",
-          "u0": -1.0,
-          "u1": 3.75,
-          "d": 1.3,
-          "s": [
-            0,
-            4
-          ],
-          "cap": true,
-          "sides": "open",
-          "rail": {
-            "*": "solidTube"
-          },
-          "parapetH": {
-            "*": 0.5
-          },
-          "railC": "#d0d6d9",
-          "fasciaC": {
-            "K2": "#50575f"
-          },
-          "glazed": [
-            4
-          ],
-          "tint": {
-            "4": "dark"
-          },
-          "net": [
-            2
-          ]
-        },
-        {
-          "t": "banner",
-          "u0": 1.69,
-          "u1": 2.225,
-          "y0": 7.6,
-          "y1": 8.25,
-          "d": 1.32,
-          "style": "tr-v"
-        },
-        {
-          "t": "ac",
-          "u": 3.6,
-          "s": 3,
-          "y": 11.0
-        },
-        {
-          "t": "ac",
-          "u": 3.6,
-          "s": 4,
-          "y": 13.7
-        },
-        {
-          "t": "win",
-          "u0": 0.6,
-          "u1": 1.5,
-          "y0": 4.8,
-          "y1": 6.65,
-          "k": 1,
-          "s": [
-            1,
-            1
-          ],
-          "kind": "door",
-          "split": 1,
-          "curt": {
-            "K1": "tul"
-          }
-        }
-      ],
-      "note": "v5 (d_xi 13 m, TRTB teyit): kuzey cephe B (batı) yığını: K0 AÇIK (koyu arka duvar, kapı), K1 AÇIK (beyaz kapı + tül), K2 AÇIK + kuş ağı + korkulukta Türk bayrağı (K2 alnı KOYU gri), K3 AÇIK (tavan spotu), K4 koyu cam; üstte açık gri üçgen alınlık. Batı ucunda K3 ve K4'te klima dış üniteleri (Xe8P'de de görülüyor). d_xi'de yığının batı ucunun ötesi gökyüzü: KB köşesi taban izinin ≈1 m içinde (bkz. notlar). | v6 (2026-09-29): K2 korkuluğundaki Türk bayrağı ölçülü dikey bayrak (banner tr-v): d_xi ortosunda u 1.69–2.225, y 7.6–8.25 (korkuluk üstünden koyu K2 alnının önüne sarkıyor; TRTB 193_7'de ay-yıldız üstte, dikey asılı). Eski 'flag' birimi 1.1×1.3 m sabit boy + u 2.35 idi. Renk gölgede/bulutlu #8e3541 (en kırmızı %30) — bayrak kırmızısı varsayılan (#d21f26) bırakıldı."
-    },
-    {
-      "edge": 19,
-      "len": 8.56,
-      "seen": "photo",
-      "ref": "1546358561_19_Xe8PeLW5.jpg",
-      "cal": {
-        "u": [
-          -1.85,
-          8.51
-        ],
-        "head": [
-          [
-            0,
-            5.25
-          ],
-          [
-            4,
-            19.0
-          ]
-        ]
-      },
-      "items": [
-        {
-          "t": "panel",
-          "u0": -1.85,
-          "u1": 7.7,
-          "y0": 2.3,
-          "y1": 5.75,
-          "color": "plaster2"
-        },
-        {
-          "t": "panel",
-          "u0": -1.85,
-          "u1": 7.7,
-          "y0": 12.7,
-          "y1": 16.1,
-          "color": "plaster2"
-        },
-        {
-          "t": "win",
-          "u0": 1.9,
-          "u1": 4.75,
-          "y0": 17.35,
-          "y1": 19.0,
-          "k": 4,
-          "s": [
-            0,
-            4
-          ],
-          "split": 3,
-          "curt": {
-            "K0": "tul",
-            "K1": "tul",
-            "K2": "tul",
-            "K3": "tul",
-            "K4": "tul"
-          }
-        },
-        {
-          "t": "pilaster",
-          "u0": 1.5,
-          "u1": 1.85,
-          "s": [
-            0,
-            4
-          ],
-          "d": 0.06,
-          "color": "plaster"
-        },
-        {
-          "t": "pilaster",
-          "u0": 4.8,
-          "u1": 5.15,
-          "s": [
-            0,
-            4
-          ],
-          "d": 0.06,
-          "color": "plaster"
-        },
-        {
-          "t": "win",
-          "u0": 1.1,
-          "u1": 2.4,
-          "y0": 0.5,
-          "y1": 2.2,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small"
-        },
-        {
-          "t": "win",
-          "u0": 3.25,
-          "u1": 4.5,
-          "y0": 0.5,
-          "y1": 2.2,
-          "k": 0,
-          "s": [
-            0,
-            0
-          ],
-          "kind": "small"
-        },
-        {
-          "t": "pipe",
-          "u": -1.7,
-          "color": "#b9c1c6"
-        },
-        {
-          "t": "band",
-          "y0": 0,
-          "y1": 2.3,
-          "color": "plinth"
-        },
-        {
-          "t": "lamp",
-          "us": [
-            -0.08
-          ],
-          "s": [
-            0,
-            4
-          ],
-          "yRel": 2.3,
-          "style": "cylinder",
-          "dir": "down",
-          "d": 0.12,
-          "h": 0.12,
-          "proud": 0.14,
-          "color": "#1e2124",
-          "tip": "#1e2124"
-        }
-      ],
-      "note": "v5 (yeni ortofoto, Xe8P referans; gölgede): 502. Sokak'a bakan batı cephenin kuzey parçası. Tek 3 bölmeli pencere sütunu (beyaz PVC, TÜM katlarda beyaz tül — yakın karelerle kat kat doğrulandı), iki yanında AÇIK gri pilastrlar (koyu bantların üstünden açık renk geçer, parapete kadar), K0 (2.3–5.75) ve K3 (12.7–16.1) hizasında koyu antrasit bantlar; duvar üstü düz parapet + beyaz harpuşta (görünen ≈20.8). Kuzey köşede tam boy açık gri yağmur borusu (dirsekli). Pencere sütununun solunda her katta küçük siyah silindir duvar apliği (u≈0.2; pending). Yarı bodrumda iki küçük pencere. ÖLÇEK: görünen kat aralığı 3.44 (×1.21), ama duvar uçları arası görünen 8.85 → gerçek ≈7.3 m (taban izi 8.56); cal.u pencere sütunu ortada kalacak şekilde gerçek ölçekle kuruldu (iki uçta ≈0.6 m öğesiz duvar). Sağ uçta (u>7.7) merdiven kulesi (1). | v6 (2026-09-29): pencere sütununun solundaki küçük siyah silindirler lamp olarak (Xe8P ortosu u −0.05…−0.15 → −0.08; K0 5.15, K1 8.81, K2 12.22, K3 15.56, K4 19.16 görünen → döşemeden 2.17 / 2.35 / 2.33 / 2.25 / 2.38, ort. 2.3). Xe8P 96_24 yakın karesinde duvardan ≈0.2 m çıkan koyu silindir, uçta açık halka; aplik mi kombi baca ucu mu seçilemedi → gündüz görünümü çizildi (koyu gövde + koyu uç, gece ışığı yok). Gerçekte yatay eksenli, üretici düşey kısa silindir çiziyor."
+     "t": "lamp",
+     "us": [
+      6.43
+     ],
+     "s": [
+      0,
+      4
+     ],
+     "yRel": 2.36,
+     "style": "cylinder",
+     "dir": "down",
+     "d": 0.12,
+     "h": 0.12,
+     "proud": 0.14,
+     "color": "#1e2124",
+     "tip": "#1e2124"
     }
-  ],
-  "pending": [
+   ],
+   "note": "v5 (yeni ortofoto; 77ue referans, cn-4 teyit): batı cephenin güney parçası (502. Sokak). Tek 3 bölmeli pencere sütunu (beyaz PVC, tüm katlarda beyaz tül; K0 denizliğinde vazo), iki yanında açık gri sıva pilastrları (tam boy, koyu bantların üstünden de açık renk geçer), K0 (2.2–7.3) ve K3 (14.8–18.3) hizasında koyu antrasit yatay bantlar, arası açık gri; yarı bodrumda iki küçük pencere. Pencere sütununun sağında her katta küçük siyah duvar apliği/uydu kablo kancası (u≈6.6; pending). Görünen kat aralığı 3.94 → kalibrasyon genişliği pencere/kat oranıyla (1.38) kuruldu; güney köşe u 8.2, kuzey ucu görülmedi. Güney ucun ötesinde güney yığın balkonları (4) yandan görülür (K3'te kuş ağı). | v6 (2026-09-29): aynı siyah silindirler (19. kenarın simetriği, güney uçta) lamp: 77ue ortosunda duvar dibi (beyaz flanş) u ≈6.43; K0 5.62, K1 9.62, K2 13.8, K3 17.85, K4 22.0 görünen. Bu orto çok yatık (yatay bantlar eğik): koyu bant kenarlarına göre döşemeden 2.36 / 2.38 / 2.5 / 2.55 / 2.67 → alt katların değeri 2.36 yazıldı (19. kenar 2.3). Silindirler duvardan ≈0.25 m çıkıyor, dipte krem/beyaz flanş; işlevi seçilemedi (aplik ya da kombi baca ucu)."
+  },
+  {
+   "edge": 4,
+   "len": 5.7,
+   "seen": "partial",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     5.7
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
     {
-      "what": "Çatı arası pencere sırası (kulelerde)",
-      "edges": [
-        16,
-        6
-      ],
-      "note": "kuzey kule (16, TRTB): K4 üstünde iki sütunda 2 kanatlı pencere, görünen 16.15–17.05 (K4 lentosu 14.6, kat aralığı 2.54 görünen) — K4 döşemesinden ≈3.0–3.8 m; perdeler tül/tül. Güney kule (6, _zvj): aynı sıra, batı sütun beyaz zebra, doğu tül. Kule duvarı/alınlığı bu sırayı taşıyacak kadar yükselir (alınlık tepesi ≈19.3 görünen). v6 kontrolü (2026-09-29): çatı arası penceresi (win k = storeys) yalnız çatı alınlığında / pediment / arch içinde açılıyor. (a) roof.gables [6,16]: roof.ts bu kademe kenarlarında alınlık üretmiyor (roofGables boş; kule yüzleri yığın önlerinin 0.8–1.35 m gerisinde). (b) Pencereler üçgenin İÇİNDE değil: TRTB (16) kule duvarı saçak kotunun üstüne dikdörtgen olarak çıkıyor — pencereler görünen 16.15–17.05 (gerçek ≈17.97–18.97, duvar üstü 16.97), alınlık omuzları u −1.35 / 3.1 görünen 18.1 / 18.3 (gerçek ≈20.1 / 20.4), tepe u 1.3 y 19.3 (gerçek ≈21.5) → iki sütun (−0.47…0.8 ve 2.03…3.0) 4.45 m tabanlı pediment üçgenine sığmıyor. (c) Hava fotoğrafında ana mahya x ≈22.2 K–G (kuleler x 20.2–25.4 ortasında) → kule başları ana çatının K/G alınlık uçları. İfade için: kule başı proj (d≈0.02, back = başlık derinliği, y0 duvar üstü, y1 omuz) + wins + üstünde pediment gerekir; başlık derinliği görülmedi (hava fotoğrafında çatıya karışıyor) → tahmin olmasın diye yazılmadı. Alternatif: kule şeridi x 20.2–25.4 massing parçası (6 kat, beşik çatı, wallTop ≈20.2) — ana oturum kararı. Geometri notu: omuzlar (kule kenarları x 20.2 / 25.4) ≈20.1–20.4, tepe ≈21.5 ve mahya x ≈22.2 → mahyadan 2.6 m uzakta 1.4 m alçalma ≈31° eğim: kule başı ana çatının K/G alınlık profili (ana çatı K–G beşik, mahya ≈21.5 = duvar üstünün ≈4.5 m üstü; mevcut hipped çatı 25°, en yüksek ≈3.1 m). Yani doğru çözüm ana çatıyı K–G beşik (alınlıklar kulelerde) yapmak; roof.ts bu kademe kenarlarında alınlık çıkarmıyor → üretici isteği."
-    },
-    {
-      "what": "45° pahlı balkon köşesi",
-      "edges": [
-        12,
-        11
-      ],
-      "note": "KD köşe balkonlarında döşeme ve korkuluk köşesi ≈45° pahlı (pah ≈1.0–1.2 m), gnXj/4Vcm 12 v6: pah hâlâ yok (round çeyrek daire yapar) → yazılmadı."
-    },
-    {
-      "what": "Blok harfi 'A'",
-      "edge": 14,
-      "note": "D yığınının K0 balkon alnının batı ucunda (x≈27, yerden ≈2.4 m) siyah tek harf 'A', ≈0.35 m yüksek, beyaz alın üstünde (TRTB 193_7) — balkon alnına montaj üreticide yok v6 kontrolü (2026-09-29): TRTB 14. kenar ortosunda harf u 4.13–4.35, y 2.22–2.52 görünen (alın 2.1–2.8, balkon önü d 1.3); harf gölgede #3a4753 (siyah), alın gölgede #9aa6b1. sign montajı bant/panel/proj önüne; balkon önüne (d 1.3) oturmuyor — letters d 1.3 harfi duvardan balkon önüne kadar uzatır. banner plain denendi (düşünce): yazı bannerın ortadaki %60'ına sığdırıldığından 0.3 m harf için ≈0.9 m boy gerekir, alından taşar → yazılmadı. Üretici isteği: sign `onBal`/`off` (balkon alnına montaj)."
-    },
-    {
-      "what": "Site levhası (direkte)",
-      "note": "kuzey site çiti önünde direk üstünde beyaz pano, yeşil harf 'ŞEHR-İ BURSA\\nEVLERİ' (gnXj; x≈29–30.5, yerden ≈4.9–6.4 görünen), yanında kamera — sokak planı (street-plan) öğesi, cephe değil"
-    },
-    {
-      "what": "Merdiven kulesi başlığı",
-      "edge": 1,
-      "note": "merdiven kulesi çatının ≈1 m üstüne çıkar, üstü paslı kahve saç kapak (2ydc) — volumes ile yazılabilir ama kule planı ölçülemedi v6 kontrolü (2026-09-29): proj.back + topC + cap bunu ifade edebilir ama başlığın derinliği (back) görülmedi: 2ydc 121_26'da başlık komşu duvar üstlerinden ≈1.0–1.4 m yüksek, düz üstlü, kuzey yan yüzü paslı kahve (saç kaplama) — görünen derinlik ≈1.1 m (yatık), hava fotoğrafında başlık gri düz teras şeridine (x 15–23.8, eğim kaymalı z −149.2…−146) karışıyor → yazılmadı."
+     "t": "bal",
+     "u0": -0.3,
+     "u1": 5.7,
+     "d": 1.3,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     },
+     "glazed": [
+      0
+     ],
+     "tint": {
+      "0": "blinds"
+     },
+     "net": [
+      3
+     ]
     }
-  ]
+   ],
+   "note": "v5 (_zvj 26 m, çok eğik, ağaç/kameriye arkasında; czGR çam arkasında; gerçek metre): GB balkon yığını — beyaz kalın alınlar + borulu küpeşte, K2 alnı koyu gri, K1/K2/K4 AÇIK, K3 AÇIK + beyaz kuş/güvenlik ağı, K0 cam + beyaz dikey stor (czGR, eski ölçüm), üstte BEYAZ büyük üçgen alınlık (kuzeydekiler gri). Arka duvar kapıları görülmedi (çizilmedi)."
+  },
+  {
+   "edge": 5,
+   "len": 1.35,
+   "seen": "none",
+   "items": [],
+   "note": "v5: kısa kademe duvarı; görülmedi → öğe yok."
+  },
+  {
+   "edge": 6,
+   "len": 5.19,
+   "seen": "partial",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     5.19
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 0.0,
+     "u1": 0.3,
+     "s": [
+      0,
+      4
+     ],
+     "d": 0.06,
+     "color": "plaster"
+    },
+    {
+     "t": "pilaster",
+     "u0": 1.55,
+     "u1": 2.6,
+     "s": [
+      0,
+      4
+     ],
+     "d": 0.05,
+     "color": "plaster"
+    },
+    {
+     "t": "pilaster",
+     "u0": 4.9,
+     "u1": 5.19,
+     "s": [
+      0,
+      4
+     ],
+     "d": 0.06,
+     "color": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 0.4,
+     "u1": 1.35,
+     "y0": 17.62,
+     "y1": 19.01,
+     "k": 4,
+     "s": [
+      1,
+      4
+     ],
+     "split": 2,
+     "curt": {
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "zebra",
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.5,
+     "u1": 4.75,
+     "y0": 17.62,
+     "y1": 19.01,
+     "k": 4,
+     "s": [
+      1,
+      4
+     ],
+     "split": 2,
+     "curt": {
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0.3,
+     "u1": 1.55,
+     "y0": 10.62,
+     "y1": 10.76,
+     "color": "#50575f",
+     "proud": 0.06
+    },
+    {
+     "t": "band",
+     "u0": 2.6,
+     "u1": 4.9,
+     "y0": 10.62,
+     "y1": 10.76,
+     "color": "#50575f",
+     "proud": 0.06
+    }
+   ],
+   "note": "v5 (_zvj 4/6, 26–31 m eğik; gerçek metre, yükseklik Xe8P çerçevesinde): güney orta kule (taban izinde 1.2 m geride) — AÇIK GRİ sıva (kuzeydeki koyu kulenin eşi), 3 düşey pilastr/derz (kenarlarda ve pencere sütunları arasında ≈1 m geniş orta ayak), 2 kanatlı beyaz PVC pencere sütunları (batı ≈0.95 m, doğu ≈1.25 m), K2 pencerelerinin altında koyu gri denizlik bandı. Perdeler: batı sütun K1 tül, K2 tül (içeride yuvarlak lamba), K3 beyaz zebra, K4 tül; doğu sütun K1–K4 tül. K0 ağaç/kameriye arkasında görülmedi (s 1–4). Kule tepesinde çatı arası pencere sırası (pending)."
+  },
+  {
+   "edge": 7,
+   "len": 0.84,
+   "seen": "none",
+   "items": [],
+   "note": "v5: kısa kademe duvarı; görülmedi → öğe yok."
+  },
+  {
+   "edge": 8,
+   "len": 4.23,
+   "seen": "partial",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     4.23
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 4.23,
+     "d": 1.3,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     }
+    }
+   ],
+   "note": "v5 (_zvj 6, 31 m, direk/ağaç arasından; XRdO'da ağaç + trafik aynası): GD balkon yığını — K1–K4 AÇIK (tavan spotları, borulu küpeşte, beyaz alınlar; K2 alnı koyu gri), üstte beyaz üçgen alınlık. K0 görülmedi. Arka duvar kapıları çizilmedi."
+  },
+  {
+   "edge": 9,
+   "len": 3.97,
+   "seen": "none",
+   "items": [],
+   "note": "v5: GD köşe boşluğunun batı yan duvarı; görülmedi → öğe yok."
+  },
+  {
+   "edge": 10,
+   "len": 3.97,
+   "seen": "none",
+   "items": [
+    {
+     "t": "bal",
+     "u0": -0.2,
+     "u1": 5.2,
+     "d": 3.9,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     }
+    }
+   ],
+   "note": "v5: GD köşe boşluğu (güneye bakan arka duvar). Street View'de görülmedi; hava fotoğrafında boşluk boyunca balkon döşeme şeritleri (doğu cephe balkonlarının dönüşü) → yalnız döşeme + borulu küpeşte yazıldı, cam/perde/kapı BİLİNMİYOR (camsız). KD eşi (12) 45° pahlı köşeli; burada doğrulanmadı."
+  },
+  {
+   "edge": 11,
+   "len": 10.13,
+   "seen": "photo",
+   "ref": "1546358561_11_Ng8IaLOy.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     10.4
+    ],
+    "head": [
+     [
+      1,
+      8.1
+     ],
+     [
+      4,
+      16.6
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": -0.3,
+     "u1": 4.6,
+     "d": 1.5,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 5.2,
+     "u1": 10.6,
+     "d": 1.5,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     },
+     "glazed": [
+      2,
+      4
+     ],
+     "tint": {
+      "2": "clear",
+      "4": "dark"
+     }
+    },
+    {
+     "t": "proj",
+     "u0": 4.6,
+     "u1": 5.2,
+     "d": 1.55,
+     "y0": 2.6,
+     "y1": 17.4,
+     "color": "plaster2"
+    },
+    {
+     "t": "pipe",
+     "u": 4.9,
+     "off": 1.6,
+     "color": "#5a6068"
+    }
+   ],
+   "note": "v5 (Ng8I 36 m, 4Vcm teyit; sol-üst kısmı önündeki 1546358562 balkonları kapatıyor): doğu cephe (otopark) tüm genişlikte ≈1.5 m balkon, ortada tam boy koyu antrasit ayırıcı ayak (u 4.6–5.2) + koyu boru. Kuzey yarı: K0 AÇIK, K1 AÇIK, K2 şeffaf cam + beyaz tül, K3 AÇIK, K4 koyu cam (koyu stor). Güney yarı: K0–K1 AÇIK; K2–K4 yalnız ayak yanında görüldü, AÇIK. Üstte beyaz eğimli kapak. Tüm alınlar beyaz, K2 alnı koyu gri. Eski ölçümdeki 'güney yarıda K2/K3 cam' ters kenar yönündendi — düzeltildi."
+  },
+  {
+   "edge": 12,
+   "len": 2.89,
+   "seen": "photo",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     2.89
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 2.89,
+     "y0": 0,
+     "y1": 20.8,
+     "color": "plaster2"
+    },
+    {
+     "t": "bal",
+     "u0": -1.5,
+     "u1": 2.89,
+     "d": 3.74,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "end-wall",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     },
+     "glazed": [
+      2,
+      4
+     ],
+     "tint": {
+      "2": "clear",
+      "4": "dark"
+     }
+    }
+   ],
+   "note": "v5 (gnXj/4Vcm; gerçek metre): KD köşe boşluğundaki köşe balkonları — doğu cepheye 45° pahlı köşeyle döner (pending): K0 AÇIK, K1 AÇIK, K2 şeffaf cam (koyu gri K2 alnı üstünde), K3 AÇIK, K4 koyu cam; arka duvar koyu antrasit, beyaz doğramalı kapılar (çizilmedi). Önü D yığınının (14) ön yüzünün ≈2.4 m gerisinde. Eski 'giriş (lobi)' öğesi kaldırıldı: bina girişi görülmedi; 'ŞEHR-İ BURSA EVLERİ' levhası site çiti önünde direkte (pending)."
+  },
+  {
+   "edge": 13,
+   "len": 4.53,
+   "seen": "partial",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     4.53
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 4.53,
+     "y0": 0,
+     "y1": 20.8,
+     "color": "plaster2"
+    },
+    {
+     "t": "ac",
+     "u": 4.2,
+     "s": 4,
+     "y": 19.0
+    }
+   ],
+   "note": "v5 (4Vcm/Ng8I): D yığınının doğu yan duvarı / KD boşluğunun batı duvarı (doğuya bakar): koyu antrasit, K4 hizasında kuzey ucunda klima dış ünitesi. Önünde KD köşe balkonlarının yanı. Gerçek metre."
+  },
+  {
+   "edge": 14,
+   "len": 5.9,
+   "seen": "photo",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     5.9
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 4.6,
+     "d": 1.3,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "end-wall",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     },
+     "glazed": [
+      2,
+      4
+     ],
+     "tint": {
+      "2": "clear",
+      "4": "dark"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 4.6,
+     "u1": 5.9,
+     "y0": 0,
+     "y1": 21.4,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 4.6,
+     "u1": 4.95,
+     "y0": 11.84,
+     "y1": 16.75,
+     "color": "fascia"
+    },
+    {
+     "t": "panel",
+     "u0": 4.6,
+     "u1": 4.95,
+     "y0": 3.7,
+     "y1": 8.33,
+     "color": "fascia"
+    },
+    {
+     "t": "win",
+     "u0": 1.3,
+     "u1": 2.3,
+     "y0": 3.2,
+     "y1": 5.25,
+     "k": 0,
+     "s": [
+      0,
+      1
+     ],
+     "kind": "door",
+     "split": 2,
+     "curt": {
+      "K0": "tul",
+      "K1": "tul-yan"
+     }
+    },
+    {
+     "t": "proj",
+     "u0": 0,
+     "u1": 4.6,
+     "d": 1.3,
+     "y0": 19.54,
+     "y1": 22.56,
+     "color": "#aab1b6"
+    },
+    {
+     "t": "pediment",
+     "u0": 0,
+     "u1": 4.6,
+     "apex": 4.6,
+     "y": 22.56,
+     "yTop": 24.35,
+     "d": 1.3,
+     "depth": 1.3,
+     "color": "#aab1b6"
+    }
+   ],
+   "note": "v5 (TRTB referansı 16 m, gnXj teyit; gerçek metre, yükseklik Xe8P çerçevesinde): kuzey cephe (sokak) D yığını: K0 AÇIK (beyaz balkon kapısı + tül), K1 AÇIK (kapı/pencere, tül + yan perde, saksı), K2 şeffaf cam (içeride mavi eşyalar) — K2 alnı KOYU gri, K3 AÇIK (tavan spotu), K4 koyu cam; üstte açık gri üçgen alınlık (kuleye doğru yükselir). Yığının batı yanında beyaz dikey pano şeridi (K0–K1 ve K2–K3 hizası), sonra koyu kule. K0 balkon alnının batı ucunda siyah 'A' harfi (blok adı; pending). Kule doğu kenarı TRTB ve d_xi'ye göre x≈26.6–26.7 (taban izi kademesi x 25.4 — ≈1.2 m fark; kule öğeleri 16'ya yazıldı)."
+  },
+  {
+   "edge": 15,
+   "len": 0.81,
+   "seen": "none",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 0.81,
+     "y0": 0,
+     "y1": 21.4,
+     "color": "plaster2"
+    }
+   ],
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     0.81
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "note": "v5: kule ile D yığını arası kademe; kule koyu antrasit (TRTB'de kule yanı koyu). Gerçek metre."
+  },
+  {
+   "edge": 16,
+   "len": 5.2,
+   "seen": "photo",
+   "ref": "1546358561_16_TRTBVUFi.jpg",
+   "cal": {
+    "u": [
+     -1.35,
+     3.1
+    ],
+    "head": [
+     [
+      0,
+      4.35
+     ],
+     [
+      4,
+      14.6
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": -1.35,
+     "u1": 3.1,
+     "y0": 0,
+     "y1": 19.3,
+     "color": "plaster2"
+    },
+    {
+     "t": "win",
+     "u0": -0.47,
+     "u1": 0.8,
+     "y0": 13.45,
+     "y1": 14.6,
+     "k": 4,
+     "s": [
+      0,
+      4
+     ],
+     "split": 2,
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "zebra",
+      "K3": "tul",
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.03,
+     "u1": 3.0,
+     "y0": 13.45,
+     "y1": 14.6,
+     "k": 4,
+     "s": [
+      1,
+      4
+     ],
+     "split": 2,
+     "curt": {
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "stor",
+      "K4": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.03,
+     "u1": 3.0,
+     "y0": 3.2,
+     "y1": 4.35,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2
+    },
+    {
+     "t": "win",
+     "u0": -0.47,
+     "u1": 0.8,
+     "y0": 0.3,
+     "y1": 1.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "small"
+    },
+    {
+     "t": "proj",
+     "u0": -1.35,
+     "u1": 3.1,
+     "d": 0.02,
+     "back": 0.3,
+     "y0": 15.25,
+     "y1": 18.2,
+     "color": "plaster2",
+     "wins": [
+      {
+       "u0": -0.47,
+       "u1": 0.8,
+       "y0": 16.15,
+       "y1": 17.05,
+       "kind": "std",
+       "curt": "tul",
+       "split": 2
+      },
+      {
+       "u0": 2.03,
+       "u1": 3.0,
+       "y0": 16.15,
+       "y1": 17.05,
+       "kind": "std",
+       "curt": "tul",
+       "split": 2
+      }
+     ]
+    },
+    {
+     "t": "pediment",
+     "u0": -1.35,
+     "u1": 3.1,
+     "apex": 1.3,
+     "y": 18.2,
+     "yTop": 19.3,
+     "d": 0.02,
+     "depth": 0.3,
+     "color": "plaster2"
+    }
+   ],
+   "note": "v5 (TRTB 18 m, d_xi teyit): kuzey orta KULE, koyu antrasit (gölgede #3e4552–#4b5563), iki 2 kanatlı beyaz PVC pencere sütunu (doğu ≈1.25 m, batı ≈0.95 m). Kat kat perde — doğu sütun: K0 tül (+ pembe çiçekler), K1 tül, K2 beyaz zebra, K3 tül, K4 tül; batı sütun: K0 görülmedi (perde yazılmadı), K1 tül, K2 tül, K3 beyaz stor, K4 karanlık (camda yuvarlak beyaz nesne). Bodrumda küçük pencere. Kulenin tepesinde K4 üstünde 6. (çatı arası) pencere sırası (görünen 16.15–17.05; pending) ve beşik alınlık (tepe ≈19.3 görünen). Kulede çok hafif açık gri düşey pilastr şeritleri seçiliyor, ölçülemedi. Kule duvarı görünen kat aralığı 2.54 (d_xi, TRTB) → duvar yığın önlerinin ≈2 m gerisinde."
+  },
+  {
+   "edge": 17,
+   "len": 0.79,
+   "seen": "none",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 0.79,
+     "y0": 0,
+     "y1": 21.4,
+     "color": "plaster2"
+    }
+   ],
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     0,
+     0.79
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "note": "v5: kule ile B yığını arası kademe, koyu antrasit (TRTB 16'da yığın yanının gölgesinde). Gerçek metre."
+  },
+  {
+   "edge": 18,
+   "len": 4.7,
+   "seen": "photo",
+   "ref": "1546358561_18_d_xiNdWl.jpg",
+   "cal": {
+    "u": [
+     -1.0,
+     3.75
+    ],
+    "head": [
+     [
+      1,
+      6.65
+     ],
+     [
+      4,
+      13.86
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": -1.0,
+     "u1": 3.75,
+     "y0": 0,
+     "y1": 17.2,
+     "color": "plaster2"
+    },
+    {
+     "t": "bal",
+     "u0": -1.0,
+     "u1": 3.75,
+     "d": 1.3,
+     "s": [
+      0,
+      4
+     ],
+     "cap": true,
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "railC": "#d0d6d9",
+     "fasciaC": {
+      "K2": "#50575f"
+     },
+     "glazed": [
+      4
+     ],
+     "tint": {
+      "4": "dark"
+     },
+     "net": [
+      2
+     ]
+    },
+    {
+     "t": "banner",
+     "u0": 1.69,
+     "u1": 2.225,
+     "y0": 7.6,
+     "y1": 8.25,
+     "d": 1.32,
+     "style": "tr-v"
+    },
+    {
+     "t": "ac",
+     "u": 3.6,
+     "s": 3,
+     "y": 11.0
+    },
+    {
+     "t": "ac",
+     "u": 3.6,
+     "s": 4,
+     "y": 13.7
+    },
+    {
+     "t": "win",
+     "u0": 0.6,
+     "u1": 1.5,
+     "y0": 4.8,
+     "y1": 6.65,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "kind": "door",
+     "split": 1,
+     "curt": {
+      "K1": "tul"
+     }
+    },
+    {
+     "t": "proj",
+     "u0": -0.63,
+     "u1": 3.68,
+     "d": 1.3,
+     "y0": 14.24,
+     "y1": 15.25,
+     "color": "#aab1b6"
+    },
+    {
+     "t": "pediment",
+     "u0": -1.0,
+     "u1": 3.75,
+     "apex": -1.0,
+     "y": 15.25,
+     "yTop": 16.98,
+     "d": 1.3,
+     "depth": 1.3,
+     "color": "#aab1b6"
+    }
+   ],
+   "note": "v5 (d_xi 13 m, TRTB teyit): kuzey cephe B (batı) yığını: K0 AÇIK (koyu arka duvar, kapı), K1 AÇIK (beyaz kapı + tül), K2 AÇIK + kuş ağı + korkulukta Türk bayrağı (K2 alnı KOYU gri), K3 AÇIK (tavan spotu), K4 koyu cam; üstte açık gri üçgen alınlık. Batı ucunda K3 ve K4'te klima dış üniteleri (Xe8P'de de görülüyor). d_xi'de yığının batı ucunun ötesi gökyüzü: KB köşesi taban izinin ≈1 m içinde (bkz. notlar). | v6 (2026-09-29): K2 korkuluğundaki Türk bayrağı ölçülü dikey bayrak (banner tr-v): d_xi ortosunda u 1.69–2.225, y 7.6–8.25 (korkuluk üstünden koyu K2 alnının önüne sarkıyor; TRTB 193_7'de ay-yıldız üstte, dikey asılı). Eski 'flag' birimi 1.1×1.3 m sabit boy + u 2.35 idi. Renk gölgede/bulutlu #8e3541 (en kırmızı %30) — bayrak kırmızısı varsayılan (#d21f26) bırakıldı."
+  },
+  {
+   "edge": 19,
+   "len": 8.56,
+   "seen": "photo",
+   "ref": "1546358561_19_Xe8PeLW5.jpg",
+   "cal": {
+    "u": [
+     -1.85,
+     8.51
+    ],
+    "head": [
+     [
+      0,
+      5.25
+     ],
+     [
+      4,
+      19.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": -1.85,
+     "u1": 7.7,
+     "y0": 2.3,
+     "y1": 5.75,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": -1.85,
+     "u1": 7.7,
+     "y0": 12.7,
+     "y1": 16.1,
+     "color": "plaster2"
+    },
+    {
+     "t": "win",
+     "u0": 1.9,
+     "u1": 4.75,
+     "y0": 17.35,
+     "y1": 19.0,
+     "k": 4,
+     "s": [
+      0,
+      4
+     ],
+     "split": 3,
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "pilaster",
+     "u0": 1.5,
+     "u1": 1.85,
+     "s": [
+      0,
+      4
+     ],
+     "d": 0.06,
+     "color": "plaster"
+    },
+    {
+     "t": "pilaster",
+     "u0": 4.8,
+     "u1": 5.15,
+     "s": [
+      0,
+      4
+     ],
+     "d": 0.06,
+     "color": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 1.1,
+     "u1": 2.4,
+     "y0": 0.5,
+     "y1": 2.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "small"
+    },
+    {
+     "t": "win",
+     "u0": 3.25,
+     "u1": 4.5,
+     "y0": 0.5,
+     "y1": 2.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "small"
+    },
+    {
+     "t": "pipe",
+     "u": -1.7,
+     "color": "#b9c1c6"
+    },
+    {
+     "t": "band",
+     "y0": 0,
+     "y1": 2.3,
+     "color": "plinth"
+    },
+    {
+     "t": "lamp",
+     "us": [
+      -0.08
+     ],
+     "s": [
+      0,
+      4
+     ],
+     "yRel": 2.3,
+     "style": "cylinder",
+     "dir": "down",
+     "d": 0.12,
+     "h": 0.12,
+     "proud": 0.14,
+     "color": "#1e2124",
+     "tip": "#1e2124"
+    }
+   ],
+   "note": "v5 (yeni ortofoto, Xe8P referans; gölgede): 502. Sokak'a bakan batı cephenin kuzey parçası. Tek 3 bölmeli pencere sütunu (beyaz PVC, TÜM katlarda beyaz tül — yakın karelerle kat kat doğrulandı), iki yanında AÇIK gri pilastrlar (koyu bantların üstünden açık renk geçer, parapete kadar), K0 (2.3–5.75) ve K3 (12.7–16.1) hizasında koyu antrasit bantlar; duvar üstü düz parapet + beyaz harpuşta (görünen ≈20.8). Kuzey köşede tam boy açık gri yağmur borusu (dirsekli). Pencere sütununun solunda her katta küçük siyah silindir duvar apliği (u≈0.2; pending). Yarı bodrumda iki küçük pencere. ÖLÇEK: görünen kat aralığı 3.44 (×1.21), ama duvar uçları arası görünen 8.85 → gerçek ≈7.3 m (taban izi 8.56); cal.u pencere sütunu ortada kalacak şekilde gerçek ölçekle kuruldu (iki uçta ≈0.6 m öğesiz duvar). Sağ uçta (u>7.7) merdiven kulesi (1). | v6 (2026-09-29): pencere sütununun solundaki küçük siyah silindirler lamp olarak (Xe8P ortosu u −0.05…−0.15 → −0.08; K0 5.15, K1 8.81, K2 12.22, K3 15.56, K4 19.16 görünen → döşemeden 2.17 / 2.35 / 2.33 / 2.25 / 2.38, ort. 2.3). Xe8P 96_24 yakın karesinde duvardan ≈0.2 m çıkan koyu silindir, uçta açık halka; aplik mi kombi baca ucu mu seçilemedi → gündüz görünümü çizildi (koyu gövde + koyu uç, gece ışığı yok). Gerçekte yatay eksenli, üretici düşey kısa silindir çiziyor."
+  }
+ ],
+ "pending": [
+  {
+   "what": "Çatı arası pencere sırası (kulelerde)",
+   "edges": [
+    6
+   ],
+   "note": "critic-fix 2026-09-30: KUZEY kule (16) yazıldı (aşağıya bkz. notlar). Kalan: GÜNEY kule (6, _zvj): aynı çatı arası sırası (batı sütun beyaz zebra, doğu tül) ve alınlık — 6'nın ortosu çok eğik, kotlar sayısal ölçülmedi. Eski not: kuzey kule (16, TRTB): K4 üstünde iki sütunda 2 kanatlı pencere, görünen 16.15–17.05 (K4 lentosu 14.6, kat aralığı 2.54 görünen) — K4 döşemesinden ≈3.0–3.8 m; perdeler tül/tül. Güney kule (6, _zvj): aynı sıra, batı sütun beyaz zebra, doğu tül. Kule duvarı/alınlığı bu sırayı taşıyacak kadar yükselir (alınlık tepesi ≈19.3 görünen). v6 kontrolü (2026-09-29): çatı arası penceresi (win k = storeys) yalnız çatı alınlığında / pediment / arch içinde açılıyor. (a) roof.gables [6,16]: roof.ts bu kademe kenarlarında alınlık üretmiyor (roofGables boş; kule yüzleri yığın önlerinin 0.8–1.35 m gerisinde). (b) Pencereler üçgenin İÇİNDE değil: TRTB (16) kule duvarı saçak kotunun üstüne dikdörtgen olarak çıkıyor — pencereler görünen 16.15–17.05 (gerçek ≈17.97–18.97, duvar üstü 16.97), alınlık omuzları u −1.35 / 3.1 görünen 18.1 / 18.3 (gerçek ≈20.1 / 20.4), tepe u 1.3 y 19.3 (gerçek ≈21.5) → iki sütun (−0.47…0.8 ve 2.03…3.0) 4.45 m tabanlı pediment üçgenine sığmıyor. (c) Hava fotoğrafında ana mahya x ≈22.2 K–G (kuleler x 20.2–25.4 ortasında) → kule başları ana çatının K/G alınlık uçları. İfade için: kule başı proj (d≈0.02, back = başlık derinliği, y0 duvar üstü, y1 omuz) + wins + üstünde pediment gerekir; başlık derinliği görülmedi (hava fotoğrafında çatıya karışıyor) → tahmin olmasın diye yazılmadı. Alternatif: kule şeridi x 20.2–25.4 massing parçası (6 kat, beşik çatı, wallTop ≈20.2) — ana oturum kararı. Geometri notu: omuzlar (kule kenarları x 20.2 / 25.4) ≈20.1–20.4, tepe ≈21.5 ve mahya x ≈22.2 → mahyadan 2.6 m uzakta 1.4 m alçalma ≈31° eğim: kule başı ana çatının K/G alınlık profili (ana çatı K–G beşik, mahya ≈21.5 = duvar üstünün ≈4.5 m üstü; mevcut hipped çatı 25°, en yüksek ≈3.1 m). Yani doğru çözüm ana çatıyı K–G beşik (alınlıklar kulelerde) yapmak; roof.ts bu kademe kenarlarında alınlık çıkarmıyor → üretici isteği."
+  },
+  {
+   "what": "45° pahlı balkon köşesi",
+   "edges": [
+    12,
+    11
+   ],
+   "note": "KD köşe balkonlarında döşeme ve korkuluk köşesi ≈45° pahlı (pah ≈1.0–1.2 m), gnXj/4Vcm 12 v6: pah hâlâ yok (round çeyrek daire yapar) → yazılmadı."
+  },
+  {
+   "what": "Blok harfi 'A'",
+   "edge": 14,
+   "note": "D yığınının K0 balkon alnının batı ucunda (x≈27, yerden ≈2.4 m) siyah tek harf 'A', ≈0.35 m yüksek, beyaz alın üstünde (TRTB 193_7) — balkon alnına montaj üreticide yok v6 kontrolü (2026-09-29): TRTB 14. kenar ortosunda harf u 4.13–4.35, y 2.22–2.52 görünen (alın 2.1–2.8, balkon önü d 1.3); harf gölgede #3a4753 (siyah), alın gölgede #9aa6b1. sign montajı bant/panel/proj önüne; balkon önüne (d 1.3) oturmuyor — letters d 1.3 harfi duvardan balkon önüne kadar uzatır. banner plain denendi (düşünce): yazı bannerın ortadaki %60'ına sığdırıldığından 0.3 m harf için ≈0.9 m boy gerekir, alından taşar → yazılmadı. Üretici isteği: sign `onBal`/`off` (balkon alnına montaj)."
+  },
+  {
+   "what": "Site levhası (direkte)",
+   "note": "kuzey site çiti önünde direk üstünde beyaz pano, yeşil harf 'ŞEHR-İ BURSA\\nEVLERİ' (gnXj; x≈29–30.5, yerden ≈4.9–6.4 görünen), yanında kamera — sokak planı (street-plan) öğesi, cephe değil"
+  },
+  {
+   "what": "Merdiven kulesi başlığı",
+   "edge": 1,
+   "note": "merdiven kulesi çatının ≈1 m üstüne çıkar, üstü paslı kahve saç kapak (2ydc) — volumes ile yazılabilir ama kule planı ölçülemedi v6 kontrolü (2026-09-29): proj.back + topC + cap bunu ifade edebilir ama başlığın derinliği (back) görülmedi: 2ydc 121_26'da başlık komşu duvar üstlerinden ≈1.0–1.4 m yüksek, düz üstlü, kuzey yan yüzü paslı kahve (saç kaplama) — görünen derinlik ≈1.1 m (yatık), hava fotoğrafında başlık gri düz teras şeridine (x 15–23.8, eğim kaymalı z −149.2…−146) karışıyor → yazılmadı."
+  }
+ ]
 }

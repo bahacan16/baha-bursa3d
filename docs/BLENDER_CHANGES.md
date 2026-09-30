@@ -580,3 +580,10 @@
   düzeltildi, 900000261 doğu kulesi + 900000262 arka ek). Henüz cephe ölçümü yok → oyunda OSM genel binaları kalır.
   Tabela okunurluğu için `scripts/sv-extra.json`'a 4221 yakın plan karo (40° + 22°) eklendi; Actions `SV_MAX` 5000.
   **Blender:** — (cephe ölçümleri gelince bu 31 bina kurulacak)
+- **(eleştirmen düzeltmesi, DA güney sırası)** 01:0x — `survey/1546358554/55/56/61/62.json` + `data/facades.json`
+  (v7 derleyicisiyle): 554 kuzey locaları her katta kalın beyaz döşeme alnı (`solidTube`, parapet 0.35, kat kat
+  korkuluk yüksekliği), K3 koyu alın #3f4947; çatıdaki "kanatlar" (kalınlıksız pano) → ölçülü eğik üstlü kutu +
+  dik açılı alınlık (KD 18.97→21.5, KB 21.63→20.31, e6 20.64→18.84, e7 18.86→19.4 m); e19 K2–K4 duvar lambaları.
+  555 K0/K3 alın #5a636b, E14 K2 cam arkası klima, E10 kırmızı örtüler + kat kat saksılar. 556 K2 alın #5a636b.
+  561 kuzey alınlıkları (D, B yığınları #aab1b6 + kule çatı katı pencereleri). 562 ayaklarda "lamba" sanılanlar
+  PVC baca boruları (rod), KB loca klimaları yan duvarda. **Blender:** bu 5 bloğun cephe + çatı katmanı yeniden kurulur.
