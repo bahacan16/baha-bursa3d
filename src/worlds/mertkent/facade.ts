@@ -963,6 +963,27 @@ export interface CompiledBlock {
     }[];
     gap?: { x: [number, number] };
   };
+  /**
+   * v8: kütle kesim yüzü kenarları (survey `cutEdges`, gerçek m): massing.ts splitMassing bunları parçanın doğruya
+   * uyan kesim kenarlarına dağıtır; bölünmüş parçada normal `edges` kaydı olarak çizilir.
+   */
+  cutEdges?: CCutEdge[] | null;
+  /**
+   * v8: duvarların / öğelerin başladığı kot (tabandan gerçek m) — podyumun üstünde ayrı ölçülmüş kule: alt kısım
+   * (podyumun içinde kalan K0–K1) çizilmez, kat ızgarası zeminden sayılmaya devam eder. Survey `baseH` / `startK`.
+   */
+  baseH?: number | null;
+}
+
+/** v8: derlenmiş kesim yüzü kenarı — u = `a`'dan doğru boyunca (m) */
+export interface CCutEdge {
+  part: number | 'gap';
+  a: V2;
+  e: V2;
+  len: number;
+  seen: string;
+  tol?: number;
+  items: CItem[];
 }
 
 /** Ölçülen renk türü → dinamik malzeme (index.ts colorKey) */
@@ -1198,6 +1219,71 @@ export function footCollision(ring: [number, number][], holes: [number, number][
   }
 }
 
+/**
+ * v8 `baseH`: podyumun üstünde ayrı ölçülmüş kulenin gizli alt kısmı (tabandan baseH m'ye kadar) çizilmez. Öğeler:
+ * tamamen altta kalanlar atılır; kat listeli öğelerden (win / bal / lamp) altta kalan katlar, kat aralıklı
+ * (pilaster / recess) öğelerin alt katları, bant / pano / şerit / boru / çıkma alt kenarları baseH'ye kırpılır.
+ * floorRel(k) = kat k döşemesinin tabandan yüksekliği. Kat ızgarası değişmez (katlar zeminden sayılır).
+ */
+export function clipItemsAbove(its: CItem[], baseH: number, floorRel: (k: number) => number): CItem[] {
+  const EPS = 0.05;
+  // Görünen kat: üst döşemesi baseH'nin üstünde
+  const vis = (k: number) => floorRel(k + 1) > baseH + EPS;
+  let K0 = -1;
+  while (K0 < 200 && !vis(K0)) K0++;
+  const out: CItem[] = [];
+  for (const it of its) {
+    const o = { ...it } as CItem & Record<string, unknown>;
+    if (o.t === 'win' || o.t === 'bal') {
+      o.storeys = o.storeys.filter(vis);
+      if (!o.storeys.length) continue;
+    } else if (o.t === 'lamp') {
+      if (o.storeys) {
+        o.storeys = o.storeys.filter(vis);
+        if (!o.storeys.length) continue;
+      } else if (o.y != null && o.y <= baseH) continue;
+    } else if (o.t === 'pilaster' || o.t === 'recess') {
+      if (o.storeys) {
+        if (o.storeys[1] < K0) continue;
+        o.storeys = [Math.max(o.storeys[0], K0), o.storeys[1]];
+      } else if (o.y0 != null && o.y1 != null) {
+        if (o.y1 <= baseH + 1e-3) continue;
+        o.y0 = Math.max(o.y0, baseH);
+      }
+    } else if (o.t === 'ac' || o.t === 'dish' || o.t === 'camera' || o.t === 'flag' || o.t === 'box') {
+      if (!vis(o.s)) continue;
+    } else if (o.t === 'entrance' || o.t === 'steps') {
+      continue;
+    } else if (o.t === 'pipe') {
+      if (o.y1 != null && o.y1 <= baseH + 1e-3) continue;
+      o.y0 = Math.max(o.y0 ?? -1, baseH);
+    } else if (o.t === 'ribbon') {
+      if (!o.pts.some((p) => p[1] > baseH)) continue;
+    } else if (o.t === 'neon') {
+      if (!o.pts.some((p) => p[1] > baseH)) continue;
+    } else if (o.t === 'rod') {
+      if (o.a[1] <= baseH && o.e[1] <= baseH) continue;
+    } else if (o.t === 'awning' || o.t === 'vent') {
+      if (o.y <= baseH) continue;
+    } else if (o.t === 'groove') {
+      if (o.dir === 'v' ? (o.y1 ?? 0) <= baseH : (o.y ?? 0) <= baseH) continue;
+      if (o.dir === 'v' && o.y0 != null) o.y0 = Math.max(o.y0, baseH);
+    } else if (o.t === 'mast') {
+      if (o.y0 != null && o.y0 + o.h <= baseH) continue;
+    } else if ('y0' in o && 'y1' in o && typeof o.y1 === 'number') {
+      // bant / pano / şerit / çıkma / tabela / pankart / bez …: tamamen altta → yok; kırpılabilenler baseH'den
+      if (o.y1 <= baseH + 1e-3) continue;
+      if (
+        (o.t === 'band' || o.t === 'panel' || o.t === 'strip' || o.t === 'proj') &&
+        typeof o.y0 === 'number'
+      )
+        o.y0 = Math.max(o.y0, baseH);
+    }
+    out.push(o as CItem);
+  }
+  return out;
+}
+
 function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptions): FacadeResult {
   const ring = blk.ring.map((p) => [p[0], p[1]] as V2);
   const N = ring.length;
@@ -1226,7 +1312,14 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     const { a, t, n } = E[i];
     return [a[0] + t[0] * u + n[0] * off, a[1] + t[1] * u + n[1] * off];
   };
-  const byEdge = new Map(blk.edges.map((e) => [e.edge, e.items]));
+  // v8: podyum üstündeki kulenin gizli alt kısmı (baseH, tabandan m) — duvar, subasman ve öğeler baseH'den başlar
+  const hideH = blk.baseH != null && blk.baseH > 0.01 ? blk.baseH : null;
+  const byEdge = new Map(
+    blk.edges.map((e) => [
+      e.edge,
+      hideH != null ? clipItemsAbove(e.items, hideH, (k) => floorY(k) - base) : e.items,
+    ]),
+  );
   const items = (i: number) => byEdge.get(i) ?? [];
   // Ölçülen özel renkler → malzeme anahtarı (yoksa blok paleti)
   const ck = (kind: CK, hex: string | null | undefined, dflt: string) =>
@@ -1979,6 +2072,11 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       .join(',');
   const bands: { y0: number; y1: number; sig: string; k0: number; k1: number }[] = [];
   const pushBand = (y0: number, y1: number, sg: string, k: number) => {
+    if (hideH != null) {
+      // v8 baseH: gizli alt kısım çizilmez
+      if (y1 <= base + hideH + 1e-6) return;
+      y0 = Math.max(y0, base + hideH);
+    }
     const last = bands[bands.length - 1];
     if (last && last.sig === sg && Math.abs(last.y1 - y0) < 1e-6) {
       last.y1 = y1;
@@ -2197,8 +2295,8 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
               op.y0 < Math.min(yp, floorY(0)) - 0.01,
           )),
     ];
-    if (yp - base < 0.02) {
-      // Subasman yok (camlar / payeler zemine iner)
+    if (yp - base < 0.02 || hideH != null) {
+      // Subasman yok (camlar / payeler zemine iner); v8 baseH: kule alt kısmı podyumun içinde
     } else if (!pCut.length)
       b.wall(K('mkPlinth'), P(i, 0, 0.012), P(i, len, 0.012), y0w, yp, [s0, 0, s0 + len, yp - y0w]);
     else {

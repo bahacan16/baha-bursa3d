@@ -1629,7 +1629,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
         r.map((p) => [p[0], p[1]]),
         holes,
       ))
-        o.collide?.(rr, base - 1, base + 40);
+        // v8 baseH: podyum üstündeki kulenin alt kısmı podyumun içinde (çarpışmayı podyum verir)
+        o.collide?.(rr, base - 1 + (fac.baseH ?? 0), base + 40);
     }
   // Özhan
   // Düzeltilmiş taban izi (hava fotoğrafı; OSM ile aynı köşe sırası), yoksa OSM

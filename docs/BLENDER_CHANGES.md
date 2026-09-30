@@ -723,3 +723,14 @@
 - **(D4 cephe 3, 2. tur)** — `survey/1546358570.json`: Biaport kulesi 22 kat (K0 3.9 + 21 × 3.2, çatı ≈71 m; 3.58 m görünür aralık panoların ≈4.6 m kayıklığındanmış). **Blender:** kule yüksekliği.
 - **(D4 cephe 5)** — yeni `survey/1551814316.json` (Bulvar Özlüce AVM: BKM Kitap-Kırtasiye-Kafe, Levrek, Burger King, Starbucks, Vivaldi, addax; kutu üstünde MR.D.I.Y., PORLAND, mavi; bkmkitap/MR.DIY/TIFFANY & TOMATO afişleri; mavi-beyaz dama kutu; çatı tabelaları bulvarözlüce, bkmkitap, eğlenjoy), `1551814323.json` (Ceylan Plus kaidesi: DURAK, Queen, Ohannes, Cadı'nın Evi, Cafe Strada, Helvacı Ali 1900, Evergreen, kids Cafe, diyetisyen, veteriner; kule cephesi pending), `1544329664.json` (Bakış Çiçekçilik, çapraz beşik çatı). **Blender:** bu 3 bina ilk kez kurulur.
 - **(D4 cephe 9, 2. tur)** — Muammer Aksoy panoları 3–6.5 m kuzeyde çıktı (zemin karesi eşlemesi) → 1544934694 güney cephesi ölçüldü (7 kat, kat kat cam balkon), 1552992538 ölçek düzeltmesi, 1477364957 batı kule yüzü K4–K8. **Blender:** bu blokların cephe katmanı.
+- **(üretici v8: kesim yüzü kenarları + baseH)** — yeni survey alanları: `cutEdges` (massing parçalarını ayıran kesim
+  yüzlerine öğe: parça + dünya doğrusu a → e, gerçek m ya da `cal`; `survey-compile.mjs` → `facades.json`
+  `cutEdges`, `massing.ts` doğruya uyan kesim kenarlarına dağıtır) ve `baseH` / `startK` (podyum üstünde ayrı dosya
+  olarak ölçülmüş kule: duvar, subasman, öğeler ve çarpışma baseH'den başlar; `facade.ts` `clipItemsAbove`). Alan
+  yokken derleme çıktısı bayt bayt aynı (69 ölçüm). İlk örnekler: `1551828351` (Kent Park doğu kule K2–K8 iki
+  pencere sütunu, MADO 1. kat koyu duvar + mavi mozaik + çizgili bant + MADO harfleri, PABLO kutusu doğu yüzünde
+  PABLO harfleri) ve `1552093099` (batı kule altı taş kaplı 1. kat: taş pano, 6 pencere, 2 klima, 4 tabela — BİLAL
+  KAPACIOĞLU, Uzm.Dr.Zeynep PEHLİVAN BARUTÇU, MyDream, diş kutusu). **Blender:** `NW/Mertkent/Blocks/1551828351`,
+  `NW/Mertkent/Blocks/1552093099` yeniden kurulur; kesim kenarı öğeleri bölünmüş parça kenarlarında (`splitMassing`
+  çıktısı) — port `massing.ts` `cutItems` ile aynı eşleştirmeyi yapmalı (paralel ≤ 15°, uçlar `tol` 1.5 m içinde,
+  halka yönünde).

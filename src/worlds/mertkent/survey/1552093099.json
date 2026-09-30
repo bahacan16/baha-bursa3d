@@ -2462,113 +2462,7 @@
    "what": "cutFace-W (batı kule 1552093102 batı yüzü + taş kaplı 1. kat, x≈664, z −555.4…−534.8)",
    "coords": "GERÇEK m, kendi düzlem ortofotom (c6nV _f22 / KFus tutarlı): u = z −555.4’ten güneye, y = blok tabanından",
    "stoneK1": {
-    "y": [
-     7.3,
-     11.95
-    ],
-    "clad": "bej traverten taş kaplama #b9ab91, üstte beyaz boru korkuluklu teras kenarı (y 12.0–12.9)",
-    "windows": [
-     [
-      0.4,
-      1.8
-     ],
-     [
-      3.5,
-      4.9
-     ],
-     [
-      7,
-      8.6
-     ],
-     [
-      10.4,
-      12.1
-     ],
-     [
-      13.9,
-      15.6
-     ],
-     [
-      17.6,
-      19.3
-     ]
-    ],
-    "winY": [
-     9.5,
-     11
-    ],
-    "winNote": "koyu kasalı 2 kanat; 7.0–8.6 beyaz yatay jaluzi; 17.6–19.3 dikey jaluzi",
-    "ac": [
-     {
-      "u": 8,
-      "y": 9.3
-     },
-     {
-      "u": 13.9,
-      "y": 9.3
-     }
-    ],
     "signs": [
-     {
-      "u": [
-       -0.8,
-       1.6
-      ],
-      "y": [
-       11.2,
-       12.4
-      ],
-      "text": "MyDream\n…",
-      "bg": "#1b1f24",
-      "fg": "#e8e2cf",
-      "logo": "beyaz dağ/dalga amblemi, altında altın satır (okunamadı); KB köşede \"…EAM / …ALONU\" ikinci yüz (köşeyi sarar: \"MY DREAM … SALONU\" olası, yalnız okunan harfler)"
-     },
-     {
-      "u": [
-       2.2,
-       5.1
-      ],
-      "y": [
-       11.2,
-       12.6
-      ],
-      "text": "BİLAL KAPACIOĞLU\nKLİNİK PSİKOLOG\nÖZEL SAĞLIK MESLEK HİZMET BİRİMİ\n0543 372 57 39",
-      "bg": "#10223f",
-      "fg": "#f2f2ef",
-      "font": "sans",
-      "bold": true,
-      "note": "KFus karesinde telefon sonu 39 okunur"
-     },
-     {
-      "u": [
-       8.3,
-       10.3
-      ],
-      "y": [
-       11.2,
-       12.5
-      ],
-      "text": "Uzm.Dr.Zeynep PEHLİVAN BARUTÇU\nAile Hekimi Uzmanı\nMezoterapi- Ozon Terapi\nKupa Terapi\nTel : 505 115 86 81",
-      "bg": "#f3f3f1",
-      "fg": "#2a2a2a",
-      "font": "serif",
-      "bold": true
-     },
-     {
-      "u": [
-       19.7,
-       20.9
-      ],
-      "y": [
-       10.9,
-       12.6
-      ],
-      "text": "",
-      "bg": "#2f63b5",
-      "fg": "#ffffff",
-      "kind": "kutu (öne çıkık olabilir)",
-      "logo": "mavi zemin üstünde büyük beyaz diş"
-     },
      {
       "u": [
        19.5,
@@ -2583,7 +2477,9 @@
       "fg": "#2a2a2a",
       "logo": "solda kırmızı kare içinde beyaz diş; e23 ortosunda \"Estetik A\" okunur, devamı kesik"
      }
-    ]
+    ],
+    "converted": "taş kaplama panosu, 6 pencere, 2 klima, 4 tabela → cutEdges[0] (v8); korkuluk = massing parapeti",
+    "why": "u 19.5–21.8 levhası yüzün güney ucunu (u 20.6) aşıp köşeyi sarıyor; güney yüzü ölçülmedi"
    },
    "tower": {
     "u": [
@@ -2614,6 +2510,180 @@
   {
    "what": "massing-heights",
    "desc": "OSM yükseklikleri (26/24/6/3) ölçümle uyuşmuyor: batı kule K0 ≈7.1 (çift yükseklik dükkân arkası), taş kat 4.8, 6 konut ×3.2, üst ≈31.2 (+alınlık 32.9); doğu kule K0 4.35, taş asma kat 2.0, 6 konut ×2.95, saçak ≈24.2 + alınlık katı. Ön şerit 1 kat ≈5.2 (tabela panosu 7.3’e çıkar)."
+  }
+ ],
+ "cutEdges": [
+  {
+   "part": 2,
+   "a": [
+    664.0,
+    -555.4
+   ],
+   "e": [
+    664.0,
+    -534.8
+   ],
+   "tol": 3.2,
+   "seen": "photo",
+   "ref": "c6nV _f22 / KFus kendi düzlem ortofotosu (x ≈ 664)",
+   "note": "Batı kule altındaki taş kaplı 1. kat (K1, y 7.3–11.95) bulvar yüzü; u = z −555.4'ten güneye (+z), y blok tabanından GERÇEK m. Taş kat modelde 2 katlı parça 2'nin batı kesim yüzünde (x 661.2–662.2) çiziliyor; ölçülen düzlem x ≈ 664 (kule yüzü) → tol 3.2. Taş katın yüzü gerçekten x ≈ 664'teyse massing.towers[2] çokgeninin batı şeridi (x 661.2–664) tek katlı olmalı ve bu kayıt part 0'a taşınır. Pencere perdeleri yalnız okunanlar (7.0–8.6 beyaz yatay jaluzi → zebra, 17.6–19.3 dikey jaluzi); diğerleri koyu kasalı, perdesi yazılmadı. Doğrama rengi (koyu) örneklenmedi → blok frame.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 20.6,
+     "y0": 7.3,
+     "y1": 11.95,
+     "color": "#b9ab91"
+    },
+    {
+     "t": "win",
+     "u0": 0.4,
+     "u1": 1.8,
+     "y0": 9.5,
+     "y1": 11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2
+    },
+    {
+     "t": "win",
+     "u0": 3.5,
+     "u1": 4.9,
+     "y0": 9.5,
+     "y1": 11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2
+    },
+    {
+     "t": "win",
+     "u0": 7,
+     "u1": 8.6,
+     "y0": 9.5,
+     "y1": 11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "curt": {
+      "K1": "zebra"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.4,
+     "u1": 12.1,
+     "y0": 9.5,
+     "y1": 11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2
+    },
+    {
+     "t": "win",
+     "u0": 13.9,
+     "u1": 15.6,
+     "y0": 9.5,
+     "y1": 11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2
+    },
+    {
+     "t": "win",
+     "u0": 17.6,
+     "u1": 19.3,
+     "y0": 9.5,
+     "y1": 11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "curt": {
+      "K1": "jaluzi"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 8,
+     "y": 9.3,
+     "s": 1
+    },
+    {
+     "t": "ac",
+     "u": 13.9,
+     "y": 9.3,
+     "s": 1
+    },
+    {
+     "t": "sign",
+     "u0": -0.8,
+     "u1": 1.6,
+     "y0": 11.2,
+     "y1": 12.4,
+     "text": "MyDream\n…",
+     "bg": "#1b1f24",
+     "fg": "#e8e2cf",
+     "logo": "beyaz dağ/dalga amblemi, altında altın satır (okunamadı); KB köşede \"…EAM / …ALONU\" ikinci yüz (köşeyi sarar: \"MY DREAM … SALONU\" olası, yalnız okunan harfler); montaj tipi / d görülmedi (derleyici varsayılanı)"
+    },
+    {
+     "t": "sign",
+     "u0": 2.2,
+     "u1": 5.1,
+     "y0": 11.2,
+     "y1": 12.6,
+     "text": "BİLAL KAPACIOĞLU\nKLİNİK PSİKOLOG\nÖZEL SAĞLIK MESLEK HİZMET BİRİMİ\n0543 372 57 39",
+     "bg": "#10223f",
+     "fg": "#f2f2ef",
+     "font": "sans",
+     "bold": true,
+     "logo": "KFus karesinde telefon sonu 39 okunur; montaj tipi / d görülmedi (derleyici varsayılanı)"
+    },
+    {
+     "t": "sign",
+     "u0": 8.3,
+     "u1": 10.3,
+     "y0": 11.2,
+     "y1": 12.5,
+     "text": "Uzm.Dr.Zeynep PEHLİVAN BARUTÇU\nAile Hekimi Uzmanı\nMezoterapi- Ozon Terapi\nKupa Terapi\nTel : 505 115 86 81",
+     "bg": "#f3f3f1",
+     "fg": "#2a2a2a",
+     "font": "serif",
+     "bold": true,
+     "logo": "montaj tipi / d görülmedi (derleyici varsayılanı)"
+    },
+    {
+     "t": "sign",
+     "u0": 19.7,
+     "u1": 20.9,
+     "y0": 10.9,
+     "y1": 12.6,
+     "text": "",
+     "bg": "#2f63b5",
+     "fg": "#ffffff",
+     "style": "box",
+     "icon": "tooth",
+     "iconC": "#ffffff",
+     "logo": "mavi zemin üstünde büyük beyaz diş (icon tooth); kutu, öne çıkıklığı görülmedi; montaj tipi / d görülmedi (derleyici varsayılanı)"
+    }
+   ]
   }
  ]
 }

@@ -363,6 +363,10 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
   çizilir ve o kattaki otomatik balkon kapısının yerini alır; `behind` (ön düzlem ortofotosunu arka duvara ölçekleme)
   isteğe bağlı; 1.5 cm pah kırma yalnız Yüksek/Ultra (Düşük/Orta çıktısı değişmez). Portre bayrak genel gri madalyon
   (yüz çizilmez).
+- Üretici v8: massing kesim yüzleri survey `cutEdges` ile öğe taşır — parça + dünya doğrusu (a → e, halka yönünde)
+  ile adreslenir, kesim kenarı indisi ile değil (indisler çokgen kırpmasına bağlı, kayar); gerçek m (y blok
+  tabanından, kat ızgarası parçanınki) ya da `cal`. Ayrı dosya olarak ölçülmüş podyum üstü kuleler `baseH` /
+  `startK` ile alttan kırpılır (duvar, subasman, öğe, çarpışma). Hangisinin ne zaman kullanılacağı ölçüm brifi v8.
 - Street View kamera yüksekliği çekim tarihine göre (2025-09 2.35 m, 2019-05 2.55, 2014-07 2.80; `docs/SV_CAMERA.md`);
   zemin ölçümleri ve karşılaştırma kamerası bunu kullanır, cephe ortofotoları 2.5 varsayılanında kalır (ölçüler ve
   `base` onlara göre).
