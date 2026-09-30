@@ -129,17 +129,36 @@ export function buildFence(
  * Site giriş kapısı: siyah kutu portal, üstünde "MERTKENT / Sitesi 2.Etap" yazılı siyah başlık,
  * altın desenli siyah kapı kanadı, yanlarda altın baklava süslü siyah kolonlar.
  */
-export function buildGate(b: Builder, c: V2, n: V2, y0: number): void {
+export function buildGate(
+  b: Builder,
+  c: V2,
+  n: V2,
+  y0: number,
+  laser?: { spec: NonNullable<PlanGate['leafSpec']>; ctx: GateCtx },
+): void {
   const t: V2 = [n[1], -n[0]];
   const yaw = Math.atan2(-t[1], t[0]);
   const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
-  // Kolonlar (Street View: kapıdan biraz geniş, altın madalyonlu)
+  // Kolonlar (Street View: kapıdan biraz geniş, altın madalyonlu; ölçümde kolon yüzünde üst üste altın baklavalar)
   const PX = 1.0;
+  const lz = laser?.spec.pillarLozenges;
   for (const u of [-PX, PX]) {
     const p = P(u, 0);
     b.box('black', [p[0], y0 + 1.25, p[1]], [0.42, 2.5, 0.42], yaw);
-    const [fa, fe] = facing(P(u - 0.16, 0.215), P(u + 0.16, 0.215), n);
-    b.wall('gateOrn', fa, fe, y0 + 1.15, y0 + 1.55, [0.35, 0.05, 0.65, 0.25]);
+    if (lz) {
+      const ys = lz.yFrac ?? [0.3, 0.72];
+      for (const yf of ys.slice(0, Math.max(1, lz.n ?? ys.length))) {
+        const q = P(u, 0.215);
+        const dg = new THREE.BoxGeometry(0.14, 0.14, 0.012);
+        dg.rotateZ(Math.PI / 4);
+        dg.rotateY(yaw);
+        dg.translate(q[0], y0 + 2.5 * yf, q[1]);
+        b.geometry('gold', dg);
+      }
+    } else {
+      const [fa, fe] = facing(P(u - 0.16, 0.215), P(u + 0.16, 0.215), n);
+      b.wall('gateOrn', fa, fe, y0 + 1.15, y0 + 1.55, [0.35, 0.05, 0.65, 0.25]);
+    }
   }
   // Başlık kutusu + yazı
   const h = P(0, 0.04);
@@ -147,10 +166,41 @@ export function buildGate(b: Builder, c: V2, n: V2, y0: number): void {
   const [sa, se] = facing(P(-1.18, 0.305), P(1.18, 0.305), n);
   b.wall('gateSign', sa, se, y0 + 2.52, y0 + 3.04);
   // Kapı kanadı (hafif içeride), iki yüzlü
-  const [ga, ge] = facing(P(-0.79, -0.04), P(0.79, -0.04), n);
-  b.wall('gate', ga, ge, y0 + 0.02, y0 + 2.45);
-  const [gb, gc] = facing(P(-0.79, -0.07), P(0.79, -0.07), [-n[0], -n[1]]);
-  b.wall('gate', gb, gc, y0 + 0.02, y0 + 2.45);
+  if (laser) {
+    // Lazer kesim delikli ekran kanatlar (arkası görünür): ferforje süs dokusu (alfa) + kanat başına altın rozet
+    const nl = Math.max(1, Math.min(2, laser.spec.leaves ?? 2));
+    const lw = 1.58 / nl;
+    const ro = laser.spec.rosette;
+    for (let l = 0; l < nl; l++) {
+      const ua = -0.79 + l * lw;
+      const [ga, ge] = facing(P(ua, -0.05), P(ua + lw, -0.05), n);
+      b.wall('ironScroll', ga, ge, y0 + 0.02, y0 + 2.45, [0, 0, Math.max(1, Math.round(lw / 0.5)), 5]);
+      const [gb, gc] = facing(P(ua, -0.055), P(ua + lw, -0.055), [-n[0], -n[1]]);
+      b.wall('ironScroll', gb, gc, y0 + 0.02, y0 + 2.45, [0, 0, Math.max(1, Math.round(lw / 0.5)), 5]);
+      if (l > 0) {
+        const m = P(ua, -0.055);
+        b.box('black', [m[0], y0 + 1.24, m[1]], [0.04, 2.44, 0.06], yaw);
+      }
+      if (ro && (ro.perLeaf ?? 1) > 0) {
+        const R = (lw * (ro.dFrac ?? 0.45)) / 2;
+        const q = P(ua + lw / 2, -0.03);
+        const rg = new THREE.RingGeometry(R * 0.35, R, 20, 1);
+        rg.rotateY(yaw);
+        rg.translate(q[0], y0 + 0.02 + 2.43 * (ro.yFrac ?? 0.5), q[1]);
+        b.geometry('gold', rg);
+        const rg2 = new THREE.RingGeometry(R * 0.35, R, 20, 1);
+        rg2.rotateY(yaw + Math.PI);
+        const q2 = P(ua + lw / 2, -0.075);
+        rg2.translate(q2[0], y0 + 0.02 + 2.43 * (ro.yFrac ?? 0.5), q2[1]);
+        b.geometry('gold', rg2);
+      }
+    }
+  } else {
+    const [ga, ge] = facing(P(-0.79, -0.04), P(0.79, -0.04), n);
+    b.wall('gate', ga, ge, y0 + 0.02, y0 + 2.45);
+    const [gb, gc] = facing(P(-0.79, -0.07), P(0.79, -0.07), [-n[0], -n[1]]);
+    b.wall('gate', gb, gc, y0 + 0.02, y0 + 2.45);
+  }
   // Kapı kasası
   for (const u of [-0.8, 0.8]) {
     const p = P(u, -0.055);
@@ -321,17 +371,21 @@ export function buildSideDoor(
  * KARAR: konum Street View karesinden (pano GPS ±2 m), boyutlar karelerdeki kolon/kapı oranlarından.
  */
 export function buildParkKoza(b: Builder, c: V2, n: V2, y0: number, collide?: Collide): void {
+  // Ölçüm (street-plan notu, SV l4zdb_323_-15_40 / l4zdb_300_0): kaba beyaz sıvalı, üstü yuvarlatılmış duvar h≈1.6;
+  // üstünde yatay koyu metal parmaklık (≈3 lama), 'PARK KOZA' / 'SİTESİ' krem-altın 3B harfler parmaklıkta (üst ≈2.3,
+  // alt satır ≈1.8); kolon kaba beyaz sıva + açık gri taş başlık + küçük siyah fener; gri 2D tel panel döner kanat,
+  // koyu gri kutu profil çerçeve; batı kolonu önünde beyaz direkte dışbükey ayna; turuncu-beyaz esnek dikme.
   const t: V2 = [n[1], -n[0]];
   const yaw = Math.atan2(-t[1], t[0]);
   const P = (u: number, off: number): V2 => [c[0] + t[0] * u + n[0] * off, c[1] + t[1] * u + n[1] * off];
   const W = 5.2;
-  // Taş kolonlar + fener
+  // Kolonlar: kaba beyaz sıva, açık gri taş başlık, küçük siyah fener
   for (const u of [-W / 2 - 0.28, W / 2 + 0.28]) {
     const p = P(u, 0);
-    b.box('stone', [p[0], y0 + 0.9, p[1]], [0.56, 1.8, 0.56], yaw);
+    b.box('mkWallBack', [p[0], y0 + 0.9, p[1]], [0.56, 1.8, 0.56], yaw);
     b.box('stone', [p[0], y0 + 1.84, p[1]], [0.66, 0.08, 0.66], yaw);
-    b.cylinder('darkMetal', [p[0], y0 + 1.88, p[1]], 0.06, 0.15, 8);
-    b.box('darkMetal', [p[0], y0 + 2.15, p[1]], [0.2, 0.32, 0.2], yaw);
+    b.cylinder('darkMetal', [p[0], y0 + 1.88, p[1]], 0.05, 0.1, 8);
+    b.box('darkMetal', [p[0], y0 + 2.08, p[1]], [0.16, 0.24, 0.16], yaw);
     collide?.(
       [
         [p[0] - 0.3, p[1] - 0.3],
@@ -343,40 +397,55 @@ export function buildParkKoza(b: Builder, c: V2, n: V2, y0: number, collide?: Co
       y0 + 2,
     );
   }
-  // Gri tel sürgülü kapı (ızgara panel + çerçeve)
+  // Gri 2D tel panel döner kanat (saydam — ince teller alfa testinde uzakta kayboluyordu), koyu gri kutu profil
   const a = P(-W / 2, 0);
   const e = P(W / 2, 0);
-  b.wall('mkMesh', a, e, y0 + 0.05, y0 + 1.6, [0, 0, W / 0.2, 1.55 / 0.2]);
-  b.wall('mkMesh', e, a, y0 + 0.05, y0 + 1.6, [0, 0, W / 0.2, 1.55 / 0.2]);
+  b.wall('meshGrey', a, e, y0 + 0.05, y0 + 1.6, [0, 0, W / 0.2, 1.55 / 0.2]);
   for (const y of [0.05, 1.6]) {
     const m = P(0, 0);
-    b.box('steel', [m[0], y0 + y, m[1]], [W, 0.05, 0.05], yaw);
+    b.box('frameGrey', [m[0], y0 + y, m[1]], [W, 0.05, 0.05], yaw);
   }
   for (const u of [-W / 2, -W / 6, W / 6, W / 2]) {
     const p = P(u, 0);
-    b.box('steel', [p[0], y0 + 0.8, p[1]], [0.05, 1.6, 0.05], yaw);
+    b.box('frameGrey', [p[0], y0 + 0.8, p[1]], [0.05, 1.6, 0.05], yaw);
   }
   collide?.([P(-W / 2, -0.05), P(W / 2, -0.05), P(W / 2, 0.05), P(-W / 2, 0.05)], y0 - 1, y0 + 1.6);
-  // Batı: sıvalı alçak duvar (tabela yüzü sokağa), arkasında çit
+  // Batı: kaba beyaz sıvalı duvar h 1.6, yuvarlatılmış üst; üstünde koyu metal lama parmaklık + 3B harfler
   const L = 4.2;
+  const WH = 1.6;
   const w0 = -W / 2 - 0.56;
   const wm = P(w0 - L / 2, 0);
-  b.box('plaster', [wm[0], y0 + 0.65, wm[1]], [L, 1.3, 0.3], yaw);
-  b.box('stone', [wm[0], y0 + 1.33, wm[1]], [L + 0.05, 0.06, 0.36], yaw);
-  const [sa, se] = [P(w0 - L + 0.3, 0.16), P(w0 - 0.3, 0.16)];
-  b.wall('parkKozaSign', se, sa, y0 + 0.55, y0 + 1.25);
+  b.box('mkWallBack', [wm[0], y0 + (WH - 0.15) / 2, wm[1]], [L, WH - 0.15, 0.3], yaw);
+  const rg = new THREE.CylinderGeometry(0.15, 0.15, L, 12, 1, false, 0, Math.PI);
+  // Eksen x'e (duvar boyu), yarım silindirin kubbesi yukarı
+  rg.rotateZ(Math.PI / 2);
+  rg.rotateY(yaw);
+  rg.translate(wm[0], y0 + WH - 0.15, wm[1]);
+  b.geometry('mkWallBack', rg);
+  for (const yy of [1.72, 2.0, 2.3]) b.box('darkMetal', [wm[0], y0 + yy, wm[1]], [L - 0.2, 0.05, 0.02], yaw);
+  for (const uu of [w0 - L + 0.25, w0 - L / 2, w0 - 0.25]) {
+    const q = P(uu, 0);
+    b.box('darkMetal', [q[0], y0 + (WH + 2.33) / 2, q[1]], [0.04, 2.33 - WH, 0.04], yaw);
+  }
+  const [sa, se] = [P(w0 - L + 0.3, 0.03), P(w0 - 0.3, 0.03)];
+  b.wall('parkKozaSign', se, sa, y0 + 1.72, y0 + 2.36);
   const hm = P(w0 - L / 2, -0.8);
   b.box('mkHedge', [hm[0], y0 + 1.1, hm[1]], [L, 2.2, 1.0], yaw, 0.5);
   collide?.([P(w0 - L, -1.3), P(w0, -1.3), P(w0, 0.15), P(w0 - L, 0.15)], y0 - 1, y0 + 2);
-  // Trafik aynası (kapı batı kolonunun önü) + kırmızı-beyaz dikme (köşe)
+  // Trafik aynası (kapı batı kolonunun önü, beyaz direk, gri arka) + turuncu-beyaz esnek dikme (köşe)
   const mp = P(-W / 2 - 0.9, 0.5);
-  b.cylinder('pole', [mp[0], y0, mp[1]], 0.04, 2.4, 8);
+  b.cylinder('mkAc', [mp[0], y0, mp[1]], 0.04, 2.4, 8);
   const mg = new THREE.SphereGeometry(0.38, 16, 8, 0, Math.PI * 2, 0, 0.5).rotateX(-Math.PI / 2);
   mg.rotateY(Math.atan2(n[0], n[1]));
   mg.translate(mp[0], y0 + 2.6, mp[1]);
   b.geometry('steel', mg);
+  const bk = new THREE.CircleGeometry(0.39, 16);
+  bk.rotateY(Math.atan2(n[0], n[1]) + Math.PI);
+  bk.translate(mp[0] - n[0] * 0.01, y0 + 2.6, mp[1] - n[1] * 0.01);
+  b.geometry('frameGrey', bk);
   const bp = P(w0 - L - 0.5, 0.8);
   b.cylinder('bollardOrange', [bp[0], y0, bp[1]], 0.05, 0.8, 8);
+  b.cylinder('spPaint', [bp[0], y0 + 0.6, bp[1]], 0.052, 0.06, 8);
 }
 
 /** street-plan.json kapı kaydı */
@@ -407,9 +476,30 @@ export interface PlanGate {
   leafH?: number;
   /** Kolona monte trafik aynası: hangi kolon (sokaktan bakınca left/right), kot, yarıçap, çerçeve rengi */
   mirror?: { side: 'left' | 'right'; h?: number; r?: number; rim?: string };
+  /**
+   * Kanat ayrıntısı (ölçüm): laser-screen (Mertkent yaya kapısı: `leaves` kanat, delikli lazer kesim siyah ekran,
+   * kanat başına `rosette` {perLeaf, dFrac çap/kanat eni, yFrac, color}, kolon yüzünde `pillarLozenges` {n, yFrac[],
+   * color}); mesh-slide (araç kapısı: `frame` renk, dikdörtgen gözlü tel panel, üst rayda `finials` {kind spear,
+   * color}, altta `scrollBand` {h, color})
+   */
+  leafSpec?: {
+    style?: string;
+    leaves?: number;
+    color?: string;
+    rosette?: { perLeaf?: number; dFrac?: number; yFrac?: number; color?: string };
+    pillarLozenges?: { n?: number; yFrac?: number[]; color?: string };
+    frame?: string;
+    mesh?: string;
+    finials?: { kind?: string; color?: string };
+    scrollBand?: { h?: number; color?: string };
+  };
+  /** Kapı yanındaki çit kolonu (komşu yaya kapısı tarafı): başlık rengi, dibinde kutu {w, h, color} */
+  pillarSpec?: { cap?: { color?: string }; footBox?: { w?: number; h?: number; color?: string } };
 }
 
 export interface GateCtx {
+  /** En yakın komşu kapının merkezi (pillarSpec kolonunu seçmek için) */
+  near?: V2;
   /** Tür + renk → malzeme anahtarı (fenceGeneric mat) */
   mat: (kind: string, color: string) => string;
   colorKey: (kind: 'metal' | 'fascia' | 'frame', hex: string) => string;
@@ -482,13 +572,15 @@ export function buildPlanGate(b: Builder, g: PlanGate, ground: number, ctx: Gate
       });
       return;
     case 'mertkent':
-      buildGate(b, g.c, g.n, y);
+      buildGate(b, g.c, g.n, y, g.leafSpec?.style === 'laser-screen' ? { spec: g.leafSpec, ctx } : undefined);
       return;
     case 'drive':
     case 'bars':
     case 'grey':
-      buildDriveGate(b, g.c, g.n, y, g.w, false, style === 'grey');
+      if (g.leafSpec?.style === 'mesh-slide') meshSlideGate(b, g, y, ctx);
+      else buildDriveGate(b, g.c, g.n, y, g.w, false, style === 'grey');
       if (pl && (g.style === style || !da)) gatePillars(b, g, y, ctx);
+      if (g.pillarSpec) pillarExtras(b, g, y, ctx);
       return;
     default:
       // Dar yaya kapıları: yaprak / lamel / 2D tel panel kanat (+ ölçülmüş kolonlar)
@@ -505,6 +597,92 @@ export function buildPlanGate(b: Builder, g: PlanGate, ground: number, ctx: Gate
           ? { w: pl.w, h: pl.h ?? 2, key: ctx.colorKey('fascia', pl.color), lamp: pl.lamp }
           : undefined,
       });
+  }
+}
+
+const hexOk = (h: unknown): h is string => typeof h === 'string' && /^#[0-9a-f]{6}$/i.test(h);
+
+/**
+ * Gri çelik sürgülü araç kapısı (ölçüm leafSpec mesh-slide): çerçeve, dikdörtgen gözlü kaynaklı tel panel, üst rayda
+ * sık mızrak uçları, altta ferforje kıvrım bandı. Güney araç kapısı (critic V12 #23).
+ */
+function meshSlideGate(b: Builder, g: PlanGate, y0: number, ctx: GateCtx): void {
+  const ls = g.leafSpec!;
+  const w = g.w;
+  const H0 = g.h ?? 1.75;
+  const n = g.n;
+  const t: V2 = [n[1], -n[0]];
+  const yaw = Math.atan2(-t[1], t[0]);
+  const P = (u: number, off: number): V2 => [g.c[0] + t[0] * u + n[0] * off, g.c[1] + t[1] * u + n[1] * off];
+  const fr = hexOk(ls.frame) ? ls.frame : '#a0a195';
+  const fk = ctx.colorKey('metal', fr);
+  const sb = Math.max(0, ls.scrollBand?.h ?? 0);
+  const a = P(-w / 2 + 0.03, -0.1);
+  const e = P(w / 2 - 0.03, -0.1);
+  // Tel panel (iki yüz) — dikdörtgen göz: kaynaklı panel dokusu
+  const mk = ctx.mat('welded', fr);
+  b.wall(mk, a, e, y0 + 0.06 + sb, y0 + H0 - 0.05, [0, 0, w / 0.2, (H0 - sb) / 0.2]);
+  b.wall(mk, e, a, y0 + 0.06 + sb, y0 + H0 - 0.05, [0, 0, w / 0.2, (H0 - sb) / 0.2]);
+  if (sb > 0.05) {
+    // Kıvrım bandı: ferforje süs dokusu (KARAR: dokunun kendi koyu tonu; ölçülen #716c6b gölge tonu, yakın)
+    b.wall('gateOrnBand', a, e, y0 + 0.06, y0 + 0.06 + sb, [0, 0, w / 0.5, 1]);
+    b.wall('gateOrnBand', e, a, y0 + 0.06, y0 + 0.06 + sb, [0, 0, w / 0.5, 1]);
+  }
+  for (const yy of [0.05, 0.06 + sb, H0 - 0.03]) {
+    const m = P(0, -0.1);
+    b.box(fk, [m[0], y0 + yy, m[1]], [w - 0.04, 0.05, 0.05], yaw);
+  }
+  for (const u of [-w / 2 + 0.04, 0, w / 2 - 0.04]) {
+    const p = P(u, -0.1);
+    b.box(fk, [p[0], y0 + H0 / 2, p[1]], [0.06, H0, 0.06], yaw);
+  }
+  if (ls.finials?.kind === 'spear') {
+    // KARAR: uç aralığı ölçülmedi ("sık") → 0.12 m
+    const ck = hexOk(ls.finials.color) ? ctx.colorKey('metal', ls.finials.color) : fk;
+    const nF = Math.max(2, Math.round(w / 0.12));
+    for (let k = 0; k <= nF; k++) {
+      const p = P(-w / 2 + 0.03 + ((w - 0.06) * k) / nF, -0.1);
+      const cg = new THREE.ConeGeometry(0.025, 0.1, 4);
+      cg.translate(p[0], y0 + H0 + 0.05, p[1]);
+      b.geometry(ck, cg);
+    }
+  }
+  const r = P(0, -0.1);
+  b.box('darkMetal', [r[0], y0 + 0.01, r[1]], [w + 0.4, 0.03, 0.08], yaw);
+}
+
+/** Kapı kenarındaki çit kolonu ekleri (pillarSpec): ölçülen başlık rengi + kolon dibinde küçük kutu */
+function pillarExtras(b: Builder, g: PlanGate, y0: number, ctx: GateCtx): void {
+  const ps = g.pillarSpec!;
+  const t: V2 = [g.n[1], -g.n[0]];
+  const yaw = Math.atan2(-t[1], t[0]);
+  // KARAR: hangi kolon olduğu notta "kapı ile yaya kapısı arası" → ctx.near verilirse ona yakın kenar, yoksa iki kenar
+  const edges = [-g.w / 2, g.w / 2].map((u) => [g.c[0] + t[0] * u, g.c[1] + t[1] * u] as V2);
+  const pick = ctx.near
+    ? [
+        edges.reduce((p, q) =>
+          Math.hypot(q[0] - ctx.near![0], q[1] - ctx.near![1]) <
+          Math.hypot(p[0] - ctx.near![0], p[1] - ctx.near![1])
+            ? q
+            : p,
+        ),
+      ]
+    : edges;
+  for (const p of pick) {
+    if (hexOk(ps.cap?.color))
+      b.box(ctx.colorKey('fascia', ps.cap!.color!), [p[0], y0 + 1.36, p[1]], [0.47, 0.08, 0.47], yaw);
+    const fb = ps.footBox;
+    if (fb) {
+      const fw = fb.w ?? 0.35;
+      const fh = fb.h ?? 0.25;
+      const q: V2 = [p[0] + g.n[0] * (0.19 + 0.06), p[1] + g.n[1] * (0.19 + 0.06)];
+      b.box(
+        hexOk(fb.color) ? ctx.colorKey('fascia', fb.color) : 'mkAc',
+        [q[0], y0 + fh / 2, q[1]],
+        [fw, fh, 0.12],
+        yaw,
+      );
+    }
   }
 }
 

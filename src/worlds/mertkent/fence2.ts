@@ -27,6 +27,8 @@ export interface FenceSpec {
   pillarsU?: number[];
   /** false: son noktadaki kolonu çizme (bir sonraki çit hattının ilk kolonu) */
   endPillar?: boolean;
+  /** Küre lambası OLMAYAN kolonlar (polyline boyunca U, m) */
+  noLampU?: number[];
 }
 
 export interface GateGap {
@@ -306,7 +308,9 @@ export function buildMertkentFence(
       if (inGap(U + 0.01) && inGap(U - 0.01)) continue;
       const p = P(u, WALL_T / 2);
       const y0 = H(p[0], p[1]) + 0.15;
-      pillar(b, p, y0, pW, pH, yaw, lamp);
+      // Lambasız kolonlar (ölçüm noLampU: polyline boyunca U, m; ör. GD köşe kolonu U 0 — critic V0)
+      const noLamp = (f.noLampU ?? []).some((q) => Math.abs(q - U) < 0.3);
+      pillar(b, p, y0, pW, pH, yaw, lamp && !noLamp);
       collide?.(
         [
           [p[0] - pW / 2, p[1] - pW / 2],

@@ -659,6 +659,40 @@ export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
     midKeep: 0.5,
     far: { kind: 'egg', leaf: 0x3c5228, bark: 0x3c3228, crownBase: 0 },
   },
+  // Fıstık çamı: dik çıplak gövde, dallar gövdenin üst yarısından yayvan açılır → şemsiye (yassı kubbe) taç.
+  // KARAR: parametreler çam (conifer) ön ayarından türetildi; taç tabanı ~%55 (genç örneklerde daha alçak — ölçülen
+  // h/r ile ölçeklenir). Renk çam dokusu (Street View: koyu yeşil sık iğne).
+  pinea: {
+    gen: {
+      kind: 'ez',
+      cardSize: 1.0,
+      normalBias: 0.3,
+      opts: {
+        seed: 9131,
+        type: 'evergreen',
+        levels: 2,
+        angle: [0, 58, 35],
+        children: [11, 6],
+        force: 0.004,
+        gnarliness: [0.04, 0.1, 0.06],
+        length: [42, 26, 7],
+        radius: [1.3, 0.4, 0.5],
+        sections: [10, 5, 2],
+        segments: [7, 4, 3],
+        start: [0, 0.55, 0.25],
+        taper: [0.7, 0.7, 0.7],
+        twist: [0, 0, 0],
+        leaves: { angle: 30, count: 9, start: 0.2, size: 5, sizeVariance: 0.25, double: true },
+      },
+    },
+    tile: TILE.pine,
+    leafTint: 0xffffff,
+    bark: 'pine',
+    barkTint: 0xd0c4b8,
+    wind: 0.5,
+    midKeep: 0.35,
+    far: { kind: 'round', leaf: 0x3f5a2e, bark: 0x5a4332, crownBase: 0.55 },
+  },
 };
 
 // ─── Geometri yardımcıları ───

@@ -1093,11 +1093,62 @@ export function letterSignTexture(lines: string[], color: string, aspect = 3): T
 
 /** Trafik levhası (şeffaf zemin): 'curve' = tehlikeli viraj (sola-sağa), 'limit30' = azami hız 30 */
 export function roadSignTexture(
-  kind: 'curve' | 'limit30' | 'parking' | 'bike' | 'noentry' | 'noleft' | 'stop',
+  kind:
+    | 'curve'
+    | 'limit30'
+    | 'parking'
+    | 'bike'
+    | 'bikeEnd'
+    | 'noentry'
+    | 'noleft'
+    | 'stop'
+    | 'notruck'
+    | 'arrowPlate',
 ): THREE.Texture {
   const S = 256;
   const [c, g] = canvas(S, S);
   g.clearRect(0, 0, S, S);
+  if (kind === 'arrowPlate') {
+    // Ek levha: mavi dikdörtgen, beyaz kenar + beyaz ok. KARAR: okun yönü/biçimi Street View'da okunmadı (se-bike-end
+    // notu) → yatay düz ok (Türkiye ek levhalarında yaygın); ölçülünce değiştirilmeli
+    g.fillStyle = '#1f5fc0';
+    g.fillRect(4, 64, S - 8, S - 128);
+    g.strokeStyle = '#f7f7f5';
+    g.lineWidth = 6;
+    g.strokeRect(14, 74, S - 28, S - 148);
+    g.fillStyle = '#f7f7f5';
+    g.fillRect(56, S / 2 - 10, S - 140, 20);
+    g.beginPath();
+    g.moveTo(S - 50, S / 2);
+    g.lineTo(S - 92, S / 2 - 32);
+    g.lineTo(S - 92, S / 2 + 32);
+    g.fill();
+    return tex(c, false);
+  }
+  if (kind === 'notruck') {
+    // Kamyon giremez: kırmızı çerçeveli beyaz daire, siyah kamyon silueti (yandan)
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#f7f7f5';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 36, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#111';
+    g.fillRect(58, 96, 92, 58); // kasa
+    g.fillRect(152, 112, 44, 42); // kabin
+    g.clearRect(170, 118, 20, 14);
+    g.fillStyle = '#f7f7f5';
+    g.fillRect(170, 118, 20, 14); // cam
+    g.fillStyle = '#111';
+    for (const x of [82, 124, 178]) {
+      g.beginPath();
+      g.arc(x, 162, 13, 0, Math.PI * 2);
+      g.fill();
+    }
+    return tex(c, false);
+  }
   if (kind === 'stop') {
     // DUR: kırmızı sekizgen, beyaz kenar, beyaz "DUR"
     const oct = (r: number) => {
@@ -1162,7 +1213,7 @@ export function roadSignTexture(
     g.textAlign = 'center';
     g.textBaseline = 'middle';
     g.fillText('P', S / 2, S / 2 + 10);
-  } else if (kind === 'bike') {
+  } else if (kind === 'bike' || kind === 'bikeEnd') {
     g.fillStyle = '#1f5fc0';
     g.beginPath();
     g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
@@ -1182,6 +1233,20 @@ export function roadSignTexture(
     g.moveTo(S / 2 - 10, S / 2 - 30);
     g.lineTo(S / 2 + 5, S / 2 + 30);
     g.stroke();
+    if (kind === 'bikeEnd') {
+      // "… sonu": kırmızı çapraz bant (sol alttan sağ üste)
+      g.save();
+      g.beginPath();
+      g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+      g.clip();
+      g.strokeStyle = '#c8102e';
+      g.lineWidth = 24;
+      g.beginPath();
+      g.moveTo(S * 0.15, S * 0.85);
+      g.lineTo(S * 0.85, S * 0.15);
+      g.stroke();
+      g.restore();
+    }
   } else if (kind === 'noleft') {
     // Sola dönülmez: beyaz zemin, kırmızı çember, siyah sola kıvrık ok, kırmızı çapraz çizgi
     g.fillStyle = '#c8102e';

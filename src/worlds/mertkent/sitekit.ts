@@ -362,8 +362,7 @@ export function pitchFence(
       const p: V2 = [a[0] + t[0] * u0, a[1] + t[1] * u0];
       const q: V2 = [a[0] + t[0] * u1, a[1] + t[1] * u1];
       const yy = Math.min(y(p[0], p[1]), y(q[0], q[1]));
-      b.wall('mkMesh', p, q, yy, yy + h, [0, 0, (u1 - u0) / 0.2, h / 0.2]);
-      b.wall('mkMesh', q, p, yy, yy + h, [0, 0, (u1 - u0) / 0.2, h / 0.2]);
+      b.wall('pitchMesh', p, q, yy, yy + h, [0, 0, (u1 - u0) / 0.2, h / 0.2]);
       const n = Math.max(1, Math.round((u1 - u0) / 3));
       for (let k = 0; k <= n; k++) {
         const f = k / n;

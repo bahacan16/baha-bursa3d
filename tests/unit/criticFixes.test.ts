@@ -182,8 +182,10 @@ const yRange = (bk?: Bk) => {
   let y0 = Infinity;
   let y1 = -Infinity;
   if (bk)
-    for (let i = 1; i < bk.pos.length; i += 3)
-      ((y0 = Math.min(y0, bk.pos[i])), (y1 = Math.max(y1, bk.pos[i])));
+    for (let i = 1; i < bk.pos.length; i += 3) {
+      y0 = Math.min(y0, bk.pos[i]);
+      y1 = Math.max(y1, bk.pos[i]);
+    }
   return [y0, y1];
 };
 
@@ -293,5 +295,149 @@ describe('street plan renderer (critic fixes)', () => {
     const bk = build([{ kind: 'lamp-post', x: 0, z: 0, h: 10, rot: 90, arm: 2, note: 'tek kuğu boynu kol' }]);
     const [, y1] = yRange(bk.get('pole'));
     expect(y1).toBeGreaterThan(10.1);
+  });
+});
+
+import { signKeysOf } from '../../src/worlds/mertkent/street';
+import { buildPlanGate, buildParkKoza } from '../../src/worlds/mertkent/site';
+
+describe('follow-up renderer fields', () => {
+  const ck = (k: string, h: string) => `cc_${k}_${h}`;
+  const build = (street: unknown[]) => {
+    const b = new Builder();
+    buildStreetPlan(
+      b,
+      { street } as never,
+      () => 0,
+      () => 5,
+      { colorKey: ck as never, signFace: () => 'face' },
+    );
+    return bks(b);
+  };
+  it('sign keys: sonu, kamyon giremez, ek levha ok', () => {
+    expect(signKeysOf('mecburi bisiklet yolu sonu (kırmızı çapraz bant)')).toEqual(['signBikeEnd']);
+    expect(signKeysOf('kamyon giremez + altında sarı-siyah ok (chevron) levhası')).toEqual([
+      'signNoTruck',
+      'signChevron',
+    ]);
+    expect(signKeysOf('mecburi bisiklet yolu sonu + altında mavi dikdörtgen ek levha, beyaz ok')).toEqual([
+      'signBikeEnd',
+      'signArrowPlate',
+    ]);
+  });
+  it('sign with textB draws its own back plate', () => {
+    const bk = build([
+      {
+        kind: 'sign',
+        x: 0,
+        z: 0,
+        h: 2.8,
+        rot: 195,
+        text: 'Mecburi bisiklet yolu sonu',
+        textB: 'Mecburi bisiklet yolu',
+      },
+    ]);
+    expect(bk.has('signBikeEnd')).toBe(true);
+    expect(bk.has('signBike')).toBe(true);
+    expect(bk.has('signBikeEndBack')).toBe(false);
+  });
+  it('board: base, arrow, cctv; billboard faces', () => {
+    const bk = build([
+      {
+        kind: 'board',
+        x: 0,
+        z: 0,
+        w: 1,
+        h: 0.5,
+        y0: 2,
+        bg: '#ffffff',
+        base: { h: 0.6, color: '#515041' },
+        arrow: { side: 'left', color: '#2d5bb0' },
+        cctv: { n: 2, h: 3.8, color: 'white' },
+      },
+      {
+        kind: 'billboard-row',
+        x: 0,
+        z: 10,
+        pts: [
+          [0, 10],
+          [10, 10],
+        ],
+        n: 2,
+        faces: [{ bg: '#232323', lines: [{ text: 'Anne' }] }],
+      },
+    ]);
+    expect(bk.has('cc_plaster_#515041')).toBe(true);
+    expect(bk.has('cc_fascia_#2d5bb0')).toBe(true);
+    expect(bk.has('mkAc')).toBe(true);
+    expect(bk.has('billboardFace')).toBe(true); // ikinci pano ölçülmedi → nötr
+  });
+  it('pylon and canopy kinds', () => {
+    const bk = build([
+      { kind: 'pylon', x: 0, z: 0, h: 20, arms: [{ y: 16, w: 8 }], wires: [[40, 0, 15]] },
+      {
+        kind: 'canopy',
+        x: 0,
+        z: 0,
+        a: [0, 0],
+        e: [10, 0],
+        d: 2.4,
+        h: 3.2,
+        fasciaC: '#d4782c',
+        pillars: [{ u: 1, w: 0.5, color: '#2a2a2a', text: 'ONAL51 / özlüce' }],
+      },
+    ]);
+    expect(bk.get('pole')!.pos.length).toBeGreaterThan(100);
+    expect(bk.has('cc_fascia_#d4782c')).toBe(true);
+    expect(bk.has('face')).toBe(true);
+  });
+  it('gate leafSpec laser-screen / mesh-slide, Park Koza', () => {
+    const b = new Builder();
+    const ctx = {
+      mat: (k: string, c: string) => `gf_${k}_${c}`,
+      colorKey: (k: string, h: string) => `cc_${k}_${h}`,
+      wrought: () => {},
+    } as never;
+    buildPlanGate(
+      b,
+      {
+        kind: 'pedestrian',
+        id: 'north-gate',
+        c: [0, 0],
+        n: [0, -1],
+        w: 2.4,
+        leafSpec: { style: 'laser-screen', leaves: 2, rosette: {}, pillarLozenges: { n: 2 } },
+      },
+      0,
+      ctx,
+    );
+    buildPlanGate(
+      b,
+      {
+        kind: 'vehicle',
+        id: 'south-gate',
+        c: [10, 0],
+        n: [0, 1],
+        w: 5,
+        h: 1.75,
+        leafSpec: {
+          style: 'mesh-slide',
+          frame: '#a0a195',
+          finials: { kind: 'spear', color: '#ac977e' },
+          scrollBand: { h: 0.35 },
+        },
+        pillarSpec: { cap: { color: '#adaaa8' }, footBox: { color: '#ecd8ab' } },
+      },
+      0,
+      ctx,
+    );
+    buildParkKoza(b, [30, 0], [0, 1], 0);
+    const bk = bks(b);
+    expect(bk.has('ironScroll')).toBe(true);
+    expect(bk.has('gold')).toBe(true);
+    expect(bk.has('gf_welded_#a0a195')).toBe(true);
+    expect(bk.has('cc_metal_#ac977e')).toBe(true);
+    expect(bk.has('cc_fascia_#adaaa8')).toBe(true);
+    expect(bk.has('meshGrey')).toBe(true);
   });
 });

@@ -386,6 +386,20 @@ export function nearPlanLine(lines: { pts: V2[]; r: number }[], x: number, z: nu
   return false;
 }
 
+/**
+ * Kaldırım başına kılavuz karo tonu: `tactileTint` [r, g, b] sRGB oran çarpanı (1 = doku). Doku (textures/real/
+ * tactile, 502. Sk.'ta ölçüldü) gri taşa oranı ≈1.12; DA fotoğraflarında hardal ≈1.32/1.21/1.15 (critic A7) →
+ * ≈[1.18, 1.08, 1.03]. Malzeme anahtarı `tactile@r,g,b` (index.ts tactileVariant üretir).
+ */
+export function tactileKey(tint?: number[]): string {
+  if (!tint || tint.length < 3 || tint.some((v) => !Number.isFinite(v) || v <= 0)) return 'tactile';
+  if (tint.every((v) => Math.abs(v - 1) < 1e-3)) return 'tactile';
+  return `tactile@${tint
+    .slice(0, 3)
+    .map((v) => Math.min(3, v).toFixed(3))
+    .join(',')}`;
+}
+
 /** `treeExclude` öğesi (site/street/park-plan.json): çokgen ya da daire */
 export interface TreeExclude {
   poly?: V2[];
@@ -506,7 +520,10 @@ export function buildSitePlan(
   plan: SitePlan,
   H: (x: number, z: number) => number,
   collide?: Collide,
+  /** Ölçülen renk → malzeme anahtarı (index.ts colorKey); verilmezse renk alanları yok sayılır */
+  colorKey?: (kind: 'plaster' | 'metal' | 'frame', hex: string) => string,
 ): SitePlanResult {
+  const hexOk = (h: unknown): h is string => typeof h === 'string' && /^#[0-9a-f]{6}$/i.test(h);
   const holes: [number, number, number, number][] = [];
   const cars: number[] = [];
   const areas = (plan.areas ?? [])
@@ -516,7 +533,9 @@ export function buildSitePlan(
   // ── Zemin alanları (sırayla, üst üste: küçük y artışı + malzeme polygonOffset) ──
   areas.forEach((a, idx) => {
     if (a.kind === 'pool') return;
-    const key = areaKey(a);
+    // Kuru / sararmış çim (ölçüm `dry` + `color`): çim dokusu ölçülen tonla (index.ts lawn@ çeşidi)
+    const aa = a as SiteArea & { dry?: boolean; color?: string };
+    const key = a.kind === 'lawn' && hexOk(aa.color) ? `lawn@${aa.color.toLowerCase()}` : areaKey(a);
     const inner = pools.filter((p) => insidePoly(a.poly, ...centroid(p.poly))).map((p) => p.poly);
     const off = 0.03 + Math.min(0.06, idx * 0.0015) + (a.level ?? 0) + (a.kind === 'lawn' ? 0 : 0.03);
     try {
@@ -672,11 +691,36 @@ export function buildSitePlan(
           collide?.(rect(m, t, L, 0.1), y - 0.5, y + h);
           break;
         }
+        case 'tactile': {
+          // Hissedilebilir kılavuz şerit (site / park yolu): w (0.4) genişlikte, `base` kotunda (yoksa +0.15 kaldırım),
+          // yol boyunca yerel UV (karo 40 cm); `tactileTint` sRGB oran çarpanı (street.ts tactileKey)
+          const lw = l.w ?? 0.4;
+          const nn: V2 = [-t[1] * (lw / 2), t[0] * (lw / 2)];
+          const lb = (l as { base?: number }).base ?? 0.15;
+          const tt = (l as { tactileTint?: number[] }).tactileTint;
+          b.drape(
+            tactileKey(tt),
+            [
+              [p[0] + nn[0], p[1] + nn[1]],
+              [q[0] + nn[0], q[1] + nn[1]],
+              [q[0] - nn[0], q[1] - nn[1]],
+              [p[0] - nn[0], p[1] - nn[1]],
+            ],
+            [],
+            H,
+            lb + 0.006,
+            1,
+            2,
+            { o: [p[0] - nn[0], p[1] - nn[1]], t, n: [-t[1], t[0]] },
+          );
+          break;
+        }
         case 'parking-bay':
           // Site içi park çizgileri sarı (kullanıcı fotoğrafı)
           b.box(
             /beyaz|white/.test(l.note ?? '') ? 'spPaint' : 'spPaintYellow',
-            [m[0], y + 0.075, m[1]],
+            // `base`: çizginin boyandığı yüzeyin kotu (ör. 0.15 m kaldırım kotundaki meydan park yeri); yoksa +0.07
+            [m[0], y + ((l as { base?: number }).base ?? 0.07) + 0.008, m[1]],
             [L, 0.01, l.w ?? 0.1],
             yaw,
           );
@@ -769,12 +813,26 @@ export function buildSitePlan(
     const c: V3 = [p.x, y + 0.06, p.z];
     const yaw = ((p.rot ?? 0) * Math.PI) / 180;
     switch (p.kind) {
-      case 'shrub':
-        // İğne yapraklı çalılar (mazı sırası) ağaç kütüphanesinde (surveyVegetation)
-        if (!treeLibPoint(p)) bush(b, c, p.r ?? 0.7, p.h ?? (p.r ?? 0.7) * 1.2, (seed += 7));
+      case 'shrub': {
+        // İğne yapraklı çalılar (mazı sırası) ağaç kütüphanesinde (surveyVegetation); ölçülen `color` → gövde tonu
+        const sc = (p as { color?: string }).color;
+        if (!treeLibPoint(p))
+          bush(
+            b,
+            c,
+            p.r ?? 0.7,
+            p.h ?? (p.r ?? 0.7) * 1.2,
+            (seed += 7),
+            hexOk(sc) && colorKey ? colorKey('plaster', sc) : 'boxwood',
+          );
         break;
+      }
       case 'lamp':
-        gardenLamp(b, c, p.h ?? 3.2);
+        if ((p as { style?: string }).style === 'street') {
+          // Sokak lambası tipi galvaniz konik direk (street-plan lamp-post malzemesi); kol / baş görülmediyse çizilmez
+          b.cylinder('pole', [p.x, y - 0.1, p.z], 0.085, p.h ?? 8, 10);
+          b.cylinder('pole', [p.x, y - 0.1, p.z], 0.13, 0.5, 10);
+        } else gardenLamp(b, c, p.h ?? 3.2);
         break;
       case 'bench':
         bench(b, c, yaw);
@@ -826,9 +884,43 @@ export function buildSitePlan(
         for (const s of [-0.5, 0.5]) b.box('spPlayYellow', [p.x + s, y + 0.45, p.z], [0.45, 0.04, 0.2], yaw);
         break;
       }
-      case 'bin':
-        b.cylinder('darkMetal', [p.x, y, p.z], 0.22, 0.85, 10);
+      case 'bin': {
+        // style clothes (giysi kumbarası) / glass (cam kumbarası) = kutu w × d × h; color gövde, color2 alt yarı
+        // baskısı, base {h, color} kaide; verilmezse eski koyu silindir
+        const q = p as {
+          style?: string;
+          w?: number;
+          d?: number;
+          color?: string;
+          color2?: string;
+          base?: { h?: number; color?: string };
+        };
+        const ck = (h: unknown, d: string) => (hexOk(h) && colorKey ? colorKey('plaster', h) : d);
+        let yb = y;
+        if (q.base && (q.base.h ?? 0) > 0.01) {
+          const bh = q.base.h ?? 0.2;
+          b.box(
+            ck(q.base.color, 'spConcrete'),
+            [p.x, y + bh / 2 - 0.05, p.z],
+            [(q.w ?? 1) + 0.1, bh + 0.1, (q.d ?? 1) + 0.1],
+            yaw,
+          );
+          yb = y + bh;
+        }
+        if (q.style === 'clothes' || q.style === 'glass') {
+          const w = q.w ?? 1;
+          const d = q.d ?? 1;
+          const h = p.h ?? 1.5;
+          // KARAR: giysi kumbarası gövdesi notta "beyaz boyalı" (güneşli ton ölçülmedi) → kırık beyaz (mkAc)
+          const body = ck(q.color, 'mkAc');
+          b.box(body, [p.x, yb + h / 2, p.z], [w, h, d], yaw);
+          if (hexOk(q.color2))
+            b.box(ck(q.color2, body), [p.x, yb + h * 0.25, p.z], [w + 0.01, h * 0.5, d + 0.01], yaw);
+          // Üst kapak (hafif taşan)
+          b.box(body, [p.x, yb + h + 0.02, p.z], [w + 0.04, 0.04, d + 0.04], yaw);
+        } else b.cylinder(ck(q.color, 'darkMetal'), [p.x, yb, p.z], 0.22, p.h ?? 0.85, 10);
         break;
+      }
       case 'playset':
         playSet(b, [p.x, y + 0.04, p.z], yaw, collide);
         break;
@@ -969,11 +1061,11 @@ function rect(m: V2, t: V2, L: number, w: number): [number, number][] {
 }
 
 /** Çalı: basık küre gövde + yaprak kartları */
-function bush(b: Builder, c: V3, r: number, h: number, seed: number): void {
+function bush(b: Builder, c: V3, r: number, h: number, seed: number, key = 'boxwood'): void {
   const g = new THREE.SphereGeometry(1, 10, 6);
   g.scale(r, h / 2, r);
   g.translate(c[0], c[1] + h / 2 - 0.05, c[2]);
-  b.geometry('boxwood', g);
+  b.geometry(key, g);
   for (let k = 0; k < 4; k++) {
     const a = ((k + (seed % 7) / 7) / 4) * Math.PI * 2;
     const n: V2 = [Math.cos(a), Math.sin(a)];

@@ -27,6 +27,7 @@ export const SPECIES = [
   'glossy', // 17 parlak yapraklı her dem yeşil küçük ağaç (Photinia / Ligustrum tipi)
   'sapling', // 18 genç, kazıklı fidan
   'boxwood', // 19 budanmış şimşir topu (Buxus)
+  'pinea', // 20 fıstık çamı (Pinus pinea): şemsiye taç, çıplak gövde
 ] as const;
 
 export type SpeciesKey = (typeof SPECIES)[number];
@@ -74,6 +75,7 @@ export const SPECIES_SIZE: Record<SpeciesKey, SpeciesSize> = {
   glossy: { h: 4.5, w: 3.6, trunk: 0.08 },
   sapling: { h: 3.2, w: 1.6, trunk: 0.04 },
   boxwood: { h: 1, w: 1, trunk: 0.05, solid: true },
+  pinea: { h: 8, w: 7, trunk: 0.2, conifer: true },
 };
 
 /**
@@ -98,6 +100,7 @@ export const SPECIES_SIZE: Record<SpeciesKey, SpeciesSize> = {
  * - glossy ........... alev ağacı (Photinia), kurtbağrı (Ligustrum), taflan, parlak yapraklı
  * - sapling .......... fidan, genç ağaç, kazıklı
  * - boxwood .......... şimşir, Buxus, top çalı
+ * - pinea ............ fıstık çamı, Pinus pinea, umbrella / stone pine (şemsiye taç)
  * - conifer .......... çam, pine, iğne yapraklı (tür belirsiz)
  * - deciduous-oval ... kavak, huş, söğüt, oval taç
  * - deciduous ........ yaprak döken, yapraklı (tür belirsiz)
@@ -108,6 +111,7 @@ const RULES: [RegExp, SpeciesKey][] = [
   [/sempervirens|italyan serv|akdeniz serv|sütun serv|columnar|ince serv/, 'cupressus'],
   [/thuja|tuja|mazı|platycladus|ardıç|juniper/, 'thuja'],
   [/pungens|mavi ladin|blue spruce|glauca/, 'picea-pungens'],
+  [/fıstık çam|pinus pinea|\bpinea\b|umbrella pine|stone pine|şemsiye çam/, 'pinea'],
   [/cedrus|sedir|cedar|deodar/, 'cedrus'],
   [/servi|selvi|cypress|cupressus/, 'cupressus'],
   [/şimşir|buxus|boxwood|top çalı|budanmış top/, 'boxwood'],

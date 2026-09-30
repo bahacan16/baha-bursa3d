@@ -184,6 +184,61 @@ function distToRing(r: V2[], x: number, z: number): number {
   return d;
 }
 
+/**
+ * Oyma baklava kafes desenli prekast duvar yüzü (503. Sk. batı duvarı, street-plan wall.pattern lattice): hücre
+ * `cell` m; oluklar düşük kabartma (normal haritası + hafif koyu derz). UV dünya metresi (box uvScale 1).
+ */
+function latticeMaterial(color: string, cell: number): THREE.Material {
+  if (typeof document === 'undefined') return new THREE.MeshStandardMaterial({ color, roughness: 0.9 });
+  const N = 128;
+  const cv = document.createElement('canvas');
+  cv.width = cv.height = N;
+  const g = cv.getContext('2d') as CanvasRenderingContext2D;
+  const nv = document.createElement('canvas');
+  nv.width = nv.height = N;
+  const gn = nv.getContext('2d') as CanvasRenderingContext2D;
+  g.fillStyle = '#ffffff';
+  g.fillRect(0, 0, N, N);
+  gn.fillStyle = 'rgb(128,128,255)';
+  gn.fillRect(0, 0, N, N);
+  // Baklava: iki çapraz oluk (hücre köşeden köşeye)
+  const groove = (x0: number, y0: number, x1: number, y1: number, nx: number, ny: number) => {
+    g.strokeStyle = 'rgba(0,0,0,0.22)';
+    g.lineWidth = 5;
+    g.beginPath();
+    g.moveTo(x0, y0);
+    g.lineTo(x1, y1);
+    g.stroke();
+    for (const sg of [-1, 1]) {
+      gn.strokeStyle = `rgb(${128 + sg * nx * 70},${128 + sg * ny * 70},235)`;
+      gn.lineWidth = 3;
+      gn.beginPath();
+      gn.moveTo(x0 + sg * 2 * nx, y0 + sg * 2 * ny);
+      gn.lineTo(x1 + sg * 2 * nx, y1 + sg * 2 * ny);
+      gn.stroke();
+    }
+  };
+  for (const o of [-N, 0, N]) {
+    groove(o, 0, o + N, N, 0.707, -0.707);
+    groove(o + N, 0, o, N, 0.707, 0.707);
+  }
+  const map = new THREE.CanvasTexture(cv);
+  map.colorSpace = THREE.SRGBColorSpace;
+  const nm = new THREE.CanvasTexture(nv);
+  for (const t of [map, nm]) {
+    t.wrapS = t.wrapT = THREE.RepeatWrapping;
+    t.repeat.set(1 / cell, 1 / cell);
+    t.anisotropy = 8;
+  }
+  return new THREE.MeshStandardMaterial({
+    map,
+    normalMap: nm,
+    normalScale: new THREE.Vector2(0.6, 0.6),
+    color,
+    roughness: 0.9,
+  });
+}
+
 /** Yaprak kartı malzemesi (ez-tree yaprak dokuları, alfa testli, iki yüzlü) */
 function leafMat(base: string, file: string, tint: number): THREE.Material {
   const t = new THREE.TextureLoader().load(`${base}textures/trees/${file}`);
@@ -832,6 +887,28 @@ function materials(base: string): Record<string, THREE.Material> {
       metalness: 0.2,
     }),
     mkMeshPost: std({ color: 0x21392b, roughness: 0.5, metalness: 0.3 }),
+    // Park Koza kapısı: gri 2D tel panel (saydam) + koyu gri kutu profil. KARAR: gri tonlar ölçülmedi (not: "gri",
+    // "koyu gri") → nötr orta gri / koyu gri
+    meshGrey: std({
+      map: T.weldedMeshTexture(),
+      color: 0x8a8d90,
+      transparent: true,
+      depthWrite: false,
+      side: DS,
+      roughness: 0.5,
+      metalness: 0.3,
+    }),
+    frameGrey: std({ color: 0x55585b, roughness: 0.5, metalness: 0.4 }),
+    // Saha çiti (4 m tel): alfa testi yerine saydamlık — ince teller alfa testli dokuda 20 m ötede mip ortalamasıyla
+    // eşiğin altına düşüp hiç görünmüyordu (critic V5: "yalnız dikmeler"); uzakta gerçekteki gibi hafif tül
+    pitchMesh: std({
+      map: T.meshFenceTexture(),
+      transparent: true,
+      depthWrite: false,
+      side: DS,
+      roughness: 0.5,
+      metalness: 0.2,
+    }),
     mkFoliage: (() => {
       const map = new THREE.TextureLoader().load(`${base}textures/mk/mk-foliage.jpg`);
       map.colorSpace = THREE.SRGBColorSpace;
@@ -1026,6 +1103,27 @@ function materials(base: string): Record<string, THREE.Material> {
     signBike: std({ map: T.roadSignTexture('bike'), alphaTest: 0.5, roughness: 0.4 }),
     signBikeBack: std({
       map: T.roadSignTexture('bike'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signBikeEnd: std({ map: T.roadSignTexture('bikeEnd'), alphaTest: 0.5, roughness: 0.4 }),
+    signBikeEndBack: std({
+      map: T.roadSignTexture('bikeEnd'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signNoTruck: std({ map: T.roadSignTexture('notruck'), alphaTest: 0.5, roughness: 0.4 }),
+    signNoTruckBack: std({
+      map: T.roadSignTexture('notruck'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signArrowPlate: std({ map: T.roadSignTexture('arrowPlate'), alphaTest: 0.5, roughness: 0.4 }),
+    signArrowPlateBack: std({
+      map: T.roadSignTexture('arrowPlate'),
       color: 0x000000,
       emissive: 0x7d8286,
       alphaTest: 0.5,
@@ -1597,13 +1695,13 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   }
   if (USE_PLAN) {
     // Ölçülmüş site planı (Mertkent + Salusvizyon iç alanları)
-    const sp = buildSitePlan(b, SITE_PLAN, o.H, o.collide);
+    const sp = buildSitePlan(b, SITE_PLAN, o.H, o.collide, colorKey);
     holes.push(...sp.holes);
     cars.push(...sp.cars);
   }
   if ((PARK_PLAN.areas?.length ?? 0) + (PARK_PLAN.points?.length ?? 0) > 0) {
     // Ölçülmüş komşu parklar (kuzey park, Nato Parkı)
-    const pp = buildSitePlan(b, PARK_PLAN, o.H, o.collide);
+    const pp = buildSitePlan(b, PARK_PLAN, o.H, o.collide, colorKey);
     holes.push(...pp.holes);
     cars.push(...pp.cars);
   }
@@ -1798,12 +1896,14 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
                   })
                 : kind === 'metal'
                   ? new THREE.MeshStandardMaterial({ color, roughness: 0.45, metalness: 0.5 })
-                  : granularMaterial(
-                      color,
-                      kind === 'brick' ? 14 : kind === 'stone' ? 15 : 13,
-                      { roughness: 0.9 },
-                      kind === 'stone' || kind === 'brick' ? { mottle: 0.12, bump: 2.5 } : undefined,
-                    );
+                  : kind.startsWith('lattice:')
+                    ? latticeMaterial(color, Number(kind.slice(8)) || 0.15)
+                    : granularMaterial(
+                        color,
+                        kind === 'brick' ? 14 : kind === 'stone' ? 15 : 13,
+                        { roughness: 0.9 },
+                        kind === 'stone' || kind === 'brick' ? { mottle: 0.12, bump: 2.5 } : undefined,
+                      );
       }
       return k;
     };
@@ -1820,6 +1920,12 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     for (const f of others) buildGenericFence(b, f, o.H, mat, gapsO, o.collide, bevel, street?.surfaceAt);
     for (const g of planGates)
       buildPlanGate(b, g, o.H(g.c[0], g.c[1]), {
+        near: planGates
+          .filter((q) => q !== g && Math.hypot(q.c[0] - g.c[0], q.c[1] - g.c[1]) < 15)
+          .sort(
+            (p, q) =>
+              Math.hypot(p.c[0] - g.c[0], p.c[1] - g.c[1]) - Math.hypot(q.c[0] - g.c[0], q.c[1] - g.c[1]),
+          )[0]?.c,
         mat,
         colorKey: (k, h) => colorKey(k, h),
         signFace,
@@ -1835,6 +1941,20 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const mats = materials(o.base);
   // Kaldırım başına kılavuz karo tonu (street.ts tactileKey: `tactile@r,g,b`, sRGB oran çarpanı)
   for (const k of b.keys()) if (k.startsWith('tactile@')) addTactileVariant(mats, k);
+  // Ölçülen tonlu çim (site/park-plan lawn `color`, ör. kuru çim #baa382): çim dokusu × tona göre çarpan
+  for (const k of b.keys())
+    if (k.startsWith('lawn@') && !mats[k] && mats.lawn) {
+      const m = (mats.lawn as THREE.MeshStandardMaterial).clone();
+      // KARAR: doku ortalaması ~#7a9a3c (yeşil) → çarpan = ölçülen ton / doku ortalaması (doğrusal), kırpılmış
+      const tgt = new THREE.Color(k.slice(5));
+      const avg = new THREE.Color(0x7a9a3c);
+      m.color.setRGB(
+        Math.min(3, tgt.r / Math.max(0.02, avg.r)),
+        Math.min(3, tgt.g / Math.max(0.02, avg.g)),
+        Math.min(3, tgt.b / Math.max(0.02, avg.b)),
+      );
+      mats[k] = m;
+    }
   upgradeRealMaterials(mats, o.base);
   extraMats.roadFill = o.roadMaterial ?? mats.drive;
   atlas.finalize(b, extraMats);

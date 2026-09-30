@@ -158,14 +158,18 @@ export function buildGenericFence(
   const wallH = f.wall?.h ?? 0.6;
   const wallT = f.wall?.t ?? 0.22;
   const finish = (f.wall?.finish ?? 'render').toLowerCase();
+  // Duvar yüzü deseni (ölçüm wall.pattern): lattice = ince oyma baklava kafes (hücre m) — doku, kabartma düşük
+  const wpat = (f.wall as { pattern?: { kind?: string; cell?: number } } | undefined)?.pattern;
   const wallKey = mat(
-    /brick|tuğla/.test(finish)
-      ? 'brick'
-      : /stone|taş/.test(finish)
-        ? 'stone'
-        : /rib|nervür|precast/.test(finish)
-          ? 'ribbed'
-          : 'render',
+    wpat?.kind === 'lattice'
+      ? `lattice:${Math.max(0.05, Math.min(0.6, wpat.cell ?? 0.15))}`
+      : /brick|tuğla/.test(finish)
+        ? 'brick'
+        : /stone|taş/.test(finish)
+          ? 'stone'
+          : /rib|nervür|precast/.test(finish)
+            ? 'ribbed'
+            : 'render',
     f.wall?.color ?? '#e6e3dc',
   );
   const cop = typeof f.coping === 'string' ? { color: f.coping } : (f.coping ?? {});
@@ -615,6 +619,23 @@ export function buildGenericFence(
       }
     } else if (pil.cap !== false)
       b.box(capK, [p[0], y0 + pH + 0.04, p[1]], [pW + 0.08, 0.08, pW + 0.08], yaw);
+    if ((pil as { pattern?: { kind?: string } }).pattern?.kind === 'rope') {
+      // Kolon gövdesinde iki sütun örgü / halat biçimli oyma şerit (sokak yüzü): eğik, sırayla yön değiştiren
+      // küçük dilimler (ölçüm: "iki sütun", düz başlık). KARAR: şerit eni 6 cm, dilim boyu 8 cm (görülmedi)
+      const nS: V2 = f.n ?? [-t[1], t[0]];
+      for (const du of [-pW / 4, pW / 4])
+        for (let yy = 0.15, k = 0; yy < pH - 0.12; yy += 0.08, k++) {
+          const q: V2 = [
+            p[0] + t[0] * du + nS[0] * (pW / 2 + 0.006),
+            p[1] + t[1] * du + nS[1] * (pW / 2 + 0.006),
+          ];
+          const g = new THREE.BoxGeometry(0.06, 0.05, 0.012);
+          g.rotateZ(k % 2 ? 0.6 : -0.6);
+          g.rotateY(yaw);
+          g.translate(q[0], y0 + yy, q[1]);
+          b.geometry(pKey, g);
+        }
+    }
     if (pil.finial === 'ball') b.sphere(capK, [p[0], yTop + pW * 0.28, p[1]], pW * 0.3, 10);
     else if (pil.finial === 'pyramid') {
       const g = new THREE.ConeGeometry(pW * 0.5, Math.max(0.15, pW * 0.6), 4);
