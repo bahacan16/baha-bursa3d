@@ -21,7 +21,9 @@ const GradeShader = {
   name: 'CameraGrade',
   uniforms: {
     tDiffuse: { value: null },
-    uShadowTint: { value: new THREE.Vector3(1.025, 1.0, 0.95) },
+    // KARAR (2026-09-30, güneşli Street View yamaları, calibration.ts): gölge tonu sıcaktan (1.025, 1, 0.95) soğuğa —
+    // fotoğrafta gölgedeki nötr yüzeyler mavi (kilit taşı #3e4950, cephe #7e8a93), oyunda sarımsıydı (b* +3.8 → +1.9)
+    uShadowTint: { value: new THREE.Vector3(0.97, 1.0, 1.06) },
     uHighlightTint: { value: new THREE.Vector3(1.02, 1.0, 0.98) },
     uSaturation: { value: 1.0 },
     tExposure: { value: null },

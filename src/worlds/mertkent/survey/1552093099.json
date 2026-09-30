@@ -66,28 +66,12 @@
       -555.39
      ],
      [
-      664.87,
+      664,
       -555.39
      ],
      [
-      664.6,
-      -549.13
-     ],
-     [
-      663.31,
-      -549.1
-     ],
-     [
-      663.13,
-      -541.81
-     ],
-     [
-      664.14,
-      -541.79
-     ],
-     [
-      664.07,
-      -534.83
+      664,
+      -534.8
      ],
      [
       689.49,
@@ -124,16 +108,16 @@
     ],
     "storeys": 8,
     "floorHs": [
-     7.1,
-     4.8,
-     3.2,
-     3.2,
-     3.2,
-     3.2,
-     3.2,
-     3.2
+     6.5,
+     4.25,
+     3.12,
+     3.12,
+     3.12,
+     3.12,
+     3.12,
+     3.12
     ],
-    "wallTop": 31.2,
+    "wallTop": 29.8,
     "roof": {
      "kind": "hipped",
      "pitch": 22,
@@ -228,35 +212,11 @@
       -557.17
      ],
      [
-      662.16,
-      -558.64
+      664,
+      -558.55
      ],
      [
-      661.2,
-      -534.92
-     ],
-     [
-      664.07,
-      -534.83
-     ],
-     [
-      664.14,
-      -541.79
-     ],
-     [
-      663.13,
-      -541.81
-     ],
-     [
-      663.31,
-      -549.1
-     ],
-     [
-      664.6,
-      -549.13
-     ],
-     [
-      664.87,
+      664,
       -555.39
      ],
      [
@@ -294,8 +254,8 @@
     ],
     "storeys": 2,
     "floorHs": [
-     7.1,
-     4.8
+     6.5,
+     4.25
     ],
     "wallTop": 11.95,
     "roof": {
@@ -2455,53 +2415,17 @@
  ],
  "notes": [
   "KÜTLE OSM building:part’larından (1552093100–05) — kuleler ön şeridin gerisinde (bulvar ≈7.8 m, güney ≈3.5 m) → kule/taş kat yüzleri kesim cephesi, tabelaları ve pencereleri pending’de gerçek ölçüyle.",
-  "Renkler: güneşli e5/e0 (#d0cbbd krem sıva, #d7c1ad somon alın), gölgeli e12/e11 (#958f79 / #838178). Taş kaplama #b9ab91 (gölge #a1927e)."
+  "Renkler: güneşli e5/e0 (#d0cbbd krem sıva, #d7c1ad somon alın), gölgeli e12/e11 (#958f79 / #838178). Taş kaplama #b9ab91 (gölge #a1927e).",
+  "v8 (anket ajanı): batı kule batı yüzü cutEdges’e kule katları (2 fransız pencere sütunu, 2 balkon yığını kat kat cam/file, köşe yuvarlak balkonlar, klimalar, KİRALIK levhası, kırmızı bez) eklendi; GB köşe Estetik levhası güney yüzü. Massing: batı kule batı yüzü x = 664.0 düz, 2 katlı parça yalnız kuzey şerit, batı kule kat yükseklikleri [6.5, 4.25, 6×3.12]."
  ],
  "pending": [
   {
-   "what": "cutFace-W (batı kule 1552093102 batı yüzü + taş kaplı 1. kat, x≈664, z −555.4…−534.8)",
-   "coords": "GERÇEK m, kendi düzlem ortofotom (c6nV _f22 / KFus tutarlı): u = z −555.4’ten güneye, y = blok tabanından",
-   "stoneK1": {
-    "signs": [
-     {
-      "u": [
-       19.5,
-       21.8
-      ],
-      "y": [
-       9.1,
-       10.1
-      ],
-      "text": "Özel\nEstetik A…\nAğız ve Diş Sağlığı Poli…\n0224 413 0071 - 0549 54…",
-      "bg": "#f3f3f1",
-      "fg": "#2a2a2a",
-      "logo": "solda kırmızı kare içinde beyaz diş; e23 ortosunda \"Estetik A\" okunur, devamı kesik"
-     }
-    ],
-    "converted": "taş kaplama panosu, 6 pencere, 2 klima, 4 tabela → cutEdges[0] (v8); korkuluk = massing parapeti",
-    "why": "u 19.5–21.8 levhası yüzün güney ucunu (u 20.6) aşıp köşeyi sarıyor; güney yüzü ölçülmedi"
-   },
-   "tower": {
-    "u": [
-     -1.5,
-     20.6
-    ],
-    "y": [
-     12.3,
-     31.2
-    ],
-    "pitch": 3.2,
-    "cols": "sol ve sağ pencere sütunları (u≈0.9–2.4 ve 14.6–16.2) fransız pencere + küçük beyaz demir korkuluk, ortada somon alınlı iki balkon yığını (u≈5.2–13.0; K2 ve K6 cam balkon, K3–K5 açık/cam kısmi, K4 kuş filesi), dış köşelerde yuvarlak köşe balkonları; KİRALIK levhası u 7.3–8.6 y 15.0–15.8 (beyaz zemin kırmızı \"KİRALIK\" + \"0533 690 34 83\" + küçük satır), K4 korkuluğunda kırmızı bayrak/bez (u≈7.8, y≈18.2)",
-    "top": "orta kısım yükseltilmiş alınlık ≈32.9"
-   }
-  },
-  {
-   "what": "cutFace-S/N (batı kule güney yüzü z≈−534.8 ve kuzey yüzü z≈−555.4; taş kaplı 1. kat pencereleri; güneyde \"…Estetik A\" köşe levhasının güney yüzü)",
-   "desc": "e0/e22 ortolarından: 1. kat taş kaplama, 8–10 adet koyu kasalı pencere (y≈6.6–7.4 görünen), kule somon alınlı balkon yığınları ve yuvarlak köşe balkonları; güneyde tepe alınlığı (üst ≈24 görünen, ortada 2 çatı katı penceresi). Ölçü verilmedi (ağaç/uzaklık)."
+   "what": "cutFace-S/N kalan (batı kule güney yüzü x>665.6 ve kuzey yüzü)",
+   "desc": "e0/e22 ortolarından: 1. kat taş kaplama, 8–10 adet koyu kasalı pencere (y≈6.6–7.4 görünen), kule somon alınlı balkon yığınları ve yuvarlak köşe balkonları; güneyde tepe alınlığı (üst ≈24 görünen, ortada 2 çatı katı penceresi). Ölçü verilmedi (ağaç/uzaklık). v8: GB köşe levhası cutEdges’e taşındı; kalan yüzler ağaç/uzaklık yüzünden ölçülemedi."
   },
   {
    "what": "east-tower-gables",
-   "desc": "Doğu kule çatısı testere dişi alınlıklı (e12’de üç tepe ≈27.4/27.2/27.4, e5’te benzer); alınlıklarda çatı katı pencereleri (e12 u 9.0–10.3 ve 19.7–21.0, y 25.3–26.6). Kütle parçası kırma çatı yazıldı; alınlık/pencere parça kenarına bağlanamıyor."
+   "desc": "Doğu kule çatısı testere dişi alınlıklı (e12’de üç tepe ≈27.4/27.2/27.4, e5’te benzer); alınlıklarda çatı katı pencereleri (e12 u 9.0–10.3 ve 19.7–21.0, y 25.3–26.6). Kütle parçası kırma çatı yazıldı; alınlık/pencere parça kenarına bağlanamıyor. v8: roof.wings ile ifade denendi — testere dişi alınlıkların mahya yönü ve sayısı hava fotoğrafında seçilemedi (e12’de 3 tepe, e5’te 2) → açık mahya koordinatı yazılamadı, bekliyor."
   },
   {
    "what": "rooftop-glass-rooms",
@@ -2509,24 +2433,24 @@
   },
   {
    "what": "massing-heights",
-   "desc": "OSM yükseklikleri (26/24/6/3) ölçümle uyuşmuyor: batı kule K0 ≈7.1 (çift yükseklik dükkân arkası), taş kat 4.8, 6 konut ×3.2, üst ≈31.2 (+alınlık 32.9); doğu kule K0 4.35, taş asma kat 2.0, 6 konut ×2.95, saçak ≈24.2 + alınlık katı. Ön şerit 1 kat ≈5.2 (tabela panosu 7.3’e çıkar)."
+   "desc": "OSM yükseklikleri (26/24/6/3) ölçümle uyuşmuyor: batı kule K0 ≈6.5 (çift yükseklik dükkân arkası), taş kat 4.25, 6 konut ×3.12 (v8 düzlem ortosu), saçak ≈29.8 (+alınlık 32.9); doğu kule K0 4.35, taş asma kat 2.0, 6 konut ×2.95, saçak ≈24.2 + alınlık katı. Ön şerit 1 kat ≈5.2 (tabela panosu 7.3’e çıkar)."
   }
  ],
  "cutEdges": [
   {
-   "part": 2,
+   "part": 0,
    "a": [
-    664.0,
+    664,
     -555.4
    ],
    "e": [
-    664.0,
+    664,
     -534.8
    ],
-   "tol": 3.2,
+   "tol": 0.6,
    "seen": "photo",
    "ref": "c6nV _f22 / KFus kendi düzlem ortofotosu (x ≈ 664)",
-   "note": "Batı kule altındaki taş kaplı 1. kat (K1, y 7.3–11.95) bulvar yüzü; u = z −555.4'ten güneye (+z), y blok tabanından GERÇEK m. Taş kat modelde 2 katlı parça 2'nin batı kesim yüzünde (x 661.2–662.2) çiziliyor; ölçülen düzlem x ≈ 664 (kule yüzü) → tol 3.2. Taş katın yüzü gerçekten x ≈ 664'teyse massing.towers[2] çokgeninin batı şeridi (x 661.2–664) tek katlı olmalı ve bu kayıt part 0'a taşınır. Pencere perdeleri yalnız okunanlar (7.0–8.6 beyaz yatay jaluzi → zebra, 17.6–19.3 dikey jaluzi); diğerleri koyu kasalı, perdesi yazılmadı. Doğrama rengi (koyu) örneklenmedi → blok frame.",
+   "note": "Batı kule altındaki taş kaplı 1. kat (K1, y 7.3–11.95) bulvar yüzü; u = z −555.4'ten güneye (+z), y blok tabanından GERÇEK m. v8 (anket ajanı): taş kat ve kule aynı düzlemde (x≈664, iki panoda tabela/pencere u’ları aynı) → massing batı kule çokgeninin batı yüzü x = 664.0 düzleştirildi (OSM kırıkları 663.1–664.9 kaldırıldı), 2 katlı parça yalnız kuzey şerit; taş kat artık kulenin K1’i (parça 0), tol 0.6. Pencere perdeleri yalnız okunanlar (7.0–8.6 beyaz yatay jaluzi → zebra, 17.6–19.3 dikey jaluzi); diğerleri koyu kasalı, perdesi yazılmadı. Doğrama rengi (koyu) örneklenmedi → blok frame.",
    "items": [
     {
      "t": "panel",
@@ -2682,6 +2606,312 @@
      "icon": "tooth",
      "iconC": "#ffffff",
      "logo": "mavi zemin üstünde büyük beyaz diş (icon tooth); kutu, öne çıkıklığı görülmedi; montaj tipi / d görülmedi (derleyici varsayılanı)"
+    },
+    {
+     "t": "win",
+     "u0": 2.28,
+     "u1": 4.28,
+     "y0": 11.2,
+     "y1": 13.3,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3b3530",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#c9a684"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul-yan",
+      "K5": "tul",
+      "K6": "jaluzi"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 13.8,
+     "u1": 15.8,
+     "y0": 11.2,
+     "y1": 13.3,
+     "k": 2,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3b3530",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#c9a684"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul-yan",
+      "K5": "tul",
+      "K6": "jaluzi"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 5.7,
+     "u1": 9.05,
+     "d": 1.3,
+     "s": [
+      2,
+      7
+     ],
+     "glazed": [
+      2,
+      3
+     ],
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 1
+     },
+     "railC": "#e8e8e6",
+     "fasciaC": {
+      "*": "#c9a684"
+     },
+     "frameC": {
+      "*": "#e8e8e6"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "bal",
+     "u0": 9.05,
+     "u1": 12.5,
+     "d": 1.3,
+     "s": [
+      2,
+      7
+     ],
+     "glazed": [
+      3,
+      5
+     ],
+     "net": [
+      4
+     ],
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 1
+     },
+     "railC": "#e8e8e6",
+     "fasciaC": {
+      "*": "#c9a684"
+     },
+     "frameC": {
+      "*": "#e8e8e6"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "pipe",
+     "u": 9.05,
+     "off": 1.3,
+     "color": "#e6e6e2",
+     "r": 0.05
+    },
+    {
+     "t": "ac",
+     "u": 8.8,
+     "s": 3,
+     "y": 16.8
+    },
+    {
+     "t": "ac",
+     "u": 9.3,
+     "s": 3,
+     "y": 16.8
+    },
+    {
+     "t": "ac",
+     "u": 8.8,
+     "s": 4,
+     "y": 20.1
+    },
+    {
+     "t": "ac",
+     "u": 9.3,
+     "s": 4,
+     "y": 20.1
+    },
+    {
+     "t": "ac",
+     "u": 8.8,
+     "s": 5,
+     "y": 23
+    },
+    {
+     "t": "ac",
+     "u": 9.3,
+     "s": 5,
+     "y": 23
+    },
+    {
+     "t": "ac",
+     "u": 8.8,
+     "s": 6,
+     "y": 26
+    },
+    {
+     "t": "ac",
+     "u": 9.3,
+     "s": 6,
+     "y": 26
+    },
+    {
+     "t": "bal",
+     "u0": -1.3,
+     "u1": -0.3,
+     "d": 1.1,
+     "s": [
+      2,
+      7
+     ],
+     "round": 0.9,
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 1
+     },
+     "railC": "#e8e8e6",
+     "fasciaC": {
+      "*": "#c9a684"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "bal",
+     "u0": 18.4,
+     "u1": 19.3,
+     "d": 1.1,
+     "s": [
+      2,
+      7
+     ],
+     "round": 0.9,
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 1
+     },
+     "railC": "#e8e8e6",
+     "fasciaC": {
+      "*": "#c9a684"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "sign",
+     "u0": 2.4,
+     "u1": 4,
+     "y0": 14.2,
+     "y1": 15.2,
+     "d": 0.02,
+     "off": 0.1,
+     "style": "panel",
+     "text": "KİRALIK\n0533 690 34 82\nO… BAYAR",
+     "lines": [
+      {
+       "text": "KİRALIK",
+       "size": 1.4,
+       "bold": true
+      },
+      {
+       "text": "0533 690 34 82",
+       "size": 1,
+       "bold": true
+      },
+      {
+       "text": "O… BAYAR",
+       "size": 0.6
+      }
+     ],
+     "bg": "#f2f2f0",
+     "fg": "#1b1b1b",
+     "border": "#3a3a3a",
+     "font": "sans",
+     "logo": "fransız pencere korkuluğuna asılı beyaz levha; üst satır zemini koyu şerit görünümlü (renk ayrılamadı); ad satırının ilk kelimesi okunamadı"
+    },
+    {
+     "t": "banner",
+     "u0": 2.8,
+     "u1": 3.3,
+     "y0": 17.4,
+     "y1": 18.3,
+     "d": 0.15,
+     "style": "plain",
+     "bg": "#c8322f",
+     "text": ""
+    },
+    {
+     "t": "band",
+     "u0": -1.5,
+     "u1": 20.6,
+     "y0": 12.4,
+     "y1": 12.55,
+     "color": "#e8e8e6",
+     "proud": 0.3
+    }
+   ]
+  },
+  {
+   "part": 0,
+   "a": [
+    664,
+    -534.8
+   ],
+   "e": [
+    689.49,
+    -534.01
+   ],
+   "tol": 0.8,
+   "seen": "partial",
+   "ref": "ozFG (e0 ortosu) — yalnız köşe",
+   "note": "Batı kulenin güney yüzü, GB köşe: bulvar yüzündeki \"Özel Estetik A… Ağız ve Diş Sağlığı Poli…\" levhasının güneye dönen dar yüzü (≈1.6 m). u a’dan doğuya gerçek m (e0 ortosundan kamera merkezli 0.9 ölçekle çevrildi, ±0.5). Güney yüzün kalanı ağaç arkasında → pending.",
+   "items": [
+    {
+     "t": "sign",
+     "u0": 0,
+     "u1": 1.6,
+     "y0": 9.1,
+     "y1": 10.1,
+     "d": 0.04,
+     "style": "panel",
+     "text": "…tetik A\n…ğı Polikliniği",
+     "lines": [
+      {
+       "text": "…tetik A",
+       "size": 1.3,
+       "bold": true
+      },
+      {
+       "text": "…ğı Polikliniği",
+       "size": 0.6
+      }
+     ],
+     "bg": "#f3f3f1",
+     "fg": "#2a2a2a",
+     "font": "sans",
+     "logo": "yalnız okunan harfler; solda kırmızı logo kenarı"
     }
    ]
   }

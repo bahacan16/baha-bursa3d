@@ -285,7 +285,8 @@ export class Game {
       probeUniforms.uProbe.value = this.envRT.texture;
       probeUniforms.uProbeI.value = this.scene.environmentIntensity;
     }
-    // KARAR: Street View kalibrasyonu (71 yama, 11 görüş): ortam ışığı güneşe göre ~2× fazlaydı → soluk/pastel
+    // KARAR: Street View kalibrasyonu (env/calibration.ts): ortam ışığı güneşe göre ~2× fazlaydı → soluk/pastel;
+    // güneşli yamalarla yeniden ölçümde (2026-09-30) yarım küre ×0.6 → ×0.45 (zemin gölgesi fazla aydınlıktı)
     this.lights.hemi.intensity = d.hemiIntensity * cal.hemi;
   }
 

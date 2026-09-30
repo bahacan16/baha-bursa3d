@@ -40,7 +40,7 @@
     "poly": [
      [
       543.15,
-      -515.66
+      -516.66
      ],
      [
       542.14,
@@ -88,23 +88,23 @@
      ],
      [
       598.77,
-      -512.73
+      -513.73
      ],
      [
       588.69,
-      -513.3
+      -514.3
      ],
      [
       588.65,
-      -512.11
+      -513.11
      ],
      [
       553.14,
-      -513.92
+      -514.92
      ],
      [
       553.27,
-      -515.34
+      -516.34
      ]
     ],
     "storeys": 9,
@@ -152,11 +152,11 @@
      ],
      [
       539.3,
-      -516.1
+      -516.8
      ],
      [
       550.0,
-      -515.9
+      -516.5
      ]
     ],
     "storeys": 1,
@@ -1569,260 +1569,10 @@
  ],
  "notes": [
   "KAT SAYISI: 9 = zemin (0–5.0, koyu yeşil alınlı dükkânlar) + 1. kat (ticari, 5.0–8.5; kuzeyde geri çekik teras, doğuda bej cam bant) + 7 konut katı (kule doğu yüzünde balkon döşemeleri 8.5/11.5/14.5/17.5/20.5/23.6/26.6, kule üstü koyu gri çatı bandı 29.0–29.6; −8.8 m arka düzlem ortofotosunda sayıldı, X0NY 300_0/300_40 karelerinde 7 balkon sırası). Taban izi notundaki 10 kat bir fazla sayılmış olabilir (kule üst katı çatı bandıyla karışmış).",
-  "KÜTLE: taban izi = podyum halkası. Kule (OSM building:part 1551814325, kuzey kenarı saçak izine göre 1.0 m güneye alındı) 9 kat; KD DURAK kutusu (x 589–608) ve KB Helvacı Ali köşesi (x 539.8–550.5) TEK KAT (üstleri açık; Helvacı üstünde koyu pergola çerçevesi); geri kalan podyum 2 kat (üst 6.8). Kule yüzleri kütle kesim duvarı olduğundan öğesiz (düz sıva) — tüm kule cephesi (balkonlar, pencereler, kanat renkleri, balkon tabelaları) pending’de; kule ayrı bir taban izi (building:part) olarak eklenirse bu ölçümler kenar öğesi olarak yazılabilir.",
+  "KÜTLE (v8): taban izi = podyum halkası. Kule (OSM building:part 1551814325, OSM çokgeni aynen — doğu yüzü fotoğrafta 20.3 m, OSM 20.0: kuzey kenarını 1 m güneye almak yüzü kısaltıyordu) = massing.towers[0], 9 kat; doğu ve kuzey kule yüzleri cutEdges[0–1] ile (balkonlar, pencereler, ayaklar, tüm balkon tabelaları kat kat). KD DURAK ve KB Helvacı köşeleri tek kat, geri kalan podyum 2 kat (üst 6.8). Tek dosya + building:part olduğundan cutEdges seçildi (ayrı 1551814325 dosyası + startK yerine: taban izi tek, kule podyumla aynı OSM binası).",
   "RENKLER: podyum alnı koyu petrol-yeşil #2e444c (doğu, güneşli; kuzeyde gölgede #162d31), lameller #1a2628; DURAK kırmızı #a83f31; Queen/Ohannes alnı #30373e; Cadı'nın Evi gri #54534a; Cafe Strada açık yeşil-gri #8d988c; Helvacı ahşap #8f7a6b (kuzey) / #664f3f (batı, gölge); bej tente #797267, Evergreen yeşil tente #44714d, kubbe tente #8f8c84 (batı gölgede); 1. kat bej-mavi cam #a7c5ec (yansıma)."
  ],
  "pending": [
-  {
-   "what": "KULE CEPHELERİ (massing kesim duvarı → öğe çizilemiyor)",
-   "tower_poly": "massing.towers[0]",
-   "faces": [
-    {
-     "face": "DOĞU (bulvara bakar, x ≈ 598, e9 hattının 8.8 m gerisi)",
-     "measured": "−8.8 m arka düzlem (e9 u koordinatı, gerçek)",
-     "layout": "3 balkon yığını: A u 1.5–6.8, B 7.6–12.8, C 13.7–19.0; aralarda koyu gri düşey ayaklar #3a3e42 (u 0.5–1.5, 6.8–7.6, 12.8–13.6), sağ kenarda bej-kum şerit u 19.1–20.2 #b8a17e; balkonlar her katta: beyaz döşeme alnı ≈0.3 m, koyu çerçeveli mavi-gri cam korkuluk (#6f8494) ≈1.0 m; balkon arkasında her yığında 1 geniş sürme kapı + 1 pencere (koyu antrasit doğrama); en üst katta balkon yerine pencereler + duvar üstünde 2 klima (u 14.4, 18.2, y ≈25.3).",
-     "storeys": "döşemeler 8.5, 11.5, 14.5, 17.5, 20.5, 23.6, 26.6; kule üstü 29.0–29.6 koyu gri alın",
-     "signs": [
-      {
-       "storey": "K2 (8.5)",
-       "u": [
-        1.5,
-        5.6
-       ],
-       "y": [
-        9.6,
-        10.7
-       ],
-       "text": "TARIKDURAN / METAL ALÜMİNYUM SAN. TİC. LTD. ŞTİ.",
-       "bg": "#2b2d30",
-       "fg": "#f2f2f2",
-       "logo": "solda kırmızı yuvarlak \"T\""
-      },
-      {
-       "storey": "K2",
-       "u": [
-        13.3,
-        19.7
-       ],
-       "y": [
-        9.6,
-        10.9
-       ],
-       "text": "DENİZ GAYRİMENKUL / MERAL TÜRKEŞ / 413 4 777 · 413 4 …77",
-       "bg": "#243a6e",
-       "fg": "#ffffff",
-       "logo": "solda kırmızı-beyaz ev simgesi, beyaz kare zeminde"
-      },
-      {
-       "storey": "K3 (11.5)",
-       "u": [
-        1.5,
-        6.8
-       ],
-       "y": [
-        11.8,
-        12.9
-       ],
-       "text": "Papatya Beauty Center",
-       "bg": "#1f2124",
-       "fg": "#e8d8b0",
-       "font": "script"
-      },
-      {
-       "storey": "K3",
-       "u": [
-        7.6,
-        12.8
-       ],
-       "y": [
-        11.8,
-        12.9
-       ],
-       "text": "advise GAYRİMENKUL",
-       "bg": "#1f2124",
-       "fg": "#e0282e",
-       "note": "\"advise\" kırmızı, \"GAYRİMENKUL\" küçük beyaz"
-      },
-      {
-       "storey": "K3",
-       "u": [
-        13.7,
-        18.9
-       ],
-       "y": [
-        11.7,
-        12.9
-       ],
-       "text": "PV Pilate Studio / ✆ 0536 941 26 00",
-       "bg": "#1f2124",
-       "fg": "#ffffff"
-      },
-      {
-       "storey": "K4 (14.5)",
-       "u": [
-        1.5,
-        6.8
-       ],
-       "y": [
-        14.8,
-        15.9
-       ],
-       "text": "renna / BEAUTY BAR",
-       "bg": "#2b2d30",
-       "fg": "#ffffff",
-       "logo": "solda \"R\" monogram"
-      },
-      {
-       "storey": "K4",
-       "u": [
-        7.6,
-        12.8
-       ],
-       "y": [
-        14.8,
-        15.9
-       ],
-       "text": "HANDAN TOSUN / GÜZELLİK MERKEZİ",
-       "bg": "#2b2d30",
-       "fg": "#ffffff",
-       "font": "serif",
-       "logo": "solda beyaz yuvarlak amblem"
-      },
-      {
-       "storey": "K4",
-       "u": [
-        13.7,
-        17.0
-       ],
-       "y": [
-        14.8,
-        15.6
-       ],
-       "text": "ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ / KLİNİK PSİKOLOG / EBRU DİLBER",
-       "bg": "#2b2d30",
-       "fg": "#ffffff"
-      },
-      {
-       "storey": "K5 (17.5)",
-       "u": [
-        3.1,
-        5.4
-       ],
-       "y": [
-        17.8,
-        18.6
-       ],
-       "text": "KUMOVALI HUKUK (okuma belirsiz)",
-       "bg": "#2b2d30",
-       "fg": "#e0e0e0",
-       "logo": "solda \"K\" monogram"
-      },
-      {
-       "storey": "K5",
-       "u": [
-        13.6,
-        16.4
-       ],
-       "y": [
-        17.8,
-        18.9
-       ],
-       "text": "FİZYOTERAPİST / ELİF KILIÇ / ☎ 0505 472 61 35",
-       "bg": "#f4f4f2",
-       "fg": "#2b2d30"
-      },
-      {
-       "storey": "K6 (20.5)",
-       "u": [
-        1.5,
-        5.5
-       ],
-       "y": [
-        20.9,
-        21.9
-       ],
-       "text": "AHMET ÖZDEMİR / Hair Studio",
-       "bg": "#2b2d30",
-       "fg": "#ffffff",
-       "note": "\"Hair Studio\" neon yeşil el yazısı (ışıklı)"
-      }
-     ]
-    },
-    {
-     "face": "KUZEY (402. Sk.; kanatlar z ≈ −515.7, orta z ≈ −513)",
-     "measured": "−8 m düzlem (e0 u; orta kısım gerçekte ≈ −10/−11 m, ölçek ±%10)",
-     "layout": "iki yan kanat (u 12.7–21.6 ve 50.5–61.0): üstte koyu gri #3a3e42, alt-dışta çapraz sınırla kum rengi #c5a071 üçgen (sol kanatta sol-alt, sağ kanatta sağ-alt); kanat tepesinde beyaz \"CEYLAN / PLUS / ÖZLÜCE\" + dağ/grafik çizgisi logosu (sol u 15.5–19.3, sağ u 53.9–58.0, y ≈20–25); orta kısım gri sıva #6e6f70 (gölge), 3 beyaz çerçeveli balkon yığını (A u 24.2–28.6, B 34.0–38.6, C 43.7–48.8) cam korkuluklu; aralarda pencereler (koyu doğrama, çoğunda beyaz tül/stor); en üst katta 5 kum rengi düşey pilastr (u 26.4, 31.0, 35.9, 40.8, 45.8).",
-     "signs": [
-      {
-       "stack": "A",
-       "storey": "K3?",
-       "text": "mokka",
-       "bg": "#2b2d30",
-       "fg": "#ffffff"
-      },
-      {
-       "stack": "A",
-       "text": "iki küçük koyu pano (… SAĞLIK MESLEK … / …) okunamadı"
-      },
-      {
-       "stack": "A",
-       "storey": "K2?",
-       "text": "LAPİ… (okunamadı)"
-      },
-      {
-       "stack": "B",
-       "storey": "K6?",
-       "text": "PODOPLUS / … SAĞLIK MERKEZİ",
-       "bg": "#2b2d30",
-       "fg": "#ffffff"
-      },
-      {
-       "stack": "B",
-       "storey": "K4?",
-       "text": "Fuj… (el yazısı, okunamadı)",
-       "bg": "#f4f4f2"
-      },
-      {
-       "stack": "B",
-       "storey": "K2?",
-       "text": "TWINS BEAUTY CENTER",
-       "bg": "#2b2d30",
-       "fg": "#ffffff",
-       "logo": "yuvarlak amblem"
-      },
-      {
-       "stack": "C",
-       "storey": "K7",
-       "text": "telefon numarası beyaz pano (0540 184 55 72? okuma belirsiz)"
-      },
-      {
-       "stack": "C",
-       "storey": "K2?",
-       "text": "SERBEST MUHASEBECİ MALİ MÜŞAVİR / ÜMİT UÇAK",
-       "bg": "#2b2d30",
-       "fg": "#ffffff",
-       "logo": "solda \"M\" amblem"
-      },
-      {
-       "stack": "C",
-       "storey": "K2?",
-       "text": "… / Lash And Nail",
-       "bg": "#2b2d30",
-       "fg": "#e04a6a"
-      }
-     ]
-    },
-    {
-     "face": "BATI (401. Sk.)",
-     "measured": "kBAg ön düzlem",
-     "layout": "podyumdan ≈3.5 m geride; beyaz-gri kule, koyu antrasit balkon korkulukları (cam), kahve-kum düşey şeritler; ayrıntılı ölçülmedi"
-    },
-    {
-     "face": "GÜNEY (AVM tarafı)",
-     "layout": "görülmedi"
-    }
-   ]
-  },
   {
    "what": "dış çelik merdivenler (1. kat terasına)",
    "edge": 0,
@@ -1853,6 +1603,1024 @@
    "what": "kids Cafe camlı köşkü",
    "edge": 0,
    "desc": "1. kat terasında u 27.4–30.8, y 5.0–6.6 beyaz çerçeveli cam köşk (derinlik görülmedi); üstündeki tabela çizildi"
+  },
+  {
+   "what": "kule kanatlarının çapraz renk bölünmesi (kuzey)",
+   "desc": "iki yan kanatta üst koyu gri #3a3e42, dış-alt köşede köşegen sınırlı kum rengi #c5a071 üçgen (sol kanat: sol-alttan sağ-üste ≈ y 8→21; sağ kanat ayna). Köşegen panel öğesi yok; kanat tümüyle koyu gri çizildi."
+  },
+  {
+   "what": "kule batı ve güney yüzleri",
+   "desc": "batı: podyumdan ≈3.5 m geride, beyaz-gri, koyu cam korkuluklu balkonlar, kahve-kum düşey şeritler — ölçülmedi; güney: görülmedi."
+  },
+  {
+   "what": "kule balkon derinliği",
+   "desc": "yandan görülmedi, d 1.2 tahmin (doğu/kuzey)."
+  }
+ ],
+ "cutEdges": [
+  {
+   "part": 0,
+   "a": [
+    597.44,
+    -494.15
+   ],
+   "e": [
+    599.16,
+    -523.3
+   ],
+   "tol": 1.5,
+   "seen": "photo",
+   "ref": "bpc/e9 −8.8 m arka düzlem ortofotosu (PROekBmO f22)",
+   "note": "Kule DOĞU yüzü (bulvar); u = e9 u (e9 hattının 8.8 m gerisi), y blok tabanından gerçek. 3 balkon yığını, koyu gri ayaklar, sağda kum şeridi; K2–K7 balkon (d 1.2 tahmin — yandan görülmedi), K8 balkonsuz + 2 klima. Balkon tabelaları korkuluk önünde (off 1.25), kat kat.",
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 0.5,
+     "u1": 1.5,
+     "y0": 7.9,
+     "y1": 29.0,
+     "d": 0.3,
+     "color": "#3a3e42"
+    },
+    {
+     "t": "pilaster",
+     "u0": 6.8,
+     "u1": 7.6,
+     "y0": 7.9,
+     "y1": 29.0,
+     "d": 0.3,
+     "color": "#3a3e42"
+    },
+    {
+     "t": "pilaster",
+     "u0": 12.8,
+     "u1": 13.6,
+     "y0": 7.9,
+     "y1": 29.0,
+     "d": 0.3,
+     "color": "#3a3e42"
+    },
+    {
+     "t": "panel",
+     "u0": 19.1,
+     "u1": 20.2,
+     "y0": 7.9,
+     "y1": 29.0,
+     "color": "#b8a17e"
+    },
+    {
+     "t": "bal",
+     "u0": 1.5,
+     "u1": 6.8,
+     "d": 1.2,
+     "s": [
+      2,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "railC": "#2b2d30",
+     "glassC": {
+      "*": "#6f8494"
+     },
+     "fasciaC": {
+      "*": "#eeeeea"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.8,
+     "u1": 4.18,
+     "y0": 8.55,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 4.91,
+     "u1": 6.5,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "bal",
+     "u0": 7.6,
+     "u1": 12.8,
+     "d": 1.2,
+     "s": [
+      2,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "railC": "#2b2d30",
+     "glassC": {
+      "*": "#6f8494"
+     },
+     "fasciaC": {
+      "*": "#eeeeea"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.9,
+     "u1": 10.24,
+     "y0": 8.55,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 10.94,
+     "u1": 12.5,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "bal",
+     "u0": 13.6,
+     "u1": 19.0,
+     "d": 1.2,
+     "s": [
+      2,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "railC": "#2b2d30",
+     "glassC": {
+      "*": "#6f8494"
+     },
+     "fasciaC": {
+      "*": "#eeeeea"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 13.9,
+     "u1": 16.33,
+     "y0": 8.55,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 17.08,
+     "u1": 18.7,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "ac",
+     "u": 14.4,
+     "s": 8,
+     "y": 27.8,
+     "color": "#e6e8e6"
+    },
+    {
+     "t": "ac",
+     "u": 18.2,
+     "s": 8,
+     "y": 27.8,
+     "color": "#e6e8e6"
+    },
+    {
+     "t": "sign",
+     "u0": 1.5,
+     "u1": 5.6,
+     "y0": 9.6,
+     "y1": 10.7,
+     "text": "",
+     "fg": "#f2f2f2",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "TARIKDURAN",
+       "size": 1.0,
+       "y": 0.65
+      },
+      {
+       "text": "METAL ALÜMİNYUM SAN. TİC. LTD. ŞTİ.",
+       "size": 0.35,
+       "bold": false,
+       "y": 0.22
+      }
+     ],
+     "logo": "solda kırmızı yuvarlak \"T\" amblemi"
+    },
+    {
+     "t": "sign",
+     "u0": 13.3,
+     "u1": 19.7,
+     "y0": 9.6,
+     "y1": 10.9,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#243a6e",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "DENİZ GAYRİMENKUL",
+       "size": 1.0,
+       "y": 0.72
+      },
+      {
+       "text": "MERAL TÜRKEŞ",
+       "size": 0.5,
+       "y": 0.45
+      },
+      {
+       "text": "413 4 777          413 4 …77",
+       "size": 0.45,
+       "y": 0.15
+      }
+     ],
+     "logo": "solda beyaz kare zeminde kırmızı-lacivert ev simgesi; sağ telefonun ilk rakamları okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 1.5,
+     "u1": 6.8,
+     "y0": 11.8,
+     "y1": 12.9,
+     "text": "Papatya Beauty Center",
+     "fg": "#e8d8b0",
+     "bg": "#1f2124",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "script",
+     "bold": false,
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 7.6,
+     "u1": 12.8,
+     "y0": 11.8,
+     "y1": 12.9,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#1f2124",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "advise  GAYRİMENKUL",
+       "fg": "#e0282e",
+       "size": 1.0,
+       "y": 0.5
+      }
+     ],
+     "logo": "\"advise\" kırmızı kalın, \"GAYRİMENKUL\" küçük beyaz"
+    },
+    {
+     "t": "sign",
+     "u0": 13.7,
+     "u1": 18.9,
+     "y0": 11.7,
+     "y1": 12.9,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#1f2124",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "PV Pilate Studio",
+       "size": 1.0,
+       "y": 0.62
+      },
+      {
+       "text": "✆ 0536 941 26 00",
+       "size": 0.4,
+       "bold": false,
+       "y": 0.18
+      }
+     ],
+     "logo": "solda \"PV\" monogramı"
+    },
+    {
+     "t": "sign",
+     "u0": 1.5,
+     "u1": 6.8,
+     "y0": 14.8,
+     "y1": 15.9,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "renna",
+       "size": 1.0,
+       "y": 0.62
+      },
+      {
+       "text": "BEAUTY BAR",
+       "size": 0.4,
+       "bold": false,
+       "y": 0.2
+      }
+     ],
+     "logo": "solda \"R\" monogramı"
+    },
+    {
+     "t": "sign",
+     "u0": 7.6,
+     "u1": 12.8,
+     "y0": 14.8,
+     "y1": 15.9,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "serif",
+     "bold": true,
+     "lines": [
+      {
+       "text": "HANDAN TOSUN",
+       "size": 1.0,
+       "y": 0.62
+      },
+      {
+       "text": "GÜZELLİK MERKEZİ",
+       "size": 0.6,
+       "y": 0.22
+      }
+     ],
+     "logo": "solda beyaz yuvarlak amblem"
+    },
+    {
+     "t": "sign",
+     "u0": 13.7,
+     "u1": 17.0,
+     "y0": 14.8,
+     "y1": 15.6,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": false,
+     "lines": [
+      {
+       "text": "ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ",
+       "size": 0.6,
+       "y": 0.78
+      },
+      {
+       "text": "KLİNİK PSİKOLOG",
+       "size": 0.6,
+       "y": 0.48
+      },
+      {
+       "text": "EBRU DİLBER",
+       "size": 0.7,
+       "y": 0.18
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "u0": 3.1,
+     "u1": 5.4,
+     "y0": 17.8,
+     "y1": 18.6,
+     "text": "KUMOVALI\nHUKUK",
+     "fg": "#e0e0e0",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "logo": "solda \"K\" monogramı; ad okuması belirsiz"
+    },
+    {
+     "t": "sign",
+     "u0": 13.6,
+     "u1": 16.4,
+     "y0": 17.8,
+     "y1": 18.9,
+     "text": "",
+     "fg": "#2b2d30",
+     "bg": "#f4f4f2",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "FİZYOTERAPİST",
+       "size": 1.0,
+       "y": 0.75
+      },
+      {
+       "text": "ELİF KILIÇ",
+       "size": 0.8,
+       "y": 0.45
+      },
+      {
+       "text": "☎ 0505 472 61 35",
+       "size": 0.7,
+       "y": 0.15
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "u0": 1.5,
+     "u1": 5.5,
+     "y0": 20.9,
+     "y1": 21.9,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "AHMET ÖZDEMİR",
+       "size": 1.0,
+       "y": 0.68
+      },
+      {
+       "text": "Hair Studio",
+       "fg": "#7ae04a",
+       "size": 0.8,
+       "bold": false,
+       "y": 0.25
+      }
+     ],
+     "lit": true,
+     "logo": "solda beyaz amblem; \"Hair Studio\" neon yeşil el yazısı"
+    }
+   ]
+  },
+  {
+   "part": 0,
+   "a": [
+    607.52,
+    -514.79
+   ],
+   "e": [
+    539.35,
+    -518.37
+   ],
+   "tol": 4.5,
+   "seen": "photo",
+   "ref": "bpc/e0 −8 m düzlem ortofotosu (0tbf); gerçek yüz orta ≈ −11.5 m, kanatlar ≈ −10.5 m → u/y kamera etrafında ×1.18 (orta) / ×1.13 (kanat) düzeltildi",
+   "note": "Kule KUZEY yüzü (402. Sk.); u = e0 u (düzeltilmiş). Kanatlarda üst koyu gri + dış-altta kum rengi ÇAPRAZ üçgen (üçgen çizilemedi → kanat koyu gri, pending), tepede CEYLAN PLUS ÖZLÜCE. Orta gri sıva, 3 beyaz çerçeveli balkon yığını, aralarda pencere sütunları, üst katta 5 kum pilastr. ±1 m.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 10.5,
+     "u1": 20.56,
+     "y0": 7.9,
+     "y1": 29.0,
+     "color": "#3a3e42"
+    },
+    {
+     "t": "panel",
+     "u0": 53.22,
+     "u1": 65.08,
+     "y0": 7.9,
+     "y1": 29.0,
+     "color": "#3a3e42"
+    },
+    {
+     "t": "panel",
+     "u0": 20.16,
+     "u1": 54.26,
+     "y0": 7.9,
+     "y1": 29.0,
+     "color": "#8a8b8c"
+    },
+    {
+     "t": "sign",
+     "u0": 13.67,
+     "u1": 17.96,
+     "y0": 22.5,
+     "y1": 27.8,
+     "text": "",
+     "fg": "#f2f2f2",
+     "style": "letters",
+     "d": 0.04,
+     "off": 0.0,
+     "font": "serif",
+     "bold": true,
+     "lines": [
+      {
+       "text": "CEYLAN",
+       "size": 1.0,
+       "y": 0.55
+      },
+      {
+       "text": "PLUS",
+       "size": 0.55,
+       "y": 0.3
+      },
+      {
+       "text": "ÖZLÜCE",
+       "size": 0.45,
+       "y": 0.12
+      }
+     ],
+     "logo": "üstte beyaz dağ/grafik çizgisi logosu"
+    },
+    {
+     "t": "sign",
+     "u0": 57.06,
+     "u1": 61.69,
+     "y0": 22.5,
+     "y1": 27.8,
+     "text": "",
+     "fg": "#f2f2f2",
+     "style": "letters",
+     "d": 0.04,
+     "off": 0.0,
+     "font": "serif",
+     "bold": true,
+     "lines": [
+      {
+       "text": "CEYLAN",
+       "size": 1.0,
+       "y": 0.55
+      },
+      {
+       "text": "PLUS",
+       "size": 0.55,
+       "y": 0.3
+      },
+      {
+       "text": "ÖZLÜCE",
+       "size": 0.45,
+       "y": 0.12
+      }
+     ],
+     "logo": "üstte beyaz dağ/grafik çizgisi logosu"
+    },
+    {
+     "t": "bal",
+     "u0": 23.23,
+     "u1": 28.42,
+     "d": 1.2,
+     "s": [
+      2,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "railC": "#e8e8e4",
+     "glassC": {
+      "*": "#6f8494"
+     },
+     "fasciaC": {
+      "*": "#eeeeea"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "bal",
+     "u0": 34.79,
+     "u1": 40.22,
+     "d": 1.2,
+     "s": [
+      2,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "railC": "#e8e8e4",
+     "glassC": {
+      "*": "#6f8494"
+     },
+     "fasciaC": {
+      "*": "#eeeeea"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "bal",
+     "u0": 46.24,
+     "u1": 52.26,
+     "d": 1.2,
+     "s": [
+      2,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "railC": "#e8e8e4",
+     "glassC": {
+      "*": "#6f8494"
+     },
+     "fasciaC": {
+      "*": "#eeeeea"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "win",
+     "u0": 20.47,
+     "u1": 21.97,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 28.14,
+     "u1": 29.64,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 32.27,
+     "u1": 33.77,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 40.41,
+     "u1": 41.91,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 43.25,
+     "u1": 44.75,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "win",
+     "u0": 51.86,
+     "u1": 53.36,
+     "y0": 9.4,
+     "y1": 10.85,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "frameC": "#2e3134"
+    },
+    {
+     "t": "pilaster",
+     "u": 25.82,
+     "w": 0.45,
+     "y0": 26.5,
+     "y1": 29.0,
+     "d": 0.08,
+     "color": "#c5a071"
+    },
+    {
+     "t": "pilaster",
+     "u": 31.25,
+     "w": 0.45,
+     "y0": 26.5,
+     "y1": 29.0,
+     "d": 0.08,
+     "color": "#c5a071"
+    },
+    {
+     "t": "pilaster",
+     "u": 37.03,
+     "w": 0.45,
+     "y0": 26.5,
+     "y1": 29.0,
+     "d": 0.08,
+     "color": "#c5a071"
+    },
+    {
+     "t": "pilaster",
+     "u": 42.82,
+     "w": 0.45,
+     "y0": 26.5,
+     "y1": 29.0,
+     "d": 0.08,
+     "color": "#c5a071"
+    },
+    {
+     "t": "pilaster",
+     "u": 48.72,
+     "w": 0.45,
+     "y0": 26.5,
+     "y1": 29.0,
+     "d": 0.08,
+     "color": "#c5a071"
+    },
+    {
+     "t": "sign",
+     "u0": 23.46,
+     "u1": 25.59,
+     "y0": 20.6,
+     "y1": 21.3,
+     "text": "…",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "logo": "küçük koyu pano, beyaz yazı okunamadı (A yığını K6)"
+    },
+    {
+     "t": "sign",
+     "u0": 23.46,
+     "u1": 25.59,
+     "y0": 17.6,
+     "y1": 18.4,
+     "text": "… SAĞLIK MESLEK …",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": false,
+     "logo": "A yığını K5, çoğu okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 23.46,
+     "u1": 25.59,
+     "y0": 14.7,
+     "y1": 15.4,
+     "text": "mokka",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": false
+    },
+    {
+     "t": "sign",
+     "u0": 23.46,
+     "u1": 25.59,
+     "y0": 12.0,
+     "y1": 12.7,
+     "text": "LAPİ…",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "logo": "okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 37.51,
+     "u1": 40.1,
+     "y0": 20.9,
+     "y1": 21.9,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "PODOPLUS",
+       "size": 1.0,
+       "y": 0.62
+      },
+      {
+       "text": "… SAĞLIK MERKEZİ",
+       "size": 0.45,
+       "bold": false,
+       "y": 0.22
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "u0": 34.79,
+     "u1": 36.56,
+     "y0": 17.6,
+     "y1": 18.4,
+     "text": "Fuj…",
+     "fg": "#6b5a8a",
+     "bg": "#f4f4f2",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "script",
+     "bold": false,
+     "logo": "el yazısı, okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 34.79,
+     "u1": 37.51,
+     "y0": 11.8,
+     "y1": 12.7,
+     "text": "TWINS BEAUTY\nCENTER",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "logo": "üstte küçük yuvarlak amblem"
+    },
+    {
+     "t": "sign",
+     "u0": 46.59,
+     "u1": 48.6,
+     "y0": 23.7,
+     "y1": 24.2,
+     "text": "0540 184 55 72",
+     "fg": "#2b2d30",
+     "bg": "#f4f4f2",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": false,
+     "logo": "telefon numarası okuması belirsiz"
+    },
+    {
+     "t": "sign",
+     "u0": 46.24,
+     "u1": 48.72,
+     "y0": 11.8,
+     "y1": 12.7,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": false,
+     "lines": [
+      {
+       "text": "SERBEST MUHASEBECİ MALİ MÜŞAVİR",
+       "size": 0.45,
+       "y": 0.72
+      },
+      {
+       "text": "ÜMİT UÇAK",
+       "size": 1.0,
+       "y": 0.3
+      }
+     ],
+     "logo": "solda \"M\" amblemi"
+    },
+    {
+     "t": "sign",
+     "u0": 49.07,
+     "u1": 52.02,
+     "y0": 11.8,
+     "y1": 12.7,
+     "text": "",
+     "fg": "#e04a6a",
+     "bg": "#2b2d30",
+     "style": "box",
+     "d": 0.06,
+     "off": 1.25,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "…",
+       "size": 0.6,
+       "y": 0.7
+      },
+      {
+       "text": "Lash And Nail",
+       "size": 0.8,
+       "y": 0.28
+      }
+     ],
+     "logo": "üst satır el yazısı okunamadı"
+    }
+   ]
   }
  ]
 }
