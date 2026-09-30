@@ -22,19 +22,42 @@ export interface TreeInstance {
   rot: number;
   /** renk çarpanı */
   shade: number;
+  /**
+   * Ölçülen taç tabanı (ilk dalların kotu): modelin başvuru boyuna oranı (model birimi / türün h), 0 = türün kendi
+   * taç tabanı. Ağaç alanı bu örnekleri gövdesi uzatılmış / kısaltılmış model çeşidiyle çizer (treelib).
+   */
+  cb?: number;
 }
 
-/** Payload'da ağaç başına kayan sayı: [x, z, sxz, sy, dönüş, gölge] */
+/** Payload'da ağaç başına kayan sayı: [x, z, sxz, sy, dönüş, gölge] (taç tabanı çeşidi chunk'ta: `cb`) */
 export const TREE_STRIDE = 6;
 
 export interface TreePayload {
-  /** chunk anahtarı → tip → [x, z, sxz, sy, dönüş, gölge]* */
-  chunks: { cx: number; cz: number; type: number; data: Float32Array }[];
+  /**
+   * chunk anahtarı → tip (+ taç tabanı çeşidi `cb`, 0 = türün modeli; 0.05 adımlı) → [x, z, sxz, sy, dönüş, gölge]*
+   */
+  chunks: { cx: number; cz: number; type: number; cb: number; data: Float32Array }[];
   count: number;
 }
 
-/** fixedTrees akışı: ağaç başına [x, z, tür, boy m (0 = bilinmiyor), taç yarıçapı m (0 = bilinmiyor)] */
-export const FIXED_STRIDE = 5;
+/**
+ * fixedTrees akışı: ağaç başına [x, z, tür, boy m (0 = bilinmiyor), taç yarıçapı m (0 = bilinmiyor), taç tabanı m
+ * (ilk dallar; 0 = bilinmiyor → türün modeli)]
+ */
+export const FIXED_STRIDE = 6;
+
+/** Taç tabanı çeşidi adımı (model boyuna oran) — aynı adımdaki ağaçlar tek model çeşidini paylaşır */
+export const CB_STEP = 0.05;
+
+/**
+ * Ölçülen taç tabanı (m) → model çeşidi oranı: model biriminde taban (cb / sy) / türün başvuru boyu, 0.05 adımına
+ * yuvarlanır, 0.02–0.85 aralığında. 0 / bilinmiyor → 0 (türün kendi modeli).
+ */
+export function crownBaseRatio(cbM: number, sy: number, refH: number): number {
+  if (!(cbM > 0) || !(sy > 0) || !(refH > 0)) return 0;
+  const r = Math.max(0.02, Math.min(0.85, cbM / sy / refH));
+  return Math.max(CB_STEP, Math.round(r / CB_STEP) * CB_STEP);
+}
 
 /**
  * Ölçülmüş boy/taç yarıçapından türün başvuru boyuna göre ölçek. Yalnız biri biliniyorsa oran korunur;
@@ -47,7 +70,8 @@ export function fixedScale(type: number, h: number, r: number): { sxz: number; s
   let sy = byH || byR || 1;
   let sxz = byR || byH || 1;
   sy = Math.max(0.12, Math.min(2.2, sy));
-  sxz = Math.max(sy * 0.6, Math.min(sy * 1.7, sxz));
+  // İkisi de ölçülmüşse ölçülen dar taç korunur (ör. genç sedir, dar palmiye); yalnız biri biliniyorsa eski oran
+  sxz = Math.max(sy * (byH && byR ? 0.35 : 0.6), Math.min(sy * 1.7, sxz));
   return { sxz, sy };
 }
 
@@ -179,7 +203,8 @@ export function placeTrees(
     const type = Math.max(0, Math.min(SPECIES_COUNT - 1, Math.round(F[i + 2])));
     const r = rng(hashString(`f${x},${z}`));
     const { sxz, sy } = fixedScale(type, F[i + 3], F[i + 4]);
-    out.push({ x, z, type, sxz, sy, rot: r() * Math.PI * 2, shade: 0.88 + r() * 0.2 });
+    const cb = crownBaseRatio(F[i + 5], sy, SPECIES_SIZE[speciesKey(type)].h);
+    out.push({ x, z, type, sxz, sy, rot: r() * Math.PI * 2, shade: 0.88 + r() * 0.2, ...(cb ? { cb } : {}) });
     placed.insertBox(x, z, x, z, [x, z]);
   }
   // 1) Haritalanmış ağaçlar (engellemeden bağımsız, yalnızca bina içi elenir)
@@ -277,13 +302,14 @@ export function placeTrees(
 }
 
 export function treesToPayload(trees: TreeInstance[]): TreePayload {
-  const groups = new Map<string, { cx: number; cz: number; type: number; data: number[] }>();
+  const groups = new Map<string, { cx: number; cz: number; type: number; cb: number; data: number[] }>();
   for (const t of trees) {
     const cx = Math.floor(t.x / CHUNK_SIZE);
     const cz = Math.floor(t.z / CHUNK_SIZE);
-    const k = `${cx},${cz},${t.type}`;
+    const cb = t.cb ?? 0;
+    const k = `${cx},${cz},${t.type},${cb}`;
     let g = groups.get(k);
-    if (!g) groups.set(k, (g = { cx, cz, type: t.type, data: [] }));
+    if (!g) groups.set(k, (g = { cx, cz, type: t.type, cb, data: [] }));
     g.data.push(t.x, t.z, t.sxz, t.sy, t.rot, t.shade);
   }
   return {
@@ -291,6 +317,7 @@ export function treesToPayload(trees: TreeInstance[]): TreePayload {
       cx: g.cx,
       cz: g.cz,
       type: g.type,
+      cb: g.cb,
       data: new Float32Array(g.data),
     })),
     count: trees.length,
