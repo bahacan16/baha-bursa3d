@@ -39,7 +39,7 @@
   "plaster2": "#b9a48c",
   "strip": "#b9a48c",
   "fascia": "#bca18c",
-  "soffit": "#6f5a45",
+  "soffit": "#b9a48c",
   "railGlass": "#95abb1",
   "frame": "#2e3033",
   "tile": "#b9b6ae",
@@ -2337,7 +2337,8 @@
   "PODYUM RENKLERİ: beyaz ACP #d9dee1 tahmini (gölgede #a4abaf), bej taş kaplama #c2b4a1 (331. Sk. güneşli), taş bant yatay derzli. Tabela renkleri çoğunlukla gölgede ölçüldü (bulvar/kuzey), güneşli değerler ≈×1.3–1.5 tahmin — her öğenin logo notuna bak.",
   "TABELALAR (kenar başına ayrıntı kenar notlarında): bulvar e0 arçelik ×2, İşbir yatak, Toleran Sigorta (üst + alt pano), ORTODONTİST Uzm. Dt. Sevil YEŞİLBAŞ, YERDENİZ PSİKOLOJİ (K3 önü teras korkuluğu); e1 Penti, 1A PLUS, ÖZGÜR MODA başı; e2 ATB GAYRİMENKUL, ÖZGÜR MODA, AKADEMİ MATEMATİK (üst kutu + iletişim panosu), SEYHAN GAYRİMENKUL (3 pano), DİŞ HEKİMİ AYHAN ÖZDEMİR (K4 balkon), GÖK'AY (kış bahçesi, kaldırım); e3 Ziraat Bankası (kanal harf + ışıklı kutu, ATM köşkü); e4 DİŞ HEKİMİ HAKAN ÇETİN, OUTLET CITY, MADİNA ERDEN, ZEUGMA KÜNEFE (kaldırım), KUVEYTTÜRK, SATILIK levhası (K7), portre bayrak (K4); e5–e6 KuveytTürk (amblem, slogan folyoları, İşlematik ATM'ler), kavanoz design, ECZANE (bayrak E), YUSUF ÖZOĞLU mali müşavir; e7 ECZANE BUKETİM; e9 HAIR LOUNGE / ÖZAY ÖZKAN, eren grup / eren tour, ÇARŞAMBA² VİP, provey TURKEY, VERA GAYRİMENKUL, özhan + şarküteri afişleri; e10/e12/e13 özhan baskıları; e15 BİM; e18 KOPİ NO 9, SANSAR FRIED CHICKEN; e19 SANSAR köşe tabelası; e46 arçelik kuzey vitrini, Banu Ünal.",
   "GECE: ışıklı olduğu yapıdan belli olanlar lit (Ziraat kutu, KuveytTürk hap tabela, BİM, eczane E, ECZANE BUKETİM); gece karesi yok.",
-  "GÖRÜLMEYEN: iç avlu kenarları 20–40, 42–44 (Street View yok; yalnız hava fotoğrafı), kısa dişler 8/11/14/16/17, kulelerin podyum boşluklarına bakan yan yüzleri ve 331. Sk. tarafındaki güney yüzleri (kütle kesim duvarı, düz sıva çizilir). Kule 2/3 yan yüzleri ve kule 4/5'in avlu yüzleri çizilmedi."
+  "GÖRÜLMEYEN: iç avlu kenarları 20–40, 42–44 (Street View yok; yalnız hava fotoğrafı), kısa dişler 8/11/14/16/17, kulelerin podyum boşluklarına bakan yan yüzleri ve 331. Sk. tarafındaki güney yüzleri (kütle kesim duvarı, düz sıva çizilir). Kule 2/3 yan yüzleri ve kule 4/5'in avlu yüzleri çizilmedi.",
+  "D4 eleştirmen düzeltmesi (2026-09-30): palet soffit #6f5a45 → #b9a48c. Eski değer balkon/saçak ALT yüzlerinin gölgedeki örneğiydi (AElA 120: gölgede #604f3d–#67513f); üretici alt yüzü zaten gölgeli çizdiği için koyu kahve görünüyordu. Alt yüzler fotoğrafta ön yüzlerle aynı bej boya (güneşte ön yüz ≈ plaster2 #b9a48c) → soffit = plaster2."
  ],
  "pending": [
   {
@@ -2845,7 +2846,8 @@
      "d": 0.06,
      "font": "sans",
      "bold": true,
-     "logo": "eğik kırmızı bayrak/levha üzerinde kalın italik beyaz 'işbir' (ş ve i noktalı); kutuyu alttan/üstten hafif taşar"
+     "logo": "eğik kırmızı bayrak/levha üzerinde kalın italik beyaz 'işbir' (ş ve i noktalı); kutuyu alttan/üstten hafif taşar — D4 düzeltmesi: gri çerçeveli bej kutunun (d 0.1) ön yüzüne monte (off 0.1); önceden kutunun içinde kalıp görünmüyordu",
+     "off": 0.1
     },
     {
      "t": "sign",
@@ -2859,7 +2861,8 @@
      "d": 0.04,
      "font": "script",
      "bold": true,
-     "logo": "siyah kıvrımlı serif/el yazısı 'yatak', 'y' üstünde küçük ay amblemi (uyku)"
+     "logo": "siyah kıvrımlı serif/el yazısı 'yatak', 'y' üstünde küçük ay amblemi (uyku) — bej kutunun ön yüzünde (off 0.1)",
+     "off": 0.1
     },
     {
      "t": "sign",
@@ -2872,7 +2875,8 @@
      "style": "letters",
      "d": 0.02,
      "font": "sans",
-     "bold": true
+     "bold": true,
+     "off": 0.1
     },
     {
      "t": "win",
@@ -2957,14 +2961,14 @@
      "u1": 24.37,
      "y0": 5.6,
      "y1": 7.35,
-     "text": "Pe",
+     "text": "",
      "bg": "#e34a4c",
      "fg": "#ffffff",
      "style": "box",
      "d": 0.12,
      "font": "sans",
      "bold": false,
-     "logo": "Penti tabela kutusu kenar 1'e devam ediyor (tam yazı 'Penti' kenar 1'de); burada yalnız 'Pe' görünür"
+     "logo": "Penti kırmızı kutu tabelasının kenar 0 parçası: 'Penti' yazısı kenar 1 öğesinde çizilir (burada yazı çizilmez — iki kenarda ayrı çizilince 'Pe Penti' okunuyordu)"
     },
     {
      "t": "awning",

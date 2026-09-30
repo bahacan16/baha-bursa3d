@@ -3715,7 +3715,8 @@
      "d": 0.02,
      "text": "PABLO",
      "fg": "#c9433f",
-     "logo": "kalın geniş kırmızı harf, düz levha/boya (kabartma görülmedi → d 0.02)"
+     "logo": "kalın geniş kırmızı harf, düz levha/boya (kabartma görülmedi → d 0.02); D4 düzeltmesi: harfler kutu yüksekliğini doldurur (tTh9 300 karesinde harf boyu oyunun ≈1.8 katı) → capH 1.4",
+     "capH": 1.4
     },
     {
      "t": "panel",
@@ -3740,7 +3741,7 @@
    "tol": 1,
    "seen": "photo",
    "ref": "0lpk / 0tbf (e16 ortosundan düzlem ölçeği 0.93 ile çevrildi; kamera u_c 15.9)",
-   "note": "PABLO 2 katlı kutusunun güney yüzü (z≈−570.7, önünde tek katlı şerit). u a’dan doğuya GERÇEK m, y tabandan. Ölçek dönüşümü: gerçek u = 15.9 + (u_e16 − 16.1)/0.93, y = 2.5 + (y_e16 − 2.5)/0.93 (üst 10.35 ✓). Düşey derz u 5.2; doğu bölümde çerçeveli büyük pano, altında iki pano; kırmızı PABLO harfleri düz (boya/levha). VRF üniteleri şerit çatısında → pending.",
+   "note": "PABLO 2 katlı kutusunun güney yüzü (z≈−570.7, önünde tek katlı şerit). u a’dan doğuya GERÇEK m, y tabandan. Ölçek dönüşümü: gerçek u = 15.9 + (u_e16 − 16.1)/0.93, y = 2.5 + (y_e16 − 2.5)/0.93 (üst 10.35 ✓). Düşey derz u 5.2; doğu bölümde çerçeveli büyük pano, altında iki pano; kırmızı PABLO harfleri düz (boya/levha). VRF üniteleri şerit çatısında → pending. D4 düzeltmesi: çerçeveli büyük pano e16 f22'de görünen u 6.03–16.73, y 6.12–8.58 → gerçek u 5.05–16.47, y 6.4–9.04 (önceki u1 19 kulenin köşesine kadar uzanıyordu; fotoğrafta pano ile kule kenarı arasında düz beyaz duvar); alt ikinci pano u1 16.55.",
    "items": [
     {
      "t": "groove",
@@ -3753,10 +3754,10 @@
     },
     {
      "t": "panel",
-     "u0": 5,
-     "u1": 19,
-     "y0": 5.8,
-     "y1": 9.6,
+     "u0": 5.05,
+     "u1": 16.47,
+     "y0": 6.4,
+     "y1": 9.04,
      "color": "#d8d6ce",
      "proud": 0.03
     },
@@ -3772,7 +3773,7 @@
     {
      "t": "panel",
      "u0": 10.7,
-     "u1": 15.5,
+     "u1": 16.55,
      "y0": 4.3,
      "y1": 5.7,
      "color": "#d8d6ce",
@@ -3780,17 +3781,18 @@
     },
     {
      "t": "sign",
-     "u0": 8.2,
-     "u1": 14.5,
-     "y0": 7,
-     "y1": 8.5,
+     "u0": 7.7,
+     "u1": 13.95,
+     "y0": 6.95,
+     "y1": 8.48,
      "style": "letters",
      "d": 0.02,
      "text": "PABLO",
      "fg": "#c9433f",
      "font": "sans",
      "bold": true,
-     "logo": "kalın geniş kırmızı harf, düz (kabartma görülmedi); gece görülmedi"
+     "logo": "kalın geniş kırmızı harf, düz (kabartma görülmedi); gece görülmedi; D4 düzeltmesi: harf boyu 0lpk e16 f22 ortofotosundan ölçüldü (görünen u 8.46–14.28, y 6.64–8.06 → gerçek u 7.7–13.95, y 6.95–8.48): harfler kutuyu doldurur → capH 1.53 (önceden üretici harfleri kutu içinde ≈%60 küçük çiziyordu)",
+     "capH": 1.53
     }
    ]
   },

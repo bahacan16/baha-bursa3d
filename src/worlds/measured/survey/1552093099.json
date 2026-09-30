@@ -1809,9 +1809,11 @@
      "y1": 5.85,
      "d": 0.04,
      "style": "letters",
-     "text": "",
-     "fg": "#8a2a2a",
-     "logo": "COFFEE & FOOD üstünde koyu kırmızı logo yazısı (VİRA? — ağaç dalı arkasında okunamadı)"
+     "text": "OYUN",
+     "fg": "#b8404a",
+     "logo": "OYUN: kırmızı kalın kanal harf, ince açık pembe/beyaz kontur (kontur çizilmez); 7zxi 131_-2_22 karesinde ağaç dalı arasından okundu, 1IQY 60 karesinde batı yüzdeki eşi net (renk oradan, küçük örnek ±)",
+     "font": "sans",
+     "bold": true
     }
    ],
    "note": "Kuzey cephe (bloklar arası geçit), ref 7zxi (_f22, 43 m): u 0–17 önündeki komşu binanın (TEB / Sultan Sarıcı Güzellik Salonu) koyu köşesi arkasında GÖRÜLMEDİ. Görülen: koyu kahve ahşap lamel alın bandı, altında siyah tente dizisi, çalı saksıları arkasında koyu cam; kırmızı kare logo kutusu, beyaz COFFEE & FOOD harfleri (KB köşe = VİRA). Üstte taş kaplı 1. kat ve kule (geride) → pending cutFace-N."
@@ -1919,6 +1921,34 @@
      "text": "…RSICH",
      "fg": "#b99a5a",
      "logo": "altın harfler, köşeyi saran koyu tabelanın bu yüzdeki ucu; tamamı e22/köşe karesinde okunmadı"
+    },
+    {
+     "t": "sign",
+     "u0": 4.25,
+     "u1": 5.45,
+     "y0": 5.29,
+     "y1": 5.78,
+     "style": "letters",
+     "d": 0.04,
+     "text": "OYUN",
+     "fg": "#b8404a",
+     "font": "sans",
+     "bold": true,
+     "logo": "D4 düzeltmesi: 1IQY 60_0 karesinde (güneybatıdan) ahşap lamelli alında güneydeki yeşil tentenin üstünde kırmızı kanal harf 'OYUN' (ince açık kontur, çizilmez); c6nV ortofotosunda ağaç arkasında → u tente konumuna göre (±0.5), y alın bandı içinde oranla"
+    },
+    {
+     "t": "sign",
+     "u0": 3.9,
+     "u1": 6.0,
+     "y0": 4.9,
+     "y1": 5.25,
+     "style": "letters",
+     "d": 0.04,
+     "text": "COFFEE & FOOD",
+     "fg": "#f2f2ef",
+     "font": "sans",
+     "bold": true,
+     "logo": "OYUN'un altında beyaz kalın harf (1IQY 60_0)"
     },
     {
      "t": "win",
@@ -2410,7 +2440,7 @@
      "color": "#1b1b1b"
     }
    ],
-   "note": "Bulvar cephesi (tek katlı ön şerit, OSM 1552093100), ref c6nV (_f22), KFus ile kontrol. Kuzeyden: VİRA FOOD COFFEE (iki koyu yeşil tente beyaz logo, ahşap lamelli alın; KB köşede altın \"…RSICH\" tabela ucu), altın çerçeveli kapı, Modern Tavla Ligi (baskı branda levha + VİRA tentesi), beyaz dikmeli cam salon kafe (üç siyah duvar lambası, basamak), GB köşede Cigerci hamza cam salonu (beyaz kolonlar + koyu Y biçimli çelik dikmeler saçağı taşır, beyaz saçak plağı, üstünde beyaz ACP pano ve kırmızı el yazısı). Cam arkasında görülen kırmızı \"…eknoloj…/…ayatın/…albind…\" yazıları yansıma/iç afiş → çizilmedi. Taş kaplı 1. kat ve kule ≈7.8 m geride (x≈664, iki panoda tutarlı) → pending cutFace-W. Tentelerin/saçağın derinliği tahmini."
+   "note": "Bulvar cephesi (tek katlı ön şerit, OSM 1552093100), ref c6nV (_f22), KFus ile kontrol. Kuzeyden: VİRA FOOD COFFEE (iki koyu yeşil tente beyaz logo, ahşap lamelli alın; KB köşede altın \"…RSICH\" tabela ucu), altın çerçeveli kapı, Modern Tavla Ligi (baskı branda levha + VİRA tentesi), beyaz dikmeli cam salon kafe (üç siyah duvar lambası, basamak), GB köşede Cigerci hamza cam salonu (beyaz kolonlar + koyu Y biçimli çelik dikmeler saçağı taşır, beyaz saçak plağı, üstünde beyaz ACP pano ve kırmızı el yazısı). Cam arkasında görülen kırmızı \"…eknoloj…/…ayatın/…albind…\" yazıları yansıma/iç afiş → çizilmedi. Taş kaplı 1. kat ve kule ≈7.8 m geride (x≈664, iki panoda tutarlı) → pending cutFace-W. Tentelerin/saçağın derinliği tahmini. D4 düzeltmesi: kuzey ucundaki ahşap alında 'OYUN / COFFEE & FOOD' (1IQY 60_0; tente saçaklarında 'VİRA FOOD COFFEE')."
   }
  ],
  "notes": [
@@ -2450,7 +2480,7 @@
    "tol": 0.6,
    "seen": "photo",
    "ref": "c6nV _f22 / KFus kendi düzlem ortofotosu (x ≈ 664)",
-   "note": "Batı kule altındaki taş kaplı 1. kat (K1, y 7.3–11.95) bulvar yüzü; u = z −555.4'ten güneye (+z), y blok tabanından GERÇEK m. v8 (anket ajanı): taş kat ve kule aynı düzlemde (x≈664, iki panoda tabela/pencere u’ları aynı) → massing batı kule çokgeninin batı yüzü x = 664.0 düzleştirildi (OSM kırıkları 663.1–664.9 kaldırıldı), 2 katlı parça yalnız kuzey şerit; taş kat artık kulenin K1’i (parça 0), tol 0.6. Pencere perdeleri yalnız okunanlar (7.0–8.6 beyaz yatay jaluzi → zebra, 17.6–19.3 dikey jaluzi); diğerleri koyu kasalı, perdesi yazılmadı. Doğrama rengi (koyu) örneklenmedi → blok frame.",
+   "note": "Batı kule altındaki taş kaplı 1. kat (K1, y 7.3–11.95) bulvar yüzü; u = z −555.4'ten güneye (+z), y blok tabanından GERÇEK m. v8 (anket ajanı): taş kat ve kule aynı düzlemde (x≈664, iki panoda tabela/pencere u’ları aynı) → massing batı kule çokgeninin batı yüzü x = 664.0 düzleştirildi (OSM kırıkları 663.1–664.9 kaldırıldı), 2 katlı parça yalnız kuzey şerit; taş kat artık kulenin K1’i (parça 0), tol 0.6. Pencere perdeleri yalnız okunanlar (7.0–8.6 beyaz yatay jaluzi → zebra, 17.6–19.3 dikey jaluzi); diğerleri koyu kasalı, perdesi yazılmadı. Doğrama rengi (koyu) örneklenmedi → blok frame. D4 düzeltmesi (2026-09-30): taş kat rengi güneşte örneklendi (KFus 79_5_40: #afa28b / #aea290; gölgede eleştirmen #736c61); ince yatay taş sıraları ≈0.12 m (c6nV e23 ortofotosunda sayım, ±0.03; derz rengi yaklaşık) → clad h.",
    "items": [
     {
      "t": "panel",
@@ -2458,7 +2488,13 @@
      "u1": 20.6,
      "y0": 7.3,
      "y1": 11.95,
-     "color": "#b9ab91"
+     "color": "#afa28b",
+     "clad": {
+      "dir": "h",
+      "every": 0.12,
+      "w": 0.01,
+      "color": "#968a76"
+     }
     },
     {
      "t": "win",

@@ -1368,6 +1368,14 @@
    "what": "Levrek / BK teras derinlikleri",
    "edge": 5,
    "desc": "Levrek restoranı (u 21.6–39.5) ve Burger King (u 41.8–61.9) zemin kat camları örtülü terasın gerisinde; derinlik yandan görülmedi → 2.0 / 3.5 m tahmin (girinti)."
+  },
+  {
+   "what": "1. kat teras korkuluğu (doğu, BK / addax önü) iki renkli",
+   "desc": "NkuAAQDM / 1Re88 f22: küpeşte açık gri #c1c8c9 (yuvarlak boru), altında 5 ince koyu yatay çubuk #1f282b (≈0.15 m arayla), koyu dikmeler ≈1.5 m arayla, yükseklik ≈0.95; e10 u ≈28–33 (kafe önü) ahşap lamelli korkuluk. Parapet korkuluğu tek renk (railC) ve 'tube' 3 sıra → koyu çubuklar çizilemiyor; podyum korkuluğu beyaz boru kaldı. Üreticiye: korkuluk küpeşte rengi ayrı + çubuk sayısı; kenar bazında parapet korkuluk rengi (güney/batı beyaz boru, doğu bu tip)."
+  },
+  {
+   "what": "çatı tabelası 'bulvarözlüce' GÜNEY yüzü (L biçimli tabelanın güneye bakan kolu)",
+   "desc": "4OA_ (e5) f22 ortofotosunda tabla üstünde görünen u 31.3–42.9 (e5 düzlemi, D 11.8), yalnız üst kısmı (görünen üst ≈19.0; altı tabla arkasında), beyaz delikli pano, lacivert harfler + solda halka logo — MAQE 0_0 karesinde doğu koluyla (cutEdges[1] roofsign) köşede birleşir görünür. İki kareden kaba kesişim: doğu ucu ≈(591.5, −421.5), batı ucu ≈x 571.7 (z −421.5), üst ≈29.6–30.8 (doğu kolunun ölçülen 26.4 üstüyle tutarsız, ±3 m) → konum/kot güvenilmez, çizilmedi. Doğu kolunun konumu (setback 3, çerçeve 5.9 m) MAQE 0_0 izdüşümüyle ≈30 px (≈2–3 m) uyumlu; eleştirmenin 'harfler saçak plağı üstünde' okuması perspektif (tabla ön kenarı ile tabela aynı bakış doğrultusunda)."
   }
  ],
  "volumes": [
@@ -2453,8 +2461,40 @@
    "tol": 1.5,
    "seen": "photo",
    "ref": "bp/e6, bp/e10 −9.0 m arka düzlem ortofotoları (NkuAAQDM, 1Re88), bp/e8 −4.5 m (4o1y)",
-   "note": "Üst kutu DOĞU yüzü (bulvar); u = kutu GD köşesinden kuzeye. Eski e6 u − 3.25, eski e10 u + 38.61, portal eski e8 (girinti ortası) → u 33.2–38.6. Çatı tabelaları (setback 3.0) ön ortofotodan 12 m arka düzleme çevrildi.",
+   "note": "Üst kutu DOĞU yüzü (bulvar); u = kutu GD köşesinden kuzeye. Eski e6 u − 3.25, eski e10 u + 38.61, portal eski e8 (girinti ortası) → u 33.2–38.6. Çatı tabelaları (setback 3.0) ön ortofotodan 12 m arka düzleme çevrildi. D4 eleştirmen düzeltmesi (2026-09-30): (1) teras korkuluğunun arkasında kalan kutu yüzü (1. kat teras döşemesi 4.0 → çerçeve alt bandı 5.9) orta gri ACP #5a6163 (NkuAAQDM f22, korkuluk çubukları arasından; bulutlu) — önceden sıva (beyaz) kalıyordu ve BURGER KING / addax harflerinin arkası beyaz görünüyordu (eleştirmenin 'koyu alın bandı' dediği bu yüz + koyu korkuluk çubukları; harflerin arkasında ayrı bir alın bandı YOK). (2) Dama deseni u 2.75–70.21'de kalır (kutu uçlarında koyu gri çerçeve: güney ucu −9 m arka düzlem ortofotosunda dama başlangıcı üstte 2.0, altta 3.25 — kutu yüzü dışa eğik, pending; kuzey ucu 70.2, çerçeve 72.0'a kadar); uçtaki 2.75 / 1.8 m'lik çerçeve şeritleri boş kalıp sıva (beyaz) görünüyordu → #545a5f pano (NkuAAQDM f22 güney uç çerçevesi, bulutlu).",
    "items": [
+    {
+     "t": "panel",
+     "u0": 0.0,
+     "u1": 33.12,
+     "y0": 4.0,
+     "y1": 5.9,
+     "color": "#5a6163"
+    },
+    {
+     "t": "panel",
+     "u0": 38.61,
+     "u1": 72.02,
+     "y0": 4.0,
+     "y1": 5.9,
+     "color": "#5a6163"
+    },
+    {
+     "t": "panel",
+     "u0": 0.0,
+     "u1": 2.75,
+     "y0": 6.35,
+     "y1": 13.85,
+     "color": "#545a5f"
+    },
+    {
+     "t": "panel",
+     "u0": 70.21,
+     "u1": 72.02,
+     "y0": 6.35,
+     "y1": 13.85,
+     "color": "#545a5f"
+    },
     {
      "t": "band",
      "u0": 0.0,

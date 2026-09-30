@@ -854,3 +854,9 @@
   `docs/compare/mertkent2-elmodeli.jpg` → `elmodeli.jpg`; betik/iş akışı yolları güncellendi, Street View indirme
   iş akışında varsayılan alan adı kaldırıldı (alan ya da bbox zorunlu). İçerik aynı. **Blender:** yerel betiklerdeki
   / `blender/SYNC.md`'deki yol başvurularını yeni klasör adlarına çevir (katman değişmez).
+- **(D4 eleştirmen düzeltmeleri, sayfa B cepheleri)** — `survey/` 1551814316 (AVM: yazıların arkasındaki koyu kutu
+  yüzü, mozaik uç çerçeveleri), 1551814323 (Ceylan Plus: koyu güney yüzü, derin iskeleler + ten astarlar, kuzey kanat
+  ten/koyu çapraz ayrım, Cadı'nın Evi krem çıta alın), 1550614219 (işbir / yatak / uyku merkezi kutu önüne, tek Penti,
+  güney kule balkon altı #b9a48c), 1552093099 (taş kaplama rengi + sıraları, MY DREAM / OYUN tabelaları), 1551828351
+  (PABLO harf boyu 1.53 m) derlendi. Eleştirmenin 6 iddiası fotoğrafla çelişti (reddedildi). **Blender:**
+  `NW/Measured/Facades` bu 5 blok yeniden kurulur.
