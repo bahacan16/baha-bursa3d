@@ -188,13 +188,123 @@ function towardRoad(roadCentre: (x: number, z: number) => number, x: number, z: 
   return best.d < d0 ? [best.x, best.z] : null;
 }
 
+/** v8: dönüşümlü bordür boyası (D4 bulvarı: yeşil / beyaz taş grupları) */
+export interface KerbPaint {
+  /** Sırayla boyanan renkler (sRGB hex) */
+  colors: string[];
+  /** Aynı renkte ardışık taş sayısı */
+  group: number;
+  /** Yalnız yola bakan yüz (üst boyasız) */
+  face: boolean;
+}
+/**
+ * KARAR: renk ölçülmemiş yeşil/beyaz boyalı bordürler bulvar boyunca aynı boya sayılır → d4-sw-w1 ölçümü (güneşli
+ * yeşil #8e948e, beyaz #a6a49f); grup ≈3 taş (aynı ölçüm).
+ */
+const D4_GREEN = '#8e948e';
+const D4_WHITE = '#a6a49f';
+/**
+ * Bordür boyası: açık alan (`kerbPaint` "green-white" / {colors, group, face}) ya da malzeme metni
+ * ("… dönüşümlü yeşil (#8e948e …) ve beyaz (#a6a49f) boyalı (≈3 taş yeşil + 3 taş beyaz)"; "yola bakan yüzü …" →
+ * yalnız yüz). "yeşil/beyaz boya yok" → boyasız. "white" (502. Sk. bisiklet kenarı) ayrı yordamda (null).
+ */
+export function kerbPaintOf(text: string | undefined, explicit?: unknown): KerbPaint | null {
+  const hexes = (v: unknown) =>
+    Array.isArray(v) ? v.filter((c): c is string => typeof c === 'string' && /^#[0-9a-f]{6}$/i.test(c)) : [];
+  if (explicit && typeof explicit === 'object') {
+    const o = explicit as { colors?: unknown; group?: number; face?: boolean };
+    const cols = hexes(o.colors);
+    return {
+      colors: cols.length ? cols : [D4_GREEN, D4_WHITE],
+      group: Math.max(1, Math.round(o.group ?? 3)),
+      face: !!o.face,
+    };
+  }
+  if (explicit === 'green-white') return { colors: [D4_GREEN, D4_WHITE], group: 3, face: false };
+  if (explicit === 'white') return null;
+  const t = (text ?? '').toLocaleLowerCase('tr');
+  if (!/yeşil\s*[/-]\s*beyaz|dönüşümlü\s+yeşil|yeşil[^.;]{0,30}beyaz[^.;]{0,20}boyal|green\s*[/-]\s*white/.test(t))
+    return null;
+  if (/(yeşil\s*[/-]\s*beyaz\s+)?boya\s+yok|boyasız|boyanmamış/.test(t)) return null;
+  const after = (w: string) => {
+    const m = new RegExp(`${w}[^#.;]{0,12}(#[0-9a-f]{6})`).exec(t);
+    return m ? m[1] : null;
+  };
+  const g = /≈?\s*(\d+)\s*taş/.exec(t);
+  return {
+    colors: [after('yeşil') ?? D4_GREEN, after('beyaz') ?? D4_WHITE],
+    group: g ? Math.max(1, Number(g[1])) : 3,
+    face: /yola bakan yüz/.test(t),
+  };
+}
+
+/** Boya işlemi: tanım + sıradaki taş sayacı (hat boyunca / parçalar arası sürekli) + malzeme anahtarı */
+interface PaintRun {
+  spec: KerbPaint;
+  k: number;
+  key: (hex: string) => string;
+}
+
+/**
+ * Tek taşın boyası: yola bakan yüz (faceA→faceE hattı, taş nIn yönünde içeride) 2 mm önde, üst yüz (face değilse)
+ * 3 mm üstte. Önceden yalnız 502. Sk. beyaz boyası vardı.
+ */
+function paintStone(
+  b: Builder,
+  run: PaintRun,
+  faceA: V2,
+  faceE: V2,
+  nIn: V2,
+  kh: number,
+  H: (x: number, z: number) => number,
+): void {
+  const col = run.spec.colors[Math.floor(run.k / run.spec.group) % run.spec.colors.length];
+  run.k++;
+  const key = run.key(col);
+  const A: V2 = [faceA[0] - nIn[0] * 0.002, faceA[1] - nIn[1] * 0.002];
+  const E: V2 = [faceE[0] - nIn[0] * 0.002, faceE[1] - nIn[1] * 0.002];
+  // wall(a→e) normali (−(e−a).z, (e−a).x): yola (−nIn) bakan sıra
+  const fwd = -(E[1] - A[1]) * -nIn[0] + (E[0] - A[0]) * -nIn[1] > 0;
+  const m: V2 = [(A[0] + E[0]) / 2, (A[1] + E[1]) / 2];
+  const y = H(m[0] + (nIn[0] * KERB_W) / 2, m[1] + (nIn[1] * KERB_W) / 2);
+  b.wall(key, fwd ? A : E, fwd ? E : A, y + 0.02, y + kh - 0.004);
+  if (!run.spec.face)
+    b.drape(
+      key,
+      [faceA, faceE, [faceE[0] + nIn[0] * KERB_W, faceE[1] + nIn[1] * KERB_W], [faceA[0] + nIn[0] * KERB_W, faceA[1] + nIn[1] * KERB_W]],
+      [],
+      H,
+      kh + 0.003,
+      1,
+      2,
+    );
+}
+
 /** Bir çizgi boyunca ~1 m bordür taşları: a→e hattı, n: taşların hattan içeri kaydığı yön, üst kotu zeminden kh */
-function kerbStones(b: Builder, a: V2, e: V2, n: V2, kh: number, H: (x: number, z: number) => number) {
+function kerbStones(
+  b: Builder,
+  a: V2,
+  e: V2,
+  n: V2,
+  kh: number,
+  H: (x: number, z: number) => number,
+  paint?: PaintRun | null,
+) {
   const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
   if (L < 0.05 || kh < 0.03) return;
   const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
   const nS = Math.max(1, Math.round(L));
   for (let k = 0; k < nS; k++) {
+    if (paint)
+      paintStone(
+        b,
+        paint,
+        [a[0] + (t[0] * L * k) / nS, a[1] + (t[1] * L * k) / nS],
+        [a[0] + (t[0] * L * (k + 1)) / nS - t[0] * 0.006, a[1] + (t[1] * L * (k + 1)) / nS - t[1] * 0.006],
+        n,
+        kh,
+        H,
+      );
     const u = (L * (k + 0.5)) / nS;
     const c: V2 = [a[0] + t[0] * u + (n[0] * KERB_W) / 2, a[1] + t[1] * u + (n[1] * KERB_W) / 2];
     const y = H(c[0], c[1]);
@@ -279,6 +389,17 @@ export function signKeysOf(t: string): string[] {
   // Altında ek levha (mavi dikdörtgen, beyaz ok)
   if (/ek levha[^.;]*\bok\b|arrow plate/.test(t) && !/ek levha (yok|görülmedi)/.test(t))
     keys.push('signArrowPlate');
+  return keys;
+}
+
+/**
+ * v8: yalnız levha METNİNDEN okunan bilgi levhaları (notta geçen "yaya geçidi" konum anlatımı olabilir): yaya geçidi
+ * (mavi kare, beyaz üçgende yaya) ve otobüs durağı (mavi kare, beyaz otobüs).
+ */
+export function signTextKeys(t: string): string[] {
+  const keys: string[] = [];
+  if (/yaya geçidi|pedestrian crossing/.test(t)) keys.push('signPedestrian');
+  if (/otobüs durağı|otobüs durak|durak levha|bus stop/.test(t)) keys.push('signBusStop');
   return keys;
 }
 
@@ -429,6 +550,7 @@ function roundaboutIsland(
   b: Builder,
   s: RoundaboutSpec,
   H: (x: number, z: number) => number,
+  paintKey?: (hex: string) => string,
 ): { raised: Raised[]; geo: RoundaboutGeo } {
   const c: V2 = [s.x, s.z];
   const RX = s.rx ?? 10;
@@ -451,6 +573,9 @@ function roundaboutIsland(
     ? rangeMid(linePart, /≈?\s*([0-9.,]+)\s*(?:[–-]\s*([0-9.,]+))?\s*m\s*mesafe/)
     : null;
   const N = 72;
+  // v8: dış bordürün yola bakan yüzü dönüşümlü boyalı (ölçüm kerb metni: "yeşil/beyaz dönüşümlü boyalı")
+  const kp = kerbPaintOf(parts[0] ?? '', (s as { kerbPaint?: unknown }).kerbPaint);
+  const run: PaintRun | null = kp && paintKey ? { spec: kp, k: 0, key: paintKey } : null;
   const outerAt = (d: number, th: number): V2 => [
     c[0] + Math.cos(th) * (RX - d),
     c[1] + Math.sin(th) * (RZ - d),
@@ -476,7 +601,7 @@ function roundaboutIsland(
     const o1 = outerAt(0, a1);
     const tO: V2 = [o1[0] - o0[0], o1[1] - o0[1]];
     const lO = Math.hypot(tO[0], tO[1]);
-    kerbStones(b, o0, o1, inward(o0, [tO[0] / lO, tO[1] / lO]), h, H);
+    kerbStones(b, o0, o1, inward(o0, [tO[0] / lO, tO[1] / lO]), h, H, run);
     // Kırmızı bant: dış bordürün içinden iç bordüre kadar
     const b0 = outerAt(KERB_W, a0);
     const b1 = outerAt(KERB_W, a1);
@@ -617,8 +742,9 @@ function roundaboutIsland(
 /** Ayrım adası (ölçüm: da3-island-*): çokgen, bordürlü, yüzey nottan (çim / beton) */
 function splitterIsland(
   b: Builder,
-  s: { poly?: V2[]; h?: number; material?: string; note?: string },
+  s: { poly?: V2[]; h?: number; material?: string; note?: string; kerbPaint?: unknown },
   H: (x: number, z: number) => number,
+  paintKey?: (hex: string) => string,
 ): Raised[] {
   const r = (s.poly ?? []).map((p) => [p[0], p[1]] as V2);
   if (r.length > 3 && r[0][0] === r[r.length - 1][0] && r[0][1] === r[r.length - 1][1]) r.pop();
@@ -633,19 +759,46 @@ function splitterIsland(
     const q: V2 = [-(e[1] - a[1]) / L, (e[0] - a[0]) / L];
     return inside(r, m[0] + q[0] * 0.05, m[1] + q[1] * 0.05) ? q : [-q[0], -q[1]];
   });
-  for (let i = 0; i < n; i++) kerbStones(b, r[i], r[(i + 1) % n], nor[i], h, H);
+  // v8: dönüşümlü boyalı bordür (malzeme metni / notu / kerbPaint; d4-median-m6 dar ayırıcı)
+  const kp = kerbPaintOf(`${s.material ?? ''}; ${s.note ?? ''}`, s.kerbPaint);
+  const run: PaintRun | null = kp && paintKey ? { spec: kp, k: 0, key: paintKey } : null;
+  for (let i = 0; i < n; i++) kerbStones(b, r[i], r[(i + 1) % n], nor[i], h, H, run);
   // Yüzey: bordür içinden (köşe kesişimli içe kaydırma)
-  const inset: V2[] = r.map((p, i) => {
+  let inset: V2[] = r.map((p, i) => {
     const n1 = nor[(i + n - 1) % n];
     const n2 = nor[i];
     const k = KERB_W / Math.max(0.3, 1 + n1[0] * n2[0] + n1[1] * n2[1]);
     return [p[0] + (n1[0] + n2[0]) * k, p[1] + (n1[1] + n2[1]) * k];
   });
+  // v8: dar uçlarda (burun, 0.9 m ayırıcı) içe kaydırma kendini kesebilir → kesen/ters dönen halka yerine dış halka
+  // (bordür taşları üstte kalır, dolgu taşların altında görünmez)
+  if (selfCrosses(inset) || Math.sign(ringArea(inset)) !== Math.sign(ringArea(r))) inset = r;
   const t = `${s.material ?? ''} ${s.note ?? ''}`.toLowerCase();
   // KARAR: yüzey belirtilmemişse beton (ada üstü sert zemin); ölçülenlerin hepsi "bordürlü çim"
   const key = /çim|grass/.test(t) ? 'lawn' : /beton|concrete/.test(t) ? 'spConcrete' : layerKey(t);
   b.drape(key, inset, [], H, h, key === 'lawn' ? 0.5 : 1, 2);
   return [{ poly: r, h }];
+}
+
+function ringArea(r: V2[]): number {
+  let a = 0;
+  for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += r[j][0] * r[i][1] - r[i][0] * r[j][1];
+  return a / 2;
+}
+/** Halkanın bitişik olmayan kenarları kesişiyor mu */
+function selfCrosses(r: V2[]): boolean {
+  const n = r.length;
+  const cross = (o: V2, a: V2, b2: V2) => (a[0] - o[0]) * (b2[1] - o[1]) - (a[1] - o[1]) * (b2[0] - o[0]);
+  for (let i = 0; i < n; i++)
+    for (let j = i + 2; j < n; j++) {
+      if (i === 0 && j === n - 1) continue;
+      const a = r[i];
+      const b2 = r[(i + 1) % n];
+      const c = r[j];
+      const d = r[(j + 1) % n];
+      if (cross(a, b2, c) * cross(a, b2, d) < 0 && cross(c, d, a) * cross(c, d, b2) < 0) return true;
+    }
+  return false;
 }
 
 /** Trafik ışığı: boyalı direk + siyah 3'lü sinyal başı (kırmızı-sarı-yeşil, siperlikli); fn: baktığı yön */
@@ -658,6 +811,7 @@ function trafficSignal(
   fn: V2,
   poleK: string,
   pedSign: boolean,
+  headOnly = false,
 ): void {
   const yaw = Math.atan2(fn[0], fn[1]); // yerel +z → fn
   const co = Math.cos(yaw);
@@ -669,7 +823,7 @@ function trafficSignal(
   const HD = 0.24;
   const R = 0.06;
   const off = R + HD / 2;
-  b.cylinder(poleK, [x, y - 0.1, z], R, (pedSign ? h + 0.68 : h - 0.05) + 0.1, 10);
+  if (!headOnly) b.cylinder(poleK, [x, y - 0.1, z], R, (pedSign ? h + 0.68 : h - 0.05) + 0.1, 10);
   b.box('black', L(0, h - HH / 2, off), [HW, HH, HD], yaw);
   const lens = ['sigRed', 'sigAmber', 'sigGreen'];
   for (let k = 0; k < 3; k++) {
@@ -691,6 +845,121 @@ function trafficSignal(
     const ab = L(-0.3, 0, R + 0.004);
     const eb = L(0.3, 0, R + 0.004);
     b.wall('signPedestrianBack', [eb[0], eb[2]], [ab[0], ab[2]], y + h + 0.1, y + h + 0.7);
+  }
+}
+
+/**
+ * v8: diş biçimli pano (d4-ulu-board "diş biçimli ayaklı pano"): taç (iki tümsek, ortada çukur) + iki kök; merkez c,
+ * yan yön ft, bakış fn, alt kot yb, en W, boy Hh, kalınlık d. KARAR: silüet oranı ölçülmedi → yaygın diş ikonu.
+ */
+function toothBoard(
+  b: Builder,
+  key: string,
+  c: V2,
+  ft: V2,
+  fn: V2,
+  yb: number,
+  W: number,
+  Hh: number,
+  d: number,
+): void {
+  // Birim silüet: x −0.5..0.5 (en), y 0..1 (boy)
+  const S: [number, number][] = [
+    [-0.3, 0],
+    [-0.4, 0.3],
+    [-0.47, 0.55],
+    [-0.5, 0.75],
+    [-0.46, 0.9],
+    [-0.34, 0.99],
+    [-0.18, 0.97],
+    [0, 0.9],
+    [0.18, 0.97],
+    [0.34, 0.99],
+    [0.46, 0.9],
+    [0.5, 0.75],
+    [0.47, 0.55],
+    [0.4, 0.3],
+    [0.3, 0],
+    [0.2, 0.05],
+    [0.1, 0.3],
+    [0, 0.36],
+    [-0.1, 0.3],
+    [-0.2, 0.05],
+  ];
+  const shape = new THREE.Shape(S.map(([x, y]) => new THREE.Vector2(x * W, y * Hh)));
+  const g = new THREE.ExtrudeGeometry(shape, { depth: d, bevelEnabled: false });
+  g.translate(0, 0, -d / 2);
+  // Yerel x → ft, y → yukarı, z → fn
+  const m = new THREE.Matrix4().makeBasis(
+    new THREE.Vector3(ft[0], 0, ft[1]),
+    new THREE.Vector3(0, 1, 0),
+    new THREE.Vector3(fn[0], 0, fn[1]),
+  );
+  m.setPosition(c[0], yb, c[1]);
+  g.applyMatrix4(m);
+  b.geometry(key, g.index ? g.toNonIndexed() : g);
+}
+
+/**
+ * v8: gönderdeki bayrak kumaşı (bayrak direği `flag` / not "Türk bayrağı"): 3:2, hafif dalgalı ızgara, iki yüz;
+ * gönder tarafı direkte. KARAR: bayrak ölçüsü ölçülmedi → direk boyunun ~1/5'i en (8 m → 1.5 × 1.0 m); rüzgâr yönü
+ * görülmedi → rot verilmişse o yöne, yoksa doğuya dalgalanır.
+ */
+function poleFlag(
+  b: Builder,
+  signFace: (sg: SignSpec) => string,
+  x: number,
+  yTop: number,
+  z: number,
+  type: string,
+  fl: { color?: string; w?: number; h?: number },
+  yaw: number,
+  hasRot: boolean,
+): void {
+  const fw = fl.w ?? 1.5;
+  const fh = fl.h ?? fw / 1.5;
+  const dir: V2 = hasRot ? [Math.sin(yaw), -Math.cos(yaw)] : [1, 0];
+  const key = signFace({
+    text: '',
+    bg: fl.color && /^#[0-9a-f]{6}$/i.test(fl.color) ? fl.color : '#d21f26',
+    fg: '#ffffff',
+    border: null,
+    font: 'sans',
+    bold: true,
+    lit: false,
+    style: 'box',
+    banner: type === 'tr' ? 'tr' : 'plain',
+    w: fw,
+    h: fh,
+  });
+  const NU = 8;
+  const NV = 2;
+  const pos: number[] = [];
+  const uv: number[] = [];
+  const idx: number[] = [];
+  const side: V2 = [-dir[1], dir[0]];
+  for (let i = 0; i <= NU; i++) {
+    const u = i / NU;
+    const wave = 0.08 * u * Math.sin(u * Math.PI * 2.2);
+    for (let j = 0; j <= NV; j++) {
+      const v = j / NV;
+      pos.push(x + dir[0] * (0.07 + u * fw) + side[0] * wave, yTop - fh + v * fh - u * 0.05, z + dir[1] * (0.07 + u * fw) + side[1] * wave);
+      uv.push(u, v);
+    }
+  }
+  for (let i = 0; i < NU; i++)
+    for (let j = 0; j < NV; j++) {
+      const a = i * (NV + 1) + j;
+      const c2 = a + NV + 1;
+      idx.push(a, c2, c2 + 1, a, c2 + 1, a + 1);
+    }
+  for (const sgn of [1, -1]) {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+    g.setAttribute('uv', new THREE.Float32BufferAttribute(uv, 2));
+    g.setIndex(sgn > 0 ? idx : idx.map((_, k) => idx[k - (k % 3) + (2 - (k % 3))]));
+    g.computeVertexNormals();
+    b.geometry(key, g);
   }
 }
 
@@ -800,17 +1069,60 @@ function billboardRow(
  * Yeni trafik levhası dokuları (ölçüm notlarındaki tarifle): mecburi sağdan gidiniz (mavi daire, beyaz çapraz ok),
  * sarı-siyah ok (chevron), yaya geçidi (mavi kare, beyaz üçgen, siyah yaya). Renkler roadSignTexture paletinden.
  */
-export function streetSignTexture(kind: 'keepRight' | 'chevron' | 'pedestrian'): THREE.Texture | null {
+export function streetSignTexture(
+  kind: 'keepRight' | 'chevron' | 'pedestrian' | 'busStop' | 'signalPicto',
+): THREE.Texture | null {
   if (typeof document === 'undefined') return null;
   const S = 256;
-  const Wc = kind === 'chevron' ? 384 : S;
+  const Wc = kind === 'chevron' ? 384 : kind === 'signalPicto' ? 108 : S;
   const cv = document.createElement('canvas');
   cv.width = Wc;
   cv.height = S;
   const g = cv.getContext('2d');
   if (!g) return null;
   g.clearRect(0, 0, Wc, S);
-  if (kind === 'keepRight') {
+  if (kind === 'signalPicto') {
+    // v8: yola boyalı trafik ışığı piktogramı (d4-mark-signal-465, 1Re88FdQ_240_0): kırmızı çerçeveli beyaz
+    // dikdörtgen içinde kırmızı-sarı-yeşil üç daire; doku y ekseni sürüş yönü (üst = ileri: kırmızı en uzakta)
+    g.fillStyle = '#c42a24';
+    g.fillRect(0, 0, Wc, S);
+    g.fillStyle = '#ecebe6';
+    g.fillRect(9, 9, Wc - 18, S - 18);
+    const cols = ['#c42a24', '#e0b12a', '#2f8a4a'];
+    for (let k = 0; k < 3; k++) {
+      g.fillStyle = cols[k];
+      g.beginPath();
+      g.arc(Wc / 2, S * (0.2 + k * 0.3), Wc * 0.3, 0, Math.PI * 2);
+      g.fill();
+    }
+  } else if (kind === 'busStop') {
+    // v8: otobüs durağı bilgi levhası — KARAR: levha içeriği okunmadı (d4-um-busstop-pole) → Türkiye bilgi levhası
+    // düzeni: mavi kare, beyaz çerçeve, beyaz otobüs silueti (hat numarası / yazı çizilmez)
+    g.fillStyle = '#1f4ea8';
+    g.fillRect(0, 0, S, S);
+    g.strokeStyle = '#f7f7f5';
+    g.lineWidth = 8;
+    g.strokeRect(14, 14, S - 28, S - 28);
+    g.fillStyle = '#f7f7f5';
+    g.beginPath();
+    g.roundRect(46, 70, 164, 104, 14);
+    g.fill();
+    g.fillStyle = '#1f4ea8';
+    for (let k = 0; k < 3; k++) g.fillRect(60 + k * 48, 84, 38, 36);
+    g.fillRect(56, 132, 144, 6);
+    g.fillStyle = '#f7f7f5';
+    for (const x of [82, 174]) {
+      g.beginPath();
+      g.arc(x, 182, 16, 0, Math.PI * 2);
+      g.fill();
+    }
+    g.fillStyle = '#1f4ea8';
+    for (const x of [82, 174]) {
+      g.beginPath();
+      g.arc(x, 182, 7, 0, Math.PI * 2);
+      g.fill();
+    }
+  } else if (kind === 'keepRight') {
     g.fillStyle = '#f7f7f5';
     g.beginPath();
     g.arc(S / 2, S / 2, S / 2 - 4, 0, Math.PI * 2);
@@ -890,7 +1202,8 @@ export function streetSignTexture(kind: 'keepRight' | 'chevron' | 'pedestrian'):
 export interface StreetExt {
   /** Tabela yüzü (index.ts tabela atlası) */
   signFace?: (sg: SignSpec) => string;
-  colorKey?: (kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3', hex: string) => string;
+  /** `paint`: v8 bordür boyası (polygonOffset'li düz boya, yüzün 2 mm önünde) */
+  colorKey?: (kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3' | 'paint', hex: string) => string;
   /** Yüksek/Ultra kalite: bordür taşı üst kenar pahı (m, 0 = yok) */
   bevel?: number;
   /** Çarpışma halkası (x/z çokgen, alt–üst kot) */
@@ -925,11 +1238,23 @@ function buildStreet(
   /** v7: tüm kaldırım bantları (alçak / bordürsüz dahil) — öğe ve çit tabanı kotu için */
   const lowBands: StreetResult['raised'] = [];
   const polys: V2[][] = [];
+  const paintKey = ext.colorKey ? (hex: string) => ext.colorKey!('paint', hex) : undefined;
   for (const sw of plan.sidewalks ?? []) {
     const pts = sw.pts;
     if (!pts || pts.length < 2) continue;
     const kerbH = sw.kerbH ?? 0.15;
     const lay = layoutOf(sw);
+    // v8: dönüşümlü (yeşil / beyaz) bordür boyası — dış bordür + ara bordürler (yol kotundaki park şeridinin
+    // arkasındaki bordür dahil); taş sayacı hat boyunca sürekli
+    const kp = kerbPaintOf(sw.material, sw.kerbPaint);
+    const runs = new Map<number, PaintRun>();
+    const runAt = (v: number): PaintRun | null => {
+      if (!kp || !paintKey) return null;
+      const k = Math.round(v * 100);
+      let r = runs.get(k);
+      if (!r) runs.set(k, (r = { spec: kp, k: 0, key: paintKey }));
+      return r;
+    };
     // Bordürden yola doğru asfalt dolgusu genişliği: OSM şeridi bordürden uzaksa (kavşak köşe kavisleri, OSM ekseni
     // gerçek yoldan kaymış) şeride kadar uzar — yoksa aradaki üçgende hava fotoğrafı (bej) görünüyordu (502/Doğan
     // Avcıoğlu köşesi). KARAR: en az 3 m, en çok 10 m; yakında (10 m) OSM yolu yoksa 3 m (otopark/site yolu).
@@ -1004,9 +1329,11 @@ function buildStreet(
       const kerbLine = (v: number, kh: number) => {
         if (kh < 0.05) return;
         const nS = Math.max(1, Math.round(L / KERB_UNIT));
+        const run = runAt(v);
         for (let k = 0; k < nS; k++) {
           const u0 = (L * k) / nS;
           const u1 = (L * (k + 1)) / nS;
+          if (run) paintStone(b, run, q(u0, v), q(u1 - 0.006, v), n, kh, H);
           const c = q((u0 + u1) / 2, v + KERB_W / 2);
           const y = H(c[0], c[1]);
           if (KERB_BEV > 0)
@@ -1067,10 +1394,11 @@ function buildStreet(
   const rbs: RoundaboutGeo[] = [];
   for (const s of plan.street ?? []) {
     if (s.kind === 'roundabout-island') {
-      const r = roundaboutIsland(b, s as unknown as RoundaboutSpec, H);
+      const r = roundaboutIsland(b, s as unknown as RoundaboutSpec, H, paintKey);
       isl.push(...r.raised);
       rbs.push(r.geo);
-    } else if (s.kind === 'island') isl.push(...splitterIsland(b, s as unknown as { poly?: V2[] }, H));
+    } else if (s.kind === 'island')
+      isl.push(...splitterIsland(b, s as unknown as { poly?: V2[] }, H, paintKey));
   }
   /** Noktadaki ada kotu (en yüksek), yoksa kaldırım kotu */
   const walkAt = (x: number, z: number) => {
@@ -1140,6 +1468,7 @@ function buildStreet(
     colorKey: ext.colorKey as ((kind: CK, hex: string) => string) | undefined,
     signFace: ext.signFace,
     collide: ext.collide,
+    toRoad: (x: number, z: number) => towardRoad(roadCentre, x, z),
   };
   // Sokak eşyası
   for (const s of plan.street ?? []) {
@@ -1182,21 +1511,34 @@ function buildStreet(
         }
         break;
       }
-      case 'pole':
+      case 'pole': {
+        const fl = (s as { flag?: { type?: string; color?: string; w?: number; h?: number; rot?: number } })
+          .flag;
+        // v8: bayrak direği — `flag` {type: "tr" | color, w, h, rot} ya da notun ilk ifadesinde "Türk bayrağı";
+        // deseni seçilemeyen bayrak (ör. "mavi-beyaz kurumsal — deseni seçilemedi") çizilmez
+        const head = note.split(/[;:]/)[0];
+        const flagType =
+          fl?.type ?? (fl?.color ? 'plain' : /türk bayrağı/.test(head) && !/seçilemedi/.test(head) ? 'tr' : null);
+        const isFlagPole = !!flagType || /bayrak direğ/.test(note);
+        const ph = s.h ?? 7;
         b.cylinder(
-          /beton|concrete/.test(note) ? 'concretePole' : 'pole',
+          /beton|concrete/.test(note) ? 'concretePole' : isFlagPole ? 'steel' : 'pole',
           [s.x, y - 0.1, s.z],
-          0.11,
-          s.h ?? 7,
+          isFlagPole ? 0.06 : 0.11,
+          ph,
           10,
         );
+        if (isFlagPole) b.sphere('steel', [s.x, y + ph - 0.05, s.z], 0.08, 10);
+        if (flagType && ext.signFace)
+          poleFlag(b, ext.signFace, s.x, y + ph - 0.15, s.z, flagType, fl ?? {}, yaw, s.rot != null || fl?.rot != null);
         break;
+      }
       case 'sign': {
         const h = s.h ?? 2.6;
         // Levha türleri (yukarıdan aşağı); duvar/kapı levhaları (h < 1.5) direksiz. Önce levha metninden (text), metin
         // bir tür vermezse metin + nottan (eski kayıtlar); `textB` arka yüzün kendi levhaları (verilmezse gri arka)
         const tx = (s.text ?? '').toLowerCase();
-        const keys = signKeysOf(tx).length ? signKeysOf(tx) : signKeysOf(note);
+        const keys = [...(signKeysOf(tx).length ? signKeysOf(tx) : signKeysOf(note)), ...signTextKeys(tx)];
         const backKeys = signKeysOf(((s as { textB?: string }).textB ?? '').toLowerCase());
         if (!keys.length) break; // yazılı tabelalar (site adı vb.) ayrıca
         const co = Math.cos(yaw);
@@ -1290,13 +1632,41 @@ function buildStreet(
         const poleK = bo.poleC && ext.colorKey ? ext.colorKey('metal', bo.poleC) : 'pole';
         const np = bo.poles ?? 1;
         const pu = np === 1 ? [0] : [-W / 2 + 0.08, W / 2 - 0.08];
+        const both = (s as { faces?: number }).faces === 2 || /çift yüzlü|iki yüz(ü|lü)/.test(note);
+        const tooth = (s as { outline?: string }).outline === 'tooth' || /diş biçimli/.test(note);
         for (const u of pu) {
-          const p = at(u, -d / 2 - 0.05);
-          b.cylinder(poleK, [p[0], g0 - 0.05, p[1]], 0.05, yb - g0 + Hh + 0.05, 8);
+          // Çift yüzlüde ayak panonun altında (arka yüzü örtmesin)
+          const p = at(u, both ? 0 : -d / 2 - 0.05);
+          b.cylinder(poleK, [p[0], g0 - 0.05, p[1]], 0.05, yb - g0 + (both ? 0.1 : Hh + 0.05), 8);
         }
         const c = at(0, 0);
         const yawB = Math.atan2(-ft[1], ft[0]);
         const sideK = bo.bg && ext.colorKey ? ext.colorKey('fascia', bo.border ?? bo.bg) : 'pole';
+        // v8: çift yüzlü pano (`faces: 2` ya da not "çift yüzlü"): arka yüz de aynı içerik (orta refüj "raket"
+        // panoları); `outline: "tooth"` / not "diş biçimli": diş silueti (dikdörtgen yerine)
+        if (tooth) {
+          toothBoard(b, bo.bg && ext.colorKey ? ext.colorKey('fascia', bo.bg) : 'pole', c, ft, fn, yb, W, Hh, d);
+          if (ext.signFace) {
+            // Yazı tacın içinde (üst %60, en %80)
+            const key = ext.signFace({
+              text: bo.text ?? '',
+              lines: bo.lines ?? null,
+              bg: bo.bg ?? null,
+              fg: bo.fg ?? '#ffffff',
+              border: null,
+              font: bo.font ?? 'sans',
+              bold: bo.bold !== false,
+              lit: !!bo.lit,
+              style: 'box',
+              w: W * 0.72,
+              h: Hh * 0.5,
+            });
+            b.wall(key, at(-W * 0.36, d / 2 + 0.006), at(W * 0.36, d / 2 + 0.006), yb + Hh * 0.38, yb + Hh * 0.88, [0, 0, 1, 1]);
+            if (both)
+              b.wall(key, at(W * 0.36, -d / 2 - 0.006), at(-W * 0.36, -d / 2 - 0.006), yb + Hh * 0.38, yb + Hh * 0.88, [0, 0, 1, 1]);
+          }
+          break;
+        }
         // Tek tek harf/rakam (ör. kolon üstündeki kapı numarası): kutu yok, yalnız yüz
         if (bo.style !== 'letters') b.box(sideK, [c[0], yb + Hh / 2, c[1]], [W, Hh, d], yawB);
         if (ext.signFace) {
@@ -1315,6 +1685,7 @@ function buildStreet(
             blocks: bo.blocks ?? null,
           });
           b.wall(key, at(-W / 2, d / 2 + 0.006), at(W / 2, d / 2 + 0.006), yb, yb + Hh, [0, 0, 1, 1]);
+          if (both) b.wall(key, at(W / 2, -d / 2 - 0.006), at(-W / 2, -d / 2 - 0.006), yb, yb + Hh, [0, 0, 1, 1]);
         }
         const hexOk = (h?: string) => !!h && /^#[0-9a-f]{6}$/i.test(h);
         if (bo.base && (bo.base.h ?? 0) > 0.02) {
@@ -1868,6 +2239,13 @@ function buildStreet(
             2,
           );
         }
+        // v8: şeritsiz boyalı bant (ör. kırmızı bekleme bandı): stripes "yok" / "none" / "düz" / "bant" ve şerit
+        // ölçüsü yoksa geçidin tamamı tek renk (color)
+        if (!m && /\byok\b|none|\bdüz\b|solid|\bbant\b|band/.test(cr.stripes ?? '')) {
+          const Q = (a: number, e: number): V2 => [s.x + d[0] * a + t[0] * e, s.z + d[1] * a + t[1] * e];
+          b.drape(paintKs[0], [Q(-len / 2, -w / 2), Q(len / 2, -w / 2), Q(len / 2, w / 2), Q(-len / 2, w / 2)], [], H, 0.052, 1, 2);
+          break;
+        }
         for (let k = 0; k < n; k++) {
           const paintK = paintKs[k % paintKs.length];
           const o = -span / 2 + sw / 2 + k * (sw + gap);
@@ -1912,7 +2290,26 @@ function buildStreet(
           if (r) fn = r;
         }
         const poleK = ts.pole && ext.colorKey ? ext.colorKey('frame', ts.pole) : 'pole';
-        trafficSignal(b, px, py, pz, h, fn, poleK, /yaya geçidi levha/.test(note));
+        // v8: konsol (kollu) direk — `arm` (m, kol boyu), `armRot` (kolun pusula yönü; yoksa yola doğru); ölçülmemişse
+        // not "konsol" → KARAR 3.5 m (bulvar sağ şeridinin üstüne uzanan tipik konsol)
+        const tsa = s as { arm?: number; armRot?: number };
+        const armL = typeof tsa.arm === 'number' ? tsa.arm : /konsol/.test(note) ? 3.5 : 0;
+        if (armL > 0.3) {
+          let ad: V2 | null =
+            typeof tsa.armRot === 'number'
+              ? [Math.sin((tsa.armRot * Math.PI) / 180), -Math.cos((tsa.armRot * Math.PI) / 180)]
+              : towardRoad(roadCentre, px, pz);
+          ad = ad ?? fn;
+          const top = py + h + 0.45;
+          b.cylinder(poleK, [px, py - 0.1, pz], 0.09, top - py + 0.1, 10);
+          const mid: V3 = [px + (ad[0] * armL) / 2, top - 0.08, pz + (ad[1] * armL) / 2];
+          b.box(poleK, mid, [armL, 0.1, 0.1], Math.atan2(-ad[1], ad[0]));
+          // Kol ucunda asılı baş (tepesi h): yalnız baş + kısa askı
+          const hx = px + ad[0] * (armL - 0.2);
+          const hz = pz + ad[1] * (armL - 0.2);
+          trafficSignal(b, hx, py, hz, h, fn, poleK, false, true);
+          b.box(poleK, [hx, py + h + 0.2, hz], [0.05, 0.4, 0.05], 0);
+        } else trafficSignal(b, px, py, pz, h, fn, poleK, /yaya geçidi levha/.test(note));
         ext.collide?.(
           [
             [px - 0.1, pz - 0.1],
@@ -1923,6 +2320,60 @@ function buildStreet(
           py - 0.2,
           py + h,
         );
+        break;
+      }
+      case 'road-symbol': {
+        // v8: yola boyalı piktogram (trafik ışığı: d4-mark-signal-465): w sürüş yönünde boy, d en; rot sürüş yönü
+        const rs = s as { w?: number; d?: number };
+        const Lw = rs.w ?? 2.4;
+        const Dd = rs.d ?? 1;
+        const fwd: V2 = [Math.sin(yaw), -Math.cos(yaw)];
+        const acr: V2 = [-fwd[1], fwd[0]];
+        const Q = (a: number, e: number): V2 => [s.x + acr[0] * a + fwd[0] * e, s.z + acr[1] * a + fwd[1] * e];
+        const o0 = Q(-Dd / 2, -Lw / 2);
+        b.drape('roadSignalPicto', [Q(-Dd / 2, -Lw / 2), Q(Dd / 2, -Lw / 2), Q(Dd / 2, Lw / 2), Q(-Dd / 2, Lw / 2)], [], H, 0.053, 1, 2, {
+          o: o0,
+          t: [acr[0] / Dd, acr[1] / Dd],
+          n: [fwd[0] / Lw, fwd[1] / Lw],
+        });
+        break;
+      }
+      case 'steps-line': {
+        // v8: basamak dizisi (AVM podyumu, d4-avm-steps): pts hattı en alt basamağın ön kenarı, n basamak, toplam
+        // yükseklik rise; basamaklar yoldan uzağa yükselir. KARAR: basamak derinliği ölçülmedi → 0.35 m
+        const sl = s as { pts?: V2[]; n?: number; rise?: number; color?: string; tread?: number };
+        const P = sl.pts ?? [];
+        const nSt = Math.max(1, Math.round(sl.n ?? 3));
+        const rise = sl.rise ?? 0.15 * nSt;
+        const tread = sl.tread ?? 0.35;
+        const key =
+          sl.color && /^#[0-9a-f]{6}$/i.test(sl.color) && ext.colorKey ? ext.colorKey('plaster', sl.color) : 'spConcrete';
+        for (let i = 0; i + 1 < P.length; i++) {
+          const a = P[i];
+          const e = P[i + 1];
+          const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+          if (L < 0.1) continue;
+          const tt: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
+          let nn: V2 = [-tt[1], tt[0]];
+          const mx = (a[0] + e[0]) / 2;
+          const mz = (a[1] + e[1]) / 2;
+          if (roadCentre(mx + nn[0], mz + nn[1]) < roadCentre(mx - nn[0], mz - nn[1])) nn = [-nn[0], -nn[1]];
+          const g0s = Math.min(H(a[0], a[1]), H(e[0], e[1])) + walkH(mx, mz);
+          for (let k = 0; k < nSt; k++) {
+            const top = ((k + 1) * rise) / nSt;
+            const v0 = k * tread;
+            const v1 = k === nSt - 1 ? v0 + tread : v0 + tread;
+            const c: V2 = [mx + nn[0] * (v0 + v1) / 2, mz + nn[1] * (v0 + v1) / 2];
+            b.box(key, [c[0], g0s + top / 2 - 0.05, c[1]], [L, top + 0.1, v1 - v0], Math.atan2(-tt[1], tt[0]));
+            const ring: [number, number][] = [
+              [a[0] + nn[0] * v0, a[1] + nn[1] * v0],
+              [e[0] + nn[0] * v0, e[1] + nn[1] * v0],
+              [e[0] + nn[0] * v1, e[1] + nn[1] * v1],
+              [a[0] + nn[0] * v1, a[1] + nn[1] * v1],
+            ];
+            raised.push({ poly: ring, h: g0s - H(mx, mz) + top });
+          }
+        }
         break;
       }
       case 'billboard-row':

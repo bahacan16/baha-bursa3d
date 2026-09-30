@@ -1161,6 +1161,16 @@ function materials(base: string): Record<string, THREE.Material> {
     signChevronBack: std({ color: 0x7d8286, roughness: 0.5 }),
     signPedestrian: std({ map: streetSignTexture('pedestrian'), roughness: 0.4 }),
     signPedestrianBack: std({ color: 0x7d8286, roughness: 0.5 }),
+    signBusStop: std({ map: streetSignTexture('busStop'), roughness: 0.4 }),
+    signBusStopBack: std({ color: 0x7d8286, roughness: 0.5 }),
+    // v8: yola boyalı trafik ışığı piktogramı (road-symbol): yol çizgilerinin üstünde
+    roadSignalPicto: std({
+      map: streetSignTexture('signalPicto'),
+      roughness: 0.8,
+      polygonOffset: true,
+      polygonOffsetFactor: -9,
+      polygonOffsetUnits: -9,
+    }),
     // KARAR: sinyal mercekleri sönük renkli cam — hangi ışığın yandığı anlık, hiçbiri yanık çizilmez
     sigRed: std({ color: 0x6e1410, emissive: 0xff2a1a, emissiveIntensity: 0.18, roughness: 0.2 }),
     sigAmber: std({ color: 0x6e4a0c, emissive: 0xffa21a, emissiveIntensity: 0.18, roughness: 0.2 }),
@@ -1447,11 +1457,24 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // Yüksek/Ultra: döşeme alnı, parapet, denizlik, harpuşta, bordür kenarları pahlı (1.5 cm)
   const bevel = o.quality === 'high' ? 0.015 : 0;
   // Ölçülen özel renkler (kat kat balkon alını, korkuluk metali, çıkma, tente) ve tabela yüzleri → dinamik malzeme
-  const colorKey = (kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3', hex: string): string => {
+  const colorKey = (
+    kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3' | 'paint',
+    hex: string,
+  ): string => {
     const wearL = kind.startsWith('wear') ? Number(kind.slice(4)) : 0;
     const k = `cc_${kind}_${hex.toLowerCase()}`;
     if (!extraMats[k])
-      extraMats[k] = kind.startsWith('clad:')
+      extraMats[k] =
+        kind === 'paint'
+          ? // v8: bordür boyası (yeşil / beyaz gruplar): düz yol boyası, bordür yüzünün önünde (polygonOffset)
+            new THREE.MeshStandardMaterial({
+              color: hex,
+              roughness: 0.72,
+              polygonOffset: true,
+              polygonOffsetFactor: -4,
+              polygonOffsetUnits: -4,
+            })
+          : kind.startsWith('clad:')
         ? cladMaterial(kind, hex)
         : kind.startsWith('tiles:')
           ? tilesMaterial(kind, hex)

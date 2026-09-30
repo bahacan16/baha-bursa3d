@@ -83,8 +83,12 @@ export interface StreetPlan {
     layers?: { w?: number; material?: string; h?: number; at?: number }[];
     /** Bordüre bitişik mavi bisiklet şeridi genişliği (yol kotunda) */
     bike?: number;
-    /** Bordür boyası (ör. "white": yol yüzü + üstün dış yarısı beyaz boyalı — bisiklet şeridi kenarı) */
-    kerbPaint?: string;
+    /**
+     * Bordür boyası: "white" (yol yüzü + üstün dış yarısı beyaz — bisiklet şeridi kenarı); v8 "green-white" ya da
+     * { colors: ["#yeşil", "#beyaz"], group: taş sayısı, face: true → yalnız yola bakan yüz } dönüşümlü gruplar.
+     * Verilmezse malzeme metni "yeşil/beyaz dönüşümlü boyalı (≈3 taş …)" okunur (street.ts kerbPaintOf).
+     */
+    kerbPaint?: string | { colors?: string[]; group?: number; face?: boolean };
     /** Kılavuz karo tonu: sRGB oran çarpanı [r, g, b] (street.ts tactileKey) */
     tactileTint?: number[];
   }[];

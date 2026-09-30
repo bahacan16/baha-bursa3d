@@ -90,7 +90,8 @@
      "fasciaC": "#bca18c",
      "flatC": "#9a9690"
     },
-    "wallTop": 26.3
+    "wallTop": 28.2,
+    "floorH": 2.87
    },
    {
     "poly": [
@@ -139,7 +140,8 @@
      "fasciaC": "#bca18c",
      "flatC": "#9a9690"
     },
-    "wallTop": 26.3
+    "wallTop": 28.2,
+    "floorH": 2.87
    },
    {
     "poly": [
@@ -200,7 +202,8 @@
      "fasciaC": "#bca18c",
      "flatC": "#9a9690"
     },
-    "wallTop": 26.3
+    "wallTop": 28.2,
+    "floorH": 2.87
    },
    {
     "poly": [
@@ -273,7 +276,8 @@
      "fasciaC": "#bca18c",
      "flatC": "#9a9690"
     },
-    "wallTop": 26.3
+    "wallTop": 28.2,
+    "floorH": 2.87
    },
    {
     "poly": [
@@ -318,7 +322,8 @@
      "fasciaC": "#bca18c",
      "flatC": "#9a9690"
     },
-    "wallTop": 26.3
+    "wallTop": 28.2,
+    "floorH": 2.87
    },
    {
     "poly": [
@@ -466,44 +471,44 @@
    ],
    "tol": 1.0,
    "seen": "photo",
-   "ref": "1550614219_0_H7s4cksD.jpg",
+   "ref": "1550614219_0_H7s4cksD → düzlem δ −1.4 (sv-ortho DELTA, iki pano)",
    "cal": {
     "u": [
-     1.2,
-     21.2
+     1.4,
+     22.97
     ],
     "head": [
      [
       3,
-      12.62
+      13.15
      ],
      [
       8,
-      26.18
+      27.52
      ]
     ]
    },
-   "note": "Kule 1 batı (bulvar) yüzü, taban izi kenar 0'in 1.4 m gerisinde (OSM halkası = çatı saçağı dış hattı; saçak 1.35 m, e0/e2/e4 ortofotolarında kule duvarı görünen u ≈1.2–21.1, iki pano paralaksı ≈1.7). cal.u = kule duvar köşelerinin ortofotoda GÖZLENEN görünen u'su (kule 2 sol köşe ağaç arkasında: kule 1 genişliğinden; modelin tahmini ≈0.8 m farklı → pano boyuna konumu ±0.8) (k = D/(D+1.4) = 0.944, D 23.7, uF 11.62); balkon önü / orta boru (ortofoto düzleminde) öğelerinin u'su bu doğrusal eşlemeye göre çevrildi. y görünen (kenar 0 cal.head). Köşe balkonları kule yan yüzlerinden taşıyor (yan yüzdeki boyları görülmedi) → pending.",
+   "note": "Kule 1 batı (bulvar) yüzü: taban izi kenar 0'in 1.4 m gerisindeki düzlem (sv-ortho DELTA −1.4: iki panoda (H7s4/X0NY) duvar öğeleri ±0.1 m çakışıyor; taban izi düzleminde 0.3–0.6 m ayrışıyordu). Öğeler kenar 0 ortofotosundan bu düzleme çevrildi (duvar öğeleri u' = uF + (u−uF)/k, y' = yC + (y−yC)/k; k = 0.944, uF 11.62, yC 3.6); balkon önü / orta boru / korkuluk levhaları taban izi düzleminde → gerçek u/y korundu. Köşe balkonları yan yüzlerden taşıyor → pending.",
    "items": [
     {
      "t": "pipe",
-     "u": 1.58,
+     "u": 0.99,
      "color": "#d8d2c2",
      "r": 0.06,
-     "y0": 11.45,
-     "y1": 26.25
+     "y0": 11.91,
+     "y1": 27.59
     },
     {
      "t": "pipe",
-     "u": 20.8,
+     "u": 21.34,
      "color": "#d8d2c2",
      "r": 0.06,
-     "y0": 11.45,
-     "y1": 26.25
+     "y0": 11.91,
+     "y1": 27.59
     },
     {
      "t": "pipe",
-     "u": 11.15,
+     "u": 11.12,
      "off": 1.5,
      "color": "#d8d2c2",
      "r": 0.07,
@@ -513,10 +518,10 @@
     },
     {
      "t": "win",
-     "u0": 2.25,
-     "u1": 3.68,
-     "y0": 14.08,
-     "y1": 15.33,
+     "u0": 1.7,
+     "u1": 3.21,
+     "y0": 14.7,
+     "y1": 16.02,
      "k": 4,
      "s": [
       4,
@@ -544,10 +549,10 @@
     },
     {
      "t": "win",
-     "u0": 2.25,
-     "u1": 3.68,
-     "y0": 11.47,
-     "y1": 12.62,
+     "u0": 1.7,
+     "u1": 3.21,
+     "y0": 11.94,
+     "y1": 13.15,
      "k": 3,
      "s": [
       3,
@@ -565,10 +570,10 @@
     },
     {
      "t": "win",
-     "u0": 18.7,
-     "u1": 20.12,
-     "y0": 14.08,
-     "y1": 15.33,
+     "u0": 19.12,
+     "u1": 20.62,
+     "y0": 14.7,
+     "y1": 16.02,
      "k": 4,
      "s": [
       4,
@@ -590,10 +595,10 @@
     },
     {
      "t": "win",
-     "u0": 18.7,
-     "u1": 20.12,
-     "y0": 11.47,
-     "y1": 12.62,
+     "u0": 19.12,
+     "u1": 20.62,
+     "y0": 11.94,
+     "y1": 13.15,
      "k": 3,
      "s": [
       3,
@@ -611,10 +616,10 @@
     },
     {
      "t": "win",
-     "u0": 5.18,
-     "u1": 6.9,
-     "y0": 13.55,
-     "y1": 15.6,
+     "u0": 4.8,
+     "u1": 6.62,
+     "y0": 14.14,
+     "y1": 16.31,
      "k": 4,
      "s": [
       4,
@@ -638,10 +643,10 @@
     },
     {
      "t": "win",
-     "u0": 15.5,
-     "u1": 17.2,
-     "y0": 13.55,
-     "y1": 15.6,
+     "u0": 15.73,
+     "u1": 17.53,
+     "y0": 14.14,
+     "y1": 16.31,
      "k": 4,
      "s": [
       4,
@@ -665,10 +670,10 @@
     },
     {
      "t": "win",
-     "u0": 5.18,
-     "u1": 6.9,
-     "y0": 11.47,
-     "y1": 12.85,
+     "u0": 4.8,
+     "u1": 6.62,
+     "y0": 11.94,
+     "y1": 13.4,
      "k": 3,
      "s": [
       3,
@@ -686,10 +691,10 @@
     },
     {
      "t": "win",
-     "u0": 15.5,
-     "u1": 17.2,
-     "y0": 11.47,
-     "y1": 12.85,
+     "u0": 15.73,
+     "u1": 17.53,
+     "y0": 11.94,
+     "y1": 13.4,
      "k": 3,
      "s": [
       3,
@@ -707,8 +712,8 @@
     },
     {
      "t": "bal",
-     "u0": 7.21,
-     "u1": 11.13,
+     "u0": 6.95,
+     "u1": 11.1,
      "d": 1.5,
      "s": [
       4,
@@ -734,8 +739,8 @@
     },
     {
      "t": "bal",
-     "u0": 11.22,
-     "u1": 15.24,
+     "u0": 11.2,
+     "u1": 15.45,
      "d": 1.5,
      "s": [
       4,
@@ -773,8 +778,8 @@
     },
     {
      "t": "cloth",
-     "u0": 7.26,
-     "u1": 10.37,
+     "u0": 7.0,
+     "u1": 10.3,
      "y0": 27.9,
      "y1": 28.35,
      "d": 1.4,
@@ -782,10 +787,10 @@
     },
     {
      "t": "win",
-     "u0": 7.4,
-     "u1": 8.1,
-     "y0": 11.47,
-     "y1": 12.8,
+     "u0": 7.15,
+     "u1": 7.89,
+     "y0": 11.94,
+     "y1": 13.34,
      "k": 3,
      "s": [
       3,
@@ -799,10 +804,10 @@
     },
     {
      "t": "win",
-     "u0": 7.4,
-     "u1": 8.1,
-     "y0": 14.08,
-     "y1": 15.55,
+     "u0": 7.15,
+     "u1": 7.89,
+     "y0": 14.7,
+     "y1": 16.26,
      "k": 4,
      "s": [
       4,
@@ -813,10 +818,10 @@
     },
     {
      "t": "win",
-     "u0": 8.65,
-     "u1": 10.65,
-     "y0": 11.47,
-     "y1": 12.8,
+     "u0": 8.47,
+     "u1": 10.59,
+     "y0": 11.94,
+     "y1": 13.34,
      "k": 3,
      "s": [
       3,
@@ -830,10 +835,10 @@
     },
     {
      "t": "win",
-     "u0": 8.65,
-     "u1": 10.65,
-     "y0": 13.55,
-     "y1": 15.55,
+     "u0": 8.47,
+     "u1": 10.59,
+     "y0": 14.14,
+     "y1": 16.26,
      "k": 4,
      "s": [
       4,
@@ -845,9 +850,9 @@
     {
      "t": "win",
      "u0": 11.7,
-     "u1": 13.75,
-     "y0": 11.47,
-     "y1": 12.8,
+     "u1": 13.88,
+     "y0": 11.94,
+     "y1": 13.34,
      "k": 3,
      "s": [
       3,
@@ -862,9 +867,9 @@
     {
      "t": "win",
      "u0": 11.7,
-     "u1": 13.75,
-     "y0": 13.55,
-     "y1": 15.55,
+     "u1": 13.88,
+     "y0": 14.14,
+     "y1": 16.26,
      "k": 4,
      "s": [
       4,
@@ -875,10 +880,10 @@
     },
     {
      "t": "win",
-     "u0": 14.3,
-     "u1": 14.95,
-     "y0": 11.47,
-     "y1": 12.8,
+     "u0": 14.46,
+     "u1": 15.15,
+     "y0": 11.94,
+     "y1": 13.34,
      "k": 3,
      "s": [
       3,
@@ -892,10 +897,10 @@
     },
     {
      "t": "win",
-     "u0": 14.3,
-     "u1": 14.95,
-     "y0": 14.08,
-     "y1": 15.55,
+     "u0": 14.46,
+     "u1": 15.15,
+     "y0": 14.7,
+     "y1": 16.26,
      "k": 4,
      "s": [
       4,
@@ -906,81 +911,81 @@
     },
     {
      "t": "ac",
-     "u": 2.85,
+     "u": 2.33,
      "s": 7,
-     "y": 22.25
+     "y": 23.35
     },
     {
      "t": "ac",
-     "u": 19.6,
+     "u": 20.07,
      "s": 8,
-     "y": 24.9
+     "y": 26.16
     },
     {
      "t": "ac",
-     "u": 15.62,
+     "u": 15.86,
      "s": 4,
-     "y": 14.5
+     "y": 15.15
     },
     {
      "t": "ac",
-     "u": 15.62,
+     "u": 15.86,
      "s": 5,
-     "y": 17.3
+     "y": 18.11
     },
     {
      "t": "ac",
-     "u": 15.62,
+     "u": 15.86,
      "s": 6,
-     "y": 20.2
+     "y": 21.18
     },
     {
      "t": "ac",
-     "u": 15.62,
+     "u": 15.86,
      "s": 7,
-     "y": 23.1
+     "y": 24.25
     },
     {
      "t": "ac",
-     "u": 15.62,
+     "u": 15.86,
      "s": 8,
-     "y": 26.0
+     "y": 27.33
     },
     {
      "t": "ac",
-     "u": 10.8,
+     "u": 10.75,
      "s": 3,
-     "y": 13.3
+     "y": 13.87
     },
     {
      "t": "ac",
-     "u": 10.8,
+     "u": 10.75,
      "s": 4,
-     "y": 16.1
+     "y": 16.84
     },
     {
      "t": "ac",
-     "u": 10.8,
+     "u": 10.75,
      "s": 5,
-     "y": 19.35
+     "y": 20.28
     },
     {
      "t": "ac",
-     "u": 10.8,
+     "u": 10.75,
      "s": 6,
-     "y": 21.75
+     "y": 22.82
     },
     {
      "t": "ac",
-     "u": 10.8,
+     "u": 10.75,
      "s": 7,
-     "y": 25.05
+     "y": 26.32
     },
     {
      "t": "ac",
-     "u": 10.8,
+     "u": 10.75,
      "s": 8,
-     "y": 27.7
+     "y": 29.13
     }
    ]
   },
@@ -996,44 +1001,44 @@
    ],
    "tol": 1.0,
    "seen": "partial",
-   "ref": "1550614219_2_ivo1dMW7.jpg",
+   "ref": "1550614219_2_ivo1dMW7 → düzlem δ −1.4 (sv-ortho DELTA, iki pano)",
    "cal": {
     "u": [
-     1.0,
-     21.0
+     1.39,
+     22.97
     ],
     "head": [
      [
       3,
-      12.3
+      12.83
      ],
      [
       8,
-      25.8
+      27.14
      ]
     ]
    },
-   "note": "Kule 2 batı (bulvar) yüzü, taban izi kenar 2'in 1.4 m gerisinde (OSM halkası = çatı saçağı dış hattı; saçak 1.35 m, e0/e2/e4 ortofotolarında kule duvarı görünen u ≈1.2–21.1, iki pano paralaksı ≈1.7). cal.u = kule duvar köşelerinin ortofotoda GÖZLENEN görünen u'su (kule 2 sol köşe ağaç arkasında: kule 1 genişliğinden; modelin tahmini ≈0.8 m farklı → pano boyuna konumu ±0.8) (k = D/(D+1.4) = 0.944, D 23.4, uF 11.94); balkon önü / orta boru (ortofoto düzleminde) öğelerinin u'su bu doğrusal eşlemeye göre çevrildi. y görünen (kenar 2 cal.head). Köşe balkonları kule yan yüzlerinden taşıyor (yan yüzdeki boyları görülmedi) → pending.",
+   "note": "Kule 2 batı (bulvar) yüzü: taban izi kenar 2'in 1.4 m gerisindeki düzlem (sv-ortho DELTA −1.4: iki panoda (H7s4/X0NY) duvar öğeleri ±0.1 m çakışıyor; taban izi düzleminde 0.3–0.6 m ayrışıyordu). Öğeler kenar 2 ortofotosundan bu düzleme çevrildi (duvar öğeleri u' = uF + (u−uF)/k, y' = yC + (y−yC)/k; k = 0.944, uF 11.94, yC 3.46); balkon önü / orta boru / korkuluk levhaları taban izi düzleminde → gerçek u/y korundu. Köşe balkonları yan yüzlerden taşıyor → pending.",
    "items": [
     {
      "t": "pipe",
-     "u": 1.5,
+     "u": 0.88,
      "color": "#d8d2c2",
      "r": 0.06,
-     "y0": 11.45,
-     "y1": 26.0
+     "y0": 11.93,
+     "y1": 27.35
     },
     {
      "t": "pipe",
-     "u": 20.63,
+     "u": 21.15,
      "color": "#d8d2c2",
      "r": 0.06,
-     "y0": 11.45,
-     "y1": 26.0
+     "y0": 11.93,
+     "y1": 27.35
     },
     {
      "t": "pipe",
-     "u": 10.96,
+     "u": 10.9,
      "off": 1.5,
      "color": "#d8d2c2",
      "r": 0.07,
@@ -1042,10 +1047,10 @@
     },
     {
      "t": "win",
-     "u0": 2.25,
-     "u1": 3.68,
-     "y0": 13.75,
-     "y1": 15.0,
+     "u0": 1.67,
+     "u1": 3.19,
+     "y0": 14.37,
+     "y1": 15.69,
      "k": 4,
      "s": [
       3,
@@ -1064,10 +1069,10 @@
     },
     {
      "t": "win",
-     "u0": 5.18,
-     "u1": 6.6,
-     "y0": 13.22,
-     "y1": 15.27,
+     "u0": 4.78,
+     "u1": 6.28,
+     "y0": 13.8,
+     "y1": 15.98,
      "k": 4,
      "s": [
       3,
@@ -1088,10 +1093,10 @@
     },
     {
      "t": "win",
-     "u0": 15.3,
-     "u1": 16.95,
-     "y0": 13.22,
-     "y1": 15.27,
+     "u0": 15.5,
+     "u1": 17.25,
+     "y0": 13.8,
+     "y1": 15.98,
      "k": 4,
      "s": [
       3,
@@ -1116,10 +1121,10 @@
     },
     {
      "t": "win",
-     "u0": 18.5,
-     "u1": 19.85,
-     "y0": 13.75,
-     "y1": 15.0,
+     "u0": 18.89,
+     "u1": 20.32,
+     "y0": 14.37,
+     "y1": 15.69,
      "k": 4,
      "s": [
       3,
@@ -1142,8 +1147,8 @@
     },
     {
      "t": "bal",
-     "u0": 6.94,
-     "u1": 10.91,
+     "u0": 6.64,
+     "u1": 10.85,
      "s": [
       4,
       8
@@ -1181,8 +1186,8 @@
     },
     {
      "t": "bal",
-     "u0": 11.01,
-     "u1": 14.88,
+     "u0": 10.95,
+     "u1": 15.06,
      "s": [
       4,
       8
@@ -1222,8 +1227,8 @@
     },
     {
      "t": "bal",
-     "u0": 11.01,
-     "u1": 14.88,
+     "u0": 10.95,
+     "u1": 15.06,
      "s": [
       3,
       3
@@ -1248,8 +1253,8 @@
     },
     {
      "t": "sign",
-     "u0": 12.04,
-     "u1": 13.51,
+     "u0": 12.05,
+     "u1": 13.6,
      "y0": 13.86,
      "y1": 14.63,
      "off": 1.5,
@@ -1287,50 +1292,50 @@
     },
     {
      "t": "ac",
-     "u": 17.2,
+     "u": 17.51,
      "s": 3,
-     "y": 12.9
+     "y": 13.46
     },
     {
      "t": "ac",
-     "u": 17.2,
+     "u": 17.51,
      "s": 3,
-     "y": 12.0
+     "y": 12.51
     },
     {
      "t": "ac",
-     "u": 18.45,
+     "u": 18.84,
      "s": 5,
-     "y": 16.35
+     "y": 17.12
     },
     {
      "t": "ac",
-     "u": 15.1,
+     "u": 15.29,
      "s": 5,
-     "y": 17.0
+     "y": 17.81
     },
     {
      "t": "ac",
-     "u": 15.05,
+     "u": 15.24,
      "s": 6,
-     "y": 22.1
+     "y": 23.21
     },
     {
      "t": "ac",
-     "u": 10.4,
+     "u": 10.31,
      "s": 8,
-     "y": 27.0
+     "y": 28.41
     },
     {
      "t": "ac",
-     "u": 12.9,
+     "u": 12.96,
      "s": 8,
-     "y": 26.9
+     "y": 28.3
     },
     {
      "t": "cloth",
-     "u0": 7.47,
-     "u1": 10.68,
+     "u0": 7.2,
+     "u1": 10.6,
      "y0": 19.1,
      "y1": 19.35,
      "d": 1.4,
@@ -1350,29 +1355,29 @@
    ],
    "tol": 1.0,
    "seen": "partial",
-   "ref": "1550614219_4_D9ITSrc7.jpg",
+   "ref": "1550614219_4_D9ITSrc7 → düzlem δ −1.4 (sv-ortho DELTA, iki pano)",
    "cal": {
     "u": [
-     1.1,
-     21.2
+     1.39,
+     23.02
     ],
     "head": [
      [
       3,
-      12.45
+      12.98
      ],
      [
       8,
-      26.25
+      27.58
      ]
     ]
    },
-   "note": "Kule 3 batı (bulvar) yüzü, taban izi kenar 4'in 1.4 m gerisinde (OSM halkası = çatı saçağı dış hattı; saçak 1.35 m, e0/e2/e4 ortofotolarında kule duvarı görünen u ≈1.2–21.1, iki pano paralaksı ≈1.7). cal.u = kule duvar köşelerinin ortofotoda GÖZLENEN görünen u'su (kule 2 sol köşe ağaç arkasında: kule 1 genişliğinden; modelin tahmini ≈0.8 m farklı → pano boyuna konumu ±0.8) (k = D/(D+1.4) = 0.945, D 24.0, uF 13.17); balkon önü / orta boru (ortofoto düzleminde) öğelerinin u'su bu doğrusal eşlemeye göre çevrildi. y görünen (kenar 4 cal.head). Köşe balkonları kule yan yüzlerinden taşıyor (yan yüzdeki boyları görülmedi) → pending.",
+   "note": "Kule 3 batı (bulvar) yüzü: taban izi kenar 4'in 1.4 m gerisindeki düzlem (sv-ortho DELTA −1.4: iki panoda (H7s4/X0NY) duvar öğeleri ±0.1 m çakışıyor; taban izi düzleminde 0.3–0.6 m ayrışıyordu). Öğeler kenar 4 ortofotosundan bu düzleme çevrildi (duvar öğeleri u' = uF + (u−uF)/k, y' = yC + (y−yC)/k; k = 0.945, uF 13.17, yC 3.46); balkon önü / orta boru / korkuluk levhaları taban izi düzleminde → gerçek u/y korundu. Köşe balkonları yan yüzlerden taşıyor → pending.",
    "items": [
     {
      "t": "cloth",
-     "u0": 8.29,
-     "u1": 9.61,
+     "u0": 8.0,
+     "u1": 9.4,
      "y0": 9.1,
      "y1": 10.25,
      "d": -0.1,
@@ -1380,8 +1385,8 @@
     },
     {
      "t": "cloth",
-     "u0": 15.37,
-     "u1": 16.74,
+     "u0": 15.5,
+     "u1": 16.95,
      "y0": 9.1,
      "y1": 10.25,
      "d": -0.1,
@@ -1389,23 +1394,23 @@
     },
     {
      "t": "pipe",
-     "u": 1.5,
+     "u": 0.82,
      "color": "#d8d2c2",
      "r": 0.06,
-     "y0": 11.45,
-     "y1": 26.3
+     "y0": 11.92,
+     "y1": 27.63
     },
     {
      "t": "pipe",
-     "u": 20.95,
+     "u": 21.4,
      "color": "#d8d2c2",
      "r": 0.06,
-     "y0": 11.45,
-     "y1": 26.3
+     "y0": 11.92,
+     "y1": 27.63
     },
     {
      "t": "pipe",
-     "u": 11.21,
+     "u": 11.1,
      "off": 1.5,
      "color": "#d8d2c2",
      "r": 0.07,
@@ -1414,10 +1419,10 @@
     },
     {
      "t": "win",
-     "u0": 2.18,
-     "u1": 3.57,
-     "y0": 13.97,
-     "y1": 15.22,
+     "u0": 1.54,
+     "u1": 3.01,
+     "y0": 14.58,
+     "y1": 15.91,
      "k": 4,
      "s": [
       3,
@@ -1440,10 +1445,10 @@
     },
     {
      "t": "win",
-     "u0": 5.07,
-     "u1": 6.82,
-     "y0": 13.45,
-     "y1": 15.5,
+     "u0": 4.6,
+     "u1": 6.45,
+     "y0": 14.03,
+     "y1": 16.2,
      "k": 4,
      "s": [
       3,
@@ -1467,10 +1472,10 @@
     },
     {
      "t": "win",
-     "u0": 15.66,
-     "u1": 17.42,
-     "y0": 13.45,
-     "y1": 15.5,
+     "u0": 15.81,
+     "u1": 17.67,
+     "y0": 14.03,
+     "y1": 16.2,
      "k": 4,
      "s": [
       3,
@@ -1494,10 +1499,10 @@
     },
     {
      "t": "win",
-     "u0": 18.95,
-     "u1": 20.35,
-     "y0": 13.97,
-     "y1": 15.22,
+     "u0": 19.29,
+     "u1": 20.77,
+     "y0": 14.58,
+     "y1": 15.91,
      "k": 4,
      "s": [
       3,
@@ -1519,8 +1524,8 @@
     },
     {
      "t": "bal",
-     "u0": 7.11,
-     "u1": 11.12,
+     "u0": 6.76,
+     "u1": 11.0,
      "s": [
       4,
       8
@@ -1564,8 +1569,8 @@
     },
     {
      "t": "bal",
-     "u0": 11.31,
-     "u1": 15.34,
+     "u0": 11.2,
+     "u1": 15.47,
      "s": [
       4,
       8
@@ -1595,10 +1600,10 @@
     },
     {
      "t": "win",
-     "u0": 7.4,
-     "u1": 8.1,
-     "y0": 11.47,
-     "y1": 12.6,
+     "u0": 7.06,
+     "u1": 7.8,
+     "y0": 11.94,
+     "y1": 13.13,
      "k": 3,
      "s": [
       3,
@@ -1612,10 +1617,10 @@
     },
     {
      "t": "win",
-     "u0": 8.65,
-     "u1": 10.65,
-     "y0": 11.47,
-     "y1": 12.6,
+     "u0": 8.39,
+     "u1": 10.5,
+     "y0": 11.94,
+     "y1": 13.13,
      "k": 3,
      "s": [
       3,
@@ -1629,10 +1634,10 @@
     },
     {
      "t": "win",
-     "u0": 11.7,
-     "u1": 13.75,
-     "y0": 11.47,
-     "y1": 12.6,
+     "u0": 11.61,
+     "u1": 13.78,
+     "y0": 11.94,
+     "y1": 13.13,
      "k": 3,
      "s": [
       3,
@@ -1646,10 +1651,10 @@
     },
     {
      "t": "win",
-     "u0": 14.3,
-     "u1": 14.95,
-     "y0": 11.47,
-     "y1": 12.6,
+     "u0": 14.37,
+     "u1": 15.05,
+     "y0": 11.94,
+     "y1": 13.13,
      "k": 3,
      "s": [
       3,
@@ -1663,8 +1668,8 @@
     },
     {
      "t": "sign",
-     "u0": 12.35,
-     "u1": 13.86,
+     "u0": 12.3,
+     "u1": 13.9,
      "y0": 22.95,
      "y1": 23.95,
      "off": 1.5,
@@ -1697,10 +1702,10 @@
     },
     {
      "t": "banner",
-     "u0": 16.05,
-     "u1": 16.95,
-     "y0": 12.6,
-     "y1": 14.3,
+     "u0": 16.22,
+     "u1": 17.17,
+     "y0": 13.13,
+     "y1": 14.93,
      "d": 0.3,
      "style": "portrait",
      "text": "",
@@ -1708,51 +1713,625 @@
     },
     {
      "t": "ac",
-     "u": 15.45,
+     "u": 15.58,
      "s": 4,
-     "y": 14.15
+     "y": 14.77
     },
     {
      "t": "ac",
-     "u": 2.9,
+     "u": 2.3,
      "s": 7,
-     "y": 22.9
+     "y": 24.04
     },
     {
      "t": "ac",
-     "u": 11.55,
+     "u": 11.46,
      "s": 4,
-     "y": 13.4
+     "y": 13.98
     },
     {
      "t": "ac",
-     "u": 11.55,
+     "u": 11.46,
      "s": 5,
-     "y": 16.5
+     "y": 17.26
     },
     {
      "t": "ac",
-     "u": 11.55,
+     "u": 11.46,
      "s": 6,
-     "y": 19.3
+     "y": 20.23
     },
     {
      "t": "ac",
-     "u": 11.55,
+     "u": 11.46,
      "s": 7,
-     "y": 21.9
+     "y": 22.98
     },
     {
      "t": "ac",
-     "u": 11.55,
+     "u": 11.46,
      "s": 8,
-     "y": 24.8
+     "y": 26.05
     },
     {
      "t": "ac",
-     "u": 11.55,
+     "u": 11.46,
      "s": 8,
-     "y": 27.4
+     "y": 28.8
+    }
+   ]
+  },
+  {
+   "part": 2,
+   "a": [
+    656.87,
+    -435.76
+   ],
+   "e": [
+    675.19,
+    -435.04
+   ],
+   "tol": 1.0,
+   "seen": "photo",
+   "ref": "t3s_AAkb (ortho2, AAkb 22°+40°+90° karolar; kesim doğrusu düzlemi)",
+   "cal": {
+    "u": [
+     0.0,
+     18.33
+    ],
+    "head": [
+     [
+      5,
+      16.85
+     ],
+     [
+      8,
+      25.0
+     ]
+    ]
+   },
+   "note": "Kule 3 güney (331. Sk.) yüzü, KuveytTürk podyum üçgeninin arkasında. Düzlem kontrolü: AAkb ile R5Tx ortofotoları bu doğruda boru / pencere kenarlarında ±0.1 m çakışıyor (0.6 ve 1.2 m kuzeye kaydırılmış düzlemlerde 0.7–1.2 m ayrışıyor) → yüz kesim doğrusunda. Orta duvar u 3.75–15.9; solda (GB köşe) ve sağda (GD köşe, e7 dişine taşıyor) balkon yığınları d≈1.3 (e4'te batıdan görülen köşe balkonu ön genişliği); balkon ön yüzleri görünen u ile (büyütme düzeltmesi yok, ±0.5). Orta çift açıklık (boru u 10.0 iki yanı): K4–K5 camlı pencere, K6–K7 (sol K8 dahil) karanlık açık loca — loca derinliği görülmedi, kapı açıklığı olarak çizildi. Sağ yığın K7–K8 cam balkon, K6 beyaz dolu korkuluk, K5 korkulukta yazılı levha. K4 altı podyum parapeti arkasında.",
+   "items": [
+    {
+     "t": "win",
+     "u0": 4.45,
+     "u1": 5.35,
+     "y0": 23.95,
+     "y1": 25.0,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.45,
+     "u1": 5.35,
+     "y0": 12.35,
+     "y1": 13.65,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 14.05,
+     "u1": 14.95,
+     "y0": 23.95,
+     "y1": 25.0,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 14.05,
+     "u1": 14.95,
+     "y0": 12.35,
+     "y1": 13.65,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 6.9,
+     "u1": 9.9,
+     "y0": 13.55,
+     "y1": 14.9,
+     "k": 4,
+     "s": [
+      4,
+      5
+     ],
+     "split": 4,
+     "curt": {
+      "K4": "tul",
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.1,
+     "u1": 12.6,
+     "y0": 13.55,
+     "y1": 14.9,
+     "k": 4,
+     "s": [
+      4,
+      5
+     ],
+     "split": 3,
+     "curt": {
+      "K4": "tul",
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 6.9,
+     "u1": 9.9,
+     "y0": 21.3,
+     "y1": 22.45,
+     "k": 7,
+     "s": [
+      6,
+      8
+     ],
+     "kind": "door",
+     "split": 2,
+     "curt": {
+      "K6": "karanlik",
+      "K7": "karanlik",
+      "K8": "jaluzi"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.1,
+     "u1": 12.6,
+     "y0": 21.3,
+     "y1": 22.45,
+     "k": 7,
+     "s": [
+      6,
+      7
+     ],
+     "kind": "door",
+     "split": 2,
+     "curt": {
+      "K6": "karanlik",
+      "K7": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.1,
+     "u1": 12.6,
+     "y0": 24.0,
+     "y1": 25.05,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "split": 3,
+     "curt": {
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 10.0,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 12.0,
+     "y1": 25.6
+    },
+    {
+     "t": "ac",
+     "u": 12.4,
+     "s": 5,
+     "y": 15.35
+    },
+    {
+     "t": "bal",
+     "u0": -1.0,
+     "u1": 3.75,
+     "d": 1.3,
+     "s": [
+      4,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#9fb0b4"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "frameC": {
+      "*": "#dfe2e2"
+     },
+     "glazeEvery": 0.42
+    },
+    {
+     "t": "bal",
+     "u0": 15.9,
+     "u1": 18.33,
+     "d": 1.3,
+     "s": [
+      4,
+      8
+     ],
+     "glazed": [
+      7,
+      8
+     ],
+     "tint": {
+      "K7": "clear",
+      "K8": "clear"
+     },
+     "rail": {
+      "*": "glass",
+      "K6": "solid"
+     },
+     "parapetH": {
+      "*": 0.08,
+      "K6": 0.7
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#9fb0b4"
+     },
+     "fasciaC": {
+      "*": "#bca18c",
+      "K6": "#eeeeea"
+     },
+     "frameC": {
+      "*": "#dfe2e2"
+     },
+     "glazeEvery": 0.42,
+     "spots": {
+      "n": 1
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 15.95,
+     "u1": 18.33,
+     "y0": 15.0,
+     "y1": 15.75,
+     "off": 1.3,
+     "text": "",
+     "bg": "#f2f2ef",
+     "fg": "#23305e",
+     "style": "panel",
+     "d": 0.02,
+     "font": "sans",
+     "bold": true,
+     "logo": "K5 sağ balkon korkuluğuna asılı beyaz levha, iki satır lacivert kalın yazı (üst satır küçük, alt satır büyük: '…UT… …OĞLU…' gibi — OKUNAMADI; önceki notta 'KÜBRA' denmişti, bu yakın ortofotoda doğrulanmadı); levha kesim kenarının sonunu aşıyor (≥2.4 m)"
+    }
+   ]
+  },
+  {
+   "part": 3,
+   "a": [
+    699.17,
+    -447.31
+   ],
+   "e": [
+    717.98,
+    -446.27
+   ],
+   "tol": 1.0,
+   "seen": "photo",
+   "ref": "t4s_Zz62 (ortho2, Zz62 2025-11; kesim doğrusu düzlemi)",
+   "cal": {
+    "u": [
+     0.0,
+     18.83
+    ],
+    "head": [
+     [
+      3,
+      10.5
+     ],
+     [
+      8,
+      24.1
+     ]
+    ]
+   },
+   "note": "Kule 4 güney (331. Sk.) yüzü, podyumun (2 kat) arkasında: K2–K8 görülüyor. Zz62 ile KgCL bu düzlemde ≈1.2 m ayrışıyor (KgCL pano konumu tutarsız; 0.6 m kuzeydeki düzlemde de) → daha uzak (D≈25, düzlem hatasına az duyarlı) Zz62 esas alındı, yatay ±0.5. Orta duvar u 4.4–15.2: küçük pencere sütunları (5.1–6.4, 14.0–15.3), orta çift geniş pencere (boru u 10.1 iki yanı) — K4 ikisi ve K7 sağı açık karanlık loca (derinlik görülmedi), K6 altında klima. Sol yığın (u −0.7–4.4) K2 koyu, K6 açık, K7 koyu cam balkon; sağ yığın (u 15.3→) K3–K8 açık cam korkuluk. Çanak: KgCL karesinde K2 sol balkon korkuluğunda beyaz çanak (KgCL u 0.8, bu panonun orta boruda ölçülen 1.2 m kaymasıyla düzeltildi → u 2.0, ±0.6). Çatıda sağda (u 13.6–17.6) korkuluklu çatı kulübesi (pending roof-huts).",
+   "items": [
+    {
+     "t": "win",
+     "u0": 5.1,
+     "u1": 6.4,
+     "y0": 22.9,
+     "y1": 24.1,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul-yan",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 14.0,
+     "u1": 15.3,
+     "y0": 22.9,
+     "y1": 24.1,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K3": "zebra",
+      "K4": "karanlik",
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.8,
+     "u1": 10.0,
+     "y0": 22.9,
+     "y1": 24.1,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "except": [
+      4
+     ],
+     "split": 4,
+     "curt": {
+      "K3": "tul",
+      "K5": "karanlik",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.2,
+     "u1": 12.9,
+     "y0": 22.9,
+     "y1": 24.1,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "except": [
+      4,
+      7
+     ],
+     "split": 4,
+     "curt": {
+      "K3": "karanlik",
+      "K5": "tul",
+      "K6": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.8,
+     "u1": 10.0,
+     "y0": 11.5,
+     "y1": 13.0,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "kind": "door",
+     "split": 2,
+     "curt": {
+      "K4": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.2,
+     "u1": 12.9,
+     "y0": 11.5,
+     "y1": 13.0,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "kind": "door",
+     "split": 2,
+     "curt": {
+      "K4": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.2,
+     "u1": 12.9,
+     "y0": 19.7,
+     "y1": 21.4,
+     "k": 7,
+     "s": [
+      7,
+      7
+     ],
+     "kind": "door",
+     "split": 2,
+     "curt": {
+      "K7": "karanlik"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 10.1,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 8.0,
+     "y1": 22.6
+    },
+    {
+     "t": "ac",
+     "u": 9.6,
+     "s": 6,
+     "y": 17.3
+    },
+    {
+     "t": "bal",
+     "u0": -0.7,
+     "u1": 4.4,
+     "d": 1.3,
+     "s": [
+      2,
+      8
+     ],
+     "glazed": [
+      2,
+      6,
+      7
+     ],
+     "tint": {
+      "K2": "dark",
+      "K6": "clear",
+      "K7": "dark"
+     },
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#9fb0b4"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "frameC": {
+      "*": "#dfe2e2"
+     },
+     "glazeEvery": 0.42
+    },
+    {
+     "t": "bal",
+     "u0": 15.3,
+     "u1": 18.83,
+     "d": 1.3,
+     "s": [
+      3,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#9fb0b4"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "frameC": {
+      "*": "#dfe2e2"
+     },
+     "glazeEvery": 0.42
+    },
+    {
+     "t": "dish",
+     "u": 2.0,
+     "s": 2,
+     "onBal": true
     }
    ]
   }
@@ -1781,11 +2360,6 @@
    "note": "üreticide başak ikonu yok; ayrıca zemin kutu tabelada beyaz başak (u 0.8–1.2, y 4.9–5.7)"
   },
   {
-   "id": "tower-cut-faces",
-   "what": "Kesim yüzleri, ölçülmedi (düzlemlerinde ortofoto yok; e6/e9 ortofotoları 0–6 m önde, eğik): kule 3 güney yüzü (AAkb/R5Tx): dikey pencere sütunu + sağda cam balkon yığını K4–K8, K4 sağ balkonda siyah levha 'KÜBRA …' (≈1.5×0.35 m, beyaz harf, gerisi okunamadı); kule 4 güney yüzü (Zz62; 331. Sk. hattının ≈1–6 m gerisinde): cam balkonlar, K3 beyaz çanak (≈Ø0.6), klimalar; kule 1/2 ve 2/3 boşluklarına bakan yan yüzler (_u_L 120°, lc7D 60°): köşe balkon yığınları + küçük pencere sütunları.",
-   "need": "sv-extra survey girdisi (cutEdges a/e doğrusu) ile bu düzlemlerde ortofoto üretimi; sonra cutEdges (kule 3: part 2 güney yüzü a (656.87,-435.76) → e (675.19,-435.04); kule 4: part 3 a (699.17,-447.31) → e (717.98,-446.27))"
-  },
-  {
    "id": "roof-huts",
    "edge": 2,
    "what": "Kule 2 çatısı: sağda (görünen u 15.3–19.8, y 28.4–30.2) bakır/kiremit renkli (#a35a3a) tek yöne eğik çatılı çatı kulübesi, önünde beyaz saçak; solda (u 6.5–9.7, y 29.3–30.3) koyu mavi (#243a7a) eğik çatılı küçük kulübe. Kule 3 çatısı (e4): ortada (u 8.7–12.2) düz çatılı çatı kulübesi y 28.7–30.3, solda beyaz çadır/tente (u 1.5–6.0, y 29.3–29.8). Tüm kulelerde çatı kenarında boru korkuluk (görünen üst ≈+0.5 m saçak üstünde).",
@@ -1811,6 +2385,11 @@
    "edge": 46,
    "what": "Kule 1 kuzey yüzü K3–K8: köşeyi (KB) saran cam balkon yığını (lQ3f görünen u ≈11–18, açık/koyu cam K3–K8), küçük pencere sütunu (u 8.5–10.2), sol uçta balkon/loca sırası (u −1.5…7.5), bayraklı cam balkon; ortofotolar tutarsız (düşey ≈1.5× büyüme, iki pano arasında yatay ≈15 m fark)",
    "need": "yakın/dik açılı ek kare (servis yolu tarafından 40° kareler) veya taban izi düzeltmesi"
+  },
+  {
+   "id": "tower-side-faces",
+   "what": "Kule 1/2 ve 2/3 podyum boşluklarına bakan yan (kuzey/güney) kesim yüzleri: köşe balkon yığınları + küçük pencere sütunları görüldü (_u_L 120°, lc7D 60°, 40–90° eğik); bu düzlemlerde ortofoto yapılmadı. Kule 4/5'in avlu yüzleri görülmedi.",
+   "need": "ortho2 ile yan yüz düzleminde (kule 1 güney: 682.75,-495.81 → 660.29,-497.08 ters yönde; ring yönüne göre a/e) ortofoto + ölçüm"
   },
   {
    "id": "corner-balconies",

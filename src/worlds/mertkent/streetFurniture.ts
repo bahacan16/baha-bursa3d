@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import type { Builder, V2, V3 } from './builder';
 import type { CK, CPergola, SignSpec } from './facade';
 import { buildPergola } from './facade';
+import { buildStreetKind } from './streetKinds';
 
 /**
  * v7 (D4 — Özlüce Bulvarı restoran önleri): sokak planı (street-plan.json `street`) öğeleri — kış bahçesi
@@ -38,6 +39,8 @@ export interface FurnCtx {
   colorKey?: (kind: CK, hex: string) => string;
   signFace?: (s: SignSpec) => string;
   collide?: Collide;
+  /** v8: noktadan en yakın yol eksenine birim yön (yön ölçülmemiş eşyanın bakışı); yol yoksa null */
+  toRoad?: (x: number, z: number) => V2 | null;
 }
 
 const HEX = /^#[0-9a-f]{6}$/i;
@@ -173,9 +176,25 @@ function parasol(c: FurnCtx, s: StreetItem, y: number): void {
   const open = s.open !== false;
   const id = !open ? 'parasolClosed' : s.shape === 'round' ? 'parasolRound' : 'parasolSquare';
   c.b.instance(id, PROTO[id], place(s.x, y, s.z, yaw, open ? w : 1, h, open ? w : 1), col);
-  // Valans yazısı (marka): kare şemsiyenin ölçülen yüzlerinde, atlas yüzü (örnek değil)
-  const vt = s.valance as { text?: string; fg?: string; bg?: string; sides?: number[] } | undefined;
-  if (open && vt?.text && c.signFace && id === 'parasolSquare') {
+  // Valans yazısı (marka): kare şemsiyenin ölçülen yüzlerinde, atlas yüzü (örnek değil). v8: dizi → yüz başına
+  // ayrı yazı / renk ([{text, fg, bg, sides}], kenar 0..3 yerel −z'den saat yönü)
+  type Val = { text?: string; fg?: string; bg?: string; sides?: number[] };
+  const vals: Val[] = Array.isArray(s.valance) ? (s.valance as Val[]) : s.valance ? [s.valance as Val] : [];
+  for (const vt of vals) parasolValance(c, s, y, vt, open && id === 'parasolSquare', w, h, col, yaw);
+}
+
+function parasolValance(
+  c: FurnCtx,
+  s: StreetItem,
+  y: number,
+  vt: { text?: string; fg?: string; bg?: string; sides?: number[] },
+  square: boolean,
+  w: number,
+  h: number,
+  col: string,
+  yaw: number,
+): void {
+  if (square && vt?.text && c.signFace) {
     const hs = w / 2;
     const rim = h * 0.86;
     const co = Math.cos(yaw);
@@ -568,6 +587,68 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
     }
     c.b.geometry(rk, g);
   }
+  // v8: alın bandı (`fasciaC`, `fasciaH` — ör. Özdemiroğlu kuzey kış bahçesi yeşil alın #253837): dolu olmayan
+  // kenarların üst kısmında dışta 6 cm taşan bant. KARAR: yükseklik ölçülmemişse 0.35 m
+  const fc = typeof s.fasciaC === 'string' && HEX.test(s.fasciaC) ? s.fasciaC : null;
+  if (fc) {
+    const fh = Math.max(0.05, num(s.fasciaH, 0.35));
+    const fk2 = ckOf(c, 'fascia', fc, fk);
+    const cx = poly.reduce((a, p) => a + p[0], 0) / L;
+    const cz = poly.reduce((a, p) => a + p[1], 0) / L;
+    for (let j = 0; j < L; j++) {
+      if (solid.has(j)) continue;
+      const a = poly[j];
+      const e = poly[(j + 1) % L];
+      const len = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      if (len < 0.05) continue;
+      const t: V2 = [(e[0] - a[0]) / len, (e[1] - a[1]) / len];
+      let nO: V2 = [-t[1], t[0]];
+      const m: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
+      if ((cx - m[0]) * nO[0] + (cz - m[1]) * nO[1] > 0) nO = [-nO[0], -nO[1]];
+      const yt = (topAt(a) + topAt(e)) / 2;
+      b3(c.b, fk2, [a[0] + nO[0] * 0.03, a[1] + nO[1] * 0.03], [e[0] + nO[0] * 0.03, e[1] + nO[1] * 0.03], yt - fh, yt + 0.04, 0.06, Math.atan2(-t[1], t[0]));
+    }
+  }
+  // v8: çatı mertekleri (`rafters` {every, color, w} ya da not "≈3.4 m aralıklı koyu mertekler"): kenar 0'a (bina
+  // duvarı) dik, çatı üstünde; renk verilmezse doğrama rengi
+  const rf = s.rafters as { every?: number; color?: string; w?: number } | undefined;
+  const rm = /≈?\s*([0-9]+(?:[.,][0-9]+)?)\s*m\s*aralıklı[^.;]{0,20}mertek/.exec(`${s.note ?? ''}`);
+  const every = rf?.every ?? (rm ? Number(rm[1].replace(',', '.')) : 0);
+  if (every > 0.3) {
+    const rk2 = ckOf(c, 'frame', rf?.color, fk);
+    const t0: V2 = [(e0[0] - a0[0]) / l0, (e0[1] - a0[1]) / l0];
+    // İçe bakan dik: poligon merkezi tarafı
+    const cx = poly.reduce((a, p) => a + p[0], 0) / L;
+    const cz = poly.reduce((a, p) => a + p[1], 0) / L;
+    const nIn: V2 = (cx - a0[0]) * n0[0] + (cz - a0[1]) * n0[1] > 0 ? n0 : [-n0[0], -n0[1]];
+    const rw = rf?.w ?? 0.08;
+    for (let u = every / 2; u < l0 - 0.1; u += every) {
+      const p0: V2 = [a0[0] + t0[0] * u, a0[1] + t0[1] * u];
+      // Işın → poligon karşı kenarı
+      let far = 0;
+      for (let j = 1; j < L; j++) {
+        const a = poly[j];
+        const e = poly[(j + 1) % L];
+        const ex = e[0] - a[0];
+        const ez = e[1] - a[1];
+        const den = nIn[0] * ez - nIn[1] * ex;
+        if (Math.abs(den) < 1e-9) continue;
+        const tr = ((a[0] - p0[0]) * ez - (a[1] - p0[1]) * ex) / den;
+        const sg = ((a[0] - p0[0]) * nIn[1] - (a[1] - p0[1]) * nIn[0]) / den;
+        if (tr > 0.05 && sg >= 0 && sg <= 1) far = Math.max(far, tr);
+      }
+      if (far < 0.2) continue;
+      const p1: V2 = [p0[0] + nIn[0] * far, p0[1] + nIn[1] * far];
+      const yA = topAt(p0) + 0.02;
+      const yB = topAt(p1) + 0.02;
+      const g = new THREE.BoxGeometry(rw, 0.12, far);
+      const pitch = Math.atan2(yB - yA, far);
+      g.rotateX(-pitch);
+      g.rotateY(Math.atan2(nIn[0], nIn[1]));
+      g.translate((p0[0] + p1[0]) / 2, (yA + yB) / 2 + 0.06, (p0[1] + p1[1]) / 2);
+      c.b.geometry(rk2, g);
+    }
+  }
   c.collide?.(
     poly.map((p) => [p[0], p[1]] as [number, number]),
     g0 - 0.1,
@@ -726,5 +807,5 @@ export function buildStreetFurniture(c: FurnCtx, s: StreetItem): boolean {
       bikeRack(c, s, y);
       return true;
   }
-  return false;
+  return buildStreetKind(c, s, y);
 }
