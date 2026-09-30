@@ -799,8 +799,8 @@
   kod turunda gelecek.
   - D4 yol yüzeyi (d4r-*): `road-symbol` `symbol` arrow-straight / signal-triangle / giveway-triangle / text (yazı
     uzatılmış harfle; `text` null → harf uydurulmadan aşınmış boya parçaları), `border`, `wear`; geçide bağlı `wear`
-    (`crossing` id) şeritlerde tekerlek izi aşınması (ayrı örtü yok); rögar `ring {r, color}` halkası; `surface:
-    "median"` kapak refüj kotunda. Dolap (`cabinet`) not ölçüsünden NaN geometri üretiyordu (tek "." sayı sanılıyordu)
+    (`crossing` id) şeritlerde tekerlek izi aşınması (ayrı örtü yok); rögar `ring {r, color}` halkası; `surface` median →
+    kapak refüj kotunda. Dolap (`cabinet`) not ölçüsünden NaN geometri üretiyordu (tek "." sayı sanılıyordu)
     → düzeltildi, ölçülen w/d/h önce. Dosya: `street.ts` (`roadSymbol`). **Blender:** `NW/Roads` yol işaretleri,
     `NW/Mertkent/Street` rögarlar / geçitler.
 - **(Gündüz ışığı yeniden kalibrasyonu)** — Güneşli 2025-09 Mertkent-2 karelerine göre (eski 71 yamanın çoğu bulutlu
@@ -811,3 +811,10 @@
 - **(Gündüz güneşi 135° / 40°)** — Gündüz hazır ayarı az 165° / 48° → 135° / 40° (≈10:45; gerçek 20 Eylül 10:30 =
   130° / 38°, 502. Sk. karelerinde doğu cepheler güneşte). Dosya: `src/env/daylight.ts`. **Blender:** Dünya → güneş
   yönü az 135°, yükseklik 40° (Sun lamp döndür); pişirme yalnız dolaylı ışık olduğu için AO yeniden pişirmek gerekmez.
+- **(commit edilmedi — kod turu w5, malzeme)** — Gün ışığı kalibrasyonu malzeme düzeltmeleri: pencere + cam balkon
+  camında gök yansıması ×5 (`windowEnvUniform` 45; vitrin/giydirme `tint` camı eski 9), gündüz oda/tül payı ×0.2
+  (`windowRoomUniform`), cam balkon sahte gök tonu ufuk mavisi; Mertkent prekast duvar (`mkWave`) normal 0.25→0.12 ve
+  dokunun fotoğraf gölgelemesi duvar rengine %50 karışımla yumuşatıldı; leylandi çit (`mkHedge`, `mkHedgeTop`) doğrusal
+  ×(0.8, 0.88, 3.0) (daha az doygun / sarı). Dosyalar: `facadeMats.ts`, `index.ts`. **Blender:** `materials.py` →
+  `mkGlass`/cam balkon (Glass/Principled: iç renk koyu, yansıma baskın), `mkWave` (bump yarıya, albedo açık),
+  `mkHedge` renk çarpanı.
