@@ -1,0 +1,962 @@
+{
+ "id": 1546358595,
+ "name": "Karataş Sitesi konut kulesi (ŞOK binası üst kütlesi)",
+ "storeys": 7,
+ "floorH": 3.08,
+ "groundRaise": 1.525,
+ "roof": {
+  "kind": "hipped",
+  "eave": 0.5,
+  "fasciaH": 1.6,
+  "pitch": 25,
+  "terrace": true,
+  "fasciaC": "#68594a"
+ },
+ "wallTop": 22.9,
+ "colors": {
+  "plaster": "#867c63",
+  "plaster2": "#a5a294",
+  "strip": "#68594a",
+  "fascia": "#685b47",
+  "soffit": "#a5a294",
+  "railGlass": "#23334a",
+  "frame": "#3a2f2c",
+  "tile": "#8a5a48",
+  "plinth": "#867c63"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 2.18,
+   "seen": "none",
+   "items": [],
+   "note": "KB çentik (taban izinde) görülmedi; bulvar karesinde batı yüz kesintisiz görünüyor."
+  },
+  {
+   "edge": 1,
+   "len": 3.41,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 2,
+   "len": 8.03,
+   "seen": "photo",
+   "ref": "1546358593_3_n3EfAhk3.jpg",
+   "cal": {
+    "u": [
+     1.2,
+     10.865
+    ],
+    "head": [
+     [
+      4,
+      16.16
+     ],
+     [
+      6,
+      22.32
+     ]
+    ]
+   },
+   "note": "Kule batı (Özlüce Blv.) yüzü, kuzey pencere bloğu. Kulenin kendi ortofotosu yok → podyum kenar 3 ortofotosu (n3EfAhk3; kat çizgileri: K2 7.75 … K6 20.07 görünen, kat 3.08). Kule görünen kuzey ucu 1.2 = taban izi e2 başlangıcı alındı (taban izindeki KB çentik e0/e1 görülmedi: batı yüz 1.2’den kesintisiz → cal.u başı 1.2). Yatay çizgili bej sıva (≈0.39 m aralıklı yatay derz), krem pencere söveleri, koyu kahve doğrama. Gün ışığı: güneşli (öğleden sonra).",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 1.2,
+     "u1": 9.72,
+     "y0": 7.75,
+     "y1": 22.97,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.39,
+      "w": 0.015,
+      "color": "#6e6552"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.59,
+     "u1": 4.62,
+     "y0": 20.75,
+     "y1": 22.32,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K6": "tul-yan"
+     },
+     "curtC": {
+      "K6": "#3b2a26"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.59,
+     "u1": 4.62,
+     "y0": 17.67,
+     "y1": 19.24,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.59,
+     "u1": 4.62,
+     "y0": 14.59,
+     "y1": 16.16,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K4": "fon"
+     },
+     "curtC": {
+      "K4": "#4a3a33"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.59,
+     "u1": 4.62,
+     "y0": 11.48,
+     "y1": 13.05,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.59,
+     "u1": 4.62,
+     "y0": 8.43,
+     "y1": 10,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.31,
+     "u1": 9.53,
+     "y0": 20.75,
+     "y1": 22.32,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.31,
+     "u1": 9.53,
+     "y0": 17.67,
+     "y1": 19.24,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.31,
+     "u1": 9.53,
+     "y0": 14.59,
+     "y1": 16.16,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K4": "fon"
+     },
+     "curtC": {
+      "K4": "#2d3b5a"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.31,
+     "u1": 9.53,
+     "y0": 11.48,
+     "y1": 13.05,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.31,
+     "u1": 9.53,
+     "y0": 8.43,
+     "y1": 10,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 3.88,
+     "s": 5,
+     "y": 17.47
+    },
+    {
+     "t": "ac",
+     "u": 9.47,
+     "s": 5,
+     "y": 18.25
+    },
+    {
+     "t": "vent",
+     "u": 3,
+     "y": 14.1,
+     "s": 0.12,
+     "shape": "rect",
+     "count": 3,
+     "spacing": 0.18,
+     "color": "#7a7a74"
+    },
+    {
+     "t": "bal",
+     "u0": 9.72,
+     "u1": 10.865,
+     "d": 1.3,
+     "s": [
+      3,
+      6
+     ],
+     "glazed": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K3": "dark",
+      "K4": "dark",
+      "K5": "dark",
+      "K6": "dark"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solid"
+     },
+     "parapetH": {
+      "*": 1.05
+     },
+     "fasciaC": {
+      "K3": "#685b47",
+      "K4": "#685b47",
+      "K5": "#685b47",
+      "K6": "#685b47"
+     },
+     "beam": {
+      "K3": 0.7,
+      "K4": 0.7,
+      "K5": 0.7,
+      "K6": 0.7
+     },
+     "cap": true,
+     "capH": 1.05,
+     "capC": "#68594a",
+     "frameC": {
+      "*": "#2a2a2a"
+     },
+     "glazeEvery": 0.72
+    }
+   ]
+  },
+  {
+   "edge": 3,
+   "len": 0.83,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi (küçük basamak)"
+  },
+  {
+   "edge": 4,
+   "len": 14.86,
+   "seen": "photo",
+   "ref": "1546358593_3_n3EfAhk3.jpg",
+   "cal": {
+    "u": [
+     10.859,
+     25.168
+    ],
+    "head": [
+     [
+      4,
+      16.16
+     ],
+     [
+      6,
+      22.32
+     ]
+    ]
+   },
+   "note": "Kule batı yüzü orta kısmı: iki balkon yığını (A görünen 9.72–16.0, B 19.49–25.7) ve aralarında yatay derzli sıva (çekirdek, penceresiz; iniş borusu). Yığınlar: her katta krem kiriş bandı (≈0.9 m, döşeme + sarkan kiriş) + koyu kahve dolu parapet (≈1.05 m) + üstünde koyu çerçeveli cam balkon; A: K3–K6 camlı (K3 parapetinde direkli Türk bayrağı), B: K4–K6 camlı, K3 açık (içeride aplik/pencere görünüyor); K2 podyum terası cam kutusunun arkasında (görülmedi). Yığın tepesinde 1.05 m koyu kahve alınlı düz şapka (görünen 24.25–25.3), altı krem (23.2–24.25). Yığın derinliği (1.3 m) yandan görülmedi — varsayılan.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 16,
+     "u1": 19.49,
+     "y0": 7.75,
+     "y1": 24.3,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.39,
+      "w": 0.015,
+      "color": "#6e6552"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 10.859,
+     "u1": 16,
+     "d": 1.3,
+     "s": [
+      3,
+      6
+     ],
+     "glazed": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K3": "dark",
+      "K4": "dark",
+      "K5": "dark",
+      "K6": "dark"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solid"
+     },
+     "parapetH": {
+      "*": 1.05
+     },
+     "fasciaC": {
+      "K3": "#685b47",
+      "K4": "#685b47",
+      "K5": "#685b47",
+      "K6": "#685b47"
+     },
+     "beam": {
+      "K3": 0.7,
+      "K4": 0.7,
+      "K5": 0.7,
+      "K6": 0.7
+     },
+     "cap": true,
+     "capH": 1.05,
+     "capC": "#68594a",
+     "frameC": {
+      "*": "#2a2a2a"
+     },
+     "glazeEvery": 0.72
+    },
+    {
+     "t": "bal",
+     "u0": 19.49,
+     "u1": 25.168,
+     "d": 1.3,
+     "s": [
+      3,
+      6
+     ],
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "dark",
+      "K5": "dark",
+      "K6": "dark"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solid"
+     },
+     "parapetH": {
+      "*": 1.05
+     },
+     "fasciaC": {
+      "K3": "#685b47",
+      "K4": "#685b47",
+      "K5": "#685b47",
+      "K6": "#685b47"
+     },
+     "beam": {
+      "K3": 0.7,
+      "K4": 0.7,
+      "K5": 0.7,
+      "K6": 0.7
+     },
+     "cap": true,
+     "capH": 1.05,
+     "capC": "#68594a",
+     "frameC": {
+      "*": "#2a2a2a"
+     },
+     "glazeEvery": 0.72
+    },
+    {
+     "t": "mast",
+     "u": 12.6,
+     "off": 1.35,
+     "y0": 12.9,
+     "h": 3.4,
+     "color": "#b8b8b8",
+     "flag": "tr"
+    },
+    {
+     "t": "pipe",
+     "u": 16.4,
+     "y0": 8,
+     "y1": 22.9,
+     "color": "#8a8478",
+     "r": 0.04
+    }
+   ]
+  },
+  {
+   "edge": 5,
+   "len": 0.69,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 6,
+   "len": 8.23,
+   "seen": "photo",
+   "ref": "1546358593_3_n3EfAhk3.jpg",
+   "cal": {
+    "u": [
+     25.16,
+     33.5
+    ],
+    "head": [
+     [
+      4,
+      16.16
+     ],
+     [
+      6,
+      22.32
+     ]
+    ]
+   },
+   "note": "Kule batı yüzü güney pencere bloğu; GB köşe görünen ≈33.5 (9nQa karesinde ≈36.5 — iki pano arası kayma); satırlar sol bloktan ≈0.2 m aşağı görünüyor (perspektif). Alt sıralar ağaç arkasında kısmen.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 25.7,
+     "u1": 33.5,
+     "y0": 7.75,
+     "y1": 22.97,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.39,
+      "w": 0.015,
+      "color": "#6e6552"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 25.16,
+     "u1": 25.7,
+     "d": 1.3,
+     "s": [
+      3,
+      6
+     ],
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "dark",
+      "K5": "dark",
+      "K6": "dark"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solid"
+     },
+     "parapetH": {
+      "*": 1.05
+     },
+     "fasciaC": {
+      "K3": "#685b47",
+      "K4": "#685b47",
+      "K5": "#685b47",
+      "K6": "#685b47"
+     },
+     "beam": {
+      "K3": 0.7,
+      "K4": 0.7,
+      "K5": 0.7,
+      "K6": 0.7
+     },
+     "cap": true,
+     "capH": 1.05,
+     "capC": "#68594a",
+     "frameC": {
+      "*": "#2a2a2a"
+     },
+     "glazeEvery": 0.72
+    },
+    {
+     "t": "win",
+     "u0": 26.25,
+     "u1": 28.63,
+     "y0": 20.55,
+     "y1": 22.12,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 26.25,
+     "u1": 28.63,
+     "y0": 17.45,
+     "y1": 19.02,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 26.25,
+     "u1": 28.63,
+     "y0": 14.34,
+     "y1": 15.91,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K4": "tul-yan"
+     },
+     "curtC": {
+      "K4": "#3b2a26"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 26.25,
+     "u1": 28.63,
+     "y0": 11.24,
+     "y1": 12.81,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 26.25,
+     "u1": 28.63,
+     "y0": 8.25,
+     "y1": 9.82,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 31.13,
+     "u1": 33.35,
+     "y0": 20.55,
+     "y1": 22.12,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 31.13,
+     "u1": 33.35,
+     "y0": 17.45,
+     "y1": 19.02,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     },
+     "curt": {
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 31.13,
+     "u1": 33.35,
+     "y0": 14.34,
+     "y1": 15.91,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 31.13,
+     "u1": 33.35,
+     "y0": 11.24,
+     "y1": 12.81,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 31.13,
+     "u1": 33.35,
+     "y0": 8.25,
+     "y1": 9.82,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#3a2f2c",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#b9b19b"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 25.9,
+     "s": 6,
+     "y": 21.45
+    },
+    {
+     "t": "ac",
+     "u": 25.9,
+     "s": 3,
+     "y": 11.65
+    }
+   ]
+  },
+  {
+   "edge": 7,
+   "len": 3.59,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 8,
+   "len": 1.85,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 9,
+   "len": 16.01,
+   "seen": "none",
+   "items": [],
+   "note": "163. Sk. (güney) yüzü: tleKyD8x ortofotosunda 5 m’den ve podyum pergolası arkasından; ölçek tutarsız (≈0.53) → ölçülmedi. Görülen: aynı yatay çizgili bej sıva, ortada iki sütun pencere (krem söveli), iki uçta camlı balkon yığınları, üstte 1.6 m saçak alnı."
+  },
+  {
+   "edge": 10,
+   "len": 1.91,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 11,
+   "len": 3.05,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 12,
+   "len": 8.08,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 13,
+   "len": 1.08,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 14,
+   "len": 14.91,
+   "seen": "none",
+   "items": [],
+   "note": "doğu yüzü yalnız 28 m’den yatık (Yj8Yw7Np) — ölçülmedi"
+  },
+  {
+   "edge": 15,
+   "len": 0.61,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 16,
+   "len": 8.52,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 17,
+   "len": 3.41,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 18,
+   "len": 1.73,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 19,
+   "len": 16.15,
+   "seen": "none",
+   "items": [],
+   "note": "kuzey yüzü (1477364957’ye bakan) görülmedi"
+  }
+ ],
+ "notes": [
+  "KÜTLE: 1546358593 podyumunun (2 kat, üst 9.1) üstündeki OSM building:part; bu dosyada tabandan 7 kat (K0–K1 podyumun içinde kalır, öğesiz), K2–K6 konut. Kat çizgileri podyumla ortak (K0 1.59 → bu taban izinin tabanı 0.065 m yüksek → groundRaise 1.525), kat 3.08, duvar üstü 22.9 (saçak altı), saçak alnı koyu kahve 1.6 m (görünen 22.97–24.55), kırma kiremit çatı + ortada düz teras (hava fotoğrafı: kiremit renkli kırma çatı, ortada korkuluklu düz dikdörtgen, beyaz güneş enerjisi depoları).",
+  "KAT SAYISI: footprints.json notunda 8 yazıyor; bulvar ortofotosunda kule yüzünde 5 pencere sırası (lento 10.0/13.05/16.16/19.24/22.32) + podyumda 2 seviye = 7 (K0–K6). 8. kat görülmedi.",
+  "BALKON YIĞINLARI: kiriş bandı rengi krem (#a5a294) ama üretici döşeme alnını tek renk (fasciaC koyu kahve) çiziyor — pending.",
+  "Tüm ölçüler podyumun bulvar ortofotosundan (n3EfAhk3) — kule kendi kenar ortofotosu üretilmedi; derinlik düzeltmesi yok (ref başka binanın kenarı: D=∞) — balkon önleri 1.3 m önde olduğu için görünen genişlik ≈%6 büyük kalabilir."
+ ],
+ "pending": [
+  {
+   "what": "balkon yığını iki renkli alın",
+   "edges": [
+    2,
+    4,
+    6
+   ],
+   "detail": "her katta döşeme + sarkan kiriş bandı krem #a5a294 (≈0.9 m, döşeme çizgisinin ≈0.17 altından), üstünde dolu parapet koyu kahve #685b47 (≈1.05 m); üretici bal.fasciaC tek renk"
+  },
+  {
+   "what": "kule güney/doğu/kuzey yüzleri",
+   "note": "görülmedi ya da ölçülemedi (bkz. kenar notları)"
+  }
+ ]
+}
