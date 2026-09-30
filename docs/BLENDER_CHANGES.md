@@ -682,3 +682,16 @@
   yuvarlak saçak, ULU diş polikliniği panosu 5 levha birebir, Mercan Balık, VENCHI, Plus, MONTEA; batı blok 7 kat, doğu
   kule 9 kat) ve `1552093099.json` (VİRA, Modern Tavla Ligi afişi, Ciğerci Hamza camlı salon; 8 katlı iki kule). Geri
   çekilmiş üst katlar (kütle kesim yüzleri) üretici desteği bekliyor (pending). **Blender:** bu 2 bina ilk kez kurulur.
+- **(D4 sokak)** — `data/street-plan.json`'a Özlüce Bulvarı (DA kavşağı z −112 → Muammer Aksoy kavşağı z −840) sokak
+  katmanı eklendi, tüm kimlikler `d4-` (mevcut kayıtlara dokunulmadı): 22 kaldırım (`d4-sw-*`, `d4-pk-*` yol kotu park
+  şeridi, `d4-verge-w2`; bulvar standardı: yeşil/beyaz boyalı bordür → ağaç çukurlu gri bant → soluk kırmızı bisiklet
+  bandı → açık gri + sarı kılavuz → gri), 6 orta refüj adası (`d4-median-n2`, `m3`, `m4`, `m5` + ağaçlar ≈56 kazıklı
+  genç ağaç), Uğur Mumcu dönel kavşağı adası (`d4-rb2-island`, rx 22.4 / rz 24.4) + 4 ayrım adası, 28 yaya geçidi /
+  dur çizgisi (z −476, −598, Uğur Mumcu ve Muammer Aksoy kavşakları), 52 otomatik sokak ağacı (`d4-st-*`) + 14 elle
+  ağaç, kuğu boynu lambalar, gabion kutuları, otobüs durakları, teraslar (Caffe Napoli kış bahçesi, Özhamur pergolası,
+  gönül Kahvesi tentesi, Atmosfer Kebap kış bahçesi, Özdemiroğlu 3 kış bahçesi + pergola + pilon, BIGCHEFS kırmızı /
+  Starbucks koyu şemsiyeler + bej teras duvarı, Kent Park çim tarhları), cephe ajanlarından doğrulanan kaldırım eşyası
+  (Uğur Mumcu kuzeyi, Kent Park servis yolu), 1 çit (`d4-kp-fence-s`). Üretici desteği olmayan yeni türler kayıtta
+  (gabion, bus-shelter, waste-container, bollard-light, low-fence, feather-flag, flower-arch, cart, mat, pouf, ac-unit,
+  stone-bollard, steps-note) — çizilmez. **Blender:** `NW/Mertkent/Street` (kaldırım, ada, geçit, yol çizgisi, ağaç
+  kazıkları, lamba, eşya), `NW/Trees` (D4 refüj + kaldırım ağaçları) ve `NW/Mertkent/Fence` yeniden kurulur.

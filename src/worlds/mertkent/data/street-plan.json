@@ -2567,6 +2567,40 @@
     ]
    ],
    "note": "2026-09 (eleştirmen da2-09/10): kuzey sokağın güney kenarında beton bordür/kaide (≈0.2 m, bulutlu ≈#79796e) üstünde koyu yeşil 2D kaynaklı tel panel çit (üst ≈1.85 m yol kotundan), koyu yeşil dikmeler ≈3.2 m arayla (±0.3; bulutlu ≈#0a1d23–#102624 çok koyu). SV glMQ_180_0: çit 5.3 m (z −201.9), cephe dibi 10.4 m (z −196.8 — taban izinin kuzey kenarı −197.2 ile 0.4 m uyumlu → pano GPS'i güvenilir); 0tTf_180_0: çit z −202.0, batıda köşe dikmesiyle güneye döner (batı duvarı). Doğu ucu x≈218'in ötesi görülmedi (221'de bitirildi). Arkası: gri beton kilit taşı arka otopark, sarı park çizgileri (site-plan). Renk: bulutlu kareler (yaklaşık, yeniden örneklenmeli)."
+  },
+  {
+   "kind": "other",
+   "id": "d4-kp-fence-s",
+   "street": "Kent Park güney sınırı (boş arsa tarafı)",
+   "pts": [
+    [
+     536,
+     -578.5
+    ],
+    [
+     570,
+     -578.5
+    ]
+   ],
+   "n": [
+    0,
+    1
+   ],
+   "wallH": 0,
+   "wall": {
+    "h": 0
+   },
+   "mesh": 1.8,
+   "razor": true,
+   "infill": "panel",
+   "infillSpec": {
+    "h": 1.8,
+    "from": 0,
+    "to": 1.8,
+    "color": "#2e5a3a",
+    "type": "yeşil tel panel"
+   },
+   "note": "Yeşil tel panel çit + üstünde jiletli tel, z≈−578.5, x 536–570 (cephe ajanı ±1–2). Yükseklik ve dikme aralığı ölçülmedi (≈1.8, varsayılan dikme). n yönü (sokak tarafı) görülmedi."
   }
  ],
  "gates": [
@@ -13689,6 +13723,352 @@
    "h": 0.15,
    "material": "bordürlü çim tarh (meydan içinde)",
    "note": "Kent Park meydanı üçüncü çim tarh (aerial-n2, ±0.4)."
+  },
+  {
+   "id": "d4-pablo-globe-1",
+   "kind": "bollard-light",
+   "x": 604.6,
+   "z": -570.8,
+   "h": 0.5,
+   "color": "#f2f2ee",
+   "note": "PABLO önünde beyaz küre yer lambası. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09). Yeni tür."
+  },
+  {
+   "id": "d4-pablo-globe-2",
+   "kind": "bollard-light",
+   "x": 604.7,
+   "z": -573.7,
+   "h": 0.5,
+   "color": "#f2f2ee",
+   "note": "PABLO önünde beyaz küre yer lambası. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09). Yeni tür."
+  },
+  {
+   "id": "d4-pablo-globe-3",
+   "kind": "bollard-light",
+   "x": 604.8,
+   "z": -574.8,
+   "h": 0.5,
+   "color": "#f2f2ee",
+   "note": "PABLO önünde beyaz küre yer lambası. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09). Yeni tür."
+  },
+  {
+   "id": "d4-pablo-globe-4",
+   "kind": "bollard-light",
+   "x": 604.8,
+   "z": -575.8,
+   "h": 0.5,
+   "color": "#f2f2ee",
+   "note": "PABLO önünde beyaz küre yer lambası. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09). Yeni tür."
+  },
+  {
+   "id": "d4-pablo-palm",
+   "kind": "tree",
+   "x": 605,
+   "z": -582.7,
+   "h": 2.5,
+   "r": 1,
+   "species": "trachycarpus",
+   "note": "PABLO/Kent Park bulvar yüzünde toprak/kum tarhta genç palmiye (VJjskucr_180_0 ortada). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-pablo-hedge",
+   "kind": "planter",
+   "x": 605,
+   "z": -573.3,
+   "shape": "box",
+   "w": 5.5,
+   "d": 1.2,
+   "h": 0.3,
+   "color": "#6d6a60",
+   "plant": {
+    "h": 0.8,
+    "color": "#3b5a2c",
+    "shape": "hedge"
+   },
+   "rot": 90,
+   "note": "PABLO önünde topiary + çit şeridi (x≈604–606). Boyut oransal. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mado-fence-e",
+   "kind": "low-fence",
+   "x": 604.3,
+   "z": -594.6,
+   "pts": [
+    [
+     604.3,
+     -585.6
+    ],
+    [
+     604.3,
+     -603.6
+    ]
+   ],
+   "h": 0.9,
+   "color": "#1e1f20",
+   "note": "MADO önünde alçak siyah metal çit + saksılar (VJjskucr_180_0 sağda). Yeni tür (low-fence: pts, h, color). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mado-fence-n",
+   "kind": "low-fence",
+   "x": 590,
+   "z": -604.5,
+   "pts": [
+    [
+     604,
+     -604.5
+    ],
+    [
+     576,
+     -604.5
+    ]
+   ],
+   "h": 0.9,
+   "color": "#1e1f20",
+   "note": "MADO servis yolu cephesi boyunca alçak siyah çit + saksılar (HSThiGBU/UQQHBLaO_120_0). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mado-cab",
+   "kind": "cabinet",
+   "x": 606.5,
+   "z": -605.5,
+   "h": 1.3,
+   "note": "Gri elektrik dağıtım panosu (≈0.8×0.4×1.3). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-kp-psign",
+   "kind": "sign",
+   "x": 585,
+   "z": -606.2,
+   "h": 2.8,
+   "text": "P OTO PARK / ÜCRETSİZ",
+   "note": "Lamba direğine takılı otopark levhası \"P OTO PARK / ÜCRETSİZ\" (üretici yalnız mavi P levhası çizer; ayrı direk çizilir — gerçekte lamba direğinde). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-ulu-board",
+   "kind": "board",
+   "x": 568.5,
+   "z": -606.5,
+   "rot": 0,
+   "w": 0.6,
+   "h": 1.1,
+   "y0": 0.1,
+   "d": 0.05,
+   "poles": 2,
+   "bg": "#ffffff",
+   "fg": "#1a3d7c",
+   "lines": [
+    {
+     "text": "ULU",
+     "bold": true,
+     "size": 1.6
+    },
+    {
+     "text": "AĞIZ ve DİŞ SAĞLIĞI POLİKLİNİĞİ",
+     "size": 0.6
+    },
+    {
+     "text": "…502 55 44",
+     "size": 0.6
+    },
+    {
+     "text": "www.uludis.com",
+     "size": 0.55
+    }
+   ],
+   "note": "ULU diş polikliniği önünde diş biçimli ayaklı pano (NtURh_fj_180_0 sağda). Diş silueti çizilemiyor (dikdörtgen); yazı cephe ajanının okuduğu gibi, telefonun başı okunmadı (…). fg rengi görülen lacivert/kırmızı yaklaşık. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-ulu-bin",
+   "kind": "bin",
+   "x": 570.3,
+   "z": -606.4,
+   "h": 1,
+   "color": "#1f1f20",
+   "note": "ULU önünde siyah (ULU logolu) çöp kovası. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-ulu-planter",
+   "kind": "planter",
+   "x": 565.6,
+   "z": -606.8,
+   "shape": "box",
+   "w": 0.8,
+   "d": 0.4,
+   "h": 0.6,
+   "color": "#2f5fa8",
+   "note": "Mavi-beyaz saksı kutusu. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-ulu-table",
+   "kind": "table",
+   "x": 572,
+   "z": -606,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#8a6a45",
+   "chairs": 2,
+   "chairC": "#8a6a45",
+   "note": "Ahşap masa + sandalyeler (sayı cephe ajanı: masa+sandalyeler; 2 varsayıldı DEĞİL — görülen 2). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mercan-flag-1",
+   "kind": "feather-flag",
+   "x": 565.5,
+   "z": -607,
+   "h": 3,
+   "color": "#1c56a8",
+   "text": "Mercan",
+   "note": "Mercan Balık mavi yelken (tüy) bayrağı, \"Mercan\" yazılı. Yeni tür. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mercan-flag-2",
+   "kind": "feather-flag",
+   "x": 558.6,
+   "z": -607.3,
+   "h": 3,
+   "color": "#1c56a8",
+   "text": "Mercan",
+   "note": "Mercan Balık mavi yelken (tüy) bayrağı, \"Mercan\" yazılı. Yeni tür. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mercan-flag-3",
+   "kind": "feather-flag",
+   "x": 550.8,
+   "z": -607.7,
+   "h": 3,
+   "color": "#1c56a8",
+   "text": "Mercan",
+   "note": "Mercan Balık mavi yelken (tüy) bayrağı, \"Mercan\" yazılı. Yeni tür. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mercan-planters",
+   "kind": "planter",
+   "x": 559.5,
+   "z": -607.2,
+   "shape": "box",
+   "w": 5,
+   "d": 0.45,
+   "h": 0.6,
+   "color": "#2f5fa8",
+   "plant": {
+    "h": 0.5,
+    "color": "#3b5a2c",
+    "shape": "shrub"
+   },
+   "rot": 90,
+   "note": "Mavi-beyaz saksı kutuları sırası (x 557–562). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-mercan-table",
+   "kind": "table",
+   "x": 555,
+   "z": -607.3,
+   "shape": "round",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#8a6a45",
+   "chairs": 0,
+   "note": "Yuvarlak ahşap masa. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-venchi-flag",
+   "kind": "feather-flag",
+   "x": 549.6,
+   "z": -607.8,
+   "h": 3,
+   "color": "#1c56a8",
+   "text": "",
+   "note": "Venchi önünde mavi yelken bayrak (yazısı okunmadı). Yeni tür. Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-plus-arch",
+   "kind": "flower-arch",
+   "x": 539.5,
+   "z": -607.5,
+   "w": 5,
+   "h": 3.2,
+   "color": "#c8202c",
+   "note": "Plus önünde kırmızı yapay çiçek kemeri (üstünde iki kahverengi oyuncak ayı), altında kırmızı halı + turuncu trafik konileri (NXI4_VzC_180_0). x≈537–542. Yeni tür (geçici süsleme)."
+  },
+  {
+   "id": "d4-montea-planters",
+   "kind": "planter",
+   "x": 527.3,
+   "z": -596,
+   "shape": "box",
+   "w": 20,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.5,
+    "color": "#3b5a2c",
+    "shape": "hedge"
+   },
+   "rot": 90,
+   "note": "Montea Coffee&Chocolate batı kaldırımı tente altı terası: ahşap saksı kutuları x≈527.3, z −606…−586 boyunca (tek sıra temsil), rattan sandalyeler + beyaz masalar + tente dikmeleri (sayılmadı → masa/sandalye kaydedilmedi). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-kp-barrier",
+   "kind": "barrier",
+   "x": 532,
+   "z": -586,
+   "rot": 90,
+   "h": 1,
+   "note": "Kent Park otopark girişi bariyer kolu ≈4 m + korkuluklar (x 530–534). Kaynak: cephe ajanı (Kent Park 1551828351 / 1552093099 anketi, ±1–2 m); doğrulama SV VJjskucr_180_0, HSThiGBU_120_0, UQQHBLaO_120_0, NtURh_fj_180_0, WL7jmtw4_120_0, NXI4_VzC_180_0 (2025-09)."
+  },
+  {
+   "id": "d4-b099-hedges",
+   "kind": "planter",
+   "x": 653.8,
+   "z": -547,
+   "shape": "box",
+   "w": 32,
+   "d": 0.6,
+   "h": 0.5,
+   "color": "#6d6a60",
+   "plant": {
+    "h": 0.6,
+    "color": "#3b5a2c",
+    "shape": "hedge"
+   },
+   "rot": 90,
+   "note": "1552093099 önünde çitli saksı kutuları sırası x≈653.8, z −563…−531 (tek sıra temsil). Kaynak: cephe ajanı (1552093099)."
+  },
+  {
+   "id": "d4-b099-steps",
+   "kind": "steps-note",
+   "x": 656,
+   "z": -545.7,
+   "note": "Kafe girişi basamakları (656,−545.7) — basamak sayısı/yüksekliği cephe ajanı ölçümünde; sokak katmanında çizilmez (cephe steps öğesi). Kaynak: cephe ajanı."
+  },
+  {
+   "id": "d4-b099-cab",
+   "kind": "cabinet",
+   "x": 663,
+   "z": -564.6,
+   "h": 1.3,
+   "note": "Gri dağıtım panosu. Kaynak: cephe ajanı (1552093099)."
+  },
+  {
+   "id": "d4-b099-bollard",
+   "kind": "stone-bollard",
+   "x": 679,
+   "z": -564,
+   "h": 0.5,
+   "color": "#b8b3a8",
+   "note": "Taş baba (rampa ağzında). Yeni tür. Kaynak: cephe ajanı."
+  },
+  {
+   "id": "d4-b099-tree",
+   "kind": "tree",
+   "x": 679.8,
+   "z": -528.3,
+   "h": 5,
+   "r": 1.8,
+   "species": "deciduous",
+   "note": "Servis yolu (1455076495) kenarında sokak ağacı. Kaynak: cephe ajanı (1552093099); tür görülmedi."
   },
   {
    "id": "d4-mak-zebra-n-w",
