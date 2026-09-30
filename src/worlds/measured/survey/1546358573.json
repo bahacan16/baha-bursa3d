@@ -310,18 +310,19 @@
     },
     {
      "t": "panel",
-     "u0": 53.26,
-     "u1": 62.95,
+     "u0": 55.0,
+     "u1": 63.24,
      "y0": 7.97,
      "y1": 8.91,
      "color": "#2d363d",
-     "proud": 0.08,
+     "proud": 1.45,
      "clad": {
       "dir": "v",
       "every": 0.12,
       "w": 0.04,
       "color": "#0a1215"
-     }
+     },
+     "note": "D4 r2 (2026-09-30): düşey siyah lamel bandı saçak ÖN hattında: akza 180_0’da alnın hemen altında (x 115–325, y 195–218; arada saçak altı görünmüyor → duvar düzleminde değil). d 1.45’te u 55.0–63.4 (ARMILLA kutusu 63.24’te biter)."
     },
     {
      "t": "sign",
@@ -677,57 +678,48 @@
     },
     {
      "t": "proj",
-     "u0": 54.2,
-     "u1": 67.95,
-     "d": 1.45,
-     "y0": 5.98,
-     "y1": 6.45,
-     "color": "#88535a"
+     "u0": 62.95,
+     "u1": 72.5,
+     "d": 4.0,
+     "y0": 4.95,
+     "y1": 5.55,
+     "color": "#88535a",
+     "topC": "#c4c3bd",
+     "note": "D4 r2 (2026-09-30): ARMILLA kırmızı çerçeveli kanopi GERÇEK yerine alındı. İki pano stereo: akza 180_0 (u 63.2, 14.2 m, cepheye dik) sol dikme ekran merkezinde (x 312/640) → u ≈62.95 derinlikten bağımsız; sağ uç x 618 (tan 0.93); 2LX4 f22 ortofotosunda aynı uçlar 54.2 / 68.05 (eğik bakış, düzleme izdüşüm). Kesişim: ön yüz d ≈4.0–4.1 m, u 62.95–72.7 (sol uç d 4.13, sağ uç d 4.01). Ortofoto koordinatı (54.2–67.95) kanopiyi BOĞA BURGER altına taşıyordu. Yükseklik akza’dan (kamera 2.35 m, tabela kutusuyla +0.7 kalibre): alın 4.95–5.55 (≈0.6 m, akza 20 px @10.2 m). Üst yüz hava fotoğrafında açık gri (x 769–780 beyaz şerit = u 61.4–72.2) → topC. Kanopi altı açık teras (2LX4 143_2_40): dükkân camı arka duvarda (d 0)."
+    },
+    {
+     "t": "rod",
+     "a": [
+      63.15,
+      2.08,
+      3.8
+     ],
+     "e": [
+      63.15,
+      4.95,
+      3.8
+     ],
+     "r": 0.2,
+     "color": "#785b67",
+     "note": "D4 r2 (2026-09-30): sol (doğu) dikme: akza 180_0 x 310–322 (≈0.4 m eninde, pembe-kırmızı #785b67 gölge, 2LX4 143_2_40); ön yüzün 0.2 m gerisinde. Kanopinin doğu yan yüzü görülmedi (açık varsayılmadı: yalnız dikme)."
     },
     {
      "t": "proj",
-     "u0": 54.2,
-     "u1": 55.0,
-     "d": 1.45,
-     "y0": 1.8,
-     "y1": 5.98,
-     "color": "#9aa1ad"
-    },
-    {
-     "t": "proj",
-     "u0": 67.5,
-     "u1": 68.2,
-     "d": 1.45,
-     "y0": 1.8,
-     "y1": 5.98,
-     "color": "#9aa1ad"
-    },
-    {
-     "t": "proj",
-     "u0": 68.2,
-     "u1": 73.83,
-     "d": 1.45,
-     "y0": 1.8,
-     "y1": 6.5,
+     "u0": 72.5,
+     "u1": 73.3,
+     "d": 4.0,
+     "y0": 2.08,
+     "y1": 5.6,
      "color": "#607391",
-     "arch": {
-      "u0": 68.24,
-      "u1": 73.0,
-      "y0": 1.8,
-      "top": 5.6,
-      "spring": 2.7,
-      "apex": 68.24,
-      "revealC": "#c8a032"
-     },
-     "note": "v9: ARMILLA ile mavi dükkân arasındaki lila duvar (pending armillaCurvedWall / armillaArches): ön yüzü ARMILLA yazısıyla aynı düzlemde (off 1.45), büyük asimetrik kemer görünen u 68.24–73.0, tepe 5.6 (sol yanda, u0), sağda üzengi ≈2.7 (2LX4ejfo f22 ortofotosunda kemer kenarı sütun taraması: u 69.2 → 5.4, 70.7 → 5.2, 71.6 → 4.7, 72.2 → 4.0, 72.5 → 3.3); kemer içi sarı #c8a032. Duvarın plandaki kavisi ve kemerin arkası (koyu teras / cam) ölçülmedi → düz çıkma, arkası duvar."
+     "note": "D4 r2 (2026-09-30): lila duvar kanopinin BATI YAN DUVARI (cepheye dik): 2LX4 143_2_40’ta kanopinin sağında, arkaya (mavi dükkân duvarına) doğru uzanan yüz; akza 180_0’da ön ucu x 612–625 (u 72.5–72.9, d ≈4.0); ön uç stereo: akza x 618 ∩ 2LX4 143 yönü 134.6° → d 3.3–3.9, u 72.8–73.3; arka ucu mavi dükkân köşesinde (u 73.9, d 0) → planda hafif eğik/kavisli. Önceki çizim duvar düzleminde (68.2–73.83, d 1.45) ortofoto izdüşümüydü: 2LX4’ten yan yüzün izdüşümü u 67.9–72.7’ye düşüyor. Yan yüzdeki büyük sarı kenarlı kemer ve yazı → pending armillaSideArch / blade. Lila #607290 (2LX4 143 gölge) ≈ eski örnek."
     },
     {
      "t": "sign",
-     "off": 1.47,
-     "u0": 65.9,
-     "u1": 66.64,
-     "y0": 5.9,
-     "y1": 6.56,
+     "off": 4.02,
+     "u0": 71.1,
+     "u1": 71.64,
+     "y0": 5.02,
+     "y1": 5.52,
      "d": 0.02,
      "style": "box",
      "shape": "round",
@@ -735,15 +727,16 @@
      "bg": "#c9ccd4",
      "border": "#a33a44",
      "fg": "#a33a44",
-     "logo": "kanopi alnında küçük ARMILLA amblemi"
+     "logo": "kanopi alnında küçük ARMILLA amblemi",
+     "note": "D4 r2 (2026-09-30): kanopi ön alnına (d 4.0) taşındı: 2LX4 ortofoto u′ → gerçek u = u′ + (84.5 − u′)·4.0/14.3; y = 3.0 + (y′ − 3.0)·10.3/14.3."
     },
     {
      "t": "sign",
-     "off": 1.47,
-     "u0": 55.5,
-     "u1": 56.2,
-     "y0": 5.9,
-     "y1": 6.56,
+     "off": 4.02,
+     "u0": 63.61,
+     "u1": 64.12,
+     "y0": 5.02,
+     "y1": 5.52,
      "d": 0.02,
      "style": "box",
      "shape": "round",
@@ -751,15 +744,17 @@
      "bg": "#c9ccd4",
      "border": "#a33a44",
      "fg": "#a33a44",
-     "logo": "kanopi alnında küçük ARMILLA amblemi"
+     "logo": "kanopi alnında küçük ARMILLA amblemi",
+     "note": "D4 r2 (2026-09-30): kanopi ön alnına (d 4.0) taşındı: 2LX4 ortofoto u′ → gerçek u = u′ + (84.5 − u′)·4.0/14.3; y = 3.0 + (y′ − 3.0)·10.3/14.3."
     },
     {
      "t": "panel",
-     "u0": 55.0,
-     "u1": 67.5,
-     "y0": 1.8,
-     "y1": 6.02,
-     "color": "#b8902e"
+     "u0": 63.35,
+     "u1": 72.5,
+     "y0": 2.08,
+     "y1": 5.55,
+     "color": "#b8902e",
+     "note": "D4 r2 (2026-09-30): sarı arka duvar yalnız kanopi altında (akza 180_0: sarı üst bant x 325–540 → d 0’da u 63.4–73; altında koyu cam). Önceki 55–67.5 aralığının batı kısmı (55–63.3) BOĞA BURGER’in koyu dükkân cephesi (akza x 140–310 → u 55.2–62.8)."
     },
     {
      "t": "win",
@@ -842,7 +837,7 @@
      "u0": 63.33,
      "u1": 65.42,
      "y0": 1.8,
-     "y1": 5.78,
+     "y1": 4.3,
      "k": 0,
      "s": [
       0,
@@ -861,7 +856,7 @@
      "u0": 65.42,
      "u1": 67.5,
      "y0": 1.8,
-     "y1": 5.78,
+     "y1": 4.3,
      "k": 0,
      "s": [
       0,
@@ -876,14 +871,33 @@
      }
     },
     {
-     "t": "sign",
-     "u0": 68.16,
-     "u1": 69.9,
-     "y0": 5.65,
-     "y1": 6.77,
-     "off": 1.45,
-     "d": 0.01,
-     "style": "letters",
+     "t": "win",
+     "u0": 67.5,
+     "u1": 72.5,
+     "y0": 1.8,
+     "y1": 4.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#2a2d30",
+     "curt": {
+      "K0": "vitrin"
+     },
+     "note": "D4 r2 (2026-09-30): kanopi altında arka duvar camı (akza 180_0 x 430–540, sarı bandın altında koyu cam); 2LX4’ten yan duvar örtüyor. Kayıt kalınlıkları / bölme yerleri okunamadı → split 2 yaklaşık."
+    },
+    {
+     "t": "blade",
+     "u": 73.32,
+     "y0": 4.7,
+     "y1": 5.4,
+     "w": 1.05,
+     "gap": 2.85,
+     "d": 0.02,
      "text": "ARMILLA\nHAYVAN\nHASTANESİ",
      "lines": [
       {
@@ -905,11 +919,16 @@
        "y": 0.2
       }
      ],
-     "fg": "#b3343c",
+     "bg": "#607391",
+     "fg": "#a33a44",
      "font": "sans",
      "bold": true,
-     "lit": false,
-     "logo": "kavisli lila-gri duvarın (pending armillaCurvedWall) sol üstüne yazılı kırmızı 3 satır; önceki çizimde dik (blade) levhaydı — f22’de duvar yüzüne yazılı görünüyor"
+     "bracket": {
+      "kind": "none"
+     },
+     "textB": "",
+     "logo": "lila yan duvara yazılı kırmızı 3 satır (ARMILLA / HAYVAN / HASTANESİ); yan duvar yüzünde (+u = batıya bakar) → dik pano olarak, zemin lila (duvarla aynı), B yüzü duvarın içinde (boş). 2LX4 143_2_40: yazı yan yüzün ön ucunda x 190–240 → d ≈2.9–4.0, y 4.7–5.4 (ön uç boyu 202 px = 3.5 m).",
+     "note": "D4 r2 (2026-09-30): önceki: cephe düzleminde u 68.16–69.9 (ortofoto izdüşümü)."
     },
     {
      "t": "panel",
@@ -1201,41 +1220,45 @@
      "bg": "#3a9a6c",
      "fg": "#f2f2ee",
      "logo": "yeşil bulut/çiçek biçimli amblem (bulut kenarı çizilmedi → oval), içinde beyaz el yazısı “Hasköyüm”; üstünde küçük beyaz yazı/taç (okunmuyor)",
-     "font": "script"
+     "font": "script",
+     "capH": 0.3,
+     "note": "D4 r2 (2026-09-30): yeşil bulut amblemi içindeki beyaz el yazısı “Hasköyüm” (H yüksekliği ≈0.31 m, f22 x 270–410)."
     },
     {
      "t": "sign",
      "off": 1.45,
      "u0": 94.71,
      "u1": 98.15,
-     "y0": 9.1,
-     "y1": 9.78,
+     "y0": 9.08,
+     "y1": 9.8,
      "d": 0.05,
      "style": "letters",
      "text": "HASKÖYÜM",
      "fg": "#e6e9ea",
-     "font": "sans",
+     "font": "condensed",
      "bold": true,
      "lit": false,
-     "capH": 0.58,
-     "logo": "beyaz 3B harfler (gölgede ölçülen #7d8687, koyu alın #303e47 ile aynı gölgede → beyaz; 7ip2 karesinde açık gri-beyaz); ışık görülmedi"
+     "capH": 0.66,
+     "logo": "beyaz 3B harfler (gölgede ölçülen #7d8687, koyu alın #303e47 ile aynı gölgede → beyaz; 7ip2 karesinde açık gri-beyaz); ışık görülmedi",
+     "note": "D4 r2 (2026-09-30): 2LX4 f22’de harf boyu yeniden ölçüldü: büyük harf 0.66 m (y 9.10–9.76), kalın dar kabartma harf."
     },
     {
      "t": "sign",
      "off": 1.45,
      "u0": 98.15,
      "u1": 100.82,
-     "y0": 9.1,
-     "y1": 9.78,
+     "y0": 9.08,
+     "y1": 9.8,
      "d": 0.05,
      "style": "letters",
      "text": "PİDECİSİ",
      "fg": "#248d5c",
-     "font": "sans",
+     "font": "condensed",
      "bold": true,
      "lit": false,
      "logo": "yeşil 3B harfler (7ip2 180 karesinde ≈#248d5c; 2LX4 f22 gölgede #375d52–#3f6f63)",
-     "capH": 0.58
+     "capH": 0.66,
+     "note": "D4 r2 (2026-09-30): 2LX4 f22’de harf boyu yeniden ölçüldü: büyük harf 0.66 m (y 9.10–9.76), kalın dar kabartma harf."
     },
     {
      "t": "panel",
@@ -5397,8 +5420,8 @@
   {
    "id": "armillaCurvedWall",
    "edge": 6,
-   "what": "lila duvarın plandaki kavisi (u 72–73.83 kavisli uç) ve kemerin arkası",
-   "note": "v9: duvar düz çıkma (d 1.45) + kemer açıklığı olarak çizildi (bkz. kenar 6 proj notu). Plandaki kavis derinliği ve kemerin gerisindeki teras / cam doğrama ölçülmedi."
+   "what": "ARMILLA kanopisinin batı yan duvarı (lila, cepheye dik, planda hafif eğik: ön uç u ≈73.0 d ≈3.6–4.0 → arka uç u 73.9 d 0) ve yan yüzdeki büyük asimetrik kemer açıklığı",
+   "note": "D4 r2 (2026-09-30): yan duvar proj u 72.5–73.3 d 4.0 olarak çizildi (düz, dik). Yan yüzde (batıya bakan) büyük kemer: 2LX4 f22 ortofotosunda u′ 68.24–73.0 → yan duvar boyunca d ≈3.9 (ön, yüksek taraf, tepe ≈5.6 görünen → gerçek ≈5.0) → d ≈0 (arka, üzengi ≈2.7 görünen); iç yüzü sarı #c8a032, arkası kanopi altı teras. Proj.arch yalnız ön yüze çizdiği için yan yüz kemeri bekliyor (üreticiye yan yüz açıklığı gerekli)."
   },
   {
    "id": "halkbankATM",
@@ -5490,7 +5513,7 @@
   {
    "id": "armillaArches",
    "edge": 6,
-   "what": "ARMILLA K0 kırmızı çerçeveli kanopi (u 54.2–67.95) altındaki sarı kenarlı kemerli iç tavan / açıklıklar",
+   "what": "ARMILLA kanopi altı arka duvardaki sarı kenarlı kemerli açıklıklar (2LX4 143_2_40 x 0–60 koyu kemer)",
    "note": "v9: doğudaki büyük asimetrik kemer proj.arch ile çizildi; kanopi altındaki iç kemerler ölçülmedi (kanopi gölgesinde, biçim seçilmedi)."
   }
  ]
