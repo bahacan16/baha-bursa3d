@@ -208,11 +208,11 @@ describe('street plan renderer (critic fixes)', () => {
       { kind: 'drain', x: 3, z: 0, w: 0.9, d: 0.5 },
       { kind: 'manhole', x: 6, z: 0, shape: 'square', w: 0.6 },
     ]);
-    const [y0] = yRange(bk.get('cc_frame_#797d7e'));
+    const [y0] = yRange(bk.get('cc_tar_#797d7e'));
     expect(y0).toBeCloseTo(ROAD_FLUSH, 5);
     expect(y0).toBeGreaterThan(0.05);
-    expect(bk.get('darkMetal')!.pos.length / 3).toBe(4); // ızgara (renk yok → koyu metal)
-    expect(bk.has('cc_frame_#797d7e')).toBe(true); // kare kapak: varsayılan dökme demir tonu
+    expect(bk.get('cc_tar_#3a3a38')!.pos.length / 3).toBe(4); // ızgara (renk yok → koyu ızgara tonu)
+    expect(bk.has('cc_tar_#797d7e')).toBe(true); // kare kapak: varsayılan dökme demir tonu
   });
   it('manhole on a measured sidewalk band sits on the band', () => {
     const bk = build(
@@ -230,7 +230,7 @@ describe('street plan renderer (critic fixes)', () => {
         },
       ],
     );
-    const [y0] = yRange(bk.get('cc_frame_#797d7e'));
+    const [y0] = yRange(bk.get('cc_tar_#797d7e'));
     expect(y0).toBeCloseTo(0.162, 3);
   });
   it('crossing: alternating colours, base paint, worn colour', () => {

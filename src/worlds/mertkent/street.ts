@@ -1094,8 +1094,10 @@ function buildStreet(
     return /bisiklet|bike/.test(note) ? ROAD_FLUSH_BIKE : ROAD_FLUSH;
   };
   /** Rögar / ızgara malzemesi: ölçülen renk (dökme demir, yarı mat) ya da koyu metal */
+  // KARAR: kapaklar yol ayrıntısı malzemesiyle (colorKey 'tar': polygonOffset −8, yol boyasıyla aynı) — ayrıntı
+  // yamaları (−6) ve OSM asfaltı sığ bakışta polygonOffset ile kapağın önüne geçiyordu (render da1-13: kapak yok)
   const coverKey = (hex?: string) =>
-    hex && /^#[0-9a-f]{6}$/i.test(hex) && ext.colorKey ? ext.colorKey('frame', hex) : 'darkMetal';
+    ext.colorKey ? ext.colorKey('tar', hex && /^#[0-9a-f]{6}$/i.test(hex) ? hex : '#3a3a38') : 'darkMetal';
   /**
    * Kapağın çevresindeki açık beton halka / çerçeve (ölçüm notu "beton halka" / "beton çerçeve"): 0.2 m bant.
    * r verilirse yuvarlak halka, yoksa w × d dikdörtgen çerçeve (yaw sokak öğesininki).
