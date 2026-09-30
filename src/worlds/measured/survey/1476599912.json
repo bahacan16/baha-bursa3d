@@ -1215,6 +1215,20 @@
      "bg": "#bfe3de",
      "lines": [
       {
+       "text": "mion",
+       "fg": "#1d1d1d",
+       "size": 0.34,
+       "bold": true,
+       "y": 0.72
+      },
+      {
+       "text": "… KİŞİSEL BAKIM MARKETİ",
+       "fg": "#3a3f3d",
+       "size": 0.07,
+       "bold": false,
+       "y": 0.5
+      },
+      {
        "text": "PARFÜM      SAĞLIKLI YAŞAM      …AKYA…      …SAL BA…      KİŞİSEL BAKIM",
        "fg": "#d8457a",
        "size": 0.12,
@@ -1231,7 +1245,8 @@
        "color": "#e98fb0"
       }
      ],
-     "text": "PARFÜM SAĞLIKLI YAŞAM … KİŞİSEL BAKIM"
+     "text": "PARFÜM SAĞLIKLI YAŞAM … KİŞİSEL BAKIM",
+     "logo": "D4-A: wFJN 0_0’da üst panoda ortada büyük siyah “mion” (o harfi sarı dolgulu) + altında ince tagline (yalnız “… KİŞİSEL BAKIM MARKETİ” okunuyor) ve kozmetik piktogramları (far paleti, fırça, ruj; solda ve sağda) — piktogramlar çizilmedi"
     },
     {
      "t": "band",
@@ -1258,15 +1273,30 @@
      "y0": 3.9,
      "y1": 4.65,
      "d": 0.14,
-     "text": "mi…",
+     "text": "",
      "fg": "#1d1d1d",
      "bg": "#9fd6d0",
      "style": "box",
      "font": "sans",
      "bold": true,
-     "capH": 0.55,
-     "align": "center",
-     "logo": "açık turkuaz kutu fasya, siyah küçük harf logo \"mi…\" (u 3.7–5.3, devamı ağaç arkasında), sağ ucunda küçük \"…Kişisel Bakım M…\" yazısı; üst kenarında sarı şerit"
+     "logo": "açık turkuaz kutu fasya (wFJN 0_0 örneği #97c1c0); üstünde sarı ince bant (y≈4.65)"
+    },
+    {
+     "t": "sign",
+     "u0": 3.7,
+     "u1": 6.9,
+     "y0": 3.95,
+     "y1": 4.6,
+     "d": 0.03,
+     "off": 0.14,
+     "style": "letters",
+     "text": "mion",
+     "fg": "#1d1d1d",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.45,
+     "lit": false,
+     "logo": "siyah kalın yuvarlak küçük harf “mion” (wFJN 0_0 karesinde tam okundu; önceki ölçümde “mi…”, devamı ağaç arkasındaydı). u 3.7–5.3 “mi” ölçülmüştü, “on” genişliği harf oranından (±0.3)"
     },
     {
      "t": "panel",
@@ -1671,7 +1701,7 @@
      "proud": 0.2
     }
    ],
-   "note": "G cephe (Uğur Mumcu). 2LX4e (f22) ölçek ≈1.0 (B sütunu adımı 3.04, köşeler ±0.3). 9unh6 panosu %8 farklı ölçek veriyor (konum hatası) → yalnız doğrulama. 909 ile aynı tip: düzlemler adım oranından — sol köşe yığını önleri +0.55, A sütunu (kemerli) +0.8 (proj), C yığını +2.1, D yığını +1.0, B sütunu 0 (taban izi), sağ köşe yığını +0.2 (loca, derinlik görülmedi). K1–K4 sol yarısı manolya ağacı arkasında (A sütunu perdeleri alt katlarda görülmedi; tül yazıldı, üst katlarda görülen). K0 çift yükseklikli (0–7.3): solda \"mi…\" kozmetik/kişisel bakım mağazası (turkuaz fasya, üstte kategori bandı PARFÜM / SAĞLIKLI YAŞAM / … / KİŞİSEL BAKIM, vitrinlerde kırmızı-beyaz \"70\" etiketleri), sağda EMMA kuaför güzellik salonu (lacivert-beyaz bantlı asma kat cephesi, beyaz kutu tabela 0224 4… 20 99, L'ORÉAL ve KÉRASTASE afişleri). Sanal groundRaise 4.07 (K1 döşemesi 7.12)."
+   "note": "G cephe (Uğur Mumcu). 2LX4e (f22) ölçek ≈1.0 (B sütunu adımı 3.04, köşeler ±0.3). 9unh6 panosu %8 farklı ölçek veriyor (konum hatası) → yalnız doğrulama. 909 ile aynı tip: düzlemler adım oranından — sol köşe yığını önleri +0.55, A sütunu (kemerli) +0.8 (proj), C yığını +2.1, D yığını +1.0, B sütunu 0 (taban izi), sağ köşe yığını +0.2 (loca, derinlik görülmedi). K1–K4 sol yarısı manolya ağacı arkasında (A sütunu perdeleri alt katlarda görülmedi; tül yazıldı, üst katlarda görülen). K0 çift yükseklikli (0–7.3): solda \"mi…\" kozmetik/kişisel bakım mağazası (turkuaz fasya, üstte kategori bandı PARFÜM / SAĞLIKLI YAŞAM / … / KİŞİSEL BAKIM, vitrinlerde kırmızı-beyaz \"70\" etiketleri), sağda EMMA kuaför güzellik salonu (lacivert-beyaz bantlı asma kat cephesi, beyaz kutu tabela 0224 4… 20 99, L'ORÉAL ve KÉRASTASE afişleri). Sanal groundRaise 4.07 (K1 döşemesi 7.12). | D4-A düzeltme (2026-09-30): mion fasya yazısı ve üst pano wordmark/tagline wFJNAd2y 0_0 karesinden tamamlandı."
   },
   {
    "edge": 2,

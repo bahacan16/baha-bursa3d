@@ -869,3 +869,8 @@
 - **(Zemin kat kapı camı)** — Zemin kattaki (K0) `kind: door` pencereleri artık rastgele tül yerine koyu vitrin içi
   (tür 7) ile çizilir (addax / Biaport kapıları beyaz görünüyordu). Dosya `src/worlds/measured/facade.ts`; geometri
   aynı. **Blender:** `materials.py` zemin kat kapı camı = vitrin camı.
+- **(D4 eleştirmen düzeltmeleri, sayfa A cepheleri)** — Yeni ölçülen bloklar: 1546358568 (Biaport doğu kulesi,
+  22 kat), 1476599907 / 908 / 911 (9 kat + çatı katı) — yeni taban izleriyle. Boş görünen yüzler ölçüldü:
+  1476599910 e0, 1476599909 e0, 1476599912 e0. KuveytTürk e6 giydirme cephe (dikey ölçek ×1.34 düzeltmesi), Biaport
+  tabelaları (HASKÖYÜM, PİDECİSİ, 413 45 45, BOĞA BURGER, ARMILLA, mavi dükkân), mion, 900000203 K1 camı, TAŞYAKAN
+  levhası, güney kule balkon uç duvarı. **Blender:** `NW/Measured/Facades` bu bloklar + 4 yeni kütle yeniden kurulur.

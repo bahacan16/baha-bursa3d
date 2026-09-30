@@ -1782,7 +1782,7 @@
      ]
     ]
    },
-   "note": "Kule 3 güney (331. Sk.) yüzü, KuveytTürk podyum üçgeninin arkasında. Düzlem kontrolü: AAkb ile R5Tx ortofotoları bu doğruda boru / pencere kenarlarında ±0.1 m çakışıyor (0.6 ve 1.2 m kuzeye kaydırılmış düzlemlerde 0.7–1.2 m ayrışıyor) → yüz kesim doğrusunda. Orta duvar u 3.75–15.9; solda (GB köşe) ve sağda (GD köşe, e7 dişine taşıyor) balkon yığınları d≈1.3 (e4'te batıdan görülen köşe balkonu ön genişliği); balkon ön yüzleri görünen u ile (büyütme düzeltmesi yok, ±0.5). Orta çift açıklık (boru u 10.0 iki yanı): K4–K5 camlı pencere, K6–K7 (sol K8 dahil) karanlık açık loca — loca derinliği görülmedi, kapı açıklığı olarak çizildi. Sağ yığın K7–K8 cam balkon, K6 beyaz dolu korkuluk, K5 korkulukta yazılı levha. K4 altı podyum parapeti arkasında.",
+   "note": "Kule 3 güney (331. Sk.) yüzü, KuveytTürk podyum üçgeninin arkasında. Düzlem kontrolü: AAkb ile R5Tx ortofotoları bu doğruda boru / pencere kenarlarında ±0.1 m çakışıyor (0.6 ve 1.2 m kuzeye kaydırılmış düzlemlerde 0.7–1.2 m ayrışıyor) → yüz kesim doğrusunda. Orta duvar u 3.75–15.9; solda (GB köşe) ve sağda (GD köşe, e7 dişine taşıyor) balkon yığınları d≈1.3 (e4'te batıdan görülen köşe balkonu ön genişliği); balkon ön yüzleri görünen u ile (büyütme düzeltmesi yok, ±0.5). Orta çift açıklık (boru u 10.0 iki yanı): K4–K5 camlı pencere, K6–K7 (sol K8 dahil) karanlık açık loca — loca derinliği görülmedi, kapı açıklığı olarak çizildi. Sağ yığın K7–K8 cam balkon, K6 beyaz dolu korkuluk, K5 korkulukta yazılı levha. K4 altı podyum parapeti arkasında. | D4-A kontrol (2026-09-30, eMgE 60_0 yakın kırpım): GB köşe yığını K4–K8 AÇIK balkonlar (cam balkon değil) — ön yüz cam korkuluk + beyaz üst küpeşte, batı ucunda dolu krem yan panel (kenar 4’ten görülen ‘köşe balkonu’ bu yığının yan yüzü); K2–K3 podyum parapeti arkasında görülmedi (eleştirmenin K2–K8’i yerine K4–K8). sides start-wall + beyaz küpeşte eklendi; oyundaki ‘mavi camlı’ görünüm glassC #9fb0b4 korkuluk camından (veri cam balkon değil).",
    "items": [
     {
      "t": "win",
@@ -1990,7 +1990,7 @@
      "parapetH": {
       "*": 0.08
      },
-     "railC": "#dcdcd8",
+     "railC": "#e8e9e6",
      "glassC": {
       "*": "#9fb0b4"
      },
@@ -2000,7 +2000,8 @@
      "frameC": {
       "*": "#dfe2e2"
      },
-     "glazeEvery": 0.42
+     "glazeEvery": 0.42,
+     "sides": "start-wall"
     },
     {
      "t": "bal",
@@ -2388,6 +2389,24 @@
    "id": "corner-balconies",
    "what": "Kule 1–3 köşe balkon yığınları (K4–K8): kule kuzey/güney yan yüzlerinden batıya bakan dolu parapetli balkonlar; batıdan görülen ön genişlik 1.2–1.4 m (= yan yüzden taşma d), yan yüz boyunca boyları görülmedi. Ölçülen katlar (v7 edge öğeleri): [{\"edge\": 0, \"part\": 0, \"t\": \"bal\", \"u0\": -0.22, \"u1\": 1.18, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [4, 7], \"tint\": {\"K4\": \"dark\", \"K7\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\", \"pots\": {\"K5\": [0.55]}, \"potsOn\": \"rail\", \"potC\": \"#5a4a3a\", \"plantC\": \"#6b6a4a\"}, {\"edge\": 0, \"part\": 0, \"t\": \"bal\", \"u0\": 21.2, \"u1\": 22.45, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [8], \"tint\": {\"K8\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 2, \"part\": 1, \"t\": \"bal\", \"u0\": 20.95, \"u1\": 22.3, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [5, 7], \"tint\": {\"K5\": \"clear\", \"K7\": \"clear\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 2, \"part\": 1, \"t\": \"bal\", \"u0\": 0.3, \"u1\": 1.5, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [5, 7], \"tint\": {\"K5\": \"dark\", \"K7\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 4, \"part\": 2, \"t\": \"bal\", \"u0\": -0.1, \"u1\": 1.1, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [6, 7, 8], \"tint\": {\"K6\": \"dark\", \"K7\": \"dark\", \"K8\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 4, \"part\": 2, \"t\": \"bal\", \"u0\": 21.3, \"u1\": 22.5, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"sides\": \"open\"}]",
    "need": "yan yüz (kesim) ortofotosu / boy ölçüsü"
+  },
+  {
+   "id": "kuveytPalm",
+   "edge": 6,
+   "what": "KuveytTürk yeşil daire amblemi içindeki altın palmiye (ve kenar 4 köşe amblemi): glif yok → yalnız yeşil daire + beyaz halka çizildi",
+   "uVis": [
+    1.09,
+    1.9
+   ]
+  },
+  {
+   "id": "kuveytGlassParapet",
+   "edge": 6,
+   "what": "giydirme cam korkuluk altına kadar (≈11.5) çıkıyor; kütle parçası 5’in duvar üstü 10.37 + ACP parapet 1.3 → 10.37 üstündeki cam parapet yüzünde; üretici pencereyi duvar üstünde kırpıyorsa parapete cam (tint #8fa4ad, gümüş dikmeler) gerekir",
+   "yReal": [
+    10.37,
+    11.5
+   ]
   }
  ],
  "edges": [
@@ -4733,10 +4752,10 @@
    "items": [
     {
      "t": "win",
-     "u0": 1.47,
-     "u1": 12.18,
-     "y0": 0.95,
-     "y1": 2.94,
+     "u0": 2.07,
+     "u1": 12.16,
+     "y0": 2.18,
+     "y1": 4.85,
      "k": 0,
      "s": [
       0,
@@ -4745,25 +4764,25 @@
      "kind": "shop",
      "stair": true,
      "split": 9,
-     "frameC": "#aeb4b6",
+     "frameC": "#b9bfc2",
      "curt": {
       "K0": "karanlik"
      }
     },
     {
      "t": "band",
-     "u0": 1.47,
+     "u0": 1.45,
      "u1": 12.18,
-     "y0": 2.94,
-     "y1": 3.9,
+     "y0": 4.85,
+     "y1": 6.14,
      "color": "#1f6a4c"
     },
     {
      "t": "sign",
      "u0": 0.89,
      "u1": 5.06,
-     "y0": 3.12,
-     "y1": 3.95,
+     "y0": 5.09,
+     "y1": 6.2,
      "text": "KUVEYTTÜRK",
      "bg": "#f2f3f1",
      "fg": "#1c6a4a",
@@ -4775,34 +4794,62 @@
      "capH": 0.36,
      "align": "right",
      "lit": true,
-     "logo": "köşeden 0.6 m taşan beyaz hap biçimli ışıklı kutu; solda yeşil daire içinde altın palmiye amblemi (u 1.1–1.9); gece görülmedi"
+     "logo": "köşeden 0.6 m taşan beyaz hap biçimli ışıklı kutu; solda yeşil daire içinde altın palmiye amblemi (u 1.1–1.9); gece görülmedi | D4-A: amblem ayrı öğe (yeşil daire u 1.09–1.9); altın palmiye çizilmedi (pending kuveytPalm)"
+    },
+    {
+     "t": "sign",
+     "u0": 1.09,
+     "u1": 1.9,
+     "y0": 5.1,
+     "y1": 6.18,
+     "d": 0.22,
+     "off": 0.0,
+     "style": "box",
+     "shape": "round",
+     "text": "",
+     "bg": "#1c6a4a",
+     "border": "#f2f3f1",
+     "fg": "#c9a44a",
+     "lit": true,
+     "logo": "KuveytTürk amblemi: yeşil daire, içinde altın palmiye (çizilmedi — glif yok), beyaz halka; hap tabelanın sol ucunda"
+    },
+    {
+     "t": "panel",
+     "u0": 1.45,
+     "u1": 2.07,
+     "y0": 2.18,
+     "y1": 11.91,
+     "color": "#a9b1b5",
+     "finish": "acp",
+     "proud": 0.04
     },
     {
      "t": "win",
-     "u0": 1.47,
-     "u1": 12.18,
-     "y0": 3.95,
-     "y1": 7.95,
+     "u0": 2.07,
+     "u1": 12.16,
+     "y0": 6.18,
+     "y1": 11.68,
      "k": 1,
      "s": [
       1,
       1
      ],
      "stair": true,
-     "split": 8,
+     "split": 9,
      "hbars": [
-      5.2,
-      6.35
+      7.37,
+      8.95,
+      10.6
      ],
      "tint": "#8fa4ad",
-     "frameC": "#aeb4b6"
+     "frameC": "#b9bfc2"
     },
     {
      "t": "vinyl",
      "u0": 2.4,
      "u1": 6.6,
-     "y0": 7.09,
-     "y1": 7.76,
+     "y0": 10.41,
+     "y1": 11.31,
      "text": "Eğitim ve sağlık",
      "fg": "#4a4f52",
      "font": "sans",
@@ -4812,8 +4859,8 @@
      "t": "vinyl",
      "u0": 2.4,
      "u1": 4.7,
-     "y0": 6.1,
-     "y1": 6.9,
+     "y0": 9.08,
+     "y1": 10.16,
      "text": "harcamalarına\nvade farksız",
      "fg": "#2c3134",
      "font": "sans",
@@ -4824,8 +4871,8 @@
      "t": "vinyl",
      "u0": 2.4,
      "u1": 4.85,
-     "y0": 5.3,
-     "y1": 5.95,
+     "y0": 8.01,
+     "y1": 8.88,
      "text": "5 taksit.",
      "fg": "#3a3f42",
      "font": "sans",
@@ -4836,8 +4883,8 @@
      "t": "vinyl",
      "u0": 6.2,
      "u1": 7.0,
-     "y0": 4.95,
-     "y1": 5.85,
+     "y0": 7.54,
+     "y1": 8.75,
      "text": "HER YIL\n50 TL\nDEĞERİNDE\nALTIN HEDİYE",
      "bg": "#6f8e9c",
      "fg": "#e8f0f2",
@@ -4848,8 +4895,8 @@
      "t": "vinyl",
      "u0": 7.2,
      "u1": 8.0,
-     "y0": 4.95,
-     "y1": 5.85,
+     "y0": 7.54,
+     "y1": 8.75,
      "text": "KREDİ KARTI\nÜCRETİ\nYOK",
      "bg": "#6f8e9c",
      "fg": "#e8f0f2",
@@ -4860,8 +4907,8 @@
      "t": "vinyl",
      "u0": 8.4,
      "u1": 12.18,
-     "y0": 4.3,
-     "y1": 6.3,
+     "y0": 6.67,
+     "y1": 9.35,
      "text": "",
      "lines": [
       {
@@ -4888,18 +4935,18 @@
     },
     {
      "t": "band",
-     "u0": 1.47,
-     "u1": 12.18,
-     "y0": 7.95,
-     "y1": 8.1,
-     "color": "#b9bdbf"
+     "u0": 1.45,
+     "u1": 12.16,
+     "y0": 11.56,
+     "y1": 11.76,
+     "color": "#c3c8cb"
     },
     {
      "t": "panel",
      "u0": 12.18,
      "u1": 12.53,
-     "y0": 0.8,
-     "y1": 8.1,
+     "y0": 1.98,
+     "y1": 11.76,
      "color": "#d9dee1",
      "finish": "acp"
     },
@@ -4907,8 +4954,8 @@
      "t": "panel",
      "u0": 12.2,
      "u1": 20.74,
-     "y0": 7.4,
-     "y1": 8.2,
+     "y0": 10.83,
+     "y1": 11.9,
      "color": "#d9dee1",
      "finish": "acp",
      "clad": {
@@ -4922,8 +4969,8 @@
      "t": "panel",
      "u0": 12.2,
      "u1": 20.74,
-     "y0": 4.8,
-     "y1": 6.18,
+     "y0": 7.34,
+     "y1": 9.19,
      "color": "#d9dee1",
      "finish": "acp",
      "clad": {
@@ -4937,8 +4984,8 @@
      "t": "panel",
      "u0": 12.2,
      "u1": 12.6,
-     "y0": 6.18,
-     "y1": 7.4,
+     "y0": 9.19,
+     "y1": 10.83,
      "color": "#2b4f8c",
      "finish": "acp"
     },
@@ -4946,8 +4993,8 @@
      "t": "banner",
      "u0": 12.6,
      "u1": 20.6,
-     "y0": 6.18,
-     "y1": 7.32,
+     "y0": 9.19,
+     "y1": 10.72,
      "d": 0.05,
      "style": "print",
      "lines": [
@@ -4995,8 +5042,8 @@
      "t": "sign",
      "u0": 12.44,
      "u1": 19.54,
-     "y0": 4.1,
-     "y1": 6.0,
+     "y0": 6.4,
+     "y1": 8.95,
      "text": "kavanoz design",
      "fg": "#f2f2f2",
      "bg": "#3a3d40",
@@ -5011,8 +5058,8 @@
      "t": "win",
      "u0": 12.53,
      "u1": 16.8,
-     "y0": 0.8,
-     "y1": 2.9,
+     "y0": 1.98,
+     "y1": 4.8,
      "k": 0,
      "s": [
       0,
@@ -5030,8 +5077,8 @@
      "t": "win",
      "u0": 15.1,
      "u1": 15.9,
-     "y0": 0.8,
-     "y1": 2.7,
+     "y0": 1.98,
+     "y1": 4.53,
      "k": 0,
      "s": [
       0,
@@ -5045,8 +5092,8 @@
      "t": "win",
      "u0": 12.53,
      "u1": 16.8,
-     "y0": 3.3,
-     "y1": 4.75,
+     "y0": 5.33,
+     "y1": 7.28,
      "k": 1,
      "s": [
       1,
@@ -5065,8 +5112,8 @@
      "t": "win",
      "u0": 16.8,
      "u1": 20.1,
-     "y0": 0.8,
-     "y1": 2.9,
+     "y0": 1.98,
+     "y1": 4.8,
      "k": 0,
      "s": [
       0,
@@ -5084,8 +5131,8 @@
      "t": "win",
      "u0": 16.8,
      "u1": 20.1,
-     "y0": 3.3,
-     "y1": 4.7,
+     "y0": 5.33,
+     "y1": 7.21,
      "k": 1,
      "s": [
       1,
@@ -5100,8 +5147,8 @@
      "t": "vinyl",
      "u0": 16.9,
      "u1": 18.4,
-     "y0": 3.35,
-     "y1": 4.65,
+     "y0": 5.4,
+     "y1": 7.14,
      "text": "KENDİNİ\nSAVUN",
      "bg": "#e8e2e6",
      "fg": "#1f2a44",
@@ -5113,8 +5160,8 @@
      "t": "vinyl",
      "u0": 18.45,
      "u1": 19.9,
-     "y0": 3.35,
-     "y1": 4.65,
+     "y0": 5.4,
+     "y1": 7.14,
      "text": "HER\nİHTİMALE\nKARŞI",
      "bg": "#f0ecea",
      "fg": "#d23a3a",
@@ -5126,8 +5173,8 @@
      "t": "sign",
      "u0": 20.2,
      "u1": 20.46,
-     "y0": 1.2,
-     "y1": 3.0,
+     "y0": 2.52,
+     "y1": 4.93,
      "text": "ECZANE",
      "bg": "#f4f4f4",
      "fg": "#d42a2a",
@@ -5140,8 +5187,8 @@
     {
      "t": "blade",
      "u": 20.6,
-     "y0": 4.2,
-     "y1": 5.2,
+     "y0": 6.54,
+     "y1": 7.88,
      "w": 1.1,
      "gap": 0.15,
      "d": 0.14,
@@ -5161,8 +5208,8 @@
      "t": "sign",
      "u0": 12.18,
      "u1": 14.66,
-     "y0": 8.23,
-     "y1": 9.1,
+     "y0": 11.94,
+     "y1": 13.1,
      "text": "",
      "lines": [
       {
@@ -5209,14 +5256,14 @@
     },
     {
      "t": "band",
-     "y0": 8.1,
-     "y1": 8.25,
+     "y0": 11.76,
+     "y1": 11.97,
      "u0": 1.47,
      "u1": 20.74,
      "color": "#c9ccce"
     }
    ],
-   "note": "331. Sk. cephesi (güney, 2025-09; AAkb f22 7.2 m, R5Tx 11.5 m). Yalnız podyum ölçüldü: kule 3'ün güney cephesi bu kenarın 0–5.6 m gerisinde (kütle kesim duvarı; K3'te 'YUSUF ÖZOĞLU' panosu podyum korkuluğunda, K4 sağ balkonda 'KÜBRA …' levhası — pending). KuveytTürk (u 1.47–12.18): alt cam 0.95–2.94, yeşil bant + köşeden taşan beyaz hap tabela, üst kat tam cam (kampanya folyoları), üstte cam/boru korkuluk. kavanoz design (u 12.5–16.8, pembe kapı) + eczane (u 16.8–20.1, dikey ECZANE, kırmızı E bayrak tabela); önlerinde kaldırımda pembe dikmeli ahşap çatılı pergola ve eğik kavanoz panosu. UYARI: bu yakın karede podyum üst kotu görünen 8.1 (R5Tx 9.3), bulvar tarafında 11.5–11.9 — dört panonun düşey ölçeği tutarsız (kamera konumu/eğim hatası olabilir); öğeler görünen koordinatla yazıldı, kütle 3 katlı bırakıldı (üstteki boşluk düz beyaz ACP). Doğrulanmalı. Kaldırımdaki KuveytTürk ahşap saksıları, kafesli klima kümesi ve kavanoz pergolası raporlandı."
+   "note": "331. Sk. cephesi (güney, 2025-09; AAkb f22 7.2 m, R5Tx 11.5 m). Yalnız podyum ölçüldü: kule 3'ün güney cephesi bu kenarın 0–5.6 m gerisinde (kütle kesim duvarı; K3'te 'YUSUF ÖZOĞLU' panosu podyum korkuluğunda, K4 sağ balkonda 'KÜBRA …' levhası — pending). KuveytTürk (u 1.47–12.18): alt cam 0.95–2.94, yeşil bant + köşeden taşan beyaz hap tabela, üst kat tam cam (kampanya folyoları), üstte cam/boru korkuluk. kavanoz design (u 12.5–16.8, pembe kapı) + eczane (u 16.8–20.1, dikey ECZANE, kırmızı E bayrak tabela); önlerinde kaldırımda pembe dikmeli ahşap çatılı pergola ve eğik kavanoz panosu. UYARI: bu yakın karede podyum üst kotu görünen 8.1 (R5Tx 9.3), bulvar tarafında 11.5–11.9 — dört panonun düşey ölçeği tutarsız (kamera konumu/eğim hatası olabilir); öğeler görünen koordinatla yazıldı, kütle 3 katlı bırakıldı (üstteki boşluk düz beyaz ACP). Doğrulanmalı. Kaldırımdaki KuveytTürk ahşap saksıları, kafesli klima kümesi ve kavanoz pergolası raporlandı. | D4-A düzeltme (2026-09-30): KENARIN TÜM KOTLARI yeniden ölçeklendi: AAkb (7.2 m) ve R5Tx (11.5 m) ortofotoları bu cephede kendi içinde tutarlı ama kenar 5 (5FS, 24 m) ve kule kat adımına göre ×0.746 küçük (K0 2.12 / cam 4.48 görünen oranı = kenar 5’in 2.85 / 5.75 oranı; yeşil bant iki yüzde de aynı kotta olmalı). Dönüşüm v′ = 4.85 + (v − 2.94) × 1.34 (yeşil bant alt kenarı kenar 5’teki 4.85’e; cam üstü 11.5’e, K0 camı altı 2.18 — kenar 5’te 2.0). Böylece KuveytTürk giydirme camı K1+K2 boyunca korkuluğa kadar çıkıyor (eskiden 7.95’te bitip üstü sıva kalıyordu). KuveytTürk cephe AAkb f22’de yeniden okundu: GB köşede gri alüminyum köşe dikmesi u 1.45–2.07, cam u 2.07–12.16, 9 bölme (dikme ≈1.16 m, gümüş #b9bfc2), 3 yatay kayıt; amblem dairesi ayrı öğe."
   },
   {
    "edge": 7,

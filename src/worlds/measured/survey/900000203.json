@@ -636,10 +636,10 @@
    "items": [
     {
      "t": "roofsign",
-     "u0": -2.5,
-     "u1": 3.5,
-     "y0": 7.2,
-     "y1": 10.2,
+     "u0": -0.9,
+     "u1": 1.9,
+     "y0": 7.7,
+     "y1": 9.7,
      "setback": 1,
      "d": 0.12,
      "text": "TAŞYAKAN\nSİTESİ",
@@ -663,10 +663,10 @@
      "lit": false,
      "frame": {
       "color": "#6b6b6b",
-      "h": 0.3,
+      "h": 0.5,
       "posts": 3
      },
-     "logo": "somon-pembe 3B serifli harfler, koyu kenar çizgisi; \"YA\" üstünde pembe üçgen dağ/çatı amblemi (dış çizgi); iki satır (TAŞYAKAN üstte, SİTESİ altta, ortalı). Konum 2GwGL 0_0 karesinden tahmini ±1.5 m (kavisli köşe üstü); boyut ≈6 × 3 m (tek kare, yakın plan yok)"
+     "logo": "somon-pembe 3B serifli harfler, koyu kenar çizgisi; \"YA\" üstünde pembe üçgen dağ/çatı amblemi (dış çizgi); iki satır (TAŞYAKAN üstte, SİTESİ altta, ortalı). Konum 2GwGL 0_0 karesinden tahmini ±1.5 m (kavisli köşe üstü); boyut D4-A düzeltmesi: sswNcGS2 0_0 karesinde (26 m) tabela 22.5 × 25 px → harf oranından ≈48° eğik bakış → ≈2.8 m en × 2.0 m yükseklik (üçgen amblem dahil; yazı bloğu ≈1.4 m), altında ≈0.5 m dikmeler; eski 6 × 3 m ≈2× büyüktü. ±0.5 m"
     }
    ],
    "note": "Kavisli köşenin ikinci parçası. Çatı tabelası TAŞYAKAN SİTESİ bu köşenin üstünde (yalnız 2GwGL 0_0 ve EHfaO karelerinde; ortofoto yok). u/y kaba (kenar yerel, gerçek m tahmini)."
@@ -726,7 +726,7 @@
      "u1": 23.1,
      "y0": 1,
      "y1": 6.75,
-     "color": "#c4b89f",
+     "color": "#b0a898",
      "clad": {
       "dir": "h",
       "every": 0.12,
@@ -1386,9 +1386,7 @@
      ],
      "split": 1,
      "frameC": "#4a4744",
-     "curt": {
-      "K1": "stor"
-     }
+     "tint": "#76797a"
     },
     {
      "t": "win",
@@ -1403,9 +1401,7 @@
      ],
      "split": 1,
      "frameC": "#4a4744",
-     "curt": {
-      "K1": "stor"
-     }
+     "tint": "#76797a"
     },
     {
      "t": "win",
@@ -1420,9 +1416,7 @@
      ],
      "split": 1,
      "frameC": "#4a4744",
-     "curt": {
-      "K1": "stor"
-     }
+     "tint": "#76797a"
     },
     {
      "t": "sign",
@@ -1628,7 +1622,7 @@
      "r": 0.05
     }
    ],
-   "note": "Uğur Mumcu Blv. cephesi (G). Ax7s0 (f22) + sswNc. Pano ±3 m: yatay çapa = PTT’nin D ucu / 909 ön şeridi başlangıcı (gri boru, görünen 23.1 = kenar sonu) + düşey/yatay ölçek 1.07 (parapet üstü 7.1 m ortak kotu). Soldan: kavisten devam eden 2 kemerli eczane bölmesi (dikey ECZANE yazılı vitrinler, kırmızı tenteler, yeşil yuvarlak eczane rozeti, \"E\" bayrak tabela), BEREKET DÖNER (kırmızı şeritli kutu tabela + altında mavi ışıklı TOMBİK DÖNER; K1’de koyu cam), Domino’s (siyah kutu tabela, K1’de duvara monte büyük domino logosu, iki koyu K1 penceresi), PTT ÖZLÜCE (sarı kavisli tente-fasya, ortada Ptt panosu, Posta▸Banka▸Lojistik ve PttBank yazıları; K1’de 3 koyu çerçeveli pencere, stor). Taş kaplama (açık bej, yatay derzli) tüm K1 bandında; üstte kahve silmeli taş parapet. Sağ üstteki Türk bayrağı ve mavi tabela komşu şeride (900000202) ait."
+   "note": "Uğur Mumcu Blv. cephesi (G). Ax7s0 (f22) + sswNc. Pano ±3 m: yatay çapa = PTT’nin D ucu / 909 ön şeridi başlangıcı (gri boru, görünen 23.1 = kenar sonu) + düşey/yatay ölçek 1.07 (parapet üstü 7.1 m ortak kotu). Soldan: kavisten devam eden 2 kemerli eczane bölmesi (dikey ECZANE yazılı vitrinler, kırmızı tenteler, yeşil yuvarlak eczane rozeti, \"E\" bayrak tabela), BEREKET DÖNER (kırmızı şeritli kutu tabela + altında mavi ışıklı TOMBİK DÖNER; K1’de koyu cam), Domino’s (siyah kutu tabela, K1’de duvara monte büyük domino logosu, iki koyu K1 penceresi), PTT ÖZLÜCE (sarı kavisli tente-fasya, ortada Ptt panosu, Posta▸Banka▸Lojistik ve PttBank yazıları; K1’de 3 koyu çerçeveli pencere, stor). Taş kaplama (açık bej, yatay derzli) tüm K1 bandında; üstte kahve silmeli taş parapet. Sağ üstteki Türk bayrağı ve mavi tabela komşu şeride (900000202) ait. | D4-A düzeltme (2026-09-30): PTT üstü K1’deki 3 pencere beyaz stor değil, düz orta gri cam/kapalı stor görünümü (Ax7s0c ortosu #6f716d–#7c7d7b, güneşli G yüz) → tint #76797a; taş kaplama örneği #a69e90 (medyan) / #b8b0a5 (açık taşlar) → #b0a898 (gri-bej)."
   },
   {
    "edge": 4,
