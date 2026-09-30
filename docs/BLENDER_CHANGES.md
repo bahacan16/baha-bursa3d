@@ -594,3 +594,9 @@
   krom harfler, klima yere indi. MOSSA granit ailesi güneşli değere (×1.35, ör. sıva #645a54). 900000101 çift kapı alt
   dolu panel. 772 K0 beyaz süslü demir parmaklık. 1546816193 beyaz kompozit ailesi ×1.25 (#ced8de…).
   **Blender:** bu 6 bloğun cephe katmanı; 900000101–103 taban izi + cephe (FP-v3, 4.3° dönük cephe).
+- **(eleştirmen düzeltmesi, Mertkent-2)** 01:5x — `survey/1480041342/43/44/45, 1540901795/96.json` + `facades.json`:
+  44 GB köşe locası (e5 inset 1.54 + e4 yan 4.83, `merge:false`, K1 antrasit alın #34404a, K1/K2 beyaz perde); köşe
+  locaları 42/43/44/45'te birleşme kırpılmasına karşı açık `inset` + `merge:false`; 42 e5 şeritleri kum rengi
+  #d7cbb9 (turuncu değil, aynı kare oranıyla); 43 kuzey girintisi e12/e13 kısmen ölçüldü (56 m'den, düşük hassasiyet);
+  44 ikinci sıva #cdd4d6; 45 GB yığını 1.13 m çıkma; 95 e1 koyu kayıt #2f3438 + `glazeEvery` 0.9, çatı pencereleri
+  alınlık biçimli; 96 e20 boş saksılar. **Blender:** bu 6 bloğun cephe katmanı (özellikle köşe locaları).
