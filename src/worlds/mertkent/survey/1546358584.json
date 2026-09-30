@@ -511,17 +511,8 @@
      "t": "band",
      "u0": -1.0,
      "u1": 4.69,
-     "y0": 3.28,
-     "y1": 4.1,
-     "color": "#e0dfd8",
-     "proud": 0.0
-    },
-    {
-     "t": "band",
-     "u0": -1.0,
-     "u1": 4.69,
-     "y0": 4.1,
-     "y1": 4.5,
+     "y0": 3.5,
+     "y1": 6.8,
      "color": "#7f5035",
      "proud": 0.02
     },
@@ -529,79 +520,58 @@
      "t": "band",
      "u0": -1.0,
      "u1": 4.69,
-     "y0": 4.6,
-     "y1": 5.5,
+     "y0": 7.4,
+     "y1": 8.3,
      "color": "#e9e6dc",
      "proud": 0.45
-    },
-    {
-     "t": "pilaster",
-     "u0": 0.25,
-     "u1": 0.8,
-     "y0": 3.28,
-     "y1": 4.1,
-     "d": 0.05,
-     "color": "#7f5035"
-    },
-    {
-     "t": "pilaster",
-     "u0": 3.0,
-     "u1": 3.67,
-     "y0": 3.28,
-     "y1": 4.1,
-     "d": 0.05,
-     "color": "#7f5035"
     },
     {
      "t": "win",
      "u0": -0.73,
      "u1": 0.21,
-     "y0": 3.28,
-     "y1": 4.13,
-     "k": 0,
+     "y0": 4.3,
+     "y1": 6.3,
+     "k": 1,
      "s": [
-      0,
-      0
+      1,
+      1
      ],
      "kind": "std",
      "split": 2,
-     "frameC": "#8a5a3c",
-     "stair": true
+     "frameC": "#8a5a3c"
     },
     {
      "t": "win",
      "u0": 0.8,
      "u1": 2.9,
-     "y0": 3.28,
-     "y1": 4.13,
-     "k": 0,
+     "y0": 4.3,
+     "y1": 6.3,
+     "k": 1,
      "s": [
-      0,
-      0
+      1,
+      1
      ],
      "kind": "std",
      "split": 2,
-     "frameC": "#8a5a3c",
-     "stair": true
+     "frameC": "#8a5a3c"
     },
     {
      "t": "win",
      "u0": 3.67,
      "u1": 4.69,
-     "y0": 3.28,
-     "y1": 4.13,
-     "k": 0,
+     "y0": 4.3,
+     "y1": 6.3,
+     "k": 1,
      "s": [
-      0,
-      0
+      1,
+      1
      ],
      "kind": "std",
      "split": 2,
-     "frameC": "#8a5a3c",
-     "stair": true
+     "frameC": "#8a5a3c"
     }
    ],
-   "note": "KD köşe (y4xc f22, çok yakın): K1 kiremit payeli şerit pencereler + beyaz korniş; K0 Caffe Napoli pergolası/kış bahçesi arkasında (görülmedi)."
+   "note": "KD köşe (y4xc f22, çok yakın): K1 kiremit payeli şerit pencereler + beyaz korniş; K0 Caffe Napoli pergolası/kış bahçesi arkasında (görülmedi). D4-v8: K1/korniş kotları güney yüzle eşitlendi (düşey sıkışma, bkz. e30)."
   },
   {
    "edge": 29,
@@ -689,8 +659,8 @@
      "t": "band",
      "u0": -1.1,
      "u1": 12.89,
-     "y0": 3.4,
-     "y1": 4.6,
+     "y0": 3.5,
+     "y1": 6.8,
      "color": "#7f5035",
      "proud": 0.02
     },
@@ -698,8 +668,8 @@
      "t": "band",
      "u0": -1.1,
      "u1": 12.89,
-     "y0": 4.25,
-     "y1": 4.6,
+     "y0": 6.8,
+     "y1": 7.4,
      "color": "#e9e6dc",
      "proud": 0.03
     },
@@ -707,8 +677,8 @@
      "t": "band",
      "u0": -1.1,
      "u1": 12.89,
-     "y0": 4.7,
-     "y1": 5.3,
+     "y0": 7.4,
+     "y1": 8.3,
      "color": "#e9e6dc",
      "proud": 0.45
     },
@@ -716,91 +686,76 @@
      "t": "win",
      "u0": -0.5,
      "u1": 1.78,
-     "y0": 3.49,
-     "y1": 4.21,
-     "k": 0,
+     "y0": 4.3,
+     "y1": 6.3,
+     "k": 1,
      "s": [
-      0,
-      0
+      1,
+      1
      ],
      "kind": "std",
      "split": 3,
      "frameC": "#8a5a3c",
-     "stair": true,
      "curt": {
-      "K0": "stor"
+      "K1": "stor"
      }
     },
     {
      "t": "win",
      "u0": 2.37,
      "u1": 4.1,
-     "y0": 3.49,
-     "y1": 4.21,
-     "k": 0,
+     "y0": 4.3,
+     "y1": 6.3,
+     "k": 1,
      "s": [
-      0,
-      0
+      1,
+      1
      ],
      "kind": "std",
      "split": 3,
      "frameC": "#8a5a3c",
-     "stair": true,
      "curt": {
-      "K0": "stor"
+      "K1": "stor"
      }
     },
     {
      "t": "win",
      "u0": 4.8,
      "u1": 6.24,
-     "y0": 3.49,
-     "y1": 4.21,
-     "k": 0,
+     "y0": 4.3,
+     "y1": 6.3,
+     "k": 1,
      "s": [
-      0,
-      0
+      1,
+      1
      ],
      "kind": "std",
      "split": 3,
      "frameC": "#8a5a3c",
-     "stair": true,
      "curt": {
-      "K0": "stor"
+      "K1": "stor"
      }
     },
     {
      "t": "win",
      "u0": 7.68,
      "u1": 9.5,
-     "y0": 3.49,
-     "y1": 4.21,
-     "k": 0,
+     "y0": 4.3,
+     "y1": 6.3,
+     "k": 1,
      "s": [
-      0,
-      0
+      1,
+      1
      ],
      "kind": "std",
      "split": 3,
      "frameC": "#8a5a3c",
-     "stair": true,
      "curt": {
-      "K0": "stor"
+      "K1": "stor"
      }
-    },
-    {
-     "t": "vinyl",
-     "u0": 5.1,
-     "u1": 5.9,
-     "y0": 5.6,
-     "y1": 6.6,
-     "text": "…\n0224 247 247 5\n0532 502 76 48",
-     "bg": "#eef3e6",
-     "fg": "#2f6b3a",
-     "logo": "kule K2 pencerelerinde yeşil-beyaz afişler (kule dosyasına ait olabilir; düzlem farkı)"
     }
    ],
-   "note": "404 Sk. yüzü (mjsR f22). K0: kiremit-kahve kaplı payeler arasında karanlık cam/ızgara açıklıklar, önlerinde çelik boru korkuluklu basamak/rampa (aşağı iniyor: yarı bodrum), üstte beyaz beton alın (y 2.4–3.4). K1: kiremit kaplı bant içinde ahşap doğramalı stor perdeli şerit pencereler (y 3.5–4.2), üstte beyaz kavisli korniş 4.7–5.3. DİKKAT: kuzeyde podyum üst kotu ≈5.3 (güneyde 8.3) — kuzey yüz daha alçak/zemin daha yüksek; üretici tek wallTop ile çizer (bekliyor). u<2.9 önünde Caffe Napoli pergolası (sokak katmanı)."
+   "note": "404 Sk. yüzü (mjsR f22). K0: kiremit-kahve kaplı payeler arasında karanlık cam/ızgara açıklıklar, önlerinde çelik boru korkuluklu basamak/rampa (aşağı iniyor: yarı bodrum), üstte beyaz beton alın (y 2.4–3.4). K1: kiremit kaplı bant içinde ahşap doğramalı stor perdeli şerit pencereler (y 3.5–4.2), üstte beyaz kavisli korniş 4.7–5.3. D4-v8: K1 ve korniş ortofotoda düşey sıkışık görünüyordu (görünen K1 3.4–4.6, korniş 4.7–5.3; basamak korkulukları 0.6 m görünüyor → ölçek ≈1.6–1.75, bkz. kule notları) → güney yüzle aynı kotlara yazıldı: K1 kiremit bant 3.5–6.8, pencereler 4.3–6.3 (stor perde), beyaz bant 6.8–7.4, korniş 7.4–8.3. K0 (yataya yakın bakış) ölçüldüğü gibi. u<2.9 önünde Caffe Napoli pergolası (sokak katmanı)."
   },
   {
    "edge": 31,
@@ -886,15 +841,11 @@
   }
  ],
  "notes": [
-  "Podyum: 2 kat (K0 dükkân/otopark, K1 ofis), üstü düz çatı + beyaz kavisli korniş (≈0.9 m, 0.45 taşar). Bulvar ve güney yüzleri tek katlı dükkân şeridi (1551828357) arkasında. Kuleler (1546358586/87/88) ayrı dosyalar; kule halkaları podyum halkasının batı kenarlarını paylaşır (e1–e3/e31 → 87, e5–e9 → 86, e14–e18 → 88).",
-  "Kat yükseklikleri: güneyde korniş 7.4–8.3; kuzeyde (404 Sk.) 4.7–5.3 ölçüldü → kuzey kısım daha alçak veya zemin farklı; wallTop 7.4 (güney).",
+  "Podyum: 2 kat (K0 dükkân/otopark, K1 ofis), üstü düz çatı + beyaz kavisli korniş (≈0.9 m, 0.45 taşar). Bulvar ve güney yüzleri tek katlı dükkân şeridi (1551828357) arkasında. Kuleler (1546358586/87/88) ayrı dosyalar; kule halkaları podyum halkasının batı kenarlarını paylaşır (e1–e3/e31 → 87, e5–e9 → 86, e14–e18 → 88). v8: kuleler startK 2 ile K2 döşemesinden (7.4) başlar → ortak batı duvarlarında çakışma yok.",
+  "Kat yükseklikleri: korniş 7.4–8.3 (güney ortofotosu); kuzey (404 Sk.) ortofotolarında görünen alçaklık (5.3) yakın panonun düşey ölçek sıkışması (D4-v8, kule notları) → aynı kotlar kullanıldı.",
   "Renkler: açık bej sıva, kiremit-kahve taş kaplama payeler/bantlar (#7f5035, gölgede), beyaz korniş."
  ],
  "pending": [
-  {
-   "what": "coplanar-towers",
-   "note": "Kule dosyaları zeminden çizilir; podyumla ortak batı kenarlarında 0–7.4 m duvar çakışması. Öneri: podyum massing parçası (kule çokgenleri hariç) ya da kule baseY."
-  },
   {
    "what": "dis-merdiven",
    "edge": 31,
@@ -905,11 +856,6 @@
    "w": 1.1,
    "railC": "#b8bcbe",
    "note": "zeminden K1 sahanlığına düz kol çelik merdiven, boru korkuluk, sahanlık u 7.5–8.8 y 3.3"
-  },
-  {
-   "what": "kuzey-alcak",
-   "edge": 30,
-   "note": "404 Sk. cephesinde korniş üstü 5.3 (güney 8.3); ayrı massing parçası gerekebilir"
   },
   {
    "what": "otopark-rampasi",

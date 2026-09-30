@@ -678,17 +678,14 @@
   }
  ],
  "notes": [
-  "KARAR (kule ayrı dosya): OSM building:part kuleleri ayrı ölçüm dosyası olarak yazıldı — kulelerin bulvara bakan girintili doğu yüzleri (çerçeve kutuları, localar, merdiven girintisi) podyum halkasının kenarı değil; podyum dosyasında massing ile çizilseler bu yüzler öğesiz kesim duvarı olurdu. Kule zeminden çizilir (K0–K1 podyum katları, öğesiz); batı / güney / kuzeyde podyumla ortak duvarlarda 0–7.4 m arası iki dosyanın duvarı çakışır → üretici bekliyor (pending: coplanar-podium).",
+  "KARAR (kule ayrı dosya): OSM building:part kuleleri ayrı ölçüm dosyası olarak yazıldı — kulelerin bulvara bakan girintili doğu yüzleri (çerçeve kutuları, localar, merdiven girintisi) podyum halkasının kenarı değil; podyum dosyasında massing ile çizilseler bu yüzler öğesiz kesim duvarı olurdu. v8: startK 2 → kule duvarları K2 döşemesinden (0.74 + 2×3.33 = 7.4 m, podyum çatısı/korniş altı) başlar; K0–K1 podyumda, çakışma yok.",
   "Kat: 10 = K0–K1 podyum (döşeme K2 ≈7.4 m, podyum saçağı ≈7.4–8.3) + K2–K8 konut + K9 çatı katı (doğu yüzde geri çekik, çatı terası korkuluklu; güney/kuzey alınlıkta tam yüz). Kat yüksekliği 3.33 (1546358584_19_HSThiGBU ortofotosu, kule güney yüzü podyum e19 düzleminde: lento K2 9.66 → K9 33.0). groundRaise 0.74 = 7.4 − 2×3.33 (K0/K1 gerçek yükseklikleri podyumda farklı, bu dosyada öğe yok).",
-  "Doğu yüzler kendi ortofotolarımdan (scratch d4E/o, kenar düzlemlerinde; derleyici pano bulamaz → derinlik düzeltmesi yok, u cal.u ile, y cal.head ile ölçeklenir). Bu ortofotolarda kat aralığı 2.7–3.0 görünüyor (gerçek 3.33) → kule doğu yüzleri taban izinden ≈3–5 m daha batıda olabilir (ya da pano konum hatası): taban izi düzeltmesi raporda. Yatay ±0.6 m, balkon derinlikleri tahmini.",
   "Renk dili: açık bej-kum sıva (#ada18f, bulutlu) + koyu kahve-bej çerçeve kutuları ve köşe payeleri (#7f6a58), merdiven girintisi koyu gri (#5d5b57), pencereler koyu kahve PVC, balkon korkulukları yatay borulu (4–5 boru) paslanmaz-gri, çatı parapeti üstünde lacivert-mor metal harpuşta (#3b3a66) + ince boru korkuluk.",
-  "Doğu yüz (güneyden kuzeye): e9 loca yüzü | e11 çerçeve kutusu (cam balkonlar) | e13 koyu merdiven girintisi | e15 çerçeve kutusu | e17 loca yüzü. Batı (site) yüzü ve kısa yan yüzler görülmedi. Çatı: düz, çevre parapeti + boru korkuluk; güney yarısında geri çekik çatı katı (camlı, korkuluklu) — volumes olarak çizilmedi (boyu ölçülmedi, bekliyor)."
+  "Doğu yüz (güneyden kuzeye): e9 loca yüzü | e11 çerçeve kutusu (cam balkonlar) | e13 koyu merdiven girintisi | e15 çerçeve kutusu | e17 loca yüzü. Batı (site) yüzü ve kısa yan yüzler görülmedi. Çatı: düz, çevre parapeti + boru korkuluk; güney yarısında geri çekik çatı katı (camlı, korkuluklu) — volumes olarak çizilmedi (boyu ölçülmedi, bekliyor).",
+  "Doğu yüzler kendi ortofotolarımdan (scratch d4E/o, kenar düzlemlerinde; derleyici pano bulamaz → derinlik düzeltmesi yok, u cal.u ile, y cal.head ile ölçeklenir). Yatay ±0.6 m.",
+  "D4-v8: DİKEY ÖLÇEK DOĞRULAMASI — doğu/kuzey ortofotolarda kat aralığının 2.7 (doğu) / 1.9 (kuzey) görünmesi taban izi hatası DEĞİL: aynı yüz iki-üç panodan (HxEE4T_F/YPIGWqlq/KsRtfn8o doğu; mjsRsf5V/DKAUVrZo kuzey) aynı küçük aralığı veriyor ama yüz GENİŞLİKLERİ taban izine uyuyor (e11 çerçeve kutusu görünen 4.3 / taban izi 4.51; kuzey yüz ≈12.1 / 12.9); hava fotoğrafında eğimle (−2.4,−8.75) kaydırılmış kule halkaları çatı kenarlarına oturuyor. Yani yalnız düşey ölçek sıkışık (yakın panoda yüksek eğimli karolar) → düzeltme cal.head ile kenar başına (kat çizgileri fotoğraftaki satırlara oturtuldu); taban izi ve cal.dist değiştirilmedi. Gerçek kat aralığı 3.33 (güney yüz HSThiGBU, batı yüzler 3.05–3.2)."
  ],
  "pending": [
-  {
-   "what": "coplanar-podium",
-   "note": "Kule halkası zeminden çizilir; podyumla ortak batı duvarlarında 0–7.4 m çakışma. Öneri: kule dosyasına baseY / podyum kotu (y0 7.4) alanı ya da podyum massing parçasında storeys:0 atlama."
-  },
   {
    "what": "cati-kati",
    "edge": 9,
@@ -699,5 +696,6 @@
    "setback": "≈1.5?",
    "note": "geri çekik çatı katı, önünde teras boru korkuluğu (e9/e11 üstü); derinlik görülmedi."
   }
- ]
+ ],
+ "startK": 2
 }

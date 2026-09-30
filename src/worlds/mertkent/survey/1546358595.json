@@ -4,6 +4,7 @@
  "storeys": 7,
  "floorH": 3.08,
  "groundRaise": 1.525,
+ "startK": 2,
  "roof": {
   "kind": "hipped",
   "eave": 0.5,
@@ -939,7 +940,7 @@
   }
  ],
  "notes": [
-  "KÜTLE: 1546358593 podyumunun (2 kat, üst 9.1) üstündeki OSM building:part; bu dosyada tabandan 7 kat (K0–K1 podyumun içinde kalır, öğesiz), K2–K6 konut. Kat çizgileri podyumla ortak (K0 1.59 → bu taban izinin tabanı 0.065 m yüksek → groundRaise 1.525), kat 3.08, duvar üstü 22.9 (saçak altı), saçak alnı koyu kahve 1.6 m (görünen 22.97–24.55), kırma kiremit çatı + ortada düz teras (hava fotoğrafı: kiremit renkli kırma çatı, ortada korkuluklu düz dikdörtgen, beyaz güneş enerjisi depoları).",
+  "KÜTLE: 1546358593 podyumunun (2 kat, üst 9.1) üstündeki OSM building:part; v8 startK 2 → duvarlar K2 döşemesinden (7.685 m) başlar, K0–K1 çizilmez (podyumla çakışma yok), K2–K6 konut. Kat çizgileri podyumla ortak (K0 1.59 → bu taban izinin tabanı 0.065 m yüksek → groundRaise 1.525), kat 3.08, duvar üstü 22.9 (saçak altı), saçak alnı koyu kahve 1.6 m (görünen 22.97–24.55), kırma kiremit çatı + ortada düz teras (hava fotoğrafı: kiremit renkli kırma çatı, ortada korkuluklu düz dikdörtgen, beyaz güneş enerjisi depoları).",
   "KAT SAYISI: footprints.json notunda 8 yazıyor; bulvar ortofotosunda kule yüzünde 5 pencere sırası (lento 10.0/13.05/16.16/19.24/22.32) + podyumda 2 seviye = 7 (K0–K6). 8. kat görülmedi.",
   "BALKON YIĞINLARI: kiriş bandı rengi krem (#a5a294) ama üretici döşeme alnını tek renk (fasciaC koyu kahve) çiziyor — pending.",
   "Tüm ölçüler podyumun bulvar ortofotosundan (n3EfAhk3) — kule kendi kenar ortofotosu üretilmedi; derinlik düzeltmesi yok (ref başka binanın kenarı: D=∞) — balkon önleri 1.3 m önde olduğu için görünen genişlik ≈%6 büyük kalabilir."

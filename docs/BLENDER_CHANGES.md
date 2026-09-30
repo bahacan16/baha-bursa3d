@@ -734,3 +734,12 @@
   `NW/Mertkent/Blocks/1552093099` yeniden kurulur; kesim kenarı öğeleri bölünmüş parça kenarlarında (`splitMassing`
   çıktısı) — port `massing.ts` `cutItems` ile aynı eşleştirmeyi yapmalı (paralel ≤ 15°, uçlar `tol` 1.5 m içinde,
   halka yönünde).
+  - **(D4 sokak, 2. tur)** — `d4-lamp2-*` 27 kuğu boynu lamba (h 11, SV kerterizi × bordür), 5 trafik ışığı /
+    yaya sinyali + ayrım burnu levhası, Muammer Aksoy GD yeşil pilon, 5 refüj "raket" panosu (`board`), dar kuzey
+    ayırıcı `d4-median-m6` (z −737 … −792, kırmızı kilit taşı), 4 Uğur Mumcu köşe kaldırımı (`d4-sw-rb2-*`), 63 sarı
+    park çizgisi (`d4-tick-*`, `road-line`), 6 rögar/çukur, doğu bordürleri araç sırasından sıkılaştırıldı (`d4-sw-e3…e7`,
+    yeni `e3b`), `d4-sw-w5` bisiklet bandı + kılavuz; cephe ajanlarının kaldırım eşyası (≈145 öğe: kış bahçeleri,
+    pergolalar, şemsiyeler, saksılar, bayraklar, ATM kulübeleri, menü standları, `canopy`). D4 dışı düzeltmeler
+    (koordinatör): `da3-rb-island.ringOuter` 27.5, `da3-bb-sw.faces` ters sıra, DA kaldırımlarına `tactileTint`,
+    `roads` 502. Sk. `centreShift` [−0.9, 0]. **Blender:** `NW/Mertkent/Street` (lamba, sinyal, ada, çizgi, eşya,
+    kaldırım), `NW/Roads` (502 orta çizgi) yeniden kurulur.
