@@ -256,7 +256,15 @@ function rect(cx: number, cz: number, u: P2, hu: number, hv: number): P2[] {
  * - araç kapısı (gates kind vehicle): açıklık w/2 + 0.5 m, sokak yönünde 8 m.
  */
 export function parkingBlockers(
-  items: readonly { kind?: string; x?: number; z?: number; rot?: number; len?: number; w?: number; poly?: P2[] }[],
+  items: readonly {
+    kind?: string;
+    x?: number;
+    z?: number;
+    rot?: number;
+    len?: number;
+    w?: number;
+    poly?: P2[];
+  }[],
   gates: readonly { kind: string; c: P2; n: P2; w: number }[] = [],
 ): ParkingBlocker[] {
   const out: ParkingBlocker[] = [];
@@ -309,7 +317,10 @@ export function parkingCars(
       const b = line[i];
       const L = cum[i] - cum[i - 1] || 1;
       const f = (s - cum[i - 1]) / L;
-      return { p: [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], t: [(b[0] - a[0]) / L, (b[1] - a[1]) / L] };
+      return {
+        p: [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f],
+        t: [(b[0] - a[0]) / L, (b[1] - a[1]) / L],
+      };
     };
     const project = (q: P2): number => {
       let best = Infinity;
@@ -358,7 +369,8 @@ export function parkingCars(
       let f: P2;
       if (parallel) f = st.nose === 'back' ? [-t[0], -t[1]] : t;
       else if (st.mode === 'perpendicular') f = side;
-      else f = [t[0] * Math.cos(ang) + side[0] * Math.sin(ang), t[1] * Math.cos(ang) + side[1] * Math.sin(ang)];
+      else
+        f = [t[0] * Math.cos(ang) + side[0] * Math.sin(ang), t[1] * Math.cos(ang) + side[1] * Math.sin(ang)];
       const box = rect(p[0], p[1], f, PARK_HALF_L, PARK_HALF_W);
       if (blockers.some((b) => ringsOverlap(box, b))) continue;
       const seed = (hashStr(`${st.id}#${k}`) % 997) + 1;

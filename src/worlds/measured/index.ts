@@ -63,6 +63,8 @@ const BLOCK_NAMES = ['A', 'B', 'C', 'D', 'E', 'F'];
 /** ?nosurvey=1 → ölçülmüş cepheler yerine eski kural tabanlı apartman modeli (karşılaştırma için) */
 const NO_SURVEY = typeof location !== 'undefined' && new URLSearchParams(location.search).has('nosurvey');
 const OLD_FENCE = typeof location !== 'undefined' && new URLSearchParams(location.search).has('oldfence');
+/** `?noparking` — ölçülmüş park şeritlerindeki araçları kapatır (önce/sonra karşılaştırması) */
+const NO_PARKING = typeof location !== 'undefined' && new URLSearchParams(location.search).has('noparking');
 /** Asfalt yarı genişliği (roads.ts sınıf genişlikleriyle uyumlu) */
 const ROAD_HALF: Record<string, number> = {
   primary: 6,
@@ -1857,12 +1859,15 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   }
   // Ölçülmüş park şeritleri (street-plan.json `parking`, D4): geçit / durak / ada / araç girişi önü boş kalır
   const parking = (STREET_PLAN as { parking?: ParkingStrip[] }).parking;
-  if (parking?.length)
+  if (parking?.length && !NO_PARKING)
     cars.push(
       ...parkingCars(
         parking,
         o.H,
-        parkingBlockers((STREET_PLAN.street ?? []) as Parameters<typeof parkingBlockers>[0], STREET_PLAN.gates ?? []),
+        parkingBlockers(
+          (STREET_PLAN.street ?? []) as Parameters<typeof parkingBlockers>[0],
+          STREET_PLAN.gates ?? [],
+        ),
       ),
     );
   // ── Salusvizyon ──

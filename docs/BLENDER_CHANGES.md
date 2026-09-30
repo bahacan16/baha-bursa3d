@@ -888,3 +888,7 @@
   üstü cam. Sokak: ada çayırı, refüj çim rengi, kazık çit, tente saçak yazısı, dolap rengi, çakıl rengi, bisiklet
   piktogramı, kış bahçesi çatı yazısı, iki renkli alın yazısı, pilon başlığı, PTT bayrak yazısı. **Blender:**
   `NW/Measured/Facades` (yukarıdaki bloklar) + `NW/Street/D4` (ada, çitler, tenteler) yeniden kurulur.
+- **(D4 park etmiş araçlar)** — `street-plan.json` `parking[]`: 25 ölçülmüş park şeridi (paralel / dik / 60° açılı,
+  2025-09 karelerindeki doluluk), 207 araç; yeni `sim/parked.ts` `parkingCars` (yaya geçidi, durak, ada, araç kapısı
+  önü boş kalır). Yalnız D4. **Blender:** `NW/Street/D4` park etmiş araç örnekleri (varsa) yeniden kurulur; pişirme
+  katmanı etkilenmez.
