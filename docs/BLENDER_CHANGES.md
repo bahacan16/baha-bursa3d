@@ -674,3 +674,7 @@
     türü `pinea` (fıstık çamı, indeks 20); OSM genel kaldırımda bordür yüzü/üstü düz beton. **Blender:**
     `NW/Mertkent/Street`, `NW/Mertkent/Gates`, `NW/Mertkent/Fence`, `NW/Mertkent/Site` + `Park`, `NW/Trees` (yeni tür),
     `NW/Roads` (bordür) yeniden kurulur; `mk_street.py`'ye pylon/canopy/road-line türleri.
+- **(D4 cephe 1)** — yeni `survey/1546358563.json` (Özdemiroğlu: beyaz 3 kat + beşik tonoz, "Özdemiroğlu / Baklava &
+  kebap" yeşil konturlu beyaz harf, gri servis bloğu), `900000201.json` (MOT Hair&Style + Watsons: altın 3B harf, 9.1 m
+  nane afiş, spotlar), `900000202.json` (Wall Street English mavi pano + tente, İDAS 3B harf + "iyi uykular"); vitrin
+  yazıları okunduğu kadar. `facades.json`. **Blender:** bu 3 bina ilk kez ölçülü kurulur (D4).

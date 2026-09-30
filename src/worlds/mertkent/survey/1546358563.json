@@ -1,0 +1,1499 @@
+{
+ "id": 1546358563,
+ "name": "Özdemiroğlu Baklava & Kebap (restoran)",
+ "storeys": 4,
+ "floorH": 3.2,
+ "groundRaise": 1.35,
+ "plinthH": 0,
+ "wallTop": 13.35,
+ "roof": {
+  "kind": "flat",
+  "eave": 0,
+  "fasciaH": 0.02,
+  "flatC": "#b59e94",
+  "parapet": {
+   "h": 0.1,
+   "color": "plaster2",
+   "edges": [
+    2
+   ]
+  }
+ },
+ "colors": {
+  "plaster": "#c8cac3",
+  "plaster2": "#a5a691",
+  "strip": "#c8cac3",
+  "fascia": "#c8cac3",
+  "soffit": "#b9bbb7",
+  "railGlass": "#76a1af",
+  "frame": "#303d3f",
+  "tile": "#87868b",
+  "plinth": "#c8cac3"
+ },
+ "massing": {
+  "towers": [
+   {
+    "x": [
+     583.4,
+     589.5
+    ],
+    "storeys": 3,
+    "roof": {
+     "kind": "flat",
+     "eave": 0,
+     "fasciaH": 0.02,
+     "flatC": "#b59e94",
+     "parapet": {
+      "h": 0.39,
+      "color": "plaster",
+      "edges": [
+       0,
+       1,
+       3
+      ]
+     }
+    },
+    "wallTop": 11.24
+   },
+   {
+    "rest": true,
+    "storeys": 4,
+    "wallTop": 13.35
+   }
+  ]
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 16.25,
+   "seen": "partial",
+   "ref": "1546358563_0_OHftRqTt.jpg",
+   "cal": {
+    "u": [
+     0.56,
+     17.28
+    ],
+    "head": [
+     [
+      1,
+      6.94
+     ],
+     [
+      2,
+      10.23
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0.56,
+     "u1": 1.69,
+     "y0": 4.6,
+     "y1": 10.23,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 4.76,
+     "u1": 5.84,
+     "y0": 4.6,
+     "y1": 10.23,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 11.13,
+     "u1": 12.23,
+     "y0": 4.6,
+     "y1": 10.23,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 16.06,
+     "u1": 17.28,
+     "y0": 4.6,
+     "y1": 10.23,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.69,
+     "u1": 4.76,
+     "y0": 5.38,
+     "y1": 6.94,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "hbars": [
+      6.13
+     ],
+     "frameC": "#303d3f",
+     "tint": "#61777e"
+    },
+    {
+     "t": "win",
+     "u0": 1.69,
+     "u1": 4.76,
+     "y0": 4.6,
+     "y1": 5.38,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "film": {
+      "color": "#b09a50",
+      "pattern": "damask"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.84,
+     "u1": 11.13,
+     "y0": 4.6,
+     "y1": 6.94,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "tint": "#61777e"
+    },
+    {
+     "t": "win",
+     "u0": 12.23,
+     "u1": 16.06,
+     "y0": 5.38,
+     "y1": 6.94,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "hbars": [
+      6.13
+     ],
+     "frameC": "#303d3f",
+     "tint": "#61777e"
+    },
+    {
+     "t": "win",
+     "u0": 12.23,
+     "u1": 16.06,
+     "y0": 4.6,
+     "y1": 5.38,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "film": {
+      "color": "#b09a50",
+      "pattern": "damask"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.69,
+     "u1": 4.76,
+     "y0": 7.85,
+     "y1": 10.23,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.84,
+     "u1": 11.13,
+     "y0": 7.85,
+     "y1": 10.23,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 12.23,
+     "u1": 16.06,
+     "y0": 7.85,
+     "y1": 10.23,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0.56,
+     "u1": 17.28,
+     "y0": 4.15,
+     "y1": 4.6,
+     "color": "fascia",
+     "proud": 0.12
+    },
+    {
+     "t": "band",
+     "u0": 0.56,
+     "u1": 17.28,
+     "y0": 6.94,
+     "y1": 7.6,
+     "color": "fascia",
+     "proud": 0.06
+    },
+    {
+     "t": "band",
+     "u0": 0.56,
+     "u1": 17.28,
+     "y0": 7.6,
+     "y1": 7.85,
+     "color": "fascia",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 0.56,
+     "u1": 17.28,
+     "y0": 10.23,
+     "y1": 10.8,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "u0": 0.56,
+     "u1": 17.28,
+     "y0": 11.3,
+     "y1": 11.5,
+     "color": "fascia",
+     "proud": 0.35
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 0.56,
+     "u1": 17.28,
+     "y": 10.8,
+     "w": 0.03,
+     "color": "#8e979b"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 0.56,
+     "u1": 17.28,
+     "y": 11.22,
+     "w": 0.03,
+     "color": "#8e979b"
+    },
+    {
+     "t": "lamp",
+     "us": [
+      1.13,
+      5.3,
+      11.68,
+      16.67
+     ],
+     "k": 1,
+     "s": [
+      1,
+      2
+     ],
+     "y": 4.66,
+     "style": "box",
+     "dir": "up",
+     "d": 0.26,
+     "h": 0.08,
+     "proud": 0.08,
+     "color": "#2a2d30"
+    },
+    {
+     "t": "sign",
+     "u0": 6.53,
+     "u1": 10.48,
+     "y0": 7.31,
+     "y1": 8.0,
+     "text": "Özdemiroğlu",
+     "fg": "#dcdfd8",
+     "outline": "#284234",
+     "style": "letters",
+     "font": "script",
+     "bold": true,
+     "logo": "kalın, yuvarlak uçlu dekoratif el yazısı; Ö noktalı, ğ kıvrık; her harf koyu yeşil kontur-kesim taşıyıcı plaka üzerinde (≈8 cm pay) — kontur outline ile. d görülmedi; ışık görülmedi (gündüz)"
+    },
+    {
+     "t": "sign",
+     "u0": 6.9,
+     "u1": 9.9,
+     "y0": 6.98,
+     "y1": 7.29,
+     "text": "Baklava & kebap",
+     "fg": "#dcdfd8",
+     "outline": "#284234",
+     "style": "letters",
+     "font": "script",
+     "bold": true,
+     "logo": "\"&\" stilize (E benzeri); küçük harf \"kebap\"; koyu yeşil kontur plaka; alt satır K1 pencere kasasının üstüne taşar"
+    }
+   ],
+   "note": "Doğu (bulvar) cephesi, 2025-09 OHftRqTt (27 m; 22° karolar 255/267/280, f22 ortosunda okundu) + lOTvhRji (28.8 m) ile doğrulandı. Klasik beyaz cephe: K1–K2 büyük koyu çerçeveli pencereler, aralarda yatay derzli (≈0.40 m) payeler, K1 altı ve K1/K2 arası profilli silmeler, üstte arşitrav + friz + 0.35 m taşan korniş, 0.4 m parapet. Pencereler (soldan): W1 u 1.69–4.76 (K1: 2 kayıtlı 3 sıra, alt sıra altın/sarı desenli dekor cam — film), W2 5.84–11.13 (K1 tek büyük ayna cam + orta dikme, içeride asılı dekor süs; K2 orta dikme), W3 12.23–16.06 (palmiye + bayrak direği arkasında: K1 alt sırası belirgin altın geometrik desen, üst kayıt görülmedi). K2 camlarının arkasında beyaz tül perdeler (tamamen kapalı). Paye diplerinde (K1 ve K2 silme üstlerinde) küçük siyah kutu armatürler (yukarı aydınlatma). Tabela K1/K2 silmesinde, W2 ortasında. K0: kış bahçesi (camlı, katlanır tente çatılı; sokak katmanı) arkasında — cephe GÖRÜLMEDİ, çizilmedi. Palmiye, iki bayrak direği (biri Türk bayraklı) ve ağaçlar sokak katmanında. Beyaz sıva gölgede #b2bbbf (bu cephe), güneşte #c8cac3 (güney)."
+  },
+  {
+   "edge": 1,
+   "len": 29.36,
+   "seen": "partial",
+   "ref": "1546358563_1__8KTVbWS.jpg",
+   "cal": {
+    "u": [
+     1.05,
+     30.4
+    ],
+    "head": [
+     [
+      1,
+      7.72
+     ],
+     [
+      2,
+      11.08
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 1.05,
+     "u1": 2.13,
+     "y0": 5.28,
+     "y1": 11.08,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 8.52,
+     "u1": 9.62,
+     "y0": 5.28,
+     "y1": 11.08,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 16.01,
+     "u1": 17.05,
+     "y0": 5.28,
+     "y1": 11.08,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 17.05,
+     "u1": 30.4,
+     "y0": -0.5,
+     "y1": 14.55,
+     "color": "plaster2"
+    },
+    {
+     "t": "win",
+     "u0": 2.13,
+     "u1": 8.52,
+     "y0": 6.07,
+     "y1": 7.72,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "hbars": [
+      6.82
+     ],
+     "frameC": "#303d3f",
+     "tint": "#61777e"
+    },
+    {
+     "t": "win",
+     "u0": 2.13,
+     "u1": 8.52,
+     "y0": 5.28,
+     "y1": 6.07,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "film": {
+      "color": "#b09a50",
+      "pattern": "damask"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 9.62,
+     "u1": 16.01,
+     "y0": 6.07,
+     "y1": 7.72,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "hbars": [
+      6.82
+     ],
+     "frameC": "#303d3f",
+     "tint": "#61777e"
+    },
+    {
+     "t": "win",
+     "u0": 9.62,
+     "u1": 16.01,
+     "y0": 5.28,
+     "y1": 6.07,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "film": {
+      "color": "#b09a50",
+      "pattern": "damask"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.13,
+     "u1": 8.52,
+     "y0": 8.6,
+     "y1": 11.08,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 9.62,
+     "u1": 16.01,
+     "y0": 8.6,
+     "y1": 11.08,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y0": 4.9,
+     "y1": 5.28,
+     "color": "fascia",
+     "proud": 0.12
+    },
+    {
+     "t": "band",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y0": 7.72,
+     "y1": 8.45,
+     "color": "fascia",
+     "proud": 0.06
+    },
+    {
+     "t": "band",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y0": 8.45,
+     "y1": 8.6,
+     "color": "fascia",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y0": 11.08,
+     "y1": 11.5,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y0": 12.1,
+     "y1": 12.35,
+     "color": "fascia",
+     "proud": 0.35
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y": 11.5,
+     "w": 0.03,
+     "color": "#8e979b"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y": 12.02,
+     "w": 0.03,
+     "color": "#8e979b"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 1.05,
+     "u1": 17.05,
+     "y": 12.72,
+     "w": 0.02,
+     "color": "#8e979b"
+    },
+    {
+     "t": "sign",
+     "u0": 6.5,
+     "u1": 11.8,
+     "y0": 8.25,
+     "y1": 8.95,
+     "text": "Özdemiroğlu",
+     "fg": "#dcdfd8",
+     "outline": "#284234",
+     "style": "letters",
+     "font": "script",
+     "bold": true,
+     "logo": "doğudakiyle aynı yazı (≈1.35× büyük), koyu yeşil kontur plaka; d görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 7.1,
+     "u1": 10.85,
+     "y0": 7.82,
+     "y1": 8.22,
+     "text": "Baklava & kebap",
+     "fg": "#dcdfd8",
+     "outline": "#284234",
+     "style": "letters",
+     "font": "script",
+     "bold": true
+    },
+    {
+     "t": "win",
+     "u0": 6.0,
+     "u1": 8.55,
+     "y0": 12.8,
+     "y1": 14.55,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "tint": "#505b64"
+    },
+    {
+     "t": "win",
+     "u0": 9.62,
+     "u1": 16.01,
+     "y0": 12.8,
+     "y1": 14.55,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "tint": "#4c575d"
+    },
+    {
+     "t": "win",
+     "u0": 9.62,
+     "u1": 16.01,
+     "y0": 14.55,
+     "y1": 15.22,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "tint": "#4c575d"
+    },
+    {
+     "t": "win",
+     "u0": 21.03,
+     "u1": 22.6,
+     "y0": 9.4,
+     "y1": 10.77,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 21.03,
+     "u1": 21.75,
+     "y0": 12.78,
+     "y1": 14.15,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 1,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K3": "acik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 21.75,
+     "u1": 22.6,
+     "y0": 12.78,
+     "y1": 14.15,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 1,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 24.35,
+     "u1": 25.98,
+     "y0": 12.78,
+     "y1": 14.15,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.05,
+     "u1": 26.8,
+     "y": 11.82,
+     "w": 0.04,
+     "color": "#5f6666"
+    },
+    {
+     "t": "pipe",
+     "u": 26.85,
+     "y0": 11.4,
+     "y1": 14.9,
+     "color": "#b9bdbd",
+     "r": 0.05
+    },
+    {
+     "t": "bal",
+     "u0": 26.8,
+     "u1": 30.4,
+     "d": 0,
+     "inset": 3.0,
+     "s": [
+      3,
+      3
+     ],
+     "sides": "start-wall",
+     "rail": {
+      "K3": "solidTube"
+     },
+     "parapetH": {
+      "K3": 0.6
+     },
+     "railC": "#c9ccc9",
+     "fasciaC": {
+      "K3": "#747b7a"
+     }
+    },
+    {
+     "t": "proj",
+     "u0": 26.8,
+     "u1": 30.4,
+     "d": 0.3,
+     "y0": 14.55,
+     "y1": 14.97,
+     "color": "#3e434a"
+    },
+    {
+     "t": "arch",
+     "u0": 5.8,
+     "u1": 26.8,
+     "yTop": 16.9,
+     "vault": 16.1,
+     "backFace": false,
+     "color": "plaster",
+     "roofC": "#87868b",
+     "coping": {
+      "h": 0.3,
+      "over": 0.05,
+      "color": "#3e434a"
+     },
+     "clip": [
+      5.8,
+      17.05
+     ]
+    },
+    {
+     "t": "arch",
+     "u0": 5.8,
+     "u1": 26.8,
+     "yTop": 16.9,
+     "vault": 16.1,
+     "backFace": false,
+     "color": "plaster2",
+     "roofC": "#87868b",
+     "coping": {
+      "h": 0.3,
+      "over": 0.05,
+      "color": "#3e434a"
+     },
+     "clip": [
+      17.05,
+      26.8
+     ]
+    },
+    {
+     "t": "roofobj",
+     "kind": "vent",
+     "x": 571.1,
+     "z": -229.0,
+     "h": 3.9,
+     "w": 0.22,
+     "color": "#9a9d9f",
+     "cap": {
+      "kind": "disc",
+      "d": 0.32,
+      "h": 0.08,
+      "color": "#6b6e70"
+     }
+    }
+   ],
+   "note": "Kuzey cephe, 2025-09 _8KTVbWS (52.5 m; 22° karolar 182/192/203 × 4/16/28, f22 ortosunda okundu) + vyuAqaKP (trafik lambası önde). GPS kayması (pano x −1.5…−2) → görünen KD köşe u 1.05; KB köşe görünen ≈30.4 (ağaç + teras arkasında, ±0.3). Doğu 16.0 m beyaz klasik cephe (payeler 1.05–2.13, 8.52–9.62, 16.01–17.05; W1 2.13–8.52 ve W2 9.62–16.01 simetrik, ikisi de ortada dikmeli — W2 dikmesi u 12.8 görüldü, W2 sağ yarısı ve son paye ağaç arkasında kısmen, beyaz/gri sınırı u 17.05 f22 ortosunda K1–K3 boyunca görüldü). Tonoz alnında K3 camları: V1 6.0–8.55 (üstü kemere paralel eğik 14.5→15.25), V2 9.62–(16.01) üstü düz 15.22 (sağ ucu ağaç arkasında GÖRÜLMEDİ — alttaki W2 hizası alındı). Batı 13.4 m gri sıvalı servis bloğu (gölgede #747b7a; güneyde aynı sıva güneşte krem #a5a691): K2/K3 beyaz PVC pencereler (K2 ikinci sütun ve tüm K1 ağaç arkasında GÖRÜLMEDİ), y 11.82 yatay derz (K3 döşeme hizası), KB köşede K3 açık teras (dolu parapet + boru korkuluk, koyu gri saçak plağı 14.55–14.97, köşede dikme, arka duvarda koyu eşya), saçak yanında açık gri iniş borusu. Beşik tonoz (koyu gri kenar bandı, gri kaplama #87868b hava) K–G yönünde tüm derinliği örter; tepede paslanmaz baca (x≈571, z≈−229; doğu ve güney karelerinde de görülüyor). Tonoz arkasında (u 25.5–28.6, y 15.0–15.8) çelik kafes çerçeve — bkz. pending. K0: kuzey kış bahçesi (yeşil alınlı camlı, beyaz dikmeli; sokak katmanı) ve ağaçlar arkasında — GÖRÜLMEDİ."
+  },
+  {
+   "edge": 2,
+   "len": 16.2,
+   "seen": "none",
+   "items": [],
+   "note": "Batı cephe: hiçbir 2025 karesinde görülmedi (hava fotoğrafında yalnız gölgeli batı yüzü şeridi). Çizilmedi."
+  },
+  {
+   "edge": 3,
+   "len": 29.41,
+   "seen": "partial",
+   "ref": "1546358563_3_Zd4GsqjL.jpg",
+   "cal": {
+    "u": [
+     3.0,
+     30.55
+    ],
+    "head": [
+     [
+      1,
+      5.84
+     ],
+     [
+      2,
+      8.97
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 15.5,
+     "u1": 16.65,
+     "y0": 3.57,
+     "y1": 8.97,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 22.36,
+     "u1": 23.54,
+     "y0": 3.57,
+     "y1": 8.97,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 29.35,
+     "u1": 30.55,
+     "y0": 3.57,
+     "y1": 8.97,
+     "color": "plaster",
+     "clad": {
+      "dir": "h",
+      "every": 0.4,
+      "w": 0.012,
+      "color": "#8e979b"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 3.0,
+     "u1": 15.5,
+     "y0": -0.5,
+     "y1": 12.25,
+     "color": "plaster2"
+    },
+    {
+     "t": "win",
+     "u0": 16.65,
+     "u1": 22.36,
+     "y0": 4.29,
+     "y1": 5.84,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "hbars": [
+      4.99
+     ],
+     "frameC": "#303d3f",
+     "tint": "#61777e"
+    },
+    {
+     "t": "win",
+     "u0": 16.65,
+     "u1": 22.36,
+     "y0": 3.57,
+     "y1": 4.29,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "film": {
+      "color": "#b09a50",
+      "pattern": "damask"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 23.54,
+     "u1": 29.35,
+     "y0": 4.29,
+     "y1": 5.84,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "hbars": [
+      4.99
+     ],
+     "frameC": "#303d3f",
+     "tint": "#61777e"
+    },
+    {
+     "t": "win",
+     "u0": 23.54,
+     "u1": 29.35,
+     "y0": 3.57,
+     "y1": 4.29,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "film": {
+      "color": "#b09a50",
+      "pattern": "damask"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 16.65,
+     "u1": 22.36,
+     "y0": 6.66,
+     "y1": 8.97,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 23.54,
+     "u1": 29.35,
+     "y0": 6.66,
+     "y1": 8.97,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y0": 3.29,
+     "y1": 3.57,
+     "color": "fascia",
+     "proud": 0.12
+    },
+    {
+     "t": "band",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y0": 5.84,
+     "y1": 6.5,
+     "color": "fascia",
+     "proud": 0.06
+    },
+    {
+     "t": "band",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y0": 6.5,
+     "y1": 6.66,
+     "color": "fascia",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y0": 8.97,
+     "y1": 9.35,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y0": 9.9,
+     "y1": 10.1,
+     "color": "fascia",
+     "proud": 0.35
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y": 9.35,
+     "w": 0.03,
+     "color": "#8e979b"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y": 10.54,
+     "w": 0.02,
+     "color": "#8e979b"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 15.5,
+     "u1": 30.55,
+     "y": 9.75,
+     "w": 0.03,
+     "color": "#8e979b"
+    },
+    {
+     "t": "sign",
+     "u0": 20.18,
+     "u1": 25.03,
+     "y0": 6.3,
+     "y1": 6.91,
+     "text": "Özdemiroğlu",
+     "fg": "#dcdfd8",
+     "outline": "#284234",
+     "style": "letters",
+     "font": "script",
+     "bold": true,
+     "logo": "doğudakiyle aynı; d görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 20.98,
+     "u1": 24.18,
+     "y0": 5.95,
+     "y1": 6.3,
+     "text": "Baklava & kebap",
+     "fg": "#dcdfd8",
+     "outline": "#284234",
+     "style": "letters",
+     "font": "script",
+     "bold": true
+    },
+    {
+     "t": "win",
+     "u0": 16.6,
+     "u1": 21.0,
+     "y0": 10.54,
+     "y1": 12.25,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "curt": {
+      "K3": "zebra"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 16.6,
+     "u1": 21.0,
+     "y0": 12.25,
+     "y1": 12.78,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 2,
+     "frameC": "#303d3f",
+     "curt": {
+      "K4": "zebra"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 21.0,
+     "u1": 22.5,
+     "y0": 10.54,
+     "y1": 12.25,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "curt": {
+      "K3": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 21.0,
+     "u1": 22.5,
+     "y0": 12.25,
+     "y1": 12.78,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "curt": {
+      "K4": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 23.5,
+     "u1": 25.9,
+     "y0": 10.54,
+     "y1": 12.25,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 1,
+     "frameC": "#303d3f",
+     "curt": {
+      "K3": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.6,
+     "u1": 8.75,
+     "y0": 4.3,
+     "y1": 5.47,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.62,
+     "u1": 11.98,
+     "y0": 4.3,
+     "y1": 5.47,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.6,
+     "u1": 8.75,
+     "y0": 7.34,
+     "y1": 8.62,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.62,
+     "u1": 11.98,
+     "y0": 7.34,
+     "y1": 8.62,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.6,
+     "u1": 8.75,
+     "y0": 10.54,
+     "y1": 11.71,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4"
+    },
+    {
+     "t": "win",
+     "u0": 10.62,
+     "u1": 11.98,
+     "y0": 10.54,
+     "y1": 11.71,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "vent",
+     "u": 14.37,
+     "y": 4.13,
+     "s": 0.45,
+     "shape": "rect",
+     "color": "#5d6166"
+    },
+    {
+     "t": "vent",
+     "u": 14.45,
+     "y": 10.65,
+     "s": 0.35,
+     "shape": "rect",
+     "color": "#5d6166"
+    },
+    {
+     "t": "ac",
+     "u": 11.07,
+     "s": 0,
+     "y": 3.5
+    },
+    {
+     "t": "ac",
+     "u": 12.19,
+     "s": 0,
+     "y": 3.5
+    },
+    {
+     "t": "ac",
+     "u": 16.09,
+     "s": 0,
+     "y": 3.5
+    },
+    {
+     "t": "band",
+     "u0": 7.66,
+     "u1": 30.55,
+     "y0": 2.6,
+     "y1": 3.12,
+     "color": "plaster",
+     "proud": 0.15
+    },
+    {
+     "t": "pipe",
+     "u": 6.62,
+     "y0": 0.5,
+     "y1": 12.4,
+     "color": "#bdbaa6",
+     "r": 0.04
+    },
+    {
+     "t": "arch",
+     "u0": 6.74,
+     "u1": 26.4,
+     "yTop": 14.35,
+     "vault": 0,
+     "thick": 0.3,
+     "color": "plaster2",
+     "coping": {
+      "h": 0.3,
+      "over": 0.05,
+      "color": "#3e434a"
+     },
+     "clip": [
+      6.74,
+      15.5
+     ]
+    },
+    {
+     "t": "arch",
+     "u0": 6.74,
+     "u1": 26.4,
+     "yTop": 14.35,
+     "vault": 0,
+     "thick": 0.3,
+     "color": "plaster",
+     "coping": {
+      "h": 0.3,
+      "over": 0.05,
+      "color": "#3e434a"
+     },
+     "clip": [
+      15.5,
+      26.4
+     ]
+    }
+   ],
+   "note": "Güney cephe (yan sokak / otopark), 2025-09 Zd4GsqjL (65 m, çok eğik; 22° karolar 315/324 × 5/15/26, f22 ortosunda okundu) + DTrlxy7w (58.5 m). Ön planda çıplak dallı ağaç. Doğu 15 m beyaz klasik cephe (doğu cephesiyle aynı dil; payeler 15.5–16.65, 22.36–23.54, 29.35–30.55; K1 3 sıralı cam, alt sıra altın desenli film; K2 tül), batı 12.5 m krem sıvalı blok (güneşte #a5a691): 2 sütun beyaz PVC pencere K1–K3, sağında kare menfezler, dış ünite klimalar y≈3.4. GD köşe görünen ≈30.55 (ortonun dışına yakın, ±0.3); görünen ölçek 1.067 (uzak eğik orto). Tonoz alnı: beyaz bölümde K3 camları (V1 sol 2/3 beyaz yatay lamelli stor, sağ 1/3 karanlık; V2 üstü kemere paralel); u 26.4 sonrası görünen eğik çizgi ve u 26.4–28.7 camları K3 kütlesinin DOĞU yüzüdür (teras tarafı; eğik bakışla bu düzleme düşüyor) → çizilmedi, bkz. pending. K0: yeşil şemsiyeler, bej katlanır tenteli pergola ve GD kış bahçesi (sokak katmanı) + park etmiş araçlar arkasında — GÖRÜLMEDİ (krem blokta u 8.8–11 gri panel/kapı benzeri öğe seçiliyor, çizilmedi)."
+  }
+ ],
+ "notes": [
+  "Kütle (hava + SV): doğu şerit x 583.4–588.2 zemin+2 kat beyaz klasik blok, üstü parapetli teras (hava #b59e94); orta x 562.4–583.4 dört seviye: K3 beşik tonozun (K–G ekseni, koyu gri kenar bandı) altında; batı şerit x 558.4–562.4 dört seviye krem/gri servis bloğu, üstü parapetli teras, KB köşede K3 açık teras + saçak plağı.",
+  "Kat çizgileri: floorH 3.2 (doğu f22 ortosundan, 27 m); groundRaise 1.35 SANAL (K1 döşemesi gerçek ≈4.55 m; restoran zemin katı ≈4.5 m yüksek, üç yanda kış bahçesi arkasında görülmedi) — K0 öğesi yok, plinthH 0.",
+  "Duvar üstü: orta/batı (rest) 13.35 m = tonoz kemer tabanı (kuzey 13.31, güney 13.6 okundu; kuzey esas); doğu şerit 11.24 m (korniş üstü) + 0.39 m parapet (kuzey/güney 11.56/11.67 ile tutarlı). Kemer tepesi 15.55 m (K) / 15.5 (G), yükselti ≈2.2 m; kemer x 562.44–583.45.",
+  "Beyaz klasik cephe dili (D, K doğu 16 m, G doğu 16 m): 1.05–1.2 m yatay derzli payeler (derz ≈0.40 m), K1 pencereleri 3 sıralı (alt sıra 0.8 m altın/sarı geometrik desenli dekor cam — film damask yaklaşık; asıl desen yıldız/kafes), K2 beyaz tül; K1 altı silme, K1/K2 arası profilli kuşak (tabela bunun üstünde), arşitrav + friz (2 profil çizgisi) + 0.35 m taşan korniş. Doğrama koyu antrasit #303d3f. Beyaz sıva güneşte #c8cac3 (G), gölgede #b2bbbf (D) / #91a1b3 (K).",
+  "Tabela ‘Özdemiroğlu’ + ‘Baklava & kebap’: üç cephede de (D 3.95 m, K 5.3 m, G 4.85 m geniş), beyaz/kırık beyaz yüzlü harfler koyu yeşil (#284234 gölgede) kontur-kesim taşıyıcı üzerinde; üstte beyaz eşkenar dörtgen yapraklı taç logo (çizilmedi, pending). Işık ve harf derinliği görülmedi (yalnız gündüz kareleri).",
+  "Sıva renkleri: krem/gri servis bloğu güneşte #a5a691 (G), gölgede #747b7a (K) — aynı malzeme sayıldı (plaster2)."
+ ],
+ "pending": [
+  {
+   "id": "logo-crown",
+   "what": "Tabela üstü logo: 9 beyaz eşkenar dörtgenden (2 sıra + dış uçlar) oluşan taç/yelpaze, koyu yeşil (#284234) kontur plaka üzerinde; logo şekli sign/icon ile çizilemiyor (yıldız değil)",
+   "edge0": "u 7.5–9.48, y 7.81–8.75",
+   "edge1": "u 8.05–10.2, y 8.92–9.9",
+   "edge3": "u 21.4–23.64, y 6.91–7.87",
+   "colors": {
+    "face": "#dcdfd8",
+    "outline": "#284234"
+   }
+  },
+  {
+   "id": "vault-window-tops",
+   "what": "Tonoz alnı camlarının üstü kemere paralel: K V1 u 6.0–8.55 üst kenar 14.5 (u 6.0) → 15.25 (u 8.55) eğik; G V2 u 23.5–25.9 üst kenar 12.9 → 12.3 eğik (çizilen: duvar üstüne kadar dikdörtgen + K V2 / G V1 için 14.55–15.22 / 12.25–12.78 çatı arası dikdörtgeni). Cam tek parça — duvar üstü hizasında çizilen yatay kasa gerçekte yok."
+  },
+  {
+   "id": "k3-east-face",
+   "what": "K3 kütlesinin DOĞU yüzü (x≈583.4, doğu terasına bakan, kütle kesim yüzü): G ortolarında eğik düşüyor — beyaz yüzde koyu camlar görünen u 26.4–27.0 ve 27.6–29.4 (y 11.0–12.1, G ortosu), beyaz dikme 25.9–26.4. Kesim yüzü üretici tarafından öğesiz düz sıva çiziliyor; gerçek konum/ölçü eğik bakıştan çıkarılamadı."
+  },
+  {
+   "id": "nw-canopy-post",
+   "what": "KB K3 teras saçak plağı batı duvarını ≈0.5 m aşıyor, köşede ince dikme (açık gri, Ø≈0.12) görünen u 30.5–30.65, y 12.55–14.7 (K ortosu). Teras derinliği hava fotoğrafındaki beyaz saçak plağından ≈3–4 m (inset 3.0 yazıldı, ±1); batı yüzü görülmedi."
+  },
+  {
+   "id": "roof-lattice",
+   "what": "Batı servis bloğu çatısında çelik kafes çerçeve (açık gri profiller, dikmeler ≈0.6 m arayla + çaprazlar): K ortosunda görünen u 25.5–28.6, y 15.0–15.8, duvar hattının gerisinde (çatı terası korkuluğu ya da tabela/ünite platformu — işlevi görülmedi)."
+  },
+  {
+   "id": "south-spring-box",
+   "what": "Güney kemerin batı ayağında çatıda koyu gri kutu (baca/menfez kutusu?) görünen u 7.0–7.8, y 12.5–13.6 (G ortosu); derinlik görülmedi."
+  },
+  {
+   "id": "east-roof-frame",
+   "what": "Doğu teras çatısında parapet arkasında küçük metal çerçeve/anten, D ortosu u 11.3–11.7, y 12.0–12.25 (setback görülmedi)."
+  },
+  {
+   "id": "e0-box-under-ledge",
+   "what": "D cephe K1 silmesinin altında, tente üstünde koyu gri kutu (tente motoru ya da kamera) u 10.3–10.6, y 3.4–4.1."
+  }
+ ]
+}

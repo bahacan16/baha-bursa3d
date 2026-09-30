@@ -1,0 +1,776 @@
+{
+ "id": 900000202,
+ "name": "Wall Street English + İDAS (dükkân şeridi)",
+ "storeys": 1,
+ "floorH": 7.25,
+ "groundRaise": 0.3,
+ "plinthH": 0,
+ "wallTop": 6.52,
+ "roof": {
+  "kind": "flat",
+  "eave": 0,
+  "fasciaH": 0.02,
+  "flatC": "#a6958b"
+ },
+ "colors": {
+  "plaster": "#aa9f8e",
+  "plaster2": "#aa9f8e",
+  "fascia": "#3c2f26",
+  "frame": "#1d2224",
+  "plinth": "#6d6a66",
+  "soffit": "#3c2f26",
+  "strip": "#172c78",
+  "railGlass": "#76a1af",
+  "tile": "#8a7766"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 23.71,
+   "seen": "photo",
+   "ref": "900000202_0_SNouSO1i.jpg",
+   "cal": {
+    "u": [
+     0,
+     23.71
+    ],
+    "head": [
+     [
+      0,
+      3.7
+     ],
+     [
+      1,
+      10.95
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 23.71,
+     "y0": 7.49,
+     "y1": 7.67,
+     "color": "#3c2f26",
+     "proud": 0.2
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 23.71,
+     "y0": 6.88,
+     "y1": 7.49,
+     "color": "#aa9f8e",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 23.71,
+     "y0": 6.49,
+     "y1": 6.88,
+     "color": "#3c2f26",
+     "proud": 0.2
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 0.91,
+     "y0": 4.47,
+     "y1": 6.49,
+     "color": "#aa9f8e"
+    },
+    {
+     "t": "panel",
+     "u0": 0.47,
+     "u1": 0.91,
+     "y0": 1.45,
+     "y1": 4.47,
+     "color": "#aa9f8e"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 0.47,
+     "y0": 3.69,
+     "y1": 4.47,
+     "color": "#e9b019",
+     "proud": 0.3
+    },
+    {
+     "t": "pipe",
+     "u": 0.62,
+     "y0": 1.45,
+     "y1": 6.44,
+     "color": "#b3b6b3",
+     "r": 0.05
+    },
+    {
+     "t": "panel",
+     "u0": 0.91,
+     "u1": 12.28,
+     "y0": 3.78,
+     "y1": 6.44,
+     "color": "#172c78",
+     "proud": 0.15,
+     "finish": "acp",
+     "clad": {
+      "dir": "v",
+      "every": 1.05,
+      "w": 0.01,
+      "color": "#10205c"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 1.82,
+     "u1": 2.79,
+     "y0": 4.26,
+     "y1": 5.96,
+     "text": "",
+     "bg": "#c93038",
+     "border": "#f2f3f4",
+     "style": "panel",
+     "d": 0.03,
+     "off": 0.16,
+     "fg": "#f2f3f4",
+     "logo": "kırmızı konuşma balonu logosu: beyaz kontur, altta sola kıvrık kuyruk, sol yarısı kırmızı dolgu — dikdörtgen yaklaşık"
+    },
+    {
+     "t": "sign",
+     "u0": 3.14,
+     "u1": 11.4,
+     "y0": 4.39,
+     "y1": 5.7,
+     "text": "Wall Street English",
+     "fg": "#e6ebf2",
+     "style": "letters",
+     "font": "script",
+     "bold": true,
+     "d": 0.04,
+     "off": 0.16,
+     "logo": "beyaz 3B fırça-el yazısı harfler (W, S, E büyük), g ve h kuyrukları alta taşar; ışık görülmedi (gündüz, gece karesi yok)"
+    },
+    {
+     "t": "sign",
+     "u0": 11.45,
+     "u1": 11.65,
+     "y0": 5.55,
+     "y1": 5.74,
+     "text": "®",
+     "fg": "#e6ebf2",
+     "style": "letters",
+     "font": "sans",
+     "bold": false,
+     "d": 0.01,
+     "off": 0.16
+    },
+    {
+     "t": "win",
+     "u0": 1.0,
+     "u1": 5.1,
+     "y0": 1.45,
+     "y1": 3.73,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#bfc3c4",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.14,
+     "u1": 6.3,
+     "y0": 1.45,
+     "y1": 3.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 1,
+     "frameC": "#bfc3c4",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 6.3,
+     "u1": 8.93,
+     "y0": 1.45,
+     "y1": 3.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#bfc3c4",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 8.93,
+     "u1": 9.69,
+     "y0": 1.45,
+     "y1": 3.78,
+     "color": "#aa9f8e"
+    },
+    {
+     "t": "sign",
+     "u0": 9.0,
+     "u1": 9.55,
+     "y0": 3.15,
+     "y1": 3.55,
+     "text": "",
+     "bg": "#eeeeec",
+     "fg": "#555555",
+     "style": "panel",
+     "d": 0.01,
+     "logo": "küçük beyaz levha, gri küçük yazı okunamadı"
+    },
+    {
+     "t": "win",
+     "u0": 9.69,
+     "u1": 12.19,
+     "y0": 1.45,
+     "y1": 3.73,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#bfc3c4",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 5.14,
+     "u1": 9.44,
+     "y": 3.73,
+     "d": 0.6,
+     "drop": 0.35,
+     "color": "#1f3260",
+     "texts": [
+      {
+       "u0": 6.81,
+       "u1": 7.77,
+       "text": "Wall Street English",
+       "fg": "#f2f3f4",
+       "font": "script",
+       "bold": true
+      }
+     ]
+    },
+    {
+     "t": "vinyl",
+     "u0": 1.54,
+     "u1": 1.96,
+     "y0": 2.66,
+     "y1": 2.9,
+     "text": "Say Yes",
+     "bg": "#d8343b",
+     "fg": "#ffffff",
+     "font": "script",
+     "logo": "kırmızı konuşma balonu çıkartma"
+    },
+    {
+     "t": "vinyl",
+     "u0": 4.17,
+     "u1": 4.55,
+     "y0": 2.68,
+     "y1": 2.9,
+     "text": "Say Yes",
+     "bg": "#e8eef0",
+     "fg": "#b0262c",
+     "font": "script",
+     "logo": "beyaz konuşma balonu çıkartma"
+    },
+    {
+     "t": "vinyl",
+     "u0": 1.04,
+     "u1": 2.0,
+     "y0": 2.03,
+     "y1": 3.64,
+     "text": "",
+     "bg": "#1f5a45",
+     "fg": "#ffffff",
+     "logo": "koyu yeşil afiş (camın içinde), üstte fotoğraf, altta beyaz küçük yazılar + karekod — okunamadı"
+    },
+    {
+     "t": "vinyl",
+     "u0": 2.47,
+     "u1": 3.49,
+     "y0": 2.2,
+     "y1": 3.29,
+     "text": "",
+     "bg": "#c9ccd0",
+     "fg": "#1f2a6a",
+     "logo": "genç erkek fotoğraflı afiş, üstte mavi küçük yazı (okunamadı)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 3.49,
+     "u1": 4.45,
+     "y0": 2.03,
+     "y1": 3.42,
+     "text": "",
+     "bg": "#c42a2f",
+     "fg": "#ffffff",
+     "logo": "içeride asılı Türk bayrağı önünde Atatürk portresi (afiş) — yüz çizilmez"
+    },
+    {
+     "t": "vinyl",
+     "u0": 10.4,
+     "u1": 11.54,
+     "y0": 2.16,
+     "y1": 3.29,
+     "text": "İngilizce öğrenin\nhayallerinizi\ngerçekleştirin.",
+     "bg": "#d9dde2",
+     "fg": "#1f2a6a",
+     "font": "sans",
+     "bold": false,
+     "logo": "hf-0g 16_0 karesinde okundu; alt yarıda Big Ben ve gülümseyen kadın fotoğrafı"
+    },
+    {
+     "t": "camera",
+     "u": 12.2,
+     "s": 0,
+     "y": 4.65,
+     "style": "dome",
+     "color": "#f2f2f2"
+    },
+    {
+     "t": "panel",
+     "u0": 12.27,
+     "u1": 23.71,
+     "y0": 3.8,
+     "y1": 6.49,
+     "color": "#2a3338",
+     "finish": "acp",
+     "clad": {
+      "dir": "grid",
+      "every": 1.2,
+      "every2": 1.0,
+      "w": 0.015,
+      "color": "#1b2226"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 12.27,
+     "u1": 12.61,
+     "y0": 1.45,
+     "y1": 3.8,
+     "color": "#1d2224"
+    },
+    {
+     "t": "win",
+     "u0": 12.61,
+     "u1": 14.8,
+     "y0": 1.45,
+     "y1": 3.75,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 14.88,
+     "u1": 17.84,
+     "y0": 1.45,
+     "y1": 3.75,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 17.97,
+     "u1": 18.91,
+     "y0": 1.45,
+     "y1": 3.75,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 19.04,
+     "u1": 22.0,
+     "y0": 1.45,
+     "y1": 3.75,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 22.13,
+     "u1": 23.71,
+     "y0": 1.45,
+     "y1": 3.75,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 17.07,
+     "u1": 20.03,
+     "y0": 4.04,
+     "y1": 6.02,
+     "text": "İDAS",
+     "fg": "#c5c8d1",
+     "style": "letters",
+     "font": "condensed",
+     "bold": false,
+     "d": 0.08,
+     "logo": "ince-orta kalınlıkta geniş aralıklı 3B harfler, İ noktalı, S tepesinde nokta; harf yan yüzü 38_0 eğik karesinde ≈8 cm; ışık görülmedi"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       16.8,
+       4.73
+      ],
+      [
+       17.3,
+       4.94
+      ],
+      [
+       18.2,
+       4.9
+      ],
+      [
+       19.0,
+       4.82
+      ],
+      [
+       19.7,
+       4.9
+      ],
+      [
+       20.41,
+       5.07
+      ]
+     ],
+     "w": 0.16,
+     "d": 0.1,
+     "color": "#bd2a30"
+    },
+    {
+     "t": "sign",
+     "u0": 19.88,
+     "u1": 20.09,
+     "y0": 5.5,
+     "y1": 5.67,
+     "text": "",
+     "shape": "round",
+     "bg": "#b8bdc0",
+     "fg": "#b8bdc0",
+     "style": "panel",
+     "d": 0.02,
+     "logo": "® işareti yuvarlağı (gri)"
+    },
+    {
+     "t": "sign",
+     "u0": 12.49,
+     "u1": 13.99,
+     "y0": 4.36,
+     "y1": 4.6,
+     "text": "1965'ten beri",
+     "fg": "#bd2a30",
+     "style": "letters",
+     "font": "script",
+     "bold": false,
+     "d": 0.01
+    },
+    {
+     "t": "sign",
+     "u0": 12.43,
+     "u1": 16.59,
+     "y0": 4.06,
+     "y1": 4.23,
+     "text": "",
+     "bg": "#bd2a30",
+     "fg": "#bd2a30",
+     "style": "panel",
+     "d": 0.02
+    },
+    {
+     "t": "sign",
+     "u0": 20.69,
+     "u1": 24.95,
+     "y0": 4.09,
+     "y1": 4.22,
+     "text": "",
+     "bg": "#bd2a30",
+     "fg": "#bd2a30",
+     "style": "panel",
+     "d": 0.02
+    },
+    {
+     "t": "sign",
+     "u0": 23.2,
+     "u1": 24.87,
+     "y0": 4.4,
+     "y1": 4.8,
+     "text": "iyi uykular",
+     "bg": "#bd2a30",
+     "fg": "#ffffff",
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "d": 0.03,
+     "logo": "dalgalı üst/alt kenarlı kırmızı kurdele biçimli plaka; beyaz küçük harfler"
+    },
+    {
+     "t": "vinyl",
+     "u0": 12.83,
+     "u1": 13.6,
+     "y0": 2.0,
+     "y1": 2.95,
+     "text": "",
+     "bg": "#1d2021",
+     "fg": "#ffffff",
+     "logo": "siyah yazı tahtası desenli afiş: üstte beyaz başlık, ortada yeşil tahta ve öğretmen çizimi, altta renkli simgeler — yazılar okunamadı"
+    },
+    {
+     "t": "vinyl",
+     "u0": 14.03,
+     "u1": 14.58,
+     "y0": 2.2,
+     "y1": 2.72,
+     "bg": "#202224",
+     "fg": "#ffffff",
+     "border": "#c62d2d",
+     "lines": [
+      {
+       "text": "EN ÇOK",
+       "size": 1
+      },
+      {
+       "text": "TERCİH EDİLEN",
+       "size": 0.45
+      },
+      {
+       "text": "MARKA",
+       "size": 1
+      }
+     ],
+     "logo": "üstte kırmızı şerit, küçük beyaz yazı okunamadı"
+    },
+    {
+     "t": "vinyl",
+     "u0": 15.28,
+     "u1": 15.9,
+     "y0": 2.6,
+     "y1": 2.9,
+     "text": "9.999 TL",
+     "bg": "#d0302e",
+     "fg": "#ffffff",
+     "logo": "üstünde küçük kırmızı logo ve iki satır küçük yazı (okunamadı)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 15.28,
+     "u1": 15.9,
+     "y0": 2.02,
+     "y1": 2.58,
+     "text": "LAUREN!",
+     "bg": "#f2f2f0",
+     "fg": "#c62d2d",
+     "logo": "altında küçük gri yazılar ve 3 ürün simgesi (okunamadı)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 16.47,
+     "u1": 17.41,
+     "y0": 2.2,
+     "y1": 2.5,
+     "text": "",
+     "bg": "#1e1f20",
+     "fg": "#ffffff",
+     "border": "#e8e8e8",
+     "logo": "beyaz tırtıklı çerçeveli koyu levha, 3 satır küçük beyaz yazı okunamadı"
+    },
+    {
+     "t": "vinyl",
+     "u0": 19.77,
+     "u1": 20.8,
+     "y0": 2.52,
+     "y1": 2.63,
+     "text": "AVANTAJLI SETLER",
+     "bg": "#d0302e",
+     "fg": "#ffffff"
+    },
+    {
+     "t": "vinyl",
+     "u0": 19.77,
+     "u1": 20.8,
+     "y0": 2.12,
+     "y1": 2.5,
+     "bg": "#1e1f20",
+     "fg": "#ffffff",
+     "lines": [
+      {
+       "text": "YATAK+BAZA+BAŞLIK",
+       "size": 1
+      },
+      {
+       "text": "ÜÇLÜ SETLER",
+       "size": 1
+      }
+     ],
+     "logo": "üstünde beyaz çizgi yıldız simgesi (y 2.67–3.02)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 21.83,
+     "u1": 22.38,
+     "y0": 2.07,
+     "y1": 2.54,
+     "bg": "#202224",
+     "fg": "#ffffff",
+     "border": "#c62d2d",
+     "lines": [
+      {
+       "text": "EN ÇOK",
+       "size": 1
+      },
+      {
+       "text": "TERCİH EDİLEN",
+       "size": 0.45
+      },
+      {
+       "text": "MARKA",
+       "size": 1
+      }
+     ]
+    },
+    {
+     "t": "vinyl",
+     "u0": 22.72,
+     "u1": 23.41,
+     "y0": 1.82,
+     "y1": 2.6,
+     "bg": "#d9312f",
+     "fg": "#ffffff",
+     "lines": [
+      {
+       "text": "…",
+       "size": 0.3
+      },
+      {
+       "text": "30",
+       "size": 1
+      }
+     ],
+     "logo": "üstte küçük beyaz yazılar okunamadı; büyük 30"
+    }
+   ],
+   "note": "Güney (Uğur Mumcu Blv.) dükkân şeridi, 2025-09 SNouSO1i (22.7 m; 22° karolar 341/357/12/28 × −1/16/33/50, f22 ortosunda okundu) + hf-0gAUW (11.3 m; 331/353/16/38 × 0/28/56) + 8x2jW/2tZdY eğik kareleri. Görünür köşe yok (iki yanda komşu dükkânlar, taş bant kesintisiz) → cal.u taban izi uçları. Dükkân döşemesi / kaldırım duvar dibinde görünen y≈1.45 → K0 döşemesi (groundRaise 0.3) yapıldı; tüm yükseklikler döşemeye göre. Batıdan: u 0–0.47 PttBank’ın sarı alın kutusunun doğu ucu (dükkân batıda, çizilmedi), 0.47–0.91 traverten kaplı paye + açık gri iniş borusu, 0.91–12.28 Wall Street English (lacivert-mavi kompozit alın 3.78–6.44, konuşma balonu logosu, beyaz fırça yazı; vitrinler, kapı üstünde lacivert kasetli tente, taş paye 8.93–9.69), 12.27–(25.0) İDAS (siyah kompozit ızgara cephe, 3B İDAS harfleri + kırmızı dalga, 1965’ten beri, iki kırmızı çubuk, ‘iyi uykular’ kurdele levha, siyah doğramalı 4 vitrin + çift kanat kapı, camda kampanya afişleri). İDAS doğu ucu taban izi ucunun ≈1.3 m ötesine (900000201 u 0–1.08) taşıyor — bkz. taban izi düzeltmesi. Üst: kahve alt bant 6.49–6.88, taş bant 6.88–7.49, kahve harpuşta 7.49–7.67. Kule balkonları bandın hemen üstünde (kule, bu dosya değil). Kaldırım öğeleri (A-pano, puflar, masa, paspas, elektrik dolapları) sokak katmanında."
+  },
+  {
+   "edge": 1,
+   "len": 1.87,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu uç: 900000201 ile ortak — görülmez."
+  },
+  {
+   "edge": 2,
+   "len": 23.72,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey: 1476599909 kulesinin güney duvarına bitişik — görülmez."
+  },
+  {
+   "edge": 3,
+   "len": 2.15,
+   "seen": "none",
+   "items": [],
+   "note": "Batı uç: PttBank dükkânıyla ortak — görülmez."
+  }
+ ],
+ "notes": [
+  "Tek kat dükkân şeridi: döşemeden vitrin 2.3 m, alın/tabela bandı ≈2.7 m, üst bantlar 1.18 m → duvar üstü 6.22 m döşemeden (6.52 tabandan). Ortoda döşeme görünen y≈1.45 (bkz. 900000201 notu; mutlak kot ±1 m).",
+  "Renkler (hf-0g 11 m karesinden): WSE mavi #172c78 (f22 22 m karesinde #0e1b59), WSE harf #e6ebf2 (örnek #bcc3cd), İDAS siyah #2a3338, İDAS harf #c5c8d1, kırmızı #bd2a30, tente lacivert #1f3260, taş #aa9f8e, kahve #3c2f26. Bulutlu gün, cephe gölgede değil.",
+  "İDAS kırmızı dalgası ribbon (sabit genişlik) ile yaklaşık; gerçekte uçlara doğru incelen kıvrık fırça darbesi — pending."
+ ],
+ "pending": [
+  {
+   "id": "idas-swoosh-taper",
+   "what": "İDAS harflerinin önünden geçen kırmızı dalga: soldan sağa incelip kalınlaşan fırça darbesi (ortada ≈0.2 m, uçlarda sivri), harflerin önünde",
+   "edge0": "u 16.8–20.41, y 4.7–5.07"
+  },
+  {
+   "id": "wse-bubble-logo",
+   "what": "WSE konuşma balonu: yuvarlak köşeli dikdörtgen + sol altta kuyruk, beyaz 4 cm kontur, iç sol yarı kırmızı (#c93038), sağ yarı lacivert zemin görünür",
+   "edge0": "u 1.82–2.79, y 4.26–5.96"
+  },
+  {
+   "id": "iyi-uykular-wave",
+   "what": "‘iyi uykular’ levhasının üst ve alt kenarı dalgalı (kurdele), sağ ucu hafif yukarı kalkık",
+   "edge0": "u 23.2–24.87, y 4.4–4.8"
+  }
+ ]
+}

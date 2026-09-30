@@ -1,0 +1,582 @@
+{
+ "id": 900000201,
+ "name": "MOT Hair&Style + Watsons (tek katlı dükkân podyumu)",
+ "storeys": 1,
+ "floorH": 6.58,
+ "groundRaise": 0.35,
+ "plinthH": 0,
+ "wallTop": 7.05,
+ "roof": {
+  "kind": "flat",
+  "eave": 0,
+  "fasciaH": 0.02,
+  "flatC": "#d7c5b7"
+ },
+ "colors": {
+  "plaster": "#21292b",
+  "plaster2": "#a39786",
+  "fascia": "#3e3026",
+  "frame": "#26292b",
+  "plinth": "#6d6a66",
+  "soffit": "#3e3026",
+  "strip": "#1aacd3",
+  "railGlass": "#76a1af",
+  "tile": "#8a7766"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 23.0,
+   "seen": "none",
+   "items": [],
+   "note": "Batı: 1476599909 kulesine bitişik ortak duvar — görülmez."
+  },
+  {
+   "edge": 1,
+   "len": 19.63,
+   "seen": "photo",
+   "ref": "900000201_1_RpJvogJx.jpg",
+   "cal": {
+    "u": [
+     0,
+     19.63
+    ],
+    "head": [
+     [
+      0,
+      3.55
+     ],
+     [
+      1,
+      10.13
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 19.63,
+     "y0": 7.69,
+     "y1": 8.0,
+     "color": "#3e3026",
+     "proud": 0.2
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 19.63,
+     "y0": 7.1,
+     "y1": 7.69,
+     "color": "#a39786",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 19.63,
+     "y0": 6.74,
+     "y1": 7.1,
+     "color": "#3e3026",
+     "proud": 0.2
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 1.08,
+     "y0": 3.66,
+     "y1": 6.74,
+     "color": "#2f3a42",
+     "finish": "acp",
+     "clad": {
+      "dir": "grid",
+      "every": 1.2,
+      "every2": 1.0,
+      "w": 0.015,
+      "color": "#1b2226"
+     }
+    },
+    {
+     "t": "blade",
+     "u": 0.97,
+     "y0": 4.4,
+     "y1": 5.0,
+     "w": 0.5,
+     "gap": 0.05,
+     "d": 0.08,
+     "text": "İDAS",
+     "bg": "#2a2e31",
+     "fg": "#e6e8ea",
+     "font": "condensed",
+     "bold": false,
+     "logo": "yüz A (+u, doğuya) beyaz İDAS + altında kırmızı dalga çizgisi; yüz B görülmedi; ışık görülmedi"
+    },
+    {
+     "t": "win",
+     "u0": 0,
+     "u1": 0.6,
+     "y0": 1.3,
+     "y1": 3.62,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 0.6,
+     "u1": 1.08,
+     "y0": 1.3,
+     "y1": 3.66,
+     "color": "#1d2224"
+    },
+    {
+     "t": "panel",
+     "u0": 1.08,
+     "u1": 9.76,
+     "y0": 3.66,
+     "y1": 6.74,
+     "color": "#21292b",
+     "finish": "acp"
+    },
+    {
+     "t": "panel",
+     "u0": 1.08,
+     "u1": 1.3,
+     "y0": 1.3,
+     "y1": 3.66,
+     "color": "#21292b",
+     "finish": "acp"
+    },
+    {
+     "t": "panel",
+     "u0": 8.96,
+     "u1": 9.72,
+     "y0": 1.3,
+     "y1": 3.66,
+     "color": "#21292b",
+     "finish": "acp"
+    },
+    {
+     "t": "win",
+     "u0": 1.3,
+     "u1": 4.52,
+     "y0": 1.3,
+     "y1": 3.62,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.52,
+     "u1": 5.55,
+     "y0": 1.3,
+     "y1": 3.62,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 1,
+     "frameC": "#1d2224",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.55,
+     "u1": 8.96,
+     "y0": 1.3,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#e9e9e6",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 4.43,
+     "u1": 6.39,
+     "y0": 5.31,
+     "y1": 6.37,
+     "text": "MOT",
+     "fg": "#c8a45e",
+     "style": "letters",
+     "font": "condensed",
+     "bold": false,
+     "d": 0.05,
+     "logo": "fırçalanmış altın renkli 3B harfler (yan yüzleri görünüyor), dar sans; ışık görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 4.47,
+     "u1": 6.23,
+     "y0": 4.85,
+     "y1": 5.19,
+     "text": "HAIR&STYLE",
+     "fg": "#c8a45e",
+     "style": "letters",
+     "font": "condensed",
+     "bold": true,
+     "d": 0.03
+    },
+    {
+     "t": "sign",
+     "u0": 4.49,
+     "u1": 6.35,
+     "y0": 4.14,
+     "y1": 4.5,
+     "text": "Tugay Gönen",
+     "fg": "#eceeee",
+     "style": "letters",
+     "font": "sans",
+     "bold": false,
+     "d": 0.02
+    },
+    {
+     "t": "sign",
+     "u0": 3.99,
+     "u1": 4.38,
+     "y0": 4.12,
+     "y1": 4.56,
+     "text": "",
+     "d": 0.02,
+     "shape": "round",
+     "bg": "#21292b",
+     "fg": "#eceeee",
+     "border": "#eceeee",
+     "style": "panel",
+     "logo": "beyaz halka içinde el yazısı monogram (t + g biçiminde) — çizilmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 1.92,
+     "u1": 3.46,
+     "y0": 4.23,
+     "y1": 4.5,
+     "text": "tugaygonenofficial",
+     "d": 0.02,
+     "bg": "#15191b",
+     "fg": "#eceeee",
+     "style": "panel",
+     "font": "sans",
+     "bold": false,
+     "logo": "solda Instagram simgesi (pembe-turuncu kare); ClwC9 karesinde tam okundu, RpJvo karesinde direk arkasında"
+    },
+    {
+     "t": "sign",
+     "u0": 7.12,
+     "u1": 8.63,
+     "y0": 4.17,
+     "y1": 4.5,
+     "text": "0546 546 18 30",
+     "d": 0.02,
+     "bg": "#15191b",
+     "fg": "#eceeee",
+     "border": "#3a4043",
+     "style": "panel",
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "sign",
+     "u0": 9.03,
+     "u1": 9.69,
+     "y0": 2.64,
+     "y1": 3.77,
+     "text": "HUSH",
+     "d": 0.04,
+     "bg": "#1b1d24",
+     "fg": "#f2f2f2",
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "logo": "dikey afiş panosu: siyah zemin üzerinde mor-beyaz tüy/yaprak deseni, alt üçte birde beyaz HUSH"
+    },
+    {
+     "t": "vinyl",
+     "u0": 1.9,
+     "u1": 2.55,
+     "y0": 1.3,
+     "y1": 2.9,
+     "text": "",
+     "bg": "#c5bdb3",
+     "fg": "#222222",
+     "logo": "camın içinde kadın portresi afişi (345_-1 karesi) — yalnız renk"
+    },
+    {
+     "t": "vinyl",
+     "u0": 5.9,
+     "u1": 8.1,
+     "y0": 3.28,
+     "y1": 3.45,
+     "text": "VEGANIC   VEGANIC",
+     "fg": "#b98f7a",
+     "font": "serif",
+     "bold": false,
+     "logo": "vitrin raflarının üst bandında iki kez VEGANIC (içeride, ince serifli)"
+    },
+    {
+     "t": "band",
+     "u0": 9.79,
+     "u1": 19.36,
+     "y0": 3.81,
+     "y1": 4.65,
+     "color": "#1aacd3",
+     "proud": 0.25,
+     "finish": "acp"
+    },
+    {
+     "t": "panel",
+     "u0": 9.72,
+     "u1": 10.67,
+     "y0": 1.3,
+     "y1": 3.81,
+     "color": "#1aacd3",
+     "proud": 0.25,
+     "finish": "acp"
+    },
+    {
+     "t": "panel",
+     "u0": 16.8,
+     "u1": 17.27,
+     "y0": 1.3,
+     "y1": 3.81,
+     "color": "#1aacd3",
+     "proud": 0.1,
+     "finish": "acp"
+    },
+    {
+     "t": "panel",
+     "u0": 18.55,
+     "u1": 19.36,
+     "y0": 1.3,
+     "y1": 3.81,
+     "color": "#1aacd3",
+     "proud": 0.25,
+     "finish": "acp"
+    },
+    {
+     "t": "win",
+     "u0": 10.67,
+     "u1": 16.8,
+     "y0": 1.3,
+     "y1": 3.81,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#26292b",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 17.27,
+     "u1": 18.55,
+     "y0": 1.3,
+     "y1": 3.81,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#26292b",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 12.89,
+     "u1": 16.13,
+     "y0": 3.88,
+     "y1": 4.56,
+     "text": "watsons",
+     "bg": "#1aacd3",
+     "fg": "#f4f6f6",
+     "border": "#f4f6f6",
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "off": 0.26,
+     "logo": "beyaz yuvarlak köşeli çerçeve (sağ üst köşe açık), altında kırmızı (#e0393e) şerit; küçük harf yuvarlak sans"
+    },
+    {
+     "t": "sign",
+     "u0": 12.95,
+     "u1": 15.95,
+     "y0": 3.88,
+     "y1": 3.97,
+     "text": "",
+     "bg": "#e0393e",
+     "fg": "#e0393e",
+     "style": "panel",
+     "off": 0.27
+    },
+    {
+     "t": "banner",
+     "u0": 9.83,
+     "u1": 18.92,
+     "y0": 4.72,
+     "y1": 6.74,
+     "d": 0.05,
+     "style": "print",
+     "bg": "#9eb1af",
+     "blocks": [
+      {
+       "x0": 0,
+       "x1": 1,
+       "y0": 0,
+       "y1": 1,
+       "color": "#9eb1af"
+      }
+     ],
+     "text": "",
+     "lines": []
+    },
+    {
+     "t": "lamp",
+     "us": [
+      10.75,
+      12.07,
+      13.46,
+      14.78,
+      16.17,
+      17.56,
+      18.92
+     ],
+     "y": 6.8,
+     "style": "spot",
+     "arm": 0.35,
+     "dir": "down",
+     "tilt": 35,
+     "d": 0.1,
+     "h": 0.18,
+     "color": "#d9dad8"
+    },
+    {
+     "t": "vinyl",
+     "u0": 15.04,
+     "u1": 18.11,
+     "y0": 3.18,
+     "y1": 3.73,
+     "bg": "#8fc3e6",
+     "fg": "#e23a3f",
+     "lines": [
+      {
+       "text": "49.99    99.",
+       "fg": "#e23a3f",
+       "size": 1
+      },
+      {
+       "text": "149        199",
+       "fg": "#e23a3f",
+       "size": 0.8
+      }
+     ],
+     "logo": "açık mavi kampanya pankartı (cam arkasında sarkık): ortada kadın fotoğrafı, kırmızı fiyat etiketleri, sağda sarı yuvarlak rozet, solda küçük watsons logosu; orta kırmızı etiket okunamadı",
+     "off": 0.1
+    },
+    {
+     "t": "vinyl",
+     "u0": 10.97,
+     "u1": 12.69,
+     "y0": 3.04,
+     "y1": 3.44,
+     "text": "ONLINE ALIŞVERİŞ",
+     "bg": "#d8336c",
+     "fg": "#ffffff",
+     "bold": true,
+     "logo": "içeride asılı pembe pano; üst satırdaki küçük yazı okunamadı"
+    },
+    {
+     "t": "vinyl",
+     "u0": 17.4,
+     "u1": 18.4,
+     "y0": 0.8,
+     "y1": 2.9,
+     "text": "W",
+     "bg": "#7ac143",
+     "fg": "#ffffff",
+     "logo": "camda yeşil zemin üzerine büyük beyaz W grafiği (üstünde küçük yazı okunamadı)"
+    },
+    {
+     "t": "camera",
+     "u": 9.95,
+     "s": 0,
+     "y": 3.62,
+     "style": "box",
+     "color": "#f2f2f2"
+    }
+   ],
+   "note": "Güney (Uğur Mumcu Blv.) ön cephe, 2025-09 RpJvogJx (24 m; 22° karolar 345/357/9/21 × −1/15/32/49, f22 ortosunda okundu) + ClwC9NKO (12.3 m, 40° 343/8/34). Görünür köşe yok (iki yanı kulelere bitişik, taş bant kesintisiz) → cal.u taban izi uçları (orto bu taban iziyle üretildi). Tek kat yüksek dükkân podyumu: vitrin/cephe 0.35–6.74, üstte kahve alt bant 6.74–7.1, taş (traverten dokulu) bant 7.1–7.69, kahve harpuşta 7.69–8.0 (derinlikler görülmedi, eğik karelerde bandın cepheden hafif taştığı seçiliyor). Dükkânlar (batıdan): u 0–1.08 İDAS’ın doğu ucu (siyah kompozit panel ızgarası; ‘iyi uykular’ levhası 900000202’de yazıldı, İDAS bayrak tabelası burada), u 1.08–9.76 MOT Hair&Style (siyah kompozit; sol vitrin + koyu kapı + beyaz çerçeveli VEGANIC ürün vitrini, sağda HUSH afiş panosu), u 9.72–19.36 Watsons (turkuaz portal: yan payeler + 0.84 m alın; üstte 9.1 m nane yeşili desenli baskı pankart ve üstünde 7 kollu spot). u 19.36–19.63 kule komşusunun (sarı çerçeveli Watsons ek vitrini) başlangıcı — çizilmedi. Kaldırımdaki klima dış üniteleri, kırmızı promosyon arabaları, A-pano, otobüs durağı, direkler sokak katmanında."
+  },
+  {
+   "edge": 2,
+   "len": 23.0,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu: 1476599912 kulesine bitişik ortak duvar — görülmez."
+  },
+  {
+   "edge": 3,
+   "len": 19.6,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey arka cephe: tek 2025 karesi PCEbY1YA (59 m, kuzeyden) — önünde kiremit kırma çatılı, koyu kafes camlı bir köşk/kameriye (z≈−335…−330, bu binanın dışında) arkasını tamamen örtüyor; GÖRÜLMEDİ."
+  }
+ ],
+ "notes": [
+  "Tek kat yüksek dükkân katı: dükkân döşemesinden vitrin/cephe 5.44 m + 1.26 m bant = 6.7 m (duvar üstü 7.05 m tabandan). Ortoda dükkân döşemesi / kaldırımın duvara değdiği kot görünen y≈1.3 (yol kenarı ≈0; kaldırım bina önünde yükseliyor ya da orto düşey ofseti) — cal.head bu kotu K0 döşemesi (groundRaise 0.35, arazi ızgarası kaldırımı) yapacak şekilde verildi: tüm yükseklikler dükkân döşemesine göre doğru, mutlak kot ±1 m.",
+  "Renkler: siyah kompozit #21292b (MOT, gölge), turkuaz #1aacd3 (ClwC9 12 m; RpJvo 24 m karesinde #0b8aa3), nane pankart #9eb1af, taş bant #a39786, kahve #3e3026.",
+  "Watsons pankartının beyaz/açık pembe \"W\" karalama deseni çizilemiyor (düz renk blok) — pending."
+ ],
+ "pending": [
+  {
+   "id": "watsons-banner-pattern",
+   "what": "Nane yeşili (#9eb1af) baskı pankart üzerinde beyaz ve açık pembe (#e6d6dc) serbest el \"W\" karalamaları (≈0.3 m çizgi kalınlığı, rastgele yönlü, tüm yüzeyi kaplar)",
+   "edge1": "u 9.83–18.92, y 4.72–6.74"
+  },
+  {
+   "id": "watsons-logo-frame",
+   "what": "watsons logosunun beyaz yuvarlak köşeli çerçevesi sağ üst köşede açık (çerçeve çizgisi ≈4 cm, köşe yarıçapı ≈0.15 m); çizim border ile kapalı dikdörtgen"
+  },
+  {
+   "id": "mot-monogram",
+   "what": "Tugay Gönen önündeki yuvarlak logo: siyah daire, beyaz ince halka, içinde el yazısı \"tg\" benzeri monogram",
+   "edge1": "u 3.99–4.38, y 4.12–4.56"
+  }
+ ]
+}
