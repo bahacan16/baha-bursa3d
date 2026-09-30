@@ -1,0 +1,474 @@
+{
+ "id": 1544329664,
+ "name": "Bakış Çiçekçilik",
+ "storeys": 1,
+ "groundRaise": 0,
+ "floorH": 5.0,
+ "plinthH": 0,
+ "wallTop": 3.43,
+ "roof": {
+  "kind": "gable",
+  "eave": 0.3,
+  "fasciaH": 0.3,
+  "fasciaC": "#2c2a25",
+  "gableC": {
+   "3": "#707e83",
+   "0": "#2a211b",
+   "1": "#2a211b"
+  },
+  "wings": [
+   {
+    "ridge": [
+     [
+      658.07,
+      -404.69
+     ],
+     [
+      658.29,
+      -412.5
+     ]
+    ],
+    "apex": 5.6,
+    "ends": [
+     "gable",
+     "gable"
+    ]
+   },
+   {
+    "poly": [
+     [
+      654.38,
+      -412.6
+     ],
+     [
+      654.16,
+      -404.8
+     ],
+     [
+      658.1,
+      -404.7
+     ],
+     [
+      658.3,
+      -412.5
+     ]
+    ],
+    "ridge": [
+     [
+      654.27,
+      -408.7
+     ],
+     [
+      658.18,
+      -408.6
+     ]
+    ],
+    "apex": 5.6,
+    "ends": [
+     "gable",
+     "open"
+    ]
+   }
+  ]
+ },
+ "colors": {
+  "plaster": "#2a211b",
+  "plaster2": "#171310",
+  "fascia": "#2c2a25",
+  "soffit": "#3a3530",
+  "frame": "#3a2a20",
+  "plinth": "#2a211b",
+  "tile": "#22282c",
+  "railGlass": "#8f9a9c",
+  "strip": "#ebebe6"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 7.8,
+   "seen": "photo",
+   "ref": "1544329664_0__hQiXAQ1.jpg",
+   "cal": {
+    "u": [
+     0,
+     7.8
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 7.5,
+     "y0": 0.5,
+     "y1": 2.85,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#3a2a20",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "vinyl",
+     "u0": 1.0,
+     "u1": 2.2,
+     "y0": 2.86,
+     "y1": 3.1,
+     "text": "BAKIŞ",
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "vinyl",
+     "u0": 2.4,
+     "u1": 3.9,
+     "y0": 2.86,
+     "y1": 3.12,
+     "text": "Çiçekçilik",
+     "fg": "#f2f2f0",
+     "font": "script",
+     "bold": false
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 7.8,
+     "y0": 3.13,
+     "y1": 3.43,
+     "color": "#2c2a25",
+     "proud": 0.9
+    },
+    {
+     "t": "pilaster",
+     "u0": 4.35,
+     "u1": 4.55,
+     "y0": 0,
+     "y1": 3.13,
+     "d": 0.15,
+     "color": "#ebebe6"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       3.9,
+       5.35
+      ],
+      [
+       0.8,
+       3.3
+      ],
+      [
+       -0.7,
+       1.7
+      ]
+     ],
+     "w": 0.2,
+     "d": 0.12,
+     "color": "#ebebe6"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       3.9,
+       5.35
+      ],
+      [
+       6.6,
+       3.5
+      ]
+     ],
+     "w": 0.2,
+     "d": 0.12,
+     "color": "#ebebe6"
+    },
+    {
+     "t": "banner",
+     "u0": 1.8,
+     "u1": 3.1,
+     "y0": 3.5,
+     "y1": 4.45,
+     "d": 0.1,
+     "style": "portrait",
+     "text": "",
+     "bg": "#b02a2a"
+    },
+    {
+     "t": "roofsign",
+     "u0": 4.0,
+     "u1": 8.2,
+     "y0": 3.53,
+     "y1": 4.46,
+     "setback": 0.6,
+     "d": 0.08,
+     "text": "",
+     "fg": "#f2f2f0",
+     "bg": "#715e44",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "bakış",
+       "size": 0.45,
+       "bold": false,
+       "y": 0.78
+      },
+      {
+       "text": "çiçekçilik",
+       "size": 1.0,
+       "y": 0.35
+      }
+     ],
+     "frame": {
+      "color": "#4a3a2c",
+      "h": 0.1,
+      "posts": 2
+     },
+     "logo": "koyu kahve yatay ahşap lamelli pano, sağ çatı eğimine oturur; beyaz harfler (ışıksız)"
+    }
+   ],
+   "note": "BATI cephe (bulvara bakar), 2025-09, _hQi (D 24.5) + ZYA6. Bu ortofotoda yükseklikler kuzey (R5Tx) karesine göre ≈1.4× büyük çıktı (pano konumu) → tüm y değerleri ×0.72 ölçeklendi (sundurma alnı 3.13–3.43 ile eşleşecek şekilde); u değerleri okunduğu gibi. Vitrin camında beyaz \"BAKIŞ\" + el yazısı \"Çiçekçilik\" folyo; alınlıkta Atatürk portreli kırmızı Türk bayrağı pankartı (portrait, yazı yok); çatının sağ eğiminde ahşap lamelli \"bakış / çiçekçilik\" tabelası; beyaz A çerçeve kirişleri ve cam önünde beyaz dikme (u 4.45). Önde çalı/çit (sokak)."
+  },
+  {
+   "edge": 1,
+   "len": 7.83,
+   "seen": "partial",
+   "ref": "1544329664_1_TQv3-5Y-.jpg",
+   "cal": {
+    "u": [
+     0,
+     7.83
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 7.83,
+     "y0": 3.13,
+     "y1": 3.43,
+     "color": "#2c2a25",
+     "proud": 0.9
+    }
+   ],
+   "note": "GÜNEY: TQv3 (D 34) uzak, sağ yarısı ağaç arkası; beyaz A çerçeveli alınlık (batıdaki gibi) ve A ayağının dibinde beyaz çanak anten (zeminde) seçiliyor; ayrıntı görülmedi."
+  },
+  {
+   "edge": 2,
+   "len": 7.81,
+   "seen": "none",
+   "items": [],
+   "note": "DOĞU: tamamen servi/çalı arkasında, görülmedi (hava fotoğrafında doğuda koyu örtülü sundurma/pergola: pergolas[0])"
+  },
+  {
+   "edge": 3,
+   "len": 7.82,
+   "seen": "photo",
+   "ref": "1544329664_3_R5TxF8t-.jpg",
+   "cal": {
+    "u": [
+     0,
+     7.82
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 2.24,
+     "u1": 3.55,
+     "y0": 0.45,
+     "y1": 2.85,
+     "color": "#2a211b",
+     "clad": {
+      "dir": "h",
+      "every": 0.12,
+      "w": 0.015,
+      "color": "#120e0b"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.6,
+     "u1": 7.05,
+     "y0": 0.5,
+     "y1": 2.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 3,
+     "frameC": "#3a2a20",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "recess",
+     "u0": 0.05,
+     "u1": 2.2,
+     "y0": 0,
+     "y1": 3.1,
+     "depth": 1.5,
+     "back": "#1c1a16",
+     "ceil": "#2a2622",
+     "floor": "#5e5a50"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 7.82,
+     "y0": 3.13,
+     "y1": 3.43,
+     "color": "#2c2a25",
+     "proud": 0.9
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       4.94,
+       5.5
+      ],
+      [
+       2.24,
+       1.0
+      ]
+     ],
+     "w": 0.2,
+     "d": 0.12,
+     "color": "#ebebe6"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       4.94,
+       5.5
+      ],
+      [
+       6.87,
+       2.28
+      ]
+     ],
+     "w": 0.2,
+     "d": 0.12,
+     "color": "#ebebe6"
+    },
+    {
+     "t": "ac",
+     "u": 2.7,
+     "s": 0,
+     "y": 3.75,
+     "color": "#e6e8e6"
+    }
+   ],
+   "note": "KUZEY cephe (331. Sk. yönü), 2025-09, R5Tx (D 9.9, en yakın → yükseklikler bu kareden): solda (u 0–2.2) batıdaki sundurmaya açılan gölgeli giriş (raflar, saksılar), koyu ahşap lambri duvar (u 2.24–3.55), koyu ahşap doğramalı 3 bölmeli vitrin (u 3.6–7.05; camda karşı binaların yansıması / içten görünen \"KUVEYTTÜRK\" yazısı YANSIMA → çizilmedi). Düz sundurma çatısı alnı 3.13–3.43 (≈0.9 m taşar, bina boyunca). Beyaz A çerçeve kirişleri: tepe (u 4.94, y 5.5) → sol ayak sundurmayı delip u 2.24 y 1.0’a, sağ ayak u 6.87 y 2.28’e iner. Alınlık üçgeninde gri zeminde beyaz-mavi çiçek duvar resmi (y 4.0–5.4), altında koyu dikey ahşap tahta (3.43–4.0). Sundurma çatısında beyaz klima dış ünitesi (u 2.5–2.9) ve ahşap kasa."
+  }
+ ],
+ "pergolas": [
+  {
+   "poly": [
+    [
+     662.2,
+     -413.3
+    ],
+    [
+     665.4,
+     -413.3
+    ],
+    [
+     665.4,
+     -405.0
+    ],
+    [
+     662.2,
+     -405.0
+    ]
+   ],
+   "y0": 0,
+   "y1": 3.3,
+   "color": "#2e2620",
+   "cover": "#2f2c28",
+   "every": 2.7,
+   "post": 0.12
+  },
+  {
+   "poly": [
+    [
+     649.6,
+     -411.6
+    ],
+    [
+     654.3,
+     -411.6
+    ],
+    [
+     654.3,
+     -406.2
+    ],
+    [
+     649.6,
+     -406.2
+    ]
+   ],
+   "y0": 0,
+   "y1": 3.0,
+   "color": "#3a2e24",
+   "cover": "#3e6b5a"
+  }
+ ],
+ "notes": [
+  "ÇATI: çapraz beşik — kuzey–güney mahyalı ana çatı (K ve G alınlıkları görüldü) + batıya bakan alınlıklı kanat (batı alınlığı görüldü, kanat merkezde ana çatıya dayanır: \"open\"). Doğu ucu görülmedi → doğuda ayrı alınlık YAZILMADI (ana çatının doğu eğimi). Kaplama koyu antrasit altıgen şıngıl #22282c (bulutlu). Tepe 5.6 (R5Tx), saçak (şıngıl alt kenarı) ≈3.5; düz sundurma çatısı 3.13–3.43 dört yanda ≈0.9 m taşar (kenar alnı koyu ahşap). Alınlık üçgenleri: kuzeyde çiçek duvar resmi (gri-mavi #707e83 zemin), batıda Atatürk pankartı arkasında koyu ahşap; beyaz A kirişleri üçgen kenarlarından yere/sundurmaya iner (ribbon, yaklaşık).",
+  "DUVARLAR: koyu ahşap lambri #171310 ve koyu ahşap doğramalı cam vitrinler; iç mekân saksılar/çiçekler (vitrin).",
+  "Doğudaki koyu örtülü sundurma (pergolas[0]) hava fotoğrafından (x 662.2–665.4); yüksekliği R5Tx 186_-1’de sundurma ile aynı hizada (≈3.3). Batıdaki direkli yapı (pergolas[1], x 649.6–654.3) koyu ahşap çerçeve + yeşil branda örtü (R5Tx 169_-1), yükseklik ≈3.0 tahmini (fotoğrafta sundurmadan biraz alçak)."
+ ],
+ "pending": [
+  {
+   "what": "A çerçeve kirişleri",
+   "desc": "beyaz ahşap/metal A çerçeve: alınlık kenarlarında 0.2 m kiriş, alınlığın önünde (≈0.1 m), ayakları sundurma çatısını delip zemine iner (kuzeyde sol ayak u 2.24 y 1.0’da biter). ribbon ile duvar düzleminde yaklaşık çizildi; çatı üstündeki kısımları (alınlık kenarı) ribbon olarak duvar üstünde çizilemeyebilir."
+  },
+  {
+   "what": "çiçek duvar resmi (kuzey alınlık)",
+   "desc": "üçgen alınlıkta gri-mavi zemin üzerine büyük beyaz-mavi çiçek/yaprak deseni (y 4.0–5.4, u 3.5–6.4); desen öğesi yok → gableC ile yalnız zemin rengi verilebilir."
+  }
+ ]
+}
