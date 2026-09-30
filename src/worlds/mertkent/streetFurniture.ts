@@ -606,7 +606,16 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
       const m: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
       if ((cx - m[0]) * nO[0] + (cz - m[1]) * nO[1] > 0) nO = [-nO[0], -nO[1]];
       const yt = (topAt(a) + topAt(e)) / 2;
-      b3(c.b, fk2, [a[0] + nO[0] * 0.03, a[1] + nO[1] * 0.03], [e[0] + nO[0] * 0.03, e[1] + nO[1] * 0.03], yt - fh, yt + 0.04, 0.06, Math.atan2(-t[1], t[0]));
+      b3(
+        c.b,
+        fk2,
+        [a[0] + nO[0] * 0.03, a[1] + nO[1] * 0.03],
+        [e[0] + nO[0] * 0.03, e[1] + nO[1] * 0.03],
+        yt - fh,
+        yt + 0.04,
+        0.06,
+        Math.atan2(-t[1], t[0]),
+      );
     }
   }
   // v8: çatı mertekleri (`rafters` {every, color, w} ya da not "≈3.4 m aralıklı koyu mertekler"): kenar 0'a (bina

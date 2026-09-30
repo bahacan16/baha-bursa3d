@@ -46,7 +46,9 @@ describe('ağaç türü ayrıştırma', () => {
     // Notun ilk cümlesi tür ifadesi değilse (komşu ağaçtan söz) tür alanı kalır
     expect(parseSpecies('deciduous', 'Sokak ağacı. Arkasında ıhlamur sırası')).toBe('deciduous');
     // Tür ifadesi olan not inceltmeye devam eder
-    expect(parseSpecies('conifer', 'Genç fıstık çamı (Pinus pinea görünüşü: şemsiye/yuvarlak taç)')).toBe('pinea');
+    expect(parseSpecies('conifer', 'Genç fıstık çamı (Pinus pinea görünüşü: şemsiye/yuvarlak taç)')).toBe(
+      'pinea',
+    );
     expect(parseSpecies('deciduous', 'Orta refüjde kazıklı genç ağaç (DIKa_0_0; hava)')).toBe('sapling');
     expect(parseSpecies(undefined, 'Yapraklı ağaç (ıhlamur/kavak benzeri)')).toBe('tilia');
     expect(parseSpecies(undefined, 'konik ardıç/servi (h 1.2–1.8)')).toBe('thuja');

@@ -156,7 +156,8 @@ function hedged(note: string): boolean {
   if (/benzer|\bgibi\b|olabilir|muhtemel|belki|\?|-like|lookalike|tür(ü)? görülmedi|tür(ü)? belirsiz/.test(t))
     return true;
   // "ıhlamur/kavak", "çam veya sedir": iki AYRI türe eşleşen seçenekler
-  const alt = /([\p{L}.'-]+(?:\s+[\p{L}.'-]+)?)\s*(?:\/|\bveya\b|\bya da\b|\bor\b)\s*([\p{L}.'-]+(?:\s+[\p{L}.'-]+)?)/gu;
+  const alt =
+    /([\p{L}.'-]+(?:\s+[\p{L}.'-]+)?)\s*(?:\/|\bveya\b|\bya da\b|\bor\b)\s*([\p{L}.'-]+(?:\s+[\p{L}.'-]+)?)/gu;
   for (const m of t.matchAll(alt)) {
     const x = match(m[1]);
     const y = match(m[2]);

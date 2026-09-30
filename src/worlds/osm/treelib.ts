@@ -1,12 +1,5 @@
 import * as THREE from 'three';
-import {
-  generateEzTree,
-  fitTree,
-  crownAttributes,
-  crownWidth,
-  windTime,
-  type EzTreeOptions,
-} from './eztree';
+import { generateEzTree, fitTree, crownAttributes, crownWidth, windTime, type EzTreeOptions } from './eztree';
 import { leafAtlas, barkTexture, disposeLeafAtlas, tileUV, TILE } from './leafcards';
 import { SPECIES_SIZE, type SpeciesKey } from './species';
 import { farTreeGeometry, type FarShape } from './treemesh';
@@ -1314,7 +1307,8 @@ export function clearSpeciesModels(): void {
   }
   for (const g of farCache.values()) g.dispose();
   for (const m of variantCache.values())
-    for (const g of new Set([m.near.branches, m.near.leaves, m.mid.branches, m.mid.leaves, m.far])) g.dispose();
+    for (const g of new Set([m.near.branches, m.near.leaves, m.mid.branches, m.mid.leaves, m.far]))
+      g.dispose();
   for (const g of farVariantCache.values()) g.dispose();
   modelCache.clear();
   farCache.clear();

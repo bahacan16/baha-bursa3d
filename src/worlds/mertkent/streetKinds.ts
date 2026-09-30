@@ -81,7 +81,15 @@ function faceAt(
   else c.b.wall(key, E, A, y0, y1, [0, 0, 1, 1]);
 }
 
-function textFace(c: FurnCtx, text: string, bg: string | null, fg: string, w: number, h: number, lit = false) {
+function textFace(
+  c: FurnCtx,
+  text: string,
+  bg: string | null,
+  fg: string,
+  w: number,
+  h: number,
+  lit = false,
+) {
   if (!c.signFace) return null;
   return c.signFace({
     text,
@@ -143,10 +151,14 @@ function busShelter(c: FurnCtx, s: StreetItem, y: number): void {
     if (dm) {
       const dv = dirs[dm[1]];
       ads = [{ end: F.t[0] * dv[0] + F.t[1] * dv[1] > 0 ? 'end' : 'start', color: col, lit }];
-    } else if (/\biki\b|\b2\b/.test(phrase)) ads = [{ end: 'start', color: col, lit }, { end: 'end', color: col, lit }];
+    } else if (/\biki\b|\b2\b/.test(phrase))
+      ads = [
+        { end: 'start', color: col, lit },
+        { end: 'end', color: col, lit },
+      ];
     else ads = [{ end: 'end', color: col, lit }];
   }
-  const adEnds = new Set<number>(ads.map((a) => (a.end === "start" ? -1 : 1)));
+  const adEnds = new Set<number>(ads.map((a) => (a.end === 'start' ? -1 : 1)));
   // Dikmeler (4 köşe)
   for (const lx of [-w / 2 + 0.05, w / 2 - 0.05])
     for (const lz of [-d / 2 + 0.05, d / 2 - 0.08]) {
@@ -186,7 +198,17 @@ function busShelter(c: FurnCtx, s: StreetItem, y: number): void {
       const G: Frame = { f: F.t, t: [F.t[1], -F.t[0]], yaw: 0 };
       const cc = { x: pc[0], z: pc[1] };
       faceAt(c, key, cc, G, -pd / 2, pd / 2, 0.075, y + 0.3, y + 0.3 + ph);
-      faceAt(c, key, cc, { f: [-F.t[0], -F.t[1]], t: [-F.t[1], F.t[0]], yaw: 0 }, -pd / 2, pd / 2, 0.075, y + 0.3, y + 0.3 + ph);
+      faceAt(
+        c,
+        key,
+        cc,
+        { f: [-F.t[0], -F.t[1]], t: [-F.t[1], F.t[0]], yaw: 0 },
+        -pd / 2,
+        pd / 2,
+        0.075,
+        y + 0.3,
+        y + 0.3 + ph,
+      );
     }
   }
   // Oturak (arka camın önünde) — KARAR: oturak ölçüsü görülmedi → 0.45 m kot, 0.35 derinlik, yarı boy
@@ -196,7 +218,12 @@ function busShelter(c: FurnCtx, s: StreetItem, y: number): void {
     const q = at(s, F, lx, -d / 2 + 0.3);
     c.b.box(fk, [q[0], y + 0.22, q[1]], [0.05, 0.45, 0.3], F.yaw);
   }
-  const back = [at(s, F, -w / 2, -d / 2), at(s, F, w / 2, -d / 2), at(s, F, w / 2, -d / 2 + 0.12), at(s, F, -w / 2, -d / 2 + 0.12)];
+  const back = [
+    at(s, F, -w / 2, -d / 2),
+    at(s, F, w / 2, -d / 2),
+    at(s, F, w / 2, -d / 2 + 0.12),
+    at(s, F, -w / 2, -d / 2 + 0.12),
+  ];
   c.collide?.(back, y - 0.1, y + h);
 }
 
@@ -291,8 +318,14 @@ function featherFlag(c: FurnCtx, s: StreetItem, y: number): void {
   const CL = y1 - y0;
   const light = new THREE.Color(col).getHSL({ h: 0, s: 0, l: 0 }).l > 0.6;
   const key =
-    textFace(c, typeof s.text === 'string' ? s.text : '', col, hexOf(s.fg) ?? (light ? '#1f1f20' : '#ffffff'), CL, cw) ??
-    ck(c, 'awning', col, 'instFabric');
+    textFace(
+      c,
+      typeof s.text === 'string' ? s.text : '',
+      col,
+      hexOf(s.fg) ?? (light ? '#1f1f20' : '#ffffff'),
+      CL,
+      cw,
+    ) ?? ck(c, 'awning', col, 'instFabric');
   // Kumaş ızgarası: v (0 alt … 1 üst) × u (0 direk … 1 dış kenar); dış kenar üstte çeyrek elips
   const NV = 14;
   const NU = 3;

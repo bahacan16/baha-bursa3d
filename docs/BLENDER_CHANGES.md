@@ -764,3 +764,4 @@
   (BIGCHEFS, STARBUCKS, ALTAY afişi), 5 kuleli kompleks bulvar kuleleri. Ayak izi düzeltmeleri: 900000201/202 sınırı,
   1552093106 (nöww terası çıkarıldı), 1546358573 e6 duvar çizgisi, 1476599910 KB girintisi, 1477364957 batı kaidesi.
   `facades.json` derlendi. **Blender:** bu D4 bloklarının kütle + cephe katmanı; `cutEdges` eşleşmesi port edilmeli.
+- **(D4 cephe 4, v8)** — `survey/1550614219.json`: 3. ve 4. kule güney yüzleri (`cutEdges`, kat kat pencere/cam balkon/loca, çanak), kuleler 2.87 m kat, bulvar kuleleri 1.4 m geri; okunamayan "KÜBRA" panosu yazısız. **Blender:** kule kütleleri ve cepheleri.

@@ -223,7 +223,11 @@ export function kerbPaintOf(text: string | undefined, explicit?: unknown): KerbP
   if (explicit === 'green-white') return { colors: [D4_GREEN, D4_WHITE], group: 3, face: false };
   if (explicit === 'white') return null;
   const t = (text ?? '').toLocaleLowerCase('tr');
-  if (!/yeşil\s*[/-]\s*beyaz|dönüşümlü\s+yeşil|yeşil[^.;]{0,30}beyaz[^.;]{0,20}boyal|green\s*[/-]\s*white/.test(t))
+  if (
+    !/yeşil\s*[/-]\s*beyaz|dönüşümlü\s+yeşil|yeşil[^.;]{0,30}beyaz[^.;]{0,20}boyal|green\s*[/-]\s*white/.test(
+      t,
+    )
+  )
     return null;
   if (/(yeşil\s*[/-]\s*beyaz\s+)?boya\s+yok|boyasız|boyanmamış/.test(t)) return null;
   const after = (w: string) => {
@@ -271,7 +275,12 @@ function paintStone(
   if (!run.spec.face)
     b.drape(
       key,
-      [faceA, faceE, [faceE[0] + nIn[0] * KERB_W, faceE[1] + nIn[1] * KERB_W], [faceA[0] + nIn[0] * KERB_W, faceA[1] + nIn[1] * KERB_W]],
+      [
+        faceA,
+        faceE,
+        [faceE[0] + nIn[0] * KERB_W, faceE[1] + nIn[1] * KERB_W],
+        [faceA[0] + nIn[0] * KERB_W, faceA[1] + nIn[1] * KERB_W],
+      ],
       [],
       H,
       kh + 0.003,
@@ -773,9 +782,17 @@ function splitterIsland(
   // v8: dar uçlarda (burun, 0.9 m ayırıcı) içe kaydırma kendini kesebilir → kesen/ters dönen halka yerine dış halka
   // (bordür taşları üstte kalır, dolgu taşların altında görünmez)
   if (selfCrosses(inset) || Math.sign(ringArea(inset)) !== Math.sign(ringArea(r))) inset = r;
-  const t = `${s.material ?? ''} ${s.note ?? ''}`.toLowerCase();
-  // KARAR: yüzey belirtilmemişse beton (ada üstü sert zemin); ölçülenlerin hepsi "bordürlü çim"
-  const key = /çim|grass/.test(t) ? 'lawn' : /beton|concrete/.test(t) ? 'spConcrete' : layerKey(t);
+  // Yüzey malzemesi: ölçülen `material` (yoksa not); kilit taşı önce (v8: "kiremit-kırmızı beton kilit taşı dar
+  // orta ayırıcı" beton sayılıyordu, notta geçen "çim refüj biter" çim yapıyordu)
+  const t = (s.material || s.note || '').toLowerCase();
+  // KARAR: yüzey belirtilmemişse beton (ada üstü sert zemin); ölçülenlerin çoğu "bordürlü çim"
+  const key = /kilit|paver|interlock/.test(t)
+    ? layerKey(t)
+    : /çim|grass/.test(t)
+      ? 'lawn'
+      : /beton|concrete/.test(t)
+        ? 'spConcrete'
+        : layerKey(t);
   b.drape(key, inset, [], H, h, key === 'lawn' ? 0.5 : 1, 2);
   return [{ poly: r, h }];
 }
@@ -943,7 +960,11 @@ function poleFlag(
     const wave = 0.08 * u * Math.sin(u * Math.PI * 2.2);
     for (let j = 0; j <= NV; j++) {
       const v = j / NV;
-      pos.push(x + dir[0] * (0.07 + u * fw) + side[0] * wave, yTop - fh + v * fh - u * 0.05, z + dir[1] * (0.07 + u * fw) + side[1] * wave);
+      pos.push(
+        x + dir[0] * (0.07 + u * fw) + side[0] * wave,
+        yTop - fh + v * fh - u * 0.05,
+        z + dir[1] * (0.07 + u * fw) + side[1] * wave,
+      );
       uv.push(u, v);
     }
   }
@@ -1518,7 +1539,8 @@ function buildStreet(
         // deseni seçilemeyen bayrak (ör. "mavi-beyaz kurumsal — deseni seçilemedi") çizilmez
         const head = note.split(/[;:]/)[0];
         const flagType =
-          fl?.type ?? (fl?.color ? 'plain' : /türk bayrağı/.test(head) && !/seçilemedi/.test(head) ? 'tr' : null);
+          fl?.type ??
+          (fl?.color ? 'plain' : /türk bayrağı/.test(head) && !/seçilemedi/.test(head) ? 'tr' : null);
         const isFlagPole = !!flagType || /bayrak direğ/.test(note);
         const ph = s.h ?? 7;
         b.cylinder(
@@ -1530,7 +1552,17 @@ function buildStreet(
         );
         if (isFlagPole) b.sphere('steel', [s.x, y + ph - 0.05, s.z], 0.08, 10);
         if (flagType && ext.signFace)
-          poleFlag(b, ext.signFace, s.x, y + ph - 0.15, s.z, flagType, fl ?? {}, yaw, s.rot != null || fl?.rot != null);
+          poleFlag(
+            b,
+            ext.signFace,
+            s.x,
+            y + ph - 0.15,
+            s.z,
+            flagType,
+            fl ?? {},
+            yaw,
+            s.rot != null || fl?.rot != null,
+          );
         break;
       }
       case 'sign': {
@@ -1645,7 +1677,17 @@ function buildStreet(
         // v8: çift yüzlü pano (`faces: 2` ya da not "çift yüzlü"): arka yüz de aynı içerik (orta refüj "raket"
         // panoları); `outline: "tooth"` / not "diş biçimli": diş silueti (dikdörtgen yerine)
         if (tooth) {
-          toothBoard(b, bo.bg && ext.colorKey ? ext.colorKey('fascia', bo.bg) : 'pole', c, ft, fn, yb, W, Hh, d);
+          toothBoard(
+            b,
+            bo.bg && ext.colorKey ? ext.colorKey('fascia', bo.bg) : 'pole',
+            c,
+            ft,
+            fn,
+            yb,
+            W,
+            Hh,
+            d,
+          );
           if (ext.signFace) {
             // Yazı tacın içinde (üst %60, en %80)
             const key = ext.signFace({
@@ -1661,9 +1703,23 @@ function buildStreet(
               w: W * 0.72,
               h: Hh * 0.5,
             });
-            b.wall(key, at(-W * 0.36, d / 2 + 0.006), at(W * 0.36, d / 2 + 0.006), yb + Hh * 0.38, yb + Hh * 0.88, [0, 0, 1, 1]);
+            b.wall(
+              key,
+              at(-W * 0.36, d / 2 + 0.006),
+              at(W * 0.36, d / 2 + 0.006),
+              yb + Hh * 0.38,
+              yb + Hh * 0.88,
+              [0, 0, 1, 1],
+            );
             if (both)
-              b.wall(key, at(W * 0.36, -d / 2 - 0.006), at(-W * 0.36, -d / 2 - 0.006), yb + Hh * 0.38, yb + Hh * 0.88, [0, 0, 1, 1]);
+              b.wall(
+                key,
+                at(W * 0.36, -d / 2 - 0.006),
+                at(-W * 0.36, -d / 2 - 0.006),
+                yb + Hh * 0.38,
+                yb + Hh * 0.88,
+                [0, 0, 1, 1],
+              );
           }
           break;
         }
@@ -1685,7 +1741,8 @@ function buildStreet(
             blocks: bo.blocks ?? null,
           });
           b.wall(key, at(-W / 2, d / 2 + 0.006), at(W / 2, d / 2 + 0.006), yb, yb + Hh, [0, 0, 1, 1]);
-          if (both) b.wall(key, at(W / 2, -d / 2 - 0.006), at(-W / 2, -d / 2 - 0.006), yb, yb + Hh, [0, 0, 1, 1]);
+          if (both)
+            b.wall(key, at(W / 2, -d / 2 - 0.006), at(-W / 2, -d / 2 - 0.006), yb, yb + Hh, [0, 0, 1, 1]);
         }
         const hexOk = (h?: string) => !!h && /^#[0-9a-f]{6}$/i.test(h);
         if (bo.base && (bo.base.h ?? 0) > 0.02) {
@@ -2243,7 +2300,15 @@ function buildStreet(
         // ölçüsü yoksa geçidin tamamı tek renk (color)
         if (!m && /\byok\b|none|\bdüz\b|solid|\bbant\b|band/.test(cr.stripes ?? '')) {
           const Q = (a: number, e: number): V2 => [s.x + d[0] * a + t[0] * e, s.z + d[1] * a + t[1] * e];
-          b.drape(paintKs[0], [Q(-len / 2, -w / 2), Q(len / 2, -w / 2), Q(len / 2, w / 2), Q(-len / 2, w / 2)], [], H, 0.052, 1, 2);
+          b.drape(
+            paintKs[0],
+            [Q(-len / 2, -w / 2), Q(len / 2, -w / 2), Q(len / 2, w / 2), Q(-len / 2, w / 2)],
+            [],
+            H,
+            0.052,
+            1,
+            2,
+          );
           break;
         }
         for (let k = 0; k < n; k++) {
@@ -2329,13 +2394,25 @@ function buildStreet(
         const Dd = rs.d ?? 1;
         const fwd: V2 = [Math.sin(yaw), -Math.cos(yaw)];
         const acr: V2 = [-fwd[1], fwd[0]];
-        const Q = (a: number, e: number): V2 => [s.x + acr[0] * a + fwd[0] * e, s.z + acr[1] * a + fwd[1] * e];
+        const Q = (a: number, e: number): V2 => [
+          s.x + acr[0] * a + fwd[0] * e,
+          s.z + acr[1] * a + fwd[1] * e,
+        ];
         const o0 = Q(-Dd / 2, -Lw / 2);
-        b.drape('roadSignalPicto', [Q(-Dd / 2, -Lw / 2), Q(Dd / 2, -Lw / 2), Q(Dd / 2, Lw / 2), Q(-Dd / 2, Lw / 2)], [], H, 0.053, 1, 2, {
-          o: o0,
-          t: [acr[0] / Dd, acr[1] / Dd],
-          n: [fwd[0] / Lw, fwd[1] / Lw],
-        });
+        b.drape(
+          'roadSignalPicto',
+          [Q(-Dd / 2, -Lw / 2), Q(Dd / 2, -Lw / 2), Q(Dd / 2, Lw / 2), Q(-Dd / 2, Lw / 2)],
+          [],
+          H,
+          0.053,
+          1,
+          2,
+          {
+            o: o0,
+            t: [acr[0] / Dd, acr[1] / Dd],
+            n: [fwd[0] / Lw, fwd[1] / Lw],
+          },
+        );
         break;
       }
       case 'steps-line': {
@@ -2347,7 +2424,9 @@ function buildStreet(
         const rise = sl.rise ?? 0.15 * nSt;
         const tread = sl.tread ?? 0.35;
         const key =
-          sl.color && /^#[0-9a-f]{6}$/i.test(sl.color) && ext.colorKey ? ext.colorKey('plaster', sl.color) : 'spConcrete';
+          sl.color && /^#[0-9a-f]{6}$/i.test(sl.color) && ext.colorKey
+            ? ext.colorKey('plaster', sl.color)
+            : 'spConcrete';
         for (let i = 0; i + 1 < P.length; i++) {
           const a = P[i];
           const e = P[i + 1];
@@ -2363,8 +2442,13 @@ function buildStreet(
             const top = ((k + 1) * rise) / nSt;
             const v0 = k * tread;
             const v1 = k === nSt - 1 ? v0 + tread : v0 + tread;
-            const c: V2 = [mx + nn[0] * (v0 + v1) / 2, mz + nn[1] * (v0 + v1) / 2];
-            b.box(key, [c[0], g0s + top / 2 - 0.05, c[1]], [L, top + 0.1, v1 - v0], Math.atan2(-tt[1], tt[0]));
+            const c: V2 = [mx + (nn[0] * (v0 + v1)) / 2, mz + (nn[1] * (v0 + v1)) / 2];
+            b.box(
+              key,
+              [c[0], g0s + top / 2 - 0.05, c[1]],
+              [L, top + 0.1, v1 - v0],
+              Math.atan2(-tt[1], tt[0]),
+            );
             const ring: [number, number][] = [
               [a[0] + nn[0] * v0, a[1] + nn[1] * v0],
               [e[0] + nn[0] * v0, e[1] + nn[1] * v0],

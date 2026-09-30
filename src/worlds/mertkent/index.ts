@@ -1475,91 +1475,96 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
               polygonOffsetUnits: -4,
             })
           : kind.startsWith('clad:')
-        ? cladMaterial(kind, hex)
-        : kind.startsWith('tiles:')
-          ? tilesMaterial(kind, hex)
-          : kind.startsWith('cage:')
-            ? cageMaterial(kind, hex)
-            : kind.startsWith('film:')
-              ? filmMaterial(kind, hex)
-              : kind.startsWith('camglass:')
-                ? camGlassMaterial({ pitch: Number(kind.slice(9)), frame: hex })
-                : kind === 'groove'
-                  ? grooveMaterial(hex)
-                  : kind === 'neon'
-                    ? neonMaterial(hex)
-                    : kind === 'blind'
-                      ? // Bambu / hasır stor: çıtalı doku × ölçülen renk, iki yüz
-                        new THREE.MeshStandardMaterial({
-                          map: typeof document === 'undefined' ? null : T.bambooBlindTexture(),
-                          color: hex,
-                          roughness: 0.85,
-                          side: THREE.DoubleSide,
-                        })
-                      : kind === 'asphalt' || kind === 'tar' || wearL > 0
-                        ? // Yol yüzeyi ayrıntısı (yama / çatlak dolgusu / çizgi aşınması): ölçülen ton, asfalt normal dokusu;
-                          // aşınma: gürültü alfa (alphaTest; kademe 1/2/3 ≈ %25/50/75 örtü) ile boyayı örten yol tonu
-                          new THREE.MeshStandardMaterial({
-                            color: hex,
-                            roughness: kind === 'tar' ? 0.5 : 0.93,
-                            normalMap:
-                              (o.roadMaterial as THREE.MeshStandardMaterial | undefined)?.normalMap ?? null,
-                            alphaMap:
-                              wearL > 0 && typeof document !== 'undefined' ? T.paintWearTexture(7) : null,
-                            alphaTest: wearL > 0 ? [0, 0.62, 0.5, 0.38][wearL] : 0,
-                            polygonOffset: true,
-                            polygonOffsetFactor: wearL > 0 ? -9 : kind === 'tar' ? -8 : -6,
-                            polygonOffsetUnits: wearL > 0 ? -9 : kind === 'tar' ? -8 : -6,
-                          })
-                        : kind === 'shutter'
-                          ? // Kepenk: ölçülen renkte lamelli alüminyum (beyaz tabanlı lamel dokusu × renk)
+            ? cladMaterial(kind, hex)
+            : kind.startsWith('tiles:')
+              ? tilesMaterial(kind, hex)
+              : kind.startsWith('cage:')
+                ? cageMaterial(kind, hex)
+                : kind.startsWith('film:')
+                  ? filmMaterial(kind, hex)
+                  : kind.startsWith('camglass:')
+                    ? camGlassMaterial({ pitch: Number(kind.slice(9)), frame: hex })
+                    : kind === 'groove'
+                      ? grooveMaterial(hex)
+                      : kind === 'neon'
+                        ? neonMaterial(hex)
+                        : kind === 'blind'
+                          ? // Bambu / hasır stor: çıtalı doku × ölçülen renk, iki yüz
                             new THREE.MeshStandardMaterial({
-                              map: T.rollerShutterTexture(),
+                              map: typeof document === 'undefined' ? null : T.bambooBlindTexture(),
                               color: hex,
-                              roughness: 0.55,
-                              metalness: 0.3,
+                              roughness: 0.85,
                               side: THREE.DoubleSide,
                             })
-                          : kind === 'metal'
-                            ? new THREE.MeshStandardMaterial({ color: hex, roughness: 0.35, metalness: 0.6 })
-                            : kind === 'awning'
-                              ? new THREE.MeshStandardMaterial({
+                          : kind === 'asphalt' || kind === 'tar' || wearL > 0
+                            ? // Yol yüzeyi ayrıntısı (yama / çatlak dolgusu / çizgi aşınması): ölçülen ton, asfalt normal dokusu;
+                              // aşınma: gürültü alfa (alphaTest; kademe 1/2/3 ≈ %25/50/75 örtü) ile boyayı örten yol tonu
+                              new THREE.MeshStandardMaterial({
+                                color: hex,
+                                roughness: kind === 'tar' ? 0.5 : 0.93,
+                                normalMap:
+                                  (o.roadMaterial as THREE.MeshStandardMaterial | undefined)?.normalMap ??
+                                  null,
+                                alphaMap:
+                                  wearL > 0 && typeof document !== 'undefined' ? T.paintWearTexture(7) : null,
+                                alphaTest: wearL > 0 ? [0, 0.62, 0.5, 0.38][wearL] : 0,
+                                polygonOffset: true,
+                                polygonOffsetFactor: wearL > 0 ? -9 : kind === 'tar' ? -8 : -6,
+                                polygonOffsetUnits: wearL > 0 ? -9 : kind === 'tar' ? -8 : -6,
+                              })
+                            : kind === 'shutter'
+                              ? // Kepenk: ölçülen renkte lamelli alüminyum (beyaz tabanlı lamel dokusu × renk)
+                                new THREE.MeshStandardMaterial({
+                                  map: T.rollerShutterTexture(),
                                   color: hex,
-                                  roughness: 0.85,
+                                  roughness: 0.55,
+                                  metalness: 0.3,
                                   side: THREE.DoubleSide,
                                 })
-                              : kind === 'frame'
+                              : kind === 'metal'
                                 ? new THREE.MeshStandardMaterial({
                                     color: hex,
-                                    roughness: 0.4,
-                                    metalness: 0.1,
+                                    roughness: 0.35,
+                                    metalness: 0.6,
                                   })
-                                : kind === 'tint'
-                                  ? // Renkli / giydirme / vitrin camı: ölçülen görünen ton + gök yansıması (Fresnel, yalnız
-                                    // camda güçlendirilir — önceden opak boya gibi görünüyordu, critic A10)
-                                    withGlassEnv(
-                                      new THREE.MeshStandardMaterial({
-                                        color: new THREE.Color(hex).multiplyScalar(0.8),
-                                        roughness: 0.05,
-                                        metalness: 0,
-                                      }),
-                                      'tint',
-                                    )
-                                  : kind === 'glass'
+                                : kind === 'awning'
+                                  ? new THREE.MeshStandardMaterial({
+                                      color: hex,
+                                      roughness: 0.85,
+                                      side: THREE.DoubleSide,
+                                    })
+                                  : kind === 'frame'
                                     ? new THREE.MeshStandardMaterial({
-                                        // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
                                         color: hex,
-                                        roughness: 0.12,
-                                        metalness: 0,
-                                        transparent: true,
-                                        opacity: 0.86,
-                                        side: THREE.DoubleSide,
-                                        depthWrite: false,
+                                        roughness: 0.4,
+                                        metalness: 0.1,
                                       })
-                                    : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
-                                        roughness: 0.9,
-                                        side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
-                                      });
+                                    : kind === 'tint'
+                                      ? // Renkli / giydirme / vitrin camı: ölçülen görünen ton + gök yansıması (Fresnel, yalnız
+                                        // camda güçlendirilir — önceden opak boya gibi görünüyordu, critic A10)
+                                        withGlassEnv(
+                                          new THREE.MeshStandardMaterial({
+                                            color: new THREE.Color(hex).multiplyScalar(0.8),
+                                            roughness: 0.05,
+                                            metalness: 0,
+                                          }),
+                                          'tint',
+                                        )
+                                      : kind === 'glass'
+                                        ? new THREE.MeshStandardMaterial({
+                                            // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
+                                            color: hex,
+                                            roughness: 0.12,
+                                            metalness: 0,
+                                            transparent: true,
+                                            opacity: 0.86,
+                                            side: THREE.DoubleSide,
+                                            depthWrite: false,
+                                          })
+                                        : granularMaterial(hex, kind === 'fascia' ? 7 : 3, {
+                                            roughness: 0.9,
+                                            side: kind === 'fascia' ? THREE.DoubleSide : THREE.FrontSide,
+                                          });
     return k;
   };
   // v7: tabela atlası — tabela başına doku / malzeme yerine sayfa başına tek malzeme (gerçek boy, px/m)
