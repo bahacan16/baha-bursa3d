@@ -206,6 +206,8 @@ export function surveyVegetation(): {
   /** v7: OSM yol çizgisi düzeltmeleri (id → orta / kenar çizgisi) */
   roadMarks: Record<string, RoadMark>;
   noPropZones: { p: number[]; r: number; closed?: boolean }[];
+  /** Yalnız araç yolu kenarındaki genel OSM kaldırımının çizilmeyeceği alanlar (park döşemesi) */
+  noCurbZones: number[][];
 } {
   const fixedTrees: number[] = [];
   const add = (x: number, z: number, r: number | undefined, h: number | undefined, type: number) =>
@@ -304,8 +306,9 @@ export function surveyVegetation(): {
   // Ölçülmüş park döşemesi (park-plan paving): OSM genel kaldırımı üstüne çizilmez (critic M2 #10: Cavit Orhan
   // boyunca kuzey park batı kenarı — gerçek düzen bordür → kırmızı → gri; üstüne gri + sarı kılavuzlu OSM kaldırımı
   // biniyordu)
+  const noCurbZones: number[][] = [];
   for (const a of PARK_PLAN.areas ?? [])
-    if (a.kind === 'paving' && a.poly?.length >= 3) noSidewalkZones.push(flat(a.poly));
+    if (a.kind === 'paving' && a.poly?.length >= 3) noCurbZones.push(flat(a.poly));
   for (const s of STREET_PLAN.sidewalks ?? []) {
     for (let i = 0; i + 1 < s.pts.length; i++) {
       const a = s.pts[i];
@@ -338,7 +341,14 @@ export function surveyVegetation(): {
         : {}),
     };
   }
-  return { fixedTrees, excludeZones, noSidewalkZones, roadMarks, noPropZones: surveyedPropZones() };
+  return {
+    fixedTrees,
+    excludeZones,
+    noSidewalkZones,
+    noCurbZones,
+    roadMarks,
+    noPropZones: surveyedPropZones(),
+  };
 }
 
 /** OSM yol çizgisi düzeltmesi (roads.ts): orta / kenar çizgisi türü, orta çizgi dünya kayması */

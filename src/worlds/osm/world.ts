@@ -63,6 +63,7 @@ async function buildInWorker(
     fixedTrees?: number[];
     excludeZones?: number[][];
     noSidewalkZones?: number[][];
+    noCurbZones?: number[][];
     roadMarks?: Record<string, { centre?: string; edges?: string; shift?: [number, number] }>;
     noPropZones?: PropZone[];
   } = {},

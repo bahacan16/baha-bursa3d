@@ -23,6 +23,10 @@ const CYCLE: Rgb = [0.16, 0.26, 0.38];
 // Kaldırım rengi dokudan (Nilüfer tipi: gri tuğla + sarı kılavuz, materials.ts) → köşe rengi beyaz
 const SIDEWALK: Rgb = [1, 1, 1];
 const CURB: Rgb = [0.62, 0.61, 0.59];
+/** Bordür üstü: Street View KB köşe bordür üstü açık gri (critic M2 #11), yüzden bir ton açık */
+const CURB_TOP: Rgb = [0.7, 0.69, 0.67];
+/** Bordür taşı üst genişliği (m) */
+const KERB_TOP = 0.15;
 const WHITE: Rgb = [0.92, 0.92, 0.9];
 
 /** Kaldırım / yükseltilmiş şerit — zemin yüksekliği sorgusu için. */
@@ -254,6 +258,9 @@ function sidewalk(
 ): void {
   const inner = offsetPolyline(pts, side * half);
   const outer = offsetPolyline(pts, side * (half + SIDEWALK_W));
+  // Bordür taşı üstü (0.15 m): düz beton tonu (önceden kaldırım dokusu bordürün üstünü de kaplıyordu, yola bakan yüz
+  // döşeme dokusuyla koyu şerit gibi görünüyordu — critic M2 #11, KB köşe)
+  const kerbIn = offsetPolyline(pts, side * (half + KERB_TOP));
   const skipped = (i: number) =>
     !!skip?.(
       (inner[i][0] + outer[i][0] + inner[i + 1][0] + outer[i + 1][0]) / 4,
@@ -271,9 +278,18 @@ function sidewalk(
     const i2 = b.v(outer[i + 1][0], Y(outer[i + 1]), outer[i + 1][1], 0, 1, 0, SIDEWALK_W, d, SIDEWALK);
     const i3 = b.v(inner[i + 1][0], Y(inner[i + 1]), inner[i + 1][1], 0, 1, 0, 0, d, SIDEWALK);
     upQuad(b, i0, i1, i2, i3);
-    // Bordür (yola bakan) ve dış kenar yüzleri
+    // Bordür (yola bakan yüz + üst) düz beton; dış kenar yüzü kaldırım
     const road: Pt = [pts[i][0], pts[i][1]];
-    vstrip(b, inner[i], inner[i + 1], 0, CURB_H, CURB, road);
+    const bk = geo.get(mx, mz, 'detail');
+    vstrip(bk, inner[i], inner[i + 1], 0, CURB_H, CURB, road);
+    const Yk = (p: Pt) => CURB_H + 0.004 + H(p[0], p[1]);
+    upQuad(
+      bk,
+      bk.v(inner[i][0], Yk(inner[i]), inner[i][1], 0, 1, 0, 0, 0, CURB_TOP),
+      bk.v(kerbIn[i][0], Yk(kerbIn[i]), kerbIn[i][1], 0, 1, 0, 0, 0, CURB_TOP),
+      bk.v(kerbIn[i + 1][0], Yk(kerbIn[i + 1]), kerbIn[i + 1][1], 0, 1, 0, 0, 0, CURB_TOP),
+      bk.v(inner[i + 1][0], Yk(inner[i + 1]), inner[i + 1][1], 0, 1, 0, 0, 0, CURB_TOP),
+    );
     const away: Pt = [outer[i][0] * 2 - road[0], outer[i][1] * 2 - road[1]];
     vstrip(b, outer[i], outer[i + 1], 0, CURB_H, SIDEWALK, away);
     strips.push({
@@ -481,8 +497,11 @@ export function buildRoads(
   noSidewalk: number[][] = [],
   /** v7: ölçülmüş çizgi düzeltmeleri (Street View): yol kimliği → centre none | dashed | solid, edges none | solid */
   marks: Record<string, { centre?: string; edges?: string; shift?: [number, number] }> = {},
+  /** Yalnız araç yolu kenarı kaldırımı için ek bölgeler (ölçülmüş park döşemesi) */
+  noCurb: number[][] = [],
 ): RoadBuildResult {
   const skipWalk = (x: number, z: number) => noSidewalk.some((r) => inFlatRing(r, x, z));
+  const skipCurb = (x: number, z: number) => skipWalk(x, z) || noCurb.some((r) => inFlatRing(r, x, z));
   const strips: RaisedStrip[] = [];
   const carriageways: Carriageway[] = [];
   const visible = roads.filter((r) => !r.tunnel);
@@ -568,8 +587,8 @@ export function buildRoads(
       const trimmed = trimPolyline(piece, trimFor(startKey), trimFor(endKey));
       if (trimmed) {
         const dense = densify(trimmed, ROAD_STEP);
-        if (r.sidewalkLeft) sidewalk(geo, dense, half, 1, strips, skipWalk);
-        if (r.sidewalkRight) sidewalk(geo, dense, half, -1, strips, skipWalk);
+        if (r.sidewalkLeft) sidewalk(geo, dense, half, 1, strips, skipCurb);
+        if (r.sidewalkRight) sidewalk(geo, dense, half, -1, strips, skipCurb);
       }
     };
     for (let i = 1; i < r.pts.length; i++) {
