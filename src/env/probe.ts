@@ -15,7 +15,8 @@ export class ReflectionProbe {
   private face = 0;
   private pos = new THREE.Vector3();
   private pmremRT: THREE.WebGLRenderTarget | null = null;
-  intensity = Number(new URLSearchParams(location.search).get('probe') ?? 1);
+  /** `?probe=1` açar (varsayılan kapalı, game.ts); değer yoğunluk çarpanı (boş → 1) */
+  intensity = Number(new URLSearchParams(location.search).get('probe') || 1);
 
   constructor(
     private readonly renderer: THREE.WebGLRenderer,

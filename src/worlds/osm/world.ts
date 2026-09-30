@@ -451,7 +451,7 @@ export class OsmWorld implements IWorld {
         console.info(
           `[ultra] el modeli birleştirme: ${st.meshesBefore} → ${st.meshesAfter} mesh, gölge ${st.shadowCastersBefore} → ` +
             `${st.shadowProxies} vekil, renk ${st.colorMerged} → ${st.colorMeshes}, sıva ${st.granMerged} → ` +
-            `${st.granMeshes} (${st.ms.toFixed(0)} ms)`,
+            `${st.granMeshes} (${st.ms.toFixed(0)} ms: ${st.phaseMs.map((v) => v.toFixed(0)).join(' / ')})`,
         );
       }
     }

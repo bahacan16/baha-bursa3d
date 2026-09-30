@@ -37,6 +37,8 @@ export interface BatchStats {
   colorMeshes: number;
   granMerged: number;
   granMeshes: number;
+  /** gölge vekili / renk / doku dizisi süreleri */
+  phaseMs: number[];
   ms: number;
 }
 
@@ -161,13 +163,15 @@ function patchSig(m: THREE.Material): Patched | null {
         a.vertexShader.includes('#include <color_vertex>') &&
         cnt(a.fragmentShader) === cnt(lib.fragmentShader);
       res = {
-        sig: [
-          a.vertexShader,
-          a.fragmentShader,
-          u.join(','),
-          JSON.stringify(a.defines),
-          m.customProgramCacheKey(),
-        ].join('\u0001'),
+        sig: hashStr(
+          [
+            a.vertexShader,
+            a.fragmentShader,
+            u.join(','),
+            JSON.stringify(a.defines),
+            m.customProgramCacheKey(),
+          ].join('\u0001'),
+        ),
         vcSafe,
         mapSafe:
           a.fragmentShader.includes('#include <map_fragment>') &&
@@ -249,88 +253,123 @@ export function plain(o: THREE.Object3D): o is Mesh {
 }
 const IDENTITY = new THREE.Matrix4();
 
-/** Üçgen ağırlık merkezinin ızgara hücresi */
-function cellOf(pos: ArrayLike<number>, idx: ArrayLike<number>, t: number, cell: number): string {
-  const a = idx[t * 3] * 3;
-  const b = idx[t * 3 + 1] * 3;
-  const c = idx[t * 3 + 2] * 3;
-  const x = (pos[a] + pos[b] + pos[c]) / 3;
-  const z = (pos[a + 2] + pos[b + 2] + pos[c + 2]) / 3;
-  return `${Math.floor(x / cell)},${Math.floor(z / cell)}`;
-}
-
 interface Piece {
   mesh: Mesh;
-  tris: number[];
+  /** kaynak üçgen indeksleri; null = tümü */
+  tris: Uint32Array | null;
   /** köşe başına ek sabit öznitelikler (renk, katman) */
   extra?: Record<string, number[]>;
 }
 
-/** Parçaları tek geometriye topla (yalnız kullanılan köşeler kopyalanır). */
+type AnyArray = Float32Array | Uint32Array | Uint16Array | Int32Array | Uint8Array | Int8Array | Int16Array;
+
+/** Parçaları tek geometriye topla (yalnız kullanılan köşeler kopyalanır; tür dizileriyle, iki geçiş). */
 function mergePieces(
   pieces: Piece[],
   attrs: string[],
   extraSizes: Record<string, number>,
 ): THREE.BufferGeometry {
-  const out: Record<string, number[]> = {};
-  for (const a of attrs) out[a] = [];
-  for (const e of Object.keys(extraSizes)) out[e] = [];
-  const index: number[] = [];
-  let base = 0;
+  // 1. geçiş: parça başına köşe yeniden eşlemesi ve boyutlar
+  const maps: Int32Array[] = [];
+  const counts: number[] = [];
+  let nv = 0;
+  let ni = 0;
   for (const p of pieces) {
     const g = p.mesh.geometry;
     const idx = (g.index as THREE.BufferAttribute).array;
-    const remap = new Map<number, number>();
-    for (const t of p.tris)
-      for (let k = 0; k < 3; k++) {
-        const v = idx[t * 3 + k];
-        let n = remap.get(v);
-        if (n === undefined) {
-          n = base + remap.size;
-          remap.set(v, n);
-          for (const a of attrs) {
-            const at = g.attributes[a] as THREE.BufferAttribute;
-            const s = at.itemSize;
-            const arr = at.array;
-            for (let q = 0; q < s; q++) out[a].push(arr[v * s + q]);
-          }
-          for (const [e, s] of Object.entries(extraSizes)) {
-            const src = (p.extra as Record<string, number[]>)[e];
-            for (let q = 0; q < s; q++) out[e].push(src[q]);
-          }
-        }
-        index.push(n);
+    const map = new Int32Array(g.attributes.position.count).fill(-1);
+    let k = 0;
+    const nt = p.tris ? p.tris.length : idx.length / 3;
+    for (let q = 0; q < nt; q++) {
+      const t = p.tris ? p.tris[q] : q;
+      for (let j = 0; j < 3; j++) {
+        const v = idx[t * 3 + j];
+        if (map[v] < 0) map[v] = k++;
       }
-    base += remap.size;
+    }
+    maps.push(map);
+    counts.push(k);
+    nv += k;
+    ni += nt * 3;
   }
+  const out: Record<string, AnyArray> = {};
+  for (const a of attrs) {
+    const src = pieces[0].mesh.geometry.attributes[a] as THREE.BufferAttribute;
+    const Ctor = (src.array as AnyArray).constructor as new (n: number) => AnyArray;
+    out[a] = new Ctor(nv * src.itemSize);
+  }
+  for (const [e, sz] of Object.entries(extraSizes)) out[e] = new Float32Array(nv * sz);
+  const index = nv > 65535 ? new Uint32Array(ni) : new Uint16Array(ni);
+  // 2. geçiş: kopya
+  let base = 0;
+  let io = 0;
+  pieces.forEach((p, pi) => {
+    const g = p.mesh.geometry;
+    const idx = (g.index as THREE.BufferAttribute).array;
+    const map = maps[pi];
+    for (const a of attrs) {
+      const at = g.attributes[a] as THREE.BufferAttribute;
+      const sz = at.itemSize;
+      const src = at.array as AnyArray;
+      const dst = out[a];
+      for (let v = 0; v < map.length; v++) {
+        const n = map[v];
+        if (n < 0) continue;
+        const o = (base + n) * sz;
+        for (let q = 0; q < sz; q++) dst[o + q] = src[v * sz + q];
+      }
+    }
+    for (const [e, sz] of Object.entries(extraSizes)) {
+      const src = (p.extra as Record<string, number[]>)[e];
+      const dst = out[e];
+      for (let n = 0; n < counts[pi]; n++) for (let q = 0; q < sz; q++) dst[(base + n) * sz + q] = src[q];
+    }
+    const nt = p.tris ? p.tris.length : idx.length / 3;
+    for (let q = 0; q < nt; q++) {
+      const t = p.tris ? p.tris[q] : q;
+      for (let j = 0; j < 3; j++) index[io++] = base + map[idx[t * 3 + j]];
+    }
+    base += counts[pi];
+  });
   const geo = new THREE.BufferGeometry();
   for (const a of attrs) {
     const src = pieces[0].mesh.geometry.attributes[a] as THREE.BufferAttribute;
-    const Ctor = (src.array as Float32Array).constructor as Float32ArrayConstructor;
-    geo.setAttribute(a, new THREE.BufferAttribute(new Ctor(out[a]), src.itemSize, src.normalized));
+    geo.setAttribute(a, new THREE.BufferAttribute(out[a], src.itemSize, src.normalized));
   }
-  for (const [e, s] of Object.entries(extraSizes))
-    geo.setAttribute(e, new THREE.Float32BufferAttribute(out[e], s));
-  geo.setIndex(
-    base > 65535 ? new THREE.Uint32BufferAttribute(index, 1) : new THREE.Uint16BufferAttribute(index, 1),
-  );
+  for (const [e, sz] of Object.entries(extraSizes))
+    geo.setAttribute(e, new THREE.BufferAttribute(out[e], sz));
+  geo.setIndex(new THREE.BufferAttribute(index, 1));
   geo.computeBoundingSphere();
   geo.computeBoundingBox();
   return geo;
 }
 
-/** Üçgenleri hücrelere dağıt: hücre → üçgen listesi */
-function trisByCell(g: THREE.BufferGeometry, cell: number): Map<string, number[]> {
+/** Üçgenleri ağırlık merkezinin ızgara hücresine dağıt: "cx,cz" → üçgen listesi */
+function trisByCell(g: THREE.BufferGeometry, cell: number): Map<string, Uint32Array> {
   const pos = g.attributes.position.array;
   const idx = (g.index as THREE.BufferAttribute).array;
   const n = idx.length / 3;
-  const out = new Map<string, number[]>();
+  const key = new Int32Array(n);
+  const cnt = new Map<number, number>();
   for (let t = 0; t < n; t++) {
-    const k = cellOf(pos, idx, t, cell);
-    let l = out.get(k);
-    if (!l) out.set(k, (l = []));
-    l.push(t);
+    const a = idx[t * 3] * 3;
+    const b = idx[t * 3 + 1] * 3;
+    const c = idx[t * 3 + 2] * 3;
+    const cx = Math.floor((pos[a] + pos[b] + pos[c]) / 3 / cell);
+    const cz = Math.floor((pos[a + 2] + pos[b + 2] + pos[c + 2]) / 3 / cell);
+    // ±32k hücre yeter (en küçük hücre 128 m)
+    const k = ((cx + 32768) << 16) | (cz + 32768);
+    key[t] = k;
+    cnt.set(k, (cnt.get(k) ?? 0) + 1);
   }
+  const lists = new Map<number, { a: Uint32Array; n: number }>();
+  for (const [k, c] of cnt) lists.set(k, { a: new Uint32Array(c), n: 0 });
+  for (let t = 0; t < n; t++) {
+    const l = lists.get(key[t]) as { a: Uint32Array; n: number };
+    l.a[l.n++] = t;
+  }
+  const out = new Map<string, Uint32Array>();
+  for (const [k, l] of lists) out.set(`${(k >>> 16) - 32768},${(k & 0xffff) - 32768}`, l.a);
   return out;
 }
 
@@ -543,19 +582,50 @@ function canvasBytes(t: THREE.Texture, out: Uint8Array, offset: number): boolean
   return true;
 }
 
+/**
+ * Doku içerik özeti (normal haritası eşitliği için): üç 64² bölgenin baytları. Aynı tohumlu grenli sıva normal
+ * haritaları bayt bayt aynı; farklı tohumlar her yerde farklı (rastgele tane alanı) → örnek bölgeler yeterli.
+ */
 function contentHash(t: THREE.Texture): string | null {
   const img = t.image as HTMLCanvasElement | undefined;
   if (!img || typeof img.getContext !== 'function') return null;
   const ctx = img.getContext('2d');
   if (!ctx) return null;
-  const d = new Uint32Array(ctx.getImageData(0, 0, img.width, img.height).data.buffer);
+  const w = img.width;
+  const h = img.height;
+  const S = Math.min(64, w, h);
+  let hs = `${w}x${h}`;
+  for (const [x, y] of [
+    [0, 0],
+    [(w - S) >> 1, (h - S) >> 1],
+    [w - S, h - S],
+  ]) {
+    const d = new Uint32Array(ctx.getImageData(x, y, S, S).data.buffer);
+    hs += `:${hashWords(d)}`;
+  }
+  return hs;
+}
+
+function hashWords(d: ArrayLike<number>): string {
   let h1 = 0x811c9dc5;
   let h2 = 0x1234567;
   for (let i = 0; i < d.length; i++) {
     h1 = Math.imul(h1 ^ d[i], 16777619);
     h2 = Math.imul(h2 + d[i], 2246822519) ^ (h2 >>> 13);
   }
-  return `${img.width}x${img.height}:${(h1 >>> 0).toString(16)}${(h2 >>> 0).toString(16)}`;
+  return `${(h1 >>> 0).toString(16)}${(h2 >>> 0).toString(16)}`;
+}
+
+/** Uzun imza metnini kısa anahtara indir (Map anahtarı; 64 bit + uzunluk) */
+function hashStr(t: string): string {
+  let h1 = 0x811c9dc5;
+  let h2 = 0x1234567;
+  for (let i = 0; i < t.length; i++) {
+    const c = t.charCodeAt(i);
+    h1 = Math.imul(h1 ^ c, 16777619);
+    h2 = Math.imul(h2 + c, 2246822519) ^ (h2 >>> 13);
+  }
+  return `${t.length}:${(h1 >>> 0).toString(16)}${(h2 >>> 0).toString(16)}`;
 }
 
 // renk bu birleştirmede imzada kalır (dizi yalnız map'i değiştirir)
@@ -736,7 +806,7 @@ export function mergeSameMaterial(meshes: Mesh[], parent: THREE.Object3D, name: 
     const first = list[0];
     const pieces = list.map((m) => ({
       mesh: m,
-      tris: Array.from({ length: (m.geometry.index as THREE.BufferAttribute).count / 3 }, (_, i) => i),
+      tris: null,
     }));
     const g = mergePieces(pieces, Object.keys(first.geometry.attributes), {});
     const bm = new THREE.Mesh(g, first.material);
@@ -758,9 +828,13 @@ export function batchHandModel(group: THREE.Group): BatchStats {
   const all = group.children.filter(plain);
   const before = group.children.length;
   const sh = buildShadowProxies(group, all);
+  const t1 = performance.now();
   const col = mergeByColor(group, all);
+  const t2 = performance.now();
   const gran = mergeGranular(group, col.left);
+  const t3 = performance.now();
   return {
+    phaseMs: [t1 - t0, t2 - t1, t3 - t2],
     meshesBefore: before,
     meshesAfter: group.children.length,
     shadowCastersBefore: sh.casters,
