@@ -881,3 +881,10 @@
   8 kaldırım, Uğur Mumcu doğu kolu refüjü + manolyalar, cepler, ayırıcı ada, saksı yönleri, durak konumları, cam
   sıra, bayrak direkleri, totem, çitler. **Blender:** `NW/Street/D4` (kaldırım, ada, zemin alanları, ağaçlar, sokak
   eşyası) ve `NW/Park` çizgileri yeniden kurulur; yol şerit çizgileri eklenir.
+- **(Üretici v9)** — Yeni özellikler: saçaklı düz çatılarda alın bandı saçak ucunda (`roof.fasciaAt`, 15 düz çatılı blok
+  değişir), kavisli balkon döşemeleri (`slabFronts`: Biaport 570 / 568 güney), çizgili düz tente (`awning.stripeW`:
+  ŞOK), iki renkli teras korkuluğu (AVM), yuvarlak / kemerli açıklıklar (Biaport mavi dükkân, ARMILLA, 1550614219
+  e13/e15), yıldız desenli pano (Ayanoğlu), çokgen pano (Ceylan kanat çaprazı), KuveytTürk palmiye amblemi + korkuluk
+  üstü cam. Sokak: ada çayırı, refüj çim rengi, kazık çit, tente saçak yazısı, dolap rengi, çakıl rengi, bisiklet
+  piktogramı, kış bahçesi çatı yazısı, iki renkli alın yazısı, pilon başlığı, PTT bayrak yazısı. **Blender:**
+  `NW/Measured/Facades` (yukarıdaki bloklar) + `NW/Street/D4` (ada, çitler, tenteler) yeniden kurulur.
