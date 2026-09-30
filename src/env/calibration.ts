@@ -27,7 +27,7 @@
  *    nötr ΔE(a*b*) 4.6→3.2, b* +3.8→+1.9, açık cephe mutlak +0.01→+0.03. Ortam ölçeği (0.038) değişmedi: açık
  *    cephelerin ~%60'ı ortam haritasının zemin/siluet bandından; veri düşürmeyi de artırmayı da desteklemiyor.
  *    Araçlar: kalibrasyon ajanının çalışma alanı `scratchpad/recal/` (cap.mjs bileşen yakalama, model.mjs yeniden
- *    kurulum, cls.mjs ölçütler); yama seti `p_all.json` (7 görüş, 22 yama).
+ *    kurulum, cls.mjs ölçütler); yama seti `p_all.json` (7 görüş, 25 yama; 5 cam/bitki/doğu cephesi yalnız rapor).
  *
  * KARAR: `baked` env/yarım küre/pozlama `live` ile aynı — tahmini bir telafi uydurulmadı; pişirme ajanı yeniden
  * oturtunca değerler buraya yazılır. Deneme: canlı `?env= ?hemi= ?lexp= ?ao= ?aor=`, pişirilmiş `?benv= ?bhemi=
