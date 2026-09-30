@@ -158,7 +158,7 @@
    "items": [
     {
      "t": "panel",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 4.06,
      "y1": 4.9,
@@ -166,7 +166,7 @@
     },
     {
      "t": "band",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 4.9,
      "y1": 5.5,
@@ -175,7 +175,7 @@
     },
     {
      "t": "win",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 9.83,
      "y1": 11.92,
@@ -195,7 +195,7 @@
     },
     {
      "t": "win",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 12.42,
      "y1": 14.5,
@@ -215,7 +215,7 @@
     },
     {
      "t": "win",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 14.92,
      "y1": 17.33,
@@ -236,7 +236,7 @@
     },
     {
      "t": "band",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 6.63,
      "y1": 7.08,
@@ -245,7 +245,7 @@
     },
     {
      "t": "band",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 9.25,
      "y1": 9.83,
@@ -254,7 +254,7 @@
     },
     {
      "t": "band",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 11.92,
      "y1": 12.42,
@@ -263,7 +263,7 @@
     },
     {
      "t": "band",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 14.5,
      "y1": 14.92,
@@ -272,7 +272,7 @@
     },
     {
      "t": "band",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 4.682,
      "y0": 17.33,
      "y1": 17.92,
@@ -290,7 +290,7 @@
      "lines": [
       {
        "text": "BALENTUR®",
-       "size": 1.0,
+       "size": 1,
        "fg": "#2c3d78"
       },
       {
@@ -693,7 +693,7 @@
      "t": "band",
      "u0": 4.893,
      "u1": 19.193,
-     "y0": 18.0,
+     "y0": 18,
      "y1": 18.3,
      "color": "#e4e5dd",
      "proud": 0.02
@@ -709,7 +709,7 @@
      "lines": [
       {
        "text": "BALENTUR®",
-       "size": 1.0,
+       "size": 1,
        "fg": "#2c3d78"
       },
       {
@@ -767,7 +767,7 @@
      "lines": [
       {
        "text": "PILATES",
-       "size": 1.0
+       "size": 1
       },
       {
        "text": "house",
@@ -957,7 +957,7 @@
      "dir": "h",
      "u0": 19.247,
      "u1": 19.847,
-     "y": 6.0,
+     "y": 6,
      "w": 0.02,
      "color": "#9ea3a2"
     },
@@ -966,7 +966,7 @@
      "dir": "h",
      "u0": 21.879,
      "u1": 23.52,
-     "y": 6.0,
+     "y": 6,
      "w": 0.02,
      "color": "#9ea3a2"
     },
@@ -1438,7 +1438,9 @@
      "frameC": "#636e66",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "lower": "solid",
+     "lowerC": "#666a63"
     },
     {
      "t": "win",
@@ -1820,7 +1822,7 @@
    "items": [
     {
      "t": "panel",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 13.3,
      "y0": 1.16,
      "y1": 18.1,
@@ -1882,7 +1884,7 @@
      "t": "proj",
      "u0": 6.938,
      "u1": 10.608,
-     "d": 1.0,
+     "d": 1,
      "y0": 8.5,
      "y1": 17.2,
      "color": "#6e7275",
@@ -1928,7 +1930,7 @@
      "t": "dish",
      "u": 7.499,
      "s": 2,
-     "y": 9.0
+     "y": 9
     },
     {
      "t": "pipe",
@@ -1941,7 +1943,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 8.97,
      "w": 0.02,
@@ -1977,7 +1979,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 9.42,
      "w": 0.02,
@@ -1995,7 +1997,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 9.87,
      "w": 0.02,
@@ -2013,7 +2015,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 10.32,
      "w": 0.02,
@@ -2031,7 +2033,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 10.77,
      "w": 0.02,
@@ -2067,7 +2069,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 11.22,
      "w": 0.02,
@@ -2103,7 +2105,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 11.67,
      "w": 0.02,
@@ -2139,7 +2141,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 12.12,
      "w": 0.02,
@@ -2157,7 +2159,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 12.57,
      "w": 0.02,
@@ -2175,7 +2177,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 13.02,
      "w": 0.02,
@@ -2193,7 +2195,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 13.47,
      "w": 0.02,
@@ -2229,7 +2231,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 13.92,
      "w": 0.02,
@@ -2265,7 +2267,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 14.37,
      "w": 0.02,
@@ -2301,7 +2303,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 14.82,
      "w": 0.02,
@@ -2319,7 +2321,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 15.27,
      "w": 0.02,
@@ -2337,7 +2339,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 15.72,
      "w": 0.02,
@@ -2355,7 +2357,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 16.17,
      "w": 0.02,
@@ -2391,7 +2393,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 16.62,
      "w": 0.02,
@@ -2427,7 +2429,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 1.112,
      "y": 17.07,
      "w": 0.02,
@@ -2463,7 +2465,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 17.52,
      "w": 0.02,
@@ -2481,7 +2483,7 @@
     {
      "t": "groove",
      "dir": "h",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 6.938,
      "y": 17.97,
      "w": 0.02,
@@ -2520,7 +2522,7 @@
    "items": [
     {
      "t": "pediment",
-     "u0": 0.0,
+     "u0": 0,
      "u1": 7.157,
      "apex": 7.157,
      "y": 23.09,
@@ -2874,7 +2876,7 @@
      "lines": [
       {
        "text": "BALENTUR®",
-       "size": 1.0
+       "size": 1
       },
       {
        "text": "Turizm & Kongre Organizasyon Taşımacılık Hizmetleri",
@@ -2919,7 +2921,7 @@
     },
     {
      "t": "sign",
-     "u0": 8.0,
+     "u0": 8,
      "u1": 9.58,
      "y0": 10.63,
      "y1": 11.19,
@@ -2943,7 +2945,7 @@
      "lines": [
       {
        "text": "BALENTUR®",
-       "size": 1.0
+       "size": 1
       },
       {
        "text": "Turizm & Kongre Organizasyon Taşımacılık Hizmetleri",
@@ -2974,7 +2976,8 @@
   "v5 (2026-09-29, pend-g5): (1) Asimetrik çatı katı alınlığı: orta massing parçası düz çatı + 0.06 m koyu gri parapet (beyaz saçak alnı çizilmesin diye), floorHs K6 = 2.52 (duvar üstü 25.55 = sol saçak; ölçülen 25.36, sağ K6 penceresi lentosu 25.52 kırpılmasın diye +0.19); kenar 0'da iki pediment (sol dik üçgen u 5.446→11.16 tepe 23.5; sağ dik üçgen taban görünen 22.17, u 11.16→17.582), derinlik 16.03 = orta parçanın tamamı (eğik yüzler = kiremit çatı, mahya u 11.16 ≈ x 687.26; hava fotoğrafında mahya x≈687.6±0.5), mahyanın doğusunda duvar 25.55→26.8 (ek hacim; doğu yüzü doğu bloğun çatısı üstünde görünen çatı katı duvarı). Kuzey uç görülmedi: kenar 4'te aynı biçimde iki kapatma üçgeni (öğesiz). Sağ K6 penceresi `stair:true` (eğik tavan; kat çizgisi kırpması kapalı). (2) Giydirme cephe: kenar 0 ve 5 K3–K5 pencerelerine ölçülen traversler (hbars, düşey parlaklık profili), doğrama #d7dde0 (güneşli yatay profiller L≈225; kenar 5 kapalı havada aynı profil), `stair:true` (batı cam kütlesinin katları kat çizgilerinden ~1 m aşağıda). Kenar 5 pencere/bant kotları profil ölçüsüyle düzeltildi (0.1–0.25 m), bölüm 3 bölüm 2 ile aynı kota alındı. (3) K4 doğu loca cam balkonu buzlu folyo (tint frosted, #e8ebe6). (4) Doğu dükkân (u 18.83–21.96) önünde 103'ten devam eden lamelli alüminyum güneşlik (band louvre, görünen 4.08–4.75, 6 lamel; çıkma 0.55 103'teki tahminle aynı, yandan görülmedi); beyaz düz saçak bandı burada biter (u 18.83, pizzabulls tabelasının doğu ucu). Not: üreticide hbars'lı pencerelere rastgele vasistas kaydı da eklenebiliyor (Hh>1.3 m).",
   "v6 (2026-09-29, pend6-g5) KOT / ÖLÇEK DÜZELTMESİ (101/102/103/122 köşesi): derleme bu cephede düşey homotetiyi DIKaX ortofotosunun nominal kamera ufkuna (görünen 2.81) bağlıyordu; kaldırım (görünen ≈1.26) 1.1–1.4 m yukarıda, komşularla ortak öğeler (güneşlik, K1 camı, LEYLA tabela kutusu) 1.2–1.6 m yüksek çıkıyordu. Ortak zemin: 103 (pc3Zp, kaide altı = kaldırım) ve 102 (BJWF6, kaldırım) ile aynı fiziksel öğelerin DIKaX görünen kotlarına en küçük kareler uyumu (10 öğe: güneşlik alt/üst, gri çizgi, 103 K1 camı alt/üst, koyu alın üstü, LEYLA kutusu alt/üst, Leyla vitrin alt/üst; artık rms 0.05 m) → DIKaX görünen 1.255 = zemin, düşey ölçek 1.104 (eskiden taban izi genişliğinden 1.24). Bağımsız kontroller: Q5ICT–pc3Zp stereo (cephe z −92.8…−93.2, ölçek ≈1.0–1.05; DIKaX/Q5ICT görünen oranı 1.048 tüm cephede, pc3Zp/DIKaX 1.10–1.12), dört panoda kamera kaldırımın 1.66–1.72 m üstünde (tutarlı), Q5ICT’de cephe kliması 0.97×0.77 m (1.24 ile 1.2×0.95 olurdu). Sonuç: floorH 3.10 (K1–K5), groundRaise 0.773, K6 2.48 (duvar üstü 21.97 = sağ K6 penceresi lentosu 21.95 + pay), plinthH 0.3 (dükkân önleri ortak zeminden 0.3–0.45 m yüksek sekide: basamak altları DIKaX 1.52–1.69; açık krem taş #e3e1d2 Q5ICT güneşli, DIKaX #eae6ce). Yükseklikler ≈%11 azaldı (alınlık tepesi 28.5→24.6 m). UYARI (taban izi, düzeltilmedi): aynı ölçekle cephe genişliği ≈21.9 m (DIKaX/Q5ICT köşeleri 20.32/20.40 görünen); Q5ICT–pc3Zp stereo GD köşeyi x≈698.55, hava fotoğrafı 101 doğu cephe bandının ≈699.8’de bittiğini gösteriyor (iz 700.65) — iz saçak çizgisinden (673.75–698.75) saçak taşması düşülmeden türetilmiş olabilir; yatay ölçek (1.239) bu yüzden düşeyden (1.104) büyük kaldı.",
   "v6 (pend6-g5) dönüşümler: çatı katı alınlığının iki eğik kenarına siyah damlalık (pediment trim base:false, 0.08 m #2a2c2e; DIKaX’ta sağ uçta köşeden ≈0.4 m aşağı inen kısa dönüşü çizilemiyor); batı/doğu kütle parçalarının alçak saçağı massing wallTop (batı 18.4, doğu 19.7) + fasciaH (0.92 / 1.1) + fasciaC (#d1d4d0 / #d1d2c7) ile — eski proud 0.9 saçak bantları kaldırıldı; orta loca payesinin iki yanında K1–K5 her katta kollu siyah spot (lamp spot, yRel 2.28; gerçekte kafa yukarı/tabelaya bakıyor, üretici aşağı-dışa eğik çiziyor); iş merkezi girişi solunda beyaz kablo borusu üstünde klasik siyah fener (lamp lantern). v5 notlarındaki mutlak kotlar (25.55, 26.8, 21.54–22.57, 23.03…) eski çerçevededir.",
-  "FP-v3 (2026-09-29, taban izi): halka 4.3° döndürüldü; güney 23.52, doğu 13.30, KD basamak 4.64 × 0.90, kuzey 18.88, batı 14.20 m (kanıtlar footprints.json notunda). KÜTLE parçaları dönük şeritler: batı cam bölüm = güney cephe u 0–4.888 (görünen 5.446; poly), orta loca bölümü = kalan (rest), doğu beyaz bölüm = u 18.881–23.52 (görünen 17.56; kesim çizgisi KD basamak köşelerinden geçer). NOTE 0’daki x aralıkları ve v5 notlarındaki x değerleri eski çerçevededir. Kenar 0 ve 1’in u’ları artık gerçek metre (dönüşüm kenar notlarında); kenar 5 doğrusal."
+  "FP-v3 (2026-09-29, taban izi): halka 4.3° döndürüldü; güney 23.52, doğu 13.30, KD basamak 4.64 × 0.90, kuzey 18.88, batı 14.20 m (kanıtlar footprints.json notunda). KÜTLE parçaları dönük şeritler: batı cam bölüm = güney cephe u 0–4.888 (görünen 5.446; poly), orta loca bölümü = kalan (rest), doğu beyaz bölüm = u 18.881–23.52 (görünen 17.56; kesim çizgisi KD basamak köşelerinden geçer). NOTE 0’daki x aralıkları ve v5 notlarındaki x değerleri eski çerçevededir. Kenar 0 ve 1’in u’ları artık gerçek metre (dönüşüm kenar notlarında); kenar 5 doğrusal.",
+  "critic-fix 2026-09-30 (DIKaX 0 eleştirisi: \"K0 camı 1.66–2.55’ten başlıyor, cam kaldırımdan saçağa kesintisiz olmalı\"): DIKaX 10_3 / 343_3 yakın karelerinde doğrulandı — batı gri kompozit dükkânda cam YALNIZ üst ≈%60’ta (görünen 2.54–3.98), altı yuvarlak kilit/menfezli DOLU gri paneller (#666a63), çift kapının da alt kanat panelleri dolu → vitrin kotları korundu, kapıya lower solid eklendi. pizzabulls (1.75), eczane (1.8) ve iş merkezi kapısı (1.8) camları 0.3 m seki + eşik üstünden (görünen kaldırım 1.255) başlıyor — fotoğrafla uyumlu, değiştirilmedi. FP-v3 kalibrasyonu ve güney duvar kotu şüphesi (pending) korundu."
  ],
  "pending": [
   {

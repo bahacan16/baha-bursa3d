@@ -36,7 +36,8 @@
     "Belirsizlik: güney/doğu cepheler (0–10) neredeyse görülmedi; yalnız GB köşedeki açık balkon yığını ve güney orta çıkıntının cam yığını (XBa6, eğik) yazıldı. Kuzey perdeleri 45–55 m’den seçilemiyor.",
     "Renkler bulutlu/gölgede örneklendi (güneşli yama yok); oyunda gölge tarafı gerçek bulutlu günden koyu kaldığı için albedo ×1.15 (örneklenen: plaster #99958c, plaster2 #a9a9a1, fascia #969189, soffit #878175, railGlass #949da4, frame #d8d9d6, tile #9c8a7e, plinth #757570).",
     "Korkuluklar: tüm balkon ve cam balkonlarda her görülen katta paslanmaz yatay borulu korkuluk (4–5 yatay boru + seyrek dikmeler, döşemeden ~1 m; dolu parapet yok) → rail \"tube\", railC #c3cdd3 (MeHpp yakın ortosundaki en parlak boru pikselleri). Cam balkonlarda katlanır cam bu korkuluğun üstünde/arkasında. Balkon alınları tüm katlarda aynı bej (fasciaC yok). Hiçbir pencerede dış panjur/stor kutusu yok (shut yok).",
-    "İFADE EDİLEMEYEN: kenar 17 K0 pencerelerindeki beyaz ferforje koruma (kıvrık dikey çubuklar, şemada pencere ızgarası yok; shut kepenk anlamında olduğu için kullanılmadı); sıvadaki çift yatay oluklar ve düşey derzler; kuzeydeki havalandırma delikleri; afişteki kırmızı logo ve iki renkli yazı (tek fg)."
+    "İFADE EDİLEMEYEN: sıvadaki çift yatay oluklar ve düşey derzler; kuzeydeki havalandırma delikleri; afişteki kırmızı logo ve iki renkli yazı (tek fg).",
+    "critic-fix 2026-09-30: kenar 17 K0 pencerelerine beyaz ferforje parmaklık (grille K0 \"ornamental\", #e4e4de) — l07hZ6pz 120_0 (2025-09, bulutlu): iki sütunda da dikey beyaz çubuklar + alt yarıda çapraz/kıvrımlı desen (desen birebir çizilmez); K1–K5 ve kenar 21 pencerelerinde parmaklık YOK. Albedo: güneşli kare yok (2025 ve 2019 kareleri bulutlu); eleştirmenin \"çok koyu\" bulgusu gölge tarafı aydınlatması (A4), renkler (×1.15 düzeltmeli) değiştirilmedi."
   ],
   "edges": [
     {
@@ -614,7 +615,11 @@
             "K0": "tul",
             "K1": "tul",
             "K2": "tul"
-          }
+          },
+          "grille": {
+            "K0": "ornamental"
+          },
+          "grilleC": "#e4e4de"
         },
         {
           "t": "win",
@@ -652,7 +657,11 @@
             "K0": "tul",
             "K1": "zebra",
             "K2": "tul"
-          }
+          },
+          "grille": {
+            "K0": "ornamental"
+          },
+          "grilleC": "#e4e4de"
         },
         {
           "t": "win",
