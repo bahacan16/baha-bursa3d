@@ -328,7 +328,12 @@ export class PostFX {
 }
 
 /**
- * Ultra otomatik pozlama referansı: eleştirmen görüşlerinde (6 Street View görüşü, kalibre ışık, AO öncesi) ölçülen
- * ln(ortalama parlaklık) ortalaması −1.48 (−1.30…−1.67). Bu değerde düzeltme 1.0 → kalibrasyon aynen korunur.
+ * Ultra otomatik pozlama referansı: bu ln(ortalama parlaklık) değerinde düzeltme 1.0 → Yüksek kalitenin kalibre
+ * pozlaması aynen korunur (uyum yalnız sahneye göre sapmayı yarı yarıya düzeltir).
+ * KARAR (2026-09-30): −1.48 → −1.60. Eski değer 6 eleştirmen görüşünden; 18 güneşli Street View görüşünde (Mertkent-2,
+ * yeni kalibrasyon: yarım küre ×0.45, calibration.ts) ölçer ortalaması −1.60 (−2.08…−1.29; çevrimdışı ölçer kopyası
+ * `?debug` readExposure ile ±0.05 doğrulandı). −1.48 ile Ultra güneşli karelerde ortalama ×1.09 (+0.13 durak) daha
+ * aydınlık kalıyordu ve gölgedeki açık cepheler Street View'dan +0.25 durak parlak çıkıyordu; −1.60 ile ortalama
+ * düzeltme 1.0 (gölge ağırlıklı / arka ışıklı karede hâlâ en çok ×1.27 açar — göz uyumu, bilerek).
  */
-export const ULTRA_EXPOSURE_REF = -1.48;
+export const ULTRA_EXPOSURE_REF = -1.6;

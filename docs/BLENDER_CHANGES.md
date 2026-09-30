@@ -797,3 +797,9 @@
   (444/568 refüj çiminde, `surface: "median"`). Konumlar GPS pozuyla ±1.5–2.5 m (hava fotoğrafına oturtulamadı).
   **Blender:** `NW/Street/RoadSurface` (D4 kesiti) yeniden kurulmalı; yeni işaret türlerinin üreticisi bir sonraki
   kod turunda gelecek.
+  - D4 yol yüzeyi (d4r-*): `road-symbol` `symbol` arrow-straight / signal-triangle / giveway-triangle / text (yazı
+    uzatılmış harfle; `text` null → harf uydurulmadan aşınmış boya parçaları), `border`, `wear`; geçide bağlı `wear`
+    (`crossing` id) şeritlerde tekerlek izi aşınması (ayrı örtü yok); rögar `ring {r, color}` halkası; `surface:
+    "median"` kapak refüj kotunda. Dolap (`cabinet`) not ölçüsünden NaN geometri üretiyordu (tek "." sayı sanılıyordu)
+    → düzeltildi, ölçülen w/d/h önce. Dosya: `street.ts` (`roadSymbol`). **Blender:** `NW/Roads` yol işaretleri,
+    `NW/Mertkent/Street` rögarlar / geçitler.

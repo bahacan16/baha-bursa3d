@@ -271,7 +271,8 @@ describe('v8 D4 sokak eşyası türleri', () => {
       ...new Set(plan.street.filter((s) => String(s.id ?? '').startsWith('d4')).map((s) => s.kind)),
     ];
     // Çizim yapmayan bilinçli tür: steps-note (cephe öğesi kaydı); tree (ağaç kütüphanesinde)
-    const silent = new Set(['steps-note', 'tree']);
+    // wear + crossing: yalnız bağlı geçidin şeritlerini aşındırır (ayrı testte)
+    const silent = new Set(['steps-note', 'tree', 'wear']);
     for (const kind of kinds) {
       if (silent.has(kind)) continue;
       const s = plan.street.find((q) => q.kind === kind && String(q.id ?? '').startsWith('d4'))!;
@@ -308,5 +309,89 @@ describe('v8 köşe meydanı kaldırımla örtüşmez (critic c-02)', () => {
         ],
       ])[0][0],
     ).toBe(area);
+  });
+});
+
+describe('v8 D4 yol yüzeyi (d4r-*)', () => {
+  it('yol işaretleri: ok, sinyal üçgeni, yol ver, yazı, okunamayan yazı', () => {
+    const one = (f: Record<string, unknown>) =>
+      build([{ kind: 'road-symbol', x: 0, z: 0, rot: 180, color: '#e8e8e4', ...f }]).bk;
+    expect(
+      tris(one({ symbol: 'arrow-straight', w: 0.6, d: 5, wear: 0.3 }), /cc_wear|cc_asphalt/),
+    ).toBeGreaterThan(0);
+    const st = one({
+      symbol: 'signal-triangle',
+      w: 2,
+      d: 3.4,
+      border: '#b0473f',
+      note: 'Kırmızı kenarlı beyaz üçgen içinde kırmızı-sarı-yeşil üç disk',
+    });
+    expect(tris(st, /#b0473f/)).toBeGreaterThan(1);
+    expect(tris(st, /#2e6f3c/)).toBeGreaterThan(0);
+    expect(
+      tris(one({ symbol: 'giveway-triangle', w: 1.8, d: 3.2, border: '#b0473f' }), /#b0473f/),
+    ).toBeGreaterThan(0);
+    expect(tris(one({ symbol: 'text', text: '30', w: 1.2, d: 4.5 }), /^face:30/)).toBeGreaterThan(0);
+    const worn = one({ symbol: 'text', text: null, w: 2.5, d: 1.5, wear: 0.6, note: 'iki satırlık yazı' });
+    expect([...worn.keys()].some((k) => k.startsWith('face:'))).toBe(false);
+    expect(tris(worn, /cc_wear/)).toBeGreaterThan(4);
+  });
+  it('geçide bağlı aşınma şeritlere işlenir, ayrı örtü çizilmez', () => {
+    const cr = {
+      kind: 'crossing',
+      id: 'z1',
+      x: 0,
+      z: 0,
+      rot: 90,
+      len: 10,
+      w: 3.5,
+      stripes: 'beyaz zebra 0.5/0.5 m',
+    };
+    const plain = build([cr]).bk;
+    const worn = build([
+      cr,
+      {
+        kind: 'wear',
+        x: 0,
+        z: 0,
+        crossing: 'z1',
+        amount: 0.4,
+        poly: [
+          [-5, -2],
+          [5, -2],
+          [5, 2],
+          [-5, 2],
+        ],
+      },
+    ]).bk;
+    expect(plain.get('spPaint')?.idx.length).toBeGreaterThan(0);
+    // İzdeki şeritler aşınma kademeli boya, diğerleri hafif aşınmış; yol tonlu örtü yok
+    expect([...worn.keys()].filter((k) => k.startsWith('spPaintWear')).length).toBeGreaterThan(1);
+    expect([...worn.keys()].some((k) => k.startsWith('cc_wear'))).toBe(false);
+  });
+  it('rögar halkası ve refüj kapağı', () => {
+    const ring = build([
+      { kind: 'manhole', x: 0, z: 0, r: 0.35, color: '#6a6c67', ring: { r: 0.45, color: '#5a6269' } },
+    ]).bk;
+    expect(tris(ring, /#5a6269/)).toBeGreaterThan(0);
+    const med = build([
+      {
+        kind: 'island',
+        x: 0,
+        z: 0,
+        h: 0.15,
+        poly: [
+          [-2, -10],
+          [2, -10],
+          [2, 10],
+          [-2, 10],
+        ],
+        material: 'bordürlü çim',
+      },
+      { kind: 'manhole', x: 2.3, z: 0, r: 0.33, surface: 'median', color: '#797d7e' },
+    ]).bk;
+    const bk = med.get('cc_tar_#797d7e');
+    const ys = bk!.pos.filter((_, i) => i % 3 === 1);
+    expect(Math.min(...ys)).toBeGreaterThan(0.15);
   });
 });

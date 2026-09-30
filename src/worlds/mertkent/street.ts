@@ -3,6 +3,7 @@ import { Builder, type V2, type V3 } from './builder';
 import { sideNormal, tactileKey, type StreetPlan } from './siteplan';
 import type { CK, SignSpec } from './facade';
 import { buildStreetFurniture, type StreetItem } from './streetFurniture';
+import { wordTone } from './streetKinds';
 
 /**
  * Ölçülmüş sokak planı (data/street-plan.json): kaldırımlar (bordür hattından içeri w genişlik, kilit taşı
@@ -799,6 +800,21 @@ function splitterIsland(
   return [{ poly: r, h }];
 }
 
+/** Noktanın halka kenarlarına en kısa uzaklığı */
+function distToRing(r: V2[], x: number, z: number): number {
+  let best = Infinity;
+  for (let i = 0; i < r.length; i++) {
+    const a = r[i];
+    const e = r[(i + 1) % r.length];
+    const dx = e[0] - a[0];
+    const dz = e[1] - a[1];
+    const L2 = dx * dx + dz * dz || 1;
+    const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / L2));
+    best = Math.min(best, Math.hypot(x - a[0] - dx * t, z - a[1] - dz * t));
+  }
+  return best;
+}
+
 function ringArea(r: V2[]): number {
   let a = 0;
   for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += r[j][0] * r[i][1] - r[i][0] * r[j][1];
@@ -984,6 +1000,210 @@ function poleFlag(
     g.computeVertexNormals();
     b.geometry(key, g);
   }
+}
+
+/** v8: yola boyalı işaret (street-plan `road-symbol`) */
+interface RoadSymbol {
+  x: number;
+  z: number;
+  /** Sürüş yönü (pusula) */
+  rot?: number;
+  /** Şerit enine genişlik (m) ve sürüş yönünde boy (m) */
+  w?: number;
+  d?: number;
+  symbol?: string;
+  /** Yazı (symbol "text"); null = aşınmış, okunamadı */
+  text?: string | null;
+  color?: string;
+  border?: string;
+  wear?: number;
+  note?: string;
+}
+
+/**
+ * Yola boyalı işaretler (d4r-*): `symbol` arrow-straight (düz ok), signal-triangle (kırmızı kenarlı üçgende üç
+ * renkli disk, tepe ileride), giveway-triangle (ters "yol ver" üçgeni, sivri ucu gelen trafiğe), text (uzatılmış
+ * harfler; `text` null → okunamayan aşınmış yazı: harf yerine düzensiz boya parçaları — harf uydurulmaz); symbol
+ * yoksa trafik ışığı piktogramı dokusu (d4-mark-signal-465). `wear` 0..1 boya kaybı (yol boyası aşınma kademeleri).
+ * KARAR: ok başı / gövde oranı ölçülmedi → baş eni w, gövde 0.35 w, baş boyu min(0.3 d, 1.6 m); üçgen kenar bandı
+ * 0.12 m; disk tonları nottaki renk sözcüklerinden (streetKinds.wordTone).
+ */
+function roadSymbol(
+  b: Builder,
+  s: RoadSymbol,
+  H: (x: number, z: number) => number,
+  paintKeyOf: (hex: string | undefined, wear: number | undefined) => string,
+  signFace?: (sg: SignSpec) => string,
+): void {
+  const yaw = ((s.rot ?? 0) * Math.PI) / 180;
+  const fwd: V2 = [Math.sin(yaw), -Math.cos(yaw)];
+  const acr: V2 = [-fwd[1], fwd[0]];
+  const W = s.w ?? 1;
+  const D = s.d ?? 2.4;
+  const Q = (a: number, e: number): V2 => [s.x + acr[0] * a + fwd[0] * e, s.z + acr[1] * a + fwd[1] * e];
+  const paint = paintKeyOf(s.color, s.wear);
+  const poly = (key: string, pts: [number, number][], off: number) =>
+    b.drape(
+      key,
+      pts.map(([a, e]) => Q(a, e)),
+      [],
+      H,
+      off,
+      1,
+      2,
+    );
+  const tri = (apexFar: boolean, inset: number): [number, number][] => {
+    // Taban eni W, boy D; içe kaydırma: kenarlardan `inset` (yaklaşık, benzer üçgen)
+    const k = Math.max(0.1, 1 - (inset * 3) / Math.min(W, D));
+    const w2 = (W / 2) * k;
+    const d2 = (D / 2) * k;
+    return apexFar
+      ? [
+          [-w2, -d2],
+          [w2, -d2],
+          [0, d2],
+        ]
+      : [
+          [-w2, d2],
+          [0, -d2],
+          [w2, d2],
+        ];
+  };
+  const hexOk = (h?: string) => !!h && /^#[0-9a-f]{6}$/i.test(h);
+  switch (s.symbol) {
+    case 'arrow-straight': {
+      const sw = W * 0.35;
+      const hl = Math.min(D * 0.3, 1.6);
+      poly(
+        paint,
+        [
+          [-sw / 2, -D / 2],
+          [sw / 2, -D / 2],
+          [sw / 2, D / 2 - hl],
+          [W / 2, D / 2 - hl],
+          [0, D / 2],
+          [-W / 2, D / 2 - hl],
+          [-sw / 2, D / 2 - hl],
+        ],
+        0.053,
+      );
+      return;
+    }
+    case 'signal-triangle':
+    case 'giveway-triangle': {
+      const far = s.symbol === 'signal-triangle';
+      if (hexOk(s.border)) poly(paintKeyOf(s.border, s.wear), tri(far, 0), 0.052);
+      poly(paint, tri(far, hexOk(s.border) ? 0.12 : 0), 0.054);
+      if (far) {
+        const note = (s.note ?? '').toLocaleLowerCase('tr');
+        const r = Math.min(W * 0.11, D * 0.08);
+        // Kırmızı en ileride (üstte), yeşil en yakında
+        const cols = [
+          ['yeşil', wordTone('yeşil')],
+          ['sarı', wordTone('sarı')],
+          ['kırmızı', hexOk(s.border) ? s.border! : wordTone('kırmızı')],
+        ];
+        if (/kırmızı|sarı|yeşil|üç renk/.test(note))
+          cols.forEach(([, hex], k) => {
+            const e = -D / 2 + D * (0.2 + k * 0.2);
+            const ring: [number, number][] = Array.from({ length: 14 }, (_, q) => {
+              const a = (q / 14) * Math.PI * 2;
+              return [Math.cos(a) * r, e + Math.sin(a) * r];
+            });
+            poly(paintKeyOf(hex ?? undefined, s.wear), ring, 0.056);
+          });
+      }
+      return;
+    }
+    case 'text': {
+      if (s.text && signFace) {
+        const key = signFace({
+          text: s.text,
+          bg: null,
+          fg: hexOk(s.color) ? s.color! : '#e8e8e4',
+          border: null,
+          font: 'sans',
+          bold: true,
+          lit: false,
+          style: 'letters',
+          w: W,
+          h: D,
+        });
+        const o0 = Q(-W / 2, -D / 2);
+        b.drape(
+          key,
+          [Q(-W / 2, -D / 2), Q(W / 2, -D / 2), Q(W / 2, D / 2), Q(-W / 2, D / 2)],
+          [],
+          H,
+          0.054,
+          1,
+          2,
+          {
+            o: o0,
+            t: [acr[0] / W, acr[1] / W],
+            n: [fwd[0] / D, fwd[1] / D],
+          },
+        );
+        return;
+      }
+      // Okunamayan aşınmış yazı: satır başına düzensiz kısa boya parçaları (tohum: konum), en az %60 aşınma
+      const rows = /iki satır/.test((s.note ?? '').toLocaleLowerCase('tr')) ? 2 : 1;
+      const worn = paintKeyOf(s.color, Math.max(0.6, s.wear ?? 0.6));
+      let seed = (Math.abs(Math.round(s.x * 131 + s.z * 17)) % 2147483646) + 1;
+      const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+      for (let r = 0; r < rows; r++) {
+        const rh = (D / rows) * 0.72;
+        const e0 = D / 2 - (D / rows) * (r + 0.5) - rh / 2;
+        const gw = rh * 0.55;
+        const n = Math.max(1, Math.floor((W * 0.9) / (gw * 1.25)));
+        for (let g = 0; g < n; g++) {
+          const a0 = -W * 0.45 + g * gw * 1.25;
+          const bars = 2 + Math.floor(rnd() * 2);
+          for (let k = 0; k < bars; k++) {
+            const vert = rnd() < 0.6;
+            const bw = rh * 0.14;
+            const u = a0 + rnd() * (gw - bw);
+            const v = e0 + rnd() * (rh - bw);
+            poly(
+              worn,
+              vert
+                ? [
+                    [u, e0],
+                    [u + bw, e0],
+                    [u + bw, e0 + rh],
+                    [u, e0 + rh],
+                  ]
+                : [
+                    [a0, v],
+                    [a0 + gw, v],
+                    [a0 + gw, v + bw],
+                    [a0, v + bw],
+                  ],
+              0.053,
+            );
+          }
+        }
+      }
+      return;
+    }
+  }
+  // Varsayılan: trafik ışığı piktogramı dokusu (uzun ekseni uzun kenara)
+  const o0 = Q(-W / 2, -D / 2);
+  const long = W > D;
+  b.drape(
+    'roadSignalPicto',
+    [Q(-W / 2, -D / 2), Q(W / 2, -D / 2), Q(W / 2, D / 2), Q(-W / 2, D / 2)],
+    [],
+    H,
+    0.053,
+    1,
+    2,
+    {
+      o: o0,
+      t: long ? [fwd[0] / D, fwd[1] / D] : [acr[0] / W, acr[1] / W],
+      n: long ? [acr[0] / W, acr[1] / W] : [fwd[0] / D, fwd[1] / D],
+    },
+  );
 }
 
 /** Reklam panosu sırası (ölçüm: da3-bb-*): pts hattı boyunca n pano, çerçeve + ayaklar, yüz yola dönük */
@@ -1493,6 +1713,13 @@ function buildStreet(
     collide: ext.collide,
     toRoad: (x: number, z: number) => towardRoad(roadCentre, x, z),
   };
+  // v8: geçide bağlı aşınma kayıtları (kind wear + crossing id)
+  const crossingWear = new Map<string, number>();
+  for (const s of plan.street ?? []) {
+    const q = s as { kind: string; crossing?: string; amount?: number };
+    if (q.kind === 'wear' && q.crossing)
+      crossingWear.set(q.crossing, Math.max(0, Math.min(1, q.amount ?? 0.5)));
+  }
   // Sokak eşyası
   for (const s of plan.street ?? []) {
     const g0 = H(s.x, s.z);
@@ -1920,6 +2147,8 @@ function buildStreet(
       case 'pothole':
       case 'crack':
       case 'wear':
+        // v8: bir yaya geçidine bağlı aşınma (`crossing` id) o geçidin şeritlerinde tekerlek izi olarak çizilir
+        if ((s as { crossing?: string }).crossing) break;
         roadDetail(b, s as unknown as RoadDetail, H, ext.colorKey);
         break;
       case 'mirror': {
@@ -1975,10 +2204,16 @@ function buildStreet(
         break;
       case 'cabinet': {
         // Elektrik dağıtım panosu (not metnindeki ölçü: G×D×Y)
-        const m = note.match(/([0-9.]+)\s*[×x]\s*([0-9.]+)\s*[×x]\s*([0-9.]+)/);
-        const w = m ? Number(m[1]) : 0.9;
-        const d = m ? Number(m[2]) : 0.4;
-        const hh = m ? Number(m[3]) : (s.h ?? 1.3);
+        // v8: yalnız rakamlı ölçü ("." tek başına NaN veriyordu → NaN geometri); ölçülen w / d / h alanları önce
+        const m = note.match(/(\d+(?:[.,]\d+)?)\s*[×x]\s*(\d+(?:[.,]\d+)?)\s*[×x]\s*(\d+(?:[.,]\d+)?)/);
+        const nm = (i: number, d0: number) => {
+          const v = m ? Number(m[i].replace(',', '.')) : NaN;
+          return Number.isFinite(v) && v > 0 && v < 20 ? v : d0;
+        };
+        const cb = s as { w?: number; d?: number };
+        const w = cb.w ?? nm(1, 0.9);
+        const d = cb.d ?? nm(2, 0.4);
+        const hh = s.h ?? nm(3, 1.3);
         b.box('cabinet', [s.x, y + hh / 2, s.z], [w, hh, d], yaw);
         b.box('cabinet', [s.x, y + hh + 0.02, s.z], [w + 0.06, 0.04, d + 0.06], yaw);
         break;
@@ -1996,14 +2231,47 @@ function buildStreet(
       }
       case 'manhole': {
         // Rögar kapağı: ölçülen `r` (yuvarlak, varsayılan 0.33) ya da `shape` square + w × d (yoksa 2r), `color`
-        const mh = s as { r?: number; w?: number; d?: number; shape?: string; color?: string };
+        const mh = s as {
+          r?: number;
+          w?: number;
+          d?: number;
+          shape?: string;
+          color?: string;
+          ring?: { r?: number; color?: string; note?: string };
+          surface?: string;
+        };
         const r = Math.max(0.1, Math.min(1, mh.r ?? 0.33));
         const g =
           mh.shape === 'square'
             ? new THREE.PlaneGeometry(mh.w ?? 2 * r, mh.d ?? mh.w ?? 2 * r).rotateX(-Math.PI / 2).rotateY(yaw)
             : new THREE.CircleGeometry(r, 20).rotateX(-Math.PI / 2);
-        const fy = flushY(s.x, s.z, sb, note);
+        // v8: `surface: "median"` — kapak refüj çiminde: refüj üstü kotunda (konum ±0.5 m refüj kenarının dışına
+        // düşse bile en yakın adanın kotu), yol asfaltında değil
+        let fy = flushY(s.x, s.z, sb, note);
+        if (mh.surface === 'median' && !walkAt(s.x, s.z)) {
+          let best: Raised | null = null;
+          let bd = 2;
+          for (const rr of isl) {
+            const d = distToRing(rr.poly, s.x, s.z);
+            if (d < bd) {
+              bd = d;
+              best = rr;
+            }
+          }
+          fy = (best?.h ?? 0.15) + 0.012;
+        }
         g.translate(s.x, g0 + fy, s.z);
+        // v8: kapak çevresindeki halka (`ring` {r, color}): ölçülen ton (ör. oz-n-dark-618 koyu çökmüş halka); ton
+        // ölçülmemişse nottaki "açık gri beton" → beton, diğerleri çizilmez (renk uydurulmaz)
+        if (mh.ring && (mh.ring.r ?? 0) > r + 0.02 && mh.shape !== 'square') {
+          const rc = mh.ring.color && /^#[0-9a-f]{6}$/i.test(mh.ring.color) ? coverKey(mh.ring.color) : null;
+          const rk = rc ?? (/açık|beton|concrete/.test(`${mh.ring.note ?? ''}`) ? 'spConcrete' : null);
+          if (rk) {
+            const rg = new THREE.RingGeometry(r - 0.005, mh.ring.r!, 24, 1).rotateX(-Math.PI / 2);
+            rg.translate(s.x, g0 + fy - 0.002, s.z);
+            b.geometry(rk, rg);
+          }
+        }
         // KARAR: renk ölçülmemişse dökme demir kapak tonu 502. Sk. ölçümünden (#797d7e, road-items 502-504-mh-sq);
         // önceden koyu metal (#2a2c2e) gölgeli asfaltta hiç seçilmiyordu (critic da1-13)
         b.geometry(coverKey(mh.color ?? '#797d7e'), g);
@@ -2275,6 +2543,19 @@ function buildStreet(
         // Aşınmış boya (ölçülmüşse 0..1): gürültü alfa eşiğiyle boyanın o kadarı eksik
         const cols = Array.isArray(cr.color) ? cr.color : cr.color ? [cr.color] : [undefined];
         const paintKs = cols.map((c) => paintKeyOf(c, cr.wear));
+        // v8: bağlı aşınma kaydı (d4r-wear-*: `crossing` = bu geçidin id'si, `amount`) → şerit başına tekerlek izi
+        // aşınması. KARAR: şerit düzeni ölçülmedi → geçidin başından 3.25 m şeritler, izler şerit ortasının ±0.85 m'si
+        // (0.45 m yarı genişlik); izdeki şerit amount × 1.8, izin dışındaki amount × 0.4 (deterministik)
+        const cid = (s as { id?: string }).id;
+        const wa = cid ? crossingWear.get(cid) : undefined;
+        const stripeKey = (k: number, o: number): string => {
+          if (wa == null) return paintKs[k % paintKs.length];
+          const len0 = cr.len ?? 4;
+          const local = (((o + len0 / 2) % 3.25) + 3.25) % 3.25;
+          const inTrack = Math.min(Math.abs(local - 0.775), Math.abs(local - 2.475)) < 0.45;
+          const wk = Math.max(cr.wear ?? 0, Math.min(1, inTrack ? wa * 1.8 : wa * 0.4));
+          return paintKeyOf(cols[k % cols.length], wk);
+        };
         const len = cr.len ?? 4;
         const w = cr.w ?? 3;
         // Şerit/boşluk ölçümden ("≈0.5/0.5 m"); yoksa Türkiye standardı 0.5/0.5
@@ -2314,8 +2595,8 @@ function buildStreet(
           break;
         }
         for (let k = 0; k < n; k++) {
-          const paintK = paintKs[k % paintKs.length];
           const o = -span / 2 + sw / 2 + k * (sw + gap);
+          const paintK = stripeKey(k, o);
           const c: V2 = [s.x + d[0] * o, s.z + d[1] * o];
           const P = (a: number, e: number): V2 => [c[0] + d[0] * a + t[0] * e, c[1] + d[1] * a + t[1] * e];
           // Yol boyasının üstünde (roads.ts çizgileri +0.05; spPaint polygonOffset −8)
@@ -2389,34 +2670,9 @@ function buildStreet(
         );
         break;
       }
-      case 'road-symbol': {
-        // v8: yola boyalı piktogram (trafik ışığı: d4-mark-signal-465): w sürüş yönünde boy, d en; rot sürüş yönü
-        const rs = s as { w?: number; d?: number };
-        const Lw = rs.w ?? 2.4;
-        const Dd = rs.d ?? 1;
-        const fwd: V2 = [Math.sin(yaw), -Math.cos(yaw)];
-        const acr: V2 = [-fwd[1], fwd[0]];
-        const Q = (a: number, e: number): V2 => [
-          s.x + acr[0] * a + fwd[0] * e,
-          s.z + acr[1] * a + fwd[1] * e,
-        ];
-        const o0 = Q(-Dd / 2, -Lw / 2);
-        b.drape(
-          'roadSignalPicto',
-          [Q(-Dd / 2, -Lw / 2), Q(Dd / 2, -Lw / 2), Q(Dd / 2, Lw / 2), Q(-Dd / 2, Lw / 2)],
-          [],
-          H,
-          0.053,
-          1,
-          2,
-          {
-            o: o0,
-            t: [acr[0] / Dd, acr[1] / Dd],
-            n: [fwd[0] / Lw, fwd[1] / Lw],
-          },
-        );
+      case 'road-symbol':
+        roadSymbol(b, s as unknown as RoadSymbol, H, paintKeyOf, ext.signFace);
         break;
-      }
       case 'steps-line': {
         // v8: basamak dizisi (AVM podyumu, d4-avm-steps): pts hattı en alt basamağın ön kenarı, n basamak, toplam
         // yükseklik rise; basamaklar yoldan uzağa yükselir. KARAR: basamak derinliği ölçülmedi → 0.35 m
