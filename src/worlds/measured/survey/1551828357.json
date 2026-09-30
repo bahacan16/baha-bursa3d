@@ -433,10 +433,10 @@
     },
     {
      "t": "sign",
-     "u0": 9.2,
-     "u1": 12.6,
-     "y0": 4.5,
-     "y1": 5.2,
+     "u0": 8.3,
+     "u1": 11.3,
+     "y0": 4.38,
+     "y1": 5.38,
      "d": 0.02,
      "off": 0.9,
      "style": "letters",
@@ -444,7 +444,8 @@
      "bold": false,
      "text": "Coffeemania",
      "fg": "#f2f2f0",
-     "logo": "lacivert alın (#1f3151) üstünde ince beyaz el yazısı; sağında dikey çizgi + küçük \"NEXT\"; alın boyunca beyaz saçaklı (buz saçağı) ışık zinciri asılı"
+     "logo": "lacivert alın (#1f3151) üstünde ince beyaz el yazısı; sağında dikey çizgi + küçük \"NEXT\" (ayrı öğe). D4-C: y1o164BV e3 ortofotosunda (scratch d4E/o/s3_y1o164BV) yazı u 8.08–11.08, 4.38–5.38 → boyu 1.0 m (önceden 0.7); eleştirmenin '4–5 m' okuması ortofotoyla doğrulanmadı (≈3 m + NEXT 1.25 m)",
+     "capH": 0.95
     },
     {
      "t": "sign",
@@ -1184,9 +1185,40 @@
      "y1": 6.35,
      "color": "#e4e4df",
      "proud": 0.02
+    },
+    {
+     "t": "sign",
+     "u0": 11.4,
+     "u1": 12.6,
+     "y0": 4.6,
+     "y1": 5.0,
+     "d": 0.02,
+     "off": 0.9,
+     "style": "letters",
+     "font": "sans",
+     "bold": false,
+     "text": "| NEXT",
+     "fg": "#f2f2f0",
+     "logo": "ince dikey çizgi + küçük büyük harf NEXT"
+    },
+    {
+     "t": "neon",
+     "pts": [
+      [
+       1.25,
+       5.62
+      ],
+      [
+       20.0,
+       5.62
+      ]
+     ],
+     "d": 0.03,
+     "off": 0.95,
+     "color": "#fff4d6"
     }
    ],
-   "note": "ÖLÇÜ GERÇEK KOORDİNATTA (repo ortofotosu yok; kendi ortofotolarım e3 düzleminde: HxEE4T_F, 4XJGyfMe, C3cit7R-, KsRtfn8o, YPIGWqlq, R2C6jynX, on3x8NbY, 3QVGVU1n, egFm4i2S, y1o164BV — scratch d4E/o/s3_*). cal.head sahte (kat 4.4, sY=1, groundRaise 0) → y = zeminden m. Hassasiyet: tabela uçları panolar arasında 0.5–2.5 m kayıyor (pano konum hatası + alınların e3 çizgisinin 0–1.5 m önünde/gerisinde olması) → yatay ±1 m, düşey ±0.2 m. Dükkân sırası güneyden kuzeye: Coffeemania | bona Waffle | Ciğergah | Urfalı Ağaoğlu | dürümcü bekir usta | Mersin Tantuni | Demir Amca | Mariza | Kanaatçı Mesut | Burger yiyelim | Bursa Baharat | Maydonoz Döner | Caffe Napoli. Tabelaların altında her dükkânın sundurma/pergola/tente + teras bölümleri kaldırımda (sokak katmanı); vitrin camları sundurma altında karanlık, ayrıntı görülmedi. Beyaz üst bant (y 5.95–6.35) şerit çatı ön kenarı."
+   "note": "ÖLÇÜ GERÇEK KOORDİNATTA (repo ortofotosu yok; kendi ortofotolarım e3 düzleminde: HxEE4T_F, 4XJGyfMe, C3cit7R-, KsRtfn8o, YPIGWqlq, R2C6jynX, on3x8NbY, 3QVGVU1n, egFm4i2S, y1o164BV — scratch d4E/o/s3_*). cal.head sahte (kat 4.4, sY=1, groundRaise 0) → y = zeminden m. Hassasiyet: tabela uçları panolar arasında 0.5–2.5 m kayıyor (pano konum hatası + alınların e3 çizgisinin 0–1.5 m önünde/gerisinde olması) → yatay ±1 m, düşey ±0.2 m. Dükkân sırası güneyden kuzeye: Coffeemania | bona Waffle | Ciğergah | Urfalı Ağaoğlu | dürümcü bekir usta | Mersin Tantuni | Demir Amca | Mariza | Kanaatçı Mesut | Burger yiyelim | Bursa Baharat | Maydonoz Döner | Caffe Napoli. Tabelaların altında her dükkânın sundurma/pergola/tente + teras bölümleri kaldırımda (sokak katmanı); vitrin camları sundurma altında karanlık, ayrıntı görülmedi. Beyaz üst bant (y 5.95–6.35) şerit çatı ön kenarı. | D4-C: alın boyunca (u 1.25–20.0) üst kenardan sarkan beyaz saçaklı ışık zinciri: neon çizgisi olarak (saçak sarkıtları çizilemiyor, pending). Teras sundurması (beyaz dikmeli, cam/beyaz örtülü, alçak beyaz duvarlı) sokak katmanında."
   },
   {
    "edge": 4,
@@ -1290,6 +1322,19 @@
   {
    "what": "sundurma-teras",
    "note": "Her dükkân önünde kaldırıma 2–4 m taşan sundurma / pergola / kış bahçesi — sokak katmanı (raporda)."
+  },
+  {
+   "what": "Coffeemania buz saçağı ışık zinciri",
+   "edge": 3,
+   "u": [
+    1.25,
+    20.0
+   ],
+   "y": [
+    4.2,
+    5.65
+   ],
+   "note": "alın yüzü önünde üst kenardan 0.2–1.2 m sarkan beyaz LED saçaklar (y1o1 / HxEE); şimdilik tek neon çizgisi"
   }
  ]
 }

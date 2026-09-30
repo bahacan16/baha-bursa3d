@@ -682,6 +682,15 @@
     3
    ],
    "note": "panolar (kenar 0 u 0–11.07 y 3.91–6.82, kenar 3 u 15.48–36.8 y 4.78–9.1) düz #242a28 değil: gri (#373b3c) ince çizgili geometrik yıldız/geçme (8 kollu yıldız ağı) deseni, tekrar ≈0.55 m (n3Ef _f22). Şimdilik clad grid 0.55 ile yaklaşık; üreticide panel için desen (damask/geçme) desteği gerekli."
+  },
+  {
+   "what": "ŞOK tenteleri kırmızı-beyaz ÇİZGİLİ",
+   "edge": 3,
+   "items": [
+    "awning u −0.73…1.82",
+    "awning u 2.55…9.34"
+   ],
+   "note": "çizgiler duvara DİK (tente eğimi boyunca), kırmızı ≈0.15 + beyaz ≈0.15 m (dönem ≈0.3 m; 9nQa 120_0 + n3Ef _f22), valans da aynı çizgili. Veride stripe #eeeeee yazılı ama üretici `stripe`'ı yalnız dutch tentede çiziyor (retract/düz tente tek renk) → üreticiye düz/retract tente için çizgi desteği gerekli (stripeW 0.15, yön: duvara dik)."
   }
  ]
 }

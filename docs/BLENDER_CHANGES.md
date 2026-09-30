@@ -860,3 +860,9 @@
   güney kule balkon altı #b9a48c), 1552093099 (taş kaplama rengi + sıraları, MY DREAM / OYUN tabelaları), 1551828351
   (PABLO harf boyu 1.53 m) derlendi. Eleştirmenin 6 iddiası fotoğrafla çelişti (reddedildi). **Blender:**
   `NW/Measured/Facades` bu 5 blok yeniden kurulur.
+- **(D4 eleştirmen düzeltmeleri, sayfa C cepheleri)** — Yeni blok 1477364959 (WORQZONE / ÖNDÜL / ELITE OFFICES üst
+  blok, 11 kat, yeni taban izi); TİME doğu yüzü (2 kesim kenarı: pencere sütunları, kahve alınlı balkonlar, tabelalar);
+  1477364957 KB köşe yüzü; 1544934694 batı yüzleri (kat kat pencere, cumba + klima); 900000261 korkuluk camı, spotlar,
+  MONS / sushi / co / Tuğba; Ayanoğlu yazısı + ®; Coffeemania yazı boyu + NEXT + ışık çizgisi; Kırmıkıl çatı
+  pergolaları; Özhamur tabelası; 1545290880 kahve-bordo alın bandı. **Blender:** `NW/Measured/Facades` bu bloklar +
+  yeni 1477364959 kütlesi yeniden kurulur.

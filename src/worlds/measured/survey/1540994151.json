@@ -1736,30 +1736,36 @@
     },
     {
      "t": "sign",
-     "u0": -1.35,
-     "u1": 5.02,
-     "y0": 4.18,
-     "y1": 5.1,
+     "u0": -1.33,
+     "u1": 5.0,
+     "y0": 4.2,
+     "y1": 4.85,
      "d": 0.08,
      "off": 3.0,
      "style": "letters",
      "font": "serif",
      "bold": true,
-     "text": "Bursa\nÖzhamur Börek",
-     "lines": [
-      {
-       "text": "Bursa",
-       "size": 0.3,
-       "fg": "#d52027"
-      },
-      {
-       "text": "Özhamur Börek",
-       "size": 1,
-       "fg": "#d52027"
-      }
-     ],
+     "text": "Özhamur Börek",
      "fg": "#d52027",
-     "logo": "kırmızı kalın serifli kanal harfler; teras sundurmasının ön üst kenarındaki siyah metal parmaklıklı çerçevenin üstünde (off ≈3 m tahmini, hava fotoğrafından sundurma ön kenarı); \"Bursa\" küçük kırmızı harfler \"Özhamur\"un üstünde; gece görülmedi"
+     "logo": "kırmızı kalın yuvarlak serifli (Cooper benzeri) kanal harfler; teras sundurmasının ön üst kenarındaki siyah metal parmaklıklı çerçevenin önünde (off ≈3 m tahmini); gece görülmedi. D4-C: 'Bursa' ayrı öğe (solda, üstte) — tek tabelada ortalanıyordu",
+     "capH": 0.55,
+     "align": "left"
+    },
+    {
+     "t": "sign",
+     "u0": -0.3,
+     "u1": 0.93,
+     "y0": 4.86,
+     "y1": 5.15,
+     "d": 0.08,
+     "off": 3.0,
+     "style": "letters",
+     "font": "serif",
+     "bold": true,
+     "text": "Bursa",
+     "fg": "#d52027",
+     "logo": "küçük kırmızı serif harfler, 'Özhamur'un Ö-z üstünde",
+     "capH": 0.28
     },
     {
      "t": "sign",

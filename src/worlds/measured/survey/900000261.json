@@ -58,7 +58,7 @@
      "d": 1.5,
      "y0": 0,
      "y1": 11.76,
-     "color": "#6e655b",
+     "color": "#736958",
      "finish": "matte",
      "wins": [
       {
@@ -131,10 +131,10 @@
     },
     {
      "t": "sign",
-     "u0": 24.1,
-     "u1": 27.1,
-     "y0": 5.7,
-     "y1": 6.92,
+     "u0": 23.36,
+     "u1": 25.62,
+     "y0": 5.57,
+     "y1": 6.83,
      "off": 1.52,
      "style": "letters",
      "d": 0.05,
@@ -143,23 +143,25 @@
      "bold": false,
      "text": "MONS",
      "lit": true,
-     "logo": "ince uzun büyük harfler, O harfinin üstünde küçük çizgi (Ō); kanal harf (gece görülmedi)"
+     "logo": "ince uzun büyük harfler, O harfinin üstünde küçük çizgi (Ō); kanal harf, gece görülmedi. D4-C: konum jc14 + sd8u üçgenlemesinden (gerçek u 23.1–25.2; jc14 ortofotosu tek başına ≈1.3 m batıya koyuyordu)",
+     "capH": 1.26
     },
     {
      "t": "sign",
-     "u0": 40.3,
-     "u1": 42.4,
-     "y0": 5.9,
-     "y1": 6.6,
+     "u0": 35.75,
+     "u1": 37.58,
+     "y0": 5.95,
+     "y1": 6.62,
      "off": 1.52,
      "style": "letters",
      "d": 0.05,
      "fg": "#f2f2f0",
      "font": "sans",
      "bold": true,
-     "text": "sushico",
+     "text": "sushi",
      "lit": true,
-     "logo": "\"sushi\" beyaz küçük harf, \"co\" kırmızı daire (#d8262a) içinde beyaz; kenar ucunda devam ediyor (jc14 ortofotosunun dışı)"
+     "logo": "beyaz küçük harf kalın sans; sağında kırmızı daire içinde 'co' (ayrı öğe). D4-C: konum jc14 + sd8u üçgenlemesi (gerçek u 34.6–36.3); eski konum (jc14 u 40.3–42.4) kenar ucunun dışına taşıyordu",
+     "capH": 0.55
     },
     {
      "t": "lamp",
@@ -300,7 +302,7 @@
       "*": "glassFull"
      },
      "glassC": {
-      "*": "#657c93"
+      "*": "#808a96"
      },
      "fasciaC": {
       "*": "#62656b"
@@ -308,6 +310,15 @@
      "sides": "start-wall",
      "beam": {
       "*": 0.35
+     },
+     "spots": {
+      "us": [
+       18.9,
+       22.3
+      ],
+      "shape": "rect",
+      "l": 0.25,
+      "w": 0.12
      }
     },
     {
@@ -373,7 +384,7 @@
       "*": "glassFull"
      },
      "glassC": {
-      "*": "#657c93"
+      "*": "#808a96"
      },
      "fasciaC": {
       "*": "#62656b"
@@ -381,6 +392,15 @@
      "sides": "open",
      "beam": {
       "*": 0.35
+     },
+     "spots": {
+      "us": [
+       3.4,
+       7.95
+      ],
+      "shape": "rect",
+      "l": 0.25,
+      "w": 0.12
      }
     },
     {
@@ -397,7 +417,7 @@
       "*": "glassFull"
      },
      "glassC": {
-      "*": "#657c93"
+      "*": "#808a96"
      },
      "fasciaC": {
       "*": "#62656b"
@@ -405,6 +425,15 @@
      "sides": "open",
      "beam": {
       "*": 0.35
+     },
+     "spots": {
+      "us": [
+       33.2,
+       37.9
+      ],
+      "shape": "rect",
+      "l": 0.25,
+      "w": 0.12
      }
     },
     {
@@ -420,12 +449,21 @@
       "*": "glassFull"
      },
      "glassC": {
-      "*": "#657c93"
+      "*": "#808a96"
      },
      "fasciaC": {
       "*": "#62656b"
      },
-     "sides": "open"
+     "sides": "open",
+     "spots": {
+      "us": [
+       11.55,
+       14.95
+      ],
+      "shape": "rect",
+      "l": 0.25,
+      "w": 0.12
+     }
     },
     {
      "t": "bal",
@@ -440,12 +478,23 @@
       "*": "glassFull"
      },
      "glassC": {
-      "*": "#657c93"
+      "*": "#808a96"
      },
      "fasciaC": {
       "*": "#62656b"
      },
-     "sides": "open"
+     "sides": "open",
+     "spots": {
+      "us": [
+       18.75,
+       22.3,
+       25.75,
+       29.25
+      ],
+      "shape": "rect",
+      "l": 0.25,
+      "w": 0.12
+     }
     },
     {
      "t": "bal",
@@ -461,7 +510,7 @@
       "*": "glassFull"
      },
      "glassC": {
-      "*": "#657c93"
+      "*": "#808a96"
      },
      "fasciaC": {
       "*": "#62656b"
@@ -472,7 +521,25 @@
      },
      "cap": true,
      "capC": "#62656b",
-     "capH": 0.9
+     "capH": 0.9,
+     "spots": {
+      "us": [
+       3.4,
+       7.95,
+       11.55,
+       14.95,
+       18.75,
+       22.3,
+       25.75,
+       29.25,
+       33.2,
+       37.9
+      ],
+      "shape": "rect",
+      "l": 0.25,
+      "w": 0.12,
+      "cap": true
+     }
     },
     {
      "t": "panel",
@@ -585,9 +652,46 @@
      "kind": "door",
      "split": 3,
      "frameC": "#3b3e41"
+    },
+    {
+     "t": "sign",
+     "u0": 37.58,
+     "u1": 38.6,
+     "y0": 5.62,
+     "y1": 6.92,
+     "off": 1.52,
+     "style": "box",
+     "d": 0.08,
+     "shape": "round",
+     "text": "co",
+     "bg": "#d8262a",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "logo": "kırmızı yuvarlak kutu (Ø≈1.0 gerçek), içinde beyaz 'co'; sd8u 22° karesinden (#e36b69 güneşli, doygun kırmızı)"
+    },
+    {
+     "t": "sign",
+     "u0": 11.61,
+     "u1": 13.66,
+     "y0": 5.7,
+     "y1": 6.83,
+     "off": 1.52,
+     "style": "box",
+     "d": 0.1,
+     "shape": "oval",
+     "text": "Tuğba",
+     "bg": "#b0202e",
+     "fg": "#f4d8e0",
+     "border": "#f4d8e0",
+     "font": "script",
+     "bold": true,
+     "lit": true,
+     "logo": "kırmızı oval ışıklı kutu, açık pembe-beyaz el yazısı 'Tuğba' + ince açık kontur (sd8u; jc14'te kamyon arkasında yarım). D4-C yeni; gece görülmedi"
     }
    ],
-   "note": "KUZEY (Muammer Aksoy Cd.), u 0 = doğu (x 773.6). Ölçüler DELTA=−1.5 ortofotosunda (CORRECTED=1 SURVEY_TOP=40 DELTA=\"900000261:2=-1.5\"): jc14/sd8u stereo kayması +0.75…1.0 m (Δ pano 10.7 m) → krem çekirdek sentetik taban izinin ≈1.5 m gerisinde; cal.dist 21.12. Batı kuleyle aynı tasarım dili (krem taş çekirdek, orta balkon yığını, iki yanda derin kanat terasları, K8 tam genişlik teras + ahşap görünümlü saçak altı) ama ölçekler farklı çıktı: çekirdek pencereleri 1.47 × 2.3, kat aralığı 3.38 (batı kule 1.25 × 1.94, 2.92) — derinlik ölçüsü ±0.7 m olduğundan bu fark ±4% belirsiz. Podyum (dükkân + asma kat) taban izi çizgisinde → proj d 1.5. Kanat arka duvarları ve podyum dükkân içleri tek tek ölçülmedi."
+   "note": "KUZEY (Muammer Aksoy Cd.), u 0 = doğu (x 773.6). Ölçüler DELTA=−1.5 ortofotosunda (CORRECTED=1 SURVEY_TOP=40 DELTA=\"900000261:2=-1.5\"): jc14/sd8u stereo kayması +0.75…1.0 m (Δ pano 10.7 m) → krem çekirdek sentetik taban izinin ≈1.5 m gerisinde; cal.dist 21.12. Batı kuleyle aynı tasarım dili (krem taş çekirdek, orta balkon yığını, iki yanda derin kanat terasları, K8 tam genişlik teras + ahşap görünümlü saçak altı) ama ölçekler farklı çıktı: çekirdek pencereleri 1.47 × 2.3, kat aralığı 3.38 (batı kule 1.25 × 1.94, 2.92) — derinlik ölçüsü ±0.7 m olduğundan bu fark ±4% belirsiz. Podyum (dükkân + asma kat) taban izi çizgisinde → proj d 1.5. Kanat arka duvarları ve podyum dükkân içleri tek tek ölçülmedi. | D4-C (2026-09-30): cam korkuluk rengi #657c93 → #808a96 (jc14 _f22 örnekleri #777e8c–#8c8c8e, eleştirmen #808e9a); ahşap saçak altlarındaki dikdörtgen gömme spotlar (≈0.25×0.12) balkon yığınlarına ölçülen u'larıyla eklendi; MONS / sushi + 'co' / Tuğba tabelaları jc14–sd8u üçgenlemesiyle yeniden konumlandı (bkz. pending: podyum derinliği). Podyum alın rengi #736958 (sd8u #776e5b, jc14 #665e50)."
   },
   {
    "edge": 0,
@@ -629,6 +733,10 @@
    "what": "kanat arka duvarları",
    "edge": 2,
    "desc": "batı kuleyle aynı: tavan altında krem bant, tuğla kırmızısı panolar, 2–3 sürme cam kapı / pencere (sol kanat K3–K7’de beyaz perdeli, sağ kanatta bazı katlarda tül); derinlik görülmedi (inset 1.6 tahmin)."
+  },
+  {
+   "what": "podyum derinliği ve kule ölçeği (jc14 / sd8u pano kayması)",
+   "note": "Podyum alnındaki tabelalar (MONS, sushi co, Tuğba) ve dükkân camları jc14 ile sd8u arasında ≈4 m kayıyor; index konumlarıyla üçgenleme podyum ön yüzünü taban izi kuzey kenarının ≈4.2–4.8 m ÖNÜNDE veriyor (proj d 1.5 yazılı). ma_offsets (jc14 dz −4.5, sd8u −2.9) ile ≈5.5–6.3. Ayrıca kat aralığı 3.38 / duvar üstü 35.5, aynı tasarımdaki batı ikiz kulede (1477364957) 2.92 / 30.15: jc14 kamerası index konumunun ≈3 m kuzeyindeyse ortofoto ≈1.17 büyür → 3.38/1.17 ≈ 2.9. Kenar 2 düzeltilmiş kamera konumuyla (DELTA + dz) yeniden ölçülmeli; bu turda yalnız tabelalar üçgenlemeyle taşındı."
   }
  ]
 }

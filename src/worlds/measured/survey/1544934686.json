@@ -2737,7 +2737,8 @@
   "KAT: zemin (K0 dükkân, cam kutular kaldırıma taşar) + asma kat (K1: tabelalar, tuğla/ahşap çıta kaplamalı pano bölgesi) + 3 ofis katı (K2–K4) = 5; çatıda geri çekilmiş çatı katı/merdiven başı (volume) ve güney + doğu cephede çatı hizasında çelik pergola. Kat aralığı 3.2 m (e4 düz duvar ve e5 doğu pencereleri); pencereler/kapılar tavana kadar (lento ≈ döşeme + 2.95) → cal.head değerleri döşeme + 2.25 olarak (görünen döşeme kotlarından) yazıldı.",
   "KONUM (v2): güney cephe taban izi çizgisinde (−822.8); SV’deki 4.5 m’lik fark Muammer Aksoy panolarının konum hatasıydı (ma_offsets.json).",
   "CEPHE KURGUSU (güney + doğu): koyu antrasit (#292f34) çelik kutu profil ızgarası (dikmeler ≈1.75–2.0 m arayla, her döşemede yatay kiriş, kirişlerden duvara çapraz payandalar), arkasında ≈0.9–1.5 m derin localar ve yatay 3–4 çubuklu koyu korkuluklar; çerçeve önünde sarı (#d2c276, bulutlu) konsol kutular — ofislerin tabelaları kutu önlerine ve korkuluklara monte. Tüm renkler bulutlu havada gölgesiz örneklendi (güneşte daha açık).",
-  "Cam kutu dükkânlar / paviyonlar (Eczane Yonca, trend, Pastadan, gülbaşoğulları, Günal et kasap-ızgara, köşedeki yeşil oluklu saçlı restoran, doğuda Cocktail & Dinner, Pizza Hut, Dürümgah) bu dosyada değil: kaldırım katmanı (street-plan) için raporda."
+  "Cam kutu dükkânlar / paviyonlar (Eczane Yonca, trend, Pastadan, gülbaşoğulları, Günal et kasap-ızgara, köşedeki yeşil oluklu saçlı restoran, doğuda Cocktail & Dinner, Pizza Hut, Dürümgah) bu dosyada değil: kaldırım katmanı (street-plan) için raporda.",
+  "D4-C (2026-09-30): güney ve doğu çatı pergolası (önceki pending) v7 `pergolas` ile yazıldı: güney bant çerçeve hattı (cephe +0.3) → cephenin ≈1.5 m gerisi, doğu bant cephe → +1.3 (köşe dikmesi proj d 1.3); üst kot görünen 17.4–18.8 (e5) / 17.3–18.0 (e0) → gerçek ≈18.35, taban duvar üstü 17.19; dikmeler yalnız dış (çerçeve) kenarda, kirişler ondan içeri, ızgara aralığı ≈1.8 (dikmelerle aynı, hava fotoğrafı). Çokgenlerin iç kenarı hava fotoğrafından ±1 m."
  ],
  "pending": [
   {
@@ -2760,10 +2761,6 @@
    "fg": "#f2f2f0",
    "text": "GÜLŞAH ÖZONAR / SİGORTA",
    "desc": "K2–K3 arası sarı kutuların arasına asılı siyah dikey pano, yazı aşağıdan yukarı okunuyor: küçük \"GÜLŞAH ÖZONAR\" + büyük \"SİGORTA\" (spx 326 karesi). Üreticide döndürülmüş yazı yok."
-  },
-  {
-   "what": "güney ve doğu çatı pergolası",
-   "desc": "hava fotoğrafında güney cephe boyunca ızgaralı çelik pergola: görüntü z −830…−823.5 (eğim düzeltmeli gerçek ≈ −824.8…−818.3), x 565–608; doğuda x 609.6–611.5 görüntü (gerçek ≈611.2–613.1), z −850…−823. Üst kotu görünen 17.4–18.8 (e5), 17.3–18.0 (e0). v2: pano düzeltmesiyle güney cephe taban izinde (−822.8); hava fotoğrafındaki −818.3’e uzanan açık bant cam kutu dükkân çatılarını da içeriyor (ön yüzleri −818.2) → pergolanın kendi güney kenarı çerçeve hattı ≈ −822.3…−821.5;  renk #292f34, kiriş aralığı ≈1.75–2.0 m (dikmelerle aynı)."
   },
   {
    "what": "loca arka duvarı aplikleri",
@@ -2807,6 +2804,76 @@
     "frame": "#2f3336"
    },
    "note": "çatı katı/merdiven başı kütlesi: hava fotoğrafında beyaz düz çatılı kutu (görüntü x585.5–596.5, z−832.3…−828.3, eğim ≈(−1.8,−5.7) ile düzeltildi); güney yüzü (kenar 2) koyu yeşil camlı bant (e5 u 26–31.9, görünen 18.0–19.3), batı yarısı düz gri. Konum ±1 m."
+  }
+ ],
+ "pergolas": [
+  {
+   "poly": [
+    [
+     565.75,
+     -823.1
+    ],
+    [
+     610.3,
+     -822.0
+    ],
+    [
+     610.3,
+     -823.5
+    ],
+    [
+     565.75,
+     -824.8
+    ]
+   ],
+   "y0": 17.19,
+   "y1": 18.35,
+   "color": "#292f34",
+   "post": 0.12,
+   "every": 1.8,
+   "beam": 0.16,
+   "slat": 1.8,
+   "postEdges": [
+    0
+   ],
+   "beams": {
+    "edge": 0,
+    "over": 0
+   }
+  },
+  {
+   "poly": [
+    [
+     611.6,
+     -822.3
+    ],
+    [
+     612.2,
+     -846.6
+    ],
+    [
+     610.9,
+     -846.6
+    ],
+    [
+     610.3,
+     -822.3
+    ]
+   ],
+   "y0": 17.19,
+   "y1": 18.35,
+   "color": "#292f34",
+   "post": 0.12,
+   "every": 1.8,
+   "beam": 0.16,
+   "slat": 1.8,
+   "postEdges": [
+    0
+   ],
+   "beams": {
+    "edge": 0,
+    "over": 0
+   }
   }
  ]
 }
