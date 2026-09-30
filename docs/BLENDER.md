@@ -23,7 +23,7 @@
 - Kullanıcı Türkçe konuşur; yorumlar/notlar Türkçe olabilir.
 - Gizli anahtar (Google API vb.) hiçbir dosyaya yazılmaz. Blender tarafının anahtara ihtiyacı yok.
 - Kaynak gerçeği **TypeScript kodudur**: bir öğenin ölçüsü, rengi, dizilişi bpy'de tahmin edilmez; ilgili `.ts`
-  dosyasından sabitleriyle birlikte aktarılır (bölüm 5). Görsel tercih gerekiyorsa `streetview-src/user/*.jpg`
+  dosyasından sabitleriyle birlikte aktarılır (bölüm 5). Görsel tercih gerekiyorsa `streetview-src/private/*.jpg`
   (yer fotoğrafları) ve `docs/compare/*.jpg` referanstır.
 
 ## 2. Kurulum
@@ -91,7 +91,7 @@
 | `src/worlds/mertkent/data/street-plan.json`   | Sokak: `fence` (site çitleri), `gates`, `sidewalks` (bordür hattı + genişlik + katmanlar), `street` (direk, levha, bank, rögar…)                                                                                                                                                                         |
 | `src/worlds/mertkent/data/park-plan.json`     | Parklar                                                                                                                                                                                                                                                                                                  |
 | `public/textures/*`                           | Fotoğraf tabanlı PBR dokular (asfalt, beton, çim, sıva, çatı…); `public/textures/mk/` el modeli dokuları; `public/textures/trees/` ağaç yaprak dokuları                                                                                                                                                  |
-| `streetview-src/user/*.jpg`                   | Yer fotoğrafları (kaldırım tipi, site içi) — görsel referans                                                                                                                                                                                                                                             |
+| `streetview-src/private/*.jpg`                   | Yer fotoğrafları (kaldırım tipi, site içi) — görsel referans                                                                                                                                                                                                                                             |
 | `docs/compare/*.jpg`                          | Gerçek ↔ oyun karşılaştırmaları                                                                                                                                                                                                                                                                          |
 
 ## 5. Oyunda neyi hangi kod üretiyor → Blender'da karşılığı
@@ -167,13 +167,13 @@ Yer fotoğrafı kameraları (yaklaşık, eye 1.5 m; oyun koordinatı):
 
 | Foto                      | x     | z     | heading | pitch | fov |
 | ------------------------- | ----- | ----- | ------- | ----- | --- |
-| `502sk-bati-bisiklet.jpg` | 0.9   | −72   | 358     | −18   | 80  |
-| `site-havuz-bati.jpg`     | −39   | −57   | 2       | 3     | 85  |
-| `site-otopark-c.jpg`      | −31.3 | −62.3 | 205     | 0     | 85  |
-| `site-oyun-parki.jpg`     | −24.2 | −72   | 90      | −5    | 85  |
-| `site-havuz-yolu.jpg`     | −30.3 | −96   | 187     | 0     | 85  |
-| `site-ic-yol.jpg`         | −30.5 | −141  | 180     | 0     | 85  |
-| `site-kamelya.jpg`        | −33   | −73.1 | 90      | 0     | 85  |
+| `ref-01.jpg` | 0.9   | −72   | 358     | −18   | 80  |
+| `ref-04.jpg`     | −39   | −57   | 2       | 3     | 85  |
+| `ref-09.jpg`      | −31.3 | −62.3 | 205     | 0     | 85  |
+| `ref-10.jpg`     | −24.2 | −72   | 90      | −5    | 85  |
+| `ref-05.jpg`     | −30.3 | −96   | 187     | 0     | 85  |
+| `ref-06.jpg`         | −30.5 | −141  | 180     | 0     | 85  |
+| `ref-08.jpg`        | −33   | −73.1 | 90      | 0     | 85  |
 
 ## 8. Senkronizasyon (geçmiş + gelecek)
 

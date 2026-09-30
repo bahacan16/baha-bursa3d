@@ -414,7 +414,7 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 - **Yayın izni (kullanıcı, 2026-09-30):** "ajanların kontrol edip uygun bulduğu kısımları bana sormadan yayına alabilirsin" → ajan raporu incelenip lint + test + build temiz ve görsel karşılaştırmada bozulma yoksa `main`'e birleştirilir (sorulmaz); kullanıcıya yayın sonrası TR saatiyle bilgi verilir. Yarım/doğrulanmamış (WIP) iş yayına girmez.
 - Yayın `gh-pages` dalına (Settings → Pages → Deploy from a branch: gh-pages). Bu ortamdan Pages API'sine erişilemedi.
 - **Gerçek zemin malzemeleri (R4):** `scripts/real-textures.mjs` → `public/textures/real/` → `mertkent/realtex.ts`
-  (malzemeler anahtar adıyla yükseltilir, `?norealtex` kapatır). Ölçü yer fotoğrafı `502sk-bati-bisiklet.jpg`
+  (malzemeler anahtar adıyla yükseltilir, `?norealtex` kapatır). Ölçü yer fotoğrafı `ref-01.jpg`
   metrik üst görünüşe düzeltilerek (sarı şerit kenarları → kaçış noktası, 1/(y−Vy) doğrusal mesafe): kilit taşı
   200 × 100 mm yarım şaşırtmalı (uzun kenar yol boyunca), derz ≈3 mm + 5 mm pah; kılavuz karo 400 × 400, 6 çubuk
   (adım 64, üst 25, taban 32, ≈5 mm); bordür birimi ≈0.72 m (geometri `street.ts`); site içi I taşı 200 × 139 (uç

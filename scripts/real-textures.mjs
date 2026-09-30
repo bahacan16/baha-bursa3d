@@ -9,12 +9,12 @@
  * Tüketen: src/worlds/mertkent/realtex.ts (UV metre, repeat = 1 / size).
  *
  * Yöntem (CLAUDE.md §0: yalnız görülen; renkler fotoğraftan; hasar uydurulmaz):
- *  1. ÖLÇÜ — yer fotoğrafı 502sk-bati-bisiklet.jpg (ıslak, bulutlu, ~1 mm/px yakın alan) perspektiften metrik
+ *  1. ÖLÇÜ — yer fotoğrafı ref-01.jpg (ıslak, bulutlu, ~1 mm/px yakın alan) perspektiften metrik
  *     üst görünüşe düzeltilir: sarı kılavuz şeridin iki kenarı (sarı piksel bölütleme, dayanıklı doğru uydurma) →
  *     yürüme yönü kaçış noktası V; bir doğru boyunca yer mesafesi s için 1/(y − Vy) = u0 + k·s (iğne deliği kamera,
  *     yuvarlanma ≈ 0). Karo derzleri ve taş kısa derzleri bu doğrusal ilişkiye oturur; şerit genişliği / taş dizisi
  *     genişliği ile karo boyu / taş boyu oranları kare karo varsayımıyla taş en-boy oranını verir.
- *     Kılavuz çubukları: 502sk-dogu-kaldirim.jpg alt karo satır profili. Bordür birim boyu: düzeltilmiş görüntüde
+ *     Kılavuz çubukları: ref-02.jpg alt karo satır profili. Bordür birim boyu: düzeltilmiş görüntüde
  *     bordür üstü enine derzleri / aynı görüntüdeki taş kısa derzleri. Ayrıntı: `node scripts/real-textures.mjs measure`.
  *  2. RENK — Street View kareleri (güneşli 2025 + bulutlu 2019), güneşli/gölge yamalar ayrı; ortalamalar doğrusal
  *     ışıkta. Kareler arası pozlama farkı büyük olduğundan malzemeler arası ORANLAR aynı karede alınır; mutlak düzey
@@ -26,7 +26,7 @@
  *     Dokular her iki yönde döşenebilir (modülün tam katı).
  *
  * ASFALT (KARAR): ölçüldü ama doku değiştirilmedi. Street View güneşli DA karesinde asfalt / gri taş = 0.74 → mevcut
- * köşe rengi (roads.ts [0.27, 0.26, 0.245]) ile tutarlı. Yakın alan tanesi yalnız 502sk-dogu-kaldirim.jpg yol
+ * köşe rengi (roads.ts [0.27, 0.26, 0.245]) ile tutarlı. Yakın alan tanesi yalnız ref-02.jpg yol
  * kenarında (ıslak, ≈0.3 m²): dört yamadan dikişsiz 3 m doku düz gürültüye dönüştü, CC0 asphalt-clean'den iyi değil;
  * tane boyu (öz ilinti yarı genişliği gerçek ≈3 mm, CC0 ≈1.5–2.9 mm) bu çözünürlükte ayırt edilemedi. Tekerlek izi
  * parlaması Street View karelerinde seçilmedi.
@@ -39,8 +39,8 @@ import sharp from 'sharp';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const SV = join(root, 'streetview-src');
 const OUT = join(root, 'public', 'textures', 'real');
-const PHOTO1 = join(SV, 'user', '502sk-bati-bisiklet.jpg');
-const PHOTO2 = join(SV, 'user', '502sk-dogu-kaldirim.jpg');
+const PHOTO1 = join(SV, 'private', 'ref-01.jpg');
+const PHOTO2 = join(SV, 'private', 'ref-02.jpg');
 const MODE = process.argv[2] ?? 'all';
 /** Hızlı deneme: yalnız 1k çıktılar */
 const FAST = process.argv.includes('--fast');
@@ -515,7 +515,7 @@ async function measure(model) {
     lines.push(s);
     console.log(s);
   };
-  log('── Kilit taşı / kılavuz geometrisi (502sk-bati-bisiklet.jpg) ──');
+  log('── Kilit taşı / kılavuz geometrisi (ref-01.jpg) ──');
   log(`  kaçış noktası V = (${R.vanishing[0].toFixed(1)}, ${R.vanishing[1].toFixed(1)}) px`);
   if (process.env.DEBUG) console.log(JSON.stringify(R.debug));
   log(`  karo derzleri (satır): ${R.tileJoints.join(', ')}`);
@@ -1191,7 +1191,7 @@ async function buildKerbPaint(model) {
   // kuruyken de koyu (boya gözeneksiz, ıslaklıkla az değişir) ama gözenek içi ıslakken daha koyu → kontrast 0.6
   const white = [0.855, 0.855, 0.82].map((v) => v * 0.9);
   return blendTexture('kerb-paint', pool, white, 0.6, 91, {
-    note: '502sk-bati-bisiklet.jpg bordür üstü dış yarısı (t 0.895–0.945)',
+    note: 'ref-01.jpg bordür üstü dış yarısı (t 0.895–0.945)',
   });
 }
 

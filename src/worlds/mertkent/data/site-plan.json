@@ -95,7 +95,7 @@
      -63.6
     ]
    ],
-   "note": "Yer fotoğrafları (site-havuz-bati, site-havuz-yolu, site-otopark-c): havuz alanı ~0.55 m yükseltilmiş traverten kaideli platform, çevresi buzlu cam panel + paslanmaz küpeşte; doğuda basamaklı kapı. Sınırlar Google z21."
+   "note": "Yer fotoğrafları (ref-04, ref-05, ref-09): havuz alanı ~0.55 m yükseltilmiş traverten kaideli platform, çevresi buzlu cam panel + paslanmaz küpeşte; doğuda basamaklı kapı. Sınırlar Google z21."
   },
   {
    "kind": "pool",
@@ -419,7 +419,7 @@
     ]
    ],
    "material": "bej/kum renkli beton-akrilik spor zemini",
-   "note": "Halı saha: 4 m yeşil tel çit, doğu yüzünde kapı (yer fotoğrafı site-kamelya-yolu.jpg: kapıda Atatürk posteri)",
+   "note": "Halı saha: 4 m yeşil tel çit, doğu yüzünde kapı (yer fotoğrafı ref-07.jpg: kapıda Atatürk posteri)",
    "fence": true,
    "gates": [
     {
@@ -525,7 +525,7 @@
      -68.4
     ]
    ],
-   "material": "koyu mor-kahve kauçuk karo 50×50 (yer fotoğrafı site-oyun-parki.jpg)",
+   "material": "koyu mor-kahve kauçuk karo 50×50 (yer fotoğrafı ref-10.jpg)",
    "note": "Ana oyun alanı ≈11.7×8 m; güney yarısı A2 blok çatı gölgesinde (güney kenar varsayım). Üzerinde oyun kulesi+kaydırak, beyaz direkler.",
    "fence": true
   },
@@ -2604,7 +2604,7 @@
    ],
    "rot": 90,
    "h": 2.8,
-   "note": "Kamelya 1 (site-kamelya.jpg): somon dikmeler, oluklu ahşap saçak, ferforje korkuluk; arkasında oyun parkı"
+   "note": "Kamelya 1 (ref-08.jpg): somon dikmeler, oluklu ahşap saçak, ferforje korkuluk; arkasında oyun parkı"
   },
   {
    "kind": "kamelya",
@@ -2627,7 +2627,7 @@
     ]
    ],
    "h": 2.8,
-   "note": "Kamelya 2 (site-kamelya-yolu.jpg), halı saha yanında"
+   "note": "Kamelya 2 (ref-07.jpg), halı saha yanında"
   }
  ],
  "points": [
@@ -2726,7 +2726,7 @@
    "r": 1.2,
    "h": 8,
    "species": "cedrus",
-   "note": "İnce uzun çam/ladin; SV Oh3BP1hy+8QlTFCwl üçgenleme. TÜR (docs/TREES.md): genç Himalaya sediri — Oh3BP_153_11_40'ta (kerteriz 157°) ince koyu sivri tepe; yer fotoğrafı site-kamelya-yolu'nda eğik tepe sürgünlü seyrek sedir."
+   "note": "İnce uzun çam/ladin; SV Oh3BP1hy+8QlTFCwl üçgenleme. TÜR (docs/TREES.md): genç Himalaya sediri — Oh3BP_153_11_40'ta (kerteriz 157°) ince koyu sivri tepe; yer fotoğrafı ref-07'nda eğik tepe sürgünlü seyrek sedir."
   },
   {
    "kind": "tree",
@@ -3312,7 +3312,7 @@
    "x": -17.8,
    "z": -72.0,
    "rot": -90,
-   "note": "site-oyun-parki.jpg"
+   "note": "ref-10.jpg"
   },
   {
    "kind": "lamp2",
@@ -3964,6 +3964,6 @@
   "Çim–kaplama sınırlarında 10–12 cm beton bordür olduğu varsayılabilir (fotoğrafta ince açık çizgi).",
   "Ek türler: lines.kind \"pool-lane\" (havuz kulvar çizgisi), points.kind \"ladder\" (havuz merdiveni); areas.depth (havuz derinliği, m) isteğe bağlı.",
   "Salusvizyon: bina güneyinde havuz (≈13.8×7.95 m mavi mozaik, beyaz kenar taşı, kuzeybatıda sığ kare), pembe-bej güverte, batıda oyun alanı (ahşap oyun evi + mavi kaydırak), güney ve doğuda dik park yerli otopark, bina önü çiçeklikler; doğu girişinde kanopi + kulübe (salus.ts zaten çiziyor).",
-  "2026-09: site içi yer fotoğraflarıyla yeniden (streetview-src/user/site-*.jpg): havuz yükseltilmiş cam korkuluklu platform, iki kamelya (eski \"oyun alanı\" çatıları), oyun parkı doğuda (kauçuk karo + panel çit), halı saha çitli, çift küreli lambalar, sarı ayaklı mavi çöp kovaları, güller, konik serviler, sarı park çizgileri, yollarda beton bordür, kemik kilit taşı."
+  "2026-09: site içi yer fotoğraflarıyla yeniden (streetview-src/private/site-*.jpg): havuz yükseltilmiş cam korkuluklu platform, iki kamelya (eski \"oyun alanı\" çatıları), oyun parkı doğuda (kauçuk karo + panel çit), halı saha çitli, çift küreli lambalar, sarı ayaklı mavi çöp kovaları, güller, konik serviler, sarı park çizgileri, yollarda beton bordür, kemik kilit taşı."
  ]
 }

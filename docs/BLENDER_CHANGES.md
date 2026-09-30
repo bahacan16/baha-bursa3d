@@ -432,7 +432,7 @@
   **Blender:** bu 5 bloğun taban izi, kütlesi, cepheleri ve çatısı + 770 ek bina/cam oda hacimleri yeniden kurulmalı.
 - **(R4 zemin)** — **Gerçek zemin malzemeleri** (`scripts/real-textures.mjs` → `public/textures/real/<ad>/`,
   `albedo` sRGB + `normal` + `rh` [R yükseklik, G pürüzlülük, B mikro örtünme], 2k ve `-1k`; `manifest.json`
-  ölçüler/kanıtlar). Ölçüler yer fotoğrafı `502sk-bati-bisiklet.jpg` metrik üst görünüşe düzeltilerek: gri ve
+  ölçüler/kanıtlar). Ölçüler yer fotoğrafı `ref-01.jpg` metrik üst görünüşe düzeltilerek: gri ve
   kırmızı kilit taşı modülü 200 × 100 mm (uzun kenar yol boyunca, yarım şaşırtmalı), derz ≈3 mm, pah ≈5 mm 45°;
   kılavuz karo 400 × 400 mm, 6 çubuk (adım 64, üst 25, taban 32, yükseklik ≈5 mm); bordür birimi ≈0.72 m; site içi
   I taşı 200 × 139 mm adım (uç genişliği 165, uzun kenarlarda bel — eski dokuda çıkıntı yanlış kenardaydı).
@@ -836,3 +836,8 @@
   (`src/core/start.ts`, Mod A ve B; ışınlanma menüsünde "Özlüce Döner Kavşağı (başlangıç)"); koordinat sistemi aynı.
   Belgelerde ve yorumlarda çalışma sırasını / kişisel fotoğrafı anlatan ifadeler genel dile çevrildi (teknik içerik
   aynı). **Blender:** — (katman değişmez)
+- **(Yer fotoğrafları repodan çıkarıldı)** — `streetview-src/user/*.jpg` (10 yer fotoğrafı) artık izlenmiyor;
+  yerelde `streetview-src/private/ref-01…10.jpg` (gitignore). Başvurular yeni adlara çevrildi; üretilmiş dokular
+  (`public/textures/real/`) değişmedi. `scripts/real-textures.mjs` fotoğrafları `streetview-src/private/`'tan okur.
+  **Blender:** yerel kopyanda `streetview-src/user/` görsel referansı artık yok (git pull sonrası silinir); gerekirse
+  kendi kopyanı `streetview-src/private/` altına koy.

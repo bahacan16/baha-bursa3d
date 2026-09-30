@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { Builder, V2, V3 } from './builder';
 
 /**
- * Ölçülmüş site içi donatıları (Mertkent 2 vb.) — site içi yer fotoğraflarına göre (streetview-src/user/site-*.jpg):
+ * Ölçülmüş site içi donatıları (Mertkent 2 vb.) — site içi yer fotoğraflarına göre (streetview-src/private/site-*.jpg):
  * kamelya (somon kare dikmeler, kahve oluklu saçak, kiremit-kahve shingle kırma çatı, ferforje korkuluk, iç banklar),
  * oyun grubu (yeşil çatılı kule, mavi spiral + kırmızı düz kaydırak, sarı salıncak, tahterevalli), yeşil panel çit,
  * çift küreli bahçe lambası, sarı ayaklı mavi çöp kovası, gül, konik servi, halı saha çiti.

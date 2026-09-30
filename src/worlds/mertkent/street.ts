@@ -13,7 +13,7 @@ import { wordTone } from './streetKinds';
 
 const KERB_W = 0.15;
 /**
- * Bordür birim boyu (m): yer fotoğrafı 502sk-bati-bisiklet.jpg metrik düzeltmede enine derzler ≈0.70–0.73 m
+ * Bordür birim boyu (m): yer fotoğrafı ref-01.jpg metrik düzeltmede enine derzler ≈0.70–0.73 m
  * (aynı görüntüde taş modülü 0.200 m), Street View JDIg_180_-50 (DA-2, 2019) ve zoTd7_256_-15_40 (DA-1, 2025)
  * ≈0.71–0.74 m (`scripts/real-textures.mjs measure`). Önceden 1 m idi.
  */
@@ -1672,7 +1672,7 @@ function buildStreet(
       if (lay.bands[0]?.v0 >= KERB_W - 1e-6) kerbLine(0, kerbH);
       for (const [v, kh] of lay.kerbs ?? []) kerbLine(v, kh);
       // Beyaz boyalı bordür (ölçüm: kerbPaint "white" — 502. Sk. batı, bisiklet şeridi kenarı; yer fotoğrafı
-      // 502sk-bati-bisiklet.jpg düzeltilmiş üst görünüşte üstün iç ~7 cm'i gri, dışı + yuvarlak kenar + yol yüzü beyaz;
+      // ref-01.jpg düzeltilmiş üst görünüşte üstün iç ~7 cm'i gri, dışı + yuvarlak kenar + yol yüzü beyaz;
       // Street View U-Oz8…_273_-5_40 yol yüzünü beyaz gösteriyor). Yol kotunda ayrı beyaz çizgi yok.
       const paintKerb = sw.kerbPaint === 'white' && kerbH >= 0.05 && lay.bands[0]?.v0 >= KERB_W - 1e-6;
       if (paintKerb) {

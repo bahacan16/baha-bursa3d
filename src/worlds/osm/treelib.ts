@@ -1102,7 +1102,7 @@ function buildPalm(key: SpeciesKey, def: SpeciesDef, gen: PalmGen): { near: Mode
     const age = dead ? 1 : f / gen.fronds; // 0 genç (dik) … 1 yaşlı (yatık)
     const az = f * golden + r() * 0.3;
     // Sapın yükselme açısı: gençler ~70° dik, orta yaşlılar 30–45°, en yaşlılar yataya yakın, kurumuşlar gövdeye
-    // doğru sarkık (1Jme 46, jeMF 127, yz6q 92: yelpaze "patlaması"; site-a-blok fotoğrafı: alt yapraklar yatık)
+    // doğru sarkık (1Jme 46, jeMF 127, yz6q 92: yelpaze "patlaması"; ref-03 fotoğrafı: alt yapraklar yatık)
     const elev = dead
       ? -1.05 - r() * 0.35
       : THREE.MathUtils.lerp(1.2, -0.12, Math.pow(age, 1.15)) + (r() - 0.5) * 0.2;

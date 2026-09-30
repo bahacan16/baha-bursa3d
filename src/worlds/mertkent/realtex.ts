@@ -4,7 +4,7 @@ import { loadSettings } from '../../core/settings';
 /**
  * GERÇEK ZEMİN MALZEMELERİ — bu sokaktan ölçülmüş dokular (`scripts/real-textures.mjs` → `public/textures/real/`).
  *
- * Ölçüler (yer fotoğrafı 502sk-bati-bisiklet.jpg metrik üst görünüşe düzeltilerek; Street View 2019/2025):
+ * Ölçüler (yer fotoğrafı ref-01.jpg metrik üst görünüşe düzeltilerek; Street View 2019/2025):
  *  - Gri / kırmızı kilit taşı: modül 200 × 100 mm (ölçülen en-boy 1.97), uzun kenar yol boyunca, yarım şaşırtmalı;
  *    derz ≈3 mm kum, taş kenarında ≈5 mm 45° pah (koyu bant ≈13 mm). Taşlar arası ton CV 0.07 (kuru Street View
  *    blok ölçümü 0.077–0.101, derz payı dahil üst sınır).
