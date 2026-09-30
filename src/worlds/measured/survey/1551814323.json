@@ -1580,7 +1580,8 @@
  "notes": [
   "KAT SAYISI: 9 = zemin (0–5.0, koyu yeşil alınlı dükkânlar) + 1. kat (ticari, 5.0–8.5; kuzeyde geri çekik teras, doğuda bej cam bant) + 7 konut katı (kule doğu yüzünde balkon döşemeleri 8.5/11.5/14.5/17.5/20.5/23.6/26.6, kule üstü koyu gri çatı bandı 29.0–29.6; −8.8 m arka düzlem ortofotosunda sayıldı, X0NY 300_0/300_40 karelerinde 7 balkon sırası). Taban izi notundaki 10 kat bir fazla sayılmış olabilir (kule üst katı çatı bandıyla karışmış).",
   "KÜTLE (v8): taban izi = podyum halkası. Kule (OSM building:part 1551814325, OSM çokgeni aynen — doğu yüzü fotoğrafta 20.3 m, OSM 20.0: kuzey kenarını 1 m güneye almak yüzü kısaltıyordu) = massing.towers[0], 9 kat; doğu ve kuzey kule yüzleri cutEdges[0–1] ile (balkonlar, pencereler, ayaklar, tüm balkon tabelaları kat kat). KD DURAK ve KB Helvacı köşeleri tek kat, geri kalan podyum 2 kat (üst 6.8). Tek dosya + building:part olduğundan cutEdges seçildi (ayrı 1551814325 dosyası + startK yerine: taban izi tek, kule podyumla aynı OSM binası).",
-  "RENKLER: podyum alnı koyu petrol-yeşil #2e444c (doğu, güneşli; kuzeyde gölgede #162d31), lameller #1a2628; DURAK kırmızı #a83f31; Queen/Ohannes alnı #30373e; Cadı'nın Evi gri #54534a; Cafe Strada açık yeşil-gri #8d988c; Helvacı ahşap #8f7a6b (kuzey) / #664f3f (batı, gölge); bej tente #797267, Evergreen yeşil tente #44714d, kubbe tente #8f8c84 (batı gölgede); 1. kat bej-mavi cam #a7c5ec (yansıma)."
+  "RENKLER: podyum alnı koyu petrol-yeşil #2e444c (doğu, güneşli; kuzeyde gölgede #162d31), lameller #1a2628; DURAK kırmızı #a83f31; Queen/Ohannes alnı #30373e; Cadı'nın Evi gri #54534a; Cafe Strada açık yeşil-gri #8d988c; Helvacı ahşap #8f7a6b (kuzey) / #664f3f (batı, gölge); bej tente #797267, Evergreen yeşil tente #44714d, kubbe tente #8f8c84 (batı gölgede); 1. kat bej-mavi cam #a7c5ec (yansıma).",
+  "v9 (pending → veri): kule kuzey yüzü kanatlarının çapraz renk bölünmesi — 0.3 m basamaklı 136 dilim yerine 4 çokgen pano (cutEdges[1]): kum #a0907c köşegenin altında, koyu gri #3a3e42 üstünde; köşegen sol kanatta dış kenar y 22.3 → iç kenar 14.0, sağ kanatta 14.1 → 22.3 (dilimlerin ölçülen kotlarıyla ±0.15)."
  ],
  "pending": [
   {
@@ -1613,10 +1614,6 @@
    "what": "kids Cafe camlı köşkü",
    "edge": 0,
    "desc": "1. kat terasında u 27.4–30.8, y 5.0–6.6 beyaz çerçeveli cam köşk (derinlik görülmedi); üstündeki tabela çizildi"
-  },
-  {
-   "what": "kule kanatlarının çapraz renk bölünmesi (kuzey)",
-   "desc": "iki yan kanatta üst koyu gri #3a3e42, dış-alt köşede köşegen sınırlı kum rengi #c5a071 üçgen (sol kanat: sol-alttan sağ-üste ≈ y 8→21; sağ kanat ayna). Köşegen panel öğesi yok; kanat tümüyle koyu gri çizildi. (D4 düzeltmesi: köşegen 0.3 m düşey dilimlerle basamaklı yazıldı; köşegen/üçgen pano öğesi gelince basamaklar tek poligona çevrilmeli.)"
   },
   {
    "what": "kule batı ve güney yüzleri",
@@ -2179,1095 +2176,111 @@
    "tol": 4.5,
    "seen": "photo",
    "ref": "bpc/e0 −8 m düzlem ortofotosu (0tbf); gerçek yüz orta ≈ −11.5 m, kanatlar ≈ −10.5 m → u/y kamera etrafında ×1.18 (orta) / ×1.13 (kanat) düzeltildi",
-   "note": "Kule KUZEY yüzü (402. Sk.); u = e0 u (düzeltilmiş). Kanatlarda üst koyu gri + dış-altta kum rengi ÇAPRAZ üçgen (üçgen çizilemedi → kanat koyu gri, pending), tepede CEYLAN PLUS ÖZLÜCE. Orta gri sıva, 3 beyaz çerçeveli balkon yığını, aralarda pencere sütunları, üst katta 5 kum pilastr. ±1 m. D4 eleştirmen düzeltmesi (2026-09-30): kanatlarda dış-altta kum/ahşap görünümlü kaplama (0tbf −8 m ortofotosu, gölgede #a2927e / #9a8472; 6S8o 180 karesi) köşegen sınırlı — sol kanat dış kenarda y 22.3 → iç kenarda 14.0, sağ kanat ayna (22.3 → 14.1); köşegen 0.3 m'lik düşey dilimlerle basamaklı yazıldı (köşegen pano öğesi yok, pending). Kanat panoları orta gri panoyla çakışmasın diye 10.5–20.16 / 54.26–65.08.",
+   "note": "Kule KUZEY yüzü (402. Sk.); u = e0 u (düzeltilmiş). Kanatlarda üst koyu gri + dış-altta kum rengi ÇAPRAZ üçgen (v9: çokgen pano), tepede CEYLAN PLUS ÖZLÜCE. Orta gri sıva, 3 beyaz çerçeveli balkon yığını, aralarda pencere sütunları, üst katta 5 kum pilastr. ±1 m. D4 eleştirmen düzeltmesi (2026-09-30): kanatlarda dış-altta kum/ahşap görünümlü kaplama (0tbf −8 m ortofotosu, gölgede #a2927e / #9a8472; 6S8o 180 karesi) köşegen sınırlı — sol kanat dış kenarda y 22.3 → iç kenarda 14.0, sağ kanat ayna (22.3 → 14.1); köşegen v9 çokgen panolarla (panel poly) tek parça: sol kanat kum #a0907c y 7.9 → köşegen (22.3 → 14.0), üstü koyu gri #3a3e42; sağ kanat ayna (14.1 → 22.3). Kanat panoları orta gri panoyla çakışmasın diye 10.5–20.16 / 54.26–65.08.",
    "items": [
     {
      "t": "panel",
      "u0": 10.5,
-     "u1": 10.802,
+     "u1": 20.16,
      "y0": 7.9,
-     "y1": 22.17,
-     "color": "#a0907c"
+     "y1": 22.3,
+     "color": "#a0907c",
+     "poly": [
+      [
+       10.5,
+       7.9
+      ],
+      [
+       20.16,
+       7.9
+      ],
+      [
+       20.16,
+       14.0
+      ],
+      [
+       10.5,
+       22.3
+      ]
+     ]
     },
     {
      "t": "panel",
      "u0": 10.5,
-     "u1": 10.802,
-     "y0": 22.17,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 10.802,
-     "u1": 11.104,
-     "y0": 7.9,
-     "y1": 21.91,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 10.802,
-     "u1": 11.104,
-     "y0": 21.91,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 11.104,
-     "u1": 11.406,
-     "y0": 7.9,
-     "y1": 21.65,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 11.104,
-     "u1": 11.406,
-     "y0": 21.65,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 11.406,
-     "u1": 11.708,
-     "y0": 7.9,
-     "y1": 21.39,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 11.406,
-     "u1": 11.708,
-     "y0": 21.39,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 11.707,
-     "u1": 12.009,
-     "y0": 7.9,
-     "y1": 21.13,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 11.707,
-     "u1": 12.009,
-     "y0": 21.13,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 12.009,
-     "u1": 12.311,
-     "y0": 7.9,
-     "y1": 20.87,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 12.009,
-     "u1": 12.311,
-     "y0": 20.87,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 12.311,
-     "u1": 12.613,
-     "y0": 7.9,
-     "y1": 20.61,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 12.311,
-     "u1": 12.613,
-     "y0": 20.61,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 12.613,
-     "u1": 12.915,
-     "y0": 7.9,
-     "y1": 20.35,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 12.613,
-     "u1": 12.915,
-     "y0": 20.35,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 12.915,
-     "u1": 13.217,
-     "y0": 7.9,
-     "y1": 20.1,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 12.915,
-     "u1": 13.217,
-     "y0": 20.1,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 13.217,
-     "u1": 13.519,
-     "y0": 7.9,
-     "y1": 19.84,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 13.217,
-     "u1": 13.519,
-     "y0": 19.84,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 13.519,
-     "u1": 13.821,
-     "y0": 7.9,
-     "y1": 19.58,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 13.519,
-     "u1": 13.821,
-     "y0": 19.58,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 13.821,
-     "u1": 14.123,
-     "y0": 7.9,
-     "y1": 19.32,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 13.821,
-     "u1": 14.123,
-     "y0": 19.32,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 14.123,
-     "u1": 14.424,
-     "y0": 7.9,
-     "y1": 19.06,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 14.123,
-     "u1": 14.424,
-     "y0": 19.06,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 14.424,
-     "u1": 14.726,
-     "y0": 7.9,
-     "y1": 18.8,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 14.424,
-     "u1": 14.726,
-     "y0": 18.8,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 14.726,
-     "u1": 15.028,
-     "y0": 7.9,
-     "y1": 18.54,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 14.726,
-     "u1": 15.028,
-     "y0": 18.54,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 15.028,
-     "u1": 15.33,
-     "y0": 7.9,
-     "y1": 18.28,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 15.028,
-     "u1": 15.33,
-     "y0": 18.28,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 15.33,
-     "u1": 15.632,
-     "y0": 7.9,
-     "y1": 18.02,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 15.33,
-     "u1": 15.632,
-     "y0": 18.02,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 15.632,
-     "u1": 15.934,
-     "y0": 7.9,
-     "y1": 17.76,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 15.632,
-     "u1": 15.934,
-     "y0": 17.76,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 15.934,
-     "u1": 16.236,
-     "y0": 7.9,
-     "y1": 17.5,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 15.934,
-     "u1": 16.236,
-     "y0": 17.5,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 16.236,
-     "u1": 16.537,
-     "y0": 7.9,
-     "y1": 17.24,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 16.236,
-     "u1": 16.537,
-     "y0": 17.24,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 16.538,
-     "u1": 16.839,
-     "y0": 7.9,
-     "y1": 16.98,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 16.538,
-     "u1": 16.839,
-     "y0": 16.98,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 16.839,
-     "u1": 17.141,
-     "y0": 7.9,
-     "y1": 16.72,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 16.839,
-     "u1": 17.141,
-     "y0": 16.72,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 17.141,
-     "u1": 17.443,
-     "y0": 7.9,
-     "y1": 16.46,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 17.141,
-     "u1": 17.443,
-     "y0": 16.46,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 17.443,
-     "u1": 17.745,
-     "y0": 7.9,
-     "y1": 16.2,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 17.443,
-     "u1": 17.745,
-     "y0": 16.2,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 17.745,
-     "u1": 18.047,
-     "y0": 7.9,
-     "y1": 15.95,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 17.745,
-     "u1": 18.047,
-     "y0": 15.95,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 18.047,
-     "u1": 18.349,
-     "y0": 7.9,
-     "y1": 15.69,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 18.047,
-     "u1": 18.349,
-     "y0": 15.69,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 18.349,
-     "u1": 18.651,
-     "y0": 7.9,
-     "y1": 15.43,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 18.349,
-     "u1": 18.651,
-     "y0": 15.43,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 18.651,
-     "u1": 18.952,
-     "y0": 7.9,
-     "y1": 15.17,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 18.651,
-     "u1": 18.952,
-     "y0": 15.17,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 18.953,
-     "u1": 19.254,
-     "y0": 7.9,
-     "y1": 14.91,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 18.953,
-     "u1": 19.254,
-     "y0": 14.91,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 19.254,
-     "u1": 19.556,
-     "y0": 7.9,
-     "y1": 14.65,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 19.254,
-     "u1": 19.556,
-     "y0": 14.65,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 19.556,
-     "u1": 19.858,
-     "y0": 7.9,
-     "y1": 14.39,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 19.556,
-     "u1": 19.858,
-     "y0": 14.39,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 19.858,
      "u1": 20.16,
-     "y0": 7.9,
-     "y1": 14.13,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 19.858,
-     "u1": 20.16,
-     "y0": 14.13,
+     "y0": 14.0,
      "y1": 29.0,
-     "color": "#3a3e42"
+     "color": "#3a3e42",
+     "poly": [
+      [
+       10.5,
+       22.3
+      ],
+      [
+       20.16,
+       14.0
+      ],
+      [
+       20.16,
+       29.0
+      ],
+      [
+       10.5,
+       29.0
+      ]
+     ]
     },
     {
      "t": "panel",
      "u0": 54.26,
-     "u1": 54.561,
+     "u1": 65.08,
      "y0": 7.9,
-     "y1": 14.21,
-     "color": "#a0907c"
+     "y1": 22.3,
+     "color": "#a0907c",
+     "poly": [
+      [
+       54.26,
+       7.9
+      ],
+      [
+       65.08,
+       7.9
+      ],
+      [
+       65.08,
+       22.3
+      ],
+      [
+       54.26,
+       14.1
+      ]
+     ]
     },
     {
      "t": "panel",
      "u0": 54.26,
-     "u1": 54.561,
-     "y0": 14.21,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 54.561,
-     "u1": 54.861,
-     "y0": 7.9,
-     "y1": 14.44,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 54.561,
-     "u1": 54.861,
-     "y0": 14.44,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 54.861,
-     "u1": 55.162,
-     "y0": 7.9,
-     "y1": 14.67,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 54.861,
-     "u1": 55.162,
-     "y0": 14.67,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 55.162,
-     "u1": 55.462,
-     "y0": 7.9,
-     "y1": 14.9,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 55.162,
-     "u1": 55.462,
-     "y0": 14.9,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 55.462,
-     "u1": 55.763,
-     "y0": 7.9,
-     "y1": 15.12,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 55.462,
-     "u1": 55.763,
-     "y0": 15.12,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 55.763,
-     "u1": 56.063,
-     "y0": 7.9,
-     "y1": 15.35,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 55.763,
-     "u1": 56.063,
-     "y0": 15.35,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 56.063,
-     "u1": 56.364,
-     "y0": 7.9,
-     "y1": 15.58,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 56.063,
-     "u1": 56.364,
-     "y0": 15.58,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 56.364,
-     "u1": 56.664,
-     "y0": 7.9,
-     "y1": 15.81,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 56.364,
-     "u1": 56.664,
-     "y0": 15.81,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 56.664,
-     "u1": 56.965,
-     "y0": 7.9,
-     "y1": 16.04,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 56.664,
-     "u1": 56.965,
-     "y0": 16.04,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 56.965,
-     "u1": 57.266,
-     "y0": 7.9,
-     "y1": 16.26,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 56.965,
-     "u1": 57.266,
-     "y0": 16.26,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 57.266,
-     "u1": 57.566,
-     "y0": 7.9,
-     "y1": 16.49,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 57.266,
-     "u1": 57.566,
-     "y0": 16.49,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 57.566,
-     "u1": 57.867,
-     "y0": 7.9,
-     "y1": 16.72,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 57.566,
-     "u1": 57.867,
-     "y0": 16.72,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 57.867,
-     "u1": 58.167,
-     "y0": 7.9,
-     "y1": 16.95,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 57.867,
-     "u1": 58.167,
-     "y0": 16.95,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 58.167,
-     "u1": 58.468,
-     "y0": 7.9,
-     "y1": 17.17,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 58.167,
-     "u1": 58.468,
-     "y0": 17.17,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 58.468,
-     "u1": 58.768,
-     "y0": 7.9,
-     "y1": 17.4,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 58.468,
-     "u1": 58.768,
-     "y0": 17.4,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 58.768,
-     "u1": 59.069,
-     "y0": 7.9,
-     "y1": 17.63,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 58.768,
-     "u1": 59.069,
-     "y0": 17.63,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 59.069,
-     "u1": 59.369,
-     "y0": 7.9,
-     "y1": 17.86,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 59.069,
-     "u1": 59.369,
-     "y0": 17.86,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 59.369,
-     "u1": 59.67,
-     "y0": 7.9,
-     "y1": 18.09,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 59.369,
-     "u1": 59.67,
-     "y0": 18.09,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 59.67,
-     "u1": 59.971,
-     "y0": 7.9,
-     "y1": 18.31,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 59.67,
-     "u1": 59.971,
-     "y0": 18.31,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 59.971,
-     "u1": 60.271,
-     "y0": 7.9,
-     "y1": 18.54,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 59.971,
-     "u1": 60.271,
-     "y0": 18.54,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 60.271,
-     "u1": 60.572,
-     "y0": 7.9,
-     "y1": 18.77,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 60.271,
-     "u1": 60.572,
-     "y0": 18.77,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 60.572,
-     "u1": 60.872,
-     "y0": 7.9,
-     "y1": 19.0,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 60.572,
-     "u1": 60.872,
-     "y0": 19.0,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 60.872,
-     "u1": 61.173,
-     "y0": 7.9,
-     "y1": 19.22,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 60.872,
-     "u1": 61.173,
-     "y0": 19.22,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 61.173,
-     "u1": 61.473,
-     "y0": 7.9,
-     "y1": 19.45,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 61.173,
-     "u1": 61.473,
-     "y0": 19.45,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 61.473,
-     "u1": 61.774,
-     "y0": 7.9,
-     "y1": 19.68,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 61.473,
-     "u1": 61.774,
-     "y0": 19.68,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 61.774,
-     "u1": 62.074,
-     "y0": 7.9,
-     "y1": 19.91,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 61.774,
-     "u1": 62.074,
-     "y0": 19.91,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 62.074,
-     "u1": 62.375,
-     "y0": 7.9,
-     "y1": 20.14,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 62.074,
-     "u1": 62.375,
-     "y0": 20.14,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 62.375,
-     "u1": 62.676,
-     "y0": 7.9,
-     "y1": 20.36,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 62.375,
-     "u1": 62.676,
-     "y0": 20.36,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 62.676,
-     "u1": 62.976,
-     "y0": 7.9,
-     "y1": 20.59,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 62.676,
-     "u1": 62.976,
-     "y0": 20.59,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 62.976,
-     "u1": 63.277,
-     "y0": 7.9,
-     "y1": 20.82,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 62.976,
-     "u1": 63.277,
-     "y0": 20.82,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 63.277,
-     "u1": 63.577,
-     "y0": 7.9,
-     "y1": 21.05,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 63.277,
-     "u1": 63.577,
-     "y0": 21.05,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 63.577,
-     "u1": 63.878,
-     "y0": 7.9,
-     "y1": 21.27,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 63.577,
-     "u1": 63.878,
-     "y0": 21.27,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 63.878,
-     "u1": 64.178,
-     "y0": 7.9,
-     "y1": 21.5,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 63.878,
-     "u1": 64.178,
-     "y0": 21.5,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 64.178,
-     "u1": 64.479,
-     "y0": 7.9,
-     "y1": 21.73,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 64.178,
-     "u1": 64.479,
-     "y0": 21.73,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 64.479,
-     "u1": 64.779,
-     "y0": 7.9,
-     "y1": 21.96,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 64.479,
-     "u1": 64.779,
-     "y0": 21.96,
-     "y1": 29.0,
-     "color": "#3a3e42"
-    },
-    {
-     "t": "panel",
-     "u0": 64.779,
      "u1": 65.08,
-     "y0": 7.9,
-     "y1": 22.19,
-     "color": "#a0907c"
-    },
-    {
-     "t": "panel",
-     "u0": 64.779,
-     "u1": 65.08,
-     "y0": 22.19,
+     "y0": 14.1,
      "y1": 29.0,
-     "color": "#3a3e42"
+     "color": "#3a3e42",
+     "poly": [
+      [
+       54.26,
+       14.1
+      ],
+      [
+       65.08,
+       22.3
+      ],
+      [
+       65.08,
+       29.0
+      ],
+      [
+       54.26,
+       29.0
+      ]
+     ]
     },
     {
      "t": "panel",

@@ -68,9 +68,8 @@
      "color": "#242a28",
      "proud": 0.08,
      "clad": {
-      "dir": "grid",
+      "dir": "star",
       "every": 0.55,
-      "every2": 0.55,
       "w": 0.02,
       "color": "#373b3c"
      }
@@ -583,9 +582,8 @@
      "color": "#242a28",
      "proud": 0.08,
      "clad": {
-      "dir": "grid",
+      "dir": "star",
       "every": 0.55,
-      "every2": 0.55,
       "w": 0.02,
       "color": "#373b3c"
      }
@@ -655,7 +653,8 @@
   "TABELALAR: bulvar — ŞOK (sarı alın + taşan logo, iki kırmızı-beyaz çizgili katlanır tente), DİŞ HEKİMİ Nurhan ÇAĞLAR TEL. 413 46 56, TAŞ… (ağaç arkasında), HANÇER KUYUMCULUK MUCEVHERAT, KARATAŞ SİTESİ (taş bant harfleri), Ayanoğlu (K1 boyu desenli siyah pano, kırmızı el yazısı + 1927). 163. Sk. — KAHVALTI, Ayanoğlu 1927 (+ gri yuvarlak amblem), Özel Elita AĞIZ VE DİŞ SAĞLIĞI POLİKLİNİĞİ, elitadis_bursa / elitadisbursa / www.elitadent.com, 0224 414 00 19 / 0545 414 00 16, dik tabela (yüzü görülmedi). Kış bahçesinde \"Tarz-ı Pide\", \"Tarz-ı Tost\", \"Mandı…\" yazıları kaldırım yapısında (street-plan).",
   "KALDIRIM: bulvar önünde Tarz-ı Pide / Ayanoğlu / Mandı… siyah doğramalı cam kış bahçesi (oluklu metal çatı, görünen 4.05–4.7), 163. Sk. önünde kış bahçesi + gri yivli kolonlu ahşap pergola; bunlar raporda street-plan için.",
   "GÖRÜLMEYENLER: doğu ve kuzey podyum yüzleri (yalnız uzaktan/yatık), podyum çatısı (hava fotoğrafında kule çevresinde düz kahverengi-gri teras, SW köşede ahşap pergola).",
-  "v9 (pending → veri): ŞOK tenteleri (kenar 3) kırmızı-beyaz çizgili — stripeW 0.15 (kırmızı ≈0.15 + beyaz ≈0.15, dönem ≈0.3 m; 9nQa 120_0 + n3Ef _f22), çizgiler duvara dik, valans da çizgili."
+  "v9 (pending → veri): ŞOK tenteleri (kenar 3) kırmızı-beyaz çizgili — stripeW 0.15 (kırmızı ≈0.15 + beyaz ≈0.15, dönem ≈0.3 m; 9nQa 120_0 + n3Ef _f22), çizgiler duvara dik, valans da çizgili.",
+  "v9 (pending → veri): Ayanoğlu siyah panoları (kenar 0 u 0–11.07, kenar 3 u 15.48–36.8) clad \"star\": gri (#373b3c) ince çizgili 8 kollu yıldız ağı / geçme deseni, tekrar ≈0.55 m (n3Ef _f22). Motif yaklaşık (iki kare yıldız + geçme bağları); çizgi kalınlığı 0.02."
  ],
  "pending": [
   {
@@ -677,14 +676,6 @@
    "glass": "#9fb3c4",
    "frame": "#e8e8e6",
    "note": "derinlik görülmedi"
-  },
-  {
-   "what": "Ayanoğlu desenli siyah panoların motifi",
-   "edges": [
-    0,
-    3
-   ],
-   "note": "panolar (kenar 0 u 0–11.07 y 3.91–6.82, kenar 3 u 15.48–36.8 y 4.78–9.1) düz #242a28 değil: gri (#373b3c) ince çizgili geometrik yıldız/geçme (8 kollu yıldız ağı) deseni, tekrar ≈0.55 m (n3Ef _f22). Şimdilik clad grid 0.55 ile yaklaşık; üreticide panel için desen (damask/geçme) desteği gerekli."
   }
  ]
 }

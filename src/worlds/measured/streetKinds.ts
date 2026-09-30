@@ -286,8 +286,33 @@ function lowFence(c: FurnCtx, s: StreetItem): void {
     const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
     const yaw = Math.atan2(-t[1], t[0]);
     const m: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
-    c.b.box(fk, [m[0], y0 + 0.05 + (h - 0.1) / 2, m[1]], [L, h - 0.1, 0.03], yaw);
-    c.b.box(pk, [m[0], y0 + h - 0.02, m[1]], [L, 0.04, 0.05], yaw);
+    if (s.style === 'picket') {
+      // v9: çıtalı (picket) ahşap çit: düşey çıtalar + iki yatay kuşak, çıta ucu sivri (tip "point") ya da düz.
+      // KARAR: çıta eni / aralığı ölçülmedi → 7 cm çıta, 7 cm boşluk (bahçe çiti tipi); kuşaklar 0.2 h ve 0.75 h
+      const pw = num(s.picketW, 0.07);
+      const pg = num(s.picketGap, 0.07);
+      const nP = Math.max(1, Math.floor((L - 0.02) / (pw + pg)));
+      const off0 = (L - nP * (pw + pg) + pg) / 2;
+      const tipH = s.tip === 'point' ? Math.min(0.12, pw * 1.3) : 0;
+      for (let k = 0; k < nP; k++) {
+        const u = off0 + k * (pw + pg) + pw / 2;
+        const p: V2 = [a[0] + t[0] * u, a[1] + t[1] * u];
+        c.b.box(fk, [p[0], y0 + 0.03 + (h - 0.03 - tipH) / 2, p[1]], [pw, h - 0.03 - tipH, 0.02], yaw);
+        if (tipH > 0) {
+          // Sivri uç: çıta genişliğinde üçgen prizma (iki yüz)
+          const A: V2 = [p[0] - (t[0] * pw) / 2, p[1] - (t[1] * pw) / 2];
+          const E: V2 = [p[0] + (t[0] * pw) / 2, p[1] + (t[1] * pw) / 2];
+          const yb = y0 + h - tipH;
+          const top: [number, number, number] = [p[0], y0 + h, p[1]];
+          c.b.quad(fk, [A[0], yb, A[1]], [E[0], yb, E[1]], top, top);
+          c.b.quad(fk, [E[0], yb, E[1]], [A[0], yb, A[1]], top, top);
+        }
+      }
+      for (const f of [0.2, 0.75]) c.b.box(fk, [m[0], y0 + h * f, m[1]], [L, 0.06, 0.025], yaw);
+    } else {
+      c.b.box(fk, [m[0], y0 + 0.05 + (h - 0.1) / 2, m[1]], [L, h - 0.1, 0.03], yaw);
+      c.b.box(pk, [m[0], y0 + h - 0.02, m[1]], [L, 0.04, 0.05], yaw);
+    }
     const n = Math.max(1, Math.ceil(L / 1.6));
     for (let k = i ? 1 : 0; k <= n; k++) {
       const p: V2 = [a[0] + (t[0] * L * k) / n, a[1] + (t[1] * L * k) / n];

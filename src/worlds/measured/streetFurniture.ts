@@ -366,6 +366,39 @@ function totem(c: FurnCtx, s: StreetItem, y: number): void {
   const d = num(s.d, 0.3);
   const { f, t, yaw } = frame(s.rot);
   const bk = ckOf(c, 'fascia', s.color, 'darkMetal');
+  // v9: ince yuvarlak gövde (`bodyW` çap) üstünde ayrı biçimli pano başı (`head` {shape: capsule, y0, y1, w, d,
+  // color}): uçları yuvarlak dikey kapsül (yarıçap = en / 2), gövde tabandan başa kadar
+  const hd = s.head as
+    { shape?: string; y0?: number; y1?: number; w?: number; d?: number; color?: string } | undefined;
+  if (hd && hd.shape === 'capsule' && num(s.bodyW, 0) > 0.02) {
+    const hy0 = num(hd.y0, h * 0.6);
+    const hy1 = Math.min(h, num(hd.y1, h));
+    const hw = num(hd.w, w);
+    const hdp = num(hd.d, d);
+    const r = Math.min(hw / 2, (hy1 - hy0) / 2);
+    c.b.cylinder(bk, [s.x, y - 0.05, s.z], num(s.bodyW, 0.45) / 2, hy0 + 0.05 + Math.min(0.3, r), 16);
+    const sh = new THREE.Shape();
+    sh.absarc(0, hy0 + r, r, Math.PI, 2 * Math.PI, false);
+    sh.absarc(0, hy1 - r, r, 0, Math.PI, false);
+    const g = new THREE.ExtrudeGeometry(sh, { depth: hdp, bevelEnabled: false, curveSegments: 12 });
+    g.translate(0, 0, -hdp / 2);
+    g.rotateY(yaw);
+    g.translate(s.x, y, s.z);
+    c.b.geometry(ckOf(c, 'fascia', hd.color ?? (s.bg as string | undefined), bk), g);
+    const co = Math.cos(yaw);
+    const si = Math.sin(yaw);
+    const W = (lx: number, lz: number): [number, number] => [
+      s.x + co * lx + si * lz,
+      s.z - si * lx + co * lz,
+    ];
+    const bw = num(s.bodyW, 0.45);
+    c.collide?.(
+      [W(-bw / 2, -bw / 2), W(bw / 2, -bw / 2), W(bw / 2, bw / 2), W(-bw / 2, bw / 2)],
+      y - 0.1,
+      y + h,
+    );
+    return;
+  }
   c.b.box(bk, [s.x, y + h / 2, s.z], [w, h, d], yaw);
   // Kiracı levhaları (ölçülen satırlar: y0..y1 tabandan, yazı, renk) ya da tek yüz
   const panels =
@@ -493,6 +526,10 @@ export interface FasciaSign {
   fg?: string;
   bg?: string;
   font?: string;
+  /** v9: alt alta satırlar (boy oranı size, renk fg) — iki boyutlu alın yazısı */
+  lines?: { text: string; fg?: string; size?: number }[];
+  /** v9: aynı satırda farklı renkli parçalar (u aralığı harf sayısıyla paylaşılır) */
+  parts?: { text: string; fg?: string }[];
 }
 
 /**
@@ -550,8 +587,30 @@ export function fasciaSigns(
       edge = -1;
       for (let j = 0; j < L; j++) if (!solid.has(j) && (edge < 0 || score(j) > score(edge))) edge = j;
     }
-    if (edge >= 0)
-      out.push({ edge, text: s.fasciaText, ...(hex(s.fasciaFg) ? { fg: hex(s.fasciaFg) } : {}) });
+    if (edge >= 0) {
+      // v9: iki boyutlu (fasciaLines) / iki renkli (fasciaParts) alın yazısı
+      const ln = Array.isArray(s.fasciaLines)
+        ? (s.fasciaLines as { text?: unknown; fg?: unknown; size?: unknown }[])
+            .filter((q) => q && typeof q.text === 'string' && q.text.trim())
+            .map((q) => ({
+              text: q.text as string,
+              ...(hex(q.fg) ? { fg: hex(q.fg) } : {}),
+              ...(typeof q.size === 'number' ? { size: q.size } : {}),
+            }))
+        : [];
+      const pt = Array.isArray(s.fasciaParts)
+        ? (s.fasciaParts as { text?: unknown; fg?: unknown }[])
+            .filter((q) => q && typeof q.text === 'string' && q.text.trim())
+            .map((q) => ({ text: q.text as string, ...(hex(q.fg) ? { fg: hex(q.fg) } : {}) }))
+        : [];
+      out.push({
+        edge,
+        text: s.fasciaText,
+        ...(hex(s.fasciaFg) ? { fg: hex(s.fasciaFg) } : {}),
+        ...(ln.length ? { lines: ln } : {}),
+        ...(pt.length ? { parts: pt } : {}),
+      });
+    }
   }
   return out;
 }
@@ -746,26 +805,114 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
           if (sg.edge !== j) continue;
           const u0 = Math.max(0, Math.min(len, sg.u0 ?? 0.1));
           const u1 = Math.max(u0 + 0.1, Math.min(len, sg.u1 ?? len - 0.1));
-          const key = c.signFace({
-            text: sg.text,
-            lines: null,
-            bg: sg.bg ?? fc,
-            fg: sg.fg ?? '#ffffff',
-            border: null,
-            font: sg.font ?? 'sans',
-            bold: true,
-            lit: false,
-            style: 'panel',
-            w: u1 - u0,
-            h: fh,
-          });
           const o = 0.065;
           const P = (u: number): V2 => [a[0] + t[0] * u + nO[0] * o, a[1] + t[1] * u + nO[1] * o];
           // wall(A, B) (−t.z, t.x)'e bakar: dışa (nO) bakacak sırayla
           const out = -t[1] * nO[0] + t[0] * nO[1] > 0;
-          if (out) c.b.wall(key, P(u0), P(u1), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
-          else c.b.wall(key, P(u1), P(u0), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
+          // Dışarıdan okuma yönü: out ise u artan yönde soldan sağa, değilse ters
+          const put = (key: string, ua: number, ub: number) => {
+            if (out) c.b.wall(key, P(ua), P(ub), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
+            else c.b.wall(key, P(ub), P(ua), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
+          };
+          const spec = (text: string, fg: string | undefined, w: number) =>
+            c.signFace!({
+              text,
+              lines: sg.lines?.length
+                ? sg.lines.map((q) => ({ ...q, fg: q.fg ?? sg.fg ?? '#ffffff' }))
+                : null,
+              bg: sg.bg ?? fc,
+              fg: fg ?? sg.fg ?? '#ffffff',
+              border: null,
+              font: sg.font ?? 'sans',
+              bold: true,
+              lit: false,
+              style: 'panel',
+              w,
+              h: fh,
+            });
+          if (sg.parts?.length) {
+            // v9: iki renkli satır: parçalar okuma sırasıyla, harf sayısı oranında (boşluk payı dahil)
+            const tot = sg.parts.reduce((q, pp) => q + pp.text.length + 1, 0);
+            let acc = 0;
+            for (const pp of sg.parts) {
+              const f0 = acc / tot;
+              acc += pp.text.length + 1;
+              const f1 = acc / tot;
+              const W = u1 - u0;
+              const [ua, ub] = out ? [u0 + W * f0, u0 + W * f1] : [u1 - W * f1, u1 - W * f0];
+              put(spec(pp.text, pp.fg, ub - ua), ua, ub);
+            }
+          } else put(spec(sg.text, sg.fg, u1 - u0), u0, u1);
         }
+    }
+  }
+  // v9: çatının ÜSTÜNE çerçeveyle takılı harfler (`roofSign` {text, lines, fg, h, frameC, edge, u0, u1}; ör. ZEUGMA
+  // KÜNEFE): yola bakan (ya da `edge`) kenarın üst kotunda, ince koyu çerçeve (alt / üst kuşak + uç dikmeleri) ve
+  // saydam zeminli harfler. KARAR: çerçeve kesiti ölçülmedi → 4 cm
+  const rs = s.roofSign as
+    | {
+        text?: string;
+        lines?: { text: string; fg?: string; size?: number }[];
+        fg?: string;
+        h?: number;
+        frameC?: string;
+        edge?: number;
+        u0?: number;
+        u1?: number;
+      }
+    | undefined;
+  if (rs && (rs.text || rs.lines?.length) && c.signFace) {
+    const ej =
+      typeof rs.edge === 'number'
+        ? Math.round(rs.edge)
+        : (fasciaSigns(
+            { ...s, fasciaSigns: undefined, fasciaText: 'x', fasciaEdge: undefined },
+            poly,
+            solid,
+            c.toRoad,
+          )[0]?.edge ?? -1);
+    if (ej >= 0 && ej < L) {
+      const a = poly[ej];
+      const e = poly[(ej + 1) % L];
+      const len = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      const t: V2 = [(e[0] - a[0]) / len, (e[1] - a[1]) / len];
+      const cx = poly.reduce((q, p) => q + p[0], 0) / L;
+      const cz = poly.reduce((q, p) => q + p[1], 0) / L;
+      let nO: V2 = [-t[1], t[0]];
+      const m: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
+      if ((cx - m[0]) * nO[0] + (cz - m[1]) * nO[1] > 0) nO = [-nO[0], -nO[1]];
+      const u0 = Math.max(0, Math.min(len, rs.u0 ?? 0.1));
+      const u1 = Math.max(u0 + 0.2, Math.min(len, rs.u1 ?? len - 0.1));
+      const yb = (topAt(a) + topAt(e)) / 2 + 0.04;
+      const hh = Math.max(0.2, num(rs.h, 0.8));
+      const yaw = Math.atan2(-t[1], t[0]);
+      const frK = ckOf(c, 'frame', rs.frameC, fk);
+      const P = (u: number, o: number): V2 => [a[0] + t[0] * u + nO[0] * o, a[1] + t[1] * u + nO[1] * o];
+      b3(c.b, frK, P(u0, 0.02), P(u1, 0.02), yb, yb + 0.04, 0.04, yaw);
+      b3(c.b, frK, P(u0, 0.02), P(u1, 0.02), yb + hh - 0.04, yb + hh, 0.04, yaw);
+      for (const u of [u0 + 0.02, u1 - 0.02]) {
+        const q = P(u, 0.02);
+        c.b.box(frK, [q[0], yb + hh / 2, q[1]], [0.04, hh, 0.04], yaw);
+      }
+      const fg = typeof rs.fg === 'string' && HEX.test(rs.fg) ? rs.fg : '#ecebe6';
+      const key = c.signFace({
+        text: rs.text ?? '',
+        lines: rs.lines?.length ? rs.lines.map((q) => ({ ...q, fg: q.fg ?? fg })) : null,
+        bg: null,
+        fg,
+        border: null,
+        font: 'sans',
+        bold: true,
+        lit: false,
+        style: 'letters',
+        w: u1 - u0 - 0.1,
+        h: hh - 0.1,
+      });
+      const out = -t[1] * nO[0] + t[0] * nO[1] > 0;
+      const A = P(u0 + 0.05, 0.045);
+      const B = P(u1 - 0.05, 0.045);
+      if (out) c.b.wall(key, A, B, yb + 0.05, yb + hh - 0.05, [0, 0, 1, 1]);
+      else c.b.wall(key, B, A, yb + 0.05, yb + hh - 0.05, [0, 0, 1, 1]);
     }
   }
   // v8: çatı mertekleri (`rafters` {every, color, w} ya da not "≈3.4 m aralıklı koyu mertekler"): kenar 0'a (bina

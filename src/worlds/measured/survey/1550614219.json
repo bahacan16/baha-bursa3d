@@ -31,7 +31,8 @@
     3,
     4,
     5
-   ]
+   ],
+   "glassUp": true
   }
  },
  "colors": {
@@ -2339,7 +2340,8 @@
   "TABELALAR (kenar başına ayrıntı kenar notlarında): bulvar e0 arçelik ×2, İşbir yatak, Toleran Sigorta (üst + alt pano), ORTODONTİST Uzm. Dt. Sevil YEŞİLBAŞ, YERDENİZ PSİKOLOJİ (K3 önü teras korkuluğu); e1 Penti, 1A PLUS, ÖZGÜR MODA başı; e2 ATB GAYRİMENKUL, ÖZGÜR MODA, AKADEMİ MATEMATİK (üst kutu + iletişim panosu), SEYHAN GAYRİMENKUL (3 pano), DİŞ HEKİMİ AYHAN ÖZDEMİR (K4 balkon), GÖK'AY (kış bahçesi, kaldırım); e3 Ziraat Bankası (kanal harf + ışıklı kutu, ATM köşkü); e4 DİŞ HEKİMİ HAKAN ÇETİN, OUTLET CITY, MADİNA ERDEN, ZEUGMA KÜNEFE (kaldırım), KUVEYTTÜRK, SATILIK levhası (K7), portre bayrak (K4); e5–e6 KuveytTürk (amblem, slogan folyoları, İşlematik ATM'ler), kavanoz design, ECZANE (bayrak E), YUSUF ÖZOĞLU mali müşavir; e7 ECZANE BUKETİM; e9 HAIR LOUNGE / ÖZAY ÖZKAN, eren grup / eren tour, ÇARŞAMBA² VİP, provey TURKEY, VERA GAYRİMENKUL, özhan + şarküteri afişleri; e10/e12/e13 özhan baskıları; e15 BİM; e18 KOPİ NO 9, SANSAR FRIED CHICKEN; e19 SANSAR köşe tabelası; e46 arçelik kuzey vitrini, Banu Ünal.",
   "GECE: ışıklı olduğu yapıdan belli olanlar lit (Ziraat kutu, KuveytTürk hap tabela, BİM, eczane E, ECZANE BUKETİM); gece karesi yok.",
   "GÖRÜLMEYEN: iç avlu kenarları 20–40, 42–44 (Street View yok; yalnız hava fotoğrafı), kısa dişler 8/11/14/16/17, kulelerin podyum boşluklarına bakan yan yüzleri ve 331. Sk. tarafındaki güney yüzleri (kütle kesim duvarı, düz sıva çizilir). Kule 2/3 yan yüzleri ve kule 4/5'in avlu yüzleri çizilmedi.",
-  "D4 eleştirmen düzeltmesi (2026-09-30): palet soffit #6f5a45 → #b9a48c. Eski değer balkon/saçak ALT yüzlerinin gölgedeki örneğiydi (AElA 120: gölgede #604f3d–#67513f); üretici alt yüzü zaten gölgeli çizdiği için koyu kahve görünüyordu. Alt yüzler fotoğrafta ön yüzlerle aynı bej boya (güneşte ön yüz ≈ plaster2 #b9a48c) → soffit = plaster2."
+  "D4 eleştirmen düzeltmesi (2026-09-30): palet soffit #6f5a45 → #b9a48c. Eski değer balkon/saçak ALT yüzlerinin gölgedeki örneğiydi (AElA 120: gölgede #604f3d–#67513f); üretici alt yüzü zaten gölgeli çizdiği için koyu kahve görünüyordu. Alt yüzler fotoğrafta ön yüzlerle aynı bej boya (güneşte ön yüz ≈ plaster2 #b9a48c) → soffit = plaster2.",
+  "v9 (pending → veri): KuveytTürk amblemlerinde (kenar 6 hap tabela sol ucu, kenar 4 podyum köşesi) altın palmiye simgesi (sign icon \"palm\", renk fg #c9a44a; stilize — yaprak sayısı / biçimi yaklaşık). Giydirme cam duvar üstünü (10.37) aşıp ≈11.5’e kadar çıkıyor → roof.parapet.glassUp: cam parapetin dış yüzünü keser (tint #8fa4ad, doğrama kayıtları camın kendi split’i)."
  ],
  "pending": [
   {
@@ -2389,24 +2391,6 @@
    "id": "corner-balconies",
    "what": "Kule 1–3 köşe balkon yığınları (K4–K8): kule kuzey/güney yan yüzlerinden batıya bakan dolu parapetli balkonlar; batıdan görülen ön genişlik 1.2–1.4 m (= yan yüzden taşma d), yan yüz boyunca boyları görülmedi. Ölçülen katlar (v7 edge öğeleri): [{\"edge\": 0, \"part\": 0, \"t\": \"bal\", \"u0\": -0.22, \"u1\": 1.18, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [4, 7], \"tint\": {\"K4\": \"dark\", \"K7\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\", \"pots\": {\"K5\": [0.55]}, \"potsOn\": \"rail\", \"potC\": \"#5a4a3a\", \"plantC\": \"#6b6a4a\"}, {\"edge\": 0, \"part\": 0, \"t\": \"bal\", \"u0\": 21.2, \"u1\": 22.45, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [8], \"tint\": {\"K8\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 2, \"part\": 1, \"t\": \"bal\", \"u0\": 20.95, \"u1\": 22.3, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [5, 7], \"tint\": {\"K5\": \"clear\", \"K7\": \"clear\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 2, \"part\": 1, \"t\": \"bal\", \"u0\": 0.3, \"u1\": 1.5, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [5, 7], \"tint\": {\"K5\": \"dark\", \"K7\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 4, \"part\": 2, \"t\": \"bal\", \"u0\": -0.1, \"u1\": 1.1, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"glazed\": [6, 7, 8], \"tint\": {\"K6\": \"dark\", \"K7\": \"dark\", \"K8\": \"dark\"}, \"frameC\": {\"*\": \"#d6d8d8\"}, \"sides\": \"open\"}, {\"edge\": 4, \"part\": 2, \"t\": \"bal\", \"u0\": 21.3, \"u1\": 22.5, \"d\": 1.3, \"s\": [4, 8], \"rail\": {\"*\": \"solid\"}, \"parapetH\": {\"*\": 1.0}, \"fasciaC\": {\"*\": \"#bca18c\"}, \"sides\": \"open\"}]",
    "need": "yan yüz (kesim) ortofotosu / boy ölçüsü"
-  },
-  {
-   "id": "kuveytPalm",
-   "edge": 6,
-   "what": "KuveytTürk yeşil daire amblemi içindeki altın palmiye (ve kenar 4 köşe amblemi): glif yok → yalnız yeşil daire + beyaz halka çizildi",
-   "uVis": [
-    1.09,
-    1.9
-   ]
-  },
-  {
-   "id": "kuveytGlassParapet",
-   "edge": 6,
-   "what": "giydirme cam korkuluk altına kadar (≈11.5) çıkıyor; kütle parçası 5’in duvar üstü 10.37 + ACP parapet 1.3 → 10.37 üstündeki cam parapet yüzünde; üretici pencereyi duvar üstünde kırpıyorsa parapete cam (tint #8fa4ad, gümüş dikmeler) gerekir",
-   "yReal": [
-    10.37,
-    11.5
-   ]
   }
  ],
  "edges": [
@@ -4372,7 +4356,9 @@
      "shape": "round",
      "style": "box",
      "d": 0.08,
-     "logo": "KuveytTürk amblemi (yeşil daire + altın palmiye, beyaz halka) — podyum köşesi, 5FS/AElA karelerinden"
+     "logo": "KuveytTürk amblemi (yeşil daire + altın palmiye, beyaz halka) — podyum köşesi, 5FS/AElA karelerinden",
+     "icon": "palm",
+     "iconC": "#c9a44a"
     },
     {
      "t": "vinyl",
@@ -4811,7 +4797,9 @@
      "border": "#f2f3f1",
      "fg": "#c9a44a",
      "lit": true,
-     "logo": "KuveytTürk amblemi: yeşil daire, içinde altın palmiye (çizilmedi — glif yok), beyaz halka; hap tabelanın sol ucunda"
+     "logo": "KuveytTürk amblemi: yeşil daire, içinde altın palmiye, beyaz halka; hap tabelanın sol ucunda",
+     "icon": "palm",
+     "iconC": "#c9a44a"
     },
     {
      "t": "panel",

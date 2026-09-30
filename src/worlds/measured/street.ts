@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { Builder, type V2, type V3 } from './builder';
-import { sideNormal, tactileKey, type StreetPlan } from './siteplan';
+import { sideNormal, tactileKey, toneOf, type StreetPlan } from './siteplan';
 import type { CK, SignSpec } from './facade';
 import { buildStreetFurniture, type StreetItem } from './streetFurniture';
 import { wordTone } from './streetKinds';
@@ -519,6 +519,22 @@ interface RoundaboutSpec {
   /** Çevre yolunun dış kenarı (m, merkezden); yoksa nottaki "r≈a–b" */
   ringOuter?: number;
   note?: string;
+  /**
+   * v9: biçilmemiş çayır iç kısım + biçilmiş kenar şeridi: `rim` şerit eni (m; [a, b] aralık → orta), `rimC` şerit
+   * tonu, `c` çayır tonu, `h` çayır boyu (m; aralık → orta). Tonlar "#rrggbb" ya da [a, b] (ortalama).
+   */
+  meadow?: {
+    rim?: number | [number, number];
+    rimC?: string | [string, string];
+    c?: string | [string, string];
+    h?: number | [number, number];
+  };
+}
+
+/** v9: ölçülen değer ya da [a, b] aralığı → orta değer */
+function midOf(v: number | [number, number] | undefined, d: number): number {
+  if (Array.isArray(v) && v.length === 2 && v.every((x) => Number.isFinite(x))) return (v[0] + v[1]) / 2;
+  return typeof v === 'number' && Number.isFinite(v) ? v : d;
 }
 
 /**
@@ -563,6 +579,8 @@ function roundaboutIsland(
   s: RoundaboutSpec,
   H: (x: number, z: number) => number,
   paintKey?: (hex: string) => string,
+  /** v9: ölçülen tonlu mat malzeme (çayır öbekleri) */
+  matKey?: (hex: string) => string,
 ): { raised: Raised[]; geo: RoundaboutGeo } {
   const c: V2 = [s.x, s.z];
   const RX = s.rx ?? 10;
@@ -681,15 +699,75 @@ function roundaboutIsland(
   const top = h + innerH;
   const gt = `${s.grass?.material ?? ''}`.toLowerCase();
   const grassKey = !gt || /çim|grass|lawn/.test(gt) ? 'lawn' : layerKey(gt);
-  b.drape(
-    grassKey,
-    ring((k) => grassAt(0, th(k))),
-    [],
-    H,
-    top,
-    0.5,
-    2.5,
-  );
+  const md = s.meadow;
+  if (md) {
+    // v9: biçilmiş kenar şeridi (rim, ton rimC) + biçilmemiş kuru çayır iç kısım (ton c, boy h): çim dokusu ölçülen
+    // tonla (index.ts lawn@ çeşidi); çayır boyu seyrek ot öbekleriyle (örneklenmiş tek geometri, bir çizim çağrısı)
+    const rim = Math.max(0.3, midOf(md.rim, 3));
+    const rimT = toneOf(md.rimC);
+    const inT = toneOf(md.c);
+    const inner = (k: number) => {
+      const a = th(k);
+      return [
+        c[0] + Math.cos(a) * Math.max(0.5, GX - rim),
+        c[1] + Math.sin(a) * Math.max(0.5, GZ - rim),
+      ] as V2;
+    };
+    b.drape(
+      rimT ? `lawn@${rimT}` : grassKey,
+      ring((k) => grassAt(0, th(k))),
+      [ring(inner).reverse()],
+      H,
+      top,
+      0.5,
+      2.5,
+    );
+    const inK = inT ? `lawn@${inT}` : grassKey;
+    b.drape(inK, ring(inner), [], H, top + 0.004, 0.5, 2.5);
+    const mh = Math.max(0.05, midOf(md.h, 0.5));
+    if (inT && mh > 0.1 && matKey) {
+      const tuftK = matKey(inT);
+      // KARAR: öbek aralığı / biçimi ölçülmedi → ≈0.9 m ızgara, tohumlu kaydırma; öbek = 3 ince koni (ölçülen boy)
+      const iRX = Math.max(0.5, GX - rim - 0.3);
+      const iRZ = Math.max(0.5, GZ - rim - 0.3);
+      let sd = 51407;
+      const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
+      const proto = (pb: Builder) => {
+        for (const [dx, dz, sc] of [
+          [0, 0, 1],
+          [0.12, 0.07, 0.8],
+          [-0.1, 0.09, 0.9],
+        ] as [number, number, number][]) {
+          const g = new THREE.ConeGeometry(0.09, sc, 5, 1, true);
+          g.translate(dx, sc / 2, dz);
+          pb.geometry(tuftK, g);
+        }
+      };
+      const m = new THREE.Matrix4();
+      for (let gx = -iRX; gx <= iRX; gx += 0.9)
+        for (let gz = -iRZ; gz <= iRZ; gz += 0.9) {
+          const px = gx + (rnd() - 0.5) * 0.7;
+          const pz = gz + (rnd() - 0.5) * 0.7;
+          if ((px / iRX) ** 2 + (pz / iRZ) ** 2 > 1) continue;
+          const wx = c[0] + px;
+          const wz = c[1] + pz;
+          const sc = mh * (0.8 + rnd() * 0.4);
+          m.makeRotationY(rnd() * Math.PI * 2);
+          m.scale(new THREE.Vector3(1, sc, 1));
+          m.setPosition(wx, H(wx, wz) + top, wz);
+          b.instance(`meadow_${inT}`, proto, m);
+        }
+    }
+  } else
+    b.drape(
+      grassKey,
+      ring((k) => grassAt(0, th(k))),
+      [],
+      H,
+      top,
+      0.5,
+      2.5,
+    );
   // Halka çiçeklik: "kenardan ≈3–5 m içeride" (ada kenarından), çiçekli + yeşil alçak çalılar
   const pl = (s.planting ?? '').toLowerCase();
   const bed = /kenardan\s*≈?\s*([0-9.,]+)\s*[–-]\s*([0-9.,]+)\s*m/.exec(pl);
@@ -754,7 +832,15 @@ function roundaboutIsland(
 /** Ayrım adası (ölçüm: da3-island-*): çokgen, bordürlü, yüzey nottan (çim / beton) */
 function splitterIsland(
   b: Builder,
-  s: { id?: string; poly?: V2[]; h?: number; material?: string; note?: string; kerbPaint?: unknown },
+  s: {
+    id?: string;
+    poly?: V2[];
+    h?: number;
+    material?: string;
+    note?: string;
+    kerbPaint?: unknown;
+    grassC?: string | [string, string];
+  },
   H: (x: number, z: number) => number,
   paintKey?: (hex: string) => string,
   /** Noktadan en yakın OSM araç şeridi kenarına uzaklık (m; StreetExt.roadEdge) — refüj çevresi asfalt dolgusu */
@@ -798,7 +884,9 @@ function splitterIsland(
       : /beton|concrete/.test(t)
         ? 'spConcrete'
         : layerKey(t);
-  b.drape(key, inset, [], H, h, key === 'lawn' ? 0.5 : 1, 2);
+  // v9: ölçülen çim tonu (grassC) → çim dokusu o tonla (lawn@ çeşidi)
+  const gT = key === 'lawn' ? toneOf(s.grassC) : null;
+  b.drape(gT ? `lawn@${gT}` : key, inset, [], H, h, key === 'lawn' ? 0.5 : 1, 2);
   // v8 (D4 refüjleri): bordürle OSM şeridi arasına asfalt dolgu — OSM kaldırımı refüj kenarında kaldırılınca
   // (roads[] sidewalk none / ada bölgesi) aradaki şeritte hava fotoğrafı (açık gri-bej) görünüyordu. Yalnız refüj /
   // ayrım adası (meydan içi tarhlar değil); dolgu OSM yolunun altında (0.027 < 0.04), en çok 6 m.
@@ -981,23 +1069,25 @@ function poleFlag(
   yTop: number,
   z: number,
   type: string,
-  fl: { color?: string; w?: number; h?: number },
+  fl: { color?: string; w?: number; h?: number; text?: string; fg?: string; font?: string },
   yaw: number,
   hasRot: boolean,
 ): void {
   const fw = fl.w ?? 1.5;
   const fh = fl.h ?? fw / 1.5;
   const dir: V2 = hasRot ? [Math.sin(yaw), -Math.cos(yaw)] : [1, 0];
+  // v9: düz renk kumaş üstünde logo / yazı (`text`, `fg`): tabela yüzü (kumaş rengi zemin)
+  const logo = type === 'plain' && typeof fl.text === 'string' && fl.text.trim() !== '';
   const key = signFace({
-    text: '',
+    text: logo ? fl.text! : '',
     bg: fl.color && /^#[0-9a-f]{6}$/i.test(fl.color) ? fl.color : '#d21f26',
-    fg: '#ffffff',
+    fg: logo && fl.fg && /^#[0-9a-f]{6}$/i.test(fl.fg) ? fl.fg : '#ffffff',
     border: null,
-    font: 'sans',
+    font: logo ? (fl.font ?? 'sans') : 'sans',
     bold: true,
     lit: false,
     style: 'box',
-    banner: type === 'tr' ? 'tr' : 'plain',
+    banner: logo ? null : type === 'tr' ? 'tr' : 'plain',
     w: fw,
     h: fh,
   });
@@ -1747,7 +1837,13 @@ function buildStreet(
   const rbs: RoundaboutGeo[] = [];
   for (const s of plan.street ?? []) {
     if (s.kind === 'roundabout-island') {
-      const r = roundaboutIsland(b, s as unknown as RoundaboutSpec, H, paintKey);
+      const r = roundaboutIsland(
+        b,
+        s as unknown as RoundaboutSpec,
+        H,
+        paintKey,
+        ext.colorKey ? (hex) => ext.colorKey!('interior', hex) : undefined,
+      );
       isl.push(...r.raised);
       rbs.push(r.geo);
     } else if (s.kind === 'island')
@@ -1872,8 +1968,20 @@ function buildStreet(
         break;
       }
       case 'pole': {
-        const fl = (s as { flag?: { type?: string; color?: string; w?: number; h?: number; rot?: number } })
-          .flag;
+        const fl = (
+          s as {
+            flag?: {
+              type?: string;
+              color?: string;
+              w?: number;
+              h?: number;
+              rot?: number;
+              text?: string;
+              fg?: string;
+              font?: string;
+            };
+          }
+        ).flag;
         // v8: bayrak direği — `flag` {type: "tr" | color, w, h, rot} ya da notun ilk ifadesinde "Türk bayrağı";
         // deseni seçilemeyen bayrak (ör. "mavi-beyaz kurumsal — deseni seçilemedi") çizilmez
         const head = note.split(/[;:]/)[0];
@@ -2324,8 +2432,12 @@ function buildStreet(
         const w = cb.w ?? nm(1, 0.9);
         const d = cb.d ?? nm(2, 0.4);
         const hh = s.h ?? nm(3, 1.3);
-        b.box('cabinet', [s.x, y + hh / 2, s.z], [w, hh, d], yaw);
-        b.box('cabinet', [s.x, y + hh + 0.02, s.z], [w + 0.06, 0.04, d + 0.06], yaw);
+        // v9: ölçülen dolap rengi (`color`), yoksa sabit dolap malzemesi
+        const cbC = (s as { color?: string }).color;
+        const cbK =
+          cbC && /^#[0-9a-f]{6}$/i.test(cbC) && ext.colorKey ? ext.colorKey('plaster', cbC) : 'cabinet';
+        b.box(cbK, [s.x, y + hh / 2, s.z], [w, hh, d], yaw);
+        b.box(cbK, [s.x, y + hh + 0.02, s.z], [w + 0.06, 0.04, d + 0.06], yaw);
         break;
       }
       case 'scooter': {
@@ -2503,6 +2615,7 @@ function buildStreet(
           fasciaC?: string;
           soffitC?: string;
           pillars?: { u: number; w?: number; color?: string; text?: string; fg?: string }[];
+          valance?: { text?: string; fg?: string; font?: string; u0?: number; u1?: number };
         };
         if (!cn.a || !cn.e) break;
         const hex = (h: string | undefined, d: string) =>
@@ -2524,6 +2637,32 @@ function buildStreet(
           [L - 0.02, 0.02, D - 0.02],
           cyaw,
         );
+        // v9: valans (alın bandı) yazısı — sokak yüzünde (a → e hattı, −nn), saydam zeminli harfler; u0..u1 (a'dan m)
+        const vl = cn.valance;
+        if (vl?.text && ext.signFace) {
+          const vu0 = Math.max(0, vl.u0 ?? 0.05);
+          const vu1 = Math.min(L, vl.u1 ?? L - 0.05);
+          // KARAR: renk ölçülmemişse beyaz (wordTone "beyaz")
+          const vfg = vl.fg && /^#[0-9a-f]{6}$/i.test(vl.fg) ? vl.fg : (wordTone('beyaz') ?? '#ecebe6');
+          if (vu1 - vu0 > 0.1) {
+            const key = ext.signFace({
+              text: vl.text,
+              bg: null,
+              fg: vfg,
+              border: null,
+              font: vl.font ?? 'sans',
+              bold: true,
+              lit: false,
+              style: 'letters',
+              w: vu1 - vu0,
+              h: fh * 0.9,
+            });
+            const f0: V2 = [A[0] + t[0] * vu0 - nn[0] * 0.006, A[1] + t[1] * vu0 - nn[1] * 0.006];
+            const f1: V2 = [A[0] + t[0] * vu1 - nn[0] * 0.006, A[1] + t[1] * vu1 - nn[1] * 0.006];
+            const front = -(f1[1] - f0[1]) * -nn[0] + (f1[0] - f0[0]) * -nn[1] > 0;
+            b.wall(key, front ? f0 : f1, front ? f1 : f0, top - fh * 0.95, top - fh * 0.05, [0, 0, 1, 1]);
+          }
+        }
         for (const pl of cn.pillars ?? []) {
           const pw = pl.w ?? 0.4;
           const pc: V2 = [A[0] + t[0] * pl.u + (nn[0] * pw) / 2, A[1] + t[1] * pl.u + (nn[1] * pw) / 2];

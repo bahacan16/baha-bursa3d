@@ -1315,7 +1315,7 @@
   "KATLAR: floorHs [4.0, 5.4, 5.4, 2.4]: K1 = teras döşemesi 4.0 (korkuluk üst 5.0), kutu çerçeve alt bandı ≈5.9–6.4, dama 6.35–13.85 (orta açık bant 9.6–9.98), üst çerçeve 13.85–14.9 + beyaz harpuşta 14.9–15.3; K3 (doğu/batı) 15.3–17.2 geri çekik koyu cam + koyu gri kolonlar; tabla 17.2–18.2 (üstünde gri boru korkuluk ≈0.8 m — çizilmedi, parapet yok). Doğu podyumu kaldırımdan ≈0.9 m yüksek (3 basamak, sokak katmanı).",
   "RENKLER: kutu çerçevesi koyu gri ACP #5f6771 (doğu, bulutlu) / #565a59 (güney, güneşli); dama: açık gri-mavi #90a4a7, orta mavi #3367ab, lacivert #233a69 (doğu, bulutlu; tek tek hücre örneklemesi, ağaç arkası hücreler \"?\" = #56708f ortalama, görülmedi); batı beyaz sıva gölgede #a4aaab → güneşli tahmin #d2d6d8, koyu bantlar gölgede #303b42 → #3e4a52; zemin kat saçak alnı: BKM koyu #363936, Levrek açık gri #c2c3c2, BK #b4b8af, Starbucks beyaz; teras korkulukları: güney/batı beyaz yatay boru #e6e7e4, BK/doğu koyu #414537.",
   "TABELALAR (kenar başına): e5 güney — BKM / Kitap / Kırtasiye / Kafe kanal harfleri, Levrek (balık konturlu) + \"☎ 0224 413 87 07\", BURGER KING + 2 yuvarlak logo; kutu alt bandında 17 ince büyük rakam \"8 6 9 1 6 3 0 0 8 2 0 0 9 1 … 0 1 2\" (4 rakam TIFFANY afişi arkasında görülmedi); kutu üstünde MR.D.I.Y. (sarı ışıklı kutu), PORLAND (gri pano, serif), mavi (lacivert-gri ışıklı kutu); asılı afişler: bkmkitap (kırmızı/mavi, 4 parça), MR.DIY 12 kategorili sarı afiş + \"2. KATTAYIZ!\", \"TIFFANY & TOMATO / 1. / KATTA / AÇILMIŞTIR\" (+ fotoğraf bölümü renk blokları). e6 doğu — BURGER KING + 2 logo, Starbucks logo + STARBUCKS; çatı: \"bulvarözlüce\" (perfore beyaz pano, lacivert), \"bkmkitap\" (beyaz lamelli çerçeve). e8 giriş — kapı üstü \"bulvarözlüce\", portal \"bulvarözlüce / Alışveriş Ve Yaşam Merkezi\". e10 — Vivaldi (2 rozet), addax, \"Nac…o…lu\" (altın el yazısı, kısmen okunamadı), çatı \"eğlenjoy\" (+ mor artı). e0 — \"addax\" (koyu gri). e4 — BKM Kitap Kırtasiye Kafe.",
-  "v9 (pending → veri): podyum parapet korkuluğu kenar bazında (massing rest roof.parapet.edgeRails): doğu kenarlar e6 (BK) ve e10 (addax) açık gri yuvarlak küpeşte #c1c8c9 + 5 ince koyu yatay çubuk #1f282b (≈0.15 m arayla) + koyu dikmeler ≈1.5 m, yükseklik ≈0.95 (NkuAAQDM / 1Re88 f22); güney/batı beyaz boru kaldı."
+  "v9 (pending → veri): podyum parapet korkuluğu kenar bazında (massing rest roof.parapet.edgeRails): doğu kenarlar e6 (BK) ve e10 (addax) açık gri yuvarlak küpeşte #c1c8c9 + 5 ince koyu yatay çubuk #1f282b (≈0.15 m arayla) + koyu dikmeler ≈1.5 m, yükseklik ≈0.95 (NkuAAQDM / 1Re88 f22); güney/batı beyaz boru kaldı. Parapet h 0.05 → 0.06: üretici parapeti yalnız h > 0.05 ise çiziyor — v8’de yazılan podyum korkuluğu (beyaz boru) hiç çizilmiyordu."
  ],
  "pending": [
   {
@@ -1504,7 +1504,7 @@
      "eave": 0.05,
      "fasciaH": 0.05,
      "parapet": {
-      "h": 0.05,
+      "h": 0.06,
       "rail": "tube",
       "railC": "#e6e7e4",
       "railH": 0.95,

@@ -2104,6 +2104,13 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       );
       mats[k] = m;
     }
+  // v9: ölçülen tonlu çakıl (sokak / site alanı `color`): düz çakıl malzemesi o tonda
+  for (const k of b.keys())
+    if (k.startsWith('spGravel@') && !mats[k] && mats.spGravel) {
+      const m = (mats.spGravel as THREE.MeshStandardMaterial).clone();
+      m.color.set(k.slice(9));
+      mats[k] = m;
+    }
   upgradeRealMaterials(mats, o.base);
   extraMats.roadFill = o.roadMaterial ?? mats.drive;
   atlas.finalize(b, extraMats);

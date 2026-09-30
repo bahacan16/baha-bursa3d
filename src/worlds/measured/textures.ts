@@ -1370,6 +1370,39 @@ function drawIcon(
     g.quadraticCurveTo(-s * 0.08, s * 0.1, -s * 0.2, s * 0.42);
     g.quadraticCurveTo(-s * 0.36, s * 0.05, -s * 0.3, -s * 0.25);
     g.fill();
+  } else if (kind === 'palm') {
+    // v9: palmiye (KuveytTürk amblemi): hafif kavisli gövde + 7 yay yaprak + hurma salkımı (stilize)
+    g.lineCap = 'round';
+    g.lineWidth = s * 0.07;
+    g.beginPath();
+    g.moveTo(-s * 0.02, s * 0.45);
+    g.quadraticCurveTo(s * 0.06, s * 0.1, 0, -s * 0.12);
+    g.stroke();
+    const leaf = (a: number, L: number) => {
+      const ex = Math.cos(a) * L;
+      const ey = -s * 0.12 + Math.sin(a) * L;
+      const mx = Math.cos(a) * L * 0.5 - Math.sin(a) * s * 0.08;
+      const my = -s * 0.12 + Math.sin(a) * L * 0.5 - s * 0.1;
+      g.beginPath();
+      g.moveTo(0, -s * 0.12);
+      g.quadraticCurveTo(mx, my - s * 0.05, ex, ey);
+      g.quadraticCurveTo(mx, my + s * 0.04, 0, -s * 0.1);
+      g.fill();
+    };
+    for (const [a, L] of [
+      [-Math.PI / 2, 0.3],
+      [-Math.PI * 0.72, 0.36],
+      [-Math.PI * 0.28, 0.36],
+      [-Math.PI * 0.92, 0.38],
+      [-Math.PI * 0.08, 0.38],
+      [Math.PI * 0.85, 0.34],
+      [Math.PI * 0.15, 0.34],
+    ] as [number, number][])
+      leaf(a, L * s);
+    g.beginPath();
+    g.arc(-s * 0.05, -s * 0.04, s * 0.045, 0, Math.PI * 2);
+    g.arc(s * 0.05, -s * 0.03, s * 0.045, 0, Math.PI * 2);
+    g.fill();
   } else if (kind === 'star') {
     g.beginPath();
     for (let k = 0; k < 10; k++) {
@@ -1503,7 +1536,10 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
     const s0 = H * 0.8;
     drawIcon(g, o.icon, H * 0.1 + s0 / 2, H / 2, s0, o.iconC ?? o.fg);
     x0 = H;
-  } else if (o.icon && round) drawIcon(g, o.icon, W / 2, H * 0.28, H * 0.3, o.iconC ?? o.fg);
+  } else if (o.icon && round && !o.text && !o.lines?.length)
+    // v9: yazısız yuvarlak amblem: simge ortada, büyük (ör. KuveytTürk palmiyesi)
+    drawIcon(g, o.icon, W / 2, H / 2, Math.min(W, H) * 0.68, o.iconC ?? o.fg);
+  else if (o.icon && round) drawIcon(g, o.icon, W / 2, H * 0.28, H * 0.3, o.iconC ?? o.fg);
   const fam = famOf(o.font);
   // Ölçülen büyük harf yüksekliği → piksel (Arial büyük harf ≈ 0.72 em)
   const capPx = o.capH && o.capH > 0.01 && o.h > 0.01 ? ((o.capH / 0.72) * H) / o.h : null;

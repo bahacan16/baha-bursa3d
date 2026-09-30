@@ -639,6 +639,23 @@ function centroid(r: V2[]): V2 {
   return [x / r.length, z / r.length];
 }
 
+/** v9: ölçülen ton ya da [a, b] ton aralığı → ortalama ton (sRGB doğrusal ortalama değil, bileşen ortalaması) */
+export function toneOf(v: string | [string, string] | undefined | null): string | null {
+  const ok = (h: unknown): h is string => typeof h === 'string' && /^#[0-9a-f]{6}$/i.test(h);
+  if (ok(v)) return v.toLowerCase();
+  if (Array.isArray(v) && v.length === 2 && ok(v[0]) && ok(v[1])) {
+    const c = (h: string, i: number) => parseInt(h.slice(1 + i * 2, 3 + i * 2), 16);
+    return `#${[0, 1, 2]
+      .map((i) =>
+        Math.round((c(v[0], i) + c(v[1], i)) / 2)
+          .toString(16)
+          .padStart(2, '0'),
+      )
+      .join('')}`;
+  }
+  return null;
+}
+
 function openRing(r: V2[]): V2[] {
   const o = r.map((p) => [p[0], p[1]] as V2);
   if (o.length > 3) {
@@ -757,7 +774,13 @@ export function buildSitePlan(
     if (a.kind === 'pool') return;
     // Kuru / sararmış çim (ölçüm `dry` + `color`): çim dokusu ölçülen tonla (index.ts lawn@ çeşidi)
     const aa = a as SiteArea & { dry?: boolean; color?: string };
-    const key = a.kind === 'lawn' && hexOk(aa.color) ? `lawn@${aa.color.toLowerCase()}` : areaKey(a);
+    // v9: ölçülen tonlu çakıl / toprak (gravel `color`) → spGravel@ çeşidi (index.ts)
+    const key =
+      a.kind === 'lawn' && hexOk(aa.color)
+        ? `lawn@${aa.color.toLowerCase()}`
+        : a.kind === 'gravel' && toneOf(aa.color as string | [string, string] | undefined)
+          ? `spGravel@${toneOf(aa.color as string | [string, string] | undefined)}`
+          : areaKey(a);
     const inner = pools.filter((p) => insidePoly(a.poly, ...centroid(p.poly))).map((p) => p.poly);
     // v8: kaldırım kotundaki sert zemin (level ≈ bordür kotu, ör. köşe meydanı) kaldırım bantlarıyla aynı kotta
     // (+4 mm); önceden yığılan ofsetlerle (+0.11) kaldırımın üstünde duruyordu

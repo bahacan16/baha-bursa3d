@@ -932,6 +932,8 @@ export interface CParapet {
   coping?: { h: number; over?: number; color?: string | null } | null;
   /** Parapet dış yüzünün alt bandı (ör. 0.5 m beyaz döşeme alnı) */
   band?: { h: number; color: string } | null;
+  /** v9: duvar üstünü aşan açıklıklar (giydirme cam) parapetin dış yüzünü keser */
+  glassUp?: boolean | null;
   /** v9 (tube): küpeşte rengi, ara çubuk sayısı / aralığı, dikme aralığı */
   railTopC?: string | null;
   rows?: number | null;
@@ -2959,7 +2961,18 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const yA = Math.max(Y0, op.y0);
         const yB = Math.min(Y1, op.y1);
         if (rb - ra < 0.02 || yB - yA < 0.02) continue;
-        cutFace(b, key, Pb, i, off, rectRing([ra, yA, rb, yB]), [opRing(op as Opening)], E[i].n, false, E[i].s0);
+        cutFace(
+          b,
+          key,
+          Pb,
+          i,
+          off,
+          rectRing([ra, yA, rb, yB]),
+          [opRing(op as Opening)],
+          E[i].n,
+          false,
+          E[i].s0,
+        );
       }
       if (it.proud > 0.02) {
         b.quad(
@@ -4878,12 +4891,31 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       }
       // Yüksek/Ultra, harpuştasız parapet: dış üst kenar pahlı
       const pb = BEV > 0 && !copH ? Math.min(BEV, par.h * 0.3) : 0;
-      b.wall(pk, a, e, wallTop - 0.05, wallTop + par.h - pb, [
-        E[i].s0,
-        wallTop - 0.05,
-        E[i].s0 + len,
-        wallTop + par.h - pb,
-      ]);
+      // v9 (glassUp): duvar üstünü aşan açıklıklar (giydirme cam) parapetin dış yüzünü de keser — cam parapet
+      // yüzünde görünür (1550614219 KuveytTürk: cam 11.5'e, duvar üstü 10.37)
+      const upOps = par.glassUp
+        ? openings[i].filter((op) => op.y1 > wallTop + 0.02 && op.u1 > 0 && op.u0 < len)
+        : [];
+      if (upOps.length)
+        wallWithOpenings(
+          b,
+          (ii, u, off = 0) => P(ii, u, off + 0.02),
+          i,
+          0,
+          len,
+          E[i].s0,
+          wallTop - 0.05,
+          wallTop + par.h - pb,
+          upOps,
+          pk,
+        );
+      else
+        b.wall(pk, a, e, wallTop - 0.05, wallTop + par.h - pb, [
+          E[i].s0,
+          wallTop - 0.05,
+          E[i].s0 + len,
+          wallTop + par.h - pb,
+        ]);
       b.wall(pk, ei, ai, wallTop, wallTop + par.h, [0, 0, len, par.h]);
       const aT = pb > 0 ? P(i, 0, 0.02 - pb) : a;
       const eT = pb > 0 ? P(i, len, 0.02 - pb) : e;
@@ -6020,7 +6052,10 @@ function opRing(op: Opening): [number, number][] {
     // Saat yönü tersine: sol alt → sağ alt → sağ üst → sol üst; köşe başına 8 parça yay
     const corner = (c: string, cu: number, cy: number, a0: number) => {
       if (!cs.includes(c)) {
-        out.push([cu + Math.cos(a0 + Math.PI / 4) * Math.SQRT2 * r, cy + Math.sin(a0 + Math.PI / 4) * Math.SQRT2 * r]);
+        out.push([
+          cu + Math.cos(a0 + Math.PI / 4) * Math.SQRT2 * r,
+          cy + Math.sin(a0 + Math.PI / 4) * Math.SQRT2 * r,
+        ]);
         return;
       }
       for (let q = 0; q <= 8; q++) {

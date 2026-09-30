@@ -275,6 +275,11 @@ export interface ParapetSpec {
   rowGap?: number;
   postEvery?: number;
   /**
+   * v9: duvar üstünü (wallTop) aşan açıklıklar — kat çizgisine kırpılmayan (`stair`) giydirme cam — parapetin dış
+   * yüzünü de keser: cam parapet yüzünde görünür (1550614219 KuveytTürk camı 11.5'e, duvar üstü 10.37).
+   */
+  glassUp?: boolean;
+  /**
    * v9: kenar bazında korkuluk (DÜNYA noktasına ≤ 1.5 m en yakın kenar — kütle parçasında da kararlı): yukarıdaki
    * korkuluk alanlarının o kenardaki değerleri (ör. 1551814316 podyum: güney/batı beyaz boru, doğu açık gri küpeşte +
    * 5 koyu çubuk).
@@ -1175,7 +1180,15 @@ export interface Proj {
    * kemer: apex = u0 → sol yanı düşey, sağa inen çeyrek elips), kemer içi (intrados) rengi `revealC`. Açıklığın
    * arkası duvar (arkasındaki cam / teras ayrıca ölçülmediyse çizilmez).
    */
-  arch?: { u0: number; u1: number; y0?: number; top: number; spring?: number; apex?: number; revealC?: string };
+  arch?: {
+    u0: number;
+    u1: number;
+    y0?: number;
+    top: number;
+    spring?: number;
+    apex?: number;
+    revealC?: string;
+  };
 }
 
 /**
