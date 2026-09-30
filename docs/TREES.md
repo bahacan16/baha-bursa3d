@@ -6,7 +6,7 @@ ayrıştırma), `treelib.ts` (modeller), `leafcards.ts` (yaprak kartı atlası),
 `treefield.ts` (örnekleme + LOD), `vegetation.ts` (yerleştirme).
 
 Kaynaklar: Street View 2025-09 kareleri (`streetview-src/mertkent-2-etap`, `streetview-src/extra`; güneşli),
-kullanıcı fotoğrafları `streetview-src/user/` (2026-09, bulutlu/yağmurlu), ölçüm verisi
+yer fotoğrafları `streetview-src/user/` (2026-09, bulutlu/yağmurlu), ölçüm verisi
 `src/worlds/mertkent/data/{site,park,street}-plan.json`.
 
 **Kural (CLAUDE.md §0.1):** tür yalnızca görülen ağaca yazılır. Görülmeyen ağaç genel anahtarla kalır
@@ -16,7 +16,7 @@ kullanıcı fotoğrafları `streetview-src/user/` (2026-09, bulutlu/yağmurlu), 
 
 Renkler sRGB, `scripts/sample-foliage.mjs` ile: kare içindeki yaprak piksellerinin (gök/beyaz cephe/çok koyu hariç)
 parlaklık sırasına göre **güneşli** = en parlak %15, **orta** = %40–60, **gölge** = %10–25 ortalaması. "bulutlu"
-yazanlar kullanıcı fotoğraflarından (genel ışık düşük). Yaprak kartı albedosu güneşli değerin ~%85'i alındı
+yazanlar yer fotoğraflarından (genel ışık düşük). Yaprak kartı albedosu güneşli değerin ~%85'i alındı
 (ışık Street View'a kalibre).
 
 | Anahtar                       | Türkçe / Latince                                                                                   | 640 px SV karesinde tanıma                                                                                                                                      | Bölgede boy / taç Ø    | Yaprak rengi (güneşli / orta / gölge)                                                                  | Kabuk                     | Kanıt kareleri                                                                                                                                                                                       |
@@ -118,13 +118,13 @@ uzak silüet, hata yok (63 örnek mesh).
 ## Görülmedi / açık konular
 
 - Site içi orta çimdeki 10 "küçük süs ağacı" (h 3) ve A1/B blok önü çalıların türü: site içi Street View'da
-  görünmüyor. Kullanıcı fotoğraflarında bu çimlerde limoni servi konileri, parlak yapraklı çok gövdeli küçük
+  görünmüyor. Yer fotoğraflarında bu çimlerde limoni servi konileri, parlak yapraklı çok gövdeli küçük
   ağaçlar, saksıda küçük bir yelpaze palmiyesi, yuvarlak çiçeklikte avizeli (yuka benzeri) bitki var; konumları
   ölçülmediği için eşlenmedi → genel yaprak döken.
 - Güney kamelya çevresindeki iki ağaç (güneyde ıhlamur tipi, kuzeyde iri yuvarlak yapraklı) kullanıcı
   fotoğraflarında var, veride yok (konum ölçülmedi).
 - (-11.8, -72) "ince servi": üç SV karesinde (kgyF 240, h329R2 313, Y11WZ 273) bu kerteriz büyük sedir ve
-  ıhlamur tipi tacın arkasında; sütun servi görülmedi. Kullanıcı fotoğrafı (oyun parkı) yakınında genç bir sedir
+  ıhlamur tipi tacın arkasında; sütun servi görülmedi. Yer fotoğrafı (oyun parkı) yakınında genç bir sedir
   gösteriyor. Veri değiştirilmedi.
 - Kuzey park: ölçülmüş 220 ağacın çoğu genel (`deciduous` / `sapling`). SV'de top akasya, sabun ağacı ve açık
   taçlı başka türler karışık; yalnız zemin teması ölçülmüş noktayla ≤2.4 m eşleşen üç ağaca tür yazıldı.

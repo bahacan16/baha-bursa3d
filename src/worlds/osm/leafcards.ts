@@ -3,7 +3,7 @@ import * as THREE from 'three';
 /**
  * Tür başına yaprak kartı dokuları (canvas, çalışma anında çizilir) — 4×4 atlas, karo başına 512 px.
  * Kart tabanı karonun altı (dal ucu), tepe karonun üstüdür. Renkler Street View 2025-09 karelerinden ve
- * kullanıcı fotoğraflarından örneklenen yaprak tonlarıdır (docs/TREES.md "Renkler"); güneşli yamanın
+ * yer fotoğraflarından örneklenen yaprak tonlarıdır (docs/TREES.md "Renkler"); güneşli yamanın
  * ~%85'i albedo kabul edildi (ışık Street View'a kalibre).
  */
 
@@ -731,7 +731,7 @@ export function leafAtlas(size = 2048): THREE.CanvasTexture {
       { L: 60 * k, W: 37 * k, per: 6, side: 6, sub: 1, twig: '#5a4838', petiole: 0.2 },
     ),
   );
-  // 8 parlak yapraklı her dem yeşil: eliptik, koyu, parlak (kullanıcı fotoğrafları: havuz ve iç yol)
+  // 8 parlak yapraklı her dem yeşil: eliptik, koyu, parlak (yer fotoğrafları: havuz ve iç yol)
   tile(TILE.glossy, (c) =>
     tileBroad(
       c,
@@ -819,7 +819,7 @@ export function leafAtlas(size = 2048): THREE.CanvasTexture {
         needleTuft(c, main[i][0], main[i][1], 22, 30 * k, cols, r, -Math.PI / 2, Math.PI * 1.8, 2.2 * k);
     }
   });
-  // 13 limoni servi (Goldcrest): yumuşak, yukarı kalkık pullu sürgünler, limon yeşili uçlar (kullanıcı fotoğrafları)
+  // 13 limoni servi (Goldcrest): yumuşak, yukarı kalkık pullu sürgünler, limon yeşili uçlar (yer fotoğrafları)
   tile(TILE.goldcrest, (c) => {
     const r = mkRng(137);
     const col = { base: '#86a042', tip: '#a3ba4f', dark: '#67813a' };

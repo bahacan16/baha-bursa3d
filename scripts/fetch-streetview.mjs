@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Street View pilotu: bir sitenin (OSM landuse adı) bina cephelerini gören Street View karelerini indirir.
+// Street View indirme: bir sitenin (OSM landuse adı) bina cephelerini gören Street View karelerini indirir.
 // Anahtar yalnızca ortam değişkeninden okunur (GOOGLE_STREETVIEW_KEY, GitHub secret) — asla yazdırılmaz/kaydedilmez.
 // 1) Yollar boyunca ~10 m arayla ücretsiz metadata sorgusu → benzersiz panoramalar
 // 2) Her panoramadan hedef cepheleri gören yön/eğim kareleri (640², fov 90) — ücretli istekler

@@ -9,7 +9,7 @@
  * Tüketen: src/worlds/mertkent/realtex.ts (UV metre, repeat = 1 / size).
  *
  * Yöntem (CLAUDE.md §0: yalnız görülen; renkler fotoğraftan; hasar uydurulmaz):
- *  1. ÖLÇÜ — kullanıcı fotoğrafı 502sk-bati-bisiklet.jpg (ıslak, bulutlu, ~1 mm/px yakın alan) perspektiften metrik
+ *  1. ÖLÇÜ — yer fotoğrafı 502sk-bati-bisiklet.jpg (ıslak, bulutlu, ~1 mm/px yakın alan) perspektiften metrik
  *     üst görünüşe düzeltilir: sarı kılavuz şeridin iki kenarı (sarı piksel bölütleme, dayanıklı doğru uydurma) →
  *     yürüme yönü kaçış noktası V; bir doğru boyunca yer mesafesi s için 1/(y − Vy) = u0 + k·s (iğne deliği kamera,
  *     yuvarlanma ≈ 0). Karo derzleri ve taş kısa derzleri bu doğrusal ilişkiye oturur; şerit genişliği / taş dizisi
@@ -1126,7 +1126,7 @@ async function buildTactile(pool, mean) {
         if (P.d < chamfer) z -= chamfer - P.d;
         return z;
       },
-      // KARAR (kullanıcı fotoğrafları): çubuk üstleri daha temiz/açık, aralardaki düz taban kir tutuyor
+      // KARAR (yer fotoğrafları): çubuk üstleri daha temiz/açık, aralardaki düz taban kir tutuyor
       tint: (c, P) => {
         const onBar = P.dBar < TACT.top / 2;
         const f = onBar ? 1.03 : P.dBar < TACT.base / 2 ? 1.0 : 0.95;
@@ -1384,7 +1384,7 @@ async function main() {
     );
     return;
   }
-  // Site içi kemik taşı: renkler mevcut kalibrasyondan (c9bb320, kullanıcı fotoğrafları; site içi Street View yok)
+  // Site içi kemik taşı: renkler mevcut kalibrasyondan (c9bb320, yer fotoğrafları; site içi Street View yok)
   const siteGrey = ['#9d968e', '#a69f96', '#928b83', '#aca49b', '#978f86'];
   const siteRed = ['#a06d5f', '#aa7767', '#955f53', '#a87263'];
   const meanHex = (arr) => {

@@ -28,7 +28,7 @@ export function showStartScreen(
       const q = settings.ultra && settings.quality === 'high' ? 'ultra' : settings.quality;
       el.innerHTML = `<div class="screen-inner">
         <h1 class="title">Nilüfer <span>Walk</span></h1>
-        <p class="subtitle">Bursa · Nilüfer · 29 Ekim Mahallesi. Mertkent 2 ve çevresi gerçek ölçülerle modellendi;
+        <p class="subtitle">Bursa · Nilüfer · 29 Ekim Mahallesi. Sokaklar ve siteler gerçek ölçülerle modellendi;
         2 km'lik alanda üçüncü şahıs yürüyüş.</p>
         <button class="btn primary start-btn" data-testid="mode-osm">Başla ▸</button>
         <div class="panel">

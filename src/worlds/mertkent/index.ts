@@ -75,7 +75,7 @@ const ROAD_HALF: Record<string, number> = {
 const SITE_INSIDE: V2 = [-38, -92];
 
 /**
- * Mertkent 2. Etap ve çevresi — Street View karelerine bakılarak elle (kodla) modellenmiş bölüm.
+ * Ölçülmüş bölge (Mertkent 2. Etap dahil) — Street View karelerine bakılarak elle (kodla) modellenmiş bölüm.
  * OSM'den otomatik üretilen karşılıkları bu binalar için çizilmez.
  */
 export const MERTKENT_BUILDINGS = [1480041342, 1480041343, 1480041344, 1480041345, 1540901795, 1540901796];
@@ -705,10 +705,10 @@ function materials(base: string): Record<string, THREE.Material> {
     mkStep: std({ color: 0xc9c3b6, roughness: 0.7 }),
     mkEntryDoor: std({ map: T.entryDoorTexture(), roughness: 0.2, metalness: 0.4 }),
     // Street View'da güneşte ~#c0b19c (sıcak bej-gri), kiremit bant solgun
-    // KARAR: Nilüfer kaldırımı (kullanıcı fotoğrafları): gri beton tuğla 20×10, uzun kenar yol boyunca, şaşırtmalı;
+    // KARAR: Nilüfer kaldırımı (yer fotoğrafları): gri beton tuğla 20×10, uzun kenar yol boyunca, şaşırtmalı;
     // taşlar arası belirgin ton farkı. Kaldırımlarda kırmızı bant yok (yalnız gri + sarı kılavuz [+ mavi bisiklet]).
     spPaverGrey: paverMat(['#9a9792', '#a19e98', '#938f8a', '#9d9994', '#8b8883', '#a5a19b'], 21, -5),
-    // Site içi donatılar (kullanıcı fotoğrafları, sitekit.ts)
+    // Site içi donatılar (yer fotoğrafları, sitekit.ts)
     kamSlab: granularMaterial('#b3afa8', 44, { roughness: 0.95 }),
     kamPost: std({ color: 0xcf9282, roughness: 0.8 }),
     kamWood: std({ color: 0x7b4f33, roughness: 0.75 }),
@@ -766,7 +766,7 @@ function materials(base: string): Record<string, THREE.Material> {
         polygonOffsetUnits: -6,
       });
     })(),
-    // Site içi kemik kilit taşı (kullanıcı fotoğrafları): gri + kırmızı bant/meydan
+    // Site içi kemik kilit taşı (yer fotoğrafları): gri + kırmızı bant/meydan
     spSiteGrey: boneMat(['#9d968e', '#a69f96', '#928b83', '#aca49b', '#978f86'], 41, -5),
     spSiteRed: boneMat(['#a06d5f', '#aa7767', '#955f53', '#a87263'], 42, -5),
     spPaverRed: paverMat(['#938882', '#9b908a', '#8b807a', '#968b85', '#877c76'], 22, -5),
@@ -842,7 +842,7 @@ function materials(base: string): Record<string, THREE.Material> {
       ]),
     ),
     spPlayBlue: std({ color: 0x2b6cc4, roughness: 0.4 }),
-    // Bisiklet şeridi (kullanıcı fotoğrafı, 502. Sk.): mat mavi asfalt boyası
+    // Bisiklet şeridi (yer fotoğrafı, 502. Sk.): mat mavi asfalt boyası
     spBike: std({
       color: 0x56758f,
       roughness: 0.9,
@@ -1004,7 +1004,7 @@ function materials(base: string): Record<string, THREE.Material> {
       polygonOffsetFactor: -6,
       polygonOffsetUnits: -6,
     }),
-    // Kılavuz karo 40 cm (kullanıcı fotoğrafları): şerit yerel UV'si (metre) ile döşenir
+    // Kılavuz karo 40 cm (yer fotoğrafları): şerit yerel UV'si (metre) ile döşenir
     tactile: (() => {
       if (typeof document === 'undefined') return std({ color: 0xcf9f3c });
       const t = tactileTextures();

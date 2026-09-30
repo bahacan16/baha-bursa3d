@@ -4,7 +4,7 @@ import { loadSettings } from '../../core/settings';
 /**
  * GERÇEK ZEMİN MALZEMELERİ — bu sokaktan ölçülmüş dokular (`scripts/real-textures.mjs` → `public/textures/real/`).
  *
- * Ölçüler (kullanıcı fotoğrafı 502sk-bati-bisiklet.jpg metrik üst görünüşe düzeltilerek; Street View 2019/2025):
+ * Ölçüler (yer fotoğrafı 502sk-bati-bisiklet.jpg metrik üst görünüşe düzeltilerek; Street View 2019/2025):
  *  - Gri / kırmızı kilit taşı: modül 200 × 100 mm (ölçülen en-boy 1.97), uzun kenar yol boyunca, yarım şaşırtmalı;
  *    derz ≈3 mm kum, taş kenarında ≈5 mm 45° pah (koyu bant ≈13 mm). Taşlar arası ton CV 0.07 (kuru Street View
  *    blok ölçümü 0.077–0.101, derz payı dahil üst sınır).
@@ -52,10 +52,10 @@ export const REAL_SPECS: Record<string, RealSpec> = {
   spSiteGrey: { dir: 'bone-grey', size: [2, 1.946], pom: 0.009 },
   spSiteRed: { dir: 'bone-red', size: [2, 1.946], pom: 0.009 },
   curb: { dir: 'kerb', size: [0.5, 0.5], triplanar: true },
-  // Site içi bordür (kullanıcı fotoğrafları, #8c8984) ve krem kenar taşı (ölçüm notu, #cfcbc2): aynı beton tanesi
+  // Site içi bordür (yer fotoğrafları, #8c8984) ve krem kenar taşı (ölçüm notu, #cfcbc2): aynı beton tanesi
   siteKerb: { dir: 'kerb', size: [0.5, 0.5], triplanar: true, tint: ratio(0x8c8984) },
   edging: { dir: 'kerb', size: [0.5, 0.5], triplanar: true, tint: ratio(0xcfcbc2) },
-  // 502. Sk. batı: bisiklet şeridi bordürünün yol yüzü + üstünün dış yarısı beyaz boyalı (kullanıcı fotoğrafı, SV)
+  // 502. Sk. batı: bisiklet şeridi bordürünün yol yüzü + üstünün dış yarısı beyaz boyalı (yer fotoğrafı, SV)
   kerbPaint: { dir: 'kerb-paint', size: [0.5, 0.5], triplanar: true },
 };
 

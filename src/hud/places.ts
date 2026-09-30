@@ -1,4 +1,5 @@
 import { ringCentroid, type OsmWorldData, type Pt } from '../worlds/osm/parse';
+import { startPoint } from '../core/start';
 
 export interface Place {
   label: string;
@@ -36,7 +37,8 @@ const KNOWN: Known[] = [
 const STATION_KINDS = new Set(['station', 'stop', 'halt', 'tram_stop']);
 
 export function findPlaces(d: OsmWorldData, maxR = 1000): Place[] {
-  const out: Place[] = [{ label: '502. Sokak (başlangıç)', x: 0, z: 0 }];
+  const st = startPoint(d.centerSource !== 'fixture');
+  const out: Place[] = [{ label: st.label, x: st.x, z: st.z }];
   const inRange = (p: Pt) => Math.hypot(p[0], p[1]) <= maxR - 5;
   for (const k of KNOWN) {
     const match = (name: string | undefined) => !!name && k.must.every((m) => norm(name).includes(m));

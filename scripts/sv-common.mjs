@@ -1,4 +1,4 @@
-// Street View pilotu için ortak geometri yardımcıları (indirme + cephe bake).
+// Street View indirme/bake için ortak geometri yardımcıları (indirme + cephe bake).
 // Koordinatlar oyunun yerel ENU metre uzayı: +X doğu, −Z kuzey.
 import { parseOsm } from '../src/worlds/osm/parse.ts';
 
@@ -112,7 +112,7 @@ export function headingOf(dx, dz) {
   return ((Math.atan2(dx, -dz) * 180) / Math.PI + 360) % 360;
 }
 
-/** Pilot alanını ve hedef binaları seç. */
+/** Seçilen alanı ve hedef binaları seç. */
 export function pilotArea(osm, areaName, buffer) {
   const area = osm.ways.find((w) => w.t && w.t.name === areaName && !w.t.highway);
   if (!area) throw new Error(`Alan bulunamadı: ${areaName}`);

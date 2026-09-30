@@ -13,7 +13,7 @@ import { wordTone } from './streetKinds';
 
 const KERB_W = 0.15;
 /**
- * Bordür birim boyu (m): kullanıcı fotoğrafı 502sk-bati-bisiklet.jpg metrik düzeltmede enine derzler ≈0.70–0.73 m
+ * Bordür birim boyu (m): yer fotoğrafı 502sk-bati-bisiklet.jpg metrik düzeltmede enine derzler ≈0.70–0.73 m
  * (aynı görüntüde taş modülü 0.200 m), Street View JDIg_180_-50 (DA-2, 2019) ve zoTd7_256_-15_40 (DA-1, 2025)
  * ≈0.71–0.74 m (`scripts/real-textures.mjs measure`). Önceden 1 m idi.
  */
@@ -122,7 +122,7 @@ function layoutOf(sw: {
   }
   switch (sw.id) {
     case 'east-west-side':
-      // 502. Sk. batı: gri kilit taşı, ortada sarı kılavuz, yol tarafında mavi bisiklet şeridi (kullanıcı fotoğrafı)
+      // 502. Sk. batı: gri kilit taşı, ortada sarı kılavuz, yol tarafında mavi bisiklet şeridi (yer fotoğrafı)
       return {
         bands: [{ v0: KERB_W, v1: W, key: 'spPaverGrey', h }],
         tactile: [(KERB_W + W) / 2, 0.4],
@@ -1671,7 +1671,7 @@ function buildStreet(
       };
       if (lay.bands[0]?.v0 >= KERB_W - 1e-6) kerbLine(0, kerbH);
       for (const [v, kh] of lay.kerbs ?? []) kerbLine(v, kh);
-      // Beyaz boyalı bordür (ölçüm: kerbPaint "white" — 502. Sk. batı, bisiklet şeridi kenarı; kullanıcı fotoğrafı
+      // Beyaz boyalı bordür (ölçüm: kerbPaint "white" — 502. Sk. batı, bisiklet şeridi kenarı; yer fotoğrafı
       // 502sk-bati-bisiklet.jpg düzeltilmiş üst görünüşte üstün iç ~7 cm'i gri, dışı + yuvarlak kenar + yol yüzü beyaz;
       // Street View U-Oz8…_273_-5_40 yol yüzünü beyaz gösteriyor). Yol kotunda ayrı beyaz çizgi yok.
       const paintKerb = sw.kerbPaint === 'white' && kerbH >= 0.05 && lay.bands[0]?.v0 >= KERB_W - 1e-6;
@@ -1691,7 +1691,7 @@ function buildStreet(
       }
       // Bisiklet şeridi (yol kotunda mavi boya) + dış kenarda beyaz kesikli çizgi
       // KARAR: bisiklet şeridi boyası çizilmez — iki eleştirmen turunda da gerçek karelerde mavi boya seçilemedi
-      // KARAR: kullanıcı fotoğrafı (502. Sk.) mavi şeridi açıkça gösteriyor → varsayılan açık (?nobike kapatır).
+      // KARAR: yer fotoğrafı (502. Sk.) mavi şeridi açıkça gösteriyor → varsayılan açık (?nobike kapatır).
       // Bordür dibinde ince beyaz çizgi + dış kenarda sürekli beyaz çizgi (12 cm).
       if (lay.bike && SHOW_BIKE) {
         strip(-lay.bike, 0, 'spBike', 0.075);

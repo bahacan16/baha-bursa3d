@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Street View karelerinden pilot alanın gerçek fotoğraf dokularını "bake" eder (ağ gerektirmez).
+// Street View karelerinden seçilen alanın gerçek fotoğraf dokularını "bake" eder (ağ gerektirmez).
 // 1) Cepheler: her duvar tek panoramadan yansıtılır; kaplanmayan/uyumsuz duvarlar aynı binanın en temiz
 //    fotoğraflı cephesinden döşenir ("tahmini" ama gerçek doku) → facades.jpg + facades.json
 // 2) Site çitleri/çalılar: kaldırım dış kenarı boyunca şeritler; gökyüzü saydam → fences.png + fences.json

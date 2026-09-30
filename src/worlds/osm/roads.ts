@@ -18,7 +18,7 @@ const ASPHALT: Rgb = [0.27, 0.26, 0.245];
 const ASPHALT_SERVICE: Rgb = [0.3, 0.29, 0.275];
 const PAVER: Rgb = [0.6, 0.5, 0.38];
 const PATH: Rgb = [0.6, 0.53, 0.42];
-// Nilüfer bisiklet yolları mavi boyalı (kullanıcı fotoğrafı, 502. Sk.)
+// Nilüfer bisiklet yolları mavi boyalı (yer fotoğrafı, 502. Sk.)
 const CYCLE: Rgb = [0.16, 0.26, 0.38];
 // Kaldırım rengi dokudan (Nilüfer tipi: gri tuğla + sarı kılavuz, materials.ts) → köşe rengi beyaz
 const SIDEWALK: Rgb = [1, 1, 1];

@@ -7,6 +7,7 @@ import { isMobileDevice } from '../../core/settings';
 import { GoogleWorld } from './tiles';
 import { showError } from '../../ui/screens';
 import { OsmSoundScene } from '../../env/sound/osmscene';
+import { startPoint } from '../../core/start';
 
 function calibration(): { x: number; z: number } | undefined {
   const v = new URLSearchParams(location.search).get('gcal');
@@ -38,9 +39,10 @@ export async function startGoogle(
   world.sound = new OsmSoundScene(osm, { real: data.centerSource !== 'fixture' });
   game.setWorld(world);
   // Yüksekten başla, kamera aşağı baksın
-  game.teleport(0, 450, 0);
+  const st = startPoint(data.centerSource !== 'fixture');
+  game.teleport(st.x, 450, st.z);
   game.follow.pitch = -0.6;
-  world.spawner.reset(0, 0);
+  world.spawner.reset(st.x, st.z);
   const hud = new Hud(game, osm);
   if (game.debug) (window as unknown as { __hud: Hud }).__hud = hud;
 

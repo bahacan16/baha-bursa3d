@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { startPoint } from '../../core/start';
 import type { IWorld } from '../world';
 import type { Quality } from '../../core/settings';
 import { PolygonCollisionWorld } from './collision';
@@ -353,7 +354,7 @@ export class OsmWorld implements IWorld {
     } catch {
       /* yoksa rastgele dağıtım */
     }
-    // Elle modellenmiş bölge (Mertkent 2 + Özhan): OSM'den otomatik bina üretilmez
+    // Elle modellenmiş (ölçülmüş) binalar: OSM'den otomatik bina üretilmez
     const real = simple.centerSource !== 'fixture';
     const handmade = real && !new URLSearchParams(location.search).has('nohand');
     const simpleBuild = handmade ? { ...simple, ways: dropHandmadeWays(simple.ways, HANDMADE_IDS) } : simple;
@@ -433,9 +434,10 @@ export class OsmWorld implements IWorld {
     return g;
   }
 
-  /** Merkezde (502. Sokak orta noktası) doğ; bina içindeyse spiral arama ile boş yer bul. */
+  /** Başlangıç noktasında doğ (`core/start.ts`); bina içindeyse spiral arama ile boş yer bul. */
   private findSpawn(): void {
-    const p = this.findFreeSpot(0, 0);
+    const st = startPoint(this.data.centerSource !== 'fixture');
+    const p = this.findFreeSpot(st.x, st.z);
     this.spawn.set(p.x, this.collision.ground(p.x, p.z, 0) ?? 0, p.z);
   }
 

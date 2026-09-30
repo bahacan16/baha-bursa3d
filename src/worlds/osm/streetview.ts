@@ -25,7 +25,7 @@ interface FenceSeg {
   n: [number, number];
 }
 
-/** Street View'dan bake edilmiş pilot alanlar (public/streetview/<slug>/) */
+/** Street View'dan bake edilmiş alanlar (public/streetview/<slug>/) */
 export const STREETVIEW_SLUGS = ['mertkent-2-etap'];
 
 const MIN_COVER = 0.5;
@@ -93,7 +93,7 @@ async function json<T>(url: string): Promise<T | null> {
 }
 
 /**
- * Pilot alanın gerçek fotoğraf dokularını ekler:
+ * Bake edilmiş alanın gerçek fotoğraf dokularını ekler:
  * - cepheler: bake edilmiş atlas, ilgili duvarların 5 cm önünde ince kabuk (fotoğraf + aynı binadan döşenmiş)
  * - site çitleri: bordür + fotoğraf dokulu çalı/panel çit kutusu (çarpışmalı)
  */

@@ -226,7 +226,7 @@ export function surveyVegetation(): {
   ) => fixedTrees.push(x, z, type, h ?? 0, r ?? 0, typeof cb === 'number' && cb > 0 ? cb : 0);
   for (const p of [...(SITE_PLAN.points ?? []), ...(PARK_PLAN.points ?? [])]) {
     if (!treeLibPoint(p)) continue;
-    // Konik servi noktaları (tür alanı yok): kullanıcı fotoğraflarındaki limoni servi sıraları
+    // Konik servi noktaları (tür alanı yok): yer fotoğraflarındaki limoni servi sıraları
     const sp = p.kind === 'cone' ? (p.species ?? 'goldcrest') : p.species;
     add(
       p.x,
@@ -501,7 +501,7 @@ function areaKey(a: SiteArea): string {
     case 'deck':
       return /mermer|marble|kenar taşı|coping/.test(m) ? 'coping' : 'deck';
     case 'playground':
-      // Kullanıcı fotoğrafı: koyu mor-kahve 50 cm kauçuk karo
+      // Yer fotoğrafı: koyu mor-kahve 50 cm kauçuk karo
       if (/karo|tile/.test(m)) return 'rubberTile';
       if (/mor|purple/.test(m)) return 'spRubberPurple';
       if (/gri|grey|gray/.test(m)) return 'spRubberGrey';
@@ -794,7 +794,7 @@ export function buildSitePlan(
           break;
         }
         case 'parking-bay':
-          // Site içi park çizgileri sarı (kullanıcı fotoğrafı)
+          // Site içi park çizgileri sarı (yer fotoğrafı)
           b.box(
             /beyaz|white/.test(l.note ?? '') ? 'spPaint' : 'spPaintYellow',
             // `base`: çizginin boyandığı yüzeyin kotu (ör. 0.15 m kaldırım kotundaki meydan park yeri); yoksa +0.07

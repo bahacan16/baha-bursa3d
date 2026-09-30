@@ -20,7 +20,7 @@ function canvasTexture(
 }
 
 /**
- * KARAR: Nilüfer kaldırımı (kullanıcı fotoğrafları): gri beton tuğla 10×20 cm, uzun kenar yol boyunca, şaşırtmalı;
+ * KARAR: Nilüfer kaldırımı (yer fotoğrafları): gri beton tuğla 10×20 cm, uzun kenar yol boyunca, şaşırtmalı;
  * ortada 40 cm sarı kılavuz karo (yürüme yönünde kabartma çubuklar). UV: u = yoldan uzaklık (0..SIDEWALK_W m),
  * v = yol boyunca metre → doku 2 m × 1.2 m (3 karo).
  */

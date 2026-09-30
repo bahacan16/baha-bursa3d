@@ -74,7 +74,7 @@ const ellipsoid =
     1 - ((x * x + z * z) / (rx * rx) + ((y - cy) * (y - cy)) / (ry * ry));
 
 /**
- * Tür tanımları. Parametreler ez-tree ön ayarlarından türetildi ve Street View / kullanıcı fotoğraflarıyla
+ * Tür tanımları. Parametreler ez-tree ön ayarlarından türetildi ve Street View / yer fotoğraflarıyla
  * karşılaştırılarak ayarlandı (docs/TREES.md). KARAR: her tür için tek model; örnekler döndürme, ölçek ve renk
  * sapmasıyla çeşitlenir.
  */

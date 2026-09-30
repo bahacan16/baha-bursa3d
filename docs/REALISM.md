@@ -45,7 +45,7 @@ bir PC GPU'su gereksin." Bu dosya neyin neden yapıldığını/yapılacağını 
 | Malzeme   | Cam başına hafif eğiklik (yansıma bükülmesi), camda leke/toz pürüzlülüğü                                                                    | ⏳                            |
 | Malzeme   | Pencere arkasında derinlik (iç mekân paralaksı: yalnız oda derinliği/tavan, eşya uydurulmaz)                                                | ⏳                            |
 | Geometri  | Pah kırılmış kenarlar: balkon döşemesi, denizlik, harpuşta, bordür (Ultra)                                                                  | ⏳ üretici                    |
-| Geometri  | Eski ölçümler (Mertkent-2 ve çevresi) Doğan Avcıoğlu standardına: kat kat balkon/perde/renk                                                 | 🔄 ajanlar (13/15 bina bitti) |
+| Geometri  | Eski ölçümler (15 blok + çevre sokakları) Doğan Avcıoğlu standardına: kat kat balkon/perde/renk                                             | 🔄 ajanlar (13/15 bina bitti) |
 | Geometri  | Üretici v6: perde rengi, çatı pencereleri, ferforje parmaklık, balkon altı spot, duvar aplikleri, bayraklar… (`pending` listeleri)          | ⏳                            |
 | Bitki     | Gerçek ağaç türleri (servi, leylandi, palmiye, çam, çınar, ıhlamur, akasya…) — Street View'da görülenler                                    | 🔄 ajan                       |
 | Hayat     | Güvercin sürüleri, dalgalanan bayraklar, açık pencerede perde                                                                               | ⏳                            |
@@ -55,6 +55,6 @@ bir PC GPU'su gereksin." Bu dosya neyin neden yapıldığını/yapılacağını 
 
 ## Doğrulama ilkesi
 
-Her kalem Street View / kullanıcı fotoğrafıyla aynı noktadan karşılaştırılır (`compare.tmp.mjs` + görüş listeleri,
+Her kalem Street View / yer fotoğrafıyla aynı noktadan karşılaştırılır (`compare.tmp.mjs` + görüş listeleri,
 `docs/compare/`). Ölçülebilen her şey ölçülür (renk ΔE, güneş/gölge oranı, desen ölçüsü); "daha güzel" değil "daha
 gerçek" hedeflenir.

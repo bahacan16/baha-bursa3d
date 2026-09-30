@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import type { Builder, V2, V3 } from './builder';
 
 /**
- * Mertkent 2 site içi donatıları — kullanıcının site içinden çektiği fotoğraflara göre (streetview-src/user/site-*.jpg):
+ * Ölçülmüş site içi donatıları (Mertkent 2 vb.) — site içi yer fotoğraflarına göre (streetview-src/user/site-*.jpg):
  * kamelya (somon kare dikmeler, kahve oluklu saçak, kiremit-kahve shingle kırma çatı, ferforje korkuluk, iç banklar),
  * oyun grubu (yeşil çatılı kule, mavi spiral + kırmızı düz kaydırak, sarı salıncak, tahterevalli), yeşil panel çit,
  * çift küreli bahçe lambası, sarı ayaklı mavi çöp kovası, gül, konik servi, halı saha çiti.
@@ -326,7 +326,7 @@ export function roseBush(b: Builder, c: V3, seed: number): void {
   }
 }
 
-/** Konik servi / leylandi (sarımsı yeşil, kullanıcı fotoğrafları): taban yarıçapı r, boy h */
+/** Konik servi / leylandi (sarımsı yeşil, yer fotoğrafları): taban yarıçapı r, boy h */
 export function cypressCone(b: Builder, c: V3, r: number, h: number): void {
   const g = new THREE.ConeGeometry(r, h * 0.92, 10, 3);
   g.translate(c[0], c[1] + h * 0.46 + 0.08, c[2]);

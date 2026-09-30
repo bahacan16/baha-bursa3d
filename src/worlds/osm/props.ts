@@ -142,7 +142,7 @@ export function buildProps(d: OsmWorldData, surveyed: readonly PropZone[] = []):
         const x = cx + nx * off * side;
         const z = cz + nz * off * side;
         if (nearJunction || onCarriage(x, z) || inBuilding(x, z)) continue;
-        // KARAR: Mertkent 2 çevresi elle ölçüldü (street-plan.json); oradaki tahmini lambalar çizilmez
+        // KARAR: ölçülmüş bölge elle ölçüldü (street-plan.json); oradaki tahmini lambalar çizilmez
         if (inPropZone(surveyed, x, z)) continue;
         if (placed.some((p) => Math.abs(p[0] - x) < 12 && Math.abs(p[1] - z) < 12)) continue;
         placed.push([x, z]);
