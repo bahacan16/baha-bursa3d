@@ -2365,8 +2365,8 @@
     13,
     15
    ],
-   "what": "323. Sk. beyaz podyum kemerleri: e15 5 bölme (u 0–1.6, 2.5–7.2, 8.0–13.0, 13.8–18.3, 19.1–23.8), üzengi 6.3, tepe ≈7.0 görünen (basık yay, siyah doğrama, kemer içi camlı); e13 u 16.9–17.9 (dar, tepe 5.9 yarım daire), 19.1–23.2 ve 24.5–27.26 (üzengi 5.3, tepe 6.0). Payelerde kabartma geometrik motif (≈0.8 m geniş).",
-   "need": "win.shape 'arch' (segment kemerli açıklık) — şu an dikdörtgen çizildi"
+   "what": "323. Sk. podyum payelerindeki kabartma geometrik motif (≈0.8 m geniş)",
+   "note": "v9: kemerler win shape \"arch\" ile çizildi (e15 5 bölme üzengi 6.3 / tepe 7.0 basık yay; e13 16.9–17.9 yarım daire tepe 5.9, 19.1–23.2 ve 24.5–27.26 üzengi 5.3 / tepe 6.0; görünen). Paye kabartma motifi ölçülmedi (desen görülmedi) → bekliyor."
   },
   {
    "id": "kavanoz-tilt-sign",
@@ -6550,7 +6550,8 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch"
     },
     {
      "t": "win",
@@ -6569,7 +6570,9 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch",
+     "spring": 5.3
     },
     {
      "t": "win",
@@ -6588,7 +6591,9 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch",
+     "spring": 5.3
     },
     {
      "t": "win",
@@ -6992,7 +6997,7 @@
      "u0": 0.0,
      "u1": 1.6,
      "y0": 1.8,
-     "y1": 6.3,
+     "y1": 7.0,
      "k": 0,
      "s": [
       0,
@@ -7007,14 +7012,16 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch",
+     "spring": 6.3
     },
     {
      "t": "win",
      "u0": 2.5,
      "u1": 7.2,
      "y0": 1.8,
-     "y1": 6.3,
+     "y1": 7.0,
      "k": 0,
      "s": [
       0,
@@ -7029,14 +7036,16 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch",
+     "spring": 6.3
     },
     {
      "t": "win",
      "u0": 8.0,
      "u1": 13.0,
      "y0": 1.8,
-     "y1": 6.3,
+     "y1": 7.0,
      "k": 0,
      "s": [
       0,
@@ -7051,14 +7060,16 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch",
+     "spring": 6.3
     },
     {
      "t": "win",
      "u0": 13.8,
      "u1": 18.3,
      "y0": 1.8,
-     "y1": 6.3,
+     "y1": 7.0,
      "k": 0,
      "s": [
       0,
@@ -7073,14 +7084,16 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch",
+     "spring": 6.3
     },
     {
      "t": "win",
      "u0": 19.1,
      "u1": 23.8,
      "y0": 1.8,
-     "y1": 6.3,
+     "y1": 7.0,
      "k": 0,
      "s": [
       0,
@@ -7095,7 +7108,9 @@
      "frameC": "#2a2a2a",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "arch",
+     "spring": 6.3
     },
     {
      "t": "pilaster",

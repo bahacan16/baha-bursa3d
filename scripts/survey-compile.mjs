@@ -216,6 +216,22 @@ async function main() {
               ...(it.stair ? { stair: true } : {}),
               // v7: yuvarlak pencere (oculus: u0..u1 × y0..y1 kutusunda elips), desenli cam folyo
               ...(it.shape === 'round' ? { shape: 'round' } : {}),
+              // v9: köşeleri yuvarlatılmış açıklık (radius görünen m → gerçek, yatay ölçekle), kemerli açıklık (üzengi
+              // görünen y → kat döşemesinden gerçek; apex görünen u → gerçek)
+              ...(it.shape === 'rounded' && it.radius > 0
+                ? {
+                    shape: 'rounded',
+                    radius: r2(Math.abs(Uw(Math.min(it.u0, it.u1) + it.radius) - Uw(Math.min(it.u0, it.u1)))),
+                    ...(it.corners?.length ? { corners: it.corners } : {}),
+                  }
+                : {}),
+              ...(it.shape === 'arch'
+                ? {
+                    shape: 'arch',
+                    ...(it.spring != null ? { spring: r2(relW(it.spring, it.k)) } : {}),
+                    ...(it.apex != null ? { apex: r2(Uw(it.apex)) } : {}),
+                  }
+                : {}),
               ...(it.film?.color ? { film: { color: it.film.color, pattern: it.film.pattern ?? null } } : {}),
             });
             break;
@@ -587,6 +603,20 @@ async function main() {
               ...(it.topGlassC ? { topGlassC: it.topGlassC } : {}),
               ...(it.d1 != null ? { d1: it.d1 } : {}),
               ...(it.finish ? { finish: it.finish } : {}),
+              // v9: ön yüzde kemerli açıklık (görünen u / y → gerçek, çıkmanın kendi dönüşümüyle)
+              ...(it.arch
+                ? {
+                    arch: {
+                      u0: r2(c.U(Math.min(it.arch.u0, it.arch.u1))),
+                      u1: r2(c.U(Math.max(it.arch.u0, it.arch.u1))),
+                      ...(it.arch.y0 != null ? { y0: r2(absY(it.arch.y0)) } : {}),
+                      top: r2(absY(it.arch.top)),
+                      ...(it.arch.spring != null ? { spring: r2(absY(it.arch.spring)) } : {}),
+                      ...(it.arch.apex != null ? { apex: r2(c.U(it.arch.apex)) } : {}),
+                      ...(it.arch.revealC ? { revealC: it.arch.revealC } : {}),
+                    },
+                  }
+                : {}),
             });
             break;
           case 'sign': {
@@ -668,6 +698,8 @@ async function main() {
               drop: it.drop ?? 0.5,
               color: it.color ?? '#7a2e2a',
               stripe: it.stripe ?? null,
+              // v9: düz / katlanır tentede duvara dik çizgi genişliği (gerçek m)
+              ...(it.stripeW ? { stripeW: it.stripeW } : {}),
               text: it.text ?? null,
               textColor: it.textColor ?? '#ffffff',
               ...(it.style ? { style: it.style } : {}),
@@ -743,6 +775,8 @@ async function main() {
               ...(it.colors?.length ? { colors: it.colors } : {}),
               ...(it.seq?.length ? { seq: it.seq } : {}),
               ...(it.finish ? { finish: it.finish } : {}),
+              // v9: çokgen pano (görünen [u, y] → gerçek)
+              ...(it.poly?.length >= 3 ? { poly: it.poly.map(([u, y]) => [r2(c.U(u)), r2(absY(y))]) } : {}),
             });
             break;
           case 'entrance':
@@ -1108,6 +1142,21 @@ async function main() {
       ...(sv.volumes?.length ? { volumes: sv.volumes } : {}),
       ...(sv.floorHs?.length ? { floorHs: sv.floorHs } : {}),
       ...(sv.pergolas?.length ? { pergolas: sv.pergolas } : {}),
+      // v9: sürekli konsol döşeme ön hatları (dünya, gerçek m) — kat anahtarları "K3" → "3"
+      ...(sv.slabFronts?.length
+        ? {
+            slabFronts: sv.slabFronts.map(({ note: _n, ...sf }) =>
+              sf.offK
+                ? {
+                    ...sf,
+                    offK: Object.fromEntries(
+                      Object.entries(sf.offK).map(([k, v]) => [String(k).replace(/^K/, ''), v]),
+                    ),
+                  }
+                : sf,
+            ),
+          }
+        : {}),
       ...(sv.plinthH != null ? { plinthH: sv.plinthH } : {}),
       ...(sv.wallTop != null ? { wallTop: sv.wallTop } : {}),
       // v8: podyum üstündeki kulenin duvar / öğe başlangıç kotu (startK → o katın döşeme kotu, çalışma anındaki gibi)

@@ -339,6 +339,73 @@ function cladMaterial(kind: string, hex: string): THREE.Material {
     map.repeat.set(1 / every, 1 / every);
     return new THREE.MeshStandardMaterial({ map, color: hex, roughness: rough, metalness: metal });
   }
+  if (dir === 's' || dir === 'p') {
+    // v9: s = 8 kollu yıldız ağı / geçme deseni (tekrar = aralık, çizgi = derz genişliği; yaklaşık motif),
+    // p = çift yatay derz (aralık = çift aralığı, ikinci aralık = çift içi mesafe; derzler v = 0 ve v = ikinci aralık)
+    const N = dir === 's' ? 128 : 256;
+    const cv = document.createElement('canvas');
+    cv.width = dir === 's' ? N : 4;
+    cv.height = N;
+    const g = cv.getContext('2d')!;
+    const r = (c: number, bc: number) => Math.round(255 * Math.min(1, bc > 0.01 ? c / bc : 1));
+    g.fillStyle = '#ffffff';
+    g.fillRect(0, 0, cv.width, cv.height);
+    const jc = `rgb(${r(gcol.r, base.r)},${r(gcol.g, base.g)},${r(gcol.b, base.b)})`;
+    const lw = Math.max(1, ((Number(wv) || 0.02) / every) * N);
+    if (dir === 's') {
+      g.strokeStyle = jc;
+      g.lineWidth = lw;
+      const c = N / 2;
+      const R = N * 0.34;
+      // Hücre ortasında iki kare (45° dönük) = 8 kollu yıldız; köşe yıldızlarına bağlanan geçme çizgileri
+      const star = (cx: number, cy: number) => {
+        for (const a0 of [0, Math.PI / 4]) {
+          g.beginPath();
+          for (let k = 0; k < 4; k++) {
+            const a = a0 + (k * Math.PI) / 2 + Math.PI / 4;
+            const x = cx + Math.cos(a) * R;
+            const y = cy + Math.sin(a) * R;
+            if (k) g.lineTo(x, y);
+            else g.moveTo(x, y);
+          }
+          g.closePath();
+          g.stroke();
+        }
+      };
+      for (const [cx, cy] of [
+        [c, c],
+        [0, 0],
+        [N, 0],
+        [0, N],
+        [N, N],
+      ])
+        star(cx, cy);
+      // Yıldız uçlarından komşu hücreye geçme bağları
+      g.beginPath();
+      for (const [x0, y0, x1, y1] of [
+        [c, c - R, c, 0],
+        [c, c + R, c, N],
+        [c - R, c, 0, c],
+        [c + R, c, N, c],
+      ]) {
+        g.moveTo(x0, y0);
+        g.lineTo(x1, y1);
+      }
+      g.stroke();
+    } else {
+      const e2 = Math.max(0.02, Math.min(every - 0.02, Number(ev2) || every / 4));
+      g.fillStyle = jc;
+      g.fillRect(0, 0, 4, lw);
+      g.fillRect(0, Math.round((e2 / every) * N), 4, lw);
+    }
+    const map = new THREE.CanvasTexture(cv);
+    map.colorSpace = THREE.SRGBColorSpace;
+    map.wrapS = map.wrapT = THREE.RepeatWrapping;
+    map.anisotropy = 8;
+    if (dir === 's') map.repeat.set(1 / every, 1 / every);
+    else map.repeat.set(1, 1 / every);
+    return new THREE.MeshStandardMaterial({ map, color: hex, roughness: rough, metalness: metal });
+  }
   const N = 64;
   const cv = document.createElement('canvas');
   const nv = document.createElement('canvas');

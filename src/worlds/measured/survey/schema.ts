@@ -78,6 +78,30 @@ export interface BlockSurvey {
   baseH?: number;
   startK?: number;
   /**
+   * v9: taban izi kenarlarından BAĞIMSIZ sürekli konsol balkon döşemeleri (+ korkuluk), DÜNYA koordinatı, gerçek m.
+   * `pts`: döşeme ÖN hattı (açık çoklu çizgi; kenar kırıklarını ve köşeleri kesebilir), `s`: kat aralığı [k0, k1]
+   * (döşeme kotu = o katın döşemesi), `alt`: tek sıralı katlarda (k0+1, k0+3 …) farklı ön hat, `offK`: kat → ön hattın
+   * dışa (+) / içe (−) kayması (m, "*" varsayılan). Döşeme ön hattan `depth` (m, 2.0) içeri uzanan şerittir: taban
+   * izinin dolu kısmına (duvar içine) düşen parça çizilmez; aynı kattaki `bal` loca döşemesi / korkuluğu şeritte ve
+   * ön hattın önünde kesilir (localar arka duvarı / pencereleri verir). `d` döşeme alnı kalınlığı (0.35), `rail`
+   * korkuluk tipi (Bal.rail tipleri, glassFull), `railH`, `glassC`, `railC`, `postEvery`, `fasciaC`.
+   */
+  slabFronts?: {
+    pts: [number, number][];
+    s: [number, number];
+    alt?: [number, number][];
+    offK?: Record<string, number>;
+    d?: number;
+    depth?: number;
+    rail?: string;
+    railH?: number;
+    glassC?: string;
+    railC?: string;
+    postEvery?: number;
+    fasciaC?: string;
+    note?: string;
+  }[];
+  /**
    * Üreticinin henüz çizemediği ama fotoğrafta görülen detaylar — ölçüleriyle (kenar, u/y aralığı, derinlik, renk,
    * malzeme, açıklama). Ana oturum bunları üreticiye ekleyip bağlar.
    */
@@ -242,6 +266,29 @@ export interface ParapetSpec {
   railEdges?: number[];
   coping?: { h: number; over?: number; color?: string };
   band?: { h: number; color: string };
+  /**
+   * v9 (rail "tube"): küpeşte (üst boru) rengi ayrı — dikmeler ve ara çubuklar `railC`; `rows` ara yatay çubuk sayısı
+   * (küpeştenin altından `rowGap` m arayla, varsayılan 0.15; verilmezse eski 3 sıra), `postEvery` dikme aralığı (m).
+   */
+  railTopC?: string;
+  rows?: number;
+  rowGap?: number;
+  postEvery?: number;
+  /**
+   * v9: kenar bazında korkuluk (DÜNYA noktasına ≤ 1.5 m en yakın kenar — kütle parçasında da kararlı): yukarıdaki
+   * korkuluk alanlarının o kenardaki değerleri (ör. 1551814316 podyum: güney/batı beyaz boru, doğu açık gri küpeşte +
+   * 5 koyu çubuk).
+   */
+  edgeRails?: {
+    at: [number, number];
+    rail?: string;
+    railC?: string;
+    railTopC?: string;
+    rows?: number;
+    rowGap?: number;
+    postEvery?: number;
+    railH?: number;
+  }[];
 }
 
 export interface Palette {
@@ -294,6 +341,12 @@ export interface RoofSpec {
   /** Saçak alın bandı rengi (palet adı / "#rrggbb"; verilmezse plaster2) — ör. 1480041344 koyu gri #8f979e */
   fasciaC?: string;
   /**
+   * v9: saçak alnının yeri. "tip": saçak taşmasının UCUNDA (taşma ≥ 0.1 m olan kenarlarda; alt yüz = saçak kutusu
+   * tabanı, saçaksız komşuya bakan uçta dönüş yüzü) — ortofotoda görülen alın bandı uçtadır. "wall": duvar hizasında
+   * (eski çizim; derin saçakta bant kalıcı gölgede kalır). Verilmezse düz çatıda "tip", kırma / beşik çatıda "wall".
+   */
+  fasciaAt?: 'tip' | 'wall';
+  /**
    * Saçak altı gömme spotları (saçak taşmasının altında, parapetsiz / alınlıksız kenarlarda): aralık every (m, 2.7),
    * saçak dış kenarından içeri inset (m, yarı taşma), çap d (m, 0.1), yalnız bu kenarlar edges.
    */
@@ -342,8 +395,13 @@ export interface RoofSpec {
  * (pencere kenarlarına hizalı 0.6–0.87 m gibi düzensiz aralıklar; every ile birlikte ya da yerine).
  */
 export interface CladSpec {
-  /** v7 dots: delikli (perfore) panel — every delik aralığı, w delik çapı, color delik rengi (düzenli, yaklaşık) */
-  dir?: 'v' | 'h' | 'grid' | 'dots';
+  /**
+   * v7 dots: delikli (perfore) panel — every delik aralığı, w delik çapı, color delik rengi (düzenli, yaklaşık).
+   * v9 star: 8 kollu yıldız ağı / geçme deseni (every tekrar, w çizgi kalınlığı, color çizgi rengi; motif yaklaşık —
+   * notta anlat). v9 hpair: çift yatay derz (every çiftler arası, every2 çift içi mesafe; derzler blok tabanından
+   * every katlarında ve +every2'de).
+   */
+  dir?: 'v' | 'h' | 'grid' | 'dots' | 'star' | 'hpair';
   every: number;
   every2?: number;
   w?: number;
@@ -532,8 +590,17 @@ export interface Win {
   /**
    * v7: "round" → yuvarlak / oval pencere (oculus): y0..y1 × u0..u1 kutusunun içine elips (Ø ölçülen); söve, kasa ve
    * cam elips boyunca; `split` düşey kayıt. Duvarda, alınlıkta, kemerde ve pediment içinde açılır (1540901798).
+   * v9: "rounded" → köşeleri yuvarlatılmış açıklık: `radius` (görünen m) ve `corners` (yuvarlanan köşeler: tl, tr,
+   * bl, br; verilmezse dördü — ör. kapı + vitrinin ortak stadyum çerçevesinde kapıya ["tl"], vitrine ["tr"]).
+   * "arch" → kemerli açıklık: y1 kemer TEPESİ, `spring` üzengi (kemerin başladığı görünen y; verilmezse yarım daire:
+   * tepe − yarım genişlik), `apex` tepe noktasının görünen u'su (asimetrik kemer; verilmezse ortada). Duvarda / panoda
+   * köşeler dolgu; söve, kasa, cam, `split` ve `hbars` kemer içinde.
    */
-  shape?: 'round';
+  shape?: 'round' | 'rounded' | 'arch';
+  radius?: number;
+  corners?: ('tl' | 'tr' | 'bl' | 'br')[];
+  spring?: number;
+  apex?: number;
   /**
    * v7: desenli dekor cam folyo (camın önünde, yarı saydam): renk + pattern damask (yaklaşık kıvrım motifi — desen
    * birebir çizilmez, notta anlat) | dots | frost (düz buzlu). Yalnız görülen pencerede; kat kat farklıysa ayrı `win`.
@@ -1102,6 +1169,13 @@ export interface Proj {
   d1?: number;
   /** v7: yüzey bitişi: acp (parlak alüminyum kompozit panel) | matte; verilmezse sıva */
   finish?: 'acp' | 'matte';
+  /**
+   * v9: ön yüzde kemerli açıklık (GÖRÜNEN u / y, çıkmayla aynı dönüşüm): u0..u1, taban y0 (verilmezse çıkma
+   * tabanı), kemer tepesi `top`, üzengi `spring` (verilmezse yarım daire), tepe noktasının u'su `apex` (asimetrik
+   * kemer: apex = u0 → sol yanı düşey, sağa inen çeyrek elips), kemer içi (intrados) rengi `revealC`. Açıklığın
+   * arkası duvar (arkasındaki cam / teras ayrıca ölçülmediyse çizilmez).
+   */
+  arch?: { u0: number; u1: number; y0?: number; top: number; spring?: number; apex?: number; revealC?: string };
 }
 
 /**
@@ -1226,6 +1300,12 @@ export interface Awning {
   arms?: { n?: number; us?: number[]; color?: string };
   /** v7 (dutch): köşeyi saran çeyrek kubbe uç — start | end | both (303738122 GB köşe, r ≈0.7) */
   dome?: 'start' | 'end' | 'both';
+  /**
+   * v9 (düz / retract tente): çizgi genişliği (gerçek m) — `stripe` rengiyle duvara DİK (tente eğimi boyunca)
+   * dönüşümlü bantlar, u0'dan `color` ile başlar; valans da çizgili (1546358593 ŞOK: kırmızı 0.15 + beyaz 0.15).
+   * Verilmezse düz tente tek renk (dutch tentede `stripe` kabuk dilimlerini boyar).
+   */
+  stripeW?: number;
 }
 
 /** Yağmur borusu (varsayılan tam boy, koyu gri, Ø10 cm) */
@@ -1328,6 +1408,12 @@ export interface Panel {
   colors?: string[];
   seq?: number[];
   finish?: 'acp' | 'matte';
+  /**
+   * v9: çokgen pano — GÖRÜNEN [u, y] köşeleri (saat yönü tersine): köşegen bölünmüş kaplama (ör. 1551814323 kule
+   * kanatları: köşegenin üstü koyu gri, altı kum rengi). u0..y1 yine sınır kutusu olarak yazılır. Düz yüz; açıklıklar
+   * delik, çıkıntı (proud) yan yüzleri çizilmez.
+   */
+  poly?: [number, number][];
 }
 
 /** Bina girişi (görünen u; yükseklik zemin kattan) */

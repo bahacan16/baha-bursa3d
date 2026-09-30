@@ -703,6 +703,25 @@
      "color": "#9aa1ad"
     },
     {
+     "t": "proj",
+     "u0": 68.2,
+     "u1": 73.83,
+     "d": 1.45,
+     "y0": 1.8,
+     "y1": 6.5,
+     "color": "#607391",
+     "arch": {
+      "u0": 68.24,
+      "u1": 73.0,
+      "y0": 1.8,
+      "top": 5.6,
+      "spring": 2.7,
+      "apex": 68.24,
+      "revealC": "#c8a032"
+     },
+     "note": "v9: ARMILLA ile mavi dükkân arasındaki lila duvar (pending armillaCurvedWall / armillaArches): ön yüzü ARMILLA yazısıyla aynı düzlemde (off 1.45), büyük asimetrik kemer görünen u 68.24–73.0, tepe 5.6 (sol yanda, u0), sağda üzengi ≈2.7 (2LX4ejfo f22 ortofotosunda kemer kenarı sütun taraması: u 69.2 → 5.4, 70.7 → 5.2, 71.6 → 4.7, 72.2 → 4.0, 72.5 → 3.3); kemer içi sarı #c8a032. Duvarın plandaki kavisi ve kemerin arkası (koyu teras / cam) ölçülmedi → düz çıkma, arkası duvar."
+    },
+    {
      "t": "sign",
      "off": 1.47,
      "u0": 65.9,
@@ -919,7 +938,9 @@
      ],
      "curt": {
       "K0": "vitrin"
-     }
+     },
+     "shape": "rounded",
+     "radius": 0.45
     },
     {
      "t": "win",
@@ -935,7 +956,12 @@
      "stair": true,
      "kind": "door",
      "split": 1,
-     "frameC": "#1e2224"
+     "frameC": "#1e2224",
+     "shape": "rounded",
+     "radius": 0.45,
+     "corners": [
+      "tl"
+     ]
     },
     {
      "t": "win",
@@ -956,7 +982,12 @@
      ],
      "curt": {
       "K0": "vitrin"
-     }
+     },
+     "shape": "rounded",
+     "radius": 0.45,
+     "corners": [
+      "tr"
+     ]
     },
     {
      "t": "win",
@@ -977,7 +1008,12 @@
      ],
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "shape": "rounded",
+     "radius": 0.8,
+     "corners": [
+      "tl"
+     ]
     },
     {
      "t": "win",
@@ -993,7 +1029,12 @@
      "stair": true,
      "kind": "door",
      "split": 1,
-     "frameC": "#1e2224"
+     "frameC": "#1e2224",
+     "shape": "rounded",
+     "radius": 0.8,
+     "corners": [
+      "tr"
+     ]
     },
     {
      "t": "recess",
@@ -5356,16 +5397,8 @@
   {
    "id": "armillaCurvedWall",
    "edge": 6,
-   "what": "ARMILLA ile mavi dükkân arasında kavisli lila duvar (#607391), sarı kenarlı kemerli açıklık",
-   "uVis2LX4": [
-    72,
-    73.83
-   ],
-   "y": [
-    2.3,
-    6.5
-   ],
-   "note": "planda kavisli, derinlik bilinmiyor; kemer kenarı sarı #b8902e"
+   "what": "lila duvarın plandaki kavisi (u 72–73.83 kavisli uç) ve kemerin arkası",
+   "note": "v9: duvar düz çıkma (d 1.45) + kemer açıklığı olarak çizildi (bkz. kenar 6 proj notu). Plandaki kavis derinliği ve kemerin gerisindeki teras / cam doğrama ölçülmedi."
   },
   {
    "id": "halkbankATM",
@@ -5422,58 +5455,8 @@
   {
    "id": "roundedOpenings",
    "edge": 6,
-   "what": "mavi dükkânın yuvarlak köşeli (stadyum benzeri) açıklıkları: win’e köşe yarıçapı (ör. `corner: r`) gerekiyor",
-   "list": [
-    {
-     "u": [
-      74.32,
-      77.5
-     ],
-     "y": [
-      2.97,
-      5.19
-     ],
-     "r": 0.45,
-     "corners": "4"
-    },
-    {
-     "u": [
-      77.92,
-      82.38
-     ],
-     "y": [
-      2.44,
-      5.19
-     ],
-     "r": 0.45,
-     "corners": "üst 2 (alt uç zemine iniyor, kapı solda)"
-    },
-    {
-     "u": [
-      83.57,
-      88.9
-     ],
-     "y": [
-      2.44,
-      5.41
-     ],
-     "r": 0.8,
-     "corners": "üst 2 (kapı sağda)"
-    },
-    {
-     "u": [
-      89.34,
-      91.4
-     ],
-     "y": [
-      2.68,
-      5.41
-     ],
-     "r": 0.9,
-     "corners": "4 (kör niş, recess)"
-    }
-   ],
-   "note": "görünen koordinat (2LX4ejfo f22 ortofoto); açıklıklar şimdilik dikdörtgen çizildi"
+   "what": "mavi dükkânın 4. açıklığı: kör niş (recess) u 89.34–91.4, y 2.68–5.41, r 0.9 dört köşe",
+   "note": "v9: açıklıklar 1–3 win shape \"rounded\" ile çizildi (74.32–77.5 r 0.45 dört köşe; 77.92–82.38 r 0.45 üst iki köşe = kapı tl + vitrin tr; 83.57–88.9 r 0.8 üst iki köşe = vitrin tl + kapı tr). Kör niş `recess` öğesi — recess dikdörtgen hacim (arka / yan / tavan yüzleri); yuvarlak köşeli recess yok → bekliyor. Görünen koordinat (2LX4ejfo f22)."
   },
   {
    "id": "bogaBullHead",
@@ -5507,8 +5490,8 @@
   {
    "id": "armillaArches",
    "edge": 6,
-   "what": "ARMILLA K0: kırmızı çerçeveli kanopinin (görünen u 54.2–67.95) altında sarı kenarlı kemerli iç tavan/açıklıklar ve doğudaki kavisli lila duvarda büyük asimetrik kemer (görünen u 68.24–73.0, tepe y≈5.6, sarı kenar ≈#c8a032)",
-   "note": "kemer ve kavisli duvar üreticiyle ifade edilemiyor (armillaCurvedWall ile birlikte)"
+   "what": "ARMILLA K0 kırmızı çerçeveli kanopi (u 54.2–67.95) altındaki sarı kenarlı kemerli iç tavan / açıklıklar",
+   "note": "v9: doğudaki büyük asimetrik kemer proj.arch ile çizildi; kanopi altındaki iç kemerler ölçülmedi (kanopi gölgesinde, biçim seçilmedi)."
   }
  ]
 }
