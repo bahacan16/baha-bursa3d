@@ -29,235 +29,8 @@
  },
  "edges": [
   {
-   "edge": 0,
-   "len": 27.58,
-   "seen": "partial",
-   "ref": "1477364957_0_dZQ2YFC-.jpg",
-   "cal": {
-    "u": [
-     -2.94,
-     30.43
-    ],
-    "head": [
-     [
-      4,
-      21.65
-     ],
-     [
-      7,
-      32.25
-     ]
-    ],
-    "dist": 25.1
-   },
-   "items": [
-    {
-     "t": "bal",
-     "u0": -2.9,
-     "u1": 6.3,
-     "d": 1.5,
-     "s": [
-      4,
-      8
-     ],
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#657c93"
-     },
-     "fasciaC": {
-      "*": "#62656b"
-     },
-     "sides": "open",
-     "beam": {
-      "*": 0.35
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 6.6,
-     "u1": 14.6,
-     "d": 1.5,
-     "s": [
-      4,
-      7
-     ],
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#657c93"
-     },
-     "fasciaC": {
-      "*": "#62656b"
-     },
-     "sides": "open",
-     "beam": {
-      "*": 0.35
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 14.6,
-     "u1": 24.8,
-     "d": 1.5,
-     "s": [
-      4,
-      8
-     ],
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#657c93"
-     },
-     "fasciaC": {
-      "*": "#62656b"
-     },
-     "sides": "open",
-     "beam": {
-      "*": 0.35
-     }
-    },
-    {
-     "t": "panel",
-     "u0": 2.6,
-     "u1": 6.3,
-     "y0": 19.6,
-     "y1": 33.6,
-     "color": "#694838"
-    },
-    {
-     "t": "panel",
-     "u0": 14.6,
-     "u1": 18.6,
-     "y0": 19.6,
-     "y1": 33.6,
-     "color": "#694838"
-    },
-    {
-     "t": "panel",
-     "u0": 22.7,
-     "u1": 24.8,
-     "y0": 19.6,
-     "y1": 33.6,
-     "color": "#694838"
-    },
-    {
-     "t": "panel",
-     "u0": 6.3,
-     "u1": 14.6,
-     "y0": 33.6,
-     "y1": 36.5,
-     "color": "#3b3f44",
-     "proud": 0.03
-    },
-    {
-     "t": "win",
-     "u0": -0.2,
-     "u1": 2.4,
-     "y0": 20.1,
-     "y1": 21.4,
-     "k": 4,
-     "s": [
-      4,
-      7
-     ],
-     "kind": "door",
-     "split": 3,
-     "frameC": "#3b3e41",
-     "curt": {
-      "K4": "tul",
-      "K5": "tul",
-      "K6": "tul"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 11.3,
-     "u1": 13.3,
-     "y0": 20.4,
-     "y1": 21.65,
-     "k": 4,
-     "s": [
-      4,
-      7
-     ],
-     "kind": "door",
-     "split": 3,
-     "frameC": "#3b3e41",
-     "curt": {
-      "K4": "tul",
-      "K6": "tul"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 19.2,
-     "u1": 21.4,
-     "y0": 20.4,
-     "y1": 21.65,
-     "k": 4,
-     "s": [
-      4,
-      7
-     ],
-     "kind": "door",
-     "split": 3,
-     "frameC": "#3b3e41",
-     "curt": {
-      "K4": "tul",
-      "K5": "tul",
-      "K6": "karanlik",
-      "K7": "tul"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 7.9,
-     "u1": 8.9,
-     "y0": 33.3,
-     "y1": 35.6,
-     "k": 8,
-     "s": [
-      8,
-      8
-     ],
-     "kind": "std",
-     "split": 2,
-     "frameC": "#3b3e41",
-     "hbars": [
-      34.3
-     ]
-    },
-    {
-     "t": "win",
-     "u0": 11.3,
-     "u1": 13.8,
-     "y0": 33.3,
-     "y1": 35.6,
-     "k": 8,
-     "s": [
-      8,
-      8
-     ],
-     "kind": "std",
-     "split": 3,
-     "frameC": "#3b3e41",
-     "hbars": [
-      34.3
-     ],
-     "curt": {
-      "K8": "zebra"
-     }
-    }
-   ],
-   "note": "dZQ2 f22 (rxGw ile stereo). Yalnız KULE yüzü (K4–K8; K0–K3 önünde podyum terası, bitkiler, ALTAY pankartı): üç balkon bölümü (kuzey kanat u −2.9…6.3, orta 6.6…14.6 [K8’de balkon yok: koyu gri kaplamalı duvar + 2 pencere], güney 14.6…24.8), tuğla panolar, pencere/kapılar. ÖLÇEK: kule balkon aralığı görünen 3.53 (gerçek 2.92) ve dZQ2/rxGw stereo kaymasından cephe düzleminin gerçek kamera uzaklığı ≈25.1 (ortofoto düzlemi index konumundan 30.15) → dZQ2 kamerası index konumunun ≈5.5 m DOĞUSUNDA (Muammer Aksoy panolarındaki sistematik kaymayla uyumlu: fq8W dx +6.4); cal.u köşeleri bu büyütmeden (uF 14) türetildi ±0.8. Güney ucu u>24.8 gökyüzü: kule güney yüzü ≈ taban izinin 2–3 m kuzeyinde olabilir (görünen 24.8 → gerçek ≈22.8). Batı yüz gölgede; renkler kuzey cepheden."
-  },
-  {
    "edge": 1,
-   "len": 43.13,
+   "len": 51.49,
    "seen": "none",
    "items": [],
    "note": "güney: görülmedi (hava fotoğrafında 10 balkon şeridi)"
@@ -972,11 +745,155 @@
     }
    ],
    "note": "KUZEY (Muammer Aksoy Cd.). Ölçüler DELTA=−1.0 ortofotosunda (CORRECTED=1 SURVEY_TOP=38 DELTA=\"1477364957:3=-1.0\"; çekirdek krem duvar düzlemi, qo16/m4A4 stereo kayması 0.5 m → çekirdek taban izinin ≈1.0 m gerisinde), cal.dist 19.95. docs/survey/c içindeki δ=0 ortofoto ile çakışmaz. Podyum (K0 dükkân + K1 camlı asma kat, lamelli saçak) taban izi çizgisinde → proj d 1.0 (ön yüz ölçüleri geri küçültüldü). Kat: K0+K1 podyum ≈9.8 m (sanal groundRaise 4.02: K0 dükkân camı zemine iner), konut K2–K8 kat aralığı 2.92 (çekirdek pencereleri K4–K7). Kanat terasları (u 1.3–11.3 ve 30–40.3): ön döşeme d≈1.55 (balkon alnı üst kotu = kat döşemesi koşulundan), arka duvar derinliği (inset 1.6) görülmedi/tahmin. Kanat arka duvarlarındaki krem bant + tuğla pano + pencere düzeni tek tek ölçülmedi (üretici varsayılan kapı/pencere çizer) → pending."
+  },
+  {
+   "edge": 4,
+   "len": 10,
+   "seen": "none",
+   "items": [],
+   "note": "v8: KB pah (podyum köşesi, ALTAY pankartı burada çapraz dönüyor — pending); dZQ2/rxGw’de çok yatık, ölçülmedi"
+  },
+  {
+   "edge": 0,
+   "len": 22.11,
+   "seen": "partial",
+   "ref": "1477364957_0_dZQ2YFC-.jpg",
+   "cal": {
+    "u": [
+     -1.31,
+     37.7
+    ],
+    "head": [
+     [
+      0,
+      8.27
+     ],
+     [
+      1,
+      13.51
+     ]
+    ],
+    "dist": 16.8
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": -1.5,
+     "u1": 28.8,
+     "y0": 0.1,
+     "y1": 6.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 12,
+     "frameC": "#2e2c2a",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.9,
+     "u1": 26.5,
+     "y0": 9.8,
+     "y1": 13.1,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "kind": "std",
+     "split": 9,
+     "frameC": "#3a3935",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": -1.5,
+     "u1": 28.8,
+     "y0": 13.3,
+     "y1": 14.25,
+     "color": "#4a463c",
+     "style": "louvre",
+     "shade": "#1f1e19",
+     "slats": 6,
+     "proud": 0.08
+    },
+    {
+     "t": "band",
+     "u0": -1.5,
+     "u1": 28.8,
+     "y0": 14.3,
+     "y1": 16.7,
+     "color": "#4b4945",
+     "proud": 0.1
+    },
+    {
+     "t": "sign",
+     "u0": -1.2,
+     "u1": 7,
+     "y0": 7.3,
+     "y1": 8.3,
+     "style": "letters",
+     "d": 0.06,
+     "fg": "#e8e4e8",
+     "font": "sans",
+     "bold": true,
+     "text": "BIGCHEFS",
+     "lit": true,
+     "logo": "kanal harf; gece görülmedi. rxGw karesinde harfler tam görünüyor"
+    },
+    {
+     "t": "sign",
+     "u0": 23.8,
+     "u1": 28.2,
+     "y0": 7.2,
+     "y1": 7.8,
+     "style": "letters",
+     "d": 0.05,
+     "fg": "#f0f0ee",
+     "font": "sans",
+     "bold": true,
+     "text": "STARBUCKS",
+     "lit": true,
+     "logo": "rxGw karesinde yanında yeşil-beyaz yuvarlak siren logosu (Ø≈0.8 gerçek) görülüyor, konumu bu düzlemde kesinleşmedi → çizilmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 1.9,
+     "u1": 28.8,
+     "y0": 16.7,
+     "y1": 17.6,
+     "style": "panel",
+     "d": 0.03,
+     "bg": "#c0392b",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "text": "ALTAY • SATILIK & KİRALIK DAİRELER VE OFİSLER   TESLİME HAZIR   0 532 660 0 562   altaygroup.com",
+     "lines": [
+      {
+       "text": "ALTAY  • SATILIK & KİRALIK DAİRELER VE OFİSLER   TESLİME HAZIR   0 532 660 0 562   altaygroup.com",
+       "size": 1
+      }
+     ],
+     "align": "left",
+     "logo": "baskılı branda pankart podyum çatı korkuluğunda (parapet üstü; gerçek ≈11.0–11.5 m): solda beyaz ALTAY logosu (üçgen dağ + ALTAY), \"TESLİME HAZIR\" sarı rozet üzerinde koyu kırmızı; sonda ikinci ALTAY logosu (u >28.8, ortofoto dışı). \"& KİRALIK\" dZQ2’de ağaç arkasında, rxGw’de okunuyor. KB köşede çapraz dönen bölüm (\"…SATILIK KİRALIK DAİRELER VE OFİSLER\" + dikey \"0 532 660 0 562 altaygroup.com\") kuzey cepheye bağlanıyor (pending).",
+     "lit": false
+    }
+   ],
+   "note": "v8: batı podyum yüzü (taban izi e0 x≈671.4’e taşındı). Görünen koordinatlar dZQ2 ortofotosunda (eski düzlem x 679.8); podyum düzleminin gerçek kamera uzaklığı 16.8 (stereo, düzeltilmiş kamera x≈654.6) → büyütme 1.795; cal.u ve cal.head bu büyütmeden türetildi (sanal groundRaise 4.02: K0 lento 6.27, K1 9.19 gerçek). Dükkân camı, asma kat camı, lamelli saçak, koyu alın, BIGCHEFS / STARBUCKS kanal harfleri, çatı korkuluğunda ALTAY pankartı. Önündeki kırmızı BIGCHEFS şemsiyeleri, Starbucks tenteli teras çiti ve elektrik panosu kaldırım katmanında."
   }
  ],
  "notes": [
   "KAT SAYISI DÜZELTMESİ: zemin (dükkân) + asma kat + 7 konut katı (K2–K8) = 9 kat, çatı plağı üstü ≈30.5 m + PV rafları (kuzey ve batı cephe tutarlı; batıda görünen büyüklük kamera ≈5.5 m daha yakın olduğu için). Taban izi notundaki \"≈12 kat / çatı ≈42 m\" görülmedi.",
-  "Renkler bulutsuz güneşli-yarı gölge cephede: krem taş #b3b5b5 (gökyüzü yansımalı), tuğla pano #694838, balkon alnı koyu gri #62656b, saçak altı/balkon tavanı ahşap görünümlü kahve #654731 (tavanlarda dikdörtgen spotlar), cam korkuluk #657c93."
+  "Renkler bulutsuz güneşli-yarı gölge cephede: krem taş #b3b5b5 (gökyüzü yansımalı), tuğla pano #694838, balkon alnı koyu gri #62656b, saçak altı/balkon tavanı ahşap görünümlü kahve #654731 (tavanlarda dikdörtgen spotlar), cam korkuluk #657c93.",
+  "v8 (D4-v8): taban izi batıya podyum yüzüne (x≈671.4) genişletildi; massing: [0] kule (eski dikdörtgen, 9 kat), [1] batı podyum şeridi (2 kat, duvar üstü 10.3, parapet 0.7). Kule batı yüzü cutEdges[0]. KUZEY ÇEKİRDEK KONUMU (belirsiz, taban izi değiştirilmedi): önceki \"çekirdek 1.0 m geride\" sonucu pano index konumuyla hesaplanmıştı; qo16 dz −5.8 düzeltmesiyle aynı stereo çekirdeği ≈4 m KUZEYDE verir, hava fotoğrafı (düzeltilmiş kule yüksekliği 30.5 → eğim (−2.4,−8.6)) ≈1.3 m kuzeyde verir; iki kaynak ±3 m çelişiyor → kuzey kenar olduğu gibi bırakıldı."
  ],
  "pending": [
   {
@@ -994,8 +911,284 @@
    "desc": "sd8u/GKHZ: podyumun doğu ucunda açık gri saçaklı araç girişi, zemin katta koyu dükkân camı ve ROSSMANN yuvarlak logo kutusu (kırmızı daire, görünen u −0.5…1.2, y 13.2–14.2 sd8u), yeşil bitkili teras, üstte kanat teraslarının doğu uçları. Çok eğik → çizilmedi."
   },
   {
-   "what": "BATI PODYUM (taban izinin DIŞINDA, kule yüzünün ≈8 m batısında) — kütle kesim/ek hacim yüzü",
-   "desc": "dZQ2/rxGw stereo (düzeltilmiş kamera x≈654.6, z index): podyum batı yüzü x≈671.4 (±0.8), hava fotoğrafında koyu podyum çatısı x≈668.5–677 ile uyumlu → taban izine / volumes’e eklenmeli (z ≈ −784…−757). Üzerindeki öğeler (DÜNYA): (1) \"BIGCHEFS\" kanal harf, beyaz #e8e4e8 (gölge), kalın sans, x 671.4, z −778.7…−774.4, y 5.73–6.29 (tabandan; cap ≈0.56), ışıklı (gece görülmedi); (2) \"STARBUCKS\" beyaz kanal harf, kalın sans geniş aralıklı, x 671.4, z −765.0…−762.6, y 5.68–6.00; rxGw karesinde yanında Starbucks yuvarlak siren logosu (yeşil-beyaz daire Ø≈0.8, ≈z −763.8 — logo çizilmez, yeşil daire); (3) podyum üst katı: koyu camlı asma kat (y ≈7.2–9.4, siyah stor/tenteli pencereler), lamelli saçak ≈9.4–10; (4) ALTAY pankartı (podyum teras parapeti/korkuluğu, x≈675.7 ±1, z −778.9…−760 ve kuzeybatı köşede çapraz dönüşle kuzey cepheye doğru devam), y 12.8–13.4: kırmızı zemin #c0392b, beyaz ALTAY logosu (üçgen dağ + ALTAY), beyaz \"• SATILIK & KİRALIK DAİRELER VE OFİSLER\" (rxGw karesinde \"SATILIK KİRALIK DAİRELER VE OFİSLER\" okunuyor, & dZQ2’de ağaç arkasında), sarı rozet \"TESLİME HAZIR\" (koyu kırmızı yazı), beyaz \"0 532 660 0 562\", \"altaygroup.com\", sonda ikinci ALTAY logosu; köşedeki çapraz bölümde \"…SATILIK KİRALIK DAİRELER VE OFİSLER\" + dikey \"0 532 660 0 562 altaygroup.com\"; üstünde yuvarlak budanmış çalı saksıları (terasta, ≈6 adet Ø≈1.2)."
+   "what": "ALTAY pankartının KB köşe çapraz bölümü",
+   "desc": "kenar 4 (KB pah (679.82,−784.47)→(671.21,−779.39)) pankart 45° dönerek kuzey cepheye bağlanıyor: \"…SATILIK KİRALIK DAİRELER VE OFİSLER\" + dikey \"0 532 660 0 562 altaygroup.com\"; köşe pahı taban izinde yok."
   }
- ]
+ ],
+ "cutEdges": [
+  {
+   "part": 0,
+   "a": [
+    679.82,
+    -784.47
+   ],
+   "e": [
+    678.56,
+    -756.92
+   ],
+   "tol": 1.5,
+   "seen": "partial",
+   "ref": "1477364957_0_dZQ2YFC-.jpg",
+   "cal": {
+    "u": [
+     -2.94,
+     30.43
+    ],
+    "head": [
+     [
+      4,
+      21.65
+     ],
+     [
+      7,
+      32.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": -2.9,
+     "u1": 6.3,
+     "d": 1.5,
+     "s": [
+      4,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.35
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 6.6,
+     "u1": 14.6,
+     "d": 1.5,
+     "s": [
+      4,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.35
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 14.6,
+     "u1": 24.8,
+     "d": 1.5,
+     "s": [
+      4,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.35
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 2.6,
+     "u1": 6.3,
+     "y0": 19.6,
+     "y1": 33.6,
+     "color": "#694838"
+    },
+    {
+     "t": "panel",
+     "u0": 14.6,
+     "u1": 18.6,
+     "y0": 19.6,
+     "y1": 33.6,
+     "color": "#694838"
+    },
+    {
+     "t": "panel",
+     "u0": 22.7,
+     "u1": 24.8,
+     "y0": 19.6,
+     "y1": 33.6,
+     "color": "#694838"
+    },
+    {
+     "t": "panel",
+     "u0": 6.3,
+     "u1": 14.6,
+     "y0": 33.6,
+     "y1": 36.5,
+     "color": "#3b3f44",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "u0": -0.2,
+     "u1": 2.4,
+     "y0": 20.1,
+     "y1": 21.4,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#3b3e41",
+     "curt": {
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 11.3,
+     "u1": 13.3,
+     "y0": 20.4,
+     "y1": 21.65,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#3b3e41",
+     "curt": {
+      "K4": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 19.2,
+     "u1": 21.4,
+     "y0": 20.4,
+     "y1": 21.65,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#3b3e41",
+     "curt": {
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "karanlik",
+      "K7": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.9,
+     "u1": 8.9,
+     "y0": 33.3,
+     "y1": 35.6,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b3e41",
+     "hbars": [
+      34.3
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 11.3,
+     "u1": 13.8,
+     "y0": 33.3,
+     "y1": 35.6,
+     "k": 8,
+     "s": [
+      8,
+      8
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#3b3e41",
+     "hbars": [
+      34.3
+     ],
+     "curt": {
+      "K8": "zebra"
+     }
+    }
+   ],
+   "note": "dZQ2 f22 (rxGw ile stereo). Yalnız KULE yüzü (K4–K8; K0–K3 önünde podyum terası, bitkiler, ALTAY pankartı): üç balkon bölümü (kuzey kanat u −2.9…6.3, orta 6.6…14.6 [K8’de balkon yok: koyu gri kaplamalı duvar + 2 pencere], güney 14.6…24.8), tuğla panolar, pencere/kapılar. ÖLÇEK: kule balkon aralığı görünen 3.53 (gerçek 2.92) ve dZQ2/rxGw stereo kaymasından cephe düzleminin gerçek kamera uzaklığı ≈25.1 (ortofoto düzlemi index konumundan 30.15) → dZQ2 kamerası index konumunun ≈5.5 m DOĞUSUNDA (Muammer Aksoy panolarındaki sistematik kaymayla uyumlu: fq8W dx +6.4); cal.u köşeleri bu büyütmeden (uF 14) türetildi ±0.8. Güney ucu u>24.8 gökyüzü: kule güney yüzü ≈ taban izinin 2–3 m kuzeyinde olabilir (görünen 24.8 → gerçek ≈22.8). Batı yüz gölgede; renkler kuzey cepheden. v8: taban izi batı kenarı podyuma taşındığı için kule batı yüzü artık kesim kenarı (part 0); balkon d kesim kenarında derinlik düzeltmesi almaz (cal görünen koordinat, ölçek kule düzleminde)."
+  }
+ ],
+ "massing": {
+  "towers": [
+   {
+    "poly": [
+     [
+      679.82,
+      -784.47
+     ],
+     [
+      678.56,
+      -756.92
+     ],
+     [
+      721.64,
+      -754.95
+     ],
+     [
+      722.9,
+      -782.49
+     ]
+    ],
+    "storeys": 9
+   },
+   {
+    "rest": true,
+    "storeys": 2,
+    "wallTop": 10.3,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.05,
+     "parapet": {
+      "h": 0.7,
+      "color": "#4b4945"
+     },
+     "flatC": "#3d3e40"
+    }
+   }
+  ]
+ }
 }

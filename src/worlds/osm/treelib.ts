@@ -1218,6 +1218,83 @@ export function speciesModel(key: SpeciesKey): SpeciesModel {
   return m;
 }
 
+/**
+ * v8: taç tabanı çeşidi — y parça parça doğrusal eşlenir: 0..yc → 0..yt (gövde uzar / kısalır), yc..H → yt..H (taç
+ * sıkışır / uzar), tepe ve gövde dibi yerinde. Normaller korunur (yaprak normalleri taç merkezinden, gövdede yatay).
+ */
+export function remapCrownBase(
+  g: THREE.BufferGeometry,
+  yc: number,
+  yt: number,
+  H: number,
+): THREE.BufferGeometry {
+  const out = g.clone();
+  const p = out.attributes.position;
+  const a = Math.max(1e-3, yc);
+  const top = Math.max(a + 1e-3, H);
+  for (let i = 0; i < p.count; i++) {
+    const y = p.getY(i);
+    p.setY(i, y <= a ? (y * yt) / a : yt + ((y - a) * (top - yt)) / (top - a));
+  }
+  p.needsUpdate = true;
+  out.computeBoundingSphere();
+  return out;
+}
+
+/** Yaprak kartlarının alt sınırı (taç tabanı, %3'lük: sarkan tek kart sayılmaz) */
+function leafBaseY(leaves: THREE.BufferGeometry): number {
+  const p = leaves.attributes.position;
+  const ys: number[] = [];
+  for (let i = 0; i < p.count; i += 4) ys.push(p.getY(i));
+  ys.sort((x, y) => x - y);
+  return ys.length ? ys[Math.floor(0.03 * (ys.length - 1))] : 0;
+}
+
+const variantCache = new Map<string, SpeciesModel>();
+const farVariantCache = new Map<string, THREE.BufferGeometry>();
+
+/**
+ * Tür modeli, ölçülen taç tabanı çeşidiyle (`cb`: taban / türün başvuru boyu; 0 → türün modeli). Önbellekli; yalnız
+ * ölçülmüş taç tabanı olan ağaçlar için kurulur.
+ */
+export function speciesModelCb(key: SpeciesKey, cb: number): SpeciesModel {
+  if (!(cb > 0)) return speciesModel(key);
+  const vk = `${key}:${cb.toFixed(2)}`;
+  let m = variantCache.get(vk);
+  if (m) return m;
+  const base = speciesModel(key);
+  const H = SPECIES_SIZE[key].h;
+  const yt = cb * H;
+  const yn = leafBaseY(base.near.leaves);
+  const map = new Map<THREE.BufferGeometry, THREE.BufferGeometry>();
+  const R = (g: THREE.BufferGeometry, yc: number) => {
+    let r = map.get(g);
+    if (!r) map.set(g, (r = remapCrownBase(g, yc, yt, H)));
+    return r;
+  };
+  const far = R(base.far, base.def.far.crownBase * H);
+  m = {
+    ...base,
+    near: { branches: R(base.near.branches, yn), leaves: R(base.near.leaves, yn) },
+    mid: { branches: R(base.mid.branches, yn), leaves: R(base.mid.leaves, yn) },
+    far,
+  };
+  variantCache.set(vk, m);
+  return m;
+}
+
+/** Uzak silüetin taç tabanı çeşidi (düşük kalite) */
+export function farModelCb(key: SpeciesKey, cb: number): THREE.BufferGeometry {
+  if (!(cb > 0)) return farModel(key);
+  const vk = `${key}:${cb.toFixed(2)}`;
+  let g = variantCache.get(vk)?.far ?? farVariantCache.get(vk);
+  if (g) return g;
+  const H = SPECIES_SIZE[key].h;
+  g = remapCrownBase(farModel(key), SPECIES_DEFS[key].far.crownBase * H, cb * H, H);
+  farVariantCache.set(vk, g);
+  return g;
+}
+
 const farCache = new Map<SpeciesKey, THREE.BufferGeometry>();
 
 /** Yalnız uzak silüet (düşük kalite: ez/kart üretimi yapılmaz) */
@@ -1236,8 +1313,13 @@ export function clearSpeciesModels(): void {
     for (const g of gs) g.dispose();
   }
   for (const g of farCache.values()) g.dispose();
+  for (const m of variantCache.values())
+    for (const g of new Set([m.near.branches, m.near.leaves, m.mid.branches, m.mid.leaves, m.far])) g.dispose();
+  for (const g of farVariantCache.values()) g.dispose();
   modelCache.clear();
   farCache.clear();
+  variantCache.clear();
+  farVariantCache.clear();
 }
 
 // ─── Malzemeler ───

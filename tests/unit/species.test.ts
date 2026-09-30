@@ -1,12 +1,16 @@
 import { describe, expect, it } from 'vitest';
 import { parseSpecies, SPECIES, SPECIES_SIZE, speciesIndex } from '../../src/worlds/osm/species';
 import {
+  crownBaseRatio,
   fixedScale,
   FIXED_STRIDE,
   placeTrees,
   TREE_STRIDE,
   treesToPayload,
 } from '../../src/worlds/osm/vegetation';
+import { crownWidth } from '../../src/worlds/osm/eztree';
+import { remapCrownBase, speciesModel, speciesModelCb } from '../../src/worlds/osm/treelib';
+import * as THREE from 'three';
 
 describe('ağaç türü ayrıştırma', () => {
   it('eski üç genel tür indeksi korunur', () => {
@@ -69,7 +73,7 @@ describe('ölçülmüş ağaç ölçeği', () => {
     expect(b.sxz).toBeLessThanOrEqual(b.sy * 1.7 + 1e-9);
   });
   it("fixedTrees türü ve ölçüsü payload'a geçer", () => {
-    const F = [10, 20, speciesIndex('trachycarpus'), 3.6, 1.5];
+    const F = [10, 20, speciesIndex('trachycarpus'), 3.6, 1.5, 0];
     expect(F.length).toBe(FIXED_STRIDE);
     const trees = placeTrees([], [], [], [], [], { maxTrees: 10, density: 1, fixedTrees: F });
     expect(trees).toHaveLength(1);
@@ -77,5 +81,48 @@ describe('ölçülmüş ağaç ölçeği', () => {
     const p = treesToPayload(trees);
     expect(p.chunks[0].data.length).toBe(TREE_STRIDE);
     expect(p.chunks[0].data[3]).toBeCloseTo(3.6 / SPECIES_SIZE.trachycarpus.h);
+  });
+});
+
+describe('taç genişliği ve taç tabanı (critic rb/b-05, v8)', () => {
+  it('model görünen taç genişliği türün başvuru genişliğine eşit (sedir, ıhlamur, servi)', () => {
+    for (const k of ['cedrus', 'tilia', 'deciduous', 'cupressus', 'thuja'] as const) {
+      const w = crownWidth(speciesModel(k).near.leaves);
+      expect(w / SPECIES_SIZE[k].w).toBeGreaterThan(0.93);
+      expect(w / SPECIES_SIZE[k].w).toBeLessThan(1.07);
+    }
+  });
+  it('ikisi de ölçülmüşse dar taç korunur', () => {
+    // Genç sedir: h 8.5, r 2.2 → sxz = 4.4 / 7.6 (eskiden alt sınır 0.6 × sy'ye kırpılabiliyordu)
+    const { sxz } = fixedScale(speciesIndex('cedrus'), 8.5, 2.2);
+    expect(sxz * SPECIES_SIZE.cedrus.w).toBeCloseTo(4.4, 1);
+    const p = fixedScale(speciesIndex('trachycarpus'), 4, 1.2);
+    expect(p.sxz * SPECIES_SIZE.trachycarpus.w).toBeCloseTo(2.4, 1);
+  });
+  it('ölçülen crownBase örnek başına çeşit oranına çevrilir', () => {
+    const t = speciesIndex('tilia');
+    const F = [0, 0, t, 8, 2.8, 3.9, 5, 5, t, 8, 2.8, 0];
+    const trees = placeTrees([], [], [], [], [], { maxTrees: 10, density: 1, fixedTrees: F });
+    expect(trees[0].cb).toBeCloseTo(crownBaseRatio(3.9, trees[0].sy, SPECIES_SIZE.tilia.h));
+    expect(trees[0].cb).toBeCloseTo(0.5, 5);
+    expect(trees[1].cb).toBeUndefined();
+    const p = treesToPayload(trees);
+    expect(p.chunks.map((c) => c.cb).sort()).toEqual([0, 0.5]);
+  });
+  it('taç tabanı eşlemesi: gövde dibi ve tepe yerinde, taban hedefe', () => {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.Float32BufferAttribute([0, 0, 0, 0, 2, 0, 0, 8, 0], 3));
+    const r = remapCrownBase(g, 2, 4, 8).attributes.position;
+    expect([r.getY(0), r.getY(1), r.getY(2)]).toEqual([0, 4, 8]);
+    const base = speciesModel('tilia');
+    const v = speciesModelCb('tilia', 0.5);
+    let minB = Infinity;
+    let minV = Infinity;
+    const pb = base.near.leaves.attributes.position;
+    const pv = v.near.leaves.attributes.position;
+    for (let i = 0; i < pb.count; i++) minB = Math.min(minB, pb.getY(i));
+    for (let i = 0; i < pv.count; i++) minV = Math.min(minV, pv.getY(i));
+    expect(minV).toBeGreaterThan(minB * 1.5);
+    expect(speciesModelCb('tilia', 0)).toBe(base);
   });
 });

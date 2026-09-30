@@ -7,8 +7,8 @@ import { TREE_STRIDE, type TreePayload } from './vegetation';
 import {
   clearSpeciesModels,
   createTreeMaterials,
-  farModel,
-  speciesModel,
+  farModelCb,
+  speciesModelCb,
   type SpeciesModel,
   type TreeMaterials,
 } from './treelib';
@@ -36,6 +36,8 @@ const MID_CAP = 1600;
 interface FarMesh {
   im: THREE.InstancedMesh;
   sp: number;
+  /** Tür + taç tabanı çeşidi anahtarı (yakın/orta örnek meshleri bununla) */
+  vk: string;
   c: THREE.Vector2;
   mats: Float32Array;
   shade: Float32Array;
@@ -74,7 +76,7 @@ const FORCE_LOD =
 export class TreeField {
   readonly materials: TreeMaterials | null;
   private far: FarMesh[] = [];
-  private species = new Map<number, SpeciesMeshes>();
+  private species = new Map<string, SpeciesMeshes>();
   private farMat: THREE.MeshStandardMaterial;
   private radii: { near: number; mid: number };
   private ultra = false;
@@ -96,9 +98,10 @@ export class TreeField {
     this.farMat =
       this.materials?.far ?? new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.92 });
     // Türe göre örnek sayısı (yakın/orta mesh boyutları için)
-    const perSpecies = new Map<number, number>();
+    const vkOf = (t: { type: number; cb?: number }) => `${t.type}:${(t.cb ?? 0).toFixed(2)}`;
+    const perSpecies = new Map<string, number>();
     for (const t of payload.chunks)
-      perSpecies.set(t.type, (perSpecies.get(t.type) ?? 0) + t.data.length / TREE_STRIDE);
+      perSpecies.set(vkOf(t), (perSpecies.get(vkOf(t)) ?? 0) + t.data.length / TREE_STRIDE);
     const mtx = new THREE.Matrix4();
     const q = new THREE.Quaternion();
     const up = new THREE.Vector3(0, 1, 0);
@@ -108,9 +111,10 @@ export class TreeField {
     for (const t of payload.chunks) {
       const key = speciesKey(t.type);
       const size = SPECIES_SIZE[key];
+      const vk = vkOf(t);
       const geo = detailed
-        ? this.speciesMeshes(t.type, perSpecies.get(t.type) ?? 0).model.far
-        : farModel(key);
+        ? this.speciesMeshes(vk, t.type, t.cb ?? 0, perSpecies.get(vk) ?? 0).model.far
+        : farModelCb(key, t.cb ?? 0);
       const n = t.data.length / TREE_STRIDE;
       const im = new THREE.InstancedMesh(geo, this.farMat, n);
       im.userData.treeShared = true;
@@ -144,6 +148,7 @@ export class TreeField {
       this.far.push({
         im,
         sp: t.type,
+        vk,
         c: new THREE.Vector2((t.cx + 0.5) * CHUNK_SIZE, (t.cz + 0.5) * CHUNK_SIZE),
         mats: (im.instanceMatrix.array as Float32Array).slice(),
         shade,
@@ -156,11 +161,11 @@ export class TreeField {
   }
 
   /** Türün yakın/orta örnek meshleri (ilk kullanımda) */
-  private speciesMeshes(sp: number, count: number): SpeciesMeshes {
-    let s = this.species.get(sp);
+  private speciesMeshes(vk: string, sp: number, cb: number, count: number): SpeciesMeshes {
+    let s = this.species.get(vk);
     if (s) return s;
     const key: SpeciesKey = speciesKey(sp);
-    const model = speciesModel(key);
+    const model = speciesModelCb(key, cb);
     const m = this.materials!;
     const mk = (g: THREE.BufferGeometry, mat: THREE.Material, cap: number, name: string) => {
       const im = new THREE.InstancedMesh(g, mat, Math.max(1, cap));
@@ -192,7 +197,7 @@ export class TreeField {
           }
         : null,
     };
-    this.species.set(sp, s);
+    this.species.set(vk, s);
     return s;
   }
 
@@ -220,27 +225,27 @@ export class TreeField {
     cand.sort((a, b) => a.d2 - b.d2);
     const want = new Map<FarMesh, Uint8Array>();
     for (const f of this.far) want.set(f, new Uint8Array(f.lod.length));
-    const nc = new Map<number, number>();
-    const mc = new Map<number, number>();
+    const nc = new Map<string, number>();
+    const mc = new Map<string, number>();
     const col = new THREE.Color();
     for (const c of cand) {
       const f = this.far[c.f];
-      const s = this.species.get(f.sp);
+      const s = this.species.get(f.vk);
       if (!s) continue;
       const o = c.i * 16;
       const src = f.mats.subarray(o, o + 16);
       const h = ((c.i * 2654435761) >>> 0) / 4294967296;
-      if (s.near && c.d2 < n2 && (nc.get(f.sp) ?? 0) < s.near.l.instanceMatrix.count) {
-        const k = nc.get(f.sp) ?? 0;
-        nc.set(f.sp, k + 1);
+      if (s.near && c.d2 < n2 && (nc.get(f.vk) ?? 0) < s.near.l.instanceMatrix.count) {
+        const k = nc.get(f.vk) ?? 0;
+        nc.set(f.vk, k + 1);
         s.near.b.instanceMatrix.array.set(src, k * 16);
         s.near.l.instanceMatrix.array.set(src, k * 16);
         s.near.l.setColorAt(k, col.setScalar(0.9 + 0.2 * h));
         s.near.b.setColorAt(k, col.setScalar(0.88 + 0.24 * ((h * 7) % 1)));
         want.get(f)![c.i] = 2;
-      } else if (s.mid && (mc.get(f.sp) ?? 0) < s.mid.l.instanceMatrix.count) {
-        const k = mc.get(f.sp) ?? 0;
-        mc.set(f.sp, k + 1);
+      } else if (s.mid && (mc.get(f.vk) ?? 0) < s.mid.l.instanceMatrix.count) {
+        const k = mc.get(f.vk) ?? 0;
+        mc.set(f.vk, k + 1);
         s.mid.b.instanceMatrix.array.set(src, k * 16);
         s.mid.l.instanceMatrix.array.set(src, k * 16);
         s.mid.l.setColorAt(k, col.setScalar(0.9 + 0.2 * h));

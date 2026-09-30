@@ -743,3 +743,16 @@
     (koordinatör): `da3-rb-island.ringOuter` 27.5, `da3-bb-sw.faces` ters sıra, DA kaldırımlarına `tactileTint`,
     `roads` 502. Sk. `centreShift` [−0.9, 0]. **Blender:** `NW/Mertkent/Street` (lamba, sinyal, ada, çizgi, eşya,
     kaldırım), `NW/Roads` (502 orta çizgi) yeniden kurulur.
+
+## 2026-09-30 (cam balkon dikmeleri + site ağaçları)
+
+- **(commit edilmedi)** — Cam balkon profilleri: Şehr-i Bursa 1546358556 / 1546358555 / 1546358554 ve ONAL 51
+  1550826982'nin tüm camlı balkon öğelerine ölçülen dikme rengi `frameC {"*": …}` (556/555 `#a0a6a7`, 554 `#acafa8`,
+  ONAL `#a0a5a4` — hepsi İNCE AÇIK GRİ alüminyum, koyu değil; kanıt: 4bB2 189_23, SyTa 201_21, RW5 342_18, 6Bi 298_17
+  40° kareleri + ortofotolar) ve ölçülebilen yığınlarda `glazeEvery` (556 e9 0.44, e10 0.38, e11 0.52; 555 e14 0.52;
+  554 e0 0.58, e6 0.63; ONAL güney 0.48–0.54, kuzey e32/e44 0.58–0.60). Dosyalar: `survey/<id>.json` →
+  `data/facades.json`. **Blender:** `NW/Mertkent/Blocks/1546358556`, `…555`, `…554`, `…1550826982` cam balkon
+  malzemesi (`mk_facade.py` camglass: dikme aralığı `glazeEvery`, rengi `frameC`) yeniden kurulur.
+- **(commit edilmedi)** — `data/site-plan.json` ağaçlar: (−7.2,−71.9) yaprak döken h 8→4.2, r 2.5→1.05 (not artık
+  kavak/ıhlamur demiyor → genel `deciduous`); (−3.4,−72.6) r 1.8→1.2; sedir (−66.8,−128.7) r 1.8→1.6; sedir
+  (−69.5,−92.3) r 2.2→2.0. **Blender:** `NW/Mertkent/Site` ağaç örnekleri (boy/taç/tür) yeniden kurulur.

@@ -1391,8 +1391,406 @@
    "edge": 2,
    "len": 22.16,
    "seen": "partial",
-   "items": [],
-   "note": "D cephe (DJSso): 3 balkon yığını (pahlı köşeli cam balkonlar, K1–K7 çoğu camlı), ortada derzli pencere sütunu (7 pencere). Önünde tek katlı doğu kanadı (taban izinde YOK, x 771–777): ECZANE SEZGİ (kırmızı çerçeve, beyaz kutu tabela kırmızı ECZANE / SEZGİ, üstte kırmızı \"E\" kutusu), EMMA’nın köşe devamı, Poyraz Optik (siyah fasya \"po…raz → Optik\", VERSACE / PRADA güneş gözlüğü afişleri) ve dükkân önünde \"EREN KOZAN\" yüz logolu ayaklı tabela. Kanat çizilmediği için bu dükkânlar yazılamadı (rapor: taban izi eksiği). Kule üst katları DJSso uzaklık/açısıyla ölçülmedi."
+   "ref": "1476599912_2_DJSsoANi.jpg",
+   "cal": {
+    "u": [
+     0,
+     21.37
+    ],
+    "head": [
+     [
+      1,
+      8.84
+     ],
+     [
+      4,
+      17.66
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 9.17,
+     "y0": 3.25,
+     "y1": 5.84,
+     "color": "#2448a3"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.17,
+     "y0": 2.54,
+     "y1": 3.07,
+     "color": "#e9eaea",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 9.17,
+     "y0": 3.07,
+     "y1": 3.29,
+     "color": "#2f57c0",
+     "proud": 0.05
+    },
+    {
+     "t": "panel",
+     "u0": 4.93,
+     "u1": 6.89,
+     "y0": 3.79,
+     "y1": 4.3,
+     "color": "#e4e6e6",
+     "proud": 0.02
+    },
+    {
+     "t": "win",
+     "u0": 3.81,
+     "u1": 4.84,
+     "y0": 3.79,
+     "y1": 5.21,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 1,
+     "frameC": "#e6e6e3",
+     "shut": {
+      "K0": 1
+     },
+     "shutC": "#9a9c9d"
+    },
+    {
+     "t": "win",
+     "u0": 7.34,
+     "u1": 8.37,
+     "y0": 3.79,
+     "y1": 5.21,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 1,
+     "frameC": "#e6e6e3",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "door",
+     "u0": 4.17,
+     "u1": 5.29,
+     "y0": 0.04,
+     "y1": 2.36,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 1,
+     "frameC": "#e6e6e3",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 5.73,
+     "u1": 6.36,
+     "y0": 0.04,
+     "y1": 2.54,
+     "color": "#2448a3",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 6.36,
+     "u1": 8.05,
+     "y0": 0.1,
+     "y1": 2.5,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#e6e6e3",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 22.16,
+     "y0": 5.95,
+     "y1": 6.2,
+     "color": "#5f4e40",
+     "proud": 0.15
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 22.16,
+     "y0": 6.2,
+     "y1": 7.1,
+     "color": "#c4b89f",
+     "proud": 0.08
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 22.16,
+     "y0": 7.1,
+     "y1": 7.5,
+     "color": "#5f4e40",
+     "proud": 0.2
+    },
+    {
+     "t": "panel",
+     "u0": 9.17,
+     "u1": 22.16,
+     "y0": 3.34,
+     "y1": 5.95,
+     "color": "#c4b89f",
+     "clad": {
+      "dir": "h",
+      "every": 0.12,
+      "w": 0.01,
+      "color": "#a99c83"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 9.17,
+     "u1": 16.98,
+     "y0": 2.55,
+     "y1": 3.34,
+     "color": "#e2332f",
+     "proud": 0.12
+    },
+    {
+     "t": "panel",
+     "u0": 9.17,
+     "u1": 9.75,
+     "y0": 0.1,
+     "y1": 2.55,
+     "color": "#e2332f",
+     "proud": 0.1
+    },
+    {
+     "t": "panel",
+     "u0": 16.42,
+     "u1": 16.98,
+     "y0": 0.1,
+     "y1": 2.55,
+     "color": "#e2332f",
+     "proud": 0.1
+    },
+    {
+     "t": "sign",
+     "u0": 11.11,
+     "u1": 14.31,
+     "y0": 2.43,
+     "y1": 3.56,
+     "d": 0.1,
+     "off": 0.12,
+     "text": "ECZANE\nSEZGİ",
+     "lines": [
+      {
+       "text": "ECZANE",
+       "fg": "#c8242e",
+       "size": 0.6,
+       "bold": true
+      },
+      {
+       "text": "SEZGİ",
+       "fg": "#3b3b3b",
+       "size": 0.3,
+       "bold": true
+      }
+     ],
+     "bg": "#f6f4f1",
+     "fg": "#c8242e",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "logo": "beyaz kutu, kırmızı ECZANE (kırmızı kenarlı harfler), altında koyu SEZGİ; gece görülmedi"
+    },
+    {
+     "t": "win",
+     "kind": "door",
+     "u0": 11.2,
+     "u1": 12.24,
+     "y0": 0.1,
+     "y1": 2.36,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 1,
+     "frameC": "#e6e6e3",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 12.85,
+     "u1": 13.74,
+     "y0": 0.1,
+     "y1": 2.36,
+     "color": "#e2332f",
+     "proud": 0.04
+    },
+    {
+     "t": "sign",
+     "u0": 13.1,
+     "u1": 13.5,
+     "y0": 0.3,
+     "y1": 2.3,
+     "d": 0.01,
+     "off": 0.05,
+     "text": "E\nC\nZ\nA\nN\nE",
+     "fg": "#ffffff",
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "logo": "kırmızı dikey şerit üstünde beyaz dikey ECZANE (alt harfler oturan kişi arkasında)"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 13.8,
+     "u1": 16.4,
+     "y0": 0.1,
+     "y1": 2.5,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#e6e6e3",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 15.39,
+     "u1": 16.33,
+     "y0": 1.1,
+     "y1": 2.5,
+     "d": 0.01,
+     "text": "",
+     "bg": "#e8e6e0",
+     "fg": "#333333",
+     "style": "panel",
+     "logo": "vitrinde renkli daireli afiş (vitamin/ürün simgeleri), yazı okunmadı"
+    },
+    {
+     "t": "sign",
+     "u0": 10.74,
+     "u1": 12.29,
+     "y0": 3.67,
+     "y1": 5.36,
+     "d": 0.08,
+     "text": "E",
+     "fg": "#e2332f",
+     "bg": "#f6f4f1",
+     "border": "#6b5a4c",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "logo": "asma kat penceresine oturan kahve çerçeveli kutu: beyaz zemin üzerinde büyük kırmızı eczane E harfi"
+    },
+    {
+     "t": "sign",
+     "u0": 14.3,
+     "u1": 15.25,
+     "y0": 3.67,
+     "y1": 5.36,
+     "d": 0.05,
+     "text": "",
+     "bg": "#f1f1ee",
+     "fg": "#3d7a3d",
+     "border": "#6b5a4c",
+     "style": "box",
+     "logo": "kahve çerçeveli pencere kutusunda beyaz zemin, yeşil defne dalı amblemi (çizilmedi)"
+    },
+    {
+     "t": "sign",
+     "u0": 16.98,
+     "u1": 21.37,
+     "y0": 2.55,
+     "y1": 3.58,
+     "d": 0.14,
+     "text": "po…raz",
+     "fg": "#ffffff",
+     "bg": "#16171a",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "capH": 0.7,
+     "align": "left",
+     "logo": "siyah kutu fasya; beyaz küçük harf \"po…raz\" (orta harfler önündeki EREN KOZAN panosu arkasında), beyaz yay/kuyruk çizgisi, \"Optik\" beyaz kalın (görünen 21.1–23.0, kenar sonunu aşar → kenar 3 köşesine taşıyor)"
+    },
+    {
+     "t": "sign",
+     "u0": 21.12,
+     "u1": 21.37,
+     "y0": 2.55,
+     "y1": 3.58,
+     "d": 0.14,
+     "text": "O",
+     "fg": "#ffffff",
+     "bg": "#16171a",
+     "style": "box",
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 17.08,
+     "u1": 21.37,
+     "y0": 0.1,
+     "y1": 2.55,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 3,
+     "frameC": "#2b2c2e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 21.07,
+     "u1": 21.37,
+     "y0": 3.72,
+     "y1": 5.46,
+     "d": 0.02,
+     "text": "",
+     "bg": "#1a1a1a",
+     "fg": "#e8c440",
+     "style": "panel",
+     "logo": "asma kat penceresinde güneş gözlüklü kadın afişi, sarı el yazısı (okunmadı) ve gözlük simgesi (görünen 21.07–22.76, kenar sonunu aşıyor)"
+    }
+   ],
+   "note": "D4-v8: D cephe zemin (çift yükseklikli dükkân katı). DOĞU KANADI YOK: dükkânlar kule duvarı düzleminde (x ≈771.2) — DJSso ortofotosunda taş korniş K1 penceresinin 0.2 altında (güneyle aynı ilişki), 774.5 düzleminde üretilen ortofotoda aynı öğeler 0.8× küçülüyor (daha uzak) → hava fotoğrafındaki 771–774.5 açık şerit bir saçak/kaldırım, bina değil (önceki raporum düzeltildi). Düşey ölçek zemine göre (kapılar kaldırımda, true = 0.2 + 1.037·görünen, K1 penceresiyle tutarlı); EMMA bantları güney yüzden ~1 m alçak görünüyor. Kule üst katları (3 balkon yığını, pencere sütunu) ölçülmedi. EREN KOZAN panosu kaldırımda (sokak öğesi, rapor)."
   },
   {
    "edge": 3,
@@ -1426,8 +1824,9 @@
    "note": "A sütunu (proj d 0.8) yüzünde pencere altlarında 3’er yatay derz (909 ile aynı), söve 0.15 m #cbbaa2"
   },
   {
-   "type": "low-east-wing",
-   "note": "D cephe önündeki tek katlı dükkân kanadı (x ≈771–777, z ≈−306…−331) taban izinde yok: ECZANE SEZGİ, Poyraz Optik, EMMA köşesi; ayrı bina olarak eklenmeli (footprint ajanı)"
+   "type": "wrap-sign",
+   "edge": 2,
+   "note": "Poyraz Optik fasyası ve \"Optik\" yazısı (görünen 21.1–23.56) ile gözlük afişi kenar 2 sonunu aşıp kenar 3’e (KD girinti, K yüz) dönüyor; kenar 3’te devamı VERSACE / PRADA / Poyraz Optik afiş bandı (DJSso e3 ortofotosu) ölçülmedi"
   },
   {
    "type": "box-in-balcony",
