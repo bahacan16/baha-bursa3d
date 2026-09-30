@@ -76,7 +76,7 @@
           ]
         ]
       },
-      "note": "Kuzey orta çıkıntı (0.8-0.9 m) = koyu gri kutu; her katta iki içe gömük loca, K0-K5 hepsi cam balkon (koyu cam; K5 sağ bölmede beyaz tül → 'blinds' olabilir); aradaki pilastrda boru. Kutu üst saçak alnına kadar çıkar, üstünde iki çatı penceresi (gablet). En alt kat camlarında ferforje. DİKKAT: kutu bu ortoda taban izine göre ~0.8 m batıda (u 0.81-7.25 görünen). v5 (retro): 178_22/Oh3B 200 yakın karelerle kat kat: sol loca K0–K5 cam (K0 önünde kemerli ferforje parmaklık, K4'te arkada beyaz dolap/kapı), sağ loca K0–K4 koyu cam, K5 camın arkasında beyaz tül/stor → blinds. Cam altında ≈0.4 m buzlu cam şerit + ≈0.8 m koyu gri alın bandı (parapetH 0.5). Kutu rengi = balkon alın grisi (gölgede #556775, alın #485b5e ile aynı oran). Eski ölçümdeki orta boru yakın karelerde YOK (iki loca arası düz gri ayak) → silindi. v6 (2026-09-29): K0 iki locada camın önünde kemerli ferforje parmaklık → bal grille K0 arched, #2f3438 (gölgede), kemer bölmesi ≈0.9 m (Oh3B 200_10: loca başına ≈3 kemer); cam korkuluk dikmeleri postEvery 1.0. Kutunun üstündeki iki gablet (x −52.15 / −56.82) çizilmedi → pending (model çatısı kutu saçağından yükseliyor; gerçek dormer tabanı kutu üstünün arkasında gizli).",
+      "note": "Kuzey orta çıkıntı (0.8-0.9 m) = koyu gri kutu; her katta iki içe gömük loca, K0-K5 hepsi cam balkon (koyu cam; K5 sağ bölmede beyaz tül → 'blinds' olabilir); aradaki pilastrda boru. Kutu üst saçak alnına kadar çıkar, üstünde iki çatı penceresi (gablet). En alt kat camlarında ferforje. DİKKAT: kutu bu ortoda taban izine göre ~0.8 m batıda (u 0.81-7.25 görünen). v5 (retro): 178_22/Oh3B 200 yakın karelerle kat kat: sol loca K0–K5 cam (K0 önünde kemerli ferforje parmaklık, K4'te arkada beyaz dolap/kapı), sağ loca K0–K4 koyu cam, K5 camın arkasında beyaz tül/stor → blinds. Cam altında ≈0.4 m buzlu cam şerit + ≈0.8 m koyu gri alın bandı (parapetH 0.5). Kutu rengi = balkon alın grisi (gölgede #556775, alın #485b5e ile aynı oran). Eski ölçümdeki orta boru yakın karelerde YOK (iki loca arası düz gri ayak) → silindi. v6 (2026-09-29): K0 iki locada camın önünde kemerli ferforje parmaklık → bal grille K0 arched, #2f3438 (gölgede), kemer bölmesi ≈0.9 m (Oh3B 200_10: loca başına ≈3 kemer); cam korkuluk dikmeleri postEvery 1.0. Kutunun üstündeki iki gablet (x −52.15 / −56.82) çizilmedi → pending (model çatısı kutu saçağından yükseliyor; gerçek dormer tabanı kutu üstünün arkasında gizli). Eleştirmen düzeltmesi (2026-09-30, 8QlT 178_22 / 178_9 yakın, gölgeli kuzey): cam kutu yüzüyle aynı düzlemde (loca ağzında; üretici camı taban izi hattında çiziyor — kod tarafı), cam koyu lacivert, gök yansımalı: K5 sol #3d5065, K4 sol #475a79 / sağ #2b3e58, K3 #2d425b / #294057, K2 #4d5868 / #31455a, K1 #384c62 / #455858 (kutu yüzü #637079) → tint 'dark' doğru (siyah değil; oyundaki siyahlık malzeme/ışık). K5 sağ bölme camın arkasında açık perde/stor #6a7f90 (blinds, doğrulandı). Doğrama/dikmeler KOYU antrasit (≈0.85–0.9 m arayla ince koyu dikmeler) → frameC * #2f3438 (gölgede; önceden varsayılan beyaz profil). Kat profili (8QlT 178_22, kat aralığı 80 px = 2.85 m): cam ≈1.45 m, altında buzlu şerit ≈0.39 m (#5b7a9b gölgede), koyu alın ≈0.71 m + ≈0.18 m açık üst profil çizgisi → parapetH 0.5 + küpeşte 0.92 ile uyumlu, değiştirilmedi. K4 sol locada sağ uçta beyaz dolap/kapı yüzeyi (derinliği görülmedi → box yazılmadı).",
       "items": [
         {
           "t": "panel",
@@ -128,7 +128,10 @@
           },
           "grilleC": "#2f3438",
           "grilleW": 0.9,
-          "postEvery": 1.0
+          "postEvery": 1.0,
+          "frameC": {
+            "*": "#2f3438"
+          }
         },
         {
           "t": "bal",
@@ -172,7 +175,10 @@
           },
           "grilleC": "#2f3438",
           "grilleW": 0.9,
-          "postEvery": 1.0
+          "postEvery": 1.0,
+          "frameC": {
+            "*": "#2f3438"
+          }
         }
       ]
     },
@@ -2854,6 +2860,13 @@
     {
       "what": "gablet-window-shape",
       "desc": "Tüm gabletlerde pencere alınlık biçimli (düşey yanlar ≈0.3 m + üstü alınlık eğimine paralel, 3–4 dikey kayıt, beyaz çerçeve; 8QlT 178_22) ve alınlığın çoğunu kaplıyor; üretici dikdörtgen (1.2 m) çiziyor."
+    },
+    {
+      "what": "camglass-mullion-colour",
+      "edges": [
+        1
+      ],
+      "detail": "Cam balkon dikmeleri gölgelendiricide sabit açık gri (facadeMats camGlassMaterial frameCol); 1540901795 e1 localarında dikmeler KOYU antrasit #2f3438 (≈0.85–0.9 m arayla, 8QlT 178_22). frameC yalnız alt/üst profili boyuyor → dikmeler de frameC renginde çizilmeli (aralık ≈0.87 m)."
     }
   ]
 }
