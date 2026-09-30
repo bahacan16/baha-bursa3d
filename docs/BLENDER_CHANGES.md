@@ -678,3 +678,7 @@
   kebap" yeşil konturlu beyaz harf, gri servis bloğu), `900000201.json` (MOT Hair&Style + Watsons: altın 3B harf, 9.1 m
   nane afiş, spotlar), `900000202.json` (Wall Street English mavi pano + tente, İDAS 3B harf + "iyi uykular"); vitrin
   yazıları okunduğu kadar. `facades.json`. **Blender:** bu 3 bina ilk kez ölçülü kurulur (D4).
+- **(D4 cephe 6)** — yeni `survey/1551828351.json` (Kent Park: PABLO camlı salon + kırmızı tenteler, MADO camlı salon +
+  yuvarlak saçak, ULU diş polikliniği panosu 5 levha birebir, Mercan Balık, VENCHI, Plus, MONTEA; batı blok 7 kat, doğu
+  kule 9 kat) ve `1552093099.json` (VİRA, Modern Tavla Ligi afişi, Ciğerci Hamza camlı salon; 8 katlı iki kule). Geri
+  çekilmiş üst katlar (kütle kesim yüzleri) üretici desteği bekliyor (pending). **Blender:** bu 2 bina ilk kez kurulur.
