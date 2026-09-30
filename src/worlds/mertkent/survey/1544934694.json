@@ -1,0 +1,150 @@
+{
+ "id": 1544934694,
+ "name": "Muammer Aksoy Cd. × Özlüce Blv. KD köşesi konut bloğu",
+ "storeys": 7,
+ "roof": {
+  "kind": "hipped",
+  "eave": 0.5,
+  "fasciaH": 0.35,
+  "pitch": 28
+ },
+ "colors": {
+  "plaster": "#f4f3ef",
+  "plaster2": "#e5decf",
+  "strip": "#c9c1b2",
+  "fascia": "#e3ded4",
+  "soffit": "#e8e4dc",
+  "railGlass": "#9fb0b3",
+  "frame": "#f4f4f2",
+  "tile": "#9a5a48",
+  "plinth": "#c9c1b2"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 4.66,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 1,
+   "len": 3.58,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 2,
+   "len": 6.27,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 3,
+   "len": 2.58,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 4,
+   "len": 3.18,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 5,
+   "len": 2.58,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 6,
+   "len": 5.45,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 7,
+   "len": 3.99,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 8,
+   "len": 2.27,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 9,
+   "len": 13.23,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 10,
+   "len": 9.02,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 11,
+   "len": 3.25,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 12,
+   "len": 1.63,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 13,
+   "len": 3.25,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 14,
+   "len": 11.19,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  },
+  {
+   "edge": 15,
+   "len": 13.64,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi / ölçülmedi"
+  }
+ ],
+ "notes": [
+  "Konut bloğu (dükkân/tabela yok): 7 kat (zemin + 6), kırma kiremit çatı (hava fotoğrafı #9a5a48, beyaz baca başlıkları), beyaz sıva (#f4f3ef; güneşli yama #fefefd aşırı pozlanmış), pencere söveleri açık bej (#e5decf), düşey kanal #bfb9ad, beyaz PVC doğrama; güney cephede cam balkonlu (katlanır cam, bazılarında zebra perde / kuş filesi) balkon yığını, çitli bahçe (şimşir/karışık çit, alçak taş duvar üstünde).",
+  "ÖLÇÜ ÇELİŞKİSİ (çizim yapılmadı, §0.1): güney cephe (kenar 9) ortofotolarında (fq8W f22, GY1l) kat aralığı görünen 3.9–4.2 m (gerçek ≈2.95) → cephe ortofoto düzleminin ≈5–6.5 m ÖNÜNDE görünüyor (fq8W/GY1l stereo: ≈6.5 m), oysa hava fotoğrafında güney saçak görüntüsü −829 (eğim düzeltmesiyle cephe ≈−823) taban iziyle uyumlu. fq8W 0_0 karesinde pano bahçe çitinin hemen önünde (≈11 m) görünüyor → pano konumu (index.json 676.5, −806.2) ya da taban izi ≈6 m hatalı; çözülmeden kenar ölçüleri yazılmadı (pending’de görünen ölçüler)."
+ ],
+ "pending": [
+  {
+   "what": "kenar 9 (güney) görünen ölçüler, fq8W f22 δ=0",
+   "desc": "krem duvar görünen u 1.0–10.5; iki pencere sütunu: A (u 2.14–4.27 söve dış, cam 2.39–4.07; söve ≈0.12 m açık bej) satırlar (söve) 3.4–5.53, 7.53–9.72, 11.74–13.91, 15.9–18.12, 20.08–22.33, 24.25–26.52, 28.45–30.73 (aralık 4.2); B (u 6.7–8.72) satırlar 3.24–5.41, 7.19–9.32, 11.04–13.16, 14.92–17.0, 18.77–20.91, (≈22.6–24.7 parlama, seçilemedi), 26.56–28.71 (aralık 3.88 → B sütunu A’dan geride; u 5.4–5.9 arasında düşey koyu kanal/iç köşe). A sütunu B’ye göre yarım kat kaymalı → merdiven kovası pencereleri olabilir. Pencereler iki kanatlı beyaz PVC, çoğunda beyaz tül. Batıda (u < 1) cam balkon yığını: K1 açık balkon (beyaz korkuluk, masa-sandalye), K2 katlanır cam, K3 cam + zebra perde, K4 cam, K5 kuş filesi (bej), K6 cam; balkonlar arası beyaz döşeme alnı ≈0.5 m. Saçak görünen ≈31.8–32.2, beyaz yağmur borusu u ≈0.9 (tam boy). Doğuda (u 10.5–11.1) kenar 10’a ait cam balkon yığını kenardan görünüyor."
+  },
+  {
+   "what": "diğer kenarlar",
+   "desc": "kenar 0–8 batı kanat girinti/çıkıntıları (8W7W, RwEp, xp5S, -Bd1 kareleri; bulvar tarafı, yeşil alan arkasında), kenar 10/14 doğu (AZNL, qo16 — çok eğik), kenar 15 kuzey (8NHY, CQlr): kat aralıkları kenar 9 ile aynı çelişkiyi taşıyor; taban izi/pano konumu çözülünce ölçülmeli."
+  }
+ ]
+}

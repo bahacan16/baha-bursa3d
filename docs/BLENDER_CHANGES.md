@@ -699,3 +699,7 @@
   YERDENİZ Psikoloji, Penti, 1A PLUS, ÖZGÜR MODA, ATB/SEYHAN Gayrimenkul, Akademi Matematik, Ziraat, OUTLET CITY,
   KuveytTürk, Eczane Buketim, HAIR LOUNGE, eren tour, ÇARŞAMBA² VİP, provey, özhan, BİM, KOPİ NO 9, SANSAR; kat kat cam
   balkon/klima). **Blender:** bu blok ilk kez kurulur.
+- **(D4 cephe 9)** — yeni `survey/1544934686.json` (Kırmıkıl İş Merkezi: güney cephede 21 büro tabelası birebir, çelik
+  ızgara + sarı saksılı localar), `1552992538.json` (TİME Özlüce kaidesi: Kahve Dükkanı, Beysos, Diken, Bir Simit,
+  Piliçmatik, Öncü döner, destan; kule yüzü pending), `1477364957.json` (Juan Valdez, ROSSMANN, BIGCHEFS), `900000261`
+  (MONS, sushico), `900000262`, `1544934694` (konut; ölçüler çelişkili → görülmedi). **Blender:** bu bloklar ilk kez.
