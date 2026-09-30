@@ -600,3 +600,65 @@
   #d7cbb9 (turuncu değil, aynı kare oranıyla); 43 kuzey girintisi e12/e13 kısmen ölçüldü (56 m'den, düşük hassasiyet);
   44 ikinci sıva #cdd4d6; 45 GB yığını 1.13 m çıkma; 95 e1 koyu kayıt #2f3438 + `glazeEvery` 0.9, çatı pencereleri
   alınlık biçimli; 96 e20 boş saksılar. **Blender:** bu 6 bloğun cephe katmanı (özellikle köşe locaları).
+- **(eleştirmen kod düzeltmeleri, DA + Mertkent-2)** 02:xx — commit edilmedi (ajan). Dosyalar: `osm/parse.ts`
+  (`dropHandmadeWays`), `osm/world.ts`, `osm/build.ts`, `osm/props.ts`, `osm/roads.ts`, `osm/treelib.ts`,
+  `mertkent/index.ts`, `siteplan.ts`, `street.ts`, `fence2.ts`, `fenceGeneric.ts`, `facade.ts`, `facadeMats.ts`,
+  `realtex.ts`, `roof.ts`, `roofWing.ts`.
+  - El modeli / ölçülmüş bina taban izinin İÇİNDEKİ OSM `building:part`'ları çizilmez (ONAL 51 1550826983/84/85).
+    **Blender:** `NW/Buildings` (OSM genel binalar) — bu üç parça silinir.
+  - Eski Street View çit kabukları (`fences.json`) ölçülmüş çit hattına 2.5 m'den ya da ölçülmüş kaldırım bandına
+    (w + 2 m) yakınsa çizilmez (DA boyunca). **Blender:** `NW/StreetView/Fences` yeniden kur.
+  - Yordamsal lamba / park etmiş araç: ölçülmüş bölgede (street-plan kaldırım/çit hatları + ölçülmüş binalar 14 m +
+    Mertkent kutusu) üretilmez. **Blender:** `NW/Props` (lambalar, park araçları) yeniden kur.
+  - OSM yolları: araç yolu şeridi 4 m'de bir sıklaştırılır (12 m idi); kenar/orta çizgi başka bir araç yolunun şeridi
+    içinde (kavşak ağzı, üst üste binen tek yönlü kollar, göbek) çizilmez; `roads[].centreShift` orta çizgi kayması.
+    **Blender:** `NW/Roads` (şerit + çizgiler) yeniden kur.
+  - Sokak planı: rögar/ızgara yüzeyde (yolda +0.062, bisiklet şeridinde +0.092, kaldırımda bant + 0.012; ölçülen
+    `r`/`w`/`d`/`shape`/`color`); yama/çatlak/çukur +0.046–0.0485; göbek adasından çevre yolunun dış kenarına asfalt
+    halka (`ringOuter`, yoksa nottaki r≈); çöp kovası rengi (`color` / not); kuğu boynu lamba (`style: swan` / not,
+    `arms`, `arm` boyu artık uygulanıyor); levha direğin önünde (5 cm); yaya geçidi `color` (dönüşümlü dizi),
+    `baseColor`, renkli aşınma; yeni `road-line` (dur / yol ver / kesikli); kaldırım `tactileTint`.
+    **Blender:** `NW/Mertkent/Street` yeniden kur; `mk_street.py`'ye `road-line`, kuğu boynu kol, renkli zebra.
+  - Komşu çitler: dışbükey köşede çit bitkisi kutusu komşu kolun duvarında biter (503 köşesi); korkuluk üst borusu
+    `infillSpec.topRail` / `topRails` (ya da tip metnindeki "üst boru … #hex"). **Blender:** `NW/Mertkent/Fences`.
+  - Mertkent çiti: dalga paneli dokusu gerçek ölçekte (WAVE_V 0.6 m, düşeyde aynalı; önceden 0.97 m'ye gerili),
+    normal 0.25, derz dikmeleri yüzeyle hizalı; leylandi düz üstü ölçülen boyun 0.18 m altında + küçük filiz
+    tutamları (tepe ≤ ölçülen boy, dünya UV'si, açık sarı-yeşil `mkHedgeTop`); jiletli tel `razorSpec` çap/kot,
+    görünür kesit (2.4 cm). **Blender:** `NW/Mertkent/Fence` (duvar UV'si, çit tepesi, jiletli tel) yeniden kur.
+  - Cam: sahne ortamını kullanan malzemede three `envMapIntensity`'yi yok sayıyor → cam aynasal yansıması
+    `uGlassEnv` (9×) ile güçlendirildi (pencere, cam balkon, renkli/vitrin camı); oda/perde güneşle yalnız %40
+    aydınlanır, kalanı sabit ışıma; şeffaf cam balkonda tül loş ve seyrek. **Blender:** cam malzemeleri (Principled
+    Glass/yansıma) — `mkGlass`, `mkCamGlass`, `tint`.
+  - Sedir yaprak kartı yoğunluğu 9 → 12. **Blender:** `NW/Trees` sedir modeli.
+  - Çatı: `roof.barge` rüzgârlık tahtası boyu (varsayılan 0.22). Çanak: gömük locanın korkuluğunda (`onBal`) cephe
+    düzleminin 0.3 m önünde (arka duvara / 1.35 m öne taşınmaz); `off` çanakta uygulanıyor. **Blender:** ilgili bloklar
+    yalnız veri gelince.
+  - Ağaç dışlama: kaldırım bandı dışlaması duvar tarafında yalnız w + 0.3 (duvar arkası ağaçları kalır);
+    `treeExclude` (plan dosyaları) çokgen/daire. **Blender:** `NW/Trees` (hava fotoğrafı ağaçları) yeniden dağıt.
+- **(veri, commit bekliyor)** 2026-09-30 — Eleştirmen (M2 + Doğan Avcıoğlu) veri düzeltmeleri, yalnız
+  `src/worlds/mertkent/data/{street,site,park}-plan.json`:
+  - Ağaçlar: Cavit Orhan batı çiti içinde Himalaya sediri (−69.5,−92.3) h 8.5; Nato Parkı KD tek olgun ağaç
+    `NATO_NE_BIG` (−9.8,−28.3) h 14 r 7 — taç altındaki 17 hava-fotoğrafı "genç ağaç" noktası silindi; KB kuzey çimde 4
+    meyve ağacı → 2 geniş taç (h 5.8 / 4.4); palmiye h 3.7 r 1.7; güney şeritte fidan konumu + mor yapraklı fidan;
+    doğu çitte kızıl-bronz çalı; DA güneyi fıstık çamları / mor erikler / budanmış ağaç (6 + 2), Uğur Mumcu genç ağaç +
+    çalı, kuzey kol refüjü 6 kazıklı fidan; `da1-tree-lot` kopyası silindi (BIG_PARK r 2.8, `crownBase` 3.9);
+    `treeExclude` 7 bölge (hava fotoğrafı yanlış pozitifleri). **Blender:** `NW/Trees` yeniden dağıt.
+  - Kaldırımlar: yeni `park-cv-west`, `park-da-north` (kırmızı → gri → çim; park-plan L2/L3 bordür çizgileri silindi),
+    `nw-corner` (KB köşe kırmızı bant + kılavuz), `ne-island-502` (mavi şerit + soluk karo; `ne-island` kısaldı),
+    `da2-sw-503-west-corner` (şeritsiz köşe; bisiklet şeridi yalnız 503'te); `edgeLine` (bordürden 0.4–0.47 m beyaz
+    çizgi) 4 kayıtta. **Blender:** `NW/Mertkent/Street` kaldırımları yeniden kur.
+  - Çitler: `da2-fence-503-west` fener + jiletli tel (+ `wall.pattern` kafes, `pillars.pattern` halat), `east`
+    `noLampU [0]`, `da2-fence-ne` dağınık bitki, yeni `da2-fence-uptown-west`, `da2-fence-north-lot`; kapılar
+    `north-gate` / `south-gate` `leafSpec`/`pillarSpec`. **Blender:** `NW/Mertkent/Fences` + kapılar.
+  - Sokak eşyası/levha: bisiklet "sonu" levhaları (`ne-bike-end` taşındı, `se-bike-end` iki yüzlü + ok levhası),
+    ŞEHR-İ BURSA direk levhası + `cctv`, 503 sokak adı levhası (`arrow`), 3 okunamayan çit levhası, kavşak "kamyon
+    giremez" + chevron (ada ucu ve GD lamba), 8 kavşak lambası `style: swan` + yeni GD lamba, reklam panoları 7 yüz
+    (`faces`), Uğur Mumcu tanıtım panosu ("Bursa'nın tarihi / birikimine / müzelerimizde / şahit olun..."),
+    Özdemiroğlu önü 2 koyu yeşil kare şemsiye, kuzey kol refüjü `island`, gatehouse renkleri; 502 Sk bisiklet şeridinde
+    9 park etmiş araç (site-plan `car`). **Blender:** `NW/Mertkent/Street` + `NW/Cars`.
+  - Yol yüzeyi taraması (road-items.json) birleştirildi: 73 yama/çatlak/çukur/rögar/ızgara, Cavit Orhan z −26
+    sarı-beyaz zebra (`co-zebra-26`, wear 0.55), 4 geçitte `wear`, 4 rögar/ızgara konum düzeltmesi.
+    **Blender:** `NW/Mertkent/Street` yol yüzeyi katmanı.
+  - Park/site alanları: UPTOWN otopark yolu + arka otopark gri kilit taşı (`uptown-lot`), ONAL 51 önü 11 sarı park
+    çizgisi (`base` 0.15), kuru saman rengi çim (park area 2 `dry`/`color`), kumbara/lamba `style`.
+    **Blender:** `NW/Mertkent/Site`, `NW/Parks`.

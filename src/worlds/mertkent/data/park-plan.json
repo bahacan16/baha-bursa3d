@@ -458,8 +458,10 @@
      -179.4
     ]
    ],
-   "material": "çim, orta yeşil; güney kenarda kuru sarımsı yamalar",
-   "note": "Güneydoğu yamuk çim: büfe konteynerinin doğusu, otoparkın kuzeyi; ağaçsız"
+   "material": "kuru, sararmış saman rengi çim/ot (Eylül 2025, sulanmıyor); yer yer yeşil öbekler",
+   "note": "Güneydoğu yamuk çim: büfe konteynerinin doğusu, otoparkın kuzeyi; ağaçsız | 2026-09 (eleştirmen da1-04): SV nB9G_60_0 (2025-09, BULUTLU): alan x≈74–80, z≈−184 kuru saman rengi (≈#bda080 / #baa382 / #c1ac8d, bulutlu difüz; eleştirmen örneği #b09672) — mevsim sonu kuru ot, sulanan kuzey park / Nato çiminden farklı. dry/color alanları kod bekliyor (çim malzemesi şu an sabit yeşil). Renk bulutlu kareden: güneşli karede yeniden örneklenmeli.",
+   "dry": true,
+   "color": "#baa382"
   },
   {
    "kind": "lawn",
@@ -2015,11 +2017,12 @@
    "kind": "tree",
    "x": 41.7,
    "z": -170.3,
-   "r": 4,
+   "r": 2.8,
    "h": 10,
    "species": "deciduous",
-   "note": "otopark girişinde yol kenarında büyük ağaç (SV TRTBVU+4VcmT üçgenleme)",
-   "id": "BIG_PARK"
+   "note": "otopark girişinde yol kenarında büyük ağaç (SV TRTBVU+4VcmT üçgenleme) | 2026-09: TRTB_60_0 (78.5°) × 4Vcm_300_0 (288.2°) → gövde (41.73,−170.27) — konum doğrulandı; street-plan'daki kopya (da1-tree-lot) silindi. 4Vcm_300_0 (7.2 m): ilk dallar ≈3.9 m (crownBase — kod), taç seyrek, eni 264.8–306.4° → ≈5.5 m (r 2.8; eski r 4 fazla), tepe karenin üstünde (≥8.4 m).",
+   "id": "BIG_PARK",
+   "crownBase": 3.9
   },
   {
    "kind": "tree",

@@ -1627,7 +1627,9 @@
     "h": 3.2,
     "depth": 1.2,
     "species": "tek tek dikilmiş sütun/koni servi-tuja sırası (≈3.5–4.5 m arayla, üst üste binmiş)",
-    "color": "#1f3314"
+    "color": "#1f3314",
+    "style": "scattered",
+    "gap": 3.5
    },
    "wall": {
     "h": 1.2,
@@ -1682,7 +1684,7 @@
     23.71,
     33.32
    ],
-   "note": "Hat: hava fotoğrafında duvar harpuştası parlak çizgisi (bordür+2.2…2.6) −0.2; arkasında koyu çalı/servi bandı (≈1–2 m). Duvar 2025 (SyTa_90 40°, uzak): gri prekast panel, panel başına açık gri dikdörtgen gömme ≈#6e7873 (panel ≈1.2 m), gölgede ≈#4d5554; 2019'da beyaz sıvalı görünüyor (yeniden kaplanmış olabilir). Yükseklik ≈1.2 (2019 karesinde yaya ile kıyas, ±0.3), üstünde tel panel ≈1.0. Kolonlar: 2019 JDIg_60_0 satır profilinde üç koyu gri kolon (u 538/588/628) → duvar hattı kesişimi s 65.8/75.4/85.0 (aralık ≈9.6; ara kolonlar gizli olabilir). Batı ucu: site giriş kanopisi (kahverengi-pas çerçeveli güvenlik kulübesi + beyaz kolon, kanopi alnında site adı okunamadı, altında beyaz makaslı bariyer kapı) hava fotoğrafında ≈(235.4…242.4, -164.4…-159.9), duvar hattının ≈2.4 m gerisinde; duvarın kanopiye dönüşü ölçülmedi. SV yakın kare yok → tüm ölçüler ±0.4 m."
+   "note": "Hat: hava fotoğrafında duvar harpuştası parlak çizgisi (bordür+2.2…2.6) −0.2; arkasında koyu çalı/servi bandı (≈1–2 m). Duvar 2025 (SyTa_90 40°, uzak): gri prekast panel, panel başına açık gri dikdörtgen gömme ≈#6e7873 (panel ≈1.2 m), gölgede ≈#4d5554; 2019'da beyaz sıvalı görünüyor (yeniden kaplanmış olabilir). Yükseklik ≈1.2 (2019 karesinde yaya ile kıyas, ±0.3), üstünde tel panel ≈1.0. Kolonlar: 2019 JDIg_60_0 satır profilinde üç koyu gri kolon (u 538/588/628) → duvar hattı kesişimi s 65.8/75.4/85.0 (aralık ≈9.6; ara kolonlar gizli olabilir). Batı ucu: site giriş kanopisi (kahverengi-pas çerçeveli güvenlik kulübesi + beyaz kolon, kanopi alnında site adı okunamadı, altında beyaz makaslı bariyer kapı) hava fotoğrafında ≈(235.4…242.4, -164.4…-159.9), duvar hattının ≈2.4 m gerisinde; duvarın kanopiye dönüşü ölçülmedi. SV yakın kare yok → tüm ölçüler ±0.4 m. | 2026-09 (eleştirmen da2-04: 'tek tek ağaçlar, düz kutu çit değil'): hedge style scattered, gap 3.5 — hava fotoğrafında (aerial-e z21) çitin 2–3 m gerisinde ayrı ayrı ≈2 m çaplı yuvarlak taçlar, hat boyunca ≈3–4 m arayla (bazıları çift); SyTa_60_0'da kubbe taçlı ayrı bitkiler. Tek tek konumlar ölçülmedi."
   },
   {
    "kind": "other",
@@ -1864,7 +1866,13 @@
     "h": 1.1,
     "t": 0.25,
     "color": "#575c60",
-    "finish": "stone"
+    "finish": "stone",
+    "pattern": {
+     "kind": "lattice",
+     "cell": 0.15,
+     "d": 0.01,
+     "note": "panel yüzünün tamamında ince oyma baklava kafes deseni (hücre ≈0.12–0.18 m, düşük kabartma); panel çerçevesi görülmedi"
+    }
    },
    "pillars": {
     "every": 5.8,
@@ -1878,7 +1886,11 @@
     "h": 1.4,
     "color": "#646a6d",
     "cap": "düz prekast başlık",
-    "lamp": "lantern"
+    "lamp": "lantern",
+    "pattern": {
+     "kind": "rope",
+     "note": "kolon gövdesinde örgü/halat biçimli oyma şeritler (iki sütun), düz başlık"
+    }
    },
    "infill": "panel",
    "infillSpec": {
@@ -1895,7 +1907,7 @@
      "none"
     ]
    ],
-   "note": "da1-south-site ile aynı tip: koyu gri prekast panel, yüzü oyma/kabartma desenli (l07h_270_-50 2025: ≈#4a5154–#575c60), açık gri kolonlar ≈#646a6d, üstte koyu yeşil tel panel; arkası çim şerit + ağaçlar (x 186–190.5, hava fotoğrafı). Bu kolda panel yüksekliği ham ≈1.25 m (da1'deki 0.7'den yüksek; ±0.2). Kolon aralığı ≈5.8 (tek karede iki aralık) — faz (başlangıç kolonu) bilinmiyor, U=0'dan başlatıldı. Jiletli tel bu karelerde seçilemedi. Hat: hava fotoğrafında duvarın batıya düşen gölge çizgisi x≈190.5–190.9 (z -148…-128); kuzey ucu z≈-151.5 (köşe ve da1 çitiyle bağlantı ölçülmedi). H-kalibrasyon (l07h 2025, kamera 2.35 m, duvar tabanı kaldırım kotunda → ×0.88): duvar ham 1.25→1.10 (wallH 1.2→1.1), dikme 1.6→1.4, panel 1.2–2.1 → 1.1–1.85; hat x 190.7→190.95 (kalibre kaldırım 2.05 m, bordür 193.0; gölge çizgisi 190.5–190.9 duvarın batısına düşer, duvar yüzü doğu kenarda). | 2026-09 (eleştirmen da2-00/02): l07h_233_13_40 yakın planında kolon başlarında küçük SİYAH FENER (klasik fener) ve tel panelin üstünde JİLETLİ TEL spirali açıkça görülüyor → lamp lantern, razor true (önceki 'seçilemedi' düzeltildi). Kolonlar duvardan belirgin açık: aynı bulutlu karede kolon ≈#6d7486–#778085, duvar paneli ≈#525b60–#545c5f (oran ≈1.4; kayıttaki #646a6d/#575c60 oranı ≈1.15). Bulutlu kareler → renk değiştirilmedi, yalnız oran not edildi (güneşli karede yeniden örneklenmeli)."
+   "note": "da1-south-site ile aynı tip: koyu gri prekast panel, yüzü oyma/kabartma desenli (l07h_270_-50 2025: ≈#4a5154–#575c60), açık gri kolonlar ≈#646a6d, üstte koyu yeşil tel panel; arkası çim şerit + ağaçlar (x 186–190.5, hava fotoğrafı). Bu kolda panel yüksekliği ham ≈1.25 m (da1'deki 0.7'den yüksek; ±0.2). Kolon aralığı ≈5.8 (tek karede iki aralık) — faz (başlangıç kolonu) bilinmiyor, U=0'dan başlatıldı. Jiletli tel bu karelerde seçilemedi. Hat: hava fotoğrafında duvarın batıya düşen gölge çizgisi x≈190.5–190.9 (z -148…-128); kuzey ucu z≈-151.5 (köşe ve da1 çitiyle bağlantı ölçülmedi). H-kalibrasyon (l07h 2025, kamera 2.35 m, duvar tabanı kaldırım kotunda → ×0.88): duvar ham 1.25→1.10 (wallH 1.2→1.1), dikme 1.6→1.4, panel 1.2–2.1 → 1.1–1.85; hat x 190.7→190.95 (kalibre kaldırım 2.05 m, bordür 193.0; gölge çizgisi 190.5–190.9 duvarın batısına düşer, duvar yüzü doğu kenarda). | 2026-09 (eleştirmen da2-00/02): l07h_233_13_40 yakın planında kolon başlarında küçük SİYAH FENER (klasik fener) ve tel panelin üstünde JİLETLİ TEL spirali açıkça görülüyor → lamp lantern, razor true (önceki 'seçilemedi' düzeltildi). Kolonlar duvardan belirgin açık: aynı bulutlu karede kolon ≈#6d7486–#778085, duvar paneli ≈#525b60–#545c5f (oran ≈1.4; kayıttaki #646a6d/#575c60 oranı ≈1.15). Bulutlu kareler → renk değiştirilmedi, yalnız oran not edildi (güneşli karede yeniden örneklenmeli). | 2026-09 (eleştirmen da2-00 'kabartmalı duvar düz görünüyor'): l07h_240_0 yakın kırpımı: koyu gri panel yüzü baştan başa ince oyma BAKLAVA KAFES deseni (hücre ≈0.15 m; mevcut relief.rhombus = panel başına tek büyük baklava, uymuyor → wall.pattern lattice, kod bekliyor); kolonlar açık gri, gövdede örgü/halat oyma (pillars.pattern rope, kod). Aynı bulutlu karede panel ≈#323838–#4f5152, kolon ≈#747b81–#798286. Renk değiştirilmedi (bulutlu)."
   },
   {
    "kind": "other",
@@ -2426,6 +2438,135 @@
     39.59
    ],
    "note": "YENİDEN ÖLÇÜLDÜ (2026-09-29, yan sokak ajanı). HAT 1.7–1.9 m GÜNEYE TAŞINDI ve yönü ters çevrildi (x 312→268: sokak çoklu çizginin sağında = kuzeyde; eski kayıtta duvar gövdesi ve leylandi yolun içine çiziliyordu). Yüz hattı = kuzey duvar hattı + 8.0 m: z = −49.15 + 0.0434·(x−268). Genişlik (duvar yüzünden duvar yüzüne) 8.0 ±0.3 m (eski hatlar 6.5 m). Kanıt (ayrıntı: notes \"da3 yan sokak\"): kalibre H ile SV mesafe toplamları 2Qtex 8.6–8.7 (2025), Dr35 8.96 (2019), EIX3 9.16 (2014) → 9.0; H'den bağımsız denetimler bu sokakta etkin kamera yüksekliğini daha düşük veriyor (hava fotoğrafındaki kemer periyodu 5.60 m ↔ 2Qtex_0_0 ve EIX3_0_0 derz açıları, lamba/kolon üçgenlemeleri, Dr35 rögar çifti): H_eff ≈2.2 (2025), ≈2.26–2.4 (2019), ≈2.47 (2014) → genişlik 2Qtex 8.1, Dr35 7.9–8.4, EIX3 8.1. Mutlak konum denetimleri: kolon Pc iki pano kerterizi (EIX3_240_0 + Dr35_120_0, Dr35 yönü −1.9° düzeltmeli) merkez x≈288.7–289.4, z −47.7…−48.8 (Dr35 konum bağlamasına göre) → yüz ≈−48.3 ±0.5 (hat −48.24); lamba üçgenlemesi EIX3_240_0 + 2Qtex_90_-50 (278.68,−48.75) (hat 0.17 m arkasında); hava fotoğrafında duvar görülmüyor: x 282–309 Riva çatısının eğikliği altında, x 268–279'da leylandi tepesi (3.9 m → 1.2 m kuzeye yatık + ≈0.4 taşma: görünen kenar z −50.6 = yüz −49.0 −1.6 ✓), x 309–314'te kenar −48.4 (= yüz −47.4 − 1.0 ✓). Eski hat (≈−50.2) bu çatı/çit tepesi kenarını izliyordu. Duvar: açık gri yarma taş, 2019/2025'te 3 görünür sıra (≈0.21 m) + harpuşta (Dr35_180_-50: 0.78, 2Qtex_180_-50/120_0: 0.7–0.9) → 0.8; 2014'te (EIX3) 4 sıra görünüyordu → yol 2014–2019 arası ≈0.2 m yükseltilmiş. Renk (2025-09 difüz; yüz kuzeye bakıyor, güneşli yama yok): taş #918e85 (#8b897f–#999389), harpuşta (çit gölgesinde) #77736a, tel/dikme #1d2e20, leylandi #2d3e1a, kolon #7c7872 / başlık #a39e95 (2019). Tel panel üstü ≈1.4 m (EIX3 2014 − 0.2 yükselme), dikme aralığı ölçülmedi (2.5 alındı). Fenerli kare kolonlar (≈0.35 m, başlık üstü ≈1.6 m, üstte siyah fener ≈0.35 m): Pb x≈280.5, Pc ≈288.5, Pd ≈296.55 (EIX3/Dr35 kerterizleri ile duvar hattı kesişimi, ±0.4; aralık ≈8.05 m), Pa ≈272.45 ve Pe ≈304.6 tek pano + aralık (±1). 2025'te kolonlar/fenerler taşan leylandinin içinde kalıyor (görülmedi), 2014/2019'da net. Leylandi 2025: 2Qtex_180_0/240_0/120_0 tepe 3.74–4.10 m (x 270–281; UXy7 x 262–267 ≈5 m, bu kaydın dışında); 2019'da ≈2.5 m budanmış. Duvar dibinde yol (kaldırım yok), oluk hattında ızgaralar (da3-drain-side-1/2), duvar dibinde lamba (da3-lamp-side). Batıda (x<268) çit ve leylandi 1540901778 önünde x≈243'e kadar sürüyor — ölçülmedi. Üretici notu: fenceGeneric duvar tabanını arazi +0.15 (kaldırım) alıyor; bu sokakta duvar yol kotunda."
+  },
+  {
+   "kind": "other",
+   "id": "da2-fence-uptown-west",
+   "street": "UPTOWN Bursa (1540901794) otopark girişi batı duvarı — Doğan Avcıoğlu'ndan kuzeye, arka otoparka",
+   "pts": [
+    [
+     193.6,
+     -166.5
+    ],
+    [
+     194.4,
+     -185
+    ],
+    [
+     195.3,
+     -202
+    ]
+   ],
+   "n": [
+    -1,
+    0.04
+   ],
+   "wallH": 0.85,
+   "coping": {
+    "h": 0.05,
+    "color": "#a09d97"
+   },
+   "pillarEvery": 0,
+   "pillarW": 0.3,
+   "pillarH": 2.4,
+   "lamp": "globe",
+   "mesh": 0,
+   "razor": false,
+   "hedge": null,
+   "wall": {
+    "h": 0.85,
+    "t": 0.25,
+    "color": "#a6a4a0",
+    "finish": "brick"
+   },
+   "pillars": {
+    "list": [
+     [
+      193.2,
+      -166.3
+     ]
+    ],
+    "w": 0.3,
+    "h": 2.4,
+    "color": "#61717d",
+    "cap": false,
+    "lamp": "globe"
+   },
+   "infill": "railing",
+   "infillSpec": {
+    "h": 0.9,
+    "from": 0.85,
+    "to": 1.75,
+    "color": "#61717d",
+    "type": "4 sıra yatay gri çelik boru korkuluk (UPTOWN güney çitiyle aynı tip)"
+   },
+   "screen": [
+    [
+     0,
+     36,
+     "none"
+    ]
+   ],
+   "note": "2026-09 (eleştirmen da2-04/08): UPTOWN otopark girişinin batı kenarında beyaz 'yarma tuğla' kaplamalı alçak duvar + gri boru korkuluk (SV SyTa_60_0: UPTOWN güney çitiyle aynı görünüş — yükseklik ayrıca ölçülmedi, güney çitinin ölçüleri kullanıldı), giriş köşesinde kalın gri kare kolon üstünde opal küre lamba: kolon SyTa_60_0 kerteriz 24.3° / dip −15.9° → (193.2,−166.3), küre ≈2.7 m, kolon üstü ≈2.4 m. Duvar hattı hava fotoğrafında (z21) ince K–G çizgi (193.9,−167) → (195.3,−203); SV (193.06,−168.1) ile 1 m içinde. Arkası (batı) çakıl otopark; çit bitkisi görülmedi. Kuzey ucu kuzey sokak çitine (da2-fence-north-lot) bağlanır."
+  },
+  {
+   "kind": "other",
+   "id": "da2-fence-north-lot",
+   "street": "isimsiz kuzey sokak (UPTOWN 1540901794 arkası) güney kenarı — arka otopark çiti",
+   "pts": [
+    [
+     195.3,
+     -202.0
+    ],
+    [
+     208,
+     -202.0
+    ],
+    [
+     221,
+     -202.0
+    ]
+   ],
+   "n": [
+    0,
+    -1
+   ],
+   "wallH": 0.2,
+   "coping": {
+    "h": 0.02,
+    "color": "#79796e"
+   },
+   "pillarEvery": 0,
+   "pillarW": 0,
+   "pillarH": 0,
+   "lamp": "none",
+   "mesh": 1.65,
+   "razor": false,
+   "hedge": null,
+   "wall": {
+    "h": 0.2,
+    "t": 0.25,
+    "color": "#79796e",
+    "finish": "concrete"
+   },
+   "infill": "panel",
+   "infillSpec": {
+    "h": 1.65,
+    "from": 0.2,
+    "to": 1.85,
+    "color": "#1b3a2c",
+    "type": "koyu yeşil 2D kaynaklı tel panel, V kıvrımlı",
+    "welded": true,
+    "post": 3.2
+   },
+   "screen": [
+    [
+     0,
+     26,
+     "none"
+    ]
+   ],
+   "note": "2026-09 (eleştirmen da2-09/10): kuzey sokağın güney kenarında beton bordür/kaide (≈0.2 m, bulutlu ≈#79796e) üstünde koyu yeşil 2D kaynaklı tel panel çit (üst ≈1.85 m yol kotundan), koyu yeşil dikmeler ≈3.2 m arayla (±0.3; bulutlu ≈#0a1d23–#102624 çok koyu). SV glMQ_180_0: çit 5.3 m (z −201.9), cephe dibi 10.4 m (z −196.8 — taban izinin kuzey kenarı −197.2 ile 0.4 m uyumlu → pano GPS'i güvenilir); 0tTf_180_0: çit z −202.0, batıda köşe dikmesiyle güneye döner (batı duvarı). Doğu ucu x≈218'in ötesi görülmedi (221'de bitirildi). Arkası: gri beton kilit taşı arka otopark, sarı park çizgileri (site-plan). Renk: bulutlu kareler (yaklaşık, yeniden örneklenmeli)."
   }
  ],
  "gates": [
@@ -2850,7 +2991,13 @@
      "material": "sarı hissedilebilir kılavuz karo (R4: 400 × 400 = 4 taş sırası; 502sk-dogu-kaldirim.jpg bordür | 3 sıra | karo | 3 sıra | duvar; eski tahmin ≈0.32), ıslak ≈#cfa577",
      "at": 0.65
     }
-   ]
+   ],
+   "edgeLine": {
+    "off": 0.4,
+    "w": 0.12,
+    "color": "white",
+    "note": "kayıt malzeme notu: bordürden ≈0.4 m içeride sürekli (yer yer aşınmış) beyaz kenar çizgisi — edgeLine: yol kotunda, bordür yüzünden off m uzakta sürekli beyaz çizgi (kod bekliyor; OSM kenar çizgisi kaldırım bandının altında kalıyordu)."
+   }
   },
   {
    "id": "east-east-south",
@@ -3415,7 +3562,13 @@
     }
    ],
    "material": "gri beton bordür 15×30 (üst yüzü açık gri), bordür dibinde ≈0.45 m asfalt oluk + beyaz kenar çizgisi; kaldırım: kırmızı bant 1.2 + gri 0.9 + sarı kılavuz 0.4 + gri 1.65 (duvara kadar).",
-   "note": "pts = bordür (yol kenarı), yol kenar çizgisi + 0.45 m. Kaldırım bordürden duvar yüzüne ≈4.15 m (hava fotoğrafı ≈3.8, SV ≈4.5, SV üçgenlemesi 4.3–4.9; bloklara (footprints) mesafe ile uzlaştırıldı; ±0.4). Köşede (x<15) 502. Sk. doğu kaldırımına döner ve daralır (köşede lamba + 2 pano). x 38.9–44.8 araç kapısı önünde bordür indirilmiş rampa. Doğu ucu x≈182: site köşesinden sonra kaldırım güneydoğuya rampa ile iner (503. Sk.)."
+   "note": "pts = bordür (yol kenarı), yol kenar çizgisi + 0.45 m. Kaldırım bordürden duvar yüzüne ≈4.15 m (hava fotoğrafı ≈3.8, SV ≈4.5, SV üçgenlemesi 4.3–4.9; bloklara (footprints) mesafe ile uzlaştırıldı; ±0.4). Köşede (x<15) 502. Sk. doğu kaldırımına döner ve daralır (köşede lamba + 2 pano). x 38.9–44.8 araç kapısı önünde bordür indirilmiş rampa. Doğu ucu x≈182: site köşesinden sonra kaldırım güneydoğuya rampa ile iner (503. Sk.).",
+   "edgeLine": {
+    "off": 0.45,
+    "w": 0.12,
+    "color": "white",
+    "note": "da1-sw-south notu: bordür dibinde ≈0.45 m asfalt oluk + beyaz kenar çizgisi (eleştirmen A8: oyunda yok) — edgeLine: yol kotunda, bordür yüzünden off m uzakta sürekli beyaz çizgi (kod bekliyor; OSM kenar çizgisi kaldırım bandının altında kalıyordu)."
+   }
   },
   {
    "id": "da1-sw-north-west",
@@ -5313,7 +5466,13 @@
     }
    ],
    "material": "gri beton bordür + kiremit-kırmızı kilit taşı bant ≈1.6 + gri kilit taşı ≈3.2 → çim. Sarı kılavuz şerit GÖRÜLMEDİ.",
-   "note": "2026-09 (eleştirmen V16/V17 #10): önceden burada ölçülmüş kaldırım yoktu → OSM genel kaldırımı (gri + sarı kılavuz) park-plan kırmızı alanının üstüne yol tarafında çiziliyordu (sıra ters). Bordür hattı park-plan L3 (hava fotoğrafı ±0.5 m). Bant genişlikleri SV EbG_90_-50 zemin karesinden (z −172: bordür üstü → kırmızı/gri derz 1.61 m, → çim 3.24 m; toplam park-plan alanı genişliğiyle aynı 5.0 m) ve EbG_60_0 (bordür boyunca kiremit bant, içte gri). Yol tarafında bordürden ≈0.4–0.5 m beyaz kenar çizgisi (EbG_90_-50). Renkler: kareler aşırı pozlanmış/gölgeli → ölçülmedi, malzeme adı esas. Lamba direği (−69.5,−172.7) kırmızı/gri bant sınırında."
+   "note": "2026-09 (eleştirmen V16/V17 #10): önceden burada ölçülmüş kaldırım yoktu → OSM genel kaldırımı (gri + sarı kılavuz) park-plan kırmızı alanının üstüne yol tarafında çiziliyordu (sıra ters). Bordür hattı park-plan L3 (hava fotoğrafı ±0.5 m). Bant genişlikleri SV EbG_90_-50 zemin karesinden (z −172: bordür üstü → kırmızı/gri derz 1.61 m, → çim 3.24 m; toplam park-plan alanı genişliğiyle aynı 5.0 m) ve EbG_60_0 (bordür boyunca kiremit bant, içte gri). Yol tarafında bordürden ≈0.4–0.5 m beyaz kenar çizgisi (EbG_90_-50). Renkler: kareler aşırı pozlanmış/gölgeli → ölçülmedi, malzeme adı esas. Lamba direği (−69.5,−172.7) kırmızı/gri bant sınırında.",
+   "edgeLine": {
+    "off": 0.45,
+    "w": 0.12,
+    "color": "white",
+    "note": "EbG_90_-50: bordürden ≈0.4–0.5 m — edgeLine: yol kotunda, bordür yüzünden off m uzakta sürekli beyaz çizgi (kod bekliyor; OSM kenar çizgisi kaldırım bandının altında kalıyordu)."
+   }
   },
   {
    "id": "park-da-north",
@@ -5405,7 +5564,13 @@
     }
    ],
    "material": "gri beton bordür + kiremit-kırmızı bant ≈1.4 + gri kilit taşı ≈2.75–2.9 + açık beton kenar taşı → çim (dibinde 0.3–0.6 m yıpranmış toprak). Sarı kılavuz x≈−54'te GÖRÜLMEDİ; doğu ucu (x 4.8) da1-sw-north-west'e bağlanır (orada kılavuz var).",
-   "note": "2026-09: park-cv-west ile aynı sebep (OSM genel kaldırımı). Bordür hattı park-plan L2. Bantlar SV 8QlT_0_-50 zemin karesinden (x −54: bordür → kırmızı 1.37 m, gri 2.9 m, açık kenar şeridi ≈0.2 + toprak). Yolda bordürden ≈0.47 m beyaz kenar çizgisi. Kaldırım arka kenarında beyaz cam kumbarası beton kaide üzerinde (park-plan)."
+   "note": "2026-09: park-cv-west ile aynı sebep (OSM genel kaldırımı). Bordür hattı park-plan L2. Bantlar SV 8QlT_0_-50 zemin karesinden (x −54: bordür → kırmızı 1.37 m, gri 2.9 m, açık kenar şeridi ≈0.2 + toprak). Yolda bordürden ≈0.47 m beyaz kenar çizgisi. Kaldırım arka kenarında beyaz cam kumbarası beton kaide üzerinde (park-plan).",
+   "edgeLine": {
+    "off": 0.47,
+    "w": 0.12,
+    "color": "white",
+    "note": "8QlT_0_-50: bordür yüzünden 0.47 m — edgeLine: yol kotunda, bordür yüzünden off m uzakta sürekli beyaz çizgi (kod bekliyor; OSM kenar çizgisi kaldırım bandının altında kalıyordu)."
+   }
   },
   {
    "id": "nw-corner",
@@ -5900,16 +6065,6 @@
    "note": "yeraltı çöp konteyneri: paslanmaz çelik silindir atık ağzı (Ø≈0.4, h≈1.1) beton/gri platform üzerinde (~1.6×1.6); üçlü sıra (OSM waste_disposal 5.6,-168.4) ±1 m"
   },
   {
-   "kind": "tree",
-   "id": "da1-tree-lot",
-   "x": 38.6,
-   "z": -172,
-   "h": 9,
-   "r": 3.3,
-   "species": "deciduous",
-   "note": "otoparkın batı ucunda, yol bordürüne bitişik ağaç çukurunda büyük yaprak döken ağaç (karaağaç/dişbudak benzeri), gövde Ø≈0.4, taç Ø≈6.5"
-  },
-  {
    "kind": "bike-rack",
    "id": "da1-bikerack",
    "x": 38.3,
@@ -6150,7 +6305,10 @@
    "rot": 32,
    "w": 7,
    "d": 1,
-   "note": "Kuzeydoğu site girişi: batı ucunda kahverengi-pas çerçeveli güvenlik kulübesi (pencereli, önünde beyaz panel, '20' numarası; ≈#41403d–#4f4741 difüz), üstte ≈7 m kanopi (koyu kahve alın, yazı okunamadı), doğu ucunda beyaz kare kolon (≈#70797d); altında beyaz makaslı açılır bariyer, turuncu uç. Hava fotoğrafında kanopi çatısı (eğiklik düzeltmeli) ≈(235.4,-164.4)…(242.4,-159.9). SyTa_77/83/90 (2025), JDIg_60_0 (2019). Render türü yok (kayıt)."
+   "note": "Kuzeydoğu site girişi: batı ucunda kahverengi-pas çerçeveli güvenlik kulübesi (pencereli, önünde beyaz panel, '20' numarası; ≈#41403d–#4f4741 difüz), üstte ≈7 m kanopi (koyu kahve alın, yazı okunamadı), doğu ucunda beyaz kare kolon (≈#70797d); altında beyaz makaslı açılır bariyer, turuncu uç. Hava fotoğrafında kanopi çatısı (eğiklik düzeltmeli) ≈(235.4,-164.4)…(242.4,-159.9). SyTa_77/83/90 (2025), JDIg_60_0 (2019). Render türü yok (kayıt). | 2026-09 (eleştirmen da2-04/06: oyunda ince siyah çerçeve): SyTa_60_0 yakın kırpımı: batı yarı kahverengi (ahşap görünümlü) kaplamalı kalın portal çerçevesi (bulutlu ≈#392e24–#4a4239), içinde beyaz panelli kulübe yüzü; doğu yarıda beyaz kare kolonlar ve beyaz kiriş (bulutlu ≈#7f8b87). frameC / columnC / boothPanelC = bu ölçümler (bulutlu; kod: gatehouse renkleri şu an sabit 'boothFrame').",
+   "frameC": "#4a4239",
+   "columnC": "#7f8b87",
+   "boothPanelC": "#7f8b87"
   },
   {
    "kind": "marking",
@@ -6339,7 +6497,8 @@
    "h": 11,
    "rot": 160,
    "arm": 1.8,
-   "note": "KB köşe kaldırımında lamba (hava fotoğrafı: direk + gölge tabanı). NKeY_240_0 (2014-07) bu kolda kuzey kaldırımında çift kollu lamba (üstte uzun kuğu boynu kol + altta kısa ikinci armatür) gösteriyor — 2025 doğrulanmadı. ±1 m."
+   "note": "KB köşe kaldırımında lamba (hava fotoğrafı: direk + gölge tabanı). NKeY_240_0 (2014-07) bu kolda kuzey kaldırımında çift kollu lamba (üstte uzun kuğu boynu kol + altta kısa ikinci armatür) gösteriyor — 2025 doğrulanmadı. ±1 m. | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "lamp-post",
@@ -6349,7 +6508,8 @@
    "h": 11,
    "rot": 20,
    "arm": 1.8,
-   "note": "GB yayı kaldırımının arka kenarında (hava fotoğrafında koyu taban lekesi) — yArg8_249_10_40 (2025-09): açık gri/beyaz ince konik direk, tek kuğu boynu kol, LED armatür, kaldırımın çim tarafında. ±1.5 m."
+   "note": "GB yayı kaldırımının arka kenarında (hava fotoğrafında koyu taban lekesi) — yArg8_249_10_40 (2025-09): açık gri/beyaz ince konik direk, tek kuğu boynu kol, LED armatür, kaldırımın çim tarafında. ±1.5 m. | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "lamp-post",
@@ -6359,7 +6519,8 @@
    "h": 11,
    "rot": 30,
    "arm": 1.8,
-   "note": "GB yayı kaldırımı arka kenarında ikinci koyu taban lekesi (hava fotoğrafı) — lamba mı reklam panosu ayağı mı KESİN DEĞİL. ±1.5 m."
+   "note": "GB yayı kaldırımı arka kenarında ikinci koyu taban lekesi (hava fotoğrafı) — lamba mı reklam panosu ayağı mı KESİN DEĞİL. ±1.5 m. | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "lamp-post",
@@ -6369,7 +6530,8 @@
    "h": 10,
    "rot": 225,
    "arm": 1.8,
-   "note": "KD köşede beyaz direk, hava fotoğrafında iki kol (çift kollu kuğu boynu) görüntüsü (east crop). Tipi SV ile doğrulanmadı. ±1 m."
+   "note": "KD köşede beyaz direk, hava fotoğrafında iki kol (çift kollu kuğu boynu) görüntüsü (east crop). Tipi SV ile doğrulanmadı. ±1 m. | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "lamp-post",
@@ -6460,7 +6622,8 @@
    "z": -92.7,
    "h": 10.5,
    "arm": 2,
-   "note": "Kavşak adası çim kenarında (N) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; aynı tip, ayrıca ölçülmedi)."
+   "note": "Kavşak adası çim kenarında (N) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; aynı tip, ayrıca ölçülmedi). | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "lamp-post",
@@ -6469,7 +6632,8 @@
    "z": -82.8,
    "h": 10.5,
    "arm": 2,
-   "note": "Kavşak adası çim kenarında (W) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; aynı tip, ayrıca ölçülmedi)."
+   "note": "Kavşak adası çim kenarında (W) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; aynı tip, ayrıca ölçülmedi). | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "lamp-post",
@@ -6478,7 +6642,8 @@
    "z": -71.7,
    "h": 10.5,
    "arm": 2,
-   "note": "Kavşak adası çim kenarında (S) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; bu direk ölçülen karelerde)."
+   "note": "Kavşak adası çim kenarında (S) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; bu direk ölçülen karelerde). | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "lamp-post",
@@ -6487,7 +6652,8 @@
    "z": -81.3,
    "h": 10.5,
    "arm": 2,
-   "note": "Kavşak adası çim kenarında (E) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; bu direk ölçülen karelerde)."
+   "note": "Kavşak adası çim kenarında (E) açık gri/beyaz yüksek konik direk, tek kuğu boynu kol + LED armatür (T1qi_180_0, epBrU_180_0, Z8D7_60_0, f47oc_60_0 2025-09). Taban: hava fotoğrafında direk görüntüsü ile gölgenin birleştiği uç (görüntü ≈0.5 m/m kuzeye yatık). Yükseklik T1qi_180_0 karesinden ≈13.8 (uzak taban, ±2) → 12. Kol yönü (rot) ölçülmedi — çevre yoluna (dışa) doğru olmalı. ±1 m. H-kalibrasyon: h 12→10.5 (yeniden ölçüldü, ufuk yöntemi ada kotu H_eff 2.15: T1qi7WhR_180_0 görünen taban satır 375 → düşey gövde 9.1, kuğu boynu tepesi 10.8, armatür ≈10.0; Z8D7_60_0 (taban 387.5) gövde 8.45 (boyun kare dışında); eski 13.8/12 uzak taban (≈24 m) varsayımıyla bulunmuştu; üretici kolu h−0.2'de çizdiği için h armatür kotuna göre; bu direk ölçülen karelerde). | 2026-09 (eleştirmen da3-00/02/05): kavşak lambaları kuğu boyunlu (tepede yay biçiminde kıvrılan kol) — yArg_120_0, drkr_0_0, 5xRC_60_0. style \"swan\" (kod: kıvrık kol çizimi).",
+   "style": "swan"
   },
   {
    "kind": "pole",
@@ -6672,13 +6838,260 @@
      -56.5
     ]
    ],
-   "n": 8,
+   "n": 7,
    "w": 3.2,
    "h": 2.2,
    "y0": 1,
    "frame": "#6b6f70",
    "legs": 2,
-   "note": "GB köşe çim şevinde, kaldırım arkasından ≈1.5–2 m geride tek sıra çerçeveli reklam panoları (belediye tipi, gri alüminyum çerçeve, çift bacak; yüzleri kavşağa/yola dönük): yArg8_240_0 ve _249_10_40, Z8D7_230_12_40/_247_10_40, VsNJ_240_0 (2025-09) — içerik: \"Açıldı! … Bowl\", \"Anne Ben Bitlendim\", \"Nilsem El Sanatları Kursları Başlıyor\", \"Bereketli Topraklar\" (değişken). Hat hava fotoğrafında koyu çizgi (gölge). Panel sayısı ≈8 (sayım ±1), boyut ≈3.2×2.2 (oransal). Yeni tür."
+   "note": "GB köşe çim şevinde, kaldırım arkasından ≈1.5–2 m geride tek sıra çerçeveli reklam panoları (belediye tipi, gri alüminyum çerçeve, çift bacak; yüzleri kavşağa/yola dönük): yArg8_240_0 ve _249_10_40, Z8D7_230_12_40/_247_10_40, VsNJ_240_0 (2025-09) — içerik: \"Açıldı! … Bowl\", \"Anne Ben Bitlendim\", \"Nilsem El Sanatları Kursları Başlıyor\", \"Bereketli Topraklar\" (değişken). Hat hava fotoğrafında koyu çizgi (gölge). Panel sayısı ≈8 (sayım ±1), boyut ≈3.2×2.2 (oransal). Yeni tür. | 2026-09 (eleştirmen da3-06: oyunda 8 boş yüz): Z8D7_240_0 + _230_12_40 + _247_10_40 (2025-09) — sırayla 7 pano (batıdan/kavşaktan uzaklaşarak): 1–2 aynı ilan: siyah zemin, altın iç çerçeve, solda takım elbiseli erkek portresi + altında küçük 'SERKAN ASLAN', sağda el yazısı 'Anne' + 'Ben' / 'Bitlendim' (beyaz); 3–4 aynı ilan: açık gri zemin, sol üstte küçük logo + '… BOWL' (ilk sözcük okunamadı), kırmızı bant içinde beyaz 'Açıldı!', altında küçük beyaz metin (okunmadı), sol altta 'ÖZDİLEKPARK', sağda yeşil daire içinde yemek kasesi fotoğrafı; 5–6 aynı ilan: beyaz-lila zemin, mor kalın '… EL SANATLARI / KURSLARI / BAŞLIYOR' (ilk sözcük bu karelerde okunamadı; eski notta 'Nilsem'), sağda kadın yüzü fotoğrafı, altta mor bant; 7: koyu gri, içerik seçilemedi. faces[] = pano başına içerik (kod: şu an çizilmiyor); x/y 0..1 soldan/alttan. Renkler bulutlu karelerden yaklaşık (siyah ≈#232323, lila ≈#605f82 gölgede). Marka logosu çizilmez. İlanlar değişkendir (2025-09 durumu). Ölçülen (bulutlu, bulanık) tonlar: altın çerçeve ≈#98794f, 'Açıldı!' bandı ≈#a27677 (ince bant, bulanık — gerçek ton daha doygun kırmızı görünüyor), yeşil daire ≈#416c24, mor yazı/bant ≈#767890, yüz fotoğrafı ≈#917f81; beyaz/krem yazı tonları ölçülmedi. Zeminler: 'Açıldı' ≈#97a1a5, kurs ilanı ≈#8b8e99 (bulutlu, beyaz/açık gri zemin).",
+   "faces": [
+    {
+     "bg": "#232323",
+     "border": "#98794f",
+     "lines": [
+      {
+       "text": "Anne",
+       "fg": "#ece6d4",
+       "font": "script",
+       "y": 0.72
+      },
+      {
+       "text": "Ben",
+       "fg": "#f0f0f0",
+       "y": 0.5
+      },
+      {
+       "text": "Bitlendim",
+       "fg": "#f0f0f0",
+       "y": 0.3
+      },
+      {
+       "text": "SERKAN ASLAN",
+       "fg": "#e0e0e0",
+       "size": 0.3,
+       "x": 0.2,
+       "y": 0.2
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.1,
+       "x1": 0.3,
+       "y0": 0.3,
+       "y1": 0.85,
+       "color": "#3a3634",
+       "note": "takım elbiseli erkek portresi (yüz çizilmez)"
+      }
+     ]
+    },
+    {
+     "bg": "#232323",
+     "border": "#98794f",
+     "lines": [
+      {
+       "text": "Anne",
+       "fg": "#ece6d4",
+       "font": "script",
+       "y": 0.72
+      },
+      {
+       "text": "Ben",
+       "fg": "#f0f0f0",
+       "y": 0.5
+      },
+      {
+       "text": "Bitlendim",
+       "fg": "#f0f0f0",
+       "y": 0.3
+      },
+      {
+       "text": "SERKAN ASLAN",
+       "fg": "#e0e0e0",
+       "size": 0.3,
+       "x": 0.2,
+       "y": 0.2
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.1,
+       "x1": 0.3,
+       "y0": 0.3,
+       "y1": 0.85,
+       "color": "#3a3634",
+       "note": "takım elbiseli erkek portresi (yüz çizilmez)"
+      }
+     ]
+    },
+    {
+     "bg": "#97a1a5",
+     "lines": [
+      {
+       "text": "Açıldı!",
+       "fg": "#ffffff",
+       "bg": "#a27677",
+       "bold": true,
+       "x": 0.15,
+       "y": 0.55
+      },
+      {
+       "text": "… BOWL",
+       "fg": "#3a3a3a",
+       "size": 0.3,
+       "x": 0.12,
+       "y": 0.85
+      },
+      {
+       "text": "ÖZDİLEKPARK",
+       "fg": "#3a3a3a",
+       "size": 0.25,
+       "x": 0.15,
+       "y": 0.12
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.5,
+       "x1": 0.95,
+       "y0": 0.08,
+       "y1": 0.92,
+       "color": "#416c24",
+       "shape": "circle",
+       "note": "yeşil daire içinde yemek kasesi fotoğrafı"
+      }
+     ]
+    },
+    {
+     "bg": "#97a1a5",
+     "lines": [
+      {
+       "text": "Açıldı!",
+       "fg": "#ffffff",
+       "bg": "#a27677",
+       "bold": true,
+       "x": 0.15,
+       "y": 0.55
+      },
+      {
+       "text": "… BOWL",
+       "fg": "#3a3a3a",
+       "size": 0.3,
+       "x": 0.12,
+       "y": 0.85
+      },
+      {
+       "text": "ÖZDİLEKPARK",
+       "fg": "#3a3a3a",
+       "size": 0.25,
+       "x": 0.15,
+       "y": 0.12
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.5,
+       "x1": 0.95,
+       "y0": 0.08,
+       "y1": 0.92,
+       "color": "#416c24",
+       "shape": "circle",
+       "note": "yeşil daire içinde yemek kasesi fotoğrafı"
+      }
+     ]
+    },
+    {
+     "bg": "#8b8e99",
+     "lines": [
+      {
+       "text": "… EL SANATLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.7
+      },
+      {
+       "text": "KURSLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.55
+      },
+      {
+       "text": "BAŞLIYOR",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.4
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.62,
+       "x1": 0.95,
+       "y0": 0.1,
+       "y1": 0.9,
+       "note": "kadın yüzü fotoğrafı (yüz çizilmez)",
+       "color": "#917f81"
+      },
+      {
+       "x0": 0.0,
+       "x1": 1.0,
+       "y0": 0.0,
+       "y1": 0.12,
+       "color": "#767890"
+      }
+     ]
+    },
+    {
+     "bg": "#8b8e99",
+     "lines": [
+      {
+       "text": "… EL SANATLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.7
+      },
+      {
+       "text": "KURSLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.55
+      },
+      {
+       "text": "BAŞLIYOR",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.4
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.62,
+       "x1": 0.95,
+       "y0": 0.1,
+       "y1": 0.9,
+       "note": "kadın yüzü fotoğrafı (yüz çizilmez)",
+       "color": "#917f81"
+      },
+      {
+       "x0": 0.0,
+       "x1": 1.0,
+       "y0": 0.0,
+       "y1": 0.12,
+       "color": "#767890"
+      }
+     ]
+    },
+    {
+     "bg": "#606569",
+     "lines": [],
+     "note": "7. pano: koyu gri yüz, içerik bu uzaklıkta seçilemedi"
+    }
+   ]
   },
   {
    "kind": "billboard-row",
@@ -7133,12 +7546,12 @@
   {
    "kind": "board",
    "id": "da1-board-sehri-pole",
-   "x": 33.2,
-   "z": -157.9,
+   "x": 34.3,
+   "z": -160.6,
    "rot": 20,
-   "w": 0.9,
-   "h": 0.49,
-   "y0": 3.45,
+   "w": 0.68,
+   "h": 0.37,
+   "y0": 3.19,
    "d": 0.05,
    "poles": 1,
    "poleC": "#90939a",
@@ -7161,11 +7574,11 @@
    "bold": true,
    "cctv": {
     "n": 2,
-    "h": 4.15,
+    "h": 3.85,
     "color": "white",
     "note": "iki beyaz mermi tipi güvenlik kamerası, direk tepesinde yatay kolda, sokağa (kuzeye) bakar"
    },
-   "note": "2026-09 (eleştirmen da1-00): da1 sitesi (Şehr-i Bursa Evleri) duvarının ≈3.5 m içinde direk üstünde site levhası: beyaz zemin, iki satır kalın dar yeşil büyük harf 'ŞEHR-İ BURSA' / 'EVLERİ' (tireli, İ noktalı — kareden okundu), direk tepesinde yatay kolda 2 beyaz güvenlik kamerası. SV gnXj_195_8_40 + 180_0 (tek pano: kerteriz 203°; uzaklık levha eni varsayımıyla 11.3 m → ±1.5 m, levha oranı 1.83 kareden). Renkler BULUTLU karede: zemin ≈#afb9bb (gölgeli/bulutlu), yazı bulanık örnek ≈#6e9474 — koyu yeşil yazı; fg #3e7f4e ve bg #dfe3e1 bulutlu örneklerin güneşli karşılığı DEĞİL, yaklaşık (yeniden örneklenmeli). Levha dibi ≈3.45 m, kameralar ≈4.15 m. cctv alanı kod bekliyor (street board'da henüz çizilmiyor)."
+   "note": "2026-09 (eleştirmen da1-00): da1 sitesi (Şehr-i Bursa Evleri) duvar hattında (duvarın hemen arkasında) direk üstünde site levhası: beyaz zemin, iki satır kalın dar yeşil büyük harf 'ŞEHR-İ BURSA' / 'EVLERİ' (tireli, İ noktalı — kareden okundu), direk tepesinde yatay kolda 2 beyaz güvenlik kamerası. SV gnXj_195_8_40 (kerteriz 203°) × TRTB_120_0 (134.5°) üçgenleme → (34.3,−160.45): direk ÇİT HATTINDA (duvarın hemen arkası), 8.5 m; levha ≈0.68 × 0.37 m (oran 1.83), alt kenar ≈3.2 m, kameralar ≈3.85 m. Renkler BULUTLU karede: zemin ≈#afb9bb (gölgeli/bulutlu), yazı bulanık örnek ≈#6e9474 — koyu yeşil yazı; fg #3e7f4e ve bg #dfe3e1 bulutlu örneklerin güneşli karşılığı DEĞİL, yaklaşık (yeniden örneklenmeli). cctv alanı kod bekliyor (street board'da henüz çizilmiyor)."
   },
   {
    "id": "502-504-patch-mh",
@@ -7522,11 +7935,11 @@
    "w": 3.0,
    "stripes": "sarı-beyaz dönüşümlü zebra ≈0.5/0.5 m",
    "wear": 0.55,
-   "colors": [
+   "note": "2026-09 yol yüzeyi taraması (co-cross-26-wear): Cavit Orhan Tütengil Cd., güney sokak kavşağının ≈9 m güneyi. Sarı-beyaz zebra yaya geçidi (şeritler yol boyunca, ≈0.5 m), boyanın yaklaşık yarısı aşınmış (tekerlek izlerinde neredeyse yok). Uçlarda turuncu esnek dikmeler ve koyu gri yarım daire bordür rampaları. street-plan'da bu geçit YOK (yalnız OSM zebrası varsa etkiler). Ham: sarı şerit kalıntısı #e6d7ad, asfalt #d2cbbb (güneşli). gPUM 180/-50 tek pano, ±0.7. Geçit dikdörtgeni x −84.3…−78.2 (yoldan yola 6.1 m), z −27.9…−24.9 (3.0 m). Şerit rengi sarı/beyaz dönüşümlü → color [sarı, beyaz] dönüşümlü (beyaz ölçülmedi → varsayılan boya). Kanıt: gPUMqhom487Vd8ShAHIu5w_180_-50.jpg",
+   "color": [
     "#e6d7ad",
     "white"
-   ],
-   "note": "2026-09 yol yüzeyi taraması (co-cross-26-wear): Cavit Orhan Tütengil Cd., güney sokak kavşağının ≈9 m güneyi. Sarı-beyaz zebra yaya geçidi (şeritler yol boyunca, ≈0.5 m), boyanın yaklaşık yarısı aşınmış (tekerlek izlerinde neredeyse yok). Uçlarda turuncu esnek dikmeler ve koyu gri yarım daire bordür rampaları. street-plan'da bu geçit YOK (yalnız OSM zebrası varsa etkiler). Ham: sarı şerit kalıntısı #e6d7ad, asfalt #d2cbbb (güneşli). gPUM 180/-50 tek pano, ±0.7. Geçit dikdörtgeni x −84.3…−78.2 (yoldan yola 6.1 m), z −27.9…−24.9 (3.0 m). Şerit rengi sarı/beyaz dönüşümlü → colors (kod: şu an hepsi beyaz). Kanıt: gPUMqhom487Vd8ShAHIu5w_180_-50.jpg"
+   ]
   },
   {
    "id": "co-mh-25",
@@ -8691,6 +9104,327 @@
    "font": "sans",
    "bold": true,
    "note": "2026-09 (eleştirmen da2-02 'small red board'): 503. Sk. batı çitinin (da2-fence-503-west) tel panelinde, köşe kolonunun güneyinde küçük beyaz/pembe levha, kırmızı yazı + solda logo — YAZI OKUNAMADI. SV l07h_240_0 (kerteriz 270.7°, pano GPS'i +4.5 m düzeltilerek; 8.3 m; merkez ≈1.68 m), boyut ≈0.35 × 0.3 m. Yüz doğuya (503. Sk.)."
+  },
+  {
+   "kind": "sign",
+   "id": "da3-sign-island-e",
+   "x": 655.4,
+   "z": -80.45,
+   "h": 2.75,
+   "rot": 343,
+   "text": "Kamyon giremez (kırmızı çerçeveli beyaz daire, siyah kamyon) + altında sarı-siyah ok (chevron) levhası",
+   "note": "2026-09 (eleştirmen da3-03): doğu ayrım adasının (da3-island-e) batı ucunda tek direkte üstte 'kamyon giremez' dairesi, altında dikey sarı-siyah ok (chevron, uçlar aşağı) levhası. SV 5xRC_0_0 (kerteriz 16.7°, dip −17.4° → 7.0 m) ve 5xRC_60_0 (aynı kerteriz, 6.9 m) → (655.4,−80.45) ±0.5. Daire merkezi ≈2.4 m. Yüz güneybatıya (≈197°, sign rot = 180 − yüz pusulası = 343). Arka yüz görülmedi. 'kamyon' levhası dokusu kod bekliyor (şu an yalnız chevron tanınır)."
+  },
+  {
+   "kind": "lamp-post",
+   "id": "da3-lamp-se-swan",
+   "x": 659.26,
+   "z": -73.33,
+   "style": "swan",
+   "note": "2026-09 (eleştirmen da3-03): GD köşe kaldırımında (da3-sw-se-corner) kuğu boyunlu lamba direği, üzerinde ikinci 'kamyon giremez' levhası. SV 5xRC_60_0: kerteriz 94.5°, dip −20.5° → 5.9 m → (659.26,−73.33) ±0.5. Direk karenin üstüne taşıyor: görülen alt sınır ≈7.2 m; tepe boyu ve kolun yönü GÖRÜLMEDİ → h ve rot yazılmadı (varsayılan boy, kol en yakın yol eksenine)."
+  },
+  {
+   "kind": "sign",
+   "id": "da3-sign-se-notruck",
+   "x": 659.16,
+   "z": -73.33,
+   "h": 3.1,
+   "rot": 265,
+   "text": "Kamyon giremez (kırmızı çerçeveli beyaz daire, siyah kamyon)",
+   "note": "2026-09: da3-lamp-se-swan direğine kelepçeli levha (levha direği lamba direğinin içinde kalsın diye 0.1 m batıda). SV 5xRC_60_0: daire merkezi +4.4° → ≈2.8 m; yüz batıya (≈275°, rot 265 — doğuya giden trafik). Ek levha görülmedi."
+  },
+  {
+   "kind": "board",
+   "id": "da2-hoarding-muze",
+   "x": 253.35,
+   "z": -221.0,
+   "rot": 0,
+   "w": 17.9,
+   "h": 2.6,
+   "y0": 0.6,
+   "d": 0.15,
+   "poles": 0,
+   "lines": [
+    {
+     "text": "Bursa'nın tarihi",
+     "fg": "#3a4458",
+     "font": "serif"
+    },
+    {
+     "text": "birikimine",
+     "fg": "#3a4458",
+     "font": "serif"
+    },
+    {
+     "text": "müzelerimizde",
+     "fg": "#3a4458",
+     "font": "serif"
+    },
+    {
+     "text": "şahit olun...",
+     "fg": "#3a4458",
+     "font": "serif"
+    }
+   ],
+   "bg": "#838e94",
+   "fg": "#3a4458",
+   "border": "#838e94",
+   "font": "serif",
+   "bold": false,
+   "blocks": [
+    {
+     "x0": 0.0,
+     "x1": 0.08,
+     "y0": 0.2,
+     "y1": 0.85,
+     "color": "#555452"
+    },
+    {
+     "x0": 0.1,
+     "x1": 0.22,
+     "y0": 0.15,
+     "y1": 0.8,
+     "color": "#6f6f67"
+    },
+    {
+     "x0": 0.25,
+     "x1": 0.37,
+     "y0": 0.3,
+     "y1": 0.9,
+     "color": "#6f6f67"
+    },
+    {
+     "x0": 0.61,
+     "x1": 0.76,
+     "y0": 0.2,
+     "y1": 0.9,
+     "color": "#6d747e"
+    },
+    {
+     "x0": 0.8,
+     "x1": 0.93,
+     "y0": 0.3,
+     "y1": 0.9,
+     "color": "#6d7a7b"
+    }
+   ],
+   "base": {
+    "h": 0.6,
+    "color": "#515041",
+    "note": "alçak beton duvar üzerinde"
+   },
+   "note": "2026-09 (eleştirmen da2-11/12): Uğur Mumcu Blv. güneyindeki çimin arkasında, kuzeye (bulvara) bakan uzun tanıtım panosu (hoarding): açık gri-beyaz zemin, ortada koyu lacivert serif dört satır 'Bursa'nın tarihi' / 'birikimine' / 'müzelerimizde' / 'şahit olun...' (eleştirmen 'sahip olun' yazmıştı; yakın kırpımda 'şahit olun...' okunuyor), altında küçük web adresi 'www.bursa….com' (okunamadı → yazılmadı); iki yanda sepya/siyah-beyaz eski Bursa fotoğrafları (blocks, x/y 0..1; yalnız ton — içerik çizilmez). Alçak beton duvar (≈0.6 m) üzerinde. SV -5Gw_180_0 (kerteriz 145.5–196.5°) + k-e6_180_0 (193.2–219.1°): batı ucu iki panoda x≈244.4 (z −221 ile tutarlı) → hat z −221 ±1.5 (hava fotoğrafında z −223…−219 gri bant/gölge). Doğu ucu 1546816256 binasının arkasında kalıyor (x ≥ 262.3 görülmedi). Yükseklik ≈2.6 m pano + 0.6 duvar (karedeki oran; zemin kameradan ≈1 m yüksek). Renkler bulutlu (bg ≈#838e94); yazı rengi bulanık, lacivert görünüş (#3a4458 yaklaşık). base/blocks alanları kod bekliyor. Fotoğraf blok tonları örneklendi (bulutlu, bulanık): ≈#555452 / #6f6f67 / #6d747e / #6d7a7b."
+  },
+  {
+   "kind": "island",
+   "id": "da3-median-north",
+   "x": 626.2,
+   "z": -136.8,
+   "h": 0.15,
+   "poly": [
+    [
+     624.0,
+     -160
+    ],
+    [
+     627.8,
+     -160
+    ],
+    [
+     628.0,
+     -113.8
+    ],
+    [
+     624.8,
+     -113.8
+    ]
+   ],
+   "material": "bordürlü çim orta refüj",
+   "note": "2026-09 (eleştirmen da3-07: oyunda ten rengi hava fotoğrafı bandı): Özlüce Blv. kuzey kolunun iki yönü arasında bordürlü çim orta refüj; hava fotoğrafında (aerial-e z21) x ≈624–628 yeşil şerit, güney ucu yaya geçidinin (da3-zebra-on, z −113.9) hemen kuzeyi, kuzeye z −200'ün ötesine sürer (x −195'te 622.3–626; bu kayıt yalnız z −160…−113.8 — kuzeyi eleştirmen kapsamı dışında, ölçülmedi). SV 1T1m_60_0, 1Wmb_60_0/120_0, fHbA_60_0/120_0: çim + iki kazıklı genç ağaçlar (mor ve yeşil yapraklı karışık) + reklam panosu (yazı okunmadı, eklenmedi)."
+  },
+  {
+   "kind": "tree",
+   "id": "da3-median-n-tree-1",
+   "x": 626.3,
+   "z": -125.4,
+   "h": 3.2,
+   "r": 0.8,
+   "species": "sapling",
+   "note": "Kuzey kol orta refüjünde çift ahşap kazıklı genç ağaç (2025-09; yaprak rengi karışık mor/yeşil, tür görülmedi). Konum: refüj ekseni (x≈625–626.3) × SV kerterizi — 1Wmb_60_0 85.8° + 93.6° (iki gövde ≈1 m arayla — biri yazıldı), hava lekesi −126.7; boyuna ±1.5 m. Boy ≈3–3.5 m (karelerde yayaya göre)."
+  },
+  {
+   "kind": "tree",
+   "id": "da3-median-n-tree-2",
+   "x": 626.2,
+   "z": -133.4,
+   "h": 3.2,
+   "r": 0.8,
+   "species": "sapling",
+   "note": "Kuzey kol orta refüjünde çift ahşap kazıklı genç ağaç (2025-09; yaprak rengi karışık mor/yeşil, tür görülmedi). Konum: refüj ekseni (x≈625–626.3) × SV kerterizi — fHbA_60_0 87.3°, hava lekesi −133.7; boyuna ±1.5 m. Boy ≈3–3.5 m (karelerde yayaya göre)."
+  },
+  {
+   "kind": "tree",
+   "id": "da3-median-n-tree-3",
+   "x": 625.9,
+   "z": -138.9,
+   "h": 3.2,
+   "r": 0.8,
+   "species": "sapling",
+   "note": "Kuzey kol orta refüjünde çift ahşap kazıklı genç ağaç (2025-09; yaprak rengi karışık mor/yeşil, tür görülmedi). Konum: refüj ekseni (x≈625–626.3) × SV kerterizi — fHbA_60_0 53.8°; boyuna ±1.5 m. Boy ≈3–3.5 m (karelerde yayaya göre)."
+  },
+  {
+   "kind": "tree",
+   "id": "da3-median-n-tree-4",
+   "x": 625.6,
+   "z": -145.0,
+   "h": 3.2,
+   "r": 0.8,
+   "species": "sapling",
+   "note": "Kuzey kol orta refüjünde çift ahşap kazıklı genç ağaç (2025-09; yaprak rengi karışık mor/yeşil, tür görülmedi). Konum: refüj ekseni (x≈625–626.3) × SV kerterizi — 1T1m_60_0 59.6°; boyuna ±1.5 m. Boy ≈3–3.5 m (karelerde yayaya göre)."
+  },
+  {
+   "kind": "tree",
+   "id": "da3-median-n-tree-5",
+   "x": 625.4,
+   "z": -149.4,
+   "h": 3.2,
+   "r": 0.8,
+   "species": "sapling",
+   "note": "Kuzey kol orta refüjünde çift ahşap kazıklı genç ağaç (2025-09; yaprak rengi karışık mor/yeşil, tür görülmedi). Konum: refüj ekseni (x≈625–626.3) × SV kerterizi — 1T1m_60_0 41.8°, hava lekesi −148; boyuna ±1.5 m. Boy ≈3–3.5 m (karelerde yayaya göre)."
+  },
+  {
+   "kind": "tree",
+   "id": "da3-median-n-tree-6",
+   "x": 625.1,
+   "z": -157.8,
+   "h": 3.2,
+   "r": 0.8,
+   "species": "sapling",
+   "note": "Kuzey kol orta refüjünde çift ahşap kazıklı genç ağaç (2025-09; yaprak rengi karışık mor/yeşil, tür görülmedi). Konum: refüj ekseni (x≈625–626.3) × SV kerterizi — 1T1m_60_0 24.6°, hava lekesi −154.3 (±3); boyuna ±1.5 m. Boy ≈3–3.5 m (karelerde yayaya göre)."
+  },
+  {
+   "kind": "tree",
+   "id": "da1-tree-pollard",
+   "x": 33.9,
+   "z": -150.5,
+   "h": 9,
+   "r": 1.5,
+   "species": "deciduous",
+   "note": "2026-09 (eleştirmen da1-00, A5): da1 sitesinde (Şehr-i Bursa Evleri) 561'in önünde ince, budanmış (tepesi kesilmiş) seyrek yapraklı ağaç, yapraklar kahve-pas (Eylül 2025, kurumuş görünüm); tür görülmedi. gnXj_195_8_40 (191.7°) × TRTB_120_0 (158.6°) üçgenleme → (33.9,−150.5) ±1; boy ≈9 m (TRTB tepe +20°, 18 m), taç dar (r ≈1.5). Hava fotoğrafı tespitinin (32.7,−152.7) büyük tacı bu ağaç — yer tutucu ağaç kaldırıldı (treeExclude + bu ölçülmüş ağaç)."
+  },
+  {
+   "kind": "tree",
+   "id": "da1-shrub-purple",
+   "x": 32.0,
+   "z": -151.7,
+   "h": 2.4,
+   "r": 1.0,
+   "species": "prunus-purple",
+   "note": "2026-09 (eleştirmen da1-00): budanmış ağacın yanında yuvarlak taçlı mor-bronz yapraklı çalı/küçük ağaç (kan erik görünüşü; tür kesin değil). gnXj_195_8_40 (198.7°) × TRTB_120_0 (163.2°) → (32.0,−151.7) ±1.5; tepe iki karede 1.7 / 3.1 m (ortalama 2.4, taban duvar arkasında görülmedi)."
+  },
+  {
+   "kind": "tree",
+   "id": "da2-tree-uc-young",
+   "x": 243.7,
+   "z": -221.7,
+   "h": 5,
+   "r": 1.6,
+   "species": "deciduous",
+   "note": "2026-09 (eleştirmen da2-12, A5): Uğur Mumcu güneyindeki açık çimde TEK genç, seyrek yapraklı ağaç (tanıtım panosunun batı ucunun önünde); tür görülmedi. -5Gw_180_0 (200.6°) × k-e6_180_0 (221.2°) üçgenleme → (243.7,−221.7) ±1.5; boy ≈5 m (tepe +11.6°, zemin kameradan ≈1 m yüksek)."
+  },
+  {
+   "kind": "tree",
+   "id": "da2-shrub-hoarding",
+   "x": 255.4,
+   "z": -222.0,
+   "h": 2.1,
+   "r": 1.0,
+   "species": "deciduous",
+   "note": "2026-09: tanıtım panosunun (da2-hoarding-muze) önünde koyu yeşil, sık, yuvarlak taçlı çalı (her dem yeşil görünüşlü; tür görülmedi → genel). -5Gw_180_0 kerteriz 161° × pano hattı (z −221) −1 m; tepe ≈2.1 m."
+  },
+  {
+   "kind": "tree",
+   "id": "da1-pine-62",
+   "x": 62.3,
+   "z": -157.9,
+   "h": 4.0,
+   "r": 1.6,
+   "species": "conifer",
+   "note": "2026-09 (eleştirmen A6): Genç fıstık çamı (Pinus pinea görünüşü: şemsiye/yuvarlak sık iğne yapraklı taç; kütüphanede ayrı tür yok → genel iğne yapraklı). da1 sitesi duvarının ≈1.6 m içinde. Ng8I_180_0 (155.0°) × nB9G_180_0 (210.7°) → (62.3,−157.9) ±0.8; tepe ≈4.0 m (Ng8I), taç eni ≈3.2 m."
+  },
+  {
+   "kind": "tree",
+   "id": "da1-pine-66",
+   "x": 66.4,
+   "z": -157.5,
+   "h": 4.4,
+   "r": 1.6,
+   "species": "conifer",
+   "note": "2026-09 (eleştirmen A6): Genç fıstık çamı (şemsiye taç), öncekinin 4 m doğusu. Ng8I_180_0 (139.5°) × nB9G_180_0 (188.0°) → (66.4,−157.5) ±0.8; tepe 4.3–4.6 m."
+  },
+  {
+   "kind": "tree",
+   "id": "da1-plum-60",
+   "x": 60.1,
+   "z": -158.0,
+   "h": 3.8,
+   "r": 0.9,
+   "species": "prunus-purple",
+   "note": "2026-09 (eleştirmen A6): Mor (koyu kızıl) yapraklı dar taçlı genç ağaç (kan erik görünüşü). Ng8I_180_0 (166°) × nB9G_180_0 (220.2°) → (60.1,−158.0) ±1; tepe ≈3.8 m."
+  },
+  {
+   "kind": "tree",
+   "id": "da1-pine-165",
+   "x": 165.4,
+   "z": -146.9,
+   "h": 3.5,
+   "r": 1.5,
+   "species": "conifer",
+   "note": "2026-09 (eleştirmen A6): Genç fıstık çamı (şemsiye taç), da1 sitesi bahçesinde. RW5-_180_0 (151.9°) × 5Owm_180_0 (194.0°) → (165.4,−146.9) ±1.5 (duvardan ≈10 m içeride); tepe ≈3–3.5 m."
+  },
+  {
+   "kind": "tree",
+   "id": "da1-plum-159",
+   "x": 159.3,
+   "z": -150.0,
+   "h": 4.0,
+   "r": 1.0,
+   "species": "prunus-purple",
+   "note": "2026-09 (eleştirmen A6): Mor yapraklı genç ağaç (kan erik görünüşü). RW5-_180_0 (171.6°) × 5Owm_180_0 (221.9°) → (159.3,−150.0) ±1.5; boy ≈4 m (karedeki orandan)."
+  },
+  {
+   "kind": "tree",
+   "id": "da2-plum-503",
+   "x": 187.9,
+   "z": -151.5,
+   "h": 4.4,
+   "r": 1.2,
+   "species": "prunus-purple",
+   "note": "2026-09 (eleştirmen A6): 503. Sk. batı duvarının arkasındaki bahçe şeridinde mor yapraklı ağaç (kan erik görünüşü). SyTa_180_0 (195.7°) × l07h_240_0 (276.9°, pano GPS'i +4.5 m düzeltilerek) → (187.9,−151.5) ±1; tepe ≈4.4 m."
+  },
+  {
+   "kind": "parasol",
+   "id": "d4-ozdemir-parasol-1",
+   "x": 578.05,
+   "z": -210.35,
+   "w": 4.5,
+   "h": 3.0,
+   "shape": "square",
+   "open": true,
+   "color": "#245049",
+   "note": "2026-09 (D4 taban izi ajanları + doğrulama): Özlüce Blv. kuzeyinde restoran önünde iki koyu yeşil kare şemsiye yan yana, birlikte x 575.8–584.8, z −213.1…−207.6 (eğiklik düzeltmeli; aerial-n1 z21'de tek koyu yeşil dikdörtgen + iki tepe noktası (578.8,−211.9)/(582.7,−211.3)). SV aQL7Z_300_0 (uzak, 2025-09, güneşli): koyu yeşil ≈#20635c–#276258 / gölgeli yüz ≈#245049. Boy ≈3 m; valans yazısı bu uzaklıkta görülmedi."
+  },
+  {
+   "kind": "parasol",
+   "id": "d4-ozdemir-parasol-2",
+   "x": 582.55,
+   "z": -210.35,
+   "w": 4.5,
+   "h": 3.0,
+   "shape": "square",
+   "open": true,
+   "color": "#245049",
+   "note": "2026-09 (D4 taban izi ajanları + doğrulama): Özlüce Blv. kuzeyinde restoran önünde iki koyu yeşil kare şemsiye yan yana, birlikte x 575.8–584.8, z −213.1…−207.6 (eğiklik düzeltmeli; aerial-n1 z21'de tek koyu yeşil dikdörtgen + iki tepe noktası (578.8,−211.9)/(582.7,−211.3)). SV aQL7Z_300_0 (uzak, 2025-09, güneşli): koyu yeşil ≈#20635c–#276258 / gölgeli yüz ≈#245049. Boy ≈3 m; valans yazısı bu uzaklıkta görülmedi."
   }
  ],
  "notes": [
@@ -8726,6 +9460,117 @@
   "retro-3 BEKLİYOR (ifade edilemedi / görülmedi): (a) 502 doğu yakası güney duvarında (east-fence-south) kolonlar tek tek görülmedi (yalnız biri); (b) 504 Sk. kuzey yakası: kaldırım ≈1.5 (z −84.9…−86.4), arkasında düz gri beton duvar + tel panel — çit kaydı yok (köşe pahı ve 504 boyu ölçülmedi); Şehr-i Bursa czGR önündeki panel yaya kapısı ve 504 pah/kuzey duvarı (bkz. east-fence-sehri-bursa notu); (c) 504 köşelerindeki turuncu dikmeler ve güney köşe ızgarası tek tek; (d) mavi bisiklet şeridinin 504 kavşağında 502 batı şeridine bağlantısı (geçit boyası) bulanık zemin nedeniyle görülmedi; (e) 502 ve DA asfaltında çatlak dolgu çizgileri / yamalar (Oh3B_120_0, G8RU_180_0) konumlanmadı; (f) Salus önü kaldırım (salus-east notu).",
   "retro-4 MERTKENT 3 SİTESİ girişi (koordinatör isteği; 529911717 tek yön sokak, z≈−15.7, 1480041300/1480041301 blokları arası; SV HZb9_240_0, S66M_120_0/180_0, 2025-09): araç girişi üstünde antrasit portal — iki kare kolon (≈0.9–1.0 m genişlik, sokak yüzü güneşte ≈#99a2a3, gölgede ≈#4b4e4c) ve üstte kolonları birleştiren kiriş; kirişin sokağa (kuzeye) bakan yüzünde beyaz kalın büyük harf sans \"MERTKENT 3 SİTESİ\" (harf ≈0.45–0.55 m); kiriş üst kotu ≈5.5–6 m, kiriş yüksekliği ≈1.0–1.3 (düz karede kamera ≈2.17 m ile oransal, ±0.8); altında siyah ferforje kapı (kıvrımlı süs bandı, mızrak uçlu), batı kolonda yuvarlak turuncu çerçeveli trafik aynası; iki yanda koyu yeşil 2D tel panel + leylandi. Merkez ≈(−39.6,−12.5) (OSM otopark yolu 1550820717 ucu + iki pano kerterizi, ±1.5 m); açıklık genişliği ÖLÇÜLMEDİ (≈5–6). street-plan kapı türü (da* dışı kimlikler Mertkent-2 kapısı olarak çiziliyor) ve board türü (tek/çift direkli pano) bu portalı ifade edemiyor → kayıt olarak eklenmedi; portal üreticisi gerekiyor.",
   "2026-09 Park Koza girişi (site.ts buildParkKoza, sabit kod — veri değil; eleştirmen V15 #4/#21): SV l4zdb_323_-15_40 yakın plan: 'PARK KOZA' / 'SİTESİ' iki satır krem-altın 3B harf, duvarın ÜSTÜNDE yatay koyu metal parmaklık (≈3 yatay lama) üzerine takılı — duvar yüzünde değil; harf üst kotu ≈2.3, alt satır ≈1.8 m (l4zdb_300_0, 5 m). Duvar: kaba (serpme) beyaz sıva, üstü yuvarlatılmış, h ≈1.6 m. Kolon: kaba beyaz sıva, açık gri taş başlık, üstünde küçük siyah fener. Kapı: gri 2D kaynaklı tel panel, koyu gri kutu profil çerçeve, döner kanat. Kapı batı kolonunun önünde beyaz direkte yuvarlak dışbükey ayna (arka yüzü gri). Duvar önünde turuncu-beyaz esnek dikme. Duvarın arkasında leylandi/servi çit.",
-  "2026-09 yol yüzeyi taraması (road-items.json, ayrı ajan) birleştirildi: 74 öğe (yama/çatlak/çukur/rögar/ızgara + Cavit Orhan z≈−26 sarı-beyaz zebra), 4 geçide wear yazıldı (da3-zebra-de-n 0.5, de-s 0.6, on 0.2, 502-nato-crossing 0.35), 4 konum düzeltmesi (502 dekoratif rögar, 502 ızgara z −114.35, da2-mh-2/-3 ≈3 m doğuya). Görülmeyen/kaydedilmeyenler: 502. Sk. z≈-114.6 (x 3–9): hava fotoğrafında ızgaradan (8.8) batıdaki koyu diske (3.2,-114.5) giden ince enine koyu çizgi (olası boru tranşesi) — SV'de bu satırlar araç tavanı bulanıklığında (czGR/_zvj) kalıyor, doğrulanmadı; batı disk park etmiş aracın altında. || 502. Sk. z -45…-40 (x 3–7): hava fotoğrafında kavisli ince koyu çizgi (çatlak/tranşe?) — I52t/U-Oz8 zemin karelerinde bulanık bölgede, doğrulanmadı. || 502. Sk. güney kavşağı doğu yakası (5.0,-38.3) ve (8.3,-39.3): hava fotoğrafında koyu lekeler (ızgara olabilir) — I52t 90/-50 bulanıklıkta, görülmedi. || 502. Sk. orta çizgi ve batı bisiklet şeridinin beyaz kesikli kenar çizgisi (z -40…-140): 2025-09 karelerinde parlak ve keskin, aşınma görülmedi (wear kaydı yok). NOT: oyun orta çizgiyi OSM ekseninde çiziyor (z -100'de x≈6.4); gerçek (SV/hava) orta çizgi x≈5.2–5.8 — konum farkı ≈0.6–1.2 m. || İsimsiz güney sokak (338371627, x -75…-5): tek şeritli dar asfalt; 2025-09 karelerinde (MUMV…gPUM) yama/çatlak/rögar görülmedi (tek ızgara hariç); hoOD 270/-50'de kaldırım tarafında olası hafif boyuna ton farkı, emin değil → kaydedilmedi. Oyunda bu yolda çizgi yok, gerçekte de orta çizgi yok (tek yön). || Cavit Orhan Tütengil Cd. z -40…-150: asfalt temiz (yeni kaplama görünümü), çatlak/yama görülmedi; kesikli orta çizgi parlak, aşınma görülmedi. Doğu park bandı kırmızı kilit taşı (asfalt değil). Kavşak ağızları dışında rögar/ızgaralar yalnız listelenenler. || da1-mh-1 / da1-grate-1 (x≈115–117): SV n1yU 180/-50 ile doğrulandı (kapak kenar çizgisinin yol tarafında, ızgara çizgi ile bordür arasında, ızgara kapağın 1.3 m doğusunda) — mevcut konumlar ±0.5 içinde, düzeltme yok. Hava fotoğrafında 1–2 m kuzeydeki iki koyu leke (117.1,-161.3), (117.9,-162.1) SV'de karşılığı görülmedi (leke/eski yama olabilir) → kaydedilmedi. || da1-mh-2 / da1-grate-2 / da1-mh-3 (x≈155–158): RW5- 180/-50 ile doğrulandı (rögar kenar çizgisi üzerinde, açık beton kare çerçeveli; ızgara ≈0.9×0.5 beton çerçeveli; da1-mh-3 kaldırım kırmızı bandında) — düzeltme yok. || Doğan Avcıoğlu x 182–187 (SyTa, 2025): yolu çapraz kesen ≈0.4 m koyu yumuşak kenarlı bant (SyTa 270/-50, 240/0, 300/0) — yama mı gölge mi ayırt edilemedi (yalnız tek pano, komşu pano o kesimi bulanıklıkta görüyor) → kaydedilmedi. || Yan sokak (303589053) x 197–265 (75qZ…UXy7): kaldırımsız dar asfalt; modüler kauçuk hız kesici UXy7 90/-50'de mevcut kayıtla (da3-bump-side) uyumlu. Başka yama/çatlak seçilmedi (x<265 street-plan kapsamı dışında, ayrıntılı taranmadı). || Doğan Avcıoğlu x 245–590 (da3, Server Tanilli kavşağı dahil): bu kesimde Street View zemin karesi YOK → hiçbir öğe kaydedilmedi. Hava fotoğrafında (aerial-e z21) rögar olabilecek koyu diskler (Ø≈0.5–0.8): (434.73,-94.90), (513.92,-90.72), (515.23,-91.81), (564.63,-90.56), (563.03,-89.23), (393.00,-93.99), (333.86,-111.80) — SV doğrulaması olmadığından kaydedilmedi. x 354–364, z≈-100.3'teki koyu şerit (≈10×1 m) yama ya da park aracı gölgesi olabilir — ayırt edilemedi. Büyük (hava fotoğrafında açıkça seçilen) yama görülmedi. Yol çizgileri hava fotoğrafında keskin; aşınma değerlendirilemedi. || DA doğusu x>729 (amsc, E-FB): kapsam dışı (amsc 90/-50'de (742.9,-73.6) rögar ve oluk boyunca kırık asfalt görüldü, kaydedilmedi). || DA doğusu (696.56,-80.29) ve (696.85,-76.91): hava fotoğrafında iki koyu disk (rögar?) — SV'de araç/bulanıklık altında, doğrulanmadı. || DA doğusu kuzey şeridi (dönüş/park yakası) z −80…−85: DIKa/Q5IC/pc3Z kuzey kareleri park araçları arkasında; Q5IC 0/-50'de kuzey bordürde ızgara (695.8,-82.0) görüldü → kaydedildi. || Özlüce kavşağı ring yolu: yama/çukur görülmedi; f47o 180/-50'deki koyu çapraz izler lastik izi (yama değil) → kaydedilmedi. Ring dönüş/kenar çizgileri ve 'yol ver' çizgileri (drkr 0/-50, 90/-50) orta derecede aşınmış görünüyor ama çizici bu çizgileri çizmiyor → wear kaydı yok. Kavşak panolarının GPS'i ada bordürüne göre tutarsız (kerb uydurması 1–3.5 m farklı sonuç verdi) → kavşak öğeleri ±1–2 m. || Özlüce Bulvarı kuzey kolu yaya geçidi (da3-zebra-on): JT30 90/-50 karesinde zebra şeritleri arasında kırmızı boyalı zemin görülüyor (renkli yaya geçidi); renderer kırmızı zemin çizmiyor — yalnız not. kr3o 270/-50: şeritler belirgin, aşınma ≈0.2 (wear-da3-zebra-on). || Özlüce Bulvarı kolları (25 m): güney kolu (gne0, X1ml, azd0, OdoT) ve kuzey kolu (0oDN, 1Wmb) — yama/çatlak görülmedi (gne0 0/-50'de küçük yağ lekesi, kaydedilmedi). 141. Sokak (alOg, JvZ5): ağız dışında öğe görülmedi. 503. Sk. (HVLz, l07h): DA ağzı dışında öğe görülmedi. Cavit Orhan DA kuzeyi (EbG3): öğe görülmedi."
+  "2026-09 yol yüzeyi taraması (road-items.json, ayrı ajan) birleştirildi: 74 öğe (yama/çatlak/çukur/rögar/ızgara + Cavit Orhan z≈−26 sarı-beyaz zebra), 4 geçide wear yazıldı (da3-zebra-de-n 0.5, de-s 0.6, on 0.2, 502-nato-crossing 0.35), 4 konum düzeltmesi (502 dekoratif rögar, 502 ızgara z −114.35, da2-mh-2/-3 ≈3 m doğuya). Görülmeyen/kaydedilmeyenler: 502. Sk. z≈-114.6 (x 3–9): hava fotoğrafında ızgaradan (8.8) batıdaki koyu diske (3.2,-114.5) giden ince enine koyu çizgi (olası boru tranşesi) — SV'de bu satırlar araç tavanı bulanıklığında (czGR/_zvj) kalıyor, doğrulanmadı; batı disk park etmiş aracın altında. || 502. Sk. z -45…-40 (x 3–7): hava fotoğrafında kavisli ince koyu çizgi (çatlak/tranşe?) — I52t/U-Oz8 zemin karelerinde bulanık bölgede, doğrulanmadı. || 502. Sk. güney kavşağı doğu yakası (5.0,-38.3) ve (8.3,-39.3): hava fotoğrafında koyu lekeler (ızgara olabilir) — I52t 90/-50 bulanıklıkta, görülmedi. || 502. Sk. orta çizgi ve batı bisiklet şeridinin beyaz kesikli kenar çizgisi (z -40…-140): 2025-09 karelerinde parlak ve keskin, aşınma görülmedi (wear kaydı yok). NOT: oyun orta çizgiyi OSM ekseninde çiziyor (z -100'de x≈6.4); gerçek (SV/hava) orta çizgi x≈5.2–5.8 — konum farkı ≈0.6–1.2 m. || İsimsiz güney sokak (338371627, x -75…-5): tek şeritli dar asfalt; 2025-09 karelerinde (MUMV…gPUM) yama/çatlak/rögar görülmedi (tek ızgara hariç); hoOD 270/-50'de kaldırım tarafında olası hafif boyuna ton farkı, emin değil → kaydedilmedi. Oyunda bu yolda çizgi yok, gerçekte de orta çizgi yok (tek yön). || Cavit Orhan Tütengil Cd. z -40…-150: asfalt temiz (yeni kaplama görünümü), çatlak/yama görülmedi; kesikli orta çizgi parlak, aşınma görülmedi. Doğu park bandı kırmızı kilit taşı (asfalt değil). Kavşak ağızları dışında rögar/ızgaralar yalnız listelenenler. || da1-mh-1 / da1-grate-1 (x≈115–117): SV n1yU 180/-50 ile doğrulandı (kapak kenar çizgisinin yol tarafında, ızgara çizgi ile bordür arasında, ızgara kapağın 1.3 m doğusunda) — mevcut konumlar ±0.5 içinde, düzeltme yok. Hava fotoğrafında 1–2 m kuzeydeki iki koyu leke (117.1,-161.3), (117.9,-162.1) SV'de karşılığı görülmedi (leke/eski yama olabilir) → kaydedilmedi. || da1-mh-2 / da1-grate-2 / da1-mh-3 (x≈155–158): RW5- 180/-50 ile doğrulandı (rögar kenar çizgisi üzerinde, açık beton kare çerçeveli; ızgara ≈0.9×0.5 beton çerçeveli; da1-mh-3 kaldırım kırmızı bandında) — düzeltme yok. || Doğan Avcıoğlu x 182–187 (SyTa, 2025): yolu çapraz kesen ≈0.4 m koyu yumuşak kenarlı bant (SyTa 270/-50, 240/0, 300/0) — yama mı gölge mi ayırt edilemedi (yalnız tek pano, komşu pano o kesimi bulanıklıkta görüyor) → kaydedilmedi. || Yan sokak (303589053) x 197–265 (75qZ…UXy7): kaldırımsız dar asfalt; modüler kauçuk hız kesici UXy7 90/-50'de mevcut kayıtla (da3-bump-side) uyumlu. Başka yama/çatlak seçilmedi (x<265 street-plan kapsamı dışında, ayrıntılı taranmadı). || Doğan Avcıoğlu x 245–590 (da3, Server Tanilli kavşağı dahil): bu kesimde Street View zemin karesi YOK → hiçbir öğe kaydedilmedi. Hava fotoğrafında (aerial-e z21) rögar olabilecek koyu diskler (Ø≈0.5–0.8): (434.73,-94.90), (513.92,-90.72), (515.23,-91.81), (564.63,-90.56), (563.03,-89.23), (393.00,-93.99), (333.86,-111.80) — SV doğrulaması olmadığından kaydedilmedi. x 354–364, z≈-100.3'teki koyu şerit (≈10×1 m) yama ya da park aracı gölgesi olabilir — ayırt edilemedi. Büyük (hava fotoğrafında açıkça seçilen) yama görülmedi. Yol çizgileri hava fotoğrafında keskin; aşınma değerlendirilemedi. || DA doğusu x>729 (amsc, E-FB): kapsam dışı (amsc 90/-50'de (742.9,-73.6) rögar ve oluk boyunca kırık asfalt görüldü, kaydedilmedi). || DA doğusu (696.56,-80.29) ve (696.85,-76.91): hava fotoğrafında iki koyu disk (rögar?) — SV'de araç/bulanıklık altında, doğrulanmadı. || DA doğusu kuzey şeridi (dönüş/park yakası) z −80…−85: DIKa/Q5IC/pc3Z kuzey kareleri park araçları arkasında; Q5IC 0/-50'de kuzey bordürde ızgara (695.8,-82.0) görüldü → kaydedildi. || Özlüce kavşağı ring yolu: yama/çukur görülmedi; f47o 180/-50'deki koyu çapraz izler lastik izi (yama değil) → kaydedilmedi. Ring dönüş/kenar çizgileri ve 'yol ver' çizgileri (drkr 0/-50, 90/-50) orta derecede aşınmış görünüyor ama çizici bu çizgileri çizmiyor → wear kaydı yok. Kavşak panolarının GPS'i ada bordürüne göre tutarsız (kerb uydurması 1–3.5 m farklı sonuç verdi) → kavşak öğeleri ±1–2 m. || Özlüce Bulvarı kuzey kolu yaya geçidi (da3-zebra-on): JT30 90/-50 karesinde zebra şeritleri arasında kırmızı boyalı zemin görülüyor (renkli yaya geçidi); renderer kırmızı zemin çizmiyor — yalnız not. kr3o 270/-50: şeritler belirgin, aşınma ≈0.2 (wear-da3-zebra-on). || Özlüce Bulvarı kolları (25 m): güney kolu (gne0, X1ml, azd0, OdoT) ve kuzey kolu (0oDN, 1Wmb) — yama/çatlak görülmedi (gne0 0/-50'de küçük yağ lekesi, kaydedilmedi). 141. Sokak (alOg, JvZ5): ağız dışında öğe görülmedi. 503. Sk. (HVLz, l07h): DA ağzı dışında öğe görülmedi. Cavit Orhan DA kuzeyi (EbG3): öğe görülmedi.",
+  "2026-09 A6 (DA güney duvarı arkası gerçek ağaçlar): üçgenlenenler street[] da1-pine-62/-66, da1-plum-60, da1-pine-165, da1-plum-159, da2-plum-503. GÖRÜLEN AMA KONUMU ÇIKARILAMAYAN (tek pano, eklenmedi): RW5-_180_0'da x≈150–165 arasında 2 mor erik daha (kerteriz 194.0°, 215.4°); 5Owm_180_0'da 149.7° mor erik; XO-B_180_0'da x≈115–140 mor erikler + koyu konik iğne yapraklı; nB9G_180_0'da 164.3° ve Ng8I_180_0'da 189.4° geniş yapraklı taçlar; 503 köşesinde SyTa_180_0 220.2°'de yuvarlak iğne yapraklı (ikinci karede eşleşme 18 m derine düşüyor, güvenilmez); NNxF_180_0 x 94–102 sarmaşık kütlesi (plan screen). Kütüphanede fıstık çamı türü yok → 'conifer'.",
+  "2026-09 (eleştirmen da1-01): street[] 'da1-tree-lot' (38.6,−172) silindi — park-plan BIG_PARK (41.7,−170.3) ile aynı ağaç (TRTB_60_0 78.5° × 4Vcm_300_0 288.2° üçgenleme (41.73,−170.27), tek gövde)."
+ ],
+ "treeExclude": [
+  {
+   "id": "a5-da1-561a",
+   "x": 32.7,
+   "z": -157.7,
+   "r": 2.5,
+   "note": "Hava fotoğrafı taç tespiti yanlış pozitifi (eleştirmen da1-00, A5): SV gnXj_195_8_40 / TRTB_120_0'da burada ağaç yok (duvar + site levhası direği); gerçek ağaçlar da1-tree-pollard / da1-shrub-purple."
+  },
+  {
+   "id": "a5-da1-561b",
+   "x": 32.7,
+   "z": -152.7,
+   "r": 2.5,
+   "note": "A5: büyük taç yerine gerçekte ince budanmış ağaç + mor çalı (ölçülmüş, 1.5–2.2 m yanında)."
+  },
+  {
+   "id": "a5-uptown-front",
+   "x": 216.8,
+   "z": -167.9,
+   "r": 2.5,
+   "note": "A5 (da2-06): UPTOWN duvarının arkasında büyük taç yok — SV SyTa_60_0 (2025) kerteriz 72°: yalnız ≈2.3 m leylandi çit."
+  },
+  {
+   "id": "a5-north-st-a",
+   "x": 215.5,
+   "z": -212.3,
+   "r": 2,
+   "note": "A5 (da2-09): kuzey sokak kuzey kenarı — hava fotoğrafında direk gölgesi (ince koyu çizgi), taç değil; SV'de ağaç yok."
+  },
+  {
+   "id": "a5-north-st-b",
+   "x": 224.4,
+   "z": -212.3,
+   "r": 2,
+   "note": "A5 (da2-09): aynı — direk gölgesi."
+  },
+  {
+   "id": "a5-um-lawn",
+   "poly": [
+    [
+     236,
+     -235
+    ],
+    [
+     254,
+     -235
+    ],
+    [
+     254,
+     -216
+    ],
+    [
+     236,
+     -216
+    ]
+   ],
+   "note": "A5 (da2-12): Uğur Mumcu güneyindeki açık çim — hava fotoğrafında (eski tarih) koyu çalı lekeleri ≈15 taç üretiyordu; 2025 SV'de (-5Gw_180_0, k-e6_180_0) açık çim + tek genç ağaç (da2-tree-uc-young) + panonun önünde tek çalı (da2-shrub-hoarding, bölge dışında)."
+  },
+  {
+   "id": "a5-bb-sw",
+   "poly": [
+    [
+     592.5,
+     -73.5
+    ],
+    [
+     597,
+     -74
+    ],
+    [
+     601.5,
+     -70
+    ],
+    [
+     605.5,
+     -64.5
+    ],
+    [
+     608.5,
+     -59.5
+    ],
+    [
+     610.5,
+     -55
+    ],
+    [
+     606,
+     -53.5
+    ],
+    [
+     603,
+     -58
+    ],
+    [
+     600,
+     -62.5
+    ],
+    [
+     597,
+     -66
+    ],
+    [
+     594,
+     -69
+    ]
+   ],
+   "note": "A5 (da3-06): GB reklam panosu sırası (da3-bb-sw) ve arkasındaki 2–3 m şerit — hava fotoğrafında (eski, farklı yol düzeni) panoların koyu gölge çizgisi ağaç dizisi sanılıyordu; SV Z8D7_240_0 / _230_12_40 / _247_10_40: panoların hemen arkasında ağaç yok (uzakta birkaç ağaç, bölge dışında)."
+  }
  ]
 }

@@ -1008,6 +1008,38 @@
    "material": "gri kilit taşı 10x20",
    "level": 0.15,
    "note": "KB köşe meydanı (Street View: döşeli köşe, kırmızı bant + sarı kılavuz) — eleştirmen düzeltmesi"
+  },
+  {
+   "kind": "paving",
+   "id": "uptown-lot",
+   "poly": [
+    [
+     193.8,
+     -166.8
+    ],
+    [
+     198.8,
+     -166.8
+    ],
+    [
+     198.8,
+     -197.2
+    ],
+    [
+     221,
+     -197.2
+    ],
+    [
+     221,
+     -201.9
+    ],
+    [
+     195.2,
+     -201.9
+    ]
+   ],
+   "material": "gri beton kilit taşı 10×20 (otopark girişi yolu + arka otopark), sarı boya park çizgileri",
+   "note": "2026-09 (eleştirmen da2-04/08/09/10): UPTOWN (1540901794) batısındaki giriş yolu ve kuzeyindeki arka otopark: gri kilit taşı (oyunda çim/kum çiziliyordu). SV SyTa_60_0 (giriş: kaldırımla aynı gri kilit taşı, bariyer), glMQ_180_0 / 0tTf_180_0 (arka otopark: gri kilit taşı, çite dik sarı park çizgileri ≈2.5 m arayla — çizgi konumları ÖLÇÜLMEDİ, parking-bay çizilmedi). Doğu kenarı x 198.8 = binanın batısındaki tek katlı mavi-gri ek yapının batı yüzü (hava fotoğrafı koyu çatı şeridi x ≈198.8–203.5; ek yapı taban izi yok → taban izi ajanına bildirildi). Güney ucu Doğan Avcıoğlu kaldırımı arkası (z −166.8)."
   }
  ],
  "lines": [
@@ -2245,6 +2277,193 @@
    ],
    "h": 0,
    "w": 0.12
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     128.47,
+     -169.35
+    ],
+    [
+     128.76,
+     -174.25
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     131.1,
+     -169.19
+    ],
+    [
+     131.4,
+     -174.09
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     133.75,
+     -169.04
+    ],
+    [
+     134.04,
+     -173.94
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     136.38,
+     -168.88
+    ],
+    [
+     136.68,
+     -173.78
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     139.03,
+     -168.72
+    ],
+    [
+     139.32,
+     -173.62
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     141.66,
+     -168.56
+    ],
+    [
+     141.96,
+     -173.46
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     144.31,
+     -168.4
+    ],
+    [
+     144.6,
+     -173.3
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     146.94,
+     -168.24
+    ],
+    [
+     147.24,
+     -173.14
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     149.59,
+     -168.08
+    ],
+    [
+     149.88,
+     -172.98
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     152.22,
+     -167.93
+    ],
+    [
+     152.52,
+     -172.83
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
+  },
+  {
+   "kind": "parking-bay",
+   "pts": [
+    [
+     154.87,
+     -167.77
+    ],
+    [
+     155.16,
+     -172.67
+    ]
+   ],
+   "h": 0,
+   "w": 0.1,
+   "base": 0.15,
+   "note": "ONAL 51 önü (da1-sw-north-plaza) dik park çizgisi, sarı boya (SV da1-10/12/14 eleştirmen: sarı; hava fotoğrafında soluk açık çizgiler x ≈128.3…154.7, aralık 2.64 m, bordürden 2.75–7.65 m = parking katmanı). x<128 ve x>155 kesimde çizgiler hava fotoğrafında seçilemedi → çizilmedi. base 0.15: çizgi kaldırım kotunda (kod: parking-bay şu an H+0.075'te, 0.15 m bandın altında kalır)."
   }
  ],
  "structures": [
