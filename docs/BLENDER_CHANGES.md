@@ -718,3 +718,14 @@
   Eklercisi), `1551828357.json` (dükkân şeridi: Coffeemania, bona Waffle, Ciğergah, Urfalı Ağaoğlu, Dürümcü Bekir Usta,
   Mersin Tantuni, Demir Amca, Mariza, Kanaatçı Mesut, Burger yiyelim, Bursa Baharat, Maydonoz Döner, Caffe Napoli).
   **Blender:** bu 6 bina ilk kez kurulur (kuleler kaideyle çakışıyor → pending).
+- **(üretici v8: kesim yüzü kenarları + baseH)** — yeni survey alanları: `cutEdges` (massing parçalarını ayıran kesim
+  yüzlerine öğe: parça + dünya doğrusu a → e, gerçek m ya da `cal`; `survey-compile.mjs` → `facades.json`
+  `cutEdges`, `massing.ts` doğruya uyan kesim kenarlarına dağıtır) ve `baseH` / `startK` (podyum üstünde ayrı dosya
+  olarak ölçülmüş kule: duvar, subasman, öğeler ve çarpışma baseH'den başlar; `facade.ts` `clipItemsAbove`). Alan
+  yokken derleme çıktısı bayt bayt aynı (69 ölçüm). İlk örnekler: `1551828351` (Kent Park doğu kule K2–K8 iki
+  pencere sütunu, MADO 1. kat koyu duvar + mavi mozaik + çizgili bant + MADO harfleri, PABLO kutusu doğu yüzünde
+  PABLO harfleri) ve `1552093099` (batı kule altı taş kaplı 1. kat: taş pano, 6 pencere, 2 klima, 4 tabela — BİLAL
+  KAPACIOĞLU, Uzm.Dr.Zeynep PEHLİVAN BARUTÇU, MyDream, diş kutusu). **Blender:** `NW/Mertkent/Blocks/1551828351`,
+  `NW/Mertkent/Blocks/1552093099` yeniden kurulur; kesim kenarı öğeleri bölünmüş parça kenarlarında (`splitMassing`
+  çıktısı) — port `massing.ts` `cutItems` ile aynı eşleştirmeyi yapmalı (paralel ≤ 15°, uçlar `tol` 1.5 m içinde,
+  halka yönünde).

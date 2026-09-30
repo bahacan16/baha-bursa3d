@@ -135,21 +135,23 @@ async function main() {
     // Kat anahtarları: "K3" → "3" ("*" korunur)
     const keyK = (m) =>
       Object.fromEntries(Object.entries(m).map(([k, v]) => [String(k).replace(/^K/, ''), v]));
-    const compileEdge = (s) => {
-      const c = conv.get(s.edge);
+    // v8: kesim yüzü kenarları (cutEdges) kendi dönüşümünü (c.absY / c.floorAt) ve dünya doğrusunu (uW) getirir
+    const compileEdge = (s, c = conv.get(s.edge), uW = null) => {
       if (!c) return [];
       // Mutlak görünen y → tabandan gerçek: kat çizgilerine göre (gR ile tutarlı)
-      const absY = (y) => gR + HEAD + (y - c.headApp(0)) * c.sY;
+      const absY = c.absY ?? ((y) => gR + HEAD + (y - c.headApp(0)) * c.sY);
       // Duvarın d önündeki düzlemde görünen y → gerçek (kamera yüksekliği etrafında derinlik düzeltmesi)
       const absYd = (y, d) => c.yCamRel + (absY(y) - c.yCamRel) * c.depthK(d);
       const ring0 = ring;
       /** Dünya noktasının kenar boyunca gerçek u'su */
-      const uWorld = (x, z) => {
-        const a = ring0[s.edge];
-        const b = ring0[(s.edge + 1) % ring0.length];
-        const Le = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
-        return ((x - a[0]) * (b[0] - a[0]) + (z - a[1]) * (b[1] - a[1])) / Le;
-      };
+      const uWorld =
+        uW ??
+        ((x, z) => {
+          const a = ring0[s.edge];
+          const b = ring0[(s.edge + 1) % ring0.length];
+          const Le = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+          return ((x - a[0]) * (b[0] - a[0]) + (z - a[1]) * (b[1] - a[1])) / Le;
+        });
       // v7: düzensiz düşey kaplama derzleri (clad.us, görünen) → gerçek u
       const cladOf = (cl) => (cl?.us?.length ? { ...cl, us: cl.us.map((u) => r2(c.U(u))) } : cl);
       // v7: tabela yazı alanları (sign / blade / vinyl / roofsign / screen): capH görünen harf boyu → gerçek (düzlem d)
@@ -175,7 +177,8 @@ async function main() {
             // düzeltilmiş → arka düzlemin perspektif ölçeğine çevrilir (kamera ufku etrafında D/(D+behind))
             const dB = it.behind ? -Math.abs(it.behind) : 0;
             const Uw = (u) => (dB ? c.Ud(u, dB) : c.U(u));
-            const relW = (y, k) => (dB ? absYd(y, dB) - gR - k * FH : c.rel(y, k));
+            const relW = (y, k) =>
+              dB ? (c.floorAt ? absYd(y, dB) - c.floorAt(k) : absYd(y, dB) - gR - k * FH) : c.rel(y, k);
             items.push({
               t: 'win',
               u0: r2(Uw(Math.min(it.u0, it.u1))),
@@ -713,7 +716,7 @@ async function main() {
               t: it.t,
               u: r2(it.onBal ? c.Ud(it.u, 1.4) : c.U(it.u)),
               s: it.s,
-              y: it.y != null ? r2(absY(it.y) - (gR + it.s * FH)) : null,
+              y: it.y != null ? r2(absY(it.y) - (c.floorAt ? c.floorAt(it.s) : gR + it.s * FH)) : null,
               onBal: !!it.onBal,
               ...(it.style ? { style: it.style } : {}),
               ...(it.color ? { color: it.color } : {}),
@@ -881,90 +884,216 @@ async function main() {
     };
     const compiled = new Map();
     for (const s of sv.edges) if (s.copyOf == null) compiled.set(s.edge, compileEdge(s));
+    /** Kopya kenar öğeleri: k = hedef/kaynak boy oranı, Ld = hedef boy (ayna için) */
+    const copyItems = (src, k, mirror, Ld) => {
+      const M = (u) => (mirror ? Ld - u * k : u * k);
+      // KARAR (CLAUDE.md §0.1): kopya (görülmemiş) kenara yalnız GEOMETRİ geçer — tabela, bayrak, klima/çanak/
+      // kamera, perde/kepenk/parmaklık durumu, cam balkon tonu, kuş filesi, saksı, tente yazısı fotoğrafta
+      // görülmedi → kopyalanmaz (nötr varsayılan). Pencere/balkon/şerit/boru/bant gibi yapı öğeleri kalır.
+      const OBSERVED_ONLY = new Set([
+        'sign',
+        'flag',
+        'ac',
+        'dish',
+        'camera',
+        'banner',
+        'cloth',
+        'lamp',
+        'roofobj',
+        // v7: tabela / ışık / eşya / basamak öğeleri de yalnız görüldüğü yerde
+        'blade',
+        'vinyl',
+        'roofsign',
+        'screen',
+        'neon',
+        'rod',
+        'box',
+        'steps',
+      ]);
+      return src
+        .filter((it) => !OBSERVED_ONLY.has(it.t))
+        .map((it) => {
+          const o = { ...it };
+          if (o.t === 'win') {
+            delete o.curt;
+            delete o.shut;
+            delete o.grille;
+            delete o.film;
+          } else if (o.t === 'bal') {
+            o.tint = {};
+            delete o.net;
+            delete o.pots;
+            delete o.potSpec;
+            delete o.cage;
+            delete o.cageEvery;
+            delete o.grilleH;
+            delete o.grilleIn;
+            // Görülmemiş kenarda perde / parmaklık / stor durumu bilinmez
+            delete o.curtC;
+            delete o.curtF;
+            delete o.grille;
+            delete o.blinds;
+          } else if (o.t === 'awning') {
+            o.text = null;
+            delete o.texts;
+          }
+          if (o.t === 'win') {
+            delete o.curtC;
+            delete o.curtF;
+          }
+          if ('u' in o) o.u = r2(M(o.u));
+          if (o.t === 'ribbon') o.pts = o.pts.map(([u, y]) => [r2(M(u)), y]);
+          if ('apex' in o && o.apex != null) o.apex = r2(M(o.apex));
+          // v7: kenar boyu u listeleri / aralıkları da aynalanır
+          if (o.clip) {
+            const a = M(o.clip[0]);
+            const b = M(o.clip[1]);
+            o.clip = [r2(Math.min(a, b)), r2(Math.max(a, b))];
+          }
+          if (o.clad?.us) o.clad = { ...o.clad, us: o.clad.us.map((u) => r2(M(u))) };
+          if (o.spots?.us) o.spots = { ...o.spots, us: o.spots.us.map((u) => r2(M(u))) };
+          if (o.arms?.us) o.arms = { ...o.arms, us: o.arms.us.map((u) => r2(M(u))) };
+          if ('u0' in o) {
+            const a = M(o.u0);
+            const b = M(o.u1);
+            o.u0 = r2(Math.min(a, b));
+            o.u1 = r2(Math.max(a, b));
+          }
+          return o;
+        });
+    };
     const edges = [];
     for (const s of sv.edges) {
       let items = compiled.get(s.edge) ?? [];
       if (s.copyOf != null) {
         const src = compiled.get(s.copyOf) ?? [];
-        const k = len(s.edge) / len(s.copyOf);
-        const M = (u) => (s.mirror ? len(s.edge) - u * k : u * k);
-        // KARAR (CLAUDE.md §0.1): kopya (görülmemiş) kenara yalnız GEOMETRİ geçer — tabela, bayrak, klima/çanak/
-        // kamera, perde/kepenk/parmaklık durumu, cam balkon tonu, kuş filesi, saksı, tente yazısı fotoğrafta
-        // görülmedi → kopyalanmaz (nötr varsayılan). Pencere/balkon/şerit/boru/bant gibi yapı öğeleri kalır.
-        const OBSERVED_ONLY = new Set([
-          'sign',
-          'flag',
-          'ac',
-          'dish',
-          'camera',
-          'banner',
-          'cloth',
-          'lamp',
-          'roofobj',
-          // v7: tabela / ışık / eşya / basamak öğeleri de yalnız görüldüğü yerde
-          'blade',
-          'vinyl',
-          'roofsign',
-          'screen',
-          'neon',
-          'rod',
-          'box',
-          'steps',
-        ]);
-        items = src
-          .filter((it) => !OBSERVED_ONLY.has(it.t))
-          .map((it) => {
-            const o = { ...it };
-            if (o.t === 'win') {
-              delete o.curt;
-              delete o.shut;
-              delete o.grille;
-              delete o.film;
-            } else if (o.t === 'bal') {
-              o.tint = {};
-              delete o.net;
-              delete o.pots;
-              delete o.potSpec;
-              delete o.cage;
-              delete o.cageEvery;
-              delete o.grilleH;
-              delete o.grilleIn;
-              // Görülmemiş kenarda perde / parmaklık / stor durumu bilinmez
-              delete o.curtC;
-              delete o.curtF;
-              delete o.grille;
-              delete o.blinds;
-            } else if (o.t === 'awning') {
-              o.text = null;
-              delete o.texts;
-            }
-            if (o.t === 'win') {
-              delete o.curtC;
-              delete o.curtF;
-            }
-            if ('u' in o) o.u = r2(M(o.u));
-            if (o.t === 'ribbon') o.pts = o.pts.map(([u, y]) => [r2(M(u)), y]);
-            if ('apex' in o && o.apex != null) o.apex = r2(M(o.apex));
-            // v7: kenar boyu u listeleri / aralıkları da aynalanır
-            if (o.clip) {
-              const a = M(o.clip[0]);
-              const b = M(o.clip[1]);
-              o.clip = [r2(Math.min(a, b)), r2(Math.max(a, b))];
-            }
-            if (o.clad?.us) o.clad = { ...o.clad, us: o.clad.us.map((u) => r2(M(u))) };
-            if (o.spots?.us) o.spots = { ...o.spots, us: o.spots.us.map((u) => r2(M(u))) };
-            if (o.arms?.us) o.arms = { ...o.arms, us: o.arms.us.map((u) => r2(M(u))) };
-            if ('u0' in o) {
-              const a = M(o.u0);
-              const b = M(o.u1);
-              o.u0 = r2(Math.min(a, b));
-              o.u1 = r2(Math.max(a, b));
-            }
-            return o;
-          });
+        items = copyItems(src, len(s.edge) / len(s.copyOf), s.mirror, len(s.edge));
       }
       edges.push({ edge: s.edge, len: r2(len(s.edge)), seen: s.seen, items });
     }
+    // v8: kütle kesim yüzü kenarları (cutEdges) — massing parçaları arasındaki yan duvarlar, kule yüzleri.
+    // KARAR: kesim kenarı parça + DÜNYA doğrusu (a → e, taban izi halkasıyla aynı yönde: yukarıdan bakınca bina
+    // solda) ile adreslenir; kesim kenarlarının indisleri çalışma anındaki çokgen kırpmasına bağlı (taban izi / massing
+    // değişince kayar), doğru ise kararlı. u = a'dan doğru boyunca, öğe şeması normal kenarla aynı. `cal` yoksa u / y
+    // GERÇEK metre (y blok tabanından, kat k'ya göre yükseklikler parçanın kendi kat ızgarasıyla); `cal` varsa görünen
+    // (kendi düzleminde üretilmiş ortofoto) koordinat: u iki köşeden doğrusal, y iki kat lentosundan (parçanın kat
+    // kotlarıyla). Perspektif / derinlik düzeltmesi yok (ortofoto bilinen bir panoramanın kenar ortosu değil).
+    // Çalışma anında massing.ts bu doğruya paralel (≤ 15°), `tol` (1.5 m) içindeki parça kesim kenarlarına dağıtır.
+    const cutOut = [];
+    if (sv.cutEdges?.length) {
+      const towers = sv.massing?.towers ?? [];
+      const FHr = r2(FH);
+      const gRr = r2(gR);
+      // Çalışma anındaki parça kat kotlarıyla aynı (facade.ts floorY: parça floorHs ya da blok floorHs, yoksa floorH)
+      const floorAtOf = (part) => {
+        const tw = part === 'gap' ? null : towers[part];
+        const fhs = tw?.floorHs?.length ? tw.floorHs : sv.floorHs?.length ? sv.floorHs : null;
+        const fh = tw?.floorH ?? FHr;
+        return (k) => {
+          if (!fhs) return gRr + k * fh;
+          let y = 0;
+          for (let q = 0; q < k; q++) y += fhs[q] ?? fh;
+          return gRr + y;
+        };
+      };
+      const cutC = (ce) => {
+        const Lc = Math.hypot(ce.e[0] - ce.a[0], ce.e[1] - ce.a[1]);
+        const floorAt = floorAtOf(ce.part);
+        let U = (u) => u;
+        let absY = (y) => y;
+        let sY = 1;
+        if (ce.cal) {
+          const sU = Lc / (ce.cal.u[1] - ce.cal.u[0]);
+          const [[k1, y1], [k2, y2]] = ce.cal.head;
+          sY = k1 !== k2 ? (floorAt(k2) - floorAt(k1)) / (y2 - y1) : sU;
+          U = (u) => (u - ce.cal.u[0]) * sU;
+          absY = (y) => floorAt(k1) + HEAD + (y - y1) * sY;
+        }
+        return {
+          U,
+          Ud: (u) => U(u),
+          rel: (y, k) => absY(y) - floorAt(k),
+          headApp: null,
+          sY,
+          L: Lc,
+          Yabs: absY,
+          yCamRel: 0,
+          depthK: () => 1,
+          D: 1e6,
+          absY,
+          floorAt,
+        };
+      };
+      const lineU = (ce) => {
+        const Lc = Math.hypot(ce.e[0] - ce.a[0], ce.e[1] - ce.a[1]) || 1;
+        return (x, z) => ((x - ce.a[0]) * (ce.e[0] - ce.a[0]) + (z - ce.a[1]) * (ce.e[1] - ce.a[1])) / Lc;
+      };
+      // Denetim: parça çokgeni biliniyorsa doğruya uyan (aynı yönlü) bir kenar var mı
+      const check = (ce, j) => {
+        const tw = ce.part === 'gap' ? null : towers[ce.part];
+        if (ce.part !== 'gap' && !tw) {
+          console.warn(`⚠ ${id} cutEdges[${j}]: massing.towers[${ce.part}] yok`);
+          return;
+        }
+        let poly = tw?.poly;
+        if (!poly?.length) return;
+        const A = poly.reduce(
+          (a, p, i) => a + p[0] * poly[(i + 1) % poly.length][1] - poly[(i + 1) % poly.length][0] * p[1],
+          0,
+        );
+        if (A > 0) poly = [...poly].reverse();
+        const Lc = Math.hypot(ce.e[0] - ce.a[0], ce.e[1] - ce.a[1]);
+        const t = [(ce.e[0] - ce.a[0]) / Lc, (ce.e[1] - ce.a[1]) / Lc];
+        const tol = ce.tol ?? 1.5;
+        let fw = 0;
+        let bw = 0;
+        for (let i = 0; i < poly.length; i++) {
+          const p = poly[i];
+          const q = poly[(i + 1) % poly.length];
+          const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
+          if (L < 0.3) continue;
+          const dot = ((q[0] - p[0]) * t[0] + (q[1] - p[1]) * t[1]) / L;
+          const off = (v) => Math.abs((v[0] - ce.a[0]) * t[1] - (v[1] - ce.a[1]) * t[0]);
+          if (off(p) > tol || off(q) > tol || Math.abs(dot) < Math.cos((15 * Math.PI) / 180)) continue;
+          if (dot > 0) fw++;
+          else bw++;
+        }
+        if (!fw)
+          console.warn(
+            `⚠ ${id} cutEdges[${j}]: parça ${ce.part} çokgeninde doğruya uyan kenar yok${bw ? ' (a → e ters yönde yazılmış olabilir)' : ''}`,
+          );
+      };
+      if (!sv.massing?.towers?.length) console.warn(`⚠ ${id}: cutEdges massing olmadan çizilmez`);
+      const compiledCut = sv.cutEdges.map((ce, j) => {
+        check(ce, j);
+        return ce.copyOf == null ? compileEdge(ce, cutC(ce), lineU(ce)) : null;
+      });
+      sv.cutEdges.forEach((ce, j) => {
+        const Lc = Math.hypot(ce.e[0] - ce.a[0], ce.e[1] - ce.a[1]);
+        let items = compiledCut[j] ?? [];
+        if (ce.copyOf != null) {
+          const src = sv.cutEdges[ce.copyOf];
+          const Ls = src ? Math.hypot(src.e[0] - src.a[0], src.e[1] - src.a[1]) : Lc;
+          items = copyItems(compiledCut[ce.copyOf] ?? [], Lc / Ls, ce.mirror, Lc);
+        }
+        cutOut.push({
+          part: ce.part,
+          a: ce.a,
+          e: ce.e,
+          len: r2(Lc),
+          seen: ce.seen,
+          ...(ce.tol != null ? { tol: ce.tol } : {}),
+          items,
+        });
+      });
+    }
+    const baseHOf = () => {
+      if (sv.baseH != null) return sv.baseH;
+      const fhs = sv.floorHs?.length ? sv.floorHs : null;
+      let y = r2(gR);
+      for (let q = 0; q < sv.startK; q++) y += fhs?.[q] ?? r2(FH);
+      return r2(y);
+    };
     out[id] = {
       id,
       name: sv.name ?? null,
@@ -976,12 +1105,15 @@ async function main() {
       colors: sv.colors ?? {},
       edges,
       ...(sv.massing ? { massing: sv.massing } : {}),
+      ...(cutOut.length ? { cutEdges: cutOut } : {}),
       // Dünya koordinatlı ek hacimler ve kat başına yükseklikler aynen (ölçüm dosyasında gerçek metre)
       ...(sv.volumes?.length ? { volumes: sv.volumes } : {}),
       ...(sv.floorHs?.length ? { floorHs: sv.floorHs } : {}),
       ...(sv.pergolas?.length ? { pergolas: sv.pergolas } : {}),
       ...(sv.plinthH != null ? { plinthH: sv.plinthH } : {}),
       ...(sv.wallTop != null ? { wallTop: sv.wallTop } : {}),
+      // v8: podyum üstündeki kulenin duvar / öğe başlangıç kotu (startK → o katın döşeme kotu, çalışma anındaki gibi)
+      ...(sv.baseH != null || sv.startK != null ? { baseH: baseHOf() } : {}),
       notes: sv.notes ?? [],
     };
     console.log(

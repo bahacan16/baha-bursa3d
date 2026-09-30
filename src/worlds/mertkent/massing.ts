@@ -133,7 +133,8 @@ function outerRings(mp: pcNs.MultiPolygon): V2[][] {
  * KARAR: zemin katı ortak, üstü ayrık kuleli bloklar (ör. Doğan Avcıoğlu kuzey bloğu) ölçüm dosyasında tek taban
  * izi + `massing` parçalarıyla verilir; çalışma anında parçalara bölünür. Parça: x (ve z) aralığı, dünya çokgeni
  * (`poly`, döndürülmüş şeritler — ör. yalnız güney şeritte K8) ya da `rest` (taban izinin diğer parçalar dışında
- * kalanı). Her parça kendi kat sayısı / çatısıyla. Kesim kenarları (parçalar arası yan duvarlar) öğesiz, düz sıva.
+ * kalanı). Her parça kendi kat sayısı / çatısıyla. Kesim kenarları (parçalar arası yan duvarlar) öğesiz, düz sıva —
+ * v8: survey `cutEdges` (parça + dünya doğrusu) verilmişse o doğruya uyan kesim kenarları öğelerini ondan alır.
  */
 export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   const m = blk.massing;
@@ -141,13 +142,45 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   const ring = blk.ring as V2[];
   const N = ring.length;
   const byEdge = new Map(blk.edges.map((e) => [e.edge, e]));
-  const part = (r: V2[], storeys: number, tag: number): CompiledBlock | null => {
+  const cuts = blk.cutEdges ?? [];
+  /**
+   * v8: kesim kenarı [p, q] için survey cutEdges öğeleri (parça `key`, doğruya paralel ≤ 15°, iki uç `tol` içinde,
+   * aynı yönlü: dışa bakan yüz). u = doğru boyunca a'dan → kenar başına kaydırılır; kırıklı yüzde kenar uçlarında
+   * kırpılır (bütün öğeler orta noktasının kenarında). Birden çok doğru aynı kenara düşerse öğeler birleşir.
+   */
+  const COS15 = Math.cos((15 * Math.PI) / 180);
+  const cutItems = (key: number | 'gap', p: V2, q: V2, L: number) => {
+    let seen: string | null = null;
+    const items: CItem[] = [];
+    for (const ce of cuts) {
+      if (ce.part !== key) continue;
+      const Lc = Math.hypot(ce.e[0] - ce.a[0], ce.e[1] - ce.a[1]);
+      if (Lc < 1e-6) continue;
+      const t: V2 = [(ce.e[0] - ce.a[0]) / Lc, (ce.e[1] - ce.a[1]) / Lc];
+      if (((q[0] - p[0]) * t[0] + (q[1] - p[1]) * t[1]) / L < COS15) continue;
+      const off = (v: V2) => Math.abs((v[0] - ce.a[0]) * t[1] - (v[1] - ce.a[1]) * t[0]);
+      const tol = ce.tol ?? 1.5;
+      if (off(p) > tol || off(q) > tol) continue;
+      const sp = (p[0] - ce.a[0]) * t[0] + (p[1] - ce.a[1]) * t[1];
+      const sq = (q[0] - ce.a[0]) * t[0] + (q[1] - ce.a[1]) * t[1];
+      // Doğrunun kapsamıyla örtüşmeyen kenar (aynı düzlemde başka yüz) öğe almaz
+      if (Math.min(sq, Lc) - Math.max(sp, 0) < 0.05) continue;
+      for (const it of ce.items) {
+        const o = shiftItem(it, sp, L);
+        if (o) items.push(o);
+      }
+      seen ??= ce.seen;
+    }
+    return seen ? { seen, items } : null;
+  };
+  const part = (r: V2[], storeys: number, tag: number, key: number | 'gap'): CompiledBlock | null => {
     if (r.length < 3) return null;
     const edges: CompiledBlock['edges'] = [];
     for (let j = 0; j < r.length; j++) {
       const p = r[j];
       const q = r[(j + 1) % r.length];
       const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
+      let onRing = false;
       // Asıl kenarı bul (iki uç da üzerinde)
       for (let i = 0; i < N; i++) {
         const a = ring[i];
@@ -161,6 +194,7 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
         const sp = along(p);
         const sq = along(q);
         if (sp < -0.01 || sq > len + 0.01 || sq < sp) continue;
+        onRing = true;
         const src = byEdge.get(i);
         if (src) {
           const realA = sp < 0.01;
@@ -172,6 +206,11 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
         }
         break;
       }
+      // v8: kesim kenarı (taban izinde değil) → survey cutEdges
+      if (!onRing && cuts.length && L > 1e-6) {
+        const c = cutItems(key, p, q, L);
+        if (c) edges.push({ edge: j, len: L, seen: c.seen, items: c.items });
+      }
     }
     // Ek hacimler / pergolalar parçalara ayrıca dağıtılır (her parçaya kopyalanınca 3 kez çiziliyordu)
     return {
@@ -181,6 +220,7 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
       storeys,
       edges,
       massing: undefined,
+      ...(blk.cutEdges ? { cutEdges: undefined } : {}),
       volumes: null,
       pergolas: null,
       // Blok düzeyindeki duvar üstü kotu yalnız aynı kat sayılı parçalara geçer
@@ -204,7 +244,7 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   m.towers.forEach((tw, k) => {
     // Parça kendi kat sayısını / çatısını taşıyabilir (ör. 7 katlı blok + 4 katlı kanat + 1 katlı podyum)
     pieces(tw).forEach((r, j) => {
-      const p = part(r, tw.storeys ?? blk.storeys, (k + 1) * 10 + j);
+      const p = part(r, tw.storeys ?? blk.storeys, (k + 1) * 10 + j, k);
       if (!p) return;
       // Parçanın kendi saçak kotu / kat yükseklikleri (ör. 1550614218 kanadı: saçak alnı 18.85–19.35)
       const q: CompiledBlock = {
@@ -218,7 +258,7 @@ export function splitMassing(blk: CompiledBlock): CompiledBlock[] {
   });
   if (m.gap) {
     const r = clipX(ring, m.gap.x[0], m.gap.x[1]);
-    const p = part(r, 1, 9);
+    const p = part(r, 1, 9, 'gap');
     // Podyum üstü sokaktan görünmez; kenarı zemin kat bandıyla biter (açık gri saçak alnı yok — Street View)
     if (p) out.push({ ...p, roof: { ...p.roof, kind: 'flat', eave: 0.02, fasciaH: 0.02 } });
   }

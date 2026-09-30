@@ -60,6 +60,24 @@ export interface BlockSurvey {
     gap?: { x: [number, number] };
   };
   /**
+   * v8: kütle KESİM yüzlerinin öğeleri (massing parçalarını ayıran yan duvarlar: podyumun gerisindeki kule yüzü,
+   * kuleler arası yan duvar, çok katlı kutunun alçak şerit üstünde kalan yüzü). Normal `edges` yalnız taban izi
+   * kenarlarını taşır; kesim kenarları çalışma anında çokgen kırpmasıyla oluşur (indisleri kararsız), bu yüzden
+   * parça + dünya doğrusu ile adreslenir. Öğe şeması normal kenarla aynı (pencere duvarı keser, balkon taşar,
+   * tabela / bant / pano / klima … oturur). Bkz. `CutEdgeSpec`.
+   */
+  cutEdges?: CutEdgeSpec[];
+  /**
+   * v8: podyumun (ayrı ölçüm dosyası) üstünde duran, AYRI dosya olarak ölçülmüş kule: duvarlar, subasman ve öğeler
+   * blok tabanından `baseH` GERÇEK m yukarıda başlar; alttaki kısım (podyumun içinde kalan K0–K1) çizilmez, iki
+   * dosyanın ortak duvarları çakışmaz. Kat ızgarası zeminden sayılmaya devam eder (groundRaise / floorH aynı; K2
+   * yine K2). `startK` verilirse baseH = o katın döşeme kotu (groundRaise + Σ kat yükseklikleri). Podyum çatısı /
+   * parapet üstüyle aynı ya da biraz altında seç (boşluk görünmesin). Çarpışma da baseH'den başlar (zemini podyum
+   * verir). Altta kalan katlara yazılan öğeler atılır; baseH'yi aşan bant / pano / boru kırpılır.
+   */
+  baseH?: number;
+  startK?: number;
+  /**
    * Üreticinin henüz çizemediği ama fotoğrafta görülen detaylar — ölçüleriyle (kenar, u/y aralığı, derinlik, renk,
    * malzeme, açıklama). Ana oturum bunları üreticiye ekleyip bağlar.
    */
@@ -348,6 +366,40 @@ export interface EdgeSpec {
    */
   cal?: { u: [number, number]; head: [[number, number], [number, number]]; dist?: number };
   /** 'none' kenarlar: öğeleri bu kenardan kopyala (benzer kenar); `mirror`: u'yu ters çevir */
+  copyOf?: number;
+  mirror?: boolean;
+  items: FacadeItem[];
+  note?: string;
+}
+
+/**
+ * v8: kütle kesim yüzü kenarı. `a` → `e` DÜNYA noktaları (m) yüzün düzlemini ve u yönünü verir; taban izi halkasıyla
+ * aynı yönde yazılır: yukarıdan (kuzey −z yukarıda) bakınca bina SOLDA, yani doğu yüz kuzeye (−z), güney yüz doğuya
+ * (+x), batı yüz güneye (+z), kuzey yüz batıya (−x) doğru. Çalışma anında `part` parçasının kesim kenarlarından bu
+ * doğruya paralel (≤ 15°) ve iki ucu doğruya `tol` m'den yakın olanlar öğeleri alır; her öğe u'suna göre kendi
+ * kenarına düşer (kırıklı yüz: öğe kırığa taşarsa kırpılır; tabela / tente gibi bütün öğeler orta noktasının
+ * kenarında). Taban izi kenarına denk gelen kenarlar buradan öğe almaz (onlar `edges`).
+ *
+ * Koordinatlar:
+ * - `cal` YOK (varsayılan): u / y / d GERÇEK metre. u = `a`'dan doğru boyunca, y = blok tabanından (normal
+ *   kenarların gerçek y'si gibi). Kat k'ya bağlı öğeler (win `k`/`s`, lamp `s`, ac `s` …) parçanın KENDİ kat ızgarasını
+ *   kullanır: kat k döşemesi = groundRaise + Σ parça floorHs (yoksa blok floorHs / floorH). Kendi düzleminde ürettiğin
+ *   ortofotodan (ölçekli, gerçek m) okuduğun ölçüler budur.
+ * - `cal` VAR: görünen ortofoto koordinatı (normal kenar gibi): `cal.u` = görünen u'da `a` ve `e`, `cal.head` = iki
+ *   kattaki lento üstü görünen y (düşey ölçek parçanın kat kotlarından). Derinlik (D/(D−d)) düzeltmesi yapılmaz.
+ */
+export interface CutEdgeSpec {
+  /** massing.towers indisi (0'dan) ya da "gap" (podyum) */
+  part: number | 'gap';
+  a: [number, number];
+  e: [number, number];
+  /** Parça kenarının doğrudan en çok uzaklığı (m, 1.5) — kırıklı yüzlerde kırık derinliğini kapsayacak kadar */
+  tol?: number;
+  seen: 'photo' | 'partial' | 'none';
+  /** Ölçülen ortofoto (kendi düzleminde üretilmiş; not için) */
+  ref?: string;
+  cal?: { u: [number, number]; head: [[number, number], [number, number]] };
+  /** 'none' kesim yüzü: başka bir cutEdges öğesinden (indis) kopya — yalnız geometri (normal copyOf kuralları) */
   copyOf?: number;
   mirror?: boolean;
   items: FacadeItem[];
