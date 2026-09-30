@@ -36,7 +36,15 @@ describe('ağaç türü ayrıştırma', () => {
   it('tür alanı ile not: daha belirli olan kazanır', () => {
     expect(parseSpecies('fruit', 'Yenidünya (Eriobotrya, iri deri yapraklı)')).toBe('eriobotrya');
     expect(parseSpecies('deciduous', 'fidan')).toBe('sapling');
-    expect(parseSpecies('deciduous', 'Yapraklı ağaç (ıhlamur/kavak benzeri)')).toBe('tilia');
+    // Çekinceli / seçenekli not açık tür alanını ezmez (critic M2 #15)
+    expect(parseSpecies('deciduous', 'Yapraklı ağaç (ıhlamur/kavak benzeri)')).toBe('deciduous');
+    expect(parseSpecies('deciduous', 'ıhlamur veya kavak')).toBe('deciduous');
+    // Notun ilk cümlesi tür ifadesi değilse (komşu ağaçtan söz) tür alanı kalır
+    expect(parseSpecies('deciduous', 'Sokak ağacı. Arkasında ıhlamur sırası')).toBe('deciduous');
+    // Tür ifadesi olan not inceltmeye devam eder
+    expect(parseSpecies('conifer', 'Genç fıstık çamı (Pinus pinea görünüşü: şemsiye/yuvarlak taç)')).toBe('pinea');
+    expect(parseSpecies('deciduous', 'Orta refüjde kazıklı genç ağaç (DIKa_0_0; hava)')).toBe('sapling');
+    expect(parseSpecies(undefined, 'Yapraklı ağaç (ıhlamur/kavak benzeri)')).toBe('tilia');
     expect(parseSpecies(undefined, 'konik ardıç/servi (h 1.2–1.8)')).toBe('thuja');
     expect(parseSpecies('cedar', 'mavi ladin')).toBe('cedrus');
   });

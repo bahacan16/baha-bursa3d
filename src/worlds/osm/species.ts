@@ -148,13 +148,34 @@ function match(raw: string): SpeciesKey | null {
   return null;
 }
 
+/** Nottaki tür ifadesi çekinceli mi (benzeri / gibi / olabilir / ? / "a/b" seçenekli iki ayrı tür) */
+function hedged(note: string): boolean {
+  const t = note.toLocaleLowerCase('tr');
+  if (/benzer|\bgibi\b|olabilir|muhtemel|belki|\?|-like|lookalike|tür(ü)? görülmedi|tür(ü)? belirsiz/.test(t))
+    return true;
+  // "ıhlamur/kavak", "çam veya sedir": iki AYRI türe eşleşen seçenekler
+  const alt = /([\p{L}.'-]+(?:\s+[\p{L}.'-]+)?)\s*(?:\/|\bveya\b|\bya da\b|\bor\b)\s*([\p{L}.'-]+(?:\s+[\p{L}.'-]+)?)/gu;
+  for (const m of t.matchAll(alt)) {
+    const x = match(m[1]);
+    const y = match(m[2]);
+    if (x && y && x !== y) return true;
+  }
+  return false;
+}
+
 /**
- * Tür alanı + not: ikisinden daha belirli olanı kazanır (eşitlikte tür alanı). Örn. species "fruit" + not
- * "Yenidünya (Eriobotrya…)" → eriobotrya; species "deciduous" + not "fidan" → sapling.
+ * Tür alanı + not. Açık yazılmış tür alanı kazanır; not yalnız tür ifadesiyse (ilk cümlesinde, çekincesiz) ve daha
+ * belirli bir tür veriyorsa onu inceltir. Örn. species "fruit" + not "Yenidünya (Eriobotrya…)" → eriobotrya;
+ * species "deciduous" + not "fidan" → sapling; species "deciduous" + not "Yapraklı ağaç (ıhlamur/kavak benzeri)" →
+ * deciduous (critic M2 #15: çekinceli / seçenekli not tür alanını ezmez).
  */
 export function parseSpecies(s?: string, note?: string): SpeciesKey {
   const a = match((s ?? '').trim());
-  const b = match(note ?? '');
-  if (a && b) return rank(b) > rank(a) ? b : a;
-  return a ?? b ?? 'deciduous';
+  if (!a) return match(note ?? '') ?? 'deciduous';
+  // KARAR: notun tür ifadesi ilk cümlesidir (ilk '.' / ';' / satır sonuna kadar); devamı konum / kanıt / komşu
+  // ağaçlardan söz eder ("… sedirin 3 m doğusunda") ve türü değiştirmez.
+  const head = (note ?? '').split(/[.;\n](?:\s|$)/)[0] ?? '';
+  const b = match(head);
+  if (!b || hedged(head)) return a;
+  return rank(b) > rank(a) ? b : a;
 }
