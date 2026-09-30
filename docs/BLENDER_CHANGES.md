@@ -830,3 +830,4 @@
   bayrak direkleri kerterizle x ≈ 605 hattına (güney bayraksız, orta Türk bayrağı `d4-ozd-flag-tr`, kuzey beyaz bayrak
   deseni görülmedi); da2-fence-arch ayak + üst boru. **Blender:** `NW/Street/D4` sinyaller, duraklar, konteynerler,
   pilon, bayrak direkleri, pano; `NW/Street/DA` kemerli çit yeniden kurulur.
+- **(Yayın izni notu)** — CLAUDE.md §18b'ye kullanıcının yayın izni yazıldı. **Blender:** —

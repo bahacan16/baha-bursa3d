@@ -411,6 +411,7 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
 - Yayalar: oyuncuya en yakın 14/8/4 yaya iskeletli insan (Michelle + Ready Player Me, Mixamo yürüyüşü dünya uzayında aktarılır), uzaktakiler kutu parçalı figür. `skeleton.pose()` kullanılmaz (ölçekli ebeveynli iskeleti 100× küçültüyordu); dinlenme duruşu önbellekten.
 - Araçlar tamamen kodla (`sim/carmodel.ts`): kesit loft gövde (çamurluk kavisleri, tumblehome, ön/arka cam, omuz çizgisi, kapı derzleri), jantlı lastikler, far/stop/sis, ızgara, ayna, kol, silecek, Bursa "16 …" plakaları (atlas + instance başına plaka no). 4 tip (sedan/hatchback/SUV/hafif ticari, Türkiye dağılımına yakın). Park edenler yakın/uzak LOD; trafikte tekerler döner.
 - Sis ana sahne ve uzak arka plan için ortak; Düşük kalitede uzak arazi kapalı.
+- **Yayın izni (kullanıcı, 2026-09-30):** "ajanların kontrol edip uygun bulduğu kısımları bana sormadan yayına alabilirsin" → ajan raporu incelenip lint + test + build temiz ve görsel karşılaştırmada bozulma yoksa `main`'e birleştirilir (sorulmaz); kullanıcıya yayın sonrası TR saatiyle bilgi verilir. Yarım/doğrulanmamış (WIP) iş yayına girmez.
 - Yayın `gh-pages` dalına (Settings → Pages → Deploy from a branch: gh-pages). Bu ortamdan Pages API'sine erişilemedi.
 - **Gerçek zemin malzemeleri (R4):** `scripts/real-textures.mjs` → `public/textures/real/` → `mertkent/realtex.ts`
   (malzemeler anahtar adıyla yükseltilir, `?norealtex` kapatır). Ölçü kullanıcı fotoğrafı `502sk-bati-bisiklet.jpg`
