@@ -708,3 +708,7 @@
   Sitesi kaidesi: ŞOK, Hançer Kuyumculuk, Ayanoğlu 1927, Elita diş), `1546358595.json` (üstteki 7 katlı blok, kat kat
   pencere/cam balkon), `1545290880.json` (ÖNDÜL Elite Offices: Peynirci Baba, BOSCH, ECE HALI, vodafone, beko, ENGLISH
   HOME, Malatya Pazarı, BİL-FEN çatı tabelası, gönül Kahvesi, Atmosfer). **Blender:** bu 4 bina ilk kez kurulur.
+- **(D4 cephe 2)** — yeni `survey/1476599910.json` (banka kulesi: YapıKredi, AKBANK, HİLAL TOURS + K2 tur afişleri, K8
+  Dört Mevsim Psikolojik Danışmanlık, KİRALIK/SATILIK levhaları; 6 yığın kat kat), `900000203.json` (kaide: İş Bankası,
+  Saadet Eczanesi kemerli, Bereket/Tombik Döner, Domino's, PTT; çatıda TAŞYAKAN SİTESİ), `1476599909.json`,
+  `1476599912.json` (Uğur Mumcu kuleleri; mali müşavir, KİRALIK, EMMA kuaför). **Blender:** bu 4 bina ilk kez kurulur.
