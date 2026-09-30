@@ -695,3 +695,7 @@
   (gabion, bus-shelter, waste-container, bollard-light, low-fence, feather-flag, flower-arch, cart, mat, pouf, ac-unit,
   stone-bollard, steps-note) — çizilmez. **Blender:** `NW/Mertkent/Street` (kaldırım, ada, geçit, yol çizgisi, ağaç
   kazıkları, lamba, eşya), `NW/Trees` (D4 refüj + kaldırım ağaçları) ve `NW/Mertkent/Fence` yeniden kurulur.
+- **(D4 cephe 4)** — yeni `survey/1550614219.json` (5 kuleli kompleks: arçelik, İşbir, Toleran Sigorta, Ortodontist,
+  YERDENİZ Psikoloji, Penti, 1A PLUS, ÖZGÜR MODA, ATB/SEYHAN Gayrimenkul, Akademi Matematik, Ziraat, OUTLET CITY,
+  KuveytTürk, Eczane Buketim, HAIR LOUNGE, eren tour, ÇARŞAMBA² VİP, provey, özhan, BİM, KOPİ NO 9, SANSAR; kat kat cam
+  balkon/klima). **Blender:** bu blok ilk kez kurulur.
