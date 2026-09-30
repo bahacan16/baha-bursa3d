@@ -5604,23 +5604,854 @@
   {
    "edge": 13,
    "len": 27.26,
-   "seen": "none",
-   "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "seen": "photo",
+   "ref": "1550614219_13_yU9wdrEP.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     27.26
+    ],
+    "head": [
+     [
+      3,
+      11.0
+     ],
+     [
+      8,
+      24.56
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "banner",
+     "u0": 0.0,
+     "u1": 0.15,
+     "y0": 4.25,
+     "y1": 6.0,
+     "d": 0.03,
+     "style": "print",
+     "lines": [],
+     "blocks": [
+      {
+       "x0": 0,
+       "x1": 1,
+       "y0": 0,
+       "y1": 1,
+       "color": "#9a6a3a"
+      }
+     ],
+     "bg": "#e9d84a"
+    },
+    {
+     "t": "panel",
+     "u0": 0.2,
+     "u1": 16.3,
+     "y0": 4.25,
+     "y1": 6.0,
+     "color": "#e3c63c"
+    },
+    {
+     "t": "sign",
+     "u0": 0.6,
+     "u1": 3.3,
+     "y0": 4.4,
+     "y1": 5.9,
+     "text": "",
+     "lines": [
+      {
+       "text": "En Taze",
+       "size": 1.0,
+       "bold": true,
+       "fg": "#f3ead8",
+       "y": 0.62
+      },
+      {
+       "text": "Sebze ve Meyveler",
+       "size": 0.55,
+       "bold": true,
+       "fg": "#f3ead8",
+       "y": 0.3
+      }
+     ],
+     "bg": "#e3c63c",
+     "fg": "#f3ead8",
+     "style": "panel",
+     "d": 0.01,
+     "font": "sans",
+     "logo": "sarı zemin, açık krem gölgeli harfler"
+    },
+    {
+     "t": "sign",
+     "u0": 3.9,
+     "u1": 8.3,
+     "y0": 4.5,
+     "y1": 5.7,
+     "text": "özhan",
+     "fg": "#e2342c",
+     "style": "panel",
+     "bg": "#e3c63c",
+     "d": 0.01,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.8,
+     "logo": "kırmızı kalın özhan yazısı (sarı baskı üstünde)"
+    },
+    {
+     "t": "sign",
+     "u0": 8.6,
+     "u1": 11.4,
+     "y0": 4.3,
+     "y1": 5.9,
+     "text": "",
+     "bg": "#e3c63c",
+     "fg": "#e3c63c",
+     "style": "panel",
+     "d": 0.01,
+     "logo": "kuruyemiş/çikolata ürün fotoğrafları (daire kesitli), çizilmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 11.9,
+     "u1": 13.0,
+     "y0": 4.4,
+     "y1": 5.7,
+     "text": "Güvenilir\nAlışveriş\nAdresi",
+     "bg": "#1f3f7a",
+     "fg": "#ffffff",
+     "style": "panel",
+     "shape": "round",
+     "d": 0.01,
+     "font": "sans",
+     "bold": true,
+     "logo": "lacivert daire rozet, beyaz küçük yazı + gülümseme çizgisi"
+    },
+    {
+     "t": "win",
+     "u0": 0.1,
+     "u1": 16.2,
+     "y0": 0.3,
+     "y1": 4.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 6,
+     "frameC": "#1c1c1c",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": -0.2,
+     "u1": 18.4,
+     "y0": 6.1,
+     "y1": 7.3,
+     "color": "#c2b4a1",
+     "clad": {
+      "dir": "h",
+      "every": 0.33,
+      "w": 0.01,
+      "color": "#a89a86"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 16.3,
+     "u1": 27.26,
+     "y0": 0.3,
+     "y1": 6.9,
+     "color": "#eceae4"
+    },
+    {
+     "t": "band",
+     "u0": 18.4,
+     "u1": 27.26,
+     "y0": 6.3,
+     "y1": 6.9,
+     "color": "#f2f1ec"
+    },
+    {
+     "t": "win",
+     "u0": 16.9,
+     "u1": 17.9,
+     "y0": 0.3,
+     "y1": 5.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 1,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 19.1,
+     "u1": 23.2,
+     "y0": 0.3,
+     "y1": 6.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 24.5,
+     "u1": 27.26,
+     "y0": 0.3,
+     "y1": 6.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 0.5,
+     "u1": 7.25,
+     "y0": 7.3,
+     "y1": 9.1,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 12,
+     "frameC": "#2e3033",
+     "tint": "#4c5a60"
+    },
+    {
+     "t": "win",
+     "u0": 7.45,
+     "u1": 14.4,
+     "y0": 7.3,
+     "y1": 9.1,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 12,
+     "frameC": "#2e3033",
+     "tint": "#5d6a70"
+    },
+    {
+     "t": "win",
+     "u0": 14.4,
+     "u1": 18.9,
+     "y0": 7.3,
+     "y1": 9.1,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 8,
+     "frameC": "#dfe2e2",
+     "tint": "#b9c2c4"
+    },
+    {
+     "t": "band",
+     "u0": 0.4,
+     "u1": 18.9,
+     "y0": 9.1,
+     "y1": 9.25,
+     "color": "#2e3033"
+    },
+    {
+     "t": "win",
+     "u0": 1.3,
+     "u1": 2.9,
+     "y0": 22.6,
+     "y1": 24.56,
+     "k": 8,
+     "s": [
+      3,
+      8
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 11.45,
+     "u1": 13.0,
+     "y0": 22.6,
+     "y1": 24.56,
+     "k": 8,
+     "s": [
+      3,
+      8
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 14.35,
+     "u1": 15.65,
+     "y0": 23.16,
+     "y1": 24.37,
+     "k": 8,
+     "s": [
+      3,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 3.3,
+     "u1": 7.3,
+     "s": [
+      3,
+      8
+     ],
+     "glazed": [
+      3
+     ],
+     "tint": {
+      "K3": "clear"
+     },
+     "d": 1.5,
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "postEvery": 0.92,
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "frameC": {
+      "*": "#c9ccce"
+     },
+     "glazeEvery": 0.62,
+     "cap": true,
+     "capH": 1.2,
+     "capC": "#bca18c"
+    },
+    {
+     "t": "bal",
+     "u0": 7.4,
+     "u1": 11.4,
+     "s": [
+      3,
+      8
+     ],
+     "glazed": [
+      3,
+      4,
+      6
+     ],
+     "tint": {
+      "K3": "dark",
+      "K4": "clear",
+      "K6": "clear"
+     },
+     "d": 1.5,
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "postEvery": 0.92,
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "frameC": {
+      "*": "#c9ccce"
+     },
+     "glazeEvery": 0.62,
+     "cap": true,
+     "capH": 1.2,
+     "capC": "#bca18c"
+    },
+    {
+     "t": "awning",
+     "u0": 3.7,
+     "u1": 7.1,
+     "y": 25.35,
+     "d": 1.2,
+     "drop": 0.1,
+     "color": "#e8e6e0",
+     "style": "retract"
+    },
+    {
+     "t": "bal",
+     "u0": 16.6,
+     "u1": 18.0,
+     "d": 1.3,
+     "s": [
+      3,
+      7
+     ],
+     "rail": {
+      "*": "solid"
+     },
+     "parapetH": {
+      "*": 1.0
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "glazed": [
+      6
+     ],
+     "tint": {
+      "K6": "clear"
+     },
+     "frameC": {
+      "*": "#d6d8d8"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "pipe",
+     "u": 7.33,
+     "color": "#d8d2c2",
+     "r": 0.07,
+     "y0": 6.0,
+     "y1": 25.5
+    },
+    {
+     "t": "pipe",
+     "u": 0.9,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 7.3,
+     "y1": 25.3
+    },
+    {
+     "t": "pipe",
+     "u": 16.35,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 9.2,
+     "y1": 25.3
+    },
+    {
+     "t": "ac",
+     "u": 7.0,
+     "s": 3,
+     "y": 11.6
+    },
+    {
+     "t": "ac",
+     "u": 7.0,
+     "s": 4,
+     "y": 14.3
+    },
+    {
+     "t": "ac",
+     "u": 7.0,
+     "s": 5,
+     "y": 17.0
+    },
+    {
+     "t": "ac",
+     "u": 7.0,
+     "s": 6,
+     "y": 19.7
+    },
+    {
+     "t": "ac",
+     "u": 7.0,
+     "s": 7,
+     "y": 22.4
+    },
+    {
+     "t": "ac",
+     "u": 7.0,
+     "s": 8,
+     "y": 25.0
+    },
+    {
+     "t": "ac",
+     "u": 4.55,
+     "s": 5,
+     "y": 16.85
+    },
+    {
+     "t": "ac",
+     "u": 14.5,
+     "s": 6,
+     "y": 20.4
+    },
+    {
+     "t": "ac",
+     "u": 3.0,
+     "s": 8,
+     "y": 23.4
+    },
+    {
+     "t": "ac",
+     "u": 11.3,
+     "s": 4,
+     "y": 12.5
+    }
+   ],
+   "note": "323. Sk. (doğu) cephesi (2025-09, yU9w f22 42.7 m karşı kaldırımdan; 4rIq ile). Kule 4 doğu yüzü u ≤0–16.6 (+ köşe balkonu 16.6–18.0), K3–K8: sol/sağ Fransız boy pencere sütunları, sağda küçük pencere sütunu, ortada çift balkon yığını (K3 ikisi camlı, sağ yarı K4/K6 camlı), en üstte beyaz katlanır tente; orta borudaki her kat arasında klima dış üniteleri. Kule yüzü taban izi çizgisinde (kat aralığı bulvarla aynı görünüyor → düzlem ±0.5 m). K2: podyum terasında siyah çerçeveli kapalı kış bahçesi (u 0.5–18.9; sağ kısım beyaz çerçeveli/buzlu). Podyum: bej taş bant, özhan sarı baskı tabelaları; önünde kaldırımda beyaz saçaklı özhan manav tezgâhı/kiosk (u −1.5–15.8, baskılı paneller 'Güzel Fiyatlar Burada', 'MARKET ALIŞVERİŞİNDE ARADIĞIN NE VARSA TIKLA KAPINDA') — raporlandı. u 16.3–27.26: beyaz sıvalı kemerli birim (3 kemer: dar 16.9–17.9, geniş 19.1–23.2 ve 24.5→; kemer tepeleri pending), tabelası görülmedi. Kule 4'ün u 18 kuzeyinde kule yok (arkada uzak bina görünüyor)."
   },
   {
    "edge": 14,
    "len": 3.47,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "Köşe dişi (kule 4 kuzey–podyum): sAQ4 f22 ve Ik0i ortofotolarında yalnız kenar 13'ün eğik görünüşü (özhan tabelaları, manav kioskı) ve arkadaki bina seçiliyor; bu 3.5 m'lik yüz doğrudan görülmedi. Kemerli beyaz podyum burada da dönüyor olmalı ama görülmedi."
   },
   {
    "edge": 15,
    "len": 23.84,
-   "seen": "none",
-   "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "seen": "photo",
+   "ref": "1550614219_15_GgBo_SY8.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     23.84
+    ],
+    "head": [
+     [
+      3,
+      12.4
+     ],
+     [
+      8,
+      25.96
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0.0,
+     "u1": 23.84,
+     "y0": 1.7,
+     "y1": 8.0,
+     "color": "#eceae4"
+    },
+    {
+     "t": "band",
+     "u0": 0.0,
+     "u1": 23.84,
+     "y0": 7.2,
+     "y1": 7.85,
+     "color": "#f2f1ec",
+     "proud": 0.1
+    },
+    {
+     "t": "band",
+     "u0": 0.0,
+     "u1": 23.84,
+     "y0": 7.85,
+     "y1": 8.05,
+     "color": "#f2f1ec",
+     "proud": 0.2
+    },
+    {
+     "t": "win",
+     "u0": 0.0,
+     "u1": 1.6,
+     "y0": 1.8,
+     "y1": 6.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "hbars": [
+      5.3
+     ],
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.5,
+     "u1": 7.2,
+     "y0": 1.8,
+     "y1": 6.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "hbars": [
+      5.3
+     ],
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 8.0,
+     "u1": 13.0,
+     "y0": 1.8,
+     "y1": 6.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "hbars": [
+      5.3
+     ],
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 13.8,
+     "u1": 18.3,
+     "y0": 1.8,
+     "y1": 6.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "hbars": [
+      5.3
+     ],
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 19.1,
+     "u1": 23.8,
+     "y0": 1.8,
+     "y1": 6.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "hbars": [
+      5.3
+     ],
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "pilaster",
+     "u": 2.05,
+     "w": 0.8,
+     "y0": 1.7,
+     "y1": 7.2,
+     "d": 0.12,
+     "color": "#f2f1ec",
+     "base": {
+      "h": 0.4,
+      "d": 0.05,
+      "color": "#e2e0da"
+     },
+     "cap": {
+      "h": 0.25,
+      "d": 0.05
+     }
+    },
+    {
+     "t": "pilaster",
+     "u": 7.6,
+     "w": 0.8,
+     "y0": 1.7,
+     "y1": 7.2,
+     "d": 0.12,
+     "color": "#f2f1ec",
+     "base": {
+      "h": 0.4,
+      "d": 0.05,
+      "color": "#e2e0da"
+     },
+     "cap": {
+      "h": 0.25,
+      "d": 0.05
+     }
+    },
+    {
+     "t": "pilaster",
+     "u": 13.4,
+     "w": 0.8,
+     "y0": 1.7,
+     "y1": 7.2,
+     "d": 0.12,
+     "color": "#f2f1ec",
+     "base": {
+      "h": 0.4,
+      "d": 0.05,
+      "color": "#e2e0da"
+     },
+     "cap": {
+      "h": 0.25,
+      "d": 0.05
+     }
+    },
+    {
+     "t": "pilaster",
+     "u": 18.7,
+     "w": 0.8,
+     "y0": 1.7,
+     "y1": 7.2,
+     "d": 0.12,
+     "color": "#f2f1ec",
+     "base": {
+      "h": 0.4,
+      "d": 0.05,
+      "color": "#e2e0da"
+     },
+     "cap": {
+      "h": 0.25,
+      "d": 0.05
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 15.45,
+     "u1": 16.85,
+     "y0": 4.15,
+     "y1": 4.78,
+     "text": "BİM",
+     "bg": "#d4262c",
+     "fg": "#f4f4f4",
+     "style": "lightbox",
+     "d": 0.1,
+     "off": -0.3,
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "logo": "camın arkasında asılı kırmızı yuvarlak köşeli ışıklı kutu, beyaz BİM (İ noktalı); gece görülmedi"
+    },
+    {
+     "t": "vinyl",
+     "u0": 14.6,
+     "u1": 15.4,
+     "y0": 2.2,
+     "y1": 3.8,
+     "text": "",
+     "bg": "#e8d6b0",
+     "fg": "#2a2a2a",
+     "logo": "BİM vitrin afişleri (kampanya, okunamadı)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 19.8,
+     "u1": 21.2,
+     "y0": 2.3,
+     "y1": 3.5,
+     "text": "",
+     "bg": "#e8e2c8",
+     "fg": "#2a2a2a",
+     "logo": "ikinci vitrin afiş grubu (okunamadı)"
+    }
+   ],
+   "note": "323. Sk. orta kısım (kule 4 ile kule 5 arası, 2025-09; GgBo f22 31.4 m, Ik0i ile). Yalnız tek (yüksek) katlı beyaz podyum: 5 kemerli cam bölme (kemer tepeleri ≈7.0, üzengi 6.3 — kemer biçimi pending), aralarda kabartma motifli beyaz payeler (≈0.8 m), üstte beyaz silmeli parapet 7.2–8.05. BİM mağazası u 13.8–18.3 bölmesinde (camın arkasında kırmızı ışıklı BİM kutusu). Diğer bölmelerin tabelası görülmedi (boş/karanlık). Podyum üst kotu görünen 8.0 (kenar 13 kemerli birimle aynı tasarım)."
   },
   {
    "edge": 16,
