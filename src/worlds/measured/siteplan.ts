@@ -640,6 +640,24 @@ function centroid(r: V2[]): V2 {
 }
 
 /** v9: ölçülen ton ya da [a, b] ton aralığı → ortalama ton (sRGB doğrusal ortalama değil, bileşen ortalaması) */
+/**
+ * Ölçülen tonlu çim (`lawn@#hex`) için malzeme rengi (doğrusal çarpan): çim dokusu × çarpan ≈ ölçülen ton.
+ * `avg` = public/textures/grass/diffuse.jpg'nin doğrusal ortalaması (#73622f — zeytin/kahve; ölçüm 2026-09-30,
+ * sharp ile). Önceden varsayılan ortalama #7a9a3c (yeşil) alınıyordu → çarpan ≈ gri 0.55–0.6, çim dokunun kahve
+ * tonunda kalıyordu (refüj grassC #5b792e oyunda #5b532d, critic d4b #26). Mavi kanal dokuda çok düşük (≈0.03) →
+ * sınır 10 (3 ile kuru çim #baa382 kırmızımsı çıkıyordu).
+ */
+export const GRASS_TEX_AVG = '#73622f';
+export function lawnTint(hex: string, avg = GRASS_TEX_AVG): THREE.Color {
+  const tgt = new THREE.Color(hex);
+  const a = new THREE.Color(avg);
+  return new THREE.Color(
+    Math.min(10, tgt.r / Math.max(0.01, a.r)),
+    Math.min(10, tgt.g / Math.max(0.01, a.g)),
+    Math.min(10, tgt.b / Math.max(0.01, a.b)),
+  );
+}
+
 export function toneOf(v: string | [string, string] | undefined | null): string | null {
   const ok = (h: unknown): h is string => typeof h === 'string' && /^#[0-9a-f]{6}$/i.test(h);
   if (ok(v)) return v.toLowerCase();

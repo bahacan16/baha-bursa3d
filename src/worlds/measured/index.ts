@@ -19,6 +19,7 @@ import { buildMertkentFence, type FenceSpec } from './fence2';
 import { buildGenericFence, buildWroughtGate, type GenericFence } from './fenceGeneric';
 import {
   buildSitePlan,
+  lawnTint,
   nearPlanLine,
   planLines,
   PARK_PLAN,
@@ -2110,14 +2111,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   for (const k of b.keys())
     if (k.startsWith('lawn@') && !mats[k] && mats.lawn) {
       const m = (mats.lawn as THREE.MeshStandardMaterial).clone();
-      // KARAR: doku ortalaması ~#7a9a3c (yeşil) → çarpan = ölçülen ton / doku ortalaması (doğrusal), kırpılmış
-      const tgt = new THREE.Color(k.slice(5));
-      const avg = new THREE.Color(0x7a9a3c);
-      m.color.setRGB(
-        Math.min(3, tgt.r / Math.max(0.02, avg.r)),
-        Math.min(3, tgt.g / Math.max(0.02, avg.g)),
-        Math.min(3, tgt.b / Math.max(0.02, avg.b)),
-      );
+      // Çarpan = ölçülen ton / gerçek doku ortalaması (doğrusal; siteplan.ts lawnTint)
+      m.color.copy(lawnTint(k.slice(5)));
       mats[k] = m;
     }
   // v9: ölçülen tonlu çakıl (sokak / site alanı `color`): düz çakıl malzemesi o tonda

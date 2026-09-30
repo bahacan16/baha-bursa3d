@@ -415,6 +415,17 @@ export function signTextKeys(t: string): string[] {
   return keys;
 }
 
+/**
+ * Yol kotundaki bantların (park şeridi kilit taşı, kerbH ≈ 0.02) çizim kotu. Önceden bandın kendi kotunda (0.02)
+ * çiziliyordu: komşu bordürlü kaldırımın yol tarafı asfalt dolgusu (roadFill 0.028, bordürden 3–10 m) ve OSM asfaltı
+ * (0.04) üstünü örtüyor, d4-pk-e4a/b gibi ölçülmüş park şeritleri asfalt görünüyordu (critic d4b #9). Yürüme kotu
+ * (lowBands) ölçülen değerde kalır; yalnız görünen yüzey OSM asfaltının (+3 mm kiriş) hemen üstüne alınır.
+ */
+export const AT_GRADE_TOP = 0.045;
+export function bandDrapeY(h: number): number {
+  return h < AT_GRADE_TOP ? AT_GRADE_TOP : h;
+}
+
 /** Yol üstü gömülü kapak kotu (arazinin üstünde m): OSM asfaltı 0.04 (+3 mm kiriş) ve çizgiler 0.05 üstünde */
 export const ROAD_FLUSH = 0.062;
 /** Bisiklet şeridi (spBike 0.075, kenar boyası 0.08) üstündeki kapak kotu */
@@ -1712,7 +1723,7 @@ function buildStreet(
         return ring;
       };
       for (const bd of lay.bands) {
-        strip(bd.v0, bd.v1, bd.key, bd.h);
+        strip(bd.v0, bd.v1, bd.key, bandDrapeY(bd.h));
         if (bd.h > 0.06) raised.push({ poly: [q(0, bd.v0), q(L, bd.v0), q(L, bd.v1), q(0, bd.v1)], h: bd.h });
         else lowBands.push({ poly: [q(0, bd.v0), q(L, bd.v0), q(L, bd.v1), q(0, bd.v1)], h: bd.h });
       }
