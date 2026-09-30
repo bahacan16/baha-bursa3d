@@ -803,3 +803,8 @@
     "median"` kapak refüj kotunda. Dolap (`cabinet`) not ölçüsünden NaN geometri üretiyordu (tek "." sayı sanılıyordu)
     → düzeltildi, ölçülen w/d/h önce. Dosya: `street.ts` (`roadSymbol`). **Blender:** `NW/Roads` yol işaretleri,
     `NW/Mertkent/Street` rögarlar / geçitler.
+- **(Gündüz ışığı yeniden kalibrasyonu)** — Güneşli 2025-09 Mertkent-2 karelerine göre (eski 71 yamanın çoğu bulutlu
+  Doğan Avcıoğlu karesiymiş): yarım küre ışık ×0.6→×0.45, pozlama ×1.08, N8AO 1.7→1.2 / yarıçap 2.2→1.6 m, gölge tonu
+  sıcaktan soğuğa (0.97, 1, 1.06), Ultra `ULTRA_EXPOSURE_REF` −1.48→−1.60. Dosyalar: `src/env/calibration.ts`,
+  `src/env/post.ts`. **Blender:** — yeniden kurulacak katman yok; yalnız referans değerler (Dünya ışığı / gölge
+  rengi karşılaştırırken yeni oranları kullan).
