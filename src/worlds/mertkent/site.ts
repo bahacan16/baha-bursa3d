@@ -428,7 +428,8 @@ export function buildParkKoza(b: Builder, c: V2, n: V2, y0: number, collide?: Co
     b.box('darkMetal', [q[0], y0 + (WH + 2.33) / 2, q[1]], [0.04, 2.33 - WH, 0.04], yaw);
   }
   const [sa, se] = [P(w0 - L + 0.3, 0.03), P(w0 - 0.3, 0.03)];
-  b.wall('parkKozaSign', se, sa, y0 + 1.72, y0 + 2.36);
+  // wall(sa→se) ön yüzü n (sokak) yönüne — önceden ters sıra: harfler duvarın içine bakıyor, görünmüyordu (critic V15 #4)
+  b.wall('parkKozaSign', sa, se, y0 + 1.72, y0 + 2.36);
   const hm = P(w0 - L / 2, -0.8);
   b.box('mkHedge', [hm[0], y0 + 1.1, hm[1]], [L, 2.2, 1.0], yaw, 0.5);
   collide?.([P(w0 - L, -1.3), P(w0, -1.3), P(w0, 0.15), P(w0 - L, 0.15)], y0 - 1, y0 + 2);
