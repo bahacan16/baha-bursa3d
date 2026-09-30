@@ -1041,6 +1041,17 @@ function buildStreet(
     if (w) return w.h + 0.012;
     return /bisiklet|bike/.test(note) ? ROAD_FLUSH_BIKE : ROAD_FLUSH;
   };
+  /** Rögar / ızgara malzemesi: ölçülen renk (dökme demir, yarı mat) ya da koyu metal */
+  const coverKey = (hex?: string) =>
+    hex && /^#[0-9a-f]{6}$/i.test(hex) && ext.colorKey ? ext.colorKey('frame', hex) : 'darkMetal';
+  /** Yol boyası: renk (verilmezse beyaz spPaint) + aşınma 0..1 (gürültü alfa, kademe 1–3) */
+  const paintKeyOf = (hex: string | undefined, wear: number | undefined) => {
+    const wl = Math.min(3, Math.round(Math.max(0, Math.min(1, wear ?? 0)) * 4));
+    const col = hex && /^#[0-9a-f]{6}$/i.test(hex) ? hex : null;
+    if (!col || !ext.colorKey) return wl > 0 ? `spPaintWear${wl}` : 'spPaint';
+    // colorKey `wear<k>` alfa eşiği [0.62, 0.5, 0.38] (k = örtülen pay); boyanın `wear` kadarı eksik → k = 4 − wl
+    return wl > 0 ? ext.colorKey(`wear${4 - wl}` as 'wear1', col) : ext.colorKey('asphalt', col);
+  };
   const furn = {
     b,
     H,
@@ -1329,10 +1340,11 @@ function buildStreet(
         break;
       }
       case 'drain': {
-        // Yağmur ızgarası (bordür dibinde)
-        const g = new THREE.PlaneGeometry(0.8, 0.4).rotateX(-Math.PI / 2).rotateY(yaw);
+        // Yağmur ızgarası (bordür dibinde): ölçülen w × d (varsayılan 0.8 × 0.4), renk `color`
+        const dr = s as { w?: number; d?: number; color?: string };
+        const g = new THREE.PlaneGeometry(dr.w ?? 0.8, dr.d ?? 0.4).rotateX(-Math.PI / 2).rotateY(yaw);
         g.translate(s.x, g0 + flushY(s.x, s.z, sb, note), s.z);
-        b.geometry('darkMetal', g);
+        b.geometry(coverKey(dr.color), g);
         break;
       }
       case 'bike-rack': {
@@ -1376,9 +1388,65 @@ function buildStreet(
         break;
       }
       case 'manhole': {
-        const g = new THREE.CircleGeometry(0.33, 16).rotateX(-Math.PI / 2);
+        // Rögar kapağı: ölçülen `r` (yuvarlak, varsayılan 0.33) ya da `shape` square + w × d (yoksa 2r), `color`
+        const mh = s as { r?: number; w?: number; d?: number; shape?: string; color?: string };
+        const r = Math.max(0.1, Math.min(1, mh.r ?? 0.33));
+        const g =
+          mh.shape === 'square'
+            ? new THREE.PlaneGeometry(mh.w ?? 2 * r, mh.d ?? mh.w ?? 2 * r).rotateX(-Math.PI / 2).rotateY(yaw)
+            : new THREE.CircleGeometry(r, 20).rotateX(-Math.PI / 2);
         g.translate(s.x, g0 + flushY(s.x, s.z, sb, note), s.z);
-        b.geometry('darkMetal', g);
+        b.geometry(coverKey(mh.color), g);
+        break;
+      }
+      case 'road-line': {
+        // Yol boyası çizgisi (dur / yol ver / kılavuz): pts çoklu çizgi, w genişlik (0.3), style solid | dashed |
+        // giveway (yol ver: kesikli kalın çizgi 0.5/0.5 ya da `dash` [boya, boşluk]), color (beyaz), wear 0..1
+        const rl = s as unknown as {
+          pts?: V2[];
+          w?: number;
+          style?: string;
+          dash?: [number, number];
+          color?: string;
+          wear?: number;
+        };
+        const pts = rl.pts ?? [];
+        if (pts.length < 2) break;
+        const w = Math.max(0.05, Math.min(1, rl.w ?? (rl.style === 'giveway' ? 0.4 : 0.3)));
+        const [on, off] =
+          rl.dash ?? (rl.style === 'giveway' ? [0.5, 0.5] : rl.style === 'dashed' ? [3, 5] : [1e6, 0]);
+        const key = paintKeyOf(rl.color, rl.wear);
+        let phase = 0;
+        for (let i = 0; i + 1 < pts.length; i++) {
+          const a = pts[i];
+          const e = pts[i + 1];
+          const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+          if (L < 0.01) continue;
+          const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
+          const nn: V2 = [-t[1] * (w / 2), t[0] * (w / 2)];
+          for (let u = -phase; u < L; u += on + off) {
+            const u0 = Math.max(0, u);
+            const u1 = Math.min(L, u + on);
+            if (u1 - u0 < 0.02) continue;
+            const A: V2 = [a[0] + t[0] * u0, a[1] + t[1] * u0];
+            const E: V2 = [a[0] + t[0] * u1, a[1] + t[1] * u1];
+            b.drape(
+              key,
+              [
+                [A[0] + nn[0], A[1] + nn[1]],
+                [E[0] + nn[0], E[1] + nn[1]],
+                [E[0] - nn[0], E[1] - nn[1]],
+                [A[0] - nn[0], A[1] - nn[1]],
+              ],
+              [],
+              H,
+              0.052,
+              1,
+              2,
+            );
+          }
+          phase = (phase + L) % (on + off);
+        }
         break;
       }
       case 'tree-pit': {
@@ -1410,10 +1478,19 @@ function buildStreet(
       case 'crossing': {
         // Yaya geçidi (zebra): rot = yayaların yürüdüğü pusula yönü, len = yürüme doğrultusunda boy (yoldan yola),
         // w = yol boyunca genişlik (şerit boyu). Beyaz şeritler yol boyunca uzanır, yürüme yönünde tekrarlanır.
-        const cr = s as unknown as { len?: number; w?: number; stripes?: string; wear?: number };
+        const cr = s as unknown as {
+          len?: number;
+          w?: number;
+          stripes?: string;
+          wear?: number;
+          /** Şerit rengi (#hex) ya da dönüşümlü renkler (ör. sarı-beyaz: ["#d9b53a", "#e8e8e4"]) */
+          color?: string | string[];
+          /** Şeritlerin altında boyalı zemin (ör. kırmızı: Özlüce kuzey kolu) */
+          baseColor?: string;
+        };
         // Aşınmış boya (ölçülmüşse 0..1): gürültü alfa eşiğiyle boyanın o kadarı eksik
-        const wl = Math.round(Math.max(0, Math.min(1, cr.wear ?? 0)) * 4);
-        const paintK = wl > 0 ? `spPaintWear${Math.min(3, wl)}` : 'spPaint';
+        const cols = Array.isArray(cr.color) ? cr.color : cr.color ? [cr.color] : [undefined];
+        const paintKs = cols.map((c) => paintKeyOf(c, cr.wear));
         const len = cr.len ?? 4;
         const w = cr.w ?? 3;
         // Şerit/boşluk ölçümden ("≈0.5/0.5 m"); yoksa Türkiye standardı 0.5/0.5
@@ -1424,7 +1501,21 @@ function buildStreet(
         const t: V2 = [-d[1], d[0]];
         const n = Math.max(1, Math.floor((len + gap) / (sw + gap)));
         const span = n * sw + (n - 1) * gap;
+        if (cr.baseColor && /^#[0-9a-f]{6}$/i.test(cr.baseColor) && ext.colorKey) {
+          // Boyalı zemin: geçidin tamamı (len × w), şeritlerin altında
+          const Q = (a: number, e: number): V2 => [s.x + d[0] * a + t[0] * e, s.z + d[1] * a + t[1] * e];
+          b.drape(
+            ext.colorKey('asphalt', cr.baseColor),
+            [Q(-len / 2, -w / 2), Q(len / 2, -w / 2), Q(len / 2, w / 2), Q(-len / 2, w / 2)],
+            [],
+            H,
+            0.0505,
+            1,
+            2,
+          );
+        }
         for (let k = 0; k < n; k++) {
+          const paintK = paintKs[k % paintKs.length];
           const o = -span / 2 + sw / 2 + k * (sw + gap);
           const c: V2 = [s.x + d[0] * o, s.z + d[1] * o];
           const P = (a: number, e: number): V2 => [c[0] + d[0] * a + t[0] * e, c[1] + d[1] * a + t[1] * e];

@@ -201,7 +201,10 @@ export function withGlassEnv<M extends THREE.Material>(m: M, tag = 'g'): M {
       );
     // glassMask: çerçeve / profil pikseli 0 (yalnız cam yansıtır); gölgelendirici tanımlamadıysa 1
     if (!/float glassMask\b/.test(sh.fragmentShader))
-      sh.fragmentShader = sh.fragmentShader.replace('void main() {', 'void main() {\n  float glassMask = 1.0;');
+      sh.fragmentShader = sh.fragmentShader.replace(
+        'void main() {',
+        'void main() {\n  float glassMask = 1.0;',
+      );
   };
   m.customProgramCacheKey = function () {
     return `${prevKey.call(this)}|genv-${tag}`;
@@ -330,7 +333,10 @@ float lit = step(0.45, h1(seed * 17.3));
 totalEmissiveRadiance += rc * (0.12 + (1.0 - uNight) * (1.0 - uGlassDiff) * 0.3 + uNight * lit * vec3(1.7, 1.35, 0.95));`,
       );
     sh.uniforms.uGlassDiff = glassDiffUniform;
-    sh.fragmentShader = sh.fragmentShader.replace('uniform float uNight;', 'uniform float uNight;\nuniform float uGlassDiff;');
+    sh.fragmentShader = sh.fragmentShader.replace(
+      'uniform float uNight;',
+      'uniform float uNight;\nuniform float uGlassDiff;',
+    );
   };
   m.customProgramCacheKey = () => 'mk-winglass-v6';
   withGlassEnv(m, 'win');

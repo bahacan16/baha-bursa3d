@@ -480,7 +480,7 @@ export function buildRoads(
   crossings: Pt[],
   noSidewalk: number[][] = [],
   /** v7: ölçülmüş çizgi düzeltmeleri (Street View): yol kimliği → centre none | dashed | solid, edges none | solid */
-  marks: Record<string, { centre?: string; edges?: string }> = {},
+  marks: Record<string, { centre?: string; edges?: string; shift?: [number, number] }> = {},
 ): RoadBuildResult {
   const skipWalk = (x: number, z: number) => noSidewalk.some((r) => inFlatRing(r, x, z));
   const strips: RaisedStrip[] = [];
@@ -539,13 +539,15 @@ export function buildRoads(
     // Kavşak / üst üste binen şeritlerde (tek yönlü kollar + göbek) çizgi yok: Street View'da orada yalnız aşınmış
     // kılavuz çizgi, dur çizgisi ve yaya geçidi var (Özlüce kavşağı da3-01/05)
     const skip = r.vehicular ? markSkipFor(r) : undefined;
-    if (mk?.centre === 'dashed') dashes(geo, dense, 3, 5, 0.12, Y_MARK, skip);
-    else if (mk?.centre === 'solid') dashes(geo, dense, 1e6, 0, 0.12, Y_MARK, skip);
+    // Ölçülmüş orta çizgi kayması (street-plan roads[].centreShift): gerçek çizgi OSM ekseninden farklı
+    const cl: Pt[] = mk?.shift ? dense.map((p) => [p[0] + mk.shift![0], p[1] + mk.shift![1]] as Pt) : dense;
+    if (mk?.centre === 'dashed') dashes(geo, cl, 3, 5, 0.12, Y_MARK, skip);
+    else if (mk?.centre === 'solid') dashes(geo, cl, 1e6, 0, 0.12, Y_MARK, skip);
     else if (mk?.centre === 'none') {
       /* ölçüm: orta çizgi yok */
-    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, dense, 3, 6, 0.15, Y_MARK, skip);
+    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, cl, 3, 6, 0.15, Y_MARK, skip);
     else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
-      dashes(geo, dense, 3, 5, 0.12, Y_MARK, skip);
+      dashes(geo, cl, 3, 5, 0.12, Y_MARK, skip);
     if (mk?.edges === 'solid' || (mk?.edges !== 'none' && /^(secondary|tertiary)$/.test(r.kind)))
       for (const sd of [-1, 1]) dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK, skip);
   }

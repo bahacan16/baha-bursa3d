@@ -1856,9 +1856,9 @@
    "pillarEvery": 5.8,
    "pillarW": 0.38,
    "pillarH": 1.4,
-   "lamp": "none",
+   "lamp": "lantern",
    "mesh": 0.75,
-   "razor": false,
+   "razor": true,
    "hedge": null,
    "wall": {
     "h": 1.1,
@@ -1878,7 +1878,7 @@
     "h": 1.4,
     "color": "#646a6d",
     "cap": "düz prekast başlık",
-    "lamp": false
+    "lamp": "lantern"
    },
    "infill": "panel",
    "infillSpec": {
@@ -1895,7 +1895,7 @@
      "none"
     ]
    ],
-   "note": "da1-south-site ile aynı tip: koyu gri prekast panel, yüzü oyma/kabartma desenli (l07h_270_-50 2025: ≈#4a5154–#575c60), açık gri kolonlar ≈#646a6d, üstte koyu yeşil tel panel; arkası çim şerit + ağaçlar (x 186–190.5, hava fotoğrafı). Bu kolda panel yüksekliği ham ≈1.25 m (da1'deki 0.7'den yüksek; ±0.2). Kolon aralığı ≈5.8 (tek karede iki aralık) — faz (başlangıç kolonu) bilinmiyor, U=0'dan başlatıldı. Jiletli tel bu karelerde seçilemedi. Hat: hava fotoğrafında duvarın batıya düşen gölge çizgisi x≈190.5–190.9 (z -148…-128); kuzey ucu z≈-151.5 (köşe ve da1 çitiyle bağlantı ölçülmedi). H-kalibrasyon (l07h 2025, kamera 2.35 m, duvar tabanı kaldırım kotunda → ×0.88): duvar ham 1.25→1.10 (wallH 1.2→1.1), dikme 1.6→1.4, panel 1.2–2.1 → 1.1–1.85; hat x 190.7→190.95 (kalibre kaldırım 2.05 m, bordür 193.0; gölge çizgisi 190.5–190.9 duvarın batısına düşer, duvar yüzü doğu kenarda)."
+   "note": "da1-south-site ile aynı tip: koyu gri prekast panel, yüzü oyma/kabartma desenli (l07h_270_-50 2025: ≈#4a5154–#575c60), açık gri kolonlar ≈#646a6d, üstte koyu yeşil tel panel; arkası çim şerit + ağaçlar (x 186–190.5, hava fotoğrafı). Bu kolda panel yüksekliği ham ≈1.25 m (da1'deki 0.7'den yüksek; ±0.2). Kolon aralığı ≈5.8 (tek karede iki aralık) — faz (başlangıç kolonu) bilinmiyor, U=0'dan başlatıldı. Jiletli tel bu karelerde seçilemedi. Hat: hava fotoğrafında duvarın batıya düşen gölge çizgisi x≈190.5–190.9 (z -148…-128); kuzey ucu z≈-151.5 (köşe ve da1 çitiyle bağlantı ölçülmedi). H-kalibrasyon (l07h 2025, kamera 2.35 m, duvar tabanı kaldırım kotunda → ×0.88): duvar ham 1.25→1.10 (wallH 1.2→1.1), dikme 1.6→1.4, panel 1.2–2.1 → 1.1–1.85; hat x 190.7→190.95 (kalibre kaldırım 2.05 m, bordür 193.0; gölge çizgisi 190.5–190.9 duvarın batısına düşer, duvar yüzü doğu kenarda). | 2026-09 (eleştirmen da2-00/02): l07h_233_13_40 yakın planında kolon başlarında küçük SİYAH FENER (klasik fener) ve tel panelin üstünde JİLETLİ TEL spirali açıkça görülüyor → lamp lantern, razor true (önceki 'seçilemedi' düzeltildi). Kolonlar duvardan belirgin açık: aynı bulutlu karede kolon ≈#6d7486–#778085, duvar paneli ≈#525b60–#545c5f (oran ≈1.4; kayıttaki #646a6d/#575c60 oranı ≈1.15). Bulutlu kareler → renk değiştirilmedi, yalnız oran not edildi (güneşli karede yeniden örneklenmeli)."
   },
   {
    "kind": "other",
@@ -6119,18 +6119,18 @@
   {
    "kind": "manhole",
    "id": "da2-mh-2",
-   "x": 225.7,
-   "z": -157.3,
+   "x": 228.86,
+   "z": -157.74,
    "h": 0,
-   "note": "yuvarlak rögar kapağı, orta çizgi yanında (JDIg_90_-50 2019, ±1.5)"
+   "note": "yuvarlak rögar kapağı, orta çizgi yanında (JDIg_90_-50 2019, ±1.5) | 2026-09 yol yüzeyi taraması: konum [225.7, -157.3] → [228.86, -157.74] — JDIg 90/-50 (2019) iki kapak yan yana, poz (228.8,-158.4)/(228.8,-156.6) (15 m, ±1.5); hava fotoğrafında aynı x'te 1.95 m aralıklı iki koyu disk (228.86,-157.74) ve (229.05,-155.80). Eski kayıt x ≈3 m batıda (2.5 m kamera varsayımı + uzak kare)."
   },
   {
    "kind": "manhole",
    "id": "da2-mh-3",
-   "x": 225.7,
-   "z": -156.1,
+   "x": 229.05,
+   "z": -155.8,
    "h": 0,
-   "note": "ikinci kapak, doğu şeridinde (JDIg_90_-50 2019, ±1.5)"
+   "note": "ikinci kapak, doğu şeridinde (JDIg_90_-50 2019, ±1.5) | 2026-09 yol yüzeyi taraması: konum [225.7, -156.1] → [229.05, -155.8] — Aynı çiftin güney kapağı; hava fotoğrafı koyu disk (229.05,-155.80), JDIg 90/-50 (2019)."
   },
   {
    "kind": "barrier",
@@ -6734,7 +6734,8 @@
    "len": 4.5,
    "w": 3,
    "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından sayılmadı)",
-   "note": "DA doğu kolu (giriş, kuzey) yaya geçidi, ayrım adasının doğusu; hava fotoğrafı (x 660.4–665, z -88.2…-83.7). Yeni tür. [Kural: x,z = geçit merkezi; rot = yayaların yürüdüğü pusula yönü (0 = kuzey, 90 = doğu); len = yürüme doğrultusunda boy (yoldan yola); w = yol boyunca genişlik (şeritlerin boyu).]"
+   "note": "DA doğu kolu (giriş, kuzey) yaya geçidi, ayrım adasının doğusu; hava fotoğrafı (x 660.4–665, z -88.2…-83.7). Yeni tür. [Kural: x,z = geçit merkezi; rot = yayaların yürüdüğü pusula yönü (0 = kuzey, 90 = doğu); len = yürüme doğrultusunda boy (yoldan yola); w = yol boyunca genişlik (şeritlerin boyu).] | 2026-09 boya aşınması 0.5: lIEq 0/-50: şeritler belirgin ama soluk, boyanın yaklaşık yarısı aşınmış; geçidin batısındaki çapraz beyaz çizgi de benzer (≈0.4) Alternatif: street-plan crossing kaydına wear:0.5 yazılabilir (aynı etki). Çokgen = geçit dikdörtgeni +0.1 m. (kanıt: lIEqcjO5Ntiot9ndNQ6Idw_0_-50.jpg)",
+   "wear": 0.5
   },
   {
    "kind": "crossing",
@@ -6745,7 +6746,8 @@
    "len": 4.2,
    "w": 3,
    "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından sayılmadı)",
-   "note": "DA doğu kolu (çıkış, güney) yaya geçidi; hava fotoğrafı (x 660–664.6, z -78.7…-74.5). Yeni tür. [Kural: x,z = geçit merkezi; rot = yayaların yürüdüğü pusula yönü (0 = kuzey, 90 = doğu); len = yürüme doğrultusunda boy (yoldan yola); w = yol boyunca genişlik (şeritlerin boyu).]"
+   "note": "DA doğu kolu (çıkış, güney) yaya geçidi; hava fotoğrafı (x 660–664.6, z -78.7…-74.5). Yeni tür. [Kural: x,z = geçit merkezi; rot = yayaların yürüdüğü pusula yönü (0 = kuzey, 90 = doğu); len = yürüme doğrultusunda boy (yoldan yola); w = yol boyunca genişlik (şeritlerin boyu).] | 2026-09 boya aşınması 0.6: vH6T 180/-50: şeritler çok soluk, çevre asfalta yakın ton; boyanın %60 kadarı yok Alternatif: street-plan crossing kaydına wear:0.6 yazılabilir (aynı etki). Çokgen = geçit dikdörtgeni +0.1 m. (kanıt: vH6TTmQ_XS4CiY2vL3rnOQ_180_-50.jpg)",
+   "wear": 0.6
   },
   {
    "kind": "crossing",
@@ -6756,7 +6758,8 @@
    "len": 9.5,
    "w": 2.3,
    "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından sayılmadı)",
-   "note": "Özlüce Bulvarı kuzey kolu (güneye giren şeritler) yaya geçidi, kuzey ayrım adasının batısı; hava fotoğrafı rb (x 615.5–625, z -115…-112.8) — kuzey ucu kırpılmış olabilir. Yeni tür. [Kural: x,z = geçit merkezi; rot = yayaların yürüdüğü pusula yönü (0 = kuzey, 90 = doğu); len = yürüme doğrultusunda boy (yoldan yola); w = yol boyunca genişlik (şeritlerin boyu).]"
+   "note": "Özlüce Bulvarı kuzey kolu (güneye giren şeritler) yaya geçidi, kuzey ayrım adasının batısı; hava fotoğrafı rb (x 615.5–625, z -115…-112.8) — kuzey ucu kırpılmış olabilir. Yeni tür. [Kural: x,z = geçit merkezi; rot = yayaların yürüdüğü pusula yönü (0 = kuzey, 90 = doğu); len = yürüme doğrultusunda boy (yoldan yola); w = yol boyunca genişlik (şeritlerin boyu).] | 2026-09 boya aşınması 0.2: NEC4 0/-50: şeritler parlak beyaz, yer yer küçük soyulmalar (tekerlek izinde) Alternatif: street-plan crossing kaydına wear:0.2 yazılabilir (aynı etki). Çokgen = geçit dikdörtgeni +0.1 m. (kanıt: NEC4kBKouZth0WBsu4svHw_0_-50.jpg)",
+   "wear": 0.2
   },
   {
    "kind": "crossing",
@@ -7075,18 +7078,25 @@
   },
   {
    "kind": "drain",
-   "x": 9.05,
-   "z": -114.9,
+   "x": 8.85,
+   "z": -114.35,
    "rot": 0,
    "text": "",
-   "note": "yağmur ızgarası bordür dibinde, asfaltta (doğu bordürü x≈9.65); enine ≈0.8 m (czGR_180_0 taban genişliği 50 px @ ≈4.9 m), boyuna perspektiften ≈0.4–0.8. SV czGR_180_0 (2025-09), konum ±1.5 m boyuna."
+   "note": "yağmur ızgarası bordür dibinde, asfaltta (doğu bordürü x≈9.65); enine ≈0.8 m (czGR_180_0 taban genişliği 50 px @ ≈4.9 m), boyuna perspektiften ≈0.4–0.8. SV czGR_180_0 (2025-09), konum ±1.5 m boyuna. | 2026-09 yol yüzeyi taraması: konum [9.05, -114.9] → [8.85, -114.35] — czGR 180/-50 (2025-09): ızgara + açık beton çerçeve (≈0.85×0.8 dış) bordür dibinde; kayıtlı czGR pozu hava fotoğrafı koyu dikdörtgeni (8.8,-114.6) ile 0.3 m içinde örtüşüyor; ızgara merkezi (8.79,-114.08)…(8.8,-114.6) → (8.85,-114.35). Eski konum boyuna ±1.5 idi.",
+   "id": "502-drain-114"
   },
   {
    "kind": "manhole",
-   "x": 6.8,
-   "z": -84.5,
+   "x": 6.88,
+   "z": -84.2,
    "text": "",
-   "note": "rögar kapağı 504 kavşağı ortasında (doğu şeridi). Hava fotoğrafında Ø≈0.7 koyu daire + SV G8RU_180_0 / kgyF_0_0 (2025-09). ±0.5 m."
+   "note": "rögar kapağı 504 kavşağı ortasında (doğu şeridi). Hava fotoğrafında Ø≈0.7 koyu daire + SV G8RU_180_0 / kgyF_0_0 (2025-09). ±0.5 m. | 2026-09 yol yüzeyi taraması: konum [6.8, -84.5] → [6.88, -84.2] — hava fotoğrafı koyu disk ağırlık merkezi (6.86,-84.20); kgyF 0/-50 SV (registered) (6.89,-84.22). Dekoratif (eşmerkezli desenli) dökme demir kapak Ø≈0.7 + çevresinde ≈0.2 m açık gri düzensiz beton/asfalt halka (Ø≈1.1).",
+   "id": "502-mh-deco-84",
+   "r": 0.35,
+   "ring": {
+    "r": 0.55,
+    "note": "açık gri düzensiz beton/asfalt halka Ø≈1.1 (ton ölçülmedi)"
+   }
   },
   {
    "kind": "crossing",
@@ -7097,7 +7107,9 @@
    "w": 2.25,
    "stripes": "≈0.5/0.55 m",
    "text": "",
-   "note": "502. Sk. – Nato Parkı koşu yolu yaya geçidi (OSM crossing 1.03,−21.36): hava fotoğrafında 8 şerit x −2.1…5.5, yol boyu genişlik z −23.5…−21.25. Eski notta şeritler sarı-beyaz dönüşümlü (SV I52t_180_0 uzaktan sarımsı görünüyor) — çizici yalnız beyaz yapıyor, renk sırası ÖLÇÜLMEDİ. Geçidin ≈0.7 m güneyinde doğu şeridinde beyaz durma çizgisi (x 0.8–4.5). Her iki uçta turuncu esnek dikmeler (tek tek konumlanmadı)."
+   "note": "502. Sk. – Nato Parkı koşu yolu yaya geçidi (OSM crossing 1.03,−21.36): hava fotoğrafında 8 şerit x −2.1…5.5, yol boyu genişlik z −23.5…−21.25. Eski notta şeritler sarı-beyaz dönüşümlü (SV I52t_180_0 uzaktan sarımsı görünüyor) — çizici yalnız beyaz yapıyor, renk sırası ÖLÇÜLMEDİ. Geçidin ≈0.7 m güneyinde doğu şeridinde beyaz durma çizgisi (x 0.8–4.5). Her iki uçta turuncu esnek dikmeler (tek tek konumlanmadı). | 2026-09 boya aşınması 0.35: LKuS 0/-50 (2025-09): 502. Sk. – Nato Parkı geçidi; bu karede TÜM şeritler sarı/okr görünüyor (eski notun sarı-beyaz dönüşümlü tespiti bu karede görülmedi), boya orta düzeyde aşınmış (≈%35, tekerlek izlerinde daha çok). Renderer geçidi beyaz çiziyor — renk düzeltmesi ana oturumun kararı. Alternatif: street-plan crossing kaydına wear:0.35 yazılabilir (aynı etki). Çokgen = geçit dikdörtgeni +0.1 m. (kanıt: LKuSQfIskr03PdhwpiEDpw_0_-50.jpg)",
+   "id": "502-nato-crossing",
+   "wear": 0.35
   },
   {
    "kind": "board",
@@ -7154,6 +7166,1531 @@
     "note": "iki beyaz mermi tipi güvenlik kamerası, direk tepesinde yatay kolda, sokağa (kuzeye) bakar"
    },
    "note": "2026-09 (eleştirmen da1-00): da1 sitesi (Şehr-i Bursa Evleri) duvarının ≈3.5 m içinde direk üstünde site levhası: beyaz zemin, iki satır kalın dar yeşil büyük harf 'ŞEHR-İ BURSA' / 'EVLERİ' (tireli, İ noktalı — kareden okundu), direk tepesinde yatay kolda 2 beyaz güvenlik kamerası. SV gnXj_195_8_40 + 180_0 (tek pano: kerteriz 203°; uzaklık levha eni varsayımıyla 11.3 m → ±1.5 m, levha oranı 1.83 kareden). Renkler BULUTLU karede: zemin ≈#afb9bb (gölgeli/bulutlu), yazı bulanık örnek ≈#6e9474 — koyu yeşil yazı; fg #3e7f4e ve bg #dfe3e1 bulutlu örneklerin güneşli karşılığı DEĞİL, yaklaşık (yeniden örneklenmeli). Levha dibi ≈3.45 m, kameralar ≈4.15 m. cctv alanı kod bekliyor (street board'da henüz çizilmiyor)."
+  },
+  {
+   "id": "502-504-patch-mh",
+   "street": "502. Sokak / 504 kavşağı",
+   "kind": "patch",
+   "poly": [
+    [
+     4.19,
+     -81
+    ],
+    [
+     5.39,
+     -81.04
+    ],
+    [
+     5.33,
+     -82.59
+    ],
+    [
+     4.21,
+     -82.43
+    ]
+   ],
+   "color": "#797a74",
+   "over": false,
+   "note": "Rögar çevresinde kare koyu asfalt yaması ≈1.2×1.5 m, kesikli orta çizginin hemen doğusunda; çizgi yamanın batısından geçiyor, kesilmemiş. Ham örnek (güneşli): yama #c1bdb1, çevre asfalt #ddd8d0 → #797a74. Hava fotoğrafında yama seçilmiyor (yalnız rögar diski 4.76,-81.63) → hava fotoğrafı daha eski; konum rögara göre. ±0.4 m.",
+   "evidence": [
+    "G8RUKeWdz-gupv6JeSbf9g_180_-50.jpg",
+    "kgyFwJxhqYxtC5wUACE_nQ_0_-50.jpg"
+   ],
+   "x": 4.78,
+   "z": -81.77
+  },
+  {
+   "id": "502-504-mh-sq",
+   "street": "502. Sokak / 504 kavşağı",
+   "kind": "manhole",
+   "x": 4.76,
+   "z": -81.63,
+   "r": 0.3,
+   "shape": "round",
+   "color": "#797d7e",
+   "note": "YENİ: yuvarlak düz dökme demir kapak Ø≈0.6, kare yamanın ortasında. Hava fotoğrafı koyu disk (4.76,-81.63); SV G8RU 180/-50, XRdO 180/-50 (uzak). Ham: kapak #c2c2c0, asfalt #ddd8d0 (güneşli) → #797d7e.",
+   "evidence": [
+    "G8RUKeWdz-gupv6JeSbf9g_180_-50.jpg",
+    "XRdOu03sfuomtfEN22BdeA_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "502-504-trench",
+   "street": "502. Sokak / 504 kavşağı",
+   "kind": "patch",
+   "poly": [
+    [
+     7.93,
+     -80.66
+    ],
+    [
+     7.69,
+     -80.66
+    ],
+    [
+     6.69,
+     -83.64
+    ],
+    [
+     7.13,
+     -83.64
+    ]
+   ],
+   "color": "#868680",
+   "over": false,
+   "note": "Dar boyuna kanal (tranşe) yaması 0.25–0.45 m, pürüzlü açık ton, dekoratif rögar halkasından (6.88,-84.2) kuzeydoğuya 504 ağzına doğru. Ham: yama #dfd8c8, çevre #e6e0d5 (güneşli, aşırı pozlu) → #868680. Hava fotoğrafında seçilmiyor. ±0.5 m.",
+   "evidence": [
+    "G8RUKeWdz-gupv6JeSbf9g_180_-50.jpg"
+   ],
+   "x": 7.36,
+   "z": -82.15
+  },
+  {
+   "id": "502-504-drain-ne",
+   "street": "502/504 KD köşe",
+   "kind": "drain",
+   "x": 9.75,
+   "z": -84.7,
+   "rot": 20,
+   "color": "#3a3a38",
+   "note": "Dikdörtgen yağmur ızgarası ≈0.8×0.4, 504 kuzey köşe bordürü dibinde (mavi bisiklet bandının yol tarafında). İki pano: G8RU 90/-50 → (9.67,-84.58), kgyF 0/-50 → (9.86,-84.85). ±0.4.",
+   "evidence": [
+    "G8RUKeWdz-gupv6JeSbf9g_90_-50.jpg",
+    "kgyFwJxhqYxtC5wUACE_nQ_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "504-drain-s",
+   "street": "504. Sokak güney bordürü",
+   "kind": "drain",
+   "x": 10.28,
+   "z": -78.56,
+   "rot": 90,
+   "note": "Yağmur ızgarası 504 güney bordürü dibinde, park etmiş Renault arkasında (yarı görünür). kgyF 90/-50 tek pano, ±0.6.",
+   "evidence": [
+    "kgyFwJxhqYxtC5wUACE_nQ_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "502s-mh-A",
+   "street": "502. Sokak güney kavşağı",
+   "kind": "manhole",
+   "x": -0.5,
+   "z": -33.2,
+   "r": 0.3,
+   "shape": "round",
+   "color": "#6e706e",
+   "note": "Yuvarlak kapak, güney kavşakta (338371627/529911716 ağzı). Hava fotoğrafı koyu disk; U-Oz8 180/-50 iki kapak yan yana (SV ≈0.5 m doğuda), I52t 180/-50. Ham (I52t, güneşli): kapak #b3b1ac, asfalt #e0dbd5.",
+   "evidence": [
+    "U-Oz8apjeKqFGeyERByHqQ_180_-50.jpg",
+    "I52t5UkzEPa6-8-Wtx9XEg_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "502s-mh-B",
+   "street": "502. Sokak güney kavşağı",
+   "kind": "manhole",
+   "x": 0.7,
+   "z": -32.2,
+   "r": 0.3,
+   "shape": "round",
+   "color": "#6e706e",
+   "note": "İkinci yuvarlak kapak, A'nın 1.6 m doğu-güneyinde. Hava fotoğrafı + U-Oz8 180/-50 + I52t 180/-50 (297,180).",
+   "evidence": [
+    "U-Oz8apjeKqFGeyERByHqQ_180_-50.jpg",
+    "I52t5UkzEPa6-8-Wtx9XEg_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "502s-drain-1",
+   "street": "502. Sokak güney kavşağı",
+   "kind": "drain",
+   "x": 0.6,
+   "z": -38.6,
+   "rot": 0,
+   "note": "Yağmur ızgarası, Mertkent GD köşesi bordür dibinde. U-Oz8 180/-50 (480,68) → (0.28,-37.97); hava fotoğrafı koyu leke (0.8,-39.1) → ortalama, ±0.6.",
+   "evidence": [
+    "U-Oz8apjeKqFGeyERByHqQ_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "ss-drain-gate",
+   "street": "isimsiz güney sokak (338371627)",
+   "kind": "drain",
+   "x": -36.2,
+   "z": -35.8,
+   "rot": 0,
+   "note": "Dikdörtgen ızgara (≈0.6×0.25, koyu metal, çerçevesiz) şeritte, Mertkent güney araç kapısının hemen doğusunda, duvardan ≈0.8 m. Hava fotoğrafı koyu leke (-36.2,-35.9); SV BfxM 270/-50 (376,99) → (-36.0,-35.3). Konum hava fotoğrafından. Ham: ızgara #5a5650?, asfalt (güneşli) aşağıda.",
+   "evidence": [
+    "BfxM4qYIuBsoEvdxeEajdQ_270_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-s-crack",
+   "street": "Cavit Orhan Tütengil Cd. – güney/batı yan sokak kavşağı",
+   "kind": "crack",
+   "pts": [
+    [
+     -84.41,
+     -32.61
+    ],
+    [
+     -83.9,
+     -33.89
+    ],
+    [
+     -84.14,
+     -36.06
+    ],
+    [
+     -84.38,
+     -36.6
+    ],
+    [
+     -84.14,
+     -37.21
+    ],
+    [
+     -84.41,
+     -37.96
+    ],
+    [
+     -84.49,
+     -38.62
+    ]
+   ],
+   "w": 0.04,
+   "sealed": false,
+   "color": "#55534d",
+   "note": "Açık (dolgusuz) kırık çatlak, eski yama kenarı boyunca kıvrımlı, uçlarda kopmuş parçalar; Cavit Orhan batı kenarı / 1552578396 ağzı. Ham (güneşli): çatlak en koyu %10 #8d8377, çevre asfalt #e4dcd1. Tek pano iLoV 180/-50; ±0.7 m. Konum iki pano ortalaması: iLoV 180/-50 ile gPUM 270/-50 (115,105)-(505,103) aynı çatlağı 1.5 m farkla veriyor → x -0.75 kaydırıldı.",
+   "evidence": [
+    "iLoVKvpJuV6vssgmPk_iPA_180_-50.jpg",
+    "gPUMqhom487Vd8ShAHIu5w_270_-50.jpg"
+   ],
+   "x": -84.27,
+   "z": -36.14
+  },
+  {
+   "id": "co-s-patch",
+   "street": "Cavit Orhan Tütengil Cd. – batı yan sokak ağzı",
+   "kind": "patch",
+   "poly": [
+    [
+     -84.41,
+     -32.61
+    ],
+    [
+     -86.07,
+     -30.19
+    ],
+    [
+     -88.65,
+     -33.9
+    ],
+    [
+     -85.85,
+     -38.9
+    ],
+    [
+     -84.49,
+     -38.62
+    ],
+    [
+     -84.15,
+     -36.1
+    ]
+   ],
+   "color": "#787973",
+   "over": false,
+   "note": "Çatlağın batısında kalan daha koyu/eski asfalt alanı (yan sokak ağzına kadar); dış sınır (batı) kaba, bordür-çim kenarına kadar. Ham: yama #c7c0b0, ana asfalt #e4dcd1 (güneşli) → #787973. Hava fotoğrafında seçilmiyor. ±1 m. Konum iki pano ortalaması: iLoV 180/-50 ile gPUM 270/-50 (115,105)-(505,103) aynı çatlağı 1.5 m farkla veriyor → x -0.75 kaydırıldı.",
+   "evidence": [
+    "iLoVKvpJuV6vssgmPk_iPA_180_-50.jpg"
+   ],
+   "x": -85.6,
+   "z": -35.05
+  },
+  {
+   "id": "co-mh-63",
+   "street": "Cavit Orhan Tütengil Cd.",
+   "kind": "manhole",
+   "x": -82.46,
+   "z": -63.32,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak, batı şeritte bordüre yakın (batı yaya kapısının karşısı). Hava fotoğrafı koyu disk ağırlık merkezi; SV 1Jme 0/-50 (255,90), agzp 180/-50 uzak. ±0.5.",
+   "evidence": [
+    "1JmeZhl7F9Dvuo-eB6Hz3A_0_-50.jpg",
+    "agzpWIde1bGr0vtxtXHY2g_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-mh-109",
+   "street": "Cavit Orhan Tütengil Cd.",
+   "kind": "manhole",
+   "x": -80.87,
+   "z": -109.06,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak batı bordür dibinde, hemen kuzeyinde ızgara. Hava fotoğrafı koyu disk; SV ybQK 180/-50 (365,48). ±0.6.",
+   "evidence": [
+    "ybQKPRaFa39Anj41csQ2nQ_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-drain-110",
+   "street": "Cavit Orhan Tütengil Cd.",
+   "kind": "drain",
+   "x": -81.41,
+   "z": -110.33,
+   "rot": 90,
+   "note": "Dikdörtgen yağmur ızgarası, açık renkli beton çerçeveli, batı bordür dibinde. Hava fotoğrafı koyu leke; SV ybQK 180/-50 (378,60). ±0.6.",
+   "evidence": [
+    "ybQKPRaFa39Anj41csQ2nQ_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-drain-102",
+   "street": "Cavit Orhan Tütengil Cd. – 1452311071 ağzı",
+   "kind": "drain",
+   "x": -82.33,
+   "z": -101.82,
+   "rot": 90,
+   "note": "Dikdörtgen ızgara batı bordür dibinde, yan sokak ağzının kuzey köşesi. Hava fotoğrafı koyu leke; SV oQX1 0/-50 (182,120). ±0.6.",
+   "evidence": [
+    "oQX1FtwPS20r9AGALKcNYQ_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-mh-105",
+   "street": "1452311071 ağzı (Cavit Orhan batısı)",
+   "kind": "manhole",
+   "x": -84.41,
+   "z": -105.3,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak yan sokak ağzında. SV oQX1 0/-50 (182,78) ve JY5o 180/-50 (540,106) (iki pano 0.7 m içinde); hava fotoğrafında küçük koyu leke. ±0.7.",
+   "evidence": [
+    "oQX1FtwPS20r9AGALKcNYQ_0_-50.jpg",
+    "JY5oZ90oRHogU4-W4Ew3ng_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-mh-100e",
+   "street": "Cavit Orhan Tütengil Cd.",
+   "kind": "manhole",
+   "x": -77.5,
+   "z": -100.4,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak küçük kapak doğu şeritte (park bandı kenarına yakın). Yalnız SV oQX1 0/-50 (420,142); hava fotoğrafında seçilmiyor (park aracı gölgesi). ±1.",
+   "evidence": [
+    "oQX1FtwPS20r9AGALKcNYQ_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-drain-134",
+   "street": "Cavit Orhan Tütengil Cd.",
+   "kind": "drain",
+   "x": -80.2,
+   "z": -133.86,
+   "rot": 90,
+   "note": "Dikdörtgen ızgara açık beton çerçeveli, batı bordür dibinde. SV CrRB 180/-50 (380,85); hava fotoğrafı koyu leke. ±0.6.",
+   "evidence": [
+    "CrRBte3AjwCrwatPJqVm-w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-mh-152",
+   "street": "Cavit Orhan Tütengil Cd. – Doğan Avcıoğlu kavşağı",
+   "kind": "manhole",
+   "x": -79.32,
+   "z": -152.45,
+   "r": 0.33,
+   "shape": "round",
+   "note": "Yuvarlak/oval kapak, çevresinde açık renkli ince halka, batı bordüre yakın, DA kavşak ağzı. SV joaQ 180/-50 (380,88); hava fotoğrafı koyu disk. ±0.6.",
+   "evidence": [
+    "joaQnok9VKB0Ln1En1X96A_180_-50.jpg"
+   ]
+  },
+  {
+   "kind": "crossing",
+   "id": "co-zebra-26",
+   "x": -81.25,
+   "z": -26.4,
+   "rot": 90,
+   "len": 6.1,
+   "w": 3.0,
+   "stripes": "sarı-beyaz dönüşümlü zebra ≈0.5/0.5 m",
+   "wear": 0.55,
+   "colors": [
+    "#e6d7ad",
+    "white"
+   ],
+   "note": "2026-09 yol yüzeyi taraması (co-cross-26-wear): Cavit Orhan Tütengil Cd., güney sokak kavşağının ≈9 m güneyi. Sarı-beyaz zebra yaya geçidi (şeritler yol boyunca, ≈0.5 m), boyanın yaklaşık yarısı aşınmış (tekerlek izlerinde neredeyse yok). Uçlarda turuncu esnek dikmeler ve koyu gri yarım daire bordür rampaları. street-plan'da bu geçit YOK (yalnız OSM zebrası varsa etkiler). Ham: sarı şerit kalıntısı #e6d7ad, asfalt #d2cbbb (güneşli). gPUM 180/-50 tek pano, ±0.7. Geçit dikdörtgeni x −84.3…−78.2 (yoldan yola 6.1 m), z −27.9…−24.9 (3.0 m). Şerit rengi sarı/beyaz dönüşümlü → colors (kod: şu an hepsi beyaz). Kanıt: gPUMqhom487Vd8ShAHIu5w_180_-50.jpg"
+  },
+  {
+   "id": "co-mh-25",
+   "street": "Cavit Orhan Tütengil Cd. (güney)",
+   "kind": "manhole",
+   "x": -78.59,
+   "z": -24.73,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak + açık halka, doğu şeritte yaya geçidi kuzey kenarında. gPUM 180/-50 (356,57). ±0.7.",
+   "evidence": [
+    "gPUMqhom487Vd8ShAHIu5w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-mh-22",
+   "street": "Cavit Orhan Tütengil Cd. (güney)",
+   "kind": "manhole",
+   "x": -83.16,
+   "z": -21.75,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak batı şeritte geçidin güneyinde. gPUM 180/-50 (479,37), uzak ±1.",
+   "evidence": [
+    "gPUMqhom487Vd8ShAHIu5w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-drain-29e",
+   "street": "Cavit Orhan Tütengil Cd. (güney)",
+   "kind": "drain",
+   "x": -78.15,
+   "z": -29.02,
+   "rot": 90,
+   "note": "Izgara doğu bordür dibinde, geçit rampasının kuzeyinde. gPUM 180/-50 (350,106). ±0.6.",
+   "evidence": [
+    "gPUMqhom487Vd8ShAHIu5w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "co-drain-29w",
+   "street": "Cavit Orhan Tütengil Cd. (güney)",
+   "kind": "drain",
+   "x": -83.89,
+   "z": -28.83,
+   "rot": 90,
+   "note": "Izgara batı bordür dibinde, geçit rampasının kuzeyinde. gPUM 180/-50 (620,103). ±0.6.",
+   "evidence": [
+    "gPUMqhom487Vd8ShAHIu5w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-w-drain-70",
+   "street": "Doğan Avcıoğlu Cd. – Cavit Orhan kavşağı KD köşe",
+   "kind": "drain",
+   "x": -70.35,
+   "z": -158.92,
+   "rot": 90,
+   "note": "Yağmur ızgarası kuzey köşe bordür dibinde. SV zvwR 0/-50 (460,130), joaQ 90/-50 (511,130); hava fotoğrafı koyu leke ağırlık merkezi. ±0.5.",
+   "evidence": [
+    "zvwRPFEW87-5LtBVflFM_g_0_-50.jpg",
+    "joaQnok9VKB0Ln1En1X96A_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-w-mh-69",
+   "street": "Doğan Avcıoğlu Cd. (x≈-69)",
+   "kind": "manhole",
+   "x": -68.95,
+   "z": -152.8,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak güney kenar çizgisi üzerinde. SV zvwR 90/-50 (315,190); hava fotoğrafı koyu disk. ±0.5.",
+   "evidence": [
+    "zvwRPFEW87-5LtBVflFM_g_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-w-drain-45",
+   "street": "Doğan Avcıoğlu Cd. güney bordürü (Mertkent önü)",
+   "kind": "drain",
+   "x": -44.6,
+   "z": -148.9,
+   "rot": 0,
+   "note": "Izgara güney bordür dibinde. SV 8QlT 90/-50 (410,90); hava fotoğrafı küçük koyu leke (-44.58,-148.83). ±0.6.",
+   "evidence": [
+    "8QlTFCwl8KxylZEYU86SUA_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-w-drain-33",
+   "street": "Doğan Avcıoğlu Cd. güney bordürü (Mertkent önü)",
+   "kind": "drain",
+   "x": -33.05,
+   "z": -148.12,
+   "rot": 0,
+   "note": "Izgara güney kenar çizgisi ile bordür arasında (koyu, düzensiz lekeli). SV Oh3B 90/-50 (401,73), 120/0; hava fotoğrafı koyu leke. ±0.5.",
+   "evidence": [
+    "Oh3BP1hy7v6tpwkGpJKVVA_90_-50.jpg",
+    "Oh3BP1hy7v6tpwkGpJKVVA_120_0.jpg"
+   ]
+  },
+  {
+   "id": "da-w-drain-32n",
+   "street": "Doğan Avcıoğlu Cd. kuzey bordürü (park önü)",
+   "kind": "drain",
+   "x": -32.2,
+   "z": -153.68,
+   "rot": 0,
+   "note": "Izgara kuzey bordür dibinde, kenar çizgisinin dışında. SV 4RYu 0/-50 (450,215) (yakın, net); GPS pozu. ±0.6.",
+   "evidence": [
+    "4RYuHvKz9HgazCCxtiPMQA_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-w-crack-36",
+   "street": "Doğan Avcıoğlu Cd. güney şeridi (Mertkent önü)",
+   "kind": "crack",
+   "pts": [
+    [
+     -34.17,
+     -148.57
+    ],
+    [
+     -35.53,
+     -148.71
+    ],
+    [
+     -36.82,
+     -148.99
+    ],
+    [
+     -37.69,
+     -149.16
+    ],
+    [
+     -38.43,
+     -149.39
+    ],
+    [
+     -38.82,
+     -149.47
+    ],
+    [
+     -39.4,
+     -149.37
+    ]
+   ],
+   "w": 0.02,
+   "sealed": false,
+   "color": "#6c6960",
+   "note": "İnce kıvrımlı kılcal çatlak (dolgusuz), güney kenar çizgisinin ≈0.3–0.6 m içinde, yol boyunca ≈5 m. Hava fotoğrafında yok. Ham (güneşli): çatlak en koyu #aca48f, çevre #cec6b2. SV Oh3B 90/-50, 120/0; GPS pozu (bu kesimde plan kerb çizgisiyle ≈0.3 m uyumlu). ±0.5.",
+   "evidence": [
+    "Oh3BP1hy7v6tpwkGpJKVVA_90_-50.jpg",
+    "Oh3BP1hy7v6tpwkGpJKVVA_120_0.jpg"
+   ],
+   "x": -37.27,
+   "z": -149.09
+  },
+  {
+   "id": "da-502-mh-mid",
+   "street": "Doğan Avcıoğlu – 502. Sk. kavşağı",
+   "kind": "manhole",
+   "x": -3.31,
+   "z": -153.4,
+   "r": 0.32,
+   "shape": "round",
+   "note": "Kavşak ortasında yuvarlak kapak, çevresinde açık renkli beton halka (hava fotoğrafında parlak halka). SV 7xGS 90/-50 (265,75), zoTd 270/-50 (35,70), Xe8P 270/-50 (480,70). Konum hava fotoğrafı.",
+   "evidence": [
+    "7xGSfPRnAdTqCv9pdNPNkQ_90_-50.jpg",
+    "zoTd7-zO0NiokiEGjXvu4w_270_-50.jpg",
+    "Xe8PeLW5PKniTHkbNvvcpw_270_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-502-mh-502e",
+   "street": "502. Sk. ağzı (DA kavşağı)",
+   "kind": "manhole",
+   "x": 9.41,
+   "z": -152.36,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak 502 ağzında doğu şeritte. SV zoTd 180/-50 (260,89) (gölgede), 2ydc 90/-50 (380,45); hava fotoğrafı koyu disk. zoTd pozu (-0.6,-2.45) düzeltildi (üç öğe hava fotoğrafıyla eşleşti).",
+   "evidence": [
+    "zoTd7-zO0NiokiEGjXvu4w_180_-50.jpg",
+    "2ydcI-zCkRh08bRAgD6bUA_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-502-drain-502e",
+   "street": "502. Sk. ağzı doğu bordürü",
+   "kind": "drain",
+   "x": 9.91,
+   "z": -150.8,
+   "rot": 90,
+   "note": "Dikdörtgen ızgara 502 doğu bordürü dibinde, rögarın 1.6 m kuzeyinde. zoTd 180/-50 (247,71); hava fotoğrafı koyu leke.",
+   "evidence": [
+    "zoTd7-zO0NiokiEGjXvu4w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-502-drain-isl",
+   "street": "502. Sk. ağzı batı (KD ada) bordürü",
+   "kind": "drain",
+   "x": 3.65,
+   "z": -149.42,
+   "rot": 90,
+   "note": "Izgara KD köşe adası bordürü dibinde, mavi bisiklet bandının yanında. zoTd 180/-50 (465,59); hava fotoğrafı koyu leke. ±0.7.",
+   "evidence": [
+    "zoTd7-zO0NiokiEGjXvu4w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "da-502-drain-se",
+   "street": "Doğan Avcıoğlu Cd. – 502 GD köşe",
+   "kind": "drain",
+   "x": 11.7,
+   "z": -157.4,
+   "rot": 30,
+   "note": "Büyük ızgara (≈1.0×0.5) GD köşe bordür dibinde. zoTd 180/-50 (140,207) (düzeltilmiş poz, bordüre oturtuldu). ±0.8.",
+   "evidence": [
+    "zoTd7-zO0NiokiEGjXvu4w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "da1-stain-8",
+   "street": "Doğan Avcıoğlu Cd. – 502 kavşağı doğusu, güney şerit",
+   "kind": "patch",
+   "poly": [
+    [
+     9.82,
+     -158.36
+    ],
+    [
+     8.42,
+     -158.05
+    ],
+    [
+     4.8,
+     -158.99
+    ],
+    [
+     6.59,
+     -160.57
+    ],
+    [
+     10.41,
+     -160.3
+    ]
+   ],
+   "color": "#656771",
+   "over": true,
+   "note": "Koyu düzensiz zift/yağ lekesi (kenar çizgisinin üstüne taşıyor → over), kavşak çıkışında güney şeritte. GÖLGEDE örneklendi: leke #575b67, gölgeli asfalt #777b7c → #656977 (mavimsi kayma gölge kaynaklı olabilir). Tek pano d_xi 270/-50, sınırlar ±0.7 m. Hava fotoğrafında seçilmiyor.",
+   "evidence": [
+    "d_xiNdWlcD4hfcjj5n-hgg_270_-50.jpg"
+   ],
+   "x": 8.01,
+   "z": -159.25
+  },
+  {
+   "id": "da1-crack-12",
+   "street": "Doğan Avcıoğlu Cd. güney şeridi (x 9–17)",
+   "kind": "crack",
+   "pts": [
+    [
+     9.16,
+     -160.25
+    ],
+    [
+     13.48,
+     -162.09
+    ],
+    [
+     15.4,
+     -162.83
+    ],
+    [
+     16.66,
+     -163.34
+    ]
+   ],
+   "w": 0.06,
+   "sealed": true,
+   "color": "#818585",
+   "note": "Kenar çizgisine paralel, ≈1.2–1.5 m içeride koyu boyuna çizgi (zift dolgulu derz/çatlak, yer yer dallanan kılcal çatlaklarla). Kısmen gölgede: çizgi #6e7276, çevre #767779 → #80827e (zayıf kontrast). d_xi 270/-50 tek pano, ±0.6.",
+   "evidence": [
+    "d_xiNdWlcD4hfcjj5n-hgg_270_-50.jpg"
+   ],
+   "x": 13.68,
+   "z": -162.13
+  },
+  {
+   "id": "da1-patch-85",
+   "street": "Doğan Avcıoğlu Cd. kuzey şeridi (x≈85)",
+   "kind": "patch",
+   "poly": [
+    [
+     84.58,
+     -166.05
+    ],
+    [
+     84.04,
+     -167.7
+    ],
+    [
+     86.24,
+     -167.41
+    ],
+    [
+     86.44,
+     -166
+    ]
+   ],
+   "color": "#828588",
+   "over": false,
+   "note": "Keskin kenarlı dikdörtgen asfalt yaması ≈2.0×1.6 m, kuzey kenar çizgisinin hemen içinde; yeni-grimsi ton, çevreden biraz koyu. Ham (bulutsu/difüz): yama #96989b, asfalt #9f9f9b. NNxF 270/-50 tek pano (GPS pozu, ±0.8). Hava fotoğrafında seçilmiyor.",
+   "evidence": [
+    "NNxFL-wIhOWE-gC06LUoPQ_270_-50.jpg"
+   ],
+   "x": 85.33,
+   "z": -166.79
+  },
+  {
+   "id": "da1-drain-66n",
+   "street": "Doğan Avcıoğlu Cd. kuzey bordürü (otopark önü, x≈66)",
+   "kind": "drain",
+   "x": 66.04,
+   "z": -167.89,
+   "rot": 0,
+   "note": "Dikdörtgen ızgara kuzey kenar çizgisi dışında bordür dibinde. q6qb 270/-50 (370,63), GPS pozu ±0.8.",
+   "evidence": [
+    "q6qbtxa6KAxi_90o-gzwaA_270_-50.jpg"
+   ]
+  },
+  {
+   "id": "da1-trench-106",
+   "street": "Doğan Avcıoğlu Cd. (x≈106, bordürden bordüre)",
+   "kind": "patch",
+   "poly": [
+    [
+     105.6,
+     -161.05
+    ],
+    [
+     106.6,
+     -161
+    ],
+    [
+     106.55,
+     -168
+    ],
+    [
+     105.65,
+     -168.05
+    ]
+   ],
+   "color": "#767978",
+   "over": true,
+   "note": "Enine altyapı kazısı (tranşe) yaması ≈0.9 m genişlik, yolu bordürden bordüre kesiyor; güney kenar çizgisi yamada kesiliyor (çizgi yama üstünde yok → over). Doğu kenarı boyunca ince çatlak. Ham (difüz): yama #777672, çevre asfalt #8b8781 → #767978. İki pano: 4bB2 180/-50 (güney ucu, x 106.1–107.0) ve n1yU 270/-50 (enine koyu bant, x 106.3). SV pozları hava fotoğrafı bordürüne göre z −0.9 düzeltildi. Hava fotoğrafında yok (daha eski). ±0.4 boyuna. Ortofoto kontrolünde (4bB2/n1yU zemin mozaiği) bant x≈105.3–106.3 görünüyor → çokgen 0.45 m batıya alındı, ±0.6. Ortofoto kontrolünde (4bB2/n1yU zemin mozaiği) bant x≈105.3–106.3 görünüyor → çokgen 0.45 m batıya alındı, ±0.6.",
+   "evidence": [
+    "4bB2dOuuLgieHIqkmaykNg_180_-50.jpg",
+    "n1yUK8yyJreJH9RLfNADNg_270_-50.jpg"
+   ],
+   "x": 106.1,
+   "z": -164.52
+  },
+  {
+   "id": "da1-crack-112",
+   "street": "Doğan Avcıoğlu Cd. güney şeridi (x 110–114)",
+   "kind": "crack",
+   "pts": [
+    [
+     110.14,
+     -160.82
+    ],
+    [
+     112.25,
+     -161.31
+    ],
+    [
+     114.2,
+     -161.91
+    ]
+   ],
+   "w": 0.03,
+   "sealed": false,
+   "note": "Güney şeritte kenar çizgisinden yola doğru çapraz uzanan kılcal çatlak (dolgusuz, koyu). n1yU 270/-50 (122,121)…(78,246); poz z −0.9 düzeltildi. ±0.5.",
+   "evidence": [
+    "n1yUK8yyJreJH9RLfNADNg_270_-50.jpg"
+   ],
+   "x": 112.2,
+   "z": -161.35
+  },
+  {
+   "id": "da1-tcrack-122a",
+   "street": "Doğan Avcıoğlu Cd. (x≈122, enine)",
+   "kind": "crack",
+   "pts": [
+    [
+     122.26,
+     -160.52
+    ],
+    [
+     122.33,
+     -163.16
+    ],
+    [
+     122.57,
+     -166.04
+    ]
+   ],
+   "w": 0.03,
+   "sealed": false,
+   "color": "#767a81",
+   "note": "Enine çatlak/derz çifti yolu boydan boya kesiyor (≈0.3–0.5 m aralıklı iki koyu çizgi, orta çizgi kesiminde birleşiyor) — eski enine tranşe kenarı olabilir. Ham (difüz): çatlak #807f84, asfalt #96918b. XO-B 270/-50 tek pano; poz z −0.9 (bordüre göre). ±0.5.",
+   "evidence": [
+    "XO-B02gSOtLZwabEwogM0w_270_-50.jpg"
+   ],
+   "x": 122.39,
+   "z": -163.24
+  },
+  {
+   "id": "da1-tcrack-122b",
+   "street": "Doğan Avcıoğlu Cd. (x≈122.7, enine)",
+   "kind": "crack",
+   "pts": [
+    [
+     122.84,
+     -159.41
+    ],
+    [
+     122.77,
+     -161.52
+    ],
+    [
+     122.64,
+     -163.2
+    ]
+   ],
+   "w": 0.03,
+   "sealed": false,
+   "color": "#767a81",
+   "note": "Aynı çiftin güney yarısındaki ikinci çizgi. XO-B 270/-50. ±0.5.",
+   "evidence": [
+    "XO-B02gSOtLZwabEwogM0w_270_-50.jpg"
+   ],
+   "x": 122.75,
+   "z": -161.38
+  },
+  {
+   "id": "da1-patch-157",
+   "street": "Doğan Avcıoğlu Cd. güney şeridi (x≈157, rögar-ızgara arası)",
+   "kind": "patch",
+   "poly": [
+    [
+     157.26,
+     -158.57
+    ],
+    [
+     156.16,
+     -158.47
+    ],
+    [
+     156.32,
+     -159.91
+    ],
+    [
+     157.28,
+     -159.98
+    ]
+   ],
+   "color": "#74777a",
+   "over": false,
+   "note": "Rögar (da1-mh-2) ile ızgara (da1-grate-2) arasında, kenar çizgisinin yol tarafında düzensiz koyu yama ≈1.1×1.4 m (kenarları kırık). Rögarın ve ızgaranın çevresinde ≈0.3 m açık gri beton kare çerçeveler var (renderer'da yok). Ham (difüz): yama #787878, çevre #8f8c86. RW5- 180/-50; SV pozu z −2.15 (bordüre göre; aynı düzeltmeyle mevcut rögar konumu tam tutuyor). ±0.4.",
+   "evidence": [
+    "RW5-4dM-xYiQfHagca2d8A_180_-50.jpg"
+   ],
+   "x": 156.76,
+   "z": -159.23
+  },
+  {
+   "id": "da1-trench-157",
+   "street": "Doğan Avcıoğlu Cd. (x≈157.6, bordürden bordüre)",
+   "kind": "patch",
+   "poly": [
+    [
+     157.1,
+     -157.8
+    ],
+    [
+     158.15,
+     -157.75
+    ],
+    [
+     158.15,
+     -164.75
+    ],
+    [
+     157.1,
+     -164.8
+    ]
+   ],
+   "color": "#7c7d7f",
+   "over": true,
+   "note": "Enine koyu tranşe yaması ≈1.0 m, rögar da1-mh-2'den kuzey bordüre kadar yolu kesiyor; orta çizgi yamada kesik (over). Güney ucunda RW5- 180/-50'deki düzensiz yama (da1-patch-157) ile birleşiyor. Ham (difüz): yama #7e7f7c/#848382, çevre #8e8c84/#918e89. 5Owm 270/-50; poz z −1.6 (kuzey bordürüne göre). ±0.5.",
+   "evidence": [
+    "5OwmjuRTQxvb4lmAY-IClA_270_-50.jpg",
+    "RW5-4dM-xYiQfHagca2d8A_180_-50.jpg"
+   ],
+   "x": 157.63,
+   "z": -161.27
+  },
+  {
+   "id": "da1-drain-160n",
+   "street": "Doğan Avcıoğlu Cd. kuzey bordürü (x≈160)",
+   "kind": "drain",
+   "x": 159.8,
+   "z": -164.2,
+   "rot": 0,
+   "note": "Dikdörtgen ızgara kuzey kenar çizgisi ile bordür arasında. 5Owm 270/-50 (390,92); poz z −1.6. ±0.6.",
+   "evidence": [
+    "5OwmjuRTQxvb4lmAY-IClA_270_-50.jpg"
+   ]
+  },
+  {
+   "id": "da2-trench-503a",
+   "street": "Doğan Avcıoğlu – 503. Sk. kavşağı",
+   "kind": "patch",
+   "poly": [
+    [
+     197.65,
+     -158.3
+    ],
+    [
+     198.2,
+     -158.45
+    ],
+    [
+     200.2,
+     -154.5
+    ],
+    [
+     199.65,
+     -154.3
+    ]
+   ],
+   "color": "#7d807f",
+   "over": true,
+   "note": "Dar çapraz tranşe yaması ≈0.55 m: kavşak ortasındaki rögar da2-mh-1'den GD köşedeki ızgara da2-grate-1'e (yağmur suyu bağlantı borusu). Kenar/orta çizgiler üstünden geçmiyor (over). Ham (difüz 2025): yama #8b9397, çevre #9ca2a5/#989998. l07h 0/-50 (2025-09); l07h pozu (+3.77, +1.62) — rögar ve ızgaranın hava fotoğrafı konumlarına oturtuldu (iki nokta 0.2 m içinde tutarlı). Hava fotoğrafında soluk çizgi olarak da görülüyor. JDIg 270/-50 (2019) de aynı bandı gösteriyor.",
+   "evidence": [
+    "l07hZ6pz3YvCySZT7ENnew_0_-50.jpg",
+    "JDIgP_YqV92AywXf0SHNFw_270_-50.jpg"
+   ],
+   "x": 198.93,
+   "z": -156.39
+  },
+  {
+   "id": "da2-trench-503b",
+   "street": "Doğan Avcıoğlu Cd. (x 198–206, orta çizginin kuzeyi)",
+   "kind": "patch",
+   "poly": [
+    [
+     198.3,
+     -158.9
+    ],
+    [
+     206,
+     -159.7
+    ],
+    [
+     206.1,
+     -160.9
+    ],
+    [
+     198.3,
+     -159.7
+    ]
+   ],
+   "color": "#84847f",
+   "over": false,
+   "note": "Rögar da2-mh-1'den doğuya, orta çizginin hemen kuzeyinde uzanan ≈1.2 m boyuna tranşe/yama bandı; doğu ucu görüş dışında (x>206 görülmedi). Ton farkı zayıf. Ham: bant #8f8d86 (en koyu kısım #96938b), çevre #959590. l07h 0/-50 (aynı poz düzeltmesi), KOxF 0/-50 (2019) benzer bant; hava fotoğrafında soluk çizgi. ±0.6.",
+   "evidence": [
+    "l07hZ6pz3YvCySZT7ENnew_0_-50.jpg",
+    "KOxFy1nDSKOVecbxMjIKrQ_0_-50.jpg"
+   ],
+   "x": 202.18,
+   "z": -159.8
+  },
+  {
+   "id": "da2-mh-503w",
+   "street": "Doğan Avcıoğlu – 503. Sk. kavşağı (batı)",
+   "kind": "manhole",
+   "x": 195.89,
+   "z": -156.57,
+   "r": 0.3,
+   "shape": "round",
+   "note": "YENİ: yuvarlak kapak + açık halka, kavşakta 503 ağzının kuzeybatısında. l07h 0/-50 (214,109) + poz düzeltmesi → (196.27,-156.41); hava fotoğrafı küçük koyu disk (195.89,-156.57). ±0.4.",
+   "evidence": [
+    "l07hZ6pz3YvCySZT7ENnew_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "side53-joint-285",
+   "street": "isimsiz yan sokak (OSM 303589053, x≈285)",
+   "kind": "crack",
+   "pts": [
+    [
+     284.63,
+     -54.46
+    ],
+    [
+     284.73,
+     -52.23
+    ],
+    [
+     284.93,
+     -49.29
+    ]
+   ],
+   "w": 0.03,
+   "sealed": false,
+   "note": "Sokağı enine kesen asfalt derz/çatlak çizgisi (iki kaplama arasındaki ek). İki yanın tonu aynı (#88878c / #878789, difüz 2025). 2Qte 90/-50; GPS pozu (bu sokakta rögar konumu ±0.6 ile tutuyor). ±0.6.",
+   "evidence": [
+    "2QtexqzBwQLj87JTlJP5QA_90_-50.jpg"
+   ],
+   "x": 284.76,
+   "z": -51.99
+  },
+  {
+   "id": "side53-broken-279",
+   "street": "isimsiz yan sokak (OSM 303589053), güney duvar dibi oluk",
+   "kind": "patch",
+   "poly": [
+    [
+     281.01,
+     -50.08
+    ],
+    [
+     280.85,
+     -49.33
+    ],
+    [
+     278.21,
+     -49.45
+    ],
+    [
+     278.15,
+     -50.12
+    ],
+    [
+     279.3,
+     -50.28
+    ]
+   ],
+   "color": "#7f7e78",
+   "over": false,
+   "note": "Izgaralar (da3-drain-side-1) çevresinde kırık/bozulmuş asfalt kenarı, koyu lekeli, düzensiz; oluk boyunca ≈2.8×0.8 m. Ham (difüz): #858784, çevre #919596. 2Qte 90/-50. ±0.6.",
+   "evidence": [
+    "2QtexqzBwQLj87JTlJP5QA_90_-50.jpg"
+   ],
+   "x": 279.5,
+   "z": -49.85
+  },
+  {
+   "id": "dae-patch-713",
+   "street": "Doğan Avcıoğlu Cd. doğusu, güney (doğuya giden) şerit x 711–716",
+   "kind": "patch",
+   "poly": [
+    [
+     711.93,
+     -77.31
+    ],
+    [
+     716.04,
+     -76.46
+    ],
+    [
+     716.43,
+     -73.79
+    ],
+    [
+     711.29,
+     -74.46
+    ]
+   ],
+   "color": "#737b87",
+   "over": true,
+   "note": "Koyu dikdörtgen asfalt yaması, kesikli şerit çizgisinden bordüre kadar sağ şeridi kaplıyor (çizgi yamada devam etmiyor → over); bordür dibinde ıslak açık leke. Ham (güneşli): yama #a4a6ac, çevre #c7bca9/#c4bcb1. pc3Z 90/-50, GPS pozu (komşu zDEx pozu hava fotoğrafına göre +0.7 m) → ±1.",
+   "evidence": [
+    "pc3ZpeNxyvMCz6AU1_aXcA_90_-50.jpg"
+   ],
+   "x": 713.92,
+   "z": -75.5
+  },
+  {
+   "id": "dae-mh-723s",
+   "street": "Doğan Avcıoğlu Cd. doğusu, 141. Sk. ağzı",
+   "kind": "manhole",
+   "x": 722.9,
+   "z": -73.84,
+   "r": 0.33,
+   "shape": "round",
+   "color": "#3c4046",
+   "note": "YENİ: yuvarlak dökme demir kapak, çevresinde paslı turuncu-kahve beton/metal halka (Ø≈0.9), güney bordüre yakın. Hava fotoğrafı koyu disk (722.90,-73.84); SV alOg 0/-50 (322,149) ve zDEx 90/-50 (354,101) — iki pano bu diske göre kaydırıldı (alOg +1.98/−0.2, zDEx +0.73/+0.16). Ham: kapak #36393e, halka ≈#5c5d5f, çevre #6e6c65.",
+   "evidence": [
+    "alOgArOdAS3RJGNwuZ7EBQ_0_-50.jpg",
+    "zDExpla2fWvbQ7qa84o-XQ_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "dae-drain-723",
+   "street": "Doğan Avcıoğlu Cd. doğusu, güney bordürü (141. Sk. ağzı)",
+   "kind": "drain",
+   "x": 722.88,
+   "z": -72.4,
+   "rot": 90,
+   "note": "Dikdörtgen ızgara güney bordür dibinde, rögarın 1.4 m güneyinde. zDEx 90/-50 (421,106)+poz → (722.56,-72.40); hava fotoğrafı koyu leke (722.88,-72.27). ±0.4.",
+   "evidence": [
+    "zDExpla2fWvbQ7qa84o-XQ_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "dae-mh-723m",
+   "street": "Doğan Avcıoğlu Cd. doğusu (x≈723, yol ortası)",
+   "kind": "manhole",
+   "x": 723.15,
+   "z": -78.44,
+   "r": 0.3,
+   "shape": "round",
+   "note": "YENİ: yuvarlak kapak yol ortasında. Hava fotoğrafı koyu disk (723.15,-78.44, Ø≈1.1 halka dahil); SV alOg 0/-50 (329,82) uzakta (≈10 m, eğik) +poz → (723.1,-78.2). ±0.5.",
+   "evidence": [
+    "alOgArOdAS3RJGNwuZ7EBQ_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "dae-band-722",
+   "street": "Doğan Avcıoğlu Cd. doğusu, güney bordür boyu (x 717–729)",
+   "kind": "patch",
+   "poly": [
+    [
+     717,
+     -74.55
+    ],
+    [
+     729,
+     -74.55
+    ],
+    [
+     729,
+     -73.3
+    ],
+    [
+     717,
+     -73.1
+    ]
+   ],
+   "color": "#707475",
+   "over": false,
+   "note": "Güney bordür boyunca ≈1.3 m koyu, pürüzlü eski asfalt/tranşe bandı (rögar dae-mh-723s bu bandın içinde); bandın iki yanında enine derz çizgileri (x≈722.8 ve ≈724.5, kuzeye ≈3.5 m uzanıyor). Ham (bulutsu gölge yok): bant #6e6c65/#737475, kuzeydeki asfalt #827d7a/#918f8c. alOg 0/-50 tek pano (+poz). ±0.5.",
+   "evidence": [
+    "alOgArOdAS3RJGNwuZ7EBQ_0_-50.jpg"
+   ],
+   "x": 723,
+   "z": -73.87
+  },
+  {
+   "id": "dae-mouth-141",
+   "street": "141. Sokak ağzı (DA güney kenarı, x 719–726)",
+   "kind": "patch",
+   "poly": [
+    [
+     726.69,
+     -71.3
+    ],
+    [
+     726.69,
+     -66.18
+    ],
+    [
+     720.3,
+     -69.07
+    ],
+    [
+     719.91,
+     -72.3
+    ]
+   ],
+   "color": "#727579",
+   "over": false,
+   "note": "141. Sk. ağzında DA'dan daha koyu, yamalı/çatlaklı eski asfalt (kılcal çatlak ağı). Ham (güneşli): #8c8e8e, DA asfaltı #9b9c97/#b8b3aa. zDEx 90/-50 (+poz). Kenarlar ±0.7.",
+   "evidence": [
+    "zDExpla2fWvbQ7qa84o-XQ_90_-50.jpg"
+   ],
+   "x": 723.4,
+   "z": -69.71
+  },
+  {
+   "id": "dae-crack-679",
+   "street": "Doğan Avcıoğlu Cd. doğusu, güney şerit (x≈679, enine)",
+   "kind": "crack",
+   "pts": [
+    [
+     678.95,
+     -82.18
+    ],
+    [
+     679.24,
+     -81.44
+    ],
+    [
+     679.37,
+     -80.6
+    ],
+    [
+     679.11,
+     -79.55
+    ],
+    [
+     679.03,
+     -78.84
+    ]
+   ],
+   "w": 0.03,
+   "sealed": false,
+   "color": "#7e8380",
+   "note": "Şeridi enine kesen kılcal çatlak + kuzeyinde dallanan kısa çatlaklar (yorgunluk çatlağı başlangıcı). Ham (güneşli): çatlak #aaa69a (en koyu), çevre #bab0a3. BJWF 90/-50, GPS pozu ±0.8.",
+   "evidence": [
+    "BJWF6wJuJjhMhmqyagjsFQ_90_-50.jpg"
+   ],
+   "x": 679.14,
+   "z": -80.52
+  },
+  {
+   "id": "dae-crack-680b",
+   "street": "Doğan Avcıoğlu Cd. doğusu, güney şerit (x≈680)",
+   "kind": "crack",
+   "pts": [
+    [
+     680.19,
+     -81.45
+    ],
+    [
+     680.57,
+     -80.57
+    ],
+    [
+     680.92,
+     -79.93
+    ]
+   ],
+   "w": 0.02,
+   "sealed": false,
+   "color": "#7e8380",
+   "note": "Aynı kümenin doğu dalı. BJWF 90/-50. ±0.8.",
+   "evidence": [
+    "BJWF6wJuJjhMhmqyagjsFQ_90_-50.jpg"
+   ],
+   "x": 680.56,
+   "z": -80.65
+  },
+  {
+   "id": "dae-pothole-680",
+   "street": "Doğan Avcıoğlu Cd. doğusu, güney bordür dibi (x≈680)",
+   "kind": "pothole",
+   "x": 679.95,
+   "z": -75.95,
+   "r": 0.35,
+   "color": "#49463b",
+   "rim": "#8a8b88",
+   "note": "Bordür dibinde (oluk) su birikmiş kırık asfalt çukuru ≈0.7 m; DIKa 90/-50 ve BJWF 90/-50'de ıslak koyu leke olarak görünüyor. Ham (yarı gölge): çukur #313332, çevre (gölgeli) #5d6573. Kenar halkası ölçülmedi (varsayılan). ±0.8.",
+   "evidence": [
+    "BJWF6wJuJjhMhmqyagjsFQ_90_-50.jpg",
+    "DIKaX37ZG1-F2_4eXQax6w_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "dae-drain-696n",
+   "street": "Doğan Avcıoğlu Cd. doğusu kuzey bordürü (x≈696)",
+   "kind": "drain",
+   "x": 695.8,
+   "z": -85.3,
+   "rot": 0,
+   "note": "Dikdörtgen ızgara kuzey (park yakası) bordür dibinde. Q5IC 0/-50 (470,188): ızgara panodan ≈4.5 m kuzeyde, karşı (güney) duvar da ≈5 m güneyde → pano 10 m yolun ortasında (z≈-80.6), GPS (z -77.5) ≈3 m güneyde. Konum plan kuzey bordürüne (z≈-85.6) oturtuldu; x GPS pozundan. ±1.",
+   "evidence": [
+    "Q5ICTzjr47PU-D83sQkDiA_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "rb-crack-e",
+   "street": "Özlüce kavşağı doğu kolu (DA doğu giriş/çıkış, ring doğusu)",
+   "kind": "crack",
+   "pts": [
+    [
+     647.88,
+     -74.42
+    ],
+    [
+     648.82,
+     -74.23
+    ],
+    [
+     652.06,
+     -73.87
+    ],
+    [
+     655.5,
+     -73.5
+    ]
+   ],
+   "w": 0.03,
+   "sealed": true,
+   "color": "#727471",
+   "note": "İnce düz koyu çizgi çifti (≈0.15 m aralık), dolgulu çatlak/derz gibi; yol boyu doğuya. Ham (güneşli): #636361, çevre #787775. voTO 90/-50, GPS pozu (bu kavşakta pano konumları hava fotoğrafına göre 1–3 m kayık olabilir → ±2). Doğu ucu uzak (x>655 kesildi).",
+   "evidence": [
+    "voTOzp6lozJhr5RdKNZhUg_90_-50.jpg"
+   ],
+   "x": 651.07,
+   "z": -74
+  },
+  {
+   "id": "rb-mh-s1",
+   "street": "Özlüce kavşağı güney kolu (Özlüce Bulvarı güney girişi)",
+   "kind": "manhole",
+   "x": 611.06,
+   "z": -56.18,
+   "r": 0.33,
+   "shape": "round",
+   "note": "Yuvarlak kapak; hava fotoğrafı koyu disk (611.06,-56.18) + Z8D7 180/-50 (505,58) GPS'le (612.05,-56.76). ±0.5.",
+   "evidence": [
+    "Z8D7whYZGwd7tZ7YkVTnDw_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "rb-mh-sw1",
+   "street": "Özlüce kavşağı GB (DA batı giriş kolu – ring)",
+   "kind": "manhole",
+   "x": 603.59,
+   "z": -64.76,
+   "r": 0.33,
+   "shape": "round",
+   "note": "Yuvarlak kapak; hava fotoğrafı koyu disk + Z8D7 270/-50 (205,52) GPS'le (604.47,-65.5). ±0.6.",
+   "evidence": [
+    "Z8D7whYZGwd7tZ7YkVTnDw_270_-50.jpg"
+   ]
+  },
+  {
+   "id": "rb-mh-sw2",
+   "street": "Özlüce kavşağı GB (ring)",
+   "kind": "manhole",
+   "x": 605.83,
+   "z": -66.82,
+   "r": 0.33,
+   "shape": "round",
+   "note": "Yuvarlak kapak; hava fotoğrafı koyu disk + yArg 180/-50 (570,76) GPS'le (606.28,-67.49). ±0.6.",
+   "evidence": [
+    "yArg8CeawGVHq7WXMN-a1w_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "rb-mh-w",
+   "street": "Özlüce kavşağı batı (DA batı kolları ağzı, ring)",
+   "kind": "manhole",
+   "x": 605.5,
+   "z": -81,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak; yArg 270/-50 (452,120) GPS'le (605.7,-80.6); hava fotoğrafında zayıf koyu leke (605.24,-81.70). ±1.",
+   "evidence": [
+    "yArg8CeawGVHq7WXMN-a1w_270_-50.jpg"
+   ]
+  },
+  {
+   "id": "rb-mh-s2",
+   "street": "Özlüce kavşağı güney (ring)",
+   "kind": "manhole",
+   "x": 619.79,
+   "z": -59.58,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak; yalnız SV Z8D7 180/-50 (237,85), GPS pozu, hava fotoğrafında seçilmedi. ±1.5.",
+   "evidence": [
+    "Z8D7whYZGwd7tZ7YkVTnDw_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "rb-mh-s3",
+   "street": "Özlüce kavşağı güney (ring, ada güneyi)",
+   "kind": "manhole",
+   "x": 627.4,
+   "z": -61.2,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak; f47o 180/-50 (240,198) GPS'le (627.77,-60.64); en yakın hava fotoğrafı lekesi (626.4,-61.4). ±1.",
+   "evidence": [
+    "f47ocZZkTBlzvqZvecJZPQ_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "rb-mh-se",
+   "street": "Özlüce kavşağı GD (ring)",
+   "kind": "manhole",
+   "x": 643.35,
+   "z": -72,
+   "r": 0.3,
+   "shape": "round",
+   "note": "Yuvarlak kapak; yalnız SV VsNJ 90/-50 (36,120), GPS pozu. Hava fotoğrafında 3 m batıda koyu disk (640.25,-71.86) var — aynı kapak olabilir (GPS hatası) → konum ±3, ana oturum hava fotoğrafını tercih edebilir.",
+   "evidence": [
+    "VsNJjxJK2WeSewaqPgL2LQ_90_-50.jpg"
+   ]
+  },
+  {
+   "id": "oz-n-dark-618",
+   "street": "Özlüce Bulvarı kuzey kolu (güneye giren şeritler, ada batısı)",
+   "kind": "pothole",
+   "x": 618.48,
+   "z": -109.71,
+   "r": 0.4,
+   "color": "#5d6565",
+   "rim": "#8a8b88",
+   "note": "Sağ şeritte koyu, pürüzlü, kenarları dağınık ≈0.8 m leke — sığ çukur ya da çökmüş rögar çevresi (kapak seçilemedi). Ham (gölge yok, difüz): #545e64, çevre #7c8187. JT30 180/-50 tek pano, GPS pozu ±1.",
+   "evidence": [
+    "JT30URaOLLyp4Qv-r-CT_A_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "oz-n-broken-617",
+   "street": "Özlüce Bulvarı kuzey kolu, batı kenar çizgisi yanı",
+   "kind": "patch",
+   "poly": [
+    [
+     617.65,
+     -108
+    ],
+    [
+     616.69,
+     -108
+    ],
+    [
+     617.53,
+     -111.52
+    ],
+    [
+     618.03,
+     -111.52
+    ]
+   ],
+   "color": "#737470",
+   "over": false,
+   "note": "Kenar çizgisinin yol tarafında ufalanmış/kırık asfalt şeridi ≈0.5–0.9 m × 3.5 m (çatlak ağı). Ham: #676c6f, çevre #7c8187. JT30 180/-50, ±1.",
+   "evidence": [
+    "JT30URaOLLyp4Qv-r-CT_A_180_-50.jpg"
+   ],
+   "x": 617.48,
+   "z": -109.76
+  },
+  {
+   "id": "oz-n-drain-641",
+   "street": "Özlüce Bulvarı kuzey kolu doğu bordürü (kuzeye çıkan)",
+   "kind": "drain",
+   "x": 640.78,
+   "z": -116.19,
+   "rot": 90,
+   "note": "Izgara doğu bordür dibinde. kr3o 0/-50 (540,215), GPS ±0.8.",
+   "evidence": [
+    "kr3oPnpiNwRexY3QauvS9Q_0_-50.jpg"
+   ]
+  },
+  {
+   "id": "504-drain-n16",
+   "street": "504. Sokak güney bordürü (502 kavşağından ≈10 m)",
+   "kind": "drain",
+   "x": 15.95,
+   "z": -75.86,
+   "rot": 90,
+   "note": "ChHr 180/-50'de GÜNEY yakada bordür dibinde ızgara (175,200) → (15.95,-75.86); GPS pozu ±0.8 (bu sokakta panolar 502'deki gibi kayık olabilir).",
+   "evidence": [
+    "ChHr_mwowaLdyXZO42d9wg_180_-50.jpg"
+   ]
+  },
+  {
+   "id": "504-drain-34",
+   "street": "504. Sokak (x≈34)",
+   "kind": "drain",
+   "x": 33.63,
+   "z": -80.01,
+   "rot": 90,
+   "note": "Küçük ızgara mavi bisiklet şeridi ile şerit arasındaki oluk/derzde. -KU8 90/-50 (301,84), GPS ±1.",
+   "evidence": [
+    "-KU85kKj_bm0HmAaEE6OAg_90_-50.jpg"
+   ]
+  },
+  {
+   "kind": "board",
+   "id": "da2-streetname-503",
+   "x": 192.75,
+   "z": -150.0,
+   "rot": 90,
+   "w": 0.9,
+   "h": 0.28,
+   "y0": 2.35,
+   "d": 0.03,
+   "poles": 1,
+   "poleC": "#e4e6e6",
+   "lines": [
+    {
+     "text": "… MAHALLESİ",
+     "fg": "#1d3f8a",
+     "size": 0.8,
+     "bold": true
+    },
+    {
+     "text": "503. SOKAK",
+     "fg": "#1d3f8a",
+     "bold": true
+    }
+   ],
+   "bg": "#f2f3f1",
+   "fg": "#1d3f8a",
+   "border": "#f2f3f1",
+   "font": "sans",
+   "bold": true,
+   "arrow": {
+    "side": "left",
+    "color": "#2d5bb0"
+   },
+   "note": "2026-09 (eleştirmen da2-02): 503. Sk. batı kaldırımında, köşeye yakın beyaz direkte sokak adı levhası: beyaz zemin, sol ucunda (doğudan bakınca; güneyi, 503'ü gösterir) mavi üçgen ok (arrow — kod bekliyor), iki satır lacivert yazı; üst satırın başı bu çözünürlükte OKUNAMADI ('… MAHALLESİ' — muhtemelen mahalle adı, okunmadığı için yazılmadı), alt satır '503. SOKAK'. SV l07h_240_0: kerteriz 268.8°, direk dibi −21.4° → pano GPS'i +4.5 m doğuya düzeltilerek (193.65,−150.03) → bordürün 0.25 m içine alındı. Yüz doğuya (503 yoluna) bakar (rot 90). Arka yüz görülmedi. Renkler bulutlu (yaklaşık). Boyut levha/direk oranından ≈0.9 × 0.28 m, alt kenar ≈2.35 m."
+  },
+  {
+   "kind": "board",
+   "id": "da1-fence-plate-121",
+   "x": 121.0,
+   "z": -155.85,
+   "rot": 0,
+   "w": 0.3,
+   "h": 0.3,
+   "y0": 1.7,
+   "d": 0.01,
+   "poles": 0,
+   "text": "",
+   "bg": "#f1e9ea",
+   "fg": "#c8323c",
+   "border": "#f1e9ea",
+   "font": "sans",
+   "bold": true,
+   "note": "2026-09 (eleştirmen da1-09 'kırmızı SATILIK levhası'): da1-south-site çitinin tel panelinde (sokak yüzü) küçük beyaz levha: solda kırmızı yuvarlak logo, üstte küçük kırmızı yazı, altta kalın kırmızı satır — YAZI OKUNAMADI ('SATILIK' okunmadı → metin yazılmadı). SV XO-B_224_5_40 + 180_0 (kerteriz 221.9° × çit hattı, 10 m; merkez ≈1.85 m); boyut ≈0.3 × 0.3 m. Renk bulutlu kareden yaklaşık."
+  },
+  {
+   "kind": "board",
+   "id": "da2-503-fence-plate",
+   "x": 191.0,
+   "z": -150.25,
+   "rot": 90,
+   "w": 0.35,
+   "h": 0.3,
+   "y0": 1.52,
+   "d": 0.01,
+   "poles": 0,
+   "text": "",
+   "bg": "#f1e3e4",
+   "fg": "#c8323c",
+   "border": "#f1e3e4",
+   "font": "sans",
+   "bold": true,
+   "note": "2026-09 (eleştirmen da2-02 'small red board'): 503. Sk. batı çitinin (da2-fence-503-west) tel panelinde, köşe kolonunun güneyinde küçük beyaz/pembe levha, kırmızı yazı + solda logo — YAZI OKUNAMADI. SV l07h_240_0 (kerteriz 270.7°, pano GPS'i +4.5 m düzeltilerek; 8.3 m; merkez ≈1.68 m), boyut ≈0.35 × 0.3 m. Yüz doğuya (503. Sk.)."
   }
  ],
  "notes": [
@@ -7188,6 +8725,7 @@
   "retro-2 renk: 2025-09 SV kareleri güneşli yamalarda aşırı pozlu (kilit taşı ≈#d9cfb4–#dfd2b5, kırmızı bant ≈#ceb69e–#dcc7af, mavi şerit ≈#bbc6cf); kapalı havada ıslak kullanıcı fotoğrafları daha gerçek ton veriyor: batı gri kilit taşı ≈#85796d, doğu ≈#948d85, bordür ≈#756b62–#888178, sarı kılavuz ≈#c1996f–#cfa577, mavi şerit ≈#677a88, doğu taş dokulu duvar ≈#93897c. Gölgeli yamalar: doğu kaldırımı ≈#51565f, beyaz kabartmalı duvar ≈#60605a–#687176.",
   "retro-3 BEKLİYOR (ifade edilemedi / görülmedi): (a) 502 doğu yakası güney duvarında (east-fence-south) kolonlar tek tek görülmedi (yalnız biri); (b) 504 Sk. kuzey yakası: kaldırım ≈1.5 (z −84.9…−86.4), arkasında düz gri beton duvar + tel panel — çit kaydı yok (köşe pahı ve 504 boyu ölçülmedi); Şehr-i Bursa czGR önündeki panel yaya kapısı ve 504 pah/kuzey duvarı (bkz. east-fence-sehri-bursa notu); (c) 504 köşelerindeki turuncu dikmeler ve güney köşe ızgarası tek tek; (d) mavi bisiklet şeridinin 504 kavşağında 502 batı şeridine bağlantısı (geçit boyası) bulanık zemin nedeniyle görülmedi; (e) 502 ve DA asfaltında çatlak dolgu çizgileri / yamalar (Oh3B_120_0, G8RU_180_0) konumlanmadı; (f) Salus önü kaldırım (salus-east notu).",
   "retro-4 MERTKENT 3 SİTESİ girişi (koordinatör isteği; 529911717 tek yön sokak, z≈−15.7, 1480041300/1480041301 blokları arası; SV HZb9_240_0, S66M_120_0/180_0, 2025-09): araç girişi üstünde antrasit portal — iki kare kolon (≈0.9–1.0 m genişlik, sokak yüzü güneşte ≈#99a2a3, gölgede ≈#4b4e4c) ve üstte kolonları birleştiren kiriş; kirişin sokağa (kuzeye) bakan yüzünde beyaz kalın büyük harf sans \"MERTKENT 3 SİTESİ\" (harf ≈0.45–0.55 m); kiriş üst kotu ≈5.5–6 m, kiriş yüksekliği ≈1.0–1.3 (düz karede kamera ≈2.17 m ile oransal, ±0.8); altında siyah ferforje kapı (kıvrımlı süs bandı, mızrak uçlu), batı kolonda yuvarlak turuncu çerçeveli trafik aynası; iki yanda koyu yeşil 2D tel panel + leylandi. Merkez ≈(−39.6,−12.5) (OSM otopark yolu 1550820717 ucu + iki pano kerterizi, ±1.5 m); açıklık genişliği ÖLÇÜLMEDİ (≈5–6). street-plan kapı türü (da* dışı kimlikler Mertkent-2 kapısı olarak çiziliyor) ve board türü (tek/çift direkli pano) bu portalı ifade edemiyor → kayıt olarak eklenmedi; portal üreticisi gerekiyor.",
-  "2026-09 Park Koza girişi (site.ts buildParkKoza, sabit kod — veri değil; eleştirmen V15 #4/#21): SV l4zdb_323_-15_40 yakın plan: 'PARK KOZA' / 'SİTESİ' iki satır krem-altın 3B harf, duvarın ÜSTÜNDE yatay koyu metal parmaklık (≈3 yatay lama) üzerine takılı — duvar yüzünde değil; harf üst kotu ≈2.3, alt satır ≈1.8 m (l4zdb_300_0, 5 m). Duvar: kaba (serpme) beyaz sıva, üstü yuvarlatılmış, h ≈1.6 m. Kolon: kaba beyaz sıva, açık gri taş başlık, üstünde küçük siyah fener. Kapı: gri 2D kaynaklı tel panel, koyu gri kutu profil çerçeve, döner kanat. Kapı batı kolonunun önünde beyaz direkte yuvarlak dışbükey ayna (arka yüzü gri). Duvar önünde turuncu-beyaz esnek dikme. Duvarın arkasında leylandi/servi çit."
+  "2026-09 Park Koza girişi (site.ts buildParkKoza, sabit kod — veri değil; eleştirmen V15 #4/#21): SV l4zdb_323_-15_40 yakın plan: 'PARK KOZA' / 'SİTESİ' iki satır krem-altın 3B harf, duvarın ÜSTÜNDE yatay koyu metal parmaklık (≈3 yatay lama) üzerine takılı — duvar yüzünde değil; harf üst kotu ≈2.3, alt satır ≈1.8 m (l4zdb_300_0, 5 m). Duvar: kaba (serpme) beyaz sıva, üstü yuvarlatılmış, h ≈1.6 m. Kolon: kaba beyaz sıva, açık gri taş başlık, üstünde küçük siyah fener. Kapı: gri 2D kaynaklı tel panel, koyu gri kutu profil çerçeve, döner kanat. Kapı batı kolonunun önünde beyaz direkte yuvarlak dışbükey ayna (arka yüzü gri). Duvar önünde turuncu-beyaz esnek dikme. Duvarın arkasında leylandi/servi çit.",
+  "2026-09 yol yüzeyi taraması (road-items.json, ayrı ajan) birleştirildi: 74 öğe (yama/çatlak/çukur/rögar/ızgara + Cavit Orhan z≈−26 sarı-beyaz zebra), 4 geçide wear yazıldı (da3-zebra-de-n 0.5, de-s 0.6, on 0.2, 502-nato-crossing 0.35), 4 konum düzeltmesi (502 dekoratif rögar, 502 ızgara z −114.35, da2-mh-2/-3 ≈3 m doğuya). Görülmeyen/kaydedilmeyenler: 502. Sk. z≈-114.6 (x 3–9): hava fotoğrafında ızgaradan (8.8) batıdaki koyu diske (3.2,-114.5) giden ince enine koyu çizgi (olası boru tranşesi) — SV'de bu satırlar araç tavanı bulanıklığında (czGR/_zvj) kalıyor, doğrulanmadı; batı disk park etmiş aracın altında. || 502. Sk. z -45…-40 (x 3–7): hava fotoğrafında kavisli ince koyu çizgi (çatlak/tranşe?) — I52t/U-Oz8 zemin karelerinde bulanık bölgede, doğrulanmadı. || 502. Sk. güney kavşağı doğu yakası (5.0,-38.3) ve (8.3,-39.3): hava fotoğrafında koyu lekeler (ızgara olabilir) — I52t 90/-50 bulanıklıkta, görülmedi. || 502. Sk. orta çizgi ve batı bisiklet şeridinin beyaz kesikli kenar çizgisi (z -40…-140): 2025-09 karelerinde parlak ve keskin, aşınma görülmedi (wear kaydı yok). NOT: oyun orta çizgiyi OSM ekseninde çiziyor (z -100'de x≈6.4); gerçek (SV/hava) orta çizgi x≈5.2–5.8 — konum farkı ≈0.6–1.2 m. || İsimsiz güney sokak (338371627, x -75…-5): tek şeritli dar asfalt; 2025-09 karelerinde (MUMV…gPUM) yama/çatlak/rögar görülmedi (tek ızgara hariç); hoOD 270/-50'de kaldırım tarafında olası hafif boyuna ton farkı, emin değil → kaydedilmedi. Oyunda bu yolda çizgi yok, gerçekte de orta çizgi yok (tek yön). || Cavit Orhan Tütengil Cd. z -40…-150: asfalt temiz (yeni kaplama görünümü), çatlak/yama görülmedi; kesikli orta çizgi parlak, aşınma görülmedi. Doğu park bandı kırmızı kilit taşı (asfalt değil). Kavşak ağızları dışında rögar/ızgaralar yalnız listelenenler. || da1-mh-1 / da1-grate-1 (x≈115–117): SV n1yU 180/-50 ile doğrulandı (kapak kenar çizgisinin yol tarafında, ızgara çizgi ile bordür arasında, ızgara kapağın 1.3 m doğusunda) — mevcut konumlar ±0.5 içinde, düzeltme yok. Hava fotoğrafında 1–2 m kuzeydeki iki koyu leke (117.1,-161.3), (117.9,-162.1) SV'de karşılığı görülmedi (leke/eski yama olabilir) → kaydedilmedi. || da1-mh-2 / da1-grate-2 / da1-mh-3 (x≈155–158): RW5- 180/-50 ile doğrulandı (rögar kenar çizgisi üzerinde, açık beton kare çerçeveli; ızgara ≈0.9×0.5 beton çerçeveli; da1-mh-3 kaldırım kırmızı bandında) — düzeltme yok. || Doğan Avcıoğlu x 182–187 (SyTa, 2025): yolu çapraz kesen ≈0.4 m koyu yumuşak kenarlı bant (SyTa 270/-50, 240/0, 300/0) — yama mı gölge mi ayırt edilemedi (yalnız tek pano, komşu pano o kesimi bulanıklıkta görüyor) → kaydedilmedi. || Yan sokak (303589053) x 197–265 (75qZ…UXy7): kaldırımsız dar asfalt; modüler kauçuk hız kesici UXy7 90/-50'de mevcut kayıtla (da3-bump-side) uyumlu. Başka yama/çatlak seçilmedi (x<265 street-plan kapsamı dışında, ayrıntılı taranmadı). || Doğan Avcıoğlu x 245–590 (da3, Server Tanilli kavşağı dahil): bu kesimde Street View zemin karesi YOK → hiçbir öğe kaydedilmedi. Hava fotoğrafında (aerial-e z21) rögar olabilecek koyu diskler (Ø≈0.5–0.8): (434.73,-94.90), (513.92,-90.72), (515.23,-91.81), (564.63,-90.56), (563.03,-89.23), (393.00,-93.99), (333.86,-111.80) — SV doğrulaması olmadığından kaydedilmedi. x 354–364, z≈-100.3'teki koyu şerit (≈10×1 m) yama ya da park aracı gölgesi olabilir — ayırt edilemedi. Büyük (hava fotoğrafında açıkça seçilen) yama görülmedi. Yol çizgileri hava fotoğrafında keskin; aşınma değerlendirilemedi. || DA doğusu x>729 (amsc, E-FB): kapsam dışı (amsc 90/-50'de (742.9,-73.6) rögar ve oluk boyunca kırık asfalt görüldü, kaydedilmedi). || DA doğusu (696.56,-80.29) ve (696.85,-76.91): hava fotoğrafında iki koyu disk (rögar?) — SV'de araç/bulanıklık altında, doğrulanmadı. || DA doğusu kuzey şeridi (dönüş/park yakası) z −80…−85: DIKa/Q5IC/pc3Z kuzey kareleri park araçları arkasında; Q5IC 0/-50'de kuzey bordürde ızgara (695.8,-82.0) görüldü → kaydedildi. || Özlüce kavşağı ring yolu: yama/çukur görülmedi; f47o 180/-50'deki koyu çapraz izler lastik izi (yama değil) → kaydedilmedi. Ring dönüş/kenar çizgileri ve 'yol ver' çizgileri (drkr 0/-50, 90/-50) orta derecede aşınmış görünüyor ama çizici bu çizgileri çizmiyor → wear kaydı yok. Kavşak panolarının GPS'i ada bordürüne göre tutarsız (kerb uydurması 1–3.5 m farklı sonuç verdi) → kavşak öğeleri ±1–2 m. || Özlüce Bulvarı kuzey kolu yaya geçidi (da3-zebra-on): JT30 90/-50 karesinde zebra şeritleri arasında kırmızı boyalı zemin görülüyor (renkli yaya geçidi); renderer kırmızı zemin çizmiyor — yalnız not. kr3o 270/-50: şeritler belirgin, aşınma ≈0.2 (wear-da3-zebra-on). || Özlüce Bulvarı kolları (25 m): güney kolu (gne0, X1ml, azd0, OdoT) ve kuzey kolu (0oDN, 1Wmb) — yama/çatlak görülmedi (gne0 0/-50'de küçük yağ lekesi, kaydedilmedi). 141. Sokak (alOg, JvZ5): ağız dışında öğe görülmedi. 503. Sk. (HVLz, l07h): DA ağzı dışında öğe görülmedi. Cavit Orhan DA kuzeyi (EbG3): öğe görülmedi."
  ]
 }

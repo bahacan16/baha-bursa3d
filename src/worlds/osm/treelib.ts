@@ -195,7 +195,9 @@ export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
         twist: [0, 0, 0],
         whorl: [0, 3, 0],
         leaderDroop: 0.7,
-        leaves: { angle: 58, count: 9, start: 0.05, size: 5.2, sizeVariance: 0.3, double: true },
+        // KARAR: 9 → 12 kart / sürgün (critic M2 #16: yakın planda taç seyrek, arkası görünüyor — Street View'da sık,
+        // opak koyu taç). Renk değiştirilmedi (önceki güneşli SV yama kalibrasyonu, finishLeaves notu)
+        leaves: { angle: 58, count: 12, start: 0.05, size: 5.2, sizeVariance: 0.3, double: true },
       },
     },
     tile: TILE.cedar,

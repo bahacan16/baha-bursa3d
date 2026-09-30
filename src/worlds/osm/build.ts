@@ -25,7 +25,7 @@ export interface BuildOptions {
   /** OSM kaldırımı üretilmeyecek bölgeler (ölçülmüş sokak planı, düz [x,z,...] halkalar) */
   noSidewalkZones?: number[][];
   /** v7: ölçülmüş yol çizgisi düzeltmeleri (OSM yol kimliği → orta / kenar çizgisi: none | dashed | solid) */
-  roadMarks?: Record<string, { centre?: string; edges?: string }>;
+  roadMarks?: Record<string, { centre?: string; edges?: string; shift?: [number, number] }>;
   /** Ölçülmüş bölge: yordamsal lamba / park etmiş araç üretilmez (props.ts) */
   noPropZones?: PropZone[];
 }

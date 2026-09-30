@@ -19,6 +19,8 @@ import { buildMertkentFence, type FenceSpec } from './fence2';
 import { buildGenericFence, buildWroughtGate, type GenericFence } from './fenceGeneric';
 import {
   buildSitePlan,
+  nearPlanLine,
+  planLines,
   PARK_PLAN,
   SITE_PLAN,
   STREET_PLAN as STREET_PLAN0,
@@ -166,34 +168,6 @@ function ringOf(simple: SimpleOsm, id: number): V2[] | null {
   const l = r[r.length - 1];
   if (r.length > 3 && f[0] === l[0] && f[1] === l[1]) r.pop();
   return r;
-}
-
-/** Ölçülmüş çit hatları (tampon 2.5 m) ve kaldırım bordür hatları (tampon w + 2 m) — eski çit kabuğu atlama testi */
-export function planLines(plan: StreetPlan): { pts: V2[]; r: number }[] {
-  const out: { pts: V2[]; r: number }[] = [];
-  for (const f of (plan.fence ?? []) as { pts?: V2[] }[])
-    if (f.pts && f.pts.length >= 2) out.push({ pts: f.pts, r: 2.5 });
-  for (const sw of plan.sidewalks ?? []) if (sw.pts.length >= 2) out.push({ pts: sw.pts, r: sw.w + 2 });
-  return out;
-}
-
-export function nearPlanLine(lines: { pts: V2[]; r: number }[], x: number, z: number): boolean {
-  for (const l of lines)
-    for (let i = 0; i + 1 < l.pts.length; i++) {
-      const a = l.pts[i];
-      const e = l.pts[i + 1];
-      if (
-        Math.abs(x - a[0]) > l.r + Math.abs(e[0] - a[0]) ||
-        Math.abs(z - a[1]) > l.r + Math.abs(e[1] - a[1])
-      )
-        continue;
-      const dx = e[0] - a[0];
-      const dz = e[1] - a[1];
-      const L2 = dx * dx + dz * dz || 1;
-      const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / L2));
-      if (Math.hypot(x - a[0] - dx * t, z - a[1] - dz * t) <= l.r) return true;
-    }
-  return false;
 }
 
 function distToRing(r: V2[], x: number, z: number): number {
@@ -1875,7 +1849,7 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // çevresini kapsıyordu (x < 28); DA boyunca eski çalı kabukları ölçülmüş duvarın ~1.3 m önünde kalıyordu (critic
   // A2) → ölçülmüş çit hattına 2.5 m'den yakın ya da ölçülmüş kaldırım bandının (bordürden w + 2 m) içindeki eski
   // kabuk parçası da atlanır.
-  const measuredLines = planLines(STREET_PLAN);
+  const measuredLines = planLines(STREET_PLAN as StreetPlan);
   const fenceSkip = (x: number, z: number) =>
     (x > -142 && x < 28 && z > -222 && z < 4) ||
     nearSite(x, z) ||

@@ -116,6 +116,11 @@ export interface StreetPlan {
     id: string | number;
     centre?: 'none' | 'dashed' | 'solid';
     edges?: 'none' | 'solid';
+    /**
+     * Orta çizginin OSM eksenine göre dünya kayması [dx, dz] (m): ölçülen gerçek çizgi OSM ekseninden farklıysa
+     * (ör. 502. Sk. z −100'de OSM x≈6.4, gerçek x≈5.2–5.8 → [-0.9, 0]). Kenar çizgileri etkilenmez.
+     */
+    centreShift?: [number, number];
     note?: string;
   }[];
 }
@@ -199,7 +204,7 @@ export function surveyVegetation(): {
   excludeZones: number[][];
   noSidewalkZones: number[][];
   /** v7: OSM yol çizgisi düzeltmeleri (id → orta / kenar çizgisi) */
-  roadMarks: Record<string, { centre?: string; edges?: string }>;
+  roadMarks: Record<string, RoadMark>;
   noPropZones: { p: number[]; r: number; closed?: boolean }[];
 } {
   const fixedTrees: number[] = [];
@@ -322,12 +327,53 @@ export function surveyVegetation(): {
       );
     }
   }
-  const roadMarks: Record<string, { centre?: string; edges?: string }> = {};
+  const roadMarks: Record<string, RoadMark> = {};
   for (const r of STREET_PLAN.roads ?? []) {
     const id = typeof r.id === 'number' ? `w${r.id}` : /^\d+$/.test(r.id) ? `w${r.id}` : r.id;
-    roadMarks[id] = { ...(r.centre ? { centre: r.centre } : {}), ...(r.edges ? { edges: r.edges } : {}) };
+    roadMarks[id] = {
+      ...(r.centre ? { centre: r.centre } : {}),
+      ...(r.edges ? { edges: r.edges } : {}),
+      ...(r.centreShift && r.centreShift.length === 2 && r.centreShift.every(Number.isFinite)
+        ? { shift: [r.centreShift[0], r.centreShift[1]] as [number, number] }
+        : {}),
+    };
   }
   return { fixedTrees, excludeZones, noSidewalkZones, roadMarks, noPropZones: surveyedPropZones() };
+}
+
+/** OSM yol çizgisi düzeltmesi (roads.ts): orta / kenar çizgisi türü, orta çizgi dünya kayması */
+export interface RoadMark {
+  centre?: string;
+  edges?: string;
+  shift?: [number, number];
+}
+
+/** Ölçülmüş çit hatları (tampon 2.5 m) ve kaldırım bordür hatları (tampon w + 2 m) — eski çit kabuğu atlama testi */
+export function planLines(plan: StreetPlan): { pts: V2[]; r: number }[] {
+  const out: { pts: V2[]; r: number }[] = [];
+  for (const f of (plan.fence ?? []) as { pts?: V2[] }[])
+    if (f.pts && f.pts.length >= 2) out.push({ pts: f.pts, r: 2.5 });
+  for (const sw of plan.sidewalks ?? []) if (sw.pts.length >= 2) out.push({ pts: sw.pts, r: sw.w + 2 });
+  return out;
+}
+
+export function nearPlanLine(lines: { pts: V2[]; r: number }[], x: number, z: number): boolean {
+  for (const l of lines)
+    for (let i = 0; i + 1 < l.pts.length; i++) {
+      const a = l.pts[i];
+      const e = l.pts[i + 1];
+      if (
+        Math.abs(x - a[0]) > l.r + Math.abs(e[0] - a[0]) ||
+        Math.abs(z - a[1]) > l.r + Math.abs(e[1] - a[1])
+      )
+        continue;
+      const dx = e[0] - a[0];
+      const dz = e[1] - a[1];
+      const L2 = dx * dx + dz * dz || 1;
+      const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / L2));
+      if (Math.hypot(x - a[0] - dx * t, z - a[1] - dz * t) <= l.r) return true;
+    }
+  return false;
 }
 
 /** `treeExclude` öğesi (site/street/park-plan.json): çokgen ya da daire */

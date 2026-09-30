@@ -3550,6 +3550,11 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           const depth = Math.max(0.2, Math.min(dep - 0.2, it.off ?? 0.45));
           const uu = depth * (tS[0] * -E[i].n[0] + tS[1] * -E[i].n[1] > 0 ? 1 : -1);
           unit(b, Es, Ps, i, { ...it, u: uu, onBal: false, off: null }, floorY(it.s), o.seed);
+        } else if (it.onBal && it.t === 'dish' && (rec || voidAt(i, it.u, it.s))) {
+          // Gömük (d:0) locanın korkuluğunda asılı çanak: korkuluk loca ağzında, cephe düzleminde → çanak düzlemin
+          // hemen önünde (off, varsayılan 0.3 m). Önceden ya çıkma balkon varsayımıyla 1.35 m önde havada ya da (onBal
+          // işaretsiz) loca arka duvarına taşınıyordu (Mertkent-2 anket ajanı, 2026-09-30)
+          unit(b, E[i], P, i, { ...it, off: it.off ?? 0.3 }, floorY(it.s), o.seed);
         } else {
           const rdU = rec ? rec.depth : vd ? voidDepth(vd, i) : 0;
           const Pu: PFn = rdU > 0 ? (ii, u, off = 0) => P(ii, u, off - rdU) : P;
@@ -6690,7 +6695,8 @@ function unit(b: Builder, E: Edge, P: PFn, i: number, it: CUnit, yFloor: number,
       }
     }
   } else if (it.t === 'dish') {
-    const off = it.onBal ? 1.35 : 0.35;
+    // Duvardan uzaklık: ölçülen `off` (ör. gömük loca korkuluğu 0.3), yoksa çıkma balkon korkuluğu 1.35 / duvar 0.35
+    const off = it.off ?? (it.onBal ? 1.35 : 0.35);
     const c = P(i, it.u, off);
     const y = yFloor + (it.y ?? (it.onBal ? 1.25 : 1.8));
     const dish = new THREE.SphereGeometry(0.36, 14, 4, 0, Math.PI * 2, 0, 0.55);
