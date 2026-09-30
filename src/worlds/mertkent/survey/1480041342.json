@@ -849,60 +849,76 @@
       },
       "items": [
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 4.07,
           "w": 0.25,
           "y0": 2.3,
-          "y1": 10.45
+          "y1": 10.45,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 5.72,
           "w": 0.25,
           "y0": 2.3,
-          "y1": 10.45
+          "y1": 10.45,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 6.72,
           "w": 0.25,
           "y0": 2.3,
-          "y1": 10.45
+          "y1": 10.45,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 8.4,
           "w": 0.25,
           "y0": 2.3,
-          "y1": 10.45
+          "y1": 10.45,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 4.07,
           "w": 0.25,
           "y0": 11.4,
-          "y1": 22
+          "y1": 22,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 5.72,
           "w": 0.25,
           "y0": 11.4,
-          "y1": 22.55
+          "y1": 22.55,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 6.72,
           "w": 0.25,
           "y0": 11.4,
-          "y1": 23.1
+          "y1": 23.1,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
-          "t": "strip",
+          "t": "pilaster",
           "u": 8.4,
           "w": 0.25,
           "y0": 11.4,
-          "y1": 22.9
+          "y1": 22.9,
+          "d": 0.03,
+          "color": "#d7cbb9"
         },
         {
           "t": "win",
@@ -1049,7 +1065,7 @@
           "color": "#aaafb1"
         }
       ],
-      "note": "aufI referans (7 m, aşırı pozlanmış; Wi7U ağaçla kapalı). Şeritler bej görünür (gerçek renk turuncu). Pencere çifti batı iç köşe kütlesi ile doğu uç (u≈10, GD kütlesi) arasında ortalı, cephe ortasına göre ~1.2 m doğuda. Üçgen alınlık tepesi u≈6.75. RETRO: aufI 4_13/4_35/4_56/339_35 yakın kareleri: batı sütun K0 tül, K1–K2 zebra, K3 tül+bej yan perde, K4–K5 tül; doğu sütun K0–K1 tül, K2 zebra, K3–K5 tül. Pencerelerin lento üstünde hafif gölge (girinti ~5 cm). Şeritler bu cephede bej-kum görünür (aşırı pozlama; 42/8’de aynı şeritler turuncu #dea973). Gri üst sıva y≈10.9 (aşırı pozlamada zayıf seçiliyor, 4_56’da sınır net). v5: kat hizası derzleri K2 8.10 / K3 (sıva sınırı 10.90) / K4 13.57 — groove (pano K4 hizasında bölündü). v6: alınlık (roof gable, tepe üreticide u≈7.3 — fotoğrafla uyumlu); gri üst sıva alınlığa kadar; GB iç kütlenin şapka alnı alınlık eğimine kadar gri pano (u −0.12–2.25). Batı sütun K3 bej yan perde #a49d97 (aşırı pozlama, açık görünebilir)."
+      "note": "aufI referans (7 m, aşırı pozlanmış; Wi7U ağaçla kapalı). Pencere çifti batı iç köşe kütlesi ile doğu uç (u≈10, GD kütlesi) arasında ortalı, cephe ortasına göre ~1.2 m doğuda. Üçgen alınlık tepesi u≈6.75. RETRO: aufI 4_13/4_35/4_56/339_35 yakın kareleri: batı sütun K0 tül, K1–K2 zebra, K3 tül+bej yan perde, K4–K5 tül; doğu sütun K0–K1 tül, K2 zebra, K3–K5 tül. Pencerelerin lento üstünde hafif gölge (girinti ~5 cm). Gri üst sıva y≈10.9 (aşırı pozlamada zayıf seçiliyor, 4_56’da sınır net). v5: kat hizası derzleri K2 8.10 / K3 (sıva sınırı 10.90) / K4 13.57 — groove (pano K4 hizasında bölündü). v6: alınlık (roof gable, tepe üreticide u≈7.3 — fotoğrafla uyumlu); gri üst sıva alınlığa kadar; GB iç kütlenin şapka alnı alınlık eğimine kadar gri pano (u −0.12–2.25). Batı sütun K3 bej yan perde #a49d97 (aşırı pozlama, açık görünebilir). Eleştirmen düzeltmesi (2026-09-30, §0.1): şeritler bu cephede GERÇEKTEN soluk bej-kum (turuncu değil) — 'e8 benzetmesi' kaldırıldı. Aynı karede şerit/duvar oranı: aufI 4_13 (güneşli, alt şeritler) #f0ebe2–#f1e9de / duvar #f9fafb → .96/.93/.89; 4_35 alt #ede3d8 / #fafafc, üst #eedfd0 / #f5f5f7 → .97/.91/.84; MUMV_300'de de soluk. Karşılaştırma: aynı bloğun güneye bakan e3 şeritleri BfxM 18_24'te güneşte #f5d3b1 / duvar #fcfdfe (.97/.83/.70 → turuncu), e8 U-Oz8'de turuncu → fark pozlama değil, güneye bakan bu cephede şeritler solmuş/farklı boya. Şemada şerit başına renk yok → 8 şerit aynı u/w/y ile `pilaster` (renk #d7cbb9 = beyaz sıva #e0dfd8 × ölçülen oran; d 0.03 yan gölge genişliğinden, ölçülmedi) olarak yazıldı; yuvarlak uçlar kayboldu → pending 'strip-color'."
     },
     {
       "edge": 6,
@@ -2449,6 +2465,69 @@
       "what": "GD kütlesi arkasında ikinci baca",
       "edge": 8,
       "detail": "l4zdb ortofotosunda GD şapkasının arkasında kiremit kırma başlıklı ikinci bir baca (l4zdb görünen u≈3.3, tepe ≈21.4) var; U-Oz8’de şapka arkasında kalıyor, iki görüntüden konumu (u/setback) güvenilir çıkarılamadı → yazılmadı."
+    },
+    {
+      "what": "strip-color",
+      "edge": 5,
+      "note": "1480041342 e5 (güney cephe) şeritleri soluk bej-kum #d7cbb9 (güneşli; oran ölçümleri e5 notunda). Şemada Strip.color yok → geçici olarak pilaster ile çizildi (uçlar düz). Üretici Strip'e `color` eklerse bu 8 öğe tekrar strip olmalı (alt şeritlerin üst uçları yuvarlak, aufI 4_35).",
+      "strips": [
+        {
+          "t": "strip",
+          "u": 4.07,
+          "w": 0.25,
+          "y0": 2.3,
+          "y1": 10.45
+        },
+        {
+          "t": "strip",
+          "u": 5.72,
+          "w": 0.25,
+          "y0": 2.3,
+          "y1": 10.45
+        },
+        {
+          "t": "strip",
+          "u": 6.72,
+          "w": 0.25,
+          "y0": 2.3,
+          "y1": 10.45
+        },
+        {
+          "t": "strip",
+          "u": 8.4,
+          "w": 0.25,
+          "y0": 2.3,
+          "y1": 10.45
+        },
+        {
+          "t": "strip",
+          "u": 4.07,
+          "w": 0.25,
+          "y0": 11.4,
+          "y1": 22
+        },
+        {
+          "t": "strip",
+          "u": 5.72,
+          "w": 0.25,
+          "y0": 11.4,
+          "y1": 22.55
+        },
+        {
+          "t": "strip",
+          "u": 6.72,
+          "w": 0.25,
+          "y0": 11.4,
+          "y1": 23.1
+        },
+        {
+          "t": "strip",
+          "u": 8.4,
+          "w": 0.25,
+          "y0": 11.4,
+          "y1": 22.9
+        }
+      ]
     }
   ],
   "wallTop": 19.4

@@ -869,6 +869,11 @@ export interface Bal {
   round?: number | [number, number];
   /** Kat → cam balkon alt/üst profil rengi "#rrggbb" ("*" varsayılan; bronz, antrasit, beyaz…) */
   frameC?: Record<string, string>;
+  /**
+   * v7: cam balkon (katlanır cam) dikme / derz aralığı (m, ölçülen; varsayılan 0.72). Dikmeler frameC renginde çizilir
+   * (frameC yoksa açık gri profil) — ör. 1540901795 e1 koyu ince dikmeler ≈0.9 m.
+   */
+  glazeEvery?: number;
   /** Buzlu cam balkon rengi (tint "frosted" katlarında; varsayılan #d9dfdd) */
   frostC?: string;
   /** Kat → sarkan kiriş: alın bandı döşemenin bu kadar ALTINDAN başlar (m; toplam alın = kiriş + döşeme + parapet) */

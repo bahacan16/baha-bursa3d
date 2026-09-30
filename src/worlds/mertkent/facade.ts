@@ -342,6 +342,8 @@ export interface CBal {
   round?: number | [number, number];
   /** Kat → cam balkon profil rengi */
   frameC?: Record<string, string>;
+  /** v7: cam balkon dikme / derz aralığı (m; varsayılan 0.72) — dikmeler frameC renginde */
+  glazeEvery?: number;
   /** Buzlu (frosted) cam balkon rengi */
   frostC?: string;
   /** Kat → sarkan kiriş: alın bandı döşemenin bu kadar altından başlar (m) */
@@ -986,7 +988,9 @@ export type CK =
   /** v7: kare güvenlik kafesi `cage:<göz m>` (renk = tel rengi) */
   | `cage:${string}`
   /** v7: cam folyo `film:<desen>` (renk = folyo rengi, yarı saydam desen) */
-  | `film:${string}`;
+  | `film:${string}`
+  /** v7: cam balkon `camglass:<dikme aralığı m>` (renk = dikme / profil rengi) */
+  | `camglass:${string}`;
 
 /** Blok paleti: malzeme anahtarı eşlemesi (ör. mkPlaster → mkPlaster_1480041342) */
 let KM: Record<string, string> = {};
@@ -1225,6 +1229,16 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
   // Ölçülen özel renkler → malzeme anahtarı (yoksa blok paleti)
   const ck = (kind: CK, hex: string | null | undefined, dflt: string) =>
     hex && /^#[0-9a-f]{6}$/i.test(hex) && o.colorKey ? o.colorKey(kind, hex) : dflt;
+  /**
+   * v7: cam balkon malzemesi — ölçülen dikme aralığı (glazeEvery) ya da profil rengi (frameC) verilmişse dikmeler o
+   * aralıkta / renkte (önceden sabit 0.72 m açık gri: koyu camda dağınık beyaz çizgiler gibi görünüyordu)
+   */
+  const camGlassKey = (it: CBal, k: number): string => {
+    const fc = it.frameC?.[String(k)] ?? it.frameC?.['*'];
+    const ev = it.glazeEvery != null && it.glazeEvery > 0.2 ? it.glazeEvery : null;
+    if (!ev && !fc) return 'mkCamGlass';
+    return ck(`camglass:${Math.round((ev ?? 0.72) * 1000) / 1000}`, fc ?? '#d8dadb', 'mkCamGlass');
+  };
   /** Balkon kat korkuluğu (ölçüm: kat kat tip/renk) */
   const railSpecOf = (it: CBal, k: number): RailSpec => {
     const kk = String(k);
@@ -2361,7 +2375,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             ]);
           else
             b.quad(
-              'mkCamGlass',
+              camGlassKey(v.it, k),
               [pp[0], gy0, pp[1]],
               [qq[0], gy0, qq[1]],
               [qq[0], yCeil, qq[1]],
@@ -2966,7 +2980,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             b.wall(own.frost, gp, gq, gy0, yTop, [run, 0, run + L, 1]);
           else
             b.quad(
-              'mkCamGlass',
+              camGlassKey(own.it, k),
               [gp[0], gy0, gp[1]],
               [gq[0], gy0, gq[1]],
               [gq[0], yTop, gq[1]],

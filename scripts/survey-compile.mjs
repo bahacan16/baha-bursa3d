@@ -478,6 +478,7 @@ async function main() {
                 : {}),
               ...(it.round ? { round: it.round } : {}),
               ...(it.frameC ? { frameC: keyK(it.frameC) } : {}),
+              ...(it.glazeEvery > 0.2 ? { glazeEvery: r2(it.glazeEvery) } : {}),
               ...(it.frostC ? { frostC: it.frostC } : {}),
               ...(it.beam ? { beam: keyK(it.beam) } : {}),
               ...(it.railH ? { railH: keyK(it.railH) } : {}),
