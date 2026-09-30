@@ -48,7 +48,7 @@
     ],
     "storeys": 10,
     "floorHs": [
-     5.2,
+     5.7,
      2.95,
      2.95,
      2.95,
@@ -73,7 +73,7 @@
     "rest": true,
     "storeys": 1,
     "floorHs": [
-     5.2
+     5.7
     ],
     "roof": {
      "kind": "flat",
@@ -117,19 +117,20 @@
    "ref": "1552992538_2_1cWbg2oy.jpg",
    "cal": {
     "u": [
-     0,
-     63.64
+     5.45,
+     57
     ],
     "head": [
      [
       0,
-      2.35
+      2.47
      ],
      [
       1,
-      5.3
+      4.86
      ]
-    ]
+    ],
+    "dist": 18.6
    },
    "items": [
     {
@@ -524,11 +525,11 @@
     },
     {
      "t": "proj",
-     "u0": 14.07,
-     "u1": 16.54,
+     "u0": 13.76,
+     "u1": 16.29,
      "d": 1.5,
      "y0": 0,
-     "y1": 7.68,
+     "y1": 7.78,
      "color": "#6d7074",
      "topC": "#3a3d40"
     },
@@ -578,11 +579,11 @@
     },
     {
      "t": "proj",
-     "u0": 44.19,
-     "u1": 46.85,
+     "u0": 44.51,
+     "u1": 47.23,
      "d": 1.5,
      "y0": 0,
-     "y1": 7.68,
+     "y1": 7.78,
      "color": "#6d7074",
      "topC": "#3a3d40"
     },
@@ -721,7 +722,7 @@
      "lit": false
     }
    ],
-   "note": "Podyum (tek katlı dükkân sırası, ≈5.2 m) cephesi, 1cWb f22 ile okundu (TBzd ile doğrulandı). Kule bu cephenin ≈12–16 m gerisinde (hava fotoğrafı: kule çatısı görüntü z −790…−773, eğim (−2.5,−9.1)) → massing.towers[0]; kule kuzey yüzü kütle kesim duvarı olduğundan öğe alamıyor: kule cephesi (balkon yığınları, pencereler, K1 ofis tabela bandı ALMİNAZ TURİZM … HSD SİGORTA, kuledeki afişler) pending’de. MINTY kış bahçesi (u −1.5…6.3) ve dükkân önü menü panoları kaldırım katmanında (rapor). u 5.5–9.9 arasında koyu gri podyum duvarı + TIME dış merdiveninin lazer kesim korkuluklu çelik merdiveni (pending). Kat ölçeği: y 1:1 (cal.head sanal: K0 döşemesi görünen 0.1, kat 2.95)."
+   "note": "Podyum (tek katlı dükkân sırası, ≈5.2 m) cephesi, 1cWb f22 ile okundu (TBzd ile doğrulandı). Kule bu cephenin ≈12–16 m gerisinde (hava fotoğrafı: kule çatısı görüntü z −790…−773, eğim (−2.5,−9.1)) → massing.towers[0]; kule kuzey yüzü kütle kesim duvarı olduğundan öğe alamıyor: kule cephesi (balkon yığınları, pencereler, K1 ofis tabela bandı ALMİNAZ TURİZM … HSD SİGORTA, kuledeki afişler) pending’de. MINTY kış bahçesi (u −1.5…6.3) ve dükkân önü menü panoları kaldırım katmanında (rapor). u 5.5–9.9 arasında koyu gri podyum duvarı + TIME dış merdiveninin lazer kesim korkuluklu çelik merdiveni (pending). ÖLÇEK (v2, pano düzeltmesi): 1cWb/TBzd stereo kayması +1.9 m (Δpano 10.04) → gerçek kamera–cephe uzaklığı 18.6, ortofoto düzlemi 15.08 → görünen ölçek 0.81 (pano index konumu ≈3.5–3.9 m güneyde, ma_offsets.json). cal.u [5.45, 57.0] = köşelerin görünen yerleri (uF 28.71 etrafında 0.81; dx bilinmiyor ±1 m), cal.head kat aralığı görünen 2.39, cal.dist 18.6. Podyum gerçek yüksekliği ≈5.7 m. Cephe taban izi çizgisinde (−792.7)."
   },
   {
    "edge": 3,

@@ -25,121 +25,249 @@
    "len": 4.66,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 1,
    "len": 3.58,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 2,
    "len": 6.27,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 3,
    "len": 2.58,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 4,
    "len": 3.18,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 5,
    "len": 2.58,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 6,
    "len": 5.45,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 7,
    "len": 3.99,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 8,
    "len": 2.27,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 9,
    "len": 13.23,
-   "seen": "none",
-   "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "seen": "partial",
+   "ref": "1544934694_9_fq8WDvCn.jpg",
+   "cal": {
+    "u": [
+     -8.82,
+     10.5
+    ],
+    "head": [
+     [
+      0,
+      5.36
+     ],
+     [
+      6,
+      30.56
+     ]
+    ],
+    "dist": 12
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 2.39,
+     "u1": 4.07,
+     "y0": 16.07,
+     "y1": 17.95,
+     "k": 3,
+     "s": [
+      0,
+      6
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#f4f4f2",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#e5decf"
+     },
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul-yan"
+     }
+    },
+    {
+     "t": "recess",
+     "u0": 5.65,
+     "u1": 10.5,
+     "s": [
+      0,
+      6
+     ],
+     "depth": 1,
+     "back": "plaster",
+     "side": "#bfb9ad"
+    },
+    {
+     "t": "win",
+     "u0": 6.9,
+     "u1": 8.55,
+     "y0": 15.08,
+     "y1": 16.84,
+     "k": 3,
+     "s": [
+      0,
+      6
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#f4f4f2",
+     "surround": {
+      "w": 0.12,
+      "d": 0.03,
+      "color": "#e5decf"
+     },
+     "behind": 1,
+     "curt": {
+      "K0": "tul",
+      "K1": "tul",
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": -8.1,
+     "u1": 1,
+     "d": 1.4,
+     "s": [
+      0,
+      6
+     ],
+     "glazed": [
+      1,
+      2,
+      3,
+      5,
+      6
+     ],
+     "tint": {
+      "K2": "blinds"
+     },
+     "rail": {
+      "K0": "bars",
+      "K4": "solidTube",
+      "*": "solid"
+     },
+     "railC": "#f2f2f0",
+     "net": [
+      4
+     ],
+     "fasciaC": {
+      "*": "#ece9e2"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "pipe",
+     "u": 0.95,
+     "color": "#f2f2f0",
+     "r": 0.05
+    }
+   ],
+   "note": "fq8W (f22 ile okundu, GY1l ile doğrulandı). Pano konumu düzeltildi (ma_offsets.json: dz −5.6 / −6.5): gerçek kamera–cephe uzaklığı ≈12.0 (ortofoto düzlemi index konumundan 17.57) → görünen büyütme 1.46; kat aralığı görünen 4.2 → gerçek 2.88. cal.u: GD köşesi görünen 10.5 (krem duvarın doğu kenarı; ötesinde kenar 10’un balkon yığını kenardan) ve büyütmeden türetilen GB köşesi −8.82 (kamera x ofseti ≈ +6 m, yatay kayıt ±0.7 m). Doğu kısım (görünen 5.65–10.5, pencere sütunu B) batı kısımdan ≈1.0 m geride (B sütununun kat aralığı 3.88 = 1.35 büyütme; iki sütunun gerçek lento kotları aynı) → recess; görünen 5.4–5.9 koyu şerit girintinin yan yüzü. Batı balkon yığını: u0 hava fotoğrafından (x≈675.5, ±1 m), d 1.4 tahmin (yandan görülmedi); kat kat: K0 açık, beyaz dikey çubuklu (masa-sandalye), K1 cam balkon, K2 cam + zebra perde, K3 cam, K4 açık + bej kuş filesi, K5–K6 cam. K5 B penceresi parlama arkasında (sütun ritmi ve silik çerçeve görüldü)."
   },
   {
    "edge": 10,
    "len": 9.02,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 11,
    "len": 3.25,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 12,
    "len": 1.63,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 13,
    "len": 3.25,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 14,
    "len": 11.19,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   },
   {
    "edge": 15,
    "len": 13.64,
    "seen": "none",
    "items": [],
-   "note": "görülmedi / ölçülmedi"
+   "note": "görülmedi / ölçülmedi (pending)"
   }
  ],
  "notes": [
   "Konut bloğu (dükkân/tabela yok): 7 kat (zemin + 6), kırma kiremit çatı (hava fotoğrafı #9a5a48, beyaz baca başlıkları), beyaz sıva (#f4f3ef; güneşli yama #fefefd aşırı pozlanmış), pencere söveleri açık bej (#e5decf), düşey kanal #bfb9ad, beyaz PVC doğrama; güney cephede cam balkonlu (katlanır cam, bazılarında zebra perde / kuş filesi) balkon yığını, çitli bahçe (şimşir/karışık çit, alçak taş duvar üstünde).",
-  "ÖLÇÜ ÇELİŞKİSİ (çizim yapılmadı, §0.1): güney cephe (kenar 9) ortofotolarında (fq8W f22, GY1l) kat aralığı görünen 3.9–4.2 m (gerçek ≈2.95) → cephe ortofoto düzleminin ≈5–6.5 m ÖNÜNDE görünüyor (fq8W/GY1l stereo: ≈6.5 m), oysa hava fotoğrafında güney saçak görüntüsü −829 (eğim düzeltmesiyle cephe ≈−823) taban iziyle uyumlu. fq8W 0_0 karesinde pano bahçe çitinin hemen önünde (≈11 m) görünüyor → pano konumu (index.json 676.5, −806.2) ya da taban izi ≈6 m hatalı; çözülmeden kenar ölçüleri yazılmadı (pending’de görünen ölçüler)."
+  "(ÇÖZÜLDÜ: Muammer Aksoy panolarının index konumu ≈5–6.5 m güneyde; ma_offsets.json) Eski not: güney cephe (kenar 9) ortofotolarında (fq8W f22, GY1l) kat aralığı görünen 3.9–4.2 m (gerçek ≈2.95) → cephe ortofoto düzleminin ≈5–6.5 m ÖNÜNDE görünüyor (fq8W/GY1l stereo: ≈6.5 m), oysa hava fotoğrafında güney saçak görüntüsü −829 (eğim düzeltmesiyle cephe ≈−823) taban iziyle uyumlu. fq8W 0_0 karesinde pano bahçe çitinin hemen önünde (≈11 m) görünüyor → pano konumu (index.json 676.5, −806.2) ya da taban izi ≈6 m hatalı; çözülmeden kenar ölçüleri yazılmadı (pending’de görünen ölçüler)."
  ],
  "pending": [
   {
-   "what": "kenar 9 (güney) görünen ölçüler, fq8W f22 δ=0",
+   "what": "kenar 9 ham ölçüler (çizildi, arşiv)",
    "desc": "krem duvar görünen u 1.0–10.5; iki pencere sütunu: A (u 2.14–4.27 söve dış, cam 2.39–4.07; söve ≈0.12 m açık bej) satırlar (söve) 3.4–5.53, 7.53–9.72, 11.74–13.91, 15.9–18.12, 20.08–22.33, 24.25–26.52, 28.45–30.73 (aralık 4.2); B (u 6.7–8.72) satırlar 3.24–5.41, 7.19–9.32, 11.04–13.16, 14.92–17.0, 18.77–20.91, (≈22.6–24.7 parlama, seçilemedi), 26.56–28.71 (aralık 3.88 → B sütunu A’dan geride; u 5.4–5.9 arasında düşey koyu kanal/iç köşe). A sütunu B’ye göre yarım kat kaymalı → merdiven kovası pencereleri olabilir. Pencereler iki kanatlı beyaz PVC, çoğunda beyaz tül. Batıda (u < 1) cam balkon yığını: K1 açık balkon (beyaz korkuluk, masa-sandalye), K2 katlanır cam, K3 cam + zebra perde, K4 cam, K5 kuş filesi (bej), K6 cam; balkonlar arası beyaz döşeme alnı ≈0.5 m. Saçak görünen ≈31.8–32.2, beyaz yağmur borusu u ≈0.9 (tam boy). Doğuda (u 10.5–11.1) kenar 10’a ait cam balkon yığını kenardan görünüyor."
   },
   {
