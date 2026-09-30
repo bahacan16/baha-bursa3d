@@ -29,7 +29,7 @@ jobs:
       - name: Street View ek kareler
         env:
           GOOGLE_STREETVIEW_KEY: ${{ secrets.GOOGLE_STREETVIEW_KEY }}
-          SV_MAX: 1500
+          SV_MAX: 5000
         run: node scripts/fetch-streetview-extra.mjs
       - name: Commit
         run: |

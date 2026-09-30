@@ -563,3 +563,20 @@
 - **(karşılaştırma görüşleri)** 23:50 — `scripts/critic-views-da2.json`: MeHpp0ZG / l07hZ6pz panolarının GPS'i ≈4.5 m
   batıda (eleştirmen: aynı kavşak/çit noktaları) → `dx` +4.5; `critic-views-da3.json` DIKaX 0 görüşü 900000101'e bakıyor
   (ad düzeltildi). **Blender:** — (karşılaştırma kameraları kullanılıyorsa bu iki panoyu 4.5 m doğuya al)
+- **(üretici v7, eleştirmen düzeltmeleri)** 00:30 — Köşe locaları (`facade.ts`): (1) köşe tam dik değilse loca
+  dikdörtgeninin yan kenarı taban izi içinde mm'lik kama bırakıyor, birleştirilen komşu yüzün TAM BOY duvarı loca
+  ağzının üstüne çiziliyordu → birleştirilen yan ve açık C yüzüne düşen arka kenar o hatların 2 cm dışına itilir
+  (1480041344 e5 düz beyaz duvar → cam balkon; 1480041343 e15, 1480041300 e12 ve ~20 köşe locası); (2) köşe locası
+  derinliği komşu kenarın ölçülen açıklığı (3.2 m kırpması kalktı: 44 e5 4.83 m, 43/42 açık inset 3.99/4.43);
+  (3) üç yanı açık yığında üçüncü yüz (C) kaybolmuyor; (4) birleştirilen yüzün korkuluk/cam ayarı kendi ölçümünden
+  (önceden katın ilk locasından — başka yüzde parmaklık / cam çıkıyordu). Cam balkon (`facadeMats.ts`): `glazeEvery`
+  (dikme aralığı) + `frameC` dikme rengi ayrı malzeme (`camglass:`); "dark" cam artık saf siyah değil (dumanlı gri +
+  yöne bağımsız gök ışıması). **Blender:** Mertkent 2/3 (1480041300/01/42/43/44/45), 1480163634/37/38, 1540901770/71/
+  72/73/74/76/94/95/96, 1541439435/36/37, 1546358554/57/62, 1479658783, 900000101 cephe katmanı yeniden kurulmalı;
+  cam balkon malzemesi (koyu tint) güncellenmeli.
+- **(D4 ayak izleri)** 00:5x — `data/footprints.json`: Özlüce Bulvarı kuzeyi (döner kavşak → Muammer Aksoy Cd.)
+  31 bina (A: 563 düzeltildi, 900000201–203 OSM'de olmayan kaideler; B: Kent Park, Ceylan Plus, Bulvar Özlüce AVM
+  düzeltildi, kompleksler doğrulandı; C: Kırmıkıl İş Merkezi, Elite Offices, üç kuleli kompleks kaidesi, dükkân şeridi
+  düzeltildi, 900000261 doğu kulesi + 900000262 arka ek). Henüz cephe ölçümü yok → oyunda OSM genel binaları kalır.
+  Tabela okunurluğu için `scripts/sv-extra.json`'a 4221 yakın plan karo (40° + 22°) eklendi; Actions `SV_MAX` 5000.
+  **Blender:** — (cephe ölçümleri gelince bu 31 bina kurulacak)
