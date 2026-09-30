@@ -712,3 +712,9 @@
   Dört Mevsim Psikolojik Danışmanlık, KİRALIK/SATILIK levhaları; 6 yığın kat kat), `900000203.json` (kaide: İş Bankası,
   Saadet Eczanesi kemerli, Bereket/Tombik Döner, Domino's, PTT; çatıda TAŞYAKAN SİTESİ), `1476599909.json`,
   `1476599912.json` (Uğur Mumcu kuleleri; mali müşavir, KİRALIK, EMMA kuaför). **Blender:** bu 4 bina ilk kez kurulur.
+- **(D4 cephe 8)** — yeni `survey/1546358584.json` (Karya & Rızvanoğlu İş Merkezi kaidesi + çatı tabelası),
+  `1546358586/87/88.json` (üç kule: kat kat çerçeveli balkonlar; diş hekimi, ATOMY, ESTEFORM, ADA Psikoloji, Iris,
+  SHOTDO), `1540994151.json` (ikiz blok: Özhamur Börek, evcilimpet + Veteriner Polikliniği, Engin Optik, Cunda
+  Eklercisi), `1551828357.json` (dükkân şeridi: Coffeemania, bona Waffle, Ciğergah, Urfalı Ağaoğlu, Dürümcü Bekir Usta,
+  Mersin Tantuni, Demir Amca, Mariza, Kanaatçı Mesut, Burger yiyelim, Bursa Baharat, Maydonoz Döner, Caffe Napoli).
+  **Blender:** bu 6 bina ilk kez kurulur (kuleler kaideyle çakışıyor → pending).
