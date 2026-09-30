@@ -196,8 +196,8 @@ function flat(r: V2[]): number[] {
 }
 
 /**
- * Ağaç sistemi için: ölçülmüş ağaçlar [x, z, tür, boy m, taç yarıçapı m]* (0 = ölçülmedi; vegetation.ts
- * FIXED_STRIDE) + otomatik ağaç konmayacak bölgeler.
+ * Ağaç sistemi için: ölçülmüş ağaçlar [x, z, tür, boy m, taç yarıçapı m, taç tabanı m]* (0 = ölçülmedi;
+ * vegetation.ts FIXED_STRIDE) + otomatik ağaç konmayacak bölgeler.
  */
 export function surveyVegetation(): {
   fixedTrees: number[];
@@ -210,19 +210,33 @@ export function surveyVegetation(): {
   noCurbZones: number[][];
 } {
   const fixedTrees: number[] = [];
-  const add = (x: number, z: number, r: number | undefined, h: number | undefined, type: number) =>
-    fixedTrees.push(x, z, type, h ?? 0, r ?? 0);
+  // v8: ölçülen taç tabanı `crownBase` (m, ilk dalların kotu) örnek başına (FIXED_STRIDE 6)
+  const add = (
+    x: number,
+    z: number,
+    r: number | undefined,
+    h: number | undefined,
+    type: number,
+    cb?: unknown,
+  ) => fixedTrees.push(x, z, type, h ?? 0, r ?? 0, typeof cb === 'number' && cb > 0 ? cb : 0);
   for (const p of [...(SITE_PLAN.points ?? []), ...(PARK_PLAN.points ?? [])]) {
     if (!treeLibPoint(p)) continue;
     // Konik servi noktaları (tür alanı yok): kullanıcı fotoğraflarındaki limoni servi sıraları
     const sp = p.kind === 'cone' ? (p.species ?? 'goldcrest') : p.species;
-    add(p.x, p.z, p.r, p.h ?? (p.kind === 'cone' ? 2.4 : undefined), speciesType(sp, p.note));
+    add(
+      p.x,
+      p.z,
+      p.r,
+      p.h ?? (p.kind === 'cone' ? 2.4 : undefined),
+      speciesType(sp, p.note),
+      (p as { crownBase?: unknown }).crownBase,
+    );
   }
   // Sokak ağaçları (2 m altındakiler dahil: köşe adasının mazı konileri de ağaç kütüphanesinde)
   for (const p of STREET_PLAN.street ?? [])
     if (p.kind === 'tree') {
-      const q = p as { species?: string; r?: number };
-      add(p.x, p.z, q.r, p.h, speciesType(q.species, `${p.text ?? ''} ${p.note ?? ''}`));
+      const q = p as { species?: string; r?: number; crownBase?: unknown };
+      add(p.x, p.z, q.r, p.h, speciesType(q.species, `${p.text ?? ''} ${p.note ?? ''}`), q.crownBase);
     }
   const excludeZones: number[][] = [];
   for (const a of [...(SITE_PLAN.areas ?? []), ...(PARK_PLAN.areas ?? [])])
