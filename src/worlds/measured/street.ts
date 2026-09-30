@@ -2078,7 +2078,8 @@ function buildStreet(
         void si;
         const poleK = bo.poleC && ext.colorKey ? ext.colorKey('metal', bo.poleC) : 'pole';
         const np = bo.poles ?? 1;
-        const pu = np === 1 ? [0] : [-W / 2 + 0.08, W / 2 - 0.08];
+        // `poles: 0`: duvara/alın üstüne oturan pano (direksiz)
+        const pu = np === 0 ? [] : np === 1 ? [0] : [-W / 2 + 0.08, W / 2 - 0.08];
         const both = (s as { faces?: number }).faces === 2 || /çift yüzlü|iki yüz(ü|lü)/.test(note);
         const tooth = (s as { outline?: string }).outline === 'tooth' || /diş biçimli/.test(note);
         for (const u of pu) {

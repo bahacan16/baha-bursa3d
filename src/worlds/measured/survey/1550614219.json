@@ -2328,6 +2328,709 @@
      "onBal": true
     }
    ]
+  },
+  {
+   "part": 0,
+   "a": [
+    660.29,
+    -497.08
+   ],
+   "e": [
+    682.75,
+    -495.81
+   ],
+   "seen": "partial",
+   "ref": "ortho2 (scratch d4r2fix/o F1__u_L: _u_LjgZ2 80/83/86 22°+40°; F1_ivo1 ivo1dMW7 70/79/86 ile duvar öğeleri ±0.4 m çakışıyor)",
+   "cal": {
+    "u": [
+     0,
+     22.5
+    ],
+    "head": [
+     [
+      8,
+      26.8
+     ],
+     [
+      4,
+      15.4
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 3.56,
+     "d": 1.3,
+     "s": [
+      4,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "sides": "open",
+     "glazed": [
+      8
+     ],
+     "tint": {
+      "K8": "dark"
+     },
+     "frameC": {
+      "*": "#d6d8d8"
+     },
+     "note": "batı (bulvar) köşe yığını: K4–K7 açık cam korkuluk, K8 cam balkon (koyu cam, beyaz profil). d 1.3 = köşe balkonlarının batıdan görülen ön genişliği (pending corner-balconies); yan yüz boyunca uçlar eğik ortofotodan (paralaks düzeltilmedi, ±1–2 m)."
+    },
+    {
+     "t": "win",
+     "u0": 4.63,
+     "u1": 6.0,
+     "y0": 25.3,
+     "y1": 26.8,
+     "k": 8,
+     "s": [
+      4,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "tul-yan",
+      "K7": "tul",
+      "K6": "tul",
+      "K5": "tul",
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.06,
+     "u1": 9.63,
+     "y0": 25.3,
+     "y1": 26.8,
+     "k": 8,
+     "s": [
+      4,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "karanlik",
+      "K7": "stor",
+      "K6": "tul",
+      "K5": "karanlik",
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 9.9,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 12.0,
+     "y1": 27.3
+    },
+    {
+     "t": "win",
+     "u0": 10.25,
+     "u1": 12.44,
+     "y0": 25.3,
+     "y1": 26.8,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "tul",
+      "K7": "tul",
+      "K6": "tul",
+      "K5": "tul-yan"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 13.4,
+     "u1": 14.9,
+     "y0": 25.3,
+     "y1": 26.8,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "tul",
+      "K7": "tul-yan",
+      "K6": "tul",
+      "K5": "tul-yan"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 15.6,
+     "u1": 19.75,
+     "d": 1.3,
+     "s": [
+      5,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "sides": "open",
+     "glazed": [
+      5,
+      6,
+      7
+     ],
+     "tint": {
+      "K5": "dark",
+      "K6": "dark",
+      "K7": "dark"
+     },
+     "frameC": {
+      "*": "#d6d8d8"
+     },
+     "note": "doğu (avlu) köşe yığını: K5–K7 cam balkon (koyu cam), K8 açık cam korkuluk (saçak gölgesinde); K4 podyum arkasında görülmedi. d 1.3 = köşe balkonlarının batıdan görülen ön genişliği (pending corner-balconies); yan yüz boyunca uçlar eğik ortofotodan (paralaks düzeltilmedi, ±1–2 m)."
+    }
+   ],
+   "note": "D4 r2 (2026-09-30): Kule 1 güney yüzü (1–2 boşluğuna bakar). Ortofoto bu düzlemde scratch ortho2 ile üretildi (base −2.13, kamera 2.35). Görünen: K4–K8 (K3 ve altı 3 katlı bulvar şeridinin / podyumun arkasında GÖRÜLMEDİ; K4 pencereleri yalnız ilk iki sütunda). Pencere sütunları 4 (söveli, 2 kanat), aralarında iniş borusu; iki uçta köşe balkon yığını. Uzak (doğu) uçta yatay ölçek ≈%9 kısa (duvar görünen 20.5’te bitiyor) — kal. u uzatılmadı, doğu yığını ±2 m. Perdeler gölgede, kat kat ortofotodan (çözünürlük düşük). Klima dış ünitesi bu yüzde görülmedi."
+  },
+  {
+   "part": 1,
+   "a": [
+    682.3,
+    -487.57
+   ],
+   "e": [
+    659.82,
+    -488.68
+   ],
+   "seen": "partial",
+   "ref": "ortho2 (scratch d4r2fix/o F2_X0NY: X0NY1chl 86/106 40°; F2_H7s4 102/108/117 ile kontrol)",
+   "cal": {
+    "u": [
+     0,
+     22.51
+    ],
+    "head": [
+     [
+      8,
+      29.94
+     ],
+     [
+      4,
+      17.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 1.9,
+     "d": 1.3,
+     "s": [
+      6,
+      7
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "sides": "open",
+     "note": "doğu (avlu) ucunda balkon korkulukları yalnız K6–K7 görüldü (cam korkuluk); diğer katlar ortofoto kenarında seçilmedi. d 1.3 = köşe balkonlarının batıdan görülen ön genişliği (pending corner-balconies); yan yüz boyunca uçlar eğik ortofotodan (paralaks düzeltilmedi, ±1–2 m)."
+    },
+    {
+     "t": "win",
+     "u0": 2.45,
+     "u1": 3.95,
+     "y0": 28.44,
+     "y1": 29.94,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "karanlik",
+      "K7": "tul-yan",
+      "K6": "karanlik",
+      "K5": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.2,
+     "u1": 7.75,
+     "y0": 28.44,
+     "y1": 29.94,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K7": "tul-yan",
+      "K6": "stor",
+      "K5": "stor"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 8.2,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 15.0,
+     "y1": 30.5
+    },
+    {
+     "t": "win",
+     "u0": 8.75,
+     "u1": 11.4,
+     "y0": 28.44,
+     "y1": 29.94,
+     "k": 8,
+     "s": [
+      4,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "tul-yan",
+      "K7": "tul-yan",
+      "K6": "tul-yan",
+      "K5": "stor",
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 12.4,
+     "u1": 13.95,
+     "y0": 28.44,
+     "y1": 29.94,
+     "k": 8,
+     "s": [
+      4,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "tul-yan",
+      "K7": "tul-yan",
+      "K6": "tul-yan",
+      "K5": "tul-yan",
+      "K4": "tul-yan"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 18.9,
+     "u1": 22.51,
+     "d": 1.3,
+     "s": [
+      4,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "sides": "open",
+     "glazed": [
+      6,
+      7
+     ],
+     "tint": {
+      "K6": "clear",
+      "K7": "clear"
+     },
+     "frameC": {
+      "*": "#d6d8d8"
+     },
+     "note": "batı (bulvar) köşe yığını: K6–K7 cam balkon (mavi yansımalı cam, koyu dikmeler), K4, K5, K8 açık cam korkuluk. Ön yüz ortofotoda görünen 15.4–19.5 (d 1.3 paralaksıyla gerçek ≈19.1–22.7; kule 1 güney yüzündeki 3.56 m’lik bulvar yığınıyla simetrik → 18.9–22.51). Batıdan ölçümde (pending) K5, K7 cam yazılmıştı — bu yüzde cam K6–K7 (kat eşlemesi pencere lentolarından)."
+    }
+   ],
+   "note": "D4 r2 (2026-09-30): Kule 2 kuzey yüzü (1–2 boşluğuna bakar), K4–K8 görüldü (K3 ve altı bulvar şeridi arkasında GÖRÜLMEDİ; ilk iki sütunda K4 de podyum hattı arkasında). Düşey ölçek ortofotoda ≈1.11× (kal. head ile düzeltildi). Perdeler gölgede, düşük çözünürlük."
+  },
+  {
+   "part": 1,
+   "a": [
+    658.57,
+    -466.3
+   ],
+   "e": [
+    681.26,
+    -465.08
+   ],
+   "seen": "partial",
+   "ref": "ortho2 (scratch d4r2fix/o F3_D9IT: D9ITSrc7 69/78/84 22°+40°; F3_AElA ile kontrol)",
+   "cal": {
+    "u": [
+     0,
+     22.72
+    ],
+    "head": [
+     [
+      8,
+      27.0
+     ],
+     [
+      7,
+      24.3
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 3.6,
+     "d": 1.3,
+     "s": [
+      6,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "sides": "open",
+     "glazed": [
+      7,
+      8
+     ],
+     "tint": {
+      "K7": "dark",
+      "K8": "dark"
+     },
+     "frameC": {
+      "*": "#d6d8d8"
+     },
+     "note": "batı köşe yığını: K7–K8 cam balkon (beyaz profil), K6 açık cam korkuluk; K5 ve altı ağaç arkasında GÖRÜLMEDİ. d 1.3 = köşe balkonlarının batıdan görülen ön genişliği (pending corner-balconies); yan yüz boyunca uçlar eğik ortofotodan (paralaks düzeltilmedi, ±1–2 m)."
+    },
+    {
+     "t": "win",
+     "u0": 4.4,
+     "u1": 5.9,
+     "y0": 25.9,
+     "y1": 27.0,
+     "k": 8,
+     "s": [
+      7,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "tul-yan",
+      "K7": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 6.8,
+     "u1": 8.9,
+     "y0": 25.9,
+     "y1": 27.0,
+     "k": 8,
+     "s": [
+      7,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "tul",
+      "K7": "tul"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 9.6,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 21.0,
+     "y1": 27.5
+    }
+   ],
+   "note": "D4 r2 (2026-09-30): Kule 2 güney yüzü (2–3 boşluğuna bakar): yalnız batı 10 m’nin K7–K8’i görüldü; geri kalanı önündeki çınar ve podyum arkasında GÖRÜLMEDİ (düz sıva kalır)."
+  },
+  {
+   "part": 2,
+   "a": [
+    680.84,
+    -457.15
+   ],
+   "e": [
+    658.13,
+    -458.36
+   ],
+   "seen": "partial",
+   "ref": "ortho2 (scratch d4r2fix/o F4_lc7D: lc7DA4_C 103/105/108 22°+40°; F4_ivo1 ile kontrol)",
+   "cal": {
+    "u": [
+     0,
+     22.74
+    ],
+    "head": [
+     [
+      8,
+      29.6
+     ],
+     [
+      4,
+      16.85
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 1.5,
+     "d": 1.3,
+     "s": [
+      6,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "sides": "open",
+     "note": "doğu (avlu) ucunda K6–K8 cam korkuluklu balkon uçları; diğer katlar seçilmedi. d 1.3 = köşe balkonlarının batıdan görülen ön genişliği (pending corner-balconies); yan yüz boyunca uçlar eğik ortofotodan (paralaks düzeltilmedi, ±1–2 m)."
+    },
+    {
+     "t": "win",
+     "u0": 2.5,
+     "u1": 4.25,
+     "y0": 28.1,
+     "y1": 29.6,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.25,
+     "u1": 8.0,
+     "y0": 28.1,
+     "y1": 29.6,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 8.5,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 17.0,
+     "y1": 30.0
+    },
+    {
+     "t": "win",
+     "u0": 9.0,
+     "u1": 11.75,
+     "y0": 28.1,
+     "y1": 29.6,
+     "k": 8,
+     "s": [
+      5,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 12.9,
+     "u1": 14.4,
+     "y0": 28.1,
+     "y1": 29.6,
+     "k": 8,
+     "s": [
+      4,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 19.2,
+     "u1": 22.74,
+     "d": 1.3,
+     "s": [
+      4,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "sides": "open",
+     "glazed": [
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "K6": "clear",
+      "K7": "clear",
+      "K8": "clear"
+     },
+     "frameC": {
+      "*": "#d6d8d8"
+     },
+     "note": "batı (bulvar) köşe yığını: K6–K8 cam balkon (mavi yansımalı), K4–K5 açık cam korkuluk (batıdan ölçümle aynı: glazed 6–8). Ön yüz ortofotoda 15.75–20.75 (paralaksla gerçek ≈20.6–22.7); 3.5 m’lik köşe yığını. d 1.3 = köşe balkonlarının batıdan görülen ön genişliği (pending corner-balconies); yan yüz boyunca uçlar eğik ortofotodan (paralaks düzeltilmedi, ±1–2 m)."
+    }
+   ],
+   "note": "D4 r2 (2026-09-30): Kule 3 kuzey yüzü (2–3 boşluğuna bakar), K4–K8 (K4 yalnız son sütunda; altı bulvar şeridi ve Ziraat tabela bandı arkasında GÖRÜLMEDİ). Perdeler bu çözünürlükte seçilmedi → yazılmadı."
   }
  ],
  "notes": [
@@ -2348,10 +3051,10 @@
    "id": "ziraat-basak-e3",
    "edge": 3,
    "what": "Ziraat Bankası başak amblemi (kırmızı kanal, dikey başak demeti) 1. kat bandında",
-   "u0": 3.4,
-   "u1": 4.0,
-   "y0": 10.1,
-   "y1": 11.3,
+   "u0": 3.24,
+   "u1": 3.8,
+   "y0": 10.13,
+   "y1": 11.16,
    "color": "#c8252a",
    "note": "üreticide başak ikonu yok; ayrıca zemin kutu tabelada beyaz başak (u 0.8–1.2, y 4.9–5.7)"
   },
@@ -2385,7 +3088,8 @@
   {
    "id": "tower-side-faces",
    "what": "Kule 1/2 ve 2/3 podyum boşluklarına bakan yan (kuzey/güney) kesim yüzleri: köşe balkon yığınları + küçük pencere sütunları görüldü (_u_L 120°, lc7D 60°, 40–90° eğik); bu düzlemlerde ortofoto yapılmadı. Kule 4/5'in avlu yüzleri görülmedi.",
-   "need": "ortho2 ile yan yüz düzleminde (kule 1 güney: 682.75,-495.81 → 660.29,-497.08 ters yönde; ring yönüne göre a/e) ortofoto + ölçüm"
+   "need": "ortho2 ile yan yüz düzleminde (kule 1 güney: 682.75,-495.81 → 660.29,-497.08 ters yönde; ring yönüne göre a/e) ortofoto + ölçüm",
+   "note": "D4 r2 (2026-09-30): kule 1 güney, kule 2 kuzey/güney, kule 3 kuzey yüzleri cutEdges ile çizildi (ortho2, scratch). Kule 4/5 avlu yüzleri hâlâ görülmedi."
   },
   {
    "id": "corner-balconies",
@@ -3838,19 +4542,20 @@
     },
     {
      "t": "sign",
-     "u0": 4.1,
+     "u0": 3.9,
      "u1": 6.17,
-     "y0": 10.35,
-     "y1": 11.05,
-     "text": "Ziraat Ba",
+     "y0": 10.3,
+     "y1": 11.0,
+     "text": "Ziraat",
      "fg": "#c8252a",
      "style": "letters",
      "d": 0.05,
      "font": "sans",
      "bold": true,
-     "capH": 0.6,
+     "capH": 0.63,
      "align": "left",
-     "logo": "kırmızı kanal harf 'Ziraat Bankası', kenar 4'te devam eder"
+     "logo": "kırmızı kanal harf 'Ziraat Bankası', kenar 4'te devam eder",
+     "note": "D4 r2 (2026-09-30): lc7D ortofotosunda yeniden ölçüldü: amblem u 3.24–3.8 (y 10.13–11.16, pending ziraat-basak-e3), “Ziraat” 3.9–6.17 (kenar 3 burada biter), “Bankası” kenar 4’te; büyük harf 0.63 m. Önceki “Ziraat Ba” 4.1–6.17 harfleri sıkıştırıyordu."
     },
     {
      "t": "panel",
@@ -4147,17 +4852,18 @@
     {
      "t": "sign",
      "u0": 0.0,
-     "u1": 1.1,
-     "y0": 10.35,
-     "y1": 11.05,
-     "text": "nkası",
+     "u1": 3.0,
+     "y0": 10.3,
+     "y1": 11.0,
+     "text": "Bankası",
      "fg": "#c8252a",
      "style": "letters",
      "d": 0.05,
      "font": "sans",
      "bold": true,
-     "capH": 0.6,
-     "logo": "'Ziraat Bankası' kanal harflerinin sonu (kenar 3'ten devam)"
+     "capH": 0.63,
+     "logo": "'Ziraat Bankası' kanal harflerinin sonu (kenar 3'ten devam)",
+     "note": "D4 r2 (2026-09-30): “Bankası” kenar 4 başında: uzunluk lc7D ortofotosundaki harf adımından (≈0.38 m/harf, “Ziraat Ban” 3.8 m) ve AElA 60_0 yön kesişiminden (kenar 4 u ≈3.9) — başı ağaç arkasında; 3.0 kabul (±0.5)."
     },
     {
      "t": "sign",

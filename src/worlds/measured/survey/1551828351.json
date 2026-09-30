@@ -151,6 +151,10 @@
      ],
      [
       533.7,
+      -581.55
+     ],
+     [
+      533.7,
       -581.78
      ],
      [
@@ -3178,7 +3182,8 @@
   "KÜTLE (OSM building:part + ölçüm): batı blok 7 kat (K0 4.0, K1 3.55, konut 3.06; parapet üstü ≈24.3; OSM 30 m yanlış), orta parça 2 kat, doğu kule 9 kat (2 podyum ≈5.0+5.05, 7 konut ×3.05; parapet 32.0, loca sütunu 32.65; 6DCZ/3nkZ paralaksı kule doğu yüzünü x=592.6’da doğruladı), PABLO kutusu 2 kat (≈10.3, güney yüzü z≈−570.7 → önünde tek katlı şerit), kalan her yer tek kat (≈5.0: PABLO cam salonu, MADO cam salonu, kuzey dükkânları, Montea).",
   "Renkler: doğu/kuzey cepheler öğleden sonra gölgede çekilmiş (6DCZ/3nkZ/NtURh); beyaz sıva gölgede #a4a399…#afb0ab, güneyde #aaa79a; palet güneşli tahmin (#e2e1da) — notu düşülerek. Kırmızı tente güneşte #d25251, gölgede #ac3e40; MADO mavi #2f4ea6 (örnek #4f5886 beyaz konturla karışık).",
   "Pano konum hataları: servis yolu (kuzey) ve Montea (batı) yakın panoları 2–4 m kayık; bu kenarlarda u gerçek metreye elle çevrildi (kenar notları). Kesim cepheleri (kule yüzleri, PABLO kutusu, MADO 1. kat) şemada öğe taşıyamadığı için pending’de gerçek ölçülerle.",
-  "v8 (anket ajanı): cutEdges tamamlandı — kule doğu yüzü (pano sütunları, loca sütunu 2×7 loca), MADO 1. kat (yeni parça 4: 4 kubbe tente + pencereler + fenerler), PABLO harfleri + beyaz yüz (kule parçası), PABLO güney yüzü, kule güney yüzü, batı blok batı yüzü. Massing: kule doğu yüzü x=592.6 düz; PABLO parçası doğu yüzü z −570.66…−578.08 (şerit −585.32 kaldırıldı); MADO 1. kat şeridi ayrı parça."
+  "v8 (anket ajanı): cutEdges tamamlandı — kule doğu yüzü (pano sütunları, loca sütunu 2×7 loca), MADO 1. kat (yeni parça 4: 4 kubbe tente + pencereler + fenerler), PABLO harfleri + beyaz yüz (kule parçası), PABLO güney yüzü, kule güney yüzü, batı blok batı yüzü. Massing: kule doğu yüzü x=592.6 düz; PABLO parçası doğu yüzü z −570.66…−578.08 (şerit −585.32 kaldırıldı); MADO 1. kat şeridi ayrı parça.",
+  "D4 r2 (2026-09-30): massing.towers[0] çokgenine taban izi köşesi [533.7, −581.55] eklendi: kule kenarı [536.66, −581.4] → [533.7, −581.78] halka kenarı 6’dan 0.23 m sapıyordu (massing.ts onRing eşiği 0.01) → kenar 6 öğeleri (pencere, sarı boru, kamera, lamba) kule yüzünde çizilmiyordu."
  ],
  "pending": [
   {
@@ -3933,6 +3938,115 @@
      }
     }
    ]
+  },
+  {
+   "part": 0,
+   "a": [
+    562.8,
+    -580.0
+   ],
+   "e": [
+    562.8,
+    -601.0
+   ],
+   "tol": 1.6,
+   "seen": "partial",
+   "ref": "ortho2 (scratch d4r2fix/o KE_0lpk: 0lpkenpB 338/347/352 22°+40°, x = 562.8 düzlemi, base −0.72)",
+   "cal": {
+    "u": [
+     0,
+     21.0
+    ],
+    "head": [
+     [
+      6,
+      21.0
+     ],
+     [
+      3,
+      12.0
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": -1.6,
+     "u1": 17.0,
+     "y0": 7.5,
+     "y1": 22.85,
+     "color": "#5e5243",
+     "proud": 0.06,
+     "note": "kahverengi dış kaplama (gölgede #5e5243 / #5b533b; batı yüzdeki #6f6352 ile aynı malzeme, gölgede)"
+    },
+    {
+     "t": "panel",
+     "u0": -1.3,
+     "u1": 2.7,
+     "y0": 8.5,
+     "y1": 21.85,
+     "color": "#64473a",
+     "proud": 0.1,
+     "note": "kiremit-kahve pano (gölge #64473a)"
+    },
+    {
+     "t": "win",
+     "u0": 10.0,
+     "u1": 11.4,
+     "y0": 19.3,
+     "y1": 21.3,
+     "k": 6,
+     "s": [
+      5,
+      6
+     ],
+     "split": 2,
+     "curt": {
+      "K6": "karanlik",
+      "K5": "karanlik"
+     },
+     "note": "K4 ve altı önündeki beyaz PABLO kütlesinin arkasında görülmedi"
+    },
+    {
+     "t": "bal",
+     "u0": 5.8,
+     "u1": 7.4,
+     "d": 0.08,
+     "inset": 1.0,
+     "s": [
+      2,
+      6
+     ],
+     "rail": {
+      "*": "none"
+     },
+     "fasciaC": {
+      "*": "#dcdcd6"
+     },
+     "sides": "wall",
+     "note": "loca sütunu: her katta beyaz döşeme alnı, arası koyu (loca). Derinlik ve korkuluk bu eğik ortofotoda seçilmedi (inset 1.0 varsayılan)."
+    },
+    {
+     "t": "win",
+     "u0": 4.0,
+     "u1": 5.4,
+     "y0": 18.8,
+     "y1": 21.0,
+     "k": 6,
+     "s": [
+      3,
+      6
+     ],
+     "split": 2,
+     "curt": {
+      "K6": "tul",
+      "K5": "tul",
+      "K4": "tul",
+      "K3": "tul"
+     }
+    }
+   ],
+   "note": "D4 r2 (2026-09-30): Batı blok (7 kat) DOĞU yüzü: 2 katlı PABLO şeridinin (duvar üstü 7.3) üstünde kalan kesim yüzü, önceden öğesiz beyaz sıva çiziliyordu (0lpk 0_0’da kahverengi, pencereli). Kademeli yüz (x 561.5–563.5) tek doğru + tol 1.6 ile. Ortofoto eğik (≈25°) ve 1.2 m aşağı kaymış (loca döşemeleri 21.5/18.3/15.2/12.2 görünen → kat adımı 3.05 ✓) → kal. head ile oturtuldu. u 0–4 önündeki beyaz kütle (PABLO kutusu) arkasında görülmedi. u kuzey uçtan (a z −580) güneye: bu blokta halka yönü ters (batı yüz kuzeye gidiyor)."
   }
  ]
 }

@@ -904,3 +904,13 @@
   artık derlenmiş veri survey'lerle uyuşmazsa başarısız olur. **Blender:** `NW/Measured/Facades` şu bloklar yeniden
   kurulur: 900000203, 1476599907/908/909/911/912, 1477364957/959, 1540994151, 1544934686/694, 1545290880, 1546358563,
   1546358595, 1551828351/357, 1552093099, 1552992538.
+- **(D4 eleştirmen 2. tur, cephe)** — 6 bina: kule köşeleri taban izi kenarına 1–23 cm kaçıktı → yüzler kesim yüzü
+  sayılıp boş sıva çiziliyordu (1476599910, 1551814323, 1551828351 köşe düzeltmesi). ARMILLA (1546358573) kırmızı
+  çerçeve duvardan 4.0 m önde açık saçak: saçak döşemesi + doğu dikmesi + lila yan duvar (ARMILLA yazısı batıya bakan
+  yan duvarda), BOĞA ahşap çıta bandı saçak önünde. 1550614219: 4 ara kesim yüzü (pencere kolonları, yağmur borusu,
+  köşe balkonları), Ziraat tabelası "Ziraat" + "Bankası" iki yüze bölündü. 1551814323: CEYLAN PLUS hacimleri podyum
+  çatısında serbest koyu köşk (`volumes`), yazılar kule kuzey yüzünde, panel başlangıcı 6.8 m. 1551828351: batı blok
+  doğu yüzü. 1544934686: Kırmıkıl üst pano zemini #474c46. Sokak: gülbaşoğulları siyah alın panosu (direksiz `board`,
+  `poles: 0` desteği `street.ts`), Kent Park güney yüzünde 3.1 m koyu ibreli çit. **Blender:** `NW/Measured/Facades`
+  → 1476599910, 1544934686, 1546358573, 1550614219, 1551814323, 1551828351; `NW/Measured/Street` → d4-mak-gulbas-fascia(-2),
+  d4-kentpark-s-hedge.

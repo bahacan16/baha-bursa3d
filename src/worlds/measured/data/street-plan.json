@@ -13922,7 +13922,7 @@
           }
         ],
         "fg": "#ae9f7d",
-        "h": 1.0,
+        "h": 1,
         "frameC": "#1f2124"
       }
     },
@@ -14351,6 +14351,56 @@
       "note": "Kırmıkıl İş Merkezi güney cephesi cam kutu dükkân sırası (Eczane Yonca, trend, Pastadan, gülbaşoğulları börek-pasta), ön ≈(575,−818.2)→(611,−817.5), derinlik ≈4.5 (kuzeye). Muammer Aksoy panolarının GPS’i ≈5 m kuzeyde olabilir — konum cephe ajanının bordüre oturtmasına dayanır. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 D4 eleştirmen düzeltmesi (d4c #3): poligon düzeltildi — ön yüz (yol tarafı) z≈−819, arka (bina cephesi) ≈−822.8; önceki poligon yola (güneye) uzanıyordu. XQtjS3fI_0_0 (2025-09; eleştirmen görünüm kalibrasyonu dz −4.3): bordür −815.6, cam kutu önü −819.0; cam kutular x 575–592 (gülbaşoğulları kutusu SV x 585.6–591.6), x≈592–597 giriş girintisi (Kırmıkıl İş Merkezi levhası + banklar), x 597.5–611 beton duvar + üstü yeşil oluklu saç (arkasında tuğla kaplama; ayrı kaydedilmedi — boyu ölçülmedi). Hava fotoğrafında cam kutu çatıları x≈600’e kadar uzanıyor gibi (±2).",
       "x": 583.5,
       "z": -820.8
+    },
+    {
+      "id": "d4-mak-gulbas-fascia",
+      "kind": "board",
+      "x": 587.8,
+      "z": -818.9,
+      "rot": 180,
+      "w": 4.4,
+      "h": 0.9,
+      "y0": 2.3,
+      "d": 0.08,
+      "poles": 0,
+      "text": "gülbaşoğulları",
+      "bg": "#1b2123",
+      "fg": "#558d49",
+      "border": "#1b2123",
+      "font": "sans",
+      "bold": true,
+      "note": "gülbaşoğulları cam kutusunun siyah alın bandı, sol büyük yazı (bina aynı kutunun ön yüzünde, direksiz). Fotoğrafta \"gülbaş\" yeşil / \"oğulları\" beyaz görünüyor; pano tek renk yazı destekliyor → ajan örneği yeşil. Kaynak: SV XQtjS3fIm1rPGW1V1LxwAA_0_0 (2025-09) + D4 r2 cephe ajanı ölçümü (x 585.6–591.6, alın ≈0.9 m, üst 3.2, zemin #1b2123, yeşil #558d49)."
+    },
+    {
+      "id": "d4-mak-gulbas-fascia-2",
+      "kind": "board",
+      "x": 590.8,
+      "z": -818.9,
+      "rot": 180,
+      "w": 1.6,
+      "h": 0.9,
+      "y0": 2.3,
+      "d": 0.08,
+      "poles": 0,
+      "text": "börek\nbaklava pasta",
+      "lines": [
+        {
+          "text": "börek",
+          "fg": "#ffffff",
+          "size": 0.5
+        },
+        {
+          "text": "baklava pasta",
+          "fg": "#558d49",
+          "size": 0.5
+        }
+      ],
+      "bg": "#1b2123",
+      "fg": "#ffffff",
+      "border": "#1b2123",
+      "font": "sans",
+      "bold": true,
+      "note": "gülbaşoğulları alın bandının sağ ucu: \"börek\" (beyaz, küçük) üstte, \"baklava pasta\" (yeşil, küçük) altta. Kaynak: SV XQtjS3fIm1rPGW1V1LxwAA_0_0 (2025-09) + D4 r2 cephe ajanı ölçümü (x 585.6–591.6, alın ≈0.9 m, üst 3.2, zemin #1b2123, yeşil #558d49)."
     },
     {
       "id": "d4-mak-east-pav",
@@ -22482,10 +22532,28 @@
     {
       "id": "d4-sw-um-n-bike-1",
       "kind": "marking",
-      "x": 737.0,
+      "x": 737,
       "z": -301.88,
       "rot": 90,
       "note": "v9: d4-sw-um-n kırmızı bandında mavi zemin + beyaz bisiklet piktogramı (ClwC9NKO_0_0, ≈x 737 — kaldırım notundaki ölçü). z: kaldırım bordür hattı (722,−301.8)→(745,−300.7) üzerinde x 737’de −301.08, bant ortası bordürden ≈0.8 m (KERB + 1.3 m bandın yarısı) içeride. ±1.5."
+    },
+    {
+      "id": "d4-kentpark-s-hedge",
+      "kind": "planter",
+      "x": 583.95,
+      "z": -568.5,
+      "shape": "box",
+      "w": 16.9,
+      "d": 0.8,
+      "h": 0.05,
+      "color": "#2b2c17",
+      "plant": {
+        "h": 3.05,
+        "color": "#2b2c17",
+        "shape": "hedge"
+      },
+      "rot": 0,
+      "note": "Kent Park (1551828351) güney yüzü, pergola önünün hemen güneyinde sık koyu yeşil ibreli çit (x 575.5–592.4, z −568.9…−568.1, üst ≈3.1 m); arkasındaki grafiti panolar çitin içinde kalır. Renk #2b2c17 / #282a14 (gölgede örneklendi). Derinlik görülmedi (0.8 = konum aralığı). Kaynak: D4 r2 cephe ajanı (SV 2025-09)."
     }
   ],
   "notes": [
@@ -23272,7 +23340,7 @@
       "line": [
         [
           612.41,
-          -198.0
+          -198
         ],
         [
           612.5,
@@ -23288,15 +23356,15 @@
         ],
         [
           613.2,
-          -145.0
+          -145
         ],
         [
           613.2,
-          -130.0
+          -130
         ],
         [
           613.2,
-          -117.0
+          -117
         ]
       ],
       "mode": "parallel",
@@ -23305,7 +23373,7 @@
       "at": [
         [
           613.19,
-          -146.0
+          -146
         ]
       ],
       "note": "2026-09-30 SV 2025-09 270_-50 zemin kareleri (10 m arayla, G-kaW6/MpeplF/1T1mUz/fHbASh/1Wmb-T/JT30UR, Zd4Gsq, DTrlxy, Y0ipTy, aQL7Z-): şeritte yalnız bir gümüş binek (MpeplF sol kenarı + 1T1mUz sağ kenarı → z≈−146); kalanı boş. Hat = bordür (d4-sw-w1) + 1.3 m (şerit ortası). Kaldırım çıkıntıları (d4-bulb-w1/w2) otomatik boş. Yön: kol güneye akıyor, araçlar trafik yönünde (burun yönü karelerde seçilemedi)."
@@ -23319,7 +23387,7 @@
           -140.5
         ],
         [
-          639.0,
+          639,
           -142.99
         ],
         [
@@ -23332,15 +23400,15 @@
         ],
         [
           638.8,
-          -176.0
+          -176
         ],
         [
           638.8,
-          -190.0
+          -190
         ],
         [
           638.8,
-          -203.0
+          -203
         ]
       ],
       "mode": "parallel",
@@ -23348,16 +23416,16 @@
       "pitch": 5.4,
       "at": [
         [
-          639.0,
-          -143.0
+          639,
+          -143
         ],
         [
           638.89,
-          -157.0
+          -157
         ],
         [
           638.8,
-          -188.0
+          -188
         ]
       ],
       "note": "2026-09-30 SV 2025-09 90_-50 (GAOvru, Y4Wrvi, byBT3s, urVE3Z, QZixQM, zPW8jC, wocprE, 18z5hy): üç araç — gümüş Doblo z≈−188 (GAOvru ortası, burnu kuzeye), gümüş binek z≈−157 (urVE3Z sağ kenarı), beyaz Mercedes z≈−143 (QZixQM ortası, burnu kuzeye); arası boş. Hat = bordür (d4-sw-e1) + 1.1 m (≈2.2 m şeridin ortası). Yön kuzey (hat −z)."
@@ -23368,7 +23436,7 @@
       "line": [
         [
           608.6,
-          -236.0
+          -236
         ],
         [
           608.7,
@@ -23380,7 +23448,7 @@
         ],
         [
           608.79,
-          -214.0
+          -214
         ]
       ],
       "mode": "parallel",
@@ -23389,7 +23457,7 @@
       "at": [
         [
           608.74,
-          -222.0
+          -222
         ],
         [
           608.69,
@@ -23404,7 +23472,7 @@
       "line": [
         [
           607.4,
-          -398.0
+          -398
         ],
         [
           607.4,
@@ -23436,7 +23504,7 @@
         ],
         [
           607.4,
-          -352.0
+          -352
         ]
       ],
       "mode": "parallel",
@@ -23445,11 +23513,11 @@
       "at": [
         [
           607.4,
-          -377.0
+          -377
         ],
         [
           607.4,
-          -390.0
+          -390
         ]
       ],
       "note": "2026-09-30 SV 2025-09 270_-50: SPGm-9 sol kenarı (z≈−377) ve MAQEIA sağ kenarı (z≈−390) birer araç; IuajFR, NAtvmN (çim burun), eKUsll boş. Hat = bordür + 1.2 m (araç 1.8 m + 0.3 bordür payı). Yön güney."
@@ -23460,7 +23528,7 @@
       "line": [
         [
           612.08,
-          -467.0
+          -467
         ],
         [
           611.91,
@@ -23500,7 +23568,7 @@
         ],
         [
           608.99,
-          -411.0
+          -411
         ]
       ],
       "mode": "parallel",
@@ -23530,7 +23598,7 @@
           -507.93
         ],
         [
-          614.0,
+          614,
           -501.93
         ],
         [
@@ -23547,7 +23615,7 @@
         ],
         [
           612.79,
-          -480.0
+          -480
         ]
       ],
       "mode": "parallel",
@@ -23556,11 +23624,11 @@
       "at": [
         [
           613.07,
-          -485.0
+          -485
         ],
         [
           613.4,
-          -491.0
+          -491
         ],
         [
           614.36,
@@ -23572,7 +23640,7 @@
         ],
         [
           614.94,
-          -519.0
+          -519
         ],
         [
           615.24,
@@ -23587,7 +23655,7 @@
       "line": [
         [
           619.3,
-          -594.0
+          -594
         ],
         [
           619.21,
@@ -23642,7 +23710,7 @@
       "line": [
         [
           626.23,
-          -711.0
+          -711
         ],
         [
           626.16,
@@ -23702,7 +23770,7 @@
         ],
         [
           621.19,
-          -626.0
+          -626
         ]
       ],
       "mode": "parallel",
@@ -23717,7 +23785,7 @@
       "line": [
         [
           630.72,
-          -772.0
+          -772
         ],
         [
           630.94,
@@ -23773,7 +23841,7 @@
         ],
         [
           636.85,
-          -385.0
+          -385
         ],
         [
           636.85,
@@ -23781,7 +23849,7 @@
         ],
         [
           636.85,
-          -396.0
+          -396
         ],
         [
           636.85,
@@ -23789,7 +23857,7 @@
         ],
         [
           636.85,
-          -407.0
+          -407
         ],
         [
           636.86,
@@ -23851,7 +23919,7 @@
       "line": [
         [
           642.49,
-          -479.0
+          -479
         ],
         [
           642.99,
@@ -23871,7 +23939,7 @@
         ],
         [
           643.54,
-          -507.0
+          -507
         ],
         [
           643.77,
@@ -23892,7 +23960,7 @@
       "at": [
         [
           643.02,
-          -486.0
+          -486
         ],
         [
           643.11,
@@ -23900,11 +23968,11 @@
         ],
         [
           643.26,
-          -499.0
+          -499
         ],
         [
           643.89,
-          -518.0
+          -518
         ]
       ],
       "note": "2026-09-30 SV 2025-09 90_-50: _u_Ljg (siyah SUV z≈−486 + siyah sedan z≈−491.5), X0NY1c (siyah Doblo z≈−499), H7s4ck (gümüş panelvan z≈−509 — otobüs durağı d4-bus-e4 önünde; kural gereği durak önü boş bırakıldı), ozFGTG (beyaz Audi z≈−518), m9-ls8 (−530 çim burun) boş; ivo1dM (−479) öndeki beyaz van yolda (park değil). Hat = asfalt kenarı + 1.25. Yön kuzey."
@@ -23915,7 +23983,7 @@
       "line": [
         [
           645.52,
-          -534.0
+          -534
         ],
         [
           645.67,
@@ -24009,7 +24077,7 @@
         ],
         [
           651.08,
-          -659.0
+          -659
         ],
         [
           651.41,
@@ -24033,7 +24101,7 @@
         ],
         [
           653.01,
-          -693.0
+          -693
         ]
       ],
       "mode": "parallel",
@@ -24088,11 +24156,11 @@
         ],
         [
           655.97,
-          -769.0
+          -769
         ],
         [
           656.06,
-          -770.0
+          -770
         ]
       ],
       "mode": "angled",
@@ -24128,7 +24196,7 @@
         ],
         [
           700.5,
-          -301.0
+          -301
         ]
       ],
       "mode": "parallel",
@@ -24136,15 +24204,15 @@
       "pitch": 5.2,
       "at": [
         [
-          707.0,
+          707,
           -300.71
         ],
         [
-          718.0,
+          718,
           -300.23
         ],
         [
-          723.0,
+          723,
           -300.01
         ],
         [
@@ -24160,7 +24228,7 @@
           -298.74
         ],
         [
-          760.0,
+          760,
           -298.53
         ],
         [
@@ -24180,7 +24248,7 @@
         ],
         [
           736,
-          -276.0
+          -276
         ],
         [
           786,
@@ -24192,7 +24260,7 @@
       "pitch": 2.6,
       "at": [
         [
-          698.0,
+          698,
           -277.85
         ],
         [
@@ -24212,27 +24280,27 @@
           -277.34
         ],
         [
-          711.0,
+          711,
           -277.22
         ],
         [
-          731.0,
+          731,
           -276.24
         ],
         [
-          736.0,
-          -276.0
+          736,
+          -276
         ],
         [
-          741.0,
+          741,
           -275.75
         ],
         [
-          757.0,
+          757,
           -274.95
         ],
         [
-          762.0,
+          762,
           -274.7
         ],
         [
@@ -24248,11 +24316,11 @@
           -274.29
         ],
         [
-          775.0,
+          775,
           -274.05
         ],
         [
-          783.0,
+          783,
           -273.65
         ]
       ],
@@ -24264,7 +24332,7 @@
       "line": [
         [
           543.5,
-          -531.0
+          -531
         ],
         [
           605,
@@ -24292,14 +24360,14 @@
       ],
       "mode": "perpendicular",
       "nose": "right",
-      "pitch": 3.0,
+      "pitch": 3,
       "at": [
         [
           569.5,
           -541.7
         ],
         [
-          575.0,
+          575,
           -541.7
         ],
         [
@@ -24307,11 +24375,11 @@
           -541.7
         ],
         [
-          583.0,
+          583,
           -541.7
         ],
         [
-          586.0,
+          586,
           -541.7
         ],
         [
@@ -24319,11 +24387,11 @@
           -541.7
         ],
         [
-          593.0,
+          593,
           -541.7
         ],
         [
-          597.0,
+          597,
           -541.7
         ],
         [
@@ -24331,7 +24399,7 @@
           -541.7
         ],
         [
-          604.0,
+          604,
           -541.7
         ]
       ],
@@ -24352,7 +24420,7 @@
       ],
       "mode": "perpendicular",
       "nose": "left",
-      "pitch": 3.0,
+      "pitch": 3,
       "occupancy": 0.55,
       "note": "2026-09-30 SV 2025-09 0_0 (4Us-wD, 0tbfMG, 0lpken, NVqyhp, g5OjkJ): otoparkın kuzey (Kent Park yapısı / PABLO duvarı) kenarında seyrek araç sırası — 40 m’de ~6–8 araç görülüyor, tek tek konumları uzaklıktan ölçülemedi → doluluk 0.55 ile deterministik dağıtım. Burun yönü görülmedi (duvara dönük alındı). Hat = otopark kuzey kenarı (−567.5) + 2.9. Yaklaşık."
     },
@@ -24395,7 +24463,7 @@
       ],
       "mode": "parallel",
       "nose": "fwd",
-      "pitch": 5.0,
+      "pitch": 5,
       "at": [
         [
           601.5,
@@ -24406,11 +24474,11 @@
           -802.04
         ],
         [
-          611.0,
+          611,
           -801.83
         ],
         [
-          616.0,
+          616,
           -801.59
         ]
       ],
@@ -24426,7 +24494,7 @@
         ],
         [
           690,
-          -798.0
+          -798
         ],
         [
           710,
@@ -24434,7 +24502,7 @@
         ],
         [
           745,
-          -795.0
+          -795
         ],
         [
           765,
@@ -24450,7 +24518,7 @@
       "pitch": 2.6,
       "at": [
         [
-          699.0,
+          699,
           -797.5
         ],
         [
@@ -24482,7 +24550,7 @@
           -796.5
         ],
         [
-          720.0,
+          720,
           -796.36
         ],
         [
@@ -24518,7 +24586,7 @@
           -794.45
         ],
         [
-          768.0,
+          768,
           -793.67
         ],
         [
@@ -24537,7 +24605,7 @@
       "street": "Muammer Aksoy Cd. kuzey yakası, Kırmıkıl önü (d4-sw-ma-nw)",
       "line": [
         [
-          621.0,
+          621,
           -816.56
         ],
         [
@@ -24561,7 +24629,7 @@
           -814.7
         ],
         [
-          566.0,
+          566,
           -814.79
         ]
       ],
@@ -24574,7 +24642,7 @@
           -814.75
         ],
         [
-          602.0,
+          602,
           -814.5
         ]
       ],

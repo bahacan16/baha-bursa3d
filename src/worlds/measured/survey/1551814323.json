@@ -138,8 +138,8 @@
       -514.4
      ],
      [
-      607.5,
-      -513.6
+      607.399,
+      -513.606
      ]
     ],
     "storeys": 1,
@@ -152,8 +152,8 @@
    {
     "poly": [
      [
-      550.5,
-      -525.95
+      550.492,
+      -525.797
      ],
      [
       539.77,
@@ -874,88 +874,6 @@
      "font": "script",
      "bold": false,
      "logo": "ilk kelime el yazısı, okunamadı"
-    },
-    {
-     "t": "proj",
-     "u0": 19.9,
-     "u1": 22.9,
-     "d": 0.6,
-     "y0": 4.9,
-     "y1": 8.2,
-     "color": "#34393e"
-    },
-    {
-     "t": "proj",
-     "u0": 44.2,
-     "u1": 48.0,
-     "d": 0.6,
-     "y0": 4.9,
-     "y1": 8.2,
-     "color": "#34393e"
-    },
-    {
-     "t": "sign",
-     "u0": 20.3,
-     "u1": 22.5,
-     "y0": 5.6,
-     "y1": 7.7,
-     "text": "",
-     "fg": "#f2f2f2",
-     "style": "letters",
-     "d": 0.03,
-     "off": 0.6,
-     "font": "serif",
-     "bold": true,
-     "lines": [
-      {
-       "text": "CEYLAN",
-       "size": 1.0,
-       "y": 0.5
-      },
-      {
-       "text": "PLUS",
-       "size": 0.6,
-       "y": 0.25
-      },
-      {
-       "text": "ÖZLÜCE",
-       "size": 0.45,
-       "y": 0.08
-      }
-     ],
-     "logo": "üstte beyaz dağ/grafik çizgisi logosu"
-    },
-    {
-     "t": "sign",
-     "u0": 44.8,
-     "u1": 47.4,
-     "y0": 5.6,
-     "y1": 7.7,
-     "text": "",
-     "fg": "#f2f2f2",
-     "style": "letters",
-     "d": 0.03,
-     "off": 0.6,
-     "font": "serif",
-     "bold": true,
-     "lines": [
-      {
-       "text": "CEYLAN",
-       "size": 1.0,
-       "y": 0.5
-      },
-      {
-       "text": "PLUS",
-       "size": 0.6,
-       "y": 0.25
-      },
-      {
-       "text": "ÖZLÜCE",
-       "size": 0.45,
-       "y": 0.08
-      }
-     ],
-     "logo": "üstte beyaz dağ/grafik çizgisi logosu"
     }
    ],
    "note": "KUZEY podyum cephesi (402. Sk.), 2025-09, 0tbf (D 11.6) + 6S8o, bulutlu/gölge. Zemin kat soldan (doğudan): DURAK (tek katlı kutu, koyu yeşil lamelli alın, kırmızı tabelalar), dış çelik merdiven (u 19.2–20.7, sokak), Queen Waffle & Chocolate (kırmızı İngiliz telefon kulübesi — sokak), Ohannes Burger, Cadı'nın Evi (ışık zinciri), Cafe Strada (açık yeşil sütunlu), ikinci dış merdiven (u 53.5–57.5, ferforje, sokak), Helvacı Ali 1900 (ahşap pano). 1. kat u 20.7–52 geri çekik teras (derinlik görülmedi, 3.0 tahmin), saçak alnında 1. kat kiracı tabelaları. Kule (kuzey yüzü) massing kesim duvarı → pending."
@@ -1535,8 +1453,17 @@
      ],
      "kind": "shop",
      "split": 10,
-     "frameC": "#8a8f92",
-     "tint": "#a7c5ec"
+     "frameC": "#3a3e40",
+     "curt": {
+      "K1": "stor"
+     },
+     "curtC": {
+      "K1": "#979a88"
+     },
+     "curtF": {
+      "K1": 0.95
+     },
+     "note": "D4 r2 (2026-09-30): PROe f22: uzun pencerelerin hemen hepsi bej stor perdeyle kapalı (gölgede #939683–#9ea497; yansıtıcı mavi cam değil), koyu doğrama; altında tam boy koyu yeşil lamelli saçak bandı (öğe 1) zaten var."
     },
     {
      "t": "band",
@@ -1549,9 +1476,9 @@
     },
     {
      "t": "sign",
-     "u0": 7.7,
-     "u1": 15.0,
-     "y0": 6.15,
+     "u0": 10.4,
+     "u1": 14.7,
+     "y0": 6.2,
      "y1": 6.7,
      "text": "X JIMER ESTETİK",
      "fg": "#8a7650",
@@ -1561,7 +1488,8 @@
      "bold": true,
      "capH": 0.42,
      "lit": true,
-     "logo": "solda altın \"X\" monogramı"
+     "logo": "solda altın \"X\" monogramı",
+     "note": "D4 r2 (2026-09-30): PROe f22’de harfler u 10.4–14.7 (önceki 7.7–15.0 aralığı yazıyı küçültüyordu); yazı “X JIMER ESTETİK” (eleştirmenin “İLMEK” okuması fotoğrafla uyuşmuyor)."
     },
     {
      "t": "roofobj",
@@ -1581,7 +1509,9 @@
   "KAT SAYISI: 9 = zemin (0–5.0, koyu yeşil alınlı dükkânlar) + 1. kat (ticari, 5.0–8.5; kuzeyde geri çekik teras, doğuda bej cam bant) + 7 konut katı (kule doğu yüzünde balkon döşemeleri 8.5/11.5/14.5/17.5/20.5/23.6/26.6, kule üstü koyu gri çatı bandı 29.0–29.6; −8.8 m arka düzlem ortofotosunda sayıldı, X0NY 300_0/300_40 karelerinde 7 balkon sırası). Taban izi notundaki 10 kat bir fazla sayılmış olabilir (kule üst katı çatı bandıyla karışmış).",
   "KÜTLE (v8): taban izi = podyum halkası. Kule (OSM building:part 1551814325, OSM çokgeni aynen — doğu yüzü fotoğrafta 20.3 m, OSM 20.0: kuzey kenarını 1 m güneye almak yüzü kısaltıyordu) = massing.towers[0], 9 kat; doğu ve kuzey kule yüzleri cutEdges[0–1] ile (balkonlar, pencereler, ayaklar, tüm balkon tabelaları kat kat). KD DURAK ve KB Helvacı köşeleri tek kat, geri kalan podyum 2 kat (üst 6.8). Tek dosya + building:part olduğundan cutEdges seçildi (ayrı 1551814325 dosyası + startK yerine: taban izi tek, kule podyumla aynı OSM binası).",
   "RENKLER: podyum alnı koyu petrol-yeşil #2e444c (doğu, güneşli; kuzeyde gölgede #162d31), lameller #1a2628; DURAK kırmızı #a83f31; Queen/Ohannes alnı #30373e; Cadı'nın Evi gri #54534a; Cafe Strada açık yeşil-gri #8d988c; Helvacı ahşap #8f7a6b (kuzey) / #664f3f (batı, gölge); bej tente #797267, Evergreen yeşil tente #44714d, kubbe tente #8f8c84 (batı gölgede); 1. kat bej-mavi cam #a7c5ec (yansıma).",
-  "v9 (pending → veri): kule kuzey yüzü kanatlarının çapraz renk bölünmesi — 0.3 m basamaklı 136 dilim yerine 4 çokgen pano (cutEdges[1]): kum #a0907c köşegenin altında, koyu gri #3a3e42 üstünde; köşegen sol kanatta dış kenar y 22.3 → iç kenar 14.0, sağ kanatta 14.1 → 22.3 (dilimlerin ölçülen kotlarıyla ±0.15)."
+  "v9 (pending → veri): kule kuzey yüzü kanatlarının çapraz renk bölünmesi — 0.3 m basamaklı 136 dilim yerine 4 çokgen pano (cutEdges[1]): kum #a0907c köşegenin altında, koyu gri #3a3e42 üstünde; köşegen sol kanatta dış kenar y 22.3 → iç kenar 14.0, sağ kanatta 14.1 → 22.3 (dilimlerin ölçülen kotlarıyla ±0.15).",
+  "D4 r2 (2026-09-30): massing.towers[2] köşesi [550.5, -525.95] → [550.492, -525.797] (taban izi kenar 0 doğrusuna izdüşüm; eski nokta doğrudan 0.153 m uzaktaydı, massing.ts onRing eşiği 0.01 m: parça yüzü kesim kenarı sayılıp öğesiz çiziliyor, kenar öğeleri önündeki ince podyum şeridine düşüyordu).",
+  "D4 r2 (2026-09-30): massing.towers[1] köşesi [607.5, -513.6] → [607.399, -513.606] (taban izi kenar 9 doğrusuna izdüşüm; eski nokta doğrudan 0.101 m uzaktaydı, massing.ts onRing eşiği 0.01 m: parça yüzü kesim kenarı sayılıp öğesiz çiziliyor, kenar öğeleri önündeki ince podyum şeridine düşüyordu)."
  ],
  "pending": [
   {
@@ -2182,17 +2112,17 @@
      "t": "panel",
      "u0": 10.5,
      "u1": 20.16,
-     "y0": 7.9,
+     "y0": 6.8,
      "y1": 22.3,
      "color": "#a0907c",
      "poly": [
       [
        10.5,
-       7.9
+       6.8
       ],
       [
        20.16,
-       7.9
+       6.8
       ],
       [
        20.16,
@@ -2202,7 +2132,8 @@
        10.5,
        22.3
       ]
-     ]
+     ],
+     "note": "D4 r2 (2026-09-30): alt kenar 7.9 → 6.8 (podyum çatısı): arada kalan 1.1 m çıplak sıva (palet plaster #dfe0dc) kuzeyde balkon yığınları önünde açık gri yatay bant olarak çiziliyordu; fotoğrafta bant yok (6S8o 180_0, 0tbf)."
     },
     {
      "t": "panel",
@@ -2234,17 +2165,17 @@
      "t": "panel",
      "u0": 54.26,
      "u1": 65.08,
-     "y0": 7.9,
+     "y0": 6.8,
      "y1": 22.3,
      "color": "#a0907c",
      "poly": [
       [
        54.26,
-       7.9
+       6.8
       ],
       [
        65.08,
-       7.9
+       6.8
       ],
       [
        65.08,
@@ -2254,7 +2185,8 @@
        54.26,
        14.1
       ]
-     ]
+     ],
+     "note": "D4 r2 (2026-09-30): alt kenar 7.9 → 6.8 (podyum çatısı): arada kalan 1.1 m çıplak sıva (palet plaster #dfe0dc) kuzeyde balkon yığınları önünde açık gri yatay bant olarak çiziliyordu; fotoğrafta bant yok (6S8o 180_0, 0tbf)."
     },
     {
      "t": "panel",
@@ -2286,9 +2218,10 @@
      "t": "panel",
      "u0": 20.16,
      "u1": 54.26,
-     "y0": 7.9,
+     "y0": 6.8,
      "y1": 29.0,
-     "color": "#8a8b8c"
+     "color": "#8a8b8c",
+     "note": "D4 r2 (2026-09-30): alt kenar 7.9 → 6.8 (podyum çatısı): arada kalan 1.1 m çıplak sıva (palet plaster #dfe0dc) kuzeyde balkon yığınları önünde açık gri yatay bant olarak çiziliyordu; fotoğrafta bant yok (6S8o 180_0, 0tbf)."
     },
     {
      "t": "sign",
@@ -2740,6 +2673,72 @@
       }
      ],
      "logo": "üst satır el yazısı okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 15.73,
+     "u1": 18.23,
+     "y0": 7.8,
+     "y1": 10.1,
+     "text": "",
+     "fg": "#f2f2f2",
+     "style": "letters",
+     "d": 0.03,
+     "off": 3.11,
+     "font": "serif",
+     "bold": true,
+     "lines": [
+      {
+       "text": "CEYLAN",
+       "size": 1.0,
+       "y": 0.5
+      },
+      {
+       "text": "PLUS",
+       "size": 0.6,
+       "y": 0.25
+      },
+      {
+       "text": "ÖZLÜCE",
+       "size": 0.45,
+       "y": 0.08
+      }
+     ],
+     "logo": "üstte beyaz dağ/grafik çizgisi logosu",
+     "note": "D4 r2 (2026-09-30): kioskun kuzey yüzüne taşındı (kule kuzey kesim yüzü, off = kiosk ön yüzü): logo + 3 satır y 7.8–10.1 (NVqy / WW8z karelerinde kiosk yüksekliği ölçeğiyle), eni ≈2.5 m."
+    },
+    {
+     "t": "sign",
+     "u0": 52.94,
+     "u1": 55.44,
+     "y0": 7.8,
+     "y1": 10.1,
+     "text": "",
+     "fg": "#f2f2f2",
+     "style": "letters",
+     "d": 0.03,
+     "off": 4.62,
+     "font": "serif",
+     "bold": true,
+     "lines": [
+      {
+       "text": "CEYLAN",
+       "size": 1.0,
+       "y": 0.5
+      },
+      {
+       "text": "PLUS",
+       "size": 0.6,
+       "y": 0.25
+      },
+      {
+       "text": "ÖZLÜCE",
+       "size": 0.45,
+       "y": 0.08
+      }
+     ],
+     "logo": "üstte beyaz dağ/grafik çizgisi logosu",
+     "note": "D4 r2 (2026-09-30): kioskun kuzey yüzüne taşındı (kule kuzey kesim yüzü, off = kiosk ön yüzü): logo + 3 satır y 7.8–10.1 (NVqy / WW8z karelerinde kiosk yüksekliği ölçeğiyle), eni ≈2.5 m."
     }
    ]
   },
@@ -2792,6 +2791,58 @@
      "color": "#999ea1"
     }
    ]
+  }
+ ],
+ "volumes": [
+  {
+   "poly": [
+    [
+     588.5,
+     -517.3
+    ],
+    [
+     592.8,
+     -517.3
+    ],
+    [
+     592.8,
+     -514.3
+    ],
+    [
+     588.5,
+     -514.3
+    ]
+   ],
+   "y0": 5.0,
+   "y1": 10.9,
+   "color": "#34393e",
+   "roofC": "#2c3034",
+   "note": "D4 r2 (2026-09-30): DOĞU kiosk: CEYLAN PLUS kulesi (koyu gri kutu, üstü düz, ince başlık) kule kuzey yüzünün önünde, podyum çatısında. Önceki çizim podyum cephesinin 0.6 m önündeydi (0tbf ortofotosu izdüşümü) → 6S8o 180_0’da Cadı’nın Evi üstünde lacivert kutu. Konum iki pano kesişimiyle: 0tbf ortofoto u′ 19.9 / 22.95 ∩ NVqy 180_0 x 437 / 512 → ön köşeler (592.79, −517.53), (588.51, −517.08); arka yüz kule KD kanadı (z −514.3, derinlik ≈3.0, yandan görülmedi). Üst NVqy’den 10.7, WW8z’den batı kiosk 11.1 → 10.9 (±0.4); tabanı DURAK / podyum çatısının arkasında (görülmedi, 5.0)."
+  },
+  {
+   "poly": [
+    [
+     551.6,
+     -519.5
+    ],
+    [
+     555.4,
+     -519.5
+    ],
+    [
+     555.4,
+     -515.0
+    ],
+    [
+     551.6,
+     -515.0
+    ]
+   ],
+   "y0": 5.0,
+   "y1": 10.9,
+   "color": "#34393e",
+   "roofC": "#2c3034",
+   "note": "D4 r2 (2026-09-30): BATI kiosk: CEYLAN PLUS kulesi (koyu gri kutu, üstü düz, ince başlık) kule kuzey yüzünün önünde, podyum çatısında. Önceki çizim podyum cephesinin 0.6 m önündeydi (0tbf ortofotosu izdüşümü) → 6S8o 180_0’da Cadı’nın Evi üstünde lacivert kutu. Konum iki pano kesişimiyle: 0tbf u′ 44.1 ∩ 6S8o 180_0 x 575 → (554.49, −518.37); 0tbf u′ 44.1 / 48.25 ∩ WW8z 180_0 x 195 / 262 → (555.73, −519.26), (551.57, −520.82) → ön z ≈ −519.5 (±1), x 551.6–555.4. Arka: kule ana yüzü / KB kanadı (derinlik görülmedi)."
   }
  ]
 }
