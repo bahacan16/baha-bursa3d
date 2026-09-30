@@ -1,6 +1,6 @@
 # Nilüfer Walk
 
-Bursa / Nilüfer / 29 Ekim Mahallesi / **502. Sokak** merkezli, 2 km çaplı bir alanda tarayıcıda (masaüstü ve telefon) oynanan, **GTA tarzı üçüncü şahıs yürüyüşlü** 3D simülasyon. Binalar, yollar, ağaçlar gerçek 3D geometri olarak çizilir; kurulum gerektirmez.
+Gerçek bir mahallede, 2 km çaplı bir alanda tarayıcıda (masaüstü ve telefon) oynanan, **GTA tarzı üçüncü şahıs yürüyüşlü** 3D simülasyon. Binalar, yollar, ağaçlar gerçek 3D geometri olarak çizilir; kurulum gerektirmez.
 
 ## Nasıl oynanır
 
@@ -32,7 +32,7 @@ Siteyi aç → başlangıç ekranında modu seç:
 
 ### Neler gerçek, neler yaklaşık?
 
-- **Gerçek (OpenStreetMap + açık yükseklik verisi):** bina konumları, taban şekilleri ve (etiketliyse) kat sayıları; tüm yollar ve adları; parklar, sahalar, site alanları, su; Bursaray hattı; işaretli ağaçlar, banklar, duraklar; arazinin eğimi ve uzaktaki Uludağ silüeti.
+- **Gerçek (OpenStreetMap + açık yükseklik verisi):** bina konumları, taban şekilleri ve (etiketliyse) kat sayıları; tüm yollar ve adları; parklar, sahalar, site alanları, su; raylı sistem hattı; işaretli ağaçlar, banklar, duraklar; arazinin eğimi ve uzaktaki dağ silüeti.
 - **Hava fotoğrafından (Esri World Imagery):** zemin dokusu, her binanın çatı rengi (kiremit görülen binalara kırma çatı) ve ağaçların konumu (fotoğraftaki yeşil taçlardan otomatik tespit — yaklaşık).
 - **Yaklaşık / prosedürel:** bina cepheleri (renk, pencere, balkon — OSM'de bu bilgi yok), kat bilgisi olmayan binalarda varsayılan 5 kat, ağaç türü/boyu, sokak lambalarının konumu, yayalar ve araçlar.
 
@@ -62,7 +62,7 @@ Yerel geliştirmede `.env.local` dosyasına `VITE_GOOGLE_MAPS_KEY=...` yazarsan 
 
 ## Veri
 
-- `scripts/fetch-osm.mjs`: önce `502. Sokak`'ı merkez etrafında 1.5 km içinde arar ve uzunluğunun orta noktasını merkez yapar (bulunamazsa `40.218262, 28.909611`), sonra merkez ± 1200 m alanı indirir, koordinatları yerel metreye çevirip sadeleştirir → `public/data/osm.json` + `meta.json`.
+- `scripts/fetch-osm.mjs`: önce yapılandırılmış merkez sokağı 1.5 km içinde arar ve uzunluğunun orta noktasını merkez yapar (bulunamazsa yapılandırmadaki varsayılan koordinat), sonra merkez ± 1200 m alanı indirir, koordinatları yerel metreye çevirip sadeleştirir → `public/data/osm.json` + `meta.json`.
 - Yerelde üretmek için: `npm run fetch-data` (ağ erişimi gerekir). İstersen çıktıyı commit edebilirsin (10 MB sınırı).
 - `tests/fixtures/osm-small.json` **sentetik** test verisidir (gerçek harita değil); yalnızca ağ gerektirmeyen testler içindir.
 
@@ -85,7 +85,7 @@ Konumlu mahalle ses manzarası (Web Audio, `src/env/sound/`): dinleyici kameray�
 modeliyle yerleşir ve binaların arkasında boğuklaşır; çevredeki binalardan sokak kanyonu / site avlusu / açık alan
 yankısı hesaplanır. Zemine göre ayak sesleri (asfalt, kilit taşı, beton, traverten, çim, toprak, çakıl, rögar
 kapağı, ahşap, kauçuk) iskeletteki ayak basışına eşlenir; trafikte her araca motor + lastik sesi, Doppler, önünü
-kesince korna; ana caddelerin uzak uğultusu; BursaRay geçişleri (istasyonda fren, bekleme, kalkış); saate göre kuşlar
+kesince korna; ana caddelerin uzak uğultusu; raylı sistem geçişleri (istasyonda fren, bekleme, kalkış); saate göre kuşlar
 (serçe, kumru, karga, martı), ağaçlarda rüzgâr, gece cırcır böceği, uzak köpekler, site avlusunda çocuklar; gerçek
 cami konumlarından, Diyanet yöntemiyle hesaplanan vakitlerde ezan (Esc → Ses düzeyi → "Ezan sesi").
 
@@ -96,7 +96,7 @@ cami konumlarından, Diyanet yöntemiyle hesaplanan vakitlerde ezan (Esc → Ses
 - Kayıt yoksa oyun eski prosedürel seslere düşer; kuş, köpek, çocuk ve **ezan asla sentezlenmez** (kayıt yoksa
   çalmaz).
 - Hata ayıklama: `?ezan=now` hemen ezan, `?clock=+90` ses saatini 90 dk ileri al, `__game.audio.info()` (saat,
-  vakitler, akustik sınıf, zemin), `__game.audio.debugTrain()` hemen Bursaray geçişi.
+  vakitler, akustik sınıf, zemin), `__game.audio.debugTrain()` hemen tren geçişi.
 
 ## Lisanslar ve atıflar
 
