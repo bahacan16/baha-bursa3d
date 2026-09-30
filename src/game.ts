@@ -8,7 +8,7 @@ import { daylight, type Daylight } from './env/daylight';
 import { nightUniform } from './env/night';
 import { GameAudio } from './env/audio';
 import { PostFX } from './env/post';
-import { lightCalibration } from './env/calibration';
+import { installNeutralToe, lightCalibration } from './env/calibration';
 import { bakedLighting } from './worlds/measured/baked';
 import {
   installShadowOnly,
@@ -140,6 +140,8 @@ export class Game {
           ? THREE.AgXToneMapping
           : THREE.NeutralToneMapping;
     r.toneMappingExposure = 0.9;
+    // Neutral siyah ofseti kalibrasyondan (env/calibration.ts geçmiş 3: koyu gölge yüzeyleri ezilmesin)
+    installNeutralToe(THREE.ShaderChunk as unknown as Record<string, string>);
     r.outputColorSpace = THREE.SRGBColorSpace;
     r.shadowMap.enabled = settings.quality !== 'low';
     // Ultra: PCSS ham derinlik okur (karşılaştırmalı örnekleyici değil) → BasicShadowMap türü + kendi süzgecimiz

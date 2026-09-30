@@ -32,6 +32,19 @@
  *    kurulum, cls.mjs ölçütler); yama seti `p_all.json` (7 görüş, 25 yama; 10'u cam/bitki/doğu cephesi,
  *    yalnız rapor).
  *
+ * 3. 2026-09-30 akşam (koyu gölge yüzeyleri; D4 eleştirmen bulguları: Biaport podyum kuzey alnı #3c454e → oyun
+ *    #0c1c2e, mavi pano #5e95b0 → #1f5878): bileşen yakalaması (scratchpad/shade/) — AO bu yüzeylerde ≈1 (N8AO
+ *    0.99, High'da pişirme yok), ışık payı açık Mertkent kuzey cephesiyle aynı (yarım küre+ortam, albedonun ~0.31'i),
+ *    malzeme doğru (albedo = veri rengi, metal 0, pürüz 0.9). Fark TAMAMEN ton eşlemede: Neutral'ın siyah ofseti
+ *    (en küçük kanal x < 0.08 ise x − 6.25x², üstünde sabit 0.04 çıkarır) koyu yüzeyi toplamsal ezer ve renk kanalları
+ *    arasındaki farkı büyütür (gri-mavi → lacivert). Aynı ezilme GÜNEŞLİ Mertkent-2 karelerinde de ölçüldü: 95 kuzey
+ *    koyu balkon alnı −1.6 durak (#2e363e / fotoğraf #4d6067), kapı köşkü −2.7 durak (#08101b / #313433). Sabah
+ *    kalibrasyonu yalnız açık renkli yüzeylerle yapılmıştı (ofset orada ~0.2 durak) ve güneş/gölge kilit taşı oranını
+ *    kısmen bu ezilme tutuyordu. Yeni: ofset 0 (`toe`), zemin gölgesini çarpımsal olarak yarım küre ×0.45 → ×0.18 düşürür
+ *    (yatay yüzey yarım kürenin tamamını, düşey yarısını alır), pozlama ×1.08 → ×1.145. Mertkent-2 yama seti
+ *    (p_all, 7 görüş): zemin çifti 0.221 → 0.197 durak, |L| 0.204 → 0.186, açık cephe mutlak +0.03 → +0.02, nötr
+ *    ΔE 3.21 → 2.81, b* +1.91 → +0.65; güneşli koyu gölge yüzeyleri ortalama −2.2 → −0.5 durak.
+ *
  * KARAR: `baked` env/yarım küre/pozlama `live` ile aynı — tahmini bir telafi uydurulmadı; pişirme ajanı yeniden
  * oturtunca değerler buraya yazılır. Deneme: canlı `?env= ?hemi= ?lexp= ?ao= ?aor=`, pişirilmiş `?benv= ?bhemi=
  * ?bexp= ?bssao= ?bssaor=` (mutlak değerler).
@@ -48,6 +61,28 @@ export interface LightCalibration {
   ssaoRadius: number;
 }
 
+/**
+ * Neutral ton eşlemenin siyah ofseti (three: en küçük kanal x < 2·t ise x − x²/(4t), üstünde t; özgün t = 0.04).
+ * KARAR (2026-09-30, bkz. geçmiş 3): 0 — Street View koyu gölge yüzeylerini ezmiyor. `?toe=0.04` eski eğri.
+ */
+export function neutralToe(): number {
+  return num(params(), 'toe', 0);
+}
+
+/** three'nin NeutralToneMapping ofsetini `neutralToe()` ile değiştirir (herhangi bir gölgelendirici derlenmeden önce). */
+export function installNeutralToe(chunks: Record<string, string>): void {
+  const t = neutralToe();
+  const src = 'float offset = x < 0.08 ? x - 6.25 * x * x : 0.04;';
+  const k = 'tonemapping_pars_fragment';
+  if (!chunks[k]?.includes(src)) {
+    console.warn('calibration: Neutral ton eşleme ofset satırı bulunamadı (three sürümü?) — özgün eğri kalıyor');
+    return;
+  }
+  const f = (v: number) => v.toFixed(6);
+  const rep = t > 0 ? `float offset = x < ${f(2 * t)} ? x - x * x / ${f(4 * t)} : ${f(t)};` : 'float offset = 0.0;';
+  chunks[k] = chunks[k].replace(src, rep);
+}
+
 const params = () => new URLSearchParams(typeof location !== 'undefined' ? location.search : '');
 
 function num(q: URLSearchParams, key: string, def: number): number {
@@ -59,10 +94,11 @@ export function lightCalibration(baked: boolean): LightCalibration {
   const q = params();
   const live: LightCalibration = {
     env: num(q, 'env', 0.038),
-    // KARAR: 0.6 → 0.45 (güneşli kilit taşı güneş/gölge çifti; bkz. yukarı, 2026-09-30)
-    hemi: num(q, 'hemi', 0.45),
-    // KARAR: 1 → 1.08 (yarım küre azalınca açık cephe gölgesi Street View mutlak düzeyinde kalsın)
-    exposure: num(q, 'lexp', 1.08),
+    // KARAR: 0.6 → 0.45 (güneşli kilit taşı güneş/gölge çifti) → 0.18 (ton eşleme ofseti kalkınca zemin gölgesi
+    // çarpımsal olarak; bkz. yukarı, geçmiş 3)
+    hemi: num(q, 'hemi', 0.18),
+    // KARAR: 1 → 1.08 → 1.145 (açık cephe gölgesi Street View mutlak düzeyinde kalsın)
+    exposure: num(q, 'lexp', 1.145),
     // KARAR: 1.7 / 2.2 m → 1.2 / 1.6 m (çit altı / kolon gibi içbükey gölgeler 0.35 durak koyuydu)
     ssao: num(q, 'ao', 1.2),
     ssaoRadius: num(q, 'aor', 1.6),

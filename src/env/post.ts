@@ -336,4 +336,7 @@ export class PostFX {
  * aydınlık kalıyordu ve gölgedeki açık cepheler Street View'dan +0.25 durak parlak çıkıyordu; −1.60 ile ortalama
  * düzeltme 1.0 (gölge ağırlıklı / arka ışıklı karede hâlâ en çok ×1.27 açar — göz uyumu, bilerek).
  */
-export const ULTRA_EXPOSURE_REF = -1.6;
+// KARAR (2026-09-30 akşam): −1.60 → −1.75 — yarım küre ×0.45 → ×0.18 (calibration.ts geçmiş 3) HDR ölçer
+// ortalamasını düşürdü: çevrimdışı ölçer kopyası (recal/aesim.mjs) High 7 görüşte −0.13, Ultra 2 görüşte −0.18 (ort.
+// ≈ −0.15); pozlama çarpanı (×1.145) ölçerden sonra uygulandığı için yalnız ışık payı farkı düşülür.
+export const ULTRA_EXPOSURE_REF = -1.75;
