@@ -1044,6 +1044,30 @@ function buildStreet(
   /** Rögar / ızgara malzemesi: ölçülen renk (dökme demir, yarı mat) ya da koyu metal */
   const coverKey = (hex?: string) =>
     hex && /^#[0-9a-f]{6}$/i.test(hex) && ext.colorKey ? ext.colorKey('frame', hex) : 'darkMetal';
+  /**
+   * Kapağın çevresindeki açık beton halka / çerçeve (ölçüm notu "beton halka" / "beton çerçeve"): 0.2 m bant.
+   * r verilirse yuvarlak halka, yoksa w × d dikdörtgen çerçeve (yaw sokak öğesininki).
+   */
+  let frameYaw = 0;
+  const coverFrame = (x: number, z: number, y: number, r: number | null, w: number, d: number) => {
+    const B = 0.2;
+    if (r != null) {
+      const g = new THREE.RingGeometry(r - 0.01, r + B, 24, 1).rotateX(-Math.PI / 2);
+      g.translate(x, y, z);
+      b.geometry('spConcrete', g);
+      return;
+    }
+    for (const [cx, cz, ww, dd] of [
+      [0, -(d + B) / 2, w + 2 * B, B],
+      [0, (d + B) / 2, w + 2 * B, B],
+      [-(w + B) / 2, 0, B, d],
+      [(w + B) / 2, 0, B, d],
+    ]) {
+      const g = new THREE.PlaneGeometry(ww, dd).rotateX(-Math.PI / 2).translate(cx, 0, cz).rotateY(frameYaw);
+      g.translate(x, y, z);
+      b.geometry('spConcrete', g);
+    }
+  };
   /** Yol boyası: renk (verilmezse beyaz spPaint) + aşınma 0..1 (gürültü alfa, kademe 1–3) */
   const paintKeyOf = (hex: string | undefined, wear: number | undefined) => {
     const wl = Math.min(3, Math.round(Math.max(0, Math.min(1, wear ?? 0)) * 4));
@@ -1071,6 +1095,7 @@ function buildStreet(
       continue;
     const note = `${s.text ?? ''} ${s.note ?? ''}`.toLowerCase();
     const yaw = ((s.rot ?? 0) * Math.PI) / 180;
+    frameYaw = yaw;
     switch (s.kind) {
       case 'lamp-post': {
         const h = s.h ?? 8;
@@ -1343,8 +1368,11 @@ function buildStreet(
         // Yağmur ızgarası (bordür dibinde): ölçülen w × d (varsayılan 0.8 × 0.4), renk `color`
         const dr = s as { w?: number; d?: number; color?: string };
         const g = new THREE.PlaneGeometry(dr.w ?? 0.8, dr.d ?? 0.4).rotateX(-Math.PI / 2).rotateY(yaw);
-        g.translate(s.x, g0 + flushY(s.x, s.z, sb, note), s.z);
+        const fy = flushY(s.x, s.z, sb, note);
+        g.translate(s.x, g0 + fy, s.z);
         b.geometry(coverKey(dr.color), g);
+        if (/beton (halka|çerçeve)|concrete (ring|frame)|beton çerçeve/.test(note))
+          coverFrame(s.x, s.z, g0 + fy - 0.003, null, dr.w ?? 0.8, dr.d ?? 0.4);
         break;
       }
       case 'bike-rack': {
@@ -1395,8 +1423,13 @@ function buildStreet(
           mh.shape === 'square'
             ? new THREE.PlaneGeometry(mh.w ?? 2 * r, mh.d ?? mh.w ?? 2 * r).rotateX(-Math.PI / 2).rotateY(yaw)
             : new THREE.CircleGeometry(r, 20).rotateX(-Math.PI / 2);
-        g.translate(s.x, g0 + flushY(s.x, s.z, sb, note), s.z);
-        b.geometry(coverKey(mh.color), g);
+        const fy = flushY(s.x, s.z, sb, note);
+        g.translate(s.x, g0 + fy, s.z);
+        // KARAR: renk ölçülmemişse dökme demir kapak tonu 502. Sk. ölçümünden (#797d7e, road-items 502-504-mh-sq);
+        // önceden koyu metal (#2a2c2e) gölgeli asfaltta hiç seçilmiyordu (critic da1-13)
+        b.geometry(coverKey(mh.color ?? '#797d7e'), g);
+        if (/beton (halka|çerçeve)|concrete (ring|frame)|beton kare çerçeve/.test(note))
+          coverFrame(s.x, s.z, g0 + fy - 0.003, mh.shape === 'square' ? null : r, mh.w ?? 2 * r, mh.d ?? mh.w ?? 2 * r);
         break;
       }
       case 'road-line': {

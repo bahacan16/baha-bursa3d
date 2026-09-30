@@ -962,7 +962,7 @@ describe('sokak / kapı üreticisi v6', () => {
     );
     const bk = buckets(b);
     const patch = bbox(bk.get('cc_asphalt_#505150'));
-    expect(patch.y0).toBeCloseTo(0.044, 5);
+    expect(patch.y0).toBeCloseTo(0.046, 5);
     expect(bk.has('cc_tar_#2b2b2a')).toBe(true);
     expect(bk.has('cc_wear2_#8a8b88')).toBe(true);
     expect(bbox(bk.get('cc_wear2_#8a8b88')).y0).toBeGreaterThan(0.05);

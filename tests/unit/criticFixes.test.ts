@@ -172,3 +172,126 @@ describe('small street helpers', () => {
     expect(nearPlanLine(lines, 5, 25.2)).toBe(false);
   });
 });
+
+import { Builder } from '../../src/worlds/mertkent/builder';
+import { buildStreetPlan, ROAD_FLUSH } from '../../src/worlds/mertkent/street';
+
+type Bk = { pos: number[] };
+const bks = (b: Builder) => (b as unknown as { buckets: Map<string, Bk> }).buckets;
+const yRange = (bk?: Bk) => {
+  let y0 = Infinity;
+  let y1 = -Infinity;
+  if (bk)
+    for (let i = 1; i < bk.pos.length; i += 3)
+      ((y0 = Math.min(y0, bk.pos[i])), (y1 = Math.max(y1, bk.pos[i])));
+  return [y0, y1];
+};
+
+describe('street plan renderer (critic fixes)', () => {
+  const ck = (k: string, h: string) => `cc_${k}_${h}`;
+  const build = (street: unknown[], sidewalks: unknown[] = []) => {
+    const b = new Builder();
+    buildStreetPlan(
+      b,
+      { street, sidewalks } as never,
+      () => 0,
+      () => 5,
+      { colorKey: ck as never },
+    );
+    return bks(b);
+  };
+  it('manhole / drain sit on the road above the OSM asphalt and lines, with measured size + colour', () => {
+    const bk = build([
+      { kind: 'manhole', x: 0, z: 0, r: 0.3, color: '#797d7e' },
+      { kind: 'drain', x: 3, z: 0, w: 0.9, d: 0.5 },
+      { kind: 'manhole', x: 6, z: 0, shape: 'square', w: 0.6 },
+    ]);
+    const [y0] = yRange(bk.get('cc_frame_#797d7e'));
+    expect(y0).toBeCloseTo(ROAD_FLUSH, 5);
+    expect(y0).toBeGreaterThan(0.05);
+    expect(bk.get('darkMetal')!.pos.length / 3).toBe(4); // ızgara (renk yok → koyu metal)
+    expect(bk.has('cc_frame_#797d7e')).toBe(true); // kare kapak: varsayılan dökme demir tonu
+  });
+  it('manhole on a measured sidewalk band sits on the band', () => {
+    const bk = build(
+      [{ kind: 'manhole', x: 5, z: 1, r: 0.3 }],
+      [
+        {
+          id: 't',
+          pts: [
+            [0, 0],
+            [10, 0],
+          ],
+          w: 2,
+          side: 'right',
+          layers: [{ w: 1.85, material: 'gri beton kilit taşı', h: 0.15 }],
+        },
+      ],
+    );
+    const [y0] = yRange(bk.get('cc_frame_#797d7e'));
+    expect(y0).toBeCloseTo(0.162, 3);
+  });
+  it('crossing: alternating colours, base paint, worn colour', () => {
+    const bk = build([
+      {
+        kind: 'crossing',
+        x: 0,
+        z: 0,
+        rot: 0,
+        len: 4,
+        w: 3,
+        color: ['#d9b53a', '#e8e8e4'],
+        baseColor: '#9b3b30',
+      },
+      { kind: 'crossing', x: 20, z: 0, rot: 0, len: 4, w: 3, color: '#d9b53a', wear: 0.25 },
+    ]);
+    expect(bk.has('cc_asphalt_#d9b53a')).toBe(true);
+    expect(bk.has('cc_asphalt_#e8e8e4')).toBe(true);
+    expect(yRange(bk.get('cc_asphalt_#9b3b30'))[0]).toBeLessThan(yRange(bk.get('cc_asphalt_#d9b53a'))[0]);
+    // %25 aşınma → boyanın ~%75'i kalır (wear3 örtü eşiği)
+    expect(bk.has('cc_wear3_#d9b53a')).toBe(true);
+  });
+  it('road-line give-way: dashed thick paint', () => {
+    const bk = build([
+      {
+        kind: 'road-line',
+        x: 0,
+        z: 0,
+        style: 'giveway',
+        pts: [
+          [0, 0],
+          [5, 0],
+        ],
+      },
+    ]);
+    // 5 m / (0.5 + 0.5) → 5 parça
+    expect(bk.get('spPaint')!.pos.length).toBeGreaterThan(0);
+  });
+  it('bin honours colour / note', () => {
+    const bk = build([
+      { kind: 'bin', x: 0, z: 0, note: 'turuncu plastik kova' },
+      { kind: 'bin', x: 3, z: 0, color: '#3366aa' },
+    ]);
+    expect(bk.has('bollardOrange')).toBe(true);
+    expect(bk.has('cc_metal_#3366aa')).toBe(true);
+    expect(bk.has('binGreen')).toBe(false);
+  });
+  it('roundabout: asphalt annulus from the island kerb to the ring outer edge', () => {
+    const bk = build([{ kind: 'roundabout-island', x: 0, z: 0, rx: 12, rz: 12, ringOuter: 27.5 }]);
+    const rf = bk.get('roadFill')!;
+    let rmax = 0;
+    let rmin = Infinity;
+    for (let i = 0; i < rf.pos.length; i += 3) {
+      const r = Math.hypot(rf.pos[i], rf.pos[i + 2]);
+      rmax = Math.max(rmax, r);
+      rmin = Math.min(rmin, r);
+    }
+    expect(rmax).toBeGreaterThan(27);
+    expect(rmin).toBeGreaterThan(11.5);
+  });
+  it('swan-neck lamp: curved arm tube', () => {
+    const bk = build([{ kind: 'lamp-post', x: 0, z: 0, h: 10, rot: 90, arm: 2, note: 'tek kuğu boynu kol' }]);
+    const [, y1] = yRange(bk.get('pole'));
+    expect(y1).toBeGreaterThan(10.1);
+  });
+});

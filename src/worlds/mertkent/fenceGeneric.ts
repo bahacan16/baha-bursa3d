@@ -347,7 +347,36 @@ export function buildGenericFence(
       const c = P((u0 + u1) / 2, wallT / 2);
       const y0 = baseY(c);
       const wH = wallTop(mid);
-      if (wallH > 0.05) {
+      if (wallH > 0.05 && arch) {
+        // Kemerli panel üstü: parça uçlarında kendi kotu (eğimli üst) — 0.35 m'lik kutular kemerde basamak yapıyordu
+        const hA = wallTop(cum[i] + u0);
+        const hE = wallTop(cum[i] + u1);
+        const yA = baseY(P(u0, wallT / 2));
+        const yE = baseY(P(u1, wallT / 2));
+        const v3 = (q: V2, yy: number): [number, number, number] => [q[0], yy, q[1]];
+        const U0 = cum[i] + u0;
+        const U1 = cum[i] + u1;
+        for (const [off, front] of [
+          [0, true],
+          [wallT, false],
+        ] as const) {
+          const A = P(u0, off);
+          const Ee = P(u1, off);
+          const q = [v3(A, yA - 0.2), v3(Ee, yE - 0.2), v3(Ee, yE + hE), v3(A, yA + hA)] as const;
+          if (front) b.quad(wallKey, q[0], q[1], q[2], q[3], [U0, -0.2, U1, (hA + hE) / 2]);
+          else b.quad(wallKey, q[1], q[0], q[3], q[2], [U1, -0.2, U0, (hA + hE) / 2]);
+        }
+        // Harpuşta: eğimli üst yüz + iki yan şerit
+        const cA0 = P(u0, -0.03);
+        const cE0 = P(u1, -0.03);
+        const cA1 = P(u0, wallT + 0.03);
+        const cE1 = P(u1, wallT + 0.03);
+        const tA = yA + hA + copH;
+        const tE = yE + hE + copH;
+        b.quad(copKey, v3(cA0, tA), v3(cE0, tE), v3(cE1, tE), v3(cA1, tA), [U0, 0, U1, wallT]);
+        b.quad(copKey, v3(cA0, tA - copH), v3(cE0, tE - copH), v3(cE0, tE), v3(cA0, tA), [U0, 0, U1, copH]);
+        b.quad(copKey, v3(cE1, tE - copH), v3(cA1, tA - copH), v3(cA1, tA), v3(cE1, tE), [U1, 0, U0, copH]);
+      } else if (wallH > 0.05) {
         b.box(wallKey, [c[0], y0 + (wH - 0.2) / 2, c[1]], [u1 - u0 + 0.004, wH + 0.2, wallT], yaw, 1);
         if (bevel > 0)
           b.bevelBox(
