@@ -39,7 +39,8 @@
   "v3 (korkuluk/renk): görünen tüm yığınlarda döşeme alnı + dolu parapet (döşemeden ≈0.55 m) + tek ara borulu, ~1.2 m dikmeli paslanmaz küpeşte (≈0.92 m) → rail solidTube, parapetH 0.55, railC #d0d6d9. 562/556’dan farklı olarak bu blokta koyu gri alın K3 (en üst balkon) ve K0’da (#50575f; gölgede ölçülen K0 bandı #2e3940 ≈ koyu duvar #333e47, beyaz K1 bandı #8e949f); K1 ve K2 alınları beyaz.",
   "v3: binada tabela yok. Batı çitinde kırmızı-beyaz emlak levhası (“…ADA … 345 52 88”, okunamıyor) ve elektrik panosunda SİNEKLİK etiketi, kuzeyde SATILIK/KİRALIK levhası — hepsi çit/sokak eşyası, binada değil. Çekirdek terasındaki yeşil çatılı pergola şemada yazılamaz.",
   "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster2': '#50575f'} → {'plaster2': '#5a636b'}",
-  "critic-fix 2026-09-30: K0/K3 koyu alınlar: RW5 183_22 karesinde K3 alnı #404a56 ≈ koyu duvar #3b4751 (aynı kare, aynı yön) → fasciaC = plaster2 #5a636b (eski #50575f duvardan koyuydu). Koyu duvar / beyaz alın oranı aynı karede 0.43–0.54 (#404d58 / #969ca3); duvar tonu değiştirilmedi (oyundaki fark ışık). 10 doğu yığını K2 korkuluğunda kırmızı örtüler (RW5 183_22 yakın plan: orta boruya asılı iki kırmızı parça + kırmızı-beyaz şerit; gölge/bulutlu #853039–#8f262f) → banner plain; batı yığında kat kat saksılar RW5 ortosundan (K3 5, K2 3, K1 7 beyaz saksı + yeşil bitki, K0 4 çiçek kutusu; saksı rengi gölgede #76746b → beyaz alın oranıyla #a9a699, bitki #2a3325 gölge). 14 büyük yığın K2: TRta 190_23'te cam ŞEFFAF, perde yok; arkada koyu arka duvar, beyaz pencere/kapı ve duvarda beyaz klima → ac (u ≈5.0 tahmini ±0.3); 'clear' camın oyunda beyaz stor gibi görünmesi üretici/malzeme (A10), veri doğru."
+  "critic-fix 2026-09-30: K0/K3 koyu alınlar: RW5 183_22 karesinde K3 alnı #404a56 ≈ koyu duvar #3b4751 (aynı kare, aynı yön) → fasciaC = plaster2 #5a636b (eski #50575f duvardan koyuydu). Koyu duvar / beyaz alın oranı aynı karede 0.43–0.54 (#404d58 / #969ca3); duvar tonu değiştirilmedi (oyundaki fark ışık). 10 doğu yığını K2 korkuluğunda kırmızı örtüler (RW5 183_22 yakın plan: orta boruya asılı iki kırmızı parça + kırmızı-beyaz şerit; gölge/bulutlu #853039–#8f262f) → banner plain; batı yığında kat kat saksılar RW5 ortosundan (K3 5, K2 3, K1 7 beyaz saksı + yeşil bitki, K0 4 çiçek kutusu; saksı rengi gölgede #76746b → beyaz alın oranıyla #a9a699, bitki #2a3325 gölge). 14 büyük yığın K2: TRta 190_23'te cam ŞEFFAF, perde yok; arkada koyu arka duvar, beyaz pencere/kapı ve duvarda beyaz klima → ac (u ≈5.0 tahmini ±0.3); 'clear' camın oyunda beyaz stor gibi görünmesi üretici/malzeme (A10), veri doğru.",
+  "critic-fix 2026-09-30 (cam balkon dikmeleri): profiller ince açık gri alüminyum (koyu değil; TRtaim/nxqv/n1yU/XO-B ortoları, 556 ile aynı sistem) → frameC #a0a6a7 (556'da 4bB2 189_23 ray/alın oranı 0.68 ile ölçülen). glazeEvery e14 yığın 0.52 (K0 ve K3 ortofoto dikme profili uyumlu); diğerleri ölçülemedi."
  ],
  "edges": [
   {
@@ -440,6 +441,9 @@
      "fasciaC": {
       "K0": "#5a636b",
       "K3": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -941,6 +945,9 @@
      "fasciaC": {
       "K0": "#5a636b",
       "K3": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     }
    ],
@@ -999,7 +1006,11 @@
      "fasciaC": {
       "K0": "#5a636b",
       "K3": "#5a636b"
-     }
+     },
+     "frameC": {
+      "*": "#a0a6a7"
+     },
+     "glazeEvery": 0.52
     },
     {
      "t": "panel",
@@ -1103,6 +1114,9 @@
      "fasciaC": {
       "K0": "#5a636b",
       "K3": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -1168,6 +1182,9 @@
      "fasciaC": {
       "K0": "#5a636b",
       "K3": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -1228,6 +1245,9 @@
      "fasciaC": {
       "K0": "#5a636b",
       "K3": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     }
    ],
@@ -1284,6 +1304,9 @@
      "fasciaC": {
       "K0": "#5a636b",
       "K3": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {

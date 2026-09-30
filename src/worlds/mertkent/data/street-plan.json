@@ -3602,7 +3602,12 @@
     "w": 0.12,
     "color": "white",
     "note": "da1-sw-south notu: bordür dibinde ≈0.45 m asfalt oluk + beyaz kenar çizgisi (eleştirmen A8: oyunda yok) — edgeLine: yol kotunda, bordür yüzünden off m uzakta sürekli beyaz çizgi (kod bekliyor; OSM kenar çizgisi kaldırım bandının altında kalıyordu)."
-   }
+   },
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da1-sw-north-west",
@@ -3671,7 +3676,12 @@
     }
    ],
    "material": "gri beton bordür; kırmızı bant + gri kilit taşı + sarı kılavuz; dış kenarda krem beton kenar taşı, arkası park çimi.",
-   "note": "x≈1–9 arası kaldırımın arka kenarında 3 yeraltı çöp konteyneri platformu (street bin). x≈20–26’da park yaya yolu (OSM footway) kaldırıma bağlanır, kaldırım burada ~4.5 m’ye genişler; x≈26–36 krem kenar taşı z≈-175, x=35.9’da kuzeye döner (otopark arkasındaki park kaldırımı)."
+   "note": "x≈1–9 arası kaldırımın arka kenarında 3 yeraltı çöp konteyneri platformu (street bin). x≈20–26’da park yaya yolu (OSM footway) kaldırıma bağlanır, kaldırım burada ~4.5 m’ye genişler; x≈26–36 krem kenar taşı z≈-175, x=35.9’da kuzeye döner (otopark arkasındaki park kaldırımı).",
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da1-sw-north-lot",
@@ -3877,7 +3887,12 @@
     }
    ],
    "material": "Bordürden cepheye kadar tek kotta kilit taşı meydan; kırmızı bant + gri + sarı kılavuz = kaldırım (2.55 m), arkasında dik park, cephe önünde yürüme bandı.",
-   "note": "Cephe (OSM 1550826982) z≈-177.9+0.058(x−101); toplam derinlik ≈9–10 m. Dükkânlar: MİA Yönetim ve Gayrimenkul, Phenomenon Kitap, Evrensel Kitap, Saç Perisi, Wimbledon Language Academy. Giriş önlerinde turuncu esnek dikmeler (park engeli). Batı ucu x≈94 (tabela direği), doğu ucu x≈183 (doğudaki toprak/çakıl otopark ve bariyerli servis yolu)."
+   "note": "Cephe (OSM 1550826982) z≈-177.9+0.058(x−101); toplam derinlik ≈9–10 m. Dükkânlar: MİA Yönetim ve Gayrimenkul, Phenomenon Kitap, Evrensel Kitap, Saç Perisi, Wimbledon Language Academy. Giriş önlerinde turuncu esnek dikmeler (park engeli). Batı ucu x≈94 (tabela direği), doğu ucu x≈183 (doğudaki toprak/çakıl otopark ve bariyerli servis yolu).",
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da2-sw-north-lot",
@@ -3921,7 +3936,12 @@
     }
    ],
    "material": "gri beton bordür 15×30; kırmızı bant 1.15 + gri + sarı kılavuz (kaldırımın batıdaki da1 meydanı ve doğudaki UPTOWN önüyle aynı düzen).",
-   "note": "pts = bordür (yol kenarı) = kuzey kenar çizgisi + 0.35 m (hava fotoğrafı profilleri; SV JDIg/KOxF zemin karelerinde kenar çizgisi–bordür yüzü ≈0.3 m). Arkası: x 183–194 sıkıştırılmış çakıl otopark (OSM parking_aisle x≈185.5 girişi; SyTa 2025 zemin karesinde kilit taşı çakıla kotsuz birleşiyor, kaldırım ≈3.7 m), x 194.5–199.3 UPTOWN site otoparkı girişi (kırmızı-beyaz bariyer kolu, turuncu direk x≈194.1; KOxF 2019 karesinde bordür bu açıklıkta indirilmiş rampa). Bordür indirme sınırları ±0.5 m. SV: 2025-09 (SyTa, nxqv) + 2019-05 (KOxF). H-kalibrasyon (docs/SV_CAMERA.md; 2025-09 kamera 2.35 m, kaldırım kotunda etkin 2.20 → ×0.88): SyTa zemin karesindeki genişlik 3.70→3.25 m, gri bant 2.40→1.95 (hava fotoğrafında çakıl sınırı seçilmiyor; ±0.15)."
+   "note": "pts = bordür (yol kenarı) = kuzey kenar çizgisi + 0.35 m (hava fotoğrafı profilleri; SV JDIg/KOxF zemin karelerinde kenar çizgisi–bordür yüzü ≈0.3 m). Arkası: x 183–194 sıkıştırılmış çakıl otopark (OSM parking_aisle x≈185.5 girişi; SyTa 2025 zemin karesinde kilit taşı çakıla kotsuz birleşiyor, kaldırım ≈3.7 m), x 194.5–199.3 UPTOWN site otoparkı girişi (kırmızı-beyaz bariyer kolu, turuncu direk x≈194.1; KOxF 2019 karesinde bordür bu açıklıkta indirilmiş rampa). Bordür indirme sınırları ±0.5 m. SV: 2025-09 (SyTa, nxqv) + 2019-05 (KOxF). H-kalibrasyon (docs/SV_CAMERA.md; 2025-09 kamera 2.35 m, kaldırım kotunda etkin 2.20 → ×0.88): SyTa zemin karesindeki genişlik 3.70→3.25 m, gri bant 2.40→1.95 (hava fotoğrafında çakıl sınırı seçilmiyor; ±0.15).",
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da2-sw-north-uptown",
@@ -3981,7 +4001,12 @@
     }
    ],
    "material": "gri beton bordür; bordürden duvara: kırmızı bant 1.15, gri 0.9, sarı kılavuz 0.45, gri ≈1.5 (duvara kadar).",
-   "note": "Genişlik hava fotoğrafından: bordür (kenar çizgisi n+0.35) → beyaz duvar yüzü 4.15 m (x 200–222 boyunca ±0.15 sabit); kılavuz merkezi hava fotoğrafında parlak çizgi olarak bordür+2.25 (SV oranı 0.546 ile aynı). Bant oranları 2019 JDIg/KOxF 0_-50 zemin karelerinden (ham: kırmızı 1.39 / gri 1.16 / kılavuz 0.64 / gri 2.13, kamera-yüksekliği ölçeği ≈0.8–0.88 ile düzeltilmiş). 2025 SyTa_58/74/83 40° karelerinde aynı düzen. 2019 karesinde (JDIg_90_-50) kırmızı bant üzerinde x≈218.5 mavi bisiklet piktogramı boyalı (2025'te doğrulanamadı). Doğu ucu x≈223.5: kaldırım UPTOWN köşesinden isimsiz yola kıvrılır (köşe/rampa geometrisi ölçülmedi). Kaldırım üzerinde direk/lamba yok."
+   "note": "Genişlik hava fotoğrafından: bordür (kenar çizgisi n+0.35) → beyaz duvar yüzü 4.15 m (x 200–222 boyunca ±0.15 sabit); kılavuz merkezi hava fotoğrafında parlak çizgi olarak bordür+2.25 (SV oranı 0.546 ile aynı). Bant oranları 2019 JDIg/KOxF 0_-50 zemin karelerinden (ham: kırmızı 1.39 / gri 1.16 / kılavuz 0.64 / gri 2.13, kamera-yüksekliği ölçeği ≈0.8–0.88 ile düzeltilmiş). 2025 SyTa_58/74/83 40° karelerinde aynı düzen. 2019 karesinde (JDIg_90_-50) kırmızı bant üzerinde x≈218.5 mavi bisiklet piktogramı boyalı (2025'te doğrulanamadı). Doğu ucu x≈223.5: kaldırım UPTOWN köşesinden isimsiz yola kıvrılır (köşe/rampa geometrisi ölçülmedi). Kaldırım üzerinde direk/lamba yok.",
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da2-sw-north-ne",
@@ -4135,7 +4160,12 @@
     }
    ],
    "material": "gri beton bordür; bordür dibinde ≈0.5 m asfalt oluk + beyaz kenar çizgisi; kırmızı bant ≈1.0, gri, sarı kılavuz (merkez bordür+2.7), gri ≈0.9 duvara kadar.",
-   "note": "pts = bordür = güney kenar çizgisi − 0.5 m (SV JDIg_180_-50: kenar çizgisi→bordür yüzü 0.48). Kılavuz hava fotoğrafında x 225–255 boyunca bordür+2.65…2.75 sabit parlak çizgi; duvar yüzü SV oranıyla (kılavuz/duvar = 0.71, JDIg 2019) bordür+3.8 (hava fotoğrafında çit gölgesi/çalı başlangıcı 3.3–4.6, eğiklik düzeltmeli). x 202–222 arasında hava fotoğrafında kaldırım bina çatısı eğikliği altında kalıyor → yalnızca SV. Batı ucu 503. Sk. GD köşesi (köşe yayı da2-sw-503-east'te); köşede sarı kılavuz uyarı karoları (l07h_0_0 2025). Doğu ucu x≈252: duvar köşesi, sonrası da2-sw-south-forecourt. SV: 2019-05 (KOxF, JDIg) + 2025-09 uzak (SyTa_117/124, HVLz)."
+   "note": "pts = bordür = güney kenar çizgisi − 0.5 m (SV JDIg_180_-50: kenar çizgisi→bordür yüzü 0.48). Kılavuz hava fotoğrafında x 225–255 boyunca bordür+2.65…2.75 sabit parlak çizgi; duvar yüzü SV oranıyla (kılavuz/duvar = 0.71, JDIg 2019) bordür+3.8 (hava fotoğrafında çit gölgesi/çalı başlangıcı 3.3–4.6, eğiklik düzeltmeli). x 202–222 arasında hava fotoğrafında kaldırım bina çatısı eğikliği altında kalıyor → yalnızca SV. Batı ucu 503. Sk. GD köşesi (köşe yayı da2-sw-503-east'te); köşede sarı kılavuz uyarı karoları (l07h_0_0 2025). Doğu ucu x≈252: duvar köşesi, sonrası da2-sw-south-forecourt. SV: 2019-05 (KOxF, JDIg) + 2025-09 uzak (SyTa_117/124, HVLz).",
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da2-sw-south-forecourt",
@@ -4240,7 +4270,12 @@
     }
    ],
    "material": "gri bordür, gri kilit taşı, bordüre yakın sarı kılavuz (merkez bordür+1.1); kırmızı bant yok (503. Sk.).",
-   "note": "HVLz_0_-50 (2025-09) zemin karesi satır profili: bordür→kılavuz 0.9–1.3, →duvar 1.95 m (bu mesafede ham ölçek ≈1). Bordür x: hava fotoğrafı 199.8–200.6 arası (gölge nedeniyle belirsiz) → 200.3 ±0.4. SV konumları bu sokakta 3–4 m kayık (l07h/HVLz GPS), bu yüzden mutlak konum hava fotoğrafından. Köşe yayı yarıçapı ≈1.8 (KOxF_180_-50: köşede ızgara + DUR levhası). Güney ucu z≈-128 (daha güneyi ölçülmedi). H-kalibrasyon (2025-09 kamera 2.35 m, kaldırım kotunda ×0.88; 'ham ölçek ≈1' geçerli değil — hata mesafeyle orantılı): HVLz bordür→duvar 1.95→1.72 (w 2.00→1.75), gri 1.85→1.60, kılavuz merkezi 1.10→0.95 (ham 0.9–1.3 → 0.8–1.15)."
+   "note": "HVLz_0_-50 (2025-09) zemin karesi satır profili: bordür→kılavuz 0.9–1.3, →duvar 1.95 m (bu mesafede ham ölçek ≈1). Bordür x: hava fotoğrafı 199.8–200.6 arası (gölge nedeniyle belirsiz) → 200.3 ±0.4. SV konumları bu sokakta 3–4 m kayık (l07h/HVLz GPS), bu yüzden mutlak konum hava fotoğrafından. Köşe yayı yarıçapı ≈1.8 (KOxF_180_-50: köşede ızgara + DUR levhası). Güney ucu z≈-128 (daha güneyi ölçülmedi). H-kalibrasyon (2025-09 kamera 2.35 m, kaldırım kotunda ×0.88; 'ham ölçek ≈1' geçerli değil — hata mesafeyle orantılı): HVLz bordür→duvar 1.95→1.72 (w 2.00→1.75), gri 1.85→1.60, kılavuz merkezi 1.10→0.95 (ham 0.9–1.3 → 0.8–1.15).",
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da2-sw-503-west-corner",
@@ -4283,7 +4318,12 @@
     }
    ],
    "material": "gri bordür, gri kilit taşı, sarı kılavuz (bordür+≈1.0); yol tarafında bordür boyunca mavi bisiklet şeridi (≈1.15 m, beyaz kenar çizgili, 2025 ≈#7a838e) — katmanlarla ifade edilemiyor.",
-   "note": "2026-09 (eleştirmen da2-05): da2-sw-503-west'ten ayrıldı — SV SyTa_180_0: mavi bisiklet şeridi yalnız 503. Sk. batı kenarında, köşe yayının bittiği yerden (≈(193,−153.2)) güneye başlar; Doğan Avcıoğlu kenarında ve köşe yayında şerit yok (yol kenarında yalnız beyaz kenar çizgisi). Katmanlar ana kayıtla aynı (köşede sarı kılavuz DA ve 503 kılavuzlarını birleştirir)."
+   "note": "2026-09 (eleştirmen da2-05): da2-sw-503-west'ten ayrıldı — SV SyTa_180_0: mavi bisiklet şeridi yalnız 503. Sk. batı kenarında, köşe yayının bittiği yerden (≈(193,−153.2)) güneye başlar; Doğan Avcıoğlu kenarında ve köşe yayında şerit yok (yol kenarında yalnız beyaz kenar çizgisi). Katmanlar ana kayıtla aynı (köşede sarı kılavuz DA ve 503 kılavuzlarını birleştirir).",
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da2-sw-503-west",
@@ -4331,7 +4371,12 @@
    ],
    "material": "gri bordür, gri kilit taşı, sarı kılavuz (bordür+≈1.0); yol tarafında bordür boyunca mavi bisiklet şeridi (≈1.15 m, beyaz kenar çizgili, 2025 ≈#7a838e) — katmanlarla ifade edilemiyor.",
    "note": "l07h_270_-50 (2025): bisiklet şeridi → bordür → gri kaldırım (ham 2.35 m) → kabartmalı duvar; kılavuz bordürden ham ≈1.0. HVLz_0_-50: batı bordürü ile şerit iç çizgisi arası ham ≈1.2. Bordür x 193.0 ±0.5 (hava fotoğrafı; SV GPS kayık). Kuzey kolu (x 185–191) da1-sw-south'un bittiği köşe; burada kaldırım gerçekte site çitine (z≈-152) kadar ≈4 m geniş köşe alanı (lamba da1-lamp-5) — 2.3 m ile kapanmıyor. Park etmiş araçlar bisiklet şeridi üzerinde (hava fotoğrafı). H-kalibrasyon (2025-09 kamera 2.35 m): l07h kaldırım ham 2.35 × 0.88 = 2.07 → w 2.30→2.05, gri 2.15→1.90, kılavuz 1.00→0.90; bisiklet şeridi yol kotunda ham 1.2 × 0.94 = 1.13 → 1.15 değişmedi. Duvar hattı buna göre x 190.95 (hava fotoğrafı gölge çizgisinin doğu kenarı ≈190.9 ile uyumlu; da2-fence-503-west). | 2026-09: köşe yayı (x 185–193) da2-sw-503-west-corner kaydına alındı; bisiklet şeridi yalnız bu kayıtta (503. Sk.).",
-   "bike": 1.15
+   "bike": 1.15,
+   "tactileTint": [
+    1.18,
+    1.08,
+    1.03
+   ]
   },
   {
    "id": "da3-sw-north-site",
@@ -8198,7 +8243,8 @@
     "material": "çim"
    },
    "planting": "çim içinde ada kenarına paralel halka biçimli çiçeklik: kırmızı/turuncu-pembe çiçekli alçak çalılar (gül?) + yeşil alçak çalılar, kenardan ≈3–5 m içeride (yArg8_60_0, Z8D7_60_0)",
-   "note": "Hava fotoğrafı: dış açık halka (bordür + kırmızı bant) D-B 23.3 m (x 617.9–641.2), K-G 25.2/24.4 m (z -94.7…-69.5); çim kenarı D-B 21.3, K-G 22.9 → hafif K-G uzun elips (rx/rz bordür dışı). Radyal profillerde bordür tepe yarıçapı 11.0 (doğu) … 12.8 (güney) — merkez ±0.3. Çevre yolu: ada bordüründen dış köşe bordürlerine ≈15–16 m (r≈27.5–28.5), içinde kesikli şerit çizgileri (≥3 şerit; Z8D7/yArg8 zemin kareleri 2025-09). Ada üstünde: 4 lamba (da3-rb-lamp-*), trafik ışıkları (da3-rb-signal-*), CCTV direği + kabin (da3-rb-cctv), ağaç (da3-rb-tree), bayrak/afiş panoları (yeXvH_90/180_-50: Bursaspor ve TFF/Ülkü Ocakları afişleri — geçici). Yeni tür: generator desteği gerekiyor."
+   "note": "Hava fotoğrafı: dış açık halka (bordür + kırmızı bant) D-B 23.3 m (x 617.9–641.2), K-G 25.2/24.4 m (z -94.7…-69.5); çim kenarı D-B 21.3, K-G 22.9 → hafif K-G uzun elips (rx/rz bordür dışı). Radyal profillerde bordür tepe yarıçapı 11.0 (doğu) … 12.8 (güney) — merkez ±0.3. Çevre yolu: ada bordüründen dış köşe bordürlerine ≈15–16 m (r≈27.5–28.5), içinde kesikli şerit çizgileri (≥3 şerit; Z8D7/yArg8 zemin kareleri 2025-09). Ada üstünde: 4 lamba (da3-rb-lamp-*), trafik ışıkları (da3-rb-signal-*), CCTV direği + kabin (da3-rb-cctv), ağaç (da3-rb-tree), bayrak/afiş panoları (yeXvH_90/180_-50: Bursaspor ve TFF/Ülkü Ocakları afişleri — geçici). Yeni tür: generator desteği gerekiyor. | 2026-09-30 (D4 sokak ajanı, koordinatör isteği): ringOuter 27.5 = notta ölçülen dış kenar r≈27.5–28.5’in alt değeri.",
+   "ringOuter": 27.5
   },
   {
    "kind": "lamp-post",
@@ -8429,252 +8475,252 @@
    "y0": 1,
    "frame": "#6b6f70",
    "legs": 2,
-   "note": "GB köşe çim şevinde, kaldırım arkasından ≈1.5–2 m geride tek sıra çerçeveli reklam panoları (belediye tipi, gri alüminyum çerçeve, çift bacak; yüzleri kavşağa/yola dönük): yArg8_240_0 ve _249_10_40, Z8D7_230_12_40/_247_10_40, VsNJ_240_0 (2025-09) — içerik: \"Açıldı! … Bowl\", \"Anne Ben Bitlendim\", \"Nilsem El Sanatları Kursları Başlıyor\", \"Bereketli Topraklar\" (değişken). Hat hava fotoğrafında koyu çizgi (gölge). Panel sayısı ≈8 (sayım ±1), boyut ≈3.2×2.2 (oransal). Yeni tür. | 2026-09 (eleştirmen da3-06: oyunda 8 boş yüz): Z8D7_240_0 + _230_12_40 + _247_10_40 (2025-09) — sırayla 7 pano (batıdan/kavşaktan uzaklaşarak): 1–2 aynı ilan: siyah zemin, altın iç çerçeve, solda takım elbiseli erkek portresi + altında küçük 'SERKAN ASLAN', sağda el yazısı 'Anne' + 'Ben' / 'Bitlendim' (beyaz); 3–4 aynı ilan: açık gri zemin, sol üstte küçük logo + '… BOWL' (ilk sözcük okunamadı), kırmızı bant içinde beyaz 'Açıldı!', altında küçük beyaz metin (okunmadı), sol altta 'ÖZDİLEKPARK', sağda yeşil daire içinde yemek kasesi fotoğrafı; 5–6 aynı ilan: beyaz-lila zemin, mor kalın '… EL SANATLARI / KURSLARI / BAŞLIYOR' (ilk sözcük bu karelerde okunamadı; eski notta 'Nilsem'), sağda kadın yüzü fotoğrafı, altta mor bant; 7: koyu gri, içerik seçilemedi. faces[] = pano başına içerik (kod: şu an çizilmiyor); x/y 0..1 soldan/alttan. Renkler bulutlu karelerden yaklaşık (siyah ≈#232323, lila ≈#605f82 gölgede). Marka logosu çizilmez. İlanlar değişkendir (2025-09 durumu). Ölçülen (bulutlu, bulanık) tonlar: altın çerçeve ≈#98794f, 'Açıldı!' bandı ≈#a27677 (ince bant, bulanık — gerçek ton daha doygun kırmızı görünüyor), yeşil daire ≈#416c24, mor yazı/bant ≈#767890, yüz fotoğrafı ≈#917f81; beyaz/krem yazı tonları ölçülmedi. Zeminler: 'Açıldı' ≈#97a1a5, kurs ilanı ≈#8b8e99 (bulutlu, beyaz/açık gri zemin).",
+   "note": "GB köşe çim şevinde, kaldırım arkasından ≈1.5–2 m geride tek sıra çerçeveli reklam panoları (belediye tipi, gri alüminyum çerçeve, çift bacak; yüzleri kavşağa/yola dönük): yArg8_240_0 ve _249_10_40, Z8D7_230_12_40/_247_10_40, VsNJ_240_0 (2025-09) — içerik: \"Açıldı! … Bowl\", \"Anne Ben Bitlendim\", \"Nilsem El Sanatları Kursları Başlıyor\", \"Bereketli Topraklar\" (değişken). Hat hava fotoğrafında koyu çizgi (gölge). Panel sayısı ≈8 (sayım ±1), boyut ≈3.2×2.2 (oransal). Yeni tür. | 2026-09 (eleştirmen da3-06: oyunda 8 boş yüz): Z8D7_240_0 + _230_12_40 + _247_10_40 (2025-09) — sırayla 7 pano (batıdan/kavşaktan uzaklaşarak): 1–2 aynı ilan: siyah zemin, altın iç çerçeve, solda takım elbiseli erkek portresi + altında küçük 'SERKAN ASLAN', sağda el yazısı 'Anne' + 'Ben' / 'Bitlendim' (beyaz); 3–4 aynı ilan: açık gri zemin, sol üstte küçük logo + '… BOWL' (ilk sözcük okunamadı), kırmızı bant içinde beyaz 'Açıldı!', altında küçük beyaz metin (okunmadı), sol altta 'ÖZDİLEKPARK', sağda yeşil daire içinde yemek kasesi fotoğrafı; 5–6 aynı ilan: beyaz-lila zemin, mor kalın '… EL SANATLARI / KURSLARI / BAŞLIYOR' (ilk sözcük bu karelerde okunamadı; eski notta 'Nilsem'), sağda kadın yüzü fotoğrafı, altta mor bant; 7: koyu gri, içerik seçilemedi. faces[] = pano başına içerik (kod: şu an çizilmiyor); x/y 0..1 soldan/alttan. Renkler bulutlu karelerden yaklaşık (siyah ≈#232323, lila ≈#605f82 gölgede). Marka logosu çizilmez. İlanlar değişkendir (2025-09 durumu). Ölçülen (bulutlu, bulanık) tonlar: altın çerçeve ≈#98794f, 'Açıldı!' bandı ≈#a27677 (ince bant, bulanık — gerçek ton daha doygun kırmızı görünüyor), yeşil daire ≈#416c24, mor yazı/bant ≈#767890, yüz fotoğrafı ≈#917f81; beyaz/krem yazı tonları ölçülmedi. Zeminler: 'Açıldı' ≈#97a1a5, kurs ilanı ≈#8b8e99 (bulutlu, beyaz/açık gri zemin). | 2026-09-30: faces sırası ters çevrildi (koordinatör/eleştirmen: \"Anne Ben Bitlendim\" pts[-1] ucunda).",
    "faces": [
-    {
-     "bg": "#232323",
-     "border": "#98794f",
-     "lines": [
-      {
-       "text": "Anne",
-       "fg": "#ece6d4",
-       "font": "script",
-       "y": 0.72
-      },
-      {
-       "text": "Ben",
-       "fg": "#f0f0f0",
-       "y": 0.5
-      },
-      {
-       "text": "Bitlendim",
-       "fg": "#f0f0f0",
-       "y": 0.3
-      },
-      {
-       "text": "SERKAN ASLAN",
-       "fg": "#e0e0e0",
-       "size": 0.3,
-       "x": 0.2,
-       "y": 0.2
-      }
-     ],
-     "blocks": [
-      {
-       "x0": 0.1,
-       "x1": 0.3,
-       "y0": 0.3,
-       "y1": 0.85,
-       "color": "#3a3634",
-       "note": "takım elbiseli erkek portresi (yüz çizilmez)"
-      }
-     ]
-    },
-    {
-     "bg": "#232323",
-     "border": "#98794f",
-     "lines": [
-      {
-       "text": "Anne",
-       "fg": "#ece6d4",
-       "font": "script",
-       "y": 0.72
-      },
-      {
-       "text": "Ben",
-       "fg": "#f0f0f0",
-       "y": 0.5
-      },
-      {
-       "text": "Bitlendim",
-       "fg": "#f0f0f0",
-       "y": 0.3
-      },
-      {
-       "text": "SERKAN ASLAN",
-       "fg": "#e0e0e0",
-       "size": 0.3,
-       "x": 0.2,
-       "y": 0.2
-      }
-     ],
-     "blocks": [
-      {
-       "x0": 0.1,
-       "x1": 0.3,
-       "y0": 0.3,
-       "y1": 0.85,
-       "color": "#3a3634",
-       "note": "takım elbiseli erkek portresi (yüz çizilmez)"
-      }
-     ]
-    },
-    {
-     "bg": "#97a1a5",
-     "lines": [
-      {
-       "text": "Açıldı!",
-       "fg": "#ffffff",
-       "bg": "#a27677",
-       "bold": true,
-       "x": 0.15,
-       "y": 0.55
-      },
-      {
-       "text": "… BOWL",
-       "fg": "#3a3a3a",
-       "size": 0.3,
-       "x": 0.12,
-       "y": 0.85
-      },
-      {
-       "text": "ÖZDİLEKPARK",
-       "fg": "#3a3a3a",
-       "size": 0.25,
-       "x": 0.15,
-       "y": 0.12
-      }
-     ],
-     "blocks": [
-      {
-       "x0": 0.5,
-       "x1": 0.95,
-       "y0": 0.08,
-       "y1": 0.92,
-       "color": "#416c24",
-       "shape": "circle",
-       "note": "yeşil daire içinde yemek kasesi fotoğrafı"
-      }
-     ]
-    },
-    {
-     "bg": "#97a1a5",
-     "lines": [
-      {
-       "text": "Açıldı!",
-       "fg": "#ffffff",
-       "bg": "#a27677",
-       "bold": true,
-       "x": 0.15,
-       "y": 0.55
-      },
-      {
-       "text": "… BOWL",
-       "fg": "#3a3a3a",
-       "size": 0.3,
-       "x": 0.12,
-       "y": 0.85
-      },
-      {
-       "text": "ÖZDİLEKPARK",
-       "fg": "#3a3a3a",
-       "size": 0.25,
-       "x": 0.15,
-       "y": 0.12
-      }
-     ],
-     "blocks": [
-      {
-       "x0": 0.5,
-       "x1": 0.95,
-       "y0": 0.08,
-       "y1": 0.92,
-       "color": "#416c24",
-       "shape": "circle",
-       "note": "yeşil daire içinde yemek kasesi fotoğrafı"
-      }
-     ]
-    },
-    {
-     "bg": "#8b8e99",
-     "lines": [
-      {
-       "text": "… EL SANATLARI",
-       "fg": "#767890",
-       "bold": true,
-       "x": 0.3,
-       "y": 0.7
-      },
-      {
-       "text": "KURSLARI",
-       "fg": "#767890",
-       "bold": true,
-       "x": 0.3,
-       "y": 0.55
-      },
-      {
-       "text": "BAŞLIYOR",
-       "fg": "#767890",
-       "bold": true,
-       "x": 0.3,
-       "y": 0.4
-      }
-     ],
-     "blocks": [
-      {
-       "x0": 0.62,
-       "x1": 0.95,
-       "y0": 0.1,
-       "y1": 0.9,
-       "note": "kadın yüzü fotoğrafı (yüz çizilmez)",
-       "color": "#917f81"
-      },
-      {
-       "x0": 0.0,
-       "x1": 1.0,
-       "y0": 0.0,
-       "y1": 0.12,
-       "color": "#767890"
-      }
-     ]
-    },
-    {
-     "bg": "#8b8e99",
-     "lines": [
-      {
-       "text": "… EL SANATLARI",
-       "fg": "#767890",
-       "bold": true,
-       "x": 0.3,
-       "y": 0.7
-      },
-      {
-       "text": "KURSLARI",
-       "fg": "#767890",
-       "bold": true,
-       "x": 0.3,
-       "y": 0.55
-      },
-      {
-       "text": "BAŞLIYOR",
-       "fg": "#767890",
-       "bold": true,
-       "x": 0.3,
-       "y": 0.4
-      }
-     ],
-     "blocks": [
-      {
-       "x0": 0.62,
-       "x1": 0.95,
-       "y0": 0.1,
-       "y1": 0.9,
-       "note": "kadın yüzü fotoğrafı (yüz çizilmez)",
-       "color": "#917f81"
-      },
-      {
-       "x0": 0.0,
-       "x1": 1.0,
-       "y0": 0.0,
-       "y1": 0.12,
-       "color": "#767890"
-      }
-     ]
-    },
     {
      "bg": "#606569",
      "lines": [],
      "note": "7. pano: koyu gri yüz, içerik bu uzaklıkta seçilemedi"
+    },
+    {
+     "bg": "#8b8e99",
+     "lines": [
+      {
+       "text": "… EL SANATLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.7
+      },
+      {
+       "text": "KURSLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.55
+      },
+      {
+       "text": "BAŞLIYOR",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.4
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.62,
+       "x1": 0.95,
+       "y0": 0.1,
+       "y1": 0.9,
+       "note": "kadın yüzü fotoğrafı (yüz çizilmez)",
+       "color": "#917f81"
+      },
+      {
+       "x0": 0,
+       "x1": 1,
+       "y0": 0,
+       "y1": 0.12,
+       "color": "#767890"
+      }
+     ]
+    },
+    {
+     "bg": "#8b8e99",
+     "lines": [
+      {
+       "text": "… EL SANATLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.7
+      },
+      {
+       "text": "KURSLARI",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.55
+      },
+      {
+       "text": "BAŞLIYOR",
+       "fg": "#767890",
+       "bold": true,
+       "x": 0.3,
+       "y": 0.4
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.62,
+       "x1": 0.95,
+       "y0": 0.1,
+       "y1": 0.9,
+       "note": "kadın yüzü fotoğrafı (yüz çizilmez)",
+       "color": "#917f81"
+      },
+      {
+       "x0": 0,
+       "x1": 1,
+       "y0": 0,
+       "y1": 0.12,
+       "color": "#767890"
+      }
+     ]
+    },
+    {
+     "bg": "#97a1a5",
+     "lines": [
+      {
+       "text": "Açıldı!",
+       "fg": "#ffffff",
+       "bg": "#a27677",
+       "bold": true,
+       "x": 0.15,
+       "y": 0.55
+      },
+      {
+       "text": "… BOWL",
+       "fg": "#3a3a3a",
+       "size": 0.3,
+       "x": 0.12,
+       "y": 0.85
+      },
+      {
+       "text": "ÖZDİLEKPARK",
+       "fg": "#3a3a3a",
+       "size": 0.25,
+       "x": 0.15,
+       "y": 0.12
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.5,
+       "x1": 0.95,
+       "y0": 0.08,
+       "y1": 0.92,
+       "color": "#416c24",
+       "shape": "circle",
+       "note": "yeşil daire içinde yemek kasesi fotoğrafı"
+      }
+     ]
+    },
+    {
+     "bg": "#97a1a5",
+     "lines": [
+      {
+       "text": "Açıldı!",
+       "fg": "#ffffff",
+       "bg": "#a27677",
+       "bold": true,
+       "x": 0.15,
+       "y": 0.55
+      },
+      {
+       "text": "… BOWL",
+       "fg": "#3a3a3a",
+       "size": 0.3,
+       "x": 0.12,
+       "y": 0.85
+      },
+      {
+       "text": "ÖZDİLEKPARK",
+       "fg": "#3a3a3a",
+       "size": 0.25,
+       "x": 0.15,
+       "y": 0.12
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.5,
+       "x1": 0.95,
+       "y0": 0.08,
+       "y1": 0.92,
+       "color": "#416c24",
+       "shape": "circle",
+       "note": "yeşil daire içinde yemek kasesi fotoğrafı"
+      }
+     ]
+    },
+    {
+     "bg": "#232323",
+     "border": "#98794f",
+     "lines": [
+      {
+       "text": "Anne",
+       "fg": "#ece6d4",
+       "font": "script",
+       "y": 0.72
+      },
+      {
+       "text": "Ben",
+       "fg": "#f0f0f0",
+       "y": 0.5
+      },
+      {
+       "text": "Bitlendim",
+       "fg": "#f0f0f0",
+       "y": 0.3
+      },
+      {
+       "text": "SERKAN ASLAN",
+       "fg": "#e0e0e0",
+       "size": 0.3,
+       "x": 0.2,
+       "y": 0.2
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.1,
+       "x1": 0.3,
+       "y0": 0.3,
+       "y1": 0.85,
+       "color": "#3a3634",
+       "note": "takım elbiseli erkek portresi (yüz çizilmez)"
+      }
+     ]
+    },
+    {
+     "bg": "#232323",
+     "border": "#98794f",
+     "lines": [
+      {
+       "text": "Anne",
+       "fg": "#ece6d4",
+       "font": "script",
+       "y": 0.72
+      },
+      {
+       "text": "Ben",
+       "fg": "#f0f0f0",
+       "y": 0.5
+      },
+      {
+       "text": "Bitlendim",
+       "fg": "#f0f0f0",
+       "y": 0.3
+      },
+      {
+       "text": "SERKAN ASLAN",
+       "fg": "#e0e0e0",
+       "size": 0.3,
+       "x": 0.2,
+       "y": 0.2
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.1,
+       "x1": 0.3,
+       "y0": 0.3,
+       "y1": 0.85,
+       "color": "#3a3634",
+       "note": "takım elbiseli erkek portresi (yüz çizilmez)"
+      }
+     ]
     }
    ]
   },
@@ -13364,6 +13410,2368 @@
    "wear": 0.3
   },
   {
+   "id": "d4-gokay-wg",
+   "kind": "enclosure",
+   "poly": [
+    [
+     657.7,
+     -475.3
+    ],
+    [
+     657.3,
+     -467.8
+    ],
+    [
+     650.3,
+     -468.2
+    ],
+    [
+     650.7,
+     -475.7
+    ]
+   ],
+   "h": 3,
+   "glass": "#6a7478",
+   "frame": "#3a2f27",
+   "roofC": "#6b4a32",
+   "note": "GÖK'AY PUB-RESTAURANT kış bahçesi: kahverengi ahşap üst, koyu valans üzerinde \"PUB - RESTAURANT\", \"GÖK'AY\" (SV ivo1dMW7_120_0'da görüldü; valans yazısı enclosure'da çizilmez). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 654,
+   "z": -471.75
+  },
+  {
+   "id": "d4-zeugma-wg",
+   "kind": "enclosure",
+   "poly": [
+    [
+     656.1,
+     -447.8
+    ],
+    [
+     655.6,
+     -438.2
+    ],
+    [
+     646.6,
+     -438.7
+    ],
+    [
+     647.2,
+     -448.3
+    ]
+   ],
+   "h": 3,
+   "glass": "#6a7478",
+   "frame": "#2f6b3a",
+   "roofC": "#2f6b3a",
+   "note": "ZEUGMA KÜNEFE kapalı terası: yeşil çerçeve, üstte \"GAZİANTEP ZEUGMA KÜNEFE / KATMER-DONDURMA\" yazısı ve Z madalyon (yazı çizilmez). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 651.38,
+   "z": -443.25
+  },
+  {
+   "id": "d4-outlet-pav",
+   "kind": "enclosure",
+   "poly": [
+    [
+     656.7,
+     -457.7
+    ],
+    [
+     656.1,
+     -447.9
+    ],
+    [
+     646.2,
+     -448.5
+    ],
+    [
+     646.7,
+     -458.3
+    ]
+   ],
+   "h": 3,
+   "glass": "#8a8f90",
+   "frame": "#c0262d",
+   "roofC": "#c0262d",
+   "note": "OUTLET CITY kırmızı pavyon, valans \"FABRİKA SATIŞ MAĞAZASI\" / \"OUTLET CITY\", içinde elbise askıları; derinlik belirsiz (SV ivo1dMW7_120_0 kırmızı tente görüldü). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 651.43,
+   "z": -453.1
+  },
+  {
+   "id": "d4-cesur-totem",
+   "kind": "totem",
+   "x": 655.1,
+   "z": -482.3,
+   "w": 0.8,
+   "d": 0.3,
+   "h": 2.8,
+   "color": "#2f7a3b",
+   "text": "CESUR 2 MARKET",
+   "bg": "#2f7a3b",
+   "fg": "#ffffff",
+   "faces": 2,
+   "note": "CESUR 2 MARKET yeşil totem (boyutlar oransal). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kt-planter-1",
+   "kind": "planter",
+   "x": 654.3,
+   "z": -426.8,
+   "shape": "box",
+   "w": 1.2,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "KuveytTürk önü ahşap saksı (ölçü oransal). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kt-planter-2",
+   "kind": "planter",
+   "x": 658.7,
+   "z": -427.8,
+   "shape": "box",
+   "w": 1.2,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "KuveytTürk önü ahşap saksı (ölçü oransal). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kt-planter-3",
+   "kind": "planter",
+   "x": 661.3,
+   "z": -428.4,
+   "shape": "box",
+   "w": 1.2,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "KuveytTürk önü ahşap saksı (ölçü oransal). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kt-planter-4",
+   "kind": "planter",
+   "x": 664.3,
+   "z": -429.2,
+   "shape": "box",
+   "w": 1.2,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "KuveytTürk önü ahşap saksı (ölçü oransal). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kt-planter-5",
+   "kind": "planter",
+   "x": 666.2,
+   "z": -429.6,
+   "shape": "box",
+   "w": 1.2,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "KuveytTürk önü ahşap saksı (ölçü oransal). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kt-accage",
+   "kind": "ac-cage",
+   "poly": [
+    [
+     662.1,
+     -430.5
+    ],
+    [
+     664.5,
+     -431.1
+    ],
+    [
+     664.8,
+     -429.8
+    ],
+    [
+     662.4,
+     -429.2
+    ]
+   ],
+   "h": 1.8,
+   "color": "#9a9c9a",
+   "note": "Kafesli klima ünitesi grubu (yükseklik ölçülmedi, 1.8 yaklaşık). Yeni tür. Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 663.45,
+   "z": -430.15
+  },
+  {
+   "id": "d4-kavanoz-pergola",
+   "kind": "pergola",
+   "poly": [
+    [
+     667.1,
+     -431.7
+    ],
+    [
+     674.6,
+     -433.5
+    ],
+    [
+     675.3,
+     -430.6
+    ],
+    [
+     667.8,
+     -428.8
+    ]
+   ],
+   "h": 2.8,
+   "color": "#d98aa6",
+   "cover": "#e8e2da",
+   "note": "kavanoz pembe dikmeli pergola, altında masa-sandalye (sayı cephe ajanınca verilmedi → kaydedilmedi). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 671.2,
+   "z": -431.15
+  },
+  {
+   "id": "d4-kav-planter-1",
+   "kind": "planter",
+   "x": 675.5,
+   "z": -432.1,
+   "shape": "box",
+   "w": 0.8,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#6d3f8c",
+   "note": "Mor saksı. Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kav-planter-2",
+   "kind": "planter",
+   "x": 678.3,
+   "z": -432,
+   "shape": "box",
+   "w": 0.8,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#6d3f8c",
+   "note": "Mor saksı. Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-provey-terrace",
+   "kind": "enclosure",
+   "poly": [
+    [
+     699.3,
+     -440.8
+    ],
+    [
+     708.8,
+     -443.6
+    ],
+    [
+     709.5,
+     -441.2
+    ],
+    [
+     700,
+     -438.4
+    ]
+   ],
+   "h": 2.8,
+   "glass": "#6a7478",
+   "frame": "#1f2022",
+   "roofC": "#2a2c2e",
+   "note": "provey siyah çerçeveli teras. Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 704.4,
+   "z": -441
+  },
+  {
+   "id": "d4-hairlounge-aframe",
+   "kind": "aframe",
+   "x": 687.9,
+   "z": -437,
+   "w": 0.6,
+   "h": 1,
+   "color": "#2b2b2b",
+   "bg": "#ffffff",
+   "fg": "#111111",
+   "text": "",
+   "note": "HAIR LOUNGE fiyat A-tabelası (metin cephe ajanınca kaydedilmedi). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ozhan-stall",
+   "kind": "pergola",
+   "poly": [
+    [
+     725.5,
+     -447.4
+    ],
+    [
+     726.4,
+     -464.7
+    ],
+    [
+     729.4,
+     -464.5
+    ],
+    [
+     728.5,
+     -447.2
+    ]
+   ],
+   "h": 2.6,
+   "color": "#e8e8e4",
+   "cover": "#f2f2ee",
+   "note": "özhan meyve-sebze tezgâhı: beyaz tente; panolar \"Güzel Fiyatlar Burada\" ve \"MARKET ALIŞVERİŞİNDE ARADIĞIN NE VARSA TIKLA KAPINDA\" (panolar ayrı çizilmedi). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 727.45,
+   "z": -455.95
+  },
+  {
+   "id": "d4-ozhan-corner",
+   "kind": "pergola",
+   "poly": [
+    [
+     719.9,
+     -446.2
+    ],
+    [
+     722.3,
+     -446.2
+    ],
+    [
+     722.2,
+     -444.2
+    ],
+    [
+     719.8,
+     -444.2
+    ]
+   ],
+   "h": 2.6,
+   "color": "#e8e8e4",
+   "cover": "#f2f2ee",
+   "note": "özhan köşe tezgâhı. Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 721.05,
+   "z": -445.2
+  },
+  {
+   "id": "d4-sansar-terrace",
+   "kind": "enclosure",
+   "poly": [
+    [
+     726.3,
+     -516
+    ],
+    [
+     716.3,
+     -516.5
+    ],
+    [
+     716.4,
+     -519.5
+    ],
+    [
+     726.4,
+     -519
+    ]
+   ],
+   "h": 2.8,
+   "glass": "#6a7478",
+   "frame": "#2a2c2e",
+   "roofC": "#2a2c2e",
+   "note": "SANSAR kapalı teras. Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 721.35,
+   "z": -517.75
+  },
+  {
+   "id": "d4-dark-pergola-517",
+   "kind": "pergola",
+   "poly": [
+    [
+     710.3,
+     -516.8
+    ],
+    [
+     697.9,
+     -517.4
+    ],
+    [
+     698,
+     -519.9
+    ],
+    [
+     710.4,
+     -519.3
+    ]
+   ],
+   "h": 2.8,
+   "color": "#2a2c2e",
+   "cover": "#2a2c2e",
+   "note": "Koyu pergola. Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 704.15,
+   "z": -518.35
+  },
+  {
+   "id": "d4-courtyard-sign",
+   "kind": "board",
+   "x": 685.25,
+   "z": -516.2,
+   "rot": 90,
+   "w": 0.6,
+   "h": 0.6,
+   "y0": 1.6,
+   "d": 0.05,
+   "poles": 1,
+   "poleC": "#1f1f20",
+   "bg": "#1f1f20",
+   "fg": "#e8e8e4",
+   "text": "S…anor",
+   "note": "Avlu ferforje kapısı yanında siyah yuvarlak direk tabelası \"S…anor\" (kısmen okunmuş; yuvarlak biçim çizilmez). Kapının kendisi ayrı kaydedilmedi (kapı türü ölçülmedi). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mak-glassrow",
+   "kind": "enclosure",
+   "poly": [
+    [
+     575,
+     -818.2
+    ],
+    [
+     611,
+     -817.5
+    ],
+    [
+     611,
+     -813
+    ],
+    [
+     575,
+     -813.7
+    ]
+   ],
+   "h": 3.2,
+   "glass": "#6a7478",
+   "frame": "#2a2c2e",
+   "roofC": "#3a3d3f",
+   "note": "Kırmıkıl İş Merkezi güney cephesi cam kutu dükkân sırası (Eczane Yonca, trend, Pastadan, gülbaşoğulları börek-pasta), ön ≈(575,−818.2)→(611,−817.5), derinlik ≈4.5 (kuzeye). Muammer Aksoy panolarının GPS’i ≈5 m kuzeyde olabilir — konum cephe ajanının bordüre oturtmasına dayanır. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 593,
+   "z": -815.6
+  },
+  {
+   "id": "d4-mak-east-pav",
+   "kind": "enclosure",
+   "poly": [
+    [
+     613.8,
+     -851
+    ],
+    [
+     623,
+     -851
+    ],
+    [
+     623,
+     -822
+    ],
+    [
+     613.8,
+     -822
+    ]
+   ],
+   "h": 3.5,
+   "glass": "#6a7478",
+   "frame": "#2a2c2e",
+   "roofC": "#3a3d3f",
+   "note": "Kırmıkıl doğu pavyonları x 613.8–623, z −851…−822 (Radyo, Cocktail & Dinner — yeşil oluklu kaplama, Pizza Hut, CRASH); tek hacim olarak yazıldı (bölmeler/renkler çizilmez). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 618.4,
+   "z": -836.5
+  },
+  {
+   "id": "d4-mak-durumgah",
+   "kind": "enclosure",
+   "poly": [
+    [
+     558,
+     -842
+    ],
+    [
+     566,
+     -842
+    ],
+    [
+     566,
+     -824
+    ],
+    [
+     558,
+     -824
+    ]
+   ],
+   "h": 3.2,
+   "glass": "#6a7478",
+   "frame": "#2a2c2e",
+   "roofC": "#3a3d3f",
+   "note": "DÜRÜMGAH HATAY USULÜ pavyonu (x≈558–566, z −842…−824). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 562,
+   "z": -833
+  },
+  {
+   "id": "d4-mak-bench-1",
+   "kind": "bench",
+   "x": 597.2,
+   "z": -817,
+   "rot": 180,
+   "h": 0.8,
+   "note": "Ahşap bank (2 bank + masa, ≈(598,−817)). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mak-bench-2",
+   "kind": "bench",
+   "x": 599,
+   "z": -817,
+   "rot": 180,
+   "h": 0.8,
+   "note": "İkinci ahşap bank. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mak-bench-table",
+   "kind": "table",
+   "x": 598.1,
+   "z": -816.4,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#8a6a45",
+   "chairs": 0,
+   "note": "Bankların önündeki ahşap masa. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-minty-wg",
+   "kind": "enclosure",
+   "poly": [
+    [
+     600,
+     -794.8
+    ],
+    [
+     625,
+     -794.8
+    ],
+    [
+     625,
+     -792.4
+    ],
+    [
+     600,
+     -792.4
+    ]
+   ],
+   "h": 3,
+   "glass": "#6a7478",
+   "frame": "#1f2022",
+   "roofC": "#1f2022",
+   "note": "MINTY kış bahçesi (siyah kafes desenli alın), KD köşeyi sarıyor (sarma kısmı çizilmedi). SV jf3Ylg0a_300_0’da MINTY cephesi görüldü. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 612.5,
+   "z": -793.6
+  },
+  {
+   "id": "d4-oncu-terrace",
+   "kind": "pergola",
+   "poly": [
+    [
+     624.7,
+     -785
+    ],
+    [
+     627,
+     -785
+    ],
+    [
+     627,
+     -775
+    ],
+    [
+     624.7,
+     -775
+    ]
+   ],
+   "h": 2.8,
+   "color": "#2a2c2e",
+   "cover": "#c0262d",
+   "note": "Öncü terası: kırmızı sandalyeler, flama dizisi (OUIqL6KE_300_0’da “ÖNCÜ” kırmızı tabela + flamalar görüldü). Örtü rengi görülmedi → kırmızı yaklaşık. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 625.85,
+   "z": -780
+  },
+  {
+   "id": "d4-atm-akbank",
+   "kind": "kiosk",
+   "x": 624,
+   "z": -762,
+   "w": 1,
+   "d": 1,
+   "h": 2.4,
+   "color": "#d52b1e",
+   "text": "AKBANK",
+   "note": "AKBANK ATM kulübesi. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-atm-deniz",
+   "kind": "kiosk",
+   "x": 624,
+   "z": -764,
+   "w": 1,
+   "d": 1,
+   "h": 2.4,
+   "color": "#1d4f9c",
+   "text": "DenizBank",
+   "note": "DenizBank ATM kulübesi. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mert-totem",
+   "kind": "totem",
+   "x": 625.5,
+   "z": -764,
+   "w": 0.8,
+   "d": 0.3,
+   "h": 2.8,
+   "color": "#3a3d3f",
+   "faces": 2,
+   "panels": [
+    {
+     "y0": 2.1,
+     "y1": 2.7,
+     "text": "MERT SİTESİ 609.SK 24 & 28 BLOK",
+     "bg": "#ffffff",
+     "fg": "#1f1f20"
+    },
+    {
+     "y0": 1.5,
+     "y1": 2,
+     "text": "BENGİ YÖNETİM",
+     "bg": "#ffffff",
+     "fg": "#1f1f20"
+    },
+    {
+     "y0": 0.9,
+     "y1": 1.4,
+     "text": "BAYAN KUAFÖRÜ",
+     "bg": "#ffffff",
+     "fg": "#1f1f20"
+    },
+    {
+     "y0": 0.3,
+     "y1": 0.8,
+     "text": "…RİNER",
+     "bg": "#ffffff",
+     "fg": "#1f1f20"
+    }
+   ],
+   "note": "Totem (levha renkleri ölçülmedi — beyaz zemin + koyu yazı YAKLAŞIK). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-time-canopy",
+   "kind": "canopy",
+   "x": 624.5,
+   "z": -760,
+   "a": [
+    624.5,
+    -758.5
+   ],
+   "e": [
+    624.5,
+    -761.5
+   ],
+   "d": 1.5,
+   "side": "left",
+   "h": 3.2,
+   "fasciaH": 0.35,
+   "fasciaC": "#8a6a45",
+   "soffitC": "#a07c55",
+   "note": "TIME ÖZLÜCE ahşap kapı saçağı (OUIqL6KE_300_0 \"TIME ÖZLÜCE\"). Boyutlar oransal. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mak-menu-1",
+   "kind": "menu-stand",
+   "x": 578,
+   "z": -794,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "Beysos menü standı. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mak-menu-2",
+   "kind": "menu-stand",
+   "x": 585,
+   "z": -794,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "Kahve Dükkanı menü standı. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mak-menu-3",
+   "kind": "menu-stand",
+   "x": 552.5,
+   "z": -795.5,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "Piliçmatik menü standı. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mak-menu-4",
+   "kind": "menu-stand",
+   "x": 554,
+   "z": -795.5,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "Piliçmatik menü standı. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bigchefs-pots-row",
+   "kind": "planter",
+   "x": 682.75,
+   "z": -785.5,
+   "shape": "box",
+   "w": 7.5,
+   "d": 0.5,
+   "h": 0.55,
+   "color": "#a0583b",
+   "plant": {
+    "h": 0.8,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "BIGCHEFS terakota saksı sırası x 679–686.5, z −785.5 (tek sıra temsil; d4-bigchefs-pots’un Muammer Aksoy yüzü). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-jv-heaters",
+   "kind": "heater",
+   "x": 719.5,
+   "z": -784.5,
+   "h": 2.4,
+   "color": "#2b2b2b",
+   "note": "Juan Valdez masaları + 4 asılı ısıtıcı x 715–724 (ısıtıcılar asılı; üretici ayaklı mantar ısıtıcı çizer — temsil kaydı). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-jv-table-1",
+   "kind": "table",
+   "x": 715.8,
+   "z": -784.5,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#3a3a38",
+   "chairs": 2,
+   "chairC": "#3a3a38",
+   "note": "Juan Valdez teras masası (masa sayısı ve rengi ölçülmedi; 4 masa, 4 ısıtıcıya göre YAKLAŞIK). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-jv-table-2",
+   "kind": "table",
+   "x": 718.6,
+   "z": -784.5,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#3a3a38",
+   "chairs": 2,
+   "chairC": "#3a3a38",
+   "note": "Juan Valdez teras masası (masa sayısı ve rengi ölçülmedi; 4 masa, 4 ısıtıcıya göre YAKLAŞIK). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-jv-table-3",
+   "kind": "table",
+   "x": 721.4,
+   "z": -784.5,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#3a3a38",
+   "chairs": 2,
+   "chairC": "#3a3a38",
+   "note": "Juan Valdez teras masası (masa sayısı ve rengi ölçülmedi; 4 masa, 4 ısıtıcıya göre YAKLAŞIK). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-jv-table-4",
+   "kind": "table",
+   "x": 724,
+   "z": -784.5,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#3a3a38",
+   "chairs": 2,
+   "chairC": "#3a3a38",
+   "note": "Juan Valdez teras masası (masa sayısı ve rengi ölçülmedi; 4 masa, 4 ısıtıcıya göre YAKLAŞIK). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mons-planters",
+   "kind": "planter",
+   "x": 748.1,
+   "z": -781.8,
+   "shape": "box",
+   "w": 19,
+   "d": 0.6,
+   "h": 0.6,
+   "color": "#3a3d3f",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "hedge"
+   },
+   "rot": 90,
+   "note": "MONS saksı kutuları + küre lambalar x 738.6–757.6 (tek sıra temsil; küre lambalar ayrı çizilmedi). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b106-hedge",
+   "kind": "planter",
+   "x": 668.2,
+   "z": -581.9,
+   "shape": "box",
+   "w": 23.4,
+   "d": 0.8,
+   "h": 0.35,
+   "color": "#b0aba0",
+   "plant": {
+    "h": 0.8,
+    "color": "#3b5a2c",
+    "shape": "hedge"
+   },
+   "rot": 93,
+   "note": "Bulvar boyunca dalgalı bordürlü çit sırası (668.8,−593.6)→(667.6,−570.2) (dalgalı bordür çizilmez). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b106-cube-1",
+   "kind": "planter",
+   "x": 668.7,
+   "z": -582.8,
+   "shape": "box",
+   "w": 0.6,
+   "d": 0.6,
+   "h": 0.6,
+   "color": "#f0f0ec",
+   "note": "Beyaz küp saksı. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b106-cube-2",
+   "kind": "planter",
+   "x": 668.6,
+   "z": -579.5,
+   "shape": "box",
+   "w": 0.6,
+   "d": 0.6,
+   "h": 0.6,
+   "color": "#f0f0ec",
+   "note": "Beyaz küp saksı. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-flag-sultan",
+   "kind": "feather-flag",
+   "x": 667.6,
+   "z": -579.1,
+   "h": 3,
+   "color": "#1f1f20",
+   "text": "SULTAN SARSICI",
+   "note": "Yelken bayrak \"SULTAN SARSICI\" (renk yaklaşık). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-flag-pink",
+   "kind": "feather-flag",
+   "x": 667.2,
+   "z": -582.8,
+   "h": 3,
+   "color": "#e79ab4",
+   "text": "",
+   "note": "Pembe-beyaz yelken bayrak. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-noww-awning-1",
+   "kind": "pergola",
+   "poly": [
+    [
+     708.4,
+     -596
+    ],
+    [
+     718.3,
+     -596
+    ],
+    [
+     718.3,
+     -593.5
+    ],
+    [
+     708.4,
+     -593.5
+    ]
+   ],
+   "h": 2.9,
+   "color": "#6d6f71",
+   "cover": "#c9cbcc",
+   "note": "nöww terası: çizgili gri-beyaz tente dikmeler üzerinde (çizgi deseni çizilmez), altında masa-sandalye. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 713.35,
+   "z": -594.75
+  },
+  {
+   "id": "d4-noww-awning-2",
+   "kind": "pergola",
+   "poly": [
+    [
+     718.3,
+     -594.6
+    ],
+    [
+     722.4,
+     -594.6
+    ],
+    [
+     722.4,
+     -582.6
+    ],
+    [
+     718.3,
+     -582.6
+    ]
+   ],
+   "h": 2.9,
+   "color": "#6d6f71",
+   "cover": "#c9cbcc",
+   "note": "nöww tente devamı. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 720.35,
+   "z": -588.6
+  },
+  {
+   "id": "d4-noww-planters",
+   "kind": "planter",
+   "x": 715,
+   "z": -597,
+   "shape": "box",
+   "w": 14,
+   "d": 0.45,
+   "h": 0.6,
+   "color": "#f0f0ec",
+   "plant": {
+    "h": 0.5,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "rot": 90,
+   "note": "Beyaz kutu saksılar z≈−597, x 708–722. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b106-binbox",
+   "kind": "bin",
+   "x": 697,
+   "z": -595,
+   "h": 1,
+   "color": "#8a6a45",
+   "note": "Ahşap çöp kutusu kasası. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b106-planter-w",
+   "kind": "planter",
+   "x": 707.3,
+   "z": -594.5,
+   "shape": "box",
+   "w": 0.6,
+   "d": 0.6,
+   "h": 0.6,
+   "color": "#f0f0ec",
+   "note": "Beyaz saksı. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-sanremo-tables",
+   "kind": "table",
+   "x": 724.2,
+   "z": -571,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#f0f0ec",
+   "chairs": 2,
+   "chairC": "#f0f0ec",
+   "note": "SANREMO terası beyaz masalar x 722.4–726, z −567…−575 (temsil kaydı; sayı verilmedi). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-tarzi-wg",
+   "kind": "enclosure",
+   "poly": [
+    [
+     661.5,
+     -738.3
+    ],
+    [
+     666.6,
+     -738.3
+    ],
+    [
+     666.6,
+     -712.3
+    ],
+    [
+     661.5,
+     -712.3
+    ]
+   ],
+   "h": 3,
+   "glass": "#6a7478",
+   "frame": "#1f2022",
+   "roofC": "#7a7c7c",
+   "note": "Siyah çerçeveli cam kış bahçesi, oluklu çatı (\"Tarz-ı Pide\", \"Tarz-ı Tost\", \"Mandı…\" yazıları çizilmez); 9nQa3LQ8_120_0’da \"Tarz-ı Pide\" görüldü. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 664.05,
+   "z": -725.3
+  },
+  {
+   "id": "d4-tarzi-wg-163",
+   "kind": "enclosure",
+   "poly": [
+    [
+     665.9,
+     -712.3
+    ],
+    [
+     676.9,
+     -712.3
+    ],
+    [
+     676.9,
+     -708.5
+    ],
+    [
+     665.9,
+     -708.5
+    ]
+   ],
+   "h": 3,
+   "glass": "#6a7478",
+   "frame": "#1f2022",
+   "roofC": "#7a7c7c",
+   "note": "Aynı kış bahçesinin 163. Sk. boyunca devamı. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 671.4,
+   "z": -710.4
+  },
+  {
+   "id": "d4-b593-pergola",
+   "kind": "pergola",
+   "poly": [
+    [
+     678.9,
+     -712.2
+    ],
+    [
+     691.5,
+     -712.2
+    ],
+    [
+     691.5,
+     -709.8
+    ],
+    [
+     678.9,
+     -709.8
+    ]
+   ],
+   "h": 3.2,
+   "color": "#9a9c9a",
+   "cover": "#8a6a45",
+   "note": "Gri yivli kolonlar üzerinde ahşap pergola, z≈−711 (derinlik 2.4 yaklaşık). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 685.2,
+   "z": -711
+  },
+  {
+   "id": "d4-sok-stands",
+   "kind": "planter",
+   "x": 666.25,
+   "z": -747,
+   "shape": "box",
+   "w": 6,
+   "d": 1,
+   "h": 0.9,
+   "color": "#c9a86a",
+   "rot": 90,
+   "note": "ŞOK önünde meyve-kasa tezgâhları x 665.5–667, z −750…−744 (temsil kaydı; kasalar/ürünler çizilmez). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-peynirci-stalls",
+   "kind": "pergola",
+   "poly": [
+    [
+     663,
+     -684.5
+    ],
+    [
+     665.8,
+     -684.5
+    ],
+    [
+     665.8,
+     -681
+    ],
+    [
+     663,
+     -681
+    ]
+   ],
+   "h": 2.5,
+   "color": "#2f6b3a",
+   "cover": "#2f6b3a",
+   "note": "Peynirci Baba tezgâhları + flama dizisi ≈(664.4,−682.7) (xZiYfnuy_120_0’da yeşil tente \"PEYNIRCI BABA\" görüldü; flamalar çizilmez). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 664.4,
+   "z": -682.75
+  },
+  {
+   "id": "d4-ecehali-goods",
+   "kind": "planter",
+   "x": 664.2,
+   "z": -673.7,
+   "shape": "box",
+   "w": 1.5,
+   "d": 0.7,
+   "h": 0.9,
+   "color": "#e8e8e4",
+   "note": "ECE HALI önünde sergilenen beyaz eşyalar (temsil kutusu). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-e6-flag-1",
+   "kind": "feather-flag",
+   "x": 661.9,
+   "z": -652.3,
+   "h": 3.2,
+   "color": "#e60000",
+   "text": "vodafone",
+   "note": "Yelken bayrak \"vodafone\" (hdpFBuat_60_0 / _120_0’da kırmızı vodafone ve mavi beko bayrakları görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-e6-flag-2",
+   "kind": "feather-flag",
+   "x": 661.7,
+   "z": -648.8,
+   "h": 3.2,
+   "color": "#e60000",
+   "text": "vodafone",
+   "note": "Yelken bayrak \"vodafone\" (hdpFBuat_60_0 / _120_0’da kırmızı vodafone ve mavi beko bayrakları görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-e6-flag-3",
+   "kind": "feather-flag",
+   "x": 661.5,
+   "z": -644.4,
+   "h": 3.2,
+   "color": "#1c56a8",
+   "text": "beko",
+   "note": "Yelken bayrak \"beko\" (hdpFBuat_60_0 / _120_0’da kırmızı vodafone ve mavi beko bayrakları görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-e6-flag-4",
+   "kind": "feather-flag",
+   "x": 661.2,
+   "z": -639.1,
+   "h": 3.2,
+   "color": "#1c56a8",
+   "text": "beko",
+   "note": "Yelken bayrak \"beko\" (hdpFBuat_60_0 / _120_0’da kırmızı vodafone ve mavi beko bayrakları görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-e6-flag-5",
+   "kind": "feather-flag",
+   "x": 660.1,
+   "z": -624.9,
+   "h": 3.2,
+   "color": "#c0262d",
+   "text": "MALATYA PAZARI",
+   "note": "Yelken bayrak \"MALATYA PAZARI\" (hdpFBuat_60_0 / _120_0’da kırmızı vodafone ve mavi beko bayrakları görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-e6-planters-benches",
+   "kind": "planter",
+   "x": 661.8,
+   "z": -660,
+   "shape": "box",
+   "w": 1.6,
+   "d": 0.6,
+   "h": 0.5,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.5,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "Ahşap kutu saksı + banklar x≈661.8, ≈6.5 m arayla (sıra; temsil kaydı — tek tek yazılmadı). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-atmosfer-wg-163",
+   "kind": "enclosure",
+   "poly": [
+    [
+     666.7,
+     -701.5
+    ],
+    [
+     691.4,
+     -701.5
+    ],
+    [
+     691.4,
+     -697.6
+    ],
+    [
+     666.7,
+     -697.6
+    ]
+   ],
+   "h": 3,
+   "glass": "#6a7478",
+   "frame": "#3a3a38",
+   "roofC": "#3a3a38",
+   "note": "Atmosfer kış bahçesi 163. Sk. yüzü (cam, çocuk afişleri; kz_7-s2L_120_0’da \"ATMOSFER KEBAP·DÖNER·FIRIN\" alın bandı görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 679.05,
+   "z": -699.55
+  },
+  {
+   "id": "d4-b203-planter-1",
+   "kind": "planter",
+   "x": 686.9,
+   "z": -305.3,
+   "shape": "round",
+   "w": 0.9,
+   "d": 0.9,
+   "h": 0.8,
+   "color": "#e8e6df",
+   "plant": {
+    "h": 0.7,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b203-planter-2",
+   "kind": "planter",
+   "x": 688.7,
+   "z": -305.3,
+   "shape": "round",
+   "w": 0.9,
+   "d": 0.9,
+   "h": 0.8,
+   "color": "#e8e6df",
+   "plant": {
+    "h": 0.7,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b203-planter-3",
+   "kind": "planter",
+   "x": 690.6,
+   "z": -305.3,
+   "shape": "round",
+   "w": 0.9,
+   "d": 0.9,
+   "h": 0.8,
+   "color": "#e8e6df",
+   "plant": {
+    "h": 0.7,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b203-planter-4",
+   "kind": "planter",
+   "x": 692.6,
+   "z": -305.3,
+   "shape": "round",
+   "w": 0.9,
+   "d": 0.9,
+   "h": 0.8,
+   "color": "#e8e6df",
+   "plant": {
+    "h": 0.7,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b203-planter-5",
+   "kind": "planter",
+   "x": 694.6,
+   "z": -305.3,
+   "shape": "round",
+   "w": 0.9,
+   "d": 0.9,
+   "h": 0.8,
+   "color": "#e8e6df",
+   "plant": {
+    "h": 0.7,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-b203-planter-6",
+   "kind": "planter",
+   "x": 696.6,
+   "z": -305.3,
+   "shape": "round",
+   "w": 0.9,
+   "d": 0.9,
+   "h": 0.8,
+   "color": "#e8e6df",
+   "plant": {
+    "h": 0.7,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bereket-flag",
+   "kind": "feather-flag",
+   "x": 682.8,
+   "z": -306.5,
+   "h": 3,
+   "color": "#c0262d",
+   "text": "BEREKET DÖNER",
+   "note": "Yelken bayrak \"BEREKET DÖNER\" (renk yaklaşık). Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ptt-stand",
+   "kind": "menu-stand",
+   "x": 701.6,
+   "z": -306.8,
+   "h": 1.4,
+   "w": 0.5,
+   "color": "#f6c400",
+   "note": "PTT/Pttcell broşür standı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-sig-um-e",
+   "kind": "traffic-signal",
+   "x": 673.9,
+   "z": -310.7,
+   "h": 3.5,
+   "pole": "#2f3336",
+   "note": "Trafik ışığı direği (Uğur Mumcu doğu kolu). Baktığı yön ölçülmedi. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bona-planter-1",
+   "kind": "planter",
+   "x": 617.5,
+   "z": -633.7,
+   "shape": "box",
+   "w": 1,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "note": "bona Waffle ahşap saksı. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bona-planter-2",
+   "kind": "planter",
+   "x": 617.6,
+   "z": -637.1,
+   "shape": "box",
+   "w": 1,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "note": "bona Waffle ahşap saksı. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-cigergah-tables",
+   "kind": "table",
+   "x": 618.2,
+   "z": -643.9,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#8a6a45",
+   "chairs": 2,
+   "chairC": "#8a6a45",
+   "note": "Ciğergah ahşap masalar (temsil). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-urfali-menu-1",
+   "kind": "board",
+   "x": 618.6,
+   "z": -651.6,
+   "rot": 90,
+   "w": 2.4,
+   "h": 0.9,
+   "y0": 0.2,
+   "d": 0.05,
+   "poles": 2,
+   "bg": "#f2e4c8",
+   "text": "",
+   "note": "Urfalı Ağaoğlu menü panosu 2.4×0.9 (KsRtfn8o_240_0’da yemek fotoğraflı pano görüldü; içerik çizilmez). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-urfali-menu-2",
+   "kind": "board",
+   "x": 618.7,
+   "z": -656.7,
+   "rot": 90,
+   "w": 2.4,
+   "h": 0.9,
+   "y0": 0.2,
+   "d": 0.05,
+   "poles": 2,
+   "bg": "#f2e4c8",
+   "text": "",
+   "note": "Urfalı Ağaoğlu menü panosu 2.4×0.9 (KsRtfn8o_240_0’da yemek fotoğraflı pano görüldü; içerik çizilmez). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bekir-fence",
+   "kind": "low-fence",
+   "x": 619,
+   "z": -664.9,
+   "pts": [
+    [
+     619,
+     -660.5
+    ],
+    [
+     619,
+     -669.3
+    ]
+   ],
+   "h": 1,
+   "color": "#1e1f20",
+   "note": "dürümcü bekir usta siyah teras çiti ≈1.0 m (boy/uçlar yaklaşık). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-tantuni-panels",
+   "kind": "low-fence",
+   "x": 618.85,
+   "z": -673,
+   "pts": [
+    [
+     618.8,
+     -671.4
+    ],
+    [
+     618.9,
+     -674.7
+    ]
+   ],
+   "h": 0.9,
+   "color": "#9aa3a8",
+   "note": "Mersin Tantuni gri teras panelleri 0.9 m #9aa3a8. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-demiramca-menu-1",
+   "kind": "menu-stand",
+   "x": 619.1,
+   "z": -674.6,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "Demir Amca menü panosu. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-demiramca-menu-2",
+   "kind": "menu-stand",
+   "x": 619.2,
+   "z": -677.9,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "Demir Amca menü panosu. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mariza-planter",
+   "kind": "planter",
+   "x": 619,
+   "z": -679.8,
+   "shape": "box",
+   "w": 1,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#1c56a8",
+   "note": "Mariza saksısı (renk yaklaşık). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mariza-banner",
+   "kind": "totem",
+   "x": 619.3,
+   "z": -682.8,
+   "w": 0.6,
+   "d": 0.05,
+   "h": 2.6,
+   "color": "#1c56a8",
+   "text": "Mariza",
+   "bg": "#1c56a8",
+   "fg": "#ffffff",
+   "faces": 1,
+   "note": "Mariza ayaklı roll-up afiş 0.6×2.6. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-kanaatci-planter",
+   "kind": "planter",
+   "x": 619.2,
+   "z": -687.9,
+   "shape": "box",
+   "w": 1,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "note": "Kanaatçı Mesut saksısı. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-baharat-baskets",
+   "kind": "planter",
+   "x": 619.3,
+   "z": -698.6,
+   "shape": "box",
+   "w": 1.4,
+   "d": 0.6,
+   "h": 0.7,
+   "color": "#b08a55",
+   "note": "Bursa Baharat sepetleri (temsil kutusu). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-maydonoz-menu",
+   "kind": "menu-stand",
+   "x": 619.5,
+   "z": -701.4,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "Maydonoz Döner menü standı. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-maydonoz-panel",
+   "kind": "low-fence",
+   "x": 620,
+   "z": -703.4,
+   "pts": [
+    [
+     620,
+     -702.4
+    ],
+    [
+     620,
+     -704.4
+    ]
+   ],
+   "h": 1,
+   "color": "#f6c400",
+   "note": "Maydonoz Döner baskılı teras paneli (3QVGVU1n_300_0: sarı-siyah \"Maydonoz Döner\" baskılı panel görüldü). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-napoli-aframe",
+   "kind": "aframe",
+   "x": 620,
+   "z": -713.3,
+   "w": 0.6,
+   "h": 1,
+   "color": "#2b2b2b",
+   "bg": "#ffffff",
+   "fg": "#111111",
+   "text": "",
+   "note": "Caffe Napoli A-tabelası (3QVGVU1n_300_0’da beyaz A-tabela görüldü; metin okunmadı). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-coffeemania-wall",
+   "kind": "windscreen",
+   "x": 590,
+   "z": -615.1,
+   "pts": [
+    [
+     585.1,
+     -615.2
+    ],
+    [
+     605,
+     -614.8
+    ]
+   ],
+   "h": 1,
+   "glass": "#dfe3e3",
+   "frame": "#f0f0ec",
+   "every": 2.5,
+   "base": {
+    "h": 0.9,
+    "color": "#f0f0ec"
+   },
+   "note": "Coffeemania ada yeşili tentelerin altında beyaz teras duvarı, güney cephenin ≈1.8 m önünde (tente çizilmez). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-strip-pergola-row",
+   "kind": "pergola",
+   "poly": [
+    [
+     614.7,
+     -716
+    ],
+    [
+     617.9,
+     -716
+    ],
+    [
+     616,
+     -620
+    ],
+    [
+     612.8,
+     -620
+    ]
+   ],
+   "h": 3.2,
+   "color": "#1e1f20",
+   "cover": "#2a2c2e",
+   "note": "Dükkân şeridi boyunca siyah çelik kanopi/pergola cepheleri, cephe çizgisinin 2.5–3.5 m doğusunda (KsRtfn8o/HxEE4T_F 240_0 ve 300_0 karelerinde tüm şerit boyunca koyu dikmeli saçak görüldü). Tek poligon temsil (bölmeler/yazılar ayrı). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi.",
+   "x": 615.35,
+   "z": -668
+  },
+  {
+   "id": "d4-burspark-sign",
+   "kind": "sign",
+   "x": 584.5,
+   "z": -620,
+   "h": 2.6,
+   "text": "otopark levhası BURSPARK (P)",
+   "note": "Burspark otopark levha direği. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ozhamur-canopy",
+   "kind": "canopy",
+   "x": 620.4,
+   "z": -731,
+   "a": [
+    620.4,
+    -727
+   ],
+   "e": [
+    620.4,
+    -735
+   ],
+   "d": 3,
+   "side": "right",
+   "h": 3.2,
+   "fasciaH": 0.45,
+   "fasciaC": "#1e1f20",
+   "soffitC": "#2a2c2e",
+   "note": "Özhamur Börek siyah çelik teras kanopisi, valansta altın \"özhamur\" (yazı çizilmez), ön x≈620.4, z −727…−735 (+ z≈−724.3 boyunca kısa yüz). d4-ozhamur-pergola ile aynı yapı — canopy biçimi ek. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-twin-board-1",
+   "kind": "menu-stand",
+   "x": 620.3,
+   "z": -742,
+   "h": 1.3,
+   "w": 0.6,
+   "color": "#1e1f20",
+   "note": "Siyah ayaklı pano. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-twin-board-2",
+   "kind": "menu-stand",
+   "x": 620.3,
+   "z": -744,
+   "h": 1.3,
+   "w": 0.6,
+   "color": "#1e1f20",
+   "note": "Siyah ayaklı pano. Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-twin-atm-1",
+   "kind": "kiosk",
+   "x": 610,
+   "z": -749.5,
+   "w": 1.1,
+   "d": 1,
+   "h": 2.4,
+   "color": "#1d4f9c",
+   "text": "Yapı Kredi",
+   "note": "ATM kulübeleri sırası x 609–617, z≈−749.5 (OUIqL6KE_300_0 / _240_0: mavi, yeşil-beyaz, kırmızı, mavi-beyaz 4–5 kulübe görüldü; renk sırası yaklaşık). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-twin-atm-2",
+   "kind": "kiosk",
+   "x": 612.3,
+   "z": -749.5,
+   "w": 1.1,
+   "d": 1,
+   "h": 2.4,
+   "color": "#6d2b8c",
+   "text": "QNB",
+   "note": "ATM kulübeleri sırası x 609–617, z≈−749.5 (OUIqL6KE_300_0 / _240_0: mavi, yeşil-beyaz, kırmızı, mavi-beyaz 4–5 kulübe görüldü; renk sırası yaklaşık). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-twin-atm-3",
+   "kind": "kiosk",
+   "x": 614.6,
+   "z": -749.5,
+   "w": 1.1,
+   "d": 1,
+   "h": 2.4,
+   "color": "#d52b1e",
+   "text": "",
+   "note": "ATM kulübeleri sırası x 609–617, z≈−749.5 (OUIqL6KE_300_0 / _240_0: mavi, yeşil-beyaz, kırmızı, mavi-beyaz 4–5 kulübe görüldü; renk sırası yaklaşık). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-twin-atm-4",
+   "kind": "kiosk",
+   "x": 616.8,
+   "z": -749.5,
+   "w": 1.1,
+   "d": 1,
+   "h": 2.4,
+   "color": "#1d4f9c",
+   "text": "",
+   "note": "ATM kulübeleri sırası x 609–617, z≈−749.5 (OUIqL6KE_300_0 / _240_0: mavi, yeşil-beyaz, kırmızı, mavi-beyaz 4–5 kulübe görüldü; renk sırası yaklaşık). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-cunda-parasol",
+   "kind": "parasol",
+   "x": 619.5,
+   "z": -746,
+   "w": 2.5,
+   "h": 2.4,
+   "shape": "square",
+   "open": true,
+   "color": "#f0f0ec",
+   "note": "Cunda Eklercisi önünde beyaz masa-sandalye + şemsiye (konum cephe ajanınca verilmedi — twin blok GD köşesi yaklaşık ±2). Kaynak: cephe ajanı (1551828357 / 1540994151) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bia-shelter",
+   "kind": "bus-shelter",
+   "x": 752.5,
+   "z": -273.5,
+   "w": 4.8,
+   "d": 1.5,
+   "h": 2.6,
+   "rot": 0,
+   "color": "#8c9295",
+   "note": "Otobüs durağı sığınağı (bank + çöp kutusu) x 750.1–754.9, z≈−271…−276. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-popeyes-parasol-1",
+   "kind": "parasol",
+   "x": 726.1,
+   "z": -271.6,
+   "w": 2.8,
+   "h": 2.5,
+   "shape": "square",
+   "open": true,
+   "color": "#ee7623",
+   "valance": {
+    "text": "POPEYES",
+    "fg": "#ffffff",
+    "bg": "#ee7623",
+    "sides": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "note": "POPEYES turuncu şemsiye, \"POPEYES\" valans. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-popeyes-parasol-2",
+   "kind": "parasol",
+   "x": 721.1,
+   "z": -271.9,
+   "w": 2.8,
+   "h": 2.5,
+   "shape": "square",
+   "open": true,
+   "color": "#ee7623",
+   "valance": {
+    "text": "POPEYES",
+    "fg": "#ffffff",
+    "bg": "#ee7623",
+    "sides": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "note": "POPEYES turuncu şemsiye, \"POPEYES\" valans. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-popeyes-planters",
+   "kind": "planter",
+   "x": 723.5,
+   "z": -271,
+   "shape": "box",
+   "w": 11,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "rot": 90,
+   "note": "Ahşap saksılar x 718–729 (+ sarı ıslak zemin uyarı ayağı — çizilmez). Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-vestel-flag-1",
+   "kind": "feather-flag",
+   "x": 717.8,
+   "z": -272.3,
+   "h": 3,
+   "color": "#d52b1e",
+   "text": "VESTEL",
+   "note": "VESTEL kırmızı yelken bayrak (x≈713–716 sergilenen çamaşır makineleri ayrı çizilmedi). Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-vestel-flag-2",
+   "kind": "feather-flag",
+   "x": 709.3,
+   "z": -271.3,
+   "h": 3,
+   "color": "#d52b1e",
+   "text": "VESTEL",
+   "note": "VESTEL kırmızı yelken bayrak (x≈713–716 sergilenen çamaşır makineleri ayrı çizilmedi). Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-clinic-urn-1",
+   "kind": "planter",
+   "x": 708,
+   "z": -270.8,
+   "shape": "round",
+   "w": 0.7,
+   "d": 0.7,
+   "h": 0.9,
+   "color": "#f0f0ec",
+   "note": "Klinik önü beyaz vazo saksı. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-clinic-urn-2",
+   "kind": "planter",
+   "x": 702.9,
+   "z": -271.1,
+   "shape": "round",
+   "w": 0.7,
+   "d": 0.7,
+   "h": 0.9,
+   "color": "#f0f0ec",
+   "note": "Klinik önü beyaz vazo saksı. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-clinic-fence",
+   "kind": "low-fence",
+   "x": 698.5,
+   "z": -271,
+   "pts": [
+    [
+     695,
+     -271
+    ],
+    [
+     702,
+     -271
+    ]
+   ],
+   "h": 0.9,
+   "color": "#1e1f20",
+   "note": "Siyah çit x 695–702. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mcd-planters",
+   "kind": "planter",
+   "x": 678.4,
+   "z": -274.55,
+   "shape": "box",
+   "w": 23.4,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#a0662f",
+   "plant": {
+    "h": 0.5,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "rot": 93,
+   "note": "McDonald's kuzey terası ahşap saksılar #a0662f (690.1,−273.9)→(666.7,−275.2); arkada siyah çelik çit (d4-mcd-fence). Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mcd-fence",
+   "kind": "low-fence",
+   "x": 678.4,
+   "z": -274,
+   "pts": [
+    [
+     690.1,
+     -273.4
+    ],
+    [
+     666.7,
+     -274.7
+    ]
+   ],
+   "h": 1,
+   "color": "#1e1f20",
+   "note": "McDonald's teras siyah çelik çiti. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mcd-parasol-1",
+   "kind": "parasol",
+   "x": 685.6,
+   "z": -273.1,
+   "w": 2.5,
+   "h": 2.5,
+   "shape": "square",
+   "open": false,
+   "color": "#1e1f20",
+   "note": "McDonald's kapalı siyah şemsiye. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mcd-parasol-2",
+   "kind": "parasol",
+   "x": 680.6,
+   "z": -273.4,
+   "w": 2.5,
+   "h": 2.5,
+   "shape": "square",
+   "open": false,
+   "color": "#1e1f20",
+   "note": "McDonald's kapalı siyah şemsiye. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mcd-parasol-3",
+   "kind": "parasol",
+   "x": 674.6,
+   "z": -273.7,
+   "w": 2.5,
+   "h": 2.5,
+   "shape": "square",
+   "open": false,
+   "color": "#1e1f20",
+   "note": "McDonald's kapalı siyah şemsiye. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mcd-parasol-4",
+   "kind": "parasol",
+   "x": 669.6,
+   "z": -274,
+   "w": 2.5,
+   "h": 2.5,
+   "shape": "square",
+   "open": false,
+   "color": "#1e1f20",
+   "note": "McDonald's kapalı siyah şemsiye. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-haskoy-planters",
+   "kind": "planter",
+   "x": 746.9,
+   "z": -268.6,
+   "shape": "box",
+   "w": 1.2,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#1e1f20",
+   "note": "HASKÖYÜM siyah saksılar. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-blue-shop-table",
+   "kind": "table",
+   "x": 764,
+   "z": -268,
+   "shape": "square",
+   "w": 0.7,
+   "h": 0.75,
+   "color": "#f6c400",
+   "chairs": 2,
+   "chairC": "#f6c400",
+   "note": "Mavi dükkân önünde sarı katlanır masa-sandalye (+ terakota saksılar, ahşap sergi standı — çizilmez). Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-boga-menu",
+   "kind": "menu-stand",
+   "x": 784.4,
+   "z": -267,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#2b2b2b",
+   "note": "BOĞA BURGER menü panosu. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-laurel-hedge",
+   "kind": "planter",
+   "x": 777.6,
+   "z": -270.9,
+   "shape": "box",
+   "w": 2,
+   "d": 0.8,
+   "h": 0.2,
+   "color": "#6d6a60",
+   "plant": {
+    "h": 1.4,
+    "color": "#2f4f2a",
+    "shape": "hedge"
+   },
+   "note": "Taflan/defne çiti. Kaynak: cephe ajanı (1546358573) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bkm-wall",
+   "kind": "low-fence",
+   "x": 547.2,
+   "z": -412.6,
+   "pts": [
+    [
+     538.7,
+     -412.9
+    ],
+    [
+     555.6,
+     -412.3
+    ]
+   ],
+   "h": 0.6,
+   "color": "#b8b3a8",
+   "note": "BKM beton saksı duvarı. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-karaoke-banner",
+   "kind": "totem",
+   "x": 555,
+   "z": -411.6,
+   "w": 0.6,
+   "d": 0.05,
+   "h": 2.8,
+   "color": "#3a3d3f",
+   "text": "KARAOKE",
+   "bg": "#3a3d3f",
+   "fg": "#ffffff",
+   "faces": 2,
+   "note": "KARAOKE kafe direk afişi (renk yaklaşık). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-avm-cabinets",
+   "kind": "cabinet",
+   "x": 561.8,
+   "z": -410.6,
+   "h": 1.4,
+   "rot": 0,
+   "note": "Gri panjurlu dolaplar (559.5,−410.7)→(564.1,−410.5) ≈4.6×0.5×1.4. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-levrek-screen",
+   "kind": "windscreen",
+   "x": 568.8,
+   "z": -412.3,
+   "pts": [
+    [
+     560.1,
+     -412.6
+    ],
+    [
+     577.5,
+     -412
+    ]
+   ],
+   "h": 1.6,
+   "glass": "#9aa3a3",
+   "frame": "#3a3d3f",
+   "every": 1.5,
+   "base": {
+    "h": 0.6,
+    "color": "#b8b3a8"
+   },
+   "note": "Levrek saksı duvarı + cam rüzgârlık. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-levrek-conifer-1",
+   "kind": "planter",
+   "x": 568.7,
+   "z": -411.8,
+   "shape": "round",
+   "w": 0.7,
+   "d": 0.7,
+   "h": 0.7,
+   "color": "#f0f0ec",
+   "plant": {
+    "h": 1.6,
+    "color": "#2f4f2a",
+    "shape": "cone"
+   },
+   "note": "Beyaz saksıda konik iğne yapraklı. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-levrek-conifer-2",
+   "kind": "planter",
+   "x": 572.9,
+   "z": -411.6,
+   "shape": "round",
+   "w": 0.7,
+   "d": 0.7,
+   "h": 0.7,
+   "color": "#f0f0ec",
+   "plant": {
+    "h": 1.6,
+    "color": "#2f4f2a",
+    "shape": "cone"
+   },
+   "note": "Beyaz saksıda konik iğne yapraklı. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-avm-wayfinding",
+   "kind": "totem",
+   "x": 567.3,
+   "z": -411.2,
+   "w": 0.4,
+   "d": 0.2,
+   "h": 3,
+   "color": "#3a3d3f",
+   "text": "",
+   "faces": 2,
+   "note": "Logolu yön gösterme direği (logo çizilmez). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bk-planters-n",
+   "kind": "planter",
+   "x": 590.1,
+   "z": -411.35,
+   "shape": "box",
+   "w": 19.2,
+   "d": 0.6,
+   "h": 0.6,
+   "color": "#7a5a3a",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "rot": 88,
+   "note": "BK kahverengi saksı kutuları (580.5,−411.7)→(599.7,−411.0). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bk-planters-e",
+   "kind": "planter",
+   "x": 600.95,
+   "z": -421.85,
+   "shape": "box",
+   "w": 20.5,
+   "d": 0.6,
+   "h": 0.6,
+   "color": "#7a5a3a",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "rot": 3,
+   "note": "BK saksı kutuları (600.4,−411.6)→(601.5,−432.1) (sbNX6tda_300_0’da AVM önü saksı sırası + siyah korkuluk görüldü). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-mrdiy-flag",
+   "kind": "feather-flag",
+   "x": 585.5,
+   "z": -410.5,
+   "h": 3.2,
+   "color": "#f6c400",
+   "text": "MR.DIY",
+   "note": "MR.DIY sarı yelken bayrak. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-sbux-avm-screen",
+   "kind": "windscreen",
+   "x": 601.8,
+   "z": -438.75,
+   "pts": [
+    [
+     601.5,
+     -433.3
+    ],
+    [
+     602.1,
+     -444.2
+    ]
+   ],
+   "h": 1.6,
+   "glass": "#3f474a",
+   "frame": "#1e1f20",
+   "every": 1.5,
+   "note": "Starbucks koyu cam rüzgârlıkları. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-avm-steps",
+   "kind": "steps-line",
+   "x": 604,
+   "z": -449.5,
+   "pts": [
+    [
+     602,
+     -411.2
+    ],
+    [
+     606,
+     -487.7
+    ]
+   ],
+   "n": 3,
+   "rise": 0.9,
+   "color": "#b8b3a8",
+   "note": "AVM doğu podyum basamakları, 3 basamak, toplam ≈0.9 m (sbNX6tda_300_0 / fomL_YAk_300_0: bordür kaldırımı → basamaklar → teras). Yeni tür (steps-line: pts, n, rise). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bowling-pin",
+   "kind": "statue",
+   "x": 603.6,
+   "z": -452.1,
+   "h": 2,
+   "color": "#f0f0ec",
+   "note": "Bowling lobutu figürü (reklam heykeli). Yeni tür. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-bulvar-banner",
+   "kind": "totem",
+   "x": 603.8,
+   "z": -454.9,
+   "w": 0.7,
+   "d": 0.05,
+   "h": 3.2,
+   "color": "#1c56a8",
+   "text": "bulvarözlüce",
+   "bg": "#1c56a8",
+   "fg": "#ffffff",
+   "faces": 2,
+   "note": "Mavi \"bulvarözlüce\" direk afişi. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-avm-redmenu",
+   "kind": "menu-stand",
+   "x": 605.2,
+   "z": -486.5,
+   "h": 1.3,
+   "w": 0.5,
+   "color": "#c0262d",
+   "note": "Kırmızı menü panosu. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-avm-acyard",
+   "kind": "low-fence",
+   "x": 546.05,
+   "z": -482.55,
+   "pts": [
+    [
+     546.3,
+     -487.8
+    ],
+    [
+     545.8,
+     -477.3
+    ]
+   ],
+   "h": 1.8,
+   "color": "#9a9c9a",
+   "note": "Çitli klima avlusu (çit hattı; yükseklik oransal). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ceylan-phonebooth",
+   "kind": "kiosk",
+   "x": 578.5,
+   "z": -525.1,
+   "w": 0.9,
+   "d": 0.9,
+   "h": 2.5,
+   "color": "#c0262d",
+   "text": "",
+   "note": "Kırmızı telefon kulübesi (dekor; üst yazı görülmedi). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-queen-planters",
+   "kind": "planter",
+   "x": 581,
+   "z": -525.1,
+   "shape": "box",
+   "w": 1.2,
+   "d": 0.5,
+   "h": 0.6,
+   "color": "#8a6a45",
+   "note": "Queen ahşap saksılar. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ceylan-stair-1",
+   "kind": "steps-note",
+   "x": 588.1,
+   "z": -524.6,
+   "note": "1. kat terasına çıkan dış merdiven (cephe ögesi; sokak katmanında çizilmez). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ceylan-stair-2",
+   "kind": "steps-note",
+   "x": 552.6,
+   "z": -526.5,
+   "note": "1. kat terasına çıkan dış merdiven (cephe ögesi; sokak katmanında çizilmez). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ceylan-planters-e",
+   "kind": "planter",
+   "x": 607.85,
+   "z": -508.05,
+   "shape": "box",
+   "w": 28,
+   "d": 0.6,
+   "h": 0.6,
+   "color": "#6d6a60",
+   "plant": {
+    "h": 0.6,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "rot": 3,
+   "note": "Saksı sırası (607.0,−494.1)→(608.7,−522.0) (PROekBmO_240_0’da DURAK önü saksılar görüldü). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-ceylan-psign",
+   "kind": "sign",
+   "x": 550.1,
+   "z": -489.2,
+   "h": 2.8,
+   "text": "OTO PARK ÜCRETSİZ (P)",
+   "note": "\"OTO PARK ÜCRETSİZ\" direk levhası. Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
+   "id": "d4-florist-hedge",
+   "kind": "low-fence",
+   "x": 652.8,
+   "z": -408.7,
+   "pts": [
+    [
+     652.8,
+     -404.5
+    ],
+    [
+     652.8,
+     -412.9
+    ]
+   ],
+   "h": 1,
+   "color": "#8a6a45",
+   "note": "Çiçekçi önünde ahşap çit/çit bitkisi (ZYA6UKt9_120_0’da ahşap çit görüldü). Kaynak: cephe ajanı (1551814316 / 1551814323 / 1544329664) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+  },
+  {
    "id": "d4-rb2-island",
    "kind": "roundabout-island",
    "x": 623,
@@ -16542,6 +18950,16 @@
     ]
    ],
    "note": "A5 (da3-06): GB reklam panosu sırası (da3-bb-sw) ve arkasındaki 2–3 m şerit — hava fotoğrafında (eski, farklı yol düzeni) panoların koyu gölge çizgisi ağaç dizisi sanılıyordu; SV Z8D7_240_0 / _230_12_40 / _247_10_40: panoların hemen arkasında ağaç yok (uzakta birkaç ağaç, bölge dışında)."
+  }
+ ],
+ "roads": [
+  {
+   "id": 303589047,
+   "centreShift": [
+    -0.9,
+    0
+   ],
+   "note": "2026-09-30 (D4 sokak ajanı, koordinatör isteği): 502. Sokak orta çizgisi — road-items taraması notu: SV/hava fotoğrafında gerçek çizgi z −100’de x≈5.2–5.8, OSM ekseni x≈6.4 (0.6–1.2 m batı) → [−0.9, 0]. Yeniden ölçülmedi (not değerinden)."
   }
  ]
 }

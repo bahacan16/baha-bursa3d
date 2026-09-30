@@ -39,7 +39,8 @@
   "v3 (korkuluk/renk): görünen tüm yığınlarda döşeme alnı + beyaz dolu parapet (döşemeden ≈0.55 m) + tek ara borulu, ~1.2 m dikmeli paslanmaz küpeşte (≈0.92 m) → rail solidTube, parapetH 0.55, railC #d0d6d9; camlı katlarda cam parapetten tavana, küpeşte önünde. K2 alnı/parapeti tüm yığınlarda koyu gri (#50575f). İstisna: kuzey cephe doğu yığını (11/10) K2 korkuluğu 4–5 yatay borulu ve daha yüksek.",
   "v3: binada tabela/levha görülmedi (giriş güneyde, görülmedi); doğudaki çitte kırmızı SATILIK levhası ve elektrik panosu bina değil. Balkon uçlarında kat kat açık gri çörtenler (vent olarak yazıldı).",
   "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster2': '#50575f'} → {'plaster2': '#5a636b'}",
-  "critic-fix 2026-09-30: K2 koyu alın: nB9G 145_32 karesinde K2 alnı #4a555b / #454d51 ≈ aynı düzlemdeki koyu duvar #4c575e (oran 0.97–1.0) → fasciaC K2 = plaster2 #5a636b (eski #50575f). Kalınlık ≈ beyaz alınlarla aynı (solidTube 0.55 + döşeme, değişmedi); oyundaki neredeyse siyah ton ışık. Cam balkon perdeleri NNxF 164_23 / 184_21'de kat kat kontrol edildi: 11 batı yığın K1–K3 ve 12 K1–K3 kapalı beyaz tül (K1 biraz daha saydam, 12 K3'te sağ kanat açık), K0 koyu şeffaf, K4 şeffaf → mevcut tint kayıtlarıyla uyumlu; hepsinin oyunda beyaz görünmesi 'clear'/'blinds' malzemesinden (A10)."
+  "critic-fix 2026-09-30: K2 koyu alın: nB9G 145_32 karesinde K2 alnı #4a555b / #454d51 ≈ aynı düzlemdeki koyu duvar #4c575e (oran 0.97–1.0) → fasciaC K2 = plaster2 #5a636b (eski #50575f). Kalınlık ≈ beyaz alınlarla aynı (solidTube 0.55 + döşeme, değişmedi); oyundaki neredeyse siyah ton ışık. Cam balkon perdeleri NNxF 164_23 / 184_21'de kat kat kontrol edildi: 11 batı yığın K1–K3 ve 12 K1–K3 kapalı beyaz tül (K1 biraz daha saydam, 12 K3'te sağ kanat açık), K0 koyu şeffaf, K4 şeffaf → mevcut tint kayıtlarıyla uyumlu; hepsinin oyunda beyaz görünmesi 'clear'/'blinds' malzemesinden (A10).",
+  "critic-fix 2026-09-30 (cam balkon dikmeleri): fotoğraflarda katlanır cam profilleri İNCE AÇIK GRİ alüminyum (koyu değil; koyu camlı K0 dahil tüm yığın/katlarda aynı; 4bB2 189_23 40° karesi, TRtaim/y7b7/nB9G ortoları). Dikey dikmeler piksel altı → renk aynı profilin yatay alt/üst rayından: 4bB2 189_23'te ray #696e6e / aynı karedeki beyaz alın #9ca0a5 = 0.68 → blok paletine (alın #eceeec) ölçekli frameC #a0a6a7 (tüm katlar '*'). glazeEvery ortofoto parlak dikme profilinden (gerçek m, balkon büyütmesi düzeltildi): e9 0.44, e10 0.38, e11 doğu yığın 0.52 (K0); diğer yığınlarda perde/tül kıvrımları profili bozuyor → varsayılan."
  ],
  "edges": [
   {
@@ -486,6 +487,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -520,6 +524,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -597,7 +604,11 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
-     }
+     },
+     "frameC": {
+      "*": "#a0a6a7"
+     },
+     "glazeEvery": 0.44
     },
     {
      "t": "dish",
@@ -669,7 +680,11 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
-     }
+     },
+     "frameC": {
+      "*": "#a0a6a7"
+     },
+     "glazeEvery": 0.38
     },
     {
      "t": "pipe",
@@ -731,7 +746,11 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
-     }
+     },
+     "frameC": {
+      "*": "#a0a6a7"
+     },
+     "glazeEvery": 0.52
     },
     {
      "t": "panel",
@@ -875,6 +894,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -987,6 +1009,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     }
    ],
@@ -1101,6 +1126,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     }
    ],
@@ -1160,6 +1188,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -1381,6 +1412,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -1444,6 +1478,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {
@@ -1504,6 +1541,9 @@
      },
      "fasciaC": {
       "K2": "#5a636b"
+     },
+     "frameC": {
+      "*": "#a0a6a7"
      }
     },
     {

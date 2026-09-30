@@ -43,7 +43,8 @@
   "Pano konumları güvenilmez: kuzey sırası (nxqv/5Owm/RW5/4hcO/TRta) ≈2.5–3 m uzak, doğu sırası (HVLz/MeHp/l07h/jeEb) 4–6 m uzak görünüyor (görünen kat aralığı 2.5 / 1.85). Bu yüzden görünen ölçüler cal.u/cal.head ile kalibre edildi; konsol/loca büyütme düzeltmesi bu kenarlarda yaklaşık. Güney ve kısa kenarlar gerçek metreyle (ref’siz) yazıldı.",
   "Taban izi: 6Bi karesindeki göreli ölçüye göre (kuzey orta duvar ≈4.8 m, KB yığın ön yüzü ≈4.3 m) köşe 3–4 0.6 m doğuya alındı (kenar 2 = 4.91, kenar 4 = 4.52). KD yığın genişliği iz ile uyumlu (5.35/5.36). 6Bi’de tüm kuzey cephesi ≈0.9 m doğuya kaymış görünüyor, ancak bu pano konum hatası da olabilir.",
   "Renk düzeltmesi (eleştirmen yakın plan karşılaştırması, gölgede gerçek #46525c–#626a6e): {'plaster': '#666f71'} → {'plaster': '#707a7e'}",
-  "critic-fix 2026-09-30: (1) Kuzey loca yığınları (0/4/6/7) kat kat yeniden ölçüldü (6Bi ortofoto profilleri 0/4, 5Owm 6, nxqv 199/179 40° kareleri): döşeme alınları K1–K5 her katta KALIN (görünen 0.64–0.71 m; 6: 0.5–0.7), kat çizgisinin ≈0.3 altından ≈0.35 üstüne → korkuluk borulu değil DOLU PARAPET + küpeşte: solidTube parapetH 0.35 + beam 0.15 (alın 0.66 m); KB K1 alnı 0.5 (beam 0). Küpeşte üstü parapetten: KB K1–K3 ≈0.45 → railH 0.8, K4 0.95, K5 ≈0.9 → railH 1.2 (K5 korkuluğu belirgin yüksek); KD K1–K3 railH 1.0, K4 1.1; 6/7'de küpeşte boyu ölçülemedi (varsayılan). KD K5: borusuz, alt sabit cam şeridi → rail glass (cam #57697a). K3 alnı koyu: aynı karede beyaz alna oranı (0.33–0.47) → #3f4947 (eski #5e5f5a açık kalıyordu). Beyaz alınlar fascia #acafa8 değişmedi (gölge/bulutlu karede #8e98a7–#a0acbc, oran tutarlı). (2) Yığın üstü açık gri eğik kutular: eski 'panel'ler duvar üstünün üstünde kalınlıksız düşey levha olarak çiziliyordu (oyundaki 'yüzgeçler') → her yığında proj (ön yüz, geriye loca derinliği kadar: KD 1.15 = kenar 1, KB 1.32 = kenar 3, batı 1.3 varsayım) + tepe çizgisini veren dik üçgen pediment; üst kenar kotları ortofotolardan sütun sütun ölçüldü (KD 18.79→21.28 batıya yükselir, KB 21.96→20.61 batıya alçalır, 6: 18.1→16.57, 7: 20.05→20.7, 7 kenarında RW5 ortosunun düşey kalibrasyonu güvenilmez: kutu tabanı K5 tavanına (≈17.4), köşe ucu 6'nın batı ucuyla (≈18.85) eşlendi, yükselme (görünen +0.6) ölçüden). Kutu derinliği (loca derinliğinden geriye) görülmedi. (3) Orta duvar (2) pilastr şeritleri duvar üstünde kesildi (üst kısım yüzgeç yapıyordu); orta duvarın beşgen alınlığı pending. (4) Doğu cephe (19) kuzey ucunda K2–K4 küçük siyah silindirler lamp (l07h ortosu u 9.85, döşemeden 2.42; K1/K5 seçilemedi)."
+  "critic-fix 2026-09-30: (1) Kuzey loca yığınları (0/4/6/7) kat kat yeniden ölçüldü (6Bi ortofoto profilleri 0/4, 5Owm 6, nxqv 199/179 40° kareleri): döşeme alınları K1–K5 her katta KALIN (görünen 0.64–0.71 m; 6: 0.5–0.7), kat çizgisinin ≈0.3 altından ≈0.35 üstüne → korkuluk borulu değil DOLU PARAPET + küpeşte: solidTube parapetH 0.35 + beam 0.15 (alın 0.66 m); KB K1 alnı 0.5 (beam 0). Küpeşte üstü parapetten: KB K1–K3 ≈0.45 → railH 0.8, K4 0.95, K5 ≈0.9 → railH 1.2 (K5 korkuluğu belirgin yüksek); KD K1–K3 railH 1.0, K4 1.1; 6/7'de küpeşte boyu ölçülemedi (varsayılan). KD K5: borusuz, alt sabit cam şeridi → rail glass (cam #57697a). K3 alnı koyu: aynı karede beyaz alna oranı (0.33–0.47) → #3f4947 (eski #5e5f5a açık kalıyordu). Beyaz alınlar fascia #acafa8 değişmedi (gölge/bulutlu karede #8e98a7–#a0acbc, oran tutarlı). (2) Yığın üstü açık gri eğik kutular: eski 'panel'ler duvar üstünün üstünde kalınlıksız düşey levha olarak çiziliyordu (oyundaki 'yüzgeçler') → her yığında proj (ön yüz, geriye loca derinliği kadar: KD 1.15 = kenar 1, KB 1.32 = kenar 3, batı 1.3 varsayım) + tepe çizgisini veren dik üçgen pediment; üst kenar kotları ortofotolardan sütun sütun ölçüldü (KD 18.79→21.28 batıya yükselir, KB 21.96→20.61 batıya alçalır, 6: 18.1→16.57, 7: 20.05→20.7, 7 kenarında RW5 ortosunun düşey kalibrasyonu güvenilmez: kutu tabanı K5 tavanına (≈17.4), köşe ucu 6'nın batı ucuyla (≈18.85) eşlendi, yükselme (görünen +0.6) ölçüden). Kutu derinliği (loca derinliğinden geriye) görülmedi. (3) Orta duvar (2) pilastr şeritleri duvar üstünde kesildi (üst kısım yüzgeç yapıyordu); orta duvarın beşgen alınlığı pending. (4) Doğu cephe (19) kuzey ucunda K2–K4 küçük siyah silindirler lamp (l07h ortosu u 9.85, döşemeden 2.42; K1/K5 seçilemedi).",
+  "critic-fix 2026-09-30 (cam balkon dikmeleri): kuzey loca camları ince açık gri/beyazımsı alüminyum dikmeli (SyTa 201_21 40° karesinde dikme tepe pikseli #8d979a–#a6b8cc ≈ aynı karedeki beyaz alın #8c96a3–#909cac) → frameC = alın paleti #acafa8. glazeEvery: e0 KD yığını 0.58 (6Bi ortosu K3/K4, K5 0.53), e6 0.63 (5Owm); diğerleri ölçülemedi."
  ],
  "edges": [
   {
@@ -113,7 +114,11 @@
      },
      "glassC": {
       "K5": "#57697a"
-     }
+     },
+     "frameC": {
+      "*": "#acafa8"
+     },
+     "glazeEvery": 0.58
     },
     {
      "t": "proj",
@@ -415,6 +420,9 @@
       "K3": 0.8,
       "K4": 0.95,
       "K5": 1.2
+     },
+     "frameC": {
+      "*": "#acafa8"
      }
     },
     {
@@ -546,7 +554,11 @@
      },
      "beam": {
       "*": 0.15
-     }
+     },
+     "frameC": {
+      "*": "#acafa8"
+     },
+     "glazeEvery": 0.63
     },
     {
      "t": "proj",
@@ -625,6 +637,9 @@
      },
      "beam": {
       "*": 0.15
+     },
+     "frameC": {
+      "*": "#acafa8"
      }
     },
     {
@@ -750,7 +765,10 @@
      "fasciaC": {
       "K3": "#5e5f5a"
      },
-     "railC": "#aaafaf"
+     "railC": "#aaafaf",
+     "frameC": {
+      "*": "#acafa8"
+     }
     },
     {
      "t": "dish",
@@ -915,7 +933,10 @@
      "fasciaC": {
       "K3": "#5e5f5a"
      },
-     "railC": "#aaafaf"
+     "railC": "#aaafaf",
+     "frameC": {
+      "*": "#acafa8"
+     }
     },
     {
      "t": "proj",
