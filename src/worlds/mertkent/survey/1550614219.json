@@ -317,13 +317,79 @@
     "wallTop": 26.3
    },
    {
-    "rest": true,
+    "poly": [
+     [
+      658.81,
+      -495.76
+     ],
+     [
+      682.67,
+      -494.41
+     ],
+     [
+      682.33,
+      -488.13
+     ],
+     [
+      658.45,
+      -489.31
+     ]
+    ],
     "storeys": 3
+   },
+   {
+    "poly": [
+     [
+      657.09,
+      -464.98
+     ],
+     [
+      681.19,
+      -463.68
+     ],
+     [
+      680.86,
+      -457.54
+     ],
+     [
+      656.75,
+      -458.82
+     ]
+    ],
+    "storeys": 3
+   },
+   {
+    "poly": [
+     [
+      655.39,
+      -434.42
+     ],
+     [
+      655.07,
+      -428.8
+     ],
+     [
+      675.24,
+      -433.64
+     ]
+    ],
+    "storeys": 3
+   },
+   {
+    "rest": true,
+    "storeys": 2,
+    "wallTop": 7.9,
+    "roof": {
+     "eave": 0.05,
+     "fasciaH": 0.3,
+     "flatC": "#b9b6ae"
+    }
    }
   ]
  },
  "notes": [
   "KÜTLE: OSM building:part halkaları (1550614221–225) 5 kule, geri kalan (1550614220, height 6) podyum. Kule 4'ün doğu yüzü OSM'de ring'in ≈3 m batısında; 323. Sk. ortofotosunda (yU9w, kat aralığı bulvarla aynı) kule yüzü podyum hattında → massing poly'de doğu yüzü ring kenar 13 çizgisine (z −448.89…−466.87, görünen u 0–18) alındı, kuzeyinde OSM'deki geri çekik hat korundu (orası görülmedi).",
+  "PODYUM YÜKSEKLİĞİ (v2): bulvar parçaları (kule 1–2 ve 2–3 arası boşluklar + KuveytTürk güney üçgeni) 3 kat, duvar üstü ≈10.5 + 1.3 parapet ≈11.8 m (görünen 11.5–11.75, e0–e5); geri kalan (331. Sk. e9, 323. Sk. e10–e15/e18, kuzey e19/e41/e45) 2 kat + wallTop 7.9 m (blok tabanından; görünen üst e9 6.85, e13 7.3 (taş bant) + korkuluk, e15 8.05, e18 8.15 — yerel zemin bulvardan ≈1.2–1.7 m alçak). AAkb (e6) karesindeki 8.1 üst kotu 7.2 m yakın/eğik çekim bozulması; aynı üçgenin e5 yüzü 11.5 → bulvar yüksekliği.",
   "KAT DÜZENİ: bulvar (batı) tarafında zemin yüksek: podyum = çift yükseklikte dükkân katı (K0–K1, görünen cam 2.0–7.1) + ofis cam bandı (K2) + beyaz ACP parapet (üst ≈11.5 görünen) → kuleler K3–K8 (6 konut sırası, K3'ün alt yarısı parapet arkasında). 323. Sk. / servis yolu / avlu tarafında zemin ≈1.5–2.7 m alçak: podyum tek yüksek kat + bej taş bant, K2 bu yüzlerde podyum terasında kış bahçesi (kenar 13) ya da konut katı (kenar 19/41/45). Her kenar cal.head ile kendi kat çizgilerine bağlandı; kule kat aralığı 2.71 m (bulvar 2.71, kenar 4 2.76). Toplam 9 'üretici katı' (≈29 m, OSM height 29).",
   "KULE CEPHE DİLİ (bulvar, üç kule aynı): açık bej-gri sıva #cbc7bb (güneşli değil, bulvar öğleden sonra gölgede: ölçülen #919089 → ×1.4), pencere söveleri kahve-bej #b9a48c; sol/sağda küçük pencere sütunları, iki boy Fransız pencere (beyaz dikey çubuklu korkuluk), ortada çift balkon yığını (d≈1.5, alçak dolu parapet + buzlu cam, beyaz dikmeler ≈0.92 m, ortada ortak yağmur borusu ve her kat arasında boruya asılı klima dış üniteleri), köşelerde dolu parapetli dar köşe balkonları (d≈1.3). Saçak: kule çatısı düz, ≈1.35 m taşan saçak (kahve-bej alın #bca18c, koyu kahve saçak altı), orta balkon yığınının üstü daha yüksek şapka; çatıda boru korkuluk ve çatı kulübeleri (pending).",
   "PODYUM RENKLERİ: beyaz ACP #d9dee1 tahmini (gölgede #a4abaf), bej taş kaplama #c2b4a1 (331. Sk. güneşli), taş bant yatay derzli. Tabela renkleri çoğunlukla gölgede ölçüldü (bulvar/kuzey), güneşli değerler ≈×1.3–1.5 tahmin — her öğenin logo notuna bak.",
@@ -379,15 +445,6 @@
    "edge": 46,
    "what": "Kule 1 kuzey yüzü K3–K8: köşeyi (KB) saran cam balkon yığını (lQ3f görünen u ≈11–18, açık/koyu cam K3–K8), küçük pencere sütunu (u 8.5–10.2), sol uçta balkon/loca sırası (u −1.5…7.5), bayraklı cam balkon; ortofotolar tutarsız (düşey ≈1.5× büyüme, iki pano arasında yatay ≈15 m fark)",
    "need": "yakın/dik açılı ek kare (servis yolu tarafından 40° kareler) veya taban izi düzeltmesi"
-  },
-  {
-   "id": "north-faces-scale",
-   "edges": [
-    19,
-    46,
-    45
-   ],
-   "what": "Kuzey panolarında (QEOW, aTnf, lQ3f, VWD2) cephe ≈1.5× büyük görünüyor; e19'da cal.dist 8.3 ile düzeltildi. Neden (pano GPS / taban izi kuzeyde ≈2–4.5 m) doğrulanmalı."
   }
  ],
  "edges": [
@@ -2633,7 +2690,7 @@
      "color": "#d9d4c8"
     }
    ],
-   "note": "Bulvar orta birim (2025-09; ivo1 f22 23.5 m + lc7D 25.7 m + _u_L/X0NY 120° karelerinden kenar kestirimi). BÜYÜK AĞAÇ u 0–12 arası podyumu ve kulenin K3–K6 sol yarısını iki ortofotoda da kapatıyor: sol pencere sütunları (A u 2.25–3.68, B 5.18–6.6) yalnız K6–K8'de ve ağaç aralıklarından görüldü; alt katlarda aynı düzen yazıldı, perdeler yalnız görülen katlarda. Podyum zemini: ÖZGÜR MODA (siyah tabela, pembe harf, 2 pembe tente, 2 beyaz çerçeveli cam kapı; birim sınırları _u_L 120° karesinden açıyla ±0.3 m), CESUR 2 MARKET (u ≈8.7–15; cephesi yeşil 'CESUR' kanopi/tabela ve önündeki 'CESUR 2 MARKET' dikey totem — kaldırımda, rapor), GÖK'AY PUB-RESTAURANT kış bahçesi (u ≈14–21.5, cepheden ≈7 m öne taşan kapalı teras; ivo1/lc7D paralaksıyla derinlik ≈7 m — kaldırım katmanına raporlandı). Dükkân camları bu yapıların arkasında GÖRÜLMEDİ. 1. kat: 1A PLUS/ATB paneli u 0–4.3, beyaz ACP 4.3–11, turuncu AKADEMİ MATEMATİK 11–18.5, SEYHAN GAYRİMENKUL 18.5→kenar 3. Kule 2 kule 1 ile aynı düzen (ayna değil, aynı): orta çift balkonda cam balkonlar sol K6 (açık renk) K7 (koyu), sağ K5 K7 K8; sağ yarıda K3'te podyum terasında cam kapalı çıkma. Çatı: sağda (u 15.3–19.8) bakır/kiremit renkli eğik çatılı çatı kulübesi, solda (u 6.5–9.7) koyu mavi çatılı kulübe — pending."
+   "note": "Bulvar orta birim (2025-09; ivo1 f22 23.5 m + lc7D 25.7 m + _u_L/X0NY 120° karelerinden kenar kestirimi). BÜYÜK AĞAÇ u 0–12 arası podyumu ve kulenin K3–K6 sol yarısını iki ortofotoda da kapatıyor: sol pencere sütunları (A u 2.25–3.68, B 5.18–6.6) yalnız K6–K8'de ve ağaç aralıklarından görüldü; alt katlarda aynı düzen yazıldı, perdeler yalnız görülen katlarda. Podyum zemini: ÖZGÜR MODA (siyah tabela, pembe harf, 2 pembe tente, 2 beyaz çerçeveli cam kapı; birim sınırları _u_L 120° karesinden açıyla ±0.3 m), CESUR 2 MARKET (u ≈8.7–15; cephesi yeşil 'CESUR' kanopi/tabela ve önündeki 'CESUR 2 MARKET' dikey totem — kaldırımda, rapor), GÖK'AY PUB-RESTAURANT kış bahçesi (u ≈14–21.5, cepheden ≈7 m öne taşan kapalı teras; ivo1/lc7D paralaksıyla derinlik ≈7 m — kaldırım katmanına raporlandı). Dükkân camları bu yapıların arkasında GÖRÜLMEDİ (v2 kontrol: ivo1 60/120°, lc7D 60°, _u_L 120°, AElA 60°, D9IT 60° ve f22 karelerinin hiçbirinde GÖK'AY kış bahçesinin cam/tente katmanları ile CESUR kanopisi arkasındaki cephe seçilmiyor; yalnız kış bahçesi üst profili ve üstündeki 1. kat cam bandı ölçüldü). 1. kat: 1A PLUS/ATB paneli u 0–4.3, beyaz ACP 4.3–11, turuncu AKADEMİ MATEMATİK 11–18.5, SEYHAN GAYRİMENKUL 18.5→kenar 3. Kule 2 kule 1 ile aynı düzen (ayna değil, aynı): orta çift balkonda cam balkonlar sol K6 (açık renk) K7 (koyu), sağ K5 K7 K8; sağ yarıda K3'te podyum terasında cam kapalı çıkma. Çatı: sağda (u 15.3–19.8) bakır/kiremit renkli eğik çatılı çatı kulübesi, solda (u 6.5–9.7) koyu mavi çatılı kulübe — pending."
   },
   {
    "edge": 3,
@@ -3797,7 +3854,7 @@
      "y": 27.4
     }
    ],
-   "note": "Bulvar güney birim (2025-09; D9IT f22 24 m + AElA 25.3 m). Kule 3: kule 1/2 ile aynı düzen; orta sol yarı K4–K8 hepsi cam balkon, sağ yarı açık (K7'de SATILIK levhası), sağ C penceresi K4 korkuluğunda portre bayrak; sol köşe balkonu K6–K8 camlı. Podyum: 1. katta tüm cephe beyaz ACP + ofis cam bandı (mavi storlar u 8–9.4, 15.5–16.95; 2 klima dış ünitesi parapet bandında), MADİNA ERDEN bordo kutu tabela (u 11.0–17.95), sağ uçta ağaç. Zemin: OUTLET CITY siyah tabela (≈1.6 m önde; önünde kaldırımda ≈10 m öne uzanan kırmızı direkli tente/pavyon ve askılı giysi reyonları — raporlandı), ZEUGMA KÜNEFE yeşil çerçeveli kış bahçesi (≈9 m önde, raporlandı; arkasındaki cephe camı karanlık görünüyor), KUVEYTTÜRK şubesi (u 20.7→, ağaç arkasında kısmen). Sol uçta ağaç (u −1.5…4.5) podyumun alt kısmını kapatıyor."
+   "note": "Bulvar güney birim (2025-09; D9IT f22 24 m + AElA 25.3 m). Kule 3: kule 1/2 ile aynı düzen; orta sol yarı K4–K8 hepsi cam balkon, sağ yarı açık (K7'de SATILIK levhası), sağ C penceresi K4 korkuluğunda portre bayrak; sol köşe balkonu K6–K8 camlı. Podyum: 1. katta tüm cephe beyaz ACP + ofis cam bandı (mavi storlar u 8–9.4, 15.5–16.95; 2 klima dış ünitesi parapet bandında), MADİNA ERDEN bordo kutu tabela (u 11.0–17.95), sağ uçta ağaç. Zemin: OUTLET CITY siyah tabela (≈1.6 m önde; önünde kaldırımda ≈10 m öne uzanan kırmızı direkli tente/pavyon ve askılı giysi reyonları — raporlandı), ZEUGMA KÜNEFE yeşil çerçeveli kış bahçesi (≈9 m önde, raporlandı; v2 kontrol D9IT 60/120°, AElA 60°, 5FS 60°: arkasındaki dükkân cephesi kış bahçesinin yeşil doğraması ve camı arkasında karanlık, kapı/tabela seçilmiyor → dikdörtgen koyu cam olarak bırakıldı, GÖRÜLMEDİ), KUVEYTTÜRK şubesi (u 20.7→, ağaç arkasında kısmen). Sol uçta ağaç (u −1.5…4.5) podyumun alt kısmını kapatıyor."
   },
   {
    "edge": 5,
@@ -7351,7 +7408,7 @@
      "color": "#eeeeea"
     }
    ],
-   "note": "Kuzey (servis yolu 1455076495) cephesi, kule 5 kuzey yüzü (2025-09; QEOW f22 + 40°, aTnf ile). UYARI: iki panoda da cephe ≈1.55× büyük görünüyor (kat aralığı görünen 4.33 m) → kamera–cephe uzaklığı ≈8.3 m (ortofoto 12.9 m ile üretildi): ya pano konumu ≈4.6 m hatalı ya da kuzey cephe taban izinden 2–4.5 m kuzeyde (hava fotoğrafı eğimle ≈−518). cal.u köşeleri görülmedi → görünen köşeler büyütmeden hesaplandı (−5.8 / 38.2), cal.dist 8.3. Bu tarafta zemin daha alçak: podyum tek kat (+ taş bant 6.9–8.3, sıva 8.3–9.9, teras korkuluğu), ilk konut sırası K2. Görülen: solda yarım kat kaymalı merdiven pencereleri + klima üniteleri, sol Fransız pencere sütunu, K2–K8 cam balkon yığını (K2 kahve profil + 2 saksı), ortada ≈1.6 m girintili küçük pencere bölümü (iki sütun), sağda pahlı cam balkon yığını (K3–K8 camlı, K2 açık + beyaz dolap). u > 28 (doğu ucu) görülmedi. Zemin: SANSAR FRIED CHICKEN köşe tabelası + önünde kaldırıma taşan kapalı teras (tente valansında 'SANSAR FRIED CHICKEN' tekrarları; raporlandı), orta taş kaplı kör duvar (küçük pencere + klima), sağda cam dükkân + koyu pergola/terasa (kaldırım, raporlandı)."
+   "note": "Kuzey (servis yolu 1455076495) cephesi, kule 5 kuzey yüzü (2025-09; QEOW f22 + 40°, aTnf ile). ÖLÇEK: iki panoda da cephe ≈1.5× büyük (kat aralığı görünen 4.33). İki pano arasındaki ortak öğe (sol balkon yığını sol kenarı QEOW u 8.95 / aTnf u 4.0, pano izdüşümleri 10.53 / 20.73) → k = 1.49, iki panoda aynı. Hava fotoğrafında kule 5 çatısı z −524…−512 (x 705–719 renk profili), eğim −9.3 m + saçak 1.35 ile kuzey duvar ≈−516 = taban izi (±1). Sonuç: cephe yerinde, kuzey servis yolu panolarının (QEOW, aTnf, VWD2, lQ3f) konumu cepheye ≈4.3 m fazla uzak (gerçek uzaklık ≈8.6 m); taban izi düzeltmesi YOK. cal.dist 8.3 bu yüzden; cal.u görünen köşeler (−5.8 / 38.2). Bu tarafta zemin daha alçak: podyum tek kat (+ taş bant 6.9–8.3, sıva 8.3–9.9, teras korkuluğu), ilk konut sırası K2. Görülen: solda yarım kat kaymalı merdiven pencereleri + klima üniteleri, sol Fransız pencere sütunu, K2–K8 cam balkon yığını (K2 kahve profil + 2 saksı), ortada ≈1.6 m girintili küçük pencere bölümü (iki sütun), sağda pahlı cam balkon yığını (K3–K8 camlı, K2 açık + beyaz dolap). u > 28 (doğu ucu) görülmedi. Zemin: SANSAR FRIED CHICKEN köşe tabelası + önünde kaldırıma taşan kapalı teras (tente valansında 'SANSAR FRIED CHICKEN' tekrarları; raporlandı), orta taş kaplı kör duvar (küçük pencere + klima), sağda cam dükkân + koyu pergola/terasa (kaldırım, raporlandı)."
   },
   {
    "edge": 20,
@@ -7932,7 +7989,8 @@
       7,
       32.3
      ]
-    ]
+    ],
+    "dist": 6.8
    },
    "items": [
     {
@@ -8169,7 +8227,7 @@
      "finish": "acp"
     }
    ],
-   "note": "Kuzey (servis yolu) cephesi, kule 1 kuzey yüzü (2025-09; lQ3f 27.9 m batıdan, VWD2 f22 26.2 m doğudan — ikisi de çok eğik). UYARI: iki ortofotoda da düşey ölçek ≈1.5× (kat aralığı görünen ≈4.0), yatayda iki pano birbirini tutmuyor (Banu Ünal panosu lQ3f'de u≈0, VWD2'de u≈17–22) → cephe düzlemi/konumu güvenilmez; yalnız podyum öğeleri lQ3f'ye göre yazıldı (±1.5 m). Görülen: arçelik mağazasının kuzey vitrini (siyah çerçeve, 'Teknolojiyle Hayatın Kalbinde' kırmızı baskı + kalp arçelik logosu), üstte cam bandı, 'Banu Ünal' panosu, 1. kat (K2) pencereleri + klima, batı köşede beyaz ACP podyum köşesi. Kule 1'in kuzey yüzü (K3–K8: köşeyi saran cam balkon yığını u≈8–20, küçük pencere sütunları, sol uçta loca sırası) görüldü ama geometri güvenilmez → pending."
+   "note": "Kuzey (servis yolu) cephesi, kule 1 kuzey yüzü (2025-09; lQ3f 27.9 m batıdan, VWD2 f22 26.2 m doğudan — ikisi de çok eğik). ÖLÇEK: ≈1.46× (kat aralığı görünen 3.95) — kenar 19 notundaki pano konum hatası (≈4 m); cal.dist 6.8 (hesaplanan 9.94 / 1.46), yatayda iki pano birbirini tutmuyor (Banu Ünal panosu lQ3f'de u≈0, VWD2'de u≈17–22) → cephe düzlemi/konumu güvenilmez; yalnız podyum öğeleri lQ3f'ye göre yazıldı (±1.5 m). Görülen: arçelik mağazasının kuzey vitrini (siyah çerçeve, 'Teknolojiyle Hayatın Kalbinde' kırmızı baskı + kalp arçelik logosu), üstte cam bandı, 'Banu Ünal' panosu, 1. kat (K2) pencereleri + klima, batı köşede beyaz ACP podyum köşesi. Kule 1'in kuzey yüzü (K3–K8: köşeyi saran cam balkon yığını u≈8–20, küçük pencere sütunları, sol uçta loca sırası) görüldü ama geometri güvenilmez → pending."
   }
  ]
 }

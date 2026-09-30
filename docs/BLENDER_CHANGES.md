@@ -718,3 +718,4 @@
   Eklercisi), `1551828357.json` (dükkân şeridi: Coffeemania, bona Waffle, Ciğergah, Urfalı Ağaoğlu, Dürümcü Bekir Usta,
   Mersin Tantuni, Demir Amca, Mariza, Kanaatçı Mesut, Burger yiyelim, Bursa Baharat, Maydonoz Döner, Caffe Napoli).
   **Blender:** bu 6 bina ilk kez kurulur (kuleler kaideyle çakışıyor → pending).
+- **(D4 cephe 4, 2. tur)** — `survey/1550614219.json`: bindirme düzeltmeleri (e18/e19/e5/e3/e41/e45/e46), kuzey servis yolu panoları ~4.3 m kayık → `cal.dist`, kaide bulvar 3 kat / arka 2 kat (7.9 m). **Blender:** bu bloğun kaide + cephe katmanı.
