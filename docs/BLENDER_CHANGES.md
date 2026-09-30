@@ -892,3 +892,9 @@
   2025-09 karelerindeki doluluk), 207 araç; yeni `sim/parked.ts` `parkingCars` (yaya geçidi, durak, ada, araç kapısı
   önü boş kalır). Yalnız D4. **Blender:** `NW/Street/D4` park etmiş araç örnekleri (varsa) yeniden kurulur; pişirme
   katmanı etkilenmez.
+- **(Ton eşleme ayağı)** — Neutral ton eşlemenin sabit siyah ofseti (0.04) kaldırıldı (`?toe=0.04` eskisini getirir):
+  gölgedeki koyu yüzeyleri eziyor, gri-maviyi laciverte çeviriyordu (Biaport kuzey alnı #0c1c2e → #29303c, foto
+  #202930–#394447; Mertkent kapı kulübesi #07101c → #25282f, foto #323634). Dengelemek için yarım küre ×0.45 → ×0.18,
+  pozlama ×1.08 → ×1.145, Ultra `ULTRA_EXPOSURE_REF` −1.60 → −1.75. Mertkent-2 güneşli ölçümleri kötüleşmedi; Ultra ve
+  gece karşılaştırıldı. Dosyalar: `src/env/calibration.ts`, `src/env/post.ts`, `src/game.ts`. **Blender:** — (yalnız
+  görüntü dönüşümü; Blender'da Filmic/AgX karşılaştırırken ofsetsiz eğri referans alınır)
