@@ -1,0 +1,745 @@
+{
+ "id": 1546358587,
+ "name": "Kuzey kule (podyum üstü, 404. Sk. köşesi)",
+ "storeys": 10,
+ "floorH": 3.33,
+ "groundRaise": 0.74,
+ "plinthH": 0,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.05,
+  "fasciaH": 0.35,
+  "fasciaC": "#3b3a66",
+  "parapet": {
+   "h": 0.6,
+   "color": "plaster2",
+   "coping": {
+    "h": 0.08,
+    "over": 0.03,
+    "color": "#3b3a66"
+   },
+   "rail": "tube",
+   "railC": "#9aa0a3",
+   "railH": 0.6
+  },
+  "flatC": "#8d8a84"
+ },
+ "colors": {
+  "plaster": "#ada18f",
+  "plaster2": "#7f6a58",
+  "strip": "#7f6a58",
+  "fascia": "#a39988",
+  "soffit": "#c9c3b6",
+  "railGlass": "#6f7f8a",
+  "frame": "#5a3f33",
+  "tile": "#3b3a66",
+  "plinth": "#7f5035"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 0.89,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 1,
+   "len": 3.04,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 2,
+   "len": 0.8,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 3,
+   "len": 8.26,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 4,
+   "len": 17.41,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 5,
+   "len": 3.84,
+   "seen": "photo",
+   "ref": "t87E_on3x.jpg",
+   "cal": {
+    "u": [
+     -0.5,
+     4.8
+    ],
+    "head": [
+     [
+      3,
+      12.6
+     ],
+     [
+      8,
+      27.9
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": -0.5,
+     "u1": 0.6,
+     "y0": 8.0,
+     "y1": 29.0,
+     "d": 0.02,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 0.6,
+     "u1": 4.8,
+     "y0": 10.432432432432433,
+     "y1": 29.186486486486483,
+     "color": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 1.2,
+     "u1": 4.1,
+     "y0": 10.58,
+     "y1": 12.6,
+     "k": 3,
+     "s": [
+      3,
+      8
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "win",
+     "u0": 1.2,
+     "u1": 4.1,
+     "y0": 8.16,
+     "y1": 9.54,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "bal",
+     "u0": 0.6,
+     "u1": 4.8,
+     "d": 0.7,
+     "s": [
+      3,
+      8
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "tube"
+     },
+     "railC": "#8d9295",
+     "railH": {
+      "*": 0.95
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 4.5,
+     "s": 5,
+     "y": 17.5
+    }
+   ],
+   "note": "Güney loca yüzü (on3x8NbY ortofotom): K3–K8 borulu balkonlar + kapı-pencere; K5 sağda klima."
+  },
+  {
+   "edge": 6,
+   "len": 1.63,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 7,
+   "len": 4.59,
+   "seen": "photo",
+   "ref": "t87E_on3x.jpg",
+   "cal": {
+    "u": [
+     4.8,
+     9.75
+    ],
+    "head": [
+     [
+      3,
+      12.6
+     ],
+     [
+      8,
+      27.9
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 4.8,
+     "u1": 5.4,
+     "y0": 10.21081081081081,
+     "y1": 29.002702702702702,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "pilaster",
+     "u0": 9.0,
+     "u1": 9.75,
+     "y0": 10.21081081081081,
+     "y1": 29.002702702702702,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 4.8,
+     "u1": 9.75,
+     "y0": 28.35945945945946,
+     "y1": 29.094594594594593,
+     "color": "plaster2"
+    },
+    {
+     "t": "bal",
+     "u0": 5.4,
+     "u1": 9.0,
+     "d": 0.0,
+     "inset": 1.4,
+     "s": [
+      3,
+      8
+     ],
+     "glazed": [
+      3,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "3": "clear",
+      "5": "clear",
+      "6": "clear",
+      "7": "clear",
+      "8": "clear"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     },
+     "glassC": {
+      "*": "#5f6f7c"
+     },
+     "frameC": {
+      "*": "#c9ccc9"
+     },
+     "glazeEvery": 0.8
+    },
+    {
+     "t": "sign",
+     "u0": 5.6,
+     "u1": 8.8,
+     "y0": 9.1,
+     "y1": 10.3,
+     "d": 0.02,
+     "off": 0.05,
+     "style": "panel",
+     "text": "…",
+     "bg": "#f2f3f5",
+     "fg": "#2b50b0",
+     "logo": "beyaz levha, solda mavi yonca/çarpı simgesi + mavi yazı (okunmadı; \"…Psikoloji…\" benzeri iki satır), K3 alnında"
+    }
+   ],
+   "note": "Güney çerçeve kutusu: K3 cam, K4 açık (cam korkuluk), K5 cam, K6 cam, K7 cam, K8 cam (sağ kanat açık). K3 alnında beyaz-mavi levha (okunmadı)."
+  },
+  {
+   "edge": 8,
+   "len": 4.57,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 9,
+   "len": 2.13,
+   "seen": "partial",
+   "ref": "t87E_on3x.jpg",
+   "cal": {
+    "u": [
+     9.75,
+     12.1
+    ],
+    "head": [
+     [
+      3,
+      12.6
+     ],
+     [
+      8,
+      27.9
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 9.75,
+     "u1": 12.1,
+     "y0": 10.21081081081081,
+     "y1": 28.5,
+     "color": "#5d5b57"
+    }
+   ],
+   "note": "Merdiven girintisi."
+  },
+  {
+   "edge": 10,
+   "len": 4.85,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 11,
+   "len": 4.73,
+   "seen": "photo",
+   "ref": "t87E_on3x.jpg",
+   "cal": {
+    "u": [
+     12.1,
+     17.0
+    ],
+    "head": [
+     [
+      3,
+      12.6
+     ],
+     [
+      8,
+      27.9
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 12.1,
+     "u1": 12.8,
+     "y0": 10.21081081081081,
+     "y1": 29.002702702702702,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "pilaster",
+     "u0": 16.4,
+     "u1": 17.0,
+     "y0": 10.21081081081081,
+     "y1": 29.002702702702702,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 12.1,
+     "u1": 17.0,
+     "y0": 28.35945945945946,
+     "y1": 29.094594594594593,
+     "color": "plaster2"
+    },
+    {
+     "t": "bal",
+     "u0": 12.8,
+     "u1": 16.4,
+     "d": 0.0,
+     "inset": 1.4,
+     "s": [
+      3,
+      8
+     ],
+     "glazed": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "3": "clear",
+      "4": "clear",
+      "5": "clear",
+      "6": "clear",
+      "7": "clear",
+      "8": "clear"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     },
+     "glassC": {
+      "*": "#5f6f7c"
+     },
+     "frameC": {
+      "*": "#c9ccc9"
+     },
+     "glazeEvery": 0.8
+    },
+    {
+     "t": "sign",
+     "u0": 13.0,
+     "u1": 15.8,
+     "y0": 9.1,
+     "y1": 10.3,
+     "d": 0.04,
+     "off": 0.05,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "text": "SHOTDO\nTATTOO & ART & P…",
+     "lines": [
+      {
+       "text": "SHOTDO",
+       "size": 1,
+       "fg": "#e8393f"
+      },
+      {
+       "text": "TATTOO & ART & P…",
+       "size": 0.3,
+       "fg": "#e8393f"
+      }
+     ],
+     "bg": "#2a2e2c",
+     "fg": "#e8393f",
+     "logo": "koyu antrasit levha, kırmızı-pembe kalın harfler; alt satırın sonu okunmadı"
+    }
+   ],
+   "note": "Kuzey çerçeve kutusu: K3–K8 cam (K4 tam boy açık renk cam, K6 sol kanat açık). K3 alnında SHOTDO levhası."
+  },
+  {
+   "edge": 12,
+   "len": 1.49,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 13,
+   "len": 5.01,
+   "seen": "photo",
+   "ref": "t87E_on3x.jpg",
+   "cal": {
+    "u": [
+     17.0,
+     20.9
+    ],
+    "head": [
+     [
+      3,
+      12.6
+     ],
+     [
+      8,
+      27.9
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 17.0,
+     "u1": 20.0,
+     "y0": 10.432432432432433,
+     "y1": 29.186486486486483,
+     "color": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 17.5,
+     "u1": 19.6,
+     "y0": 10.58,
+     "y1": 12.6,
+     "k": 3,
+     "s": [
+      3,
+      8
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "win",
+     "u0": 17.5,
+     "u1": 19.6,
+     "y0": 8.16,
+     "y1": 9.54,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "bal",
+     "u0": 17.0,
+     "u1": 20.0,
+     "d": 0.7,
+     "s": [
+      3,
+      8
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "tube"
+     },
+     "railC": "#8d9295",
+     "railH": {
+      "*": 0.95
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     }
+    },
+    {
+     "t": "pilaster",
+     "u0": 20.0,
+     "u1": 20.9,
+     "y0": 8.0,
+     "y1": 29.0,
+     "d": 0.02,
+     "color": "plaster2"
+    }
+   ],
+   "note": "Kuzey loca yüzü (404 Sk. köşesi): K3–K8 borulu balkonlar; alt katlar ağaç arkasında."
+  },
+  {
+   "edge": 14,
+   "len": 4.69,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 15,
+   "len": 0.98,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 16,
+   "len": 12.89,
+   "seen": "photo",
+   "ref": "1546358584_30_mjsRsf5V.jpg",
+   "cal": {
+    "u": [
+     -1.4,
+     10.7
+    ],
+    "head": [
+     [
+      3,
+      11.4
+     ],
+     [
+      8,
+      20.3
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": -0.3,
+     "u1": 0.9,
+     "y0": 19.35,
+     "y1": 20.3,
+     "k": 8,
+     "s": [
+      2,
+      9
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "panel",
+     "u0": 2.1,
+     "u1": 6.5,
+     "y0": 5.3,
+     "y1": 21.3,
+     "color": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 2.65,
+     "u1": 3.85,
+     "y0": 19.0,
+     "y1": 20.3,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "win",
+     "u0": 4.85,
+     "u1": 6.05,
+     "y0": 19.0,
+     "y1": 20.3,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "bal",
+     "u0": 2.5,
+     "u1": 4.0,
+     "d": 0.3,
+     "s": [
+      2,
+      8
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "tube"
+     },
+     "railC": "#6e5f55"
+    },
+    {
+     "t": "bal",
+     "u0": 4.7,
+     "u1": 6.2,
+     "d": 0.3,
+     "s": [
+      2,
+      8
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "tube"
+     },
+     "railC": "#6e5f55"
+    },
+    {
+     "t": "win",
+     "u0": 7.6,
+     "u1": 8.6,
+     "y0": 19.3,
+     "y1": 20.3,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "pediment",
+     "u0": 2.1,
+     "u1": 10.7,
+     "apex": 6.0,
+     "y": 19.9,
+     "yTop": 21.5,
+     "d": 0,
+     "depth": 8,
+     "color": "plaster",
+     "roofC": "#3b3a66",
+     "trim": {
+      "w": 0.08,
+      "d": 0.05,
+      "color": "#3b3a66",
+      "base": false
+     }
+    },
+    {
+     "t": "ac",
+     "u": 0.1,
+     "s": 8,
+     "y": 17.2
+    },
+    {
+     "t": "ac",
+     "u": 8.2,
+     "s": 3,
+     "y": 9.2
+    }
+   ],
+   "note": "Kuzey cephe (404 Sk.): podyum e30 ortofotosunda (mjsR f22) kat aralığı 2.23 görünüyor → kule kuzey yüzü podyum yüzünden ≈3.3 m GERİDE (taban izi düzeltmesi raporda); öğeler cal ile ölçeklendi, ±0.5. Sol kahve kütle (daha yüksek, tepesi eğik) tek pencere sütunu + K8 klima, orta açık bej bölüm iki fransız pencere sütunu (sığ borulu balkon), sağ kahve bölüm tek pencere sütunu + K3 klima; tepede asimetrik alınlık."
+  },
+  {
+   "edge": 17,
+   "len": 8.28,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  }
+ ],
+ "notes": [
+  "KARAR (kule ayrı dosya): OSM building:part kuleleri ayrı ölçüm dosyası olarak yazıldı — kulelerin bulvara bakan girintili doğu yüzleri (çerçeve kutuları, localar, merdiven girintisi) podyum halkasının kenarı değil; podyum dosyasında massing ile çizilseler bu yüzler öğesiz kesim duvarı olurdu. Kule zeminden çizilir (K0–K1 podyum katları, öğesiz); batı / güney / kuzeyde podyumla ortak duvarlarda 0–7.4 m arası iki dosyanın duvarı çakışır → üretici bekliyor (pending: coplanar-podium).",
+  "Kat: 10 = K0–K1 podyum (döşeme K2 ≈7.4 m, podyum saçağı ≈7.4–8.3) + K2–K8 konut + K9 çatı katı (doğu yüzde geri çekik, çatı terası korkuluklu; güney/kuzey alınlıkta tam yüz). Kat yüksekliği 3.33 (1546358584_19_HSThiGBU ortofotosu, kule güney yüzü podyum e19 düzleminde: lento K2 9.66 → K9 33.0). groundRaise 0.74 = 7.4 − 2×3.33 (K0/K1 gerçek yükseklikleri podyumda farklı, bu dosyada öğe yok).",
+  "Doğu yüzler kendi ortofotolarımdan (scratch d4E/o, kenar düzlemlerinde; derleyici pano bulamaz → derinlik düzeltmesi yok, u cal.u ile, y cal.head ile ölçeklenir). Bu ortofotolarda kat aralığı 2.7–3.0 görünüyor (gerçek 3.33) → kule doğu yüzleri taban izinden ≈3–5 m daha batıda olabilir (ya da pano konum hatası): taban izi düzeltmesi raporda. Yatay ±0.6 m, balkon derinlikleri tahmini.",
+  "Renk dili: açık bej-kum sıva (#ada18f, bulutlu) + koyu kahve-bej çerçeve kutuları ve köşe payeleri (#7f6a58), merdiven girintisi koyu gri (#5d5b57), pencereler koyu kahve PVC, balkon korkulukları yatay borulu (4–5 boru) paslanmaz-gri, çatı parapeti üstünde lacivert-mor metal harpuşta (#3b3a66) + ince boru korkuluk.",
+  "Doğu yüz sırası güneyden kuzeye: e5 loca | e7 çerçeve kutusu | e9 girinti | e11 çerçeve kutusu | e13 loca. Kuzey yüz (e16) alınlıklı."
+ ],
+ "pending": [
+  {
+   "what": "coplanar-podium",
+   "note": "bkz. 1546358586."
+  }
+ ]
+}

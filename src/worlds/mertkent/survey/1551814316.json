@@ -16,7 +16,17 @@
   "kind": "flat",
   "eave": 0.05,
   "fasciaH": 1.0,
-  "fasciaC": "#dcdcd8"
+  "fasciaC": "#dcdcd8",
+  "eaves": [
+   {
+    "at": [
+     545.9,
+     -462.8
+    ],
+    "eave": 5.0
+   }
+  ],
+  "flatC": "#c9c1b2"
  },
  "colors": {
   "plaster": "#e4e4df",
@@ -30,6 +40,468 @@
   "tile": "#8c8a84"
  },
  "edges": [
+  {
+   "edge": 0,
+   "len": 50.85,
+   "seen": "photo",
+   "ref": "1551814316_0_1ci8BK57.jpg",
+   "cal": {
+    "u": [
+     0,
+     50.85
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 19.7,
+     "y0": 0,
+     "y1": 5.1,
+     "color": "#d2d6d8"
+    },
+    {
+     "t": "win",
+     "u0": 12.8,
+     "u1": 14.8,
+     "y0": 1.2,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#e2e4e2"
+    },
+    {
+     "t": "win",
+     "u0": 10.3,
+     "u1": 12.4,
+     "y0": 1.2,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#6e7173",
+     "grille": {
+      "K0": "bars"
+     },
+     "grilleC": "#6e7173"
+    },
+    {
+     "t": "sign",
+     "u0": 13.25,
+     "u1": 17.0,
+     "y0": 4.05,
+     "y1": 4.85,
+     "text": "addax",
+     "fg": "#2e3032",
+     "style": "letters",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "capH": 0.55
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 19.7,
+     "y0": 5.1,
+     "y1": 6.45,
+     "color": "#3e4a52"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 19.7,
+     "y0": 13.7,
+     "y1": 14.55,
+     "color": "#3e4a52"
+    },
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 19.7,
+     "y0": 15.45,
+     "y1": 17.2,
+     "depth": 3.0,
+     "back": "#23282c",
+     "ceil": "#b3b0a8",
+     "floor": "#9a9890"
+    },
+    {
+     "t": "recess",
+     "u0": 26.7,
+     "u1": 41.8,
+     "y0": 0,
+     "y1": 17.2,
+     "depth": 3.9,
+     "back": "#d2d6d8",
+     "ceil": "#b3b0a8",
+     "floor": "#6f7174"
+    },
+    {
+     "t": "band",
+     "u0": 26.7,
+     "u1": 41.8,
+     "y0": 5.1,
+     "y1": 6.3,
+     "color": "#3e4a52"
+    },
+    {
+     "t": "band",
+     "u0": 26.7,
+     "u1": 41.8,
+     "y0": 13.6,
+     "y1": 14.5,
+     "color": "#3e4a52"
+    },
+    {
+     "t": "band",
+     "u0": 26.7,
+     "u1": 41.8,
+     "y0": 3.6,
+     "y1": 4.3,
+     "color": "#2b2f33"
+    },
+    {
+     "t": "win",
+     "u0": 27.2,
+     "u1": 41.3,
+     "y0": 0.2,
+     "y1": 3.5,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 8,
+     "frameC": "#2b2d2e",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "proj",
+     "u0": 19.8,
+     "u1": 26.7,
+     "d": 1.0,
+     "y0": 0,
+     "y1": 15.9,
+     "color": "#34383b",
+     "clad": {
+      "dir": "v",
+      "every": 0.12,
+      "w": 0.02,
+      "color": "#1c1f21"
+     }
+    },
+    {
+     "t": "proj",
+     "u0": 41.8,
+     "u1": 50.85,
+     "d": 1.0,
+     "y0": 0,
+     "y1": 15.9,
+     "color": "#34383b",
+     "clad": {
+      "dir": "v",
+      "every": 0.12,
+      "w": 0.02,
+      "color": "#1c1f21"
+     }
+    },
+    {
+     "t": "proj",
+     "u0": 3.0500000000000003,
+     "u1": 3.35,
+     "d": 0.3,
+     "y0": 15.45,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 10.85,
+     "u1": 11.15,
+     "d": 0.3,
+     "y0": 15.45,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 18.85,
+     "u1": 19.15,
+     "d": 0.3,
+     "y0": 15.45,
+     "y1": 17.2,
+     "color": "#2f3336"
+    }
+   ],
+   "note": "BATI cephe (401. Sk. yönü), 2025-09, 1ci8 (D 30.2) + mNuo, sabah gölgesi (beyaz sıva gölgede #a4aaab, palet güneşli tahmin). Kuzey kısım (u 0–19.7) taban izi hattında düz: zemin kat beyaz duvar, beyaz çift kanat servis kapısı, gri parmaklıklı kapı, koyu gri \"addax\" harfleri; koyu bantlar; parapet üstünde geri çekik K3 terası (koyu cam, kolonlar, iki büyük beyaz yuvarlak şemsiye — pending). Orta kısım iki koyu tel kafesli dış merdiven kulesi arasında ≈3.9 m geride (kuzey kısma göre bantlar perspektifte alçak görünüyor). Yükseklikler bu ortofotoda ≈%13 büyük çıktı (pano konumu) — diğer cephelerin kutu bantlarına göre ölçeklendi. Duvar önündeki koyu çitli klima avlusu (u 0.5–11) sokak öğesi."
+  },
+  {
+   "edge": 1,
+   "len": 0.09,
+   "seen": "none",
+   "items": [],
+   "note": "0.09 m ek kenar"
+  },
+  {
+   "edge": 2,
+   "len": 2.84,
+   "seen": "none",
+   "items": [],
+   "note": "batı kademesi (kuzeye bakar), merdiven kulesinin arkasında, görülmedi"
+  },
+  {
+   "edge": 3,
+   "len": 1.83,
+   "seen": "none",
+   "items": [],
+   "note": "batı kademesi, görülmedi"
+  },
+  {
+   "edge": 4,
+   "len": 24.35,
+   "seen": "photo",
+   "ref": "1551814316_4_OCFI_0cG.jpg",
+   "cal": {
+    "u": [
+     0,
+     24.35
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.2,
+     "u1": 12.4,
+     "y0": 0.9,
+     "y1": 3.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 7,
+     "frameC": "#2e302e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.3,
+     "u1": 6.4,
+     "y0": 0.9,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#2e302e"
+    },
+    {
+     "t": "win",
+     "u0": 12.5,
+     "u1": 24.2,
+     "y0": 0.95,
+     "y1": 3.45,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 3,
+     "frameC": "#2e302e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 24.35,
+     "y0": 3.45,
+     "y1": 3.95,
+     "color": "#363936",
+     "proud": 0.1
+    },
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 24.35,
+     "d": 0.08,
+     "s": [
+      1,
+      1
+     ],
+     "rail": {
+      "1": "tube"
+     },
+     "railC": "#e6e7e4",
+     "railH": {
+      "1": 0.95
+     },
+     "fasciaC": {
+      "1": "#363936"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 1.56,
+     "u1": 5.2,
+     "y0": 3.95,
+     "y1": 4.95,
+     "text": "BKM",
+     "fg": "#b06a3a",
+     "style": "letters",
+     "d": 0.12,
+     "font": "serif",
+     "bold": true,
+     "capH": 0.85,
+     "logo": "K harfinin altında kıvrımlı kuyruk"
+    },
+    {
+     "t": "sign",
+     "u0": 6.76,
+     "u1": 10.3,
+     "y0": 4.05,
+     "y1": 4.8,
+     "text": "Kitap",
+     "fg": "#487d89",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.7
+    },
+    {
+     "t": "sign",
+     "u0": 11.3,
+     "u1": 16.9,
+     "y0": 4.05,
+     "y1": 4.8,
+     "text": "Kırtasiye",
+     "fg": "#b0605e",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.7
+    },
+    {
+     "t": "sign",
+     "u0": 18.3,
+     "u1": 21.25,
+     "y0": 4.05,
+     "y1": 4.8,
+     "text": "Kafe",
+     "fg": "#408564",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.7
+    },
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 21.35,
+     "y0": 4.0,
+     "y1": 17.2,
+     "depth": 5.1,
+     "back": "#d2d6d8",
+     "ceil": "#b3b0a8",
+     "floor": "#c9c1b2"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 19.9,
+     "y0": 5.2,
+     "y1": 6.4,
+     "color": "#3e4a52"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 19.9,
+     "y0": 13.7,
+     "y1": 14.9,
+     "color": "#3e4a52"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 21.35,
+     "y0": 15.6,
+     "y1": 16.3,
+     "color": "#23282c"
+    },
+    {
+     "t": "band",
+     "u0": 19.9,
+     "u1": 21.35,
+     "y0": 4.0,
+     "y1": 15.6,
+     "color": "#5f6771"
+    },
+    {
+     "t": "proj",
+     "u0": 7.1499999999999995,
+     "u1": 7.45,
+     "d": 0.3,
+     "y0": 14.9,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 15.75,
+     "u1": 16.05,
+     "d": 0.3,
+     "y0": 14.9,
+     "y1": 17.2,
+     "color": "#2f3336"
+    }
+   ],
+   "note": "BATI cephe güney kısmı (BKM köşk cephesi), 2025-09, OCFI (D 27.6) + _Ufv. Zemin kat BKM Kitap-Kırtasiye-Kafe camı; u 12.5–24.2 kafe bölümü cam (içinden karşı taraf görünüyor). Üst kutu batı yüzü e0 hattının devamında (bu hattan 5.1 m geride; paralaks 3.2–7.5 arası, ortalama). Kutu güney ucu dışa eğik (u ≈19.9 orta). Yükseklikler diğer cephelerin kutu bantlarına uyduruldu (bu ortofotonun düşey ölçeği ±%10)."
+  },
   {
    "edge": 5,
    "len": 61.88,
@@ -1296,8 +1768,2710 @@
     }
    ],
    "note": "GÜNEY cephe (meydan), 2025-09, 4OA_ (D 11.1) + gMLW. Zemin kat ön düzlemde; üst kutu 1. kat terasının 3.0 m gerisinde (girinti) — kutu yüzündeki öğeler −3.0 m arka düzlem ortofotosunda (DELTA) GERÇEK koordinatla ölçüldü. Güneşli."
+  },
+  {
+   "edge": 6,
+   "len": 36.37,
+   "seen": "photo",
+   "ref": "1551814316_6_NkuAAQDM.jpg",
+   "cal": {
+    "u": [
+     0,
+     36.37
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 36.37,
+     "y0": 0,
+     "y1": 3.5,
+     "depth": 3.5,
+     "back": "#262624",
+     "ceil": "#cfd0cc",
+     "floor": "#6f7174"
+    },
+    {
+     "t": "win",
+     "u0": 5.3,
+     "u1": 20.8,
+     "y0": 0.9,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 8,
+     "frameC": "#2e302e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 21.2,
+     "u1": 36.0,
+     "y0": 0.9,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 8,
+     "frameC": "#2e302e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 5.07,
+     "u1": 20.8,
+     "y0": 3.5,
+     "y1": 3.8,
+     "color": "#b4b8af",
+     "proud": 0.1
+    },
+    {
+     "t": "band",
+     "u0": 20.8,
+     "u1": 36.37,
+     "y0": 3.5,
+     "y1": 3.8,
+     "color": "#dcdcd6",
+     "proud": 0.1
+    },
+    {
+     "t": "bal",
+     "u0": 5.07,
+     "u1": 36.37,
+     "d": 0.08,
+     "s": [
+      1,
+      1
+     ],
+     "rail": {
+      "1": "bars"
+     },
+     "railC": "#414537",
+     "railH": {
+      "1": 0.8
+     },
+     "fasciaC": {
+      "1": "#b4b8af"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 9.5,
+     "u1": 10.35,
+     "y0": 3.9,
+     "y1": 4.75,
+     "text": "BURGER\nKING",
+     "fg": "#d2232a",
+     "bg": "#f2e3c6",
+     "border": "#1d5fa8",
+     "style": "box",
+     "d": 0.12,
+     "shape": "round",
+     "lit": true,
+     "logo": "Burger King yuvarlak logosu (krem zemin, kırmızı yazı, mavi yay)"
+    },
+    {
+     "t": "sign",
+     "u0": 10.9,
+     "u1": 16.3,
+     "y0": 3.9,
+     "y1": 4.5,
+     "text": "BURGER KING",
+     "fg": "#e2e4e0",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.55,
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 16.9,
+     "u1": 17.65,
+     "y0": 3.9,
+     "y1": 4.75,
+     "text": "BURGER\nKING",
+     "fg": "#d2232a",
+     "bg": "#f2e3c6",
+     "border": "#1d5fa8",
+     "style": "box",
+     "d": 0.12,
+     "shape": "round",
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 26.1,
+     "u1": 26.6,
+     "y0": 3.95,
+     "y1": 4.45,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#1e6b45",
+     "style": "box",
+     "d": 0.08,
+     "shape": "round",
+     "lit": true,
+     "logo": "Starbucks yeşil yuvarlak deniz kızı logosu — çizilmez"
+    },
+    {
+     "t": "sign",
+     "u0": 26.8,
+     "u1": 30.1,
+     "y0": 4.02,
+     "y1": 4.38,
+     "text": "STARBUCKS",
+     "fg": "#e8eae6",
+     "style": "letters",
+     "d": 0.06,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.3,
+     "lit": true
+    },
+    {
+     "t": "recess",
+     "u0": 3.0,
+     "u1": 36.37,
+     "y0": 4.0,
+     "y1": 17.2,
+     "depth": 9.0,
+     "back": "#5f6771",
+     "ceil": "#b3b0a8",
+     "floor": "#c9c1b2"
+    },
+    {
+     "t": "band",
+     "u0": 3.0,
+     "u1": 36.37,
+     "y0": 5.9,
+     "y1": 6.35,
+     "color": "#575e5f"
+    },
+    {
+     "t": "band",
+     "u0": 3.0,
+     "u1": 36.37,
+     "y0": 9.6,
+     "y1": 9.98,
+     "color": "#bec4c1",
+     "proud": 0.05
+    },
+    {
+     "t": "band",
+     "u0": 3.0,
+     "u1": 36.37,
+     "y0": 13.85,
+     "y1": 14.9,
+     "color": "#646e79"
+    },
+    {
+     "t": "band",
+     "u0": 3.0,
+     "u1": 36.37,
+     "y0": 14.9,
+     "y1": 15.3,
+     "color": "#b0bfbb",
+     "proud": 0.08
+    },
+    {
+     "t": "band",
+     "u0": 3.0,
+     "u1": 36.37,
+     "y0": 15.3,
+     "y1": 16.0,
+     "color": "#1e2328"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 12.85,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 12.85,
+     "u1": 15.05,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 15.05,
+     "u1": 17.25,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 17.25,
+     "u1": 19.4,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 21.6,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 28.3,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 28.3,
+     "u1": 30.5,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 30.5,
+     "u1": 32.7,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 32.7,
+     "u1": 34.9,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 34.9,
+     "u1": 36.37,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 12.85,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 12.85,
+     "u1": 17.25,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 17.25,
+     "u1": 21.6,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 28.3,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 28.3,
+     "u1": 30.5,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 30.5,
+     "u1": 32.7,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 32.7,
+     "u1": 34.9,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 34.9,
+     "u1": 36.37,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 12.85,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 12.85,
+     "u1": 15.05,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 15.05,
+     "u1": 19.4,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 21.6,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 30.5,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 30.5,
+     "u1": 32.7,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 32.7,
+     "u1": 34.9,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 34.9,
+     "u1": 36.37,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 17.25,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 17.25,
+     "u1": 19.4,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 21.6,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 30.5,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 30.5,
+     "u1": 36.37,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 12.85,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 12.85,
+     "u1": 15.05,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 15.05,
+     "u1": 17.25,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 17.25,
+     "u1": 19.4,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 21.6,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 30.5,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 30.5,
+     "u1": 32.7,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 32.7,
+     "u1": 36.37,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 15.05,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 15.05,
+     "u1": 17.25,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 17.25,
+     "u1": 19.4,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 21.6,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 32.7,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 32.7,
+     "u1": 34.9,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 34.9,
+     "u1": 36.37,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 12.85,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 12.85,
+     "u1": 15.05,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 15.05,
+     "u1": 19.4,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 21.6,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 32.7,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 32.7,
+     "u1": 36.37,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 6.0,
+     "u1": 8.45,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 8.45,
+     "u1": 10.65,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 10.65,
+     "u1": 12.85,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 12.85,
+     "u1": 15.05,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 15.05,
+     "u1": 17.25,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 17.25,
+     "u1": 19.4,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 21.6,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 21.6,
+     "u1": 23.85,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 23.85,
+     "u1": 26.1,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 26.1,
+     "u1": 32.7,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 32.7,
+     "u1": 34.9,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 34.9,
+     "u1": 36.37,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "proj",
+     "u0": 8.45,
+     "u1": 8.75,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 15.75,
+     "u1": 16.05,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 23.25,
+     "u1": 23.549999999999997,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 30.650000000000002,
+     "u1": 30.95,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "roofsign",
+     "u0": 12.46,
+     "u1": 21.9,
+     "y0": 14.9,
+     "y1": 16.2,
+     "text": "bulvarözlüce",
+     "fg": "#1f3f63",
+     "bg": "#e9ecec",
+     "setback": 12.0,
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "frame": {
+      "color": "#9aa0a3",
+      "h": 0.6,
+      "posts": 4
+     },
+     "lit": true,
+     "logo": "solda lacivert halka içinde \"b/ö\" yuvarlak logo; beyaz delikli (perfore) pano; harfler lacivert-petrol"
+    },
+    {
+     "t": "roofsign",
+     "u0": 24.0,
+     "u1": 27.7,
+     "y0": 15.2,
+     "y1": 16.0,
+     "text": "bkmkitap",
+     "fg": "#d0262c",
+     "bg": "#f0f0ee",
+     "setback": 12.0,
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "frame": {
+      "color": "#e8e8e6",
+      "h": 0.4,
+      "posts": 3
+     },
+     "logo": "harflerin üstünde kırmızı çift şevron; beyaz dikey lamelli taşıyıcı pano"
+    }
+   ],
+   "note": "DOĞU cephe güney kısmı (bulvar), 2025-09, NkuAAQDM (D 16.3) + eMgE, peGG/71w4 90° kareleri. Zemin kat ön düzlemde (BK u 5.1–20.8, Starbucks 20.8–36.4); GD köşede u 0–5.1 saçaksız açık teras. Üst kutu (mavi-beyaz dama) terasın 9.0 m gerisinde (üç panonun paralaksı + portal konumu), −9 m arka düzlem ortofotosunda gerçek koordinatla; dama hücreleri tek tek örneklendi (? = ağaç arkası, görülmedi, ortalama tonla). Pano konum hatası nedeniyle u ±2 m."
+  },
+  {
+   "edge": 7,
+   "len": 4.46,
+   "seen": "partial",
+   "ref": "1551814316_7_1Re88FdQ.jpg",
+   "cal": {
+    "u": [
+     0,
+     4.46
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 4.2,
+     "y0": 1.1,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 3,
+     "frameC": "#2e302e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    }
+   ],
+   "note": "Giriş girintisinin güney yan duvarı (kuzeye bakar, Starbucks yanı): yalnız zemin kat camı eğik açıdan (4o1y 260_8) seçildi; üst kısım görülmedi (kutu yüzü/teras). Ref ortofoto çok eğik → görünen = gerçek alındı."
+  },
+  {
+   "edge": 8,
+   "len": 5.57,
+   "seen": "photo",
+   "ref": "1551814316_8_4o1yV-Wg.jpg",
+   "cal": {
+    "u": [
+     0,
+     5.57
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 5.3,
+     "y0": 1.15,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 5,
+     "frameC": "#2b2d2e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.6,
+     "u1": 4.0,
+     "y0": 1.15,
+     "y1": 3.05,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#2b2d2e"
+    },
+    {
+     "t": "sign",
+     "u0": 0.98,
+     "u1": 4.58,
+     "y0": 3.3,
+     "y1": 4.6,
+     "text": "",
+     "fg": "#1f3f63",
+     "bg": "#d9dcdc",
+     "style": "box",
+     "d": 0.15,
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "lines": [
+      {
+       "text": "bulvarözlüce",
+       "size": 1.0,
+       "y": 0.32
+      }
+     ],
+     "logo": "üstte lacivert halka içinde \"b/ö\" logosu (yuvarlak), altında lacivert \"bulvarözlüce\""
+    },
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 5.57,
+     "y0": 4.0,
+     "y1": 17.2,
+     "depth": 4.5,
+     "back": "#5f6771",
+     "ceil": "#b3b0a8",
+     "floor": "#c9c1b2"
+    },
+    {
+     "t": "proj",
+     "u0": 0.1,
+     "u1": 0.48,
+     "d": 1.2,
+     "y0": 5.2,
+     "y1": 10.1,
+     "color": "#4a4d52",
+     "finish": "acp"
+    },
+    {
+     "t": "proj",
+     "u0": 5.08,
+     "u1": 5.45,
+     "d": 1.2,
+     "y0": 5.2,
+     "y1": 10.1,
+     "color": "#4a4d52",
+     "finish": "acp"
+    },
+    {
+     "t": "proj",
+     "u0": 0.48,
+     "u1": 5.08,
+     "d": 1.2,
+     "y0": 9.1,
+     "y1": 10.1,
+     "color": "#4a4d52",
+     "finish": "acp"
+    },
+    {
+     "t": "proj",
+     "u0": 0.48,
+     "u1": 5.08,
+     "d": 1.2,
+     "y0": 5.2,
+     "y1": 7.1,
+     "color": "#4a4d52",
+     "finish": "acp"
+    },
+    {
+     "t": "sign",
+     "u0": 0.48,
+     "u1": 5.08,
+     "y0": 7.1,
+     "y1": 9.1,
+     "text": "",
+     "fg": "#1f3f63",
+     "bg": "#eef0f0",
+     "style": "box",
+     "d": 0.15,
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "lines": [
+      {
+       "text": "bulvarözlüce",
+       "size": 1.0,
+       "y": 0.5
+      },
+      {
+       "text": "Alışveriş Ve Yaşam Merkezi",
+       "size": 0.35,
+       "bold": false,
+       "y": 0.2
+      }
+     ],
+     "logo": "üst ortada lacivert yuvarlak \"b/ö\" logosu (y ≈ 8.6–9.05)"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 5.57,
+     "y0": 13.85,
+     "y1": 14.9,
+     "color": "#646e79"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 5.57,
+     "y0": 14.9,
+     "y1": 15.3,
+     "color": "#b0bfbb",
+     "proud": 0.08
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 5.57,
+     "y0": 15.3,
+     "y1": 16.0,
+     "color": "#1e2328"
+    }
+   ],
+   "note": "Giriş girintisi arka duvarı (doğuya bakar), 4o1y (D 21.3) + D9IT. Cam giriş, çift kanat cam kapı, kapı üstünde \"bulvarözlüce\" logolu tabela (açık gri pano); önünde koyu gri saçak + iki koyu V ayak (volumes). Üstte kutu yüzü (x ≈ 593, −4.5 m) üzerinde öne 1.2 m taşan portal çerçeve ve \"bulvarözlüce / Alışveriş Ve Yaşam Merkezi\" ışıklı tabela. Portal merkezi fotoğrafta girinti merkezinin ≈1.3 m kuzeyinde — girintiye ortalandı. Arka kutu yüzünde dama deseni yalnız portalın iki yanında görülür (çizilmedi, girinti dar)."
+  },
+  {
+   "edge": 9,
+   "len": 4.88,
+   "seen": "partial",
+   "ref": "1551814316_9_71w4po6N.jpg",
+   "cal": {
+    "u": [
+     0,
+     4.88
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 4.5,
+     "y0": 1.1,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 3,
+     "frameC": "#2b2b2a",
+     "curt": {
+      "K0": "vitrin"
+     }
+    }
+   ],
+   "note": "Giriş girintisinin kuzey yan duvarı (güneye bakar, Vivaldi yanı): zemin kat camı eğik açıdan seçildi; üst kısım görülmedi."
+  },
+  {
+   "edge": 10,
+   "len": 34.66,
+   "seen": "photo",
+   "ref": "1551814316_10_1Re88FdQ.jpg",
+   "cal": {
+    "u": [
+     0,
+     34.66
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 3.85,
+     "u1": 14.6,
+     "y0": 1.35,
+     "y1": 3.35,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#2b2b2a",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 3.85,
+     "u1": 14.6,
+     "y0": 0.95,
+     "y1": 1.35,
+     "color": "#b07a45"
+    },
+    {
+     "t": "band",
+     "u0": 3.1,
+     "u1": 14.7,
+     "y0": 3.4,
+     "y1": 3.75,
+     "color": "#e0e0da",
+     "proud": 0.15
+    },
+    {
+     "t": "neon",
+     "pts": [
+      [
+       3.9,
+       3.3
+      ],
+      [
+       14.6,
+       3.3
+      ]
+     ],
+     "color": "#ffd9a0",
+     "d": 0.02,
+     "off": 0.2
+    },
+    {
+     "t": "win",
+     "u0": 14.8,
+     "u1": 21.7,
+     "y0": 0.95,
+     "y1": 3.35,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 8,
+     "frameC": "#c8cbcc",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 14.7,
+     "u1": 21.8,
+     "y0": 3.35,
+     "y1": 3.7,
+     "color": "#c8cbcc",
+     "proud": 0.15
+    },
+    {
+     "t": "win",
+     "u0": 21.4,
+     "u1": 32.1,
+     "y0": 1.4,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 7,
+     "frameC": "#2b2b2a",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 21.4,
+     "u1": 32.1,
+     "y0": 0.9,
+     "y1": 1.4,
+     "color": "#2b2b28"
+    },
+    {
+     "t": "win",
+     "u0": 26.8,
+     "u1": 27.7,
+     "y0": 0.9,
+     "y1": 3.1,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 1,
+     "frameC": "#2b2b2a"
+    },
+    {
+     "t": "band",
+     "u0": 21.4,
+     "u1": 32.1,
+     "y0": 3.3,
+     "y1": 3.8,
+     "color": "#8a6a4a",
+     "proud": 0.15
+    },
+    {
+     "t": "panel",
+     "u0": 32.1,
+     "u1": 34.66,
+     "y0": 0,
+     "y1": 4.0,
+     "color": "#e4e4df"
+    },
+    {
+     "t": "bal",
+     "u0": 3.1,
+     "u1": 27.0,
+     "d": 0.08,
+     "s": [
+      1,
+      1
+     ],
+     "rail": {
+      "1": "bars"
+     },
+     "railC": "#3a3c3a",
+     "railH": {
+      "1": 0.85
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 27.0,
+     "u1": 30.9,
+     "d": 0.08,
+     "s": [
+      1,
+      1
+     ],
+     "rail": {
+      "1": "solid"
+     },
+     "railC": "#3a3c3a",
+     "railH": {
+      "1": 0.95
+     },
+     "fasciaC": {
+      "1": "#b8763c"
+     },
+     "parapetH": {
+      "1": 0.9
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 6.6,
+     "u1": 7.25,
+     "y0": 3.9,
+     "y1": 4.6,
+     "text": "",
+     "fg": "#8c8c8c",
+     "bg": "#f2f2f0",
+     "style": "box",
+     "d": 0.08,
+     "shape": "round",
+     "logo": "Vivaldi beyaz yuvarlak rozet, gri çizgi amblem"
+    },
+    {
+     "t": "sign",
+     "u0": 7.75,
+     "u1": 10.6,
+     "y0": 3.95,
+     "y1": 4.6,
+     "text": "Vivaldi",
+     "fg": "#f2f2f0",
+     "style": "letters",
+     "d": 0.06,
+     "font": "serif",
+     "bold": false,
+     "capH": 0.5,
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 11.2,
+     "u1": 11.9,
+     "y0": 3.9,
+     "y1": 4.6,
+     "text": "",
+     "fg": "#8c8c8c",
+     "bg": "#f2f2f0",
+     "style": "box",
+     "d": 0.08,
+     "shape": "round",
+     "logo": "Vivaldi rozeti"
+    },
+    {
+     "t": "sign",
+     "u0": 16.4,
+     "u1": 19.6,
+     "y0": 3.8,
+     "y1": 4.5,
+     "text": "addax",
+     "fg": "#eceeec",
+     "style": "letters",
+     "d": 0.08,
+     "font": "sans",
+     "bold": false,
+     "capH": 0.5,
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 23.7,
+     "u1": 26.4,
+     "y0": 3.95,
+     "y1": 4.45,
+     "text": "Nac…o…lu",
+     "fg": "#d9a940",
+     "bg": "#6e5438",
+     "style": "letters",
+     "d": 0.05,
+     "font": "script",
+     "bold": false,
+     "lit": true,
+     "logo": "kahve ahşap lamelli pano üstünde altın el yazısı; okunan harfler N-a-c ve o, l-u; 4. ve 6. harf seçilemedi"
+    },
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 34.66,
+     "y0": 4.0,
+     "y1": 17.2,
+     "depth": 9.0,
+     "back": "#5f6771",
+     "ceil": "#b3b0a8",
+     "floor": "#c9c1b2"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 33.4,
+     "y0": 5.9,
+     "y1": 6.35,
+     "color": "#575e5f"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 33.4,
+     "y0": 9.6,
+     "y1": 9.98,
+     "color": "#bec4c1",
+     "proud": 0.05
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 33.4,
+     "y0": 13.85,
+     "y1": 14.9,
+     "color": "#646e79"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 33.4,
+     "y0": 14.9,
+     "y1": 15.3,
+     "color": "#b0bfbb",
+     "proud": 0.08
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 34.66,
+     "y0": 15.3,
+     "y1": 16.0,
+     "color": "#1e2328"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 7.6,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 7.6,
+     "u1": 9.8,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 12.0,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 12.0,
+     "u1": 14.15,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 14.15,
+     "u1": 16.35,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 25.1,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 25.1,
+     "u1": 27.3,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 27.3,
+     "u1": 29.45,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 29.45,
+     "u1": 31.6,
+     "y0": 12.9,
+     "y1": 13.85,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 9.8,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 12.0,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 12.0,
+     "u1": 16.35,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 25.1,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 25.1,
+     "u1": 27.3,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 27.3,
+     "u1": 29.45,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 29.45,
+     "u1": 31.6,
+     "y0": 11.9,
+     "y1": 12.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 7.6,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 7.6,
+     "u1": 9.8,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 12.0,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 12.0,
+     "u1": 14.15,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 14.15,
+     "u1": 16.35,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 25.1,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 25.1,
+     "u1": 27.3,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 27.3,
+     "u1": 29.45,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 29.45,
+     "u1": 31.6,
+     "y0": 10.95,
+     "y1": 11.9,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 7.6,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 7.6,
+     "u1": 9.8,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 12.0,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 12.0,
+     "u1": 14.15,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 14.15,
+     "u1": 16.35,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 25.1,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 25.1,
+     "u1": 27.3,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 27.3,
+     "u1": 29.45,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 29.45,
+     "u1": 31.6,
+     "y0": 9.98,
+     "y1": 10.95,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 7.6,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 7.6,
+     "u1": 9.8,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 12.0,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 12.0,
+     "u1": 14.15,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 14.15,
+     "u1": 16.35,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 25.1,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 25.1,
+     "u1": 29.45,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 29.45,
+     "u1": 31.6,
+     "y0": 8.75,
+     "y1": 9.6,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 7.6,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 7.6,
+     "u1": 9.8,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 14.15,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 14.15,
+     "u1": 16.35,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 25.1,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 25.1,
+     "u1": 31.6,
+     "y0": 7.78,
+     "y1": 8.75,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 7.6,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 7.6,
+     "u1": 9.8,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 12.0,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 12.0,
+     "u1": 14.15,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 14.15,
+     "u1": 16.35,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 25.1,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 25.1,
+     "u1": 31.6,
+     "y0": 6.88,
+     "y1": 7.78,
+     "color": "#56708f"
+    },
+    {
+     "t": "panel",
+     "u0": 1.15,
+     "u1": 3.25,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 3.25,
+     "u1": 5.45,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 5.45,
+     "u1": 7.6,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 7.6,
+     "u1": 9.8,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 12.0,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 12.0,
+     "u1": 14.15,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 14.15,
+     "u1": 16.35,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 16.35,
+     "u1": 18.5,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#233a69"
+    },
+    {
+     "t": "panel",
+     "u0": 18.5,
+     "u1": 20.7,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#90a4a7"
+    },
+    {
+     "t": "panel",
+     "u0": 20.7,
+     "u1": 22.9,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#3367ab"
+    },
+    {
+     "t": "panel",
+     "u0": 22.9,
+     "u1": 31.6,
+     "y0": 6.35,
+     "y1": 6.88,
+     "color": "#56708f"
+    },
+    {
+     "t": "proj",
+     "u0": 1.9500000000000002,
+     "u1": 2.25,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 7.05,
+     "u1": 7.3500000000000005,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 14.45,
+     "u1": 14.75,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 21.75,
+     "u1": 22.049999999999997,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "proj",
+     "u0": 29.05,
+     "u1": 29.349999999999998,
+     "d": 0.3,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#2f3336"
+    },
+    {
+     "t": "roofsign",
+     "u0": 7.25,
+     "u1": 11.6,
+     "y0": 14.3,
+     "y1": 15.2,
+     "text": "eğlenjoy",
+     "fg": "#5a3aa0",
+     "bg": "#eeeeee",
+     "setback": 12.0,
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "frame": {
+      "color": "#e8e8e6",
+      "h": 0.5,
+      "posts": 3
+     },
+     "lit": true,
+     "logo": "mor küçük harfler; \"y\" sonrası mor artı/yıldız simgesi; beyaz dikey lamelli taşıyıcı pano"
+    }
+   ],
+   "note": "DOĞU cephe kuzey kısmı (bulvar), 2025-09, 1Re88 (D 16.2) + lc7D. Zemin kat: giriş saçağı (u 0–3.1, bkz. volumes), Vivaldi kış bahçesi (ahşap alt pano, ışık zinciri), addax (vitrin, gümüş doğrama), kafe \"Nac…o…lu\" (kara tahta alt panolar, üstte ahşap lamelli teras korkuluğu), KD köşede beyaz duvar + siyah ferforje korkuluk (geçit). Üst kutu terasın 9.0 m gerisinde (−9 m arka düzlem); dama hücreleri örneklendi (? = ağaç arkası). u ±2 m."
+  },
+  {
+   "edge": 11,
+   "len": 22.08,
+   "seen": "none",
+   "items": [],
+   "note": "KUZEY (Ceylan Plus ile arası dar geçit), görülmedi"
+  },
+  {
+   "edge": 12,
+   "len": 2.78,
+   "seen": "none",
+   "items": [],
+   "note": "kuzey kademesi, görülmedi"
+  },
+  {
+   "edge": 13,
+   "len": 34.81,
+   "seen": "none",
+   "items": [],
+   "note": "KUZEY, görülmedi"
   }
  ],
- "notes": [],
- "pending": []
+ "notes": [
+  "KÜTLE MODELİ: taban izi = zemin kat halkası (4.0 m, üstü 1. kat terası). Üst kutu (1.–2. kat + geri çekik çatı arası K3) terasın gerisinde; üretici kütle kesim duvarlarına öğe koyamadığı için kutu yüzleri taban izi kenarlarında 4.0–17.2 arası `recess` arka duvarı olarak yazıldı: güney 3.0 m, doğu 9.0 m (e6/e10), BKM köşkü batı yüzü 5.1 m (e0 hattı), giriş (e8) 4.5 m. Kuzey (e11–e13) görülmedi → düz duvar. Girinti tavanı (17.2) = büyük beyaz çatı tablasının alt yüzü; tabla ön yüzü taban izi hattında fascia (17.2–18.2) olarak çizilir — GERÇEKTE tabla ön kenarı doğuda ≈5.8 m, güneyde ≈2.5 m geride (hava fotoğrafı + paralaks), batıda (e0) ≈5 m dışarı taşar (roof.eaves).",
+  "DERİNLİK/KONUM BELİRSİZLİĞİ: bulvar panolarının konumları kendi aralarında 2–3 m tutarsız (aynı δ0 harfleri NkuAAQDM / peGG / 71w4 ortofotolarında 2 m kayık). Kutu derinlikleri çok panolu düzlem taramasıyla (myortho, 90° kareler) + portal konumu (üç panonun yön açıları) + hava fotoğrafındaki çatı tabelası çerçeveleri (x ≈ 590) ile bulundu: doğu 9 ± 2 m, güney 3 ± 1.5 m. Kutu yüzleri DIŞA EĞİK (lamel kanatlarının ve kutu uçlarının ortofotoda yüksekliğe göre kayması: ≈0.18 m/m, ~10°) — düşey yazıldı (orta yükseklik derinliği), pending.",
+  "KATLAR: floorHs [4.0, 5.4, 5.4, 2.4]: K1 = teras döşemesi 4.0 (korkuluk üst 5.0), kutu çerçeve alt bandı ≈5.9–6.4, dama 6.35–13.85 (orta açık bant 9.6–9.98), üst çerçeve 13.85–14.9 + beyaz harpuşta 14.9–15.3; K3 (doğu/batı) 15.3–17.2 geri çekik koyu cam + koyu gri kolonlar; tabla 17.2–18.2 (üstünde gri boru korkuluk ≈0.8 m — çizilmedi, parapet yok). Doğu podyumu kaldırımdan ≈0.9 m yüksek (3 basamak, sokak katmanı).",
+  "RENKLER: kutu çerçevesi koyu gri ACP #5f6771 (doğu, bulutlu) / #565a59 (güney, güneşli); dama: açık gri-mavi #90a4a7, orta mavi #3367ab, lacivert #233a69 (doğu, bulutlu; tek tek hücre örneklemesi, ağaç arkası hücreler \"?\" = #56708f ortalama, görülmedi); batı beyaz sıva gölgede #a4aaab → güneşli tahmin #d2d6d8, koyu bantlar gölgede #303b42 → #3e4a52; zemin kat saçak alnı: BKM koyu #363936, Levrek açık gri #c2c3c2, BK #b4b8af, Starbucks beyaz; teras korkulukları: güney/batı beyaz yatay boru #e6e7e4, BK/doğu koyu #414537.",
+  "TABELALAR (kenar başına): e5 güney — BKM / Kitap / Kırtasiye / Kafe kanal harfleri, Levrek (balık konturlu) + \"☎ 0224 413 87 07\", BURGER KING + 2 yuvarlak logo; kutu alt bandında 17 ince büyük rakam \"8 6 9 1 6 3 0 0 8 2 0 0 9 1 … 0 1 2\" (4 rakam TIFFANY afişi arkasında görülmedi); kutu üstünde MR.D.I.Y. (sarı ışıklı kutu), PORLAND (gri pano, serif), mavi (lacivert-gri ışıklı kutu); asılı afişler: bkmkitap (kırmızı/mavi, 4 parça), MR.DIY 12 kategorili sarı afiş + \"2. KATTAYIZ!\", \"TIFFANY & TOMATO / 1. / KATTA / AÇILMIŞTIR\" (+ fotoğraf bölümü renk blokları). e6 doğu — BURGER KING + 2 logo, Starbucks logo + STARBUCKS; çatı: \"bulvarözlüce\" (perfore beyaz pano, lacivert), \"bkmkitap\" (beyaz lamelli çerçeve). e8 giriş — kapı üstü \"bulvarözlüce\", portal \"bulvarözlüce / Alışveriş Ve Yaşam Merkezi\". e10 — Vivaldi (2 rozet), addax, \"Nac…o…lu\" (altın el yazısı, kısmen okunamadı), çatı \"eğlenjoy\" (+ mor artı). e0 — \"addax\" (koyu gri). e4 — BKM Kitap Kırtasiye Kafe."
+ ],
+ "pending": [
+  {
+   "what": "girinti köşe birleşimi (recess corner merge)",
+   "edges": [
+    [
+     5,
+     6
+    ],
+    [
+     4,
+     5
+    ],
+    [
+     10,
+     11
+    ]
+   ],
+   "desc": "Komşu kenarların girintileri ortak köşede birleşmeli (loca köşe birleşimi gibi): yan duvar çizilmemeli, köşe boşluğu açık teras. Şimdilik e5 girintisi köşeye kadar (u1 = 61.88) gidiyor ve yan duvarı e6 hattında 3.0 m genişliğinde 4.0–17.2 duvar parçası bırakıyor; e6 girintisi u0 = 3.0’dan başlıyor. GB köşede e5’in u0 yan duvarı e4 hattında 3.0 m; KD köşede e10’un u1 yan duvarı kuzey (e11) hattında 9 m. Birleşim desteklenince e6 u0 = 0, e4 u1 = 24.35 yazılmalı."
+  },
+  {
+   "what": "dışa eğik kutu yüzleri",
+   "desc": "Üst kutunun güney/doğu/batı yüzleri ve uç yüzleri üstte ≈10° dışa eğik (lamel kanatları ve kutu uçları ortofotolarda yükseklikle kayıyor: güney ≈0.18 m/m, doğu kutu güney ucu u 5.75 (y 6) → 4.25 (y 14.9)). Kutu uçları trapez görünür. Girinti arka duvarı düşey çizildi (orta derinlik)."
+  },
+  {
+   "what": "çatı tablası kenar konumu",
+   "desc": "Beyaz büyük tabla (üst 18.2, ön alın ≈1.0 m, alt yüz öne doğru alçalan eğik) ön kenarı: doğuda kutu yüzünün ≈3.3 m önünde (taban izinden ≈5.8 m geride), güneyde taban izinden ≈2.5 m geride, batıda (e0) ≈5 m dışarı taşar. Üretici girinti tavanını tablaya, fascia’yı taban izi hattına çiziyor → negatif saçak / geri çekik fascia gerekir."
+  },
+  {
+   "what": "tabla üstü korkuluk",
+   "desc": "Tabla üst kenarında gri ince boru korkuluk ≈0.8 m (dikmeler ≈1.5 m) — parapet olmadığı için çizilmedi; roof.parapet h≈0.05 + railEdges ile çizilebilir ama tabla ön kenarı yanlış yerde."
+  },
+  {
+   "what": "K3 çatı terası şemsiyeleri (batı)",
+   "edge": 0,
+   "items": [
+    {
+     "u": [
+      9.2,
+      12.8
+     ],
+     "y": "üst ≈17.4 (ortofotoda 18.4–20, ölçekli)",
+     "desc": "beyaz büyük yuvarlak şemsiye (Ø≈3.5 görünen), ince koyu direk"
+    },
+    {
+     "u": [
+      17.1,
+      20.5
+     ],
+     "desc": "aynı"
+    },
+    {
+     "edge": 4,
+     "u": [
+      5.5,
+      9.2
+     ],
+     "desc": "e4 K3 terasında aynı tip şemsiye (δ7.5 düzleminde)"
+    }
+   ],
+   "why": "çatı terası eşyası (şemsiye) öğesi yok; street-plan parasol dünya konumu gerektirir, derinlik görülmedi (≈ e0 hattından 1–3 m içeride)"
+  },
+  {
+   "what": "lamel kanatlarının eğimi (güney)",
+   "edge": 5,
+   "desc": "kutu güney yüzündeki koyu gri kanatlar gerçekte düşey, yüz eğik; kanatlar ≈0.4 m derin proj ile yaklaşık yazıldı (ortada 4 beyaz çubuk)."
+  },
+  {
+   "what": "Levrek / BK teras derinlikleri",
+   "edge": 5,
+   "desc": "Levrek restoranı (u 21.6–39.5) ve Burger King (u 41.8–61.9) zemin kat camları örtülü terasın gerisinde; derinlik yandan görülmedi → 2.0 / 3.5 m tahmin (girinti)."
+  }
+ ],
+ "volumes": [
+  {
+   "poly": [
+    [
+     597.4,
+     -447.0
+    ],
+    [
+     602.5,
+     -446.85
+    ],
+    [
+     602.7,
+     -454.05
+    ],
+    [
+     597.2,
+     -454.2
+    ]
+   ],
+   "y0": 4.65,
+   "y1": 5.2,
+   "color": "#3f4246",
+   "roofC": "#3f4246",
+   "collide": false,
+   "note": "Ana giriş saçağı: koyu gri döşeme, bulvar cephe hattını ≈0.3 m aşar (4o1y/71w4); alt yüz 4.65, üst 5.2 (4o1y ön düzlemden derinlik düzeltmeli)."
+  },
+  {
+   "poly": [
+    [
+     601.6,
+     -447.75
+    ],
+    [
+     601.9,
+     -447.75
+    ],
+    [
+     601.9,
+     -448.05
+    ],
+    [
+     601.6,
+     -448.05
+    ]
+   ],
+   "y0": 0.9,
+   "y1": 4.65,
+   "color": "#2f3134",
+   "collide": true,
+   "note": "Saçak ayağı (güney): fotoğrafta V biçimli eğik iki koyu çubuk — düşey kolonla yaklaşık"
+  },
+  {
+   "poly": [
+    [
+     601.7,
+     -452.9
+    ],
+    [
+     602.0,
+     -452.9
+    ],
+    [
+     602.0,
+     -453.2
+    ],
+    [
+     601.7,
+     -453.2
+    ]
+   ],
+   "y0": 0.9,
+   "y1": 4.65,
+   "color": "#2f3134",
+   "collide": true,
+   "note": "Saçak ayağı (kuzey), V biçimli — düşey kolonla yaklaşık"
+  }
+ ]
 }

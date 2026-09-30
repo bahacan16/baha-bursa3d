@@ -1,0 +1,703 @@
+{
+ "id": 1546358586,
+ "name": "Orta kule (podyum üstü, Özlüce Blv.)",
+ "storeys": 10,
+ "floorH": 3.33,
+ "groundRaise": 0.74,
+ "plinthH": 0,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.05,
+  "fasciaH": 0.35,
+  "fasciaC": "#3b3a66",
+  "parapet": {
+   "h": 0.6,
+   "color": "plaster2",
+   "coping": {
+    "h": 0.08,
+    "over": 0.03,
+    "color": "#3b3a66"
+   },
+   "rail": "tube",
+   "railC": "#9aa0a3",
+   "railH": 0.6
+  },
+  "flatC": "#8d8a84"
+ },
+ "colors": {
+  "plaster": "#ada18f",
+  "plaster2": "#7f6a58",
+  "strip": "#7f6a58",
+  "fascia": "#a39988",
+  "soffit": "#c9c3b6",
+  "railGlass": "#6f7f8a",
+  "frame": "#5a3f33",
+  "tile": "#3b3a66",
+  "plinth": "#7f5035"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 0.94,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 1,
+   "len": 3.26,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 2,
+   "len": 1.52,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 3,
+   "len": 6.75,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 4,
+   "len": 2.15,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 5,
+   "len": 1.05,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 6,
+   "len": 9.27,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 7,
+   "len": 1.52,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 8,
+   "len": 5.26,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 9,
+   "len": 5.11,
+   "seen": "photo",
+   "ref": "1546358586_9_HxEE4T_F.jpg",
+   "cal": {
+    "u": [
+     1.1,
+     5.8
+    ],
+    "head": [
+     [
+      2,
+      8.2
+     ],
+     [
+      8,
+      24.7
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 1.1,
+     "u1": 2.3,
+     "y0": 6.5,
+     "y1": 26.2,
+     "d": 0.02,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 2.3,
+     "u1": 5.8,
+     "y0": 6.241891891891892,
+     "y1": 25.856156156156157,
+     "color": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 2.8,
+     "u1": 5.5,
+     "y0": 9.13,
+     "y1": 10.95,
+     "k": 3,
+     "s": [
+      3,
+      8
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "win",
+     "u0": 2.8,
+     "u1": 5.5,
+     "y0": 6.96,
+     "y1": 8.2,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "bal",
+     "u0": 2.3,
+     "u1": 5.8,
+     "d": 0.7,
+     "s": [
+      3,
+      8
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "tube"
+     },
+     "railC": "#8d9295",
+     "railH": {
+      "*": 0.95
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 5.6,
+     "s": 7,
+     "y": 20.4
+    },
+    {
+     "t": "ac",
+     "u": 5.6,
+     "s": 8,
+     "y": 23.0
+    }
+   ],
+   "note": "Güney loca yüzü (doğuya bakar): SE köşe kahve paye (u 1.1–2.3) + açık bej yüz; K3–K8 sığ balkon (yatay 5 borulu korkuluk, bej alın), arkada 3 kanatlı kahve PVC kapı-pencere; K2 pencere podyum çatısı üstünde. Sağ kenarda K7, K8 klima. cal.u gözlenen köşeler (±0.5)."
+  },
+  {
+   "edge": 10,
+   "len": 1.48,
+   "seen": "none",
+   "items": [],
+   "note": "Çerçeve kutusunun güney yanağı (1.48), görülmedi — kahve sıva."
+  },
+  {
+   "edge": 11,
+   "len": 4.51,
+   "seen": "photo",
+   "ref": "1546358586_11_HxEE4T_F.jpg",
+   "cal": {
+    "u": [
+     0.84,
+     5.1
+    ],
+    "head": [
+     [
+      2,
+      8.2
+     ],
+     [
+      8,
+      24.7
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 0.84,
+     "u1": 1.4,
+     "y0": 6.052852852852852,
+     "y1": 25.69099099099099,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "pilaster",
+     "u0": 4.56,
+     "u1": 5.1,
+     "y0": 6.052852852852852,
+     "y1": 25.69099099099099,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 0.84,
+     "u1": 5.1,
+     "y0": 25.11291291291291,
+     "y1": 25.77357357357357,
+     "color": "plaster2"
+    },
+    {
+     "t": "bal",
+     "u0": 1.4,
+     "u1": 4.56,
+     "d": 0.0,
+     "inset": 1.4,
+     "s": [
+      3,
+      8
+     ],
+     "glazed": [
+      4,
+      5,
+      6,
+      8
+     ],
+     "tint": {
+      "4": "clear",
+      "5": "clear",
+      "6": "clear",
+      "8": "clear"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     },
+     "glassC": {
+      "*": "#5f6f7c"
+     },
+     "frameC": {
+      "*": "#c9ccc9"
+     },
+     "glazeEvery": 0.8
+    },
+    {
+     "t": "sign",
+     "u0": 1.45,
+     "u1": 4.56,
+     "y0": 9.6,
+     "y1": 9.97,
+     "d": 0.02,
+     "off": 0.05,
+     "style": "panel",
+     "text": "DİŞ HEKİMİ Ayla S…YMANOĞLU\n0 535 309 69 94",
+     "bg": "#f0f0ee",
+     "fg": "#1c1c1c",
+     "bold": true,
+     "lines": [
+      {
+       "text": "DİŞ HEKİMİ Ayla S…YMANOĞLU",
+       "size": 1
+      },
+      {
+       "text": "0 535 309 69 94",
+       "size": 0.9
+      }
+     ],
+     "logo": "K3 balkon alnında beyaz levha; soyadının 2–3 harfi okunmadı"
+    },
+    {
+     "t": "sign",
+     "u0": 1.4,
+     "u1": 4.56,
+     "y0": 8.6,
+     "y1": 9.5,
+     "d": 0.02,
+     "off": 0.05,
+     "style": "panel",
+     "text": "ATOMY\natomy",
+     "bg": "#8fb8d8",
+     "fg": "#ffffff",
+     "lines": [
+      {
+       "text": "ATOMY",
+       "size": 1,
+       "bold": false
+      },
+      {
+       "text": "atomy",
+       "size": 0.4
+      }
+     ],
+     "logo": "açık mavi levha, ince geniş aralıklı beyaz büyük harfler; sağda 4–5 satır küçük beyaz yazı (okunmadı)"
+    }
+   ],
+   "note": "Güney çerçeve kutusu: kahve çerçeve içinde gömük cam balkon yığını. Kat kat: K3 açık (alnında DİŞ HEKİMİ + ATOMY levhaları), K4 cam, K5 cam (bir kanat açık), K6 cam, K7 AÇIK, K8 cam. Tepede kahve alın + parapet borusu. Loca derinliği 1.4 tahmini (e10 1.48)."
+  },
+  {
+   "edge": 12,
+   "len": 4.81,
+   "seen": "none",
+   "items": [],
+   "note": "Girinti yanağı, görülmedi."
+  },
+  {
+   "edge": 13,
+   "len": 2.37,
+   "seen": "partial",
+   "ref": "1546358586_13_HxEE4T_F.jpg",
+   "cal": {
+    "u": [
+     0,
+     2.37
+    ],
+    "head": [
+     [
+      2,
+      8.2
+     ],
+     [
+      8,
+      24.7
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 2.37,
+     "y0": 6.052852852852852,
+     "y1": 26.5,
+     "color": "#5d5b57"
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 2.37,
+     "y0": 6.0,
+     "y1": 11.9,
+     "color": "#8e8c86"
+    }
+   ],
+   "note": "Merdiven / aydınlık girintisi dip duvarı: koyu gri sıva, altta (≈y<11.9) açık gri beton; tepede küçük pencereli merdiven başı (görülmedi)."
+  },
+  {
+   "edge": 14,
+   "len": 4.96,
+   "seen": "none",
+   "items": [],
+   "note": "Girinti yanağı, görülmedi."
+  },
+  {
+   "edge": 15,
+   "len": 4.8,
+   "seen": "photo",
+   "ref": "1546358586_15_HxEE4T_F.jpg",
+   "cal": {
+    "u": [
+     0.04,
+     4.85
+    ],
+    "head": [
+     [
+      2,
+      8.2
+     ],
+     [
+      8,
+      24.7
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "pilaster",
+     "u0": 0.04,
+     "u1": 1.03,
+     "y0": 6.052852852852852,
+     "y1": 25.69099099099099,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "pilaster",
+     "u0": 4.3,
+     "u1": 4.85,
+     "y0": 6.052852852852852,
+     "y1": 25.69099099099099,
+     "d": 0.05,
+     "color": "plaster2"
+    },
+    {
+     "t": "panel",
+     "u0": 0.04,
+     "u1": 4.85,
+     "y0": 25.11291291291291,
+     "y1": 25.77357357357357,
+     "color": "plaster2"
+    },
+    {
+     "t": "bal",
+     "u0": 1.03,
+     "u1": 4.3,
+     "d": 0.0,
+     "inset": 1.4,
+     "s": [
+      3,
+      8
+     ],
+     "glazed": [
+      3,
+      4,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "3": "clear",
+      "4": "clear",
+      "6": "clear",
+      "7": "clear",
+      "8": "clear"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.5
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     },
+     "glassC": {
+      "*": "#5f6f7c"
+     },
+     "frameC": {
+      "*": "#c9ccc9"
+     },
+     "glazeEvery": 0.8
+    },
+    {
+     "t": "sign",
+     "u0": 0.75,
+     "u1": 3.9,
+     "y0": 7.9,
+     "y1": 8.95,
+     "d": 0.03,
+     "style": "panel",
+     "font": "serif",
+     "bold": true,
+     "text": "ESTEFORM\nGÜZELLİK SALONU\nAĞDA · LAZER · CİLT BAKIMI · MANİKÜR · PEDİKÜR\nBÖLGESEL İNCELME · MEDİKAL AYAK BAKIMI\n0224 413 70 90\n0530 492 80 27",
+     "lines": [
+      {
+       "text": "ESTEFORM",
+       "size": 1
+      },
+      {
+       "text": "GÜZELLİK SALONU",
+       "size": 0.45
+      },
+      {
+       "text": "AĞDA · LAZER · CİLT BAKIMI · MANİKÜR · PEDİKÜR",
+       "size": 0.3
+      },
+      {
+       "text": "BÖLGESEL İNCELME · MEDİKAL AYAK BAKIMI",
+       "size": 0.3
+      },
+      {
+       "text": "0224 413 70 90",
+       "size": 0.35
+      },
+      {
+       "text": "0530 492 80 27",
+       "size": 0.35
+      }
+     ],
+     "bg": "#1d1b20",
+     "fg": "#ffffff",
+     "logo": "siyah levha; iki yanda pembe-kırmızı defne dalı çelengi; K2/K3 arası balkon alnına asılı"
+    }
+   ],
+   "note": "Kuzey çerçeve kutusu: K3 cam (sol bölme açık), K4 cam, K5 AÇIK (tavanda spot), K6 cam, K7 cam (sol kanat açık), K8 cam. Altında ESTEFORM levhası."
+  },
+  {
+   "edge": 16,
+   "len": 1.33,
+   "seen": "none",
+   "items": [],
+   "note": "Çerçeve kutusu kuzey yanağı, görülmedi."
+  },
+  {
+   "edge": 17,
+   "len": 5.07,
+   "seen": "partial",
+   "ref": "1546358586_17_HxEE4T_F.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     4.7
+    ],
+    "head": [
+     [
+      2,
+      8.2
+     ],
+     [
+      8,
+      24.7
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0.5,
+     "u1": 3.8,
+     "y0": 6.241891891891892,
+     "y1": 25.856156156156157,
+     "color": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 0.7,
+     "u1": 3.2,
+     "y0": 9.13,
+     "y1": 10.95,
+     "k": 3,
+     "s": [
+      3,
+      8
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "win",
+     "u0": 0.7,
+     "u1": 3.2,
+     "y0": 6.96,
+     "y1": 8.2,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#5a3f33"
+    },
+    {
+     "t": "bal",
+     "u0": 0.5,
+     "u1": 3.8,
+     "d": 0.7,
+     "s": [
+      3,
+      8
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "tube"
+     },
+     "railC": "#8d9295",
+     "railH": {
+      "*": 0.95
+     },
+     "fasciaC": {
+      "*": "#a39988"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 0.7,
+     "u1": 3.6,
+     "y0": 8.85,
+     "y1": 10.0,
+     "d": 0.02,
+     "off": 0.7,
+     "style": "panel",
+     "font": "script",
+     "bold": true,
+     "text": "Flor…\nBeauty Stu…",
+     "bg": "#f4f4f6",
+     "fg": "#d2508e",
+     "logo": "beyaz levha; solda mavi çizgi kadın yüzü / çiçek figürü, pembe el yazısı; sağ yarı ağaç arkasında"
+    }
+   ],
+   "note": "Kuzey loca yüzü: K3–K8 sığ borulu balkonlar + kapı-pencere; sağ yarısı ağaç arkasında (K2–K5). K3 alnında \"Flor… Beauty Stu…\" levhası."
+  },
+  {
+   "edge": 18,
+   "len": 4.93,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 19,
+   "len": 1.08,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 20,
+   "len": 12.65,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  },
+  {
+   "edge": 21,
+   "len": 8.19,
+   "seen": "none",
+   "items": [],
+   "note": "Kule yüzü; kule K0–K1 podyumun (1546358584) içinde / görülmedi."
+  }
+ ],
+ "notes": [
+  "KARAR (kule ayrı dosya): OSM building:part kuleleri ayrı ölçüm dosyası olarak yazıldı — kulelerin bulvara bakan girintili doğu yüzleri (çerçeve kutuları, localar, merdiven girintisi) podyum halkasının kenarı değil; podyum dosyasında massing ile çizilseler bu yüzler öğesiz kesim duvarı olurdu. Kule zeminden çizilir (K0–K1 podyum katları, öğesiz); batı / güney / kuzeyde podyumla ortak duvarlarda 0–7.4 m arası iki dosyanın duvarı çakışır → üretici bekliyor (pending: coplanar-podium).",
+  "Kat: 10 = K0–K1 podyum (döşeme K2 ≈7.4 m, podyum saçağı ≈7.4–8.3) + K2–K8 konut + K9 çatı katı (doğu yüzde geri çekik, çatı terası korkuluklu; güney/kuzey alınlıkta tam yüz). Kat yüksekliği 3.33 (1546358584_19_HSThiGBU ortofotosu, kule güney yüzü podyum e19 düzleminde: lento K2 9.66 → K9 33.0). groundRaise 0.74 = 7.4 − 2×3.33 (K0/K1 gerçek yükseklikleri podyumda farklı, bu dosyada öğe yok).",
+  "Doğu yüzler kendi ortofotolarımdan (scratch d4E/o, kenar düzlemlerinde; derleyici pano bulamaz → derinlik düzeltmesi yok, u cal.u ile, y cal.head ile ölçeklenir). Bu ortofotolarda kat aralığı 2.7–3.0 görünüyor (gerçek 3.33) → kule doğu yüzleri taban izinden ≈3–5 m daha batıda olabilir (ya da pano konum hatası): taban izi düzeltmesi raporda. Yatay ±0.6 m, balkon derinlikleri tahmini.",
+  "Renk dili: açık bej-kum sıva (#ada18f, bulutlu) + koyu kahve-bej çerçeve kutuları ve köşe payeleri (#7f6a58), merdiven girintisi koyu gri (#5d5b57), pencereler koyu kahve PVC, balkon korkulukları yatay borulu (4–5 boru) paslanmaz-gri, çatı parapeti üstünde lacivert-mor metal harpuşta (#3b3a66) + ince boru korkuluk.",
+  "Doğu yüz (güneyden kuzeye): e9 loca yüzü | e11 çerçeve kutusu (cam balkonlar) | e13 koyu merdiven girintisi | e15 çerçeve kutusu | e17 loca yüzü. Batı (site) yüzü ve kısa yan yüzler görülmedi. Çatı: düz, çevre parapeti + boru korkuluk; güney yarısında geri çekik çatı katı (camlı, korkuluklu) — volumes olarak çizilmedi (boyu ölçülmedi, bekliyor)."
+ ],
+ "pending": [
+  {
+   "what": "coplanar-podium",
+   "note": "Kule halkası zeminden çizilir; podyumla ortak batı duvarlarında 0–7.4 m çakışma. Öneri: kule dosyasına baseY / podyum kotu (y0 7.4) alanı ya da podyum massing parçasında storeys:0 atlama."
+  },
+  {
+   "what": "cati-kati",
+   "edge": 9,
+   "u0": 1.1,
+   "u1": 5.8,
+   "y0": 26.2,
+   "y1": 27.4,
+   "setback": "≈1.5?",
+   "note": "geri çekik çatı katı, önünde teras boru korkuluğu (e9/e11 üstü); derinlik görülmedi."
+  }
+ ]
+}
