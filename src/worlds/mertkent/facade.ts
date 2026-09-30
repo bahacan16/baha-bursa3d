@@ -1267,6 +1267,12 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     it: CBal;
     /** Köşe locası: birleştirilen komşu kenar (o kenarın ölçülmüş açıklıkları da bu locaya aittir) */
     absorbed?: number;
+    /**
+     * v7 (hata düzeltmesi): dikdörtgenin arka kenarı bu taban izi kenarının hattına düşüyor ve o kenar da açık loca
+     * (üç yanı açık yığın / zincir) → arka kenar o hattın 2 cm dışına itilir (önceden hat üstünde kalıp rastgele ince
+     * şerit + tam boy duvar üretiyordu)
+     */
+    backOut?: number;
   }
   const voids: Void[] = [];
   for (let i = 0; i < N; i++)
@@ -1293,8 +1299,18 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     const ea = E[A.edge];
     const eb = E[nx];
     if (eb.t[0] * -ea.n[0] + eb.t[1] * -ea.n[1] < 0.9) continue;
+    // v7 (hata düzeltmesi): A zaten önceki kenarın locasına (W) katılmışsa (üç yanı açık yığın: X sonu + Y + Z başı)
+    // A'nın dikdörtgeni yok — önceden Z'nin locası da atılıp kayboluyordu. Z köşeden başlıyor ve W'nin genişliğini
+    // aşmıyorsa W'ye katılır (arka kenarı Z hattının dışına itilir, aşağıda); yoksa Z kendi locası olarak kalır.
+    if (drop.has(A.id)) {
+      const W = voids.find((w) => w.absorbed === A.edge && !drop.has(w.id));
+      if (W && Bv.u0 < 0.3 && Bv.u1 <= E[W.edge].len - W.u0 + 0.3) drop.add(Bv.id);
+      continue;
+    }
     A.u1 = ea.len;
-    if (!A.it.inset) A.inset = Math.min(3.2, Bv.u1);
+    // v7 (hata düzeltmesi): köşe locasının B boyunca derinliği B'nin ölçülen açıklığı (en çok B boyu); önceden 3.2 m'de
+    // kırpılıyordu (1480041344 e5: 4.83 m cam yığınının 1.63 m'si düz duvar)
+    if (!A.it.inset) A.inset = Math.min(eb.len, Bv.u1);
     Bv.u0 = 0;
     if (!Bv.it.inset) Bv.inset = Math.min(3.2, ea.len - A.u0);
     // Aynı dikdörtgen: B'yi yalnızca cam/renk bilgisi için tut, boşluk üretmesin
@@ -1302,14 +1318,57 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     A.absorbed = nx;
   }
   for (const v of voids) if (!v.inset) v.inset = v.it.d > 0.05 ? 1.1 : 1.5;
-  for (const v of voids) v.inset = Math.max(0.6, Math.min(3.2, v.inset));
+  for (const v of voids)
+    v.inset = Math.max(0.6, Math.min(v.absorbed != null ? Math.max(3.2, E[v.absorbed].len) : 3.2, v.inset));
+  // v7: köşe locasının arka kenarı B'den sonraki kenar (C) hattına düşüyorsa ve C'de köşeden başlayan gömük balkon
+  // varsa (0.5 m'den kısa olanlar dahil — 1480041344 e6) arka kenar C hattının dışına itilir (C yüzü açık)
+  for (const v of voids) {
+    if (v.absorbed == null) continue;
+    const c = (v.absorbed + 1) % N;
+    const ec = E[c];
+    const ea = E[v.edge];
+    if (c === v.edge || ec.len < 0.05 || Math.abs(ec.t[0] * ea.t[0] + ec.t[1] * ea.t[1]) < 0.9) continue;
+    const dep = -((ec.a[0] - ea.a[0]) * ea.n[0] + (ec.a[1] - ea.a[1]) * ea.n[1]);
+    if (Math.abs(dep - v.inset) > 0.05) continue;
+    const open = items(c).some(
+      (it) => it.t === 'bal' && isRecessed(it) && it.u0 < 0.3 && it.storeys.some((k) => v.it.storeys.includes(k)),
+    );
+    if (open) v.backOut = c;
+  }
   const voidsAll = voids.slice();
   voids.splice(0, voids.length, ...voidsAll.filter((v) => !drop.has(v.id)));
   voids.forEach((v, k) => (v.id = k));
-  const voidRect = (v: Void): [number, number][] =>
-    [P(v.edge, v.u0, 0.02), P(v.edge, v.u1, 0.02), P(v.edge, v.u1, -v.inset), P(v.edge, v.u0, -v.inset)].map(
-      (p) => [p[0], p[1]] as [number, number],
-    );
+  /**
+   * Loca dikdörtgeni (ön kenar taban izi hattının 2 cm dışında). v7 (hata düzeltmesi): köşe locasında birleştirilen
+   * kenar (absorbed) yanı ve açık C yüzüne düşen arka kenar (backOut) o kenarların hattının 2 cm DIŞINA itilir —
+   * köşe tam dik değilse dikdörtgen kenarı taban izi içinde mm'lik bir kama bırakıyor, kama kenarı o yüzün TAM BOY
+   * duvarını loca ağzının üstüne çizdiriyordu (1480041344 e5, 1480041343 e15 ve ~20 köşe locası)
+   */
+  const voidRect = (v: Void): [number, number][] => {
+    const r = [P(v.edge, v.u0, 0.02), P(v.edge, v.u1, 0.02), P(v.edge, v.u1, -v.inset), P(v.edge, v.u0, -v.inset)];
+    if (v.absorbed != null || v.backOut != null) {
+      const ea = E[v.edge];
+      // Doğru: nokta + yön; kesişim
+      type Ln = [V2, V2];
+      const X = (l1: Ln, l2: Ln): V2 => {
+        const [p, d] = l1;
+        const [q, e] = l2;
+        const den = d[0] * e[1] - d[1] * e[0];
+        if (Math.abs(den) < 1e-9) return p;
+        const t = ((q[0] - p[0]) * e[1] - (q[1] - p[1]) * e[0]) / den;
+        return [p[0] + d[0] * t, p[1] + d[1] * t];
+      };
+      const out = (j: number): Ln => [P(j, 0, 0.02), E[j].t];
+      const front: Ln = [P(v.edge, 0, 0.02), ea.t];
+      const side1: Ln = v.absorbed != null ? out(v.absorbed) : [P(v.edge, v.u1, 0), ea.n];
+      const back: Ln = v.backOut != null ? out(v.backOut) : [P(v.edge, 0, -v.inset), ea.t];
+      const side0: Ln = [P(v.edge, v.u0, 0), ea.n];
+      if (v.absorbed != null) r[1] = X(front, side1);
+      r[2] = X(back, side1);
+      if (v.backOut != null) r[3] = X(back, side0);
+    }
+    return r.map((p) => [p[0], p[1]] as [number, number]);
+  };
   const voidsAt = (k: number) => voids.filter((v) => v.it.storeys.includes(k));
   /**
    * Kenar i üzerinde, k katında u noktasının düştüğü loca. v7: köşe locasında birleştirilen komşu kenarın noktaları
@@ -1322,7 +1381,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     if (same) return same;
     const q = P(i, u, -0.05);
     return vs.find((v) => {
-      if (v.absorbed !== i) return false;
+      if (v.absorbed !== i && v.backOut !== i) return false;
       const r = voidRect(v) as V2[];
       return inside(r, q[0], q[1]) && distToRing(r, q[0], q[1]) > 0.04;
     });
@@ -2227,7 +2286,23 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
             const dn = (m[0] - e.a[0]) * e.n[0] + (m[1] - e.a[1]) * e.n[1];
             return Math.abs(dn) < 0.1 && u > vv.u0 - 0.1 && u < vv.u1 + 0.1;
           });
-        const v = vFound ?? vs[0];
+        // v7: taban izi hattındaki parçanın locası bulunamazsa (birleştirilen / itilen yüz) orta noktayı içeren loca
+        // (önceden katın ilk locası — binanın başka yüzündeki loca ayarlarıyla çizilebiliyordu)
+        const onOwn = (vv: Void) => {
+          const e = E[vv.edge];
+          const u = (m[0] - e.a[0]) * e.t[0] + (m[1] - e.a[1]) * e.t[1];
+          const dn = (m[0] - e.a[0]) * e.n[0] + (m[1] - e.a[1]) * e.n[1];
+          return Math.abs(dn) < 0.1 && u > vv.u0 - 0.1 && u < vv.u1 + 0.1;
+        };
+        const v =
+          vFound ??
+          // birleştirilen (atılan) B locası: kendi yüzünde kendi cam / renk ayarları
+          voidsAll.find((vv) => !voids.includes(vv) && vv.it.storeys.includes(k) && onOwn(vv)) ??
+          vs.find((vv) => {
+            const r = voidRect(vv) as V2[];
+            return inside(r, m[0], m[1]) || distToRing(r, m[0], m[1]) < 0.03;
+          }) ??
+          vs[0];
         // Kavisli gömük loca: ön kenar (parapet, cam, stor) taban izi hattında değil, yay üzerinde (taşan balkon
         // döngüsü çizer); burada taban izi hattı iç kenar olarak açık kalır
         if (curvedLoggia(v.it) && !filV) {

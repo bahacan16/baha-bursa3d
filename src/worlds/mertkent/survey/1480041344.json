@@ -29,7 +29,7 @@
   },
   "colors": {
     "plaster": "#f1f2ed",
-    "plaster2": "#dde1e1",
+    "plaster2": "#cdd4d6",
     "strip": "#df8d47",
     "fascia": "#a6a9a2",
     "soffit": "#e4e3dd",
@@ -498,6 +498,19 @@
           "frameC": {
             "*": "#e9eae6",
             "K0": "#2b2e30"
+          },
+          "inset": 4.83,
+          "merge": false,
+          "fasciaC": {
+            "1": "#34404a"
+          },
+          "curtC": {
+            "1": "#e8ecea",
+            "2": "#f1f3f3"
+          },
+          "curtF": {
+            "1": 0.9,
+            "2": 0.5
           }
         },
         {
@@ -590,7 +603,7 @@
           "color": "#55595c"
         }
       ],
-      "note": "Güney kanat batı cephesi (e0'ın aynası); jeMF (11 m) + yz6q. u 6.72–8.1: GB köşe yığınının (ön yüzü e5) camlı yan yüzü (d:0), kat kat e5 ile aynı cam görünümü (K0 koyu, K1–K2 şeffaf + beyaz perde, K3 dikey/yatay lamelli stor, K4 koyu mavi, K5 yeşil). Perdeler: K0 beyaz tül; K1 dikey lamel (jaluzi) + koyu; K2 dantel tül (arkası mavi); K3 sol karanlık, orta/sağ beyaz tül + alt yarıda mavi fon (tul-yan); K4 ve K5 beyaz tül. Kombi baca çıkışları her katta u≈6.05 (tavan hizası). Derzler y 5.9 / 11.1 (renk sınırı) / 14.1. Beyaz PVC yağmur borusu u 6.69."
+      "note": "Güney kanat batı cephesi (e0'ın aynası); jeMF (11 m) + yz6q. u 6.72–8.1: GB köşe yığınının (ön yüzü e5) camlı yan yüzü (d:0), kat kat e5 ile aynı cam görünümü (K0 koyu, K1–K2 şeffaf + beyaz perde, K3 dikey/yatay lamelli stor, K4 koyu mavi, K5 yeşil). Perdeler: K0 beyaz tül; K1 dikey lamel (jaluzi) + koyu; K2 dantel tül (arkası mavi); K3 sol karanlık, orta/sağ beyaz tül + alt yarıda mavi fon (tul-yan); K4 ve K5 beyaz tül. Kombi baca çıkışları her katta u≈6.05 (tavan hizası). Derzler y 5.9 / 11.1 (renk sınırı) / 14.1. Beyaz PVC yağmur borusu u 6.69. Eleştirmen düzeltmesi: GB yığın yan yüzü inset 4.83 + merge:false (bkz. e5); K1 alnı koyu antrasit #34404a (gölgeli yan yüzde de diğerlerinden koyu); K1 beyaz perde tam (curtF 0.9), K2 yan camda yarı (bir bölme karanlık, 46_4 yakın) → curtF 0.5."
     },
     {
       "edge": 5,
@@ -651,6 +664,19 @@
           "frameC": {
             "*": "#e9eae6",
             "K0": "#2b2e30"
+          },
+          "inset": 1.54,
+          "merge": false,
+          "fasciaC": {
+            "1": "#34404a"
+          },
+          "curtC": {
+            "1": "#e8ecea",
+            "2": "#f1f3f3"
+          },
+          "curtF": {
+            "1": 0.9,
+            "2": 0.9
           }
         },
         {
@@ -662,7 +688,7 @@
           "color": "#cbccc6"
         }
       ],
-      "note": "GB köşe balkon yığınının ön yüzü = bu kenar (güneşli, 1Jme 46/56 yakın kareleri çok net). Ön yüz kenar çizgisinde → d:0. Her kat: koyu gri döşeme alnı + dolu parapet (≈0.75 m görünen, döşemeden ≈0.58) + ≈0.25 m beyazımsı buzlu cam şerit, üstü beyaz dikmeli katlanır cam (≈0.6 m panel). Kat kat cam: K0 koyu (siyah dikmeli, içerisi karanlık), K1 ve K2 şeffaf + arkada boydan beyaz perde, K3 yeşil camlı yatay zebra stor, K4 koyu (mavi-lacivert), K5 yeşil/turkuaz cam. Üstte gri sıvalı eğik 'şapka' (alınlık eğimi yığının üstünden devam eder; güneşte #cbccc6, fascia'dan açık), altı beyaz. Doğu uç görünmüyor, cal.u[1] ölçekten."
+      "note": "GB köşe balkon yığınının ön yüzü = bu kenar (güneşli, 1Jme 46/56 yakın kareleri çok net). Ön yüz kenar çizgisinde → d:0. Her kat: koyu gri döşeme alnı + dolu parapet (≈0.75 m görünen, döşemeden ≈0.58) + ≈0.25 m beyazımsı buzlu cam şerit, üstü beyaz dikmeli katlanır cam (≈0.6 m panel). Kat kat cam: K0 koyu (siyah dikmeli, içerisi karanlık), K1 ve K2 şeffaf + arkada boydan beyaz perde, K3 yeşil camlı yatay zebra stor, K4 koyu (mavi-lacivert), K5 yeşil/turkuaz cam. Üstte gri sıvalı eğik 'şapka' (alınlık eğimi yığının üstünden devam eder; güneşte #cbccc6, fascia'dan açık), altı beyaz. Doğu uç görünmüyor, cal.u[1] ölçekten. Eleştirmen düzeltmesi (2026-09-30): loca derinliği inset 1.54 (e4 yan camı görünen u 6.72–8.1 → gerçek 1.54; notta ~1.45), e4 yan öğesi inset 4.83 (ön yüz genişliği) + her ikisinde merge:false — köşe birleştirmesi dikdörtgeni e4'ten kuruyor ve derinliği 3.2 m'ye kırpıyordu (4.83 m ön yüzün 1.63 m'si duvar kalıyordu); ayrı dikdörtgenlerin birleşimi = 4.83 × 1.54 tek loca. Kat kat (1Jme ortofoto + 46_4/46_32 yakın, güneşli): K5 turkuaz cam #a1d3d0, K4 koyu mavi #627b97, K3 turkuaz cam + yatay lamelli stor #9ecbc4, K2 ve K1 şeffaf + boydan beyaz perde (K2 #f1f3f3, K1 #e8ecea; neredeyse kapalı → curtF 0.9), K0 koyu, siyah doğrama. YENİ: K1 döşeme alnı/parapeti KOYU antrasit #34404a (güneşte; diğer katların alınları #b5b2a6–#c7c6bd, 46_4'te de #36434e / #b9b5aa) → fasciaC K1. Şapka #cacbc5 (güneşli) doğrulandı."
     },
     {
       "edge": 6,
@@ -1640,7 +1666,9 @@
     "Renkler (güneşli / gölgeli): alt sıva beyaz #f1f2ed (güneşte ortofoto #fcfefe aşırı pozlu, 1Jme 46 yakın #fbfbf5–#e7e6e1; gölgede e0/e4 #a0a1a1–#a4a5a3); üst sıva açık mavi-gri #dde1e1 (güneşte #dbe0e0–#e8eae2; gölgede #899099/#88929b — gölgede beyazdan belirgin koyu ve mavimsi); turuncu şerit #df8d47 (gölgede #9c612f/#956234, güneşte ortofoto aşırı pozlu #f0cba2 → gölge/güneş oranından türetildi); balkon alnı/parapet #a6a9a2 (güneşte #a0a49c–#bfc4b8, gölgede #4b5256–#5d6c7e); yığın şapkası gri sıva güneşte #cbccc6; saçak alın bandı gölgede #636b74 / #5c6464; soffit beyaz-açık gri (krem değil).",
     "Eleştirmen notları: (1) 'beyaz/krem kalın balkon alnı' bu blokta geçerli değil — alınlar koyu gri, kalınlık parapetle birlikte ≈0.75 m görünen (doğru). (2) Pilastr: bu bloktaki tek pilastr turuncu yuvarlak şeritler (strip ile çizili); başka pilastr yok. (3) Soffit rengi krem → açık gri-beyaz yapıldı.",
     "Görülmeyenler: e6 ve e10 (yığınların iç yan yüzleri) — camlı varsayıldı; e7 girişi (ikizden); e8/e9 perdeleri (uzak, çözünürlük yok); K0 satırlarının bir kısmı çit/palmiye/ağaç arkasında; subasman (çit arkasında) görülmedi.",
-    "v6 (2026-09-29): (1) Saçak alın bandı roof.fasciaC #c0c3c2 — doğrudan güneşli örnek (hoOD e8 u 7–13, y 19.15–19.6: #bfc2c2 / #c0c4c2; aynı karede üst sıva #d6dad7). Eski tahmin #8f979e fazla koyuydu (gölge/güneş oranından). Gölgede #626c77–#68707b (agzp e0), #646c77 (jeMF e4). (2) Yığın şapkaları: d:0 gömük yığında `cap` şapkası çizilmez (üretici yalnız taşan balkona şapka koyar) → şapka = alınlık üçgeni + loca boşluğu tavanından yukarı pano: roof.gableC e5/e11 #cbccc6 (güneşli, 1Jme e5 y 19.3–20.5: #cacbc5–#cbcbc6; KB e11 yalnız gölgede #73767c, aynı gri kabul edildi) + e5/e11 pano #cbccc6 (y0 = K5 loca tavanı, görünen 18.87 / 18.30; fotoğrafta şapka alt kenarı 18.9 / 18.2–18.3 ✓). KD köşe locası üstü de koyu gri şapka (WDsd e9 gölgede #656660, yanındaki alınlık #909293) → e9 u −0.4–1.1 pano #cbccc6. GD loca üstü (e7 u 11.85–13.68) güneşte #d8d7d3 ≈ alınlık sıvası (#e6ebea) → plaster2 pano (şapka değil). Ana alınlıklar e7/e9 gableC plaster2 (üst sıva alınlığa devam eder). Şapkaların eğik üst kenarındaki ince koyu metal damlalık: v6 alınlık rüzgârlığıyla çizilir. (3) e8 çatı çanağı: saçak alnının hemen arkasında, beyaz, ortasında turuncu LNB (hoOD 342_14): roofobj dish u 5.3 (görünen), setback 0.6, h 0.45 (merkez, çatı yüzünden), çap ≈0.65 (342_14'te ≈13 px @ 43 m). DİKKAT: hoOD çok eğik (uF −31.5) → setback 0.5 m değişirse u ≈1.3 m kayar; çatı kotu görülmediğinden setback tahmini (çanak saçak üstünden ≈0.4 m yükseliyor). (4) Şerit uçları (agzp/jeMF/1Jme/WDsd yakın): üst şerit çiftlerinin ALT ucu düz (pencere denizliği hizasında kare), üst uçları düz (e0/e4 saçak altında ≈0.15 m boşlukla, e7/e9 alınlık çizgisinde küçük başlıkla) → bottom/top flat. Alt şeritlerin üst ucu e0/e4 yuvarlak (varsayılan, doğrulandı); e7/e9/e8 alt uçları ve e8 şeritleri bulanık → varsayılan bırakıldı."
+    "v6 (2026-09-29): (1) Saçak alın bandı roof.fasciaC #c0c3c2 — doğrudan güneşli örnek (hoOD e8 u 7–13, y 19.15–19.6: #bfc2c2 / #c0c4c2; aynı karede üst sıva #d6dad7). Eski tahmin #8f979e fazla koyuydu (gölge/güneş oranından). Gölgede #626c77–#68707b (agzp e0), #646c77 (jeMF e4). (2) Yığın şapkaları: d:0 gömük yığında `cap` şapkası çizilmez (üretici yalnız taşan balkona şapka koyar) → şapka = alınlık üçgeni + loca boşluğu tavanından yukarı pano: roof.gableC e5/e11 #cbccc6 (güneşli, 1Jme e5 y 19.3–20.5: #cacbc5–#cbcbc6; KB e11 yalnız gölgede #73767c, aynı gri kabul edildi) + e5/e11 pano #cbccc6 (y0 = K5 loca tavanı, görünen 18.87 / 18.30; fotoğrafta şapka alt kenarı 18.9 / 18.2–18.3 ✓). KD köşe locası üstü de koyu gri şapka (WDsd e9 gölgede #656660, yanındaki alınlık #909293) → e9 u −0.4–1.1 pano #cbccc6. GD loca üstü (e7 u 11.85–13.68) güneşte #d8d7d3 ≈ alınlık sıvası (#e6ebea) → plaster2 pano (şapka değil). Ana alınlıklar e7/e9 gableC plaster2 (üst sıva alınlığa devam eder). Şapkaların eğik üst kenarındaki ince koyu metal damlalık: v6 alınlık rüzgârlığıyla çizilir. (3) e8 çatı çanağı: saçak alnının hemen arkasında, beyaz, ortasında turuncu LNB (hoOD 342_14): roofobj dish u 5.3 (görünen), setback 0.6, h 0.45 (merkez, çatı yüzünden), çap ≈0.65 (342_14'te ≈13 px @ 43 m). DİKKAT: hoOD çok eğik (uF −31.5) → setback 0.5 m değişirse u ≈1.3 m kayar; çatı kotu görülmediğinden setback tahmini (çanak saçak üstünden ≈0.4 m yükseliyor). (4) Şerit uçları (agzp/jeMF/1Jme/WDsd yakın): üst şerit çiftlerinin ALT ucu düz (pencere denizliği hizasında kare), üst uçları düz (e0/e4 saçak altında ≈0.15 m boşlukla, e7/e9 alınlık çizgisinde küçük başlıkla) → bottom/top flat. Alt şeritlerin üst ucu e0/e4 yuvarlak (varsayılan, doğrulandı); e7/e9/e8 alt uçları ve e8 şeritleri bulanık → varsayılan bırakıldı.",
+    "Eleştirmen (V9, 2026-09-30) iki tonlu sıva yeniden örneklendi: aynı karede alt/üst oranı — güneşli hoOD e8 (orta bölme, şerit arası): alt #fafbf3 (neredeyse doygun) / üst #d6dbd7 → R .86 G .87 B .88; gölgeli jeMF e4: alt #9e9d9b / üst #88929b (agzp e0: #a3a4a3 / #8c939d) → R .87 G .94 B 1.0 (üst belirgin mavimsi). Eski plaster2 #dde1e1 (oran ≈0.92) fazla açıktı → plaster2 #cdd4d6 (plaster #f1f2ed × ≈0.86/0.88/0.90; mavimsi ton gölgeli karelerden). Eleştirmenin oyun 0.91 / fotoğraf 0.85 ölçümüyle uyumlu.",
+    "Klima dış üniteleri (e3 K0): fotoğrafta BEYAZ kutu + gri ızgaralı fan yüzü (oyunda siyah fan diski — model kodda, veri değil)."
   ],
   "pending": []
 }
