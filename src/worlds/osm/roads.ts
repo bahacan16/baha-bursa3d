@@ -9,6 +9,8 @@ export const CURB_H = 0.15;
 const Y_MINOR = 0.03;
 const Y_MAJOR = 0.04;
 const Y_MARK = 0.05;
+/** Araç yolu şeridi / kaldırım sıklaştırma adımı (m) */
+export const ROAD_STEP = 4;
 
 // Renkler Mertkent çevresi Street View karelerinden ölçüldü (asfalt sRGB≈145,146,143; parke≈211,193,167)
 // Street View ölçümü (DA 97/128, güneşli): asfalt sıcak gri ≈ #95908a → mavimsi olmasın diye hafif sıcak
@@ -406,8 +408,16 @@ export function junctionMarkSkip(roads: Road[]): (r: Road) => MarkSkip {
       const a = r.pts[i];
       const b = r.pts[i + 1];
       const pad = r.width / 2;
-      for (let gx = Math.floor((Math.min(a[0], b[0]) - pad) / CELL); gx <= Math.floor((Math.max(a[0], b[0]) + pad) / CELL); gx++)
-        for (let gz = Math.floor((Math.min(a[1], b[1]) - pad) / CELL); gz <= Math.floor((Math.max(a[1], b[1]) + pad) / CELL); gz++) {
+      for (
+        let gx = Math.floor((Math.min(a[0], b[0]) - pad) / CELL);
+        gx <= Math.floor((Math.max(a[0], b[0]) + pad) / CELL);
+        gx++
+      )
+        for (
+          let gz = Math.floor((Math.min(a[1], b[1]) - pad) / CELL);
+          gz <= Math.floor((Math.max(a[1], b[1]) + pad) / CELL);
+          gz++
+        ) {
           const k = `${gx},${gz}`;
           let v = grid.get(k);
           if (!v) grid.set(k, (v = []));
@@ -499,7 +509,9 @@ export function buildRoads(
     }
     const st = roadStyle(r);
     const half = r.width / 2;
-    const dense = densify(r.pts);
+    // Araç yolları 4 m'de bir sıklaştırılır: 12 m'de şeridin kirişi arazinin (10 m ızgara) 2.8 cm'ye kadar üstünde
+    // kalıyor, üstüne +0.004–0.02 ile serilen ölçülmüş yama / çatlak / rögar görünmüyordu (critic A9). 4 m'de ≤ 3 mm.
+    const dense = densify(r.pts, r.vehicular ? ROAD_STEP : 12);
     ribbon(geo, st.mat, dense, half, st.y, st.color);
     // Uç kapakları (kavşak dolgusu)
     for (const p of [r.pts[0], r.pts[r.pts.length - 1]])
@@ -535,8 +547,7 @@ export function buildRoads(
     else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
       dashes(geo, dense, 3, 5, 0.12, Y_MARK, skip);
     if (mk?.edges === 'solid' || (mk?.edges !== 'none' && /^(secondary|tertiary)$/.test(r.kind)))
-      for (const sd of [-1, 1])
-        dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK, skip);
+      for (const sd of [-1, 1]) dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK, skip);
   }
 
   // Kaldırımlar: kavşak düğümlerinde parçalara böl ve kırp
@@ -554,7 +565,7 @@ export function buildRoads(
       };
       const trimmed = trimPolyline(piece, trimFor(startKey), trimFor(endKey));
       if (trimmed) {
-        const dense = densify(trimmed);
+        const dense = densify(trimmed, ROAD_STEP);
         if (r.sidewalkLeft) sidewalk(geo, dense, half, 1, strips, skipWalk);
         if (r.sidewalkRight) sidewalk(geo, dense, half, -1, strips, skipWalk);
       }

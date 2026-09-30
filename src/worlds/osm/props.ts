@@ -55,15 +55,48 @@ function facingRoad(x: number, z: number, hash: SegHash): number {
   return yaw;
 }
 
-/** Street View ile ölçülmüş bölge [x0, z0, x1, z1] (sokak eşyası oradan gelir) */
-const SURVEYED = [-142, -222, 28, 4];
+/**
+ * Ölçülmüş bölge parçası: düz [x,z,...] çoklu çizgi (closed → halka, içi de dahil) ve r m tampon. Mertkent ve Doğan
+ * Avcıoğlu sokak eşyası ölçümden (street-plan.json) gelir; oradaki yordamsal lamba / park etmiş araç çizilmez.
+ * Önceden sabit bir kutu [-142,-222,28,4] idi → DA boyunca ~32 m arayla fazladan lambalar (critic da1-02/05/09/13).
+ */
+export interface PropZone {
+  p: number[];
+  r: number;
+  closed?: boolean;
+}
+
+export function inPropZone(zones: readonly PropZone[], x: number, z: number): boolean {
+  for (const zn of zones) {
+    const p = zn.p;
+    const n = p.length >> 1;
+    if (n < 1) continue;
+    let inside = false;
+    let d = Infinity;
+    for (let i = 0; i < n; i++) {
+      const j = i + 1 < n ? i + 1 : zn.closed ? 0 : -1;
+      const ax = p[2 * i];
+      const az = p[2 * i + 1];
+      if (j < 0) {
+        if (n === 1) d = Math.min(d, Math.hypot(x - ax, z - az));
+        continue;
+      }
+      const bx = p[2 * j];
+      const bz = p[2 * j + 1];
+      d = Math.min(d, distToSegment(x, z, [ax, az], [bx, bz]));
+      if (zn.closed && az > z !== bz > z && x < ((bx - ax) * (z - az)) / (bz - az) + ax) inside = !inside;
+    }
+    if (inside || d <= zn.r) return true;
+  }
+  return false;
+}
 
 /**
  * Lambalar: OSM'deki highway=street_lamp + araç yollarının kaldırım dış kenarında ~32 m arayla.
  * KARAR: OSM'de bölgede yalnızca birkaç lamba işaretli; yol kenarı lambaları konum olarak yaklaşıktır.
  * Banklar ve duraklar yalnızca OSM'deki gerçek konumlardır.
  */
-export function buildProps(d: OsmWorldData): PropsPayload {
+export function buildProps(d: OsmWorldData, surveyed: readonly PropZone[] = []): PropsPayload {
   const hash = new SegHash();
   for (const r of d.roads) {
     if (r.tunnel) continue;
@@ -110,7 +143,7 @@ export function buildProps(d: OsmWorldData): PropsPayload {
         const z = cz + nz * off * side;
         if (nearJunction || onCarriage(x, z) || inBuilding(x, z)) continue;
         // KARAR: Mertkent 2 çevresi elle ölçüldü (street-plan.json); oradaki tahmini lambalar çizilmez
-        if (x > SURVEYED[0] && x < SURVEYED[2] && z > SURVEYED[1] && z < SURVEYED[3]) continue;
+        if (inPropZone(surveyed, x, z)) continue;
         if (placed.some((p) => Math.abs(p[0] - x) < 12 && Math.abs(p[1] - z) < 12)) continue;
         placed.push([x, z]);
         lamps.push(x, H(x, z), z, Math.atan2(-nx * side, -nz * side));
@@ -151,7 +184,7 @@ export function buildProps(d: OsmWorldData): PropsPayload {
             (p) => (nodeUse.get(`${p[0]},${p[1]}`) ?? 0) > 1 && Math.hypot(p[0] - cx, p[1] - cz) < 13,
           );
           if (nearNode || crossings.some((c) => Math.abs(c[0] - cx) < 7 && Math.abs(c[1] - cz) < 7)) continue;
-          if (inBuilding(x, z)) continue;
+          if (inBuilding(x, z) || inPropZone(surveyed, x, z)) continue;
           const yaw = Math.atan2(dx, dz) + (side < 0 ? 0 : Math.PI) + (rnd() - 0.5) * 0.06;
           parked.push(x, H(x, z) + 0.04, z, yaw, Math.floor(rnd() * 1000));
         }

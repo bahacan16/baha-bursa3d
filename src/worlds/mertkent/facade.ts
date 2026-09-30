@@ -927,6 +927,8 @@ export interface CompiledBlock {
     eaves?: { at: [number, number]; eave: number }[] | null;
     /** v7: düz çatı / teras yüzeyi rengi */
     flatC?: string | null;
+    /** Rüzgârlık tahtası (alınlık eğik kenar bandı) boyu (m); verilmezse 0.22 — ince alüminyum kenar ≈0.03–0.05 */
+    barge?: number | null;
   };
   /** Subasman bandı yüksekliği tabandan (m); 0 = subasman yok. Verilmezse zemin kat döşemesine (≤ 1.2 m) */
   plinthH?: number | null;
@@ -1855,6 +1857,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     pitchDeg: blk.roof.pitch ?? 26,
     gableBase: wallTop - 0.05,
     eaveOf: mixedPar || eaveOver.size ? (i: number) => eaveOver.get(i) ?? eave0(i) : undefined,
+    bargeH: blk.roof.barge ?? undefined,
     keys: { roof: '', soffit: '', fascia: '', gable: '', terrace: '' },
   };
   const wingGab = wings ? wingGables(ring, wings, roofY, base, wingOpts0) : [];
@@ -1880,6 +1883,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
     eaveOf: mixedPar || eaveOver.size ? (i: number) => eaveOver.get(i) ?? eave0(i) : undefined,
     gableKeys,
     gableBase: wallTop - 0.05,
+    bargeH: blk.roof.barge ?? undefined,
     keys: {
       roof: K('mkTile'),
       soffit: K('mkSoffit'),

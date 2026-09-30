@@ -194,7 +194,10 @@
     "top": 2.4,
     "note": "jiletli tel spiral, panel çit dikmelerinin üstünde, çitin tüm boyunca"
    },
-   "note": "Doğu çiti (502. Sk.). u = GD köşesinden kuzeye. Kolon aralığı 6.44 m (3 prekast panel); araç kapısı 64.35–71.65 arası (G kolon–K kolon). Kapının iki yanındaki birer açıklıkta leylandi yerine düz yapay yaprak panel (koyu, tekdüze yeşil, üst ~1.95 m). 22.7–23.8 arası çitte ~1 m boşluk (bina görünüyor). Kuzeydoğu köşe kolonu u=96.1; oradan çit kuzeybatıya pahlı döner (kuzey kaydına bakınız). [2025-09 retro kontrol: SV XRdOu_240_0/300_0, Y11W_180_0, Oh3B_120_0, 8Qlt_180_-50, jeMF_120_0 çit tipini (beyaz dalgalı prekast duvar, turuncu kolon + opal küre lamba, koyu yeşil panel, jiletli tel, leylandi) doğruluyor; hava fotoğrafı profillerinde çit tepesi hattı bu kayıtla ±0.3 m uyumlu — geometri değiştirilmedi.]"
+   "note": "Doğu çiti (502. Sk.). u = GD köşesinden kuzeye. Kolon aralığı 6.44 m (3 prekast panel); araç kapısı 64.35–71.65 arası (G kolon–K kolon). Kapının iki yanındaki birer açıklıkta leylandi yerine düz yapay yaprak panel (koyu, tekdüze yeşil, üst ~1.95 m). 22.7–23.8 arası çitte ~1 m boşluk (bina görünüyor). Kuzeydoğu köşe kolonu u=96.1; oradan çit kuzeybatıya pahlı döner (kuzey kaydına bakınız). [2025-09 retro kontrol: SV XRdOu_240_0/300_0, Y11W_180_0, Oh3B_120_0, 8Qlt_180_-50, jeMF_120_0 çit tipini (beyaz dalgalı prekast duvar, turuncu kolon + opal küre lamba, koyu yeşil panel, jiletli tel, leylandi) doğruluyor; hava fotoğrafı profillerinde çit tepesi hattı bu kayıtla ±0.3 m uyumlu — geometri değiştirilmedi.] [2026-09 eleştirmen V0: GD köşe kolonu (u=0) üstünde küre lamba YOK — U-Oz8_240_0 yakın kırpımda kolon başlığı çıplak; komşu kolonlarda lamba var. noLampU: lamba çizilmeyecek kolonların u değerleri.]",
+   "noLampU": [
+    0
+   ]
   },
   {
    "kind": "mertkent",
@@ -2439,7 +2442,26 @@
    ],
    "w": 2.4,
    "h": 3.1,
-   "note": "MERTKENT Sitesi 2.Etap yaya kapısı (Doğan Avcıoğlu): siyah kutu portal, üst başlıkta beyaz \"MERTKENT / Sitesi 2.Etap\" yazısı, altın desenli siyah kapı kanadı (~1.6 m), yan kolonlarda altın madalyonlar. Önünde tabela direği (viraj + 30)."
+   "note": "MERTKENT Sitesi 2.Etap yaya kapısı (Doğan Avcıoğlu): siyah kutu portal, üst başlıkta beyaz \"MERTKENT / Sitesi 2.Etap\" yazısı, altın desenli siyah kapı kanadı (~1.6 m), yan kolonlarda altın madalyonlar. Önünde tabela direği (viraj + 30). | 2026-09 (eleştirmen V4 #22): SV 4RYu_150_0_40: kutu portal altında İKİ kanatlı, lazer kesim siyah süslü (arkası görünen, delikli) ekran kapı; her kanadın ortasında (kanat boyunun ≈%50 kotunda) kanat eninin ≈%45'i çapında altın rozet (gül/çiçek motifi); her kolon yüzünde üst üste iki altın baklava (≈%30 ve ≈%72 yükseklikte). Kapı gölgede: siyah ≈#212c26 (gölge); altın tonu bu çözünürlükte ölçülemedi (en açık örnek ≈#615c52, gölge). Mevcut çizim (tek dolu siyah kapı + tek büyük 4 yapraklı çiçek + kolon başına 1 madalyon) yanlış → leafSpec (kod).",
+   "leafSpec": {
+    "style": "laser-screen",
+    "leaves": 2,
+    "color": "#212c26",
+    "rosette": {
+     "perLeaf": 1,
+     "dFrac": 0.45,
+     "yFrac": 0.5,
+     "color": "gold"
+    },
+    "pillarLozenges": {
+     "n": 2,
+     "yFrac": [
+      0.3,
+      0.72
+     ],
+     "color": "gold"
+    }
+   }
   },
   {
    "kind": "pedestrian",
@@ -2484,7 +2506,30 @@
    ],
    "w": 5,
    "h": 1.75,
-   "note": "Güney araç kapısı: doğudakiyle aynı tip siyah sürgülü ferforje kapı + \"P\" levhası. Kolonlar (-37.2,-37.0) ve (-43.9,-37.3). Arkada havuz/otopark görülüyor."
+   "note": "Güney araç kapısı: doğudakiyle aynı tip siyah sürgülü ferforje kapı + \"P\" levhası. Kolonlar (-37.2,-37.0) ve (-43.9,-37.3). Arkada havuz/otopark görülüyor. | 2026-09 (eleştirmen V12 #23): SV hoOD_308_4_40 / 322_7_40 / 0_0: gri çelik sürgülü kapı — dikdörtgen gözlü kaynaklı tel panel, üst rayda sık mızrak uçlu süs (uçları altın/bronz ≈#ac977e güneşli), altta ferforje kıvrım (S-scroll) bandı ≈0.35 m; çerçeve güneşli ≈#a0a195, gölge ≈#716c6b. Kapı ile yaya kapısı arasındaki kolon: turuncu sıva, başlığı açık gri taş (≈#adaaa8), küre lamba; kolon dibinde küçük krem/beyaz kutu (≈#ecd8ab, ≈0.35 × 0.25 m, derinlik görülmedi). Krem CCTV uyarı levhası (koyu başlık) kanatta DEĞİL, yaya kapısının sağındaki çitte (hoOD_0_0 x≈565) — yazı okunmadı. Kanattaki beyaz \"P\" levhası = mevcut street item \"P – YABANCI ARAÇ PARK EDEMEZ\" (−40,−37.1). Mevcut çizim (siyah dikey çubuk, turuncu başlık) yanlış → leafSpec/pillarSpec (kod).",
+   "leafSpec": {
+    "style": "mesh-slide",
+    "frame": "#a0a195",
+    "mesh": "rect",
+    "finials": {
+     "kind": "spear",
+     "color": "#ac977e"
+    },
+    "scrollBand": {
+     "h": 0.35,
+     "color": "#716c6b"
+    }
+   },
+   "pillarSpec": {
+    "cap": {
+     "color": "#adaaa8"
+    },
+    "footBox": {
+     "w": 0.35,
+     "h": 0.25,
+     "color": "#ecd8ab"
+    }
+   }
   },
   {
    "kind": "pedestrian",
@@ -3061,6 +3106,33 @@
     [
      -2,
      -147.2
+    ]
+   ],
+   "w": 2.3,
+   "side": "right",
+   "kerbH": 0.15,
+   "material": "Kırmızı bant (bordür boyunca) + gri kilit taşı; iç tarafta konik ardıç/servi dikili üçgen yeşil ada (çitle kaldırım arası). Sarı kılavuz bu köşede görülmedi.",
+   "note": "SV 7xGS_120_0, 2ydc_180_0 (2025-09): kırmızı bant + gri, köşede bisiklet levhası + yeşil çöp kutusu. Bordür hattı hava fotoğrafından ±0.7 m (değiştirilmedi); 502 tarafında (z>−136) east-west-side düzenine (gri + kılavuz + mavi şerit) geçiş noktası ±3 m. | 2026-09 (eleştirmen V3 #19): 502 tarafı + köşe yayı ayrı kayda (ne-island-502) alındı: orada bordür dibinde mavi bisiklet şeridi + beyaz kenar çizgisi ve soluk 40 cm kılavuz karo sırası var (Xe8P_238_-5_40). Bu kayıt yalnız Doğan Avcıoğlu kenarı (x −15…−2).",
+   "layers": [
+    {
+     "w": 1.2,
+     "material": "kiremit-kırmızı beton kilit taşı 10×20 (bordür dibinden)",
+     "h": 0.15
+    },
+    {
+     "w": 0.95,
+     "material": "gri beton kilit taşı 10×20 (ardıç adasına kadar)",
+     "h": 0.15
+    }
+   ]
+  },
+  {
+   "id": "ne-island-502",
+   "street": "Doğan Avcıoğlu – 502. Sokak kavşağı KD köşe adası: köşe yayı + 502. Sk. kenarı",
+   "pts": [
+    [
+     -2,
+     -147.2
     ],
     [
      1.5,
@@ -3079,23 +3151,24 @@
      -131
     ]
    ],
-   "w": 2.3,
+   "w": 1.6,
    "side": "right",
    "kerbH": 0.15,
-   "material": "Kırmızı bant (bordür boyunca) + gri kilit taşı; iç tarafta konik ardıç/servi dikili üçgen yeşil ada (çitle kaldırım arası). Sarı kılavuz bu köşede görülmedi.",
-   "note": "SV 7xGS_120_0, 2ydc_180_0 (2025-09): kırmızı bant + gri, köşede bisiklet levhası + yeşil çöp kutusu. Bordür hattı hava fotoğrafından ±0.7 m (değiştirilmedi); 502 tarafında (z>−136) east-west-side düzenine (gri + kılavuz + mavi şerit) geçiş noktası ±3 m.",
+   "bike": 1.15,
    "layers": [
     {
-     "w": 1.2,
-     "material": "kiremit-kırmızı beton kilit taşı 10×20 (bordür dibinden)",
+     "w": 1.45,
+     "material": "gri beton kilit taşı 10×20 (bordürden ≈0.45 + karo + ≈0.8 → otlu toprak şerit / ardıç adası)",
      "h": 0.15
     },
     {
-     "w": 0.95,
-     "material": "gri beton kilit taşı 10×20 (ardıç adasına kadar)",
-     "h": 0.15
+     "w": 0.4,
+     "material": "soluk krem-sarı hissedilebilir kılavuz karo 40 × 40 (tek sıra, bordüre paralel)",
+     "at": 0.8
     }
-   ]
+   ],
+   "material": "Bordür dibinde yol kotunda mavi bisiklet şeridi (dış kenarında beyaz çizgi) → gri bordür → gri kilit taşı ≈0.45 → soluk kılavuz karo sırası 0.40 → gri kilit taşı ≈0.8 → otlu toprak şerit → ardıç adası.",
+   "note": "2026-09 (eleştirmen V3 #19): SV Xe8P_238_-5_40 (yakın plan) ve Xe8P_240_0 / 270_-50: mavi şerit + beyaz kenar çizgisi ada bordürü boyunca köşeyi döner; kaldırımda tek sıra soluk (güneşte aşırı pozlanmış, gerçek tonu ölçülemedi — solmuş sarı olabilir) 40 cm karo. Bant genişlikleri karo boyuna göre görsel oran (±0.15 m); 'sonu' levhası (ne-bike-end) ve yeşil çöp kutusu köşede. DA kenarındaki kırmızı bandın bittiği nokta (x≈−2 ±3 m) ve karonun köşede nereden başladığı görülmedi. Pano GPS'i tutarsız → bordür hattı eski kayıttan (hava fotoğrafı ±0.7 m)."
   },
   {
    "id": "west-east-side",
@@ -3983,8 +4056,8 @@
    "note": "HVLz_0_-50 (2025-09) zemin karesi satır profili: bordür→kılavuz 0.9–1.3, →duvar 1.95 m (bu mesafede ham ölçek ≈1). Bordür x: hava fotoğrafı 199.8–200.6 arası (gölge nedeniyle belirsiz) → 200.3 ±0.4. SV konumları bu sokakta 3–4 m kayık (l07h/HVLz GPS), bu yüzden mutlak konum hava fotoğrafından. Köşe yayı yarıçapı ≈1.8 (KOxF_180_-50: köşede ızgara + DUR levhası). Güney ucu z≈-128 (daha güneyi ölçülmedi). H-kalibrasyon (2025-09 kamera 2.35 m, kaldırım kotunda ×0.88; 'ham ölçek ≈1' geçerli değil — hata mesafeyle orantılı): HVLz bordür→duvar 1.95→1.72 (w 2.00→1.75), gri 1.85→1.60, kılavuz merkezi 1.10→0.95 (ham 0.9–1.3 → 0.8–1.15)."
   },
   {
-   "id": "da2-sw-503-west",
-   "street": "503. Sokak (batı kaldırımı, kabartmalı gri duvar önü) + Doğan Avcıoğlu GB köşesi",
+   "id": "da2-sw-503-west-corner",
+   "street": "Doğan Avcıoğlu – 503. Sokak GB köşe yayı (bisiklet şeridi YOK)",
    "pts": [
     [
      185,
@@ -4002,6 +4075,33 @@
      192.5,
      -154.7
     ],
+    [
+     193,
+     -153.2
+    ]
+   ],
+   "w": 2.05,
+   "side": "right",
+   "kerbH": 0.15,
+   "layers": [
+    {
+     "w": 1.9,
+     "material": "gri beton kilit taşı (2025 ≈#8b877f, güneşli kısım ≈#9f9c97)",
+     "h": 0.15
+    },
+    {
+     "w": 0.4,
+     "material": "sarı hissedilebilir kılavuz şerit (2025 güneşli ≈#b9aa93)",
+     "at": 0.9
+    }
+   ],
+   "material": "gri bordür, gri kilit taşı, sarı kılavuz (bordür+≈1.0); yol tarafında bordür boyunca mavi bisiklet şeridi (≈1.15 m, beyaz kenar çizgili, 2025 ≈#7a838e) — katmanlarla ifade edilemiyor.",
+   "note": "2026-09 (eleştirmen da2-05): da2-sw-503-west'ten ayrıldı — SV SyTa_180_0: mavi bisiklet şeridi yalnız 503. Sk. batı kenarında, köşe yayının bittiği yerden (≈(193,−153.2)) güneye başlar; Doğan Avcıoğlu kenarında ve köşe yayında şerit yok (yol kenarında yalnız beyaz kenar çizgisi). Katmanlar ana kayıtla aynı (köşede sarı kılavuz DA ve 503 kılavuzlarını birleştirir)."
+  },
+  {
+   "id": "da2-sw-503-west",
+   "street": "503. Sokak (batı kaldırımı, kabartmalı gri duvar önü) + Doğan Avcıoğlu GB köşesi",
+   "pts": [
     [
      193,
      -153.2
@@ -4043,7 +4143,7 @@
     }
    ],
    "material": "gri bordür, gri kilit taşı, sarı kılavuz (bordür+≈1.0); yol tarafında bordür boyunca mavi bisiklet şeridi (≈1.15 m, beyaz kenar çizgili, 2025 ≈#7a838e) — katmanlarla ifade edilemiyor.",
-   "note": "l07h_270_-50 (2025): bisiklet şeridi → bordür → gri kaldırım (ham 2.35 m) → kabartmalı duvar; kılavuz bordürden ham ≈1.0. HVLz_0_-50: batı bordürü ile şerit iç çizgisi arası ham ≈1.2. Bordür x 193.0 ±0.5 (hava fotoğrafı; SV GPS kayık). Kuzey kolu (x 185–191) da1-sw-south'un bittiği köşe; burada kaldırım gerçekte site çitine (z≈-152) kadar ≈4 m geniş köşe alanı (lamba da1-lamp-5) — 2.3 m ile kapanmıyor. Park etmiş araçlar bisiklet şeridi üzerinde (hava fotoğrafı). H-kalibrasyon (2025-09 kamera 2.35 m): l07h kaldırım ham 2.35 × 0.88 = 2.07 → w 2.30→2.05, gri 2.15→1.90, kılavuz 1.00→0.90; bisiklet şeridi yol kotunda ham 1.2 × 0.94 = 1.13 → 1.15 değişmedi. Duvar hattı buna göre x 190.95 (hava fotoğrafı gölge çizgisinin doğu kenarı ≈190.9 ile uyumlu; da2-fence-503-west).",
+   "note": "l07h_270_-50 (2025): bisiklet şeridi → bordür → gri kaldırım (ham 2.35 m) → kabartmalı duvar; kılavuz bordürden ham ≈1.0. HVLz_0_-50: batı bordürü ile şerit iç çizgisi arası ham ≈1.2. Bordür x 193.0 ±0.5 (hava fotoğrafı; SV GPS kayık). Kuzey kolu (x 185–191) da1-sw-south'un bittiği köşe; burada kaldırım gerçekte site çitine (z≈-152) kadar ≈4 m geniş köşe alanı (lamba da1-lamp-5) — 2.3 m ile kapanmıyor. Park etmiş araçlar bisiklet şeridi üzerinde (hava fotoğrafı). H-kalibrasyon (2025-09 kamera 2.35 m): l07h kaldırım ham 2.35 × 0.88 = 2.07 → w 2.30→2.05, gri 2.15→1.90, kılavuz 1.00→0.90; bisiklet şeridi yol kotunda ham 1.2 × 0.94 = 1.13 → 1.15 değişmedi. Duvar hattı buna göre x 190.95 (hava fotoğrafı gölge çizgisinin doğu kenarı ≈190.9 ile uyumlu; da2-fence-503-west). | 2026-09: köşe yayı (x 185–193) da2-sw-503-west-corner kaydına alındı; bisiklet şeridi yalnız bu kayıtta (503. Sk.).",
    "bike": 1.15
   },
   {
@@ -5139,6 +5239,233 @@
    ],
    "material": "gri bordür + çim refüj (her iki kenarda bordür — şema tek kenar çiziyor).",
    "note": "Hava fotoğrafı: koyu yeşil şerit x 677.5–691.7, z -83.3…-81.4 (E1 v -0.75…+1.15); DIKa_0_0 (2025) çimli refüj + kazıklı genç ağaç. x<677 ve x>692 refüj yok (boya/ada ölçülmedi). ±0.3 m."
+  },
+  {
+   "id": "park-cv-west",
+   "street": "Cavit Orhan Tütengil Caddesi (doğu kaldırımı, kuzey park önü) + park GB köşe yayı",
+   "pts": [
+    [
+     -69.5,
+     -211.5
+    ],
+    [
+     -69.7,
+     -208
+    ],
+    [
+     -70.2,
+     -200
+    ],
+    [
+     -70.7,
+     -190
+    ],
+    [
+     -71.1,
+     -180
+    ],
+    [
+     -71.6,
+     -170
+    ],
+    [
+     -71.9,
+     -162.5
+    ],
+    [
+     -71.8,
+     -160.6
+    ],
+    [
+     -71.2,
+     -159.1
+    ],
+    [
+     -70.2,
+     -157.9
+    ],
+    [
+     -68.9,
+     -156.9
+    ],
+    [
+     -67.5,
+     -156.3
+    ],
+    [
+     -65.9,
+     -156.05
+    ]
+   ],
+   "w": 4.95,
+   "side": "right",
+   "kerbH": 0.15,
+   "layers": [
+    {
+     "w": 1.6,
+     "material": "kiremit-kırmızı beton kilit taşı 10×20 (bordür dibinden)",
+     "h": 0.15
+    },
+    {
+     "w": 3.2,
+     "material": "gri beton kilit taşı 10×20 (çime kadar)",
+     "h": 0.15
+    }
+   ],
+   "material": "gri beton bordür + kiremit-kırmızı kilit taşı bant ≈1.6 + gri kilit taşı ≈3.2 → çim. Sarı kılavuz şerit GÖRÜLMEDİ.",
+   "note": "2026-09 (eleştirmen V16/V17 #10): önceden burada ölçülmüş kaldırım yoktu → OSM genel kaldırımı (gri + sarı kılavuz) park-plan kırmızı alanının üstüne yol tarafında çiziliyordu (sıra ters). Bordür hattı park-plan L3 (hava fotoğrafı ±0.5 m). Bant genişlikleri SV EbG_90_-50 zemin karesinden (z −172: bordür üstü → kırmızı/gri derz 1.61 m, → çim 3.24 m; toplam park-plan alanı genişliğiyle aynı 5.0 m) ve EbG_60_0 (bordür boyunca kiremit bant, içte gri). Yol tarafında bordürden ≈0.4–0.5 m beyaz kenar çizgisi (EbG_90_-50). Renkler: kareler aşırı pozlanmış/gölgeli → ölçülmedi, malzeme adı esas. Lamba direği (−69.5,−172.7) kırmızı/gri bant sınırında."
+  },
+  {
+   "id": "park-da-north",
+   "street": "Doğan Avcıoğlu Caddesi (kuzey kaldırımı, kuzey park önü, x −66…4.8)",
+   "pts": [
+    [
+     -65.9,
+     -156.05
+    ],
+    [
+     -61,
+     -155.6
+    ],
+    [
+     -55,
+     -155.2
+    ],
+    [
+     -46,
+     -154.8
+    ],
+    [
+     -40,
+     -154.4
+    ],
+    [
+     -34,
+     -154.2
+    ],
+    [
+     -28,
+     -153.7
+    ],
+    [
+     -19,
+     -153.5
+    ],
+    [
+     -16,
+     -153.8
+    ],
+    [
+     -13,
+     -154.3
+    ],
+    [
+     -10,
+     -155.1
+    ],
+    [
+     -7,
+     -156.2
+    ],
+    [
+     -4,
+     -157.4
+    ],
+    [
+     -1,
+     -158.9
+    ],
+    [
+     3,
+     -161
+    ],
+    [
+     4.8,
+     -161.8
+    ]
+   ],
+   "w": 4.5,
+   "side": "right",
+   "kerbH": 0.15,
+   "layers": [
+    {
+     "w": 1.4,
+     "material": "kiremit-kırmızı beton kilit taşı 10×20 (bordür dibinden)",
+     "h": 0.15
+    },
+    {
+     "w": 2.75,
+     "material": "gri beton kilit taşı 10×20",
+     "h": 0.15
+    },
+    {
+     "w": 0.2,
+     "material": "krem/bej beton kenar taşı (çime karşı)",
+     "h": 0.15
+    }
+   ],
+   "material": "gri beton bordür + kiremit-kırmızı bant ≈1.4 + gri kilit taşı ≈2.75–2.9 + açık beton kenar taşı → çim (dibinde 0.3–0.6 m yıpranmış toprak). Sarı kılavuz x≈−54'te GÖRÜLMEDİ; doğu ucu (x 4.8) da1-sw-north-west'e bağlanır (orada kılavuz var).",
+   "note": "2026-09: park-cv-west ile aynı sebep (OSM genel kaldırımı). Bordür hattı park-plan L2. Bantlar SV 8QlT_0_-50 zemin karesinden (x −54: bordür → kırmızı 1.37 m, gri 2.9 m, açık kenar şeridi ≈0.2 + toprak). Yolda bordürden ≈0.47 m beyaz kenar çizgisi. Kaldırım arka kenarında beyaz cam kumbarası beton kaide üzerinde (park-plan)."
+  },
+  {
+   "id": "nw-corner",
+   "street": "Cavit Orhan – Doğan Avcıoğlu köşesi (Mertkent 2 KB köşe meydanı)",
+   "pts": [
+    [
+     -74.1,
+     -138
+    ],
+    [
+     -73.9,
+     -142
+    ],
+    [
+     -73.6,
+     -145
+    ],
+    [
+     -73.0,
+     -146.8
+    ],
+    [
+     -71.8,
+     -148.2
+    ],
+    [
+     -70.1,
+     -149.1
+    ],
+    [
+     -68,
+     -149.35
+    ],
+    [
+     -66,
+     -149.3
+    ]
+   ],
+   "w": 3.0,
+   "side": "right",
+   "kerbH": 0.15,
+   "layers": [
+    {
+     "w": 1.2,
+     "material": "kiremit-kırmızı beton kilit taşı 10×20 (bordür boyunca köşeyi kesintisiz döner)",
+     "h": 0.15
+    },
+    {
+     "w": 1.65,
+     "material": "gri beton kilit taşı 10×20",
+     "h": 0.15
+    },
+    {
+     "w": 0.4,
+     "material": "sarı hissedilebilir kılavuz karo",
+     "at": 2.4
+    }
+   ],
+   "material": "gri beton bordür + kiremit-kırmızı bant ≈1.2 (köşe boyunca sürekli) + gri kilit taşı alan (arkası site-plan area 33 gri kilit taşı, çitin pahlı köşesine kadar) + sarı kılavuz bordürden ≈2.4–2.6.",
+   "note": "2026-09 (eleştirmen V6 #11): köşede ölçülmüş kaldırım yoktu (west-east-side z −138'de, north-south-side x −66'da bitiyor) → düz bej balıksırtı. SV zvwR_180_-50 (Cavit Orhan: bordür → kırmızı ≈1.5, kılavuz bordürden 2.35 m, çit bordürden ≈4.3 m) ve zvwR_90_-50 (DA: kırmızı 1.21 m, kılavuz bordürden 2.6 m, kılavuz yol boyunca köşeden kabine (−65.4,−149.3) kadar görülüyor). İki kılavuz hattı köşede birleşir; kılavuzun köşedeki tam kıvrımı (eleştirmen: biri geçide doğru çapraz) bu karelerden çözülemedi — tek sürekli hat olarak çizildi. Bordür köşe yayı hava fotoğrafından (±0.5 m). SV kamera GPS'i bu noktada z'de ≈2.8 m kayık → mutlak konumlar hava fotoğrafından, göreli bant ölçüleri karelerden."
   }
  ],
  "street": [
@@ -5179,12 +5506,13 @@
   },
   {
    "kind": "sign",
-   "x": 1.6,
-   "z": -143.3,
+   "x": 0.5,
+   "z": -145.0,
    "h": 2.8,
-   "text": "Mecburi bisiklet yolu (mavi daire, beyaz bisiklet)",
-   "note": "KD köşe adası, ±1.5 m",
-   "rot": 180
+   "text": "Mecburi bisiklet yolu sonu (mavi daire, beyaz bisiklet, kırmızı çapraz bant)",
+   "note": "2026-09 (eleştirmen V3 #5): SV Xe8P_240_0 (yakın plan): tek levha, 'sonu' (kırmızı çapraz bantlı), altında ek levha YOK; yüzü 502. Sk. tarafına (doğu-güneydoğu, pusula ≈105° → rot 75; sign rot kuralı: yüz pusulası = 180 − rot) bakar. Konum: Xe8P_270_-50'de direk yeşil çöp kutusunun hemen kuzeyinde (≈0.4 m), aynı bordür uzaklığında → bin (0.6,−144.6)'nın KB'sı. Pano GPS'i bu noktada tutarsız (±3 m) → mutlak konum bin'e göre. Arka yüz (batı, ada tarafı) görülmedi.",
+   "rot": 75,
+   "id": "ne-bike-end"
   },
   {
    "kind": "bin",
@@ -5199,8 +5527,11 @@
    "x": -1.5,
    "z": -38,
    "h": 2.8,
-   "text": "Mecburi bisiklet yolu (mavi daire)",
-   "note": "GD köşe kolonunun önünde, kaldırımda"
+   "text": "Mecburi bisiklet yolu sonu (mavi daire, beyaz bisiklet, kırmızı çapraz bant) + altında mavi dikdörtgen ek levha, beyaz ok",
+   "note": "2026-09 (eleştirmen V0 #5): iki yüzlü. Kuzey yüzü (pusula ≈345° → rot 195) U-Oz8_240_0'da: 'sonu' levhası (kırmızı çapraz bant) + altında mavi dikdörtgen ek levha, beyaz ok (okun yönü/biçimi bu çözünürlükte okunmadı). Güney-doğu yüzü (textB, ≈165°) I52t5_240_0'da: düz mavi 'mecburi bisiklet yolu' dairesi (bu yüzün altında ek levha görülmedi).",
+   "id": "se-bike-end",
+   "rot": 195,
+   "textB": "Mecburi bisiklet yolu (mavi daire, beyaz bisiklet)"
   },
   {
    "kind": "mirror",
@@ -6767,6 +7098,62 @@
    "stripes": "≈0.5/0.55 m",
    "text": "",
    "note": "502. Sk. – Nato Parkı koşu yolu yaya geçidi (OSM crossing 1.03,−21.36): hava fotoğrafında 8 şerit x −2.1…5.5, yol boyu genişlik z −23.5…−21.25. Eski notta şeritler sarı-beyaz dönüşümlü (SV I52t_180_0 uzaktan sarımsı görünüyor) — çizici yalnız beyaz yapıyor, renk sırası ÖLÇÜLMEDİ. Geçidin ≈0.7 m güneyinde doğu şeridinde beyaz durma çizgisi (x 0.8–4.5). Her iki uçta turuncu esnek dikmeler (tek tek konumlanmadı)."
+  },
+  {
+   "kind": "board",
+   "id": "east-fence-plate-43",
+   "x": -0.4,
+   "z": -80.23,
+   "rot": 90,
+   "w": 0.5,
+   "h": 0.3,
+   "y0": 1.7,
+   "d": 0.01,
+   "poles": 0,
+   "text": "",
+   "bg": "#f4ecea",
+   "fg": "#c0303a",
+   "border": "#f4ecea",
+   "font": "sans",
+   "bold": true,
+   "note": "2026-09 (eleştirmen V1): doğu çitinin panel teli üstünde (çitin sokak yüzü), 43'ün GD köşesi hizasında küçük beyaz levha, kırmızı/mor yazılı (≈3 satır, solda küçük logo) — YAZI OKUNAMADI (kgyF_240_0, 8.2 m; boyut ≈0.5 × 0.3 m ±0.1). Konum kerteriz 272.6° × çit hattı; merkez ≈1.85 m. bg ≈#f4ecea (güneşli, kareden), fg tonu yalnız yaklaşık (kırmızı-mor)."
+  },
+  {
+   "kind": "board",
+   "id": "da1-board-sehri-pole",
+   "x": 33.2,
+   "z": -157.9,
+   "rot": 20,
+   "w": 0.9,
+   "h": 0.49,
+   "y0": 3.45,
+   "d": 0.05,
+   "poles": 1,
+   "poleC": "#90939a",
+   "lines": [
+    {
+     "text": "ŞEHR-İ BURSA",
+     "fg": "#3e7f4e",
+     "bold": true
+    },
+    {
+     "text": "EVLERİ",
+     "fg": "#3e7f4e",
+     "bold": true
+    }
+   ],
+   "bg": "#dfe3e1",
+   "fg": "#3e7f4e",
+   "border": "#dfe3e1",
+   "font": "condensed",
+   "bold": true,
+   "cctv": {
+    "n": 2,
+    "h": 4.15,
+    "color": "white",
+    "note": "iki beyaz mermi tipi güvenlik kamerası, direk tepesinde yatay kolda, sokağa (kuzeye) bakar"
+   },
+   "note": "2026-09 (eleştirmen da1-00): da1 sitesi (Şehr-i Bursa Evleri) duvarının ≈3.5 m içinde direk üstünde site levhası: beyaz zemin, iki satır kalın dar yeşil büyük harf 'ŞEHR-İ BURSA' / 'EVLERİ' (tireli, İ noktalı — kareden okundu), direk tepesinde yatay kolda 2 beyaz güvenlik kamerası. SV gnXj_195_8_40 + 180_0 (tek pano: kerteriz 203°; uzaklık levha eni varsayımıyla 11.3 m → ±1.5 m, levha oranı 1.83 kareden). Renkler BULUTLU karede: zemin ≈#afb9bb (gölgeli/bulutlu), yazı bulanık örnek ≈#6e9474 — koyu yeşil yazı; fg #3e7f4e ve bg #dfe3e1 bulutlu örneklerin güneşli karşılığı DEĞİL, yaklaşık (yeniden örneklenmeli). Levha dibi ≈3.45 m, kameralar ≈4.15 m. cctv alanı kod bekliyor (street board'da henüz çizilmiyor)."
   }
  ],
  "notes": [
@@ -6800,6 +7187,7 @@
   "retro-1 (2025-09 retro, Mertkent-2 çevresi): 502. Sk. enine kesit (hava fotoğrafı profilleri + SV oranları + kullanıcı fotoğrafları): Mertkent çit yüzü → 1.52 kaldırım (gri 0.65 + sarı kılavuz 0.32 + gri 0.40 + bordür 0.15) → 1.1 mavi bisiklet şeridi → yol (bordürden bordüre ≈6.8 m, bisiklet şeridi dahil; kesikli beyaz orta çizgi; hava fotoğrafı eski tarihli olabilir: orta çizgi batı bordüründen ≈3.6 m’de, bisiklet şeridi seçilmiyor) → doğu bordürü → 1.17 kaldırım (gri 0.30 + kılavuz 0.32 + gri 0.40) → komşu site duvarı. SV kareleri kamera yüksekliği 2.5 m varsayımıyla genişlikleri ≈%15 büyük veriyor (hava fotoğrafıyla h_eff ≈2.15–2.3); tüm genişlikler hava fotoğrafı / taş sayımıyla ölçeklendi.",
   "retro-2 renk: 2025-09 SV kareleri güneşli yamalarda aşırı pozlu (kilit taşı ≈#d9cfb4–#dfd2b5, kırmızı bant ≈#ceb69e–#dcc7af, mavi şerit ≈#bbc6cf); kapalı havada ıslak kullanıcı fotoğrafları daha gerçek ton veriyor: batı gri kilit taşı ≈#85796d, doğu ≈#948d85, bordür ≈#756b62–#888178, sarı kılavuz ≈#c1996f–#cfa577, mavi şerit ≈#677a88, doğu taş dokulu duvar ≈#93897c. Gölgeli yamalar: doğu kaldırımı ≈#51565f, beyaz kabartmalı duvar ≈#60605a–#687176.",
   "retro-3 BEKLİYOR (ifade edilemedi / görülmedi): (a) 502 doğu yakası güney duvarında (east-fence-south) kolonlar tek tek görülmedi (yalnız biri); (b) 504 Sk. kuzey yakası: kaldırım ≈1.5 (z −84.9…−86.4), arkasında düz gri beton duvar + tel panel — çit kaydı yok (köşe pahı ve 504 boyu ölçülmedi); Şehr-i Bursa czGR önündeki panel yaya kapısı ve 504 pah/kuzey duvarı (bkz. east-fence-sehri-bursa notu); (c) 504 köşelerindeki turuncu dikmeler ve güney köşe ızgarası tek tek; (d) mavi bisiklet şeridinin 504 kavşağında 502 batı şeridine bağlantısı (geçit boyası) bulanık zemin nedeniyle görülmedi; (e) 502 ve DA asfaltında çatlak dolgu çizgileri / yamalar (Oh3B_120_0, G8RU_180_0) konumlanmadı; (f) Salus önü kaldırım (salus-east notu).",
-  "retro-4 MERTKENT 3 SİTESİ girişi (koordinatör isteği; 529911717 tek yön sokak, z≈−15.7, 1480041300/1480041301 blokları arası; SV HZb9_240_0, S66M_120_0/180_0, 2025-09): araç girişi üstünde antrasit portal — iki kare kolon (≈0.9–1.0 m genişlik, sokak yüzü güneşte ≈#99a2a3, gölgede ≈#4b4e4c) ve üstte kolonları birleştiren kiriş; kirişin sokağa (kuzeye) bakan yüzünde beyaz kalın büyük harf sans \"MERTKENT 3 SİTESİ\" (harf ≈0.45–0.55 m); kiriş üst kotu ≈5.5–6 m, kiriş yüksekliği ≈1.0–1.3 (düz karede kamera ≈2.17 m ile oransal, ±0.8); altında siyah ferforje kapı (kıvrımlı süs bandı, mızrak uçlu), batı kolonda yuvarlak turuncu çerçeveli trafik aynası; iki yanda koyu yeşil 2D tel panel + leylandi. Merkez ≈(−39.6,−12.5) (OSM otopark yolu 1550820717 ucu + iki pano kerterizi, ±1.5 m); açıklık genişliği ÖLÇÜLMEDİ (≈5–6). street-plan kapı türü (da* dışı kimlikler Mertkent-2 kapısı olarak çiziliyor) ve board türü (tek/çift direkli pano) bu portalı ifade edemiyor → kayıt olarak eklenmedi; portal üreticisi gerekiyor."
+  "retro-4 MERTKENT 3 SİTESİ girişi (koordinatör isteği; 529911717 tek yön sokak, z≈−15.7, 1480041300/1480041301 blokları arası; SV HZb9_240_0, S66M_120_0/180_0, 2025-09): araç girişi üstünde antrasit portal — iki kare kolon (≈0.9–1.0 m genişlik, sokak yüzü güneşte ≈#99a2a3, gölgede ≈#4b4e4c) ve üstte kolonları birleştiren kiriş; kirişin sokağa (kuzeye) bakan yüzünde beyaz kalın büyük harf sans \"MERTKENT 3 SİTESİ\" (harf ≈0.45–0.55 m); kiriş üst kotu ≈5.5–6 m, kiriş yüksekliği ≈1.0–1.3 (düz karede kamera ≈2.17 m ile oransal, ±0.8); altında siyah ferforje kapı (kıvrımlı süs bandı, mızrak uçlu), batı kolonda yuvarlak turuncu çerçeveli trafik aynası; iki yanda koyu yeşil 2D tel panel + leylandi. Merkez ≈(−39.6,−12.5) (OSM otopark yolu 1550820717 ucu + iki pano kerterizi, ±1.5 m); açıklık genişliği ÖLÇÜLMEDİ (≈5–6). street-plan kapı türü (da* dışı kimlikler Mertkent-2 kapısı olarak çiziliyor) ve board türü (tek/çift direkli pano) bu portalı ifade edemiyor → kayıt olarak eklenmedi; portal üreticisi gerekiyor.",
+  "2026-09 Park Koza girişi (site.ts buildParkKoza, sabit kod — veri değil; eleştirmen V15 #4/#21): SV l4zdb_323_-15_40 yakın plan: 'PARK KOZA' / 'SİTESİ' iki satır krem-altın 3B harf, duvarın ÜSTÜNDE yatay koyu metal parmaklık (≈3 yatay lama) üzerine takılı — duvar yüzünde değil; harf üst kotu ≈2.3, alt satır ≈1.8 m (l4zdb_300_0, 5 m). Duvar: kaba (serpme) beyaz sıva, üstü yuvarlatılmış, h ≈1.6 m. Kolon: kaba beyaz sıva, açık gri taş başlık, üstünde küçük siyah fener. Kapı: gri 2D kaynaklı tel panel, koyu gri kutu profil çerçeve, döner kanat. Kapı batı kolonunun önünde beyaz direkte yuvarlak dışbükey ayna (arka yüzü gri). Duvar önünde turuncu-beyaz esnek dikme. Duvarın arkasında leylandi/servi çit."
  ]
 }

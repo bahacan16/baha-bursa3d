@@ -228,8 +228,9 @@ let KERB_BEV = 0;
  * - pothole: çukur, `r` (m) ya da `poly`, koyu iç + açık kenar halkası (ton ölçülmüşse `color` / `rim`);
  * - wear: çizgi aşınması, `poly` (ya da `pts` + `w`) içinde yol çizgilerinin `amount` (0..1) kadarını yol tonuyla
  *   örten gürültülü örtü (ton `color`, yoksa yol ortalaması).
- * Z-fighting yok: OSM asfaltı +0.03/0.04, çizgiler +0.05 → yama/çatlak/çukur +0.044–0.047 (çizginin altında),
- * üst yama ve aşınma +0.056–0.058; malzemelerde polygonOffset.
+ * Z-fighting yok: OSM asfaltı +0.03/0.04 (araç yolu 4 m'de bir sıklaştırılır → kiriş hatası ≤ 3 mm), çizgiler
+ * +0.05 → yama/çatlak/çukur +0.046–0.0485 (çizginin altında), üst yama ve aşınma +0.056–0.058; malzemelerde
+ * polygonOffset. Kaldırım bandı içindeki detay (yanlış konum) görünmez — yama / çatlak yalnız asfaltta.
  */
 export interface RoadDetail {
   kind: 'patch' | 'crack' | 'pothole' | 'wear';
@@ -245,6 +246,25 @@ export interface RoadDetail {
   sealed?: boolean;
   amount?: number;
 }
+
+/**
+ * Kaldırım başına kılavuz karo tonu: `tactileTint` [r, g, b] sRGB oran çarpanı (1 = doku). Doku (textures/real/
+ * tactile, 502. Sk.'ta ölçüldü) gri taşa oranı ≈1.12; DA fotoğraflarında hardal ≈1.32/1.21/1.15 (critic A7) →
+ * ≈[1.18, 1.08, 1.03]. Malzeme anahtarı `tactile@r,g,b` (index.ts tactileVariant üretir).
+ */
+export function tactileKey(tint?: number[]): string {
+  if (!tint || tint.length < 3 || tint.some((v) => !Number.isFinite(v) || v <= 0)) return 'tactile';
+  if (tint.every((v) => Math.abs(v - 1) < 1e-3)) return 'tactile';
+  return `tactile@${tint
+    .slice(0, 3)
+    .map((v) => Math.min(3, v).toFixed(3))
+    .join(',')}`;
+}
+
+/** Yol üstü gömülü kapak kotu (arazinin üstünde m): OSM asfaltı 0.04 (+3 mm kiriş) ve çizgiler 0.05 üstünde */
+export const ROAD_FLUSH = 0.062;
+/** Bisiklet şeridi (spBike 0.075, kenar boyası 0.08) üstündeki kapak kotu */
+export const ROAD_FLUSH_BIKE = 0.092;
 
 /** Yol tonu varsayılanı (OSM roadFill ortalaması, sRGB) */
 const ROAD_TONE = '#8a8b88';
@@ -290,7 +310,7 @@ function roadDetail(
   if (s.kind === 'patch') {
     const r = ring(s.poly ?? []);
     if (r.length < 3) return;
-    b.drape(ck('asphalt', s.color, ROAD_TONE), r, [], H, s.over ? 0.056 : 0.044, 1, 2);
+    b.drape(ck('asphalt', s.color, ROAD_TONE), r, [], H, s.over ? 0.056 : 0.046, 1, 2);
   } else if (s.kind === 'crack') {
     const w = Math.max(0.005, Math.min(0.3, s.w ?? 0.03));
     for (const q of ribbon(s.pts ?? [], w))
@@ -299,7 +319,7 @@ function roadDetail(
         q,
         [],
         H,
-        s.over ? 0.057 : 0.046,
+        s.over ? 0.057 : 0.0475,
         1,
         2,
       );
@@ -318,8 +338,8 @@ function roadDetail(
     const cx = r.reduce((a, p) => a + p[0], 0) / r.length;
     const cz = r.reduce((a, p) => a + p[1], 0) / r.length;
     const grow = r.map((p) => [cx + (p[0] - cx) * 1.18, cz + (p[1] - cz) * 1.18] as V2);
-    b.drape(ck('asphalt', s.rim, '#9a9a96'), grow, [], H, 0.045, 1, 2);
-    b.drape(ck('tar', s.color, '#2c2d2c'), r, [], H, 0.047, 1, 2);
+    b.drape(ck('asphalt', s.rim, '#9a9a96'), grow, [], H, 0.0465, 1, 2);
+    b.drape(ck('tar', s.color, '#2c2d2c'), r, [], H, 0.0485, 1, 2);
   } else if (s.kind === 'wear') {
     const polys = s.poly?.length ? [ring(s.poly)] : ribbon(s.pts ?? [], Math.max(0.1, s.w ?? 0.3));
     // Aşınma oranı üç kademede (~%25 / %50 / %75 örtü): gürültü alfasının eşiği malzemede
@@ -342,6 +362,33 @@ interface RoundaboutSpec {
   kerb?: string;
   grass?: { rx?: number; rz?: number; material?: string };
   planting?: string;
+  /** Çevre yolunun dış kenarı (m, merkezden); yoksa nottaki "r≈a–b" */
+  ringOuter?: number;
+  note?: string;
+}
+
+/**
+ * Kuğu boynu lamba kolu: direk ekseninden (c, taban kotu c[1]) h − 1.2'den yukarı çıkıp tepeye (h + 0.15) kıvrılan ve
+ * `arm` m ötede hafifçe aşağı bakan uçta biten boru (Ø 9 cm), ucunda yassı LED armatür. yaw: kolun yönü (atan2).
+ * KARAR: kıvrım yarıçapı ölçülmedi → fotoğraftaki oran (kol boyunun ~yarısı kadar yükselme) Bezier ile.
+ */
+export function swanArm(b: Builder, c: V3, h: number, arm: number, yaw: number): void {
+  const dx = Math.sin(yaw);
+  const dz = Math.cos(yaw);
+  const P = (u: number, v: number) => new THREE.Vector3(c[0] + dx * u, c[1] + v, c[2] + dz * u);
+  const curve = new THREE.CubicBezierCurve3(
+    P(0, h - 1.2),
+    P(0, h + 0.1),
+    P(arm * 0.35, h + 0.3),
+    P(arm, h + 0.05),
+  );
+  b.geometry('pole', new THREE.TubeGeometry(curve, 16, 0.045, 8, false));
+  const g = new THREE.BoxGeometry(0.28, 0.08, 0.62);
+  g.rotateX(0.08);
+  g.rotateY(yaw);
+  const e = P(arm + 0.18, h - 0.02);
+  g.translate(e.x, e.y, e.z);
+  b.geometry('lampHead', g);
 }
 
 /** Kavşak adasının çizim ölçüleri (üstündeki öğelerin kenara çekilmesi için saklanır) */
@@ -449,6 +496,28 @@ function roundaboutIsland(
       );
       sLine += lL;
     }
+  }
+  // Çevre yolu asfaltı: ada bordüründen çevre yolunun dış kenarına kadar. OSM göbek halkası (233456725, ~9.6 m)
+  // yalnız r≈16.7–26'yı kaplıyor → r≈12–16.7 arasında hava fotoğrafı (bej + araç gölgesi) görünüyordu (critic
+  // da3-00/01/02). Dış yarıçap: `ringOuter` (m, merkezden), yoksa ölçüm notundaki "r≈a–b" (küçüğü). OSM asfaltının
+  // altında (+0.027, kaldırım dolgusuyla aynı), kaldırımlar üstte kalır.
+  const ro =
+    s.ringOuter ??
+    (() => {
+      const m = /r\s*≈\s*([0-9.]+)\s*(?:[–-]\s*([0-9.]+))?/.exec(s.note ?? '');
+      return m ? Number(m[1]) : undefined;
+    })();
+  if (ro && ro > Math.max(RX, RZ) + 1) {
+    const d = ro - (RX + RZ) / 2;
+    b.drape(
+      'roadFill',
+      ring((k) => outerAt(-d, th(k))),
+      [ring((k) => outerAt(-0.02, th(k))).reverse()],
+      H,
+      0.027,
+      1,
+      2,
+    );
   }
   // Çim
   const top = h + innerH;
@@ -876,7 +945,7 @@ function buildStreet(
         strip(
           lay.tactile[0] - lay.tactile[1] / 2,
           lay.tactile[0] + lay.tactile[1] / 2,
-          'tactile',
+          tactileKey(sw.tactileTint),
           top + 0.006,
         );
       // Bordür taşları (≈0.72 m birim, yola bakan yüz dahil): yol kenarında + ara bordürler
@@ -961,6 +1030,17 @@ function buildStreet(
   /** v7: öğe tabanı kotu (arazinin üstünde): ölçülen `base` > yürüme yüzeyi > +0.15 (eski varsayılan) */
   const walkH = (x: number, z: number, base?: unknown) =>
     typeof base === 'number' && Number.isFinite(base) ? base : (walkAt(x, z)?.h ?? 0.15);
+  /**
+   * Yüzeye gömülü kapak (rögar, ızgara) kotu: ölçülen `base` > bulunduğu kaldırım / ada bandı + 1.2 cm > yol.
+   * Önceden +0.045 / +0.035 sabitti: OSM asfaltı +0.04 (kirişte +0.043'e kadar), kaldırım +0.15 → görünmüyordu
+   * (critic A9). Yolda çizgilerin (+0.05) ve bisiklet şeridinin (+0.075/0.08, not "bisiklet") üstünde.
+   */
+  const flushY = (x: number, z: number, base: unknown, note: string) => {
+    if (typeof base === 'number' && Number.isFinite(base)) return base + 0.012;
+    const w = walkAt(x, z);
+    if (w) return w.h + 0.012;
+    return /bisiklet|bike/.test(note) ? ROAD_FLUSH_BIKE : ROAD_FLUSH;
+  };
   const furn = {
     b,
     H,
@@ -993,8 +1073,20 @@ function buildStreet(
           if (r) [dx, dz] = r;
         }
         const ay = Math.atan2(dx, dz);
-        b.box('pole', [s.x + dx * 0.8, y + h - 0.2, s.z + dz * 0.8], [0.06, 0.06, 1.6], ay);
-        b.box('lampHead', [s.x + dx * 1.6, y + h - 0.3, s.z + dz * 1.6], [0.3, 0.12, 0.65], ay);
+        const lp = s as { style?: string; arm?: number; arms?: number; color?: string };
+        const arm = Math.max(0.4, Math.min(4, lp.arm ?? 1.6));
+        // v7: `style` "swan" (kuğu boynu: direk tepesinde yukarı-dışa kıvrılıp yola eğilen kol, LED armatür;
+        // Özlüce kavşağı, critic A11) — verilmezse nottaki "kuğu boynu" / "swan"; `arms` 2 → karşılıklı çift kol
+        // ("çift kollu"). Düz kol (varsayılan) eskisi gibi.
+        const swan = lp.style ? lp.style === 'swan' : /kuğu boynu|swan/.test(note);
+        const nArms = lp.arms ?? (/çift kollu|double arm/.test(note) ? 2 : 1);
+        if (swan) {
+          for (let k = 0; k < Math.max(1, Math.min(2, nArms)); k++)
+            swanArm(b, [s.x, y, s.z], h, arm, k ? ay + Math.PI : ay);
+        } else {
+          b.box('pole', [s.x + dx * (arm / 2), y + h - 0.2, s.z + dz * (arm / 2)], [0.06, 0.06, arm], ay);
+          b.box('lampHead', [s.x + dx * arm, y + h - 0.3, s.z + dz * arm], [0.3, 0.12, 0.65], ay);
+        }
         break;
       }
       case 'pole':
@@ -1028,9 +1120,14 @@ function buildStreet(
         const hw = small ? 0.16 : 0.33;
         if (!small) b.cylinder('pole', [s.x, y - 0.05, s.z], 0.035, h, 8);
         let top = small ? y + h + 0.2 : y + h - 0.04;
+        // Levha direğin ÖNÜNDE (yüz normali (sin, cos) yönünde direk yarıçapı + 1.5 cm): önceden levha direk ekseninde
+        // çiziliyordu → direk levha yüzünün önünden geçiyordu (critic M2 #5, KD ada bisiklet levhası)
+        const fo = small ? 0 : 0.05;
+        const fx = si * fo;
+        const fz = co * fo;
         for (const key of keys) {
-          const A: V2 = [s.x - co * hw, s.z + si * hw];
-          const E: V2 = [s.x + co * hw, s.z - si * hw];
+          const A: V2 = [s.x - co * hw + fx, s.z + si * hw + fz];
+          const E: V2 = [s.x + co * hw + fx, s.z - si * hw + fz];
           // KARAR: chevron levhası ölçülmedi → 3:2 dikdörtgen (0.66 × 0.44)
           const ph = small ? 0.42 : key === 'signChevron' ? 0.44 : 0.66;
           b.wall(key, A, E, top - ph, top);
@@ -1155,11 +1252,22 @@ function buildStreet(
         });
         break;
       }
-      case 'bin':
-        // Belediye çöp kutusu: direk üstünde koyu yeşil kova
+      case 'bin': {
+        // Belediye çöp kutusu: direk üstünde kova. Renk: ölçülen `color` (hex) > nottaki renk (turuncu / paslanmaz)
+        // > koyu yeşil (önceden her kova yeşildi: DA-2 kemerli duvar dibindeki turuncu kova, critic da2-07)
+        const bc = (s as { color?: string }).color;
+        const binK =
+          bc && /^#[0-9a-f]{6}$/i.test(bc) && ext.colorKey
+            ? ext.colorKey('metal', bc)
+            : /turuncu|orange/.test(note)
+              ? 'bollardOrange'
+              : /paslanmaz|stainless/.test(note)
+                ? 'steel'
+                : 'binGreen';
         b.cylinder('pole', [s.x, y - 0.05, s.z], 0.03, 1.0, 6);
-        b.cylinder('binGreen', [s.x + 0.2, y + 0.45, s.z], 0.2, 0.55, 12);
+        b.cylinder(binK, [s.x + 0.2, y + 0.45, s.z], 0.2, 0.55, 12);
         break;
+      }
       case 'bollard':
         // Turuncu esnek dikme (delinatör), beyaz yansıtıcı bantlı
         b.cylinder('bollardOrange', [s.x, g0, s.z], 0.04, s.h ?? 0.75, 8);
@@ -1223,7 +1331,7 @@ function buildStreet(
       case 'drain': {
         // Yağmur ızgarası (bordür dibinde)
         const g = new THREE.PlaneGeometry(0.8, 0.4).rotateX(-Math.PI / 2).rotateY(yaw);
-        g.translate(s.x, g0 + 0.035, s.z);
+        g.translate(s.x, g0 + flushY(s.x, s.z, sb, note), s.z);
         b.geometry('darkMetal', g);
         break;
       }
@@ -1269,7 +1377,7 @@ function buildStreet(
       }
       case 'manhole': {
         const g = new THREE.CircleGeometry(0.33, 16).rotateX(-Math.PI / 2);
-        g.translate(s.x, g0 + 0.045, s.z);
+        g.translate(s.x, g0 + flushY(s.x, s.z, sb, note), s.z);
         b.geometry('darkMetal', g);
         break;
       }

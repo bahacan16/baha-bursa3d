@@ -5,7 +5,13 @@ import { buildApartment, insidePoly, type ApartmentStyle } from './apartment';
 import { buildFacadeBlock, footCollision, type CK, type CompiledBlock, type SignSpec } from './facade';
 import { SignAtlas } from './signatlas';
 import { splitMassing } from './massing';
-import { camGlassMaterial, flagTexture, granularMaterial, windowGlassMaterial } from './facadeMats';
+import {
+  camGlassMaterial,
+  flagTexture,
+  granularMaterial,
+  windowGlassMaterial,
+  withGlassEnv,
+} from './facadeMats';
 import facadesData from './data/facades.json';
 import footprintsData from './data/footprints.json';
 import { buildStreetPlan, streetSignTexture } from './street';
@@ -46,7 +52,7 @@ import { roadWidth } from '../osm/parse';
 import * as T from './textures';
 import { nightUniform } from '../../env/night';
 import { windTime } from '../osm/eztree';
-import { upgradeRealMaterials } from './realtex';
+import { addTactileVariant, upgradeRealMaterials } from './realtex';
 
 const BLOCK_NAMES = ['A', 'B', 'C', 'D', 'E', 'F'];
 /** ?nosurvey=1 → ölçülmüş cepheler yerine eski kural tabanlı apartman modeli (karşılaştırma için) */
@@ -160,6 +166,34 @@ function ringOf(simple: SimpleOsm, id: number): V2[] | null {
   const l = r[r.length - 1];
   if (r.length > 3 && f[0] === l[0] && f[1] === l[1]) r.pop();
   return r;
+}
+
+/** Ölçülmüş çit hatları (tampon 2.5 m) ve kaldırım bordür hatları (tampon w + 2 m) — eski çit kabuğu atlama testi */
+export function planLines(plan: StreetPlan): { pts: V2[]; r: number }[] {
+  const out: { pts: V2[]; r: number }[] = [];
+  for (const f of (plan.fence ?? []) as { pts?: V2[] }[])
+    if (f.pts && f.pts.length >= 2) out.push({ pts: f.pts, r: 2.5 });
+  for (const sw of plan.sidewalks ?? []) if (sw.pts.length >= 2) out.push({ pts: sw.pts, r: sw.w + 2 });
+  return out;
+}
+
+export function nearPlanLine(lines: { pts: V2[]; r: number }[], x: number, z: number): boolean {
+  for (const l of lines)
+    for (let i = 0; i + 1 < l.pts.length; i++) {
+      const a = l.pts[i];
+      const e = l.pts[i + 1];
+      if (
+        Math.abs(x - a[0]) > l.r + Math.abs(e[0] - a[0]) ||
+        Math.abs(z - a[1]) > l.r + Math.abs(e[1] - a[1])
+      )
+        continue;
+      const dx = e[0] - a[0];
+      const dz = e[1] - a[1];
+      const L2 = dx * dx + dz * dz || 1;
+      const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / L2));
+      if (Math.hypot(x - a[0] - dx * t, z - a[1] - dz * t) <= l.r) return true;
+    }
+  return false;
 }
 
 function distToRing(r: V2[], x: number, z: number): number {
@@ -797,13 +831,17 @@ function materials(base: string): Record<string, THREE.Material> {
       const map = new THREE.TextureLoader().load(`${base}textures/mk/mk-wave.jpg`);
       map.colorSpace = THREE.SRGBColorSpace;
       map.wrapS = THREE.RepeatWrapping;
+      // Doku duvarın dar bir bandı (fence2.ts WAVE_V): düşeyde aynalı tekrar (dikiş görünmesin)
+      map.wrapT = THREE.MirroredRepeatWrapping;
       map.anisotropy = 8;
       const nm = new THREE.TextureLoader().load(`${base}textures/mk/mk-wave-n.png`);
       nm.wrapS = THREE.RepeatWrapping;
+      nm.wrapT = THREE.MirroredRepeatWrapping;
+      // KARAR: normal şiddeti 0.45 → 0.25 (fotoğrafta neredeyse düz, düşük kontrastlı nervür; kapitone görünüyordu)
       return std({
         map,
         normalMap: nm,
-        normalScale: new THREE.Vector2(0.45, 0.45),
+        normalScale: new THREE.Vector2(0.25, 0.25),
         roughness: 0.8,
         color: 0xffffff,
       });
@@ -833,6 +871,14 @@ function materials(base: string): Record<string, THREE.Material> {
       const map = T.leylandiiTexture();
       map.anisotropy = 8;
       return std({ map, roughness: 0.92, side: DS });
+    })(),
+    // Leylandi tepesi (düz üst + filiz tutamları): taze sürgünler gövdeden açık sarı-yeşil. Street View güneşli saçak
+    // #799640, gövde #435c1d (critic M2 #14); oyunda tepe zaten güneşi dik aldığından çarpan ölçülen oranın altında.
+    // KARAR: doğrusal ×(1.55, 1.45, 1.1) — sarıya kayma fotoğraftaki oran yönünde, büyüklüğü ışık farkı yüzünden kısık
+    mkHedgeTop: (() => {
+      const map = T.leylandiiTexture();
+      map.anisotropy = 8;
+      return std({ map, color: new THREE.Color().setRGB(1.55, 1.45, 1.1), roughness: 0.9, side: DS });
     })(),
     mkCanopyGlass: std({
       color: 0x9fb8bc,
@@ -1394,11 +1440,16 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
                                     metalness: 0.1,
                                   })
                                 : kind === 'tint'
-                                  ? new THREE.MeshStandardMaterial({
-                                      color: hex,
-                                      roughness: 0.06,
-                                      metalness: 0.25,
-                                    })
+                                  ? // Renkli / giydirme / vitrin camı: ölçülen görünen ton + gök yansıması (Fresnel, yalnız
+                                    // camda güçlendirilir — önceden opak boya gibi görünüyordu, critic A10)
+                                    withGlassEnv(
+                                      new THREE.MeshStandardMaterial({
+                                        color: new THREE.Color(hex).multiplyScalar(0.8),
+                                        roughness: 0.05,
+                                        metalness: 0,
+                                      }),
+                                      'tint',
+                                    )
                                   : kind === 'glass'
                                     ? new THREE.MeshStandardMaterial({
                                         // Korkuluk camı: örneklenen görünen renk (yansıma dahil) → düşük yansımalı, çoğunlukla opak
@@ -1808,6 +1859,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   // Kuzey kapı önü: tehlikeli viraj + 30 levhası (Street View kuzey kapı karesi), doğuya giden şeride bakar
   if (!street) signPole(b, [-31.3, -145.8], [-0.95, -0.31], o.H(-31.3, -145.8), ['signCurve', 'sign30']);
   const mats = materials(o.base);
+  // Kaldırım başına kılavuz karo tonu (street.ts tactileKey: `tactile@r,g,b`, sRGB oran çarpanı)
+  for (const k of b.keys()) if (k.startsWith('tactile@')) addTactileVariant(mats, k);
   upgradeRealMaterials(mats, o.base);
   extraMats.roadFill = o.roadMaterial ?? mats.drive;
   atlas.finalize(b, extraMats);
@@ -1818,10 +1871,15 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     noTree = (x, z) => (nt ? nt(x, z) : false) || insidePoly(oz, x, z) || distToRing(oz, x, z) < 7;
   }
   const salusRing = ringOf(o.simple, SALUS_SITE);
-  // KARAR: ölçülmüş bölgede (street-plan) Street View'dan tahmin edilmiş çit kabukları çizilmez
+  // KARAR: ölçülmüş bölgede (street-plan) Street View'dan tahmin edilmiş çit kabukları çizilmez. Kutu yalnız Mertkent
+  // çevresini kapsıyordu (x < 28); DA boyunca eski çalı kabukları ölçülmüş duvarın ~1.3 m önünde kalıyordu (critic
+  // A2) → ölçülmüş çit hattına 2.5 m'den yakın ya da ölçülmüş kaldırım bandının (bordürden w + 2 m) içindeki eski
+  // kabuk parçası da atlanır.
+  const measuredLines = planLines(STREET_PLAN);
   const fenceSkip = (x: number, z: number) =>
     (x > -142 && x < 28 && z > -222 && z < 4) ||
     nearSite(x, z) ||
-    (!!salusRing && (insidePoly(salusRing, x, z) || distToRing(salusRing, x, z) < 8));
+    (!!salusRing && (insidePoly(salusRing, x, z) || distToRing(salusRing, x, z) < 8)) ||
+    nearPlanLine(measuredLines, x, z);
   return { group, fenceSkip, noTree, cars, raised: street?.raised ?? [] };
 }

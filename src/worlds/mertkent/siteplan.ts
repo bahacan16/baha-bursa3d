@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { Builder, leafFringe, type V2, type V3 } from './builder';
 import { parseSpecies, speciesIndex } from '../osm/species';
+import facadesRings from './data/facades.json';
 import { binStand, goal, kamelya, lamp2, panelFence, pitchFence, playSet, roseBush } from './sitekit';
 
 /**
@@ -84,6 +85,8 @@ export interface StreetPlan {
     bike?: number;
     /** Bordür boyası (ör. "white": yol yüzü + üstün dış yarısı beyaz boyalı — bisiklet şeridi kenarı) */
     kerbPaint?: string;
+    /** Kılavuz karo tonu: sRGB oran çarpanı [r, g, b] (street.ts tactileKey) */
+    tactileTint?: number[];
   }[];
   /**
    * Sokak eşyası ve yol yüzeyi ayrıntısı (street.ts). v6 yol yüzeyi (YALNIZ Street View'da görülen yerlerde):
@@ -149,6 +152,8 @@ export const SITE_PLAN: SitePlan = PLANS['./data/site-plan.json'] ?? {};
 export const STREET_PLAN: StreetPlan = PLANS['./data/street-plan.json'] ?? {};
 /** Komşu parklar (kuzey park, Nato Parkı): site planıyla aynı şema */
 export const PARK_PLAN: SitePlan = PLANS['./data/park-plan.json'] ?? {};
+/** Ölçülmüş binaların taban izleri (yalnız ring alanı kullanılır) */
+const FACADES_RINGS = facadesRings as unknown as Record<string, { ring: V2[] }>;
 
 /**
  * Ölçüm noktasının türü → ağaç kütüphanesi tür indeksi (src/worlds/osm/species.ts). `species` alanı ve not
@@ -195,6 +200,7 @@ export function surveyVegetation(): {
   noSidewalkZones: number[][];
   /** v7: OSM yol çizgisi düzeltmeleri (id → orta / kenar çizgisi) */
   roadMarks: Record<string, { centre?: string; edges?: string }>;
+  noPropZones: { p: number[]; r: number; closed?: boolean }[];
 } {
   const fixedTrees: number[] = [];
   const add = (x: number, z: number, r: number | undefined, h: number | undefined, type: number) =>
@@ -236,7 +242,9 @@ export function surveyVegetation(): {
       [-16, -128],
     ]),
   );
-  // Sokak kaldırımları (bordürden içeri w) + 1.5 m pay
+  // Sokak kaldırımları: yol tarafında w + 1.5 m, kaldırım (duvar) tarafında yalnız w + 0.3 m.
+  // KARAR (critic A6): önceden iki yana da w + 1.5 idi → duvarın ~1.5 m arkasındaki gerçek ağaçlar (DA güneyi
+  // şemsiye çamları, süs erikleri; ör. (159.6,−153.9)) siliniyordu. Duvar arkası site bahçesi, ağaç oradan gelir.
   for (const s of STREET_PLAN.sidewalks ?? []) {
     for (let i = 0; i + 1 < s.pts.length; i++) {
       const a = s.pts[i];
@@ -244,20 +252,36 @@ export function surveyVegetation(): {
       const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
       if (L < 0.1) continue;
       const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
-      const n: V2 = [-t[1], t[0]];
-      const W = s.w + 1.5;
+      const n = sideNormal(t, s.side);
+      const Wroad = s.w + 1.5;
+      const Wback = s.w + 0.3;
       const A: V2 = [a[0] - t[0] * 1.5, a[1] - t[1] * 1.5];
       const E: V2 = [e[0] + t[0] * 1.5, e[1] + t[1] * 1.5];
       excludeZones.push(
         flat([
-          [A[0] - n[0] * W, A[1] - n[1] * W],
-          [E[0] - n[0] * W, E[1] - n[1] * W],
-          [E[0] + n[0] * W, E[1] + n[1] * W],
-          [A[0] + n[0] * W, A[1] + n[1] * W],
+          [A[0] - n[0] * Wroad, A[1] - n[1] * Wroad],
+          [E[0] - n[0] * Wroad, E[1] - n[1] * Wroad],
+          [E[0] + n[0] * Wback, E[1] + n[1] * Wback],
+          [A[0] + n[0] * Wback, A[1] + n[1] * Wback],
         ]),
       );
     }
   }
+  // Hava fotoğrafı taç tespitinin yanlış pozitifleri (critic A5): plan dosyalarındaki `treeExclude` —
+  // { poly: [[x,z],…] } çokgen ya da { x, z, r } daire. Ölçülmüş (fixedTrees) ağaçlar bundan etkilenmez.
+  for (const plan of [SITE_PLAN, STREET_PLAN, PARK_PLAN] as { treeExclude?: TreeExclude[] }[])
+    for (const q of plan.treeExclude ?? []) {
+      if (q.poly && q.poly.length >= 3) excludeZones.push(flat(q.poly));
+      else if (typeof q.x === 'number' && typeof q.z === 'number') {
+        const r = q.r ?? 2;
+        const ring: V2[] = [];
+        for (let k = 0; k < 16; k++) {
+          const a = (k / 16) * Math.PI * 2;
+          ring.push([q.x + Math.cos(a) * r, q.z + Math.sin(a) * r]);
+        }
+        excludeZones.push(flat(ring));
+      }
+    }
   // OSM kaldırım üretiminin kapatılacağı bantlar: ölçülmüş bordürün yol tarafına ROAD_SIDE, kaldırım tarafına w + 4 m.
   // KARAR: yol tarafı 1.5 → 4.5 m — OSM ekseni gerçek yoldan kaymışsa OSM'nin kendi kaldırımı asfaltın ortasına
   // düşüyordu (502/Doğan Avcıoğlu kavşağı). 4.5 m < en dar araç yolu (6.5 m) → karşı kaldırıma taşmaz.
@@ -272,6 +296,11 @@ export function surveyVegetation(): {
       [1, -143],
     ]),
   );
+  // Ölçülmüş park döşemesi (park-plan paving): OSM genel kaldırımı üstüne çizilmez (critic M2 #10: Cavit Orhan
+  // boyunca kuzey park batı kenarı — gerçek düzen bordür → kırmızı → gri; üstüne gri + sarı kılavuzlu OSM kaldırımı
+  // biniyordu)
+  for (const a of PARK_PLAN.areas ?? [])
+    if (a.kind === 'paving' && a.poly?.length >= 3) noSidewalkZones.push(flat(a.poly));
   for (const s of STREET_PLAN.sidewalks ?? []) {
     for (let i = 0; i + 1 < s.pts.length; i++) {
       const a = s.pts[i];
@@ -298,7 +327,42 @@ export function surveyVegetation(): {
     const id = typeof r.id === 'number' ? `w${r.id}` : /^\d+$/.test(r.id) ? `w${r.id}` : r.id;
     roadMarks[id] = { ...(r.centre ? { centre: r.centre } : {}), ...(r.edges ? { edges: r.edges } : {}) };
   }
-  return { fixedTrees, excludeZones, noSidewalkZones, roadMarks };
+  return { fixedTrees, excludeZones, noSidewalkZones, roadMarks, noPropZones: surveyedPropZones() };
+}
+
+/** `treeExclude` öğesi (site/street/park-plan.json): çokgen ya da daire */
+export interface TreeExclude {
+  poly?: V2[];
+  x?: number;
+  z?: number;
+  r?: number;
+  note?: string;
+}
+
+/**
+ * Yordamsal lamba / park etmiş araç üretilmeyecek ölçülmüş bölge (props.ts PropZone): street-plan kaldırımlarının
+ * bordür hattı (yol tarafı dahil w + 7 m), çitleri (6 m), ölçülmüş binalar (taban izi + 14 m: arka sokaklar, ör.
+ * 794'ün kuzey sokağı) ve Mertkent el modeli kutusu. KARAR: ölçülmüş bölgede sokak eşyası ve araçlar yalnız ölçümden.
+ */
+export function surveyedPropZones(): { p: number[]; r: number; closed?: boolean }[] {
+  const z: { p: number[]; r: number; closed?: boolean }[] = [];
+  // El modeli bölgesi (Mertkent 2 + Özhan + Salus + Cavit Orhan; eski sabit kutu)
+  z.push({
+    p: flat([
+      [-142, -222],
+      [28, -222],
+      [28, 4],
+      [-142, 4],
+    ]),
+    r: 0,
+    closed: true,
+  });
+  for (const s of STREET_PLAN.sidewalks ?? []) if (s.pts.length >= 2) z.push({ p: flat(s.pts), r: s.w + 7 });
+  for (const f of (STREET_PLAN.fence ?? []) as { pts?: V2[] }[])
+    if (f.pts && f.pts.length >= 2) z.push({ p: flat(f.pts), r: 6 });
+  for (const v of Object.values(FACADES_RINGS))
+    if (v.ring?.length >= 3) z.push({ p: flat(v.ring), r: 14, closed: true });
+  return z;
 }
 
 /**

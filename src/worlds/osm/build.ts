@@ -9,7 +9,7 @@ import type { SimpleOsm } from './simplify';
 import type { Quality } from '../../core/settings';
 import type { GridData } from '../../env/terrain';
 import { setTerrain } from './height';
-import { buildProps, type PropsPayload } from './props';
+import { buildProps, type PropZone, type PropsPayload } from './props';
 
 export interface BuildOptions {
   quality: Quality;
@@ -26,6 +26,8 @@ export interface BuildOptions {
   noSidewalkZones?: number[][];
   /** v7: ölçülmüş yol çizgisi düzeltmeleri (OSM yol kimliği → orta / kenar çizgisi: none | dashed | solid) */
   roadMarks?: Record<string, { centre?: string; edges?: string }>;
+  /** Ölçülmüş bölge: yordamsal lamba / park etmiş araç üretilmez (props.ts) */
+  noPropZones?: PropZone[];
 }
 
 export interface BuildResult {
@@ -83,7 +85,7 @@ export function buildWorld(
     fixedTrees: opts.fixedTrees,
     excludeZones: opts.excludeZones,
   });
-  const props = buildProps(d);
+  const props = buildProps(d, opts.noPropZones);
   progress(0.9, 'Geometri birleştiriliyor');
   const chunks = geo.toPayload();
   const tris = chunks.reduce((s, c) => s + c.index.length / 3, 0);

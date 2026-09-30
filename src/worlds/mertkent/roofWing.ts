@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import type { Builder, V2 } from './builder';
-import { GE, type RoofGable, type RoofKeys } from './roof';
+import { bargeDrop, GE, type RoofGable, type RoofKeys } from './roof';
 
 /**
  * v7: açık mahyalı kanat çatıları (roof.wings) — birleşik kırma çatının (roof.ts) otomatik mahyası hava
@@ -39,9 +39,12 @@ export interface WingOpts {
   holes?: { edge: number; a: V2; e: V2; y0: number; y1: number; round?: boolean }[];
   /** Kanat kenarı taban izi kenarı üzerindeyse o kenarın saçağı */
   eaveOf?: (edge: number) => number;
+  /** Rüzgârlık tahtası / alın bandı boyu (m; ölçüm roof.barge, verilmezse 0.22) */
+  bargeH?: number;
 }
 
 type P2 = [number, number];
+
 interface Plane {
   a: number;
   g: P2;
@@ -448,17 +451,18 @@ export function wingRoofs(
         const [se, he] = profE[q + 1];
         const A: [number, number] = [ea[0] + tE[0] * sa, ea[1] + tE[1] * sa];
         const B: [number, number] = [ea[0] + tE[0] * se, ea[1] + tE[1] * se];
+        const bd = bargeDrop(o.bargeH);
         b.quad(
           o.keys.fascia,
-          [A[0], ha - 0.2, A[1]],
-          [B[0], he - 0.2, B[1]],
+          [A[0], ha - bd, A[1]],
+          [B[0], he - bd, B[1]],
           [B[0], he + 0.02, B[1]],
           [A[0], ha + 0.02, A[1]],
         );
         b.quad(
           o.keys.fascia,
-          [B[0], he - 0.2, B[1]],
-          [A[0], ha - 0.2, A[1]],
+          [B[0], he - bd, B[1]],
+          [A[0], ha - bd, A[1]],
           [A[0], ha + 0.02, A[1]],
           [B[0], he + 0.02, B[1]],
         );

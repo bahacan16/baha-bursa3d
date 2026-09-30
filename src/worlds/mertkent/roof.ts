@@ -32,6 +32,8 @@ export interface UnionRoofOptions {
   keys: RoofKeys;
   /** Taban izi kenarı başına saçak taşması (m); verilmezse `eave` (ör. yalnız bazı kenarlarda parapet) */
   eaveOf?: (edge: number) => number;
+  /** Rüzgârlık tahtası boyu (m; ölçüm roof.barge — verilmezse 0.22) */
+  bargeH?: number;
   /** Alınlık kenarı başına alınlık duvarı malzemesi (yoksa keys.gable) */
   gableKeys?: Record<number, string>;
   /** Alınlık duvarının alt kotu (verilmezse y − 0.05): cephe duvarının üstünden kesintisiz başlasın */
@@ -45,6 +47,13 @@ export interface UnionRoofOptions {
 
 type P2 = [number, number];
 
+/**
+ * Rüzgârlık bandının çatı kenarı altına inen kısmı (m): toplam boy bargeH (üstte +0.02 sabit). Varsayılan 0.22 (eski
+ * sabit); ölçülen ince bir alüminyum kenar (ör. 43 kuzey ≈3–5 cm) için roof.barge.
+ */
+export function bargeDrop(h?: number | null): number {
+  return h != null && Number.isFinite(h) && h > 0 ? Math.max(0.005, Math.min(0.6, h - 0.02)) : 0.2;
+}
 /** Alınlık taşması (rüzgârlık): çatı alınlık duvarının önüne bu kadar uzanır */
 export const GE = 0.15;
 
@@ -522,7 +531,8 @@ export function unionRoof(b: Builder, ring: V2[], y: number, o: UnionRoofOptions
         g.computeVertexNormals();
       }
       b.geometry(o.gableKeys?.[s.edge] ?? o.keys.gable, g);
-      // Rüzgârlık tahtası: taşma kenarında (duvardan GE önde) eğik çatı kenarını izleyen 0.22 m bant (iki yüz)
+      // Rüzgârlık tahtası: taşma kenarında (duvardan GE önde) eğik çatı kenarını izleyen bant (iki yüz; boy bargeH,
+      // varsayılan 0.22 m)
       const atV = k === 0 ? e.u0 : k === 1 ? e.u1 : k === 2 ? e.v0 : e.v1;
       const simpF = gableProfile(pr, k, y, tanP, T, true);
       for (let q = 0; q + 1 < simpF.length; q++) {
@@ -531,8 +541,9 @@ export function unionRoof(b: Builder, ring: V2[], y: number, o: UnionRoofOptions
         if (Math.abs(he - ha) < 1e-3 && Math.abs(ha - y) < 1e-3) continue;
         const A: P2 = k < 2 ? [atV, pa] : [pa, atV];
         const B: P2 = k < 2 ? [atV, pe] : [pe, atV];
-        b.quad(o.keys.fascia, V3(A, ha - 0.2), V3(B, he - 0.2), V3(B, he + 0.02), V3(A, ha + 0.02));
-        b.quad(o.keys.fascia, V3(B, he - 0.2), V3(A, ha - 0.2), V3(A, ha + 0.02), V3(B, he + 0.02));
+        const bd = bargeDrop(o.bargeH);
+        b.quad(o.keys.fascia, V3(A, ha - bd), V3(B, he - bd), V3(B, he + 0.02), V3(A, ha + 0.02));
+        b.quad(o.keys.fascia, V3(B, he - bd), V3(A, ha - bd), V3(A, ha + 0.02), V3(B, he + 0.02));
       }
     });
   }

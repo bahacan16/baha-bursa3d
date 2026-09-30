@@ -7,6 +7,7 @@ import { buildWorld, type BuildResult } from './build';
 import { createOsmMaterials, groundHalf, type OsmMaterials } from './materials';
 import { orient } from './buildings';
 import { barrierThickness } from './landuse';
+import type { PropZone } from './props';
 import { dropHandmadeWays, parseOsm, pointInPolygon, type OsmWorldData } from './parse';
 import type { SimpleOsm } from './simplify';
 import type { Carriageway, RaisedStrip } from './roads';
@@ -63,6 +64,7 @@ async function buildInWorker(
     excludeZones?: number[][];
     noSidewalkZones?: number[][];
     roadMarks?: Record<string, { centre?: string; edges?: string }>;
+    noPropZones?: PropZone[];
   } = {},
 ): Promise<BuildResult> {
   try {
@@ -353,9 +355,7 @@ export class OsmWorld implements IWorld {
     // Elle modellenmiş bölge (Mertkent 2 + Özhan): OSM'den otomatik bina üretilmez
     const real = simple.centerSource !== 'fixture';
     const handmade = real && !new URLSearchParams(location.search).has('nohand');
-    const simpleBuild = handmade
-      ? { ...simple, ways: dropHandmadeWays(simple.ways, HANDMADE_IDS) }
-      : simple;
+    const simpleBuild = handmade ? { ...simple, ways: dropHandmadeWays(simple.ways, HANDMADE_IDS) } : simple;
     const res = await buildInWorker(
       simpleBuild,
       quality,

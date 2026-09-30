@@ -225,6 +225,25 @@ function upgradeTri(m: THREE.MeshStandardMaterial, spec: RealSpec, base: string,
 }
 
 /**
+ * Kılavuz karo ton çeşidi (`tactile@r,g,b`, sRGB oran çarpanı): taban `tactile` malzemesinin kopyası, renk çarpanı
+ * doğrusal (oran^2.2); gerçek doku yükseltmesinde aynı dokuyla aynı çarpan (REAL_SPECS'e kaydedilir).
+ */
+export function addTactileVariant(mats: Record<string, THREE.Material>, key: string): void {
+  const base = mats.tactile as THREE.MeshStandardMaterial | undefined;
+  if (mats[key] || !base) return;
+  const r = key
+    .slice(key.indexOf('@') + 1)
+    .split(',')
+    .map(Number);
+  if (r.length < 3 || r.some((v) => !Number.isFinite(v) || v <= 0)) return;
+  const lin = r.slice(0, 3).map((v) => Math.pow(v, 2.2)) as [number, number, number];
+  const m = base.clone();
+  m.color.setRGB(base.color.r * lin[0], base.color.g * lin[1], base.color.b * lin[2]);
+  mats[key] = m;
+  REAL_SPECS[key] = { ...REAL_SPECS.tactile, tint: lin };
+}
+
+/**
  * Mevcut malzemeleri anahtar adıyla gerçek dokulara yükselt (yerinde). Eksik `kerbPaint` eklenir.
  * Worker/test ortamında (DOM yok) dokunulmaz.
  */

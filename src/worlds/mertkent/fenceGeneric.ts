@@ -73,7 +73,43 @@ export interface GenericFence {
    * Dolgu ayrıntısı (ölçüm): yükseklik, renk; welded = 2D kaynaklı tel panel (5×20 cm göz, kalın tel, V kıvrımlı,
    * `post` arayla dikmeli — tip adında "2D"/"kaynaklı"/"welded" geçerse de), post = dikme aralığı (m)
    */
-  infillSpec?: { h?: number; color?: string; type?: string; welded?: boolean; post?: number };
+  infillSpec?: {
+    h?: number;
+    color?: string;
+    type?: string;
+    welded?: boolean;
+    post?: number;
+    /** Korkuluk üst borusu rengi (ör. galvaniz #859696); verilmezse tip metnindeki "üst boru … #hex" */
+    topRail?: string;
+    /** Üst boru adedi (çift boru: 2, 8 cm arayla) */
+    topRails?: number;
+  };
+}
+
+/**
+ * Parça i'nin (pts[i]→pts[i+1]) iç tarafındaki (−n) çit bitkisi kutusunun u aralığı: komşu kol iç tarafa doğru
+ * dönüyorsa (dışbükey köşe) o uçta komşu kolun duvar kalınlığı kadar (açıya göre) kırpılır.
+ */
+export function hedgeSpan(pts: V2[], i: number, n: V2, wallT: number): [number, number] {
+  const a = pts[i];
+  const e = pts[i + 1];
+  const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+  const t: V2 = [(e[0] - a[0]) / (L || 1), (e[1] - a[1]) / (L || 1)];
+  const dir = (p: V2, q: V2): V2 => {
+    const l = Math.hypot(q[0] - p[0], q[1] - p[1]) || 1;
+    return [(q[0] - p[0]) / l, (q[1] - p[1]) / l];
+  };
+  const trim = (d: V2) => {
+    // d: köşeden komşu kol boyunca birim yön; iç tarafa (−n) bileşeni
+    const inward = -(d[0] * n[0] + d[1] * n[1]);
+    if (inward < 0.25) return 0;
+    const along = Math.abs(d[0] * t[0] + d[1] * t[1]);
+    // Komşu kolun duvarı (kalınlık wallT, kolun kendi iç tarafında) bu parçanın ekseninde wallT / sin(açı) yer tutar
+    return Math.min(L / 2, wallT / Math.max(0.3, inward) + along * wallT + 0.02);
+  };
+  const u0 = i > 0 ? trim(dir(a, pts[i - 1])) : 0;
+  const u1 = i + 2 < pts.length ? L - trim(dir(e, pts[i + 2])) : L;
+  return [u0, Math.max(u0, u1)];
 }
 
 const hex = (c: unknown, d: string) => (typeof c === 'string' && /^#[0-9a-f]{6}$/i.test(c) ? c : d);
@@ -299,6 +335,9 @@ export function buildGenericFence(
     const yaw = Math.atan2(-t[1], t[0]);
     // Sokak yüzü off=0, içeri −n
     const P = (u: number, off: number): V2 => [a[0] + t[0] * u - n[0] * off, a[1] + t[1] * u - n[1] * off];
+    // Köşede komşu kol çitin iç tarafına (−n) dönüyorsa çit kutusu o kolun duvarında biter: önceden kutu köşeyi
+    // aşıp komşu kolun duvar yüzünü örtüyordu (DA-2 kemerli duvar / 503. Sk. köşesi (202,−151), critic da2-03)
+    const [hedgeU0, hedgeU1] = hedgeSpan(pts, i, n, wallT);
     const nS = Math.max(1, Math.ceil(L / (arch ? 0.35 : 2)));
     for (let k = 0; k < nS; k++) {
       const u0 = (L * k) / nS;
@@ -359,14 +398,18 @@ export function buildGenericFence(
           /mesh|tel|panel/.test(infType) ? infH / 0.2 : 1,
         ]);
         const m = P((u0 + u1) / 2, wallT / 2);
-        b.box(
-          infKey === mat('bars', inf.color ?? '#202224')
+        // Üst boru: ölçülen `topRail` rengi (ya da tip metnindeki "üst boru … #hex"), `topRails` adet (çift boru
+        // 8 cm arayla); yoksa dolgu rengi
+        const trHex =
+          f.infillSpec?.topRail ?? /üst boru[^#]*?(#[0-9a-f]{6})/i.exec(f.infillSpec?.type ?? '')?.[1];
+        const trKey = trHex
+          ? mat('metal', hex(trHex, '#859696'))
+          : infKey === mat('bars', inf.color ?? '#202224')
             ? mat('metal', inf.color ?? '#202224')
-            : mat('metal', '#2f4a36'),
-          [m[0], yb + infH, m[1]],
-          [u1 - u0, 0.04, 0.04],
-          yaw,
-        );
+            : mat('metal', '#2f4a36');
+        const nTr = Math.max(1, Math.min(3, f.infillSpec?.topRails ?? 1));
+        for (let j = 0; j < nTr; j++)
+          b.box(trKey, [m[0], yb + infH - j * 0.08, m[1]], [u1 - u0, 0.045, 0.045], yaw);
       }
       const scr = screenAt(mid);
       if (/shrub|çalı|partial|kesintili/.test(scr) && hedgeH > 0) {
@@ -382,17 +425,20 @@ export function buildGenericFence(
           b.geometry('boxwood', g);
         }
       }
-      if (scr === 'real' && hedgeH > 0) {
-        const hc = P((u0 + u1) / 2, wallT + hedgeD / 2 + 0.05);
+      const hu0 = Math.max(u0, hedgeU0);
+      const hu1 = Math.min(u1, hedgeU1);
+      if (scr === 'real' && hedgeH > 0 && hu1 > hu0 + 0.01) {
+        const hc = P((hu0 + hu1) / 2, wallT + hedgeD / 2 + 0.05);
         b.box(
           'mkHedge',
           [hc[0], y0 + hedgeH / 2 - 0.1, hc[1]],
-          [u1 - u0 + 0.02, hedgeH + 0.2, hedgeD],
+          [hu1 - hu0 + (hu1 - hu0 < u1 - u0 ? 0 : 0.02), hedgeH + 0.2, hedgeD],
           yaw,
           0.5,
           0b111111 & ~0b100000,
         );
         for (let uu = u0 + 0.4; uu < u1; uu += 0.8) {
+          if (uu < hedgeU0 + 0.3 || uu > hedgeU1 - 0.3) continue;
           const hs = Math.sin((cum[i] + uu) * 12.9898 + 3.1) * 43758.5453;
           const rr = hs - Math.floor(hs);
           const bp = P(uu, wallT + hedgeD * (0.35 + 0.3 * rr));

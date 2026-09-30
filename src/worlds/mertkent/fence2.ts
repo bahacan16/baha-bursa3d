@@ -40,6 +40,12 @@ type Collide = (ring: [number, number][], bottom: number, top: number) => void;
 const PANEL = 2.13;
 const WALL_T = 0.2;
 const POST_EVERY = 2.5;
+/**
+ * mk-wave.jpg dokusunun kapladığı duvar yüksekliği (m). Doku XRdO karesinin y 0.70…1.08 bandından kırpıldı (~7
+ * nervür). KARAR: 0.6 m → 0.82 m'lik duvarda ~9.5 nervür (eleştirmen fotoğraf sayımı 8–10 / 0.82 m; ortofoto bandı
+ * 0.38 m ölçek belirsizliği yüzünden kullanılmadı).
+ */
+export const WAVE_V = 0.6;
 
 export function buildMertkentFence(
   b: Builder,
@@ -167,7 +173,22 @@ export function buildMertkentFence(
       const pm = P((u0 + u1) / 2, 0);
       const y0 = H(pm[0], pm[1]) + 0.15; // kaldırım kotu
       // Duvar ön yüzü (dalga paneli dokusu), arka yüz düz beyaz
-      face('mkWave', u0, u1, 0, y0 - 0.15, y0 + wallH, waveU(U0, mid), waveU(U1, mid), -0.15 / wallH, 1, 1);
+      // Doku (mk-wave.jpg) duvarın dar bir bandından kırpıldı (make-textures-mk.mjs, WAVE_V):
+      // önceden tüm duvar yüksekliğine (0.97 m) geriliyordu → nervürler iki kat iri, 4–5 kalın dalga (critic M2 #12;
+      // fotoğrafta 0.82 m'de 8–10 ince nervür). Artık gerçek ölçekte, düşeyde aynalı tekrar.
+      face(
+        'mkWave',
+        u0,
+        u1,
+        0,
+        y0 - 0.15,
+        y0 + wallH,
+        waveU(U0, mid),
+        waveU(U1, mid),
+        -0.15 / WAVE_V,
+        wallH / WAVE_V,
+        1,
+      );
       face('mkWallBack', u0, u1, WALL_T, y0 - 0.1, y0 + wallH, U0, U1, 0, wallH, -1);
       // Harpuşta (turuncu)
       const cc = P((u0 + u1) / 2, WALL_T / 2 - 0.01);
@@ -210,32 +231,25 @@ export function buildMertkentFence(
         const hh = sc === 'real' ? hedgeH : Math.min(hedgeH, wallH + meshH + 0.35);
         const off0 = WALL_T + 0.05;
         const hy0 = y0 + wallH * 0.5;
-        face('mkHedge', u0, u1, off0, hy0, y0 + hh, U0 / 2, U1 / 2, hy0 - y0, hh, 1);
-        // Üst yüz
+        // Gerçek leylandi: düz gövde üstü ölçülen boyun HEDGE_TUFT altında, üstünde düzensiz filiz tutamları ölçülen
+        // boya kadar (önceden topaklar ölçülen boyun 0.3 m üstüne çıkıyor, ~1.1 m'lik yuvarlak tümsekler yapıyordu —
+        // critic M2 #13/#14: dikmeler ve jiletli tel çitin içinde kayboluyordu)
+        const hb = sc === 'real' ? hh - HEDGE_TUFT : hh;
+        face('mkHedge', u0, u1, off0, hy0, y0 + hb, U0 / 2, U1 / 2, hy0 - y0, hb, 1);
+        // Üst yüz (güneşli saçak tonu: mkHedgeTop)
         const t0 = P(u0, off0);
         const t1 = P(u1, off0);
         const t2 = P(u1, off0 + hedgeD);
         const t3 = P(u0, off0 + hedgeD);
         b.quad(
-          'mkHedge',
-          [t0[0], y0 + hh, t0[1]],
-          [t1[0], y0 + hh, t1[1]],
-          [t2[0], y0 + hh, t2[1]],
-          [t3[0], y0 + hh, t3[1]],
+          sc === 'real' ? 'mkHedgeTop' : 'mkHedge',
+          [t0[0], y0 + hb, t0[1]],
+          [t1[0], y0 + hb, t1[1]],
+          [t2[0], y0 + hb, t2[1]],
+          [t3[0], y0 + hb, t3[1]],
           [U0 / 2, 0, U1 / 2, hedgeD / 2],
         );
-        // Düzensiz, kabarık üst hat: gömülü basık küre topakları (Street View'da çit tepesi cetvel düz değil)
-        if (sc === 'real')
-          for (let uu = u0 + 0.35; uu < u1; uu += 0.75) {
-            const hsh = Math.sin((cum[i] + uu) * 12.9898) * 43758.5453;
-            const rr = hsh - Math.floor(hsh);
-            const bp = P(uu, off0 + hedgeD * (0.35 + 0.3 * rr));
-            const g = new THREE.SphereGeometry(0.5, 9, 6);
-            g.scale(1.1, 0.35 + 0.35 * rr, 0.8);
-            g.rotateY(yaw);
-            g.translate(bp[0], y0 + hh - 0.05, bp[1]);
-            b.geometry('mkHedge', g);
-          }
+        if (sc === 'real') hedgeTufts(b, P, cum[i], u0, u1, off0, hedgeD, y0 + hb, HEDGE_TUFT, yaw);
         // KARAR: yaprak kartı saçağı kaldırıldı (eleştirmen: gerçek budanmış leylandide pençe gibi koyu filizler yok)
       }
       collide?.(
@@ -251,19 +265,25 @@ export function buildMertkentFence(
       const y0 = H(p[0], p[1]) + 0.15;
       b.box('mkMeshPost', [p[0], y0 + wallH + meshH / 2 + 0.05, p[1]], [0.06, meshH + 0.1, 0.04], yaw);
     }
-    // Jiletli tel (halkalar)
-    if (f.razor !== false)
-      // Street View: sık, iç içe geçmiş parlak gümüş halkalar (~0.3 m çap)
+    // Jiletli tel (halkalar): ölçüm razorSpec {coil: çap, top: üst kot} (yoksa eski 0.56 m / dikme üstü)
+    if (f.razor !== false) {
+      // Street View: sık, iç içe geçmiş parlak gümüş halkalar. KARAR: tel kesiti 1 cm → 2.4 cm görünür bant (jilet
+      // kanatları dahil); 1 cm'lik 3 kenarlı boru 5–15 m'de piksel altına düşüp hiç görünmüyordu (critic M2 #13)
+      const rs = (f as { razorSpec?: { coil?: number; top?: number } }).razorSpec;
+      const R = Math.max(0.15, Math.min(0.45, (rs?.coil ?? 0.56) / 2));
+      const cy = rs?.top != null ? rs.top - R : wallH + meshH + 0.28;
       for (let U = cum[i] + 0.1; U < cum[i + 1]; U += 0.2) {
         if (inGap(U)) continue;
         const p = P(U - cum[i], WALL_T / 2);
         const y0 = H(p[0], p[1]) + 0.15;
-        const ring = new THREE.TorusGeometry(0.28, 0.005, 3, 14);
+        const ring = new THREE.TorusGeometry(R, 0.012, 4, 18);
         ring.rotateY(yaw + Math.PI / 2 + 0.4);
-        ring.translate(p[0], y0 + wallH + meshH + 0.28, p[1]);
+        ring.translate(p[0], y0 + cy, p[1]);
         b.geometry('wire', ring);
       }
-    // Panel derz dikmeleri (beyaz, sokak yüzünden 2 cm taşkın)
+    }
+    // Panel derz dikmeleri (beyaz): Street View'da yüzeyle aynı hizada (critic M2 #12) — önceden iki yüzden 2 cm
+    // taşkın, belirgin dikmeler gibi görünüyordu; 3 mm taşkınlık yalnız derz çizgisini okutur
     for (let k = 0; k + 1 < pil.length; k++) {
       const a0 = pil[k];
       const e0 = pil[k + 1];
@@ -273,7 +293,7 @@ export function buildMertkentFence(
         if (U < cum[i] || U >= cum[i + 1] || inGap(U)) continue;
         const p = P(U - cum[i], WALL_T / 2 - 0.02);
         const y0 = H(p[0], p[1]) + 0.15;
-        b.box('mkWallBack', [p[0], y0 + wallH / 2 - 0.05, p[1]], [0.11, wallH + 0.1, WALL_T + 0.04], yaw);
+        b.box('mkWallBack', [p[0], y0 + wallH / 2 - 0.05, p[1]], [0.11, wallH + 0.1, WALL_T + 0.006], yaw);
       }
     }
     // Kolonlar: ölçülmüş/düzenli + kapı kenarları (köşe kolonu iki kenarda bir kez)
@@ -299,6 +319,52 @@ export function buildMertkentFence(
       );
     }
   }
+}
+
+/** Leylandi tepesindeki filiz tutamlarının boyu (m): düz gövde üstü ölçülen çit boyunun bu kadar altında */
+export const HEDGE_TUFT = 0.18;
+
+/**
+ * Budanmış leylandi tepesi: düz üst yüzün üstünde sık, küçük, düzensiz filiz tutamları (Street View: tırtıklı, güneşli
+ * sarı-yeşil saçak). Tutamların tepesi en çok ölçülen boy (top + tuft). UV dünya metresi (küre UV'si kutuplarda
+ * dokuyu düşey çizgilere geriyordu — critic V5 "hedge top vertical streaks").
+ */
+function hedgeTufts(
+  b: Builder,
+  P: (u: number, off: number) => V2,
+  U0: number,
+  u0: number,
+  u1: number,
+  off0: number,
+  depth: number,
+  top: number,
+  tuft: number,
+  yaw: number,
+): void {
+  for (let uu = u0 + 0.12; uu < u1; uu += 0.26) {
+    for (let r = 0; r < 3; r++) {
+      const hsh = Math.sin((U0 + uu) * 12.9898 + r * 78.233) * 43758.5453;
+      const rr = hsh - Math.floor(hsh);
+      if (rr < 0.2) continue;
+      const bp = P(uu + (rr - 0.5) * 0.18, off0 + depth * (0.16 + 0.34 * r) + (rr - 0.5) * 0.1);
+      const R = 0.16 + 0.1 * rr;
+      const hgt = tuft * (0.45 + 0.55 * rr);
+      const g = new THREE.SphereGeometry(R, 7, 4, 0, Math.PI * 2, 0, Math.PI / 2);
+      g.scale(1, hgt / R, 0.85);
+      g.rotateY(yaw + rr * 2);
+      g.translate(bp[0], top - 0.02, bp[1]);
+      planarUv(g, 2, 1);
+      b.geometry('mkHedgeTop', g);
+    }
+  }
+}
+
+/** Geometri UV'si dünya metresinden (u = (x + z) / su, v = y / sv) — çit dokusunun ölçeği */
+function planarUv(g: THREE.BufferGeometry, su: number, sv: number): void {
+  const p = g.attributes.position;
+  const uv = g.attributes.uv;
+  for (let k = 0; k < p.count; k++) uv.setXY(k, (p.getX(k) + p.getZ(k)) / su, p.getY(k) / sv);
+  uv.needsUpdate = true;
 }
 
 function pillar(b: Builder, p: V2, y0: number, w: number, h: number, yaw: number, lamp: boolean): void {

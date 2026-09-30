@@ -1978,134 +1978,6 @@
    "h": 0.03,
    "w": 0.1,
    "note": "ana yol kuzey/doğu kenar taşı"
-  },
-  {
-   "kind": "kerb",
-   "pts": [
-    [
-     -65.9,
-     -156
-    ],
-    [
-     -61,
-     -155.6
-    ],
-    [
-     -55,
-     -155.2
-    ],
-    [
-     -46,
-     -154.8
-    ],
-    [
-     -40,
-     -154.4
-    ],
-    [
-     -34,
-     -154.2
-    ],
-    [
-     -28,
-     -153.7
-    ],
-    [
-     -19,
-     -153.5
-    ],
-    [
-     -16,
-     -153.8
-    ],
-    [
-     -13,
-     -154.3
-    ],
-    [
-     -10,
-     -155.1
-    ],
-    [
-     -7,
-     -156.2
-    ],
-    [
-     -4,
-     -157.4
-    ],
-    [
-     -1,
-     -158.9
-    ],
-    [
-     3,
-     -161
-    ],
-    [
-     7,
-     -162.7
-    ],
-    [
-     10,
-     -164.3
-    ],
-    [
-     13,
-     -165.8
-    ],
-    [
-     16,
-     -167.2
-    ],
-    [
-     19,
-     -168.5
-    ],
-    [
-     22,
-     -169.8
-    ]
-   ],
-   "h": 0.15,
-   "w": 0.15,
-   "note": "Doğan Avcıoğlu kuzey bordürü (hava foto, ±0.5 m)"
-  },
-  {
-   "kind": "kerb",
-   "pts": [
-    [
-     -69.5,
-     -211.5
-    ],
-    [
-     -69.7,
-     -208
-    ],
-    [
-     -70.2,
-     -200
-    ],
-    [
-     -70.7,
-     -190
-    ],
-    [
-     -71.1,
-     -180
-    ],
-    [
-     -71.6,
-     -170
-    ],
-    [
-     -71.9,
-     -162.5
-    ]
-   ],
-   "h": 0.15,
-   "w": 0.15,
-   "note": "Cavit Orhan doğu bordürü (hava foto, ±0.5 m)"
   }
  ],
  "points": [
@@ -3532,14 +3404,27 @@
    "x": -68.7,
    "z": -164.3,
    "h": 1.8,
-   "note": "mavi giysi kumbarası \"49\" (~1×1×1.8 m), GB köşe kaldırımı (SV üçgenleme)"
+   "note": "mavi giysi kumbarası \"49\" (~1×1×1.8 m), GB köşe kaldırımı (SV üçgenleme) | 2026-09 (eleştirmen V16): joaQ_120_0: beyaz boyalı görünen kutu kumbara, alt yarısında mavi baskı (insan figürleri; güneşli ≈#7ca7d6, gölge ≈#6289ab). Gövde bu karede tümüyle gölgede ≈#6f7a80 (shade) — güneşli gövde tonu ölçülmedi. \"49\" yazısı bu karede okunmadı. style clothes = kutu (w × d × h), color2 baskı.",
+   "style": "clothes",
+   "w": 1.0,
+   "d": 1.0,
+   "color2": "#7ca7d6",
+   "shade": "#6f7a80"
   },
   {
    "kind": "bin",
    "x": -59.4,
    "z": -164.3,
    "h": 1.3,
-   "note": "beyaz cam kumbarası (yuvarlak ağızlı kutu, ~1.2×1×1.3 m) beton kaide üzerinde, güney kaldırım kenarı"
+   "note": "beyaz cam kumbarası (yuvarlak ağızlı kutu, ~1.2×1×1.3 m) beton kaide üzerinde, güney kaldırım kenarı | 2026-09: EbG_60_0: açık gri-beyaz kutu (güneşli yüz ≈#dceee3), üstte kapak, altında beton kaide (≈#988573, güneşli). style glass = kutu kumbara, base {h, color} kaide.",
+   "style": "glass",
+   "w": 1.2,
+   "d": 1.0,
+   "color": "#dceee3",
+   "base": {
+    "h": 0.25,
+    "color": "#988573"
+   }
   },
   {
    "kind": "bin",
@@ -3574,7 +3459,8 @@
    "x": -69.5,
    "z": -172.7,
    "h": 9,
-   "note": "galvaniz sokak lambası direği, Cavit Orhan doğu kaldırımı (SV üçgenleme)"
+   "note": "galvaniz sokak lambası direği, Cavit Orhan doğu kaldırımı (SV üçgenleme) | 2026-09 (eleştirmen V16): galvaniz AÇIK GRİ konik direk (sokak lambası tipi, street-plan lamp-post ile aynı malzeme); EbG_60_0 karesinde gövde gölgede ≈#546264 (gölge; güneşli yüz ölçülemedi), dipte küçük sarı etiket. Kol/baş bu karede ağaç içinde — görülmedi. style \"street\" = sokak lambası çizimi (bahçe lambası değil).",
+   "style": "street"
   },
   {
    "kind": "lamp",
@@ -3794,63 +3680,13 @@
   },
   {
    "kind": "tree",
-   "x": -71.5,
-   "z": -32.6,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
+   "x": -70.8,
+   "z": -34.8,
+   "r": 1.2,
+   "h": 5.5,
+   "species": "sapling",
+   "note": "Genç ince gövdeli ağaç, seyrek küçük bronz-kahve/kızıl yapraklar (Eylül 2025; tür seçilemedi — kan erik olabilir, görülmedi). Güney tek yön sokak kenarı çim şeridinde, 'Girilmez' levhasının arkasında. SV gPUM_90_-5_40 (104.4°, 7.9 m) + gPUM_120_0 (106°), boy ≈5.5 m (tepe +22°). Eski konum (−71.5,−32.6) 2.2 m kuzeydeydi (eleştirmen V11).",
    "id": "t23S"
-  },
-  {
-   "kind": "tree",
-   "x": -6.3,
-   "z": -28.9,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t28M"
-  },
-  {
-   "kind": "tree",
-   "x": -9.6,
-   "z": -28.9,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t30M"
-  },
-  {
-   "kind": "tree",
-   "x": -4.7,
-   "z": -30,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t36Y"
-  },
-  {
-   "kind": "tree",
-   "x": -16.8,
-   "z": -27.4,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t37M"
-  },
-  {
-   "kind": "tree",
-   "x": -13.1,
-   "z": -30.5,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t38S"
   },
   {
    "kind": "tree",
@@ -3874,16 +3710,6 @@
   },
   {
    "kind": "tree",
-   "x": -4.7,
-   "z": -28.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t43Y"
-  },
-  {
-   "kind": "tree",
    "x": -22.2,
    "z": -28.4,
    "r": 0.9,
@@ -3904,36 +3730,6 @@
   },
   {
    "kind": "tree",
-   "x": -11.2,
-   "z": -26.3,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t51L"
-  },
-  {
-   "kind": "tree",
-   "x": -14.6,
-   "z": -24.5,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t54M"
-  },
-  {
-   "kind": "tree",
-   "x": -5.6,
-   "z": -26.6,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t55Y"
-  },
-  {
-   "kind": "tree",
    "x": -14.5,
    "z": -27.1,
    "r": 0.9,
@@ -3941,36 +3737,6 @@
    "species": "deciduous",
    "note": "fidan",
    "id": "t56S"
-  },
-  {
-   "kind": "tree",
-   "x": -12.9,
-   "z": -22.9,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t60M"
-  },
-  {
-   "kind": "tree",
-   "x": -9.6,
-   "z": -26.2,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t61S"
-  },
-  {
-   "kind": "tree",
-   "x": -4.8,
-   "z": -25.3,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t62Y"
   },
   {
    "kind": "tree",
@@ -3984,16 +3750,6 @@
   },
   {
    "kind": "tree",
-   "x": -11.2,
-   "z": -24.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t65S"
-  },
-  {
-   "kind": "tree",
    "x": 41.9,
    "z": -22.7,
    "r": 2,
@@ -4001,36 +3757,6 @@
    "species": "deciduous",
    "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
    "id": "t67L"
-  },
-  {
-   "kind": "tree",
-   "x": -8.4,
-   "z": -23.9,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t68Y"
-  },
-  {
-   "kind": "tree",
-   "x": -5.2,
-   "z": -22.9,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t69L"
-  },
-  {
-   "kind": "tree",
-   "x": -10.5,
-   "z": -22.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t70Y"
   },
   {
    "kind": "tree",
@@ -4061,16 +3787,6 @@
    "species": "deciduous",
    "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
    "id": "t73Y"
-  },
-  {
-   "kind": "tree",
-   "x": -8.1,
-   "z": -22.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t74Y"
   },
   {
    "kind": "tree",
@@ -4594,12 +4310,13 @@
   },
   {
    "kind": "tree",
-   "x": -9.1,
-   "z": -26.8,
-   "r": 2,
-   "h": 6,
+   "x": -9.8,
+   "z": -28.3,
+   "r": 7,
+   "h": 14,
    "species": "deciduous",
-   "note": "OSM natural=tree"
+   "note": "Nato Parkı KD: tek büyük olgun yaprak döken ağaç (loblu yaprak, meşe benzeri — kütüphanede meşe yok → genel yaprak döken), kalın tek gövde. OSM natural=tree ile aynı ağaç (1.6 m). Gövde 4 SV karesinden: MUMV_180_0 (200.6°, 6.5 m), I52t5_240_0 (227.3°, 15 m), UKQg_0_0 (346.8°, 15 m), Wi7U_0_0 (27.6°, 16.7 m) → (−9.8,−28.3) ±0.7. Boy ≈13–15 m (UKQg tepe +39°), taç hava fotoğrafında x −19…−2.5, z −35…−16 (eğik çekim) → r≈7. Eleştirmen (V0/V15) + 2026-09 düzeltme: bu taç altındaki hava-fotoğrafı lekesinden konmuş 'genç ağaç' noktaları (17 adet) SV'de gövdesi görülmediği için silindi.",
+   "id": "NATO_NE_BIG"
   },
   {
    "kind": "bench",
@@ -4648,6 +4365,16 @@
    "x": -71.8,
    "z": -25.6,
    "note": "yeşil çöp kutusu (SV 7Az9) ±1.5 m"
+  },
+  {
+   "kind": "tree",
+   "x": -65.5,
+   "z": -34.85,
+   "h": 3.8,
+   "r": 1.0,
+   "species": "prunus-purple",
+   "id": "NATO_SW_PURPLE",
+   "note": "Genç mor/bordo yapraklı ağaç (kan erik görünüşü), ince tek gövde, sokak kenarı çim şeridinde. SV gPUM_90_-5_40 (98.2°, 13 m) ve gPUM_60_0 / 120_0 aynı kerteriz → (−65.5,−34.85) ±1; boy ≈3.7–4.2 m."
   }
  ],
  "notes": [
@@ -4657,6 +4384,7 @@
   "Yapılar (bu dosyada şema anahtarı yok, not olarak): kuzey park GD’de gri/beyaz grafitili konteyner/büfe kabini ~6.5×4.8 m h≈2.6, köşeler (51.0,−184.6)…(57.6,−179.8); Cavit Orhan kaldırımında (−68.5,−204.2) ~14 m telekom direği (antenler + dibinde gri kabin); (−68.8,−185.8) gri elektrik panosu ~1.4 m.",
   "Kuzey park ana yolu: gri kilit taşı, 2.0 m, kenarında sarı hissedilebilir şerit; batıda Cavit Orhan kaldırımına, GD’de Doğan Avcıoğlu kaldırımına bağlanır (OSM 1540372781 ile ±1 m uyumlu). Yol boyunca kuzeyde bank/çöp kutusu/corten pano; ağaç dizileri yolun iki yanında.",
   "Nato Parkı koşu yolu stabilize (bej ince çakıl), kırmızı tartan DEĞİL. 502. Sk. geçidi (x −4…6, z≈−21.5) street-plan’da. Banklar OSM konumlarında; lamba/çöp kutusu yalnızca SV’de görülen batı ucunda — diğer park lambaları doğrulanamadı.",
-  "Belirsizlikler: kuzey park orta kümesi (x −25…−10, z −182…−168) iki büyük taç olarak basitleştirildi; banklar (kuzey kenar) hava fotoğrafı açık lekelerinden ±1.5 m; Uğur Mumcu yüksek direği doğrulanmadı; Nato ağaçları hava fotoğrafı lekelerinden, koruda (x −15…−4) taçlar birleşik olduğundan sayı ±30%."
+  "Belirsizlikler: kuzey park orta kümesi (x −25…−10, z −182…−168) iki büyük taç olarak basitleştirildi; banklar (kuzey kenar) hava fotoğrafı açık lekelerinden ±1.5 m; Uğur Mumcu yüksek direği doğrulanmadı; Nato ağaçları hava fotoğrafı lekelerinden, koruda (x −15…−4) taçlar birleşik olduğundan sayı ±30%.",
+  "2026-09: Cavit Orhan doğu (L3) ve Doğan Avcıoğlu kuzey (L2) bordür çizgileri kaldırıldı — bordür + kırmızı/gri bantlar artık street-plan kaldırımlarında (park-cv-west, park-da-north; aynı hat). Alan 8 (paving) altta kalır. Nato Parkı KD: tek büyük olgun ağaç (NATO_NE_BIG) 4 SV karesinden; taç altındaki 17 hava-fotoğrafı 'genç ağaç' noktası gövdesi görülmediği için silindi (t56S tek karede örtülü → bırakıldı)."
  ]
 }
