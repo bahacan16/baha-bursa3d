@@ -4,7 +4,7 @@ import { dropHandmadeWays } from '../../src/worlds/osm/parse';
 const sq = (x0: number, z0: number, x1: number, z1: number) => [x0, z0, x1, z0, x1, z1, x0, z1, x0, z0];
 
 describe('dropHandmadeWays', () => {
-  const ways = [
+  const ways: { i: number; p: number[]; t: Record<string, string> }[] = [
     { i: 1, p: sq(0, 0, 20, 10), t: { building: 'apartments' } },
     { i: 2, p: sq(0, 0, 10, 10), t: { 'building:part': 'yes' } }, // kenarı paylaşan iç parça
     { i: 3, p: sq(12, 2, 18, 8), t: { 'building:part': 'yes' } }, // tamamen içeride
