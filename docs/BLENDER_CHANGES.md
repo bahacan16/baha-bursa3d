@@ -719,3 +719,4 @@
   Mersin Tantuni, Demir Amca, Mariza, Kanaatçı Mesut, Burger yiyelim, Bursa Baharat, Maydonoz Döner, Caffe Napoli).
   **Blender:** bu 6 bina ilk kez kurulur (kuleler kaideyle çakışıyor → pending).
 - **(D4 cephe 4, 2. tur)** — `survey/1550614219.json`: bindirme düzeltmeleri (e18/e19/e5/e3/e41/e45/e46), kuzey servis yolu panoları ~4.3 m kayık → `cal.dist`, kaide bulvar 3 kat / arka 2 kat (7.9 m). **Blender:** bu bloğun kaide + cephe katmanı.
+- **(D4 cephe 3)** — yeni `survey/1546358573.json` (Biaport kaidesi: McDonald's/McCafé, Gratis, Halkbank, Madame Coco, Migros, ARMA KAMPÜS, Art of Mathematics; Uğur Mumcu şeridi: Boğa Burger, Armilla Hayvan Hastanesi, KİRALIK, Hasköyüm Pidecisi, yataş, Popeyes, Vestel Ekspres, Dent Palace, Dürümle), `1546358570.json` (Biaport kulesi, çevre balkonlu; kat sayısı ±2). **Blender:** bu 2 bina ilk kez kurulur.
