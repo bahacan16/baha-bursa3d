@@ -1,0 +1,1480 @@
+{
+ "id": 1546358570,
+ "name": "Biaport kule (batıdaki, avlu içinde)",
+ "storeys": 22,
+ "trueCoords": true,
+ "floorH": 3.2,
+ "groundRaise": 0.3,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.3,
+  "fasciaH": 0.6,
+  "fasciaC": "#c3c7c4"
+ },
+ "colors": {
+  "plaster": "#b7bab0",
+  "plaster2": "#c3c7c4",
+  "strip": "#c3c7c4",
+  "fascia": "#c3c7c4",
+  "soffit": "#d2d4d0",
+  "railGlass": "#9fb7ae",
+  "frame": "#8a9092",
+  "tile": "#9e9f9a",
+  "plinth": "#8f918b"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 10.84,
+   "seen": "partial",
+   "ref": "1546358570_0_31V0mPU9.jpg",
+   "cal": {
+    "u": [
+     0,
+     10.84
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 10.84,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.31,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.91,
+     "u1": 6.93,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 7.53,
+     "u1": 10.54,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: PSCDXjt6 (bulvar, 88 m, podyum üstünden K6+) + TAo7F8xq. Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 1,
+   "len": 5.2,
+   "seen": "partial",
+   "ref": "1546358570_1_31V0mPU9.jpg",
+   "cal": {
+    "u": [
+     0,
+     5.2
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 5.2,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 2.3,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 2.9,
+     "u1": 4.9,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: PSCDXjt6 (bulvar, 88 m, podyum üstünden K6+) + TAo7F8xq. Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 2,
+   "len": 5.84,
+   "seen": "partial",
+   "ref": "1546358570_2_31V0mPU9.jpg",
+   "cal": {
+    "u": [
+     0,
+     5.84
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 5.84,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 2.62,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.22,
+     "u1": 5.54,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: PSCDXjt6 (bulvar, 88 m, podyum üstünden K6+) + TAo7F8xq. Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 3,
+   "len": 3.78,
+   "seen": "partial",
+   "ref": "1546358570_3_TAo7F8xq.jpg",
+   "cal": {
+    "u": [
+     0,
+     3.78
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 3.78,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.48,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: PSCDXjt6 (bulvar, 88 m, podyum üstünden K6+) + TAo7F8xq. Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 4,
+   "len": 4.13,
+   "seen": "partial",
+   "ref": "1546358570_4_TAo7F8xq.jpg",
+   "cal": {
+    "u": [
+     0,
+     4.13
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 4.13,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.83,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: PSCDXjt6 (bulvar, 88 m, podyum üstünden K6+) + TAo7F8xq. Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 5,
+   "len": 7.38,
+   "seen": "photo",
+   "ref": "1546358570_5_1WAO_-m0.jpg",
+   "cal": {
+    "u": [
+     0,
+     7.38
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 7.38,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.39,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.99,
+     "u1": 7.08,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "ac",
+     "u": 5.6,
+     "s": 7,
+     "onBal": false,
+     "y": 23.200000000000003
+    },
+    {
+     "t": "ac",
+     "u": 6.9,
+     "s": 7,
+     "y": 23.200000000000003
+    }
+   ],
+   "note": "Kaynak: 1WAO_-m0 / 1FYFckE3 / CiF11WWv (MOSSA yolu, 38–49 m; K1–K12 görüldü, üst katlar yalnız eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 6,
+   "len": 13.36,
+   "seen": "photo",
+   "ref": "1546358570_6_1FYFckE3.jpg",
+   "cal": {
+    "u": [
+     0,
+     13.36
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 13.36,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.04,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.64,
+     "u1": 6.38,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 6.98,
+     "u1": 9.72,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 10.32,
+     "u1": 13.06,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "ac",
+     "u": 3.4,
+     "s": 7,
+     "y": 23.200000000000003
+    },
+    {
+     "t": "ac",
+     "u": 4.6,
+     "s": 7,
+     "y": 23.200000000000003
+    }
+   ],
+   "note": "Kaynak: 1WAO_-m0 / 1FYFckE3 / CiF11WWv (MOSSA yolu, 38–49 m; K1–K12 görüldü, üst katlar yalnız eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 7,
+   "len": 12.13,
+   "seen": "photo",
+   "ref": "1546358570_7_CiF11WWv.jpg",
+   "cal": {
+    "u": [
+     0,
+     12.13
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 12.13,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 2.73,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.33,
+     "u1": 5.77,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 6.37,
+     "u1": 8.8,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 9.4,
+     "u1": 11.83,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: 1WAO_-m0 / 1FYFckE3 / CiF11WWv (MOSSA yolu, 38–49 m; K1–K12 görüldü, üst katlar yalnız eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 8,
+   "len": 10.83,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     10.83
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 10.83,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.31,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.91,
+     "u1": 6.92,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 7.52,
+     "u1": 10.53,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: RVrJaCMS / akzaaVl8 / LwOyDYbY 180_0 (Uğur Mumcu, çok eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 9,
+   "len": 3.54,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     3.54
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 3.54,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.24,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: RVrJaCMS / akzaaVl8 / LwOyDYbY 180_0 (Uğur Mumcu, çok eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 10,
+   "len": 5.6,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     5.6
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 5.6,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 2.5,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.1,
+     "u1": 5.3,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: RVrJaCMS / akzaaVl8 / LwOyDYbY 180_0 (Uğur Mumcu, çok eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 11,
+   "len": 4.79,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     4.79
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 4.79,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 4.49,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: RVrJaCMS / akzaaVl8 / LwOyDYbY 180_0 (Uğur Mumcu, çok eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 12,
+   "len": 4.7,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     4.7
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 4.7,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 4.4,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: RVrJaCMS / akzaaVl8 / LwOyDYbY 180_0 (Uğur Mumcu, çok eğik). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 13,
+   "len": 6.61,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     6.61
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 6.61,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 3.01,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.61,
+     "u1": 6.31,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: 2LX4ejfo / 7ip2B_ZE / G6ezcLGL 180_0 (şeridin üstünden, K5+). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 14,
+   "len": 13.12,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     13.12
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 13.12,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 2.98,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.58,
+     "u1": 6.26,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 6.86,
+     "u1": 9.54,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 10.14,
+     "u1": 12.82,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: 2LX4ejfo / 7ip2B_ZE / G6ezcLGL 180_0 (şeridin üstünden, K5+). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  },
+  {
+   "edge": 15,
+   "len": 13.07,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     13.07
+    ],
+    "head": [
+     [
+      0,
+      2.55
+     ],
+     [
+      1,
+      5.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 13.07,
+     "d": 0,
+     "inset": 1.6,
+     "s": [
+      1,
+      21
+     ],
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "railH": {
+      "*": 1.05
+     },
+     "glassC": {
+      "*": "#9fb7ae"
+     },
+     "fasciaC": {
+      "*": "#c3c7c4"
+     },
+     "railC": "#c9ccca",
+     "postEvery": 1.2
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 2.97,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 3.57,
+     "u1": 6.24,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 6.84,
+     "u1": 9.5,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    },
+    {
+     "t": "win",
+     "u0": 10.1,
+     "u1": 12.77,
+     "y0": 0.35,
+     "y1": 2.9499999999999997,
+     "k": 0,
+     "s": [
+      1,
+      21
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#8a9092",
+     "behind": 1.6
+    }
+   ],
+   "note": "Kaynak: 2LX4ejfo / 7ip2B_ZE / G6ezcLGL 180_0 (şeridin üstünden, K5+). Tüm görülen yüzlerde aynı düzen: her katta kesintisiz balkon, çerçevesiz (dikmeli) açık yeşilimsi cam korkuluk, açık gri ≈0.35 m döşeme alnı, arkada boydan cam sürme doğramalar + açık gri sıva piyeler. Balkon önleri kat kat zikzak/kavisli değişiyor (pending towerFronts). Pencere bölmeleri kenar boyunca eşit dağıtıldı (piye yerleri yalnız güney yüzde yaklaşık seçildi, diğer yüzlerde ±1 m). K0 (lobi/zemin) havuz örtüsü, podyum ve çit arkasında GÖRÜLMEDİ; en üst katlar ve çatı hiçbir karede görülmedi (kareler kesik)."
+  }
+ ],
+ "notes": [
+  "D4 (2026-09-30). Kule avluda zeminden yükseliyor (podyumun üstünde değil). Street View’de her yüzün ancak bir bölümü görülüyor: MOSSA yolu panolarından (güney, 38–49 m) K1–≈K12 net; bulvardan (PSCD, 88 m) batı yüz podyum saçağının üstünde görünür katlar; Uğur Mumcu’dan kuzey/doğu yüzler şeridin üstünden, çok eğik. Hiçbir karede kulenin tepesi yok → KAT SAYISI Street View ile DOĞRULANAMADI: 22 (taban izi notu, hava fotoğrafı eğimi ≈68 m, ±2 kat).",
+  "KAT YÜKSEKLİĞİ belirsiz: güney ortofotoda (cephe hattı düzleminde) döşeme alnı aralığı görünen 3.58 m; balkon önlerinin düzlemden uzaklığı çift pano ile çözülemedi (pano konum hatası ±1 m). 3.2 m alındı (22 × 3.2 + zemin ≈ 71 m, hava fotoğrafı ≈68 m ile uyumlu); görünen 3.58 gerçek olsaydı yükseklik ≈79 m olurdu → ana oturum hava/eğim ölçüsüyle kontrol etsin.",
+  "RENKLER (bulutlu gün, güney yüz): döşeme alnı #c3c7c4, piye sıvası #b7bab0, korkuluk camı yeşilimsi #9fb7ae, doğrama gri #8a9092, cam arkası koyu #3e4333.",
+  "Kat kat farklılık: yalnız güney yüzde K1–K12 incelenebildi; perdeler / çamaşırlar / eşyalar bu uzaklıkta seçilmiyor (görülmedi). K7 güney balkonlarında 4 klima dış ünitesi (iki çift) görüldü; K3 güney yüzde (kenar 6–7 köşesine yakın) balkon korkuluğunda kırmızı-beyaz yuvarlak nesne (bayrak/afiş?) — pending."
+ ],
+ "pending": [
+  {
+   "id": "towerFronts",
+   "what": "balkon döşeme önleri kat kat değişen zikzak/kavisli plan: güney yüzde tek ve çift katlarda kırık noktası farklı (görünen 1FYF: kırık u≈15.3, uçlar −4.2 / 31.5; kat başına ön hat ±0.6–0.9 m dalgalanıyor, bina köşelerinde 45° kesik uçlar ≈1.5 m taşar)",
+   "note": "bal kat başına farklı plan eğrisi çizemiyor; taban izi tek hat"
+  },
+  {
+   "id": "southK3Item",
+   "edge": 7,
+   "what": "K3 balkonunda kırmızı-krem yuvarlak nesne (Ø≈0.8 m), korkuluk önünde",
+   "uApprox": 1.5,
+   "note": "türü seçilmedi (bayrak / süs)"
+  },
+  {
+   "id": "storeyCount",
+   "what": "kat sayısı ve kat yüksekliği hava fotoğrafı eğimiyle doğrulanmalı (bkz. notes)"
+  },
+  {
+   "id": "groundFloor",
+   "what": "K0 (lobi, giriş, zemin kat camları) görülmedi — havuz örtüsü/podyum arkasında"
+  }
+ ]
+}
