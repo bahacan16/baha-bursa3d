@@ -70,6 +70,16 @@ function shiftItem(it: CItem, s: number, L: number, realA = false, realE = false
     if (o.t === 'pediment' && it.t === 'pediment') o.apex = it.apex - s;
     if (o.t === 'bal' && o.pots)
       o.pots = Object.fromEntries(Object.entries(o.pots).map(([k, us]) => [k, us.map((u) => u - s)]));
+    // v9: çokgen pano köşeleri, kemerli açıklığın tepe u'su, çıkmanın kemer açıklığı da aynı kaydırmayla
+    if (o.t === 'panel' && o.poly) o.poly = o.poly.map(([u, y]) => [u - s, y] as [number, number]);
+    if (o.t === 'win' && o.apex != null) o.apex = o.apex - s;
+    if (o.t === 'proj' && o.arch)
+      o.arch = {
+        ...o.arch,
+        u0: o.arch.u0 - s,
+        u1: o.arch.u1 - s,
+        ...(o.arch.apex != null ? { apex: o.arch.apex - s } : {}),
+      };
     return o;
   }
   if (it.t === 'ribbon') {

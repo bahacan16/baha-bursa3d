@@ -2854,7 +2854,18 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         const holes = [...openings[i], ...recHoles(i)]
           .filter((op) => op.u1 > pu0 && op.u0 < pu1 && op.y1 > py0 && op.y0 < py1)
           .map((op) => opRing(op));
-        cutFace(b, key, P, i, offP, pr, holes, E[i].n, false, E[i].s0);
+        // Kenar boyuna kırpılır (kütle parçasında pano komşu parçaya taşabilir)
+        let parts: [number, number][][] = [pr];
+        if (pu0 < -0.01 || pu1 > E[i].len + 0.01)
+          try {
+            parts = pc
+              .intersection([pr], [rectRing([0, py0 - 1, E[i].len, py1 + 1])])
+              .map((q) => openRing(q[0] as V2[]) as [number, number][]);
+          } catch {
+            parts = [];
+          }
+        for (const q of parts)
+          if (q.length >= 3) cutFace(b, key, P, i, offP, q, holes, E[i].n, false, E[i].s0);
         continue;
       }
       const off = Math.max(0.006, it.proud);
