@@ -1,0 +1,1172 @@
+{
+ "id": 1552992538,
+ "name": "TİME Özlüce (ticari podyum + konut kulesi), Muammer Aksoy × Özlüce Blv. GB köşesi",
+ "storeys": 10,
+ "floorH": 2.95,
+ "plinthH": 0,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.02,
+  "fasciaH": 0.3,
+  "parapet": {
+   "h": 0.6,
+   "color": "#5d6166"
+  },
+  "flatC": "#6b6c6e"
+ },
+ "colors": {
+  "plaster": "#d9cfbf",
+  "plaster2": "#6a6e72",
+  "strip": "#8a5a3e",
+  "fascia": "#5d6166",
+  "soffit": "#8a5a3e",
+  "railGlass": "#4d5559",
+  "frame": "#3a3d40",
+  "tile": "#6b6c6e",
+  "plinth": "#5d6166"
+ },
+ "massing": {
+  "towers": [
+   {
+    "poly": [
+     [
+      545.54,
+      -764.28
+     ],
+     [
+      597.21,
+      -762.05
+     ],
+     [
+      597.93,
+      -778.83
+     ],
+     [
+      546.26,
+      -781.06
+     ]
+    ],
+    "storeys": 10,
+    "floorHs": [
+     5.2,
+     2.95,
+     2.95,
+     2.95,
+     2.95,
+     2.95,
+     2.95,
+     2.95,
+     2.95,
+     2.95
+    ],
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.3,
+     "parapet": {
+      "h": 0.6,
+      "color": "#5d6166"
+     }
+    }
+   },
+   {
+    "rest": true,
+    "storeys": 1,
+    "floorHs": [
+     5.2
+    ],
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.05,
+     "parapet": {
+      "h": 0.08,
+      "color": "#5d6166",
+      "rail": "glassFull",
+      "railC": "#3a3d40",
+      "glassC": "#4d5559",
+      "railH": 0.55,
+      "railEdges": [
+       2
+      ]
+     },
+     "flatC": "#7a7b7c"
+    }
+   }
+  ]
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 5.3,
+   "seen": "none",
+   "items": [],
+   "note": "KD pah: MINTY kış bahçesinin arkasında (görülmedi)"
+  },
+  {
+   "edge": 1,
+   "len": 14.81,
+   "seen": "none",
+   "items": [],
+   "note": "doğu bölüm kuzey duvarı: MINTY kış bahçesi + ağaç arkasında (görülmedi); önünde MINTY dış oturma"
+  },
+  {
+   "edge": 2,
+   "len": 63.64,
+   "seen": "photo",
+   "ref": "1552992538_2_1cWbg2oy.jpg",
+   "cal": {
+    "u": [
+     0,
+     63.64
+    ],
+    "head": [
+     [
+      0,
+      2.35
+     ],
+     [
+      1,
+      5.3
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 5.5,
+     "u1": 50.5,
+     "y0": 4.7,
+     "y1": 5.2,
+     "color": "#5d6166",
+     "proud": 0.15
+    },
+    {
+     "t": "win",
+     "u0": 9.9,
+     "u1": 18,
+     "y0": 0.1,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 5,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 18.1,
+     "u1": 24.25,
+     "y0": 0.1,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 24.3,
+     "u1": 28.2,
+     "y0": 0.1,
+     "y1": 2.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 28.6,
+     "u1": 33.35,
+     "y0": 0.1,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 3,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 33.75,
+     "u1": 44.1,
+     "y0": 0.1,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 44.2,
+     "u1": 50.3,
+     "y0": 0.1,
+     "y1": 3.35,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 9.9,
+     "u1": 18,
+     "y0": 3.3,
+     "y1": 4.35,
+     "color": "#34373a",
+     "proud": 0.2
+    },
+    {
+     "t": "sign",
+     "u0": 11.2,
+     "u1": 16.5,
+     "y0": 3.65,
+     "y1": 4.35,
+     "off": 0.21,
+     "style": "letters",
+     "d": 0.05,
+     "fg": "#f0f0ee",
+     "font": "serif",
+     "bold": true,
+     "text": "KAHVE DÜKKANI",
+     "lit": false,
+     "logo": "solda beyaz yuvarlak rozet logo (u 10.1–10.75, y 3.7–4.25), içi okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 18.1,
+     "u1": 23.3,
+     "y0": 3.25,
+     "y1": 4.05,
+     "style": "box",
+     "d": 0.2,
+     "bg": "#2a2c2e",
+     "fg": "#3dbb4a",
+     "font": "sans",
+     "bold": true,
+     "text": "BEYSOS DÖNER",
+     "lit": true,
+     "logo": "solda beyaz lale/alev biçimli logo; sağ uçta küçük beyaz rozet \"HATAY USULÜ\" (u 22.75–23.1); ışıklı kutu harf (gece görülmedi)"
+    },
+    {
+     "t": "sign",
+     "u0": 21.9,
+     "u1": 24.7,
+     "y0": 4.2,
+     "y1": 5,
+     "style": "lightbox",
+     "d": 0.12,
+     "bg": "#2e2a26",
+     "fg": "#e8e0d0",
+     "font": "sans",
+     "bold": true,
+     "text": "…BURGER  İSKENDER  …DÜRÜM",
+     "lit": true,
+     "logo": "fasya üstünde 3 fotoğraflı ışıklı menü kutusu (yemek fotoğrafları), başlıklar kısmen okunuyor"
+    },
+    {
+     "t": "panel",
+     "u0": 24.3,
+     "u1": 28.2,
+     "y0": 2.9,
+     "y1": 4.45,
+     "color": "#161718",
+     "proud": 0.15
+    },
+    {
+     "t": "sign",
+     "u0": 24.4,
+     "u1": 27,
+     "y0": 3.3,
+     "y1": 4.4,
+     "off": 0.16,
+     "style": "letters",
+     "d": 0.08,
+     "fg": "#eceae6",
+     "font": "sans",
+     "bold": true,
+     "text": "gold",
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 25.2,
+     "u1": 27,
+     "y0": 2.95,
+     "y1": 3.3,
+     "off": 0.16,
+     "style": "letters",
+     "d": 0.03,
+     "fg": "#eceae6",
+     "font": "script",
+     "bold": false,
+     "text": "mücevherat",
+     "lit": false
+    },
+    {
+     "t": "panel",
+     "u0": 28.26,
+     "u1": 33.67,
+     "y0": 3.3,
+     "y1": 4.1,
+     "color": "#e0302a",
+     "proud": 0.35
+    },
+    {
+     "t": "pilaster",
+     "u0": 28.26,
+     "u1": 28.6,
+     "y0": 0,
+     "y1": 4.1,
+     "d": 0.35,
+     "color": "#e0302a"
+    },
+    {
+     "t": "pilaster",
+     "u0": 33.35,
+     "u1": 33.67,
+     "y0": 0,
+     "y1": 4.1,
+     "d": 0.35,
+     "color": "#e0302a"
+    },
+    {
+     "t": "sign",
+     "u0": 28.8,
+     "u1": 33.3,
+     "y0": 3.35,
+     "y1": 3.95,
+     "off": 0.36,
+     "style": "letters",
+     "d": 0.04,
+     "fg": "#f5c518",
+     "font": "condensed",
+     "bold": true,
+     "text": "DİKEN DÖNER",
+     "lit": true,
+     "logo": "kırmızı portal çerçeveli dükkân; sarı kalın dar harfler"
+    },
+    {
+     "t": "sign",
+     "u0": 28.7,
+     "u1": 31.5,
+     "y0": 4.1,
+     "y1": 4.85,
+     "style": "panel",
+     "bg": "#f0b91c",
+     "fg": "#d8262a",
+     "font": "condensed",
+     "bold": true,
+     "text": "DİKEN  DİKEN",
+     "logo": "fasyanın üstünde üç bölmeli (sarı / kırmızı / sarı) üst levha, \"DİKEN\" logoları kısmen fasya arkasında"
+    },
+    {
+     "t": "panel",
+     "u0": 33.7,
+     "u1": 44.1,
+     "y0": 3.3,
+     "y1": 4.3,
+     "color": "#1c1d1e",
+     "proud": 0.2
+    },
+    {
+     "t": "sign",
+     "u0": 34.6,
+     "u1": 35.8,
+     "y0": 3.3,
+     "y1": 4.3,
+     "off": 0.21,
+     "style": "panel",
+     "bg": "#d8262a",
+     "fg": "#ffffff",
+     "border": "#f0a030",
+     "font": "sans",
+     "bold": true,
+     "text": "BİR\nSİMİT",
+     "logo": "kalkan biçimli rozet: üstte kırmızı \"B1R\", altında turuncu kurdele üzerinde \"SİMİT\""
+    },
+    {
+     "t": "sign",
+     "u0": 36.2,
+     "u1": 39.8,
+     "y0": 3.35,
+     "y1": 4.25,
+     "off": 0.21,
+     "style": "letters",
+     "d": 0.05,
+     "fg": "#d8262a",
+     "font": "sans",
+     "bold": true,
+     "text": "B1R SİMİT",
+     "logo": "\"1\" turuncu (#f0a030), i noktaları turuncu daire; diğer harfler kırmızı"
+    },
+    {
+     "t": "sign",
+     "u0": 41.9,
+     "u1": 43.1,
+     "y0": 3.35,
+     "y1": 4.25,
+     "off": 0.21,
+     "style": "letters",
+     "d": 0.03,
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": true,
+     "text": "FIRIN\nPASTA\nCAFE",
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 43.25,
+     "u1": 43.9,
+     "y0": 3.3,
+     "y1": 3.42,
+     "off": 0.21,
+     "style": "panel",
+     "bg": "#dfe3e6",
+     "fg": "#2d3a55",
+     "font": "sans",
+     "bold": true,
+     "text": "ÖZLÜCE ŞUBE",
+     "lit": false
+    },
+    {
+     "t": "flag",
+     "u": 37.4,
+     "s": 0,
+     "y": 3
+    },
+    {
+     "t": "sign",
+     "u0": 44.2,
+     "u1": 48.4,
+     "y0": 3.4,
+     "y1": 4.05,
+     "style": "box",
+     "d": 0.18,
+     "bg": "#e1262e",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "text": "Piliçmatik",
+     "lit": true,
+     "logo": "solda beyaz halkalı kırmızı daire içinde beyaz kıvrım (tavuk başı) logosu (u 44.4–45.4, y 3.15–4.3, levhadan taşar)"
+    },
+    {
+     "t": "sign",
+     "u0": 48.3,
+     "u1": 50.4,
+     "y0": 3.4,
+     "y1": 4.25,
+     "style": "panel",
+     "bg": "#e1262e",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": false,
+     "text": "0224 … …  0224 … 42 42\nIZGARA  DÖNER\nFIRIN  ÇORBA",
+     "lines": [
+      {
+       "text": "0224 … …  0224 … 42 42",
+       "size": 0.45
+      },
+      {
+       "text": "IZGARA  DÖNER",
+       "size": 0.7
+      },
+      {
+       "text": "FIRIN  ÇORBA",
+       "size": 0.7
+      }
+     ],
+     "logo": "telefon rakamları bulanık (0224 41? 5? ?? · 0224 22? 42 42)"
+    },
+    {
+     "t": "proj",
+     "u0": 14.07,
+     "u1": 16.54,
+     "d": 1.5,
+     "y0": 0,
+     "y1": 7.68,
+     "color": "#6d7074",
+     "topC": "#3a3d40"
+    },
+    {
+     "t": "sign",
+     "u0": 12.95,
+     "u1": 13.95,
+     "y0": 7.1,
+     "y1": 7.6,
+     "off": 1.52,
+     "style": "letters",
+     "d": 0.03,
+     "fg": "#f0f0ee",
+     "font": "serif",
+     "bold": true,
+     "text": "ERDİMYAPI",
+     "logo": "üstünde beyaz kademeli bina ikonu"
+    },
+    {
+     "t": "sign",
+     "u0": 12.45,
+     "u1": 13.65,
+     "y0": 6.3,
+     "y1": 6.9,
+     "off": 1.52,
+     "style": "letters",
+     "d": 0.05,
+     "fg": "#f0f0ee",
+     "font": "sans",
+     "bold": false,
+     "text": "TIME",
+     "logo": "M harfi kırmızı çizgili çapraz vuruşla (logo)"
+    },
+    {
+     "t": "sign",
+     "u0": 12.65,
+     "u1": 13.45,
+     "y0": 6.1,
+     "y1": 6.28,
+     "off": 1.52,
+     "style": "letters",
+     "d": 0.02,
+     "fg": "#f0f0ee",
+     "font": "sans",
+     "bold": false,
+     "text": "ÖZLÜCE"
+    },
+    {
+     "t": "proj",
+     "u0": 44.19,
+     "u1": 46.85,
+     "d": 1.5,
+     "y0": 0,
+     "y1": 7.68,
+     "color": "#6d7074",
+     "topC": "#3a3d40"
+    },
+    {
+     "t": "sign",
+     "u0": 47.4,
+     "u1": 48.8,
+     "y0": 7.2,
+     "y1": 7.65,
+     "off": 1.52,
+     "style": "letters",
+     "d": 0.03,
+     "fg": "#f0f0ee",
+     "font": "serif",
+     "bold": true,
+     "text": "CEYLAN GRUP",
+     "logo": "üstünde beyaz zikzak (grafik) çizgi logosu"
+    },
+    {
+     "t": "sign",
+     "u0": 47.45,
+     "u1": 48.85,
+     "y0": 6.35,
+     "y1": 7,
+     "off": 1.52,
+     "style": "letters",
+     "d": 0.05,
+     "fg": "#f0f0ee",
+     "font": "sans",
+     "bold": false,
+     "text": "TIME"
+    },
+    {
+     "t": "sign",
+     "u0": 47.8,
+     "u1": 48.55,
+     "y0": 6.12,
+     "y1": 6.3,
+     "off": 1.52,
+     "style": "letters",
+     "d": 0.02,
+     "fg": "#f0f0ee",
+     "font": "sans",
+     "bold": false,
+     "text": "ÖZLÜCE"
+    },
+    {
+     "t": "panel",
+     "u0": 50.5,
+     "u1": 63.64,
+     "y0": 0,
+     "y1": 5.2,
+     "color": "#d7cdbd",
+     "proud": 0.01
+    },
+    {
+     "t": "band",
+     "u0": 50.5,
+     "u1": 63.64,
+     "y0": 5.2,
+     "y1": 5.6,
+     "color": "#9a6a4e",
+     "proud": 0.08
+    },
+    {
+     "t": "win",
+     "u0": 57.8,
+     "u1": 60.5,
+     "y0": 4.25,
+     "y1": 5,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#f0efe8",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 54.5,
+     "u1": 63.64,
+     "y": 3.1,
+     "d": 1.6,
+     "drop": 0.25,
+     "color": "#6b3434"
+    },
+    {
+     "t": "win",
+     "u0": 59.2,
+     "u1": 60.5,
+     "y0": 0.05,
+     "y1": 3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 1,
+     "frameC": "#1e2022",
+     "tint": "#1e2022"
+    },
+    {
+     "t": "sign",
+     "u0": 60.9,
+     "u1": 63.6,
+     "y0": 3.35,
+     "y1": 3.85,
+     "style": "box",
+     "d": 0.12,
+     "bg": "#1e2022",
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": true,
+     "text": "OTO YIKAMA",
+     "lit": false,
+     "logo": "sağ uç ortofoto dışında (yazı devam edebilir: OTO YIKAMA… ?)"
+    },
+    {
+     "t": "sign",
+     "u0": 60.9,
+     "u1": 63.4,
+     "y0": 4,
+     "y1": 4.3,
+     "style": "panel",
+     "bg": "#1e2022",
+     "fg": "#e8e8e6",
+     "font": "sans",
+     "bold": false,
+     "text": "TİME ÖZLÜCE SİTESİ",
+     "lit": false
+    }
+   ],
+   "note": "Podyum (tek katlı dükkân sırası, ≈5.2 m) cephesi, 1cWb f22 ile okundu (TBzd ile doğrulandı). Kule bu cephenin ≈12–16 m gerisinde (hava fotoğrafı: kule çatısı görüntü z −790…−773, eğim (−2.5,−9.1)) → massing.towers[0]; kule kuzey yüzü kütle kesim duvarı olduğundan öğe alamıyor: kule cephesi (balkon yığınları, pencereler, K1 ofis tabela bandı ALMİNAZ TURİZM … HSD SİGORTA, kuledeki afişler) pending’de. MINTY kış bahçesi (u −1.5…6.3) ve dükkân önü menü panoları kaldırım katmanında (rapor). u 5.5–9.9 arasında koyu gri podyum duvarı + TIME dış merdiveninin lazer kesim korkuluklu çelik merdiveni (pending). Kat ölçeği: y 1:1 (cal.head sanal: K0 döşemesi görünen 0.1, kat 2.95)."
+  },
+  {
+   "edge": 3,
+   "len": 9.3,
+   "seen": "none",
+   "items": [],
+   "note": "batı uç: Gtbh66s (6.8 m, çok yakın ve eğik) — ahşap direkli pergola/saçak ve siyah \"TUNA HERTA…\"? yazılı levha, \"SİGORTA\" levhası; arkada kulenin batı kanadı (7 kat + teras). Ölçek güvenilmez, çizilmedi"
+  },
+  {
+   "edge": 4,
+   "len": 3.09,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi (65 m)"
+  },
+  {
+   "edge": 5,
+   "len": 5.26,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 6,
+   "len": 12.69,
+   "seen": "none",
+   "items": [],
+   "note": "batı duvar (site yolu, dış merdiven): görülmedi"
+  },
+  {
+   "edge": 7,
+   "len": 1.95,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi"
+  },
+  {
+   "edge": 8,
+   "len": 7.05,
+   "seen": "none",
+   "items": [],
+   "note": "güney (otopark) — 45 m uzaktan, ağaçlar; görülmedi"
+  },
+  {
+   "edge": 9,
+   "len": 51.72,
+   "seen": "none",
+   "items": [],
+   "note": "güney cephe (otopark): SV karesi yok; hava fotoğrafında kulenin güney yüzünde 8 balkon şeridi (ayrı taban izi önerisi, pending)"
+  },
+  {
+   "edge": 10,
+   "len": 6.12,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi (38 m, ağaç)"
+  },
+  {
+   "edge": 11,
+   "len": 10.5,
+   "seen": "none",
+   "items": [],
+   "note": "görülmedi (ağaç)"
+  },
+  {
+   "edge": 12,
+   "len": 9.61,
+   "seen": "partial",
+   "ref": "1552992538_12_CqzdqeD_.jpg",
+   "cal": {
+    "u": [
+     0,
+     9.61
+    ],
+    "head": [
+     [
+      0,
+      2.35
+     ],
+     [
+      1,
+      5.3
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "sign",
+     "u0": -1.5,
+     "u1": 4.2,
+     "y0": 3.6,
+     "y1": 5.4,
+     "style": "panel",
+     "bg": "#161718",
+     "fg": "#f2f2f0",
+     "font": "sans",
+     "bold": false,
+     "text": "…XE\n…URSA",
+     "logo": "büyük siyah pano: solda beyaz büyük \"…XE\" (baş harfi ortofoto dışında) ve ® işareti, altında \"…URSA\"; sağ yarıda koyu zemin üzerinde ışıklı kule/şehir silueti fotoğrafı"
+    },
+    {
+     "t": "sign",
+     "u0": 8.9,
+     "u1": 11.1,
+     "y0": 5,
+     "y1": 5.35,
+     "style": "letters",
+     "d": 0.02,
+     "fg": "#e46aa0",
+     "font": "sans",
+     "bold": true,
+     "text": "İskenderun Usulü S…"
+    }
+   ],
+   "note": "CqzdqeD f22, çok eğik (güneydoğudan). Doğu bölümün güney yüzü: altta AKBANK (kırmızı) ve DenizBank (mavi) ATM kabinleri (kaldırım/duvar önü, rapor), üstünde \"…XE / …URSA\" siyah pano; köşede Öncü logoları (kenar 13’te). Direk üzerindeki \"MERT SİTESİ 609.SK 24 & 28 BLOK\", \"BENGİ YÖNETİM\", \"BAYAN KUAFÖRÜ\", \"…RİNER\" levhaları sokak totemi (rapor). Ölçek eğiklik yüzünden ±15%."
+  },
+  {
+   "edge": 13,
+   "len": 24.12,
+   "seen": "partial",
+   "ref": "1552992538_13_dZQ2YFC-.jpg",
+   "cal": {
+    "u": [
+     0,
+     24.12
+    ],
+    "head": [
+     [
+      0,
+      2.35
+     ],
+     [
+      1,
+      5.3
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 2.5,
+     "u1": 11.2,
+     "y0": 0.1,
+     "y1": 4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 5,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 2.2,
+     "u1": 11.2,
+     "y0": 4.35,
+     "y1": 5.05,
+     "color": "#1b1c1d",
+     "proud": 0.2
+    },
+    {
+     "t": "sign",
+     "u0": 8.9,
+     "u1": 10.5,
+     "y0": 4.6,
+     "y1": 4.85,
+     "off": 0.21,
+     "style": "letters",
+     "d": 0.03,
+     "fg": "#d9b45a",
+     "font": "sans",
+     "bold": true,
+     "text": "…ÖZLÜCE",
+     "logo": "baş kısmı ağaç arkasında; kahverengi fasyada altın harfler"
+    },
+    {
+     "t": "sign",
+     "u0": 2.3,
+     "u1": 3.2,
+     "y0": 4.55,
+     "y1": 5.35,
+     "off": 0.25,
+     "style": "box",
+     "d": 0.15,
+     "shape": "round",
+     "bg": "#d8262a",
+     "fg": "#ffffff",
+     "border": "#f2f2f0",
+     "font": "script",
+     "bold": true,
+     "text": "Öncü",
+     "lit": true,
+     "logo": "kırmızı yuvarlak, beyaz kenarlı; içinde beyaz el yazısı \"Öncü\" ve turuncu yay"
+    },
+    {
+     "t": "sign",
+     "u0": 10.2,
+     "u1": 11.2,
+     "y0": 4.45,
+     "y1": 5.3,
+     "off": 0.25,
+     "style": "box",
+     "d": 0.15,
+     "shape": "round",
+     "bg": "#d8262a",
+     "fg": "#ffffff",
+     "border": "#f2f2f0",
+     "font": "script",
+     "bold": true,
+     "text": "Öncü",
+     "lit": true
+    },
+    {
+     "t": "blade",
+     "u": 1.8,
+     "y0": 3.7,
+     "y1": 4.6,
+     "w": 0.75,
+     "gap": 0.1,
+     "d": 0.12,
+     "shape": "round",
+     "bg": "#d8262a",
+     "fg": "#ffffff",
+     "font": "script",
+     "bold": true,
+     "text": "Öncü",
+     "textB": "Öncü",
+     "lit": true,
+     "logo": "köşe direğine takılı çift yüzlü yuvarlak bayrak tabela (B yüzü görülmedi, A ile aynı varsayılmadı: textB okunmadı)",
+     "bracket": {
+      "kind": "plate",
+      "color": "#2a2c2e"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 2.8,
+     "u1": 4,
+     "y0": 5.3,
+     "y1": 5.55,
+     "style": "letters",
+     "d": 0.02,
+     "fg": "#e46aa0",
+     "font": "sans",
+     "bold": true,
+     "text": "İskender…",
+     "logo": "e12 karesinde devamı \"İskenderun Usulü S…\" pembe harfler"
+    },
+    {
+     "t": "banner",
+     "style": "print",
+     "u0": 9.4,
+     "u1": 11.6,
+     "y0": 2.55,
+     "y1": 3.9,
+     "d": 0.35,
+     "bg": "#b8262c",
+     "lines": [
+      {
+       "text": "Öncü",
+       "fg": "#ffffff",
+       "size": 0.16,
+       "bold": true,
+       "y": 0.88
+      },
+      {
+       "text": "159₺",
+       "fg": "#ffffff",
+       "size": 0.16,
+       "bold": true,
+       "y": 0.8
+      },
+      {
+       "text": "TAVUK",
+       "fg": "#ffffff",
+       "size": 0.17,
+       "bold": true,
+       "y": 0.62
+      },
+      {
+       "text": "DÜRÜM",
+       "fg": "#ffffff",
+       "size": 0.17,
+       "bold": true,
+       "y": 0.47
+      },
+      {
+       "text": "• K. Ayran  • Tatlı",
+       "fg": "#ffffff",
+       "size": 0.07,
+       "bold": false,
+       "y": 0.3
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.5,
+       "x1": 1,
+       "y0": 0.2,
+       "y1": 0.75,
+       "color": "#d9a36a"
+      },
+      {
+       "x0": 0.55,
+       "x1": 0.75,
+       "y0": 0.75,
+       "y1": 0.95,
+       "color": "#1c1c1c"
+      }
+     ]
+    },
+    {
+     "t": "band",
+     "u0": 2.2,
+     "u1": 16.2,
+     "y0": 5.1,
+     "y1": 5.4,
+     "color": "#6e6e6a",
+     "proud": 0.1
+    },
+    {
+     "t": "band",
+     "u0": 9,
+     "u1": 16.2,
+     "y0": 5.65,
+     "y1": 6.25,
+     "color": "#6b5846",
+     "proud": 0.15,
+     "clad": {
+      "dir": "h",
+      "every": 0.15,
+      "w": 0.01,
+      "color": "#4a3c30"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 7,
+     "u1": 15,
+     "y": 7.25,
+     "d": 0.6,
+     "drop": 0.25,
+     "color": "#8a2a2a"
+    },
+    {
+     "t": "roofsign",
+     "u0": 6.2,
+     "u1": 7.8,
+     "y0": 7.35,
+     "y1": 7.95,
+     "setback": 0.2,
+     "d": 0.05,
+     "fg": "#b9b6ae",
+     "font": "condensed",
+     "bold": false,
+     "text": "destan",
+     "frame": {
+      "color": "#4a3c30",
+      "h": 0.1,
+      "posts": 2
+     }
+    },
+    {
+     "t": "roofsign",
+     "u0": 9.7,
+     "u1": 12,
+     "y0": 7.35,
+     "y1": 7.8,
+     "setback": 0.2,
+     "d": 0.03,
+     "fg": "#e8e4da",
+     "font": "script",
+     "bold": true,
+     "text": "Roof… Lounge",
+     "frame": {
+      "color": "#4a3c30",
+      "h": 0.1,
+      "posts": 2
+     },
+     "logo": "el yazısı, ilk kelimenin son harfleri net okunamadı (Roof…)"
+    },
+    {
+     "t": "roofsign",
+     "u0": 14.3,
+     "u1": 16,
+     "y0": 7.5,
+     "y1": 8,
+     "setback": 0.2,
+     "d": 0.05,
+     "fg": "#b9b6ae",
+     "font": "condensed",
+     "bold": false,
+     "text": "destan",
+     "frame": {
+      "color": "#4a3c30",
+      "h": 0.1,
+      "posts": 2
+     }
+    }
+   ],
+   "note": "dZQ2 f22. Güney yarı: köşeyi saran Öncü döner restoranı (siyah fasya, iki yuvarlak ışıklı logo, köşe direğinde yuvarlak bayrak tabela, asılı \"TAVUK DÜRÜM 159₺\" afişi, flama dizisi kaldırım süsü). Üstte ahşap kaplı podyum alnı ve çatıda kırmızı tenteli \"destan\" teras restoranı (iki \"destan\" + \"Roof… Lounge\" harf tabelası; teras derinliği görülmedi → pending). Kuzey yarı (u 12–24) MINTY kış bahçesi arkasında: bina duvarı görülmedi (kaldırım katmanı raporda). En güneyde (u −0.9…2.3) \"TIME ÖZLÜC…\" yazılı ahşap direkli site giriş saçağı: kaldırım/giriş öğesi (rapor). Kulenin doğu yüzü (CEYLAN GRUP çatı tabelası, TIME, RAIDER TATTOO, Serap…, nesibe çalışkan…) pending."
+  },
+  {
+   "edge": 14,
+   "len": 5.71,
+   "seen": "none",
+   "items": [],
+   "note": "KD pah: MINTY kış bahçesinin arkasında (görülmedi)"
+  }
+ ],
+ "notes": [
+  "KÜTLE: taban izi podyumun zemin duvarları. Güney şeritte (z −781…−762) 10 katlı konut kulesi (zemin + 9; K0 podyumla aynı 5.2 m, üst katlar ≈2.95), kuzey (Muammer Aksoy) ve doğu (bulvar) boyunca tek katlı dükkân podyumu, çatısı cam korkuluklu teras. Kule kat sayısı: kuzey cephede 8 balkon sırası + K1 ofis bandı + K0.",
+  "Kule cephesi: krem taş kaplama (#d9cfbf) + koyu gri pilastr şeritler (#6a6e72), balkon alınları ahşap görünümlü kahverengi (#8a5a3e), cam korkuluklu balkonlar; ayrıntı pending’de (kule ayrı taban izi olarak eklenirse survey edilebilir)."
+ ],
+ "pending": [
+  {
+   "what": "KULE AYRI TABAN İZİ ÖNERİSİ",
+   "desc": "kule kuzey yüzü (Muammer Aksoy tarafı) podyum cephesinin ≈12–16 m gerisinde; kütle kesim duvarına öğe yazılamadığı için kule cephesi çizilemiyor. Kule için ayrı taban izi (hava fotoğrafı, eğim düzeltmeli: GB (545.54,−764.28), GD (597.21,−762.05), KD (597.93,−778.83), KB (546.26,−781.06) ±1; batı/doğu uçlarda 7 katlı + çatı teraslı alçak kanatlar u 2.5–6.3 ve 50.8–55.8) eklenirse aşağıdaki ölçüler cepheye dönüştürülür."
+  },
+  {
+   "what": "kule kuzey cephesi (DELTA=−12.2 ortofotosunda görünen ölçüler, 1cWb f22; görünen ölçek ≈0.88±0.05 — kule biraz daha geride)",
+   "desc": "Ana gövde görünen u 6.25–50.8 (u 0 = x 600.4, doğudan batıya), çatı saçağı görünen 27.2, çatıda baca (u 7.9, 27.2–28.0). Krem taş kaplama + 7 koyu gri düşey pilastr şeridi (≈0.35 m, görünen u ≈7.7, 12.5, 17.4, 22.4, 27.3, 32.3, 37.3, 42.3, 47.3?). Her bölmede: bir balkon yığını (ahşap görünümlü kahverengi alınlı, füme cam korkuluklu, K2–K9) + 1–2 pencere sütunu (koyu antrasit doğrama). Balkon sıraları görünen y ≈11.3, 13.9, 16.2, 19.0, 21.6, 24.3 (+2 alt sıra podyum terası arkasında). Doğu ve batı uçta 7 katlı kanatlar, çatılarında cam korkuluklu teras (görünen 19.4–20.0)."
+  },
+  {
+   "what": "kule K1 ofis tabela bandı (podyum terası arkasında, kule kuzey yüzü K1 alın bandı)",
+   "desc": "soldan sağa (DELTA −12.2, görünen u; siyah zemin, beyaz yazı, y ≈7.6–8.2): \"ALMİNAZ TURİZM\" (u 8.6–13.4; \"TURİZM\" turuncu, solda mavi küre/figür logo), \"Fatma Erden HAIR STUDIO\" (13.9–18.2, pembe saç logosu), \"RETROPEREST\" (18.8–24.0, solda altın daire içinde kadeh/figür logo), \"FABRİKA BERBER\" (24.3–30.0, solda beyaz daire içinde makas-bıyık logosu, altında küçük \"Since…\"), \"EA SHOPMEN'S\" (30.2–35.6), \"VINTAGE BLACK STUDIO\" (35.9–41.1, solda altın madalyon), \"RISE TIME GAYRİMENKUL\" (41.5–49.8, solda mavi kule ikonlu kare \"RISE TIME\"), \"HSD SİGORTA\" (51.2–58.0, solda küre logo, HSD beyaz ok biçimli zeminde). Önünde podyum çatı terasının füme cam korkuluğu."
+  },
+  {
+   "what": "kule kuzey yüzündeki balkon/pencere levhaları (DELTA −12.2, görünen)",
+   "desc": "\"LİFTELSİM ASANSÖR 0532 205 83 33\"? (u 18.6–20.8, y 20.1–21.3, beyaz-lacivert, solda iki logo); \"Uzm. Dyt.? … DİYETİSYEN …\" (u 18.8–20.6, y 16.3–17.3); \"FİZYOTERAPİST SERKAN YAVUZ 0 534 812 74 42\" (u 28.5–30.2, y 16.5–17.4); \"DİYETİSYEN … \" (u 26.0–28.0, y 14.0–15.0; u 28.6–30.5, y 14.2–15.1); \"DİYETİSYEN GÜLÇİN … 0542 …\" (u 36.3–38.3, y 13.8–15.1); \"YUNUS YILMAZ …\" (u 28.4–30.0, y 19.2–19.8); \"…Özcan … Onur …\" (u 36.3–38.2, y 21.5–22.8); \"LIN ART …\" (u 48.0–49.8, y 19.3–20.8); \"Saf…\" (u 7.4–9.3, y 16.7–17.4); \"…\" (u 2.3–3.6, y 13.2–14.0, dikey); \"DİYETİSYEN Ayşenur KASAN ÖZEL SAĞLIK MESLEK HİZMET BİRİMİ 0507 … \" (u 17.6–20.0, y 9.2–9.9); \"DURMAZ AGRO\" (u 27.5–29.4, y 9.2–9.8, siyah); \"fortuna …\" (u 35.7–37.5, y 9.2–9.9). Harf düzeyi okumalar düşük çözünürlükte (…)."
+  },
+  {
+   "what": "TIME dış merdivenleri",
+   "edge": 2,
+   "desc": "podyum çatısına çıkan iki açık çelik merdiven: doğuda u 6.5→12.4 (zeminden görünen 6.2’ye), batıda u 48.9→53.5; koyu antrasit lazer kesim geometrik desenli yan korkuluk (≈1.1 m), merdiven genişliği ≈1.5 m, pylonlara (TIME kuleleri) bağlanıyor. Pylon yüzleri çapraz koyu/açık gri şeritli (≈0.45 m şerit, 35°) — üreticide çapraz şerit dokusu yok (şimdilik düz #6d7074)."
+  },
+  {
+   "what": "destan çatı teras restoranı",
+   "edge": 13,
+   "desc": "doğu bölüm çatısında (görünen u 5–16, kenar 13) kırmızı-bordo tenteli teras: tente saçağı görünen 6.95–7.2, üstte ahşap kaplı çerçeve 7.2–7.95; derinliği ve arka sınırı görülmedi (hava fotoğrafında x≈614–623, z≈−785…−762 aralığında olabilir)."
+  }
+ ]
+}

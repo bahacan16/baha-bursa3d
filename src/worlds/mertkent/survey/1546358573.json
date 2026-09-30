@@ -1,0 +1,2266 @@
+{
+ "id": 1546358573,
+ "name": "Biaport Özlüce ticari podyum (McDonald’s / Gratis / Halkbank / Madame Coco / Migros / ARMA KAMPÜS + Uğur Mumcu dükkân şeridi)",
+ "storeys": 2,
+ "trueCoords": true,
+ "groundRaise": 2.08,
+ "floorH": 4.1,
+ "floorHs": [
+  4.1,
+  3.2
+ ],
+ "plinthH": 0,
+ "wallTop": 8.93,
+ "roof": {
+  "kind": "flat",
+  "eave": 1.45,
+  "fasciaH": 1.45,
+  "fasciaC": "#3c454e",
+  "flatC": "#b9b1a3",
+  "parapet": {
+   "h": 0.57,
+   "color": "#9e9f9a",
+   "edges": [
+    0,
+    1,
+    8
+   ],
+   "coping": {
+    "h": 0.88,
+    "over": 0.25,
+    "color": "#a0a197"
+   }
+  }
+ },
+ "colors": {
+  "plaster": "#9e9f9a",
+  "plaster2": "#2c3438",
+  "strip": "#3c454e",
+  "fascia": "#3c454e",
+  "soffit": "#2e3538",
+  "railGlass": "#6f7f86",
+  "frame": "#3a3e40",
+  "tile": "#9e9f9a",
+  "plinth": "#6f706b"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 47.57,
+   "seen": "partial",
+   "ref": "1546358573_0_1WAO_-m0.jpg",
+   "cal": {
+    "u": [
+     0,
+     47.57
+    ],
+    "head": [
+     [
+      0,
+      4.33
+     ],
+     [
+      1,
+      8.43
+     ]
+    ]
+   },
+   "note": "Doğu yüz (kule 1546358570 avlusuna bakar). Yalnız 1WAO_-m0 (2025-09, 69 m, çok eğik) ile, havuz örtüsünün (yeşil çerçeveli polikarbon) arkasından: görünen kısım (≈4–7.3 m) penceresiz, düz açık gri-bej sıva; kuzeye doğru u 7.1–9.3’te 1.0 m yüksekliğinde bej lamelli menfez paneli; duvar üstünde açık gri harpuşta (güney cephedekiyle aynı, roof.parapet). Alt kısım ve olası kapılar GÖRÜLMEDİ. Çatıda u 26–31 sarı çatı merdiveni/korkuluğu, u 23.5–25 beyaz yuvarlak nesne (çanak?) — pending.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 7.1,
+     "u1": 9.3,
+     "y0": 6.58,
+     "y1": 7.58,
+     "color": "#a39a86",
+     "style": "louvre",
+     "shade": "#6f6a5e"
+    }
+   ]
+  },
+  {
+   "edge": 1,
+   "len": 155.76,
+   "seen": "none",
+   "items": [],
+   "note": "Dükkân şeridinin avlu (güney) yüzü: hiçbir Street View karesinde görülmedi (kule avlusu, havuz). Düz duvar + harpuşta (parapet)."
+  },
+  {
+   "edge": 2,
+   "len": 11.89,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu uç kavsi (x 865–874): GÖRÜLMEDİ (en doğu pano x 779)."
+  },
+  {
+   "edge": 3,
+   "len": 9.75,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu uç kavsi: GÖRÜLMEDİ."
+  },
+  {
+   "edge": 4,
+   "len": 10.05,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu uç kavsi: GÖRÜLMEDİ."
+  },
+  {
+   "edge": 5,
+   "len": 6.9,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu uç kavsi: GÖRÜLMEDİ."
+  },
+  {
+   "edge": 6,
+   "len": 175.59,
+   "seen": "none",
+   "items": [],
+   "note": "Uğur Mumcu cephesi — ölçülüyor"
+  },
+  {
+   "edge": 7,
+   "len": 65.54,
+   "seen": "partial",
+   "ref": "1546358573_7_PSCDXjt6.jpg",
+   "cal": {
+    "u": [
+     -2.6,
+     65.6
+    ],
+    "head": [
+     [
+      0,
+      4.33
+     ],
+     [
+      1,
+      8.43
+     ]
+    ]
+   },
+   "note": "Özlüce Bulvarı cephesi (K→G: McDonald’s/McCafé köşesi, Gratis, Halkbank, Madame Coco, MM… MİGROS + ARMA KAMPÜS / ART OF MATHEMATICS). Ref PSCDXjt6 (2025-09, 34 m; yazılar _f22 ile okundu), güney yarısı ağaç arkasında → 6Kiur2_5 (40°) ve 18z5hyLs 120_0 ile tamamlandı; Migros önü büyük ölçüde ağaç (ıhlamur + mavi servi) arkasında. cal.u: KB köşe = ahşap kaplı köşe kolonunun dış yüzü (görünen −2.6), GB köşe = beyaz köşe payesi (6Kiu 63.8 → PSCD 65.6). trueCoords: duvar önündeki öğeler (tente, çıkma kutular, saçak tabelaları) pano ayağı etrafında elle düzeltildi; y = blok tabanından gerçek (K0 döşemesi görünen 3.38 = gerçek 2.08). Renkler bulutlu havada, cephe gölgede (batı) örneklendi — güneşte ≈1.3× açık. Saçak (koyu gri kompozit kutu, ≈1.45 m çıkma, alın ≈1.4 m) roof.eave/fasciaH ile; saçak alnı panel derzleri ≈2.0 m (pending).",
+   "items": [
+    {
+     "t": "proj",
+     "u0": -2.6,
+     "u1": -1.35,
+     "d": 0.25,
+     "y0": 2.08,
+     "y1": 8.93,
+     "color": "#74593d",
+     "finish": "matte"
+    },
+    {
+     "t": "win",
+     "u0": -1.35,
+     "u1": 0.94,
+     "y0": 2.11,
+     "y1": 4.52,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#3a3e40",
+     "hbars": [
+      3.1
+     ],
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.01,
+     "u1": 2.25,
+     "y0": 2.08,
+     "y1": 4.42,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "door",
+     "split": 2,
+     "frameC": "#b9bdbf"
+    },
+    {
+     "t": "win",
+     "u0": 2.25,
+     "u1": 4.65,
+     "y0": 2.11,
+     "y1": 4.52,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#3a3e40",
+     "hbars": [
+      3.1
+     ],
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": -1.35,
+     "u1": 4.65,
+     "y0": 4.52,
+     "y1": 6.5,
+     "color": "#2e3333"
+    },
+    {
+     "t": "band",
+     "u0": -2.6,
+     "u1": 0.4,
+     "y0": 5.05,
+     "y1": 5.48,
+     "color": "#a1a6ad",
+     "proud": 0.3
+    },
+    {
+     "t": "sign",
+     "u0": -0.37,
+     "u1": 2.74,
+     "y0": 4.91,
+     "y1": 5.67,
+     "d": 0.2,
+     "text": "McDonald's",
+     "bg": "#9f2224",
+     "fg": "#ffffff",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "logo": "kırmızı ışıklı kutu, beyaz McDonald’s yazısı; sağ ucunda beyaz kapak; üstünde 2 siyah kuğu boyun spot"
+    },
+    {
+     "t": "lamp",
+     "us": [
+      -0.47,
+      2.07
+     ],
+     "y": 5.85,
+     "style": "spot",
+     "dir": "down",
+     "arm": 0.25,
+     "color": "#1c1c1c"
+    },
+    {
+     "t": "sign",
+     "u0": 2.8,
+     "u1": 4.43,
+     "y0": 5.61,
+     "y1": 6.17,
+     "d": 0.03,
+     "text": "McCafé",
+     "fg": "#e6e6e6",
+     "style": "letters",
+     "font": "script",
+     "bold": true,
+     "lit": false,
+     "logo": "beyaz el yazısı McCafé harfleri (koyu bantta); ışık görülmedi"
+    },
+    {
+     "t": "win",
+     "u0": -1.35,
+     "u1": 0.94,
+     "y0": 6.5,
+     "y1": 8.68,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#3a3e40",
+     "hbars": [
+      7.38
+     ],
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 0.94,
+     "u1": 2.69,
+     "y0": 6.5,
+     "y1": 8.68,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#3a3e40",
+     "hbars": [
+      7.38
+     ],
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.69,
+     "u1": 4.65,
+     "y0": 6.5,
+     "y1": 8.68,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#3a3e40",
+     "hbars": [
+      7.38
+     ],
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 0.7,
+     "u1": 2.34,
+     "y0": 6.9,
+     "y1": 8.21,
+     "d": 0.06,
+     "text": "M",
+     "fg": "#c9a33e",
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "logo": "McDonald’s altın kemerleri (sarı çift kemer “M”), K1 camının önünde; ışıklı olup olmadığı görülmedi"
+    },
+    {
+     "t": "panel",
+     "u0": -1.35,
+     "u1": 4.65,
+     "y0": 8.68,
+     "y1": 8.93,
+     "color": "#a1a6ad"
+    },
+    {
+     "t": "proj",
+     "u0": 4.65,
+     "u1": 5.2,
+     "d": 0.05,
+     "y0": 2.08,
+     "y1": 8.93,
+     "color": "#9299a6"
+    },
+    {
+     "t": "panel",
+     "u0": 5.2,
+     "u1": 22.4,
+     "y0": 6.45,
+     "y1": 8.93,
+     "color": "#2c3438"
+    },
+    {
+     "t": "win",
+     "u0": 6.06,
+     "u1": 8.81,
+     "y0": 6.53,
+     "y1": 8.58,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#7e82ac",
+     "tint": "#34317b",
+     "hbars": [
+      7.38
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 8.81,
+     "u1": 10.08,
+     "y0": 6.53,
+     "y1": 8.58,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#7e82ac",
+     "tint": "#34317b",
+     "hbars": [
+      7.38
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 10.53,
+     "u1": 11.49,
+     "y0": 6.53,
+     "y1": 8.58,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#7e82ac",
+     "tint": "#34317b",
+     "hbars": [
+      7.38
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 11.73,
+     "u1": 12.8,
+     "y0": 6.53,
+     "y1": 8.58,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#7e82ac",
+     "tint": "#34317b",
+     "hbars": [
+      7.38
+     ]
+    },
+    {
+     "t": "vinyl",
+     "u0": 6.78,
+     "u1": 8.16,
+     "y0": 7.58,
+     "y1": 8.23,
+     "text": "gratis",
+     "bg": "#bfb04a",
+     "fg": "#4a2a1f",
+     "shape": "oval",
+     "font": "sans",
+     "bold": true,
+     "logo": "sarı konuşma balonu içinde kahverengi “gratis” logosu (balonun altında sivri uç), mor-mavi cam kaplama üstünde"
+    },
+    {
+     "t": "vinyl",
+     "u0": 8.98,
+     "u1": 9.95,
+     "y0": 7.72,
+     "y1": 8.18,
+     "text": "gratis",
+     "bg": "#bfb04a",
+     "fg": "#4a2a1f",
+     "shape": "oval",
+     "font": "sans",
+     "bold": true,
+     "logo": "sarı konuşma balonu içinde kahverengi “gratis” logosu (balonun altında sivri uç), mor-mavi cam kaplama üstünde"
+    },
+    {
+     "t": "vinyl",
+     "u0": 10.63,
+     "u1": 11.39,
+     "y0": 7.75,
+     "y1": 8.15,
+     "text": "gratis",
+     "bg": "#bfb04a",
+     "fg": "#4a2a1f",
+     "shape": "oval",
+     "font": "sans",
+     "bold": true,
+     "logo": "sarı konuşma balonu içinde kahverengi “gratis” logosu (balonun altında sivri uç), mor-mavi cam kaplama üstünde"
+    },
+    {
+     "t": "vinyl",
+     "u0": 11.89,
+     "u1": 12.65,
+     "y0": 7.75,
+     "y1": 8.15,
+     "text": "gratis",
+     "bg": "#bfb04a",
+     "fg": "#4a2a1f",
+     "shape": "oval",
+     "font": "sans",
+     "bold": true,
+     "logo": "sarı konuşma balonu içinde kahverengi “gratis” logosu (balonun altında sivri uç), mor-mavi cam kaplama üstünde"
+    },
+    {
+     "t": "banner",
+     "style": "print",
+     "u0": 13.52,
+     "u1": 18.89,
+     "y0": 6.48,
+     "y1": 8.8,
+     "d": 0.05,
+     "bg": "#3a1d4f",
+     "lines": [
+      {
+       "text": "SİPARİŞİNİ GRATIS.COM",
+       "fg": "#ffffff",
+       "size": 0.11,
+       "bold": true,
+       "y": 0.84
+      },
+      {
+       "text": "VE MOBİLDEN VER,",
+       "fg": "#ffffff",
+       "size": 0.11,
+       "bold": true,
+       "y": 0.73
+      },
+      {
+       "text": "… MAĞAZADAN",
+       "fg": "#ffffff",
+       "size": 0.06,
+       "bold": true,
+       "y": 0.63
+      },
+      {
+       "text": "ÜCRETSİZ",
+       "fg": "#f0a53a",
+       "size": 0.14,
+       "bold": true,
+       "y": 0.44
+      },
+      {
+       "text": "TESLİM AL!",
+       "fg": "#f0a53a",
+       "size": 0.14,
+       "bold": true,
+       "y": 0.29
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0,
+       "x1": 0.3,
+       "y0": 0,
+       "y1": 0.35,
+       "color": "#c75f9a"
+      },
+      {
+       "x0": 0.56,
+       "x1": 0.76,
+       "y0": 0.2,
+       "y1": 0.85,
+       "color": "#c05aa0"
+      },
+      {
+       "x0": 0.62,
+       "x1": 0.7,
+       "y0": 0.55,
+       "y1": 0.66,
+       "color": "#d9c33c"
+      }
+     ]
+    },
+    {
+     "t": "banner",
+     "style": "print",
+     "u0": 19.26,
+     "u1": 22.24,
+     "y0": 6.48,
+     "y1": 8.8,
+     "d": 0.05,
+     "bg": "#949048",
+     "lines": [
+      {
+       "text": "gratis",
+       "fg": "#3a2a20",
+       "size": 0.09,
+       "bold": true,
+       "y": 0.8
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.08,
+       "x1": 0.42,
+       "y0": 0.62,
+       "y1": 0.86,
+       "color": "#6f6a40"
+      },
+      {
+       "x0": 0.25,
+       "x1": 0.8,
+       "y0": 0,
+       "y1": 0.55,
+       "color": "#8d6a55"
+      }
+     ]
+    },
+    {
+     "t": "panel",
+     "u0": 4.69,
+     "u1": 22.4,
+     "y0": 5.69,
+     "y1": 6.45,
+     "color": "#321f48",
+     "proud": 0.1
+    },
+    {
+     "t": "sign",
+     "u0": 5.34,
+     "u1": 6.89,
+     "y0": 6,
+     "y1": 6.16,
+     "d": 0.01,
+     "text": "",
+     "fg": "#c8a0d8",
+     "style": "letters",
+     "font": "sans",
+     "bold": false,
+     "logo": "mor bant üstünde küçük lila yazı satırı — okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": 20.68,
+     "u1": 22.1,
+     "y0": 5.65,
+     "y1": 6.38,
+     "d": 0.08,
+     "text": "gratis",
+     "bg": "#aa9347",
+     "fg": "#4a2a1f",
+     "shape": "oval",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "logo": "sarı konuşma balonu gratis logosu (mor bandın sağ ucunda)"
+    },
+    {
+     "t": "awning",
+     "style": "retract",
+     "u0": 4.72,
+     "u1": 9.88,
+     "y": 5.65,
+     "d": 1.3,
+     "drop": 0.9,
+     "color": "#b49b5c",
+     "texts": [
+      {
+       "u0": 4.9,
+       "u1": 5.9,
+       "text": "gratis",
+       "fg": "#5a3a22"
+      },
+      {
+       "u0": 8,
+       "u1": 9,
+       "text": "gratis",
+       "fg": "#5a3a22"
+      }
+     ]
+    },
+    {
+     "t": "awning",
+     "style": "retract",
+     "u0": 9.88,
+     "u1": 12.9,
+     "y": 5.65,
+     "d": 1.3,
+     "drop": 0.9,
+     "color": "#b49b5c",
+     "texts": [
+      {
+       "u0": 10.6,
+       "u1": 11.6,
+       "text": "gratis",
+       "fg": "#5a3a22"
+      }
+     ]
+    },
+    {
+     "t": "awning",
+     "style": "retract",
+     "u0": 12.9,
+     "u1": 18,
+     "y": 5.65,
+     "d": 1.3,
+     "drop": 0.9,
+     "color": "#b49b5c",
+     "texts": [
+      {
+       "u0": 13.4,
+       "u1": 14.4,
+       "text": "gratis",
+       "fg": "#5a3a22"
+      },
+      {
+       "u0": 16.4,
+       "u1": 17.4,
+       "text": "gratis",
+       "fg": "#5a3a22"
+      }
+     ]
+    },
+    {
+     "t": "awning",
+     "style": "retract",
+     "u0": 18,
+     "u1": 21.7,
+     "y": 5.65,
+     "d": 1.3,
+     "drop": 0.9,
+     "color": "#b49b5c",
+     "texts": [
+      {
+       "u0": 18.6,
+       "u1": 19.6,
+       "text": "gratis",
+       "fg": "#5a3a22"
+      },
+      {
+       "u0": 20.4,
+       "u1": 21.4,
+       "text": "gratis",
+       "fg": "#5a3a22"
+      }
+     ]
+    },
+    {
+     "t": "panel",
+     "u0": 5.2,
+     "u1": 22.4,
+     "y0": 2.08,
+     "y1": 5.69,
+     "color": "#322c42"
+    },
+    {
+     "t": "win",
+     "u0": 6.06,
+     "u1": 8.81,
+     "y0": 2.11,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#4a4658",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 8.81,
+     "u1": 10.12,
+     "y0": 2.11,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#4a4658",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.63,
+     "u1": 11.66,
+     "y0": 2.11,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#4a4658",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 11.8,
+     "u1": 12.8,
+     "y0": 2.11,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#4a4658",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 13.83,
+     "u1": 15.54,
+     "y0": 2.11,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#4a4658",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 17.54,
+     "u1": 18.64,
+     "y0": 2.11,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#4a4658",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 19.26,
+     "u1": 20.84,
+     "y0": 2.11,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#4a4658",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 15.82,
+     "u1": 17.54,
+     "y0": 2.08,
+     "y1": 4.43,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "door",
+     "split": 2,
+     "frameC": "#4a4658"
+    },
+    {
+     "t": "vinyl",
+     "u0": 21.2,
+     "u1": 21.9,
+     "y0": 3.59,
+     "y1": 3.93,
+     "text": "gratis",
+     "bg": "#aa9347",
+     "fg": "#4a2a1f",
+     "shape": "oval",
+     "bold": true,
+     "logo": "mor K0 payesinde gratis çıkartması"
+    },
+    {
+     "t": "proj",
+     "u0": 22.88,
+     "u1": 23.55,
+     "d": 1.5,
+     "y0": 2.08,
+     "y1": 10.51,
+     "color": "#2f3a3b",
+     "finish": "acp"
+    },
+    {
+     "t": "proj",
+     "u0": 23.55,
+     "u1": 33.07,
+     "d": 1.5,
+     "y0": 2.08,
+     "y1": 9.88,
+     "color": "#77828a",
+     "finish": "acp",
+     "wins": [
+      {
+       "u0": 24.5,
+       "u1": 26.94,
+       "y0": 7.2,
+       "y1": 9.15,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 26.99,
+       "u1": 28.55,
+       "y0": 7.2,
+       "y1": 9.15,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 29.2,
+       "u1": 31.15,
+       "y0": 7.2,
+       "y1": 9.15,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 31.24,
+       "u1": 32.23,
+       "y0": 7.2,
+       "y1": 9.15,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 24.5,
+       "u1": 26.94,
+       "y0": 5.23,
+       "y1": 6.09,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 26.99,
+       "u1": 28.55,
+       "y0": 5.23,
+       "y1": 6.09,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 29.2,
+       "u1": 31.15,
+       "y0": 5.23,
+       "y1": 6.09,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 31.24,
+       "u1": 32.23,
+       "y0": 5.23,
+       "y1": 6.09,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 26.99,
+       "u1": 28.55,
+       "y0": 2.23,
+       "y1": 5.18,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 29.23,
+       "u1": 31.04,
+       "y0": 2.23,
+       "y1": 5.18,
+       "kind": "std",
+       "split": 2,
+       "frameC": "#c9cfd3"
+      },
+      {
+       "u0": 31.15,
+       "u1": 32.23,
+       "y0": 2.23,
+       "y1": 5.18,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#c9cfd3"
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 24.51,
+     "u1": 26.9,
+     "y0": 7.24,
+     "y1": 9.12,
+     "d": 0.01,
+     "style": "panel",
+     "text": "Halkın\nBankası",
+     "lines": [
+      {
+       "text": "Halkın",
+       "fg": "#2a5aa0",
+       "size": 0.2,
+       "y": 0.78
+      },
+      {
+       "text": "Bankası",
+       "fg": "#2a5aa0",
+       "size": 0.2,
+       "y": 0.6
+      }
+     ],
+     "bg": "#dfe3e8",
+     "fg": "#2a5aa0",
+     "align": "left",
+     "font": "sans",
+     "bold": true,
+     "logo": "cam arkası afiş: sol üstte mavi “Halkın Bankası”, sağda gülümseyen çift fotoğrafı (üst satırda küçük yazı okunamadı)"
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 27.01,
+     "u1": 28.52,
+     "y0": 7.24,
+     "y1": 9.12,
+     "d": 0.01,
+     "style": "panel",
+     "text": "",
+     "bg": "#9fb0bd",
+     "fg": "#ffffff",
+     "logo": "cam arkası afiş: aile / şube binası fotoğrafı (yazı okunamadı)"
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 29.22,
+     "u1": 31.13,
+     "y0": 7.24,
+     "y1": 9.12,
+     "d": 0.01,
+     "style": "panel",
+     "text": "Güzellikler\nbu Paraf'ta!",
+     "lines": [
+      {
+       "text": "Güzellikler",
+       "fg": "#ffffff",
+       "size": 0.16,
+       "y": 0.84
+      },
+      {
+       "text": "bu Paraf'ta!",
+       "fg": "#ffffff",
+       "size": 0.16,
+       "y": 0.68
+      }
+     ],
+     "bg": "#5d8fb0",
+     "fg": "#ffffff",
+     "align": "left",
+     "font": "sans",
+     "bold": false,
+     "logo": "cam arkası afiş: açık mavi gökyüzü fotoğrafı, üst solda beyaz yazı"
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 31.26,
+     "u1": 32.21,
+     "y0": 7.24,
+     "y1": 9.12,
+     "d": 0.01,
+     "style": "panel",
+     "text": "",
+     "bg": "#7fa6bd",
+     "fg": "#ffffff",
+     "logo": "cam arkası açık mavi afiş (okunamadı)"
+    },
+    {
+     "t": "sign",
+     "off": 1.5,
+     "u0": 23.68,
+     "u1": 32.96,
+     "y0": 6.53,
+     "y1": 7.07,
+     "d": 0.15,
+     "text": "HALKBANK",
+     "bg": "#1b417a",
+     "fg": "#ffffff",
+     "style": "box",
+     "font": "serif",
+     "bold": true,
+     "lit": true,
+     "logo": "mavi ışıklı kutu (uçlarda kapak), beyaz HALKBANK yazısının solunda beyaz dikey çizgili Halkbank amblemi; gece görülmedi"
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 24.47,
+     "u1": 25.66,
+     "y0": 4.35,
+     "y1": 5.18,
+     "d": 0.02,
+     "text": "HALKBANK",
+     "bg": "#95a2b2",
+     "fg": "#1b417a",
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "logo": "ATM başlık panosu (beyaz, mavi logo + HALKBANK); altında ATM (pending)"
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 25.69,
+     "u1": 26.91,
+     "y0": 4.35,
+     "y1": 5.18,
+     "d": 0.02,
+     "text": "HALKBANK",
+     "bg": "#95a2b2",
+     "fg": "#1b417a",
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "logo": "ATM başlık panosu (beyaz, mavi logo + HALKBANK); altında ATM (pending)"
+    },
+    {
+     "t": "camera",
+     "u": 28.97,
+     "s": 0,
+     "y": 4.79,
+     "style": "box",
+     "color": "#2a2d30",
+     "off": 1.5
+    },
+    {
+     "t": "proj",
+     "u0": 33.07,
+     "u1": 44.77,
+     "d": 1.5,
+     "y0": 2.08,
+     "y1": 9.84,
+     "color": "#171b21",
+     "finish": "matte",
+     "wins": [
+      {
+       "u0": 34.68,
+       "u1": 37.87,
+       "y0": 2.19,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 2,
+       "frameC": "#1c1f22"
+      },
+      {
+       "u0": 38.57,
+       "u1": 41.04,
+       "y0": 2.19,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 2,
+       "frameC": "#1c1f22"
+      },
+      {
+       "u0": 41.09,
+       "u1": 42.54,
+       "y0": 2.19,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 2,
+       "frameC": "#1c1f22"
+      },
+      {
+       "u0": 42.54,
+       "u1": 44.12,
+       "y0": 2.19,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 1,
+       "frameC": "#1c1f22"
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 34.68,
+     "u1": 37.87,
+     "y0": 7.15,
+     "y1": 9.11,
+     "d": 0.02,
+     "style": "panel",
+     "text": "MADAME\nCOCO",
+     "lines": [
+      {
+       "text": "MADAME",
+       "fg": "#e8e8e6",
+       "size": 0.2,
+       "y": 0.58
+      },
+      {
+       "text": "COCO",
+       "fg": "#e8e8e6",
+       "size": 0.2,
+       "y": 0.4
+      }
+     ],
+     "bg": "#2e3a46",
+     "fg": "#e8e8e6",
+     "font": "serif",
+     "bold": false,
+     "logo": "K1 cam bölmesinde koyu gri pano, beyaz serifli yazı"
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 38.56,
+     "u1": 44.18,
+     "y0": 7.15,
+     "y1": 9.11,
+     "d": 0.02,
+     "style": "panel",
+     "text": "En Sevdiği Hediye\nDüşünme Nerede Diye",
+     "lines": [
+      {
+       "text": "En Sevdiği Hediye",
+       "fg": "#e8e8e6",
+       "size": 0.17,
+       "y": 0.6
+      },
+      {
+       "text": "Düşünme Nerede Diye",
+       "fg": "#e8e8e6",
+       "size": 0.13,
+       "y": 0.42
+      }
+     ],
+     "bg": "#2e3a46",
+     "fg": "#e8e8e6",
+     "font": "condensed",
+     "bold": true
+    },
+    {
+     "t": "sign",
+     "off": 1.52,
+     "u0": 36.75,
+     "u1": 42.27,
+     "y0": 6.33,
+     "y1": 6.9,
+     "d": 0.05,
+     "style": "letters",
+     "text": "MADAME COCO",
+     "fg": "#b5975a",
+     "font": "serif",
+     "bold": true,
+     "lit": false,
+     "logo": "altın renkli 3B serifli harfler (siyah kutu üstünde); ışık görülmedi"
+    },
+    {
+     "t": "banner",
+     "style": "print",
+     "d": 1.53,
+     "u0": 34.68,
+     "u1": 37.87,
+     "y0": 4.69,
+     "y1": 6.08,
+     "bg": "#b4a778",
+     "blocks": [
+      {
+       "x0": 0.35,
+       "x1": 0.62,
+       "y0": 0.05,
+       "y1": 0.7,
+       "color": "#b98f3e"
+      },
+      {
+       "x0": 0.1,
+       "x1": 0.3,
+       "y0": 0.3,
+       "y1": 0.8,
+       "color": "#8f7a3e"
+      }
+     ]
+    },
+    {
+     "t": "banner",
+     "style": "print",
+     "d": 1.53,
+     "u0": 38.56,
+     "u1": 44.11,
+     "y0": 4.81,
+     "y1": 6.08,
+     "bg": "#9ea39a",
+     "blocks": [
+      {
+       "x0": 0.35,
+       "x1": 0.95,
+       "y0": 0,
+       "y1": 0.55,
+       "color": "#5e6b5a"
+      },
+      {
+       "x0": 0.05,
+       "x1": 0.35,
+       "y0": 0,
+       "y1": 0.6,
+       "color": "#c9c3b2"
+      }
+     ]
+    },
+    {
+     "t": "lamp",
+     "u": 33.87,
+     "y": 6.69,
+     "style": "cylinder",
+     "dir": "down",
+     "color": "#1c1f22",
+     "proud": 0.1
+    },
+    {
+     "t": "panel",
+     "u0": 45.3,
+     "u1": 59.9,
+     "y0": 2.08,
+     "y1": 8.93,
+     "color": "#2a2f33"
+    },
+    {
+     "t": "sign",
+     "u0": 45.69,
+     "u1": 59.9,
+     "y0": 6.01,
+     "y1": 7.27,
+     "d": 0.1,
+     "style": "box",
+     "text": "MM… M…ROS",
+     "bg": "#8e97a6",
+     "fg": "#c8662c",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "logo": "beyaz pano üstünde turuncu 3B harfli Migros mağaza yazısı (Migros’un M sayılı biçimi): soldaki M harflerinin sayısı (MM / MMM) ve “İG” önündeki ıhlamur gövdesi/yaprakları arkasında görülmedi → yalnız okunan harfler; son harfler R-O-S net"
+    },
+    {
+     "t": "win",
+     "u0": 45.69,
+     "u1": 47.68,
+     "y0": 4.98,
+     "y1": 6.01,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#c9cfd3",
+     "tint": "#2b3136"
+    },
+    {
+     "t": "win",
+     "u0": 47.68,
+     "u1": 49.6,
+     "y0": 4.98,
+     "y1": 6.01,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#c9cfd3",
+     "tint": "#2b3136"
+    },
+    {
+     "t": "win",
+     "u0": 49.6,
+     "u1": 50.95,
+     "y0": 4.98,
+     "y1": 6.01,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#c9cfd3",
+     "tint": "#2b3136"
+    },
+    {
+     "t": "win",
+     "u0": 50.95,
+     "u1": 53.3,
+     "y0": 4.98,
+     "y1": 6.01,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#c9cfd3",
+     "tint": "#2b3136"
+    },
+    {
+     "t": "win",
+     "u0": 53.3,
+     "u1": 55,
+     "y0": 4.98,
+     "y1": 6.01,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#c9cfd3",
+     "tint": "#2b3136"
+    },
+    {
+     "t": "win",
+     "u0": 55,
+     "u1": 56.6,
+     "y0": 4.98,
+     "y1": 6.01,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#c9cfd3",
+     "tint": "#2b3136"
+    },
+    {
+     "t": "win",
+     "u0": 56.6,
+     "u1": 58.6,
+     "y0": 4.98,
+     "y1": 6.01,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#c9cfd3",
+     "tint": "#2b3136"
+    },
+    {
+     "t": "sign",
+     "u0": 47.68,
+     "u1": 49.54,
+     "y0": 4.95,
+     "y1": 5.51,
+     "d": 0.05,
+     "text": "ÇIKIŞ",
+     "bg": "#b65f44",
+     "fg": "#ffffff",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 56.66,
+     "u1": 58.61,
+     "y0": 4.95,
+     "y1": 5.51,
+     "d": 0.05,
+     "text": "GİRİŞ",
+     "bg": "#b65f44",
+     "fg": "#ffffff",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": false
+    },
+    {
+     "t": "awning",
+     "style": "retract",
+     "u0": 44.88,
+     "u1": 53.18,
+     "y": 4.95,
+     "d": 1.2,
+     "drop": 0.55,
+     "color": "#696c72"
+    },
+    {
+     "t": "awning",
+     "style": "retract",
+     "u0": 53.18,
+     "u1": 58.1,
+     "y": 4.95,
+     "d": 1.2,
+     "drop": 0.55,
+     "color": "#696c72"
+    },
+    {
+     "t": "lamp",
+     "us": [
+      51.05,
+      55.45
+     ],
+     "y": 5.08,
+     "style": "box",
+     "dir": "down",
+     "arm": 0.3,
+     "tilt": 45,
+     "d": 0.25,
+     "h": 0.15,
+     "color": "#1a1a1a"
+    },
+    {
+     "t": "win",
+     "u0": 45.69,
+     "u1": 58.6,
+     "y0": 2.11,
+     "y1": 4.1,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "shop",
+     "split": 8,
+     "frameC": "#c9cfd3",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "off": 1.45,
+     "u0": 52.69,
+     "u1": 55.53,
+     "y0": 9.83,
+     "y1": 10.44,
+     "d": 0.08,
+     "style": "letters",
+     "text": "ARMA",
+     "fg": "#c9a74f",
+     "font": "sans",
+     "bold": true,
+     "lit": false,
+     "logo": "saçak alnında altın sarısı 3B harfler"
+    },
+    {
+     "t": "sign",
+     "off": 1.45,
+     "u0": 55.53,
+     "u1": 58.85,
+     "y0": 9.83,
+     "y1": 10.44,
+     "d": 0.06,
+     "style": "letters",
+     "text": "KAMPÜS",
+     "fg": "#cfd4d8",
+     "font": "sans",
+     "bold": false,
+     "lit": false,
+     "logo": "beyaz ince 3B harfler; K’dan sonraki A ağaç arkasında — aynı yazı kenar 8 duvarında tam “ARMAKAMPÜS” okundu"
+    },
+    {
+     "t": "sign",
+     "u0": 50.68,
+     "u1": 52.01,
+     "y0": 7.96,
+     "y1": 8.25,
+     "d": 0.02,
+     "style": "panel",
+     "text": "…EMATIC…",
+     "bg": "#c9a94a",
+     "fg": "#2a2a2a",
+     "font": "sans",
+     "bold": true,
+     "logo": "K1 camının altında sarı şerit pano, siyah harfler; baş ve son ağaç arkasında"
+    },
+    {
+     "t": "sign",
+     "u0": 61.01,
+     "u1": 62.03,
+     "y0": 7.96,
+     "y1": 8.25,
+     "d": 0.02,
+     "style": "panel",
+     "text": "",
+     "bg": "#c9a94a",
+     "fg": "#2a2a2a",
+     "font": "sans",
+     "bold": true,
+     "logo": "aynı sarı şerit pano (18z5 karesinde “…ORTAOKULU” benzeri; okunamadı)"
+    },
+    {
+     "t": "win",
+     "u0": 61.22,
+     "u1": 64.39,
+     "y0": 7.77,
+     "y1": 8.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 2,
+     "frameC": "#2a2f33",
+     "hbars": [
+      8.59
+     ],
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 62.24,
+     "u1": 64.79,
+     "y0": 4.79,
+     "y1": 6.47,
+     "d": 0.04,
+     "style": "panel",
+     "text": "ARTOF\nMATHE\nMATICS",
+     "lines": [
+      {
+       "text": "ARTOF",
+       "fg": "#e8e8e8",
+       "size": 0.3,
+       "y": 0.83
+      },
+      {
+       "text": "MATHE",
+       "fg": "#e8e8e8",
+       "size": 0.3,
+       "y": 0.5
+      },
+      {
+       "text": "MATICS",
+       "fg": "#e8e8e8",
+       "size": 0.3,
+       "y": 0.17
+      }
+     ],
+     "bg": "#1b1c1e",
+     "fg": "#e8e8e8",
+     "font": "sans",
+     "bold": false,
+     "logo": "siyah pano, 3 satır beyaz ince harf; 1. satırda “AR”, 2. satırda “MA” harfleri sarı (#d9b43a) kareler içinde siyah"
+    },
+    {
+     "t": "proj",
+     "u0": 64.39,
+     "u1": 65.1,
+     "d": 0.1,
+     "y0": 2.08,
+     "y1": 8.93,
+     "color": "#9299a6"
+    }
+   ]
+  },
+  {
+   "edge": 8,
+   "len": 54.67,
+   "seen": "partial",
+   "ref": "1546358573_8_1O3dW-OJ.jpg",
+   "cal": {
+    "u": [
+     0.15,
+     54.67
+    ],
+    "head": [
+     [
+      0,
+      4.33
+     ],
+     [
+      1,
+      8.43
+     ]
+    ]
+   },
+   "note": "Güney cephe (MOSSA / otopark yolu). Ref 1O3dW-OJ (2025-09, 37 m, f22), 83UbgJF1 ile aynı. Açık gri sıvalı sade duvar; K1 hizasında batıda 2 büyük camlı bölme (ARMA KAMPÜS dershane), doğuda 9 küçük boy pencere: her birinin üstünde yeşil (teal) sabit branda tente, altında beton denizlik, önünde siyah dikey çubuklu korkuluk, 7’sinin önünde klima. Duvar üstünde ≈0.8 m çıkmalı açık gri harpuşta/saçak bandı (koyu gri saçak kutusu bu cephede YOK) → roof.parapet (bu kenar). Alt ≈3.5 m sık çalı/çit arkasında GÖRÜLMEDİ (kapı/pencere varsa çizilmedi). Taban görülmediği için düşey datum çatı bandından (±0.3). SW köşede bulvar saçak kutusunun ucu görünüyor.",
+   "items": [
+    {
+     "t": "win",
+     "u0": 1,
+     "u1": 7.17,
+     "y0": 7.09,
+     "y1": 9.29,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "split": 4,
+     "frameC": "#3a4144",
+     "hbars": [
+      7.89
+     ],
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.99,
+     "u1": 14.94,
+     "y0": 7.09,
+     "y1": 9.29,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 4,
+     "frameC": "#3a4144",
+     "hbars": [
+      7.92
+     ],
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 1.25,
+     "u1": 3.8,
+     "y0": 6.13,
+     "y1": 6.75,
+     "d": 0.02,
+     "style": "letters",
+     "text": "ARMA",
+     "fg": "#c7b37a",
+     "font": "sans",
+     "bold": true,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 3.8,
+     "u1": 6.96,
+     "y0": 6.13,
+     "y1": 6.75,
+     "d": 0.02,
+     "style": "letters",
+     "text": "KAMPÜS",
+     "fg": "#3c413f",
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 2,
+     "u1": 6.34,
+     "y0": 5.69,
+     "y1": 5.92,
+     "d": 0.01,
+     "style": "letters",
+     "text": "KURS · KÜTÜPHANE · ÖZEL DERS",
+     "fg": "#3c413f",
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "win",
+     "u0": 16.95,
+     "u1": 19.13,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 16.87,
+     "u1": 19.21,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 16.9,
+     "u1": 19.4,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "ac",
+     "u": 17.4,
+     "s": 0,
+     "y": 7.38
+    },
+    {
+     "t": "win",
+     "u0": 20.37,
+     "u1": 22.5,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 20.29,
+     "u1": 22.58,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 19.9,
+     "u1": 22.8,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "ac",
+     "u": 20.64,
+     "s": 0,
+     "y": 7.38
+    },
+    {
+     "t": "win",
+     "u0": 26.7,
+     "u1": 28.83,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 26.62,
+     "u1": 28.91,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 26.24,
+     "u1": 29.08,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "ac",
+     "u": 27.07,
+     "s": 0,
+     "y": 7.38
+    },
+    {
+     "t": "win",
+     "u0": 30.13,
+     "u1": 32.2,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 30.05,
+     "u1": 32.28,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 29.72,
+     "u1": 32.54,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "ac",
+     "u": 30.57,
+     "s": 0,
+     "y": 7.38
+    },
+    {
+     "t": "win",
+     "u0": 36.34,
+     "u1": 38.61,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 36.26,
+     "u1": 38.69,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 36.07,
+     "u1": 39,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "ac",
+     "u": 36.85,
+     "s": 0,
+     "y": 7.38
+    },
+    {
+     "t": "win",
+     "u0": 39.69,
+     "u1": 42.05,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 39.61,
+     "u1": 42.13,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 39.47,
+     "u1": 42.46,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "ac",
+     "u": 40.3,
+     "s": 0,
+     "y": 7.38
+    },
+    {
+     "t": "win",
+     "u0": 44.5,
+     "u1": 46.94,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 44.42,
+     "u1": 47.02,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 44.25,
+     "u1": 47.39,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "ac",
+     "u": 45.08,
+     "s": 0,
+     "y": 7.38
+    },
+    {
+     "t": "win",
+     "u0": 47.66,
+     "u1": 50.1,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 47.58,
+     "u1": 50.18,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 47.49,
+     "u1": 50.61,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "win",
+     "u0": 50.75,
+     "u1": 53.22,
+     "y0": 7.11,
+     "y1": 8.93,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "stair": true,
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#3a4144",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 50.67,
+     "u1": 53.3,
+     "y0": 6.95,
+     "y1": 7.08,
+     "color": "#97968a",
+     "proud": 0.07
+    },
+    {
+     "t": "awning",
+     "u0": 50.61,
+     "u1": 53.81,
+     "y": 9.46,
+     "d": 0.45,
+     "drop": 0.5,
+     "color": "#3e6659"
+    },
+    {
+     "t": "awning",
+     "u0": 49.07,
+     "u1": 54.57,
+     "y": 6.61,
+     "d": 1,
+     "drop": 0.15,
+     "color": "#b8bbb3"
+    },
+    {
+     "t": "panel",
+     "u0": 49.76,
+     "u1": 52.92,
+     "y0": 3.58,
+     "y1": 4.48,
+     "color": "#2e3033",
+     "style": "louvre",
+     "shade": "#1a1b1c"
+    },
+    {
+     "t": "sign",
+     "u0": 51.06,
+     "u1": 51.68,
+     "y0": 4.5,
+     "y1": 4.89,
+     "d": 0.01,
+     "style": "panel",
+     "text": "",
+     "bg": "#c5927b",
+     "fg": "#ffffff",
+     "logo": "küçük turuncu levha, beyaz yazı okunamadı"
+    },
+    {
+     "t": "pipe",
+     "u": 53.78,
+     "color": "#aaada8",
+     "y0": 4.58,
+     "y1": 6.33,
+     "r": 0.05
+    },
+    {
+     "t": "proj",
+     "u0": 53.95,
+     "u1": 54.67,
+     "d": 0.1,
+     "y0": 4.58,
+     "y1": 9.5,
+     "color": "#aaada8"
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "pending": []
+}

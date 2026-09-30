@@ -1,0 +1,1856 @@
+{
+ "id": 1540994151,
+ "name": "İkiz blok (Özlüce Blv. / 404. Sk. köşesi)",
+ "storeys": 7,
+ "floorH": 2.95,
+ "roof": {
+  "kind": "hipped",
+  "eave": 0.9,
+  "fasciaH": 0.35,
+  "pitch": 18,
+  "fasciaC": "#3b4066"
+ },
+ "plinthH": 0,
+ "colors": {
+  "plaster": "#b3b2aa",
+  "plaster2": "#6d645e",
+  "strip": "#8a6e62",
+  "fascia": "#6f5c52",
+  "soffit": "#c4c4bc",
+  "railGlass": "#bfc9cc",
+  "frame": "#4a332c",
+  "tile": "#5d5a57",
+  "plinth": "#6b3a30"
+ },
+ "massing": {
+  "towers": [
+   {
+    "x": [
+     580,
+     588.3
+    ],
+    "storeys": 1,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.3,
+     "parapet": {
+      "h": 0.1,
+      "color": "#d9d9d6",
+      "rail": "tube",
+      "railC": "#e6e8e6",
+      "railH": 0.9
+     }
+    }
+   },
+   {
+    "rest": true,
+    "storeys": 7
+   }
+  ]
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 0.58,
+   "seen": "none",
+   "items": [],
+   "note": "e25→e1 cumba basamağı (0.58 m); fotoğrafta cumbanın yan yüzü balkonların arkasında, görülmedi."
+  },
+  {
+   "edge": 1,
+   "len": 5.89,
+   "seen": "photo",
+   "ref": "1540994151_1_S0hYZNkK.jpg",
+   "cal": {
+    "u": [
+     1.06,
+     6.27
+    ],
+    "head": [
+     [
+      1,
+      6.33
+     ],
+     [
+      5,
+      16.27
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 1.09,
+     "u1": 3.6,
+     "d": 0.75,
+     "inset": 0.6,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      2,
+      3,
+      5
+     ],
+     "tint": {
+      "2": "clear",
+      "3": "dark",
+      "5": "clear"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6",
+     "pots": {
+      "1": [
+       1.5,
+       1.9,
+       2.3,
+       2.7,
+       3.1
+      ]
+     },
+     "potC": "#c0522e",
+     "plantC": "#5d7a3a",
+     "potsOn": "rail"
+    },
+    {
+     "t": "bal",
+     "u0": 3.76,
+     "u1": 6.3,
+     "d": 0.75,
+     "inset": 0.6,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      1,
+      2,
+      5
+     ],
+     "tint": {
+      "1": "blinds",
+      "2": "clear",
+      "5": "clear"
+     },
+     "sides": "wall",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "pipe",
+     "u": 3.66,
+     "color": "#d9d9d6",
+     "r": 0.05,
+     "y0": 4.3,
+     "y1": 17.4
+    },
+    {
+     "t": "band",
+     "u0": 1.06,
+     "u1": 6.27,
+     "y0": 17.35,
+     "y1": 17.62,
+     "color": "#8c8f89",
+     "proud": 0.25
+    },
+    {
+     "t": "panel",
+     "u0": 1.06,
+     "u1": 6.27,
+     "y0": 17.62,
+     "y1": 19.7,
+     "color": "plaster2"
+    },
+    {
+     "t": "pediment",
+     "u0": 1.06,
+     "u1": 6.27,
+     "y": 19.7,
+     "yTop": 20.3,
+     "d": 0.0,
+     "depth": 0.3,
+     "color": "plaster2",
+     "trim": {
+      "w": 0.08,
+      "d": 0.04,
+      "color": "#3b4066"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.71,
+     "u1": 2.2,
+     "y0": 18.03,
+     "y1": 19.23,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 1,
+     "frameC": "#4a332c",
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 2.63,
+     "u1": 3.13,
+     "y0": 18.03,
+     "y1": 19.23,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 1,
+     "frameC": "#4a332c",
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.24,
+     "u1": 4.75,
+     "y0": 18.03,
+     "y1": 19.23,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 1,
+     "frameC": "#4a332c",
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.16,
+     "u1": 5.66,
+     "y0": 18.03,
+     "y1": 19.23,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 1,
+     "frameC": "#4a332c",
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "u0": -0.07,
+     "u1": 6.27,
+     "y0": 3.5,
+     "y1": 4.26,
+     "color": "#1a1d1d",
+     "proud": 0.1
+    },
+    {
+     "t": "sign",
+     "u0": 1.37,
+     "u1": 5.46,
+     "y0": 3.55,
+     "y1": 4.2,
+     "d": 0.01,
+     "style": "letters",
+     "font": "condensed",
+     "bold": true,
+     "text": "Evcil Hayvan Merkezi",
+     "fg": "#ebe6d2",
+     "capH": 0.4,
+     "logo": "siyah dükkân alnına (u −0.07…, kutu d≈0.1 görülmedi) krem boyalı/yapıştırma harfler"
+    },
+    {
+     "t": "sign",
+     "u0": 5.77,
+     "u1": 7.4,
+     "y0": 3.31,
+     "y1": 4.5,
+     "d": 0.03,
+     "style": "panel",
+     "font": "script",
+     "bold": true,
+     "text": "evcilim",
+     "fg": "#ee4523",
+     "border": "#ffffff",
+     "logo": "\"evcilim\" kırmızı-turuncu (#ee4523) beyaz konturlu harfler, üstünde siyah-beyaz çatı (ev) çizgisi, \"m\" harfinde güler yüzlü kırmızı köpek başı maskotu; kesik şekilli pano, e3 ortofotosunda u −0.24…1.78 (kenar köşesini aşar)"
+    },
+    {
+     "t": "sign",
+     "u0": 1.39,
+     "u1": 3.43,
+     "y0": 1.39,
+     "y1": 3.29,
+     "d": 0.02,
+     "style": "panel",
+     "bold": true,
+     "text": "AKVARYUM\nBÖLÜMÜ\n… BALIKLARI   DENİZ BALIKLARI   … …",
+     "lines": [
+      {
+       "text": "AKVARYUM",
+       "fg": "#f0632a",
+       "size": 1
+      },
+      {
+       "text": "BÖLÜMÜ",
+       "fg": "#f0632a",
+       "size": 1
+      },
+      {
+       "text": "… BALIKLARI   DENİZ BALIKLARI   … …",
+       "fg": "#2f63b4",
+       "size": 0.35
+      }
+     ],
+     "bg": "#f4f4f2",
+     "fg": "#f0632a",
+     "logo": "beyaz pano; alt yarıda 3 küçük akvaryum camı (u ≈1.6–1.95, 2.2–2.55, 2.8–3.2; y 1.45–1.95) ve üstlerinde mavi/turuncu küçük etiketler (ilk ve üçüncü okunmadı)"
+    },
+    {
+     "t": "win",
+     "u0": 4.56,
+     "u1": 5.73,
+     "y0": 0.1,
+     "y1": 2.54,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#5a3a2c"
+    },
+    {
+     "t": "win",
+     "u0": 6.5,
+     "u1": 7.4,
+     "y0": 0.6,
+     "y1": 3.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#1d2020",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 1.28,
+     "u1": 4.56,
+     "y0": 0.2,
+     "y1": 1.39,
+     "color": "#6b3a30"
+    },
+    {
+     "t": "sign",
+     "u0": 3.45,
+     "u1": 4.12,
+     "y0": 1.82,
+     "y1": 2.74,
+     "d": 0.01,
+     "style": "panel",
+     "text": "15 Kg Çeşitleri\n359",
+     "bg": "#f2c230",
+     "fg": "#c0272d",
+     "bold": true,
+     "logo": "sarı fiyat afişi, ortada mama paketi fotoğrafı, alt satırlar okunmadı"
+    },
+    {
+     "t": "sign",
+     "u0": 5.83,
+     "u1": 6.5,
+     "y0": 1.82,
+     "y1": 2.74,
+     "d": 0.01,
+     "style": "panel",
+     "text": "990",
+     "bg": "#f2c230",
+     "fg": "#c0272d",
+     "bold": true,
+     "logo": "sarı fiyat afişi, üst satır (\"… KG …\") ve alt satırlar okunmadı, ortada koyu mama paketi fotoğrafı"
+    }
+   ],
+   "note": "Cumba: iki yan yana balkon (arada ince bölme + ortada balkon giderli gri boru), kat kat: sol K1 açık (korkulukta turuncu saksılar), K2 cam (paneller kısmen açık), K3 cam, K4 açık, K5 cam; sağ K1 cam (içte beyaz zebra perde), K2 cam, K3 açık, K4 açık, K5 cam. Alınlar kahverengi. K6 mansart: kahverengi duvar, 4 dar pencere (beyaz 3 çubuklu fransız korkuluk), üstte basık üçgen tepe, lacivert metal harpuşta. cal.u = mansart cumbasının iki kenarı (1.06, 6.27). K0 cephesi (Evcil Hayvan Merkezi) cumba çizgisinden bağımsız düz; u<1.06 kısmı e25’e yazıldı."
+  },
+  {
+   "edge": 2,
+   "len": 0.85,
+   "seen": "none",
+   "items": [],
+   "note": "Cumbanın kuzey yan yüzü (0.85 m), balkon yığınları arkasında görülmedi."
+  },
+  {
+   "edge": 3,
+   "len": 4.95,
+   "seen": "photo",
+   "ref": "1540994151_3_CqzdqeD_.jpg",
+   "cal": {
+    "u": [
+     0.45,
+     5.95
+    ],
+    "head": [
+     [
+      1,
+      6.31
+     ],
+     [
+      5,
+      16.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 1.39,
+     "u1": 2.87,
+     "y0": 4.78,
+     "y1": 6.31,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "kind": "std",
+     "split": 3,
+     "hbars": [
+      5.03
+     ],
+     "frameC": "#4a332c",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#c9c9c3"
+     },
+     "curt": {
+      "K1": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.92,
+     "u1": 5.39,
+     "y0": 4.78,
+     "y1": 6.31,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "kind": "std",
+     "split": 3,
+     "hbars": [
+      5.03
+     ],
+     "frameC": "#4a332c",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#c9c9c3"
+     },
+     "curt": {
+      "K1": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0.45,
+     "u1": 5.95,
+     "y0": 17.35,
+     "y1": 17.62,
+     "color": "#8c8f89",
+     "proud": 0.25
+    },
+    {
+     "t": "panel",
+     "u0": 0.45,
+     "u1": 5.95,
+     "y0": 17.62,
+     "y1": 19.6,
+     "color": "plaster2"
+    },
+    {
+     "t": "ac",
+     "u": 0.9,
+     "s": 5,
+     "y": 16.35
+    },
+    {
+     "t": "band",
+     "u0": 0.45,
+     "u1": 5.95,
+     "y0": 3.47,
+     "y1": 4.2,
+     "color": "#1a1d1d",
+     "proud": 0.1
+    },
+    {
+     "t": "sign",
+     "u0": 2.19,
+     "u1": 6.36,
+     "y0": 3.47,
+     "y1": 3.95,
+     "d": 0.01,
+     "style": "letters",
+     "font": "condensed",
+     "bold": true,
+     "text": "Veteriner Polikliniği",
+     "fg": "#ebe6d2",
+     "capH": 0.45
+    },
+    {
+     "t": "sign",
+     "u0": 2.19,
+     "u1": 3.2,
+     "y0": 3.06,
+     "y1": 3.23,
+     "d": 0.01,
+     "style": "panel",
+     "text": "",
+     "bg": "#2a1c1c",
+     "fg": "#ffffff",
+     "logo": "küçük koyu levha: beyaz nabız çizgisi + kalp simgesi ve okunmayan yazı"
+    },
+    {
+     "t": "sign",
+     "u0": 3.83,
+     "u1": 4.58,
+     "y0": 3.06,
+     "y1": 3.23,
+     "d": 0.01,
+     "style": "panel",
+     "text": "☎ 413 55 66",
+     "bg": "#4a1416",
+     "fg": "#ffffff"
+    },
+    {
+     "t": "sign",
+     "u0": 5.23,
+     "u1": 6.36,
+     "y0": 3.06,
+     "y1": 3.23,
+     "d": 0.01,
+     "style": "panel",
+     "text": "www.evcilimpet.com.tr",
+     "bg": "#4a1416",
+     "fg": "#ffffff"
+    },
+    {
+     "t": "win",
+     "u0": 0.96,
+     "u1": 3.42,
+     "y0": 0.8,
+     "y1": 3.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#1d2020",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.1,
+     "u1": 5.74,
+     "y0": 0.8,
+     "y1": 3.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#1d2020",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 0.45,
+     "u1": 5.95,
+     "y0": 0.1,
+     "y1": 0.8,
+     "color": "#6b3a30"
+    },
+    {
+     "t": "sign",
+     "u0": 0.26,
+     "u1": 0.96,
+     "y0": 1.45,
+     "y1": 2.43,
+     "d": 0.01,
+     "style": "panel",
+     "text": "990",
+     "bg": "#f2c230",
+     "fg": "#c0272d",
+     "bold": true,
+     "logo": "sarı fiyat afişi (üst satır \"… KG …\" okunmadı), ortada mama paketi"
+    }
+   ],
+   "note": "Düz sıvalı bölüm, 2 pencere sütunu K1–K5 (K1 tül). K6: mansart eğimli kahverengi yüzey (penceresiz). cal.u: sol cumba balkonlarının arkası (0.45) ve sağ KD köşe balkon yığınının başladığı yer (5.95) — köşeler balkon arkasında, ±0.2. K0 Veteriner Polikliniği: tuğla (koyu kırmızı-kahve) paye ve denizlik, iki cam vitrin, önlerinde iki siyah menü/yazı tahtası (u 3.42–4.1 ve 5.74–6.42, y 1.45–2.43; yazısı yok) — cama asılı değil, sokağa bakan."
+  },
+  {
+   "edge": 4,
+   "len": 1.15,
+   "seen": "none",
+   "items": [],
+   "note": "KD köşe balkon yığınının (pahlı) doğu yüzü; CqzdqeD_/S0hY karelerinde yığın görülüyor ama kenar ortofotosu yok: K1–K5 kahverengi alınlı balkonlar, K2 cam; ölçülmedi."
+  },
+  {
+   "edge": 5,
+   "len": 1.44,
+   "seen": "none",
+   "items": [],
+   "note": "KD köşe pahı; ölçülmedi."
+  },
+  {
+   "edge": 6,
+   "len": 12.16,
+   "seen": "partial",
+   "ref": "1540994151_6_yTuS1M5c.jpg",
+   "cal": {
+    "u": [
+     0,
+     12.16
+    ],
+    "head": [
+     [
+      3,
+      11.8
+     ],
+     [
+      5,
+      17.35
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0.0,
+     "u1": 7.6,
+     "d": 1.6,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      2
+     ],
+     "tint": {
+      "2": "clear"
+     },
+     "sides": "open",
+     "chamfer": [
+      1.0,
+      0
+     ],
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "bal",
+     "u0": 8.1,
+     "u1": 12.16,
+     "d": 1.6,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "tint": {
+      "1": "clear",
+      "2": "clear",
+      "3": "clear",
+      "4": "green"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 12.16,
+     "y0": 18.9,
+     "y1": 19.97,
+     "color": "fascia",
+     "proud": 0.8
+    },
+    {
+     "t": "sign",
+     "u0": 1.13,
+     "u1": 11.97,
+     "y0": 3.52,
+     "y1": 5.45,
+     "d": 0.05,
+     "style": "panel",
+     "font": "script",
+     "bold": true,
+     "text": "…YE®\nBURSA",
+     "lines": [
+      {
+       "text": "…YE®",
+       "fg": "#f2f2f2",
+       "size": 1
+      },
+      {
+       "text": "BURSA",
+       "fg": "#f2f2f2",
+       "size": 0.4,
+       "bold": true
+      }
+     ],
+     "bg": "#1b1d1f",
+     "fg": "#f2f2f2",
+     "logo": "siyah baskılı pankart/pano: solda büyük beyaz el yazısı logo (ilk harfleri ağaç arkasında, okunan yalnız \"…YE®\"), altında \"BURSA\" kalın düz harfler; sağ yarıda gri-beyaz dikey kaktüs/sütun formlu fotoğraf. OUIqL6KE karesinde pankartın bir bölümünde beyaz harflerle \"AFTER PAR… / CONVERTI… / WEDDIN… / BANQU…\" (yeri kesin değil, çizilmedi)"
+    }
+   ],
+   "note": "Kuzey cephe (doğu blok), uzak kare (29.6 m) → ±0.2. KD köşe yığını köşeyi saran pahlı balkonlar: K1 ağaç/pankart arkasında (kısmen açık), K2 cam, K3–K5 açık; arkada kahverengi-krem taş kaplı mangal bacası (u ≈5–6, K1–K5; bekliyor). İkinci yığın (u 8.1→köşe): K1–K4 cam, K5 açık. Üstte K6 önünde kahverengi saçak/teras alnı + beyaz korkuluk (y ≈19–20). K0 önünde ATM kulübeleri sırası (sokak katmanı)."
+  },
+  {
+   "edge": 7,
+   "len": 1.5,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey girinti pahı, görülmedi."
+  },
+  {
+   "edge": 8,
+   "len": 3.1,
+   "seen": "none",
+   "items": [],
+   "note": "Bloklar arası kuzey girinti (merdiven kulesi, lomboz pencereli — uzak karede seçilebiliyor ama ölçülemedi), görülmedi."
+  },
+  {
+   "edge": 9,
+   "len": 1.8,
+   "seen": "none",
+   "items": [],
+   "note": "Bloklar arası kuzey girinti (merdiven kulesi, lomboz pencereli — uzak karede seçilebiliyor ama ölçülemedi), görülmedi."
+  },
+  {
+   "edge": 10,
+   "len": 3.34,
+   "seen": "none",
+   "items": [],
+   "note": "Bloklar arası kuzey girinti (merdiven kulesi, lomboz pencereli — uzak karede seçilebiliyor ama ölçülemedi), görülmedi."
+  },
+  {
+   "edge": 11,
+   "len": 1.89,
+   "seen": "none",
+   "items": [],
+   "note": "Bloklar arası kuzey girinti (merdiven kulesi, lomboz pencereli — uzak karede seçilebiliyor ama ölçülemedi), görülmedi."
+  },
+  {
+   "edge": 12,
+   "len": 11.71,
+   "seen": "partial",
+   "ref": "1540994151_12_yTuS1M5c.jpg",
+   "cal": {
+    "u": [
+     0,
+     11.71
+    ],
+    "head": [
+     [
+      3,
+      11.75
+     ],
+     [
+      5,
+      17.26
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0.0,
+     "u1": 8.3,
+     "d": 1.6,
+     "s": [
+      2,
+      5
+     ],
+     "glazed": [
+      2,
+      4
+     ],
+     "tint": {
+      "2": "dark",
+      "4": "dark"
+     },
+     "sides": "open",
+     "chamfer": [
+      0,
+      1.0
+     ],
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 11.71,
+     "y0": 18.9,
+     "y1": 19.97,
+     "color": "fascia",
+     "proud": 0.8
+    }
+   ],
+   "note": "Çok uzak (43 m) ve önünde başka bir yapının \"TIME ÖZL…\" yazılı kahverengi portal tabelası (bu binaya ait değil). Sol yığın K2 cam, K3 açık, K4 cam, K5 açık; K1 tabela arkasında görülmedi. Sağ yığın (u 8.6→) K3 cam?, K4–K5 açık — belirsiz, çizilmedi. K0 görülmedi."
+  },
+  {
+   "edge": 13,
+   "len": 1.97,
+   "seen": "none",
+   "items": []
+  },
+  {
+   "edge": 14,
+   "len": 2.95,
+   "seen": "none",
+   "items": []
+  },
+  {
+   "edge": 15,
+   "len": 17.21,
+   "seen": "none",
+   "items": [],
+   "note": "Batı ek (tek katlı Cunda Eklercisi bölümü) batı yüzü, görülmedi."
+  },
+  {
+   "edge": 16,
+   "len": 3.41,
+   "seen": "partial",
+   "ref": "1540994151_16_urEZwh1B.jpg",
+   "cal": {
+    "u": [
+     0,
+     3.41
+    ],
+    "head": [
+     [
+      1,
+      6.9
+     ],
+     [
+      3,
+      12.4
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 3.41,
+     "y0": 3.87,
+     "y1": 4.93,
+     "color": "#127a78",
+     "proud": 0.08
+    },
+    {
+     "t": "sign",
+     "u0": -1.5,
+     "u1": 2.96,
+     "y0": 3.95,
+     "y1": 4.85,
+     "d": 0.02,
+     "style": "letters",
+     "font": "serif",
+     "bold": true,
+     "text": "…DA EKLERCİSİ®",
+     "fg": "#f4f4f0",
+     "logo": "camgöbeği-teal ahşap alın üstünde beyaz serifli büyük harfler; ilk harfler ortofoto kenarı dışında (tente valanında \"CUNDA EKLERCİSİ\" okunuyor)"
+    },
+    {
+     "t": "sign",
+     "u0": -0.7,
+     "u1": 0.43,
+     "y0": 3.0,
+     "y1": 3.5,
+     "d": 0.01,
+     "style": "letters",
+     "font": "script",
+     "bold": true,
+     "text": "CUNDA",
+     "fg": "#f4f4f0"
+    },
+    {
+     "t": "awning",
+     "u0": 0.6,
+     "u1": 2.6,
+     "y": 3.6,
+     "d": 0.7,
+     "drop": 1.2,
+     "color": "#f07a2c",
+     "style": "dutch",
+     "text": "CUNDA EKLERCİSİ",
+     "textColor": "#ffffff"
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 3.41,
+     "y0": 0.1,
+     "y1": 3.87,
+     "color": "#127a78"
+    },
+    {
+     "t": "win",
+     "u0": 1.0,
+     "u1": 2.4,
+     "y0": 0.1,
+     "y1": 2.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#127a78"
+    }
+   ],
+   "note": "Tek katlı batı ek: Cunda Eklercisi (teal ahşap dükkân önü, turuncu Hollanda tentesi). Üstü teras (şemsiye + beyaz korkuluk, y≈5.5 görünen) — ana kütle geride. cal.head yalnız biçimsel (bu kenarda K1+ yok; massing ile ek 1 kat). Ekin sağında ana bina K0 duvarı: klima, beyaz PVC boru ve dikey beyaz tabela \"MEV…\" (okunmadı, bekliyor)."
+  },
+  {
+   "edge": 17,
+   "len": 1.69,
+   "seen": "none",
+   "items": [],
+   "note": "GB köşe pahı; görülmedi."
+  },
+  {
+   "edge": 18,
+   "len": 12.08,
+   "seen": "photo",
+   "ref": "1540994151_18_DKAUVrZo.jpg",
+   "cal": {
+    "u": [
+     0,
+     12.08
+    ],
+    "head": [
+     [
+      1,
+      6.76
+     ],
+     [
+      5,
+      19.04
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 4.9,
+     "u1": 6.57,
+     "y0": 5.3,
+     "y1": 6.76,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#4a332c",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#d6d3c8"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 4.53,
+     "u1": 7.06,
+     "y0": 7.48,
+     "y1": 7.69,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 4.53,
+     "u1": 7.06,
+     "y0": 10.55,
+     "y1": 10.76,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 4.53,
+     "u1": 7.06,
+     "y0": 13.62,
+     "y1": 13.83,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 4.53,
+     "u1": 7.06,
+     "y0": 16.69,
+     "y1": 16.9,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "bal",
+     "u0": -1.0,
+     "u1": 4.47,
+     "d": 1.6,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      1,
+      2,
+      4
+     ],
+     "tint": {
+      "1": "clear",
+      "2": "clear",
+      "4": "dark"
+     },
+     "sides": "open",
+     "chamfer": [
+      1.0,
+      0
+     ],
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "bal",
+     "u0": 7.81,
+     "u1": 12.9,
+     "d": 1.6,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "tint": {
+      "1": "clear",
+      "2": "dark",
+      "3": "clear",
+      "4": "clear"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "win",
+     "u0": 0.01,
+     "u1": 5.93,
+     "y0": 0.0,
+     "y1": 3.17,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "shut": {
+      "K0": 1
+     },
+     "shutC": "#7d8a91"
+    },
+    {
+     "t": "sign",
+     "u0": 0.15,
+     "u1": 5.8,
+     "y0": 0.4,
+     "y1": 2.35,
+     "d": 0.005,
+     "style": "letters",
+     "bold": true,
+     "text": "ROYAL CANIN   evcilim   ROYAL CANIN\nConocimiento y Respeto\n7/24 Acil Hizmet\n0224 413 66 36",
+     "lines": [
+      {
+       "text": "ROYAL CANIN   evcilim   ROYAL CANIN",
+       "fg": "#d2232a",
+       "size": 1
+      },
+      {
+       "text": "Conocimiento y Respeto",
+       "fg": "#d2232a",
+       "size": 0.4,
+       "bold": false
+      },
+      {
+       "text": "7/24 Acil Hizmet",
+       "fg": "#d2232a",
+       "size": 0.8
+      },
+      {
+       "text": "0224 413 66 36",
+       "fg": "#1c1c1c",
+       "size": 0.8
+      }
+     ],
+     "fg": "#d2232a",
+     "logo": "kapalı kepenge baskı: iki yanda kırmızı \"ROYAL CANIN\" (üstünde kırmızı taç simgesi, altında \"Conocimiento y Respeto\"), ortada evcilim logosu (çatı çizgisi + köpek, gri-beyaz), altında kırmızı \"7/24\" ve \"Acil Hizmet\", en altta siyah telefon"
+    },
+    {
+     "t": "win",
+     "u0": 0.38,
+     "u1": 4.25,
+     "y0": 3.17,
+     "y1": 3.77,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#3a3d3c"
+    },
+    {
+     "t": "win",
+     "u0": 4.37,
+     "u1": 5.93,
+     "y0": 3.17,
+     "y1": 3.72,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "std",
+     "split": 1,
+     "frameC": "#3a3d3c"
+    },
+    {
+     "t": "ac",
+     "u": 6.55,
+     "s": 0,
+     "y": 2.85
+    },
+    {
+     "t": "panel",
+     "u0": 7.1,
+     "u1": 12.08,
+     "y0": 3.3,
+     "y1": 4.85,
+     "color": "#e8e8e6",
+     "proud": 0.25
+    },
+    {
+     "t": "sign",
+     "u0": 9.1,
+     "u1": 13.19,
+     "y0": 3.6,
+     "y1": 4.41,
+     "d": 0.06,
+     "style": "box",
+     "font": "serif",
+     "bold": true,
+     "text": "ENGİN OPTİK",
+     "bg": "#1f2123",
+     "fg": "#e9e9e6",
+     "border": "#e8e8e6",
+     "logo": "siyah kutu üstünde gümüş-beyaz serifli harfler; beyaz basamaklı alın çerçevesinin içinde; kenar sonunu (12.08) aşar, dükkân cephesi girinti ağzını düz geçiyor; gece görülmedi"
+    },
+    {
+     "t": "win",
+     "u0": 7.54,
+     "u1": 9.8,
+     "y0": 0.05,
+     "y1": 3.25,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 1,
+     "frameC": "#2a2c2d",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.23,
+     "u1": 12.08,
+     "y0": 0.05,
+     "y1": 3.25,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 1,
+     "frameC": "#2a2c2d"
+    },
+    {
+     "t": "vinyl",
+     "u0": 7.8,
+     "u1": 9.4,
+     "y0": 2.3,
+     "y1": 2.9,
+     "text": "OPTİK & LENS",
+     "fg": "#c8202a",
+     "bold": true,
+     "logo": "altında kırmızı gözlük çerçevesi çizimi (u ≈8.0–9.2, y ≈2.0–2.4)"
+    }
+   ],
+   "note": "404 Sk. cephesi (batı blok): iki balkon yığını + ortada merdiven/banyo sütunu (kahverengi çift silme bantlı, krem sıva, küçük pencereler). Sol yığın: K1 cam, K2 cam, K3 açık (tavanda spot), K4 cam, K5 açık; sağ yığın K1–K4 cam, K5 açık. Alınlar mor-kahve (bulutlu, #7b675e), küpeşte beyaz paslanmaz. Üstte K6 önünde çok derin kahverengi saçak (görünen 21–25). K0: solda kapalı kepenk (evcilimpet baskılı), sağda ENGİN OPTİK (beyaz basamaklı alın + siyah harf kutusu). Sağ uçta marka levhası sütunu (LACOSTE, vogue, …, TOM FORD, ESSILOR, ZEISS) kenar dışında (girinti ağzında), bekliyor."
+  },
+  {
+   "edge": 19,
+   "len": 1.51,
+   "seen": "none",
+   "items": [],
+   "note": "Güney girinti (bloklar arası merdiven kulesi), K0 dükkân cephesi girinti ağzını düz kapatıyor gibi (ENGİN OPTİK); görülmedi."
+  },
+  {
+   "edge": 20,
+   "len": 5.51,
+   "seen": "none",
+   "items": [],
+   "note": "Güney girinti (bloklar arası merdiven kulesi), K0 dükkân cephesi girinti ağzını düz kapatıyor gibi (ENGİN OPTİK); görülmedi."
+  },
+  {
+   "edge": 21,
+   "len": 1.73,
+   "seen": "none",
+   "items": [],
+   "note": "Güney girinti (bloklar arası merdiven kulesi), K0 dükkân cephesi girinti ağzını düz kapatıyor gibi (ENGİN OPTİK); görülmedi."
+  },
+  {
+   "edge": 22,
+   "len": 5.58,
+   "seen": "none",
+   "items": [],
+   "note": "Güney girinti (bloklar arası merdiven kulesi), K0 dükkân cephesi girinti ağzını düz kapatıyor gibi (ENGİN OPTİK); görülmedi."
+  },
+  {
+   "edge": 23,
+   "len": 1.92,
+   "seen": "none",
+   "items": [],
+   "note": "Güney girinti (bloklar arası merdiven kulesi), K0 dükkân cephesi girinti ağzını düz kapatıyor gibi (ENGİN OPTİK); görülmedi."
+  },
+  {
+   "edge": 24,
+   "len": 12.42,
+   "seen": "photo",
+   "ref": "1540994151_24_y4xcvLXl.jpg",
+   "cal": {
+    "u": [
+     0,
+     12.42
+    ],
+    "head": [
+     [
+      1,
+      6.36
+     ],
+     [
+      5,
+      17.07
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 4.74,
+     "u1": 6.2,
+     "y0": 5.12,
+     "y1": 6.36,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#4a332c",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#d6d3c8"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 4.33,
+     "u1": 6.33,
+     "y0": 7.1,
+     "y1": 7.32,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 4.33,
+     "u1": 6.33,
+     "y0": 9.78,
+     "y1": 10.0,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 4.33,
+     "u1": 6.33,
+     "y0": 12.46,
+     "y1": 12.68,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 4.33,
+     "u1": 6.33,
+     "y0": 15.14,
+     "y1": 15.36,
+     "color": "#8a6e62",
+     "proud": 0.02
+    },
+    {
+     "t": "bal",
+     "u0": -2.2,
+     "u1": 3.3,
+     "d": 1.57,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      2,
+      3,
+      4,
+      5
+     ],
+     "tint": {
+      "2": "clear",
+      "3": "clear",
+      "4": "clear",
+      "5": "clear"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "bal",
+     "u0": 6.35,
+     "u1": 12.3,
+     "d": 1.57,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      2,
+      3,
+      4
+     ],
+     "tint": {
+      "2": "clear",
+      "3": "clear",
+      "4": "dark"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.6
+     },
+     "railC": "#e6e8e6"
+    },
+    {
+     "t": "win",
+     "u0": -0.56,
+     "u1": 0.92,
+     "y0": 5.15,
+     "y1": 6.35,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#4a332c"
+    },
+    {
+     "t": "win",
+     "u0": 2.13,
+     "u1": 3.78,
+     "y0": 4.9,
+     "y1": 6.35,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#4a332c",
+     "curt": {
+      "K1": "acik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.96,
+     "u1": 10.2,
+     "y0": 5.1,
+     "y1": 6.4,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "kind": "std",
+     "split": 3,
+     "frameC": "#4a332c",
+     "curt": {
+      "K1": "tul"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 12.42,
+     "y0": 2.95,
+     "y1": 4.3,
+     "color": "#2b2f2e",
+     "proud": 0.08
+    },
+    {
+     "t": "win",
+     "u0": 2.0,
+     "u1": 12.35,
+     "y0": 0.05,
+     "y1": 2.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 12,
+     "hbars": [
+      2.25
+     ],
+     "frameC": "#1d2020",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 0.1,
+     "u1": 12.35,
+     "y": 3.0,
+     "d": 2.5,
+     "drop": 0.25,
+     "color": "#54585b",
+     "style": "retract",
+     "arms": {
+      "us": [
+       0.1,
+       5.3,
+       9.6,
+       10.8
+      ],
+      "color": "#1d2020"
+     }
+    }
+   ],
+   "note": "404 Sk. cephesi (doğu blok), çok yakın kare (6.7 m; balkon ön yüzleri çok büyümüş, d 1.57 bant aralığından). Sol yığın: K1 açık, K2–K5 cam; sağ yığın: K1 açık (içinde bej taş mangal-baca, u ≈6.7–7.3 görünen, K1–K2; bekliyor), K2–K4 cam, K5 açık. Orta sütun y4xc ile mjsR karelerinde ~1.8 m farklı yerde görünüyor (pano konum hatası) — y4xc kullanıldı. K0 Özhamur Börek (siyah çelik ızgaralı cam cephe, siyah alın, gri katlanır kollu tente). u<2.0 kısmında ayrı dükkân (gri doğrama, camında bordo oval \"Gökçin\" etiketi, kenar başlangıcının dışında → çizilmedi)."
+  },
+  {
+   "edge": 25,
+   "len": 7.73,
+   "seen": "photo",
+   "ref": "1540994151_25_S0hYZNkK.jpg",
+   "cal": {
+    "u": [
+     0,
+     8.87
+    ],
+    "head": [
+     [
+      1,
+      6.46
+     ],
+     [
+      5,
+      16.81
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 4.26,
+     "u1": 5.7,
+     "y0": 4.91,
+     "y1": 6.46,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "kind": "std",
+     "split": 3,
+     "hbars": [
+      5.16
+     ],
+     "frameC": "#4a332c",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#c9c9c3"
+     },
+     "curt": {
+      "K1": "tul",
+      "K2": "zebra"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 6.77,
+     "u1": 8.2,
+     "y0": 4.91,
+     "y1": 6.46,
+     "k": 1,
+     "s": [
+      1,
+      5
+     ],
+     "kind": "std",
+     "split": 3,
+     "hbars": [
+      5.16
+     ],
+     "frameC": "#4a332c",
+     "surround": {
+      "w": 0.1,
+      "d": 0.03,
+      "color": "#c9c9c3"
+     },
+     "curt": {
+      "K1": "tul",
+      "K2": "zebra"
+     }
+    },
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 3.35,
+     "s": [
+      1,
+      6
+     ],
+     "depth": 2.5,
+     "back": "plaster",
+     "side": "plaster"
+    },
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 3.35,
+     "d": 0,
+     "inset": 2.5,
+     "s": [
+      1,
+      5
+     ],
+     "glazed": [
+      2,
+      3
+     ],
+     "tint": {
+      "2": "clear",
+      "3": "clear"
+     },
+     "sides": "open",
+     "rail": {
+      "*": "solidTube"
+     },
+     "parapetH": {
+      "*": 0.55
+     },
+     "railC": "#e4e6e3"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 8.87,
+     "y0": 17.35,
+     "y1": 17.62,
+     "color": "#8c8f89",
+     "proud": 0.25
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 8.87,
+     "y0": 17.62,
+     "y1": 19.75,
+     "color": "plaster2"
+    },
+    {
+     "t": "ac",
+     "u": 8.55,
+     "s": 5,
+     "y": 16.72
+    },
+    {
+     "t": "ac",
+     "u": 8.6,
+     "s": 4,
+     "y": 13.6
+    },
+    {
+     "t": "win",
+     "u0": 0.1,
+     "u1": 7.5,
+     "y0": 0.1,
+     "y1": 3.35,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#1d2020",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 8.87,
+     "y0": 3.35,
+     "y1": 4.1,
+     "color": "#1d2020",
+     "proud": 0.05
+    },
+    {
+     "t": "sign",
+     "u0": -1.35,
+     "u1": 5.02,
+     "y0": 4.18,
+     "y1": 5.1,
+     "d": 0.08,
+     "off": 3.0,
+     "style": "letters",
+     "font": "serif",
+     "bold": true,
+     "text": "Bursa\nÖzhamur Börek",
+     "lines": [
+      {
+       "text": "Bursa",
+       "size": 0.3,
+       "fg": "#d52027"
+      },
+      {
+       "text": "Özhamur Börek",
+       "size": 1,
+       "fg": "#d52027"
+      }
+     ],
+     "fg": "#d52027",
+     "logo": "kırmızı kalın serifli kanal harfler; teras sundurmasının ön üst kenarındaki siyah metal parmaklıklı çerçevenin üstünde (off ≈3 m tahmini, hava fotoğrafından sundurma ön kenarı); \"Bursa\" küçük kırmızı harfler \"Özhamur\"un üstünde; gece görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 7.62,
+     "u1": 8.87,
+     "y0": 0.99,
+     "y1": 3.43,
+     "d": 0.02,
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "text": "7/24 Veteriner Polikliniği\nPet Kuaför\nPet Shop\nAkvaryum Kur…\n… Mama\n10.000 Çeşit Ürün\nVe Fazlası…\nevcilimpet\nwww.evcilimpet.com.tr\n0224 413 55 66\nACİL: 0533 28… 49 16",
+     "bg": "#f3efe6",
+     "fg": "#ffffff",
+     "logo": "baskılı dükkân camı posteri: beyaz zemin, üstte köpek/papağan/kaplumbağa/kulübe çizimleri, ortada turuncu (#e0892e) daire içinde beyaz satırlar (hizmetler), altta instagram simgesi + \"evcilimpet\", site adresi, iki kırmızı hap şeklinde telefon kutusu (beyaz yazı); u 7.62 başlangıcı e1 ortofotosundan"
+    }
+   ],
+   "note": "Ölçüm S0hYZNkK f22 (okuma) / 40° ref. cal.u kuzey ucu 8.87: e1 cumbası (e0 basamağı) ortofotoda u 8.87’de başlıyor (taban izinde 7.73) → kenar 1.1 m uzun görünüyor. Güney ucu (u 0–3.35) K1–K6 GÖRÜLMEDİ duvar yok: iki panoda da (S0hY u 3.4, rdSf6XJt u 1.7) üst kütlenin GD köşesi kuzeyde, önünde köşe balkonları (K1 açık, K2–K3 cam, K4–K5 açık) — yaklaşık olarak derin loca (recess 2.5 m) ile çizildi, gerçek geometri: güney cepheden (e24) taşan balkonlar. K0 Özhamur Börek: teras sundurması (siyah çelik, valanında altın \"özhamur\" yazısı) kaldırımda → sokak katmanı. Pencereler: kahverengi 3 kanatlı PVC, altta dar kayıt, açık gri söve. Renkler bulutlu gün."
+  }
+ ],
+ "notes": [
+  "Kat: 7 = K0 dükkân (≈4.1 m; sanal groundRaise, plinthH 0) + K1–K5 konut + K6 mansart katı (kahverengi). Kanıt: e3/e25 pencere sütunlarında 5 sıra (K1–K5), e18/e24 yığınlarında 5 balkon katı; üstte kahverengi mansart + derin saçak.",
+  "Kat yüksekliği 2.95 VARSAYILDI: görünen kat aralığı kenardan kenara çok farklı (e25 2.59, e3 2.61, e1 2.49, e24 2.68, e18 3.07) — iki pano arasında aynı cephe öğesi 1.5–1.8 m kayıyor (S0hY/rdSf, y4xc/mjsR) → pano konum hataları; taban izi notundaki saçak ≈19.5 m ile 0.1+4.1+5×2.95 uyumlu.",
+  "Renk dili: kırık beyaz-bej grenli sıva (#b3b2aa, bulutlu gün; güneşli kare yok), balkon alınları mor-kahve (#6f5c52; güney cephede daha açık #b19e8f görünür), mansart kahverengi (#6d645e), kat silmesi açık gri (#8c8f89, ≈0.27 m, ≈0.25 m taşar), K6 üstü lacivert-mor metal harpuşta (#3b4066). Pencereler koyu kahve PVC, 3 kanat, altta dar kayıt, açık gri söve.",
+  "Mansart: bulvar cephesinde cumba (e1) ve KD/GD köşelerde K6 dik duvar (pencereli), aradaki yüzlerde ≈70° eğimli kahverengi mansart yüzeyi — üretici eğik duvar çizemediği için dik duvar (panel) olarak yazıldı (bekliyor).",
+  "Batı ek (x<588.3, OSM dışı alçak kısım) tek katlı: Cunda Eklercisi, üstü teras (massing 1 kat).",
+  "Balkon yığınları kat kat kenarlarda ayrı yazıldı; köşe balkonları pahlı dönüşlü (chamfer ≈1.0 tahmini)."
+ ],
+ "pending": [
+  {
+   "what": "mansart-eğimli-yüz",
+   "edges": [
+    3,
+    6,
+    12,
+    18,
+    24,
+    25
+   ],
+   "y0": 17.62,
+   "y1": 19.8,
+   "slope_deg": 70,
+   "color": "#6d645e",
+   "note": "K6 cumba dışındaki yüzler eğimli mansart; şimdilik dik panel."
+  },
+  {
+   "what": "taş-mangal-bacası",
+   "edges": [
+    24,
+    6
+   ],
+   "e24": {
+    "u0": 6.7,
+    "u1": 7.3,
+    "y0": 5.5,
+    "y1": 7.6,
+    "visible": true
+   },
+   "color": "#b9a585",
+   "note": "Balkon içinde bej kesme taş mangal + baca, K1–K5 (e6 u ≈5–6); derinlik görülmedi."
+  },
+  {
+   "what": "marka-levha-sütunu",
+   "edge": 18,
+   "u0": 13.09,
+   "u1": 13.57,
+   "y0": 0.4,
+   "y1": 2.9,
+   "bg": "#ffffff",
+   "texts": [
+    "LACOSTE",
+    "vogue",
+    "Mustang?",
+    "…",
+    "TOM FORD",
+    "ESSILOR",
+    "ZEISS"
+   ],
+   "note": "ENGİN OPTİK sağında, kenar dışında (girinti ağzı); dikey beyaz levha, marka yazıları siyah."
+  },
+  {
+   "what": "dikey-tabela",
+   "edge": 16,
+   "u0": 4.3,
+   "u1": 4.7,
+   "y0": 1.07,
+   "y1": 4.05,
+   "text": "MEV…",
+   "bg": "#ffffff",
+   "fg": "#2a4a8a",
+   "note": "ana bina K0 köşesinde dikey beyaz tabela, okunmadı; bayrak tabela mı yassı mı belirsiz."
+  }
+ ]
+}

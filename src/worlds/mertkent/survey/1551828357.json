@@ -1,0 +1,1295 @@
+{
+ "id": 1551828357,
+ "name": "Tek katlı dükkân şeridi (Özlüce Blv. batı yakası)",
+ "storeys": 1,
+ "floorH": 4.4,
+ "groundRaise": 0,
+ "plinthH": 0,
+ "wallTop": 5.95,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.02,
+  "fasciaH": 0.4,
+  "fasciaC": "#e4e4df",
+  "parapet": {
+   "h": 0.4,
+   "color": "#e4e4df"
+  },
+  "flatC": "#c9c6bd"
+ },
+ "colors": {
+  "plaster": "#d9d8d2",
+  "plaster2": "#e4e4df",
+  "strip": "#16191a",
+  "fascia": "#16191a",
+  "soffit": "#3b3f42",
+  "railGlass": "#bfc9cc",
+  "frame": "#1f2323",
+  "tile": "#8f8a82",
+  "plinth": "#6f7277"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 6.79,
+   "seen": "partial",
+   "ref": "s0_NtURh_fj.jpg",
+   "cal": {
+    "u": [
+     0,
+     6.79
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      6.65
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 3.9,
+     "y0": 0.05,
+     "y1": 3.7,
+     "color": "#9fa4ad"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 3.9,
+     "y0": 3.7,
+     "y1": 3.85,
+     "color": "#f2f2ee",
+     "proud": 0.05
+    },
+    {
+     "t": "band",
+     "u0": 3.9,
+     "u1": 6.79,
+     "y0": 3.73,
+     "y1": 5.18,
+     "color": "#1f3151",
+     "proud": 1.1
+    },
+    {
+     "t": "band",
+     "u0": 3.9,
+     "u1": 6.79,
+     "y0": 3.3,
+     "y1": 3.6,
+     "color": "#9fae94",
+     "proud": 1.1
+    },
+    {
+     "t": "win",
+     "u0": 4.1,
+     "u1": 6.7,
+     "y0": 0.9,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#f2f2ee",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 3.9,
+     "u1": 6.79,
+     "y0": 0.0,
+     "y1": 0.9,
+     "color": "#f2f2ee",
+     "proud": 0.02
+    }
+   ],
+   "note": "GERÇEK (s0_NtURh_fj). Batı uç: kuzey yarısı (u 0–3.9) penceresiz gri sıvalı duvar (üstü beyaz başlık, önünde otopark bariyeri — podyum otoparkı girişi), güney yarısı Coffeemania köşesi. Önde BURSPARK otopark levhası direği (sokak katmanı)."
+  },
+  {
+   "edge": 1,
+   "len": 20.37,
+   "seen": "photo",
+   "ref": "s1_O6xkvm89.jpg",
+   "cal": {
+    "u": [
+     0,
+     20.37
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      6.65
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 20.37,
+     "y0": 3.73,
+     "y1": 5.18,
+     "color": "#1f3151",
+     "proud": 1.1
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 20.37,
+     "y0": 5.18,
+     "y1": 5.46,
+     "color": "#9fae94",
+     "proud": 1.1
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 20.37,
+     "y0": 3.4,
+     "y1": 3.73,
+     "color": "#9fae94",
+     "proud": 1.1
+    },
+    {
+     "t": "sign",
+     "u0": 17.4,
+     "u1": 19.9,
+     "y0": 4.05,
+     "y1": 4.95,
+     "d": 0.02,
+     "off": 1.1,
+     "style": "letters",
+     "font": "script",
+     "bold": false,
+     "text": "Coffeemania",
+     "fg": "#f2f2f0",
+     "logo": "lacivert alın, beyaz el yazısı; sağında \"| NEXT\"; alın boyunca beyaz saçaklı ışık zinciri"
+    },
+    {
+     "t": "sign",
+     "u0": 19.95,
+     "u1": 20.37,
+     "y0": 4.35,
+     "y1": 4.55,
+     "d": 0.01,
+     "off": 1.1,
+     "style": "letters",
+     "text": "NEXT",
+     "fg": "#f2f2f0",
+     "bold": true
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 20.3,
+     "y0": 0.9,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#f2f2ee",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 20.37,
+     "y0": 0.0,
+     "y1": 0.9,
+     "color": "#f2f2ee",
+     "proud": 0.02
+    },
+    {
+     "t": "pilaster",
+     "u": 1.6,
+     "w": 0.3,
+     "y0": 0,
+     "y1": 3.4,
+     "d": 0.1,
+     "color": "#f2f2ee"
+    },
+    {
+     "t": "pilaster",
+     "u": 5.0,
+     "w": 0.3,
+     "y0": 0,
+     "y1": 3.4,
+     "d": 0.1,
+     "color": "#f2f2ee"
+    },
+    {
+     "t": "pilaster",
+     "u": 8.0,
+     "w": 0.3,
+     "y0": 0,
+     "y1": 3.4,
+     "d": 0.1,
+     "color": "#f2f2ee"
+    },
+    {
+     "t": "pilaster",
+     "u": 9.9,
+     "w": 0.3,
+     "y0": 0,
+     "y1": 3.4,
+     "d": 0.1,
+     "color": "#f2f2ee"
+    },
+    {
+     "t": "pilaster",
+     "u": 12.4,
+     "w": 0.3,
+     "y0": 0,
+     "y1": 3.4,
+     "d": 0.1,
+     "color": "#f2f2ee"
+    },
+    {
+     "t": "pilaster",
+     "u": 16.2,
+     "w": 0.3,
+     "y0": 0,
+     "y1": 3.4,
+     "d": 0.1,
+     "color": "#f2f2ee"
+    },
+    {
+     "t": "pilaster",
+     "u": 20.2,
+     "w": 0.3,
+     "y0": 0,
+     "y1": 3.4,
+     "d": 0.1,
+     "color": "#f2f2ee"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 20.37,
+     "y0": 5.95,
+     "y1": 6.35,
+     "color": "#e4e4df",
+     "proud": 0.02
+    }
+   ],
+   "note": "GERÇEK koordinat (kendi ortofotom s1_O6xkvm89, düzlem e1–e2 doğrusu). Coffeemania güney cephesi: lacivert alın + adaçayı yeşili üst/alt bant, beyaz payeler ve beyaz dolu alt bant (üstünde küçük gri \"Coffeemania\" logoları), karanlık camlar. Alın e1 çizgisinin ≈1.1 m önünde (3 pano paralaksı; sokak kenarındaki sundurma saçağı) → off/proud 1.1. Üstte podyum K1 (\"ADA PSİKOLOJİ\")."
+  },
+  {
+   "edge": 2,
+   "len": 9.12,
+   "seen": "partial",
+   "ref": "s1_VJjskucr.jpg",
+   "cal": {
+    "u": [
+     20.37,
+     29.49
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      6.65
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 20.37,
+     "u1": 29.49,
+     "y0": 3.73,
+     "y1": 5.18,
+     "color": "#1f3151",
+     "proud": 1.1
+    },
+    {
+     "t": "band",
+     "u0": 20.37,
+     "u1": 29.49,
+     "y0": 5.18,
+     "y1": 5.46,
+     "color": "#9fae94",
+     "proud": 1.1
+    },
+    {
+     "t": "awning",
+     "u0": 20.37,
+     "u1": 27.07,
+     "y": 3.4,
+     "d": 1.8,
+     "drop": 0.3,
+     "color": "#9fae94",
+     "style": "retract",
+     "texts": [
+      {
+       "u0": 20.87,
+       "u1": 22.37,
+       "text": "Coffeemania",
+       "fg": "#ffffff",
+       "font": "script"
+      },
+      {
+       "u0": 24.17,
+       "u1": 25.67,
+       "text": "Coffeemania",
+       "fg": "#ffffff",
+       "font": "script"
+      }
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 20.57,
+     "u1": 29.37,
+     "y0": 0.9,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#f2f2ee",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 20.37,
+     "u1": 29.49,
+     "y0": 0.0,
+     "y1": 0.9,
+     "color": "#f2f2ee",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 20.37,
+     "u1": 29.49,
+     "y0": 5.95,
+     "y1": 6.35,
+     "color": "#e4e4df",
+     "proud": 0.02
+    }
+   ],
+   "note": "GERÇEK (s1_VJjskucr, aynı doğru; u s1 ortofotosundaki gibi, cal.u 20.37–29.49). GD köşe: adaçayı yeşili katlanır tenteler (valanlarında beyaz el yazısı \"Coffeemania\"), altında beyaz teras duvarı (kaldırım, sokak katmanı). VJjskucr çok yakın (3–8 m) ve eğik → ±0.5."
+  },
+  {
+   "edge": 3,
+   "len": 101.85,
+   "seen": "photo",
+   "ref": "s3_HxEE.jpg",
+   "cal": {
+    "u": [
+     0,
+     101.85
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      6.65
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 16.0,
+     "y0": 4.1,
+     "y1": 5.3,
+     "color": "#1f3151",
+     "proud": 0.9
+    },
+    {
+     "t": "sign",
+     "u0": 9.2,
+     "u1": 12.6,
+     "y0": 4.5,
+     "y1": 5.2,
+     "d": 0.02,
+     "off": 0.9,
+     "style": "letters",
+     "font": "script",
+     "bold": false,
+     "text": "Coffeemania",
+     "fg": "#f2f2f0",
+     "logo": "lacivert alın (#1f3151) üstünde ince beyaz el yazısı; sağında dikey çizgi + küçük \"NEXT\"; alın boyunca beyaz saçaklı (buz saçağı) ışık zinciri asılı"
+    },
+    {
+     "t": "sign",
+     "u0": 12.7,
+     "u1": 13.5,
+     "y0": 4.65,
+     "y1": 4.85,
+     "d": 0.01,
+     "off": 0.9,
+     "style": "letters",
+     "text": "| NEXT",
+     "fg": "#f2f2f0",
+     "bold": true
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 16.0,
+     "y0": 3.8,
+     "y1": 4.1,
+     "color": "#f2f2ee",
+     "proud": 0.9
+    },
+    {
+     "t": "win",
+     "u0": 0.5,
+     "u1": 16.0,
+     "y0": 0.9,
+     "y1": 3.2,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 8,
+     "frameC": "#f2f2ee",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 16.0,
+     "y0": 0.0,
+     "y1": 0.9,
+     "color": "#f2f2ee",
+     "proud": 0.02
+    },
+    {
+     "t": "sign",
+     "u0": 16.0,
+     "u1": 21.0,
+     "y0": 4.25,
+     "y1": 5.73,
+     "d": 0.15,
+     "style": "box",
+     "font": "sans",
+     "bold": false,
+     "text": "bona Waffle",
+     "lines": [
+      {
+       "text": "bona Waffle",
+       "fg": "#ffffff",
+       "size": 1
+      },
+      {
+       "text": "…",
+       "fg": "#ffffff",
+       "size": 0.2
+      }
+     ],
+     "bg": "#6fc1b4",
+     "fg": "#ffffff",
+     "border": "#2f6f6a",
+     "logo": "açık teal kutu; solda beyaz daire içinde koyu teal amblem (\"BS\"? okunmadı), \"bona\" beyaz-teal büyük küçük harf, sağda \"Waffle\" kırmızı (#d8262e) beyaz konturlu kalın harf ve üstünde kırmızı-beyaz taç/çatı biçimli çıkıntı (y 5.9’a kadar); alt şeritte okunmayan küçük yazı"
+    },
+    {
+     "t": "win",
+     "u0": 16.2,
+     "u1": 21.0,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 21.0,
+     "u1": 33.8,
+     "y0": 4.2,
+     "y1": 5.33,
+     "color": "#16191a",
+     "proud": 0.15
+    },
+    {
+     "t": "sign",
+     "u0": 27.1,
+     "u1": 29.3,
+     "y0": 4.56,
+     "y1": 5.03,
+     "d": 0.03,
+     "style": "letters",
+     "font": "serif",
+     "bold": true,
+     "text": "CIGERGAH",
+     "fg": "#e8d7a0",
+     "logo": "altın-krem serifli harfler; İ/Ğ işaretleri bu çözünürlükte seçilemedi (büyük olasılıkla \"CİĞERGAH\", çizimde görülen hali)"
+    },
+    {
+     "t": "panel",
+     "u0": 22.2,
+     "u1": 26.7,
+     "y0": 4.5,
+     "y1": 5.1,
+     "color": "#d9a630"
+    },
+    {
+     "t": "panel",
+     "u0": 29.5,
+     "u1": 33.9,
+     "y0": 4.5,
+     "y1": 5.1,
+     "color": "#d9a630"
+    },
+    {
+     "t": "panel",
+     "u0": 27.0,
+     "u1": 31.0,
+     "y0": 5.38,
+     "y1": 5.92,
+     "color": "#16191a",
+     "proud": 0.05
+    },
+    {
+     "t": "sign",
+     "u0": 27.6,
+     "u1": 29.3,
+     "y0": 5.45,
+     "y1": 5.85,
+     "d": 0.01,
+     "style": "letters",
+     "text": "…",
+     "fg": "#d9a630",
+     "logo": "üst tepelik panoda altın kıvrımlı süsler ve okunmayan küçük yazı"
+    },
+    {
+     "t": "win",
+     "u0": 21.2,
+     "u1": 33.6,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#3d2a1c",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 33.8,
+     "u1": 42.6,
+     "y0": 4.2,
+     "y1": 5.6,
+     "color": "#16191a",
+     "proud": 0.15
+    },
+    {
+     "t": "panel",
+     "u0": 34.3,
+     "u1": 42.3,
+     "y0": 4.25,
+     "y1": 5.1,
+     "color": "#6f7479"
+    },
+    {
+     "t": "sign",
+     "u0": 35.5,
+     "u1": 41.3,
+     "y0": 4.33,
+     "y1": 5.04,
+     "d": 0.05,
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "text": "AGAOGLU",
+     "fg": "#d8262e",
+     "border": "#ffffff",
+     "capH": 0.62,
+     "logo": "gri-gümüş geometrik (İslami yıldız) desenli pano üstünde beyaz konturlu kırmızı kalın harfler; Ğ işaretleri seçilemedi"
+    },
+    {
+     "t": "sign",
+     "u0": 34.7,
+     "u1": 36.6,
+     "y0": 5.1,
+     "y1": 5.45,
+     "d": 0.03,
+     "style": "letters",
+     "bold": true,
+     "text": "URFALI",
+     "fg": "#ffffff",
+     "border": "#d8262e"
+    },
+    {
+     "t": "panel",
+     "u0": 37.0,
+     "u1": 38.6,
+     "y0": 5.2,
+     "y1": 5.32,
+     "color": "#d8262e",
+     "proud": 0.03
+    },
+    {
+     "t": "sign",
+     "u0": 39.0,
+     "u1": 42.0,
+     "y0": 5.05,
+     "y1": 5.47,
+     "d": 0.03,
+     "style": "letters",
+     "bold": true,
+     "text": "4137373",
+     "fg": "#ffffff",
+     "border": "#d8262e"
+    },
+    {
+     "t": "panel",
+     "u0": 37.0,
+     "u1": 39.0,
+     "y0": 5.6,
+     "y1": 5.9,
+     "color": "#16191a",
+     "proud": 0.05
+    },
+    {
+     "t": "win",
+     "u0": 34.0,
+     "u1": 42.4,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 42.6,
+     "u1": 52.4,
+     "y0": 4.25,
+     "y1": 5.49,
+     "d": 0.2,
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "text": "dürümcü bekir usta",
+     "bg": "#2c3a4a",
+     "fg": "#ffffff",
+     "capH": 0.5,
+     "logo": "koyu lacivert-antrasit kutu; ortada kırmızı-turuncu alevli ızgara fotoğraf şeridi (y 4.35–5.0) üstünde beyaz yuvarlak hatlı kalın küçük harfler"
+    },
+    {
+     "t": "roofsign",
+     "u0": 43.4,
+     "u1": 49.8,
+     "y0": 6.6,
+     "y1": 7.4,
+     "setback": 5.2,
+     "d": 0.05,
+     "text": "DÜRÜMCÜ bekir usta",
+     "lines": [
+      {
+       "text": "DÜRÜMCÜ",
+       "fg": "#d8262e",
+       "size": 1
+      },
+      {
+       "text": "bekir usta",
+       "fg": "#2c3a4a",
+       "size": 0.35
+      }
+     ],
+     "bg": "#f4f4f2",
+     "fg": "#d8262e",
+     "font": "sans",
+     "bold": true,
+     "logo": "şerit çatısında, ön kenardan ≈5 m geride (HxEE/4XJG paralaksından) beyaz levha üstünde kırmızı eğik kalın büyük harfler, sağında küçük koyu \"bekir usta\"; u/y GERÇEK (düzeltilmiş)"
+    },
+    {
+     "t": "win",
+     "u0": 42.8,
+     "u1": 52.3,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 52.6,
+     "u1": 57.9,
+     "y0": 4.66,
+     "y1": 6.02,
+     "d": 0.15,
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "text": "MERSİN TANTUNİ",
+     "bg": "#16191a",
+     "fg": "#ffffff",
+     "logo": "siyah delikli desenli (küçük kafes) pano, alt kenarda koyu kırmızı alev baskısı; beyaz kalın harfler (y 5.0–5.6); üst ortada krem-kırmızı oval madalyon (u 54.4–55.3, y 5.9–6.5; kırmızı el yazısı \"Çi…ler\", altında \"Tantuni\")"
+    },
+    {
+     "t": "sign",
+     "u0": 51.4,
+     "u1": 52.5,
+     "y0": 5.5,
+     "y1": 5.85,
+     "d": 0.05,
+     "style": "panel",
+     "text": "MER…",
+     "bg": "#ffffff",
+     "fg": "#d8262e",
+     "bold": true,
+     "logo": "solda kırmızı küçük amblem; kutu kısmen dürümcü tabelası arkasında"
+    },
+    {
+     "t": "awning",
+     "u0": 52.6,
+     "u1": 58.9,
+     "y": 4.6,
+     "d": 2.2,
+     "drop": 0.3,
+     "color": "#a3202c",
+     "style": "retract"
+    },
+    {
+     "t": "win",
+     "u0": 52.7,
+     "u1": 57.8,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 57.7,
+     "u1": 62.4,
+     "y0": 4.72,
+     "y1": 6.14,
+     "d": 0.2,
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "text": "1954'ten beri\nDEMİR AMCA®\nDÖNER   ÖZLÜCE",
+     "lines": [
+      {
+       "text": "1954'ten beri",
+       "size": 0.2,
+       "fg": "#ffffff",
+       "bold": false
+      },
+      {
+       "text": "DEMİR AMCA®",
+       "size": 1,
+       "fg": "#ffffff"
+      },
+      {
+       "text": "DÖNER",
+       "size": 0.55,
+       "fg": "#ffffff"
+      }
+     ],
+     "bg": "#d8262e",
+     "fg": "#ffffff",
+     "logo": "kırmızı kutu; sağ altta küçük beyaz \"ÖZLÜCE\""
+    },
+    {
+     "t": "awning",
+     "u0": 57.9,
+     "u1": 62.4,
+     "y": 4.6,
+     "d": 2.0,
+     "drop": 0.25,
+     "color": "#3b3f42",
+     "style": "retract"
+    },
+    {
+     "t": "win",
+     "u0": 58.0,
+     "u1": 62.3,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 62.5,
+     "u1": 69.1,
+     "y0": 4.72,
+     "y1": 6.67,
+     "d": 0.2,
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "text": "Mariza",
+     "bg": "#e9ebea",
+     "fg": "#ffffff",
+     "logo": "açık gri-beyaz kutu, iki yanda 3’er mavi yatay şerit; ortada lacivert (#1d3f9a) elips (u 63.7–67.8) içinde beyaz eğik kalın \"Mariza\""
+    },
+    {
+     "t": "sign",
+     "u0": 62.5,
+     "u1": 69.4,
+     "y0": 3.95,
+     "y1": 4.6,
+     "d": 0.15,
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "text": "BURSA KEBAP-DÖNER",
+     "bg": "#1d3f9a",
+     "fg": "#ffffff",
+     "capH": 0.4
+    },
+    {
+     "t": "win",
+     "u0": 62.6,
+     "u1": 69.2,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 69.3,
+     "u1": 74.1,
+     "y0": 4.66,
+     "y1": 6.26,
+     "d": 0.2,
+     "style": "box",
+     "font": "script",
+     "bold": true,
+     "text": "Kanaatçı\nMesut",
+     "lines": [
+      {
+       "text": "Kanaatçı",
+       "size": 1,
+       "fg": "#f4f0e8"
+      },
+      {
+       "text": "Mesut",
+       "size": 0.45,
+       "fg": "#f4f0e8"
+      }
+     ],
+     "bg": "#16191a",
+     "fg": "#f4f0e8",
+     "logo": "siyah kutu, beyaz el yazısı; sağda üç kısa beyaz yatay çizgi süsü, sol altta küçük yuvarlak simge"
+    },
+    {
+     "t": "awning",
+     "u0": 69.0,
+     "u1": 74.3,
+     "y": 4.4,
+     "d": 2.2,
+     "drop": 0.3,
+     "color": "#a3202c",
+     "style": "retract"
+    },
+    {
+     "t": "win",
+     "u0": 69.4,
+     "u1": 74.0,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 74.1,
+     "u1": 79.8,
+     "y0": 4.37,
+     "y1": 5.96,
+     "d": 0.2,
+     "style": "box",
+     "font": "script",
+     "bold": true,
+     "text": "Burger yiyelim",
+     "bg": "#d8262e",
+     "fg": "#ffffff",
+     "logo": "kırmızı kutu, solda sarı-kırmızı hamburger simgesi (u 74.3–75.4) ve koyu yuvarlak madalyon; beyaz el yazısı; üst kenarda küçük okunmayan levha"
+    },
+    {
+     "t": "win",
+     "u0": 74.2,
+     "u1": 79.7,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 79.8,
+     "u1": 81.8,
+     "y0": 4.37,
+     "y1": 5.96,
+     "d": 0.2,
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "text": "BURSA\nBAHARAT\nKURUYEMİŞ & AKTAR",
+     "lines": [
+      {
+       "text": "BURSA",
+       "fg": "#ffffff",
+       "size": 1
+      },
+      {
+       "text": "BAHARAT",
+       "fg": "#ffffff",
+       "size": 1
+      },
+      {
+       "text": "KURUYEMİŞ & AKTAR",
+       "fg": "#16191a",
+       "size": 0.7
+      }
+     ],
+     "bg": "#1d2224",
+     "fg": "#ffffff",
+     "border": "#f2c230",
+     "logo": "koyu yeşilimsi-siyah kutu, sarı çerçeve; alt satır sarı zemin (#f2c230) üstünde siyah; kutunun altında kırmızı-siyah kilim desenli bant (y ≈3.9–4.3)"
+    },
+    {
+     "t": "win",
+     "u0": 79.9,
+     "u1": 81.7,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 2,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 81.8,
+     "u1": 92.3,
+     "y0": 4.37,
+     "y1": 5.49,
+     "d": 0.2,
+     "style": "box",
+     "font": "script",
+     "bold": true,
+     "text": "Maydonoz Döner",
+     "bg": "#f0a826",
+     "fg": "#2a2e6e",
+     "logo": "sarı-turuncu kutu; solda yuvarlak altın madalyon logo, lacivert eğik harfler; altında okunmayan küçük satır"
+    },
+    {
+     "t": "sign",
+     "u0": 82.5,
+     "u1": 87.8,
+     "y0": 5.49,
+     "y1": 5.96,
+     "d": 0.2,
+     "style": "box",
+     "font": "script",
+     "text": "Maydonoz Döner",
+     "bg": "#f0a826",
+     "fg": "#2a2e6e",
+     "bold": false
+    },
+    {
+     "t": "sign",
+     "u0": 82.0,
+     "u1": 92.0,
+     "y0": 3.6,
+     "y1": 3.95,
+     "d": 0.02,
+     "off": 2.0,
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "text": "MAYDONOZ DÖNER'E HOŞ GELDİNİZ",
+     "fg": "#e3b25a",
+     "lit": true,
+     "logo": "sundurma valanında altın noktalı LED harfler (gece görülmedi; noktalı LED yapısı → lit)"
+    },
+    {
+     "t": "win",
+     "u0": 81.9,
+     "u1": 92.2,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 92.3,
+     "u1": 99.8,
+     "y0": 4.37,
+     "y1": 5.67,
+     "d": 0.2,
+     "style": "box",
+     "font": "serif",
+     "bold": true,
+     "text": "CAFFE NAPOLI",
+     "bg": "#16191a",
+     "fg": "#d9c27a",
+     "logo": "siyah kutu, altın serifli harfler; iki kelime arasında beyaz kahve fincanı/garson simgesi"
+    },
+    {
+     "t": "win",
+     "u0": 92.4,
+     "u1": 101.8,
+     "y0": 0.05,
+     "y1": 3.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#1f2323",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 101.85,
+     "y0": 5.95,
+     "y1": 6.35,
+     "color": "#e4e4df",
+     "proud": 0.02
+    }
+   ],
+   "note": "ÖLÇÜ GERÇEK KOORDİNATTA (repo ortofotosu yok; kendi ortofotolarım e3 düzleminde: HxEE4T_F, 4XJGyfMe, C3cit7R-, KsRtfn8o, YPIGWqlq, R2C6jynX, on3x8NbY, 3QVGVU1n, egFm4i2S, y1o164BV — scratch d4E/o/s3_*). cal.head sahte (kat 4.4, sY=1, groundRaise 0) → y = zeminden m. Hassasiyet: tabela uçları panolar arasında 0.5–2.5 m kayıyor (pano konum hatası + alınların e3 çizgisinin 0–1.5 m önünde/gerisinde olması) → yatay ±1 m, düşey ±0.2 m. Dükkân sırası güneyden kuzeye: Coffeemania | bona Waffle | Ciğergah | Urfalı Ağaoğlu | dürümcü bekir usta | Mersin Tantuni | Demir Amca | Mariza | Kanaatçı Mesut | Burger yiyelim | Bursa Baharat | Maydonoz Döner | Caffe Napoli. Tabelaların altında her dükkânın sundurma/pergola/tente + teras bölümleri kaldırımda (sokak katmanı); vitrin camları sundurma altında karanlık, ayrıntı görülmedi. Beyaz üst bant (y 5.95–6.35) şerit çatı ön kenarı."
+  },
+  {
+   "edge": 4,
+   "len": 25.53,
+   "seen": "none",
+   "items": [],
+   "note": "404 Sk. (kuzey) yüzü: Caffe Napoli cam kış bahçesi önünde; panolar yüze 0.3–2 m (y4xc/mjsR/DKAU) → ortofoto kullanılamaz; görülmedi. Kış bahçesi sokak katmanı."
+  },
+  {
+   "edge": 5,
+   "len": 4.31,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 6,
+   "len": 12.89,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 7,
+   "len": 0.98,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 8,
+   "len": 4.69,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 9,
+   "len": 2.28,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 10,
+   "len": 91.95,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 11,
+   "len": 2.06,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 12,
+   "len": 0.45,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 13,
+   "len": 0.66,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 14,
+   "len": 3.77,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 15,
+   "len": 0.99,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  },
+  {
+   "edge": 16,
+   "len": 14.34,
+   "seen": "none",
+   "items": [],
+   "note": "Podyum duvarına bitişik iç sınır / gizli kenar, görülmedi."
+  }
+ ],
+ "notes": [
+  "GERÇEK KOORDİNATLI ölçüm: repo ortofotosu/sv-extra girdisi yok (planlayıcı atlamış). Kendi ortofotolarım (scratch d4E/o/s3_*, s1_*, s0_*) kenar düzlemlerinde; derleyici pano bulamadığı için derinlik düzeltmesi yapmaz → tüm u/y gerçek m (u kenar boyunca, y blok tabanından). cal.head sahte (kat 4.4 m, groundRaise 0, sY=1).",
+  "Hassasiyet: tabela kenarları ±1 m (panolar arası kayma 0.5–2.5 m; alınlar e3 çizgisinden 0–1.5 m sapıyor), yükseklikler ±0.2 m. Metinler 90°/40°/22° karelerden okundu; okunmayanlar \"…\".",
+  "Tek kat ≈4.4 m, tabela alınları y ≈4.1–6.1 (çatı ön kenarı beyaz bant 5.95–6.35 önünde). Çatı üstünde \"DÜRÜMCÜ bekir usta\" çatı tabelası (≈5 m geride).",
+  "Podyum (1546358584) K1 tabelaları (Iris Beauty Center, KARYA & RIZVANOĞLU İŞ MERKEZİ, ATOMY, ESTEFORM …) bu dosyada değil."
+ ],
+ "pending": [
+  {
+   "what": "sundurma-teras",
+   "note": "Her dükkân önünde kaldırıma 2–4 m taşan sundurma / pergola / kış bahçesi — sokak katmanı (raporda)."
+  }
+ ]
+}

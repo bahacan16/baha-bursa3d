@@ -1,0 +1,1303 @@
+{
+ "id": 1551814316,
+ "name": "Bulvar Özlüce AVM (bulvarözlüce Alışveriş Ve Yaşam Merkezi)",
+ "storeys": 4,
+ "groundRaise": 0,
+ "floorH": 5.0,
+ "floorHs": [
+  4.0,
+  5.4,
+  5.4,
+  2.4
+ ],
+ "plinthH": 0,
+ "wallTop": 17.2,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.05,
+  "fasciaH": 1.0,
+  "fasciaC": "#dcdcd8"
+ },
+ "colors": {
+  "plaster": "#e4e4df",
+  "plaster2": "#565a59",
+  "fascia": "#363936",
+  "soffit": "#8c8a84",
+  "frame": "#2e302e",
+  "plinth": "#6f7174",
+  "railGlass": "#8f9a9c",
+  "strip": "#c9cdcb",
+  "tile": "#8c8a84"
+ },
+ "edges": [
+  {
+   "edge": 5,
+   "len": 61.88,
+   "seen": "photo",
+   "ref": "1551814316_5_4OA_9vXT.jpg",
+   "cal": {
+    "u": [
+     0,
+     61.88
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      7.25
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.05,
+     "u1": 21.5,
+     "y0": 0.7,
+     "y1": 2.5,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#2e302e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 0.05,
+     "u1": 21.5,
+     "y0": 2.5,
+     "y1": 3.45,
+     "color": "#6e6d66"
+    },
+    {
+     "t": "band",
+     "u0": 0,
+     "u1": 21.6,
+     "y0": 3.45,
+     "y1": 3.95,
+     "color": "#363936",
+     "proud": 0.1
+    },
+    {
+     "t": "recess",
+     "u0": 21.6,
+     "u1": 39.5,
+     "y0": 0.0,
+     "y1": 3.5,
+     "depth": 2.0,
+     "back": "#2a2c2e",
+     "ceil": "#d8d8d4",
+     "floor": "#6f7174"
+    },
+    {
+     "t": "win",
+     "u0": 21.9,
+     "u1": 39.3,
+     "y0": 0.9,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#2e302e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 21.6,
+     "u1": 39.5,
+     "y0": 3.5,
+     "y1": 3.95,
+     "color": "#c2c3c2",
+     "proud": 0.1
+    },
+    {
+     "t": "recess",
+     "u0": 41.8,
+     "u1": 61.88,
+     "y0": 0.0,
+     "y1": 3.6,
+     "depth": 3.5,
+     "back": "#262624",
+     "ceil": "#cfd0cc",
+     "floor": "#6f7174"
+    },
+    {
+     "t": "band",
+     "u0": 41.8,
+     "u1": 61.88,
+     "y0": 3.6,
+     "y1": 3.95,
+     "color": "#b4b8af",
+     "proud": 0.1
+    },
+    {
+     "t": "panel",
+     "u0": 39.5,
+     "u1": 41.8,
+     "y0": 0.3,
+     "y1": 3.6,
+     "color": "#dcdcd6"
+    },
+    {
+     "t": "bal",
+     "u0": 0,
+     "u1": 41.8,
+     "d": 0.08,
+     "s": [
+      1,
+      1
+     ],
+     "rail": {
+      "1": "tube"
+     },
+     "railC": "#e6e7e4",
+     "railH": {
+      "1": 0.95
+     },
+     "fasciaC": {
+      "1": "#363936"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 41.8,
+     "u1": 61.88,
+     "d": 0.08,
+     "s": [
+      1,
+      1
+     ],
+     "rail": {
+      "1": "bars"
+     },
+     "railC": "#414537",
+     "railH": {
+      "1": 0.9
+     },
+     "fasciaC": {
+      "1": "#b4b8af"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 0.55,
+     "u1": 3.7,
+     "y0": 3.95,
+     "y1": 4.95,
+     "text": "BKM",
+     "fg": "#b06a3a",
+     "style": "letters",
+     "d": 0.12,
+     "font": "serif",
+     "bold": true,
+     "capH": 0.85,
+     "lit": false,
+     "logo": "B-K-M harfleri turuncu-kahve, K harfinin altında kıvrımlı kuyruk; renkli iç çizgiler seçilemedi"
+    },
+    {
+     "t": "sign",
+     "u0": 5.3,
+     "u1": 8.6,
+     "y0": 4.05,
+     "y1": 4.8,
+     "text": "Kitap",
+     "fg": "#487d89",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.7
+    },
+    {
+     "t": "sign",
+     "u0": 9.7,
+     "u1": 14.9,
+     "y0": 4.05,
+     "y1": 4.8,
+     "text": "Kırtasiye",
+     "fg": "#b0605e",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.7
+    },
+    {
+     "t": "sign",
+     "u0": 15.8,
+     "u1": 18.7,
+     "y0": 4.05,
+     "y1": 4.8,
+     "text": "Kafe",
+     "fg": "#408564",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.7
+    },
+    {
+     "t": "sign",
+     "u0": 27.9,
+     "u1": 33.3,
+     "y0": 3.95,
+     "y1": 4.95,
+     "text": "Levrek",
+     "fg": "#5e93c3",
+     "style": "letters",
+     "d": 0.08,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.75,
+     "logo": "L harfinin solunda balık kuyruğu, \"k\" harfinden sonra açık uçlu balık başı ve göz (mavi kontur çizgi)"
+    },
+    {
+     "t": "neon",
+     "pts": [
+      [
+       27.9,
+       4.9
+      ],
+      [
+       28.5,
+       4.45
+      ],
+      [
+       27.9,
+       4.0
+      ]
+     ],
+     "color": "#5e93c3",
+     "d": 0.06,
+     "off": 0.08
+    },
+    {
+     "t": "neon",
+     "pts": [
+      [
+       31.9,
+       4.95
+      ],
+      [
+       33.4,
+       4.45
+      ],
+      [
+       31.9,
+       3.97
+      ]
+     ],
+     "color": "#5e93c3",
+     "d": 0.06,
+     "off": 0.08
+    },
+    {
+     "t": "sign",
+     "u0": 34.1,
+     "u1": 38.9,
+     "y0": 4.08,
+     "y1": 4.6,
+     "text": "☎ 0224 413 87 07",
+     "fg": "#5e93c3",
+     "style": "letters",
+     "d": 0.06,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.42
+    },
+    {
+     "t": "sign",
+     "u0": 45.3,
+     "u1": 46.2,
+     "y0": 4.02,
+     "y1": 4.95,
+     "text": "",
+     "fg": "#e8e3d8",
+     "style": "box",
+     "d": 0.12,
+     "shape": "round",
+     "bg": "#e8e3d8",
+     "lit": true,
+     "logo": "Burger King yuvarlak logosu (krem zemin, kırmızı \"BURGER KING\" yazısı, mavi çerçeve) — logo çizilmez"
+    },
+    {
+     "t": "sign",
+     "u0": 46.6,
+     "u1": 56.9,
+     "y0": 4.05,
+     "y1": 4.75,
+     "text": "BURGER KING",
+     "fg": "#e2e4e0",
+     "style": "letters",
+     "d": 0.1,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.62,
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 57.3,
+     "u1": 58.3,
+     "y0": 4.02,
+     "y1": 4.95,
+     "text": "",
+     "fg": "#e8e3d8",
+     "style": "box",
+     "d": 0.12,
+     "shape": "round",
+     "bg": "#e8e3d8",
+     "lit": true,
+     "logo": "Burger King yuvarlak logosu — logo çizilmez"
+    },
+    {
+     "t": "recess",
+     "u0": 0,
+     "u1": 61.88,
+     "y0": 4.0,
+     "y1": 17.2,
+     "depth": 3.0,
+     "back": "#565a59",
+     "ceil": "#8c8a84",
+     "floor": "#c9c1b2"
+    },
+    {
+     "t": "band",
+     "u0": 4.0,
+     "u1": 56.0,
+     "y0": 13.74,
+     "y1": 14.95,
+     "color": "#565a59"
+    },
+    {
+     "t": "band",
+     "u0": 4.0,
+     "u1": 56.0,
+     "y0": 14.95,
+     "y1": 15.3,
+     "color": "#c9cdcb",
+     "proud": 0.08
+    },
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 61.88,
+     "y0": 15.3,
+     "y1": 17.2,
+     "color": "#8c8a84"
+    },
+    {
+     "t": "panel",
+     "u0": 6.84,
+     "u1": 17.3,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#2b2c29"
+    },
+    {
+     "t": "panel",
+     "u0": 8.2,
+     "u1": 8.6,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#c3c6be",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 10.35,
+     "u1": 10.8,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#c3c6be",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 13.7,
+     "u1": 14.1,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#c3c6be",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 16.5,
+     "u1": 16.9,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#c3c6be",
+     "proud": 0.02
+    },
+    {
+     "t": "proj",
+     "u0": 9.22,
+     "u1": 9.82,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 10.9,
+     "u1": 11.2,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 11.3,
+     "u1": 11.55,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 11.92,
+     "u1": 12.46,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 12.9,
+     "u1": 13.14,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 14.02,
+     "u1": 14.4,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 14.64,
+     "u1": 15.12,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 15.48,
+     "u1": 15.94,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 16.26,
+     "u1": 16.5,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 16.9,
+     "u1": 17.12,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "panel",
+     "u0": 48.7,
+     "u1": 54.2,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#2b2c29"
+    },
+    {
+     "t": "panel",
+     "u0": 50.6,
+     "u1": 51.0,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#c3c6be",
+     "proud": 0.02
+    },
+    {
+     "t": "proj",
+     "u0": 48.9,
+     "u1": 49.4,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 51.7,
+     "u1": 52.4,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "proj",
+     "u0": 52.8,
+     "u1": 53.5,
+     "d": 0.4,
+     "y0": 6.3,
+     "y1": 13.74,
+     "color": "#565a59"
+    },
+    {
+     "t": "sign",
+     "u0": 16.97,
+     "u1": 17.43,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "8",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 18.37,
+     "u1": 18.83,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "6",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 19.97,
+     "u1": 20.43,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "9",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 21.87,
+     "u1": 22.33,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "1",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 23.47,
+     "u1": 23.93,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "6",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 25.47,
+     "u1": 25.93,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "3",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 27.07,
+     "u1": 27.53,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "0",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 28.67,
+     "u1": 29.13,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "0",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 30.37,
+     "u1": 30.83,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "8",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 32.07,
+     "u1": 32.53,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "2",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 33.77,
+     "u1": 34.23,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "0",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 35.47,
+     "u1": 35.93,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "0",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 37.07,
+     "u1": 37.53,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "9",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 38.77,
+     "u1": 39.23,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "1",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 47.37,
+     "u1": 47.83,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "0",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 48.97,
+     "u1": 49.43,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "1",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 50.87,
+     "u1": 51.33,
+     "y0": 5.4,
+     "y1": 6.25,
+     "text": "2",
+     "fg": "#c8cacc",
+     "style": "letters",
+     "d": 0.03,
+     "font": "sans",
+     "bold": false,
+     "lit": false
+    },
+    {
+     "t": "sign",
+     "u0": 42.0,
+     "u1": 46.4,
+     "y0": 14.6,
+     "y1": 16.7,
+     "text": "MR.D.I.Y.",
+     "fg": "#c8262c",
+     "bg": "#d6af44",
+     "border": "#1c1c1c",
+     "style": "box",
+     "d": 0.25,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.62,
+     "lit": true,
+     "logo": "kırmızı kalın harfler siyah konturlu, noktalar sarı; ışıklı kutu (gece görülmedi)"
+    },
+    {
+     "t": "sign",
+     "u0": 46.4,
+     "u1": 50.7,
+     "y0": 14.6,
+     "y1": 16.7,
+     "text": "PORLAND",
+     "fg": "#3f403d",
+     "bg": "#72736e",
+     "style": "panel",
+     "d": 0.08,
+     "font": "serif",
+     "bold": false,
+     "capH": 0.36,
+     "logo": "koyu gri geniş aralıklı serif harfler, kabartma"
+    },
+    {
+     "t": "sign",
+     "u0": 50.7,
+     "u1": 55.1,
+     "y0": 14.6,
+     "y1": 16.7,
+     "text": "mavi",
+     "fg": "#e4e8e6",
+     "bg": "#445668",
+     "style": "box",
+     "d": 0.25,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.75,
+     "lit": true,
+     "logo": "beyaz küçük harf \"mavi\"; sağ ucunda kutudan taşan beyaz çubuk"
+    },
+    {
+     "t": "sign",
+     "u0": 17.4,
+     "u1": 24.8,
+     "y0": 6.47,
+     "y1": 16.24,
+     "text": "",
+     "fg": "#ffffff",
+     "bg": "#bc4742",
+     "style": "panel",
+     "d": 0.03,
+     "font": "condensed",
+     "bold": true,
+     "lines": [
+      {
+       "text": "OKULLARIN",
+       "size": 1.25,
+       "y": 0.6
+      },
+      {
+       "text": "TAVSİYE ETTİĞİ",
+       "size": 0.95,
+       "y": 0.47
+      },
+      {
+       "text": "TÜM KİTAPLAR",
+       "size": 0.95,
+       "y": 0.36
+      },
+      {
+       "text": "bkmkitap'ta!",
+       "size": 0.95,
+       "y": 0.24
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "u0": 24.8,
+     "u1": 31.6,
+     "y0": 6.47,
+     "y1": 16.24,
+     "text": "",
+     "fg": "#f2f2f2",
+     "bg": "#294fa1",
+     "style": "panel",
+     "d": 0.03,
+     "font": "condensed",
+     "bold": true,
+     "lines": [
+      {
+       "text": "TÜM",
+       "size": 1.0,
+       "y": 0.76
+      },
+      {
+       "text": "KİTAPLARDA",
+       "size": 1.0,
+       "y": 0.63
+      },
+      {
+       "text": "3AL 2ÖDE",
+       "size": 1.6,
+       "y": 0.45
+      },
+      {
+       "text": "FIRSATIYLA",
+       "size": 1.0,
+       "y": 0.26
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "u0": 22.4,
+     "u1": 26.2,
+     "y0": 14.57,
+     "y1": 16.24,
+     "text": "",
+     "fg": "#c4262e",
+     "bg": "#e9e7ea",
+     "style": "panel",
+     "d": 0.05,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "bkmkitap",
+       "size": 1.0,
+       "y": 0.55
+      },
+      {
+       "text": "bir kitapla mümkün!",
+       "fg": "#8a8a8a",
+       "size": 0.45,
+       "bold": false,
+       "y": 0.22
+      }
+     ],
+     "logo": "\"bkmkitap\" üstünde kırmızı çift şevron (kitap) simgesi"
+    },
+    {
+     "t": "sign",
+     "u0": 26.65,
+     "u1": 31.6,
+     "y0": 15.8,
+     "y1": 16.29,
+     "text": "Kampanyalı ürünlerde geçerli değildir",
+     "fg": "#ffffff",
+     "bg": "#4166b3",
+     "border": "#ffffff",
+     "style": "panel",
+     "d": 0.05,
+     "font": "sans",
+     "bold": false
+    },
+    {
+     "t": "sign",
+     "u0": 33.9,
+     "u1": 40.1,
+     "y0": 6.7,
+     "y1": 16.5,
+     "text": "",
+     "fg": "#c8262c",
+     "bg": "#ad904e",
+     "style": "panel",
+     "d": 0.03,
+     "font": "sans",
+     "bold": true,
+     "logo": "MR.DIY afişi (gölgede sarı bez): alt solda panda maskotu (siyah-beyaz, sarı yelek) — çizilmez"
+    },
+    {
+     "t": "sign",
+     "u0": 34.9,
+     "u1": 40.2,
+     "y0": 15.03,
+     "y1": 16.06,
+     "text": "MR.D.I.Y.",
+     "fg": "#c8262c",
+     "style": "letters",
+     "d": 0.035,
+     "font": "sans",
+     "bold": true,
+     "capH": 0.8
+    },
+    {
+     "t": "sign",
+     "u0": 37.6,
+     "u1": 39.6,
+     "y0": 14.3,
+     "y1": 15.0,
+     "text": "çok iyi",
+     "fg": "#3a2e22",
+     "style": "letters",
+     "d": 0.035,
+     "font": "script",
+     "bold": false
+    },
+    {
+     "t": "sign",
+     "u0": 34.0,
+     "u1": 40.1,
+     "y0": 6.8,
+     "y1": 7.6,
+     "text": "2. KATTAYIZ!",
+     "fg": "#f4f0ea",
+     "bg": "#a74a4d",
+     "style": "panel",
+     "d": 0.035,
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "sign",
+     "u0": 35.0,
+     "u1": 37.5,
+     "y0": 13.6,
+     "y1": 14.2,
+     "text": "Hediyelik Eşya",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 37.7,
+     "u1": 40.2,
+     "y0": 13.6,
+     "y1": 14.2,
+     "text": "Hırdavat",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 35.0,
+     "u1": 37.5,
+     "y0": 12.7,
+     "y1": 13.3,
+     "text": "Kırtasiye",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 37.7,
+     "u1": 40.2,
+     "y0": 12.7,
+     "y1": 13.3,
+     "text": "Dekorasyon",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 35.0,
+     "u1": 37.5,
+     "y0": 11.8,
+     "y1": 12.4,
+     "text": "Oyuncak",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 37.7,
+     "u1": 40.2,
+     "y0": 11.8,
+     "y1": 12.4,
+     "text": "Ev Gereçleri",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 35.0,
+     "u1": 37.5,
+     "y0": 10.8,
+     "y1": 11.4,
+     "text": "Elektrik & Elektronik",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 37.7,
+     "u1": 40.2,
+     "y0": 10.8,
+     "y1": 11.4,
+     "text": "Takı & Kozmetik",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 35.0,
+     "u1": 37.5,
+     "y0": 10.0,
+     "y1": 10.6,
+     "text": "Spor Malzemeleri",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 37.7,
+     "u1": 40.2,
+     "y0": 10.0,
+     "y1": 10.6,
+     "text": "Bilgisayar & Cep\nTelefonu Aksesuarları",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 35.0,
+     "u1": 37.5,
+     "y0": 9.1,
+     "y1": 9.7,
+     "text": "Evcil Hayvan\nÜrünleri",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 37.7,
+     "u1": 40.2,
+     "y0": 9.1,
+     "y1": 9.7,
+     "text": "Otomobil\nAksesuarları",
+     "fg": "#3a3a3a",
+     "bg": "#f1efe8",
+     "style": "panel",
+     "d": 0.04,
+     "font": "sans",
+     "bold": false,
+     "align": "left",
+     "logo": "solda turuncu küçük simge"
+    },
+    {
+     "t": "sign",
+     "u0": 40.8,
+     "u1": 48.7,
+     "y0": 9.3,
+     "y1": 14.6,
+     "text": "",
+     "fg": "#2b2d45",
+     "bg": "#a39daf",
+     "style": "panel",
+     "d": 0.03,
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "TIFFANY & TOMATO",
+       "size": 0.55,
+       "bold": false,
+       "y": 0.86
+      },
+      {
+       "text": "1.",
+       "size": 0.8,
+       "y": 0.66
+      },
+      {
+       "text": "KATTA",
+       "size": 0.9,
+       "y": 0.46
+      },
+      {
+       "text": "AÇILMIŞTIR",
+       "size": 0.9,
+       "y": 0.22
+      }
+     ],
+     "logo": "\"&\" turuncu; harfler lacivert kontur gölgeli italik kalın; sol üstte ince çizgi süs"
+    },
+    {
+     "t": "panel",
+     "u0": 40.8,
+     "u1": 43.6,
+     "y0": 6.3,
+     "y1": 9.3,
+     "color": "#2e2329"
+    },
+    {
+     "t": "panel",
+     "u0": 43.6,
+     "u1": 46.0,
+     "y0": 6.3,
+     "y1": 9.3,
+     "color": "#5b2222"
+    },
+    {
+     "t": "panel",
+     "u0": 46.0,
+     "u1": 48.7,
+     "y0": 6.3,
+     "y1": 9.3,
+     "color": "#3f4242"
+    }
+   ],
+   "note": "GÜNEY cephe (meydan), 2025-09, 4OA_ (D 11.1) + gMLW. Zemin kat ön düzlemde; üst kutu 1. kat terasının 3.0 m gerisinde (girinti) — kutu yüzündeki öğeler −3.0 m arka düzlem ortofotosunda (DELTA) GERÇEK koordinatla ölçüldü. Güneşli."
+  }
+ ],
+ "notes": [],
+ "pending": []
+}
