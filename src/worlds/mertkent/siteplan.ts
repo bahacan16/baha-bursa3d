@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import * as pcNs from 'polygon-clipping';
 import { Builder, leafFringe, type V2, type V3 } from './builder';
 import { parseSpecies, speciesIndex } from '../osm/species';
 import facadesRings from './data/facades.json';
@@ -532,6 +533,42 @@ export interface SitePlanResult {
 
 type Collide = (ring: [number, number][], bottom: number, top: number) => void;
 
+type Pc = typeof pcNs;
+const pc: Pc = (pcNs as unknown as { default?: Pc }).default ?? pcNs;
+
+/**
+ * v8: sert zemin alanını sokak planı kaldırımlarından çıkar (kaldırım o bölgeyi kendi bantlarıyla çizer). Döner:
+ * [dış halka, ...delikler][] (kesişim yoksa özgün halka). Başarısız kırpmada özgün.
+ */
+export function cutAreaBy(poly: V2[], cuts: V2[][]): V2[][][] {
+  const xs = poly.map((p) => p[0]);
+  const zs = poly.map((p) => p[1]);
+  const x0 = Math.min(...xs);
+  const x1 = Math.max(...xs);
+  const z0 = Math.min(...zs);
+  const z1 = Math.max(...zs);
+  // Sınır kutusu örtüşmesi (kaldırım şeridinin köşeleri alanın dışında olabilir)
+  const near = cuts.filter((c) => {
+    const cx = c.map((p) => p[0]);
+    const cz = c.map((p) => p[1]);
+    return Math.max(...cx) > x0 && Math.min(...cx) < x1 && Math.max(...cz) > z0 && Math.min(...cz) < z1;
+  });
+  if (!near.length) return [[poly]];
+  try {
+    const close = (r: V2[]) => [...r, r[0]] as [number, number][];
+    const res = pc.difference([close(poly)], ...near.map((c) => [close(c)] as pcNs.Polygon));
+    return res.map((pg) =>
+      pg.map((ring) => {
+        const r = ring.map((q) => [q[0], q[1]] as V2);
+        if (r.length > 1 && r[0][0] === r[r.length - 1][0] && r[0][1] === r[r.length - 1][1]) r.pop();
+        return r;
+      }),
+    );
+  } catch {
+    return [[poly]];
+  }
+}
+
 /** Site planını çiz. `skip(x,z)`: bu noktadaki öğeleri atla (ör. başka modülün çizdiği yapılar) */
 export function buildSitePlan(
   b: Builder,
@@ -540,6 +577,12 @@ export function buildSitePlan(
   collide?: Collide,
   /** Ölçülen renk → malzeme anahtarı (index.ts colorKey); verilmezse renk alanları yok sayılır */
   colorKey?: (kind: 'plaster' | 'metal' | 'frame', hex: string) => string,
+  /**
+   * v8: sokak planı kaldırım çokgenleri — sert zemin alanları (lawn / havuz / güverte dışı) bunlardan çıkarılır ve
+   * kaldırıma bakan kenarlarında bordür çizilmez. KB köşe meydanı (alan 33) nw-corner kaldırımının üstünü 11 cm
+   * yukarıda örtüyordu (kırmızı bant / kılavuz görünmüyor, yola bakan kenarında karanlık bordür + yan yüz; critic c-02).
+   */
+  streetCuts: V2[][] = [],
 ): SitePlanResult {
   const hexOk = (h: unknown): h is string => typeof h === 'string' && /^#[0-9a-f]{6}$/i.test(h);
   const holes: [number, number, number, number][] = [];
@@ -555,33 +598,50 @@ export function buildSitePlan(
     const aa = a as SiteArea & { dry?: boolean; color?: string };
     const key = a.kind === 'lawn' && hexOk(aa.color) ? `lawn@${aa.color.toLowerCase()}` : areaKey(a);
     const inner = pools.filter((p) => insidePoly(a.poly, ...centroid(p.poly))).map((p) => p.poly);
-    const off = 0.03 + Math.min(0.06, idx * 0.0015) + (a.level ?? 0) + (a.kind === 'lawn' ? 0 : 0.03);
-    try {
-      b.drape(
-        key,
-        a.poly,
-        inner,
-        H,
-        off,
-        key.startsWith('spPaver') || key.startsWith('spSite') || key === 'deck' ? 1 : 0.5,
-        2.5,
-      );
-    } catch {
-      /* hatalı çokgen */
-    }
+    // v8: kaldırım kotundaki sert zemin (level ≈ bordür kotu, ör. köşe meydanı) kaldırım bantlarıyla aynı kotta
+    // (+4 mm); önceden yığılan ofsetlerle (+0.11) kaldırımın üstünde duruyordu
+    const flushPave = a.kind === 'paving' && (a.level ?? 0) > 0.05 && (a.level ?? 0) <= 0.3;
+    const off = flushPave
+      ? (a.level ?? 0) + 0.004 + Math.min(0.004, idx * 0.0001)
+      : 0.03 + Math.min(0.06, idx * 0.0015) + (a.level ?? 0) + (a.kind === 'lawn' ? 0 : 0.03);
+    const hard = a.kind !== 'lawn' && a.kind !== 'deck';
+    const parts = hard && streetCuts.length ? cutAreaBy(a.poly, streetCuts) : [[a.poly, ...inner]];
+    for (const [outer, ...hs] of parts)
+      try {
+        b.drape(
+          key,
+          outer,
+          hs,
+          H,
+          off,
+          key.startsWith('spPaver') || key.startsWith('spSite') || key === 'deck' ? 1 : 0.5,
+          2.5,
+        );
+      } catch {
+        /* hatalı çokgen */
+      }
+    const inCut = (x: number, z: number) => streetCuts.some((c) => insidePoly(c, x, z));
     // Yükseltilmiş alanlar (güverte vb.): kenar yüzü (+ traverten denizlik), cam korkuluk
     if ((a.level ?? 0) > 0.05)
-      for (let i = 0; i < a.poly.length; i++) {
-        const p = a.poly[i];
-        const q = a.poly[(i + 1) % a.poly.length];
-        const y0 = Math.min(H(p[0], p[1]), H(q[0], q[1]));
-        const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
-        b.wall('deckSide', q, p, y0 - 0.1, y0 + off, [0, 0, L / 0.6, (off + 0.1) / 0.3]);
-        if (a.rail === 'glass') glassRail(b, p, q, y0 + off, a.gates ?? [], collide);
-        else if ((a.level ?? 0) > 0.3) collide?.(edgeRing(p, q, 0.1), y0 - 0.5, y0 + off);
-      }
+      for (const [outer] of parts)
+        for (let i = 0; i < outer.length; i++) {
+          const p = outer[i];
+          const q = outer[(i + 1) % outer.length];
+          const y0 = Math.min(H(p[0], p[1]), H(q[0], q[1]));
+          const L = Math.hypot(q[0] - p[0], q[1] - p[1]);
+          // v8: kaldırıma bitişik kenarda (kırpma kenarı) yan yüz yok — iki yüzey aynı kotta
+          const mx = (p[0] + q[0]) / 2;
+          const mz = (p[1] + q[1]) / 2;
+          const nx = (-(q[1] - p[1]) / (L || 1)) * 0.2;
+          const nz = ((q[0] - p[0]) / (L || 1)) * 0.2;
+          if (inCut(mx + nx, mz + nz) || inCut(mx - nx, mz - nz)) continue;
+          b.wall('deckSide', q, p, y0 - 0.1, y0 + off, [0, 0, L / 0.6, (off + 0.1) / 0.3]);
+          if (a.rail === 'glass') glassRail(b, p, q, y0 + off, a.gates ?? [], collide);
+          else if ((a.level ?? 0) > 0.3) collide?.(edgeRing(p, q, 0.1), y0 - 0.5, y0 + off);
+        }
     // Site içi yollar: gri beton bordür (çimle sınırda); fotoğraflarda her yol kenarında
-    if (key.startsWith('spSite') && !a.noKerb) siteKerbs(b, a.poly, areas, H, off);
+    if (key.startsWith('spSite') && !a.noKerb)
+      for (const [outer] of parts) siteKerbs(b, outer, areas, H, off, inCut);
     // Halı saha çiti + kaleler
     if (a.kind === 'court' && a.fence) {
       pitchFence(b, a.poly, H, a.gates?.[0], collide);
@@ -1037,6 +1097,8 @@ function siteKerbs(
   areas: SiteArea[],
   H: (x: number, z: number) => number,
   off: number,
+  /** v8: bu noktada sokak kaldırımı var → bordür yok */
+  covered?: (x: number, z: number) => boolean,
 ): void {
   const c = centroid(poly);
   for (let i = 0; i < poly.length; i++) {
@@ -1055,6 +1117,7 @@ function siteKerbs(
       const m: V2 = [p[0] + t[0] * u, p[1] + t[1] * u];
       const o: V2 = [m[0] + n[0] * 0.35, m[1] + n[1] * 0.35];
       if (areas.some((a) => a.kind !== 'lawn' && insidePoly(a.poly, o[0], o[1]))) continue;
+      if (covered?.(o[0], o[1])) continue;
       const kc: V2 = [m[0] + n[0] * 0.05, m[1] + n[1] * 0.05];
       b.box(
         'siteKerb',

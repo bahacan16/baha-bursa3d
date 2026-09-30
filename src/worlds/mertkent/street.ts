@@ -26,6 +26,8 @@ export interface StreetResult {
   raised: { poly: [number, number][]; h: number }[];
   /** Kaldırım şeritlerinin kapsadığı alan (OSM kaldırımını/el kaldırımını çizmemek için) */
   covers: (x: number, z: number) => boolean;
+  /** v8: kaldırım şeritlerinin çokgenleri (site / park sert zemin alanları bunlardan kırpılır) */
+  coverPolys: V2[][];
   /**
    * v7: noktadaki ölçülmüş yürüme yüzeyi kotu (arazinin üstünde m): kavşak / ayrım adası, kaldırım bandı (alçak —
    * bordürsüz — bantlar dahil); hiçbirinin içinde değilse null. Çit / kolon / lamba tabanları buna oturur.
@@ -2477,6 +2479,7 @@ function buildStreet(
   return {
     raised,
     covers: (x, z) => polys.some((p) => inside(p, x, z)),
+    coverPolys: polys,
     surfaceAt: (x, z) => walkAt(x, z)?.h ?? null,
   };
 }

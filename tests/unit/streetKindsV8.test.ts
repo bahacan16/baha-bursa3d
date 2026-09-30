@@ -279,3 +279,34 @@ describe('v8 D4 sokak eşyası türleri', () => {
     }
   });
 });
+
+describe('v8 köşe meydanı kaldırımla örtüşmez (critic c-02)', () => {
+  it('site sert zemini kaldırım çokgenlerinden kırpılır', async () => {
+    const { cutAreaBy } = await import('../../src/worlds/mertkent/siteplan');
+    const area: [number, number][] = [
+      [0, 0],
+      [10, 0],
+      [10, 10],
+      [0, 10],
+    ];
+    const walk: [number, number][] = [
+      [-1, -1],
+      [11, -1],
+      [11, 3],
+      [-1, 3],
+    ];
+    const parts = cutAreaBy(area, [walk]);
+    expect(parts.length).toBe(1);
+    const zs = parts[0][0].map((p) => p[1]);
+    expect(Math.min(...zs)).toBeCloseTo(3);
+    expect(
+      cutAreaBy(area, [
+        [
+          [50, 50],
+          [51, 50],
+          [51, 51],
+        ],
+      ])[0][0],
+    ).toBe(area);
+  });
+});

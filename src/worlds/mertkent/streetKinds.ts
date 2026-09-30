@@ -245,7 +245,10 @@ function wasteContainer(c: FurnCtx, s: StreetItem, y: number): void {
     }
   const text = typeof s.text === 'string' ? s.text : '';
   if (text) {
-    const fg = hexOf(s.fg) ?? wordTone(`${s.note ?? ''}`.split(/yazı/)[0].slice(-40)) ?? '#1f2124';
+    // Yazı rengi: `fg`; yoksa notta "… yeşil "…" yazısı" (yazıdan hemen önceki renk sözcüğü); yoksa koyu
+    const nt = `${s.note ?? ''}`;
+    const fg =
+      hexOf(s.fg) ?? (/yazı/.test(nt) ? wordTone(nt.split(/yazı/)[0].slice(-40)) : null) ?? '#1f2124';
     const key = textFace(c, text, null, fg, w * 0.85, 0.16);
     if (key) faceAt(c, key, s, F, -w * 0.425, w * 0.425, d / 2 + 0.006, y + h * 0.62, y + h * 0.62 + 0.16);
   }

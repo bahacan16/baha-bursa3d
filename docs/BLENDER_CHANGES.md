@@ -765,3 +765,35 @@
   1552093106 (nöww terası çıkarıldı), 1546358573 e6 duvar çizgisi, 1476599910 KB girintisi, 1477364957 batı kaidesi.
   `facades.json` derlendi. **Blender:** bu D4 bloklarının kütle + cephe katmanı; `cutEdges` eşleşmesi port edilmeli.
 - **(D4 cephe 4, v8)** — `survey/1550614219.json`: 3. ve 4. kule güney yüzleri (`cutEdges`, kat kat pencere/cam balkon/loca, çanak), kuleler 2.87 m kat, bulvar kuleleri 1.4 m geri; okunamayan "KÜBRA" panosu yazısız. **Blender:** kule kütleleri ve cepheleri.
+- **(commit edilmedi — kod turu w5)** — Ağaçlar + D4 sokak türleri + bordür boyası:
+  - Ağaç taç genişliği görünen taca göre (`osm/eztree.ts` `crownWidth`, `fitTree`; kabuk türleri `treelib.ts`
+    `buildShell`): ez ağaçlar (sedir, ıhlamur, akasya…) ~%20–25 geniş, servi/mazı ~%5–15 dar; palmiye başvuru eni
+    4.8 m (`species.ts`). Ölçülen `crownBase` örnek başına model çeşidi (`vegetation.ts` FIXED_STRIDE 6, `treelib.ts`
+    `speciesModelCb`, `treefield.ts`). Tür ayrıştırma: açık `species` kazanır (site-plan "ıhlamur/kavak benzeri" artık
+    genel yaprak döken). **Blender:** `NW/Trees` — ağaç örneklerinin xz ölçeği (taç = ölçülen 2r) ve taç tabanı;
+    tür eşlemesi (`parseSpecies`) değişti.
+  - Bordür boyası: malzeme metninde "yeşil/beyaz dönüşümlü" olan kaldırım / ada / kavşak adası bordürleri taş
+    gruplarıyla (≈3) yeşil `#8e948e` / beyaz `#a6a49f` (ölçülen hex varsa o) boyalı; "yola bakan yüzü" → yalnız yüz.
+    Dar adalarda içe kaydırma kendini keserse dış halka (d4-median-m6 yüzeyi artık kiremit kilit taşı, beton değil).
+    Dosya: `street.ts` (`kerbPaintOf`, `paintStone`), `index.ts` (`colorKey('paint')`). **Blender:**
+    `NW/Mertkent/Street` bordür taşları (boya malzemesi taş başına), D4 adaları.
+  - Yeni D4 türleri (`streetKinds.ts`): gabion, otobüs durağı (reklam panosu nottan), çöp konteyneri, küre lamba,
+    alçak teras çiti, yelken bayrak (dikey yazı), çiçek kemeri, teşhir arabası, paspas, puf, klima ünitesi, taş baba,
+    ATM kulübesi, klima kafesi, lobut heykel; `street.ts`: yaya geçidi / otobüs durağı levhası, çift yüzlü raket pano,
+    diş biçimli pano, Türk bayrağı kumaşı, şeritsiz boyalı geçit bandı, konsol sinyal kolu, yol trafik ışığı
+    piktogramı (`roadSignalPicto`), basamak dizisi (yürünür), kış bahçesi alın bandı (`fasciaC`) + mertekler;
+    şemsiye valansı yüz başına dizi. **Blender:** `NW/Mertkent/Street` (D4 eşyası) yeniden kurulur; yeni malzemeler
+    `signBusStop`, `roadSignalPicto`, `cc_paint_*`.
+  - KB köşe (Cavit Orhan × Doğan Avcıoğlu) "kara bordür": site-plan alan 33 (köşe meydanı, `level` 0.15) yığılan
+    ofsetlerle kaldırımın 11 cm üstünde, nw-corner kaldırımını (kırmızı bant, kılavuz, bordür üstü) örtüyor, yola
+    bakan kenarında gölgede kalan yan yüz (`deckSide`) + site bordürü çiziyordu. Artık site / park sert zemin alanları
+    sokak planı kaldırımlarından kırpılır (`siteplan.ts` `cutAreaBy`, `street.ts` `coverPolys`), kaldırıma bakan
+    kenarda yan yüz / bordür yok, kaldırım kotundaki sert zemin kaldırımla aynı kotta (+4 mm). **Blender:**
+    `NW/Mertkent/Site` zemin alanları (alan 33) + `NW/Mertkent/Street` nw-corner kaldırımı yeniden kurulur.
+- **(D4 yol yüzeyi)** — Özlüce Blv. z −95…−840 asfalt ölçümü `street-plan.json` `street` listesine eklendi: 103 `d4r-*`
+  öğe (15 yama, 7 çatlak, 2 çukur, 26 rögar, 29 ızgara, 17 yol işareti — ok / sinyal üçgeni / yol ver üçgeni / aşınmış
+  yazı, 1 dur çizgisi, 6 yaya geçidi aşınması). Düzeltmeler: `oz-n-dark-618` çukur değil, koyu halkalı rögar;
+  `d4-ph2-401` kaldırıldı (yerine `d4r-mh-402a` ve yaması); `d4-mh2-529`, `-443w`, `-444`, `-568` konumları düzeltildi
+  (444/568 refüj çiminde, `surface: "median"`). Konumlar GPS pozuyla ±1.5–2.5 m (hava fotoğrafına oturtulamadı).
+  **Blender:** `NW/Street/RoadSurface` (D4 kesiti) yeniden kurulmalı; yeni işaret türlerinin üreticisi bir sonraki
+  kod turunda gelecek.

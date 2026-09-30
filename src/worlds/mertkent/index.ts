@@ -1724,13 +1724,13 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   }
   if (USE_PLAN) {
     // Ölçülmüş site planı (Mertkent + Salusvizyon iç alanları)
-    const sp = buildSitePlan(b, SITE_PLAN, o.H, o.collide, colorKey);
+    const sp = buildSitePlan(b, SITE_PLAN, o.H, o.collide, colorKey, street?.coverPolys);
     holes.push(...sp.holes);
     cars.push(...sp.cars);
   }
   if ((PARK_PLAN.areas?.length ?? 0) + (PARK_PLAN.points?.length ?? 0) > 0) {
     // Ölçülmüş komşu parklar (kuzey park, Nato Parkı)
-    const pp = buildSitePlan(b, PARK_PLAN, o.H, o.collide, colorKey);
+    const pp = buildSitePlan(b, PARK_PLAN, o.H, o.collide, colorKey, street?.coverPolys);
     holes.push(...pp.holes);
     cars.push(...pp.cars);
   }

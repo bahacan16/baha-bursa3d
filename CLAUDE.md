@@ -397,6 +397,17 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
   yöntemiyle (imsak −18°, yatsı −17°, ikindi asr-ı evvel, temkin güneş −7 / öğle +5 / ikindi +4 / akşam +7; Diyanet
   Bursa vakitleriyle ±1 dk). Hazır zaman ayarlarında ses saati temsilî saatten gerçek zamanla ilerler (gündüz 10:30,
   gün batımı = batış −12 dk, gece 22:30). Tren modeli yok → BursaRay yalnız ses. Kayıt yoksa prosedürel yedek.
+- **Ağaç ölçeği (v8):** taç genişliği sınır kutusuna değil görünen (sık) taca göre (`eztree.crownWidth`: 10 boy
+  diliminde %95'lik yatay uzaklık); ölçülen r artık gerçekten taç yarıçapı (eskiden ez ağaçlar ~%80 dar). Palmiyenin
+  başvuru eni modelin gerçek açıklığı (4.8 m). `crownBase` (m) örnek başına: gövdesi uzatılmış/kısaltılmış model
+  çeşidi (0.05 adım, `treelib.speciesModelCb`). Tür: açık yazılmış `species` kazanır; not yalnız ilk cümlesi
+  çekincesiz tür ifadesiyse inceltir ("ıhlamur/kavak benzeri" türü değiştirmez).
+- **D4 sokak türleri (v8, `streetKinds.ts`):** gabion, otobüs durağı, konteyner, küre lamba, alçak çit, yelken bayrak,
+  çiçek kemeri, teşhir arabası, paspas, puf, yer klima ünitesi, taş baba, ATM kulübesi, klima kafesi, heykel;
+  `street.ts`: yeşil/beyaz dönüşümlü bordür boyası (malzeme metninden, taş grubu), yaya geçidi / durak levhası (yalnız
+  levha metninden), çift yüzlü / diş biçimli pano, bayrak kumaşı (yalnız deseni bilinen: Türk bayrağı / düz renk),
+  şeritsiz boyalı bant, konsol sinyal kolu (ölçülmemişse 3.5 m), yol piktogramı, basamak dizisi (yürünür), kış bahçesi
+  alın bandı + mertekler. Ölçülmeyen renk yalnız nottaki açık renk sözcüğünden yaklaşık ton (`wordTone`).
 - Yayalar: oyuncuya en yakın 14/8/4 yaya iskeletli insan (Michelle + Ready Player Me, Mixamo yürüyüşü dünya uzayında aktarılır), uzaktakiler kutu parçalı figür. `skeleton.pose()` kullanılmaz (ölçekli ebeveynli iskeleti 100× küçültüyordu); dinlenme duruşu önbellekten.
 - Araçlar tamamen kodla (`sim/carmodel.ts`): kesit loft gövde (çamurluk kavisleri, tumblehome, ön/arka cam, omuz çizgisi, kapı derzleri), jantlı lastikler, far/stop/sis, ızgara, ayna, kol, silecek, Bursa "16 …" plakaları (atlas + instance başına plaka no). 4 tip (sedan/hatchback/SUV/hafif ticari, Türkiye dağılımına yakın). Park edenler yakın/uzak LOD; trafikte tekerler döner.
 - Sis ana sahne ve uzak arka plan için ortak; Düşük kalitede uzak arazi kapalı.
