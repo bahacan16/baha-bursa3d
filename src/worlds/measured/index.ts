@@ -49,6 +49,7 @@ import {
   type PlanGate,
 } from './site';
 import { buildOzhan } from './ozhan';
+import { parkingBlockers, parkingCars, type ParkingStrip } from '../../sim/parked';
 import { buildGrounds } from './grounds';
 import { groundHoles } from '../osm/materials';
 import { loadPbr, type PbrRole } from '../osm/pbr';
@@ -1854,6 +1855,16 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     );
     holes.push(...sa.holes);
   }
+  // Ölçülmüş park şeritleri (street-plan.json `parking`, D4): geçit / durak / ada / araç girişi önü boş kalır
+  const parking = (STREET_PLAN as { parking?: ParkingStrip[] }).parking;
+  if (parking?.length)
+    cars.push(
+      ...parkingCars(
+        parking,
+        o.H,
+        parkingBlockers((STREET_PLAN.street ?? []) as Parameters<typeof parkingBlockers>[0], STREET_PLAN.gates ?? []),
+      ),
+    );
   // ── Salusvizyon ──
   const salusSite = ringOf(o.simple, SALUS_SITE);
   const salusB = ringOf(o.simple, SALUS_BUILDING);

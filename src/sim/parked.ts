@@ -169,3 +169,203 @@ export class ParkedCars {
     this.mats.dispose();
   }
 }
+
+// ───────────────────────── Ölçülmüş park şeritleri (street-plan.json `parking`) ─────────────────────────
+
+type P2 = [number, number];
+
+/**
+ * Ölçülmüş park şeridi / otopark sırası (street-plan.json `parking[]`, D4'ten itibaren).
+ * `line` araç MERKEZLERİNİN hattıdır (bordürden içeri değil: ölçümde bordür + ofset olarak hesaplanır).
+ * - mode: parallel (araç ekseni hat boyunca), perpendicular (hatta dik), angled (`angle` derece, hatla açı).
+ * - nose: parallel'de fwd (hat yönünde) | back; perpendicular / angled'da right | left (hat yönüne bakınca burnun
+ *   gittiği yan; angled'da burun ayrıca hat yönüne yatar — ters eğim için hat ters çizilir).
+ * - pitch: yuva aralığı (m, hat boyunca). Yuvalar hattın ortasına hizalanır.
+ * - at: karelerde görülen araç merkezleri (yaklaşık [x, z]); en yakın boş yuvaya oturur. Verilirse doluluk
+ *   yalnızca bundan gelir. Yoksa `occupancy` (0..1) ile yuva başına deterministik (id + yuva no) seçim.
+ */
+export interface ParkingStrip {
+  id: string;
+  line: P2[];
+  mode: 'parallel' | 'perpendicular' | 'angled';
+  angle?: number;
+  nose?: 'fwd' | 'back' | 'left' | 'right';
+  pitch?: number;
+  occupancy?: number;
+  at?: P2[];
+  note?: string;
+}
+
+/** Park edilemeyen alan (yaya geçidi, durak önü, ada, araç girişi): kapalı çokgen */
+export type ParkingBlocker = P2[];
+
+/** Planlamada araç kutusu (en büyük model ≈4.53 × 1.8 m; biraz pay) */
+const PARK_HALF_L = 2.3;
+const PARK_HALF_W = 0.95;
+
+function hashStr(s: string): number {
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i++) h = Math.imul(h ^ s.charCodeAt(i), 16777619);
+  return h >>> 0;
+}
+
+function inRing(r: readonly P2[], x: number, z: number): boolean {
+  let c = false;
+  for (let i = 0, j = r.length - 1; i < r.length; j = i++) {
+    const [xi, zi] = r[i];
+    const [xj, zj] = r[j];
+    if (zi > z !== zj > z && x < ((xj - xi) * (z - zi)) / (zj - zi) + xi) c = !c;
+  }
+  return c;
+}
+
+function segHit(a: P2, b: P2, c: P2, d: P2): boolean {
+  const o = (p: P2, q: P2, r: P2) => (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0]);
+  const d1 = o(c, d, a);
+  const d2 = o(c, d, b);
+  const d3 = o(a, b, c);
+  const d4 = o(a, b, d);
+  return d1 * d2 < 0 && d3 * d4 < 0;
+}
+
+/** İki kapalı çokgen kesişiyor mu (biri diğerinin içinde dahil) */
+export function ringsOverlap(a: readonly P2[], b: readonly P2[]): boolean {
+  for (const p of a) if (inRing(b, p[0], p[1])) return true;
+  for (const p of b) if (inRing(a, p[0], p[1])) return true;
+  for (let i = 0; i < a.length; i++)
+    for (let j = 0; j < b.length; j++)
+      if (segHit(a[i], a[(i + 1) % a.length], b[j], b[(j + 1) % b.length])) return true;
+  return false;
+}
+
+function rect(cx: number, cz: number, u: P2, hu: number, hv: number): P2[] {
+  const v: P2 = [-u[1], u[0]];
+  return [
+    [cx + u[0] * hu + v[0] * hv, cz + u[1] * hu + v[1] * hv],
+    [cx - u[0] * hu + v[0] * hv, cz - u[1] * hu + v[1] * hv],
+    [cx - u[0] * hu - v[0] * hv, cz - u[1] * hu - v[1] * hv],
+    [cx + u[0] * hu - v[0] * hv, cz + u[1] * hu - v[1] * hv],
+  ];
+}
+
+/**
+ * Sokak planı öğelerinden park yasağı alanları. KARAR (kural: geçit, durak, ada, araç girişi kapatılmaz):
+ * - crossing: yürüme doğrultusunda len/2 + 3 m (geçit ağzının iki yanındaki park şeridine taşar), yol boyunca w/2 + 1 m;
+ * - bus-shelter: uzun ekseni boyunca w/2 + 1 m, dikinde ±7 m (durak önündeki şerit);
+ * - island (poly): çokgenin kendisi (kaldırım çıkıntısı, refüj);
+ * - araç kapısı (gates kind vehicle): açıklık w/2 + 0.5 m, sokak yönünde 8 m.
+ */
+export function parkingBlockers(
+  items: readonly { kind?: string; x?: number; z?: number; rot?: number; len?: number; w?: number; poly?: P2[] }[],
+  gates: readonly { kind: string; c: P2; n: P2; w: number }[] = [],
+): ParkingBlocker[] {
+  const out: ParkingBlocker[] = [];
+  for (const s of items) {
+    const r = ((s.rot ?? 0) * Math.PI) / 180;
+    if (s.kind === 'crossing' && s.x != null && s.z != null) {
+      // rot = yayaların yürüdüğü pusula yönü (0 = kuzey = −z)
+      out.push(rect(s.x, s.z, [Math.sin(r), -Math.cos(r)], (s.len ?? 8) / 2 + 3, (s.w ?? 3) / 2 + 1));
+    } else if (s.kind === 'bus-shelter' && s.x != null && s.z != null) {
+      out.push(rect(s.x, s.z, [Math.cos(r), Math.sin(r)], (s.w ?? 4) / 2 + 1, 7));
+    } else if (s.kind === 'island' && s.poly && s.poly.length >= 3) {
+      out.push(s.poly);
+    }
+  }
+  for (const g of gates) {
+    if (g.kind !== 'vehicle') continue;
+    const L = Math.hypot(g.n[0], g.n[1]) || 1;
+    const n: P2 = [g.n[0] / L, g.n[1] / L];
+    out.push(rect(g.c[0], g.c[1], [-n[1], n[0]], g.w / 2 + 0.5, 8));
+  }
+  return out;
+}
+
+/**
+ * Ölçülmüş park şeritlerini araç listesine çevir: [x, y, z, yaw, tohum]* (ParkedCars verisi). Deterministik.
+ * Yasak alana (blockers) değen yuva boş kalır.
+ */
+export function parkingCars(
+  strips: readonly ParkingStrip[],
+  H: (x: number, z: number) => number,
+  blockers: readonly ParkingBlocker[] = [],
+): number[] {
+  const out: number[] = [];
+  for (const st of strips) {
+    const line = st.line;
+    if (!line || line.length < 2) continue;
+    const cum = [0];
+    for (let i = 1; i < line.length; i++)
+      cum.push(cum[i - 1] + Math.hypot(line[i][0] - line[i - 1][0], line[i][1] - line[i - 1][1]));
+    const len = cum[cum.length - 1];
+    const parallel = st.mode === 'parallel';
+    const pitch = Math.max(st.pitch ?? (parallel ? 5.4 : 2.6), 0.5);
+    const n = Math.floor(len / pitch + 1e-6);
+    if (n < 1) continue;
+    const off = (len - n * pitch) / 2 + pitch / 2;
+    const pointAt = (s: number): { p: P2; t: P2 } => {
+      let i = 1;
+      while (i < cum.length - 1 && cum[i] < s) i++;
+      const a = line[i - 1];
+      const b = line[i];
+      const L = cum[i] - cum[i - 1] || 1;
+      const f = (s - cum[i - 1]) / L;
+      return { p: [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f], t: [(b[0] - a[0]) / L, (b[1] - a[1]) / L] };
+    };
+    const project = (q: P2): number => {
+      let best = Infinity;
+      let bs = 0;
+      for (let i = 1; i < line.length; i++) {
+        const a = line[i - 1];
+        const b = line[i];
+        const dx = b[0] - a[0];
+        const dz = b[1] - a[1];
+        const L2 = dx * dx + dz * dz || 1;
+        const u = Math.max(0, Math.min(1, ((q[0] - a[0]) * dx + (q[1] - a[1]) * dz) / L2));
+        const d = Math.hypot(a[0] + dx * u - q[0], a[1] + dz * u - q[1]);
+        if (d < best) {
+          best = d;
+          bs = cum[i - 1] + Math.sqrt(L2) * u;
+        }
+      }
+      return bs;
+    };
+    const occupied = new Array<boolean>(n).fill(false);
+    if (st.at?.length) {
+      for (const q of st.at) {
+        const k0 = Math.max(0, Math.min(n - 1, Math.round((project(q) - off) / pitch)));
+        for (const k of [k0, k0 + 1, k0 - 1]) {
+          if (k >= 0 && k < n && !occupied[k]) {
+            occupied[k] = true;
+            break;
+          }
+        }
+      }
+    } else {
+      const occ = st.occupancy ?? 0;
+      const h0 = hashStr(st.id);
+      for (let k = 0; k < n; k++) {
+        const h = Math.imul(h0 ^ (k * 2654435761), 2246822519) >>> 0;
+        occupied[k] = (h % 1000) / 1000 < occ;
+      }
+    }
+    const ang = ((st.angle ?? 60) * Math.PI) / 180;
+    const sgn = st.nose === 'left' ? -1 : 1;
+    for (let k = 0; k < n; k++) {
+      if (!occupied[k]) continue;
+      const { p, t } = pointAt(off + k * pitch);
+      // sağ normal (hat yönüne bakınca sağ): (−t.z, t.x)
+      const side: P2 = [-t[1] * sgn, t[0] * sgn];
+      let f: P2;
+      if (parallel) f = st.nose === 'back' ? [-t[0], -t[1]] : t;
+      else if (st.mode === 'perpendicular') f = side;
+      else f = [t[0] * Math.cos(ang) + side[0] * Math.sin(ang), t[1] * Math.cos(ang) + side[1] * Math.sin(ang)];
+      const box = rect(p[0], p[1], f, PARK_HALF_L, PARK_HALF_W);
+      if (blockers.some((b) => ringsOverlap(box, b))) continue;
+      const seed = (hashStr(`${st.id}#${k}`) % 997) + 1;
+      // Hafif (±1°) deterministik yamukluk — elle park edilmiş görünüm
+      const yaw = Math.atan2(f[0], f[1]) + (((seed % 7) - 3) * Math.PI) / 540;
+      out.push(p[0], H(p[0], p[1]) + 0.06, p[1], yaw, seed);
+    }
+  }
+  return out;
+}

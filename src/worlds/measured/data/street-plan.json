@@ -23264,5 +23264,1325 @@
       "material": "kahverengi-kırmızı beton kilit taşı şerit (yol kotunda)",
       "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4c #12): GY1l09Ni_0_0 (2025-09): yol asfaltıyla beyaz bordür arasında ≈2.2 m kahverengi-kırmızı kilit taşı şerit (park/bekleme şeridi; araç görülmedi). Kenarlar aerial-n2 profilleri x 680/690/700 (pembemsi-kahve #a3928b şerit). ±0.4."
     }
+  ],
+  "parking": [
+    {
+      "id": "d4-park-w1",
+      "street": "Özlüce Bulvarı batı, çayır önü (d4-pk-w1)",
+      "line": [
+        [
+          612.41,
+          -198.0
+        ],
+        [
+          612.5,
+          -190.02
+        ],
+        [
+          612.7,
+          -175.03
+        ],
+        [
+          613.1,
+          -160.02
+        ],
+        [
+          613.2,
+          -145.0
+        ],
+        [
+          613.2,
+          -130.0
+        ],
+        [
+          613.2,
+          -117.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.4,
+      "at": [
+        [
+          613.19,
+          -146.0
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 270_-50 zemin kareleri (10 m arayla, G-kaW6/MpeplF/1T1mUz/fHbASh/1Wmb-T/JT30UR, Zd4Gsq, DTrlxy, Y0ipTy, aQL7Z-): şeritte yalnız bir gümüş binek (MpeplF sol kenarı + 1T1mUz sağ kenarı → z≈−146); kalanı boş. Hat = bordür (d4-sw-w1) + 1.3 m (şerit ortası). Kaldırım çıkıntıları (d4-bulb-w1/w2) otomatik boş. Yön: kol güneye akıyor, araçlar trafik yönünde (burun yönü karelerde seçilemedi)."
+    },
+    {
+      "id": "d4-park-e1",
+      "street": "Özlüce Bulvarı doğu, KUDRET HOME önü (d4-pk-e1)",
+      "line": [
+        [
+          639.03,
+          -140.5
+        ],
+        [
+          639.0,
+          -142.99
+        ],
+        [
+          638.9,
+          -154.99
+        ],
+        [
+          638.85,
+          -167.99
+        ],
+        [
+          638.8,
+          -176.0
+        ],
+        [
+          638.8,
+          -190.0
+        ],
+        [
+          638.8,
+          -203.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.4,
+      "at": [
+        [
+          639.0,
+          -143.0
+        ],
+        [
+          638.89,
+          -157.0
+        ],
+        [
+          638.8,
+          -188.0
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 90_-50 (GAOvru, Y4Wrvi, byBT3s, urVE3Z, QZixQM, zPW8jC, wocprE, 18z5hy): üç araç — gümüş Doblo z≈−188 (GAOvru ortası, burnu kuzeye), gümüş binek z≈−157 (urVE3Z sağ kenarı), beyaz Mercedes z≈−143 (QZixQM ortası, burnu kuzeye); arası boş. Hat = bordür (d4-sw-e1) + 1.1 m (≈2.2 m şeridin ortası). Yön kuzey (hat −z)."
+    },
+    {
+      "id": "d4-park-w2",
+      "street": "Özlüce Bulvarı batı, Özdemiroğlu önü cep (d4-pk-w2)",
+      "line": [
+        [
+          608.6,
+          -236.0
+        ],
+        [
+          608.7,
+          -228.01
+        ],
+        [
+          608.75,
+          -220.01
+        ],
+        [
+          608.79,
+          -214.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.4,
+      "at": [
+        [
+          608.74,
+          -222.0
+        ],
+        [
+          608.69,
+          -228.5
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 lOTvhR 270_-50/300_0 (gri SUV z≈−222), OHftRq 270_-50/240_0/300_0 (gümüş sedan z≈−228.5), 8lJUsB 270_-50 + M5jJI6 270_-50 (cep uçları boş). Hat = bordür (d4-sw-w2) + 1.5 (hava fotoğrafında cepteki araç x 608.2–609.8). Yön güney."
+    },
+    {
+      "id": "d4-park-w3",
+      "street": "Özlüce Bulvarı batı, 401. Sk. güneyi boş arsa önü (d4-sw-w3)",
+      "line": [
+        [
+          607.4,
+          -398.0
+        ],
+        [
+          607.4,
+          -391.87
+        ],
+        [
+          607.4,
+          -385.75
+        ],
+        [
+          607.4,
+          -379.62
+        ],
+        [
+          607.4,
+          -373.5
+        ],
+        [
+          607.4,
+          -367.37
+        ],
+        [
+          607.4,
+          -361.25
+        ],
+        [
+          607.4,
+          -355.12
+        ],
+        [
+          607.4,
+          -352.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.4,
+      "at": [
+        [
+          607.4,
+          -377.0
+        ],
+        [
+          607.4,
+          -390.0
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 270_-50: SPGm-9 sol kenarı (z≈−377) ve MAQEIA sağ kenarı (z≈−390) birer araç; IuajFR, NAtvmN (çim burun), eKUsll boş. Hat = bordür + 1.2 m (araç 1.8 m + 0.3 bordür payı). Yön güney."
+    },
+    {
+      "id": "d4-park-w4",
+      "street": "Özlüce Bulvarı batı, Bulvar Özlüce AVM önü (d4-sw-w4)",
+      "line": [
+        [
+          612.08,
+          -467.0
+        ],
+        [
+          611.91,
+          -463.93
+        ],
+        [
+          611.58,
+          -457.93
+        ],
+        [
+          611.25,
+          -451.93
+        ],
+        [
+          610.92,
+          -445.93
+        ],
+        [
+          610.59,
+          -439.93
+        ],
+        [
+          610.26,
+          -433.93
+        ],
+        [
+          609.93,
+          -427.93
+        ],
+        [
+          609.6,
+          -421.93
+        ],
+        [
+          609.26,
+          -415.93
+        ],
+        [
+          608.99,
+          -411.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.3,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 270_-50 + 240_0 (fomL_Y z≈−412 beyaz, peGGi4, NkuAAQ 5 araç, 71w4po 4, 4o1yV- 4, 1Re88F güney ucu z≈−466’ya kadar): bordür boyunca kesintisiz dolu sıra (≈−411 … −467); −470 … −476 geçit ağzı boş. Hava fotoğrafında da araçlar bordüre paralel (x≈609.5–610.5) — d4-sw-w4 notundaki \"yola dik\" SV/hava fotoğrafıyla uyuşmuyor, paralel alındı. Doluluk 1.0 (her yuvada araç). Hat = bordür + 1.2 m. Yön güney."
+    },
+    {
+      "id": "d4-park-w5",
+      "street": "Özlüce Bulvarı batı, AVM güneyi + Ceylan Plus önü (d4-sw-w5)",
+      "line": [
+        [
+          615.3,
+          -525.5
+        ],
+        [
+          614.99,
+          -519.93
+        ],
+        [
+          614.66,
+          -513.93
+        ],
+        [
+          614.33,
+          -507.93
+        ],
+        [
+          614.0,
+          -501.93
+        ],
+        [
+          613.67,
+          -495.93
+        ],
+        [
+          613.34,
+          -489.93
+        ],
+        [
+          613.01,
+          -483.93
+        ],
+        [
+          612.79,
+          -480.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "at": [
+        [
+          613.07,
+          -485.0
+        ],
+        [
+          613.4,
+          -491.0
+        ],
+        [
+          614.36,
+          -508.5
+        ],
+        [
+          614.65,
+          -513.7
+        ],
+        [
+          614.94,
+          -519.0
+        ],
+        [
+          615.24,
+          -524.5
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 270_-50: 0WR2_g/DGwgZI turuncu minibüs z≈−485, DGwgZI/3cBuFa gümüş Tucson z≈−492, 3cBuFa kuzey yarısı + PROekB sol yarısı boş (≈−497 … −505; arkada cam otobüs durağı — kaydı yok), PROekB beyaz Doblo z≈−508.5 + beyaz SUV z≈−513.5 (+ sağ kenarda kırmızı), 47_2kH beyaz SUV z≈−519 + koyu z≈−524 (402. Sk. köşesi). Hat = bordür + 1.2 m. Yön güney."
+    },
+    {
+      "id": "d4-park-w6",
+      "street": "Özlüce Bulvarı batı, 402. Sk. → servis yolu, Kent Park önü (d4-sw-w6)",
+      "line": [
+        [
+          619.3,
+          -594.0
+        ],
+        [
+          619.21,
+          -592.48
+        ],
+        [
+          618.87,
+          -586.75
+        ],
+        [
+          618.54,
+          -581.02
+        ],
+        [
+          618.2,
+          -575.29
+        ],
+        [
+          617.86,
+          -569.57
+        ],
+        [
+          617.52,
+          -563.84
+        ],
+        [
+          617.19,
+          -558.11
+        ],
+        [
+          616.85,
+          -552.38
+        ],
+        [
+          616.51,
+          -546.66
+        ],
+        [
+          616.27,
+          -542.5
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 270_-50: A5O5Ic (beyaz i20 z≈−545), msP5ni (siyah + kırmızı 500L + sağ kenarda), t8Dtwj (3 araç), 3nkZch (3), 6DCZ26 (2) — bordür boyunca kesintisiz dolu; NgRc7t (−599, geçit) boş; 3HrzSc (−533, 402. Sk. ağzı) boş. Doluluk 1.0. Hat = bordür + 1.2 m. Yön güney."
+    },
+    {
+      "id": "d4-park-w7",
+      "street": "Özlüce Bulvarı batı, servis yolu → 404. Sk. dükkân şeridi (d4-sw-w7)",
+      "line": [
+        [
+          626.23,
+          -711.0
+        ],
+        [
+          626.16,
+          -709.81
+        ],
+        [
+          625.8,
+          -703.69
+        ],
+        [
+          625.44,
+          -697.58
+        ],
+        [
+          625.08,
+          -691.46
+        ],
+        [
+          624.72,
+          -685.34
+        ],
+        [
+          624.35,
+          -679.22
+        ],
+        [
+          623.99,
+          -673.11
+        ],
+        [
+          623.62,
+          -666.99
+        ],
+        [
+          623.26,
+          -660.87
+        ],
+        [
+          622.9,
+          -654.75
+        ],
+        [
+          622.53,
+          -648.64
+        ],
+        [
+          622.17,
+          -642.52
+        ],
+        [
+          621.81,
+          -636.4
+        ],
+        [
+          621.44,
+          -630.28
+        ],
+        [
+          621.19,
+          -626.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 270_-50: egFm4i (gri binek z≈−628, güneyi boş), C3cit7 (3), KsRtfn (2), YPIGWq (2 + motosiklet), HxEE4T (3), 4XJGyf (3), R2C6jy (3), on3x8N (2), 3QVGVU (2) — kesintisiz dolu ≈−626 … −711; CxBXC0/y1o164 (−607/−615 servis yolu ağzı + çim burun) boş. Doluluk 1.0. Hat = bordür + 1.2 m. Yön güney."
+    },
+    {
+      "id": "d4-park-w8",
+      "street": "Özlüce Bulvarı batı, 404. Sk. → Muammer Aksoy (ikiz blok + TİME önü; d4-sw-w8a/b)",
+      "line": [
+        [
+          630.72,
+          -772.0
+        ],
+        [
+          630.94,
+          -769.2
+        ],
+        [
+          630.62,
+          -763.52
+        ],
+        [
+          630.3,
+          -757.85
+        ],
+        [
+          629.96,
+          -751.85
+        ],
+        [
+          629.65,
+          -746.45
+        ],
+        [
+          629.35,
+          -741.05
+        ],
+        [
+          629.04,
+          -735.65
+        ],
+        [
+          628.73,
+          -730.25
+        ],
+        [
+          628.52,
+          -726.5
+        ]
+      ],
+      "mode": "angled",
+      "angle": 60,
+      "nose": "right",
+      "pitch": 2.9,
+      "occupancy": 0.88,
+      "note": "2026-09-30 SV 2025-09 270_-50 + 240_0 + 300_0: S0hYZN (beyaz minibüs, gümüş sedan, polis aracı), Cqzdqe (koyu, mavi Subaru, gri Tucson), OUIqL6 (beyaz Peugeot, beyaz Yaris, gümüş SUV), yTuS1M (4), jf3Ylg (kırmızı + beyaz) — araçlar bordüre AÇILI, burun kaldırıma, arka yola (240_0/300_0 karelerinde hep arka görülüyor). Hava fotoğrafında (eski tarih) aynı kesimde paralel sıra var → 2025-09 düzeni alındı. Açı ≈60° (240_0 bakışında arkalar neredeyse cepheden: burun güneybatıya, akış yönüne). ≈16 yuvanın ~14’ü dolu → doluluk 0.88. rdSf6X (−724, köşe) ve WCDpVO (−788, köşe) boş. Hat = bordür + 2.6 m (araç merkezi). Açı / yuva aralığı (2.9) yaklaşık."
+    },
+    {
+      "id": "d4-park-e3b",
+      "street": "Özlüce Bulvarı doğu, park önü cep (d4-sw-e3b)",
+      "line": [
+        [
+          636.85,
+          -384.5
+        ],
+        [
+          636.85,
+          -385.0
+        ],
+        [
+          636.85,
+          -390.5
+        ],
+        [
+          636.85,
+          -396.0
+        ],
+        [
+          636.85,
+          -401.5
+        ],
+        [
+          636.85,
+          -407.0
+        ],
+        [
+          636.87,
+          -412.51
+        ],
+        [
+          636.89,
+          -414.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.0,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 90_-50: UrNc84 (koyu minibüs), OgX0zv (beyaz van + beyaz Accent + koyu), mt6XCe (beyaz Doblo), _hQiXA (beyaz van + beyaz), ZYA6UK (−415 çim burun, güney kenarında beyaz) — cep boydan boya dolu (≈−385 … −413). Doluluk 1.0. Hat = bordür + 0.95 (hava fotoğrafı: araçlar x 636–637.7). Yön kuzey (araçların burnu kuzeye)."
+    },
+    {
+      "id": "d4-park-e4a",
+      "street": "Özlüce Bulvarı doğu, çıkıntı A güneyi → z −476 geçidi (d4-pk-e4a)",
+      "line": [
+        [
+          638.36,
+          -431.5
+        ],
+        [
+          638.63,
+          -437.28
+        ],
+        [
+          638.98,
+          -443.41
+        ],
+        [
+          639.39,
+          -449.54
+        ],
+        [
+          639.82,
+          -455.68
+        ],
+        [
+          640.31,
+          -461.79
+        ],
+        [
+          640.98,
+          -467.9
+        ],
+        [
+          641.78,
+          -473.5
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 90_-50: 5FS-Tm (beyaz 500 + beyaz Punto + kuzey kenarda), D9ITSr (mavi Clio + gümüş), AElAL8 (gümüş Volvo + kırmızı SUV + mavi), lc7DA4 (2 beyaz; kuzey kenarda kamyonet yolda) — şerit dolu (≈−432 … −472). eMgEpN (−425) çim burun boş. Doluluk 1.0. Hat = d4-pk-e4a asfalt kenarı + 1.25 (şerit ortası). Yön kuzey."
+    },
+    {
+      "id": "d4-park-e4b",
+      "street": "Özlüce Bulvarı doğu, z −476 geçidi → servis yolu (d4-pk-e4b)",
+      "line": [
+        [
+          642.49,
+          -479.0
+        ],
+        [
+          642.99,
+          -484.38
+        ],
+        [
+          643.09,
+          -490.08
+        ],
+        [
+          643.18,
+          -495.73
+        ],
+        [
+          643.31,
+          -501.36
+        ],
+        [
+          643.54,
+          -507.0
+        ],
+        [
+          643.77,
+          -512.66
+        ],
+        [
+          643.9,
+          -518.32
+        ],
+        [
+          644.04,
+          -523.5
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "at": [
+        [
+          643.02,
+          -486.0
+        ],
+        [
+          643.11,
+          -491.5
+        ],
+        [
+          643.26,
+          -499.0
+        ],
+        [
+          643.89,
+          -518.0
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 90_-50: _u_Ljg (siyah SUV z≈−486 + siyah sedan z≈−491.5), X0NY1c (siyah Doblo z≈−499), H7s4ck (gümüş panelvan z≈−509 — otobüs durağı d4-bus-e4 önünde; kural gereği durak önü boş bırakıldı), ozFGTG (beyaz Audi z≈−518), m9-ls8 (−530 çim burun) boş; ivo1dM (−479) öndeki beyaz van yolda (park değil). Hat = asfalt kenarı + 1.25. Yön kuzey."
+    },
+    {
+      "id": "d4-park-e5",
+      "street": "Özlüce Bulvarı doğu, servis yolu → rampa (d4-sw-e5)",
+      "line": [
+        [
+          645.52,
+          -534.0
+        ],
+        [
+          645.67,
+          -537.45
+        ],
+        [
+          645.95,
+          -543.85
+        ],
+        [
+          646.17,
+          -550.24
+        ],
+        [
+          646.39,
+          -556.64
+        ],
+        [
+          646.58,
+          -562.5
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 90_-50: KFusKU (mavi Duster + koyu Clio + Doblo), c6nV0R (bej Doblo + beyaz i20 + beyaz), 1IQYX3 (beyaz + siyah sedan + mavi) — dolu (≈−535 … −562). Doluluk 1.0. Hat = bordür + 1.2. Yön kuzey."
+    },
+    {
+      "id": "d4-park-e5b",
+      "street": "Özlüce Bulvarı doğu, 325. Sk. güneyi (d4-sw-e5b)",
+      "line": [
+        [
+          646.72,
+          -566.5
+        ],
+        [
+          646.9,
+          -571.64
+        ],
+        [
+          647.1,
+          -577.24
+        ],
+        [
+          647.3,
+          -582.84
+        ],
+        [
+          647.5,
+          -588.44
+        ],
+        [
+          647.64,
+          -592.5
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 90_-50: tTh9Uz (mavi + gümüş C4 Cactus + kuzey kenarda koyu), 7zxiB5 (siyah BMW + beyaz Kuga), 7gxX9o (beyaz z≈−589; kuzeyi çim burun + −597 geçidi) — dolu. Doluluk 1.0. Hat = bordür + 1.2. Yön kuzey."
+    },
+    {
+      "id": "d4-park-e6",
+      "street": "Özlüce Bulvarı doğu, 325. Sk. → 163. Sk., Elite Offices önü (d4-sw-e6)",
+      "line": [
+        [
+          649.19,
+          -625.5
+        ],
+        [
+          649.42,
+          -629.67
+        ],
+        [
+          649.75,
+          -635.54
+        ],
+        [
+          650.08,
+          -641.4
+        ],
+        [
+          650.42,
+          -647.27
+        ],
+        [
+          650.75,
+          -653.14
+        ],
+        [
+          651.08,
+          -659.0
+        ],
+        [
+          651.41,
+          -664.87
+        ],
+        [
+          651.75,
+          -670.74
+        ],
+        [
+          652.08,
+          -676.6
+        ],
+        [
+          652.41,
+          -682.47
+        ],
+        [
+          652.74,
+          -688.34
+        ],
+        [
+          653.01,
+          -693.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 90_-50: jyg2Ji (mavi + beyaz Tipo + gümüş), -YmqXE (2 + önde yolda siyah), hdpFBu (2), 8Th6vV (beyaz minibüs + gri), xZiYfn (beyaz eski sedan + gri; öndeki kırmızı SUV yolda), ao6UFF (beyaz Polo + koyu; öndeki gümüş SUV yolda) — dolu (≈−626 … −692). XSGJ2f (−621) çim burun, kz_7-s (−698) çalı burnu boş. Doluluk 1.0. Hat = bordür + 1.2. Yön kuzey."
+    },
+    {
+      "id": "d4-park-e7",
+      "street": "Özlüce Bulvarı doğu, 163. Sk. → Muammer Aksoy (Şok binası + ikiz kule podyumu; d4-sw-e7/e8)",
+      "line": [
+        [
+          653.46,
+          -716.5
+        ],
+        [
+          653.5,
+          -717.04
+        ],
+        [
+          653.9,
+          -722.89
+        ],
+        [
+          654.3,
+          -728.75
+        ],
+        [
+          654.71,
+          -734.61
+        ],
+        [
+          655.11,
+          -740.47
+        ],
+        [
+          655.51,
+          -746.32
+        ],
+        [
+          655.91,
+          -752.18
+        ],
+        [
+          655.09,
+          -756.18
+        ],
+        [
+          655.53,
+          -762.58
+        ],
+        [
+          655.97,
+          -769.0
+        ],
+        [
+          656.06,
+          -770.0
+        ]
+      ],
+      "mode": "angled",
+      "angle": 60,
+      "nose": "right",
+      "pitch": 2.9,
+      "occupancy": 0.8,
+      "note": "2026-09-30 SV 2025-09 90_-50: y2QCdh (gri Qashqai, gri Renault, beyaz), n3EfAh (beyaz sedan + iki kenarda), 9nQa3L (beyaz sedan + koyu), eJKMKm (beyaz + gri SUV + kuzey kenarda), 4GrkAe (beyaz Doblo + beyaz), dZQ2YF (güney kenarda gümüş; çöp konteynerleri −773 … −776) — araçlar AÇILI, arkaları yola (kare üst kenarında arka tamponlar). Hava fotoğrafında (eski) aynı kesimde yarı açılı sıra x 654–657. Açı ≈60°, burun kuzeydoğuya (kol kuzeye akıyor). ~19 yuvanın ~15’i dolu → doluluk 0.8. w3cbwg (−709) ve rxGw6Z (−782) boş. Hat = bordür + 2.6."
+    },
+    {
+      "id": "d4-park-um-n",
+      "street": "Uğur Mumcu Blv. doğu kolu kuzey, dükkân önü park şeridi (d4-um-n-parking)",
+      "line": [
+        [
+          771,
+          -298.05
+        ],
+        [
+          765,
+          -298.35
+        ],
+        [
+          745,
+          -299.05
+        ],
+        [
+          722,
+          -300.05
+        ],
+        [
+          705,
+          -300.8
+        ],
+        [
+          700.5,
+          -301.0
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "at": [
+        [
+          707.0,
+          -300.71
+        ],
+        [
+          718.0,
+          -300.23
+        ],
+        [
+          723.0,
+          -300.01
+        ],
+        [
+          741.5,
+          -299.2
+        ],
+        [
+          748.5,
+          -298.93
+        ],
+        [
+          753.8,
+          -298.74
+        ],
+        [
+          760.0,
+          -298.53
+        ],
+        [
+          765.5,
+          -298.33
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 0_-50 (Ax7s0c/fkkSNn motosiklet sırası x 696–702, 8x2jWh gümüş x≈707, hf-0gA gümüş x≈718, 2tZdYr gümüş sedan x≈723, ClwC9N otobüs durağı x 727–738 boş, wFJNAd gümüş hatchback x≈741.5 + mavi x≈748.5, 9unh6E beyaz Qashqai x≈753.5 + mavi x≈760, LwOyDY beyaz Clio x≈765.5, RVrJaC gümüş x≈773 — kaydın doğu ucunun ötesinde, alınmadı). Araç burunları batıya (kuzey kolu batıya akıyor). Hat = d4-um-n-parking şeridinin ortası."
+    },
+    {
+      "id": "d4-park-bia",
+      "street": "Biaport önü dik park (d4-bia-parking)",
+      "line": [
+        [
+          697,
+          -277.9
+        ],
+        [
+          736,
+          -276.0
+        ],
+        [
+          786,
+          -273.5
+        ]
+      ],
+      "mode": "perpendicular",
+      "nose": "right",
+      "pitch": 2.6,
+      "at": [
+        [
+          698.0,
+          -277.85
+        ],
+        [
+          700.6,
+          -277.72
+        ],
+        [
+          703.2,
+          -277.6
+        ],
+        [
+          705.8,
+          -277.47
+        ],
+        [
+          708.4,
+          -277.34
+        ],
+        [
+          711.0,
+          -277.22
+        ],
+        [
+          731.0,
+          -276.24
+        ],
+        [
+          736.0,
+          -276.0
+        ],
+        [
+          741.0,
+          -275.75
+        ],
+        [
+          757.0,
+          -274.95
+        ],
+        [
+          762.0,
+          -274.7
+        ],
+        [
+          764.6,
+          -274.57
+        ],
+        [
+          767.5,
+          -274.43
+        ],
+        [
+          770.2,
+          -274.29
+        ],
+        [
+          775.0,
+          -274.05
+        ],
+        [
+          783.0,
+          -273.65
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 180_-50: XfCj3P (x≈665 kavşak ağzı) boş; YVECmW/697g2M/sswNcG x 670–695 sarı çizgili motosiklet yerleri (araç yok); Z8hcsF 4 araç (x≈698–708, + batı kenarında kırmızı), SNouSO beyaz x≈711 (x 713–726 yaya + scooter, boş), sHhe6Z beyaz SUV x≈731, RpJvog beyaz x≈736 + beyaz van x≈741, 7ip2B_ x 744–754 boş (durak d4-bia-shelter), 2LX4ej gri sedan x≈757 + gümüş x≈762, G6ezcL beyaz Mini x≈764.6 + turuncu x≈767.5 + beyaz x≈770.2 + koyu, akzaaV siyah SUV x≈775 + mavi SUV x≈783. Burunlar dükkânlara (güney). x > 786 panorama yok → ölçülmedi, boş. Hat = alçak bordür (d4-sw-bia) − 2.9 m (araç merkezi; Z8hcsF zemin karesi arka tampon z≈−281)."
+    },
+    {
+      "id": "d4-park-ceylan",
+      "street": "Ceylan Plus kuzey ön alanı dik park (d4-ceylan-n-forecourt)",
+      "line": [
+        [
+          543.5,
+          -531.0
+        ],
+        [
+          605,
+          -530.3
+        ]
+      ],
+      "mode": "perpendicular",
+      "nose": "right",
+      "pitch": 2.7,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 180_-50 / 180_0: WW8z7S (3 araç x 544–552), 4Us-wD (3), 6S8oxg (4), 0tbfMG (3 + kırmızı), 0lpken (3), NVqyhp (4, x≈603’e kadar) — burunlar cepheye (güney), sıra x 543.5–605 kesintisiz dolu; 7ZJJtB (x≈538, palmiye/merdiven) ve g5OjkJ (x≈609 kaldırım) boş. Hava fotoğrafında da dik sıra z −533…−528 (merkez z≈−531…−530.3), adım ≈2.7. Doluluk 1.0."
+    },
+    {
+      "id": "d4-park-kp-front",
+      "street": "Kent Park güneyi toprak otopark, yol kenarı sırası (d4-kp-gravel-lot)",
+      "line": [
+        [
+          567,
+          -541.7
+        ],
+        [
+          607,
+          -541.7
+        ]
+      ],
+      "mode": "perpendicular",
+      "nose": "right",
+      "pitch": 3.0,
+      "at": [
+        [
+          569.5,
+          -541.7
+        ],
+        [
+          575.0,
+          -541.7
+        ],
+        [
+          578.5,
+          -541.7
+        ],
+        [
+          583.0,
+          -541.7
+        ],
+        [
+          586.0,
+          -541.7
+        ],
+        [
+          589.5,
+          -541.7
+        ],
+        [
+          593.0,
+          -541.7
+        ],
+        [
+          597.0,
+          -541.7
+        ],
+        [
+          600.5,
+          -541.7
+        ],
+        [
+          604.0,
+          -541.7
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 0_-50 / 0_0: 6S8oxg beyaz Corolla x≈569.5 (burnu yola, güneye), 0tbfMG gümüş Doblo x≈575 + lacivert x≈578.5 + siyah x≈583, 0lpken kırmızı Doblo x≈586 + siyah x≈589.5 + gümüş Skoda x≈593, NVqyhp gümüş sedan x≈597 + gümüş Sportage x≈600.5 + x≈604; 4Us-wD (x≈559) toprak zemin boş. Burunlar yola (güney; karelerde ön yüzler). Toprak zeminde çizgi yok → adım ≈3.0 (karelerden). Hat = otopark güney kenarı (−538.8) − 2.9."
+    },
+    {
+      "id": "d4-park-kp-back",
+      "street": "Kent Park güneyi toprak otopark, yapı önü (arka) sıra",
+      "line": [
+        [
+          566,
+          -564.6
+        ],
+        [
+          606,
+          -564.6
+        ]
+      ],
+      "mode": "perpendicular",
+      "nose": "left",
+      "pitch": 3.0,
+      "occupancy": 0.55,
+      "note": "2026-09-30 SV 2025-09 0_0 (4Us-wD, 0tbfMG, 0lpken, NVqyhp, g5OjkJ): otoparkın kuzey (Kent Park yapısı / PABLO duvarı) kenarında seyrek araç sırası — 40 m’de ~6–8 araç görülüyor, tek tek konumları uzaklıktan ölçülemedi → doluluk 0.55 ile deterministik dağıtım. Burun yönü görülmedi (duvara dönük alındı). Hat = otopark kuzey kenarı (−567.5) + 2.9. Yaklaşık."
+    },
+    {
+      "id": "d4-park-ma-sw",
+      "street": "Muammer Aksoy Cd. güney yakası batı, TİME önü açılı park (d4-ma-sw-bay)",
+      "line": [
+        [
+          560.5,
+          -799.9
+        ],
+        [
+          575,
+          -799.1
+        ],
+        [
+          588,
+          -798.3
+        ]
+      ],
+      "mode": "angled",
+      "angle": 60,
+      "nose": "right",
+      "pitch": 2.8,
+      "occupancy": 1,
+      "note": "2026-09-30 SV 2025-09 180_-50: TBzdW2 (5 araç x≈557–567), 1cWbg2 (5: koyu, gri, beyaz van, beyaz Polo, koyu), spxJIK (4 + beyaz), XQtjS3 (x 588–593 dubalı boş kesim) — dolu. Hava fotoğrafında x 560–588 araçlar açılı (≈60°, burun güneydoğuya: güney yakası doğuya akıyor). Kaydın batı ucu x 560 (kPFhd_ x≈551 arkasındaki sıra kayıt dışında, alınmadı). Doluluk 1.0. Hat = cep güney kenarı (alçak bordür) − 2.5 (araç merkezi)."
+    },
+    {
+      "id": "d4-park-ma-sw-par",
+      "street": "Muammer Aksoy Cd. güney yakası, kavşak batısı paralel sıra (x 597–622)",
+      "line": [
+        [
+          597,
+          -802.5
+        ],
+        [
+          622,
+          -801.3
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.0,
+      "at": [
+        [
+          601.5,
+          -802.28
+        ],
+        [
+          606.5,
+          -802.04
+        ],
+        [
+          611.0,
+          -801.83
+        ],
+        [
+          616.0,
+          -801.59
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 180_-50: SfIg7H gümüş Clio x≈606 + beyaz sedan x≈601.5, saYWkD beyaz x≈610.5 + mavi x≈615.5 — bu kesimde araçlar PARALEL (yan görünüş), d4-ma-sw-bay kaydının doğu kısmı (x 590–618) dik değil. Hat hava fotoğrafındaki paralel araç sırasının ortası (z −802.5 @597 → −801.3 @622; kaydın kuzey kenarının ≈2.5 m kuzeyi — kaldırım/cep sınırı bu kesimde yeniden ölçülmeli). Yön doğu."
+    },
+    {
+      "id": "d4-park-ma-se",
+      "street": "Muammer Aksoy Cd. güney yakası doğu, ikiz kule podyumu önü dik park (d4-ma-se-bay)",
+      "line": [
+        [
+          697,
+          -797.6
+        ],
+        [
+          690,
+          -798.0
+        ],
+        [
+          710,
+          -796.9
+        ],
+        [
+          745,
+          -795.0
+        ],
+        [
+          765,
+          -793.8
+        ],
+        [
+          772,
+          -793.5
+        ]
+      ],
+      "mode": "perpendicular",
+      "nose": "right",
+      "pitch": 2.6,
+      "at": [
+        [
+          699.0,
+          -797.5
+        ],
+        [
+          701.6,
+          -797.36
+        ],
+        [
+          704.2,
+          -797.22
+        ],
+        [
+          706.8,
+          -797.08
+        ],
+        [
+          709.5,
+          -796.93
+        ],
+        [
+          712.2,
+          -796.78
+        ],
+        [
+          714.8,
+          -796.64
+        ],
+        [
+          717.4,
+          -796.5
+        ],
+        [
+          720.0,
+          -796.36
+        ],
+        [
+          735.5,
+          -795.52
+        ],
+        [
+          738.1,
+          -795.37
+        ],
+        [
+          740.7,
+          -795.23
+        ],
+        [
+          743.3,
+          -795.09
+        ],
+        [
+          745.9,
+          -794.95
+        ],
+        [
+          748.5,
+          -794.79
+        ],
+        [
+          751.5,
+          -794.61
+        ],
+        [
+          754.1,
+          -794.45
+        ],
+        [
+          768.0,
+          -793.67
+        ],
+        [
+          770.8,
+          -793.55
+        ],
+        [
+          773.5,
+          -793.44
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 180_-50: qo16GP (6 araç x≈698–708), AZNLqF (x≈709.5–717, 4 beyaz/mavi), hcHX2j (beyaz x≈720; ortadaki gri paralel araç yeşil boyalı alan önünde — alınmadı), GKHZCY (gri van x≈735.5 + koyu x≈738; x 726–734 yeşil boyalı, dubalı/saksılı alan boş), sd8u9O (x≈739–749, 5 araç), jc14Yw (beyaz x≈752 + x≈754; kamyon x 755–760), Tu0A27 (TAPTAZE kamyonu x 757–763 paralel — kamyon modeli yok, boş bırakıldı; beyaz x≈768), 81VwJa (beyaz x≈771 + Duster x≈773.5). x 680–697 fq8WDv/GY1l09/m4A47e karelerinde önden geçen araçlar yüzünden görülmedi → boş. Burunlar dükkânlara (güney). Hat = cep güney kenarı − 2.4."
+    },
+    {
+      "id": "d4-park-ma-nw",
+      "street": "Muammer Aksoy Cd. kuzey yakası, Kırmıkıl önü (d4-sw-ma-nw)",
+      "line": [
+        [
+          621.0,
+          -816.56
+        ],
+        [
+          618.27,
+          -815.53
+        ],
+        [
+          612.09,
+          -814.7
+        ],
+        [
+          605.02,
+          -814.5
+        ],
+        [
+          589.99,
+          -814.5
+        ],
+        [
+          574.99,
+          -814.7
+        ],
+        [
+          566.0,
+          -814.79
+        ]
+      ],
+      "mode": "parallel",
+      "nose": "fwd",
+      "pitch": 5.2,
+      "at": [
+        [
+          569.5,
+          -814.75
+        ],
+        [
+          602.0,
+          -814.5
+        ]
+      ],
+      "note": "2026-09-30 SV 2025-09 0_-50: 1cWbg2 beyaz binek x≈569.5, SfIg7H beyaz Tipo x≈602 (burnu batıya); TBzdW2, spxJIK, XQtjS3, saYWkD boş. Hat = bordür + 1.1. Yön batı (kuzey yakası batıya akıyor)."
+    }
   ]
 }
