@@ -662,3 +662,15 @@
   - Park/site alanları: UPTOWN otopark yolu + arka otopark gri kilit taşı (`uptown-lot`), ONAL 51 önü 11 sarı park
     çizgisi (`base` 0.15), kuru saman rengi çim (park area 2 `dry`/`color`), kumbara/lamba `style`.
     **Blender:** `NW/Mertkent/Site`, `NW/Parks`.
+  - **Takip turu (aynı ajan):** levhalar `sonu` (kırmızı çapraz bant) / `kamyon giremez` / altta mavi ok ek levha,
+    `textB` arka yüz; pano `blocks` / `base` / `arrow` / `cctv`, reklam panosu `faces`; yeni street türleri `pylon`
+    (kafes direk + teller) ve `canopy` (giriş kanopisi + yazılı kolon); kapı `leafSpec` laser-screen (Mertkent kuzey
+    yaya kapısı: delikli ekran kanat, altın rozet, kolon baklavaları) ve mesh-slide (güney araç kapısı: gri tel panel,
+    mızrak uçları, kıvrım bandı) + `pillarSpec`; kulübe `frameC` / `columnC` / `boothPanelC`; Mertkent çiti `noLampU`;
+    komşu duvar `wall.pattern` lattice (baklava kafes dokusu) + kolon `pattern` rope; kaldırım `edgeLine`; site çizgi
+    türü `tactile`; park `bin` style clothes/glass + `base`, `lamp` style street, çalı `color`, çim `dry` + `color`
+    (`lawn@#hex`), park çizgisi `base`; Park Koza köşesi (beyaz sıvalı yuvarlak üstlü duvar, harfler parmaklıkta, taş
+    başlıklı beyaz kolon, gri tel kapı, beyaz direkli ayna); saha çiti 4 m tel saydam malzeme (`pitchMesh`); yeni ağaç
+    türü `pinea` (fıstık çamı, indeks 20); OSM genel kaldırımda bordür yüzü/üstü düz beton. **Blender:**
+    `NW/Mertkent/Street`, `NW/Mertkent/Gates`, `NW/Mertkent/Fence`, `NW/Mertkent/Site` + `Park`, `NW/Trees` (yeni tür),
+    `NW/Roads` (bordür) yeniden kurulur; `mk_street.py`'ye pylon/canopy/road-line türleri.
