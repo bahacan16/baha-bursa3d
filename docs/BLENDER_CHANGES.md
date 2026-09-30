@@ -703,3 +703,8 @@
   ızgara + sarı saksılı localar), `1552992538.json` (TİME Özlüce kaidesi: Kahve Dükkanı, Beysos, Diken, Bir Simit,
   Piliçmatik, Öncü döner, destan; kule yüzü pending), `1477364957.json` (Juan Valdez, ROSSMANN, BIGCHEFS), `900000261`
   (MONS, sushico), `900000262`, `1544934694` (konut; ölçüler çelişkili → görülmedi). **Blender:** bu bloklar ilk kez.
+- **(D4 cephe 7)** — yeni `survey/1552093106.json` (Altuntaş Park: QNB, TEB, TURKISH AIRLINES/PEGASUS acentesi, işstur,
+  Sultan Sarsıcı, 325. Sk. avukat/SMMM levhaları, ZUHAL BAŞ, nöww, SANREMO, SAFARİ), `1546358593.json` (Şok/Karataş
+  Sitesi kaidesi: ŞOK, Hançer Kuyumculuk, Ayanoğlu 1927, Elita diş), `1546358595.json` (üstteki 7 katlı blok, kat kat
+  pencere/cam balkon), `1545290880.json` (ÖNDÜL Elite Offices: Peynirci Baba, BOSCH, ECE HALI, vodafone, beko, ENGLISH
+  HOME, Malatya Pazarı, BİL-FEN çatı tabelası, gönül Kahvesi, Atmosfer). **Blender:** bu 4 bina ilk kez kurulur.
