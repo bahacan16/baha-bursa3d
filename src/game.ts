@@ -10,7 +10,14 @@ import { GameAudio } from './env/audio';
 import { PostFX } from './env/post';
 import { lightCalibration } from './env/calibration';
 import { bakedLighting } from './worlds/mertkent/baked';
-import { installUltraChunks, patchSkyClouds, probeUniforms, ultraState, weakGpu } from './env/ultra';
+import {
+  installShadowOnly,
+  installUltraChunks,
+  patchSkyClouds,
+  probeUniforms,
+  ultraState,
+  weakGpu,
+} from './env/ultra';
 import { ReflectionProbe } from './env/probe';
 import { loadHdriSky, measureSky, type HdriSky } from './env/hdrisky';
 import { facadeSky } from './worlds/osm/facades';
@@ -171,8 +178,12 @@ export class Game {
     const noPost = new URLSearchParams(location.search).has('nopost');
     if (settings.quality !== 'low' && !noPost)
       this.post = new PostFX(r, this.scene, this.camera, settings.quality, this.ultra);
-    if (this.ultra && !new URLSearchParams(location.search).has('noprobe'))
-      this.probe = new ReflectionProbe(r, this.pmrem);
+    // KARAR (kullanıcı, 2026-09-30): yerel yansıma küresi varsayılan KAPALI — açıkken camlar güneşi fazla yansıtıyordu
+    // (?noprobe görünümü tercih edildi); ?probe=1 (değer = yoğunluk) ile açılır.
+    const probeQ = new URLSearchParams(location.search).get('probe');
+    if (this.ultra && probeQ !== null && probeQ !== '0') this.probe = new ReflectionProbe(r, this.pmrem);
+    // Ultra: el modeli gölge vekilleri yalnız gölge haritasında görünür (worlds/mertkent/batch.ts)
+    if (this.ultra) installShadowOnly(r);
     // Ultra: fotoğraf gökyüzü (HDRI, varsa) varsayılan; ?sky=proc prosedürel gök (bulutlar + tutarlı bulut gölgesi)
     if (this.ultra && new URLSearchParams(location.search).get('sky') !== 'proc') void this.loadHdri();
     this.desktop = new DesktopInput(this.input, r.domElement);

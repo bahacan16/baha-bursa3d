@@ -845,3 +845,7 @@
   9): D4/DA vitrinleri bembeyaz çıkıyordu. Konut pencere camı ×45 / oda ×0.2 → ×14 / ×0.7 (doygun maviydi; 4 karede
   denendi). Dosya: `src/worlds/mertkent/facadeMats.ts`. **Blender:** `materials.py` pencere camı: yansıma daha zayıf,
   tül/oda daha görünür; vitrin camı koyu.
+- **(Ultra performans)** — Ultra'da el modeli çizim çağrıları birleştirildi (`src/worlds/mertkent/batch.ts`: gölge
+  vekilleri, köşe rengi, sıva doku dizisi; `src/env/ultra.ts` `shadowOnlyRoots`), boş park aracı örnekleri gizlenir
+  (`src/sim/parked.ts`), yerel yansıma küresi varsayılan kapalı (`?probe=1`). Görünüm ve geometri aynı.
+  **Blender:** — (katman değişmez)

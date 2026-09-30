@@ -21,7 +21,8 @@ import { surveyVegetation } from '../mertkent/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../mertkent';
 import { applyBakedLighting, bakeRequested } from '../mertkent/baked';
 import { StreetProps } from './streetprops';
-import { ultraState } from '../../env/ultra';
+import { shadowOnlyRoots, ultraState } from '../../env/ultra';
+import { batchHandModel, buildShadowProxies, mergeSameMaterial, plain } from '../mertkent/batch';
 import { windTime } from './eztree';
 import { TreeField } from './treefield';
 import { Pedestrians } from '../../sim/pedestrians';
@@ -261,6 +262,33 @@ export class OsmWorld implements IWorld {
       m.renderOrder = MAT_KEYS.indexOf(c.mat);
       this.chunkGroup(c.cx, c.cz).add(m);
     }
+    // Ultra: OSM parçalarında çizim çağrısı birleştirme (görünüm ve gölge derinliği aynı; mertkent/batch.ts)
+    const bq = new URLSearchParams(location.search);
+    if (ultraState.on && !bq.has('nobatch') && !bq.has('bakeexport')) {
+      // 2×2 parça bloğunda aynı malzemeli meshler tek mesh (Ultra görüş mesafesinde parça gizleme zaten devrede değil),
+      // blok başına gölge vekili
+      const blocks = new Map<string, THREE.Group[]>();
+      for (const [k, g] of this.chunkGroups) {
+        const [cx, cz] = k.split(',').map(Number);
+        const bk = `${Math.floor(cx / 2)},${Math.floor(cz / 2)}`;
+        let l = blocks.get(bk);
+        if (!l) blocks.set(bk, (l = []));
+        l.push(g);
+      }
+      for (const gs of blocks.values()) {
+        mergeSameMaterial(
+          gs.flatMap((g) => g.children.filter(plain)),
+          gs[0],
+          'osm-block',
+        );
+        buildShadowProxies(
+          gs[0],
+          gs.flatMap((g) => g.children.filter(plain)),
+          1e6,
+          'osm-shadow',
+        );
+      }
+    }
 
     // Ağaçlar: tür kütüphanesi (uzak: chunk × tür; orta/yakın: tür başına, kamera hareket ettikçe doldurulur).
     // Ultra: yakın/orta menziller daha geniş (güçlü GPU)
@@ -415,6 +443,15 @@ export class OsmWorld implements IWorld {
         progress(0.97, 'Pişirilmiş ışık yükleniyor');
         await applyBakedLighting(mkGroup, world.materials.ground, import.meta.env.BASE_URL).catch((e) =>
           console.warn('bake: pişirilmiş ışık uygulanamadı', e),
+        );
+      }
+      // Ultra: el modeli çizim çağrısı birleştirme (görünüm aynı; mertkent/batch.ts). Dışa aktarımda kaynak meshler kalır.
+      if (mkGroup && ultraState.on && !q.has('bakeexport') && !q.has('nobatch')) {
+        const st = batchHandModel(mkGroup as THREE.Group);
+        console.info(
+          `[ultra] el modeli birleştirme: ${st.meshesBefore} → ${st.meshesAfter} mesh, gölge ${st.shadowCastersBefore} → ` +
+            `${st.shadowProxies} vekil, renk ${st.colorMerged} → ${st.colorMeshes}, sıva ${st.granMerged} → ` +
+            `${st.granMeshes} (${st.ms.toFixed(0)} ms)`,
         );
       }
     }
@@ -605,6 +642,12 @@ export class OsmWorld implements IWorld {
     this.traffic.dispose();
     this.parked.dispose();
     this.materials.dispose();
+    // gölge vekil kökleri (mertkent/batch.ts) bu dünyayla birlikte gider
+    for (const r of [...shadowOnlyRoots]) {
+      let p: THREE.Object3D | null = r;
+      while (p && p !== this.object) p = p.parent;
+      if (p) shadowOnlyRoots.delete(r);
+    }
   }
 }
 

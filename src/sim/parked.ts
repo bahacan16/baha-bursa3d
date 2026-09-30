@@ -57,6 +57,7 @@ export class ParkedCars {
       trim.name = `parkedTrim${detail ? 'Hi' : 'Lo'}`;
       for (const im of [body, trim]) {
         im.count = 0;
+        im.visible = false;
         im.frustumCulled = false;
         this.group.add(im);
       }
@@ -115,6 +116,8 @@ export class ParkedCars {
     }
     for (const t of [...this.near, ...this.far]) {
       t.body.count = t.trim.count = t.n;
+      // Boş örnek listesi de çizim çağrısı sayılır (malzeme grubu başına) → gizle
+      t.body.visible = t.trim.visible = t.n > 0;
       t.body.instanceMatrix.needsUpdate = true;
       t.trim.instanceMatrix.needsUpdate = true;
       if (t.body.instanceColor) t.body.instanceColor.needsUpdate = true;

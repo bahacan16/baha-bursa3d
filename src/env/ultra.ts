@@ -293,6 +293,27 @@ export const probeUniforms = {
 /** Cam yansıması için yerel küre haritasını alan malzemeler (Ultra'da facadeMats/araç camları kaydeder). */
 export const reflectiveMaterials = new Set<THREE.Material>();
 
+/**
+ * Yalnız gölge haritasında çizilen kökler (el modeli gölge vekilleri, worlds/mertkent/batch.ts). Kök normalde
+ * görünmez (ana geçiş, yansıma küresi, AO görmez); `installShadowOnly` gölge haritası çizimi süresince açar.
+ */
+export const shadowOnlyRoots = new Set<THREE.Object3D>();
+
+/** WebGLShadowMap.render'ı sar: gölge haritası çizilirken vekil kökleri görünür (ana liste daha önce kurulmuş olur). */
+export function installShadowOnly(renderer: THREE.WebGLRenderer): void {
+  const sm = renderer.shadowMap;
+  const orig = sm.render.bind(sm);
+  sm.render = (lights, scene, camera) => {
+    if (shadowOnlyRoots.size === 0) return orig(lights, scene, camera);
+    for (const r of shadowOnlyRoots) r.visible = true;
+    try {
+      orig(lights, scene, camera);
+    } finally {
+      for (const r of shadowOnlyRoots) r.visible = false;
+    }
+  };
+}
+
 const PROBE_PARS = /* glsl */ `
 uniform sampler2D uProbe;
 uniform float uProbeI;

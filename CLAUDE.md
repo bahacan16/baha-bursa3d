@@ -354,6 +354,13 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
     oyun aynı kodu çalıştırdığı için yayına yalnız AO dokuları girer (geometri GLB'si ~190 MB olurdu). Eskime parça
     parça denetlenir (mm'ye yuvarlanmış üçgen imzası); tutmayan parça canlı ışıkta kalır. CI'da 50 m parça + 2048²
     atlas (özel depo koşucusu 7 GB). Ayrıntı ve ölçümler `docs/BAKE.md`.
+  - **Ultra performansı (2026-09-30, RTX 4090'da ~5 FPS, GPU boşta):** darboğaz çizim çağrısıydı (başlangıçta ~5.2k:
+    el modelinin ~2600 malzemesi × ana geçiş + 2 gölge kademesi). `src/worlds/mertkent/batch.ts` (yalnız Ultra,
+    `?nobatch` kapatır): gölge dökümleri hücre × yüz başına yalnız gölge haritasında görünen konum vekillerine
+    (`shadowOnlyRoots`, OSM parçaları dahil), yalnız rengi farklı malzemeler köşe rengine, yalnız `map`'i farklı
+    malzemeler (sıva, kiremit, tabela sayfası) 2B doku dizisine taşınır; birleşik meshler 512 m (gölge 256 m)
+    hücrelere bölünür, OSM parçaları 2×2 blokta birleşir. Görünüm aynı (aynı texel / derinlik). Yerel yansıma küresi
+    varsayılan kapalı (kullanıcı: camlar güneşi fazla yansıtıyordu), `?probe=1` açar.
 - 1. şahıs görüş açısı 55° dikey + adımla senkron baş salınımı (3. şahıs 62° kalır).
 - Görülmeyen (`copyOf`) kenarlara yalnız geometri kopyalanır; tabela/bayrak/perde/klima/çanak kopyalanmaz (§0.1).
 - Eski (v1/v2) ölçümler Doğan Avcıoğlu standardına getirildi (retro, 15 blok + çevre sokakları); çıkan eksik

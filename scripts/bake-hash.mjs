@@ -22,8 +22,8 @@ export function bakeSourceFiles(root = ROOT) {
       else if (filter(f)) out.push(relative(root, p).split(sep).join('/'));
     }
   };
-  // Üretici: src/worlds/mertkent/**/*.ts (baked.ts/bakeexport.ts yalnız oyun tarafı → hariç)
-  walk('src/worlds/mertkent', (f) => f.endsWith('.ts') && !/^bake(d|export)\.ts$/.test(f));
+  // Üretici: src/worlds/mertkent/**/*.ts (baked.ts/bakeexport.ts/batch.ts yalnız oyun tarafı → hariç)
+  walk('src/worlds/mertkent', (f) => f.endsWith('.ts') && !/^(bake(d|export)|batch)\.ts$/.test(f));
   // Ölçüm verisi (facades, footprints, street/site/park planı…)
   walk('src/worlds/mertkent/data', (f) => f.endsWith('.json'));
   for (const f of [
