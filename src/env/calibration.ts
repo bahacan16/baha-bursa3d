@@ -75,11 +75,14 @@ export function installNeutralToe(chunks: Record<string, string>): void {
   const src = 'float offset = x < 0.08 ? x - 6.25 * x * x : 0.04;';
   const k = 'tonemapping_pars_fragment';
   if (!chunks[k]?.includes(src)) {
-    console.warn('calibration: Neutral ton eşleme ofset satırı bulunamadı (three sürümü?) — özgün eğri kalıyor');
+    console.warn(
+      'calibration: Neutral ton eşleme ofset satırı bulunamadı (three sürümü?) — özgün eğri kalıyor',
+    );
     return;
   }
   const f = (v: number) => v.toFixed(6);
-  const rep = t > 0 ? `float offset = x < ${f(2 * t)} ? x - x * x / ${f(4 * t)} : ${f(t)};` : 'float offset = 0.0;';
+  const rep =
+    t > 0 ? `float offset = x < ${f(2 * t)} ? x - x * x / ${f(4 * t)} : ${f(t)};` : 'float offset = 0.0;';
   chunks[k] = chunks[k].replace(src, rep);
 }
 
