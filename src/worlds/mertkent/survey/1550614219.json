@@ -1,6 +1,6 @@
 {
  "id": 1550614219,
- "name": "Özlüce Bulvarı karma yapı (3 katlı ticari podyum + 5 konut kulesi; arçelik, İşbir, Penti, Özgür Moda, Toleran, IA Plus, KuveytTürk)",
+ "name": "Özlüce Bulvarı karma yapı (ticari podyum + 5 konut kulesi; arçelik, İşbir, Penti, Özgür Moda, Toleran, 1A PLUS, Ziraat, KuveytTürk, özhan, BİM)",
  "storeys": 9,
  "floorH": 2.71,
  "groundRaise": 2.24,
@@ -11,7 +11,7 @@
   "fasciaH": 0.1,
   "flatC": "#b9b6ae",
   "parapet": {
-   "h": 1.41,
+   "h": 1.3,
    "color": "#d9dee1",
    "rail": "tube",
    "railC": "#e6e6e2",
@@ -22,12 +22,7 @@
     2,
     3,
     4,
-    5,
-    6,
-    7,
-    9,
-    19,
-    46
+    5
    ],
    "railEdges": [
     0,
@@ -92,7 +87,8 @@
      "kind": "flat",
      "eave": 1.35,
      "fasciaH": 1.1,
-     "fasciaC": "#bca18c"
+     "fasciaC": "#bca18c",
+     "flatC": "#9a9690"
     },
     "wallTop": 26.3
    },
@@ -140,7 +136,8 @@
      "kind": "flat",
      "eave": 1.35,
      "fasciaH": 1.1,
-     "fasciaC": "#bca18c"
+     "fasciaC": "#bca18c",
+     "flatC": "#9a9690"
     },
     "wallTop": 26.3
    },
@@ -196,7 +193,8 @@
      "kind": "flat",
      "eave": 1.35,
      "fasciaH": 1.1,
-     "fasciaC": "#bca18c"
+     "fasciaC": "#bca18c",
+     "flatC": "#9a9690"
     },
     "wallTop": 26.3
    },
@@ -215,20 +213,16 @@
       -470.37
      ],
      [
-      722.78,
-      -462.64
+      722.9,
+      -466.87
      ],
      [
-      723.67,
-      -462.64
+      726.49,
+      -466.87
      ],
      [
-      723.32,
-      -453.98
-     ],
-     [
-      722.23,
-      -453.88
+      725.58,
+      -448.89
      ],
      [
       722.35,
@@ -267,13 +261,15 @@
       -463.79
      ]
     ],
-    "storeys": 10,
+    "storeys": 9,
     "roof": {
      "kind": "flat",
      "eave": 1.35,
      "fasciaH": 1.1,
-     "fasciaC": "#bca18c"
-    }
+     "fasciaC": "#bca18c",
+     "flatC": "#9a9690"
+    },
+    "wallTop": 26.3
    },
    {
     "poly": [
@@ -310,13 +306,15 @@
       -505.44
      ]
     ],
-    "storeys": 10,
+    "storeys": 9,
     "roof": {
      "kind": "flat",
      "eave": 1.35,
      "fasciaH": 1.1,
-     "fasciaC": "#bca18c"
-    }
+     "fasciaC": "#bca18c",
+     "flatC": "#9a9690"
+    },
+    "wallTop": 26.3
    },
    {
     "rest": true,
@@ -324,8 +322,74 @@
    }
   ]
  },
- "notes": [],
- "pending": [],
+ "notes": [
+  "KÜTLE: OSM building:part halkaları (1550614221–225) 5 kule, geri kalan (1550614220, height 6) podyum. Kule 4'ün doğu yüzü OSM'de ring'in ≈3 m batısında; 323. Sk. ortofotosunda (yU9w, kat aralığı bulvarla aynı) kule yüzü podyum hattında → massing poly'de doğu yüzü ring kenar 13 çizgisine (z −448.89…−466.87, görünen u 0–18) alındı, kuzeyinde OSM'deki geri çekik hat korundu (orası görülmedi).",
+  "KAT DÜZENİ: bulvar (batı) tarafında zemin yüksek: podyum = çift yükseklikte dükkân katı (K0–K1, görünen cam 2.0–7.1) + ofis cam bandı (K2) + beyaz ACP parapet (üst ≈11.5 görünen) → kuleler K3–K8 (6 konut sırası, K3'ün alt yarısı parapet arkasında). 323. Sk. / servis yolu / avlu tarafında zemin ≈1.5–2.7 m alçak: podyum tek yüksek kat + bej taş bant, K2 bu yüzlerde podyum terasında kış bahçesi (kenar 13) ya da konut katı (kenar 19/41/45). Her kenar cal.head ile kendi kat çizgilerine bağlandı; kule kat aralığı 2.71 m (bulvar 2.71, kenar 4 2.76). Toplam 9 'üretici katı' (≈29 m, OSM height 29).",
+  "KULE CEPHE DİLİ (bulvar, üç kule aynı): açık bej-gri sıva #cbc7bb (güneşli değil, bulvar öğleden sonra gölgede: ölçülen #919089 → ×1.4), pencere söveleri kahve-bej #b9a48c; sol/sağda küçük pencere sütunları, iki boy Fransız pencere (beyaz dikey çubuklu korkuluk), ortada çift balkon yığını (d≈1.5, alçak dolu parapet + buzlu cam, beyaz dikmeler ≈0.92 m, ortada ortak yağmur borusu ve her kat arasında boruya asılı klima dış üniteleri), köşelerde dolu parapetli dar köşe balkonları (d≈1.3). Saçak: kule çatısı düz, ≈1.35 m taşan saçak (kahve-bej alın #bca18c, koyu kahve saçak altı), orta balkon yığınının üstü daha yüksek şapka; çatıda boru korkuluk ve çatı kulübeleri (pending).",
+  "PODYUM RENKLERİ: beyaz ACP #d9dee1 tahmini (gölgede #a4abaf), bej taş kaplama #c2b4a1 (331. Sk. güneşli), taş bant yatay derzli. Tabela renkleri çoğunlukla gölgede ölçüldü (bulvar/kuzey), güneşli değerler ≈×1.3–1.5 tahmin — her öğenin logo notuna bak.",
+  "TABELALAR (kenar başına ayrıntı kenar notlarında): bulvar e0 arçelik ×2, İşbir yatak, Toleran Sigorta (üst + alt pano), ORTODONTİST Uzm. Dt. Sevil YEŞİLBAŞ, YERDENİZ PSİKOLOJİ (K3 önü teras korkuluğu); e1 Penti, 1A PLUS, ÖZGÜR MODA başı; e2 ATB GAYRİMENKUL, ÖZGÜR MODA, AKADEMİ MATEMATİK (üst kutu + iletişim panosu), SEYHAN GAYRİMENKUL (3 pano), DİŞ HEKİMİ AYHAN ÖZDEMİR (K4 balkon), GÖK'AY (kış bahçesi, kaldırım); e3 Ziraat Bankası (kanal harf + ışıklı kutu, ATM köşkü); e4 DİŞ HEKİMİ HAKAN ÇETİN, OUTLET CITY, MADİNA ERDEN, ZEUGMA KÜNEFE (kaldırım), KUVEYTTÜRK, SATILIK levhası (K7), portre bayrak (K4); e5–e6 KuveytTürk (amblem, slogan folyoları, İşlematik ATM'ler), kavanoz design, ECZANE (bayrak E), YUSUF ÖZOĞLU mali müşavir; e7 ECZANE BUKETİM; e9 HAIR LOUNGE / ÖZAY ÖZKAN, eren grup / eren tour, ÇARŞAMBA² VİP, provey TURKEY, VERA GAYRİMENKUL, özhan + şarküteri afişleri; e10/e12/e13 özhan baskıları; e15 BİM; e18 KOPİ NO 9, SANSAR FRIED CHICKEN; e19 SANSAR köşe tabelası; e46 arçelik kuzey vitrini, Banu Ünal.",
+  "GECE: ışıklı olduğu yapıdan belli olanlar lit (Ziraat kutu, KuveytTürk hap tabela, BİM, eczane E, ECZANE BUKETİM); gece karesi yok.",
+  "GÖRÜLMEYEN: iç avlu kenarları 20–40, 42–44 (Street View yok; yalnız hava fotoğrafı), kısa dişler 8/11/14/16/17, kulelerin podyum boşluklarına bakan yan yüzleri ve 331. Sk. tarafındaki güney yüzleri (kütle kesim duvarı, düz sıva çizilir). Kule 2/3 yan yüzleri ve kule 4/5'in avlu yüzleri çizilmedi."
+ ],
+ "pending": [
+  {
+   "id": "ziraat-basak-e3",
+   "edge": 3,
+   "what": "Ziraat Bankası başak amblemi (kırmızı kanal, dikey başak demeti) 1. kat bandında",
+   "u0": 3.4,
+   "u1": 4.0,
+   "y0": 10.1,
+   "y1": 11.3,
+   "color": "#c8252a",
+   "note": "üreticide başak ikonu yok; ayrıca zemin kutu tabelada beyaz başak (u 0.8–1.2, y 4.9–5.7)"
+  },
+  {
+   "id": "tower-cut-faces",
+   "what": "Kulelerin kütle kesim çizgisindeki yüzleri (kule 1–3 kuzey/güney yan yüzleri e1/e3 podyum boşluklarına, kule 3 ve 4 güney yüzleri 331. Sk.'ye) üreticide öğesiz düz sıva. Görülenler: kule 1/2 yan yüzleri (_u_L 120°, lc7D): köşe balkon yığınları + küçük pencere sütunları (ölçülmedi, ortofoto yok); kule 3 güney yüzü (AAkb/R5Tx): 5 katta dikey pencere sütunu + sağda cam balkon yığını (K4–K8), K4 sağ balkonda siyah levha 'KÜBRA … (okunamadı)' ≈1.5×0.35 m, beyaz harf; kule 4 güney yüzü (Zz62, 331. Sk. ~6 m geride): cam balkonlar, çanak anten (K3, ≈Ø0.6 beyaz), klimalar",
+   "need": "massing kesim kenarına öğe yazma (ya da kule halkalarını ayrı survey olarak ölçme) + bu yüzler için ortofoto üretimi"
+  },
+  {
+   "id": "tower-west-setback",
+   "what": "Bulvar cephesinde kule duvarı (K3–K8) podyum önünün ≈1.7 m gerisinde (H7s4/X0NY paralaksı; e0 K3 pencerelerinin alt kısmı podyum parapeti arkasında). Model kuleyi podyum hattında çiziyor; görünen ölçüler tek düzlemde yazıldı (kulede yatay ölçek ≈%7 fazla, yükseklik ≈%5 kısa)",
+   "fix": "kule 1–3 massing poly'lerinin batı kenarını 1.7 m doğuya almak (footprint ajanı onaylarsa)"
+  },
+  {
+   "id": "roof-huts",
+   "edge": 2,
+   "what": "Kule 2 çatısı: sağda (görünen u 15.3–19.8, y 28.4–30.2) bakır/kiremit renkli (#a35a3a) tek yöne eğik çatılı çatı kulübesi, önünde beyaz saçak; solda (u 6.5–9.7, y 29.3–30.3) koyu mavi (#243a7a) eğik çatılı küçük kulübe. Kule 3 çatısı (e4): ortada (u 8.7–12.2) düz çatılı çatı kulübesi y 28.7–30.3, solda beyaz çadır/tente (u 1.5–6.0, y 29.3–29.8). Tüm kulelerde çatı kenarında boru korkuluk (görünen üst ≈+0.5 m saçak üstünde).",
+   "need": "yükseklik görüldü, derinlikler hava fotoğrafından ölçülmedi → volumes"
+  },
+  {
+   "id": "arch-tops",
+   "edges": [
+    13,
+    15
+   ],
+   "what": "323. Sk. beyaz podyum kemerleri: e15 5 bölme (u 0–1.6, 2.5–7.2, 8.0–13.0, 13.8–18.3, 19.1–23.8), üzengi 6.3, tepe ≈7.0 görünen (basık yay, siyah doğrama, kemer içi camlı); e13 u 16.9–17.9 (dar, tepe 5.9 yarım daire), 19.1–23.2 ve 24.5–27.26 (üzengi 5.3, tepe 6.0). Payelerde kabartma geometrik motif (≈0.8 m geniş).",
+   "need": "win.shape 'arch' (segment kemerli açıklık) — şu an dikdörtgen çizildi"
+  },
+  {
+   "id": "kavanoz-tilt-sign",
+   "edge": 6,
+   "what": "kavanoz design panosu ≈15° eğik (sol alt köşe u 12.44 y 4.1, sağ üst u 19.54 y 6.0; koyu gri #3a3d40, beyaz el yazısı), kaldırımdaki pergolanın (pembe dikmeler #d98aa6, ahşap kahve çatı) ön üst kenarına oturuyor",
+   "need": "sign rotate (düzlem içi dönüş) — şimdilik düz kutu u 12.44–19.54 × 4.1–6.0"
+  },
+  {
+   "id": "north-face-e46",
+   "edge": 46,
+   "what": "Kule 1 kuzey yüzü K3–K8: köşeyi (KB) saran cam balkon yığını (lQ3f görünen u ≈11–18, açık/koyu cam K3–K8), küçük pencere sütunu (u 8.5–10.2), sol uçta balkon/loca sırası (u −1.5…7.5), bayraklı cam balkon; ortofotolar tutarsız (düşey ≈1.5× büyüme, iki pano arasında yatay ≈15 m fark)",
+   "need": "yakın/dik açılı ek kare (servis yolu tarafından 40° kareler) veya taban izi düzeltmesi"
+  },
+  {
+   "id": "north-faces-scale",
+   "edges": [
+    19,
+    46,
+    45
+   ],
+   "what": "Kuzey panolarında (QEOW, aTnf, lQ3f, VWD2) cephe ≈1.5× büyük görünüyor; e19'da cal.dist 8.3 ile düzeltildi. Neden (pano GPS / taban izi kuzeyde ≈2–4.5 m) doğrulanmalı."
+  }
+ ],
  "edges": [
   {
    "edge": 0,
@@ -4739,7 +4803,7 @@
    "len": 1.93,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "1.9 m diş (kule 3 GD köşe – podyum): 0Tj6/AAkb karelerinde yalnız kenar 7/9 görülüyor; görülmedi."
   },
   {
    "edge": 9,
@@ -5498,7 +5562,7 @@
    "len": 1.97,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "2.0 m diş (GD köşe): görülmedi (xy3i/yLl5 ortofotoları kenar 10/12'de)."
   },
   {
    "edge": 12,
@@ -6458,14 +6522,14 @@
    "len": 1.56,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "1.56 m diş (kule 5 GD köşe balkonları): NNjY'de eğik, ölçülmedi."
   },
   {
    "edge": 17,
    "len": 0.73,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "0.73 m diş: görülmedi."
   },
   {
    "edge": 18,
@@ -7264,182 +7328,560 @@
    "len": 12.03,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 21,
    "len": 6.0,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 22,
    "len": 4.08,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 23,
    "len": 29.42,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 24,
    "len": 0.8,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 25,
    "len": 7.95,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 26,
    "len": 1.19,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 27,
    "len": 8.89,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 28,
    "len": 0.76,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 29,
    "len": 1.8,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 30,
    "len": 8.84,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 31,
    "len": 2.03,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 32,
    "len": 9.82,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 33,
    "len": 5.48,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 34,
    "len": 6.15,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 35,
    "len": 7.72,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 36,
    "len": 1.1,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 37,
    "len": 9.35,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 38,
    "len": 1.26,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 39,
    "len": 7.39,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 40,
    "len": 6.29,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "İç avlu kenarı: Street View karesi yok, yalnız hava fotoğrafı → görülmedi (düz sıva)."
   },
   {
    "edge": 41,
    "len": 7.78,
-   "seen": "none",
-   "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "seen": "partial",
+   "ref": "1550614219_41_VWD246tM.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     7.78
+    ],
+    "head": [
+     [
+      2,
+      8.2
+     ],
+     [
+      8,
+      22.4
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0.0,
+     "u1": 7.78,
+     "y0": 6.0,
+     "y1": 7.0,
+     "color": "#c2b4a1",
+     "clad": {
+      "dir": "h",
+      "every": 0.33,
+      "w": 0.01,
+      "color": "#a89a86"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0.0,
+     "u1": 7.78,
+     "y0": 7.0,
+     "y1": 7.15,
+     "color": "#e6e6e2"
+    },
+    {
+     "t": "win",
+     "u0": 0.3,
+     "u1": 1.1,
+     "y0": 21.6,
+     "y1": 22.4,
+     "k": 8,
+     "s": [
+      2,
+      8
+     ],
+     "split": 1,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "karanlik",
+      "K3": "karanlik",
+      "K4": "karanlik",
+      "K5": "karanlik",
+      "K6": "karanlik",
+      "K7": "karanlik",
+      "K8": "karanlik"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 0.9,
+     "s": 6,
+     "y": 18.3
+    },
+    {
+     "t": "bal",
+     "u0": 3.0,
+     "u1": 7.78,
+     "d": 1.3,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#9fb0b4"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "glazed": [
+      2
+     ],
+     "tint": {
+      "K2": "dark"
+     },
+     "frameC": {
+      "*": "#dfe2e2"
+     },
+     "glazeEvery": 0.62,
+     "cap": true,
+     "capH": 1.2,
+     "capC": "#bca18c"
+    },
+    {
+     "t": "sign",
+     "u0": 2.5,
+     "u1": 4.6,
+     "y0": 7.2,
+     "y1": 7.7,
+     "text": "",
+     "bg": "#e8e8e4",
+     "fg": "#3a3a3a",
+     "style": "panel",
+     "d": 0.02,
+     "logo": "K2 balkon korkuluğunda küçük beyaz levha (yazısı okunamadı)"
+    },
+    {
+     "t": "win",
+     "u0": 3.8,
+     "u1": 7.78,
+     "y0": 2.5,
+     "y1": 5.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "frameC": "#8a8e90",
+     "tint": "#9a9c98"
+    },
+    {
+     "t": "ac",
+     "u": 1.3,
+     "s": 0,
+     "y": 3.8
+    }
+   ],
+   "note": "Kule 1'in avluya bakan doğu yüzü (2025-09; VWD2 f22 34 m, eğik). Solda küçük pencere sütunu (K2–K8, perdesiz/karanlık, K6'da yanında klima), sağda balkon yığını (yalnız ön kenarlar eğik görülüyor; K2 koyu cam balkon, üstte küçük beyaz levha). Podyum (avlu tarafı) tek kat: taş bant, gri kapalı cephe ve önünde sıra klima dış üniteleri (≈y 2.5–3.4), alt kısmı siyah ferforje çit arkasında; çitte 'AZ MİSAFİR…' levhası (kaldırım). Balkon ön yüz konumları eğiklik nedeniyle ±0.5 m."
   },
   {
    "edge": 42,
    "len": 1.05,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "Avlu dişi: görülmedi."
   },
   {
    "edge": 43,
    "len": 8.84,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "Avlu köşesi (kule 1 doğu – podyum): aTnf f22 ortofotosunda çok eğik (kenar 44/45 tarafı ve karşı bina karışıyor) — ölçülmedi; zeminde siyah çerçeveli camlı teras/restoran cephesi ve ferforje kapı seçiliyor."
   },
   {
    "edge": 44,
    "len": 1.18,
    "seen": "none",
    "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "note": "Avlu dişi: görülmedi."
   },
   {
    "edge": 45,
    "len": 7.77,
-   "seen": "none",
-   "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "seen": "photo",
+   "ref": "1550614219_45_aTnfx9Cr.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     7.77
+    ],
+    "head": [
+     [
+      2,
+      8.6
+     ],
+     [
+      8,
+      24.5
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0.0,
+     "u1": 7.77,
+     "y0": 6.1,
+     "y1": 7.05,
+     "color": "#c2b4a1",
+     "clad": {
+      "dir": "h",
+      "every": 0.33,
+      "w": 0.01,
+      "color": "#a89a86"
+     }
+    },
+    {
+     "t": "band",
+     "u0": 0.0,
+     "u1": 7.77,
+     "y0": 7.05,
+     "y1": 7.3,
+     "color": "#e6e6e2",
+     "proud": 0.05
+    },
+    {
+     "t": "win",
+     "u0": 0.0,
+     "u1": 7.77,
+     "y0": 0.3,
+     "y1": 5.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 4,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "mast",
+     "u": 7.1,
+     "off": 0.3,
+     "y0": 7.3,
+     "h": 1.9,
+     "color": "#d0d0cc",
+     "flag": "tr"
+    },
+    {
+     "t": "win",
+     "u0": 4.6,
+     "u1": 6.1,
+     "y0": 22.6,
+     "y1": 24.5,
+     "k": 8,
+     "s": [
+      3,
+      8
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul-yan",
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     },
+     "curtC": {
+      "K4": "#b84a50"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 4.6,
+     "u1": 6.1,
+     "y0": 7.6,
+     "y1": 8.6,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.8,
+     "u1": 3.1,
+     "y0": 7.6,
+     "y1": 8.6,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 0.0,
+     "u1": 1.0,
+     "y0": 7.6,
+     "y1": 8.6,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 1,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 1.35,
+     "s": 2,
+     "y": 8.2
+    },
+    {
+     "t": "ac",
+     "u": 7.9,
+     "s": 2,
+     "y": 8.9
+    },
+    {
+     "t": "bal",
+     "u0": 0.0,
+     "u1": 4.3,
+     "d": 1.3,
+     "s": [
+      3,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#c9d2d4"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "glazed": [
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "K4": "clear",
+      "K5": "dark",
+      "K6": "dark",
+      "K7": "dark",
+      "K8": "dark"
+     },
+     "frameC": {
+      "*": "#dfe2e2"
+     },
+     "glazeEvery": 0.62,
+     "cap": true,
+     "capH": 1.2,
+     "capC": "#bca18c"
+    },
+    {
+     "t": "ac",
+     "u": 0.6,
+     "s": 3,
+     "y": 11.6
+    },
+    {
+     "t": "pipe",
+     "u": 0.2,
+     "color": "#d8d2c2",
+     "r": 0.06,
+     "y0": 7.3,
+     "y1": 26.2
+    }
+   ],
+   "note": "Kule 1 kuzey dişinin avluya (doğuya) bakan yüzü (2025-09; aTnf f22 26.7 m kuzeydoğudan, QEOW ile). Bu tarafta zemin alçak: podyum tek kat (taş bant 6.1–7.05, üstte teras korkuluğu + Türk bayrağı direği u 7.1), K2 konut katı (küçük pencereler + 2 klima). Kule K3–K8: sol (güney) uçta cam balkon yığını (K4 açık cam, K5–K8 koyu cam, K3 açık + klima), sağda Fransız boy pencere sütunu (K4 kırmızı yan perde). Zemin: avlu girişi siyah ferforje kapı ve önündeki 'S…anor' siyah yuvarlak direk tabelası, sol altta '…yatak' tabelası (kaldırım/giriş öğeleri raporlandı). cal.u köşeleri kesin görülmedi (±0.5)."
   },
   {
    "edge": 46,
