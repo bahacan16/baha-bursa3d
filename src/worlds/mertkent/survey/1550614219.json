@@ -7444,9 +7444,260 @@
   {
    "edge": 46,
    "len": 23.76,
-   "seen": "none",
-   "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "seen": "partial",
+   "ref": "1550614219_46_lQ3fAh7m.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     24.9
+    ],
+    "head": [
+     [
+      3,
+      16.5
+     ],
+     [
+      7,
+      32.3
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": -0.5,
+     "u1": 21.3,
+     "y0": 2.0,
+     "y1": 8.3,
+     "color": "#1a1d21"
+    },
+    {
+     "t": "win",
+     "u0": -0.5,
+     "u1": 8.0,
+     "y0": 2.2,
+     "y1": 6.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 2,
+     "frameC": "#1a1d21",
+     "tint": "#2a2a3a"
+    },
+    {
+     "t": "banner",
+     "u0": 8.2,
+     "u1": 20.3,
+     "y0": 2.5,
+     "y1": 5.9,
+     "d": 0.05,
+     "style": "print",
+     "bg": "#d23a36",
+     "lines": [
+      {
+       "text": "Teknolojiyle",
+       "fg": "#e8e8e8",
+       "size": 1.0,
+       "bold": true,
+       "y": 0.8
+      },
+      {
+       "text": "Hayatın",
+       "fg": "#e8e8e8",
+       "size": 1.0,
+       "bold": true,
+       "y": 0.55
+      },
+      {
+       "text": "Kalbinde",
+       "fg": "#e8e8e8",
+       "size": 1.0,
+       "bold": true,
+       "y": 0.3
+      }
+     ],
+     "blocks": [
+      {
+       "x0": 0.55,
+       "x1": 0.78,
+       "y0": 0.3,
+       "y1": 0.85,
+       "color": "#b8242a"
+      }
+     ],
+     "logo": "arçelik vitrin arkası kırmızı baskı: sağda koyu kırmızı kalp içinde beyaz 'arçelik' logosu, altta çapraz koyu şerit; camın hemen arkasında"
+    },
+    {
+     "t": "win",
+     "u0": 8.2,
+     "u1": 20.3,
+     "y0": 6.4,
+     "y1": 7.9,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "stair": true,
+     "split": 6,
+     "tint": "#3f4a44",
+     "frameC": "#1a1d21"
+    },
+    {
+     "t": "band",
+     "u0": -0.5,
+     "u1": 21.3,
+     "y0": 8.3,
+     "y1": 8.55,
+     "color": "#3a3d40"
+    },
+    {
+     "t": "sign",
+     "u0": -0.5,
+     "u1": 4.5,
+     "y0": 8.6,
+     "y1": 9.6,
+     "text": "Banu Ünal",
+     "bg": "#dfe0dc",
+     "fg": "#4a4c4e",
+     "style": "panel",
+     "d": 0.03,
+     "font": "script",
+     "bold": false,
+     "capH": 0.55,
+     "logo": "açık gri pano, koyu gri el yazısı 'Banu Ünal', altında iki grup küçük okunamayan yazı (VWD2 f22 karesinden okundu; lQ3f karesinde u −1.5–3.5 kısmen)"
+    },
+    {
+     "t": "win",
+     "u0": 0.0,
+     "u1": 1.0,
+     "y0": 9.9,
+     "y1": 11.4,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.6,
+     "u1": 5.8,
+     "y0": 9.9,
+     "y1": 11.4,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.6,
+     "u1": 8.6,
+     "y0": 9.9,
+     "y1": 11.4,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 11.1,
+     "u1": 12.3,
+     "y0": 9.9,
+     "y1": 11.4,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 16.5,
+     "u1": 17.6,
+     "y0": 9.9,
+     "y1": 11.4,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "stair": true,
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "karanlik"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 11.2,
+     "s": 2,
+     "y": 9.6
+    },
+    {
+     "t": "panel",
+     "u0": 20.3,
+     "u1": 24.9,
+     "y0": 8.3,
+     "y1": 14.0,
+     "color": "#d9dee1",
+     "finish": "acp"
+    }
+   ],
+   "note": "Kuzey (servis yolu) cephesi, kule 1 kuzey yüzü (2025-09; lQ3f 27.9 m batıdan, VWD2 f22 26.2 m doğudan — ikisi de çok eğik). UYARI: iki ortofotoda da düşey ölçek ≈1.5× (kat aralığı görünen ≈4.0), yatayda iki pano birbirini tutmuyor (Banu Ünal panosu lQ3f'de u≈0, VWD2'de u≈17–22) → cephe düzlemi/konumu güvenilmez; yalnız podyum öğeleri lQ3f'ye göre yazıldı (±1.5 m). Görülen: arçelik mağazasının kuzey vitrini (siyah çerçeve, 'Teknolojiyle Hayatın Kalbinde' kırmızı baskı + kalp arçelik logosu), üstte cam bandı, 'Banu Ünal' panosu, 1. kat (K2) pencereleri + klima, batı köşede beyaz ACP podyum köşesi. Kule 1'in kuzey yüzü (K3–K8: köşeyi saran cam balkon yığını u≈8–20, küçük pencere sütunları, sol uçta loca sırası) görüldü ama geometri güvenilmez → pending."
   }
  ]
 }

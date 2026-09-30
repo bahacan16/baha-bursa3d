@@ -1,0 +1,781 @@
+{
+ "id": 1477364957,
+ "name": "İkiz kule sitesi batı kulesi (Juan Valdez / ROSSMANN / BIGCHEFS / Starbucks), Muammer Aksoy × Özlüce Blv. GD köşesi",
+ "storeys": 9,
+ "floorH": 2.92,
+ "groundRaise": 4.02,
+ "plinthH": 0,
+ "wallTop": 30.15,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.02,
+  "fasciaH": 0.3,
+  "parapet": {
+   "h": 0.3,
+   "color": "#62656b"
+  },
+  "flatC": "#d9d6cf"
+ },
+ "colors": {
+  "plaster": "#b3b5b5",
+  "plaster2": "#694838",
+  "strip": "#694838",
+  "fascia": "#62656b",
+  "soffit": "#654731",
+  "railGlass": "#657c93",
+  "frame": "#3b3e41",
+  "tile": "#d9d6cf",
+  "plinth": "#665f55"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 27.58,
+   "seen": "none",
+   "items": [],
+   "note": "batı (Özlüce Blv.): pending’e bakın — ölçek güvenilmez"
+  },
+  {
+   "edge": 1,
+   "len": 43.13,
+   "seen": "none",
+   "items": [],
+   "note": "güney: görülmedi (hava fotoğrafında 10 balkon şeridi)"
+  },
+  {
+   "edge": 2,
+   "len": 27.57,
+   "seen": "none",
+   "items": [],
+   "note": "doğu: çok eğik, pending"
+  },
+  {
+   "edge": 3,
+   "len": 43.13,
+   "seen": "photo",
+   "ref": "1477364957_3_qo16GPO9.jpg",
+   "cal": {
+    "u": [
+     0,
+     43.13
+    ],
+    "head": [
+     [
+      4,
+      17.95
+     ],
+     [
+      7,
+      26.71
+     ]
+    ],
+    "dist": 19.95
+   },
+   "items": [
+    {
+     "t": "proj",
+     "u0": -0.39,
+     "u1": 38.46,
+     "d": 1,
+     "y0": 0,
+     "y1": 9.71,
+     "color": "#665f55",
+     "finish": "matte",
+     "wins": [
+      {
+       "u0": 0.18,
+       "u1": 8.92,
+       "y0": 0.21,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 5,
+       "frameC": "#2e2c2a"
+      },
+      {
+       "u0": 9.68,
+       "u1": 16.38,
+       "y0": 0.21,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 4,
+       "frameC": "#2e2c2a"
+      },
+      {
+       "u0": 17.19,
+       "u1": 23.93,
+       "y0": 0.21,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 4,
+       "frameC": "#2e2c2a"
+      },
+      {
+       "u0": 24.78,
+       "u1": 31.43,
+       "y0": 0.21,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 4,
+       "frameC": "#2e2c2a"
+      },
+      {
+       "u0": 32.38,
+       "u1": 38.46,
+       "y0": 0.21,
+       "y1": 4.62,
+       "kind": "std",
+       "split": 4,
+       "frameC": "#2e2c2a"
+      },
+      {
+       "u0": 6.26,
+       "u1": 38.08,
+       "y0": 6.87,
+       "y1": 8.58,
+       "kind": "std",
+       "split": 16,
+       "frameC": "#3a3935"
+      },
+      {
+       "u0": 6.26,
+       "u1": 38.08,
+       "y0": 5.93,
+       "y1": 6.33,
+       "kind": "std",
+       "split": 16,
+       "frameC": "#3a3935"
+      }
+     ]
+    },
+    {
+     "t": "band",
+     "u0": 6.26,
+     "u1": 38.08,
+     "y0": 8.58,
+     "y1": 9.3,
+     "color": "#4a463c",
+     "style": "louvre",
+     "shade": "#1f1e19",
+     "slats": 6,
+     "proud": 1.06
+    },
+    {
+     "t": "sign",
+     "u0": -0.4,
+     "u1": 0.53,
+     "y0": 5,
+     "y1": 5.81,
+     "off": 1.02,
+     "style": "box",
+     "d": 0.06,
+     "bg": "#d8262a",
+     "fg": "#ffffff",
+     "text": "",
+     "logo": "Juan Valdez logosu: kırmızı kare içinde beyaz stilize figür (çizilmez)",
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 0.75,
+     "u1": 5.19,
+     "y0": 5,
+     "y1": 5.87,
+     "off": 1.02,
+     "style": "letters",
+     "d": 0.05,
+     "fg": "#eeeeec",
+     "font": "script",
+     "bold": true,
+     "text": "Juan Valdez.",
+     "lit": true,
+     "logo": "kanal harf, gece görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 5.41,
+     "u1": 7.81,
+     "y0": 5,
+     "y1": 5.22,
+     "off": 1.02,
+     "style": "letters",
+     "d": 0.03,
+     "fg": "#eeeeec",
+     "font": "sans",
+     "bold": true,
+     "text": "Colombian Coffee",
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 13.31,
+     "u1": 19.81,
+     "y0": 5,
+     "y1": 5.87,
+     "off": 1.02,
+     "style": "letters",
+     "d": 0.06,
+     "fg": "#d23a3a",
+     "font": "sans",
+     "bold": false,
+     "text": "ROSSMANN",
+     "lit": true,
+     "logo": "O harfi kırmızı daire içinde beyaz stilize at-adam (kentaur) logosu (çizilmez; daire içi beyaz)"
+    },
+    {
+     "t": "sign",
+     "u0": 32.82,
+     "u1": 38.04,
+     "y0": 5.01,
+     "y1": 5.88,
+     "off": 1.02,
+     "style": "letters",
+     "d": 0.06,
+     "fg": "#eeeeec",
+     "font": "sans",
+     "bold": true,
+     "text": "BIGCHEFS",
+     "lit": true
+    },
+    {
+     "t": "lamp",
+     "u": 9.3,
+     "y": 3.72,
+     "style": "box",
+     "d": 0.1,
+     "h": 0.25,
+     "proud": 1.06,
+     "color": "#3a3a38"
+    },
+    {
+     "t": "lamp",
+     "u": 16.76,
+     "y": 3.72,
+     "style": "box",
+     "d": 0.1,
+     "h": 0.25,
+     "proud": 1.06,
+     "color": "#3a3a38"
+    },
+    {
+     "t": "lamp",
+     "u": 24.36,
+     "y": 3.72,
+     "style": "box",
+     "d": 0.1,
+     "h": 0.25,
+     "proud": 1.06,
+     "color": "#3a3a38"
+    },
+    {
+     "t": "lamp",
+     "u": 31.91,
+     "y": 3.72,
+     "style": "box",
+     "d": 0.1,
+     "h": 0.25,
+     "proud": 1.06,
+     "color": "#3a3a38"
+    },
+    {
+     "t": "win",
+     "u0": 12.87,
+     "u1": 14.07,
+     "y0": 15.96,
+     "y1": 17.88,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b3e41",
+     "hbars": [
+      16.47
+     ],
+     "curt": {
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 15.73,
+     "u1": 16.96,
+     "y0": 15.96,
+     "y1": 17.88,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b3e41",
+     "hbars": [
+      16.47
+     ],
+     "curt": {
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "stor",
+      "K7": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 24.44,
+     "u1": 25.71,
+     "y0": 15.96,
+     "y1": 17.88,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b3e41",
+     "hbars": [
+      16.47
+     ],
+     "curt": {
+      "K4": "jaluzi",
+      "K5": "karanlik",
+      "K6": "tul-yan",
+      "K7": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 27.26,
+     "u1": 28.52,
+     "y0": 15.96,
+     "y1": 17.88,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b3e41",
+     "hbars": [
+      16.47
+     ],
+     "curt": {
+      "K4": "jaluzi",
+      "K5": "karanlik",
+      "K6": "karanlik",
+      "K7": "karanlik"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 17.6,
+     "u1": 23.68,
+     "d": 1.55,
+     "s": [
+      4,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "end-wall",
+     "beam": {
+      "*": 0.35
+     }
+    },
+    {
+     "t": "win",
+     "u0": 20.77,
+     "u1": 22.8,
+     "y0": 15.75,
+     "y1": 17.9,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#3b3e41",
+     "curt": {
+      "K4": "tul",
+      "K5": "jaluzi",
+      "K6": "tul",
+      "K7": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 18.42,
+     "u1": 19.69,
+     "y0": 16,
+     "y1": 17.9,
+     "k": 4,
+     "s": [
+      4,
+      7
+     ],
+     "kind": "std",
+     "split": 1,
+     "frameC": "#3b3e41",
+     "curt": {
+      "K4": "karanlik",
+      "K5": "karanlik",
+      "K6": "acik",
+      "K7": "acik"
+     }
+    },
+    {
+     "t": "flag",
+     "u": 20.4,
+     "s": 5,
+     "onBal": true,
+     "y": 19.6
+    },
+    {
+     "t": "bal",
+     "u0": 1.3,
+     "u1": 11.3,
+     "d": 0.8,
+     "inset": 1.6,
+     "s": [
+      2,
+      3
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "bal",
+     "u0": 11.3,
+     "u1": 17.35,
+     "d": 0.8,
+     "s": [
+      2,
+      3
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93",
+      "K3": "#4f86a6"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open",
+     "pots": {
+      "K3": [
+       11.9,
+       12.6,
+       13.3,
+       14,
+       14.7,
+       15.4,
+       16.1,
+       16.8
+      ]
+     },
+     "potsOn": "rail",
+     "plantC": "#5f7d3a",
+     "potC": "#4f86a6"
+    },
+    {
+     "t": "bal",
+     "u0": 17.35,
+     "u1": 29.99,
+     "d": 0.8,
+     "s": [
+      2,
+      3
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "bal",
+     "u0": 29.99,
+     "u1": 40.3,
+     "d": 0.8,
+     "inset": 1.6,
+     "s": [
+      2,
+      3
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open"
+    },
+    {
+     "t": "panel",
+     "u0": 15.44,
+     "u1": 17.22,
+     "y0": 10.3,
+     "y1": 15.3,
+     "color": "#694838"
+    },
+    {
+     "t": "panel",
+     "u0": 24.1,
+     "u1": 26,
+     "y0": 10.3,
+     "y1": 15.3,
+     "color": "#694838"
+    },
+    {
+     "t": "win",
+     "u0": 12.53,
+     "u1": 14.49,
+     "y0": 10.7,
+     "y1": 12.03,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#3b3e41"
+    },
+    {
+     "t": "win",
+     "u0": 15.85,
+     "u1": 17.09,
+     "y0": 10.7,
+     "y1": 12.03,
+     "k": 2,
+     "s": [
+      2,
+      3
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#5a3a2a"
+    },
+    {
+     "t": "win",
+     "u0": 18.46,
+     "u1": 19.69,
+     "y0": 10.7,
+     "y1": 12.03,
+     "k": 2,
+     "s": [
+      2,
+      3
+     ],
+     "kind": "door",
+     "split": 1,
+     "frameC": "#3b3e41"
+    },
+    {
+     "t": "win",
+     "u0": 20.77,
+     "u1": 22.86,
+     "y0": 10.7,
+     "y1": 12.03,
+     "k": 2,
+     "s": [
+      2,
+      3
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#3b3e41",
+     "curt": {
+      "K2": "tul",
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 24.38,
+     "u1": 25.65,
+     "y0": 10.7,
+     "y1": 12.03,
+     "k": 2,
+     "s": [
+      2,
+      3
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#5a3a2a"
+    },
+    {
+     "t": "win",
+     "u0": 26.85,
+     "u1": 29,
+     "y0": 10.7,
+     "y1": 12.03,
+     "k": 2,
+     "s": [
+      2,
+      3
+     ],
+     "kind": "door",
+     "split": 3,
+     "frameC": "#3b3e41",
+     "curt": {
+      "K3": "tul"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 1.3,
+     "u1": 11.3,
+     "d": 0.8,
+     "inset": 1.6,
+     "s": [
+      4,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.35
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 29.99,
+     "u1": 40.3,
+     "d": 0.8,
+     "inset": 1.6,
+     "s": [
+      4,
+      7
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.35
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 1.3,
+     "u1": 40.3,
+     "d": 0.8,
+     "inset": 1.6,
+     "s": [
+      8,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#657c93"
+     },
+     "fasciaC": {
+      "*": "#62656b"
+     },
+     "sides": "open",
+     "beam": {
+      "*": 0.35
+     },
+     "cap": true,
+     "capC": "#62656b",
+     "capH": 0.9,
+     "spots": {
+      "us": [
+       3.5,
+       7.2,
+       10,
+       13.6,
+       16.9,
+       19.9,
+       22.9,
+       26,
+       28.9,
+       32.1,
+       35.2,
+       38
+      ],
+      "cap": true,
+      "shape": "rect",
+      "l": 0.3,
+      "w": 0.15
+     }
+    }
+   ],
+   "note": "KUZEY (Muammer Aksoy Cd.). Ölçüler DELTA=−1.0 ortofotosunda (CORRECTED=1 SURVEY_TOP=38 DELTA=\"1477364957:3=-1.0\"; çekirdek krem duvar düzlemi, qo16/m4A4 stereo kayması 0.5 m → çekirdek taban izinin ≈1.0 m gerisinde), cal.dist 19.95. docs/survey/c içindeki δ=0 ortofoto ile çakışmaz. Podyum (K0 dükkân + K1 camlı asma kat, lamelli saçak) taban izi çizgisinde → proj d 1.0 (ön yüz ölçüleri geri küçültüldü). Kat: K0+K1 podyum ≈9.8 m (sanal groundRaise 4.02: K0 dükkân camı zemine iner), konut K2–K8 kat aralığı 2.92 (çekirdek pencereleri K4–K7). Kanat terasları (u 1.3–11.3 ve 30–40.3): ön döşeme d≈0.8 (kat aralığı büyümesinden), arka duvar derinliği (inset 1.6) görülmedi/tahmin. Kanat arka duvarlarındaki krem bant + tuğla pano + pencere düzeni tek tek ölçülmedi (üretici varsayılan kapı/pencere çizer) → pending."
+  }
+ ],
+ "notes": [
+  "KAT SAYISI DÜZELTMESİ: kuzey cephede zemin (dükkân) + asma kat + 7 konut katı (K2–K8) = 9 kat, çatı plağı üstü görünen ≈31.3 m (çekirdek düzleminde; gerçek ≈30.5 + PV rafları). Taban izi notundaki \"≈12 kat / çatı ≈42 m\" bu cephede görülmedi. Batıdan (dZQ2) bakınca üstte daha fazla kat görünüyor (ALTAY pankartlı podyum terası görünen 17.5–18.5, üstünde 6+ kat, ortofoto üst sınırı 38 m’yi aşıyor) — batı cephe için ayrı ölçüm gerekiyor (kenar 0 pending).",
+  "Renkler bulutsuz güneşli-yarı gölge cephede: krem taş #b3b5b5 (gökyüzü yansımalı), tuğla pano #694838, balkon alnı koyu gri #62656b, saçak altı/balkon tavanı ahşap görünümlü kahve #654731 (tavanlarda dikdörtgen spotlar), cam korkuluk #657c93."
+ ],
+ "pending": [
+  {
+   "what": "kanat arka duvarları",
+   "edge": 3,
+   "desc": "sol kanat (u 1.3–11.3) ve sağ kanat (30–40.3) terasların arkasında: her katta tavan altında ≈0.4 m krem bant, altında tuğla kırmızısı (#694838 / #7c6552) pano bölgeleri ve 2–3 geniş sürme cam kapı (koyu antrasit doğrama); sağ kanat K5 camlarında beyaz perde, K7’de açık gri stor. Derinlik görülmediği için (inset tahmini 1.6) açıklıklar tek tek yazılmadı."
+  },
+  {
+   "what": "çatı PV / güneş paneli rafları",
+   "edge": 3,
+   "desc": "çatı plağının üstünde (görünen 31.3–31.9, u ≈4–10.5, 13.5–17.2, 20–27.5, 29–33.5) eğik koyu mavi fotovoltaik paneller, çelik ayaklı raflarda; hava fotoğrafında çatı açık gri (#d9d6cf) — paneller hava fotoğrafında seçilemedi (eğim)."
+  },
+  {
+   "what": "kenar 0 (batı, Özlüce Blv.)",
+   "desc": "dZQ2 f22 (30 m) ortofotoda: podyum köşesinde BIGCHEFS (beyaz harf, görünen u 0–5.8, y 6.3–7.4), STARBUCKS (beyaz harf, u 21.5–27.2, y 6.9–7.4), arasında ağaç; K1 cam bant görünen 9.5–13.3; podyum çatı parapetinde ALTAY pankartı (görünen u 2–28, y 17.6–18.5: kırmızı zemin, beyaz \"ALTAY\" logolu \"SATILIK K… DAİRELER VE OFİSLER\", sarı \"TESLİME HAZIR\" rozeti, \"0 532 660 0 562\", \"altaygroup.com\", sağda ikinci \"ALTAY\"), üstünde yuvarlak budanmış çalı saksıları; üstte ≥6 konut katı (koyu gri kaplamalı üst katlar görünen 34–37). Görünen ölçek bu kenarda çekirdek/podyum derinlikleri bilinmeden güvenilmez → çizilmedi."
+  },
+  {
+   "what": "kenar 2 (doğu, araç girişi)",
+   "desc": "sd8u/GKHZ: podyumun doğu ucunda açık gri saçaklı araç girişi, zemin katta koyu dükkân camı ve ROSSMANN yuvarlak logo kutusu (kırmızı daire, görünen u −0.5…1.2, y 13.2–14.2 sd8u), yeşil bitkili teras, üstte kanat teraslarının doğu uçları. Çok eğik → çizilmedi."
+  }
+ ]
+}
