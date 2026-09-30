@@ -757,3 +757,10 @@
   kavak/ıhlamur demiyor → genel `deciduous`); (−3.4,−72.6) r 1.8→1.2; sedir (−66.8,−128.7) r 1.8→1.6; sedir
   (−69.5,−92.3) r 2.2→2.0. **Blender:** `NW/Mertkent/Site` ağaç örnekleri (boy/taç/tür) yeniden kurulur.
 - **(küçük veri düzeltmeleri)** — cam balkon kayıtları gerçekte açık gri alüminyum (556/555 #a0a6a7, 554 #acafa8, ONAL 51 #a0a5a4; kayıt aralıkları ölçüldü), site-plan ağaçları (tür, boy, taç), sedirler r; Mertkent çit tepesi doğu 2.05 / batı 1.85 m (dikmeler batıda ~0.25 m görünür). **Blender:** bu 4 bloğun cam balkonları, çit bitkisi yüksekliği, ilgili ağaçlar.
+- **(D4 v8 dönüşüm turu)** — D4 binalarında geri çekilmiş kule yüzleri `cutEdges`, kaide üstü kuleler `startK`
+  (1546358586/87/88, 1546358595): Kent Park kule/MADO/PABLO, 1552093099 batı kulesi, AVM üst kutu (dama deseni, afişler,
+  çatı tabelaları), Ceylan Plus kulesi (~20 balkon tabelası), banka kulesi 910 (3 düzlem, HİLAL TOURS, Dört Mevsim,
+  SATILIK), Altuntaş kuleleri, Elite uç blokları, TİME kulesi (büro şeridi + 14 balkon panosu), 957 batı kaidesi
+  (BIGCHEFS, STARBUCKS, ALTAY afişi), 5 kuleli kompleks bulvar kuleleri. Ayak izi düzeltmeleri: 900000201/202 sınırı,
+  1552093106 (nöww terası çıkarıldı), 1546358573 e6 duvar çizgisi, 1476599910 KB girintisi, 1477364957 batı kaidesi.
+  `facades.json` derlendi. **Blender:** bu D4 bloklarının kütle + cephe katmanı; `cutEdges` eşleşmesi port edilmeli.
