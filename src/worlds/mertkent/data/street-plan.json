@@ -13206,6 +13206,648 @@
    "w": 0.4,
    "color": "#2b2b2b",
    "note": "IDAS önünde tabela ayağı/stand (cephe ajanı; SV hf-0gAUW_0_0 koyu ayaklı levha). ±0.5."
+  },
+  {
+   "id": "d4-napoli-wg",
+   "kind": "enclosure",
+   "x": 618.15,
+   "z": -715.05,
+   "poly": [
+    [
+     616.9,
+     -711.8
+    ],
+    [
+     616.9,
+     -718.3
+    ],
+    [
+     619.4,
+     -718.3
+    ],
+    [
+     619.4,
+     -711.8
+    ]
+   ],
+   "h": 2.9,
+   "glass": "#6a7478",
+   "frame": "#51534f",
+   "mullion": 1.3,
+   "roofC": "#b9b09f",
+   "note": "Caffe Napoli kış bahçesi, tek katlı dükkân şeridinin (1551828357) KD köşesi, bulvar yüzü. SV lIHJ8SFu_240_0 / y4xcvLXl_120_0 / _180_0 (2025-09): antrasit alüminyum çerçeve (#51534f difüz), boydan sürgülü cam paneller, üstte açık bej düz/az eğimli çatı panelleri (açılır tavan?) + koyu çerçeve; köşede taş kaplı ayak; içeride pembe-kırmızı örtülü masalar, ahşap sandalyeler. Kış bahçesi 404. Sk. boyunca kuzey yüzde devam ediyor — o kısım taban izi içinde (cephe ajanı), burada yalnız bulvara taşan ≈2.5 m derin kısım (hava fotoğrafı x 616.9–619.4, z −718.3…−711.8, ±0.5). Kapı konumu görülmedi. Yükseklik oransal ≈2.9 ±0.3; kenar 0 = dükkân cephesi."
+  },
+  {
+   "id": "d4-ozhamur-pergola",
+   "kind": "pergola",
+   "x": 619.05,
+   "z": -727.9,
+   "poly": [
+    [
+     617.1,
+     -733.4
+    ],
+    [
+     621,
+     -733.4
+    ],
+    [
+     621,
+     -722.4
+    ],
+    [
+     617.1,
+     -722.4
+    ]
+   ],
+   "h": 3.2,
+   "color": "#2a2c2e",
+   "cover": "#2c3132",
+   "note": "Bursa Özhamur (ikiz blok 1540994151 GD köşesi, 404. Sk. × bulvar) önünde siyah çelik pergola terası: SV lIHJ8SFu_300_0 (2025-09) siyah dikmeler, koyu açılır tavan örtüsü, altında masalar, önünde kutu çit/saksılar. Hava fotoğrafı: koyu dikdörtgen çatı x 616.8–620.7, z −734.3…−723.3 → 3 m kot eğiklik düzeltmesiyle poly (±0.6). Direk sayısı/aralığı ölçülmedi (varsayılan). Yükseklik oransal 3.2 ±0.4."
+  },
+  {
+   "id": "d4-bigchefs-parasol-1",
+   "kind": "parasol",
+   "x": 664.2,
+   "z": -786,
+   "w": 3.5,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#c9404f",
+   "note": "BIGCHEFS terası (ikiz kule podyumu 1477364957 GB köşesi, Muammer Aksoy kavşağı) kırmızı kare şemsiyeler, beyaz/kırmızı valans (yazı okunmadı). SV dZQ2YFC-_60_0 / rxGw6Z1I_60_0 / _120_0 / AHDBxraz_120_0 (2025-09): bulvar yüzünde ≈6 şemsiye sırası; renk güneşli üst yüz ortalaması #d65f6e (beyaz yansıma karışık) → doygun kırmızı #c9404f. Konum: hava fotoğrafında iki kırmızı dikdörtgen (x 662–666, z −786…−778; x 666–670.5, z −791…−783) — şemsiye başına ayrı merkez seçilemedi; 2+2 dizilim alındı. ±1.5."
+  },
+  {
+   "id": "d4-bigchefs-parasol-2",
+   "kind": "parasol",
+   "x": 664.2,
+   "z": -781.5,
+   "w": 3.5,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#c9404f",
+   "note": "BIGCHEFS kırmızı kare şemsiye (bkz. d4-bigchefs-parasol-1). ±1.5."
+  },
+  {
+   "id": "d4-bigchefs-parasol-3",
+   "kind": "parasol",
+   "x": 668.3,
+   "z": -789.5,
+   "w": 3.5,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#c9404f",
+   "note": "BIGCHEFS kırmızı kare şemsiye, köşeye yakın. ±1.5."
+  },
+  {
+   "id": "d4-bigchefs-parasol-4",
+   "kind": "parasol",
+   "x": 668.3,
+   "z": -785.3,
+   "w": 3.5,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#c9404f",
+   "note": "BIGCHEFS kırmızı kare şemsiye. ±1.5."
+  },
+  {
+   "id": "d4-sbux-parasol-1",
+   "kind": "parasol",
+   "x": 663.5,
+   "z": -775.5,
+   "w": 3.3,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#3b3e39",
+   "valance": {
+    "text": "STARBUCKS",
+    "fg": "#f2f2ee",
+    "bg": "#3b3e39",
+    "sides": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "note": "Starbucks terası: koyu (siyah-yeşil) kare şemsiyeler, valansta beyaz \"STARBUCKS\" yazısı (SV 4GrkAeBL_60_0, dZQ2YFC-_60_0 yakın plan). Renk gölgeli yüz #585952 difüz (yazı karışık) → koyu #3b3e39. Hava fotoğrafında x 662–665, z −778…−752 koyu şerit; ≈5 şemsiye, eşit aralıklı yerleştirildi (tek tek merkez seçilemedi). Valans tüm yüzlerde varsayıldı (görülen: bulvar yüzü). ±1.5."
+  },
+  {
+   "id": "d4-sbux-parasol-2",
+   "kind": "parasol",
+   "x": 663.5,
+   "z": -771,
+   "w": 3.3,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#3b3e39",
+   "valance": {
+    "text": "STARBUCKS",
+    "fg": "#f2f2ee",
+    "bg": "#3b3e39",
+    "sides": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "note": "Starbucks şemsiyesi (bkz. -1). ±1.5."
+  },
+  {
+   "id": "d4-sbux-parasol-3",
+   "kind": "parasol",
+   "x": 663.5,
+   "z": -766.5,
+   "w": 3.3,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#3b3e39",
+   "valance": {
+    "text": "STARBUCKS",
+    "fg": "#f2f2ee",
+    "bg": "#3b3e39",
+    "sides": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "note": "Starbucks şemsiyesi. ±1.5."
+  },
+  {
+   "id": "d4-sbux-parasol-4",
+   "kind": "parasol",
+   "x": 663.5,
+   "z": -762,
+   "w": 3.3,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#3b3e39",
+   "valance": {
+    "text": "STARBUCKS",
+    "fg": "#f2f2ee",
+    "bg": "#3b3e39",
+    "sides": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "note": "Starbucks şemsiyesi. ±1.5."
+  },
+  {
+   "id": "d4-sbux-parasol-5",
+   "kind": "parasol",
+   "x": 663.5,
+   "z": -757.5,
+   "w": 3.3,
+   "h": 2.8,
+   "shape": "square",
+   "open": true,
+   "color": "#3b3e39",
+   "valance": {
+    "text": "STARBUCKS",
+    "fg": "#f2f2ee",
+    "bg": "#3b3e39",
+    "sides": [
+     0,
+     1,
+     2,
+     3
+    ]
+   },
+   "note": "Starbucks şemsiyesi (güney ucu). ±1.5."
+  },
+  {
+   "id": "d4-sbux-wall",
+   "kind": "windscreen",
+   "x": 661.4,
+   "z": -766,
+   "pts": [
+    [
+     661.4,
+     -778.5
+    ],
+    [
+     661.4,
+     -754
+    ]
+   ],
+   "h": 0.95,
+   "glass": "#9aa3a3",
+   "frame": "#7e6b52",
+   "every": 2.4,
+   "base": {
+    "h": 0.8,
+    "color": "#7e6b52"
+   },
+   "note": "Starbucks terasını çevreleyen bej sıvalı alçak duvar/saksı kutusu (≈0.8 m) + üstünde ince korkuluk (dZQ2YFC-_60_0 yakın plan; renk gölgede #7e6b52). Cam yüksekliği görülmedi → yalnız ≈0.15 m üst korkuluk kalacak şekilde h 0.95. Hat hava fotoğrafı koyu şeridin batı kenarı (±1)."
+  },
+  {
+   "id": "d4-bigchefs-pots",
+   "kind": "planter",
+   "x": 661.5,
+   "z": -784,
+   "shape": "round",
+   "w": 0.6,
+   "d": 0.6,
+   "h": 0.55,
+   "color": "#a0583b",
+   "plant": {
+    "h": 0.9,
+    "color": "#3f5a2e",
+    "shape": "shrub"
+   },
+   "note": "BIGCHEFS teras kenarında terakota saksılar sırası (≈10+ saksı, bitkili; dZQ2YFC-_60_0, rxGw6Z1I_60_0). Tek temsil kaydı — saksı sayısı/konumları tek tek ölçülmedi (bkz. rapor). Renk terakota görülen (ölçüm karışık #5b5449 gölge)."
+  },
+  {
+   "id": "d4-e8-cabinets",
+   "kind": "cabinet",
+   "x": 655.8,
+   "z": -776.8,
+   "h": 1.6,
+   "rot": 90,
+   "note": "Köşe çiminde beton kaide üzerinde 3 beyaz-gri elektrik/telekom dolabı (≈0.6×0.4×1.6, en büyüğü ≈0.8×0.5×1.9; #7b817d gölgede), üzerlerinde yapıştırmalar (dZQ2YFC-_60_0). Tek kayıt; konum dZQ2 kerteriz ±1.5."
+  },
+  {
+   "id": "d4-e8-container-1",
+   "kind": "waste-container",
+   "x": 656.2,
+   "z": -773.9,
+   "w": 1.37,
+   "d": 1.07,
+   "h": 1.3,
+   "color": "#6b705f",
+   "text": "NİLÜFER BELEDİYESİ",
+   "rot": 270,
+   "note": "Galvaniz 1100 L tekerlekli çöp konteyneri, yüzünde yeşil \"NİLÜFER BELEDİYESİ\" yazısı + logo (dZQ2YFC-_60_0 / _120_0). Konum kerteriz ±1.5. Yeni tür."
+  },
+  {
+   "id": "d4-e8-container-2",
+   "kind": "waste-container",
+   "x": 656.4,
+   "z": -771.9,
+   "w": 1.37,
+   "d": 1.07,
+   "h": 1.3,
+   "color": "#6b705f",
+   "text": "NİLÜFER BELEDİYESİ",
+   "rot": 270,
+   "note": "İkinci galvaniz konteyner (içinde mavi torbalar). ±1.5. Yeni tür."
+  },
+  {
+   "id": "d4-bus-e4",
+   "kind": "bus-shelter",
+   "x": 646.8,
+   "z": -506.5,
+   "w": 4.2,
+   "d": 1.5,
+   "h": 2.5,
+   "rot": 270,
+   "color": "#9aa0a3",
+   "note": "Otobüs durağı sığınağı, doğu kaldırımı (X0NY1chl_60_0, _u_LjgZ2_60_0, 2025-09): gri alüminyum çerçeve, cam arka/yan paneller, ince düz çatı, güney ucunda turuncu ışıklı reklam panosu (içerik değişken). Konum SV ızgarası (GPS ofseti düzeltilmedi) ±1.5; ölçüler oransal. Yeni tür."
+  },
+  {
+   "id": "d4-sign-ped-476-e",
+   "kind": "sign",
+   "x": 641,
+   "z": -474,
+   "h": 2.6,
+   "text": "yaya geçidi (mavi kare, beyaz üçgende yaya)",
+   "note": "z −476 geçidinin doğu ucunda yaya geçidi levhası (lc7DA4_C_60_0). Üretici bu levhayı çizmiyor (bkz. rapor). ±1."
+  },
+  {
+   "id": "d4-sign-ped-476-w",
+   "kind": "sign",
+   "x": 612.5,
+   "z": -478.5,
+   "h": 2.6,
+   "text": "yaya geçidi (mavi kare, beyaz üçgende yaya)",
+   "note": "z −476 geçidinin batı ucu levhası (0WR2_gJF_180_-50 kenarda direk). ±1.5."
+  },
+  {
+   "id": "d4-gonul-pergola",
+   "kind": "pergola",
+   "x": 659.65,
+   "z": -623.8,
+   "poly": [
+    [
+     656.3,
+     -630.6
+    ],
+    [
+     663,
+     -630.6
+    ],
+    [
+     663,
+     -617
+    ],
+    [
+     656.3,
+     -617
+    ]
+   ],
+   "h": 2.9,
+   "color": "#3a3a38",
+   "cover": "#d8cdb8",
+   "note": "gönül Kahvesi (Elite Offices 1545290880 GB köşesi, 325. Sk. × bulvar) terası: krem-bej açılır tente örtüsü (SV _cgVj-NL_60_0, XSGJ2f6t_60_0, 2025-09: tente altında masalar, çevresinde çalı dikili ahşap saksı kutuları). Hava fotoğrafı: açık (krem) örtü x 656.3–663, z −630.6…−617 (≈3 m kot eğikliği küçük, ±0.6). Tente kolları/direkleri ayrı görülmedi (pergola olarak çizilir; gerçek yapı cepheye bağlı açılır tente olabilir). Footprint notunda z −617…−612 yazıyor (eğik görüntü); SV kerterizi bu kaydı destekliyor."
+  },
+  {
+   "id": "d4-atmosfer-wg",
+   "kind": "enclosure",
+   "x": 659.15,
+   "z": -634.55,
+   "poly": [
+    [
+     656,
+     -630.6
+    ],
+    [
+     656,
+     -638.5
+    ],
+    [
+     662.3,
+     -638.5
+    ],
+    [
+     662.3,
+     -630.6
+    ]
+   ],
+   "h": 3,
+   "glass": "#6a7478",
+   "frame": "#3a3a38",
+   "roofC": "#8a6a55",
+   "note": "Atmosfer Kebap kış bahçesi (footprint notu: gönül Kahvesinin kuzeyi). Hava fotoğrafı: kahverengi-kiremit tonlu çatı x 656–662.3, z −638.5…−630.6. SV jyg2Jipg_60_0 / -YmqXEOA_60_0 bu cepheyi araçlar ve ağaçların arkasından gösteriyor — çerçeve rengi, kapılar, cam oranı YAKINDAN GÖRÜLMEDİ (frame/glass varsayılan koyu). ±0.8."
+  },
+  {
+   "id": "d4-e6-planters",
+   "kind": "planter",
+   "x": 655.6,
+   "z": -624,
+   "shape": "box",
+   "w": 1.6,
+   "d": 0.5,
+   "h": 0.55,
+   "color": "#8a6a45",
+   "plant": {
+    "h": 0.5,
+    "color": "#3f5a2e",
+    "shape": "hedge"
+   },
+   "note": "gönül Kahvesi / Elite Offices önünde ahşap saksı kutuları + kısa çit (XSGJ2f6t_60_0, jyg2Jipg_60_0); kaldırım boyunca birden çok kutu (sayı/konum tek tek ölçülmedi — temsil kaydı)."
+  },
+  {
+   "id": "d4-kp-lawn-1",
+   "kind": "island",
+   "x": 608.55,
+   "z": -598.25,
+   "poly": [
+    [
+     605.6,
+     -604.2
+    ],
+    [
+     611.5,
+     -604.2
+    ],
+    [
+     611.5,
+     -592.3
+    ],
+    [
+     605.6,
+     -592.3
+    ]
+   ],
+   "h": 0.15,
+   "material": "bordürlü çim tarh (meydan içinde)",
+   "note": "Kent Park (1551828351) MADO önündeki kilit taşı meydanda bordürlü çim tarh; aerial-n2 z21 (w6 crop, ±0.4). SV ile bordür tipi ayrıca görülmedi; msP5niEC_240_0/t8Dtwjai (uzak) meydanda çim + ağaç."
+  },
+  {
+   "id": "d4-kp-lawn-2",
+   "kind": "island",
+   "x": 608.55,
+   "z": -581.45,
+   "poly": [
+    [
+     605.7,
+     -586.3
+    ],
+    [
+     611.4,
+     -586.3
+    ],
+    [
+     611.4,
+     -576.6
+    ],
+    [
+     605.7,
+     -576.6
+    ]
+   ],
+   "h": 0.15,
+   "material": "bordürlü çim tarh (meydan içinde)",
+   "note": "Kent Park meydanı ikinci çim tarh (aerial-n2, ±0.4)."
+  },
+  {
+   "id": "d4-kp-lawn-3",
+   "kind": "island",
+   "x": 608.45,
+   "z": -572.4000000000001,
+   "poly": [
+    [
+     605.8,
+     -575.2
+    ],
+    [
+     611.1,
+     -575.2
+    ],
+    [
+     611.1,
+     -569.6
+    ],
+    [
+     605.8,
+     -569.6
+    ]
+   ],
+   "h": 0.15,
+   "material": "bordürlü çim tarh (meydan içinde)",
+   "note": "Kent Park meydanı üçüncü çim tarh (aerial-n2, ±0.4)."
+  },
+  {
+   "id": "d4-mak-zebra-n-w",
+   "kind": "crossing",
+   "x": 640.9,
+   "z": -817,
+   "rot": 90,
+   "len": 12.9,
+   "w": 3.2,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Kuzey kol (Özlüce Blv. kuzeyi), batı (güneye inen) şeritler: x 634.4–647.3, z −818.6…−815.4. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-n-e",
+   "kind": "crossing",
+   "x": 653.5,
+   "z": -817,
+   "rot": 90,
+   "len": 9.7,
+   "w": 3.2,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Kuzey kol, doğu şeritler: x 648.7–658.4 (arada ≈1.4 m refüj/ada boşluğu). Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-s-w",
+   "kind": "crossing",
+   "x": 638.2,
+   "z": -794.2,
+   "rot": 90,
+   "len": 10.4,
+   "w": 4.3,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Güney kol (bulvar), batı şeritler: x 633–643.4, z −796.4…−792.1. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-s-e",
+   "kind": "crossing",
+   "x": 650.5,
+   "z": -794.2,
+   "rot": 90,
+   "len": 13,
+   "w": 4.3,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Güney kol, doğu (kuzeye çıkan) şeritler: x 644–657; güneyinde (z −792.1…−790.4) kırmızı boyalı şerit (bekleme/otobüs? — anlamı görülmedi; ayrı d4-mak-redband)."
+  },
+  {
+   "id": "d4-mak-zebra-w-n",
+   "kind": "crossing",
+   "x": 630.7,
+   "z": -811,
+   "rot": 0,
+   "len": 5.7,
+   "w": 3.2,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Batı kol (Muammer Aksoy batısı) kuzey şeritleri üzerinde: x 629.1–632.3, z −813.9…−808.2. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-w-s",
+   "kind": "crossing",
+   "x": 630.7,
+   "z": -802.3,
+   "rot": 0,
+   "len": 4.6,
+   "w": 3.2,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Batı kol güney şeritleri: z −804.6…−800. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-e-n",
+   "kind": "crossing",
+   "x": 661,
+   "z": -810.5,
+   "rot": 0,
+   "len": 5.3,
+   "w": 3.2,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Doğu kol kuzey şeritleri: x 659.4–662.6, z −813.2…−807.9. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-e-s",
+   "kind": "crossing",
+   "x": 661,
+   "z": -802.1,
+   "rot": 0,
+   "len": 5,
+   "w": 3.2,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "Doğu kol güney şeritleri: z −804.6…−799.6. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-nw",
+   "kind": "crossing",
+   "x": 624.4,
+   "z": -821.3,
+   "rot": 45,
+   "len": 6,
+   "w": 3,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "KB köşe sağa dönüş cebi (tertiary_link 302892648) üzerinde çapraz zebra, x 620–628.7, z −824…−818.6; yön ±20°. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-ne",
+   "kind": "crossing",
+   "x": 664.4,
+   "z": -819,
+   "rot": 315,
+   "len": 6,
+   "w": 3,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "KD köşe dönüş cebi (430030371) zebra, x 660.9–667.3, z −822…−815.7; yön ±20°. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-sw",
+   "kind": "crossing",
+   "x": 626.6,
+   "z": -792,
+   "rot": 315,
+   "len": 6,
+   "w": 3,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "GB köşe dönüş cebi (302892651) zebra, x 623.7–629.4, z −796.4…−790; yön ±20°. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-zebra-se",
+   "kind": "crossing",
+   "x": 664.4,
+   "z": -792,
+   "rot": 45,
+   "len": 6,
+   "w": 3,
+   "stripes": "beyaz zebra (şerit/boşluk ≈0.5/0.5 m — hava fotoğrafından)",
+   "note": "GD köşe dönüş cebi (302892650) zebra, x 660.9–667.3, z −796.4…−790; yön ±20°. Muammer Aksoy Cd. × Özlüce Blv. sinyalize kavşağı; aerial-n2 z21 (x = 618 + px/14 ölçümü), aşınma SV ile ölçülmedi. ±0.5."
+  },
+  {
+   "id": "d4-mak-redband",
+   "kind": "patch",
+   "x": 650.9,
+   "z": -791.25,
+   "poly": [
+    [
+     644.8,
+     -792.1
+    ],
+    [
+     657,
+     -792.1
+    ],
+    [
+     657,
+     -790.4
+    ],
+    [
+     644.8,
+     -790.4
+    ]
+   ],
+   "color": "#9a4a45",
+   "over": true,
+   "note": "Güney kol doğu şeritlerinde yaya geçidinin hemen güneyinde kırmızı boyalı şerit (≈12.2×1.7 m), hava fotoğrafı mj crop. Renk hava fotoğrafı (#9a4a45 yaklaşık; SV ile ölçülmedi). Anlamı/yazısı görülmedi. ±0.5."
   }
  ],
  "notes": [

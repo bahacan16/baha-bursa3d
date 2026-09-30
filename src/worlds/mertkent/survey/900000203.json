@@ -1,0 +1,1714 @@
+{
+ "id": 900000203,
+ "name": "Taşyakan podyumu (İş Bankası, Saadet Eczanesi, Bereket Döner, Domino’s, PTT Özlüce)",
+ "storeys": 2,
+ "floorH": 3.9,
+ "groundRaise": 0.47,
+ "plinthH": 0,
+ "wallTop": 6.42,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.05,
+  "fasciaH": 0.2,
+  "flatC": "#c9bba6",
+  "parapet": {
+   "h": 1.15,
+   "edges": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "color": "#c4b89f",
+   "coping": {
+    "h": 0.17,
+    "over": 0.2,
+    "color": "#5f4e40"
+   },
+   "band": {
+    "h": 0.15,
+    "color": "#5f4e40"
+   }
+  }
+ },
+ "colors": {
+  "plaster": "#c4b89f",
+  "plaster2": "#e9e8e3",
+  "strip": "#e2332f",
+  "fascia": "#c4b89f",
+  "soffit": "#9c9080",
+  "railGlass": "#9aa198",
+  "frame": "#f1f0ea",
+  "tile": "#8f6f60",
+  "plinth": "#b3a98f"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 18.02,
+   "seen": "photo",
+   "ref": "900000203_0_EHfaOSmW.jpg",
+   "cal": {
+    "u": [
+     2.2,
+     21.5
+    ],
+    "head": [
+     [
+      0,
+      3.41
+     ],
+     [
+      1,
+      7.58
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "y0": 7.37,
+     "y1": 7.55,
+     "color": "#5f4e40",
+     "proud": 0.12,
+     "u0": 2,
+     "u1": 21.5
+    },
+    {
+     "t": "band",
+     "y0": 7.55,
+     "y1": 8.3,
+     "color": "#c4b89f",
+     "proud": 0.06,
+     "u0": 2,
+     "u1": 21.5
+    },
+    {
+     "t": "band",
+     "y0": 8.3,
+     "y1": 8.62,
+     "color": "#5f4e40",
+     "proud": 0.2,
+     "u0": 2,
+     "u1": 21.5
+    },
+    {
+     "t": "panel",
+     "u0": 2,
+     "u1": 11.4,
+     "y0": 4.75,
+     "y1": 7.37,
+     "color": "#c4b89f",
+     "clad": {
+      "dir": "h",
+      "every": 0.12,
+      "w": 0.01,
+      "color": "#a99c83"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 2,
+     "u1": 11.4,
+     "y0": 1,
+     "y1": 4,
+     "color": "#e9e8e3"
+    },
+    {
+     "t": "band",
+     "u0": 1.98,
+     "u1": 11.28,
+     "y0": 4,
+     "y1": 4.75,
+     "color": "#1d4fa3",
+     "proud": 0.14
+    },
+    {
+     "t": "sign",
+     "u0": 4.23,
+     "u1": 6.18,
+     "y0": 4.15,
+     "y1": 4.52,
+     "d": 0.05,
+     "off": 0.14,
+     "text": "TÜRKİYE",
+     "fg": "#ffffff",
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "logo": "beyaz 3B harf, gece görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 7.13,
+     "u1": 9.08,
+     "y0": 4.15,
+     "y1": 4.52,
+     "d": 0.05,
+     "off": 0.14,
+     "text": "BANKASI",
+     "fg": "#ffffff",
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "lit": true
+    },
+    {
+     "t": "sign",
+     "u0": 6.23,
+     "u1": 7.05,
+     "y0": 3.98,
+     "y1": 4.8,
+     "d": 0.08,
+     "off": 0.14,
+     "text": "",
+     "bg": "#ffffff",
+     "fg": "#1d4fa3",
+     "style": "box",
+     "lit": true,
+     "logo": "beyaz kare zeminde mavi İş Bankası amblemi (çizilmedi)"
+    },
+    {
+     "t": "sign",
+     "u0": 4.05,
+     "u1": 10.28,
+     "y0": 4.98,
+     "y1": 6.7,
+     "d": 0.06,
+     "text": "YÜKSEK MİL KAZANDIRAN\nMAXIMILES BLACK'E\nHEMEN BAŞVURUN.",
+     "lines": [
+      {
+       "text": "YÜKSEK MİL KAZANDIRAN",
+       "fg": "#3f4144",
+       "size": 0.2,
+       "bold": false
+      },
+      {
+       "text": "MAXIMILES BLACK'E",
+       "fg": "#2b2c2e",
+       "size": 0.22,
+       "bold": true
+      },
+      {
+       "text": "HEMEN BAŞVURUN.",
+       "fg": "#3f4144",
+       "size": 0.2,
+       "bold": false
+      }
+     ],
+     "bg": "#d7d9d9",
+     "fg": "#3f4144",
+     "border": "#9ea2a3",
+     "style": "panel",
+     "font": "serif",
+     "align": "right",
+     "logo": "solda siyah kredi kartı görseli (u 4.65–6.0), altta küçük mavi/kırmızı İş Bankası logoları; gri çerçeveli baskı pano, taş kaplamaya asılı"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 3,
+     "u1": 4.28,
+     "y0": 1.1,
+     "y1": 3.95,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c9cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "door",
+     "u0": 4.35,
+     "u1": 5.9,
+     "y0": 1,
+     "y1": 3.95,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c9cbcb",
+     "curt": {
+      "K0": "acik"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 4.45,
+     "u1": 5.8,
+     "y0": 3.55,
+     "y1": 3.73,
+     "d": 0.02,
+     "text": "Ö…lüce Şubesi",
+     "fg": "#2d5aa0",
+     "bg": "#e3e5e6",
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "logo": "kapı üstü küçük levha, mavi yazı; ikinci harf bulanık (f22 karede okunmadı)"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 6,
+     "u1": 8.85,
+     "y0": 1.1,
+     "y1": 3.95,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c9cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 6.83,
+     "u1": 8.03,
+     "y0": 1.8,
+     "y1": 3.4,
+     "d": 0.01,
+     "text": "",
+     "bg": "#2a6fb5",
+     "fg": "#ffffff",
+     "style": "panel",
+     "logo": "cam arkasında mavi reklam afişi (telefon görseli), yazı okunmadı"
+    },
+    {
+     "t": "panel",
+     "u0": 9,
+     "u1": 10.95,
+     "y0": 1.2,
+     "y1": 3.75,
+     "color": "#e4e6e6",
+     "proud": 0.08
+    },
+    {
+     "t": "panel",
+     "u0": 9.25,
+     "u1": 9.9,
+     "y0": 2.2,
+     "y1": 3.1,
+     "color": "#2e3336",
+     "proud": 0.1
+    },
+    {
+     "t": "panel",
+     "u0": 10.1,
+     "u1": 10.75,
+     "y0": 2.2,
+     "y1": 3.1,
+     "color": "#2e3336",
+     "proud": 0.1
+    },
+    {
+     "t": "pipe",
+     "u": 1.9,
+     "color": "#d8d6cf",
+     "r": 0.04
+    },
+    {
+     "t": "pilaster",
+     "u0": 11.4,
+     "u1": 11.7,
+     "y0": 1,
+     "y1": 7.37,
+     "d": 0.08,
+     "color": "#e2332f"
+    },
+    {
+     "t": "pilaster",
+     "u0": 18.67,
+     "u1": 19.05,
+     "y0": 1,
+     "y1": 7.37,
+     "d": 0.08,
+     "color": "#e2332f"
+    },
+    {
+     "t": "panel",
+     "u0": 12.07,
+     "u1": 13.95,
+     "y0": 3.85,
+     "y1": 4.6,
+     "color": "#e2332f",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 12.17,
+     "u1": 13.85,
+     "y0": 1.1,
+     "y1": 3.7,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 3,
+     "frameC": "#f1f0ea",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 12.17,
+     "u1": 13.85,
+     "y0": 4.68,
+     "y1": 5.65,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#f1f0ea",
+     "grille": {
+      "K1": "ornamental"
+     },
+     "grilleC": "#2b2b2b",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 12.120000000000001,
+     "u1": 13.899999999999999,
+     "y": 6.6,
+     "d": 0.55,
+     "drop": 0.5,
+     "color": "#d9604f",
+     "stripe": "#e98a78",
+     "style": "dutch"
+    },
+    {
+     "t": "panel",
+     "u0": 14.25,
+     "u1": 16.28,
+     "y0": 3.85,
+     "y1": 4.6,
+     "color": "#e2332f",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 14.35,
+     "u1": 16.18,
+     "y0": 1.1,
+     "y1": 3.7,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 3,
+     "frameC": "#f1f0ea",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 14.35,
+     "u1": 16.18,
+     "y0": 4.68,
+     "y1": 5.65,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#f1f0ea",
+     "grille": {
+      "K1": "ornamental"
+     },
+     "grilleC": "#2b2b2b",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 14.3,
+     "u1": 16.23,
+     "y": 6.6,
+     "d": 0.55,
+     "drop": 0.5,
+     "color": "#d9604f",
+     "stripe": "#e98a78",
+     "style": "dutch"
+    },
+    {
+     "t": "panel",
+     "u0": 16.55,
+     "u1": 18.5,
+     "y0": 3.85,
+     "y1": 4.6,
+     "color": "#e2332f",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 16.650000000000002,
+     "u1": 18.4,
+     "y0": 1.1,
+     "y1": 3.7,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 3,
+     "frameC": "#f1f0ea",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 16.650000000000002,
+     "u1": 18.4,
+     "y0": 4.68,
+     "y1": 5.65,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#f1f0ea",
+     "grille": {
+      "K1": "ornamental"
+     },
+     "grilleC": "#2b2b2b",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 16.6,
+     "u1": 18.45,
+     "y": 6.6,
+     "d": 0.55,
+     "drop": 0.5,
+     "color": "#d9604f",
+     "stripe": "#e98a78",
+     "style": "dutch"
+    },
+    {
+     "t": "panel",
+     "u0": 11.7,
+     "u1": 18.67,
+     "y0": 1,
+     "y1": 7.37,
+     "color": "#c4b89f"
+    },
+    {
+     "t": "panel",
+     "u0": 19.05,
+     "u1": 21.5,
+     "y0": 1,
+     "y1": 7.37,
+     "color": "#c4b89f"
+    },
+    {
+     "t": "sign",
+     "u0": 14.48,
+     "u1": 16.1,
+     "y0": 3.85,
+     "y1": 4.53,
+     "d": 0.1,
+     "text": "ECZANE\nSAADET",
+     "lines": [
+      {
+       "text": "ECZANE",
+       "fg": "#e0312d",
+       "size": 0.62,
+       "bold": true
+      },
+      {
+       "text": "SAADET",
+       "fg": "#3b3b3b",
+       "size": 0.3,
+       "bold": true
+      }
+     ],
+     "bg": "#f7f5f2",
+     "fg": "#e0312d",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "logo": "kemer 2 kapısı üstünde beyaz kutu tabela; gece görülmedi"
+    },
+    {
+     "t": "awning",
+     "u0": 14.3,
+     "u1": 16.3,
+     "y": 3.78,
+     "d": 0.8,
+     "drop": 0.3,
+     "color": "#d9604f",
+     "style": "retract"
+    },
+    {
+     "t": "vinyl",
+     "u0": 12.8,
+     "u1": 13.05,
+     "y0": 1.7,
+     "y1": 3.1,
+     "text": "E\nC\nZ\nA\nN\nE",
+     "fg": "#d8352f",
+     "font": "sans",
+     "bold": true,
+     "logo": "vitrin camında dikey kırmızı ECZANE harfleri"
+    },
+    {
+     "t": "vinyl",
+     "u0": 17.4,
+     "u1": 17.65,
+     "y0": 1.7,
+     "y1": 3.1,
+     "text": "E\nC\nZ\nA\nN\nE",
+     "fg": "#d8352f",
+     "font": "sans",
+     "bold": true,
+     "logo": "üçüncü kemer vitrininde dikey kırmızı ECZANE (trafik lambası direği arkasında, kısmen)"
+    },
+    {
+     "t": "lamp",
+     "u": 16.8,
+     "y": 6,
+     "style": "globe",
+     "d": 0.18,
+     "proud": 0.2,
+     "color": "#f2f2ef"
+    }
+   ],
+   "note": "GB (bulvar) cephe, kule 1476599910’un GD devamı. EHfaO (f22) + ZLY2w. Pano konumları ±3 m: u ölçeği için ortak nokta Akbank/İş Bankası sınırı = kenar başı (kule köşesi, kenar 11’de de öyle alındı); düşey ölçek 0.934 (parapet üstü 7.1 m, e3 ile uyuşturuldu; iki ortofoto ±%7 farklı), yatay aynı ölçek. Akbank’ın bu ortofotoda görünen ucu (u<2.2: kırmızı ATM kutusu, K1’de gri baskı pano \"J\" logolu) kenar 11’de çizildi. İş Bankası: lacivert fasya \"TÜRKİYE [amblem] BANKASI\", K1’de \"YÜKSEK MİL KAZANDIRAN / MAXIMILES BLACK’E / HEMEN BAŞVURUN.\" panosu, cam + kapı + 2 ATM. Saadet Eczanesi: kırmızı pilastır (u 11.4) ile başlayan 3 kemerli bölme (her birinde kırmızı Hollanda tipi tente, ferforje K1 penceresi, kırmızı ara bant, dikey ECZANE yazılı vitrin), 2. kemerde \"ECZANE / SAADET\" kutu tabela + düz kırmızı tente altında kapı; köşede iki kırmızı pilastır (u 18.7–19.05) ve kavis. Önde trafik lambası direği (sokak öğesi). Kemerler (yarım daire, beyaz söveli) üreticide çizilemiyor → pending."
+  },
+  {
+   "edge": 1,
+   "len": 1.89,
+   "seen": "partial",
+   "items": [],
+   "note": "Kavisli köşe (≈3 m yarıçap): 2GwGL karesinde kırmızı pilastır şeritleri (3 adet) + taş kaplama, zemin katta vitrin; üstünde çatıda TAŞYAKAN SİTESİ harf tabelası. Ortofoto yok; ölçülemedi."
+  },
+  {
+   "edge": 2,
+   "len": 1.98,
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     1.98
+    ],
+    "head": [
+     [
+      0,
+      2.25
+     ],
+     [
+      1,
+      6.15
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "roofsign",
+     "u0": -2.5,
+     "u1": 3.5,
+     "y0": 7.2,
+     "y1": 10.2,
+     "setback": 1,
+     "d": 0.12,
+     "text": "TAŞYAKAN\nSİTESİ",
+     "lines": [
+      {
+       "text": "TAŞYAKAN",
+       "fg": "#e8b8a6",
+       "size": 0.5,
+       "bold": true
+      },
+      {
+       "text": "SİTESİ",
+       "fg": "#e8b8a6",
+       "size": 0.42,
+       "bold": true
+      }
+     ],
+     "fg": "#e8b8a6",
+     "font": "serif",
+     "bold": true,
+     "lit": false,
+     "frame": {
+      "color": "#6b6b6b",
+      "h": 0.3,
+      "posts": 3
+     },
+     "logo": "somon-pembe 3B serifli harfler, koyu kenar çizgisi; \"YA\" üstünde pembe üçgen dağ/çatı amblemi (dış çizgi); iki satır (TAŞYAKAN üstte, SİTESİ altta, ortalı). Konum 2GwGL 0_0 karesinden tahmini ±1.5 m (kavisli köşe üstü); boyut ≈6 × 3 m (tek kare, yakın plan yok)"
+    }
+   ],
+   "note": "Kavisli köşenin ikinci parçası. Çatı tabelası TAŞYAKAN SİTESİ bu köşenin üstünde (yalnız 2GwGL 0_0 ve EHfaO karelerinde; ortofoto yok). u/y kaba (kenar yerel, gerçek m tahmini)."
+  },
+  {
+   "edge": 3,
+   "len": 22.81,
+   "seen": "photo",
+   "ref": "900000203_3_Ax7s0cnI.jpg",
+   "cal": {
+    "u": [
+     1.8,
+     23.1
+    ],
+    "head": [
+     [
+      0,
+      3.1
+     ],
+     [
+      1,
+      6.75
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "band",
+     "u0": -1.5,
+     "u1": 23.1,
+     "y0": 6.75,
+     "y1": 6.9,
+     "color": "#5f4e40",
+     "proud": 0.12
+    },
+    {
+     "t": "band",
+     "u0": -1.5,
+     "u1": 23.1,
+     "y0": 6.9,
+     "y1": 7.45,
+     "color": "#c4b89f",
+     "proud": 0.06
+    },
+    {
+     "t": "band",
+     "u0": -1.5,
+     "u1": 23.1,
+     "y0": 7.45,
+     "y1": 7.62,
+     "color": "#5f4e40",
+     "proud": 0.2
+    },
+    {
+     "t": "panel",
+     "u0": 2,
+     "u1": 23.1,
+     "y0": 1,
+     "y1": 6.75,
+     "color": "#c4b89f",
+     "clad": {
+      "dir": "h",
+      "every": 0.12,
+      "w": 0.01,
+      "color": "#a99c83"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": -1.5,
+     "u1": -0.2,
+     "y0": 3.64,
+     "y1": 4.26,
+     "color": "#e2332f",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": -1.4,
+     "u1": -0.30000000000000004,
+     "y0": 1.5,
+     "y1": 3.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 3,
+     "frameC": "#f1f0ea",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": -1.4,
+     "u1": -0.30000000000000004,
+     "y0": 4.3,
+     "y1": 5.15,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#f1f0ea",
+     "grille": {
+      "K1": "ornamental"
+     },
+     "grilleC": "#2b2b2b",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": -1.45,
+     "u1": -0.25,
+     "y": 5.85,
+     "d": 0.55,
+     "drop": 0.5,
+     "color": "#d9604f",
+     "stripe": "#e98a78",
+     "style": "dutch"
+    },
+    {
+     "t": "panel",
+     "u0": -0.05,
+     "u1": 1.4,
+     "y0": 3.64,
+     "y1": 4.26,
+     "color": "#e2332f",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 0.05,
+     "u1": 1.2999999999999998,
+     "y0": 1.5,
+     "y1": 3.4,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 3,
+     "frameC": "#f1f0ea",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 0.05,
+     "u1": 1.2999999999999998,
+     "y0": 4.3,
+     "y1": 5.15,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#f1f0ea",
+     "grille": {
+      "K1": "ornamental"
+     },
+     "grilleC": "#2b2b2b",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 0,
+     "u1": 1.3499999999999999,
+     "y": 5.85,
+     "d": 0.55,
+     "drop": 0.5,
+     "color": "#d9604f",
+     "stripe": "#e98a78",
+     "style": "dutch"
+    },
+    {
+     "t": "vinyl",
+     "u0": -0.9,
+     "u1": -0.6,
+     "y0": 1.8,
+     "y1": 3.2,
+     "text": "E\nC\nZ\nA\nN\nE",
+     "fg": "#d8352f",
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "vinyl",
+     "u0": 0.55,
+     "u1": 0.85,
+     "y0": 1.8,
+     "y1": 3.2,
+     "text": "E\nC\nZ\nA\nN\nE",
+     "fg": "#d8352f",
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "sign",
+     "u0": 0.8,
+     "u1": 1.4,
+     "y0": 4.12,
+     "y1": 4.75,
+     "d": 0.08,
+     "off": 0.35,
+     "shape": "round",
+     "text": "",
+     "bg": "#2e8a4a",
+     "fg": "#ffffff",
+     "border": "#e6e6e6",
+     "style": "box",
+     "logo": "yuvarlak yeşil eczane rozeti (beyaz halka, ortada kırmızı-beyaz simge; çizilmedi) — ayak üstünde, duvardan ~0.35"
+    },
+    {
+     "t": "blade",
+     "u": -1.3,
+     "y0": 4.9,
+     "y1": 5.5,
+     "w": 0.6,
+     "gap": 0.1,
+     "d": 0.12,
+     "text": "E",
+     "fg": "#d8352f",
+     "bg": "#ffffff",
+     "border": "#d8352f",
+     "bold": true,
+     "logo": "eczane \"E\" bayrak tabelası (beyaz kutu, kırmızı E, kırmızı kenar) — 2GwGL karesinde kemer 4 solunda; B yüzü görülmedi"
+    },
+    {
+     "t": "panel",
+     "u0": 1.4,
+     "u1": 2,
+     "y0": 1,
+     "y1": 6.75,
+     "color": "#dcd8cf"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 2.07,
+     "u1": 6.7,
+     "y0": 4.89,
+     "y1": 5.95,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 2,
+     "frameC": "#2f3336",
+     "tint": "#3c464c"
+    },
+    {
+     "t": "sign",
+     "u0": 2.12,
+     "u1": 7.9,
+     "y0": 3.97,
+     "y1": 4.84,
+     "d": 0.2,
+     "text": "BEREKET DÖNER",
+     "fg": "#ffffff",
+     "bg": "#d8352f",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "capH": 0.62,
+     "logo": "kırmızı kutu, yüzünde ince beyaz yatay şeritler; beyaz 3B harfler \"BEREKET\" ve \"DÖNER\" arasında turuncu-sarı döner şişi amblemi (u 4.57–5.06); ilk harf (B) tüy bayrak arkasında; gece görülmedi"
+    },
+    {
+     "t": "neon",
+     "pts": [
+      [
+       3.51,
+       3.8
+      ],
+      [
+       5.68,
+       3.8
+      ]
+     ],
+     "d": 0.03,
+     "off": 0.05,
+     "color": "#3f6fe0"
+    },
+    {
+     "t": "sign",
+     "u0": 3.51,
+     "u1": 5.68,
+     "y0": 3.68,
+     "y1": 3.94,
+     "d": 0.02,
+     "text": "TOMBİK DÖNER",
+     "fg": "#4f7df0",
+     "bg": "#2a2d30",
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "logo": "fasya altındaki koyu bantta mavi ışıklı (LED/neon) yazı; gündüz de mavi"
+    },
+    {
+     "t": "band",
+     "u0": 2.12,
+     "u1": 7.9,
+     "y0": 3.64,
+     "y1": 3.97,
+     "color": "#2a2d30",
+     "proud": 0.18
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 2.4,
+     "u1": 7.75,
+     "y0": 1.27,
+     "y1": 3.64,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 4,
+     "frameC": "#2f3336",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "vinyl",
+     "u0": 4.85,
+     "u1": 7.75,
+     "y0": 1.32,
+     "y1": 2.28,
+     "text": "BEREKET DÖNER\nSEVEN BİLİR\nDÖNER\nBEREKET'TİR",
+     "lines": [
+      {
+       "text": "BEREKET DÖNER",
+       "fg": "#ffffff",
+       "size": 0.16
+      },
+      {
+       "text": "SEVEN BİLİR",
+       "fg": "#2fbf4a",
+       "size": 0.2
+      },
+      {
+       "text": "DÖNER",
+       "fg": "#2fbf4a",
+       "size": 0.2
+      },
+      {
+       "text": "BEREKET'TİR",
+       "fg": "#d8352f",
+       "size": 0.2
+      }
+     ],
+     "bg": "#1e1f21",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "align": "right",
+     "logo": "vitrin alt bandı koyu baskı folyo: solda tabak/döner fotoğrafı (u 4.9–6.3), sağda yazılar"
+    },
+    {
+     "t": "vinyl",
+     "u0": 3.2,
+     "u1": 4.25,
+     "y0": 1.27,
+     "y1": 3.6,
+     "text": "BEREKET DÖNER\n1 ALANA 1 BEDAVA\nYAZ…ÇLÜSÜ\n250₺\n125₺",
+     "lines": [
+      {
+       "text": "BEREKET DÖNER",
+       "fg": "#d8352f",
+       "size": 0.08
+      },
+      {
+       "text": "1 ALANA 1 BEDAVA",
+       "fg": "#ffffff",
+       "size": 0.09
+      },
+      {
+       "text": "YAZ…ÇLÜSÜ",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "250₺",
+       "fg": "#d8352f",
+       "size": 0.12
+      },
+      {
+       "text": "125₺",
+       "fg": "#d8352f",
+       "size": 0.1
+      }
+     ],
+     "bg": "#f08a24",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "logo": "turuncu dikey afiş (roll-up) cam önünde/arkasında; kampanya: döner dürüm görselleri; küçük yazılar okunmadı"
+    },
+    {
+     "t": "sign",
+     "u0": 7.13,
+     "u1": 7.47,
+     "y0": 5.6,
+     "y1": 5.95,
+     "d": 0.15,
+     "text": "",
+     "bg": "#1e1f21",
+     "fg": "#ffffff",
+     "style": "box",
+     "logo": "küçük siyah kutu (hoparlör/klima?) — okunmadı"
+    },
+    {
+     "t": "panel",
+     "u0": 7.9,
+     "u1": 13.97,
+     "y0": 1,
+     "y1": 4.07,
+     "color": "#1b1c1e"
+    },
+    {
+     "t": "sign",
+     "u0": 7.9,
+     "u1": 13.97,
+     "y0": 4.07,
+     "y1": 5.03,
+     "d": 0.2,
+     "text": "Domino's",
+     "fg": "#ffffff",
+     "bg": "#16171a",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "lit": true,
+     "capH": 0.6,
+     "align": "center",
+     "logo": "siyah kutu; solda kırmızı-mavi domino taşı logosu (u 8.29–9.06, görünen; çizilmedi), beyaz \"Domino's\" yazısı u 9.1–11.47; sağ ucunda kırmızı hap şeklinde \"dominos.com.tr\" ve kırmızı daire \"SİPARİŞ İÇİN\" (u 12.4–13.6, küçük); gece görülmedi"
+    },
+    {
+     "t": "sign",
+     "u0": 12.41,
+     "u1": 13.2,
+     "y0": 4.42,
+     "y1": 4.65,
+     "d": 0.22,
+     "text": "dominos.com.tr",
+     "fg": "#ffffff",
+     "bg": "#d8352f",
+     "style": "panel",
+     "font": "sans",
+     "bold": false
+    },
+    {
+     "t": "sign",
+     "u0": 13.2,
+     "u1": 13.56,
+     "y0": 4.35,
+     "y1": 4.72,
+     "d": 0.22,
+     "shape": "round",
+     "text": "SİPARİŞ\nİÇİN",
+     "fg": "#ffffff",
+     "bg": "#d8352f",
+     "style": "panel",
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "sign",
+     "u0": 10.46,
+     "u1": 11.42,
+     "y0": 5.32,
+     "y1": 6.29,
+     "d": 0.1,
+     "text": "",
+     "bg": "#ffffff",
+     "fg": "#1f5fae",
+     "style": "box",
+     "lit": true,
+     "logo": "duvardaki büyük domino taşı logosu (kırmızı/mavi karo, beyaz kenar, 45° dönük kare) — marka logosu çizilmedi, yeri ölçüldü"
+    },
+    {
+     "t": "win",
+     "u0": 8.48,
+     "u1": 9.93,
+     "y0": 5.03,
+     "y1": 6.14,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#2b2b2b",
+     "tint": "#34393c"
+    },
+    {
+     "t": "win",
+     "u0": 11.96,
+     "u1": 13.42,
+     "y0": 5.06,
+     "y1": 6.16,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#2b2b2b",
+     "tint": "#34393c"
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 8.5,
+     "u1": 10.4,
+     "y0": 1.45,
+     "y1": 3.95,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#1b1c1e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "door",
+     "u0": 10.45,
+     "u1": 11.3,
+     "y0": 1.2,
+     "y1": 3.95,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 1,
+     "frameC": "#1b1c1e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 11.35,
+     "u1": 13.9,
+     "y0": 1.45,
+     "y1": 3.95,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#1b1c1e",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "vinyl",
+     "u0": 8.64,
+     "u1": 9.33,
+     "y0": 2.25,
+     "y1": 3.28,
+     "text": "SEVİYORSAN\n…\n150₺",
+     "lines": [
+      {
+       "text": "SEVİYORSAN",
+       "fg": "#ffffff",
+       "size": 0.12
+      },
+      {
+       "text": "…",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "150₺",
+       "fg": "#ffffff",
+       "size": 0.14
+      }
+     ],
+     "bg": "#c7302b",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "logo": "kırmızı pizza afişi (pizza fotoğraflı), küçük yazılar okunmadı"
+    },
+    {
+     "t": "sign",
+     "u0": 8,
+     "u1": 8.34,
+     "y0": 2.9,
+     "y1": 3.4,
+     "d": 0.01,
+     "shape": "round",
+     "text": "30",
+     "fg": "#1b1c1e",
+     "bg": "#ffffff",
+     "border": "#d8352f",
+     "style": "panel",
+     "font": "sans",
+     "bold": true,
+     "logo": "ayak üzerinde yuvarlak beyaz \"30\" çıkartması (alt yazısı okunmadı)"
+    },
+    {
+     "t": "sign",
+     "u0": 13.53,
+     "u1": 13.9,
+     "y0": 3.41,
+     "y1": 3.63,
+     "d": 0.1,
+     "text": "",
+     "bg": "#f1f1f1",
+     "fg": "#d8352f",
+     "style": "box",
+     "logo": "alarm sireni kutusu (beyaz-kırmızı)"
+    },
+    {
+     "t": "pipe",
+     "u": 14.06,
+     "y0": 1.1,
+     "y1": 6.7,
+     "color": "#a9aaa6",
+     "r": 0.05
+    },
+    {
+     "t": "awning",
+     "u0": 14.15,
+     "u1": 23.25,
+     "y": 4.52,
+     "d": 0.7,
+     "drop": 0.83,
+     "color": "#f4bb1a",
+     "stripe": "#1e2a78",
+     "style": "dutch",
+     "texts": [
+      {
+       "u0": 15.57,
+       "u1": 16.57,
+       "text": "Posta ▸ Banka ▸ Lojistik",
+       "fg": "#c7302b",
+       "font": "sans",
+       "bold": true
+      },
+      {
+       "u0": 19.13,
+       "u1": 20.05,
+       "text": "PttBank",
+       "fg": "#1e2a78",
+       "font": "sans",
+       "bold": true
+      }
+     ]
+    },
+    {
+     "t": "sign",
+     "u0": 17.26,
+     "u1": 18.36,
+     "y0": 3.6,
+     "y1": 4.6,
+     "d": 0.8,
+     "text": "Ptt\nÖZLÜCE",
+     "lines": [
+      {
+       "text": "Ptt",
+       "fg": "#1e2a78",
+       "size": 0.55,
+       "bold": true
+      },
+      {
+       "text": "ÖZLÜCE",
+       "fg": "#1e2a78",
+       "size": 0.2,
+       "bold": true
+      }
+     ],
+     "bg": "#f4bb1a",
+     "fg": "#1e2a78",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "logo": "tentenin ortasında yükselen sarı pano; \"Ptt\" üstünde lacivert kanat/kuş amblemi (çizilmedi)"
+    },
+    {
+     "t": "win",
+     "u0": 14.43,
+     "u1": 15.98,
+     "y0": 4.61,
+     "y1": 6.25,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#4a4744",
+     "curt": {
+      "K1": "stor"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 17.03,
+     "u1": 18.63,
+     "y0": 4.61,
+     "y1": 6.25,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#4a4744",
+     "curt": {
+      "K1": "stor"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 19.59,
+     "u1": 21.23,
+     "y0": 4.61,
+     "y1": 6.25,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#4a4744",
+     "curt": {
+      "K1": "stor"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 22.29,
+     "u1": 22.61,
+     "y0": 4.61,
+     "y1": 4.99,
+     "d": 0.12,
+     "text": "",
+     "bg": "#f1f1f1",
+     "fg": "#d8352f",
+     "style": "box",
+     "logo": "alarm sireni kutusu"
+    },
+    {
+     "t": "panel",
+     "u0": 14.52,
+     "u1": 15.7,
+     "y0": 1.36,
+     "y1": 3.3,
+     "color": "#39a3e0",
+     "proud": 0.08
+    },
+    {
+     "t": "sign",
+     "u0": 14.45,
+     "u1": 15.8,
+     "y0": 3.3,
+     "y1": 3.56,
+     "d": 0.3,
+     "text": "Pttbank",
+     "fg": "#1e2a78",
+     "bg": "#f4bb1a",
+     "style": "box",
+     "font": "sans",
+     "bold": true,
+     "logo": "ATM üstü küçük sarı saçak"
+    },
+    {
+     "t": "panel",
+     "u0": 14.75,
+     "u1": 15.3,
+     "y0": 2.1,
+     "y1": 3,
+     "color": "#2c3033",
+     "proud": 0.1
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 15.8,
+     "u1": 18.5,
+     "y0": 1.3,
+     "y1": 3.56,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c9cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "vinyl",
+     "u0": 15.8,
+     "u1": 17.08,
+     "y0": 1.36,
+     "y1": 3.56,
+     "text": "PTTCELL'İN\nAVANTAJLI\nTEKLİFLERİ\nSİZİ BEKLİYOR!",
+     "lines": [
+      {
+       "text": "PTTCELL'İN",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "AVANTAJLI",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "TEKLİFLERİ",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "SİZİ BEKLİYOR!",
+       "fg": "#f4d21a",
+       "size": 0.1
+      }
+     ],
+     "bg": "#3aa7e3",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "logo": "mavi folyo, altta beyaz ve sarı daire rozetler (küçük yazı okunmadı)"
+    },
+    {
+     "t": "vinyl",
+     "u0": 17.21,
+     "u1": 18.49,
+     "y0": 1.36,
+     "y1": 3.56,
+     "text": "PTTCELL'İN\nAVANTAJLI\nTEKLİFLERİ\nSİZİ BEKLİYOR!",
+     "lines": [
+      {
+       "text": "PTTCELL'İN",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "AVANTAJLI",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "TEKLİFLERİ",
+       "fg": "#ffffff",
+       "size": 0.1
+      },
+      {
+       "text": "SİZİ BEKLİYOR!",
+       "fg": "#f4d21a",
+       "size": 0.1
+      }
+     ],
+     "bg": "#3aa7e3",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true
+    },
+    {
+     "t": "win",
+     "kind": "door",
+     "u0": 18.63,
+     "u1": 19.64,
+     "y0": 1.2,
+     "y1": 3.56,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 1,
+     "frameC": "#c9cbcb",
+     "curt": {
+      "K0": "acik"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 19.75,
+     "u1": 21,
+     "y0": 1.3,
+     "y1": 3.56,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 1,
+     "frameC": "#c9cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "win",
+     "kind": "shop",
+     "u0": 21.05,
+     "u1": 22.95,
+     "y0": 1.3,
+     "y1": 3.56,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "split": 2,
+     "frameC": "#c9cbcb",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "camera",
+     "u": 21.6,
+     "s": 0,
+     "y": 3.65,
+     "style": "dome",
+     "color": "#e9e9e9"
+    },
+    {
+     "t": "pipe",
+     "u": 23.1,
+     "y0": 1.1,
+     "y1": 6.7,
+     "color": "#bdbdb8",
+     "r": 0.05
+    }
+   ],
+   "note": "Uğur Mumcu Blv. cephesi (G). Ax7s0 (f22) + sswNc. Pano ±3 m: yatay çapa = PTT’nin D ucu / 909 ön şeridi başlangıcı (gri boru, görünen 23.1 = kenar sonu) + düşey/yatay ölçek 1.07 (parapet üstü 7.1 m ortak kotu). Soldan: kavisten devam eden 2 kemerli eczane bölmesi (dikey ECZANE yazılı vitrinler, kırmızı tenteler, yeşil yuvarlak eczane rozeti, \"E\" bayrak tabela), BEREKET DÖNER (kırmızı şeritli kutu tabela + altında mavi ışıklı TOMBİK DÖNER; K1’de koyu cam), Domino’s (siyah kutu tabela, K1’de duvara monte büyük domino logosu, iki koyu K1 penceresi), PTT ÖZLÜCE (sarı kavisli tente-fasya, ortada Ptt panosu, Posta▸Banka▸Lojistik ve PttBank yazıları; K1’de 3 koyu çerçeveli pencere, stor). Taş kaplama (açık bej, yatay derzli) tüm K1 bandında; üstte kahve silmeli taş parapet. Sağ üstteki Türk bayrağı ve mavi tabela komşu şeride (900000202) ait."
+  },
+  {
+   "edge": 4,
+   "len": 24.8,
+   "seen": "none",
+   "items": [],
+   "note": "1476599909 kulesinin B duvarına bitişik (ortak duvar)."
+  },
+  {
+   "edge": 5,
+   "len": 16.05,
+   "seen": "none",
+   "items": [],
+   "note": "Arka (K, avlu) cephe: nDfbw ortofotosu karşıdaki VakıfBank binasını gösteriyor, podyum arkası görülmedi."
+  },
+  {
+   "edge": 6,
+   "len": 6.68,
+   "seen": "none",
+   "items": [],
+   "note": "Arka: 5znN4 ortofotosunda önündeki bina (… DEKORASYON tabelalı) görünüyor; görülmedi."
+  },
+  {
+   "edge": 7,
+   "len": 24.56,
+   "seen": "none",
+   "items": [],
+   "note": "1476599910 kulesinin GD duvarına bitişik (ortak duvar)."
+  }
+ ],
+ "notes": [
+  "KÜTLE: 2 katlı podyum (zemin dükkân katı + K1), üstünde kahve silmeli taş parapet (üst ≈7.1 m kaldırımdan). Çatı düz (hava fotoğrafı açık bej). Kat yüksekliği ölçüsü: e0 ve e3 ortofotolarının düşey ölçekleri %13 farklı çıktı (pano konum hatası) → ortak parapet kotu 7.1 m ile her kenar ayrı ölçeklendi (e0 0.934, e3 1.07); floorH 3.9 = K1 döşemesi (fasya üstü ile K1 penceresi altı arası), duvar üstü 5.95 kaldırımdan.",
+  "Kemerli eczane bölmeleri: yarım daire beyaz söveli kemerler (her biri ≈1.9 m genişlik, tepe K1 üstünde görünen 6.85/6.0) üreticide yok → pending; şimdilik her bölme: kırmızı ara bant + K1 ferforje pencere + Hollanda tipi kırmızı tente + K0 vitrin."
+ ],
+ "pending": [
+  {
+   "type": "arch-bay",
+   "edge": 0,
+   "bays": [
+    [
+     12.07,
+     13.95
+    ],
+    [
+     14.25,
+     16.28
+    ],
+    [
+     16.55,
+     18.5
+    ]
+   ],
+   "spring": 6,
+   "top": 6.85,
+   "frame": "#f1f0ea",
+   "frameW": 0.12,
+   "note": "yarım daire kemerli vitrin bölmesi: beyaz kalın söve, kemer içinde kırmızı Hollanda tentesi; görünen u/y (EHfaO)"
+  },
+  {
+   "type": "arch-bay",
+   "edge": 3,
+   "bays": [
+    [
+     -1.5,
+     -0.2
+    ],
+    [
+     -0.05,
+     1.4
+    ]
+   ],
+   "spring": 5.2,
+   "top": 6.1,
+   "frame": "#f1f0ea",
+   "frameW": 0.12,
+   "note": "aynı kemerler e3 başında (Ax7s0)"
+  },
+  {
+   "type": "ornamental-grille",
+   "note": "K1 kemer pencerelerinde siyah ferforje korkuluk (kıvrımlı desen) — win grille ornamental ile yaklaşık çizildi"
+  }
+ ]
+}

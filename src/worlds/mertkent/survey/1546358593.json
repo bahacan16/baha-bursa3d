@@ -1,0 +1,651 @@
+{
+ "id": 1546358593,
+ "name": "Karataş Sitesi podyumu (ŞOK / Hançer Kuyumculuk / Ayanoğlu, Özlüce Blv. × 163. Sk.)",
+ "storeys": 2,
+ "floorH": 3.08,
+ "groundRaise": 1.59,
+ "roof": {
+  "kind": "flat",
+  "eave": 0.05,
+  "fasciaH": 0.12,
+  "fasciaC": "#b9ab8c",
+  "parapet": {
+   "h": 0.12,
+   "color": "#b9ab8c",
+   "rail": "tube",
+   "railC": "#9aa0a3",
+   "railH": 0.9,
+   "railEdges": [
+    3,
+    0
+   ]
+  },
+  "flatC": "#8a8177"
+ },
+ "wallTop": 9.1,
+ "plinthH": 0,
+ "colors": {
+  "plaster": "#b9ab8c",
+  "plaster2": "#a5a294",
+  "strip": "#685b47",
+  "fascia": "#b9ab8c",
+  "soffit": "#a5a294",
+  "railGlass": "#8fa3a8",
+  "frame": "#b0b0ae",
+  "tile": "#8a5a48",
+  "plinth": "#7a7470"
+ },
+ "edges": [
+  {
+   "edge": 0,
+   "len": 25.64,
+   "seen": "photo",
+   "ref": "1546358593_0_tleKyD8x.jpg",
+   "cal": {
+    "u": [
+     0,
+     25.64
+    ],
+    "head": [
+     [
+      0,
+      3.28
+     ],
+     [
+      1,
+      5.35
+     ]
+    ]
+   },
+   "note": "163. Sokak (güney) podyum cephesi, tleKyD8x (5 m’den, bulutlu). Ortofoto düşeyde ≈0.67 ölçekli (Ayanoğlu desenli pano 3.91–6.82 görünen ↔ batı yüzde 4.78–9.1): görünen y = 0.71 + 0.67·gerçek; yatayda köşeler taban izinde alındı (ölçek 1). Önünde kış bahçesi (oluklu sac çatılı cam, u −0.7…11) ve doğu yarıda gri yivli kolonlu ahşap pergola (u 13–26) — street-plan. Podyum çatısında kahverengi ahşap pergola (görünen 6.95–8.15; pending). | ÖĞE NOTLARI: [pipe u 11.2] paslanmaz baca/aspiratör borusu (Ø≈0.4)",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 11.07,
+     "y0": 3.91,
+     "y1": 6.82,
+     "color": "#202629",
+     "proud": 0.08,
+     "clad": {
+      "dir": "grid",
+      "every": 0.55,
+      "every2": 0.55,
+      "w": 0.02,
+      "color": "#3c4146"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 0.56,
+     "u1": 3,
+     "y0": 6.08,
+     "y1": 6.48,
+     "d": 0.1,
+     "style": "box",
+     "text": "KAHVALTI",
+     "bg": "#1b1b1b",
+     "fg": "#f0f0f0",
+     "font": "serif",
+     "bold": false
+    },
+    {
+     "t": "sign",
+     "u0": 0.6,
+     "u1": 1.67,
+     "y0": 4.9,
+     "y1": 6,
+     "d": 0.1,
+     "style": "panel",
+     "shape": "round",
+     "text": "",
+     "bg": "#8e8e8a",
+     "fg": "#ffffff",
+     "logo": "gri yuvarlak amblem (içinde araç/figür çizimi ve küçük yazı; okunamadı)"
+    },
+    {
+     "t": "sign",
+     "u0": 2.6,
+     "u1": 9.08,
+     "y0": 4.63,
+     "y1": 6.21,
+     "d": 0.1,
+     "style": "letters",
+     "text": "Ayanoğlu",
+     "fg": "#c42f38",
+     "border": "#ffffff",
+     "font": "script",
+     "bold": true,
+     "capH": 1.3
+    },
+    {
+     "t": "sign",
+     "u0": 9.2,
+     "u1": 10.27,
+     "y0": 5.05,
+     "y1": 5.42,
+     "d": 0.1,
+     "style": "letters",
+     "text": "1927",
+     "fg": "#d0d0d0",
+     "font": "sans",
+     "bold": false,
+     "logo": "solunda küçük ®"
+    },
+    {
+     "t": "pipe",
+     "u": 11.2,
+     "y0": 3.25,
+     "y1": 5.1,
+     "color": "#9aa0a3",
+     "r": 0.2,
+     "brackets": false
+    },
+    {
+     "t": "panel",
+     "u0": 11.07,
+     "u1": 25.64,
+     "y0": 3.9,
+     "y1": 6.9,
+     "color": "#b9ab8c",
+     "clad": {
+      "dir": "h",
+      "every": 0.42,
+      "w": 0.012,
+      "color": "#9c8f72"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 15.17,
+     "u1": 18.82,
+     "y0": 4.18,
+     "y1": 5.58,
+     "d": 0.1,
+     "style": "box",
+     "text": "ÖZEL\nElita\nAĞIZ VE DİŞ SAĞLIĞI\nPOLİKLİNİĞİ",
+     "bg": "#f0f0ee",
+     "fg": "#1a1a1a",
+     "border": "#c9c9c9",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "ÖZEL",
+       "size": 0.3,
+       "y": 0.88
+      },
+      {
+       "text": "Elita",
+       "size": 1,
+       "bold": true,
+       "y": 0.64
+      },
+      {
+       "text": "AĞIZ VE DİŞ SAĞLIĞI",
+       "size": 0.45,
+       "bold": true,
+       "y": 0.35
+      },
+      {
+       "text": "POLİKLİNİĞİ",
+       "size": 0.45,
+       "bold": true,
+       "y": 0.12
+      }
+     ],
+     "logo": "\"Elita\" eğik serif kalın"
+    },
+    {
+     "t": "sign",
+     "u0": 11.33,
+     "u1": 13.3,
+     "y0": 6.12,
+     "y1": 6.9,
+     "d": 0.03,
+     "style": "panel",
+     "text": "…\nAĞIZ … SAĞLIĞI",
+     "bg": "#f0f0ee",
+     "fg": "#1a1a1a",
+     "font": "sans",
+     "bold": true,
+     "logo": "sol yarısı dik tabela arkasında"
+    },
+    {
+     "t": "sign",
+     "u0": 14.9,
+     "u1": 17,
+     "y0": 6.12,
+     "y1": 6.9,
+     "d": 0.03,
+     "style": "panel",
+     "text": "elitadis_bursa\nelitadisbursa\nwww.elitadent.com",
+     "bg": "#f0f0ee",
+     "fg": "#333333",
+     "font": "sans",
+     "bold": false,
+     "logo": "satır başlarında küçük sosyal medya simgeleri"
+    },
+    {
+     "t": "sign",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y0": 6.12,
+     "y1": 6.9,
+     "d": 0.03,
+     "style": "panel",
+     "text": "0224 414 00 19\n0545 414 00 16",
+     "bg": "#f0f0ee",
+     "fg": "#1a1a1a",
+     "font": "sans",
+     "bold": true,
+     "logo": "altta küçük satır (www.elitadent.com?)"
+    },
+    {
+     "t": "blade",
+     "u": 12.1,
+     "y0": 4.97,
+     "y1": 8.15,
+     "w": 0.5,
+     "gap": 0.1,
+     "d": 0.12,
+     "text": "",
+     "bg": "#e8ece8",
+     "fg": "#2a7a4a",
+     "logo": "uzun dik (bayrak) tabela, yüzü görülmedi (cepheye dik)"
+    },
+    {
+     "t": "ac",
+     "u": 16.2,
+     "s": 1,
+     "y": 5.9
+    }
+   ]
+  },
+  {
+   "edge": 1,
+   "len": 38.99,
+   "seen": "none",
+   "items": [],
+   "note": "Doğu (arka, park yolu) cephesi: Yj8Yw7Np / Iwu21DIo ortofotoları 28–35 m’den ve yatık; podyum düz, dükkân yok gibi — okunabilir öğe yok, düz bırakıldı."
+  },
+  {
+   "edge": 2,
+   "len": 25.63,
+   "seen": "none",
+   "items": [],
+   "note": "Kuzey (1477364957 ile arası) cephe: yalnız 38–44 m’den yatık; görülmedi."
+  },
+  {
+   "edge": 3,
+   "len": 38.99,
+   "seen": "photo",
+   "ref": "1546358593_3_n3EfAhk3.jpg",
+   "cal": {
+    "u": [
+     -0.73,
+     36.8
+    ],
+    "head": [
+     [
+      0,
+      3.84
+     ],
+     [
+      1,
+      6.92
+     ]
+    ]
+   },
+   "note": "Özlüce Bulvarı (batı) podyum cephesi; ölçü n3EfAhk3 _f22 ortofotosunda (güneşli, öğleden sonra). İki panonun (n3EfAhk3 / 9nQa3LQ8) ortofotoları arasında 2–7 m kayma var (kaldırımdaki kış bahçesi 3–4 m önde → farklı büyütme; cephe düzleminde de ≈2.3 m); cal.u üstteki konut kulesinin görünen uçlarından (görünen 1.2 / 33.1 ↔ taban izi u 2.0 / 35.11, ölçek 0.963) → podyum köşeleri görünen −0.73 / 36.8. Kat çizgileri (kule ile ortak): K0 1.59, K1 4.67 (görünen = gerçek). Podyum üstü ≈9.1, önünde ince çelik korkuluk (9.26). Önündeki cam kış bahçesi (Tarz-ı Pide / Ayanoğlu, u 12.9→güney uca) kaldırım öğesi (street-plan). | ÖĞE NOTLARI: [panel u -0.73–9.8] bej traverten kaplı alan (ŞOK üstü, DİŞ HEKİMİ panosu çevresi) ; [win u -0.53–9.34 K0–0] ŞOK kırmızı doğramalı vitrin ; [sign u 9.9–14.2] bej taş bant üstünde koyu gri harfler (9nQa karesinden) ; [win u 10.3–14 K0–0] kuyumcu cam cephe + ortada çift cam kapı ; [panel u 15.48–36.8] Ayanoğlu: siyah zemin üstüne koyu gri Osmanlı yıldız/geçme desenli kaplama (desen yaklaşık kare ızgara ile)",
+   "items": [
+    {
+     "t": "panel",
+     "u0": -0.73,
+     "u1": 9.8,
+     "y0": 5.22,
+     "y1": 9.1,
+     "color": "#b9ab8c",
+     "clad": {
+      "dir": "h",
+      "every": 0.62,
+      "w": 0.012,
+      "color": "#9c8f72"
+     }
+    },
+    {
+     "t": "win",
+     "u0": -0.53,
+     "u1": 9.34,
+     "y0": 1.09,
+     "y1": 3.03,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#b42c2c",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "vinyl",
+     "u0": 8.3,
+     "u1": 9.26,
+     "y0": 2,
+     "y1": 3,
+     "text": "",
+     "bg": "#2b4f93",
+     "fg": "#ffffff",
+     "logo": "ŞOK kampanya afişi (mavi-kırmızı), okunamadı"
+    },
+    {
+     "t": "sign",
+     "u0": -0.73,
+     "u1": 9.47,
+     "y0": 4.33,
+     "y1": 5.22,
+     "d": 0.12,
+     "style": "box",
+     "lit": true,
+     "text": "",
+     "bg": "#aa8d2e",
+     "fg": "#2345a5",
+     "logo": "ŞOK sarı alın (güneşte #aa8d2e; gerçek sarı), logo ayrı"
+    },
+    {
+     "t": "sign",
+     "u0": 1.22,
+     "u1": 3.44,
+     "y0": 4.41,
+     "y1": 5.86,
+     "d": 0.16,
+     "style": "letters",
+     "text": "ŞOK",
+     "fg": "#2345a5",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.9,
+     "logo": "mavi eğik kalın Ş ve K arasında kırmızı patlama yıldızı içinde beyaz O; logo alın üstünden taşar"
+    },
+    {
+     "t": "awning",
+     "u0": -0.73,
+     "u1": 1.82,
+     "y": 4.33,
+     "d": 1.3,
+     "drop": 0.2,
+     "color": "#c23a3a",
+     "stripe": "#eeeeee",
+     "style": "retract"
+    },
+    {
+     "t": "awning",
+     "u0": 2.55,
+     "u1": 9.34,
+     "y": 4.41,
+     "d": 1.3,
+     "drop": 0.2,
+     "color": "#c23a3a",
+     "stripe": "#eeeeee",
+     "style": "retract"
+    },
+    {
+     "t": "win",
+     "u0": 0.2,
+     "u1": 4.4,
+     "y0": 5.22,
+     "y1": 7.11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#9c8f72",
+     "tint": "#738380"
+    },
+    {
+     "t": "win",
+     "u0": 5.13,
+     "u1": 9.34,
+     "y0": 5.22,
+     "y1": 7.11,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 1,
+     "frameC": "#9c8f72",
+     "tint": "#738380"
+    },
+    {
+     "t": "sign",
+     "u0": 3.52,
+     "u1": 6.1,
+     "y0": 7.86,
+     "y1": 9.1,
+     "d": 0.03,
+     "style": "panel",
+     "text": "DİŞ HEKİMİ\nNurhan ÇAĞLAR\nTEL. 413 46 56",
+     "bg": "#e8e8e8",
+     "fg": "#1e2d6b",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "DİŞ HEKİMİ",
+       "size": 1,
+       "bold": true,
+       "y": 0.78
+      },
+      {
+       "text": "Nurhan ÇAĞLAR",
+       "size": 0.75,
+       "bold": true,
+       "y": 0.45
+      },
+      {
+       "text": "TEL. 413 46 56",
+       "size": 0.6,
+       "bold": true,
+       "y": 0.15
+      }
+     ],
+     "logo": "solda kırmızı kare içinde beyaz diş simgesi"
+    },
+    {
+     "t": "sign",
+     "u0": 7.04,
+     "u1": 8.29,
+     "y0": 8.08,
+     "y1": 8.86,
+     "d": 0.03,
+     "style": "panel",
+     "text": "TAŞ…",
+     "bg": "#d8ccb2",
+     "fg": "#7a2a24",
+     "font": "sans",
+     "bold": true,
+     "logo": "bej levha, bordo çatı/ev çizgisi logosu; sağı ağaç arkasında"
+    },
+    {
+     "t": "sign",
+     "u0": 9.83,
+     "u1": 14.2,
+     "y0": 4.56,
+     "y1": 6.9,
+     "d": 0.12,
+     "style": "box",
+     "lit": true,
+     "text": "HANÇER\nKUYUMCULUK\nMUCEVHERAT",
+     "bg": "#1a1a1a",
+     "fg": "#ffffff",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "HANÇER",
+       "fg": "#ffffff",
+       "size": 1,
+       "bold": true,
+       "y": 0.72
+      },
+      {
+       "text": "KUYUMCULUK",
+       "fg": "#ffffff",
+       "size": 0.6,
+       "bold": true,
+       "y": 0.42
+      },
+      {
+       "text": "MUCEVHERAT",
+       "fg": "#c8323c",
+       "size": 0.4,
+       "bold": true,
+       "y": 0.15
+      }
+     ],
+     "logo": "siyah kutu; son satır kırmızı (\"MÜCEVHERAT\" — Ü noktaları seçilemedi); u1 9nQa karesinden (n3Ef’te ağaç arkasında)"
+    },
+    {
+     "t": "sign",
+     "u0": 9.9,
+     "u1": 14.2,
+     "y0": 8,
+     "y1": 8.56,
+     "d": 0.02,
+     "style": "letters",
+     "text": "KARATAŞ SİTESİ",
+     "fg": "#4b4b4b",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.36
+    },
+    {
+     "t": "panel",
+     "u0": 9.8,
+     "u1": 14.4,
+     "y0": 7.2,
+     "y1": 9.1,
+     "color": "#b9ab8c",
+     "clad": {
+      "dir": "h",
+      "every": 0.62,
+      "w": 0.012,
+      "color": "#9c8f72"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 10.3,
+     "u1": 14,
+     "y0": 1,
+     "y1": 3.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 3,
+     "frameC": "#b0b0ae",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 15.48,
+     "u1": 36.8,
+     "y0": 4.78,
+     "y1": 9.1,
+     "color": "#202629",
+     "proud": 0.08,
+     "clad": {
+      "dir": "grid",
+      "every": 0.55,
+      "every2": 0.55,
+      "w": 0.02,
+      "color": "#3c4146"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 24.1,
+     "u1": 35.3,
+     "y0": 5.4,
+     "y1": 8.2,
+     "d": 0.1,
+     "style": "letters",
+     "text": "Aya…noğlu",
+     "fg": "#c42f38",
+     "border": "#ffffff",
+     "font": "script",
+     "bold": true,
+     "capH": 2.3,
+     "logo": "kırmızı el yazısı, ince beyaz kontur; \"Aya\" (n3Ef) + \"…noğlu\" (9nQa; güney yüzde tam okunuyor: \"Ayanoğlu\"); sağında \"®\" ve gri \"1927\"; iki panonun kayması yüzünden yazının güney ucu ±1.5 m"
+    },
+    {
+     "t": "sign",
+     "u0": 35.4,
+     "u1": 36.7,
+     "y0": 5.6,
+     "y1": 6.3,
+     "d": 0.1,
+     "style": "letters",
+     "text": "1927",
+     "fg": "#bcbcbc",
+     "font": "sans",
+     "bold": false
+    },
+    {
+     "t": "sign",
+     "u0": 12.9,
+     "u1": 15.3,
+     "y0": 3.5,
+     "y1": 4.1,
+     "d": 0.02,
+     "style": "panel",
+     "text": "",
+     "bg": "#1a1a1a",
+     "fg": "#ffffff",
+     "logo": "kış bahçesi arkasında koyu alın, okunamadı"
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "KÜTLE KARARI: OSM building + building:part çifti. Üreticide kütle parçalarının kenarları taban izi kenarı üstünde değilse öğe alamıyor ve taban izi (building) yüksekliği yok; bu yüzden podyum (bu dosya, 2 kat: zemin dükkân + desenli K1 alın / ofis, üst 9.1) ve üstündeki konut kulesi 1546358595 AYRI ölçüm dosyası (kule taban izi zaten ayrı; kulenin K0–K1’i podyumun içinde kalır). Böylece kulenin batı/güney yüzleri kendi kenarlarında öğe alır; massing ile yapılsaydı kule yüzleri (podyum kenarlarından 0.2–1.8 m içeride) öğesiz düz sıva olurdu.",
+  "KAT: kule ile ortak kat çizgileri K0 1.59, K1 4.67 (bulvar ortofotosunda kule pencere lentoları 10.0/13.05/16.16/19.24/22.32 → kat 3.08). Podyum zemin katı kaldırımdan (görünen ≈0.9) biraz yüksek; vitrinler kaldırım hizasından başlıyor.",
+  "TABELALAR: bulvar — ŞOK (sarı alın + taşan logo, iki kırmızı-beyaz çizgili katlanır tente), DİŞ HEKİMİ Nurhan ÇAĞLAR TEL. 413 46 56, TAŞ… (ağaç arkasında), HANÇER KUYUMCULUK MUCEVHERAT, KARATAŞ SİTESİ (taş bant harfleri), Ayanoğlu (K1 boyu desenli siyah pano, kırmızı el yazısı + 1927). 163. Sk. — KAHVALTI, Ayanoğlu 1927 (+ gri yuvarlak amblem), Özel Elita AĞIZ VE DİŞ SAĞLIĞI POLİKLİNİĞİ, elitadis_bursa / elitadisbursa / www.elitadent.com, 0224 414 00 19 / 0545 414 00 16, dik tabela (yüzü görülmedi). Kış bahçesinde \"Tarz-ı Pide\", \"Tarz-ı Tost\", \"Mandı…\" yazıları kaldırım yapısında (street-plan).",
+  "KALDIRIM: bulvar önünde Tarz-ı Pide / Ayanoğlu / Mandı… siyah doğramalı cam kış bahçesi (oluklu metal çatı, görünen 4.05–4.7), 163. Sk. önünde kış bahçesi + gri yivli kolonlu ahşap pergola; bunlar raporda street-plan için.",
+  "GÖRÜLMEYENLER: doğu ve kuzey podyum yüzleri (yalnız uzaktan/yatık), podyum çatısı (hava fotoğrafında kule çevresinde düz kahverengi-gri teras, SW köşede ahşap pergola)."
+ ],
+ "pending": [
+  {
+   "what": "podyum çatısı terası pergolası (ahşap/kahverengi, dikmeli)",
+   "where": "güney yüz (kenar 0) üstünde u 0.6–22.3 (görünen), batı yüzde u 35.3–39.5 (9nQa) — yükseklik podyum üstü 9.1 → ≈+1.5–2 m; dünya çokgeni hava fotoğrafında seçilemedi (kule gölgesi)",
+   "color": "#6a4a33"
+  },
+  {
+   "what": "K2 teras cam kutusu (podyum çatısında, kulenin batı yüzü önünde)",
+   "edge": 3,
+   "u": [
+    17.26,
+    25.75
+   ],
+   "y": [
+    9.18,
+    10.8
+   ],
+   "glass": "#9fb3c4",
+   "frame": "#e8e8e6",
+   "note": "derinlik görülmedi"
+  }
+ ]
+}

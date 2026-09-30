@@ -6470,16 +6470,794 @@
   {
    "edge": 18,
    "len": 14.34,
-   "seen": "none",
-   "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "seen": "photo",
+   "ref": "1550614219_18_NNjYhoYp.jpg",
+   "cal": {
+    "u": [
+     0.0,
+     14.34
+    ],
+    "head": [
+     [
+      3,
+      8.8
+     ],
+     [
+      8,
+      23.1
+     ]
+    ]
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": -0.3,
+     "u1": 14.34,
+     "y0": 6.9,
+     "y1": 8.05,
+     "color": "#c2b4a1",
+     "clad": {
+      "dir": "h",
+      "every": 0.33,
+      "w": 0.01,
+      "color": "#a89a86"
+     }
+    },
+    {
+     "t": "band",
+     "u0": -0.3,
+     "u1": 14.34,
+     "y0": 8.05,
+     "y1": 8.15,
+     "color": "#c9ccce"
+    },
+    {
+     "t": "win",
+     "u0": 0.2,
+     "u1": 5.6,
+     "y0": 4.6,
+     "y1": 6.8,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "stair": true,
+     "split": 4,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K1": "tul"
+     },
+     "curtC": {
+      "K1": "#d9d4c8"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 0.1,
+     "u1": 5.7,
+     "y": 4.55,
+     "d": 1.0,
+     "drop": 0.4,
+     "color": "#2e3032",
+     "style": "retract",
+     "texts": [
+      {
+       "u0": 0.6,
+       "u1": 1.7,
+       "text": "KOPİ NO 9",
+       "fg": "#e8e8e8",
+       "font": "sans",
+       "bold": true
+      },
+      {
+       "u0": 3.7,
+       "u1": 4.8,
+       "text": "KOPİ NO 9",
+       "fg": "#e8e8e8",
+       "font": "sans",
+       "bold": true
+      }
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 0.2,
+     "u1": 5.6,
+     "y0": 1.3,
+     "y1": 4.1,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 3,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 0.3,
+     "s": 1,
+     "y": 5.2
+    },
+    {
+     "t": "win",
+     "u0": 5.9,
+     "u1": 14.34,
+     "y0": 5.9,
+     "y1": 6.85,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "stair": true,
+     "split": 5,
+     "tint": "#2a3034",
+     "frameC": "#2a2a2a"
+    },
+    {
+     "t": "sign",
+     "u0": 5.9,
+     "u1": 14.34,
+     "y0": 4.35,
+     "y1": 5.9,
+     "text": "SANSAR FRIED C",
+     "bg": "#161616",
+     "fg": "#e8b73c",
+     "style": "box",
+     "d": 0.15,
+     "font": "condensed",
+     "bold": true,
+     "capH": 0.62,
+     "align": "right",
+     "logo": "siyah kutu, sarı-altın kalın dar harfler 'SANSAR FRIED C…' (devamı kenar 19/köşede, 'CHICKEN' okunuyor olmalı ama görülen kısım 'C'de bitiyor); solda (u 6.8–8.1) turuncu daire içinde gözlüklü karakter yüzü logosu + 'SANSAR' / 'FRIED CHICKEN' küçük yazı"
+    },
+    {
+     "t": "win",
+     "u0": 5.9,
+     "u1": 14.34,
+     "y0": 1.3,
+     "y1": 4.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 4,
+     "frameC": "#1a1a1a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 7.85,
+     "u1": 9.05,
+     "y0": 21.95,
+     "y1": 23.1,
+     "k": 8,
+     "s": [
+      3,
+      8
+     ],
+     "split": 2,
+     "surround": {
+      "w": 0.14,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K8": "karanlik",
+      "K7": "zebra",
+      "K6": "tul",
+      "K5": "tul",
+      "K4": "tul",
+      "K3": "karanlik"
+     },
+     "grille": {
+      "K3": "bars"
+     },
+     "grilleC": "#2f3438"
+    },
+    {
+     "t": "win",
+     "u0": 4.7,
+     "u1": 6.0,
+     "y0": 7.95,
+     "y1": 8.8,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "grille": {
+      "K3": "bars"
+     },
+     "grilleC": "#2f3438"
+    },
+    {
+     "t": "win",
+     "u0": 10.6,
+     "u1": 11.8,
+     "y0": 7.95,
+     "y1": 8.8,
+     "k": 3,
+     "s": [
+      3,
+      3
+     ],
+     "split": 2,
+     "curt": {
+      "K3": "karanlik"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 3.55,
+     "u1": 7.0,
+     "s": [
+      4,
+      8
+     ],
+     "glazed": [
+      4,
+      5,
+      7
+     ],
+     "tint": {
+      "K4": "dark",
+      "K5": "dark",
+      "K7": "clear"
+     },
+     "d": 1.3,
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "postEvery": 0.92,
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "frameC": {
+      "*": "#c9ccce"
+     },
+     "glazeEvery": 0.62
+    },
+    {
+     "t": "bal",
+     "u0": 9.8,
+     "u1": 14.34,
+     "s": [
+      4,
+      8
+     ],
+     "glazed": [
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "K4": "blinds",
+      "K5": "blinds",
+      "K6": "blinds",
+      "K7": "blinds",
+      "K8": "clear"
+     },
+     "d": 1.3,
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#7d8d98"
+     },
+     "postEvery": 0.92,
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "frameC": {
+      "*": "#c9ccce"
+     },
+     "glazeEvery": 0.62
+    },
+    {
+     "t": "ac",
+     "u": 6.5,
+     "s": 6,
+     "y": 17.2
+    }
+   ],
+   "note": "323. Sk. kuzey kısım, kule 5 doğu yüzü (2025-09; NNjY f22 28 m, L45v ile). Podyum tek yüksek kat + bej taş bant (6.9–8.05): KOPİ NO 9 (u 0.1–5.7; koyu katlanır tente üstünde iki kez beyaz 'KOPİ NO 9', üstünde perdeli cam) ve SANSAR FRIED CHICKEN (siyah kutu tabela sarı harf, turuncu yuvarlak karakter logosu). Kule 5 (K3–K8; K3'ün alt yarısı parapet arkasında): ortada küçük pencere sütunu, sol balkon yığını (K4, K5 koyu camlı, K7 açık camlı, K6/K8 açık), sağ yığın K4–K8 hepsi cam balkon (zebra/stor perdeli). Solda (u −1…1.3) kenar 16/17 dişindeki köşe balkonları ortofotoda eğik — ölçülmedi. Kulede üst tabela yok."
   },
   {
    "edge": 19,
    "len": 28.41,
-   "seen": "none",
-   "items": [],
-   "note": "Görülmedi (iç avlu / kör açı)."
+   "seen": "partial",
+   "ref": "1550614219_19_QEOWgpLZ.jpg",
+   "cal": {
+    "u": [
+     -5.8,
+     38.2
+    ],
+    "head": [
+     [
+      2,
+      11.8
+     ],
+     [
+      8,
+      37.8
+     ]
+    ],
+    "dist": 8.3
+   },
+   "items": [
+    {
+     "t": "panel",
+     "u0": -5.8,
+     "u1": 38.2,
+     "y0": 6.9,
+     "y1": 8.3,
+     "color": "#c2b4a1",
+     "clad": {
+      "dir": "h",
+      "every": 0.5,
+      "w": 0.015,
+      "color": "#a89a86"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": -5.8,
+     "u1": 15.2,
+     "y0": 4.0,
+     "y1": 6.75,
+     "text": "SANSAR FRIED CHICKEN",
+     "bg": "#161616",
+     "fg": "#e8b73c",
+     "style": "box",
+     "d": 0.2,
+     "font": "condensed",
+     "bold": true,
+     "capH": 1.15,
+     "align": "right",
+     "logo": "kenar 18'deki SANSAR tabelasının köşeyi dönen devamı: siyah kutu, sarı-altın 'SANSAR FRIED CHICKEN' (görülen kısım '…ED CHICKEN' u −1.5–8.2); sağ tarafı boş siyah"
+    },
+    {
+     "t": "awning",
+     "u0": -5.8,
+     "u1": 14.3,
+     "y": 4.0,
+     "d": 1.6,
+     "drop": 1.5,
+     "color": "#2e3032",
+     "style": "retract",
+     "texts": [
+      {
+       "u0": -1.0,
+       "u1": 2.2,
+       "text": "SANSAR FRIED CHICKEN",
+       "fg": "#e8b73c"
+      },
+      {
+       "u0": 2.8,
+       "u1": 6.0,
+       "text": "SANSAR FRIED CHICKEN",
+       "fg": "#e8b73c"
+      },
+      {
+       "u0": 6.6,
+       "u1": 9.8,
+       "text": "SANSAR FRIED CHICKEN",
+       "fg": "#e8b73c"
+      },
+      {
+       "u0": 10.4,
+       "u1": 13.6,
+       "text": "SANSAR FRIED CHICKEN",
+       "fg": "#e8b73c"
+      }
+     ]
+    },
+    {
+     "t": "panel",
+     "u0": 14.5,
+     "u1": 20.4,
+     "y0": 0.6,
+     "y1": 6.9,
+     "color": "#c2b4a1",
+     "clad": {
+      "dir": "h",
+      "every": 0.5,
+      "w": 0.015,
+      "color": "#a89a86"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 18.1,
+     "u1": 19.3,
+     "y0": 5.5,
+     "y1": 6.7,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "stair": true,
+     "split": 2,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 15.5,
+     "u1": 16.2,
+     "y0": 4.5,
+     "y1": 5.0,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "stair": true,
+     "split": 1,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 17.5,
+     "s": 1,
+     "y": 5.6
+    },
+    {
+     "t": "win",
+     "u0": 20.4,
+     "u1": 38.2,
+     "y0": 4.2,
+     "y1": 6.85,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "stair": true,
+     "split": 6,
+     "frameC": "#2a2a2a",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 20.4,
+     "u1": 38.2,
+     "y": 4.1,
+     "d": 1.5,
+     "drop": 0.2,
+     "color": "#26282a"
+    },
+    {
+     "t": "win",
+     "u0": -5.8,
+     "u1": 14.3,
+     "y0": 0.6,
+     "y1": 3.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 6,
+     "frameC": "#1a1a1a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 20.4,
+     "u1": 38.2,
+     "y0": 0.6,
+     "y1": 4.0,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "stair": true,
+     "split": 6,
+     "frameC": "#1a1a1a",
+     "curt": {
+      "K0": "karanlik"
+     }
+    },
+    {
+     "t": "band",
+     "u0": -5.8,
+     "u1": 38.2,
+     "y0": 9.85,
+     "y1": 10.0,
+     "color": "#e6e6e2",
+     "proud": 0.05
+    },
+    {
+     "t": "win",
+     "u0": -0.15,
+     "u1": 1.05,
+     "y0": 12.9,
+     "y1": 14.6,
+     "k": 4,
+     "s": [
+      3,
+      8
+     ],
+     "stair": true,
+     "split": 2,
+     "surround": {
+      "w": 0.2,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 1.3,
+     "s": 4,
+     "y": 18.5
+    },
+    {
+     "t": "ac",
+     "u": 1.3,
+     "s": 5,
+     "y": 22.4
+    },
+    {
+     "t": "ac",
+     "u": 1.3,
+     "s": 6,
+     "y": 26.4
+    },
+    {
+     "t": "win",
+     "u0": 3.4,
+     "u1": 6.5,
+     "y0": 12.9,
+     "y1": 16.17,
+     "k": 3,
+     "s": [
+      2,
+      8
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "surround": {
+      "w": 0.2,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul",
+      "K6": "tul",
+      "K7": "tul",
+      "K8": "tul"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 8.95,
+     "u1": 13.9,
+     "d": 1.3,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#c9d2d4"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "glazed": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "K2": "clear",
+      "K3": "clear",
+      "K4": "blinds",
+      "K5": "blinds",
+      "K6": "blinds",
+      "K7": "blinds",
+      "K8": "clear"
+     },
+     "frameC": {
+      "*": "#dfe2e2",
+      "K2": "#6a4a32"
+     },
+     "glazeEvery": 0.6,
+     "pots": {
+      "K2": [
+       9.8,
+       10.6
+      ]
+     },
+     "potsOn": "rail",
+     "potC": "#8a4a2a",
+     "plantC": "#6b6a4a"
+    },
+    {
+     "t": "recess",
+     "u0": 14.2,
+     "u1": 20.4,
+     "s": [
+      2,
+      8
+     ],
+     "depth": 1.6,
+     "back": "plaster",
+     "side": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 14.4,
+     "u1": 15.8,
+     "y0": 14.8,
+     "y1": 16.2,
+     "k": 3,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "behind": 1.6,
+     "surround": {
+      "w": 0.2,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 18.1,
+     "u1": 19.3,
+     "y0": 14.8,
+     "y1": 16.2,
+     "k": 3,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2,
+     "behind": 1.6,
+     "surround": {
+      "w": 0.2,
+      "d": 0.03,
+      "color": "plaster2"
+     },
+     "curt": {
+      "K2": "tul",
+      "K3": "tul",
+      "K4": "tul",
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 20.7,
+     "u1": 27.5,
+     "d": 1.5,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glass"
+     },
+     "parapetH": {
+      "*": 0.08
+     },
+     "railC": "#dcdcd8",
+     "glassC": {
+      "*": "#c9d2d4"
+     },
+     "fasciaC": {
+      "*": "#bca18c"
+     },
+     "glazed": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+     ],
+     "tint": {
+      "K3": "clear",
+      "K4": "dark",
+      "K5": "dark",
+      "K6": "dark",
+      "K7": "dark",
+      "K8": "clear"
+     },
+     "frameC": {
+      "*": "#dfe2e2"
+     },
+     "glazeEvery": 0.9,
+     "chamfer": [
+      1.0,
+      0
+     ]
+    },
+    {
+     "t": "box",
+     "kind": "box",
+     "u0": 26.8,
+     "u1": 27.5,
+     "y0": 10.0,
+     "y1": 11.3,
+     "s": 2,
+     "d": 0.5,
+     "mount": "wall",
+     "color": "#eeeeea"
+    }
+   ],
+   "note": "Kuzey (servis yolu 1455076495) cephesi, kule 5 kuzey yüzü (2025-09; QEOW f22 + 40°, aTnf ile). UYARI: iki panoda da cephe ≈1.55× büyük görünüyor (kat aralığı görünen 4.33 m) → kamera–cephe uzaklığı ≈8.3 m (ortofoto 12.9 m ile üretildi): ya pano konumu ≈4.6 m hatalı ya da kuzey cephe taban izinden 2–4.5 m kuzeyde (hava fotoğrafı eğimle ≈−518). cal.u köşeleri görülmedi → görünen köşeler büyütmeden hesaplandı (−5.8 / 38.2), cal.dist 8.3. Bu tarafta zemin daha alçak: podyum tek kat (+ taş bant 6.9–8.3, sıva 8.3–9.9, teras korkuluğu), ilk konut sırası K2. Görülen: solda yarım kat kaymalı merdiven pencereleri + klima üniteleri, sol Fransız pencere sütunu, K2–K8 cam balkon yığını (K2 kahve profil + 2 saksı), ortada ≈1.6 m girintili küçük pencere bölümü (iki sütun), sağda pahlı cam balkon yığını (K3–K8 camlı, K2 açık + beyaz dolap). u > 28 (doğu ucu) görülmedi. Zemin: SANSAR FRIED CHICKEN köşe tabelası + önünde kaldırıma taşan kapalı teras (tente valansında 'SANSAR FRIED CHICKEN' tekrarları; raporlandı), orta taş kaplı kör duvar (küçük pencere + klima), sağda cam dükkân + koyu pergola/terasa (kaldırım, raporlandı)."
   },
   {
    "edge": 20,
