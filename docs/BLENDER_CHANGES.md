@@ -587,3 +587,10 @@
   555 K0/K3 alın #5a636b, E14 K2 cam arkası klima, E10 kırmızı örtüler + kat kat saksılar. 556 K2 alın #5a636b.
   561 kuzey alınlıkları (D, B yığınları #aab1b6 + kule çatı katı pencereleri). 562 ayaklarda "lamba" sanılanlar
   PVC baca boruları (rod), KB loca klimaları yan duvarda. **Blender:** bu 5 bloğun cephe + çatı katmanı yeniden kurulur.
+- **(eleştirmen düzeltmesi, DA diğer)** 01:3x — `survey/1550826982, 1550614218, 900000101, 1541439435, 1540901772,
+  1546816193.json` + `data/facades.json` (900000101–103 FP-v3 taban iziyle de derlendi): ONAL 51 "MiA" / "YÖNETİM VE
+  GAYRİMENKUL" gerçek harf yükseklikleri (capH 0.77 / 0.37), zemin kat koyu bantlar panjurlu (louvre), K1 kepenkler
+  #262d31, kule kütleleri dünya çokgenleriyle yeniden bölündü + iç yüzler (e45/47/49/52) ölçüldü, EVRENSEL / KİTAP
+  krom harfler, klima yere indi. MOSSA granit ailesi güneşli değere (×1.35, ör. sıva #645a54). 900000101 çift kapı alt
+  dolu panel. 772 K0 beyaz süslü demir parmaklık. 1546816193 beyaz kompozit ailesi ×1.25 (#ced8de…).
+  **Blender:** bu 6 bloğun cephe katmanı; 900000101–103 taban izi + cephe (FP-v3, 4.3° dönük cephe).
