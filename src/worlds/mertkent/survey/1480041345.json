@@ -427,7 +427,9 @@
           },
           "frameC": {
             "*": "#e9eae6"
-          }
+          },
+          "merge": false,
+          "inset": 0.6
         },
         {
           "t": "dish",
@@ -487,7 +489,7 @@
           }
         }
       ],
-      "note": "Doğu kanat güney cephesi (344/e4'ün ikizi, bir kat eksik); S66M (güneşli, aşırı pozlu, ağaç arkası) + S66M 346 / hoOD 308 yakın kareleri. Perdeler: bütün pencerelerde beyaz tül (K3–K4 fransız pencere + borulu korkuluk). K1 penceresinin altında, sol şerit önünde klima (bakır boru yukarı kıvrılıyor). u 6.63–8.1: GD yığının (ön yüzü e5) yan yüzü: K0–K2 şeffaf cam, K3 koyu gri cam, K4 açık (buzlu cam korkuluk). Köşede korkuluğa takılı çanaklar: K3 iki (üstte beyaz, altta siyah), K1 bir beyaz (hoOD 308_4) — d:0 yığında parapet duvar çizgisinde, onBal kapalı. Saçak üstünde ~2–3 m geride dormer (x≈−56.0) → pending."
+      "note": "Doğu kanat güney cephesi (344/e4'ün ikizi, bir kat eksik); S66M (güneşli, aşırı pozlu, ağaç arkası) + S66M 346 / hoOD 308 yakın kareleri. Perdeler: bütün pencerelerde beyaz tül (K3–K4 fransız pencere + borulu korkuluk). K1 penceresinin altında, sol şerit önünde klima (bakır boru yukarı kıvrılıyor). u 6.63–8.1: GD yığının (ön yüzü e5) yan yüzü: K0–K2 şeffaf cam, K3 koyu gri cam, K4 açık (buzlu cam korkuluk). Köşede korkuluğa takılı çanaklar: K3 iki (üstte beyaz, altta siyah), K1 bir beyaz (hoOD 308_4) — d:0 yığında parapet duvar çizgisinde, onBal kapalı. Saçak üstünde ~2–3 m geride dormer (x≈−56.0) → pending. GD yan açıklığı: merge:false (eleştirmen 2026-09-30): köşe birleştirmesi dikdörtgeni bu yan kenardan kurup ön yüz derinliğini 3.2 m'ye kırpıyordu; ön yüz dikdörtgeni kendi inset'iyle ayrı kalır, birleşim = tek loca. inset 0.6 (asgari): bu kenardaki korkuluk çanakları üreticide loca arka duvarına taşınıyor — sığ tutuldu (pending 'rail-units-on-loggia')."
     },
     {
       "edge": 5,
@@ -543,7 +545,8 @@
           "railC": "#c9cdcf",
           "frameC": {
             "*": "#e9eae6"
-          }
+          },
+          "inset": 1.37
         },
         {
           "t": "panel",
@@ -564,7 +567,7 @@
           "bg": "#e0454d"
         }
       ],
-      "note": "GD köşe yığınının ön yüzü = bu kenar (doğu, otopark; hoOD 22 m + hoOD 308 yakın kareleri çok net). Parapet kenar çizgisinde (d:0). Kat kat: K0 çerçevesiz şeffaf cam (içeride sarkıt lamba), K1 şeffaf, K2 şeffaf (korkuluğunda küçük kırmızı süs/kurdele — çizilmedi), K3 koyu gri camlı katlanır cam, K4 AÇIK (buzlu cam korkuluk, tavan lambası görünüyor). Korkuluk: gri alın + dolu parapet (≈0.58) + buzlu cam şerit. Üstte gri eğik şapka (alınlık eğimi)."
+      "note": "GD köşe yığınının ön yüzü = bu kenar (doğu, otopark; hoOD 22 m + hoOD 308 yakın kareleri çok net). Parapet kenar çizgisinde (d:0). Kat kat: K0 çerçevesiz şeffaf cam (içeride sarkıt lamba), K1 şeffaf, K2 şeffaf (korkuluğunda küçük kırmızı süs/kurdele — çizilmedi), K3 koyu gri camlı katlanır cam, K4 AÇIK (buzlu cam korkuluk, tavan lambası görünüyor). Korkuluk: gri alın + dolu parapet (≈0.58) + buzlu cam şerit. Üstte gri eğik şapka (alınlık eğimi). Eleştirmen düzeltmesi: loca derinliği inset 1.37 = e4 yan açıklığı (görünen 6.63–8.1 → gerçek 6.90–8.27); önceden e4'ten kurulan dikdörtgen 5.07 m'lik ön yüzü 3.2'ye kırpıyor, e6 da zincirleme kayboluyordu."
     },
     {
       "edge": 6,
@@ -882,7 +885,9 @@
           },
           "frameC": {
             "*": "#e9eae6"
-          }
+          },
+          "merge": false,
+          "inset": 4.25
         },
         {
           "t": "panel",
@@ -919,7 +924,7 @@
           "color": "#cbccc6"
         }
       ],
-      "note": "Doğu alınlık cephesi (otopark tarafı; hoOD 22 m, sabah güneşi + GD yığının gölgesi; BfxM ile doğrulandı). Mahya bina ortasında (≈u 4.0); üst şeritler eğime kadar; alt şeritlerin üst uçları sivri/pahlı görünüyor (şemada yuvarlak uç). k=5 = çatı arası (yalnız dar sütun ve A sütunu). Perdeler (kat kat): A sütunu K0 sol kanat dikey lamel (jaluzi), K1 beyaz tül, K2 mavi fon perde, K3 tül, K4 dikey lamel, K5 tül; B sütunu K0 jaluzi, K1 tül, K2–K4 dikey lamel (sağ kanatta tül); dar sütun K0–K1 dantel tül, K2 mavi perde, K3–K4 perdesiz karanlık, K5 tül. Derzler: y 5.16 (K0/K1 arası), 10.95 (renk sınırı). Çitin aralığından K0 altında bodrum: A/B sütunları altında küçük bodrum pencereleri, GD yığın yanında zemin kotunda süslü koyu metal-cam bina giriş kapısı (entrance; hoOD 308_4'te de görülüyor). u 11.1–12.61: KD gömülü loggianın yan açıklığı (ön yüzü e8): K1–K3 camlı (K2 koyu), K0/K4 açık."
+      "note": "Doğu alınlık cephesi (otopark tarafı; hoOD 22 m, sabah güneşi + GD yığının gölgesi; BfxM ile doğrulandı). Mahya bina ortasında (≈u 4.0); üst şeritler eğime kadar; alt şeritlerin üst uçları sivri/pahlı görünüyor (şemada yuvarlak uç). k=5 = çatı arası (yalnız dar sütun ve A sütunu). Perdeler (kat kat): A sütunu K0 sol kanat dikey lamel (jaluzi), K1 beyaz tül, K2 mavi fon perde, K3 tül, K4 dikey lamel, K5 tül; B sütunu K0 jaluzi, K1 tül, K2–K4 dikey lamel (sağ kanatta tül); dar sütun K0–K1 dantel tül, K2 mavi perde, K3–K4 perdesiz karanlık, K5 tül. Derzler: y 5.16 (K0/K1 arası), 10.95 (renk sınırı). Çitin aralığından K0 altında bodrum: A/B sütunları altında küçük bodrum pencereleri, GD yığın yanında zemin kotunda süslü koyu metal-cam bina giriş kapısı (entrance; hoOD 308_4'te de görülüyor). u 11.1–12.61: KD gömülü loggianın yan açıklığı (ön yüzü e8): K1–K3 camlı (K2 koyu), K0/K4 açık. KD loca yan açıklığı: inset 4.25 (e8 ön yüz genişliği) + merge:false (eleştirmen 2026-09-30): köşe birleştirmesi dikdörtgeni bu yan kenardan kurup ön yüz derinliğini 3.2 m'ye kırpıyordu; ön yüz dikdörtgeni kendi inset'iyle ayrı kalır, birleşim = tek loca."
     },
     {
       "edge": 8,
@@ -1086,7 +1091,8 @@
           "railC": "#c9cdcf",
           "frameC": {
             "*": "#e9eae6"
-          }
+          },
+          "inset": 1.34
         },
         {
           "t": "bal",
@@ -1140,7 +1146,7 @@
           "color": "plaster2"
         }
       ],
-      "note": "Kuzey saçaklı cephe (344'e bakan, jeMF 25.7 m çok eğik: yatay/düşey ölçek ~0.88); perdeler okunamıyor. Köşelerde taban izine gömülü loggialar (d:0). KD loggia (u 2.5–6.1): K1 şeffaf cam, K2 koyu mavi cam, K3 açık mavi-şeffaf çerçeveli cam, K4 açık (buzlu cam korkuluk), K0 ağaç arkasında. KB loggia (u 14.15–16.8): K1–K3 ŞEFFAF katlanır cam (yansımalarda karşı binanın pencereleri, K3'te bir panel açık; 1Jme 56_26 yakın karesinde yan yüzde de cam) — eski 'açık' kaydı düzeltildi; K4 açık, K0 açık (buzlu cam korkuluk). Üst katlarda dar fransız pencere + korkuluk. Loggia–duvar birleşimlerinde beyaz PVC yağmur boruları."
+      "note": "Kuzey saçaklı cephe (344'e bakan, jeMF 25.7 m çok eğik: yatay/düşey ölçek ~0.88); perdeler okunamıyor. Köşelerde taban izine gömülü loggialar (d:0). KD loggia (u 2.5–6.1): K1 şeffaf cam, K2 koyu mavi cam, K3 açık mavi-şeffaf çerçeveli cam, K4 açık (buzlu cam korkuluk), K0 ağaç arkasında. KB loggia (u 14.15–16.8): K1–K3 ŞEFFAF katlanır cam (yansımalarda karşı binanın pencereleri, K3'te bir panel açık; 1Jme 56_26 yakın karesinde yan yüzde de cam) — eski 'açık' kaydı düzeltildi; K4 açık, K0 açık (buzlu cam korkuluk). Üst katlarda dar fransız pencere + korkuluk. Loggia–duvar birleşimlerinde beyaz PVC yağmur boruları. Eleştirmen düzeltmesi: KD loca (ilk bal) inset 1.34 = e7 yan açıklığı (gerçek 10.04–11.38)."
     },
     {
       "edge": 9,
@@ -1466,10 +1472,12 @@
           },
           "frameC": {
             "*": "#e9eae6"
-          }
+          },
+          "merge": false,
+          "inset": 4.83
         }
       ],
-      "note": "GB yığının kuzey yan yüzü (düzeltilmiş izde 1.13 m); iLoV/1Jme karelerinde çok eğik: açık yan, döşeme uçları + buzlu cam korkuluk; cam katları e11 ile aynı varsayıldı (kısmen görüldü). u gerçek metre."
+      "note": "GB yığının kuzey yan yüzü (düzeltilmiş izde 1.13 m); iLoV/1Jme karelerinde çok eğik: açık yan, döşeme uçları + buzlu cam korkuluk; cam katları e11 ile aynı varsayıldı (kısmen görüldü). u gerçek metre. merge:false (eleştirmen 2026-09-30): köşe birleştirmesi dikdörtgeni bu yan kenardan kurup ön yüz derinliğini 3.2 m'ye kırpıyordu; ön yüz dikdörtgeni kendi inset'iyle ayrı kalır, birleşim = tek loca."
     },
     {
       "edge": 11,
@@ -1521,7 +1529,8 @@
           "railC": "#c9cdcf",
           "frameC": {
             "*": "#e9eae6"
-          }
+          },
+          "inset": 1.3
         },
         {
           "t": "dish",
@@ -1566,7 +1575,7 @@
           "color": "#cbccc6"
         }
       ],
-      "note": "GB köşe yığınının ön yüzü = bu kenar (sokak; iLoV 10 m + JDL6). Parapet kenar çizgisinde (d:0). Kat kat: K0 açık, K1 çerçeveli koyu cam (içerisi görünüyor), K2 çerçevesiz şeffaf cam, K3 ve K4 açık (buzlu cam korkuluk, tavan görünüyor). Güney ucunda korkuluklara takılı çanaklar (K0, K1, K2, K4) ve K2'de klima (d:0 yığın: onBal kapalı). Üstte gri eğik şapka (güneye alçalan). iLoV çok yakın: cal.head korkuluklardan."
+      "note": "GB köşe yığınının ön yüzü = bu kenar (sokak; iLoV 10 m + JDL6). Parapet kenar çizgisinde (d:0). Kat kat: K0 açık, K1 çerçeveli koyu cam (içerisi görünüyor), K2 çerçevesiz şeffaf cam, K3 ve K4 açık (buzlu cam korkuluk, tavan görünüyor). Güney ucunda korkuluklara takılı çanaklar (K0, K1, K2, K4) ve K2'de klima (d:0 yığın: onBal kapalı). Üstte gri eğik şapka (güneye alçalan). iLoV çok yakın: cal.head korkuluklardan. Eleştirmen düzeltmesi (V11, gPUM_60 / 90_-5): yığın fotoğrafta belirgin çıkıntı + kat kat açık/camlı localar; oyunda 'düz' görünmesinin nedeni birleştirme zinciri: e10 bu kenarı yutup dikdörtgeni 1.13 × 3.2 m'ye kırpıyor, e11 düşünce e0 yan yüzü de düşüyordu (ön yüzün güney 1.6 m'si + güney yan cam duvar). Düzeltme: inset 1.3 (e0 yan camı gerçek 0–1.3) + e10 merge:false → e11 × 1.3 m tek loca, e0 yanı bu locaya bağlanır (çanaklar korkuluk hattında kalır). Yığının batıya çıkıntısı taban izinde 1.13 m (e10); eleştirmenin ≈1.5 m tahmini kaymış kameradan (3–7 m) — hava fotoğrafında çatı basamağı taban iziyle uyumlu, taban izi değiştirilmedi. d:0 doğru (korkuluk ön yüz hattında)."
     }
   ],
   "notes": [
@@ -1582,7 +1591,18 @@
     "v-retro: korkuluklar 344 ile aynı ('glass': koyu gri alın + dolu parapet ≈0.58 m + ≈0.3 m buzlu cam şerit + alüminyum küpeşte). Renkler 344'ten (aynı tasarım; bu bloğun güney cepheleri aşırı pozlu/ağaç arkası): alt beyaz #f1f2ed, üst mavi-gri #dde1e1, şerit #df8d47, alın #a6a9a2; batı alınlıkta (1Jme, güneşli) üst/alt ayrımı net.",
     "Eleştirmen notları: balkon alınları bu blokta koyu gri (beyaz/krem değil); pilastr = turuncu şeritler (strip); soffit açık gri-beyaz yapıldı.",
     "Görülmeyenler: e6 (GD yığın iç yanı) camlı varsayıldı; e0 kombi çıkışları/derzleri aşırı pozlamada seçilemedi (344'te var); e8 perdeleri okunamadı; kuzey loggiaların K0 katları kısmen ağaç arkasında.",
-    "v6 (2026-09-29): (1) ÇATI PENCERELERİ (dormer, 2 adet, eski pending): S66M 335_19 / 346 + 6eol 344_22 kareleri ve e0 (6eol) / e4 (S66M) ortofotoları. Konum: fransız pencere sütunlarının üstünde DEĞİL, ≈0.4–0.7 m dışında (e0: sütun ortasından ≈0.7 m batıda, e4: ≈0.35 m doğuda); iki kameranın paralaksından setback ≈1.8 m (±0.4; 6eol görünür kayma −0.25 m, S66M +0.38 m), aynı sonuç hava fotoğrafında eğiklik düzeltilmiş konumla (dormer x ≈ −64.4 / −53.6). Hava fotoğrafındaki x −66.8 / −56.0 eğik çekim kaymasıydı (≈−0.11 m/m yükseklik). Genişlik (ön yüz) 2.15 m (e4 net ölçü; e0 bulanık), eğim 45° (rüzgârlık eğimi ölçüldü). Tepe duvar üstünden: e4 3.45 m, e0 3.15 m (görünen tepe 19.16 / 18.78, setback düzeltmeli; ikiz olmalarına rağmen ölçü farkı ≈0.3 m, ölçüldüğü gibi). Ön yüz açık gri (S66M #b2b7b8, 6eol #b1a0a2–#b5a9a2; alın bandıyla aynı gri tonda) → #aaaeae; kalın ahşap görünümlü altın-kahve rüzgârlık tahtaları (gölgeli #846547–#897244, güneşli #cbb9a1–#e4ccb7) → trim #a08462 (üretici kalınlığı sabit 0.12 çiziyor, gerçek ≈0.17); ortada kalın beyaz PVC çerçeveli 2 kanatlı pencere (e4: 0.79 m geniş, üst kenar çatı yüzünden ≈0.73 m; e0: ≈0.65 m, 0.78 m), alt kısmı saçak arkasında GÖRÜLMEDİ (denizlik 0.15 varsayılan). Küçük beşik çatısı kiremit (üstte kiremit çizgisi görünüyor). (2) Saçak alın bandı roof.fasciaC #bbbdba: S66M e4 güneşli #d8dcd5–#dbdcda, aynı karede balkon alnı #c2c1bc (palet #a6a9a2) → pozlama oranıyla düzeltildi; kuzey gölgede #757775 (jeMF e8). (3) Şapkalar (d:0 gömük yığında `cap` çizilmediği için): gableC e5/e11 #cbccc6 + loca tavanından yukarı pano — GD e5 (hoOD güneşli #a3a6a9, aynı karede balkon alnı #989ea3–#a3a7ad; 344'teki şapka/alın oranıyla aynı), GB e11 (iLoV), KB loca yanı e9 u 0.9–2.72 (1Jme gölgede #616e78, alınlık #7d8c99), KD loca yanı e7 u 11.1–12.61 (hoOD #a2adae, alınlık #bacad3). Ana alınlıklar e7/e9 gableC plaster2. (4) Şerit uçları (1Jme e9, hoOD e7, jeMF e8 net): alt şerit çiftlerinin ÜST ucu SİVRİ (point), üst şeritlerin alt ucu DÜZ, üst ucu düz (saçak altında / alınlık çizgisinde küçük düz başlık). e0/e4'te alt uçlar ağaç / aşırı pozlama arkasında → yalnız üst uçlar (saçak altında düz, 6eol/S66M) yazıldı. (5) e5 K2 korkuluk alnında küçük kırmızı bez / fiyonk (≈0.45 × 0.34 m, #c4353a gölge – #fe6c70 ışık, hoOD) → banner \"plain\" #e0454d (biçimi fiyonk; düz bez olarak çizilir)."
+    "v6 (2026-09-29): (1) ÇATI PENCERELERİ (dormer, 2 adet, eski pending): S66M 335_19 / 346 + 6eol 344_22 kareleri ve e0 (6eol) / e4 (S66M) ortofotoları. Konum: fransız pencere sütunlarının üstünde DEĞİL, ≈0.4–0.7 m dışında (e0: sütun ortasından ≈0.7 m batıda, e4: ≈0.35 m doğuda); iki kameranın paralaksından setback ≈1.8 m (±0.4; 6eol görünür kayma −0.25 m, S66M +0.38 m), aynı sonuç hava fotoğrafında eğiklik düzeltilmiş konumla (dormer x ≈ −64.4 / −53.6). Hava fotoğrafındaki x −66.8 / −56.0 eğik çekim kaymasıydı (≈−0.11 m/m yükseklik). Genişlik (ön yüz) 2.15 m (e4 net ölçü; e0 bulanık), eğim 45° (rüzgârlık eğimi ölçüldü). Tepe duvar üstünden: e4 3.45 m, e0 3.15 m (görünen tepe 19.16 / 18.78, setback düzeltmeli; ikiz olmalarına rağmen ölçü farkı ≈0.3 m, ölçüldüğü gibi). Ön yüz açık gri (S66M #b2b7b8, 6eol #b1a0a2–#b5a9a2; alın bandıyla aynı gri tonda) → #aaaeae; kalın ahşap görünümlü altın-kahve rüzgârlık tahtaları (gölgeli #846547–#897244, güneşli #cbb9a1–#e4ccb7) → trim #a08462 (üretici kalınlığı sabit 0.12 çiziyor, gerçek ≈0.17); ortada kalın beyaz PVC çerçeveli 2 kanatlı pencere (e4: 0.79 m geniş, üst kenar çatı yüzünden ≈0.73 m; e0: ≈0.65 m, 0.78 m), alt kısmı saçak arkasında GÖRÜLMEDİ (denizlik 0.15 varsayılan). Küçük beşik çatısı kiremit (üstte kiremit çizgisi görünüyor). (2) Saçak alın bandı roof.fasciaC #bbbdba: S66M e4 güneşli #d8dcd5–#dbdcda, aynı karede balkon alnı #c2c1bc (palet #a6a9a2) → pozlama oranıyla düzeltildi; kuzey gölgede #757775 (jeMF e8). (3) Şapkalar (d:0 gömük yığında `cap` çizilmediği için): gableC e5/e11 #cbccc6 + loca tavanından yukarı pano — GD e5 (hoOD güneşli #a3a6a9, aynı karede balkon alnı #989ea3–#a3a7ad; 344'teki şapka/alın oranıyla aynı), GB e11 (iLoV), KB loca yanı e9 u 0.9–2.72 (1Jme gölgede #616e78, alınlık #7d8c99), KD loca yanı e7 u 11.1–12.61 (hoOD #a2adae, alınlık #bacad3). Ana alınlıklar e7/e9 gableC plaster2. (4) Şerit uçları (1Jme e9, hoOD e7, jeMF e8 net): alt şerit çiftlerinin ÜST ucu SİVRİ (point), üst şeritlerin alt ucu DÜZ, üst ucu düz (saçak altında / alınlık çizgisinde küçük düz başlık). e0/e4'te alt uçlar ağaç / aşırı pozlama arkasında → yalnız üst uçlar (saçak altında düz, 6eol/S66M) yazıldı. (5) e5 K2 korkuluk alnında küçük kırmızı bez / fiyonk (≈0.45 × 0.34 m, #c4353a gölge – #fe6c70 ışık, hoOD) → banner \"plain\" #e0454d (biçimi fiyonk; düz bez olarak çizilir).",
+    "Klima dış üniteleri: fotoğraflarda BEYAZ kutu + gri ızgaralı fan yüzü (oyunda siyah fan diski; model kodda)."
   ],
-  "pending": []
+  "pending": [
+    {
+      "what": "rail-units-on-loggia",
+      "edges": [
+        4,
+        0,
+        11
+      ],
+      "detail": "d:0 locaların korkuluğuna takılı çanak/klima (45 e4 K1/K3 çanakları, e11 güney ucu çanakları + K2 klima) — üretici aynı kenardaki gömük locada birimleri loca ARKA duvarına taşıyor (v7 davranış 4); gerçekte korkuluk hattında (cephe hattında, ≈0.1 m önde). onBal ise 1.35 m önde çiziyor (d:0'da havada). Gerekli: birim için 'rail' konumu (korkuluk hattı, d:0 locada)."
+    }
+  ]
 }

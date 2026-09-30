@@ -633,3 +633,44 @@ export function distToRing(px: number, pz: number, r: Ring): number {
   for (let i = 0; i < r.length; i++) d = Math.min(d, distToSegment(px, pz, r[i], r[(i + 1) % r.length]));
   return d;
 }
+
+/**
+ * El modeli / ölçülmüş binaların (ids) OSM kayıtlarını ve taban izlerinin İÇİNDE kalan building:part'larını atar.
+ * KARAR: parçanın köşelerinin ≥ %80'i dış hat içinde ya da ona `tol` m'den yakınsa parça o binanındır (ör. ONAL 51
+ * 1550826982'nin 1550826983/84/85 parçaları el modelinin içinden prosedürel duvar çıkarıyordu). Parçanın kendi id'si
+ * listede olmasa da atılır; dış hattın dışındaki komşu parçalar korunur.
+ */
+export function dropHandmadeWays<W extends { i: number; p: number[]; t?: Tags }>(
+  ways: W[],
+  ids: Set<number>,
+  tol = 0.6,
+): W[] {
+  const ringOf = (p: number[]): Ring => {
+    const r: Ring = [];
+    for (let k = 0; k + 1 < p.length; k += 2) r.push([p[k], p[k + 1]]);
+    return r;
+  };
+  const outlines: { r: Ring; x0: number; x1: number; z0: number; z1: number }[] = [];
+  for (const w of ways) {
+    if (!ids.has(w.i) || !w.t?.building || w.p.length < 6) continue;
+    const r = ringOf(w.p);
+    const xs = r.map((q) => q[0]);
+    const zs = r.map((q) => q[1]);
+    outlines.push({ r, x0: Math.min(...xs), x1: Math.max(...xs), z0: Math.min(...zs), z1: Math.max(...zs) });
+  }
+  const insideOutline = (w: W): boolean => {
+    const part = w.t?.['building:part'];
+    if (!part || part === 'no' || w.p.length < 6) return false;
+    const r = ringOf(w.p);
+    for (const o of outlines) {
+      let hit = 0;
+      for (const [x, z] of r) {
+        if (x < o.x0 - tol || x > o.x1 + tol || z < o.z0 - tol || z > o.z1 + tol) continue;
+        if (pointInRing(x, z, o.r) || distToRing(x, z, o.r) <= tol) hit++;
+      }
+      if (hit >= 0.8 * r.length) return true;
+    }
+    return false;
+  };
+  return ways.filter((w) => !ids.has(w.i) && !insideOutline(w));
+}

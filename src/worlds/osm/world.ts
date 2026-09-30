@@ -7,7 +7,7 @@ import { buildWorld, type BuildResult } from './build';
 import { createOsmMaterials, groundHalf, type OsmMaterials } from './materials';
 import { orient } from './buildings';
 import { barrierThickness } from './landuse';
-import { parseOsm, pointInPolygon, type OsmWorldData } from './parse';
+import { dropHandmadeWays, parseOsm, pointInPolygon, type OsmWorldData } from './parse';
 import type { SimpleOsm } from './simplify';
 import type { Carriageway, RaisedStrip } from './roads';
 import type { GridData, TerrainData } from '../../env/terrain';
@@ -354,7 +354,7 @@ export class OsmWorld implements IWorld {
     const real = simple.centerSource !== 'fixture';
     const handmade = real && !new URLSearchParams(location.search).has('nohand');
     const simpleBuild = handmade
-      ? { ...simple, ways: simple.ways.filter((w) => !HANDMADE_IDS.has(w.i)) }
+      ? { ...simple, ways: dropHandmadeWays(simple.ways, HANDMADE_IDS) }
       : simple;
     const res = await buildInWorker(
       simpleBuild,

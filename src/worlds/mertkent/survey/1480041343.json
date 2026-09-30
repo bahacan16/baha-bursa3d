@@ -541,10 +541,11 @@
           },
           "glassC": {
             "*": "#c1dad5"
-          }
+          },
+          "merge": false
         }
       ],
-      "note": "Görülmedi. Balkon kütlesinin iç yan yüzü: yalnız komşu ön yüzlerde görülen döşeme uçlarının devamı olarak döşeme + cam korkuluk çizildi; cam balkon / perde / ekipman yazılmadı (önceki varsayılan cam katları kaldırıldı)."
+      "note": "Görülmedi. Balkon kütlesinin iç yan yüzü: yalnız komşu ön yüzlerde görülen döşeme uçlarının devamı olarak döşeme + cam korkuluk çizildi; cam balkon / perde / ekipman yazılmadı (önceki varsayılan cam katları kaldırıldı). merge:false (eleştirmen düzeltmesi 2026-09-30): köşe locası birleştirmesi dikdörtgeni bu YAN kenardan kurup derinliği 3.2 m'ye kırpıyordu / zincirleme birleşmede ön yüz öğesi düşüyordu; ayrı dikdörtgenlerin birleşimi (ön yüz × ön yüzün inset'i) = tek loca. Geometri ölçüsü değişmedi."
     },
     {
       "edge": 7,
@@ -1091,7 +1092,8 @@
           },
           "glassC": {
             "*": "#c1dad5"
-          }
+          },
+          "merge": false
         },
         {
           "t": "pipe",
@@ -1391,7 +1393,7 @@
           }
         }
       ],
-      "note": "G8RU referans (ChHr ile doğrulandı). 42/8 ile aynı düzen; simetri merkezi kenar ortasında (11.47). Kat aralığı 2.678 (duvar halkanın ~0.2 m gerisinde). Orta ikiz balkon d≈1.25; köşe kütle ön yüzleri 0.4–0.5 m çıkma (+inset), uçları 0.6–0.9 m geride. Çatıda üç piramit başlıklı baca (u≈4.75, 15.0, 18.5) görünür. RETRO (G8RU 12 yakın kare + ortofoto profilleri): sıva iki tonlu (K0–K2 beyaz #dbdcd4, K3 döşemesinden saçağa gri #c2c4c2). Balkon ön yüzü 42 ile aynı: grenli gri alın+alçak parapet bandı ~0.5 m + buzlu cam ~0.4 m + alüminyum küpeşte (tüm katlar). Cam balkonlar: orta sol K0–K1 beyaz ince profil + yeşil dikey jaluzi (blinds), K2 beyaz profil + camgöbeği-yeşil cam, K3 beyaz profil şeffaf (içeride perde), K5 koyu profil koyu cam; orta sağ K0 siyah profil koyu lacivert cam, K4 beyaz profil şeffaf, K5 koyu. Orta sağ balkon K1 ve K2’de korkuluğun arkasında döşemede saksılar (v5: pots, potsOn floor; G8RU 252_24 yakın karesi: K1 u 11.43 yeşil, 12.02 yeşil, 13.12 pembe çiçek; K2 u 11.45 pembe-kırmızı çiçek, 14.2 kırmızı çiçek + yeşil; saksıların kendisi buzlu camın arkasında görülmedi; çiçek renkleri tek plantC ile yazılamadı). Perdeler: sol alt K0 tül + zeytin-kahve yan perde, K1–K2 tül; sağ alt K0–K1 tül, K2 tül + koyu yan perde; sol üst K3 tül + mavi-lila perde, K4–K5 tül; sağ üst K3 tül, K4 sol kanat koyu + tül, K5 tül + gri-mavi perde. Açık gri PVC yağmur boruları köşe kütlelerinin iç kenarında (u 4.45, 18.35). Orta direk koyu gri çelik (~14 cm), kollu lamba/kameralar. v5: kat hizası derzleri K2 7.93 / K3 (sıva sınırı 10.50) / K4 13.30 yığınlar arası duvarlarda groove (pano K4 hizasında bölündü). Orta direk şapkanın üstüne ÇIKMAZ: en üst şapka alnının ortasında biter (görünen 20.64, balkon önü d=1.25 → duvar düzleminde ≈18.35) → pipe y1, kelepçesiz; her katta kollu çift CCTV kamerası (pending). Çatıda üç kiremit başlıklı baca görünen u≈4.9, 15.25, 19.0 (tepe y≈20.1). v6 (G8RU): duvar üstü görünen 19.50 (güney) / 19.35 (kuzey) + üstte ~0.15 m koyu saçak bandı (#6d798d, gölgede) → wallTop 19.76 + fasciaH 0.14. Şapkalar düz, kalın: GD (d 0.5) alın görünen 19.0–20.05 → capH 1.0, KD (d 0.4) 18.8–19.9 → 1.05, orta (d 1.25) 20.05–21.35 → 1.15; üstte koyu damlalık (capTrim #4a5969); köşelerdeki gömük loca uçları (u 0.22–1.42, 21.17–22.79) şapka alnı gri pano. Orta direkte K0–K5 kollu çift bullet kamera (u direk düzlemine göre 11.56, off 1.25). Çatıda üç baca: kiremit piramit başlık (alt kenarı beyaz), gövde duvar üstünün arkasında görülmüyor; tepe görünen 20.45 / 20.25 / 20.2 (u 4.55 / 15.1 / 18.5), başlık alt kenarı ≈19.6–19.7 → setback 0.5 varsayılarak başlık h 0.65–0.8, gövde 0.53–0.64 (setback tek görüntüden ölçülemedi). Saksı çiçek renkleri flowerC (pembe-kırmızı #cb8c94, açık pembe #e7bcac, kiremit #b3725e; üretici her saksıya aynı çiçekleri koyar — K1’deki iki yeşil saksı da çiçekli çizilir). Perdeler: sol alt K0 zeytin-kahve yan perde #50554e; sağ alt K2 koyu yan perde #2d343d; sol üst K3 mavi-lila #6c7e9a; sağ üst K4 sol kanat koyu #636f83, K5 gri-mavi #617390. Köşe kütle çanakları onBal değil."
+      "note": "G8RU referans (ChHr ile doğrulandı). 42/8 ile aynı düzen; simetri merkezi kenar ortasında (11.47). Kat aralığı 2.678 (duvar halkanın ~0.2 m gerisinde). Orta ikiz balkon d≈1.25; köşe kütle ön yüzleri 0.4–0.5 m çıkma (+inset), uçları 0.6–0.9 m geride. Çatıda üç piramit başlıklı baca (u≈4.75, 15.0, 18.5) görünür. RETRO (G8RU 12 yakın kare + ortofoto profilleri): sıva iki tonlu (K0–K2 beyaz #dbdcd4, K3 döşemesinden saçağa gri #c2c4c2). Balkon ön yüzü 42 ile aynı: grenli gri alın+alçak parapet bandı ~0.5 m + buzlu cam ~0.4 m + alüminyum küpeşte (tüm katlar). Cam balkonlar: orta sol K0–K1 beyaz ince profil + yeşil dikey jaluzi (blinds), K2 beyaz profil + camgöbeği-yeşil cam, K3 beyaz profil şeffaf (içeride perde), K5 koyu profil koyu cam; orta sağ K0 siyah profil koyu lacivert cam, K4 beyaz profil şeffaf, K5 koyu. Orta sağ balkon K1 ve K2’de korkuluğun arkasında döşemede saksılar (v5: pots, potsOn floor; G8RU 252_24 yakın karesi: K1 u 11.43 yeşil, 12.02 yeşil, 13.12 pembe çiçek; K2 u 11.45 pembe-kırmızı çiçek, 14.2 kırmızı çiçek + yeşil; saksıların kendisi buzlu camın arkasında görülmedi; çiçek renkleri tek plantC ile yazılamadı). Perdeler: sol alt K0 tül + zeytin-kahve yan perde, K1–K2 tül; sağ alt K0–K1 tül, K2 tül + koyu yan perde; sol üst K3 tül + mavi-lila perde, K4–K5 tül; sağ üst K3 tül, K4 sol kanat koyu + tül, K5 tül + gri-mavi perde. Açık gri PVC yağmur boruları köşe kütlelerinin iç kenarında (u 4.45, 18.35). Orta direk koyu gri çelik (~14 cm), kollu lamba/kameralar. v5: kat hizası derzleri K2 7.93 / K3 (sıva sınırı 10.50) / K4 13.30 yığınlar arası duvarlarda groove (pano K4 hizasında bölündü). Orta direk şapkanın üstüne ÇIKMAZ: en üst şapka alnının ortasında biter (görünen 20.64, balkon önü d=1.25 → duvar düzleminde ≈18.35) → pipe y1, kelepçesiz; her katta kollu çift CCTV kamerası (pending). Çatıda üç kiremit başlıklı baca görünen u≈4.9, 15.25, 19.0 (tepe y≈20.1). v6 (G8RU): duvar üstü görünen 19.50 (güney) / 19.35 (kuzey) + üstte ~0.15 m koyu saçak bandı (#6d798d, gölgede) → wallTop 19.76 + fasciaH 0.14. Şapkalar düz, kalın: GD (d 0.5) alın görünen 19.0–20.05 → capH 1.0, KD (d 0.4) 18.8–19.9 → 1.05, orta (d 1.25) 20.05–21.35 → 1.15; üstte koyu damlalık (capTrim #4a5969); köşelerdeki gömük loca uçları (u 0.22–1.42, 21.17–22.79) şapka alnı gri pano. Orta direkte K0–K5 kollu çift bullet kamera (u direk düzlemine göre 11.56, off 1.25). Çatıda üç baca: kiremit piramit başlık (alt kenarı beyaz), gövde duvar üstünün arkasında görülmüyor; tepe görünen 20.45 / 20.25 / 20.2 (u 4.55 / 15.1 / 18.5), başlık alt kenarı ≈19.6–19.7 → setback 0.5 varsayılarak başlık h 0.65–0.8, gövde 0.53–0.64 (setback tek görüntüden ölçülemedi). Saksı çiçek renkleri flowerC (pembe-kırmızı #cb8c94, açık pembe #e7bcac, kiremit #b3725e; üretici her saksıya aynı çiçekleri koyar — K1’deki iki yeşil saksı da çiçekli çizilir). Perdeler: sol alt K0 zeytin-kahve yan perde #50554e; sağ alt K2 koyu yan perde #2d343d; sol üst K3 mavi-lila #6c7e9a; sağ üst K4 sol kanat koyu #636f83, K5 gri-mavi #617390. Köşe kütle çanakları onBal değil. KD köşe locasının yan parçası (son bal öğesi) merge:false (eleştirmen düzeltmesi 2026-09-30): köşe locası birleştirmesi dikdörtgeni bu YAN kenardan kurup derinliği 3.2 m'ye kırpıyordu / zincirleme birleşmede ön yüz öğesi düşüyordu; ayrı dikdörtgenlerin birleşimi (ön yüz × ön yüzün inset'i) = tek loca. Geometri ölçüsü değişmedi."
     },
     {
       "edge": 9,
@@ -1929,10 +1931,11 @@
           },
           "glassC": {
             "*": "#c1dad5"
-          }
+          },
+          "merge": false
         }
       ],
-      "note": "Görülmedi. Balkon kütlesinin iç yan yüzü: yalnız komşu ön yüzlerde görülen döşeme uçlarının devamı olarak döşeme + cam korkuluk çizildi; cam balkon / perde / ekipman yazılmadı (önceki varsayılan cam katları kaldırıldı)."
+      "note": "Görülmedi. Balkon kütlesinin iç yan yüzü: yalnız komşu ön yüzlerde görülen döşeme uçlarının devamı olarak döşeme + cam korkuluk çizildi; cam balkon / perde / ekipman yazılmadı (önceki varsayılan cam katları kaldırıldı). merge:false (eleştirmen düzeltmesi 2026-09-30): köşe locası birleştirmesi dikdörtgeni bu YAN kenardan kurup derinliği 3.2 m'ye kırpıyordu / zincirleme birleşmede ön yüz öğesi düşüyordu; ayrı dikdörtgenlerin birleşimi (ön yüz × ön yüzün inset'i) = tek loca. Geometri ölçüsü değişmedi."
     },
     {
       "edge": 15,
