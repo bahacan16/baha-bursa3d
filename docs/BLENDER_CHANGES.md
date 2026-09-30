@@ -823,3 +823,10 @@
   1541439437 kenar 0/8/9/11 `plaster2` panelleri parapet tepesinde (derlenmiş y 27.72) bitiyor (çatı üstündeki
   "boynuz"lar kalktı); D4 refüj gabionları `rot: 90` (yol boyunca). **Blender:** `NW/D4/1541439437` cephe
   panelleri + `NW/Street/D4` gabionlar yeniden kurulur.
+- **(D4 sokak ölçü boşlukları)** — `street-plan.json`: konsollu sinyaller d4-sig-rb2-n-mast (kol 4.4 m, h 7.9) ve
+  d4-sig-598-m (kol 5.2, h 7.5); Muammer Aksoy kavşağına 2 yeni konsollu sinyal (d4-sig-mak-s/n-mast); otobüs durağı
+  reklam panoları (`ads`, uç + renk; ışık görülmedi); konteyner yazı rengi #556641; kış bahçesi alın #1f3a3b + mertek
+  3.4 m; pilon 15 m; yeni EREN KOZAN panosu; ikinci gabion silindi (birincinin başka panodan görünüşü); Özdemiroğlu
+  bayrak direkleri kerterizle x ≈ 605 hattına (güney bayraksız, orta Türk bayrağı `d4-ozd-flag-tr`, kuzey beyaz bayrak
+  deseni görülmedi); da2-fence-arch ayak + üst boru. **Blender:** `NW/Street/D4` sinyaller, duraklar, konteynerler,
+  pilon, bayrak direkleri, pano; `NW/Street/DA` kemerli çit yeniden kurulur.

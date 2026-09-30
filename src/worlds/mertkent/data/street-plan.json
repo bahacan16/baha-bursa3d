@@ -17660,18 +17660,36 @@
     {
       "id": "d4-ozd-flag-1",
       "kind": "pole",
-      "x": 597.5,
-      "z": -231.6,
+      "x": 604.98,
+      "z": -230,
       "h": 8,
-      "note": "Özdemiroğlu doğu çiminde bayrak direği (Türk bayrağı; SV OHftRqTt_240_0, 8lJUsB-6_240_0, 7owiuJwI_240_0: iki direk, biri Türk bayrağı, diğeri mavi-beyaz bayrak). Konum cephe ajanı (x 595–600) ±1.5. Boy ≈8 (oransal). Bayrak kumaşı çizilmez (üretici: pole.flag yok)."
+      "note": "Özdemiroğlu doğu çiminde bayraksız bayrak direği (üç direğin güneydeki; kumaş yok); 2026-09-30 düzeltme: OHftRqTt_300_0, 8lJUsB-6_240_0, 7owiuJwI_240_0 (2025-09) karelerinde bu direkte bayrak yok, Türk bayrağı ortadaki direkte (d4-ozd-flag-tr). Eski not: SV OHftRqTt_240_0, 8lJUsB-6_240_0, 7owiuJwI_240_0: iki direk görülmüştü. Konum cephe ajanı (x 595–600) ±1.5 — üç karenin kerteriz kesişimi bu direği (604.98,−230.0)’a koyuyor (artık < 0.05 m; bkz. d4-ozd-flag-tr), konum düzeltmesi bekliyor. Boy ≈8 (oransal). | Konum 3 karenin kerteriz kesişiminden (OHftRqTt_300_0, 8lJUsB-6_240_0, 7owiuJwI_240_0; ±0.1): eski x 597.5 cephe ajanının ±1.5 tahminiydi."
+    },
+    {
+      "id": "d4-ozd-flag-tr",
+      "kind": "pole",
+      "x": 604.94,
+      "z": -231.41,
+      "h": 6.2,
+      "rot": 180,
+      "flag": {
+        "type": "tr",
+        "w": 1.7
+      },
+      "note": "Özdemiroğlu doğu çiminde ortadaki bayrak direği, Türk bayrağı (2026-09-30). Kerteriz (üç 2025-09 karesi, aynı sürüş): OHftRqTt_300_0 285.9°, 8lJUsB-6_240_0 234.6°, 7owiuJwI_240_0 207.1° → (604.94,−231.41), ışın artıkları 0.03/0.07/0.06 m. Aynı karelerle güney bayraksız direk (604.98,−230.0), kuzey beyaz bayraklı direk (604.95,−232.74) — direk aralığı ≈1.35 m; d4-ozd-flag-1/2’nin kayıtlı konumu (x 597.5, z −231.6/−236.1) bu kesişimlerden ≈7.5 m batıda (cephe ajanı ±1.5; ortak pano kayması olsa üçü birlikte kayar). Boy: tepe yol kotundan ≈7.35 (7.38/7.29/7.36), görünen dip ≈1.1–1.4 m (çim yükseltisi, çit arkası) → direk ≈6.2 (±0.5). Bayrak sarkık/yarı dalgalı, üç karede de direğin güneyine doğru (rot 180, ±40); asılı boyu ≈1.7 m (OHftRqTt 57 px @10 m, 8lJUsB 50 px @10.7 m) → flag.w 1.7.",
+      "evidence": [
+        "OHftRqTtnHJfpCfMYaopvw_300_0.jpg",
+        "8lJUsB-6hIYL2QNS95UhDQ_240_0.jpg",
+        "7owiuJwIagDtN_Z9m0wuVA_240_0.jpg"
+      ]
     },
     {
       "id": "d4-ozd-flag-2",
       "kind": "pole",
-      "x": 597.5,
-      "z": -236.1,
+      "x": 604.95,
+      "z": -232.74,
       "h": 8,
-      "note": "İkinci bayrak direği (kuzeydeki). 2026-09-30: OHftRqTt_300_0 ve 8lJUsB-6_240_0’da (2025-09) kumaş gönderde sarkık, açık gri-beyaz (karşı ışıkta #9ea5a9–#adb2bb, kenarda mavimsi #6d7b8d); desen/logo görülmedi → flag verilmedi (düz renk bayrak desensizliği iddia ederdi). Aynı karelerde üç direk seçiliyor: güneyde bayraksız, ortada Türk bayrağı, kuzeyde bu beyaz bayrak (kerteriz sırası iki panoda aynı); d4-ozd-flag-1 (z −231.6) kerteriz açısıyla güneydeki bayraksız direğe düşüyor — üçüncü direk kaydı yok. ±1.5."
+      "note": "İkinci bayrak direği (kuzeydeki). 2026-09-30: OHftRqTt_300_0 ve 8lJUsB-6_240_0’da (2025-09) kumaş gönderde sarkık, açık gri-beyaz (karşı ışıkta #9ea5a9–#adb2bb, kenarda mavimsi #6d7b8d); desen/logo görülmedi → flag verilmedi (düz renk bayrak desensizliği iddia ederdi). Aynı karelerde üç direk seçiliyor: güneyde bayraksız, ortada Türk bayrağı, kuzeyde bu beyaz bayrak (kerteriz sırası iki panoda aynı); d4-ozd-flag-1 (z −231.6) kerteriz açısıyla güneydeki bayraksız direğe düşüyor — üçüncü direk kaydı yok. ±1.5. | Konum 3 karenin kerteriz kesişiminden (aynı kareler; ±0.1)."
     },
     {
       "id": "d4-ozd-palm",
