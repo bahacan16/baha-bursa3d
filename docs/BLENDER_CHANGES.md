@@ -866,3 +866,6 @@
   MONS / sushi / co / Tuğba; Ayanoğlu yazısı + ®; Coffeemania yazı boyu + NEXT + ışık çizgisi; Kırmıkıl çatı
   pergolaları; Özhamur tabelası; 1545290880 kahve-bordo alın bandı. **Blender:** `NW/Measured/Facades` bu bloklar +
   yeni 1477364959 kütlesi yeniden kurulur.
+- **(Zemin kat kapı camı)** — Zemin kattaki (K0) `kind: door` pencereleri artık rastgele tül yerine koyu vitrin içi
+  (tür 7) ile çizilir (addax / Biaport kapıları beyaz görünüyordu). Dosya `src/worlds/measured/facade.ts`; geometri
+  aynı. **Blender:** `materials.py` zemin kat kapı camı = vitrin camı.

@@ -5366,8 +5366,10 @@ function addWindow(b: Builder, P: PFn, E: Edge, i: number, op: Opening, seed: nu
       ? (CURT[measured] ?? KINDS[Math.floor(h * KINDS.length)])
       : win.kind === 'small'
         ? 4
-        : win.kind === 'shop'
-          ? 7
+        : win.kind === 'shop' || (win.kind === 'door' && op.k === 0)
+          ? // KARAR: zemin kat kapısı (dükkân / giriş) perdesiz koyu iç (vitrin); rastgele tül beyaz görünüyordu
+            // (addax, Biaport kapıları — critic d4b / kod ajanı karşılaştırması). Üst kat balkon kapıları eskisi gibi.
+            7
           : KINDS[Math.floor(h * KINDS.length)];
   const g0 = P(i, u0, d);
   const g1 = P(i, u1, d);
