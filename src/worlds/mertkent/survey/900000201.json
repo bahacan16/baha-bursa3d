@@ -26,19 +26,33 @@
  "edges": [
   {
    "edge": 0,
-   "len": 23.0,
+   "len": 21.13,
    "seen": "none",
    "items": [],
    "note": "Batı: 1476599909 kulesine bitişik ortak duvar — görülmez."
   },
   {
    "edge": 1,
-   "len": 19.63,
+   "len": 1.17,
+   "seen": "none",
+   "items": [],
+   "note": "D4-v8 çentik: 900000202 İDAS vitrininin arkası (ortak duvar), görülmez."
+  },
+  {
+   "edge": 2,
+   "len": 1.87,
+   "seen": "none",
+   "items": [],
+   "note": "D4-v8 çentik: 900000202 doğu ucuna ortak duvar, görülmez."
+  },
+  {
+   "edge": 3,
+   "len": 18.45,
    "seen": "photo",
    "ref": "900000201_1_RpJvogJx.jpg",
    "cal": {
     "u": [
-     0,
+     1.18,
      19.63
     ],
     "head": [
@@ -55,7 +69,7 @@
    "items": [
     {
      "t": "band",
-     "u0": 0,
+     "u0": 1.18,
      "u1": 19.63,
      "y0": 7.69,
      "y1": 8.0,
@@ -64,7 +78,7 @@
     },
     {
      "t": "band",
-     "u0": 0,
+     "u0": 1.18,
      "u1": 19.63,
      "y0": 7.1,
      "y1": 7.69,
@@ -73,69 +87,12 @@
     },
     {
      "t": "band",
-     "u0": 0,
+     "u0": 1.18,
      "u1": 19.63,
      "y0": 6.74,
      "y1": 7.1,
      "color": "#3e3026",
      "proud": 0.2
-    },
-    {
-     "t": "panel",
-     "u0": 0,
-     "u1": 1.08,
-     "y0": 3.66,
-     "y1": 6.74,
-     "color": "#2f3a42",
-     "finish": "acp",
-     "clad": {
-      "dir": "grid",
-      "every": 1.2,
-      "every2": 1.0,
-      "w": 0.015,
-      "color": "#1b2226"
-     }
-    },
-    {
-     "t": "blade",
-     "u": 0.97,
-     "y0": 4.4,
-     "y1": 5.0,
-     "w": 0.5,
-     "gap": 0.05,
-     "d": 0.08,
-     "text": "İDAS",
-     "bg": "#2a2e31",
-     "fg": "#e6e8ea",
-     "font": "condensed",
-     "bold": false,
-     "logo": "yüz A (+u, doğuya) beyaz İDAS + altında kırmızı dalga çizgisi; yüz B görülmedi; ışık görülmedi"
-    },
-    {
-     "t": "win",
-     "u0": 0,
-     "u1": 0.6,
-     "y0": 1.3,
-     "y1": 3.62,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "kind": "shop",
-     "split": 1,
-     "frameC": "#1d2224",
-     "curt": {
-      "K0": "vitrin"
-     }
-    },
-    {
-     "t": "panel",
-     "u0": 0.6,
-     "u1": 1.08,
-     "y0": 1.3,
-     "y1": 3.66,
-     "color": "#1d2224"
     },
     {
      "t": "panel",
@@ -265,13 +222,23 @@
      "y0": 4.12,
      "y1": 4.56,
      "text": "",
+     "glyphs": [
+      {
+       "ch": "t"
+      },
+      {
+       "ch": "g"
+      }
+     ],
+     "join": 0.35,
+     "font": "script",
      "d": 0.02,
      "shape": "round",
      "bg": "#21292b",
      "fg": "#eceeee",
      "border": "#eceeee",
      "style": "panel",
-     "logo": "beyaz halka içinde el yazısı monogram (t + g biçiminde) — çizilmedi"
+     "logo": "beyaz ince halka içinde el yazısı iç içe \"tg\" monogramı (ClwC9 343_1 karesinde okundu)"
     },
     {
      "t": "sign",
@@ -541,17 +508,17 @@
      "color": "#f2f2f2"
     }
    ],
-   "note": "Güney (Uğur Mumcu Blv.) ön cephe, 2025-09 RpJvogJx (24 m; 22° karolar 345/357/9/21 × −1/15/32/49, f22 ortosunda okundu) + ClwC9NKO (12.3 m, 40° 343/8/34). Görünür köşe yok (iki yanı kulelere bitişik, taş bant kesintisiz) → cal.u taban izi uçları (orto bu taban iziyle üretildi). Tek kat yüksek dükkân podyumu: vitrin/cephe 0.35–6.74, üstte kahve alt bant 6.74–7.1, taş (traverten dokulu) bant 7.1–7.69, kahve harpuşta 7.69–8.0 (derinlikler görülmedi, eğik karelerde bandın cepheden hafif taştığı seçiliyor). Dükkânlar (batıdan): u 0–1.08 İDAS’ın doğu ucu (siyah kompozit panel ızgarası; ‘iyi uykular’ levhası 900000202’de yazıldı, İDAS bayrak tabelası burada), u 1.08–9.76 MOT Hair&Style (siyah kompozit; sol vitrin + koyu kapı + beyaz çerçeveli VEGANIC ürün vitrini, sağda HUSH afiş panosu), u 9.72–19.36 Watsons (turkuaz portal: yan payeler + 0.84 m alın; üstte 9.1 m nane yeşili desenli baskı pankart ve üstünde 7 kollu spot). u 19.36–19.63 kule komşusunun (sarı çerçeveli Watsons ek vitrini) başlangıcı — çizilmedi. Kaldırımdaki klima dış üniteleri, kırmızı promosyon arabaları, A-pano, otobüs durağı, direkler sokak katmanında."
+   "note": "Güney (Uğur Mumcu Blv.) ön cephe, 2025-09 RpJvogJx (24 m; 22° karolar 345/357/9/21 × −1/15/32/49, f22 ortosunda okundu) + ClwC9NKO (12.3 m, 40° 343/8/34). D4-v8: taban izi İDAS/MOT sınırına (x 730.2) çentiklendi → ön cephe kenar 3; ortofoto eski kenar-1 çerçevesinde (x 729.02 = görünen 0), cal.u [1.18, 19.63]; ref dosya adındaki kenar numarası (1) artık farklı → derleyici bu kenarda derinlik düzeltmesi yapmaz (Watsons tabelası off 0.26 için ≈1 cm). İDAS öğeleri (siyah ızgara, bayrak tabela, vitrin ucu) 900000202’ye taşındı. Tek kat yüksek dükkân podyumu: vitrin/cephe 0.35–6.74, üstte kahve alt bant 6.74–7.1, taş (traverten dokulu) bant 7.1–7.69, kahve harpuşta 7.69–8.0 (derinlikler görülmedi, eğik karelerde bandın cepheden hafif taştığı seçiliyor). Dükkânlar (batıdan, görünen u): u 1.08–9.76 MOT Hair&Style (siyah kompozit; sol vitrin + koyu kapı + beyaz çerçeveli VEGANIC ürün vitrini, sağda HUSH afiş panosu), u 9.72–19.36 Watsons (turkuaz portal: yan payeler + 0.84 m alın; üstte 9.1 m nane yeşili desenli baskı pankart ve üstünde 7 kollu spot). u 19.36–19.63 kule komşusunun (sarı çerçeveli Watsons ek vitrini) başlangıcı — çizilmedi. Kaldırımdaki klima dış üniteleri, kırmızı promosyon arabaları, A-pano, otobüs durağı, direkler sokak katmanında."
   },
   {
-   "edge": 2,
+   "edge": 4,
    "len": 23.0,
    "seen": "none",
    "items": [],
    "note": "Doğu: 1476599912 kulesine bitişik ortak duvar — görülmez."
   },
   {
-   "edge": 3,
+   "edge": 5,
    "len": 19.6,
    "seen": "none",
    "items": [],
@@ -567,16 +534,11 @@
   {
    "id": "watsons-banner-pattern",
    "what": "Nane yeşili (#9eb1af) baskı pankart üzerinde beyaz ve açık pembe (#e6d6dc) serbest el \"W\" karalamaları (≈0.3 m çizgi kalınlığı, rastgele yönlü, tüm yüzeyi kaplar)",
-   "edge1": "u 9.83–18.92, y 4.72–6.74"
+   "edge3": "görünen u 9.83–18.92, y 4.72–6.74"
   },
   {
    "id": "watsons-logo-frame",
    "what": "watsons logosunun beyaz yuvarlak köşeli çerçevesi sağ üst köşede açık (çerçeve çizgisi ≈4 cm, köşe yarıçapı ≈0.15 m); çizim border ile kapalı dikdörtgen"
-  },
-  {
-   "id": "mot-monogram",
-   "what": "Tugay Gönen önündeki yuvarlak logo: siyah daire, beyaz ince halka, içinde el yazısı \"tg\" benzeri monogram",
-   "edge1": "u 3.99–4.38, y 4.12–4.56"
   }
  ]
 }

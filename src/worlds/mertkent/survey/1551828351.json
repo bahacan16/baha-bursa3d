@@ -308,22 +308,6 @@
       -578.68
      ],
      [
-      580.9,
-      -578.46
-     ],
-     [
-      580.93,
-      -577.07
-     ],
-     [
-      585.3,
-      -576.88
-     ],
-     [
-      585.37,
-      -578.23
-     ],
-     [
       592.6,
       -578.08
      ],
@@ -350,8 +334,8 @@
     ],
     "storeys": 9,
     "floorHs": [
-     5,
-     5.05,
+     4.8,
+     4.85,
      3.05,
      3.05,
      3.05,
@@ -400,22 +384,6 @@
      [
       578.94,
       -578.68
-     ],
-     [
-      580.9,
-      -578.46
-     ],
-     [
-      580.93,
-      -577.07
-     ],
-     [
-      585.3,
-      -576.88
-     ],
-     [
-      585.37,
-      -578.23
      ]
     ],
     "storeys": 2,
@@ -3829,8 +3797,8 @@
   {
    "part": 2,
    "a": [
-    576.5,
-    -578.5
+    578.9,
+    -578.6
    ],
    "e": [
     592.6,
@@ -3839,20 +3807,12 @@
    "tol": 1,
    "seen": "photo",
    "ref": "0lpk / 0tbf kendi düzlem ortofotosu (z = −578.8, iki panoda ±0.4)",
-   "note": "Doğu kulenin güney yüzü K2–K8 (PABLO kutusunun üstünde). u a’dan doğuya, gerçek m. Batı ucunda kahverengi dikey bant, kahverengi pano kulesi içinde dar pencere sütunu (u 4.1–5.4), doğuda açık locaların sütunu (cam korkuluk, beyaz döşeme alınları). Pencere perdeleri seçilmedi.",
+   "note": "Doğu kulenin güney yüzü K2–K8 (PABLO kutusunun üstünde). u a’dan (x 578.9) doğuya, gerçek m. OSM kule çokgenindeki güney çıkıntısı (z −577.0, x 580.9–585.3) iki pano ortosunda görülmedi (yüz düz z≈−578.6±0.4) → çokgenden kaldırıldı; x 576.5–578.9 arası geri çekik kademe (kahverengi bant) yazılmadı. Batı ucunda kahverengi dikey bant, kahverengi pano kulesi içinde dar pencere sütunu (u 4.1–5.4), doğuda açık locaların sütunu (cam korkuluk, beyaz döşeme alınları). Pencere perdeleri seçilmedi.",
    "items": [
     {
      "t": "panel",
-     "u0": 0,
-     "u1": 0.6,
-     "y0": 10.3,
-     "y1": 31.4,
-     "color": "#6b5a4a"
-    },
-    {
-     "t": "panel",
-     "u0": 2.5,
-     "u1": 7.5,
+     "u0": 0.1,
+     "u1": 5.1,
      "y0": 10.3,
      "y1": 31.4,
      "color": "#6b5a4a",
@@ -3860,8 +3820,8 @@
     },
     {
      "t": "win",
-     "u0": 4.1,
-     "u1": 5.4,
+     "u0": 1.7,
+     "u1": 3,
      "y0": 10.05,
      "y1": 12.2,
      "k": 2,
@@ -3873,8 +3833,8 @@
     },
     {
      "t": "bal",
-     "u0": 10.5,
-     "u1": 14.5,
+     "u0": 8.1,
+     "u1": 12.1,
      "d": 0,
      "inset": 1.2,
      "s": [

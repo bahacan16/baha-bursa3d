@@ -26,13 +26,13 @@
  "edges": [
   {
    "edge": 0,
-   "len": 23.71,
+   "len": 24.89,
    "seen": "photo",
    "ref": "900000202_0_SNouSO1i.jpg",
    "cal": {
     "u": [
      0,
-     23.71
+     24.89
     ],
     "head": [
      [
@@ -49,7 +49,7 @@
     {
      "t": "band",
      "u0": 0,
-     "u1": 23.71,
+     "u1": 24.89,
      "y0": 7.49,
      "y1": 7.67,
      "color": "#3c2f26",
@@ -58,7 +58,7 @@
     {
      "t": "band",
      "u0": 0,
-     "u1": 23.71,
+     "u1": 24.89,
      "y0": 6.88,
      "y1": 7.49,
      "color": "#aa9f8e",
@@ -67,7 +67,7 @@
     {
      "t": "band",
      "u0": 0,
-     "u1": 23.71,
+     "u1": 24.89,
      "y0": 6.49,
      "y1": 6.88,
      "color": "#3c2f26",
@@ -124,18 +124,73 @@
     },
     {
      "t": "sign",
-     "u0": 1.82,
-     "u1": 2.79,
-     "y0": 4.26,
-     "y1": 5.96,
+     "u0": 1.86,
+     "u1": 2.3,
+     "y0": 4.62,
+     "y1": 5.9,
      "text": "",
      "bg": "#c93038",
-     "border": "#f2f3f4",
+     "fg": "#c93038",
      "style": "panel",
-     "d": 0.03,
+     "d": 0.02,
      "off": 0.16,
-     "fg": "#f2f3f4",
-     "logo": "kırmızı konuşma balonu logosu: beyaz kontur, altta sola kıvrık kuyruk, sol yarısı kırmızı dolgu — dikdörtgen yaklaşık"
+     "logo": "konuşma balonunun kırmızı sol yarısı (dolgu)"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       1.95,
+       5.93
+      ],
+      [
+       2.7,
+       5.93
+      ],
+      [
+       2.77,
+       5.85
+      ],
+      [
+       2.77,
+       4.7
+      ],
+      [
+       2.7,
+       4.62
+      ],
+      [
+       2.35,
+       4.62
+      ],
+      [
+       2.1,
+       4.28
+      ],
+      [
+       2.12,
+       4.62
+      ],
+      [
+       1.9,
+       4.62
+      ],
+      [
+       1.84,
+       4.7
+      ],
+      [
+       1.84,
+       5.85
+      ],
+      [
+       1.95,
+       5.93
+      ]
+     ],
+     "w": 0.05,
+     "d": 0.19,
+     "color": "#f2f3f4"
     },
     {
      "t": "sign",
@@ -359,7 +414,7 @@
     {
      "t": "panel",
      "u0": 12.27,
-     "u1": 23.71,
+     "u1": 24.89,
      "y0": 3.8,
      "y1": 6.49,
      "color": "#2a3338",
@@ -453,9 +508,32 @@
      }
     },
     {
+     "t": "panel",
+     "u0": 24.35,
+     "u1": 24.89,
+     "y0": 1.45,
+     "y1": 3.8,
+     "color": "#1d2224"
+    },
+    {
+     "t": "blade",
+     "u": 24.68,
+     "y0": 4.55,
+     "y1": 5.15,
+     "w": 0.5,
+     "gap": 0.05,
+     "d": 0.08,
+     "text": "İDAS",
+     "bg": "#2a2e31",
+     "fg": "#e6e8ea",
+     "font": "condensed",
+     "bold": false,
+     "logo": "900000201 ClwC9 343_1 karesinde görüldü (orada u 0.97): yüz A (+u, doğuya) beyaz İDAS + altında kırmızı dalga çizgisi; yüz B görülmedi; ışık görülmedi"
+    },
+    {
      "t": "win",
      "u0": 22.13,
-     "u1": 23.71,
+     "u1": 24.27,
      "y0": 1.45,
      "y1": 3.75,
      "k": 0,
@@ -494,6 +572,18 @@
       [
        17.3,
        4.94
+      ]
+     ],
+     "w": 0.07,
+     "d": 0.1,
+     "color": "#bd2a30"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       17.3,
+       4.94
       ],
       [
        18.2,
@@ -506,13 +596,29 @@
       [
        19.7,
        4.9
+      ]
+     ],
+     "w": 0.18,
+     "d": 0.1,
+     "color": "#bd2a30"
+    },
+    {
+     "t": "ribbon",
+     "pts": [
+      [
+       19.7,
+       4.9
+      ],
+      [
+       20.1,
+       4.98
       ],
       [
        20.41,
        5.07
       ]
      ],
-     "w": 0.16,
+     "w": 0.08,
      "d": 0.1,
      "color": "#bd2a30"
     },
@@ -558,7 +664,7 @@
     {
      "t": "sign",
      "u0": 20.69,
-     "u1": 24.95,
+     "u1": 24.89,
      "y0": 4.09,
      "y1": 4.22,
      "text": "",
@@ -727,7 +833,7 @@
      "logo": "üstte küçük beyaz yazılar okunamadı; büyük 30"
     }
    ],
-   "note": "Güney (Uğur Mumcu Blv.) dükkân şeridi, 2025-09 SNouSO1i (22.7 m; 22° karolar 341/357/12/28 × −1/16/33/50, f22 ortosunda okundu) + hf-0gAUW (11.3 m; 331/353/16/38 × 0/28/56) + 8x2jW/2tZdY eğik kareleri. Görünür köşe yok (iki yanda komşu dükkânlar, taş bant kesintisiz) → cal.u taban izi uçları. Dükkân döşemesi / kaldırım duvar dibinde görünen y≈1.45 → K0 döşemesi (groundRaise 0.3) yapıldı; tüm yükseklikler döşemeye göre. Batıdan: u 0–0.47 PttBank’ın sarı alın kutusunun doğu ucu (dükkân batıda, çizilmedi), 0.47–0.91 traverten kaplı paye + açık gri iniş borusu, 0.91–12.28 Wall Street English (lacivert-mavi kompozit alın 3.78–6.44, konuşma balonu logosu, beyaz fırça yazı; vitrinler, kapı üstünde lacivert kasetli tente, taş paye 8.93–9.69), 12.27–(25.0) İDAS (siyah kompozit ızgara cephe, 3B İDAS harfleri + kırmızı dalga, 1965’ten beri, iki kırmızı çubuk, ‘iyi uykular’ kurdele levha, siyah doğramalı 4 vitrin + çift kanat kapı, camda kampanya afişleri). İDAS doğu ucu taban izi ucunun ≈1.3 m ötesine (900000201 u 0–1.08) taşıyor — bkz. taban izi düzeltmesi. Üst: kahve alt bant 6.49–6.88, taş bant 6.88–7.49, kahve harpuşta 7.49–7.67. Kule balkonları bandın hemen üstünde (kule, bu dosya değil). Kaldırım öğeleri (A-pano, puflar, masa, paspas, elektrik dolapları) sokak katmanında."
+   "note": "Güney (Uğur Mumcu Blv.) dükkân şeridi, 2025-09 SNouSO1i (22.7 m; 22° karolar 341/357/12/28 × −1/16/33/50, f22 ortosunda okundu) + hf-0gAUW (11.3 m; 331/353/16/38 × 0/28/56) + 8x2jW/2tZdY eğik kareleri. Görünür köşe yok (iki yanda komşu dükkânlar, taş bant kesintisiz) → cal.u taban izi uçları. Dükkân döşemesi / kaldırım duvar dibinde görünen y≈1.45 → K0 döşemesi (groundRaise 0.3) yapıldı; tüm yükseklikler döşemeye göre. Batıdan: u 0–0.47 PttBank’ın sarı alın kutusunun doğu ucu (dükkân batıda, çizilmedi), 0.47–0.91 traverten kaplı paye + açık gri iniş borusu, 0.91–12.28 Wall Street English (lacivert-mavi kompozit alın 3.78–6.44, konuşma balonu logosu, beyaz fırça yazı; vitrinler, kapı üstünde lacivert kasetli tente, taş paye 8.93–9.69), 12.27–(25.0) İDAS (siyah kompozit ızgara cephe, 3B İDAS harfleri + kırmızı dalga, 1965’ten beri, iki kırmızı çubuk, ‘iyi uykular’ kurdele levha, siyah doğramalı 4 vitrin + çift kanat kapı, camda kampanya afişleri). D4-v8: taban izi doğu ucu İDAS/MOT sınırına (x 730.2) uzatıldı → kenar 0 24.89 m; ortofoto eski izde üretildi (u ölçeği aynı), cal.u [0, 24.89]; İDAS doğu ucu (son vitrin, siyah paye 24.35–24.89, bayrak tabela, kırmızı çubuk) artık bu kenarda. Üst: kahve alt bant 6.49–6.88, taş bant 6.88–7.49, kahve harpuşta 7.49–7.67. Kule balkonları bandın hemen üstünde (kule, bu dosya değil). Kaldırım öğeleri (A-pano, puflar, masa, paspas, elektrik dolapları) sokak katmanında."
   },
   {
    "edge": 1,
@@ -738,7 +844,7 @@
   },
   {
    "edge": 2,
-   "len": 23.72,
+   "len": 24.89,
    "seen": "none",
    "items": [],
    "note": "Kuzey: 1476599909 kulesinin güney duvarına bitişik — görülmez."
@@ -754,19 +860,9 @@
  "notes": [
   "Tek kat dükkân şeridi: döşemeden vitrin 2.3 m, alın/tabela bandı ≈2.7 m, üst bantlar 1.18 m → duvar üstü 6.22 m döşemeden (6.52 tabandan). Ortoda döşeme görünen y≈1.45 (bkz. 900000201 notu; mutlak kot ±1 m).",
   "Renkler (hf-0g 11 m karesinden): WSE mavi #172c78 (f22 22 m karesinde #0e1b59), WSE harf #e6ebf2 (örnek #bcc3cd), İDAS siyah #2a3338, İDAS harf #c5c8d1, kırmızı #bd2a30, tente lacivert #1f3260, taş #aa9f8e, kahve #3c2f26. Bulutlu gün, cephe gölgede değil.",
-  "İDAS kırmızı dalgası ribbon (sabit genişlik) ile yaklaşık; gerçekte uçlara doğru incelen kıvrık fırça darbesi — pending."
+  "İDAS kırmızı dalgası üç ribbon parçası (uçlar 0.07–0.08, orta 0.18 m) ile incelen fırça darbesi olarak; WSE konuşma balonu kırmızı yarım dolgu + beyaz kontur ribbon (kuyruk dahil) ile çizildi (v8 turu)."
  ],
  "pending": [
-  {
-   "id": "idas-swoosh-taper",
-   "what": "İDAS harflerinin önünden geçen kırmızı dalga: soldan sağa incelip kalınlaşan fırça darbesi (ortada ≈0.2 m, uçlarda sivri), harflerin önünde",
-   "edge0": "u 16.8–20.41, y 4.7–5.07"
-  },
-  {
-   "id": "wse-bubble-logo",
-   "what": "WSE konuşma balonu: yuvarlak köşeli dikdörtgen + sol altta kuyruk, beyaz 4 cm kontur, iç sol yarı kırmızı (#c93038), sağ yarı lacivert zemin görünür",
-   "edge0": "u 1.82–2.79, y 4.26–5.96"
-  },
   {
    "id": "iyi-uykular-wave",
    "what": "‘iyi uykular’ levhasının üst ve alt kenarı dalgalı (kurdele), sağ ucu hafif yukarı kalkık",

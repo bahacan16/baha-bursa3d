@@ -9,20 +9,6 @@
   "eave": 0.05,
   "fasciaH": 0.1,
   "fasciaC": "#6b3f33",
-  "parapet": {
-   "h": 0.05,
-   "color": "#6b3f33",
-   "rail": "glassFull",
-   "railC": "#c9ccce",
-   "glassC": "#8fb2b8",
-   "railH": 0.73,
-   "edges": [
-    3
-   ],
-   "railEdges": [
-    3
-   ]
-  },
   "flatC": "#c9c7c0"
  },
  "wallTop": 11.67,
@@ -42,7 +28,7 @@
    {
     "poly": [
      [
-      640,
+      665.5,
       -625.1
      ],
      [
@@ -54,7 +40,7 @@
       -600
      ],
      [
-      640,
+      664.07,
       -600
      ]
     ],
@@ -70,7 +56,7 @@
    {
     "poly": [
      [
-      640,
+      671.5,
       -720
      ],
      [
@@ -82,7 +68,7 @@
       -690.3
      ],
      [
-      640,
+      669.81,
       -690.3
      ]
     ],
@@ -97,7 +83,23 @@
    },
    {
     "rest": true,
-    "storeys": 3
+    "storeys": 3,
+    "roof": {
+     "parapet": {
+      "h": 0.05,
+      "color": "#6b3f33",
+      "rail": "glassFull",
+      "railC": "#c9ccce",
+      "glassC": "#8fb2b8",
+      "railH": 0.73,
+      "edges": [
+       6
+      ],
+      "railEdges": [
+       6
+      ]
+     }
+    }
    }
   ]
  },
@@ -612,7 +614,7 @@
      ]
     ]
    },
-   "note": "Özlüce Bulvarı (batı) cephesi, hdpFBuat _f22 (güneşli, öğleden sonra; 27 m’den). İkinci pano 8Th6vVrO ile cephe düzlemindeki öğeler ±0.6 m uyumlu (8Th6 → hdpF: u − 0.55); bulvardan görülen yüksek blok (\"WORLDZONE\", tepede \"ÖNDÜL ELITE OFFICES ÇALIŞMANIN LÜKSÜ\") iki pano paralaksına göre cepheden ≈26–30 m geride = doğudaki komşu bina → burada çizilmedi (bu binanın uç duvarlarında aynı ELITE OFFICES yazıları var). Kesit (görünen = gerçek): K0 çift yükseklikli dükkân (vitrin 1.3–4.3, üst bant/tabela 4.6–7.6), kahverengi döşeme bandı 7.6–8.25, K1 ofis bant pencereleri (fransız korkuluklu) 8.25–10.94, kahverengi bant 10.94–11.67, üstünde cam korkuluklu teras (11.67–12.4) ve geri çekik açık gri K3 bandı (12.4–13.8, volumes). Kuzey ≈16 m (u 0–16) ağaçlarla kapalı (yalnız Peynirci Baba tentesi/flamaları görülüyor). Güney uç (u 72.7–80) 5 katlı uç kütle (massing), batı yüzü okunamadı. | ÖĞE NOTLARI: [win u 16.55–28.4 K2–2] AKURA bölümü ve BOSCH üstü ; [awning u 9.05–19.35] koyu yeşil sabit tente; önünde üçgen flama dizisi (sarı/beyaz/yeşil) — street-plan ; [win u 14.85–20.8 K0–0] şarküteri vitrini; tezgâhlar kaldırıma taşmış ; [panel u 36–42.46] bronz desenli (geçme) kaplama pano ; [win u 36–42.4 K0–0] vitrinde altın rengi ürünler ; [banner u 75.1–76] güney uç kütlenin batı yüzünde dikey pembe-mor bez afiş (yazısı okunamadı)",
+   "note": "Özlüce Bulvarı (batı) cephesi, hdpFBuat _f22 (güneşli, öğleden sonra; 27 m’den). İkinci pano 8Th6vVrO ile cephe düzlemindeki öğeler ±0.6 m uyumlu (8Th6 → hdpF: u − 0.55); bulvardan görülen yüksek blok (\"WORLDZONE\", tepede \"ÖNDÜL ELITE OFFICES ÇALIŞMANIN LÜKSÜ\") iki pano paralaksına göre cepheden ≈26–30 m geride = doğudaki komşu bina → burada çizilmedi (bu binanın uç duvarlarında aynı ELITE OFFICES yazıları var). Kesit (görünen = gerçek): K0 çift yükseklikli dükkân (vitrin 1.3–4.3, üst bant/tabela 4.6–7.6), kahverengi döşeme bandı 7.6–8.25, K1 ofis bant pencereleri (fransız korkuluklu) 8.25–10.94, kahverengi bant 10.94–11.67, üstünde cam korkuluklu teras (11.67–12.4) ve geri çekik açık gri K3 bandı (12.4–13.8, volumes). Kuzey ≈16 m (u 0–16) ağaçlarla kapalı (yalnız Peynirci Baba tentesi/flamaları görülüyor). Güney uç (u 72.7–80) 5 katlı uç kütle (massing), batı yüzü okunamadı. | ÖĞE NOTLARI: [win u 16.55–28.4 K2–2] AKURA bölümü ve BOSCH üstü ; [awning u 9.05–19.35] koyu yeşil sabit tente; önünde üçgen flama dizisi (sarı/beyaz/yeşil) — street-plan ; [win u 14.85–20.8 K0–0] şarküteri vitrini; tezgâhlar kaldırıma taşmış ; [panel u 36–42.46] bronz desenli (geçme) kaplama pano ; [win u 36–42.4 K0–0] vitrinde altın rengi ürünler",
    "items": [
     {
      "t": "band",
@@ -1291,24 +1293,13 @@
      "font": "sans",
      "bold": true,
      "logo": "beyaz yuvarlak levha, üstte amblem, altta küçük satır"
-    },
-    {
-     "t": "banner",
-     "u0": 75.1,
-     "u1": 76,
-     "y0": 12.5,
-     "y1": 14.6,
-     "d": 0.05,
-     "style": "plain",
-     "bg": "#b06a9c",
-     "fg": "#ffffff",
-     "text": ""
     }
    ]
   }
  ],
  "notes": [
-  "KÜTLE: uzun alçak orta gövde (K0 çift yükseklikli dükkân + K1 ofis, üstü 11.67 cam korkuluklu teras, geri çekik K3 bandı) + iki uçta penceresiz taş kaplı yüksek uç kütleler (güney üst 17.88, kuzey 15.75; ELITE OFFICES / ÖNDÜL tabelalı). Uç kütlelerin kuzey–güney derinliği: güneyde bulvar ortofotosunda u 72.7–80 (7.3 m); kuzeyde ağaçlar yüzünden görülmedi → güneyle aynı 7.3 m alındı (VARSAYIM, notta). Uç kütlelerin batı yüzü güney kenarda alçak kısımdan 2.9 m içeride başlıyor; çizimde bulvar hattında (kesim kenarı öğe alamaz).",
+  "v8: teras cam korkuluğu (parapet) yalnız orta gövdenin (massing rest) bulvar kenarında: parça halkasında kenar 6 (splitMassing çıktısıyla doğrulandı; blok halkasının kenar 3’ü).",
+  "KÜTLE: uzun alçak orta gövde (K0 çift yükseklikli dükkân + K1 ofis, üstü 11.67 cam korkuluklu teras, geri çekik K3 bandı) + iki uçta penceresiz taş kaplı yüksek uç kütleler (güney üst 17.88, kuzey 15.75; ELITE OFFICES / ÖNDÜL tabelalı). Uç kütlelerin kuzey–güney derinliği: güneyde bulvar ortofotosunda u 72.7–80 (7.3 m); kuzeyde ağaçlar yüzünden görülmedi → güneyle aynı 7.3 m alındı (VARSAYIM, notta). v8: uç kütlelerin batı yüzü geri çekik çizildi: güneyde 2.9 m (kenar 0 ortofotosunda kütle görünen u 2.88’de başlıyor), kuzeyde 3.5 m (kenar 2’de kütle batı ucu u 21.2 → 3.5 m); önündeki alçak K0–K2 kısmı (rest) bulvar hattına kadar.",
   "FOOTPRINT: bulvardan görünen yüksek blok (WORLDZONE \"HAZIR PAYLAŞIMLI OFİSLER\", tepede \"ÖNDÜL ELITE OFFICES ÇALIŞMANIN LÜKSÜ\" çatı tabelası) iki pano paralaksına göre cepheden ≈26–30 m geride → doğudaki komşu bina; çizilmedi.",
   "KAT: floorH 3.3 + groundRaise 1.3 → K0 1.3 (kaldırım görünen ≈1.2), K1 4.6 (dükkân üst bandı / asma kat: tabela bantları 4.6–7.6), K2 7.9 (ofis: kahverengi döşeme bandı 7.6–8.25, bant pencere 8.25–10.94), duvar üstü 11.67; uç kütleler K3 11.2, K4 14.5.",
   "RENKLER (bulvar güneşli): kahverengi döşeme bantları #6b3f33, K1 pencere camı #6f8d99 (gökyüzü yansıması), doğrama açık gri #d8d8d6, teras camı #8fb2b8, uç duvar taşı #c9c3b6 (bulutlu), yarıklar #6b4a3e.",
@@ -1316,17 +1307,46 @@
  ],
  "pending": [
   {
-   "what": "uç kütle batı yüzleri geri çekik (2.9 m) ve pencereli",
-   "edge": 3,
-   "u": [
-    72.7,
-    80
-   ],
-   "y": [
-    12.25,
-    17.88
-   ],
-   "note": "hdpFBuat: 4 kat pencere sırası, dikey pembe-mor afiş; massing kesimi öğe alamıyor"
+   "what": "güney uç kütle batı (geri çekik) yüzü — öğeler kime ait belirsiz",
+   "ref": "1545290880_3_hdpFBuat_f22.jpg",
+   "visible": {
+    "window": {
+     "u": [
+      76.59,
+      79.1
+     ],
+     "y": [
+      12.59,
+      14.6
+     ],
+     "note": "yatay kayıtlı cam, koyu çerçeve"
+    },
+    "banner": {
+     "u": [
+      75.1,
+      76.36
+     ],
+     "y": [
+      12.24,
+      14.8
+     ],
+     "color": "#e8dfe6",
+     "note": "beyaz-pembe bez, üstten çapraz asılı"
+    },
+    "roofEdge": {
+     "u": [
+      76.3,
+      80.25
+     ],
+     "y": [
+      15.2,
+      15.6
+     ],
+     "color": "#3a3230"
+    },
+    "curvedEave": "görünen u 72.75/13.7 → 81.5/16.9 kavisli koyu saçak"
+   },
+   "note": "bulvar panosundan (uF 46.1, D 22.3) 2.9 m geri düzlemde ölçek 0.885 olur; bu durumda öğeler u>80 (kütle dışı) düşüyor → daha geride (komşu yapı olabilir); cutEdges’e yazılmadı"
   }
  ],
  "volumes": [
