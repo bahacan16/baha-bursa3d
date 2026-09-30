@@ -45,10 +45,13 @@ export interface Daylight {
   rayleigh: number;
 }
 
-// KARAR: gündüz güneşi Street View çekimleriyle aynı (Eylül, ~10:30: doğu/güney cepheler güneşte)
+// KARAR: gündüz güneşi Street View çekimleriyle aynı (Eylül, ~10:45: doğu/güney cepheler güneşte).
+// Gerçek 20 Eylül 10:30 Bursa = az 130° / 38°; 502. Sk. kareleri (doğu cepheler güneşte) az ≈110–130°, eski
+// Mertkent kuzey gölge ölçümü 165° / 48° (araç sokakları farklı saatlerde geçmiş). 135° / 40° ikisinin arası:
+// doğu ve güney cepheler birlikte aydınlık, gölgeler çapraz (kullanıcı kararı bize bıraktı, 2026-09-30).
 const PRESET: Record<Exclude<TimeOfDay, 'real'>, { elevation: number; azimuth: number }> = {
-  // Street View çekim saati: gölgelerden (batı cepheler gölgede, doğu-güney aydınlık, sokak aydınlık)
-  day: { elevation: 48, azimuth: 165 },
+  // Street View çekim saati (batı cepheler gölgede, doğu-güney aydınlık, sokak aydınlık)
+  day: { elevation: 40, azimuth: 135 },
   sunset: { elevation: 2, azimuth: 262 },
   night: { elevation: -18, azimuth: 300 },
 };

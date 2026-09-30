@@ -808,3 +808,6 @@
   sıcaktan soğuğa (0.97, 1, 1.06), Ultra `ULTRA_EXPOSURE_REF` −1.48→−1.60. Dosyalar: `src/env/calibration.ts`,
   `src/env/post.ts`. **Blender:** — yeniden kurulacak katman yok; yalnız referans değerler (Dünya ışığı / gölge
   rengi karşılaştırırken yeni oranları kullan).
+- **(Gündüz güneşi 135° / 40°)** — Gündüz hazır ayarı az 165° / 48° → 135° / 40° (≈10:45; gerçek 20 Eylül 10:30 =
+  130° / 38°, 502. Sk. karelerinde doğu cepheler güneşte). Dosya: `src/env/daylight.ts`. **Blender:** Dünya → güneş
+  yönü az 135°, yükseklik 40° (Sun lamp döndür); pişirme yalnız dolaylı ışık olduğu için AO yeniden pişirmek gerekmez.

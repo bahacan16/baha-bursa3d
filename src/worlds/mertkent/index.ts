@@ -34,6 +34,8 @@ const USE_PLAN =
   !(typeof location !== 'undefined' && new URLSearchParams(location.search).has('oldgrounds'));
 
 /** Ölçülmüş sokak planı (street-plan.json, ajan ölçümü) — yoksa OSM site sınırından çit */
+/** v8: leylandi çit rengi düzeltmesi (doğrusal çarpan; mkHedge / mkHedgeTop) */
+const HEDGE_FIX = new THREE.Color().setRGB(0.8, 0.88, 3.0);
 const STREET_PLAN = STREET_PLAN0 as Omit<StreetPlan, 'fence'> & { fence?: FenceSpec[] };
 import { buildBrickFence, buildSalusGate, type BrickSeg } from './salus';
 import {
@@ -867,13 +869,28 @@ function materials(base: string): Record<string, THREE.Material> {
       nm.wrapS = THREE.RepeatWrapping;
       nm.wrapT = THREE.MirroredRepeatWrapping;
       // KARAR: normal şiddeti 0.45 → 0.25 (fotoğrafta neredeyse düz, düşük kontrastlı nervür; kapitone görünüyordu)
-      return std({
+      // v8 (gün ışığı kalibrasyonu): 0.25 → 0.12 ve dokudaki fotoğraf gölgelemesi yarıya (ölçülen duvar rengine
+      // #eceae4 doğru %50 karışım) — AO kesintisinden sonra da güneşli Street View'dan 0.4–0.8 durak koyuydu; fotoğrafta
+      // neredeyse düz beyaz
+      const mat = std({
         map,
         normalMap: nm,
-        normalScale: new THREE.Vector2(0.25, 0.25),
+        normalScale: new THREE.Vector2(0.12, 0.12),
         roughness: 0.8,
         color: 0xffffff,
       });
+      const flat = new THREE.Color('#eceae4');
+      mat.onBeforeCompile = (sh) => {
+        sh.uniforms.uWaveFlat = { value: flat };
+        sh.fragmentShader = sh.fragmentShader
+          .replace('#include <common>', '#include <common>\nuniform vec3 uWaveFlat;')
+          .replace(
+            '#include <map_fragment>',
+            '#include <map_fragment>\ndiffuseColor.rgb = mix(diffuseColor.rgb, uWaveFlat, 0.5);',
+          );
+      };
+      mat.customProgramCacheKey = () => 'mk-wave-flat-v1';
+      return mat;
     })(),
     mkWallBack: granularMaterial('#e3e2de', 9),
     mkTile: std({ map: T.roofTileTexture('#a0654f'), side: DS, roughness: 0.8 }),
@@ -921,7 +938,9 @@ function materials(base: string): Record<string, THREE.Material> {
       // Leylandi: yordamsal doku (2 m × 1 m); u birimi 2 m, v birimi 1 m (fence2 yüz UV'leri)
       const map = T.leylandiiTexture();
       map.anisotropy = 8;
-      return std({ map, roughness: 0.92, side: DS });
+      // v8 (gün ışığı kalibrasyonu): fazla doygun / sarı. Ölçüm gölge #1e3121 (oyun #2f4411), güneş #566e3e (oyun
+      // #495c1f) → iki yamanın doğrusal oranlarının geometrik ortası ×(0.8, 0.88, 3.0) (mavi eksikti)
+      return std({ map, color: HEDGE_FIX, roughness: 0.92, side: DS });
     })(),
     // Leylandi tepesi (düz üst + filiz tutamları): taze sürgünler gövdeden açık sarı-yeşil. Street View güneşli saçak
     // #799640, gövde #435c1d (critic M2 #14); oyunda tepe zaten güneşi dik aldığından çarpan ölçülen oranın altında.
@@ -929,7 +948,12 @@ function materials(base: string): Record<string, THREE.Material> {
     mkHedgeTop: (() => {
       const map = T.leylandiiTexture();
       map.anisotropy = 8;
-      return std({ map, color: new THREE.Color().setRGB(1.55, 1.45, 1.1), roughness: 0.9, side: DS });
+      return std({
+        map,
+        color: new THREE.Color().setRGB(1.55 * HEDGE_FIX.r, 1.45 * HEDGE_FIX.g, 1.1 * HEDGE_FIX.b),
+        roughness: 0.9,
+        side: DS,
+      });
     })(),
     mkCanopyGlass: std({
       color: 0x9fb8bc,
