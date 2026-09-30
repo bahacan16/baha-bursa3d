@@ -135,7 +135,7 @@
      ]
     ]
    },
-   "note": "Uğur Mumcu Bulvarı cephesi, D→B: (u<49 görülmedi/bulanık: SALOONBURGER vb. pending) · pembe yuvarlak rozetli restoran · BOĞA BURGER · ARMILLA HAYVAN HASTANESİ · mavi boyalı boş dükkân (KİRALIK) · HASKÖYÜM PİDECİSİ · yataş bedding · POPEYES · VESTEL EKSPRES · … DENT PALACE diş kliniği (neoklasik beyaz cephe) · DÜRÜMLE · McDonald’s/McCafé kuzey yüzü. Kaynak: 12 yakın şerit panosu (akza…XfCj, 2025-09, 12–14.5 m) + 2LX4 22° karolar; her öğe kendi en dik panosundan okundu ve o panonun konumuyla gerçek koordinata çevrildi (trueCoords). Dükkân döşemeleri kaldırımdan 0–1.2 m yüksek (Vestel, Yataş, Popeyes önünde 3 basamak, mavi dükkân önünde 3 basamak) — kaldırım doğuya alçalıyor, çatı düz. Renkler bulutlu havada (kuzey cephe gölgede) örneklendi. Dükkân önü teraslar / şemsiyeler / bayraklar street-plan raporunda. | D4-A düzeltme (2026-09-30): mavi dükkân (u 73.88–91.78) ve üstündeki K1 cam bandı f22 ortofotoda yeniden ölçüldü (eski öğeler 1–2.5 m batıya kaymıştı; mavi pano lila kavisli duvarın üstüne taşıyordu): 4 yuvarlak köşeli açıklık (O1 74.32–77.5, O2 77.92–82.38 kapılı, O3 83.57–88.9 kapılı, O4 89.34–91.4 kör niş) — köşe yuvarlaklığı üretici özelliği bekliyor (pending roundedOpenings). Renk #5e95b0 fotoğraf örneğiyle aynı (#5f98b3, bulutlu K yüz, gölge) — oyundaki doygun/koyu görünüm veri değil ışık.",
+   "note": "Uğur Mumcu Bulvarı cephesi, D→B: (u<49 görülmedi/bulanık: SALOONBURGER vb. pending) · pembe yuvarlak rozetli restoran · BOĞA BURGER · ARMILLA HAYVAN HASTANESİ · mavi boyalı boş dükkân (KİRALIK) · HASKÖYÜM PİDECİSİ · yataş bedding · POPEYES · VESTEL EKSPRES · … DENT PALACE diş kliniği (neoklasik beyaz cephe) · DÜRÜMLE · McDonald’s/McCafé kuzey yüzü. Kaynak: 12 yakın şerit panosu (akza…XfCj, 2025-09, 12–14.5 m) + 2LX4 22° karolar; her öğe kendi en dik panosundan okundu ve o panonun konumuyla gerçek koordinata çevrildi (trueCoords). Dükkân döşemeleri kaldırımdan 0–1.2 m yüksek (Vestel, Yataş, Popeyes önünde 3 basamak, mavi dükkân önünde 3 basamak) — kaldırım doğuya alçalıyor, çatı düz. Renkler bulutlu havada (kuzey cephe gölgede) örneklendi. Dükkân önü teraslar / şemsiyeler / bayraklar street-plan raporunda. | D4-A düzeltme (2026-09-30): mavi dükkân (u 73.88–91.78) ve üstündeki K1 cam bandı f22 ortofotoda yeniden ölçüldü (eski öğeler 1–2.5 m batıya kaymıştı; mavi pano lila kavisli duvarın üstüne taşıyordu): 4 yuvarlak köşeli açıklık (O1 74.32–77.5, O2 77.92–82.38 kapılı, O3 83.57–88.9 kapılı, O4 89.34–91.4 kör niş) — köşe yuvarlaklığı üretici özelliği bekliyor (pending roundedOpenings). Renk #5e95b0 fotoğraf örneğiyle aynı (#5f98b3, bulutlu K yüz, gölge) — oyundaki doygun/koyu görünüm veri değil ışık. BOĞA BURGER / ARMILLA bölümü (görünen u 51.9–73.7) f22’de yeniden okundu: tabela, K1 camları, kanopi ve dikmeler 2–6 m doğuya taşındı (overlay ile doğrulandı).",
    "items": [
     {
      "t": "sign",
@@ -292,32 +292,34 @@
     {
      "t": "sign",
      "off": 1.45,
-     "u0": 53.48,
-     "u1": 58.06,
-     "y0": 8.78,
-     "y1": 9.6,
+     "u0": 55.93,
+     "u1": 60.49,
+     "y0": 9.08,
+     "y1": 9.92,
      "d": 0.05,
      "style": "letters",
      "text": "BOĞA BURGER",
-     "fg": "#d6d9dc",
+     "fg": "#e8eaec",
      "font": "condensed",
      "bold": true,
      "lit": false,
-     "logo": "beyaz 3B kalın dar harfler; solunda beyaz boğa başı silueti (u 55.0–55.5); ışık görülmedi"
+     "logo": "beyaz 3B kalın dar harfler (gölgede ölçülen #9cadb5; alın #1c2528 ile aynı gölgede → beyaz); SOLUNDA beyaz boğa başı silueti (profil, boynuzlu; görünen u 55.24–55.86, y 9.05–10.18) — gliften çizilmedi (pending bogaBullHead); ışık görülmedi",
+     "capH": 0.78
     },
     {
-     "t": "sign",
-     "off": 1.45,
-     "u0": 52.91,
-     "u1": 53.42,
-     "y0": 8.68,
-     "y1": 9.66,
-     "d": 0.03,
-     "style": "panel",
-     "text": "",
-     "bg": "#d6d9dc",
-     "fg": "#d6d9dc",
-     "logo": "beyaz boğa başı silueti (profil, boynuzlu)"
+     "t": "panel",
+     "u0": 53.26,
+     "u1": 62.95,
+     "y0": 7.97,
+     "y1": 8.91,
+     "color": "#2d363d",
+     "proud": 0.08,
+     "clad": {
+      "dir": "v",
+      "every": 0.12,
+      "w": 0.04,
+      "color": "#0a1215"
+     }
     },
     {
      "t": "sign",
@@ -335,17 +337,17 @@
     {
      "t": "panel",
      "u0": 51.93,
-     "u1": 59.97,
+     "u1": 63.24,
      "y0": 5.48,
      "y1": 8.93,
      "color": "#2a312f"
     },
     {
      "t": "win",
-     "u0": 52.05,
-     "u1": 52.92,
+     "u0": 53.26,
+     "u1": 55.2,
      "y0": 6.33,
-     "y1": 8.19,
+     "y1": 7.97,
      "k": 0,
      "s": [
       0,
@@ -363,10 +365,10 @@
     },
     {
      "t": "win",
-     "u0": 52.92,
-     "u1": 54.54,
+     "u0": 55.2,
+     "u1": 57.14,
      "y0": 6.33,
-     "y1": 8.19,
+     "y1": 7.97,
      "k": 0,
      "s": [
       0,
@@ -384,10 +386,10 @@
     },
     {
      "t": "win",
-     "u0": 54.98,
-     "u1": 56.17,
+     "u0": 57.14,
+     "u1": 59.07,
      "y0": 6.33,
-     "y1": 8.19,
+     "y1": 7.97,
      "k": 0,
      "s": [
       0,
@@ -405,10 +407,10 @@
     },
     {
      "t": "win",
-     "u0": 56.17,
-     "u1": 58.1,
+     "u0": 59.07,
+     "u1": 61.01,
      "y0": 6.33,
-     "y1": 8.19,
+     "y1": 7.97,
      "k": 0,
      "s": [
       0,
@@ -426,10 +428,10 @@
     },
     {
      "t": "win",
-     "u0": 58.1,
-     "u1": 59.91,
+     "u0": 61.01,
+     "u1": 62.95,
      "y0": 6.33,
-     "y1": 8.19,
+     "y1": 7.97,
      "k": 0,
      "s": [
       0,
@@ -485,7 +487,7 @@
     {
      "t": "win",
      "u0": 52.05,
-     "u1": 54.98,
+     "u1": 54.2,
      "y0": 1.8,
      "y1": 5.3,
      "k": 0,
@@ -500,75 +502,33 @@
      "curt": {
       "K0": "vitrin"
      }
-    },
-    {
-     "t": "win",
-     "u0": 54.98,
-     "u1": 56.17,
-     "y0": 1.8,
-     "y1": 4.51,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "kind": "door",
-     "split": 2,
-     "frameC": "#1e2224"
-    },
-    {
-     "t": "win",
-     "u0": 56.17,
-     "u1": 59.57,
-     "y0": 1.8,
-     "y1": 5.3,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "stair": true,
-     "kind": "shop",
-     "split": 2,
-     "frameC": "#1e2224",
-     "curt": {
-      "K0": "vitrin"
-     }
-    },
-    {
-     "t": "panel",
-     "u0": 59.57,
-     "u1": 59.91,
-     "y0": 1.8,
-     "y1": 5.48,
-     "color": "#2a312f"
     },
     {
      "t": "sign",
      "off": 1.45,
-     "u0": 61.34,
-     "u1": 70.55,
-     "y0": 8.46,
-     "y1": 9.77,
+     "u0": 63.24,
+     "u1": 72.58,
+     "y0": 8.84,
+     "y1": 10.18,
      "d": 0.12,
      "style": "box",
      "text": "ARMILLA HAYVAN HASTANESİ",
-     "bg": "#8d909b",
-     "fg": "#a33a44",
+     "bg": "#dfe3e8",
+     "fg": "#b3343c",
      "align": "right",
      "font": "sans",
      "bold": true,
      "lit": false,
-     "logo": "saçak alnını örten beyaz kompozit kutu (≈1.2 m derz), kırmızı kalın harfler; solda kırmızı çerçeveli beyaz yuvarlak amblem (kedi-köpek çizimli, içinde küçük ARMILLA) ve üstünde kırmızı artı; ışık görülmedi"
+     "logo": "beyaz kompozit kutu (gölgede ölçülen #929aa4 → beyaz), kırmızı kalın harfler (ölçülen #8d373d gölge); yazı görünen u 64.62–72.36, y 9.27–9.75; solda kırmızı çerçeveli beyaz yuvarlak köşeli kare amblem (u 63.29–64.5), üstünde kırmızı artı; kutunun altında açık gri saçak altı (y 8.1–8.84, doğuda u 73.66’ya kadar)",
+     "capH": 0.48
     },
     {
      "t": "sign",
      "off": 1.57,
-     "u0": 61.4,
-     "u1": 62.53,
-     "y0": 8.58,
-     "y1": 9.66,
+     "u0": 63.29,
+     "u1": 64.5,
+     "y0": 9.02,
+     "y1": 10.07,
      "d": 0.03,
      "style": "box",
      "shape": "round",
@@ -580,18 +540,18 @@
     },
     {
      "t": "panel",
-     "u0": 59.97,
-     "u1": 70.51,
+     "u0": 63.24,
+     "u1": 73.66,
      "y0": 6.68,
      "y1": 8.93,
      "color": "#8a8f96"
     },
     {
      "t": "win",
-     "u0": 61.31,
-     "u1": 62.31,
-     "y0": 7.1,
-     "y1": 8.29,
+     "u0": 65.2,
+     "u1": 66.14,
+     "y0": 6.95,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
@@ -606,10 +566,10 @@
     },
     {
      "t": "win",
-     "u0": 62.31,
-     "u1": 63.18,
-     "y0": 7.1,
-     "y1": 8.29,
+     "u0": 66.14,
+     "u1": 66.93,
+     "y0": 6.95,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
@@ -624,10 +584,10 @@
     },
     {
      "t": "win",
-     "u0": 63.18,
-     "u1": 64.99,
-     "y0": 7.1,
-     "y1": 8.29,
+     "u0": 66.93,
+     "u1": 68.6,
+     "y0": 6.95,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
@@ -642,10 +602,10 @@
     },
     {
      "t": "win",
-     "u0": 65.43,
-     "u1": 67.23,
-     "y0": 7.1,
-     "y1": 8.29,
+     "u0": 69.03,
+     "u1": 70.12,
+     "y0": 6.95,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
@@ -660,10 +620,10 @@
     },
     {
      "t": "win",
-     "u0": 67.23,
-     "u1": 68.48,
-     "y0": 7.1,
-     "y1": 8.29,
+     "u0": 70.12,
+     "u1": 71.86,
+     "y0": 6.95,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
@@ -678,10 +638,10 @@
     },
     {
      "t": "win",
-     "u0": 68.48,
-     "u1": 70.29,
-     "y0": 7.1,
-     "y1": 8.29,
+     "u0": 71.86,
+     "u1": 73.6,
+     "y0": 6.95,
+     "y1": 8.11,
      "k": 0,
      "s": [
       0,
@@ -696,46 +656,62 @@
     },
     {
      "t": "panel",
-     "u0": 64.99,
-     "u1": 65.43,
+     "u0": 68.6,
+     "u1": 69.03,
      "y0": 7.1,
      "y1": 8.29,
      "color": "#3a3f42"
     },
     {
      "t": "proj",
-     "u0": 60.21,
-     "u1": 70.55,
+     "u0": 54.2,
+     "u1": 67.95,
      "d": 1.45,
-     "y0": 5.73,
-     "y1": 6.5,
-     "color": "#895257"
+     "y0": 5.98,
+     "y1": 6.45,
+     "color": "#88535a"
     },
     {
      "t": "proj",
-     "u0": 60.21,
-     "u1": 60.62,
+     "u0": 54.2,
+     "u1": 55.0,
      "d": 1.45,
      "y0": 1.8,
-     "y1": 5.73,
-     "color": "#8d909b"
+     "y1": 5.98,
+     "color": "#9aa1ad"
     },
     {
      "t": "proj",
-     "u0": 70.1,
-     "u1": 70.6,
+     "u0": 67.5,
+     "u1": 68.2,
      "d": 1.45,
      "y0": 1.8,
-     "y1": 5.73,
-     "color": "#8d909b"
+     "y1": 5.98,
+     "color": "#9aa1ad"
     },
     {
      "t": "sign",
      "off": 1.47,
-     "u0": 68.57,
-     "u1": 69.3,
-     "y0": 5.68,
-     "y1": 6.22,
+     "u0": 65.9,
+     "u1": 66.64,
+     "y0": 5.9,
+     "y1": 6.56,
+     "d": 0.02,
+     "style": "box",
+     "shape": "round",
+     "text": "",
+     "bg": "#c9ccd4",
+     "border": "#a33a44",
+     "fg": "#a33a44",
+     "logo": "kanopi alnında küçük ARMILLA amblemi"
+    },
+    {
+     "t": "sign",
+     "off": 1.47,
+     "u0": 55.5,
+     "u1": 56.2,
+     "y0": 5.9,
+     "y1": 6.56,
      "d": 0.02,
      "style": "box",
      "shape": "round",
@@ -747,16 +723,16 @@
     },
     {
      "t": "panel",
-     "u0": 59.97,
-     "u1": 69.97,
+     "u0": 55.0,
+     "u1": 67.5,
      "y0": 1.8,
      "y1": 6.02,
      "color": "#b8902e"
     },
     {
      "t": "win",
-     "u0": 59.97,
-     "u1": 61.5,
+     "u0": 55.0,
+     "u1": 57.08,
      "y0": 1.8,
      "y1": 5.78,
      "k": 0,
@@ -774,8 +750,8 @@
     },
     {
      "t": "win",
-     "u0": 61.5,
-     "u1": 63.18,
+     "u0": 57.08,
+     "u1": 59.17,
      "y0": 1.8,
      "y1": 5.78,
      "k": 0,
@@ -793,8 +769,8 @@
     },
     {
      "t": "win",
-     "u0": 63.18,
-     "u1": 64.87,
+     "u0": 59.17,
+     "u1": 61.25,
      "y0": 1.8,
      "y1": 5.78,
      "k": 0,
@@ -812,8 +788,8 @@
     },
     {
      "t": "win",
-     "u0": 65.48,
-     "u1": 66.55,
+     "u0": 61.25,
+     "u1": 63.33,
      "y0": 1.8,
      "y1": 5.78,
      "k": 0,
@@ -831,8 +807,8 @@
     },
     {
      "t": "win",
-     "u0": 66.55,
-     "u1": 68.48,
+     "u0": 63.33,
+     "u1": 65.42,
      "y0": 1.8,
      "y1": 5.78,
      "k": 0,
@@ -850,8 +826,8 @@
     },
     {
      "t": "win",
-     "u0": 68.48,
-     "u1": 69.92,
+     "u0": 65.42,
+     "u1": 67.5,
      "y0": 1.8,
      "y1": 5.78,
      "k": 0,
@@ -868,13 +844,14 @@
      }
     },
     {
-     "t": "blade",
-     "u": 70.6,
-     "y0": 4.9,
-     "y1": 5.84,
-     "w": 1.3,
-     "gap": 0.1,
-     "d": 0.05,
+     "t": "sign",
+     "u0": 68.16,
+     "u1": 69.9,
+     "y0": 5.65,
+     "y1": 6.77,
+     "off": 1.45,
+     "d": 0.01,
+     "style": "letters",
      "text": "ARMILLA\nHAYVAN\nHASTANESİ",
      "lines": [
       {
@@ -896,14 +873,11 @@
        "y": 0.2
       }
      ],
-     "bg": "#c9ccd4",
-     "fg": "#a33a44",
+     "fg": "#b3343c",
      "font": "sans",
      "bold": true,
-     "logo": "K0 kanopisinin doğu yan yüzünde beyaz levha, 3 satır kırmızı yazı (2LX4 karesinden); batı yüzü görülmedi",
-     "bracket": {
-      "kind": "none"
-     }
+     "lit": false,
+     "logo": "kavisli lila-gri duvarın (pending armillaCurvedWall) sol üstüne yazılı kırmızı 3 satır; önceki çizimde dik (blade) levhaydı — f22’de duvar yüzüne yazılı görünüyor"
     },
     {
      "t": "panel",
@@ -1158,48 +1132,52 @@
     {
      "t": "sign",
      "off": 1.45,
-     "u0": 92.52,
-     "u1": 93.96,
-     "y0": 8.78,
-     "y1": 9.71,
+     "u0": 92.87,
+     "u1": 94.48,
+     "y0": 9.0,
+     "y1": 9.9,
      "d": 0.05,
      "style": "box",
-     "text": "",
+     "text": "Hasköyüm",
      "shape": "oval",
-     "bg": "#358862",
-     "fg": "#e6e6e6",
-     "logo": "yeşil bulut/çiçek biçimli amblem, içinde beyaz el yazısı “Hasköyüm”; üstünde küçük taç/yaprak"
+     "bg": "#3a9a6c",
+     "fg": "#f2f2ee",
+     "logo": "yeşil bulut/çiçek biçimli amblem (bulut kenarı çizilmedi → oval), içinde beyaz el yazısı “Hasköyüm”; üstünde küçük beyaz yazı/taç (okunmuyor)",
+     "font": "script"
     },
     {
      "t": "sign",
      "off": 1.45,
-     "u0": 94.42,
-     "u1": 97.98,
-     "y0": 8.88,
-     "y1": 9.51,
+     "u0": 94.71,
+     "u1": 98.15,
+     "y0": 9.1,
+     "y1": 9.78,
      "d": 0.05,
      "style": "letters",
      "text": "HASKÖYÜM",
-     "fg": "#a5adb2",
+     "fg": "#e6e9ea",
      "font": "sans",
      "bold": true,
-     "lit": false
+     "lit": false,
+     "capH": 0.58,
+     "logo": "beyaz 3B harfler (gölgede ölçülen #7d8687, koyu alın #303e47 ile aynı gölgede → beyaz; 7ip2 karesinde açık gri-beyaz); ışık görülmedi"
     },
     {
      "t": "sign",
      "off": 1.45,
-     "u0": 98.08,
-     "u1": 100.57,
-     "y0": 8.88,
-     "y1": 9.51,
+     "u0": 98.15,
+     "u1": 100.82,
+     "y0": 9.1,
+     "y1": 9.78,
      "d": 0.05,
      "style": "letters",
      "text": "PİDECİSİ",
-     "fg": "#39625b",
+     "fg": "#248d5c",
      "font": "sans",
      "bold": true,
      "lit": false,
-     "logo": "koyu yeşil harfler (koyu saçak alnında zor seçiliyor)"
+     "logo": "yeşil 3B harfler (7ip2 180 karesinde ≈#248d5c; 2LX4 f22 gölgede #375d52–#3f6f63)",
+     "capH": 0.58
     },
     {
      "t": "panel",
@@ -1318,10 +1296,13 @@
      "y1": 6.18,
      "d": 0.05,
      "style": "box",
-     "text": "",
+     "text": "413 45 45",
      "bg": "#9a2a2c",
-     "fg": "#e6e6e6",
-     "logo": "kırmızı kutu şerit (K0 pergola üstü), içinde beyaz yazılar — okunamadı"
+     "fg": "#f2f2ee",
+     "logo": "kırmızı kutu şerit (K0 pergola üstü); ortada beyaz “413 45 45” (7ip2 180_0), önünde küçük beyaz simge + okunmayan önek — çizilmedi",
+     "bold": true,
+     "font": "sans",
+     "align": "center"
     },
     {
      "t": "awning",
@@ -5443,6 +5424,41 @@
     }
    ],
    "note": "görünen koordinat (2LX4ejfo f22 ortofoto); açıklıklar şimdilik dikdörtgen çizildi"
+  },
+  {
+   "id": "bogaBullHead",
+   "edge": 6,
+   "what": "BOĞA BURGER alnında harflerin solunda beyaz boğa başı silueti (profil, iki boynuz yukarı)",
+   "uVis": [
+    55.24,
+    55.86
+   ],
+   "yVis": [
+    9.05,
+    10.18
+   ],
+   "off": 1.45,
+   "color": "#e8eaec",
+   "note": "glif/simge kütüphanesinde boğa başı yok; kare pano olarak çizmek yanlış → çizilmedi (önceki beyaz kare kaldırıldı)"
+  },
+  {
+   "id": "bogaFins",
+   "edge": 6,
+   "what": "BOĞA alnının altındaki düşey lamel (fin) bandı: panel + düşey derz ile yaklaşık çizildi; lameller ≈0.12 m aralıklı, alt uçları düzensiz (bazıları y≈7.6’ya iner), derinliği görülmedi",
+   "uVis": [
+    53.26,
+    62.95
+   ],
+   "yVis": [
+    7.97,
+    8.91
+   ]
+  },
+  {
+   "id": "armillaArches",
+   "edge": 6,
+   "what": "ARMILLA K0: kırmızı çerçeveli kanopinin (görünen u 54.2–67.95) altında sarı kenarlı kemerli iç tavan/açıklıklar ve doğudaki kavisli lila duvarda büyük asimetrik kemer (görünen u 68.24–73.0, tepe y≈5.6, sarı kenar ≈#c8a032)",
+   "note": "kemer ve kavisli duvar üreticiyle ifade edilemiyor (armillaCurvedWall ile birlikte)"
   }
  ]
 }
