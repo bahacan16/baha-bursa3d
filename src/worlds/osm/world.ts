@@ -11,7 +11,7 @@ import { barrierThickness } from './landuse';
 import type { PropZone } from './props';
 import { dropHandmadeWays, parseOsm, pointInPolygon, type OsmWorldData } from './parse';
 import type { SimpleOsm } from './simplify';
-import type { Carriageway, RaisedStrip } from './roads';
+import type { Carriageway, RaisedStrip, RoadMarkSpec } from './roads';
 import type { GridData, TerrainData } from '../../env/terrain';
 import { H, ringBase, setTerrain } from './height';
 import { drawGroundTexture } from './groundtex';
@@ -66,7 +66,7 @@ async function buildInWorker(
     excludeZones?: number[][];
     noSidewalkZones?: number[][];
     noCurbZones?: number[][];
-    roadMarks?: Record<string, { centre?: string; edges?: string; shift?: [number, number] }>;
+    roadMarks?: Record<string, RoadMarkSpec>;
     noPropZones?: PropZone[];
   } = {},
 ): Promise<BuildResult> {

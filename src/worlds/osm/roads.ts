@@ -489,14 +489,55 @@ function distToSeg(px: number, pz: number, a: Pt, b: Pt): number {
   return Math.hypot(px - a[0] - ex * t, pz - a[1] - ez * t);
 }
 
+/** Ölçülmüş yol düzeltmesi (street-plan roads[] → siteplan.surveyVegetation roadMarks) */
+export interface RoadMarkSpec {
+  centre?: string;
+  edges?: string;
+  shift?: [number, number];
+  /** v8: OSM kaldırımı (none → iki yan da yok; left / right OSM çizim yönüne göre; both) */
+  sidewalk?: string;
+  /** v8: şerit sayısı (OSM `lanes` yerine; ≤ 1 → şerit çizgisi yok) */
+  lanes?: number;
+}
+
+/**
+ * Tek yönlü çok şeritli yolun şerit ayırıcı çizgileri: eksenden yanal ofsetler (m), şerit genişliği = width / lanes.
+ * lanes < 2 → boş. KARAR (critic d4b #15, d4c #13): OSM `lanes` şerit sayısıdır; tek yönlü yolda şeritler eşit
+ * genişlikte (park şeridi OSM genişliğine dahil değil).
+ */
+export function laneDividerOffsets(width: number, lanes: number | undefined): number[] {
+  const n = Math.round(lanes ?? 0);
+  if (!(n >= 2) || !(width > 0)) return [];
+  const out: number[] = [];
+  for (let k = 1; k < n; k++) out.push(-width / 2 + (k * width) / n);
+  return out;
+}
+
+/** OSM kaldırım bayrakları + ölçülmüş düzeltme (sidewalk none | left | right | both) */
+export function sidewalkSides(r: Road, mk?: RoadMarkSpec): { left: boolean; right: boolean } {
+  switch (mk?.sidewalk) {
+    case 'none':
+      return { left: false, right: false };
+    case 'left':
+      return { left: true, right: false };
+    case 'right':
+      return { left: false, right: true };
+    case 'both':
+      return { left: true, right: true };
+    default:
+      return { left: r.sidewalkLeft, right: r.sidewalkRight };
+  }
+}
+
 /** Tüm yolları, kaldırımları, çizgileri ve yaya geçitlerini üretir. */
 export function buildRoads(
   geo: ChunkedGeometry,
   roads: Road[],
   crossings: Pt[],
   noSidewalk: number[][] = [],
-  /** v7: ölçülmüş çizgi düzeltmeleri (Street View): yol kimliği → centre none | dashed | solid, edges none | solid */
-  marks: Record<string, { centre?: string; edges?: string; shift?: [number, number] }> = {},
+  /** v7: ölçülmüş çizgi düzeltmeleri (Street View): yol kimliği → centre none | dashed | solid, edges none | solid,
+   *  v8 sidewalk none | left | right | both (OSM kaldırımı), lanes (şerit sayısı; tek yönlü yolda şerit çizgileri) */
+  marks: Record<string, RoadMarkSpec> = {},
   /** Yalnız araç yolu kenarı kaldırımı için ek bölgeler (ölçülmüş park döşemesi) */
   noCurb: number[][] = [],
 ): RoadBuildResult {
@@ -560,10 +601,18 @@ export function buildRoads(
     const skip = r.vehicular ? markSkipFor(r) : undefined;
     // Ölçülmüş orta çizgi kayması (street-plan roads[].centreShift): gerçek çizgi OSM ekseninden farklı
     const cl: Pt[] = mk?.shift ? dense.map((p) => [p[0] + mk.shift![0], p[1] + mk.shift![1]] as Pt) : dense;
+    // Tek yönlü çok şeritli yol (OSM `lanes` ya da ölçülmüş `lanes`): şerit ayırıcıları kesikli (Street View: Özlüce
+    // Blv. 3 şerit / 2 kesikli çizgi, Uğur Mumcu 2 şerit / 1 kesikli). Ölçülmüş `centre` verilmişse o kazanır.
+    const lanes = r.vehicular && r.oneway !== 0 && !mk?.centre ? laneDividerOffsets(r.width, mk?.lanes ?? r.lanes) : [];
     if (mk?.centre === 'dashed') dashes(geo, cl, 3, 5, 0.12, Y_MARK, skip);
     else if (mk?.centre === 'solid') dashes(geo, cl, 1e6, 0, 0.12, Y_MARK, skip);
     else if (mk?.centre === 'none') {
       /* ölçüm: orta çizgi yok */
+    } else if (lanes.length) {
+      // KARAR: çizgi 3 m / boşluk 6 m, 12 cm (ana yol kesikli çizgisiyle aynı ritim; ölçülmedi)
+      for (const o of lanes) dashes(geo, o === 0 ? cl : offsetPts(cl, o), 3, 6, 0.12, Y_MARK, skip);
+    } else if (r.vehicular && r.oneway !== 0 && mk?.lanes !== undefined && mk.lanes <= 1) {
+      /* ölçüm: tek şerit — çizgi yok */
     } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, cl, 3, 6, 0.15, Y_MARK, skip);
     else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
       dashes(geo, cl, 3, 5, 0.12, Y_MARK, skip);
@@ -573,7 +622,8 @@ export function buildRoads(
 
   // Kaldırımlar: kavşak düğümlerinde parçalara böl ve kırp
   for (const r of visible) {
-    if (!r.vehicular || (!r.sidewalkLeft && !r.sidewalkRight)) continue;
+    const sw = sidewalkSides(r, marks[r.id]);
+    if (!r.vehicular || (!sw.left && !sw.right)) continue;
     const half = r.width / 2;
     let piece: Pt[] = [r.pts[0]];
     const flush = (endIdx: number) => {
@@ -587,8 +637,8 @@ export function buildRoads(
       const trimmed = trimPolyline(piece, trimFor(startKey), trimFor(endKey));
       if (trimmed) {
         const dense = densify(trimmed, ROAD_STEP);
-        if (r.sidewalkLeft) sidewalk(geo, dense, half, 1, strips, skipCurb);
-        if (r.sidewalkRight) sidewalk(geo, dense, half, -1, strips, skipCurb);
+        if (sw.left) sidewalk(geo, dense, half, 1, strips, skipCurb);
+        if (sw.right) sidewalk(geo, dense, half, -1, strips, skipCurb);
       }
     };
     for (let i = 1; i < r.pts.length; i++) {

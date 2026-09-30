@@ -38,6 +38,8 @@ export interface Road {
   vehicular: boolean;
   /** 1 = yalnızca çizim yönünde, −1 = ters yönde, 0 = çift yön */
   oneway: number;
+  /** OSM `lanes` (şerit sayısı; etiket yoksa yok) — tek yönlü çok şeritli yolda şerit çizgileri */
+  lanes?: number;
 }
 
 export interface Rail {
@@ -269,6 +271,12 @@ export function roadWidth(t: Tags): number {
   return ROAD_WIDTH[t.highway] ?? 5;
 }
 
+/** OSM `lanes` → { lanes } (1–11 arası tam sayı; yoksa boş nesne) */
+function laneCount(t: Tags): { lanes?: number } {
+  const n = parseNum(t.lanes);
+  return n !== null && n >= 1 && n < 12 ? { lanes: Math.round(n) } : {};
+}
+
 function sidewalks(t: Tags, vehicular: boolean): { left: boolean; right: boolean } {
   if (!vehicular) return { left: false, right: false };
   const sw = t.sidewalk ?? t['sidewalk:both'];
@@ -473,6 +481,7 @@ export function parseOsm(d: SimpleOsm): OsmWorldData {
         vehicular,
         oneway:
           t.oneway === 'yes' || t.oneway === '1' || t.oneway === 'true' ? 1 : t.oneway === '-1' ? -1 : 0,
+        ...laneCount(t),
       });
       continue;
     }

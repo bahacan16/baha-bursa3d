@@ -1,6 +1,6 @@
 import { ChunkedGeometry, type ChunkPayload } from './chunks';
 import { buildBuilding } from './buildings';
-import { buildRoads, type Carriageway, type RaisedStrip } from './roads';
+import { buildRoads, type Carriageway, type RaisedStrip, type RoadMarkSpec } from './roads';
 import { buildAreas, buildBarriers } from './landuse';
 import { buildRails, type Pier } from './rail';
 import { placeTrees, treesToPayload, type TreePayload } from './vegetation';
@@ -27,7 +27,7 @@ export interface BuildOptions {
   /** Yalnız araç yolu kenarı OSM kaldırımının çizilmeyeceği alanlar (yaya/bisiklet yolları kalır) */
   noCurbZones?: number[][];
   /** v7: ölçülmüş yol çizgisi düzeltmeleri (OSM yol kimliği → orta / kenar çizgisi: none | dashed | solid) */
-  roadMarks?: Record<string, { centre?: string; edges?: string; shift?: [number, number] }>;
+  roadMarks?: Record<string, RoadMarkSpec>;
   /** Ölçülmüş bölge: yordamsal lamba / park etmiş araç üretilmez (props.ts) */
   noPropZones?: PropZone[];
 }

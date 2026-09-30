@@ -122,12 +122,26 @@ export interface StreetPlan {
     centre?: 'none' | 'dashed' | 'solid';
     edges?: 'none' | 'solid';
     /**
+     * v8: OSM kaldırımı bu yolda: none (ölçülmüş bordür / refüj / park şeridi var — critic d4b #1: bölünmüş bulvarın
+     * tek yönlü kollarında OSM iki yana kaldırım çiziyordu, refüj kenarında ve park şeridinde sarı kılavuzlu bant),
+     * left | right (OSM çizim yönüne göre, parse.ts ile aynı), both.
+     */
+    sidewalk?: 'none' | 'left' | 'right' | 'both';
+    /** v8: şerit sayısı (OSM `lanes` yerine): tek yönlü yolda şerit ayırıcı kesikli çizgiler; ≤ 1 → çizgi yok */
+    lanes?: number;
+    /**
      * Orta çizginin OSM eksenine göre dünya kayması [dx, dz] (m): ölçülen gerçek çizgi OSM ekseninden farklıysa
      * (ör. 502. Sk. z −100'de OSM x≈6.4, gerçek x≈5.2–5.8 → [-0.9, 0]). Kenar çizgileri etkilenmez.
      */
     centreShift?: [number, number];
     note?: string;
   }[];
+  /**
+   * v8: sokak zemin alanları (site-plan `areas` ile aynı şema ve türler: paving | gravel | asphalt | lawn | bed …;
+   * `material` metni tonu seçer — siteplan.areaKey): ölçülmüş bölgede OSM kaldırımı, hava fotoğrafı ağacı ve arazi
+   * çim boyası bastırılır. Ör. Biaport önü kilit taşı / dik park döşemesi, Kent Park güney çakıl otoparkı.
+   */
+  areas?: SiteArea[];
 }
 /*
  * v7 sokak öğesi türleri (street[], streetFurniture.ts) — ortak alanlar kind, id, x, z, rot (pusula derecesi: bakış
