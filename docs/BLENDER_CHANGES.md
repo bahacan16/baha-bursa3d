@@ -898,3 +898,9 @@
   pozlama ×1.08 → ×1.145, Ultra `ULTRA_EXPOSURE_REF` −1.60 → −1.75. Mertkent-2 güneşli ölçümleri kötüleşmedi; Ultra ve
   gece karşılaştırıldı. Dosyalar: `src/env/calibration.ts`, `src/env/post.ts`, `src/game.ts`. **Blender:** — (yalnız
   görüntü dönüşümü; Blender'da Filmic/AgX karşılaştırırken ofsetsiz eğri referans alınır)
+- **(Cephe verisi geri yüklendi)** — Üretici v9 derlemesi eski bir `facades.json` kopyasından yazılmış ve 18 binayı
+  geri almıştı (1476599907/908/911 ve 1477364959 hiç yoktu; TİME doğu yüzü, boş cephe ölçümleri, Ayanoğlu,
+  Coffeemania, Kırmıkıl, 1552093099, Kent Park vb.). Tüm survey'ler yeniden derlendi; `tests/unit/facadesFresh.test.ts`
+  artık derlenmiş veri survey'lerle uyuşmazsa başarısız olur. **Blender:** `NW/Measured/Facades` şu bloklar yeniden
+  kurulur: 900000203, 1476599907/908/909/911/912, 1477364957/959, 1540994151, 1544934686/694, 1545290880, 1546358563,
+  1546358595, 1551828351/357, 1552093099, 1552992538.
