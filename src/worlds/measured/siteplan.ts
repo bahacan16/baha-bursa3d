@@ -3,6 +3,7 @@ import * as pcNs from 'polygon-clipping';
 import { Builder, leafFringe, type V2, type V3 } from './builder';
 import { parseSpecies, speciesIndex } from '../osm/species';
 import facadesRings from './data/facades.json';
+import footprintsRings from './data/footprints.json';
 import { binStand, goal, kamelya, lamp2, panelFence, pitchFence, playSet, roseBush } from './sitekit';
 
 /**
@@ -178,6 +179,67 @@ export const STREET_PLAN: StreetPlan = PLANS['./data/street-plan.json'] ?? {};
 export const PARK_PLAN: SitePlan = PLANS['./data/park-plan.json'] ?? {};
 /** Ölçülmüş binaların taban izleri (yalnız ring alanı kullanılır) */
 const FACADES_RINGS = facadesRings as unknown as Record<string, { ring: V2[] }>;
+/** El modeli taban izleri (footprints.json; Mertkent blokları dahil) */
+const FOOTPRINT_RINGS = footprintsRings as unknown as Record<string, { ring?: V2[] }>;
+
+/** El modeli binalarının taban izleri (facades.json + footprints.json; kimlik başına bir halka, footprints önce) */
+export function handFootprints(): V2[][] {
+  const out: V2[][] = [];
+  const seen = new Set<string>();
+  for (const src of [FOOTPRINT_RINGS, FACADES_RINGS] as Record<string, { ring?: V2[] }>[])
+    for (const [id, v] of Object.entries(src)) {
+      if (seen.has(id) || !v.ring || v.ring.length < 3) continue;
+      seen.add(id);
+      out.push(v.ring);
+    }
+  return out;
+}
+
+/**
+ * Çokgenin kenar bantları (her kenar iki yana d m, uçlarda d uzatılmış dörtgenler) + çokgenin kendisi: düz halkalar.
+ * Bölge testi `some(inFlat)` ile birleşim olarak kullanılır (tampon). KARAR: gönye yerine uzatılmış bant — köşede
+ * küçük çentik kalır, d ≤ 2 m için önemsiz.
+ */
+export function bufferedRings(poly: V2[], d: number): number[][] {
+  const out: number[][] = [flat(poly)];
+  if (!(d > 0)) return out;
+  for (let i = 0; i < poly.length; i++) {
+    const a = poly[i];
+    const e = poly[(i + 1) % poly.length];
+    const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+    if (L < 0.05) continue;
+    const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
+    const n: V2 = [-t[1], t[0]];
+    const A: V2 = [a[0] - t[0] * d, a[1] - t[1] * d];
+    const E: V2 = [e[0] + t[0] * d, e[1] + t[1] * d];
+    out.push(
+      flat([
+        [A[0] - n[0] * d, A[1] - n[1] * d],
+        [E[0] - n[0] * d, E[1] - n[1] * d],
+        [E[0] + n[0] * d, E[1] + n[1] * d],
+        [A[0] + n[0] * d, A[1] + n[1] * d],
+      ]),
+    );
+  }
+  return out;
+}
+
+/** Ölçülmüş ada / refüj çokgenleri (street-plan `island`: poly; `roundabout-island`: elips halka) */
+function surveyedIslands(plan: StreetPlan): V2[][] {
+  const out: V2[][] = [];
+  for (const p of plan.street ?? []) {
+    const q = p as unknown as { rx?: number; rz?: number; poly?: V2[] };
+    if (p.kind === 'roundabout-island' && q.rx) {
+      const ring: V2[] = [];
+      for (let k = 0; k < 32; k++) {
+        const a = (k / 32) * Math.PI * 2;
+        ring.push([p.x + Math.cos(a) * (q.rx + 0.5), p.z + Math.sin(a) * ((q.rz ?? q.rx) + 0.5)]);
+      }
+      out.push(ring);
+    } else if (p.kind === 'island' && q.poly && q.poly.length >= 3) out.push(q.poly);
+  }
+  return out;
+}
 
 /**
  * Ölçüm noktasının türü → ağaç kütüphanesi tür indeksi (src/worlds/osm/species.ts). `species` alanı ve not
@@ -260,19 +322,15 @@ export function surveyVegetation(): {
   const excludeZones: number[][] = [];
   for (const a of [...(SITE_PLAN.areas ?? []), ...(PARK_PLAN.areas ?? [])])
     if (a.poly?.length >= 3) excludeZones.push(flat(a.poly));
+  // v8: sokak planı zemin alanları (döşeme, çakıl otopark…): hava fotoğrafı ağacı yok
+  for (const a of STREET_PLAN.areas ?? []) if (a.poly?.length >= 3) excludeZones.push(flat(a.poly));
+  // v8 (critic d4a #11): el modeli binalarının taban izleri — OSM binası çizilmediği için (HANDMADE_IDS) otomatik
+  // ağaç engellemesi bunları görmüyordu; Biaport podyumunun içinden 14 hava fotoğrafı tacı çıkıyordu
+  for (const r of handFootprints()) excludeZones.push(flat(r));
   // Ölçülmüş kavşak adası / ayrım adaları: yalnız ölçülen ağaç (hava fotoğrafı tespiti çiçeklik ve lamba
   // gölgelerinden kavşak adasına 6 sahte taç koyuyordu; ölçümde adada tek ağaç var)
-  for (const p of STREET_PLAN.street ?? []) {
-    const q = p as unknown as { rx?: number; rz?: number; poly?: V2[] };
-    if (p.kind === 'roundabout-island' && q.rx) {
-      const ring: V2[] = [];
-      for (let k = 0; k < 32; k++) {
-        const a = (k / 32) * Math.PI * 2;
-        ring.push([p.x + Math.cos(a) * (q.rx + 0.5), p.z + Math.sin(a) * ((q.rz ?? q.rx) + 0.5)]);
-      }
-      excludeZones.push(flat(ring));
-    } else if (p.kind === 'island' && q.poly && q.poly.length >= 3) excludeZones.push(flat(q.poly));
-  }
+  const islands = surveyedIslands(STREET_PLAN);
+  for (const r of islands) excludeZones.push(flat(r));
   // KD köşe adası (budanmış şimşir topları; Street View'da ağaç yok)
   excludeZones.push(
     flat([
@@ -363,17 +421,13 @@ export function surveyVegetation(): {
       );
     }
   }
-  const roadMarks: Record<string, RoadMark> = {};
-  for (const r of STREET_PLAN.roads ?? []) {
-    const id = typeof r.id === 'number' ? `w${r.id}` : /^\d+$/.test(r.id) ? `w${r.id}` : r.id;
-    roadMarks[id] = {
-      ...(r.centre ? { centre: r.centre } : {}),
-      ...(r.edges ? { edges: r.edges } : {}),
-      ...(r.centreShift && r.centreShift.length === 2 && r.centreShift.every(Number.isFinite)
-        ? { shift: [r.centreShift[0], r.centreShift[1]] as [number, number] }
-        : {}),
-    };
-  }
+  // v8 (critic d4b #1, d4c #8): ölçülmüş refüj / ada: OSM kaldırımı çizilmez (tek yönlü kolların refüj kenarındaki
+  // kaldırımı sarı kılavuzlu bant olarak refüjün üstünde / yanında kalıyordu). 1.5 m tampon: OSM ekseni kaymışsa
+  // bant ortası refüj kenarının dışına düşüyordu; refüjün iki yanı araç yolu olduğundan gerçek kaldırımı silmez.
+  for (const r of islands) noSidewalkZones.push(...bufferedRings(r, 1.5));
+  // v8: sokak planı zemin alanları: OSM kaldırımı yerine ölçülmüş döşeme
+  for (const a of STREET_PLAN.areas ?? []) if (a.poly?.length >= 3) noSidewalkZones.push(flat(a.poly));
+  const roadMarks = roadMarksOf(STREET_PLAN);
   return {
     fixedTrees,
     excludeZones,
@@ -384,11 +438,77 @@ export function surveyVegetation(): {
   };
 }
 
+/**
+ * v8 (critic d4a #2/#12, d4b #7/#8): ölçülmüş zemin çokgenleri — arazi gölgelendiricisinde hava fotoğrafının çim /
+ * toprak boyası bastırılır (osm/world.setSurveyGround). Kaldırım bantları (bordürden w; yol tarafına 1.5 m asfalt
+ * dolgusu dahil), adalar (+0.5 m), sokak planı alanları, site / park planı sert zemin alanları (lawn / bed hariç).
+ */
+export function surveyGroundPolys(
+  plan: StreetPlan = STREET_PLAN,
+  extra: SitePlan[] = [SITE_PLAN, PARK_PLAN],
+): V2[][] {
+  const out: V2[][] = [];
+  for (const s of plan.sidewalks ?? []) {
+    for (let i = 0; i + 1 < s.pts.length; i++) {
+      const a = s.pts[i];
+      const e = s.pts[i + 1];
+      const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      if (L < 0.1) continue;
+      const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
+      const n = sideNormal(t, s.side);
+      const A: V2 = [a[0] - t[0] * 0.5, a[1] - t[1] * 0.5];
+      const E: V2 = [e[0] + t[0] * 0.5, e[1] + t[1] * 0.5];
+      out.push([
+        [A[0] - n[0] * 1.5, A[1] - n[1] * 1.5],
+        [E[0] - n[0] * 1.5, E[1] - n[1] * 1.5],
+        [E[0] + n[0] * s.w, E[1] + n[1] * s.w],
+        [A[0] + n[0] * s.w, A[1] + n[1] * s.w],
+      ]);
+    }
+  }
+  for (const r of surveyedIslands(plan)) out.push(...bufferedRings(r, 0.5).map(unflat));
+  for (const a of plan.areas ?? []) if (a.poly?.length >= 3) out.push(a.poly);
+  for (const p of extra)
+    for (const a of p.areas ?? [])
+      if (a.poly?.length >= 3 && a.kind !== 'lawn' && a.kind !== 'bed' && a.kind !== 'pool') out.push(a.poly);
+  return out;
+}
+
+function unflat(f: number[]): V2[] {
+  const o: V2[] = [];
+  for (let i = 0; i + 1 < f.length; i += 2) o.push([f[i], f[i + 1]]);
+  return o;
+}
+
+/** street-plan roads[] → OSM yol kimliği ("w…") → çizgi / kaldırım / şerit düzeltmesi (roads.ts RoadMarkSpec) */
+export function roadMarksOf(plan: StreetPlan): Record<string, RoadMark> {
+  const roadMarks: Record<string, RoadMark> = {};
+  for (const r of plan.roads ?? []) {
+    const id = typeof r.id === 'number' ? `w${r.id}` : /^\d+$/.test(r.id) ? `w${r.id}` : r.id;
+    roadMarks[id] = {
+      ...(r.centre ? { centre: r.centre } : {}),
+      ...(r.edges ? { edges: r.edges } : {}),
+      ...(r.sidewalk && /^(none|left|right|both)$/.test(r.sidewalk) ? { sidewalk: r.sidewalk } : {}),
+      ...(typeof r.lanes === 'number' && Number.isFinite(r.lanes) && r.lanes >= 0
+        ? { lanes: Math.round(r.lanes) }
+        : {}),
+      ...(r.centreShift && r.centreShift.length === 2 && r.centreShift.every(Number.isFinite)
+        ? { shift: [r.centreShift[0], r.centreShift[1]] as [number, number] }
+        : {}),
+    };
+  }
+  return roadMarks;
+}
+
 /** OSM yol çizgisi düzeltmesi (roads.ts): orta / kenar çizgisi türü, orta çizgi dünya kayması */
 export interface RoadMark {
   centre?: string;
   edges?: string;
   shift?: [number, number];
+  /** v8: OSM kaldırımı none | left | right | both */
+  sidewalk?: string;
+  /** v8: şerit sayısı (tek yönlü yol şerit çizgileri) */
+  lanes?: number;
 }
 
 /** Ölçülmüş çit hatları (tampon 2.5 m) ve kaldırım bordür hatları (tampon w + 2 m) — eski çit kabuğu atlama testi */

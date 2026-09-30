@@ -640,6 +640,37 @@ export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
     midKeep: 0.4,
     far: { kind: 'sapling', leaf: 0x5e6a36, bark: 0x5d5040, crownBase: 0.55 },
   },
+  // v8 mor yapraklı fidan (refüjdeki genç kan erikler, critic d4b #18): fidanın gövde / dal yapısı, kan erik yaprağı
+  'sapling-purple': {
+    gen: {
+      kind: 'ez',
+      cardSize: 0.7,
+      opts: {
+        seed: 3017,
+        type: 'deciduous',
+        levels: 2,
+        angle: [0, 42, 45],
+        children: [6, 3],
+        force: 0.01,
+        gnarliness: [0.02, 0.12, 0.15],
+        length: [50, 13, 5],
+        radius: [0.5, 0.5, 0.6],
+        sections: [8, 4, 2],
+        segments: [6, 4, 3],
+        start: [0, 0.62, 0.2],
+        taper: [0.6, 0.7, 0.7],
+        twist: [0, 0, 0],
+        leaves: { angle: 45, count: 6, start: 0.1, size: 2.5, sizeVariance: 0.3, double: true },
+      },
+    },
+    tile: TILE.prunusPurple,
+    leafTint: 0xffffff,
+    bark: 'smooth',
+    barkTint: 0x6a5648,
+    wind: 1.1,
+    midKeep: 0.4,
+    far: { kind: 'sapling', leaf: 0x4e3230, bark: 0x5d5040, crownBase: 0.55 },
+  },
   // Budanmış şimşir topu
   boxwood: {
     gen: {

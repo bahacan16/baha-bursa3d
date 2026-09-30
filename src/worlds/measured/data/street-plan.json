@@ -7269,6 +7269,79 @@
       ],
       "material": "gri beton bordür, yola bakan yüzü gruplar hâlinde yeşil/beyaz dönüşümlü boyalı (bulvar boyunca SV karelerinde); gri beton kilit taşı kaldırım.",
       "note": "SV 4GrkAeBL_90_-50 (bordür önü park). Kaldırım + teras ön alanı bina cephesine kadar (≈19–20 m; Starbucks/BIGCHEFS teras şemsiyeleri, köşede kırmızı tente — ayrı kayıt). Bant düzeni görülmedi. pts = kaldırım bordürü. 2. tur: bordür, hava fotoğrafında bordür önünde park etmiş araç sırasının kaldırım tarafı kenarından (+0.2) sıkılaştırıldı (bu kesimde formül ile uyumlu, değişmedi); ilk tur: hava fotoğrafı sokak ağacı sırasından (gövdeler OSM şerit ekseninden ≈+10.2 m, bordür ağaç çukuru bandının 1.1 m önünde) OSM ekseni + eOff (+9.1…+12.0 m); z −476 ve −598 geçitlerinde bordür, geçit uçlarıyla ±0.8 uyumlu. Bordür önündeki park şeridi (yol kotu, asfalt/sarı park işaretli) ayrı kaydedilmedi (asfalt dolgu). w = bordürden bina ön çizgisine (taban izi) en geniş mesafe (dar yerde bant binanın altında kalır). ±0.8 m."
+    },
+    {
+      "id": "d4-sw-um-n",
+      "street": "Uğur Mumcu Blv. doğu kolu kuzey kaldırımı (x 662→771: TAŞYAKAN / Wall Street English / IDAS / MOT / Watsons / mion önü)",
+      "pts": [
+        [
+          662.5,
+          -309
+        ],
+        [
+          668,
+          -308.2
+        ],
+        [
+          675,
+          -306.4
+        ],
+        [
+          682,
+          -304.6
+        ],
+        [
+          690,
+          -303.4
+        ],
+        [
+          697,
+          -302.9
+        ],
+        [
+          705,
+          -302.6
+        ],
+        [
+          722,
+          -301.8
+        ],
+        [
+          745,
+          -300.7
+        ],
+        [
+          765,
+          -299.8
+        ],
+        [
+          771,
+          -299.5
+        ]
+      ],
+      "w": 5.2,
+      "side": "left",
+      "kerbH": 0.15,
+      "kerbPaint": "green-white",
+      "layers": [
+        {
+          "w": 1.3,
+          "material": "kırmızı bant (soluk kiremit #a09183, mavi bisiklet piktogramlı — bisiklet bandı)",
+          "h": 0.15
+        },
+        {
+          "w": 0.25,
+          "material": "kırmızı tuğla sıra (#8a6f57, ayırıcı)",
+          "h": 0.15
+        },
+        {
+          "w": 3.5,
+          "material": "gri kilit taşı (#b0a494, ince kırmızı çizgili desen)",
+          "h": 0.15
+        }
+      ],
+      "material": "gri beton bordür, yola bakan yüzü yeşil/beyaz dönüşümlü boyalı; kırmızı bisiklet bandı + tuğla sıra + gri kilit taşı kaldırım.",
+      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4a #3): önceden bu kesimde kaldırım kaydı yoktu (hava fotoğrafı görünüyordu). Bordür hattı aerial-n1 profilleri x 705/722/745/765 (bordür −302.6/−301.8/−300.7/−299.8; önündeki koyu şerit = yol kotunda kilit taşı paralel park şeridi, araçlar bu şeritte), batıda (x < 700) kavisli bordür hava fotoğrafından (un.jpg) ±0.5. Bantlar SV 2tZdYrGD_0_-50 (2025-09, yan kare k≈0.81): bordür (yüzü yeşil boyalı #5b5b4f gölgede) → ≈1.3 m soluk kırmızı bant (#a09183) → kırmızı tuğla sıra (#8a6f57) → gri kilit taşı (#b0a494, ince kırmızı çizgiler) → dükkânlar; ClwC9NKO_0_0 kırmızı bantta mavi bisiklet piktogramı (≈x 737; ayrı kaydedilmedi — piktogram türü kaldırımda yok). Kaldırım dükkânlara doğru yükseliyor (eğim görülmedi, ölçülmedi — mevcut not). w = bordürden taban izi ön çizgisine (900000202/201 z −306.5, 900000203 −307.8) en geniş mesafe. Bordür önündeki yol kotu kilit taşı paralel park şeridi (≈2.5–3 m, x ≈700–771) ayrı alan: park-plan d4-um-n-parking."
     }
   ],
   "street": [
@@ -14687,104 +14760,95 @@
     {
       "id": "d4-b203-planter-1",
       "kind": "planter",
-      "x": 686.9,
+      "x": 688.77,
       "z": -305.3,
-      "shape": "round",
-      "w": 0.9,
-      "d": 0.9,
-      "h": 0.8,
-      "color": "#e8e6df",
-      "plant": {
-        "h": 0.7,
-        "color": "#3f5a2e",
-        "shape": "shrub"
-      },
-      "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+      "shape": "box",
+      "w": 1.35,
+      "d": 0.5,
+      "h": 0.5,
+      "color": "#b8b6ac",
+      "note": "900000203 önü kaldırımda alçak taş seki üstünde 6 kabartma desenli beyaz beton dikdörtgen yalak (eleştirmen d4a #23 \"2025-09 karelerinde yok\" dedi → REDDEDİLDİ: SV Ax7s0cnI_0_0 ve fkkSNnCU_300_0 (2025-09) karelerinde altısı da duruyor; önlerinde kurye motosikletleri). Ölçü: sıra ≈8.7 m, yalak ≈1.35 × 0.5 × 0.5 m (Ax7s0cnI_0_0, d≈9 m); renk güneşte #aeaa9e–#bcbbb4. Boş görünüyor (bitki görülmedi). Eski kayıt yuvarlak saksı (Ø0.9, h 0.8) idi — biçim düzeltildi. Sıra merkezi x ±1 (SV konumu).",
+      "rot": 0
     },
     {
       "id": "d4-b203-planter-2",
       "kind": "planter",
-      "x": 688.7,
+      "x": 690.23,
       "z": -305.3,
-      "shape": "round",
-      "w": 0.9,
-      "d": 0.9,
-      "h": 0.8,
-      "color": "#e8e6df",
+      "shape": "box",
+      "w": 1.35,
+      "d": 0.5,
+      "h": 0.5,
+      "color": "#b8b6ac",
       "plant": {
-        "h": 0.7,
-        "color": "#3f5a2e",
-        "shape": "shrub"
+        "h": 0.15,
+        "color": "#4f6b35",
+        "shape": "hedge"
       },
-      "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+      "note": "900000203 önü kaldırımda alçak taş seki üstünde 6 kabartma desenli beyaz beton dikdörtgen yalak (eleştirmen d4a #23 \"2025-09 karelerinde yok\" dedi → REDDEDİLDİ: SV Ax7s0cnI_0_0 ve fkkSNnCU_300_0 (2025-09) karelerinde altısı da duruyor; önlerinde kurye motosikletleri). Ölçü: sıra ≈8.7 m, yalak ≈1.35 × 0.5 × 0.5 m (Ax7s0cnI_0_0, d≈9 m); renk güneşte #aeaa9e–#bcbbb4. İçinde alçak yeşil bitki. Eski kayıt yuvarlak saksı (Ø0.9, h 0.8) idi — biçim düzeltildi. Sıra merkezi x ±1 (SV konumu).",
+      "rot": 0
     },
     {
       "id": "d4-b203-planter-3",
       "kind": "planter",
-      "x": 690.6,
+      "x": 691.67,
       "z": -305.3,
-      "shape": "round",
-      "w": 0.9,
-      "d": 0.9,
-      "h": 0.8,
-      "color": "#e8e6df",
+      "shape": "box",
+      "w": 1.35,
+      "d": 0.5,
+      "h": 0.5,
+      "color": "#b8b6ac",
       "plant": {
-        "h": 0.7,
-        "color": "#3f5a2e",
-        "shape": "shrub"
+        "h": 0.15,
+        "color": "#4f6b35",
+        "shape": "hedge"
       },
-      "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+      "note": "900000203 önü kaldırımda alçak taş seki üstünde 6 kabartma desenli beyaz beton dikdörtgen yalak (eleştirmen d4a #23 \"2025-09 karelerinde yok\" dedi → REDDEDİLDİ: SV Ax7s0cnI_0_0 ve fkkSNnCU_300_0 (2025-09) karelerinde altısı da duruyor; önlerinde kurye motosikletleri). Ölçü: sıra ≈8.7 m, yalak ≈1.35 × 0.5 × 0.5 m (Ax7s0cnI_0_0, d≈9 m); renk güneşte #aeaa9e–#bcbbb4. İçinde alçak yeşil bitki. Eski kayıt yuvarlak saksı (Ø0.9, h 0.8) idi — biçim düzeltildi. Sıra merkezi x ±1 (SV konumu).",
+      "rot": 0
     },
     {
       "id": "d4-b203-planter-4",
       "kind": "planter",
-      "x": 692.6,
+      "x": 693.13,
       "z": -305.3,
-      "shape": "round",
-      "w": 0.9,
-      "d": 0.9,
-      "h": 0.8,
-      "color": "#e8e6df",
-      "plant": {
-        "h": 0.7,
-        "color": "#3f5a2e",
-        "shape": "shrub"
-      },
-      "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+      "shape": "box",
+      "w": 1.35,
+      "d": 0.5,
+      "h": 0.5,
+      "color": "#b8b6ac",
+      "note": "900000203 önü kaldırımda alçak taş seki üstünde 6 kabartma desenli beyaz beton dikdörtgen yalak (eleştirmen d4a #23 \"2025-09 karelerinde yok\" dedi → REDDEDİLDİ: SV Ax7s0cnI_0_0 ve fkkSNnCU_300_0 (2025-09) karelerinde altısı da duruyor; önlerinde kurye motosikletleri). Ölçü: sıra ≈8.7 m, yalak ≈1.35 × 0.5 × 0.5 m (Ax7s0cnI_0_0, d≈9 m); renk güneşte #aeaa9e–#bcbbb4. Boş görünüyor (bitki görülmedi). Eski kayıt yuvarlak saksı (Ø0.9, h 0.8) idi — biçim düzeltildi. Sıra merkezi x ±1 (SV konumu).",
+      "rot": 0
     },
     {
       "id": "d4-b203-planter-5",
       "kind": "planter",
-      "x": 694.6,
+      "x": 694.57,
       "z": -305.3,
-      "shape": "round",
-      "w": 0.9,
-      "d": 0.9,
-      "h": 0.8,
-      "color": "#e8e6df",
+      "shape": "box",
+      "w": 1.35,
+      "d": 0.5,
+      "h": 0.5,
+      "color": "#b8b6ac",
       "plant": {
-        "h": 0.7,
-        "color": "#3f5a2e",
-        "shape": "shrub"
+        "h": 0.15,
+        "color": "#4f6b35",
+        "shape": "hedge"
       },
-      "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+      "note": "900000203 önü kaldırımda alçak taş seki üstünde 6 kabartma desenli beyaz beton dikdörtgen yalak (eleştirmen d4a #23 \"2025-09 karelerinde yok\" dedi → REDDEDİLDİ: SV Ax7s0cnI_0_0 ve fkkSNnCU_300_0 (2025-09) karelerinde altısı da duruyor; önlerinde kurye motosikletleri). Ölçü: sıra ≈8.7 m, yalak ≈1.35 × 0.5 × 0.5 m (Ax7s0cnI_0_0, d≈9 m); renk güneşte #aeaa9e–#bcbbb4. İçinde alçak yeşil bitki. Eski kayıt yuvarlak saksı (Ø0.9, h 0.8) idi — biçim düzeltildi. Sıra merkezi x ±1 (SV konumu).",
+      "rot": 0
     },
     {
       "id": "d4-b203-planter-6",
       "kind": "planter",
-      "x": 696.6,
+      "x": 696.02,
       "z": -305.3,
-      "shape": "round",
-      "w": 0.9,
-      "d": 0.9,
-      "h": 0.8,
-      "color": "#e8e6df",
-      "plant": {
-        "h": 0.7,
-        "color": "#3f5a2e",
-        "shape": "shrub"
-      },
-      "note": "Süslü beyaz beton saksı, çalılı. Kaynak: cephe ajanı (900000203 / 1476599910 / 1476599912) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi."
+      "shape": "box",
+      "w": 1.35,
+      "d": 0.5,
+      "h": 0.5,
+      "color": "#b8b6ac",
+      "note": "900000203 önü kaldırımda alçak taş seki üstünde 6 kabartma desenli beyaz beton dikdörtgen yalak (eleştirmen d4a #23 \"2025-09 karelerinde yok\" dedi → REDDEDİLDİ: SV Ax7s0cnI_0_0 ve fkkSNnCU_300_0 (2025-09) karelerinde altısı da duruyor; önlerinde kurye motosikletleri). Ölçü: sıra ≈8.7 m, yalak ≈1.35 × 0.5 × 0.5 m (Ax7s0cnI_0_0, d≈9 m); renk güneşte #aeaa9e–#bcbbb4. Boş görünüyor (bitki görülmedi). Eski kayıt yuvarlak saksı (Ø0.9, h 0.8) idi — biçim düzeltildi. Sıra merkezi x ±1 (SV konumu).",
+      "rot": 0
     },
     {
       "id": "d4-bereket-flag",
@@ -15848,14 +15912,14 @@
       "rx": 22.4,
       "rz": 24.4,
       "h": 0.15,
-      "kerb": "dış gri beton bordür (≈0.15), yola bakan yüzü yeşil/beyaz dönüşümlü boyalı + ≈1.5 m açık gri beton bant + iç alçak gri bordür (≈0.1) + çim",
+      "kerb": "dış gri beton bordür (≈0.15), yola bakan yüzü yeşil/beyaz dönüşümlü boyalı + ≈0.5 m kiremit-kırmızı kilit taşı bant + iç alçak gri bordür (≈0.1) + çim",
       "grass": {
-        "rx": 20.3,
-        "rz": 22.9,
+        "rx": 21.6,
+        "rz": 23.6,
         "material": "çim"
       },
-      "planting": "çim içinde hava fotoğrafında X biçiminde koyu yeşil (sık/sulanan) dört kol ve aralarında dört açık renk (kuru/biçilmiş) çim dilimi; ada merkezinde (622,−298.5) ≈3×1 m koyu dikdörtgen nesne (tabela/anıt? — SV'de görülmedi).",
-      "note": "Uğur Mumcu Blv. × Özlüce Blv. dönel kavşağı (OSM 233456729 'Özlüce Kavşağı'). Hava fotoğrafı (aerial-n1) enine/boyuna profiller: dış bordür x 600.6–645.5 (z −298.5), z −322.9…−274.1 (x 622.5); çim kenarı x 602.4–642.8, z −321.5…−275.7 → merkez (623.0,−298.5), rx 22.4, rz 24.4; bant doğuda ≈2.2 m, batıda ≈1.4 m (ortalama yazıldı). SV j83sBTWj_270_-50 (2025-09): bordür yüzü yeşil/beyaz dönüşümlü boyalı, arkasında açık gri beton bant, alçak iç bordür, çim. Çevre yolunda kesikli şerit çizgileri (A68JK4N9/28liXUPN_120_0), batı kolunda yol kenarında çelik bariyer (28liXUPN_120_0). Ada üstünde lamba/ışık görülmedi (ada merkezine bakan ufuk karesi yok). ±0.5. 2026-09-30: giriş kollarında kesikli \"yol ver\" çizgisi görülmedi (Nj_jj1KQ / xFHUdC91 / wHgKQ7C4 180_-50, FD8KJP6P / NdCfk7Bj / JsbllX49 0_-50, hjrWP_Nb 90_-50, j83sBTWj / T4qvgi40 270_-50 zemin kareleri; birçoğunda pano GPS’i ada çimine düşüyor). Kuzeybatı girişinde (Nj_jj1KQ_180_-50) bordüre dik tek kalın beyaz şerit parçası var, anlamı seçilemedi; ring üstünde kesikli şerit çizgileri (xFHUdC91_180_-50). Kavşak sinyalize (d4-sig-rb2-*), dur çizgisi güney kolda (d4r-stop-rb2-s)."
+      "planting": "kenarda ≈3–4 m biçilmiş yeşil çim şeridi (güneşte #708f40–#809a47), iç kısım biçilmemiş kuru uzun çayır (güneşte #b09a65, h ≈0.4–0.6; FD8KJP6P_300_0, NdCfk7Bj_0_-50). Hava fotoğrafındaki X biçimli koyu yeşil kollar sulanan/biçilen şeritler olabilir (SV’de ada ortası görülmedi).",
+      "note": "Uğur Mumcu Blv. × Özlüce Blv. dönel kavşağı (OSM 233456729 'Özlüce Kavşağı'). Hava fotoğrafı (aerial-n1) enine/boyuna profiller: dış bordür x 600.6–645.5 (z −298.5), z −322.9…−274.1 (x 622.5); çim kenarı x 602.4–642.8, z −321.5…−275.7 → merkez (623.0,−298.5), rx 22.4, rz 24.4; bant doğuda ≈2.2 m, batıda ≈1.4 m (ortalama yazıldı). SV j83sBTWj_270_-50 (2025-09): bordür yüzü yeşil/beyaz dönüşümlü boyalı, arkasında açık gri beton bant, alçak iç bordür, çim. Çevre yolunda kesikli şerit çizgileri (A68JK4N9/28liXUPN_120_0), batı kolunda yol kenarında çelik bariyer (28liXUPN_120_0). Ada üstünde lamba/ışık görülmedi (ada merkezine bakan ufuk karesi yok). ±0.5. 2026-09-30: giriş kollarında kesikli \"yol ver\" çizgisi görülmedi (Nj_jj1KQ / xFHUdC91 / wHgKQ7C4 180_-50, FD8KJP6P / NdCfk7Bj / JsbllX49 0_-50, hjrWP_Nb 90_-50, j83sBTWj / T4qvgi40 270_-50 zemin kareleri; birçoğunda pano GPS’i ada çimine düşüyor). Kuzeybatı girişinde (Nj_jj1KQ_180_-50) bordüre dik tek kalın beyaz şerit parçası var, anlamı seçilemedi; ring üstünde kesikli şerit çizgileri (xFHUdC91_180_-50). Kavşak sinyalize (d4-sig-rb2-*), dur çizgisi güney kolda (d4r-stop-rb2-s). 2026-09-30 D4 eleştirmen düzeltmesi (d4a #19): bant ≈1.5 m açık gri beton değil ≈0.5 m kırmızı — SV FD8KJP6P_300_0 (GB kesim) ve j83sBTWj_270_-50 (D kesim, 2025-09) yakın karelerinde dış boyalı bordür → ≈0.5 m tozlu kiremit-kırmızı kilit taşı şerit → alçak gri iç bordür → çim; iki yakada aynı. Çim yarı eksenleri bant + iki bordüre göre (rx 22.4 − 0.8). Çimin iç kısmı kuru uzun çayır (üretici henüz çayır/biçilmiş kenar ayrımı çizmiyor → planting metninde, kod desteği bekliyor)."
     },
     {
       "id": "d4-rb2-split-e",
@@ -15885,31 +15949,469 @@
       "note": "Uğur Mumcu doğu kolu ayrım adası (giriş/çıkış şeritleri arası), hava fotoğrafında yeşil üçgenimsi şerit (j.jpg aerial-n1). SV'de yakından görülmedi. ±1."
     },
     {
-      "id": "d4-rb2-split-w",
+      "id": "d4-um-median-e",
       "kind": "island",
-      "x": 584.5,
-      "z": -296.5,
+      "x": 770,
+      "z": -287.4,
       "poly": [
         [
-          579.6,
-          -305.2
+          688,
+          -293.3
         ],
         [
-          589,
-          -306
+          694,
+          -292.7
         ],
         [
-          589.2,
-          -288
+          704,
+          -292.2
         ],
         [
-          580,
-          -287.6
+          715,
+          -291.7
+        ],
+        [
+          740,
+          -290.4
+        ],
+        [
+          752,
+          -289.7
+        ],
+        [
+          763,
+          -289.2
+        ],
+        [
+          775,
+          -288.5
+        ],
+        [
+          786,
+          -287.9
+        ],
+        [
+          798,
+          -287.3
+        ],
+        [
+          810,
+          -286.7
+        ],
+        [
+          822,
+          -286.1
+        ],
+        [
+          834,
+          -285.4
+        ],
+        [
+          845,
+          -284.8
+        ],
+        [
+          851,
+          -284.2
+        ],
+        [
+          851,
+          -281.4
+        ],
+        [
+          845,
+          -281.8
+        ],
+        [
+          834,
+          -282.7
+        ],
+        [
+          822,
+          -283.4
+        ],
+        [
+          810,
+          -284.1
+        ],
+        [
+          798,
+          -284.6
+        ],
+        [
+          786,
+          -285.1
+        ],
+        [
+          775,
+          -285.7
+        ],
+        [
+          763,
+          -286.3
+        ],
+        [
+          752,
+          -286.9
+        ],
+        [
+          740,
+          -287.5
+        ],
+        [
+          715,
+          -288.9
+        ],
+        [
+          704,
+          -289.5
+        ],
+        [
+          694,
+          -290.1
+        ],
+        [
+          688,
+          -290.5
         ]
       ],
       "h": 0.15,
-      "material": "ayrım adası, yüzey görülmedi (hava fotoğrafında gri-kırmızımsı sert zemin)",
-      "note": "Uğur Mumcu batı kolu ayrım adası; yalnız hava fotoğrafı, kontur ±1. Yüzey malzemesi SV'de görülmedi."
+      "material": "gri beton kilit taşı orta refüj (ağaç çukurlarında alçak çalı)",
+      "kerbPaint": "green-white",
+      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4a #1): Uğur Mumcu Blv. doğu kolunun iki yönü arasındaki kilit taşı döşeli orta refüj, x 688→851 (doğu ucu 329. Sk./529902947 kavşağındaki yaya geçidi x≈851–855). Kenarlar aerial-n1 z21 enine parlaklık profilleri (x 697/704/715/740/752/763/775/786/798/810/816/822/828/834/840/845/850: iki parlak bordür çizgisi arası koyu gri şerit); genişlik 2.6–2.9 m, doğrultu dz/dx ≈ +0.05 (OSM 1549911441 ile paralel). Yüzey: SV ClwC9NKO_180_-50 (2025-09) zemin karesi — gri kilit taşı, kuzey bordür yüzü yeşil / soluk beyaz gruplar hâlinde boyalı; güney bordür RpJvogJx_0_0 / RVrJaCMS_180_0'da yine yeşil/beyaz boyalı (grup uzunluğu ölçülmedi → üretici varsayılanı 3 taş). Ağaç çukurlarında ≈0.5 m sarımsı yeşil alçak çalı (ClwC9NKO_180_-50, RpJvogJx_0_0; tek tek kaydedilmedi). Batı ucu çim burna (d4-um-nose-e) bitişik. SV konum kayması: bu kolda panolar hava fotoğrafına göre enine ≈1 m güneyde (ClwC9 bordürü SV −289.8 / hava −290.4) → konumlar hava fotoğrafından, genişlik/malzeme SV'den. ±0.3 enine, uçlar ±1. YOL GEOMETRİSİ (kod ajanı): OSM 302395986 (doğuya giden, güney) ve 1549911441 (batıya giden, kuzey) iki ayrı şerit; oyunda refüj bölgesinde OSM kaldırımı/kenar çizgisi çizilmemeli (ada bastırma)."
+    },
+    {
+      "id": "d4-um-nose-e",
+      "kind": "island",
+      "x": 676,
+      "z": -294.5,
+      "poly": [
+        [
+          665.4,
+          -301.2
+        ],
+        [
+          670,
+          -299.1
+        ],
+        [
+          675,
+          -297
+        ],
+        [
+          680,
+          -295.2
+        ],
+        [
+          685,
+          -293.8
+        ],
+        [
+          688,
+          -293.3
+        ],
+        [
+          688,
+          -290.5
+        ],
+        [
+          685,
+          -290.7
+        ],
+        [
+          680,
+          -290.9
+        ],
+        [
+          675,
+          -290.8
+        ],
+        [
+          670,
+          -290.1
+        ],
+        [
+          665.4,
+          -289.3
+        ]
+      ],
+      "h": 0.15,
+      "material": "bordürlü çim ayrım adası (doğu kolu refüj burnu)",
+      "note": "2026-09-30 D4 düzeltmesi: Uğur Mumcu doğu kolu, d4-rb2-zebra-e1/-e2 geçitlerinin hemen doğusunda üçgen çim burun (x 665.4–688), hava fotoğrafı aerial-n1 enine profilleri x 666/670/675/680/685/690 (yeşil #536852–#606f5a, kenarlarda parlak bordür çizgisi). Doğu ucunda kilit taşı refüje (d4-um-median-e) geçer; geçiş çizgisi (bordür var mı) görülmedi. Bordür boyası görülmedi (SV yakın karesi yok). ±0.4."
+    },
+    {
+      "id": "d4-um-mag-7",
+      "kind": "tree",
+      "x": 781.2,
+      "z": -286.85,
+      "h": 6.8,
+      "r": 2.3,
+      "crownBase": 2.7,
+      "species": "glossy",
+      "note": "Manolya (Magnolia grandiflora) — parlak derimsi yapraklı her dem yeşil; üretici türü 'glossy'. Uğur Mumcu doğu kolu orta refüjü (d4-um-median-e) ağaç çukurunda, altında alçak çalı. Konum: hava fotoğrafı taç merkezi (yeşillik profili, ≈11.7 m aralık) + taç eğikliği ≈+0.7 m doğu, z refüj ekseni. Boy/taç SV RVrJaCMS_180_0 (d 6.2), 2025-09 (kamera 2.35 m; yan karelerde ±0.5 m). ±0.8."
+    },
+    {
+      "id": "d4-um-medtree-e5",
+      "kind": "tree",
+      "x": 839.3,
+      "z": -283.91,
+      "h": 3.5,
+      "r": 0.8,
+      "species": "sapling",
+      "note": "Refüj doğu kesimi (x > 790): SV kapsamı x≈779’da bitiyor → tür ve boy GÖRÜLMEDİ. Hava fotoğrafında aynı ≈11.6 m aralıkla küçük koyu taç/gölge izleri (Ø≈1.5; batıdaki manolyalardan belirgin küçük). Genç ağaç varsayımı (h 3.5 m oransal değil) — yerinde doğrulanmalı. ±1."
+    },
+    {
+      "id": "d4-um-medtree-e4",
+      "kind": "tree",
+      "x": 827.7,
+      "z": -284.5,
+      "h": 3.5,
+      "r": 0.8,
+      "species": "sapling",
+      "note": "Refüj doğu kesimi (x > 790): SV kapsamı x≈779’da bitiyor → tür ve boy GÖRÜLMEDİ. Hava fotoğrafında aynı ≈11.6 m aralıkla küçük koyu taç/gölge izleri (Ø≈1.5; batıdaki manolyalardan belirgin küçük). Genç ağaç varsayımı (h 3.5 m oransal değil) — yerinde doğrulanmalı. ±1."
+    },
+    {
+      "id": "d4-um-medtree-e3",
+      "kind": "tree",
+      "x": 816.1,
+      "z": -285.09,
+      "h": 3.5,
+      "r": 0.8,
+      "species": "sapling",
+      "note": "Refüj doğu kesimi (x > 790): SV kapsamı x≈779’da bitiyor → tür ve boy GÖRÜLMEDİ. Hava fotoğrafında aynı ≈11.6 m aralıkla küçük koyu taç/gölge izleri (Ø≈1.5; batıdaki manolyalardan belirgin küçük). Genç ağaç varsayımı (h 3.5 m oransal değil) — yerinde doğrulanmalı. ±1."
+    },
+    {
+      "id": "d4-um-medtree-e2",
+      "kind": "tree",
+      "x": 804.5,
+      "z": -285.67,
+      "h": 3.5,
+      "r": 0.8,
+      "species": "sapling",
+      "note": "Refüj doğu kesimi (x > 790): SV kapsamı x≈779’da bitiyor → tür ve boy GÖRÜLMEDİ. Hava fotoğrafında aynı ≈11.6 m aralıkla küçük koyu taç/gölge izleri (Ø≈1.5; batıdaki manolyalardan belirgin küçük). Genç ağaç varsayımı (h 3.5 m oransal değil) — yerinde doğrulanmalı. ±1."
+    },
+    {
+      "id": "d4-um-medtree-e1",
+      "kind": "tree",
+      "x": 792.9,
+      "z": -286.26,
+      "h": 3.5,
+      "r": 0.8,
+      "species": "sapling",
+      "note": "Refüj doğu kesimi (x > 790): SV kapsamı x≈779’da bitiyor → tür ve boy GÖRÜLMEDİ. Hava fotoğrafında aynı ≈11.6 m aralıkla küçük koyu taç/gölge izleri (Ø≈1.5; batıdaki manolyalardan belirgin küçük). Genç ağaç varsayımı (h 3.5 m oransal değil) — yerinde doğrulanmalı. ±1."
+    },
+    {
+      "id": "d4-um-mag-6",
+      "kind": "tree",
+      "x": 769.5,
+      "z": -287.44,
+      "h": 6.5,
+      "r": 1.7,
+      "crownBase": 2.8,
+      "species": "glossy",
+      "note": "Manolya (Magnolia grandiflora) — parlak derimsi yapraklı her dem yeşil; üretici türü 'glossy'. Uğur Mumcu doğu kolu orta refüjü (d4-um-median-e) ağaç çukurunda, altında alçak çalı. Konum: hava fotoğrafı taç merkezi (yeşillik profili, ≈11.7 m aralık) + taç eğikliği ≈+0.7 m doğu, z refüj ekseni. Boy/taç SV LwOyDYbY_120_0 (d 5.7, yakın plan) + RVrJaCMS_240_0 (d 9.7), 2025-09 (kamera 2.35 m; yan karelerde ±0.5 m). ±0.8."
+    },
+    {
+      "id": "d4-um-mag-5",
+      "kind": "tree",
+      "x": 757.7,
+      "z": -288.03,
+      "h": 6.3,
+      "r": 1.2,
+      "crownBase": 3,
+      "species": "glossy",
+      "note": "Manolya (Magnolia grandiflora) — parlak derimsi yapraklı her dem yeşil; üretici türü 'glossy'. Uğur Mumcu doğu kolu orta refüjü (d4-um-median-e) ağaç çukurunda, altında alçak çalı. Konum: hava fotoğrafı taç merkezi (yeşillik profili, ≈11.7 m aralık) + taç eğikliği ≈+0.7 m doğu, z refüj ekseni. Boy/taç SV LwOyDYbY_240_0 (d 9.8) — dar taçlı genç ağaç, 2025-09 (kamera 2.35 m; yan karelerde ±0.5 m). ±0.8."
+    },
+    {
+      "id": "d4-um-mag-4",
+      "kind": "tree",
+      "x": 746,
+      "z": -288.63,
+      "h": 6.4,
+      "r": 1.8,
+      "crownBase": 3,
+      "species": "glossy",
+      "note": "Manolya (Magnolia grandiflora) — parlak derimsi yapraklı her dem yeşil; üretici türü 'glossy'. Uğur Mumcu doğu kolu orta refüjü (d4-um-median-e) ağaç çukurunda, altında alçak çalı. Konum: hava fotoğrafı taç merkezi (yeşillik profili, ≈11.7 m aralık) + taç eğikliği ≈+0.7 m doğu, z refüj ekseni. Boy/taç SV 9unh6ELp_240_0 (d 10.9), wFJNAd2y_240_0, 2025-09 (kamera 2.35 m; yan karelerde ±0.5 m). ±0.8."
+    },
+    {
+      "id": "d4-um-mag-3",
+      "kind": "tree",
+      "x": 734.3,
+      "z": -289.22,
+      "h": 7,
+      "r": 2,
+      "crownBase": 2.3,
+      "species": "glossy",
+      "note": "Manolya (Magnolia grandiflora) — parlak derimsi yapraklı her dem yeşil; üretici türü 'glossy'. Uğur Mumcu doğu kolu orta refüjü (d4-um-median-e) ağaç çukurunda, altında alçak çalı. Konum: hava fotoğrafı taç merkezi (yeşillik profili, ≈11.7 m aralık) + taç eğikliği ≈+0.7 m doğu, z refüj ekseni. Boy/taç SV 2tZdYrGD_120_0 (d 10.7), RpJvogJx_0_0 yakın plan, 2025-09 (kamera 2.35 m; yan karelerde ±0.5 m). ±0.8."
+    },
+    {
+      "id": "d4-um-mag-2",
+      "kind": "tree",
+      "x": 722.5,
+      "z": -289.81,
+      "h": 6.2,
+      "r": 1.6,
+      "crownBase": 2.3,
+      "species": "glossy",
+      "note": "Manolya (Magnolia grandiflora) — parlak derimsi yapraklı her dem yeşil; üretici türü 'glossy'. Uğur Mumcu doğu kolu orta refüjü (d4-um-median-e) ağaç çukurunda, altında alçak çalı. Konum: hava fotoğrafı taç merkezi (yeşillik profili, ≈11.7 m aralık) + taç eğikliği ≈+0.7 m doğu, z refüj ekseni. Boy/taç SV hf-0gAUW_120_0 (d 9.1), 2025-09 (kamera 2.35 m; yan karelerde ±0.5 m). ±0.8."
+    },
+    {
+      "id": "d4-um-mag-1",
+      "kind": "tree",
+      "x": 710.7,
+      "z": -290.41,
+      "h": 7,
+      "r": 1.7,
+      "crownBase": 2.1,
+      "species": "glossy",
+      "note": "Manolya (Magnolia grandiflora) — parlak derimsi yapraklı her dem yeşil; üretici türü 'glossy'. Uğur Mumcu doğu kolu orta refüjü (d4-um-median-e) ağaç çukurunda, altında alçak çalı. Konum: hava fotoğrafı taç merkezi (yeşillik profili, ≈11.7 m aralık) + taç eğikliği ≈+0.7 m doğu, z refüj ekseni. Boy/taç SV 8x2jWhmk_120_0 (d 8.7), 2025-09 (kamera 2.35 m; yan karelerde ±0.5 m). ±0.8."
+    },
+    {
+      "id": "d4-rb2-split-w",
+      "kind": "island",
+      "x": 578,
+      "z": -298.5,
+      "poly": [
+        [
+          562.6,
+          -297.6
+        ],
+        [
+          566.7,
+          -297.2
+        ],
+        [
+          571.6,
+          -296.4
+        ],
+        [
+          576.8,
+          -294.9
+        ],
+        [
+          580.1,
+          -294.1
+        ],
+        [
+          584,
+          -292.6
+        ],
+        [
+          589.4,
+          -289.4
+        ],
+        [
+          589.3,
+          -298
+        ],
+        [
+          589.3,
+          -307.6
+        ],
+        [
+          583.5,
+          -305.4
+        ],
+        [
+          579.9,
+          -302.9
+        ],
+        [
+          577.5,
+          -302.1
+        ],
+        [
+          574.8,
+          -301.3
+        ],
+        [
+          570.2,
+          -300.4
+        ],
+        [
+          565.2,
+          -299.8
+        ],
+        [
+          562.9,
+          -299.8
+        ]
+      ],
+      "h": 0.15,
+      "material": "gri beton kilit taşı ayrım adası (derzlerde ot)",
+      "note": "Uğur Mumcu batı kolu ayrım adası; yalnız hava fotoğrafı, kontur ±1. Yüzey malzemesi SV'de görülmedi. 2026-09-30 D4 eleştirmen düzeltmesi (d4a #27): dikdörtgen yerine gerçek biçim. Kuyruk (x 562.6–580, batıya incelen) OSM landuse=grass 1561118176 halkası — aerial-n1 kontrast artırılmış karede (swe/swe2) aynı iki açık bordür çizgisiyle çakışıyor; doğu üçgeni (x 583.5–589.4, z −307.6…−289.4) aynı karedeki açık bordür çerçevesinden. Yüzey SV jCbeBkoS_180_0 / xr92mQ2O_120_0 (2025-09): kuyrukta ve doğu üçgeninde otlanmış gri kilit taşı (çim DEĞİL — OSM grass etiketi yanlış), kuzey bordür yüzü yeşil / soluk beyaz gruplar hâlinde boyalı. Ortadan K–G geçen kırmızı yaya bandı (park-plan d4-split-w-band) iki zebrayı (d4-rb2-zebra-w1 / -w2) bağlar; bant ekseninde sarı kılavuz şerit. Üstünde: iki sinyal direği (d4-sig-split-w-n / -s), kazıklı genç ağaç (d4-split-w-tree), sarı-siyah ok levhası (d4-split-w-chevron), bandın batısında çift yüzlü reklam panosu (raket; yüzü okunmadı, kaydedilmedi). SV panoları bu kavşakta 2–4 m kayık (zebra w1 SV zemininde z≈−303, hava fotoğrafında −306…−311) → konumlar hava fotoğrafı + OSM geçit düğümlerinden (5146922623, 13357911596). ±0.6.",
+      "kerbPaint": "green-white"
+    },
+    {
+      "id": "d4-split-w-tree",
+      "kind": "tree",
+      "x": 579,
+      "z": -295.4,
+      "h": 3.3,
+      "r": 0.8,
+      "species": "sapling",
+      "note": "2026-09-30 D4 (d4a #27): batı ayrım adasında, kırmızı bandın hemen batısında güney bordüre yakın çift ahşap kazıklı genç ağaç (jCbeBkoS_180_0, xr92mQ2O_120_0; 2025-09). Boy ≈3–3.5 m oransal, tür görülmedi. Konum hava fotoğrafındaki gölge izi (578,−296) ±1."
+    },
+    {
+      "id": "d4-sig-split-w-n",
+      "kind": "traffic-signal",
+      "x": 584.6,
+      "z": -303.8,
+      "h": 3.6,
+      "pole": "#2f3336",
+      "rot": 330,
+      "note": "2026-09-30 D4 (d4a #27): batı ayrım adası, kırmızı bandın doğu kenarında kuzey bordüre yakın siyah başlı yaya/araç sinyali (jCbeBkoS_180_0: kırmızı ışık kameraya — kuzeybatıya — bakıyor). Baş üstü ≈3.6 m (oransal). ±1."
+    },
+    {
+      "id": "d4-sig-split-w-s",
+      "kind": "traffic-signal",
+      "x": 583.6,
+      "z": -293.6,
+      "h": 3.6,
+      "pole": "#2f3336",
+      "note": "2026-09-30 D4 (d4a #27): aynı adada bandın güney ucunda ikinci sinyal direği (jCbeBkoS_180_0 uzakta, xr92mQ2O_120_0). Baktığı yön ölçülmedi. ±1."
+    },
+    {
+      "id": "d4-rb2-ne-mag-3",
+      "kind": "tree",
+      "x": 641.6,
+      "z": -336.1,
+      "h": 7.5,
+      "r": 2,
+      "crownBase": 2.8,
+      "species": "glossy",
+      "note": "2026-09-30 D4 (d4a görünüm 8): Uğur Mumcu kavşağı KD köşe kaldırımı (d4-sw-rb2-ne) ağaç çukurunda manolya (Magnolia grandiflora — parlak derimsi yapraklar; üretici türü 'glossy'). LoJEZTY__120_0 yakın (boy kareden taşıyor, oransal ±1.5); hava fotoğrafı taç (641.5,−336). 2025-09. ±1.5."
+    },
+    {
+      "id": "d4-rb2-ne-mag-2",
+      "kind": "tree",
+      "x": 658.4,
+      "z": -317,
+      "h": 9,
+      "r": 3,
+      "crownBase": 2.9,
+      "species": "glossy",
+      "note": "2026-09-30 D4 (d4a görünüm 8): Uğur Mumcu kavşağı KD köşe kaldırımı (d4-sw-rb2-ne) ağaç çukurunda manolya (Magnolia grandiflora — parlak derimsi yapraklar; üretici türü 'glossy'). dacCof1N_60_0 (d 11.6) ve ZLY2wFJ4_0_0 (d≈9): geniş taçlı iri manolya, Yapı Kredi köşesi; hava fotoğrafı taç (656.5,−316) → r≈40. 2025-09. ±1.5."
+    },
+    {
+      "id": "d4-rb2-ne-mag-1",
+      "kind": "tree",
+      "x": 649.3,
+      "z": -328.6,
+      "h": 7.9,
+      "r": 1.9,
+      "crownBase": 2.9,
+      "species": "glossy",
+      "note": "2026-09-30 D4 (d4a görünüm 8): Uğur Mumcu kavşağı KD köşe kaldırımı (d4-sw-rb2-ne) ağaç çukurunda manolya (Magnolia grandiflora — parlak derimsi yapraklar; üretici türü 'glossy'). Tv5erjSx_60_0 (d≈7.3) + dacCof1N_0_0 (d≈12) kerteriz kesişimi (646.4,−325.6 SV) — eleştirmenin (647,−319)±3 ağacı; SV bu köşede ≈3–4 m kayık (kesişim halka yolunun içine düşüyor) → kaldırım bordürünün (r≈39, d4-sw-rb2-ne notu) 1 m gerisine, hava fotoğrafı taç açısına (−49°) oturtuldu. 2025-09. ±1.5."
+    },
+    {
+      "id": "d4-split-w-chevron",
+      "kind": "sign",
+      "x": 589,
+      "z": -300.5,
+      "h": 2.4,
+      "text": "sarı-siyah yön oku levhası",
+      "note": "2026-09-30 D4: batı ayrım adasının doğu (kavşağa bakan) ucunda direk üstünde sarı zemin siyah ok levhası + üstünde beyaz yön levhaları (jCbeBkoS_180_0; yazı okunmadı). Üretici bu levha türünü genel levha olarak çizer. ±1."
     },
     {
       "id": "d4-rb2-split-n",
@@ -17694,12 +18196,63 @@
     {
       "id": "d4-ozd-palm",
       "kind": "tree",
-      "x": 597.5,
-      "z": -233.8,
-      "h": 4,
-      "r": 1.2,
+      "x": 603.6,
+      "z": -230.7,
+      "h": 5.8,
+      "r": 1.1,
       "species": "trachycarpus",
-      "note": "İki bayrak direği arasında palmiye (SV 8lJUsB-6_240_0, 7owiuJwI_240_0; hava fotoğrafında (597.5,−233.5) koyu yıldız gölge). ±1."
+      "note": "İki bayrak direği arasında palmiye (SV 8lJUsB-6_240_0, 7owiuJwI_240_0; hava fotoğrafında (597.5,−233.5) koyu yıldız gölge). ±1. 2026-09-30 D4: KONUM DÜZELTİLDİ (597.5,−233.8) → (603.6,−230.7): üç 2025-09 karenin kerterizleri tek noktada kesişiyor (8lJUsB-6_240_0 u 297, 7owiuJwI_240_0 u 133, OHftRqTt_300_0 u 206; sapma ≤0.03 m) — palmiye bayrak direklerinin hemen batısında. Hava fotoğrafındaki (597.5,−233.5) koyu yıldız lekesi palmiye değil manolya (d4-ozd-magnolia). Boy yelpaze tepesi ≈5.8 m (8lJUsB d 12.2), taç Ø≈2.2."
+    },
+    {
+      "id": "d4-ozd-magnolia",
+      "kind": "tree",
+      "x": 599.7,
+      "z": -233.4,
+      "h": 6,
+      "r": 1.8,
+      "crownBase": 1.2,
+      "species": "glossy",
+      "note": "2026-09-30 D4 (d4a #8): Özdemiroğlu bahçesinde koni taçlı sık yapraklı manolya (Magnolia grandiflora görünümlü, parlak koyu yeşil; üretici türü glossy). Kerteriz kesişimi 8lJUsB-6_240_0 u 400 / 7owiuJwI_240_0 u 232 / OHftRqTt_300_0 u 248 (sapma ≤0.11 m). Boy ≈6.0 (8lJUsB d 14.7), taç Ø≈3.7, dallar çit üstünden başlıyor. ±0.5."
+    },
+    {
+      "id": "d4-ozd-redtree",
+      "kind": "tree",
+      "x": 601.7,
+      "z": -239.3,
+      "h": 3.2,
+      "r": 0.8,
+      "species": "deciduous",
+      "note": "2026-09-30 D4: küçük kırmızımsı-turuncu yapraklı ağaççık (7owiuJwI_240_0 u 303 ∩ 8lJUsB-6_240_0 u 572; OHftRqTt_300_0 u 375 ile doğrulandı). Tür seçilemedi. Boy ≈3.2, taç Ø≈1.6."
+    },
+    {
+      "id": "d4-ozd-conifer-n",
+      "kind": "tree",
+      "x": 596.6,
+      "z": -248.3,
+      "h": 7.6,
+      "r": 2,
+      "species": "conifer",
+      "note": "2026-09-30 D4: bahçenin kuzeyinde, restoranın önünde koyu iğne yapraklı konik ağaç (7owiuJwI_240_0 u 560, tepe ≈7.6 m); ikinci kerteriz belirsiz (OHftRqTt_300_0 u 420) → konum hava fotoğrafındaki koyu yuvarlak taçla (597,−246) eşleştirildi. Tür (çam/sedir) seçilemedi. ±1.5."
+    },
+    {
+      "id": "d4-ozd-conifer-slim",
+      "kind": "tree",
+      "x": 596.6,
+      "z": -241,
+      "h": 6.3,
+      "r": 1,
+      "species": "conifer",
+      "note": "2026-09-30 D4: ince sütunsu koyu iğne yapraklı ağaç (7owiuJwI_240_0 u 385 ∩ OHftRqTt_300_0 u 345 kesişimi; tepe 5.9 / 7.1 m → ≈6.3). Tür seçilemedi. ±1.5."
+    },
+    {
+      "id": "d4-ozd-round",
+      "kind": "tree",
+      "x": 600.5,
+      "z": -246.8,
+      "h": 4.5,
+      "r": 1.8,
+      "species": "deciduous",
+      "note": "2026-09-30 D4: çitin arkasında açık yeşil yuvarlak taçlı yaprak döken ağaç (7owiuJwI_240_0 u 480, kerteriz 266.6°; ikinci karede seçilemedi → mesafe çit–restoran arası tahmini, ±2). Tür görülmedi."
     },
     {
       "id": "d4-ozd-globe-1",
@@ -17796,13 +18349,13 @@
       "id": "d4-um-shelter-1",
       "kind": "bus-shelter",
       "x": 730.75,
-      "z": -304,
+      "z": -301.3,
       "w": 6.5,
       "d": 1.5,
       "h": 2.6,
       "rot": 180,
       "color": "#8c9295",
-      "note": "Otobüs durağı sığınağı (x 727.5–734, z≈−304; cephe ajanı + SV ClwC9NKO_0_0): gri alüminyum çerçeve, cam arka panel, arka camda üç siyah dikdörtgen pano (ClwC9NKO_0_0 / _300_0 / _343_1_40; üretici arka cam panosu çizmiyor), düz çatı, oturak. 2026-09-30: BATI ucunda (rot 180 → start = batı) çerçeveli reklam kutusu, doğuya bakan yüzünde gri-beyaz saat afişi (ClwC9NKO_300_0, çatı gölgesinde #6a6e6c); DOĞU ucu cam (ClwC9NKO_0_0). Batı panonun batı yüzü görülmedi; ışıklı olup olmadığı görülmedi.",
+      "note": "Otobüs durağı sığınağı (x 727.5–734, z≈−304; cephe ajanı + SV ClwC9NKO_0_0): gri alüminyum çerçeve, cam arka panel, arka camda üç siyah dikdörtgen pano (ClwC9NKO_0_0 / _300_0 / _343_1_40; üretici arka cam panosu çizmiyor), düz çatı, oturak. 2026-09-30: BATI ucunda (rot 180 → start = batı) çerçeveli reklam kutusu, doğuya bakan yüzünde gri-beyaz saat afişi (ClwC9NKO_300_0, çatı gölgesinde #6a6e6c); DOĞU ucu cam (ClwC9NKO_0_0). Batı panonun batı yüzü görülmedi; ışıklı olup olmadığı görülmedi. 2026-09-30 (d4a #16): z −304 → −301.3. ClwC9NKO_0_0 (2025-09): ön dikmeler bordür hattının ≈0.6 m yol tarafında (durak önünde kaldırım ≈1.5 m çıkıntı yapıyor, v≈520’ye kadar kilit taşı), arka dikmeler ≈0.8 m kaldırım tarafında → merkez bordür hattında (hava fotoğrafı bordürü x 731’de −301.4). Eleştirmenin −299…−300.5 değeri SV GPS’indendi (bu kolda SV ≈1 m güneye kayık). Çıkıntının (bulb-out) biçimi ölçülmedi, çizilmedi. ±0.5.",
       "ads": [
         {
           "end": "start",
@@ -17813,40 +18366,40 @@
     {
       "id": "d4-um-busstop-pole",
       "kind": "sign",
-      "x": 730.6,
-      "z": -303.4,
+      "x": 733.1,
+      "z": -302.3,
       "h": 2.6,
       "text": "otobüs durağı levhası",
-      "note": "Durak direği (cephe ajanı x 730.6). Levha içeriği okunmadı; üretici bu levha türünü çizmez."
+      "note": "Durak direği (cephe ajanı x 730.6). Levha içeriği okunmadı; üretici bu levha türünü çizmez. 2026-09-30: levha lamba direğine bağlı görünüyor (ClwC9NKO_0_0 u 170–185, v≈200: mavi/kırmızı levha), konum lamba direğiyle aynı."
     },
     {
       "id": "d4-um-lamp-1",
       "kind": "lamp-post",
-      "x": 730.9,
-      "z": -303,
+      "x": 733.2,
+      "z": -302.2,
       "h": 9,
       "style": "swan",
       "arm": 1.6,
-      "note": "Kuğu boynu beyaz lamba (ClwC9NKO_0_0 durağın yanında). Boy oransal ±1."
+      "note": "Kuğu boynu beyaz lamba (ClwC9NKO_0_0 durağın yanında). Boy oransal ±1. 2026-09-30: (730.9,−303) → (733.2,−302.2) — ClwC9NKO_0_0 u≈190 kerteriz (338°), durağın arkasında; aynı direkte durak levhası (d4-um-busstop-pole)."
     },
     {
       "id": "d4-um-bin-1",
       "kind": "bin",
-      "x": 733.7,
-      "z": -303.5,
+      "x": 735.7,
+      "z": -300.3,
       "h": 1,
       "color": "#2a9aa0",
-      "note": "Direk üstünde camgöbeği (teal) belediye çöp kovası (ClwC9NKO_0_0 durağın doğusu). ±0.5."
+      "note": "Direk üstünde camgöbeği (teal) belediye çöp kovası (ClwC9NKO_0_0 durağın doğusu). ±0.5. 2026-09-30: ClwC9NKO_0_0 (u 318, v 470) → bordür hattının ≈0.5 m önünde, durak çıkıntısı üstünde, bisiklet demirinin önünde."
     },
     {
       "id": "d4-um-bikehoop-1",
       "kind": "bike-rack",
-      "x": 733.3,
-      "z": -304.2,
+      "x": 735.8,
+      "z": -300.8,
       "n": 1,
       "color": "#3a3d3f",
       "rot": 90,
-      "note": "Tek ters-U bisiklet demiri (cephe ajanı). ±0.5."
+      "note": "Tek ters-U bisiklet demiri (cephe ajanı). ±0.5. 2026-09-30: ClwC9NKO_0_0 (u 300–335) → bordür hattında, çöp kovasının arkasında."
     },
     {
       "id": "d4-um-aframe-2",
@@ -21004,6 +21557,28 @@
         ]
       ],
       "note": "A5 (da3-06): GB reklam panosu sırası (da3-bb-sw) ve arkasındaki 2–3 m şerit — hava fotoğrafında (eski, farklı yol düzeni) panoların koyu gölge çizgisi ağaç dizisi sanılıyordu; SV Z8D7_240_0 / _230_12_40 / _247_10_40: panoların hemen arkasında ağaç yok (uzakta birkaç ağaç, bölge dışında)."
+    },
+    {
+      "id": "d4-ozd-garden",
+      "poly": [
+        [
+          592,
+          -257
+        ],
+        [
+          606,
+          -257
+        ],
+        [
+          606,
+          -212
+        ],
+        [
+          592,
+          -212
+        ]
+      ],
+      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4a #8): Özdemiroğlu bahçesinde hava fotoğrafı taç tespiti ≈20 sahte taç üretiyordu (çalı öbekleri, çit gölgeleri). SV 8lJUsB-6_240_0, OHftRqTt_300_0, 7owiuJwI_240_0, lOTvhRji_300_0 (2025-09): bahçe biçilmiş çim + kaldırım boyunca ≈1.2 m şimşir/çit, içinde yalnız birkaç ağaç — hepsi ölçülerek street[] d4-ozd-* olarak eklendi."
     }
   ],
   "roads": [

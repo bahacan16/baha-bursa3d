@@ -5,7 +5,7 @@ import type { Quality } from '../../core/settings';
 import { PolygonCollisionWorld } from './collision';
 import { CHUNK_SIZE, MAT_KEYS, type MatKey } from './chunks';
 import { buildWorld, type BuildResult } from './build';
-import { createOsmMaterials, groundHalf, type OsmMaterials } from './materials';
+import { createOsmMaterials, groundHalf, surveyMask, surveyRect, type OsmMaterials } from './materials';
 import { orient } from './buildings';
 import { barrierThickness } from './landuse';
 import type { PropZone } from './props';
@@ -14,10 +14,10 @@ import type { SimpleOsm } from './simplify';
 import type { Carriageway, RaisedStrip, RoadMarkSpec } from './roads';
 import type { GridData, TerrainData } from '../../env/terrain';
 import { H, ringBase, setTerrain } from './height';
-import { drawGroundTexture } from './groundtex';
+import { drawGroundTexture, drawSurveyMask, surveyMaskRect } from './groundtex';
 import { loadAerial, sampleRoofColors, type RoofColorMap } from './aerial';
 import { loadStreetViewFacades } from './streetview';
-import { surveyVegetation } from '../measured/siteplan';
+import { surveyGroundPolys, surveyVegetation } from '../measured/siteplan';
 import { buildMertkent, HANDMADE_IDS } from '../measured';
 import { applyBakedLighting, bakeRequested } from '../measured/baked';
 import { StreetProps } from './streetprops';
@@ -415,6 +415,7 @@ export class OsmWorld implements IWorld {
         if (mk.noTree) world.removeTrees(mk.noTree);
         if (mk.cars.length) world.addParkedCars(mk.cars);
         for (const a of mk.raised ?? []) world.addRaisedArea(a.poly, a.h);
+        world.setSurveyGround(surveyGroundPolys(), quality);
       } catch (e) {
         console.warn('Mertkent el modeli kurulamadı', e);
       }
@@ -529,6 +530,25 @@ export class OsmWorld implements IWorld {
     this.parked.forEachBox((c, y) => this.collision.addRing(c, y - 0.5, y + 1.5), a, b);
   }
 
+  /**
+   * v8: ölçülmüş zemin çokgenleri (kaldırım, ada, sokak alanı) → arazi gölgelendiricisi maskesi (materials.ts
+   * surveyMask): bu bölgede hava fotoğrafı gölgesi çim, asfalt bej toprak gibi boyanmaz.
+   */
+  setSurveyGround(polys: [number, number][][], quality: Quality): void {
+    if (typeof document === 'undefined') return;
+    const rect = surveyMaskRect(polys);
+    if (!rect) return;
+    const tex = new THREE.CanvasTexture(drawSurveyMask(polys, rect, quality === 'low' ? 1024 : 2048));
+    tex.flipY = false;
+    tex.colorSpace = THREE.NoColorSpace;
+    tex.generateMipmaps = true;
+    tex.minFilter = THREE.LinearMipmapLinearFilter;
+    tex.needsUpdate = true;
+    surveyMask.value?.dispose();
+    surveyMask.value = tex;
+    surveyRect.value.set(rect[0], rect[1], rect[2], rect[3]);
+  }
+
   /** El modeli bölgesinde (havuz, yol, bina) kalan ağaçları kaldır: çizim + gövde çarpışması */
   removeTrees(pred: (x: number, z: number) => boolean): number {
     return this.trees.remove(pred);
@@ -631,6 +651,7 @@ export class OsmWorld implements IWorld {
   }
 
   dispose(): void {
+    surveyRect.value.set(0, 0, 0, 0);
     this.object.traverse((o) => {
       const m = o as THREE.Mesh;
       // Ağaç geometrileri tür başına paylaşılır → TreeField bırakır

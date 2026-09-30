@@ -1,4393 +1,4543 @@
 {
- "areas": [
-  {
-   "kind": "lawn",
-   "poly": [
-    [
-     -66.6,
-     -201.2
-    ],
-    [
-     -52.1,
-     -200.6
-    ],
-    [
-     -28.1,
-     -199
-    ],
-    [
-     -12.1,
-     -198.1
-    ],
-    [
-     -2.1,
-     -197.5
-    ],
-    [
-     2.2,
-     -196.8
-    ],
-    [
-     5.3,
-     -195.6
-    ],
-    [
-     7.7,
-     -194.1
-    ],
-    [
-     9.2,
-     -192.7
-    ],
-    [
-     14.2,
-     -185.1
-    ],
-    [
-     19.2,
-     -177.1
-    ],
-    [
-     21.6,
-     -173.4
-    ],
-    [
-     21,
-     -173.2
-    ],
-    [
-     16,
-     -172.6
-    ],
-    [
-     13,
-     -171.3
-    ],
-    [
-     10.5,
-     -170.9
-    ],
-    [
-     8.6,
-     -171.2
-    ],
-    [
-     7.6,
-     -170.6
-    ],
-    [
-     4.2,
-     -169.6
-    ],
-    [
-     1.5,
-     -167.9
-    ],
-    [
-     0,
-     -166.2
-    ],
-    [
-     -2,
-     -163.6
-    ],
-    [
-     -5,
-     -161.9
-    ],
-    [
-     -7,
-     -160.8
-    ],
-    [
-     -10,
-     -159.8
-    ],
-    [
-     -13,
-     -159.3
-    ],
-    [
-     -16,
-     -158.3
-    ],
-    [
-     -19,
-     -157.9
-    ],
-    [
-     -22,
-     -157.7
-    ],
-    [
-     -28,
-     -157.7
-    ],
-    [
-     -31,
-     -158.1
-    ],
-    [
-     -34,
-     -158.4
-    ],
-    [
-     -37,
-     -158.9
-    ],
-    [
-     -40,
-     -159.2
-    ],
-    [
-     -45,
-     -159.5
-    ],
-    [
-     -55,
-     -159.7
-    ],
-    [
-     -58,
-     -159.9
-    ],
-    [
-     -62.3,
-     -160.1
-    ],
-    [
-     -63.6,
-     -160.3
-    ],
-    [
-     -64.8,
-     -160.9
-    ],
-    [
-     -65.7,
-     -161.8
-    ],
-    [
-     -66.3,
-     -163
-    ],
-    [
-     -66.5,
-     -164.3
-    ],
-    [
-     -66.6,
-     -170
-    ],
-    [
-     -66.8,
-     -180
-    ],
-    [
-     -66.5,
-     -190
-    ],
-    [
-     -66.3,
-     -196
-    ],
-    [
-     -66.3,
-     -201.1
-    ]
-   ],
-   "material": "çim, canlı yeşil (sulanıyor); kenarlarda 0.3–0.6 m yıpranmış toprak şerit",
-   "note": "Kuzey park batı büyük çimi: KB yolun güneyi, köşegen yolun batısı. Genç/orta boy ağaçlar seyrek dizili, zemin açık."
-  },
-  {
-   "kind": "lawn",
-   "poly": [
-    [
-     -66.3,
-     -209.3
-    ],
-    [
-     -66.1,
-     -210.4
-    ],
-    [
-     -65.4,
-     -211.4
-    ],
-    [
-     -64.4,
-     -212.1
-    ],
-    [
-     -63.3,
-     -212.3
-    ],
-    [
-     -54,
-     -212.6
-    ],
-    [
-     -38,
-     -212.5
-    ],
-    [
-     -22,
-     -212.3
-    ],
-    [
-     -18,
-     -212
-    ],
-    [
-     -14,
-     -211.6
-    ],
-    [
-     -9.3,
-     -210.7
-    ],
-    [
-     -6.4,
-     -208.7
-    ],
-    [
-     -3.5,
-     -206.6
-    ],
-    [
-     -0.1,
-     -205.8
-    ],
-    [
-     5.1,
-     -206.1
-    ],
-    [
-     10.1,
-     -206.7
-    ],
-    [
-     15.1,
-     -207.2
-    ],
-    [
-     20,
-     -207.5
-    ],
-    [
-     24.9,
-     -207.4
-    ],
-    [
-     37.9,
-     -204.6
-    ],
-    [
-     49.9,
-     -202.7
-    ],
-    [
-     59.9,
-     -201.1
-    ],
-    [
-     69.9,
-     -199.6
-    ],
-    [
-     73.8,
-     -198.7
-    ],
-    [
-     73.5,
-     -198.6
-    ],
-    [
-     72.4,
-     -196.9
-    ],
-    [
-     70,
-     -195.3
-    ],
-    [
-     60,
-     -192
-    ],
-    [
-     50,
-     -188.5
-    ],
-    [
-     42,
-     -186.2
-    ],
-    [
-     37,
-     -185
-    ],
-    [
-     35.8,
-     -179.6
-    ],
-    [
-     33,
-     -178.8
-    ],
-    [
-     30,
-     -177.8
-    ],
-    [
-     26,
-     -176.8
-    ],
-    [
-     23.4,
-     -175.9
-    ],
-    [
-     23.2,
-     -174.4
-    ],
-    [
-     20.8,
-     -178.1
-    ],
-    [
-     15.8,
-     -186.1
-    ],
-    [
-     10.8,
-     -193.9
-    ],
-    [
-     8.9,
-     -195.7
-    ],
-    [
-     6.3,
-     -197.4
-    ],
-    [
-     2.8,
-     -198.8
-    ],
-    [
-     -1.9,
-     -199.5
-    ],
-    [
-     -11.9,
-     -200
-    ],
-    [
-     -27.9,
-     -200.9
-    ],
-    [
-     -51.9,
-     -202.6
-    ],
-    [
-     -66.6,
-     -203.2
-    ],
-    [
-     -66.3,
-     -203.2
-    ],
-    [
-     -66.3,
-     -206.5
-    ]
-   ],
-   "material": "çim, canlı yeşil; doğu üçgende yer yer seyrek/sarımsı",
-   "note": "Kuzey şerit (KB yol ile Uğur Mumcu kaldırımı arası) + doğu üçgen çim (köşegen yolun doğusu, toprak izin kuzeyi). Genç fidan sıraları."
-  },
-  {
-   "kind": "lawn",
-   "poly": [
-    [
-     58.8,
-     -179.8
-    ],
-    [
-     58.6,
-     -184.3
-    ],
-    [
-     66,
-     -188.2
-    ],
-    [
-     72.5,
-     -191.4
-    ],
-    [
-     75.5,
-     -193
-    ],
-    [
-     77.3,
-     -192.8
-    ],
-    [
-     79.2,
-     -189
-    ],
-    [
-     80.8,
-     -185.5
-    ],
-    [
-     82.4,
-     -181.5
-    ],
-    [
-     82.3,
-     -179.1
-    ],
-    [
-     72,
-     -179
-    ],
-    [
-     65,
-     -179.4
-    ]
-   ],
-   "material": "kuru, sararmış saman rengi çim/ot (Eylül 2025, sulanmıyor); yer yer yeşil öbekler",
-   "note": "Güneydoğu yamuk çim: büfe konteynerinin doğusu, otoparkın kuzeyi; ağaçsız | 2026-09 (eleştirmen da1-04): SV nB9G_60_0 (2025-09, BULUTLU): alan x≈74–80, z≈−184 kuru saman rengi (≈#bda080 / #baa382 / #c1ac8d, bulutlu difüz; eleştirmen örneği #b09672) — mevsim sonu kuru ot, sulanan kuzey park / Nato çiminden farklı. dry/color alanları kod bekliyor (çim malzemesi şu an sabit yeşil). Renk bulutlu kareden: güneşli karede yeniden örneklenmeli.",
-   "dry": true,
-   "color": "#baa382"
-  },
-  {
-   "kind": "lawn",
-   "poly": [
-    [
-     -5.2,
-     -210.4
-    ],
-    [
-     -2.7,
-     -208.5
-    ],
-    [
-     0.1,
-     -207.9
-    ],
-    [
-     4.9,
-     -208.1
-    ],
-    [
-     9.9,
-     -208.7
-    ],
-    [
-     14.9,
-     -209.2
-    ],
-    [
-     12.7,
-     -210.6
-    ],
-    [
-     9.5,
-     -211.2
-    ],
-    [
-     5.5,
-     -211.6
-    ],
-    [
-     3.3,
-     -212.9
-    ],
-    [
-     0.9,
-     -213.1
-    ],
-    [
-     -2.3,
-     -212
-    ]
-   ],
-   "material": "çim (yol kenarı yeşil şerit)",
-   "note": "Uğur Mumcu kaldırımı ile yol bordürü arası küçük yeşil ada; sınırlar ±0.7 m"
-  },
-  {
-   "kind": "gravel",
-   "poly": [
-    [
-     35.8,
-     -179.8
-    ],
-    [
-     37,
-     -185
-    ],
-    [
-     42,
-     -186.2
-    ],
-    [
-     50,
-     -188.5
-    ],
-    [
-     60,
-     -192
-    ],
-    [
-     70,
-     -195.3
-    ],
-    [
-     72.4,
-     -196.9
-    ],
-    [
-     74.8,
-     -196.6
-    ],
-    [
-     77.3,
-     -192.8
-    ],
-    [
-     75.5,
-     -193
-    ],
-    [
-     72.5,
-     -191.4
-    ],
-    [
-     66,
-     -188.2
-    ],
-    [
-     58.6,
-     -184.3
-    ],
-    [
-     58.8,
-     -179.8
-    ]
-   ],
-   "material": "sıkışmış toprak/ince çakıl, gri-bej, lastik izli",
-   "note": "Doğu üçgen çim ile GD çim arasındaki çapraz toprak iz (~3–4 m) + büfe önü toprak alan; arabalar üzerine park ediyor"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -66.6,
-     -201.2
-    ],
-    [
-     -52.1,
-     -200.6
-    ],
-    [
-     -28.1,
-     -199
-    ],
-    [
-     -12.1,
-     -198.1
-    ],
-    [
-     -2.1,
-     -197.5
-    ],
-    [
-     2.2,
-     -196.8
-    ],
-    [
-     5.3,
-     -195.6
-    ],
-    [
-     7.7,
-     -194.1
-    ],
-    [
-     9.2,
-     -192.7
-    ],
-    [
-     14.2,
-     -185.1
-    ],
-    [
-     19.2,
-     -177.1
-    ],
-    [
-     21.6,
-     -173.4
-    ],
-    [
-     23.2,
-     -174.4
-    ],
-    [
-     20.8,
-     -178.1
-    ],
-    [
-     15.8,
-     -186.1
-    ],
-    [
-     10.8,
-     -193.9
-    ],
-    [
-     8.9,
-     -195.7
-    ],
-    [
-     6.3,
-     -197.4
-    ],
-    [
-     2.8,
-     -198.8
-    ],
-    [
-     -1.9,
-     -199.5
-    ],
-    [
-     -11.9,
-     -200
-    ],
-    [
-     -27.9,
-     -200.9
-    ],
-    [
-     -51.9,
-     -202.6
-    ],
-    [
-     -66.6,
-     -203.2
-    ]
-   ],
-   "material": "gri beton kilit taşı 10×20; güney/batı kenara yakın krem-sarı hissedilebilir kılavuz şerit (~0.3 m); iki yanda gömme beton kenar taşı",
-   "note": "Kuzey park ana yürüyüş yolu: Cavit Orhan kaldırımından doğuya düz (~86°), x≈0’da kıvrılıp güneydoğuya Doğan Avcıoğlu kaldırımına iner. Kuzey kenarında banklar/çöp kutusu."
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -13.2,
-     -211.8
-    ],
-    [
-     -9.3,
-     -210.7
-    ],
-    [
-     -6.4,
-     -208.7
-    ],
-    [
-     -3.5,
-     -206.6
-    ],
-    [
-     -0.1,
-     -205.8
-    ],
-    [
-     5.1,
-     -206.1
-    ],
-    [
-     10.1,
-     -206.7
-    ],
-    [
-     15.1,
-     -207.2
-    ],
-    [
-     20,
-     -207.5
-    ],
-    [
-     24.9,
-     -207.4
-    ],
-    [
-     37.9,
-     -204.6
-    ],
-    [
-     49.9,
-     -202.7
-    ],
-    [
-     59.9,
-     -201.1
-    ],
-    [
-     69.9,
-     -199.6
-    ],
-    [
-     73.8,
-     -198.7
-    ],
-    [
-     74.3,
-     -200.6
-    ],
-    [
-     70.2,
-     -201.5
-    ],
-    [
-     60.2,
-     -203
-    ],
-    [
-     50.2,
-     -204.6
-    ],
-    [
-     38.2,
-     -206.5
-    ],
-    [
-     25.2,
-     -209.3
-    ],
-    [
-     20,
-     -209.6
-    ],
-    [
-     14.9,
-     -209.1
-    ],
-    [
-     9.9,
-     -208.6
-    ],
-    [
-     4.9,
-     -208
-    ],
-    [
-     0.1,
-     -207.9
-    ],
-    [
-     -2.7,
-     -208.5
-    ],
-    [
-     -5.3,
-     -210.3
-    ],
-    [
-     -8.5,
-     -212.5
-    ],
-    [
-     -12.7,
-     -213.7
-    ]
-   ],
-   "material": "gri beton kilit taşı kaldırım; park tarafında açık renkli beton kenar şeridi (~0.5 m)",
-   "note": "KALDIRIM: Uğur Mumcu Bulvarı güney kaldırımı (x>−13); batıda yeşil şerit, doğuda doğrudan yol bordürü. Genişlik ±0.5 m"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -69.5,
-     -210.8
-    ],
-    [
-     -69.5,
-     -210.8
-    ],
-    [
-     -69.3,
-     -212.2
-    ],
-    [
-     -68.8,
-     -213.5
-    ],
-    [
-     -67.9,
-     -214.7
-    ],
-    [
-     -66.7,
-     -215.6
-    ],
-    [
-     -65.4,
-     -216.1
-    ],
-    [
-     -64,
-     -216.3
-    ],
-    [
-     -40,
-     -216.3
-    ],
-    [
-     -14,
-     -216.3
-    ],
-    [
-     -9,
-     -215.2
-    ],
-    [
-     -5,
-     -213.9
-    ],
-    [
-     -2.3,
-     -213
-    ],
-    [
-     -2.7,
-     -208.5
-    ],
-    [
-     -5.3,
-     -210.3
-    ],
-    [
-     -3.5,
-     -206.6
-    ],
-    [
-     -6.4,
-     -208.7
-    ],
-    [
-     -9.3,
-     -210.7
-    ],
-    [
-     -13.2,
-     -211.8
-    ],
-    [
-     -14,
-     -211.6
-    ],
-    [
-     -18,
-     -212
-    ],
-    [
-     -22,
-     -212.3
-    ],
-    [
-     -38,
-     -212.5
-    ],
-    [
-     -54,
-     -212.6
-    ],
-    [
-     -63.3,
-     -212.3
-    ],
-    [
-     -64.4,
-     -212.1
-    ],
-    [
-     -65.4,
-     -211.4
-    ],
-    [
-     -66.1,
-     -210.4
-    ],
-    [
-     -66.3,
-     -209.3
-    ],
-    [
-     -66.3,
-     -206.5
-    ],
-    [
-     -66.3,
-     -203.2
-    ]
-   ],
-   "material": "gri beton kilit taşı 10×20 (çim tarafı ~2.5–3 m) + yol tarafında kırmızı/kiremit kilit taşı bant; araya açık renkli beton şerit",
-   "note": "KALDIRIM: Uğur Mumcu Bulvarı güney kaldırımı (x −66…−3), ~3.8 m (çim kenarı z≈−212.5 → bordür z≈−216.3; yaya geçidi çizgileri bordüre dayanıyor). KB köşede bordür yarıçapı ~5.5 m. Doğu ucunda (x −9…−2) kaldırım kıvrılıp daralıyor."
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -69.5,
-     -211.5
-    ],
-    [
-     -69.7,
-     -208
-    ],
-    [
-     -70.2,
-     -200
-    ],
-    [
-     -70.7,
-     -190
-    ],
-    [
-     -71.1,
-     -180
-    ],
-    [
-     -71.6,
-     -170
-    ],
-    [
-     -71.9,
-     -162.5
-    ],
-    [
-     -71.8,
-     -160.6
-    ],
-    [
-     -71.2,
-     -159.1
-    ],
-    [
-     -70.2,
-     -157.9
-    ],
-    [
-     -68.9,
-     -156.9
-    ],
-    [
-     -67.5,
-     -156.3
-    ],
-    [
-     -65.9,
-     -156.1
-    ],
-    [
-     -61,
-     -155.6
-    ],
-    [
-     -55,
-     -155.2
-    ],
-    [
-     -46,
-     -154.8
-    ],
-    [
-     -40,
-     -154.4
-    ],
-    [
-     -34,
-     -154.2
-    ],
-    [
-     -28,
-     -153.7
-    ],
-    [
-     -19,
-     -153.5
-    ],
-    [
-     -16,
-     -153.8
-    ],
-    [
-     -13,
-     -154.3
-    ],
-    [
-     -10,
-     -155.1
-    ],
-    [
-     -7,
-     -156.2
-    ],
-    [
-     -4,
-     -157.4
-    ],
-    [
-     -1,
-     -158.9
-    ],
-    [
-     3,
-     -161
-    ],
-    [
-     7,
-     -162.7
-    ],
-    [
-     10,
-     -164.3
-    ],
-    [
-     13,
-     -165.8
-    ],
-    [
-     16,
-     -167.2
-    ],
-    [
-     19,
-     -168.5
-    ],
-    [
-     22,
-     -169.8
-    ],
-    [
-     22.3,
-     -172.9
-    ],
-    [
-     21,
-     -173.2
-    ],
-    [
-     16,
-     -172.6
-    ],
-    [
-     13,
-     -171.3
-    ],
-    [
-     10.5,
-     -170.9
-    ],
-    [
-     8.6,
-     -171.2
-    ],
-    [
-     7.6,
-     -170.6
-    ],
-    [
-     4.2,
-     -169.6
-    ],
-    [
-     1.5,
-     -167.9
-    ],
-    [
-     0,
-     -166.2
-    ],
-    [
-     -2,
-     -163.6
-    ],
-    [
-     -5,
-     -161.9
-    ],
-    [
-     -7,
-     -160.8
-    ],
-    [
-     -10,
-     -159.8
-    ],
-    [
-     -13,
-     -159.3
-    ],
-    [
-     -16,
-     -158.3
-    ],
-    [
-     -19,
-     -157.9
-    ],
-    [
-     -22,
-     -157.7
-    ],
-    [
-     -28,
-     -157.7
-    ],
-    [
-     -31,
-     -158.1
-    ],
-    [
-     -34,
-     -158.4
-    ],
-    [
-     -37,
-     -158.9
-    ],
-    [
-     -40,
-     -159.2
-    ],
-    [
-     -45,
-     -159.5
-    ],
-    [
-     -55,
-     -159.7
-    ],
-    [
-     -58,
-     -159.9
-    ],
-    [
-     -62.3,
-     -160.1
-    ],
-    [
-     -63.6,
-     -160.3
-    ],
-    [
-     -64.8,
-     -160.9
-    ],
-    [
-     -65.7,
-     -161.8
-    ],
-    [
-     -66.3,
-     -163
-    ],
-    [
-     -66.5,
-     -164.3
-    ],
-    [
-     -66.6,
-     -170
-    ],
-    [
-     -66.8,
-     -180
-    ],
-    [
-     -66.5,
-     -190
-    ],
-    [
-     -66.3,
-     -196
-    ],
-    [
-     -66.3,
-     -201.1
-    ],
-    [
-     -66.3,
-     -203.2
-    ],
-    [
-     -66.3,
-     -206.5
-    ],
-    [
-     -66.8,
-     -209.5
-    ],
-    [
-     -68.2,
-     -211.2
-    ]
-   ],
-   "material": "batı (Cavit Orhan): bordür boyunca kiremit-kırmızı kilit taşı ~2–3 m + çim tarafında tozlu gri kilit taşı ~1.5–2.5 m; güney (Doğan Avcıoğlu): bordür boyunca kırmızı kilit taşı ~1.6 m + gri kilit taşı ~2 m; gri beton bordür",
-   "note": "KALDIRIM: parkı batıdan ve güneyden saran kaldırım (Cavit Orhan doğu yakası + Doğan Avcıoğlu kuzey yakası), genişlik 4–5 m. GB köşedeki büyük ağacın taç altı; köşe yarıçapı ~6 m. Üzerinde elektrik panoları, giysi/cam kumbaraları, lamba direkleri."
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     22.3,
-     -172.9
-    ],
-    [
-     25,
-     -171.3
-    ],
-    [
-     30,
-     -171
-    ],
-    [
-     36,
-     -170.8
-    ],
-    [
-     36,
-     -179.8
-    ],
-    [
-     35.8,
-     -179.6
-    ],
-    [
-     33,
-     -178.8
-    ],
-    [
-     30,
-     -177.8
-    ],
-    [
-     26,
-     -176.8
-    ],
-    [
-     23.4,
-     -175.9
-    ],
-    [
-     21.4,
-     -173.5
-    ]
-   ],
-   "material": "gri beton kilit taşı, bordüre paralel krem şerit",
-   "note": "KALDIRIM: Doğan Avcıoğlu kuzey kaldırımı, köşegen yol ağzından otoparka; otopark girişinde büyük ağaç"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     36,
-     -170.8
-    ],
-    [
-     60,
-     -170.6
-    ],
-    [
-     83,
-     -170.6
-    ],
-    [
-     83.2,
-     -179.1
-    ],
-    [
-     82.3,
-     -179.1
-    ],
-    [
-     72,
-     -179
-    ],
-    [
-     65,
-     -179.4
-    ],
-    [
-     58.8,
-     -179.8
-    ],
-    [
-     36,
-     -179.8
-    ]
-   ],
-   "material": "gri beton kilit taşı (araç yolu tipi), kuzey kenarda gri beton bordür",
-   "note": "Park önü otopark şeridi (OSM parking_aisle): araçlar kuzey bordüre dik park ediyor; güneyde doğrudan Doğan Avcıoğlu şeridi. Park çizgisi yok."
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     72.4,
-     -196.9
-    ],
-    [
-     73.5,
-     -198.6
-    ],
-    [
-     74.5,
-     -200.5
-    ],
-    [
-     78,
-     -201.5
-    ],
-    [
-     83.5,
-     -200.5
-    ],
-    [
-     84.5,
-     -196
-    ],
-    [
-     86.5,
-     -184.2
-    ],
-    [
-     85,
-     -179.1
-    ],
-    [
-     83.2,
-     -179.1
-    ],
-    [
-     82.4,
-     -181.5
-    ],
-    [
-     80.8,
-     -185.5
-    ],
-    [
-     79.2,
-     -189
-    ],
-    [
-     77.3,
-     -192.8
-    ],
-    [
-     74.8,
-     -196.6
-    ]
-   ],
-   "material": "gri beton kilit taşı",
-   "note": "KD köşe: kaldırımın bittiği küçük meydan ve doğudaki yaşam sokağına (OSM living_street) bağlantı; x>82 park sınırı dışında, ±1 m"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     1.2,
-     -171.8
-    ],
-    [
-     9.6,
-     -171.8
-    ],
-    [
-     9.6,
-     -166.6
-    ],
-    [
-     1.2,
-     -166.6
-    ]
-   ],
-   "material": "beton ped",
-   "note": "geri dönüşüm konteynerleri pedi (kaldırım kenarı)"
-  },
-  {
-   "kind": "lawn",
-   "poly": [
-    [
-     -73,
-     -34.2
-    ],
-    [
-     -73.4,
-     -23.8
-    ],
-    [
-     -73.6,
-     -18.4
-    ],
-    [
-     -66.9,
-     -18.4
-    ],
-    [
-     -63.7,
-     -21
-    ],
-    [
-     -20,
-     -19.8
-    ],
-    [
-     -14.6,
-     -16.6
-    ],
-    [
-     -4,
-     -16.5
-    ],
-    [
-     -4.2,
-     -32.9
-    ],
-    [
-     -12.7,
-     -33.3
-    ],
-    [
-     -16.1,
-     -30.2
-    ],
-    [
-     -61.1,
-     -31.8
-    ],
-    [
-     -62.9,
-     -34.1
-    ]
-   ],
-   "material": "çim, canlı yeşil (sulanıyor); kenarlarda yer yer sarımsı",
-   "note": "Nato Parkı batı: iki park cebi arasında uzun çim şerit; doğu ucunda (x>−15) sık genç ağaç korusu"
-  },
-  {
-   "kind": "gravel",
-   "poly": [
-    [
-     -73.3,
-     -23.6
-    ],
-    [
-     -68,
-     -23.8
-    ],
-    [
-     -60.1,
-     -23.7
-    ],
-    [
-     -54.1,
-     -23
-    ],
-    [
-     -46.1,
-     -22.5
-    ],
-    [
-     -39.9,
-     -22.3
-    ],
-    [
-     -33.9,
-     -23.7
-    ],
-    [
-     -29.1,
-     -23.6
-    ],
-    [
-     -24.2,
-     -22.6
-    ],
-    [
-     -16.1,
-     -22
-    ],
-    [
-     -10.2,
-     -21.2
-    ],
-    [
-     -4.3,
-     -20.3
-    ],
-    [
-     -3.9,
-     -22.7
-    ],
-    [
-     -9.8,
-     -23.6
-    ],
-    [
-     -15.9,
-     -24.4
-    ],
-    [
-     -23.8,
-     -25
-    ],
-    [
-     -28.9,
-     -26
-    ],
-    [
-     -34.1,
-     -26.1
-    ],
-    [
-     -40.1,
-     -24.7
-    ],
-    [
-     -45.9,
-     -24.9
-    ],
-    [
-     -53.9,
-     -25.4
-    ],
-    [
-     -59.9,
-     -26.1
-    ],
-    [
-     -68,
-     -26.2
-    ],
-    [
-     -73.3,
-     -26
-    ]
-   ],
-   "material": "bej-gri stabilize ince çakıl (OSM fine_gravel), sıkıştırılmış",
-   "note": "Nato Parkı koşu yolu (x −73…−4); kenarlarda gömme kenar taşı yok, çimle doğrudan birleşiyor. 502. Sk. geçidine (z≈−21.5) bağlanır. Merkez hattı hava fotoğrafından ±0.7 m (ağaç gölgeleri altında interpolasyon)"
-  },
-  {
-   "kind": "bed",
-   "poly": [
-    [
-     -62.8,
-     -21.1
-    ],
-    [
-     -40,
-     -20.5
-    ],
-    [
-     -21,
-     -20
-    ],
-    [
-     -21,
-     -20.8
-    ],
-    [
-     -40,
-     -21.3
-    ],
-    [
-     -62.8,
-     -21.9
-    ]
-   ],
-   "material": "malç/toprak üzerinde alçak çalı sırası (spiraea tipi, h≈0.6)",
-   "note": "güney park cebi bordürü boyunca çalı sırası (SV 6eolm, S66M); kesintili"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -66.9,
-     -18.4
-    ],
-    [
-     -14.6,
-     -16.6
-    ],
-    [
-     -20,
-     -19.8
-    ],
-    [
-     -63.7,
-     -21
-    ]
-   ],
-   "material": "kiremit-kırmızı kilit taşı park cebi, gri beton bordür",
-   "note": "OSM 1430799825 park cebi (güney, yol kenarı); araçlar yola dik değil paralel/açılı park ediyor"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     -62.9,
-     -34.1
-    ],
-    [
-     -61.1,
-     -31.8
-    ],
-    [
-     -17.3,
-     -30.7
-    ],
-    [
-     -15.8,
-     -33.2
-    ]
-   ],
-   "material": "kiremit-kırmızı kilit taşı park cebi, gri beton bordür",
-   "note": "OSM 1430799828 park cebi (kuzey, Mertkent önü tek yön yol kenarı)"
-  },
-  {
-   "kind": "lawn",
-   "poly": [
-    [
-     6.3,
-     -11.3
-    ],
-    [
-     6.7,
-     -32.3
-    ],
-    [
-     7.9,
-     -32.2
-    ],
-    [
-     10.1,
-     -29.3
-    ],
-    [
-     33.8,
-     -28.1
-    ],
-    [
-     36.1,
-     -30.6
-    ],
-    [
-     40.3,
-     -30.2
-    ],
-    [
-     54.4,
-     -37.2
-    ],
-    [
-     57.4,
-     -34.4
-    ],
-    [
-     62,
-     -34.2
-    ],
-    [
-     62,
-     -9.1
-    ],
-    [
-     8.1,
-     -11.2
-    ]
-   ],
-   "material": "çim, canlı yeşil; güney kenarda seyrek",
-   "note": "Park şeridi doğu (502. Sk. doğusu), x>62 kapsam dışı"
-  },
-  {
-   "kind": "gravel",
-   "poly": [
-    [
-     6.2,
-     -20.4
-    ],
-    [
-     20,
-     -20.4
-    ],
-    [
-     30,
-     -20.1
-    ],
-    [
-     38,
-     -20.3
-    ],
-    [
-     46,
-     -20.5
-    ],
-    [
-     62,
-     -21
-    ],
-    [
-     62,
-     -22.6
-    ],
-    [
-     46,
-     -22.1
-    ],
-    [
-     38,
-     -21.9
-    ],
-    [
-     30,
-     -21.9
-    ],
-    [
-     20,
-     -22.2
-    ],
-    [
-     6.2,
-     -22.2
-    ]
-   ],
-   "material": "bej-gri stabilize ince çakıl",
-   "note": "Nato Parkı koşu yolu doğu devamı (OSM 1430799820)"
-  },
-  {
-   "kind": "gravel",
-   "poly": [
-    [
-     38,
-     -20.9
-    ],
-    [
-     44.5,
-     -25.6
-    ],
-    [
-     49.7,
-     -29.4
-    ],
-    [
-     56,
-     -29.1
-    ],
-    [
-     62,
-     -29
-    ],
-    [
-     62,
-     -30.6
-    ],
-    [
-     56,
-     -30.7
-    ],
-    [
-     49.3,
-     -31
-    ],
-    [
-     43.5,
-     -26.8
-    ],
-    [
-     37,
-     -22.1
-    ]
-   ],
-   "material": "bej-gri stabilize ince çakıl",
-   "note": "koşu yolu güney kolu (OSM 1430799821) park cebine paralel"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     9,
-     -32.2
-    ],
-    [
-     11.3,
-     -29.6
-    ],
-    [
-     32.6,
-     -27.8
-    ],
-    [
-     35.6,
-     -30.7
-    ]
-   ],
-   "material": "kiremit-kırmızı kilit taşı park cebi",
-   "note": "OSM 1430799829 park cebi"
-  },
-  {
-   "kind": "paving",
-   "poly": [
-    [
-     55.6,
-     -37.7
-    ],
-    [
-     56.9,
-     -34.7
-    ],
-    [
-     62,
-     -34.4
-    ],
-    [
-     62,
-     -37.4
-    ]
-   ],
-   "material": "kiremit-kırmızı kilit taşı park cebi",
-   "note": "OSM 1430799830 park cebi (batı ucu)"
-  }
- ],
- "lines": [
-  {
-   "kind": "path-edge",
-   "pts": [
-    [
-     -66.6,
-     -201.2
-    ],
-    [
-     -52.1,
-     -200.6
-    ],
-    [
-     -28.1,
-     -199
-    ],
-    [
-     -12.1,
-     -198.1
-    ],
-    [
-     -2.1,
-     -197.5
-    ],
-    [
-     2.2,
-     -196.8
-    ],
-    [
-     5.3,
-     -195.6
-    ],
-    [
-     7.7,
-     -194.1
-    ],
-    [
-     9.2,
-     -192.7
-    ],
-    [
-     14.2,
-     -185.1
-    ],
-    [
-     19.2,
-     -177.1
-    ],
-    [
-     21.6,
-     -173.4
-    ]
-   ],
-   "h": 0.03,
-   "w": 0.1,
-   "note": "ana yol güney/batı kenar taşı"
-  },
-  {
-   "kind": "path-edge",
-   "pts": [
-    [
-     -66.6,
-     -203.2
-    ],
-    [
-     -51.9,
-     -202.6
-    ],
-    [
-     -27.9,
-     -200.9
-    ],
-    [
-     -11.9,
-     -200
-    ],
-    [
-     -1.9,
-     -199.5
-    ],
-    [
-     2.8,
-     -198.8
-    ],
-    [
-     6.3,
-     -197.4
-    ],
-    [
-     8.9,
-     -195.7
-    ],
-    [
-     10.8,
-     -193.9
-    ],
-    [
-     15.8,
-     -186.1
-    ],
-    [
-     20.8,
-     -178.1
-    ],
-    [
-     23.2,
-     -174.4
-    ]
-   ],
-   "h": 0.03,
-   "w": 0.1,
-   "note": "ana yol kuzey/doğu kenar taşı"
-  }
- ],
- "points": [
-  {
-   "kind": "tree",
-   "x": -68.2,
-   "z": -167.6,
-   "r": 7.5,
-   "h": 15,
-   "species": "deciduous",
-   "note": "GB köşedeki büyük geniş taçlı yaprak döken ağaç (karaağaç/dişbudak tipi), 5 SV panosundan üçgenlendi ±0.7 m; kaldırım ile çim sınırında",
-   "id": "BIG_SW"
-  },
-  {
-   "kind": "tree",
-   "x": -61.3,
-   "z": -213.2,
-   "r": 3.8,
-   "h": 9.5,
-   "species": "deciduous",
-   "note": "KB köşe, Uğur Mumcu kaldırımı–çim sınırında büyük ağaç (SV 6YG0 gövde)",
-   "id": "BIG_NW"
-  },
-  {
-   "kind": "tree",
-   "x": 73,
-   "z": -202,
-   "r": 3.8,
-   "h": 8,
-   "species": "deciduous",
-   "note": "KD köşe kaldırımında yuvarlak taçlı büyük ağaç; taban ±1.5 m",
-   "id": "BIG_NE"
-  },
-  {
-   "kind": "tree",
-   "x": 41.7,
-   "z": -170.3,
-   "r": 2.8,
-   "h": 10,
-   "species": "deciduous",
-   "note": "otopark girişinde yol kenarında büyük ağaç (SV TRTBVU+4VcmT üçgenleme) | 2026-09: TRTB_60_0 (78.5°) × 4Vcm_300_0 (288.2°) → gövde (41.73,−170.27) — konum doğrulandı; street-plan'daki kopya (da1-tree-lot) silindi. 4Vcm_300_0 (7.2 m): ilk dallar ≈3.9 m (crownBase — kod), taç seyrek, eni 264.8–306.4° → ≈5.5 m (r 2.8; eski r 4 fazla), tepe karenin üstünde (≥8.4 m).",
-   "id": "BIG_PARK",
-   "crownBase": 3.9
-  },
-  {
-   "kind": "tree",
-   "x": -19.5,
-   "z": -171.9,
-   "r": 4,
-   "h": 8,
-   "species": "koelreuteria",
-   "note": "orta kümede mor/kızıl yapraklı büyük ağaç (kan erik/akçaağaç tipi); taban ±1.5 m. TÜR (docs/TREES.md): sabun ağacı — 7xGS_0_0 (x237), 2ydcI_300_0 (x436), 4RYu_60_0 (x158) kerterizleri bu noktada ±0.1 m kesişiyor; 2025-09 karelerinde yapraklar YEŞİL, tacın üstündeki kırmızı-kahve renk Koelreuteria'nın kâğıt kapsül salkımları (mor yapraklı erik değil).",
-   "id": "PURPLE"
-  },
-  {
-   "kind": "tree",
-   "x": -12.6,
-   "z": -171.2,
-   "r": 3,
-   "h": 7,
-   "species": "pine",
-   "note": "orta kümede mavi-yeşil iğne yapraklı ağaç (ladin/sedir tipi); ±1.5 m",
-   "id": "BLUE"
-  },
-  {
-   "kind": "tree",
-   "x": 1.7,
-   "z": -211.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n10S"
-  },
-  {
-   "kind": "tree",
-   "x": -56.1,
-   "z": -209.3,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n12Y"
-  },
-  {
-   "kind": "tree",
-   "x": -40.3,
-   "z": -208.3,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n13Y"
-  },
-  {
-   "kind": "tree",
-   "x": -50.8,
-   "z": -208.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n14Y"
-  },
-  {
-   "kind": "tree",
-   "x": -59,
-   "z": -208.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n15S"
-  },
-  {
-   "kind": "tree",
-   "x": -15.8,
-   "z": -208.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n16S"
-  },
-  {
-   "kind": "tree",
-   "x": -21.4,
-   "z": -207.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n17Y"
-  },
-  {
-   "kind": "tree",
-   "x": 21.1,
-   "z": -205.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n24S"
-  },
-  {
-   "kind": "tree",
-   "x": -57.8,
-   "z": -205,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n27S"
-  },
-  {
-   "kind": "tree",
-   "x": 26.8,
-   "z": -203.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n30Y"
-  },
-  {
-   "kind": "tree",
-   "x": 33.1,
-   "z": -203.6,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n35S"
-  },
-  {
-   "kind": "tree",
-   "x": 2.1,
-   "z": -203.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n38S"
-  },
-  {
-   "kind": "tree",
-   "x": -30.3,
-   "z": -202.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n40Y"
-  },
-  {
-   "kind": "tree",
-   "x": -45.5,
-   "z": -203,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n42S"
-  },
-  {
-   "kind": "tree",
-   "x": -35.1,
-   "z": -202,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
-   "id": "n44Y"
-  },
-  {
-   "kind": "tree",
-   "x": -14.6,
-   "z": -200.8,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç; yol kenarına hizalandı",
-   "id": "n45L"
-  },
-  {
-   "kind": "tree",
-   "x": -40.1,
-   "z": -202.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan; yol kenarına hizalandı",
-   "id": "n46S"
-  },
-  {
-   "kind": "tree",
-   "x": -25,
-   "z": -201.7,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n48S"
-  },
-  {
-   "kind": "tree",
-   "x": -20.3,
-   "z": -201.7,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n49S"
-  },
-  {
-   "kind": "tree",
-   "x": -9.5,
-   "z": -200.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
-   "id": "n51Y"
-  },
-  {
-   "kind": "tree",
-   "x": 45.3,
-   "z": -200.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n52S"
-  },
-  {
-   "kind": "tree",
-   "x": -4.6,
-   "z": -200.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
-   "id": "n53Y"
-  },
-  {
-   "kind": "tree",
-   "x": 33.4,
-   "z": -199.3,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n55Y"
-  },
-  {
-   "kind": "tree",
-   "x": -2,
-   "z": -200.1,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan; yol kenarına hizalandı",
-   "id": "n57S"
-  },
-  {
-   "kind": "tree",
-   "x": 1.1,
-   "z": -199.6,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
-   "id": "n59Y"
-  },
-  {
-   "kind": "tree",
-   "x": 63.4,
-   "z": -198.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n60Y"
-  },
-  {
-   "kind": "tree",
-   "x": 5.6,
-   "z": -198.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n61S"
-  },
-  {
-   "kind": "tree",
-   "x": 40.6,
-   "z": -197.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n63Y"
-  },
-  {
-   "kind": "tree",
-   "x": -54.6,
-   "z": -197.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n64Y"
-  },
-  {
-   "kind": "tree",
-   "x": 3.1,
-   "z": -199.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan; yol kenarına hizalandı",
-   "id": "n65S"
-  },
-  {
-   "kind": "tree",
-   "x": -48.8,
-   "z": -196.6,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n66Y"
-  },
-  {
-   "kind": "tree",
-   "x": 10.1,
-   "z": -196.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n67Y"
-  },
-  {
-   "kind": "tree",
-   "x": -43.8,
-   "z": -196.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n68Y"
-  },
-  {
-   "kind": "tree",
-   "x": -38.8,
-   "z": -196.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n69Y"
-  },
-  {
-   "kind": "tree",
-   "x": -26.6,
-   "z": -197.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n70S"
-  },
-  {
-   "kind": "tree",
-   "x": -33.9,
-   "z": -197,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n72S"
-  },
-  {
-   "kind": "tree",
-   "x": 34.3,
-   "z": -196.7,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n73S"
-  },
-  {
-   "kind": "tree",
-   "x": 71.7,
-   "z": -193.5,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n75M"
-  },
-  {
-   "kind": "tree",
-   "x": 28,
-   "z": -195.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n77Y"
-  },
-  {
-   "kind": "tree",
-   "x": 47.7,
-   "z": -195.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n78S"
-  },
-  {
-   "kind": "tree",
-   "x": -17.7,
-   "z": -194.1,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n79L"
-  },
-  {
-   "kind": "tree",
-   "x": -54.9,
-   "z": -192.3,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n81M"
-  },
-  {
-   "kind": "tree",
-   "x": -64.5,
-   "z": -195.2,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n82S"
-  },
-  {
-   "kind": "tree",
-   "x": -7.2,
-   "z": -194.6,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n85S"
-  },
-  {
-   "kind": "tree",
-   "x": -2.4,
-   "z": -193.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n86Y"
-  },
-  {
-   "kind": "tree",
-   "x": 17.9,
-   "z": -193.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n87Y"
-  },
-  {
-   "kind": "tree",
-   "x": 42.3,
-   "z": -193.6,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n88Y"
-  },
-  {
-   "kind": "tree",
-   "x": -43.8,
-   "z": -191.1,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n89M"
-  },
-  {
-   "kind": "tree",
-   "x": 21.5,
-   "z": -194.2,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n90S"
-  },
-  {
-   "kind": "tree",
-   "x": -36.6,
-   "z": -190.9,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n91M"
-  },
-  {
-   "kind": "tree",
-   "x": 64.6,
-   "z": -193,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n93Y"
-  },
-  {
-   "kind": "tree",
-   "x": -59.7,
-   "z": -191.1,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n94M"
-  },
-  {
-   "kind": "tree",
-   "x": -29.9,
-   "z": -190.3,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n95M"
-  },
-  {
-   "kind": "tree",
-   "x": 12.7,
-   "z": -192.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n97Y"
-  },
-  {
-   "kind": "tree",
-   "x": -5.2,
-   "z": -188.4,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n98M"
-  },
-  {
-   "kind": "tree",
-   "x": 1.1,
-   "z": -188.2,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n99M"
-  },
-  {
-   "kind": "tree",
-   "x": 7.7,
-   "z": -191.1,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n100S"
-  },
-  {
-   "kind": "tree",
-   "x": -47.1,
-   "z": -188.6,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n102L"
-  },
-  {
-   "kind": "tree",
-   "x": 58.8,
-   "z": -190.5,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n103S"
-  },
-  {
-   "kind": "tree",
-   "x": 29.3,
-   "z": -189.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n104Y"
-  },
-  {
-   "kind": "tree",
-   "x": -33.9,
-   "z": -186.9,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n105M"
-  },
-  {
-   "kind": "tree",
-   "x": 45.4,
-   "z": -189.7,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n108S"
-  },
-  {
-   "kind": "tree",
-   "x": -54,
-   "z": -189.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n109S"
-  },
-  {
-   "kind": "tree",
-   "x": 23.1,
-   "z": -189.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n110S"
-  },
-  {
-   "kind": "tree",
-   "x": -43.1,
-   "z": -187.3,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n112L"
-  },
-  {
-   "kind": "tree",
-   "x": 15.7,
-   "z": -187.9,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n113Y"
-  },
-  {
-   "kind": "tree",
-   "x": -40.5,
-   "z": -188.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n117S"
-  },
-  {
-   "kind": "tree",
-   "x": 10.9,
-   "z": -185.7,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n120L"
-  },
-  {
-   "kind": "tree",
-   "x": -37.5,
-   "z": -184.8,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n121L"
-  },
-  {
-   "kind": "tree",
-   "x": -59.3,
-   "z": -186.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n122S"
-  },
-  {
-   "kind": "tree",
-   "x": 33.4,
-   "z": -185.3,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n123Y"
-  },
-  {
-   "kind": "tree",
-   "x": -50.2,
-   "z": -185.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n124S"
-  },
-  {
-   "kind": "tree",
-   "x": 3.5,
-   "z": -184.9,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n127Y"
-  },
-  {
-   "kind": "tree",
-   "x": -2.7,
-   "z": -184.8,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n128Y"
-  },
-  {
-   "kind": "tree",
-   "x": -30.9,
-   "z": -183.8,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n129L"
-  },
-  {
-   "kind": "tree",
-   "x": -18.8,
-   "z": -184,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n133Y"
-  },
-  {
-   "kind": "tree",
-   "x": -10.4,
-   "z": -184.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n134S"
-  },
-  {
-   "kind": "tree",
-   "x": -11.1,
-   "z": -183,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n135L"
-  },
-  {
-   "kind": "tree",
-   "x": -41.7,
-   "z": -182.7,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n137L"
-  },
-  {
-   "kind": "tree",
-   "x": 7,
-   "z": -181.1,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n138M"
-  },
-  {
-   "kind": "tree",
-   "x": 8,
-   "z": -183.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n139Y"
-  },
-  {
-   "kind": "tree",
-   "x": -50.6,
-   "z": -182.3,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n140L"
-  },
-  {
-   "kind": "tree",
-   "x": 24.9,
-   "z": -183.3,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n141Y"
-  },
-  {
-   "kind": "tree",
-   "x": 28.8,
-   "z": -183.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n142S"
-  },
-  {
-   "kind": "tree",
-   "x": -54.5,
-   "z": -183.5,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n143S"
-  },
-  {
-   "kind": "tree",
-   "x": -27.8,
-   "z": -180.3,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n144M"
-  },
-  {
-   "kind": "tree",
-   "x": -47.1,
-   "z": -182.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n145Y"
-  },
-  {
-   "kind": "tree",
-   "x": -44.1,
-   "z": -182.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n146S"
-  },
-  {
-   "kind": "tree",
-   "x": -11.1,
-   "z": -181.2,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n147L"
-  },
-  {
-   "kind": "tree",
-   "x": -35.3,
-   "z": -182.6,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n148S"
-  },
-  {
-   "kind": "tree",
-   "x": -16.2,
-   "z": -181.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n150S"
-  },
-  {
-   "kind": "tree",
-   "x": 31.1,
-   "z": -178.5,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n151M"
-  },
-  {
-   "kind": "tree",
-   "x": -52.8,
-   "z": -180.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n153Y"
-  },
-  {
-   "kind": "tree",
-   "x": -34.6,
-   "z": -181.1,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n155S"
-  },
-  {
-   "kind": "tree",
-   "x": -56.9,
-   "z": -180.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n156Y"
-  },
-  {
-   "kind": "tree",
-   "x": -37.1,
-   "z": -178.3,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n157L"
-  },
-  {
-   "kind": "tree",
-   "x": -25.6,
-   "z": -178.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n160Y"
-  },
-  {
-   "kind": "tree",
-   "x": -16.5,
-   "z": -176.9,
-   "r": 2,
-   "h": 6,
-   "species": "koelreuteria",
-   "note": "orta boy ağaç. TÜR (docs/TREES.md): sabun ağacı tipi — turuncu-kahve kapsül salkımlı açık taç; 2ydcI_300_0 (x500, zemin teması 1.3 m).",
-   "id": "n162L"
-  },
-  {
-   "kind": "tree",
-   "x": -41.5,
-   "z": -177.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n163Y"
-  },
-  {
-   "kind": "tree",
-   "x": 6.1,
-   "z": -174.8,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n165M"
-  },
-  {
-   "kind": "tree",
-   "x": -28.8,
-   "z": -176.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n172S"
-  },
-  {
-   "kind": "tree",
-   "x": -6,
-   "z": -172.6,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n179L"
-  },
-  {
-   "kind": "tree",
-   "x": -38.7,
-   "z": -174.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n181S"
-  },
-  {
-   "kind": "tree",
-   "x": -56.3,
-   "z": -171.1,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n182M"
-  },
-  {
-   "kind": "tree",
-   "x": 17.3,
-   "z": -173.5,
-   "r": 0.65,
-   "h": 2.9,
-   "species": "picea-pungens",
-   "note": "genç ağaç (ince gövde, küçük taç). TÜR/KONUM (docs/TREES.md): parktaki TEK mavi ladin — d_xiN_0_0 (x315, kerteriz -0.9°), TRTBV_300_0 (x305, 297.3°), gnXjE_300_0 (x217, 282.2°) üç kerteriz (17.2, -172.6) ±1 m'de kesişiyor; boy iki kareden 2.8–2.9 m, taç Ø≈1.3 m. Eski n164Y (16, -177.2) ve street-plan da1-tree-park-1 (12.7, -173.4) aynı ağacın yanlış konumlu kopyalarıydı (d_xiN'de o noktalarda ağaç yok) → silindi.",
-   "id": "n183Y"
-  },
-  {
-   "kind": "tree",
-   "x": 4.7,
-   "z": -172.1,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n187L"
-  },
-  {
-   "kind": "tree",
-   "x": 3.6,
-   "z": -170.1,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n194M"
-  },
-  {
-   "kind": "tree",
-   "x": -8.1,
-   "z": -172.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n195S"
-  },
-  {
-   "kind": "tree",
-   "x": -35.8,
-   "z": -170.8,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n203Y"
-  },
-  {
-   "kind": "tree",
-   "x": -29,
-   "z": -170.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n207S"
-  },
-  {
-   "kind": "tree",
-   "x": -56,
-   "z": -166.5,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n210M"
-  },
-  {
-   "kind": "tree",
-   "x": -32.8,
-   "z": -168.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n212Y"
-  },
-  {
-   "kind": "tree",
-   "x": -12.9,
-   "z": -165.8,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "koelreuteria",
-   "note": "orta boy ağaç. TÜR (docs/TREES.md): sabun ağacı tipi — açık, düzensiz taç, tüysü yaprak, tepede turuncu-kahve kapsül salkımları (Eylül); 7xGS_0_0 (x362, zemin teması 1.6 m).",
-   "id": "n215M"
-  },
-  {
-   "kind": "tree",
-   "x": -50.7,
-   "z": -167.4,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n216L"
-  },
-  {
-   "kind": "tree",
-   "x": -42.3,
-   "z": -168,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n218Y"
-  },
-  {
-   "kind": "tree",
-   "x": -49.1,
-   "z": -168,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n219Y"
-  },
-  {
-   "kind": "tree",
-   "x": -41.8,
-   "z": -165.2,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n221M"
-  },
-  {
-   "kind": "tree",
-   "x": -21.5,
-   "z": -163.6,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "robinia-globe",
-   "note": "orta boy ağaç. TÜR (docs/TREES.md): top akasya — ~2 m temiz gövde üstünde sık küre taç, ince tüysü yaprak; 7xGS_0_0 (x179, zemin teması 1.8 m) ve 2ydcI_300_0 (x295, 2.4 m) eşleşmesi.",
-   "id": "n226M"
-  },
-  {
-   "kind": "tree",
-   "x": -48.9,
-   "z": -161.4,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n228M"
-  },
-  {
-   "kind": "tree",
-   "x": -35.7,
-   "z": -165.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n229Y"
-  },
-  {
-   "kind": "tree",
-   "x": -53.9,
-   "z": -165.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n231Y"
-  },
-  {
-   "kind": "tree",
-   "x": -44,
-   "z": -162.2,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n238L"
-  },
-  {
-   "kind": "tree",
-   "x": -55.7,
-   "z": -163.5,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n239S"
-  },
-  {
-   "kind": "tree",
-   "x": -32.8,
-   "z": -162.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n241Y"
-  },
-  {
-   "kind": "tree",
-   "x": -39.7,
-   "z": -162.3,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n243Y"
-  },
-  {
-   "kind": "tree",
-   "x": -16.8,
-   "z": -158.9,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "orta boy ağaç",
-   "id": "n246M"
-  },
-  {
-   "kind": "tree",
-   "x": -13.3,
-   "z": -161.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n247Y"
-  },
-  {
-   "kind": "tree",
-   "x": -29.8,
-   "z": -160.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç ağaç (ince gövde, küçük taç)",
-   "id": "n248Y"
-  },
-  {
-   "kind": "tree",
-   "x": -42.8,
-   "z": -161,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n249S"
-  },
-  {
-   "kind": "tree",
-   "x": -22.6,
-   "z": -159.2,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n260S"
-  },
-  {
-   "kind": "tree",
-   "x": -50.5,
-   "z": -159.1,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "n262S"
-  },
-  {
-   "kind": "bench",
-   "x": -57.1,
-   "z": -203.6,
-   "rot": 180,
-   "note": "ahşap çıtalı bank, KB yolun kuzey kenarı, güneye (yola) bakar (SV _-ulFF + 9-_mzy)"
-  },
-  {
-   "kind": "bench",
-   "x": -34.8,
-   "z": -202,
-   "rot": 180,
-   "note": "bank, yol kuzey kenarı (hava foto açık dikdörtgen) ±1 m"
-  },
-  {
-   "kind": "bench",
-   "x": -29,
-   "z": -201.5,
-   "rot": 180,
-   "note": "bank, yol kuzey kenarı ±1.5 m"
-  },
-  {
-   "kind": "bench",
-   "x": -2.5,
-   "z": -200.2,
-   "rot": 200,
-   "note": "bank, yol kıvrımının kuzey kenarı ±1.5 m"
-  },
-  {
-   "kind": "bin",
-   "x": -52.8,
-   "z": -203.4,
-   "note": "yeşil belediye çöp kutusu, yol kuzey kenarı (SV)"
-  },
-  {
-   "kind": "sign",
-   "x": -61.2,
-   "z": -205.2,
-   "h": 2,
-   "note": "paslı corten bilgi panosu (~1×2 m), yolun kuzeyi (SV + hava foto)"
-  },
-  {
-   "kind": "sign",
-   "x": -61.8,
-   "z": -198.3,
-   "h": 1.3,
-   "note": "HEYKEL: beyaz taş oturan figür heykeli, ~1.2 m kare beyaz beton kaide üzerinde (kaide hava fotoğrafında (−62.2,−197.5) beyaz kare)"
-  },
-  {
-   "kind": "bin",
-   "x": -68.7,
-   "z": -164.3,
-   "h": 1.8,
-   "note": "mavi giysi kumbarası \"49\" (~1×1×1.8 m), GB köşe kaldırımı (SV üçgenleme) | 2026-09 (eleştirmen V16): joaQ_120_0: beyaz boyalı görünen kutu kumbara, alt yarısında mavi baskı (insan figürleri; güneşli ≈#7ca7d6, gölge ≈#6289ab). Gövde bu karede tümüyle gölgede ≈#6f7a80 (shade) — güneşli gövde tonu ölçülmedi. \"49\" yazısı bu karede okunmadı. style clothes = kutu (w × d × h), color2 baskı.",
-   "style": "clothes",
-   "w": 1.0,
-   "d": 1.0,
-   "color2": "#7ca7d6",
-   "shade": "#6f7a80"
-  },
-  {
-   "kind": "bin",
-   "x": -59.4,
-   "z": -164.3,
-   "h": 1.3,
-   "note": "beyaz cam kumbarası (yuvarlak ağızlı kutu, ~1.2×1×1.3 m) beton kaide üzerinde, güney kaldırım kenarı | 2026-09: EbG_60_0: açık gri-beyaz kutu (güneşli yüz ≈#dceee3), üstte kapak, altında beton kaide (≈#988573, güneşli). style glass = kutu kumbara, base {h, color} kaide.",
-   "style": "glass",
-   "w": 1.2,
-   "d": 1.0,
-   "color": "#dceee3",
-   "base": {
-    "h": 0.25,
-    "color": "#988573"
-   }
-  },
-  {
-   "kind": "bin",
-   "x": 3.3,
-   "z": -170.6,
-   "h": 1.5,
-   "note": "geri dönüşüm konteyneri (OSM waste_disposal), beton ped üzerinde"
-  },
-  {
-   "kind": "bin",
-   "x": 5.3,
-   "z": -169.6,
-   "h": 1.5,
-   "note": "geri dönüşüm konteyneri"
-  },
-  {
-   "kind": "bin",
-   "x": 7.8,
-   "z": -170,
-   "h": 1.5,
-   "note": "geri dönüşüm konteyneri"
-  },
-  {
-   "kind": "bin",
-   "x": 6.4,
-   "z": -167.8,
-   "h": 1.3,
-   "note": "beyaz cam kumbarası"
-  },
-  {
-   "kind": "lamp",
-   "x": -69.5,
-   "z": -172.7,
-   "h": 9,
-   "note": "galvaniz sokak lambası direği, Cavit Orhan doğu kaldırımı (SV üçgenleme) | 2026-09 (eleştirmen V16): galvaniz AÇIK GRİ konik direk (sokak lambası tipi, street-plan lamp-post ile aynı malzeme); EbG_60_0 karesinde gövde gölgede ≈#546264 (gölge; güneşli yüz ölçülemedi), dipte küçük sarı etiket. Kol/baş bu karede ağaç içinde — görülmedi. style \"street\" = sokak lambası çizimi (bahçe lambası değil).",
-   "style": "street"
-  },
-  {
-   "kind": "lamp",
-   "x": -34.6,
-   "z": -156.8,
-   "h": 9,
-   "note": "galvaniz sokak lambası, Doğan Avcıoğlu kuzey kaldırımı ±1 m"
-  },
-  {
-   "kind": "lamp",
-   "x": -2.8,
-   "z": -206.8,
-   "h": 12,
-   "note": "Uğur Mumcu kaldırımında yüksek aydınlatma direği (yalnızca hava fotoğrafındaki uzun eğik izden; ±2 m, doğrulanmadı)"
-  },
-  {
-   "kind": "shrub",
-   "x": -62,
-   "z": -21.5,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -60.3,
-   "z": -21.4,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -58.6,
-   "z": -21.4,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -56.9,
-   "z": -21.3,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -55.2,
-   "z": -21.3,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -53.5,
-   "z": -21.3,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -51.8,
-   "z": -21.2,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -50.1,
-   "z": -21.2,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -48.4,
-   "z": -21.1,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -46.7,
-   "z": -21.1,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -45,
-   "z": -21,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -43.3,
-   "z": -21,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -41.6,
-   "z": -20.9,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -39.9,
-   "z": -20.9,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -38.2,
-   "z": -20.9,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -36.5,
-   "z": -20.8,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -34.8,
-   "z": -20.8,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -33.1,
-   "z": -20.7,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -31.4,
-   "z": -20.7,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -29.7,
-   "z": -20.6,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -28,
-   "z": -20.6,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -26.3,
-   "z": -20.5,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -24.6,
-   "z": -20.5,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "shrub",
-   "x": -22.9,
-   "z": -20.4,
-   "r": 0.55,
-   "h": 0.6,
-   "note": "alçak çalı (spiraea/berberis)"
-  },
-  {
-   "kind": "tree",
-   "x": 55.6,
-   "z": -33.6,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t19Y"
-  },
-  {
-   "kind": "tree",
-   "x": -70.8,
-   "z": -34.8,
-   "r": 1.2,
-   "h": 5.5,
-   "species": "sapling",
-   "note": "Genç ince gövdeli ağaç, seyrek küçük bronz-kahve/kızıl yapraklar (Eylül 2025; tür seçilemedi — kan erik olabilir, görülmedi). Güney tek yön sokak kenarı çim şeridinde, 'Girilmez' levhasının arkasında. SV gPUM_90_-5_40 (104.4°, 7.9 m) + gPUM_120_0 (106°), boy ≈5.5 m (tepe +22°). Eski konum (−71.5,−32.6) 2.2 m kuzeydeydi (eleştirmen V11).",
-   "id": "t23S"
-  },
-  {
-   "kind": "tree",
-   "x": -62.1,
-   "z": -30,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t39S"
-  },
-  {
-   "kind": "tree",
-   "x": -37.3,
-   "z": -29.5,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t42S"
-  },
-  {
-   "kind": "tree",
-   "x": -22.2,
-   "z": -28.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t48S"
-  },
-  {
-   "kind": "tree",
-   "x": 11.8,
-   "z": -27.6,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t49Y"
-  },
-  {
-   "kind": "tree",
-   "x": -14.5,
-   "z": -27.1,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t56S"
-  },
-  {
-   "kind": "tree",
-   "x": -71.4,
-   "z": -25.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t64S"
-  },
-  {
-   "kind": "tree",
-   "x": 41.9,
-   "z": -22.7,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t67L"
-  },
-  {
-   "kind": "tree",
-   "x": -45.8,
-   "z": -22.9,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t71Y"
-  },
-  {
-   "kind": "tree",
-   "x": -25.4,
-   "z": -22.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t72Y"
-  },
-  {
-   "kind": "tree",
-   "x": 46,
-   "z": -22.9,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t73Y"
-  },
-  {
-   "kind": "tree",
-   "x": -31.7,
-   "z": -23.1,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t75S"
-  },
-  {
-   "kind": "tree",
-   "x": -65.8,
-   "z": -23,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t76S"
-  },
-  {
-   "kind": "tree",
-   "x": -63.2,
-   "z": -22.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t77Y"
-  },
-  {
-   "kind": "tree",
-   "x": 53.2,
-   "z": -22.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t78S"
-  },
-  {
-   "kind": "tree",
-   "x": -19.5,
-   "z": -21.1,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t79M"
-  },
-  {
-   "kind": "tree",
-   "x": -22.1,
-   "z": -21.5,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t81S"
-  },
-  {
-   "kind": "tree",
-   "x": -66.6,
-   "z": -20,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t82L"
-  },
-  {
-   "kind": "tree",
-   "x": -8.9,
-   "z": -19.9,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t83L"
-  },
-  {
-   "kind": "tree",
-   "x": -57.2,
-   "z": -21.2,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t84S"
-  },
-  {
-   "kind": "tree",
-   "x": -52.1,
-   "z": -21.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t85S"
-  },
-  {
-   "kind": "tree",
-   "x": 24.7,
-   "z": -21.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t87S"
-  },
-  {
-   "kind": "tree",
-   "x": -41.6,
-   "z": -20.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t89S"
-  },
-  {
-   "kind": "tree",
-   "x": -16.4,
-   "z": -20.9,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t90S"
-  },
-  {
-   "kind": "tree",
-   "x": -36.3,
-   "z": -20.6,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t91S"
-  },
-  {
-   "kind": "tree",
-   "x": -16.7,
-   "z": -19.4,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t94Y"
-  },
-  {
-   "kind": "tree",
-   "x": -4.9,
-   "z": -19.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t95Y"
-  },
-  {
-   "kind": "tree",
-   "x": -11.9,
-   "z": -18.5,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t96L"
-  },
-  {
-   "kind": "tree",
-   "x": -11.4,
-   "z": -20,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t98S"
-  },
-  {
-   "kind": "tree",
-   "x": -70.7,
-   "z": -18.8,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t99Y"
-  },
-  {
-   "kind": "tree",
-   "x": -6.5,
-   "z": -19.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t100S"
-  },
-  {
-   "kind": "tree",
-   "x": -7,
-   "z": -18.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t103Y"
-  },
-  {
-   "kind": "tree",
-   "x": -8.5,
-   "z": -18.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t104Y"
-  },
-  {
-   "kind": "tree",
-   "x": -12.6,
-   "z": -16.8,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t107L"
-  },
-  {
-   "kind": "tree",
-   "x": 18.6,
-   "z": -14.2,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t114M"
-  },
-  {
-   "kind": "tree",
-   "x": 19.1,
-   "z": -16.7,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t116S"
-  },
-  {
-   "kind": "tree",
-   "x": 23.2,
-   "z": -16.2,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t117S"
-  },
-  {
-   "kind": "tree",
-   "x": 43.5,
-   "z": -13.3,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t118M"
-  },
-  {
-   "kind": "tree",
-   "x": 23.2,
-   "z": -13.2,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t119M"
-  },
-  {
-   "kind": "tree",
-   "x": 28.5,
-   "z": -14.3,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t121L"
-  },
-  {
-   "kind": "tree",
-   "x": 13.2,
-   "z": -14.4,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t122L"
-  },
-  {
-   "kind": "tree",
-   "x": 33.9,
-   "z": -14,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t123L"
-  },
-  {
-   "kind": "tree",
-   "x": 53.1,
-   "z": -13.9,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t124L"
-  },
-  {
-   "kind": "tree",
-   "x": 57.7,
-   "z": -15.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t126S"
-  },
-  {
-   "kind": "tree",
-   "x": 38.4,
-   "z": -13.8,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t127L"
-  },
-  {
-   "kind": "tree",
-   "x": 58.2,
-   "z": -12.6,
-   "r": 2.7,
-   "h": 7.5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t128M"
-  },
-  {
-   "kind": "tree",
-   "x": 48.3,
-   "z": -14.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t133Y"
-  },
-  {
-   "kind": "tree",
-   "x": 26.1,
-   "z": -13.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t139S"
-  },
-  {
-   "kind": "tree",
-   "x": 19.8,
-   "z": -12.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t141Y"
-  },
-  {
-   "kind": "tree",
-   "x": 31.8,
-   "z": -12.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t142Y"
-  },
-  {
-   "kind": "tree",
-   "x": 49.8,
-   "z": -11.7,
-   "r": 2,
-   "h": 6,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t144L"
-  },
-  {
-   "kind": "tree",
-   "x": 16.4,
-   "z": -12.7,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t146S"
-  },
-  {
-   "kind": "tree",
-   "x": 29.8,
-   "z": -12.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t147Y"
-  },
-  {
-   "kind": "tree",
-   "x": 39.5,
-   "z": -11.7,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t148Y"
-  },
-  {
-   "kind": "tree",
-   "x": 12.5,
-   "z": -12.4,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t149S"
-  },
-  {
-   "kind": "tree",
-   "x": 10.8,
-   "z": -12.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t151S"
-  },
-  {
-   "kind": "tree",
-   "x": 14.6,
-   "z": -12.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t152S"
-  },
-  {
-   "kind": "tree",
-   "x": 28.2,
-   "z": -11.5,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t154Y"
-  },
-  {
-   "kind": "tree",
-   "x": 33.1,
-   "z": -12.1,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t155S"
-  },
-  {
-   "kind": "tree",
-   "x": 43.2,
-   "z": -11.1,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t156Y"
-  },
-  {
-   "kind": "tree",
-   "x": 8.7,
-   "z": -11.2,
-   "r": 1.4,
-   "h": 5,
-   "species": "deciduous",
-   "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
-   "id": "t157Y"
-  },
-  {
-   "kind": "tree",
-   "x": 45.2,
-   "z": -11.8,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t159S"
-  },
-  {
-   "kind": "tree",
-   "x": 47.5,
-   "z": -11.3,
-   "r": 0.9,
-   "h": 3.8,
-   "species": "deciduous",
-   "note": "fidan",
-   "id": "t160S"
-  },
-  {
-   "kind": "tree",
-   "x": -9.8,
-   "z": -28.3,
-   "r": 7,
-   "h": 14,
-   "species": "deciduous",
-   "note": "Nato Parkı KD: tek büyük olgun yaprak döken ağaç (loblu yaprak, meşe benzeri — kütüphanede meşe yok → genel yaprak döken), kalın tek gövde. OSM natural=tree ile aynı ağaç (1.6 m). Gövde 4 SV karesinden: MUMV_180_0 (200.6°, 6.5 m), I52t5_240_0 (227.3°, 15 m), UKQg_0_0 (346.8°, 15 m), Wi7U_0_0 (27.6°, 16.7 m) → (−9.8,−28.3) ±0.7. Boy ≈13–15 m (UKQg tepe +39°), taç hava fotoğrafında x −19…−2.5, z −35…−16 (eğik çekim) → r≈7. Eleştirmen (V0/V15) + 2026-09 düzeltme: bu taç altındaki hava-fotoğrafı lekesinden konmuş 'genç ağaç' noktaları (17 adet) SV'de gövdesi görülmediği için silindi.",
-   "id": "NATO_NE_BIG"
-  },
-  {
-   "kind": "bench",
-   "x": -65.6,
-   "z": -26.9,
-   "rot": 180,
-   "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
-  },
-  {
-   "kind": "bench",
-   "x": -61,
-   "z": -26.8,
-   "rot": 180,
-   "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
-  },
-  {
-   "kind": "bench",
-   "x": -33.7,
-   "z": -26.8,
-   "rot": 180,
-   "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
-  },
-  {
-   "kind": "bench",
-   "x": -29.6,
-   "z": -26.7,
-   "rot": 180,
-   "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
-  },
-  {
-   "kind": "bench",
-   "x": 31.2,
-   "z": -22.9,
-   "rot": 0,
-   "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
-  },
-  {
-   "kind": "lamp",
-   "x": -70.8,
-   "z": -24.9,
-   "h": 4.5,
-   "note": "yeşil boyalı park lambası (SV 7Az9), koşu yolu batı ucu; ±1.5 m"
-  },
-  {
-   "kind": "bin",
-   "x": -71.8,
-   "z": -25.6,
-   "note": "yeşil çöp kutusu (SV 7Az9) ±1.5 m"
-  },
-  {
-   "kind": "tree",
-   "x": -65.5,
-   "z": -34.85,
-   "h": 3.8,
-   "r": 1.0,
-   "species": "prunus-purple",
-   "id": "NATO_SW_PURPLE",
-   "note": "Genç mor/bordo yapraklı ağaç (kan erik görünüşü), ince tek gövde, sokak kenarı çim şeridinde. SV gPUM_90_-5_40 (98.2°, 13 m) ve gPUM_60_0 / 120_0 aynı kerteriz → (−65.5,−34.85) ±1; boy ≈3.7–4.2 m."
-  }
- ],
- "notes": [
-  "Çerçeve: yerel metre, +x doğu, +z güney. Kuzey park (OSM 824640259) + Nato Parkı batı (OSM 1550820727) + park şeridi doğu (OSM 1550820726, x 6…62). Alanlar Google z21 hava fotoğrafı renk profillerinden (0.1 m adımlı kesitler) ve OSM’den; kaldırım/bordür kenarları ±0.5 m.",
-  "ZEMİN RENGİ: Kuzey park çimi Eylül 2025 SV’de canlı yeşil ve biçilmiş (sulanıyor), yer yer yabani ot öbekleri; Doğan Avcıoğlu kaldırımı dibinde 0.3–0.6 m yıpranmış sarımsı-kahve toprak şerit; doğu üçgen ve GD yamuk çimde sarımsı kuru yamalar. Nato Parkı çimi canlı yeşil, kenarlar sarımsı. Hava fotoğrafında (farklı tarih) çim koyu mavimsi-yeşil görünüyor — boyarken SV tonunu (açık, sarımsı-yeşil) esas alın.",
-  "AĞAÇLAR: kuzey park ÇOĞUNLUKLA AÇIK ÇİM; ~8–12 yaşında ince gövdeli genç ağaçlar (h 4–7, taç r 1–2.5) seyrek/yarı düzenli dizili (mor-kızıl, sarı-yeşil yapraklılar karışık), birkaç büyük ağaç: GB köşe (−68.2,−167.6, h≈15, r≈7.5), KB köşe, KD köşe, otopark girişi. Konumlar hava fotoğrafı taç gölgesi lekelerinden + eğiklik düzeltmesi (taç tabana göre ~0.2–0.3 m/m batıya, 0.3–0.8 m/m kuzeye kayık); 8 ağaç SV çoklu pano üçgenlemesiyle doğrulandı; tipik hata ±1–1.5 m. Boy/taç sınıfları leke boyutundan (S fidan h3.8 r0.9, Y h5 r1.4, L h6 r2, M h7.5 r2.7) — tek tek ölçülmedi.",
-  "Yapılar (bu dosyada şema anahtarı yok, not olarak): kuzey park GD’de gri/beyaz grafitili konteyner/büfe kabini ~6.5×4.8 m h≈2.6, köşeler (51.0,−184.6)…(57.6,−179.8); Cavit Orhan kaldırımında (−68.5,−204.2) ~14 m telekom direği (antenler + dibinde gri kabin); (−68.8,−185.8) gri elektrik panosu ~1.4 m.",
-  "Kuzey park ana yolu: gri kilit taşı, 2.0 m, kenarında sarı hissedilebilir şerit; batıda Cavit Orhan kaldırımına, GD’de Doğan Avcıoğlu kaldırımına bağlanır (OSM 1540372781 ile ±1 m uyumlu). Yol boyunca kuzeyde bank/çöp kutusu/corten pano; ağaç dizileri yolun iki yanında.",
-  "Nato Parkı koşu yolu stabilize (bej ince çakıl), kırmızı tartan DEĞİL. 502. Sk. geçidi (x −4…6, z≈−21.5) street-plan’da. Banklar OSM konumlarında; lamba/çöp kutusu yalnızca SV’de görülen batı ucunda — diğer park lambaları doğrulanamadı.",
-  "Belirsizlikler: kuzey park orta kümesi (x −25…−10, z −182…−168) iki büyük taç olarak basitleştirildi; banklar (kuzey kenar) hava fotoğrafı açık lekelerinden ±1.5 m; Uğur Mumcu yüksek direği doğrulanmadı; Nato ağaçları hava fotoğrafı lekelerinden, koruda (x −15…−4) taçlar birleşik olduğundan sayı ±30%.",
-  "2026-09: Cavit Orhan doğu (L3) ve Doğan Avcıoğlu kuzey (L2) bordür çizgileri kaldırıldı — bordür + kırmızı/gri bantlar artık street-plan kaldırımlarında (park-cv-west, park-da-north; aynı hat). Alan 8 (paving) altta kalır. Nato Parkı KD: tek büyük olgun ağaç (NATO_NE_BIG) 4 SV karesinden; taç altındaki 17 hava-fotoğrafı 'genç ağaç' noktası gövdesi görülmediği için silindi (t56S tek karede örtülü → bırakıldı)."
- ]
+  "areas": [
+    {
+      "kind": "lawn",
+      "poly": [
+        [
+          -66.6,
+          -201.2
+        ],
+        [
+          -52.1,
+          -200.6
+        ],
+        [
+          -28.1,
+          -199
+        ],
+        [
+          -12.1,
+          -198.1
+        ],
+        [
+          -2.1,
+          -197.5
+        ],
+        [
+          2.2,
+          -196.8
+        ],
+        [
+          5.3,
+          -195.6
+        ],
+        [
+          7.7,
+          -194.1
+        ],
+        [
+          9.2,
+          -192.7
+        ],
+        [
+          14.2,
+          -185.1
+        ],
+        [
+          19.2,
+          -177.1
+        ],
+        [
+          21.6,
+          -173.4
+        ],
+        [
+          21,
+          -173.2
+        ],
+        [
+          16,
+          -172.6
+        ],
+        [
+          13,
+          -171.3
+        ],
+        [
+          10.5,
+          -170.9
+        ],
+        [
+          8.6,
+          -171.2
+        ],
+        [
+          7.6,
+          -170.6
+        ],
+        [
+          4.2,
+          -169.6
+        ],
+        [
+          1.5,
+          -167.9
+        ],
+        [
+          0,
+          -166.2
+        ],
+        [
+          -2,
+          -163.6
+        ],
+        [
+          -5,
+          -161.9
+        ],
+        [
+          -7,
+          -160.8
+        ],
+        [
+          -10,
+          -159.8
+        ],
+        [
+          -13,
+          -159.3
+        ],
+        [
+          -16,
+          -158.3
+        ],
+        [
+          -19,
+          -157.9
+        ],
+        [
+          -22,
+          -157.7
+        ],
+        [
+          -28,
+          -157.7
+        ],
+        [
+          -31,
+          -158.1
+        ],
+        [
+          -34,
+          -158.4
+        ],
+        [
+          -37,
+          -158.9
+        ],
+        [
+          -40,
+          -159.2
+        ],
+        [
+          -45,
+          -159.5
+        ],
+        [
+          -55,
+          -159.7
+        ],
+        [
+          -58,
+          -159.9
+        ],
+        [
+          -62.3,
+          -160.1
+        ],
+        [
+          -63.6,
+          -160.3
+        ],
+        [
+          -64.8,
+          -160.9
+        ],
+        [
+          -65.7,
+          -161.8
+        ],
+        [
+          -66.3,
+          -163
+        ],
+        [
+          -66.5,
+          -164.3
+        ],
+        [
+          -66.6,
+          -170
+        ],
+        [
+          -66.8,
+          -180
+        ],
+        [
+          -66.5,
+          -190
+        ],
+        [
+          -66.3,
+          -196
+        ],
+        [
+          -66.3,
+          -201.1
+        ]
+      ],
+      "material": "çim, canlı yeşil (sulanıyor); kenarlarda 0.3–0.6 m yıpranmış toprak şerit",
+      "note": "Kuzey park batı büyük çimi: KB yolun güneyi, köşegen yolun batısı. Genç/orta boy ağaçlar seyrek dizili, zemin açık."
+    },
+    {
+      "kind": "lawn",
+      "poly": [
+        [
+          -66.3,
+          -209.3
+        ],
+        [
+          -66.1,
+          -210.4
+        ],
+        [
+          -65.4,
+          -211.4
+        ],
+        [
+          -64.4,
+          -212.1
+        ],
+        [
+          -63.3,
+          -212.3
+        ],
+        [
+          -54,
+          -212.6
+        ],
+        [
+          -38,
+          -212.5
+        ],
+        [
+          -22,
+          -212.3
+        ],
+        [
+          -18,
+          -212
+        ],
+        [
+          -14,
+          -211.6
+        ],
+        [
+          -9.3,
+          -210.7
+        ],
+        [
+          -6.4,
+          -208.7
+        ],
+        [
+          -3.5,
+          -206.6
+        ],
+        [
+          -0.1,
+          -205.8
+        ],
+        [
+          5.1,
+          -206.1
+        ],
+        [
+          10.1,
+          -206.7
+        ],
+        [
+          15.1,
+          -207.2
+        ],
+        [
+          20,
+          -207.5
+        ],
+        [
+          24.9,
+          -207.4
+        ],
+        [
+          37.9,
+          -204.6
+        ],
+        [
+          49.9,
+          -202.7
+        ],
+        [
+          59.9,
+          -201.1
+        ],
+        [
+          69.9,
+          -199.6
+        ],
+        [
+          73.8,
+          -198.7
+        ],
+        [
+          73.5,
+          -198.6
+        ],
+        [
+          72.4,
+          -196.9
+        ],
+        [
+          70,
+          -195.3
+        ],
+        [
+          60,
+          -192
+        ],
+        [
+          50,
+          -188.5
+        ],
+        [
+          42,
+          -186.2
+        ],
+        [
+          37,
+          -185
+        ],
+        [
+          35.8,
+          -179.6
+        ],
+        [
+          33,
+          -178.8
+        ],
+        [
+          30,
+          -177.8
+        ],
+        [
+          26,
+          -176.8
+        ],
+        [
+          23.4,
+          -175.9
+        ],
+        [
+          23.2,
+          -174.4
+        ],
+        [
+          20.8,
+          -178.1
+        ],
+        [
+          15.8,
+          -186.1
+        ],
+        [
+          10.8,
+          -193.9
+        ],
+        [
+          8.9,
+          -195.7
+        ],
+        [
+          6.3,
+          -197.4
+        ],
+        [
+          2.8,
+          -198.8
+        ],
+        [
+          -1.9,
+          -199.5
+        ],
+        [
+          -11.9,
+          -200
+        ],
+        [
+          -27.9,
+          -200.9
+        ],
+        [
+          -51.9,
+          -202.6
+        ],
+        [
+          -66.6,
+          -203.2
+        ],
+        [
+          -66.3,
+          -203.2
+        ],
+        [
+          -66.3,
+          -206.5
+        ]
+      ],
+      "material": "çim, canlı yeşil; doğu üçgende yer yer seyrek/sarımsı",
+      "note": "Kuzey şerit (KB yol ile Uğur Mumcu kaldırımı arası) + doğu üçgen çim (köşegen yolun doğusu, toprak izin kuzeyi). Genç fidan sıraları."
+    },
+    {
+      "kind": "lawn",
+      "poly": [
+        [
+          58.8,
+          -179.8
+        ],
+        [
+          58.6,
+          -184.3
+        ],
+        [
+          66,
+          -188.2
+        ],
+        [
+          72.5,
+          -191.4
+        ],
+        [
+          75.5,
+          -193
+        ],
+        [
+          77.3,
+          -192.8
+        ],
+        [
+          79.2,
+          -189
+        ],
+        [
+          80.8,
+          -185.5
+        ],
+        [
+          82.4,
+          -181.5
+        ],
+        [
+          82.3,
+          -179.1
+        ],
+        [
+          72,
+          -179
+        ],
+        [
+          65,
+          -179.4
+        ]
+      ],
+      "material": "kuru, sararmış saman rengi çim/ot (Eylül 2025, sulanmıyor); yer yer yeşil öbekler",
+      "note": "Güneydoğu yamuk çim: büfe konteynerinin doğusu, otoparkın kuzeyi; ağaçsız | 2026-09 (eleştirmen da1-04): SV nB9G_60_0 (2025-09, BULUTLU): alan x≈74–80, z≈−184 kuru saman rengi (≈#bda080 / #baa382 / #c1ac8d, bulutlu difüz; eleştirmen örneği #b09672) — mevsim sonu kuru ot, sulanan kuzey park / Nato çiminden farklı. dry/color alanları kod bekliyor (çim malzemesi şu an sabit yeşil). Renk bulutlu kareden: güneşli karede yeniden örneklenmeli.",
+      "dry": true,
+      "color": "#baa382"
+    },
+    {
+      "kind": "lawn",
+      "poly": [
+        [
+          -5.2,
+          -210.4
+        ],
+        [
+          -2.7,
+          -208.5
+        ],
+        [
+          0.1,
+          -207.9
+        ],
+        [
+          4.9,
+          -208.1
+        ],
+        [
+          9.9,
+          -208.7
+        ],
+        [
+          14.9,
+          -209.2
+        ],
+        [
+          12.7,
+          -210.6
+        ],
+        [
+          9.5,
+          -211.2
+        ],
+        [
+          5.5,
+          -211.6
+        ],
+        [
+          3.3,
+          -212.9
+        ],
+        [
+          0.9,
+          -213.1
+        ],
+        [
+          -2.3,
+          -212
+        ]
+      ],
+      "material": "çim (yol kenarı yeşil şerit)",
+      "note": "Uğur Mumcu kaldırımı ile yol bordürü arası küçük yeşil ada; sınırlar ±0.7 m"
+    },
+    {
+      "kind": "gravel",
+      "poly": [
+        [
+          35.8,
+          -179.8
+        ],
+        [
+          37,
+          -185
+        ],
+        [
+          42,
+          -186.2
+        ],
+        [
+          50,
+          -188.5
+        ],
+        [
+          60,
+          -192
+        ],
+        [
+          70,
+          -195.3
+        ],
+        [
+          72.4,
+          -196.9
+        ],
+        [
+          74.8,
+          -196.6
+        ],
+        [
+          77.3,
+          -192.8
+        ],
+        [
+          75.5,
+          -193
+        ],
+        [
+          72.5,
+          -191.4
+        ],
+        [
+          66,
+          -188.2
+        ],
+        [
+          58.6,
+          -184.3
+        ],
+        [
+          58.8,
+          -179.8
+        ]
+      ],
+      "material": "sıkışmış toprak/ince çakıl, gri-bej, lastik izli",
+      "note": "Doğu üçgen çim ile GD çim arasındaki çapraz toprak iz (~3–4 m) + büfe önü toprak alan; arabalar üzerine park ediyor"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          -66.6,
+          -201.2
+        ],
+        [
+          -52.1,
+          -200.6
+        ],
+        [
+          -28.1,
+          -199
+        ],
+        [
+          -12.1,
+          -198.1
+        ],
+        [
+          -2.1,
+          -197.5
+        ],
+        [
+          2.2,
+          -196.8
+        ],
+        [
+          5.3,
+          -195.6
+        ],
+        [
+          7.7,
+          -194.1
+        ],
+        [
+          9.2,
+          -192.7
+        ],
+        [
+          14.2,
+          -185.1
+        ],
+        [
+          19.2,
+          -177.1
+        ],
+        [
+          21.6,
+          -173.4
+        ],
+        [
+          23.2,
+          -174.4
+        ],
+        [
+          20.8,
+          -178.1
+        ],
+        [
+          15.8,
+          -186.1
+        ],
+        [
+          10.8,
+          -193.9
+        ],
+        [
+          8.9,
+          -195.7
+        ],
+        [
+          6.3,
+          -197.4
+        ],
+        [
+          2.8,
+          -198.8
+        ],
+        [
+          -1.9,
+          -199.5
+        ],
+        [
+          -11.9,
+          -200
+        ],
+        [
+          -27.9,
+          -200.9
+        ],
+        [
+          -51.9,
+          -202.6
+        ],
+        [
+          -66.6,
+          -203.2
+        ]
+      ],
+      "material": "gri beton kilit taşı 10×20; güney/batı kenara yakın krem-sarı hissedilebilir kılavuz şerit (~0.3 m); iki yanda gömme beton kenar taşı",
+      "note": "Kuzey park ana yürüyüş yolu: Cavit Orhan kaldırımından doğuya düz (~86°), x≈0’da kıvrılıp güneydoğuya Doğan Avcıoğlu kaldırımına iner. Kuzey kenarında banklar/çöp kutusu."
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          -13.2,
+          -211.8
+        ],
+        [
+          -9.3,
+          -210.7
+        ],
+        [
+          -6.4,
+          -208.7
+        ],
+        [
+          -3.5,
+          -206.6
+        ],
+        [
+          -0.1,
+          -205.8
+        ],
+        [
+          5.1,
+          -206.1
+        ],
+        [
+          10.1,
+          -206.7
+        ],
+        [
+          15.1,
+          -207.2
+        ],
+        [
+          20,
+          -207.5
+        ],
+        [
+          24.9,
+          -207.4
+        ],
+        [
+          37.9,
+          -204.6
+        ],
+        [
+          49.9,
+          -202.7
+        ],
+        [
+          59.9,
+          -201.1
+        ],
+        [
+          69.9,
+          -199.6
+        ],
+        [
+          73.8,
+          -198.7
+        ],
+        [
+          74.3,
+          -200.6
+        ],
+        [
+          70.2,
+          -201.5
+        ],
+        [
+          60.2,
+          -203
+        ],
+        [
+          50.2,
+          -204.6
+        ],
+        [
+          38.2,
+          -206.5
+        ],
+        [
+          25.2,
+          -209.3
+        ],
+        [
+          20,
+          -209.6
+        ],
+        [
+          14.9,
+          -209.1
+        ],
+        [
+          9.9,
+          -208.6
+        ],
+        [
+          4.9,
+          -208
+        ],
+        [
+          0.1,
+          -207.9
+        ],
+        [
+          -2.7,
+          -208.5
+        ],
+        [
+          -5.3,
+          -210.3
+        ],
+        [
+          -8.5,
+          -212.5
+        ],
+        [
+          -12.7,
+          -213.7
+        ]
+      ],
+      "material": "gri beton kilit taşı kaldırım; park tarafında açık renkli beton kenar şeridi (~0.5 m)",
+      "note": "KALDIRIM: Uğur Mumcu Bulvarı güney kaldırımı (x>−13); batıda yeşil şerit, doğuda doğrudan yol bordürü. Genişlik ±0.5 m"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          -69.5,
+          -210.8
+        ],
+        [
+          -69.5,
+          -210.8
+        ],
+        [
+          -69.3,
+          -212.2
+        ],
+        [
+          -68.8,
+          -213.5
+        ],
+        [
+          -67.9,
+          -214.7
+        ],
+        [
+          -66.7,
+          -215.6
+        ],
+        [
+          -65.4,
+          -216.1
+        ],
+        [
+          -64,
+          -216.3
+        ],
+        [
+          -40,
+          -216.3
+        ],
+        [
+          -14,
+          -216.3
+        ],
+        [
+          -9,
+          -215.2
+        ],
+        [
+          -5,
+          -213.9
+        ],
+        [
+          -2.3,
+          -213
+        ],
+        [
+          -2.7,
+          -208.5
+        ],
+        [
+          -5.3,
+          -210.3
+        ],
+        [
+          -3.5,
+          -206.6
+        ],
+        [
+          -6.4,
+          -208.7
+        ],
+        [
+          -9.3,
+          -210.7
+        ],
+        [
+          -13.2,
+          -211.8
+        ],
+        [
+          -14,
+          -211.6
+        ],
+        [
+          -18,
+          -212
+        ],
+        [
+          -22,
+          -212.3
+        ],
+        [
+          -38,
+          -212.5
+        ],
+        [
+          -54,
+          -212.6
+        ],
+        [
+          -63.3,
+          -212.3
+        ],
+        [
+          -64.4,
+          -212.1
+        ],
+        [
+          -65.4,
+          -211.4
+        ],
+        [
+          -66.1,
+          -210.4
+        ],
+        [
+          -66.3,
+          -209.3
+        ],
+        [
+          -66.3,
+          -206.5
+        ],
+        [
+          -66.3,
+          -203.2
+        ]
+      ],
+      "material": "gri beton kilit taşı 10×20 (çim tarafı ~2.5–3 m) + yol tarafında kırmızı/kiremit kilit taşı bant; araya açık renkli beton şerit",
+      "note": "KALDIRIM: Uğur Mumcu Bulvarı güney kaldırımı (x −66…−3), ~3.8 m (çim kenarı z≈−212.5 → bordür z≈−216.3; yaya geçidi çizgileri bordüre dayanıyor). KB köşede bordür yarıçapı ~5.5 m. Doğu ucunda (x −9…−2) kaldırım kıvrılıp daralıyor."
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          -69.5,
+          -211.5
+        ],
+        [
+          -69.7,
+          -208
+        ],
+        [
+          -70.2,
+          -200
+        ],
+        [
+          -70.7,
+          -190
+        ],
+        [
+          -71.1,
+          -180
+        ],
+        [
+          -71.6,
+          -170
+        ],
+        [
+          -71.9,
+          -162.5
+        ],
+        [
+          -71.8,
+          -160.6
+        ],
+        [
+          -71.2,
+          -159.1
+        ],
+        [
+          -70.2,
+          -157.9
+        ],
+        [
+          -68.9,
+          -156.9
+        ],
+        [
+          -67.5,
+          -156.3
+        ],
+        [
+          -65.9,
+          -156.1
+        ],
+        [
+          -61,
+          -155.6
+        ],
+        [
+          -55,
+          -155.2
+        ],
+        [
+          -46,
+          -154.8
+        ],
+        [
+          -40,
+          -154.4
+        ],
+        [
+          -34,
+          -154.2
+        ],
+        [
+          -28,
+          -153.7
+        ],
+        [
+          -19,
+          -153.5
+        ],
+        [
+          -16,
+          -153.8
+        ],
+        [
+          -13,
+          -154.3
+        ],
+        [
+          -10,
+          -155.1
+        ],
+        [
+          -7,
+          -156.2
+        ],
+        [
+          -4,
+          -157.4
+        ],
+        [
+          -1,
+          -158.9
+        ],
+        [
+          3,
+          -161
+        ],
+        [
+          7,
+          -162.7
+        ],
+        [
+          10,
+          -164.3
+        ],
+        [
+          13,
+          -165.8
+        ],
+        [
+          16,
+          -167.2
+        ],
+        [
+          19,
+          -168.5
+        ],
+        [
+          22,
+          -169.8
+        ],
+        [
+          22.3,
+          -172.9
+        ],
+        [
+          21,
+          -173.2
+        ],
+        [
+          16,
+          -172.6
+        ],
+        [
+          13,
+          -171.3
+        ],
+        [
+          10.5,
+          -170.9
+        ],
+        [
+          8.6,
+          -171.2
+        ],
+        [
+          7.6,
+          -170.6
+        ],
+        [
+          4.2,
+          -169.6
+        ],
+        [
+          1.5,
+          -167.9
+        ],
+        [
+          0,
+          -166.2
+        ],
+        [
+          -2,
+          -163.6
+        ],
+        [
+          -5,
+          -161.9
+        ],
+        [
+          -7,
+          -160.8
+        ],
+        [
+          -10,
+          -159.8
+        ],
+        [
+          -13,
+          -159.3
+        ],
+        [
+          -16,
+          -158.3
+        ],
+        [
+          -19,
+          -157.9
+        ],
+        [
+          -22,
+          -157.7
+        ],
+        [
+          -28,
+          -157.7
+        ],
+        [
+          -31,
+          -158.1
+        ],
+        [
+          -34,
+          -158.4
+        ],
+        [
+          -37,
+          -158.9
+        ],
+        [
+          -40,
+          -159.2
+        ],
+        [
+          -45,
+          -159.5
+        ],
+        [
+          -55,
+          -159.7
+        ],
+        [
+          -58,
+          -159.9
+        ],
+        [
+          -62.3,
+          -160.1
+        ],
+        [
+          -63.6,
+          -160.3
+        ],
+        [
+          -64.8,
+          -160.9
+        ],
+        [
+          -65.7,
+          -161.8
+        ],
+        [
+          -66.3,
+          -163
+        ],
+        [
+          -66.5,
+          -164.3
+        ],
+        [
+          -66.6,
+          -170
+        ],
+        [
+          -66.8,
+          -180
+        ],
+        [
+          -66.5,
+          -190
+        ],
+        [
+          -66.3,
+          -196
+        ],
+        [
+          -66.3,
+          -201.1
+        ],
+        [
+          -66.3,
+          -203.2
+        ],
+        [
+          -66.3,
+          -206.5
+        ],
+        [
+          -66.8,
+          -209.5
+        ],
+        [
+          -68.2,
+          -211.2
+        ]
+      ],
+      "material": "batı (Cavit Orhan): bordür boyunca kiremit-kırmızı kilit taşı ~2–3 m + çim tarafında tozlu gri kilit taşı ~1.5–2.5 m; güney (Doğan Avcıoğlu): bordür boyunca kırmızı kilit taşı ~1.6 m + gri kilit taşı ~2 m; gri beton bordür",
+      "note": "KALDIRIM: parkı batıdan ve güneyden saran kaldırım (Cavit Orhan doğu yakası + Doğan Avcıoğlu kuzey yakası), genişlik 4–5 m. GB köşedeki büyük ağacın taç altı; köşe yarıçapı ~6 m. Üzerinde elektrik panoları, giysi/cam kumbaraları, lamba direkleri."
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          22.3,
+          -172.9
+        ],
+        [
+          25,
+          -171.3
+        ],
+        [
+          30,
+          -171
+        ],
+        [
+          36,
+          -170.8
+        ],
+        [
+          36,
+          -179.8
+        ],
+        [
+          35.8,
+          -179.6
+        ],
+        [
+          33,
+          -178.8
+        ],
+        [
+          30,
+          -177.8
+        ],
+        [
+          26,
+          -176.8
+        ],
+        [
+          23.4,
+          -175.9
+        ],
+        [
+          21.4,
+          -173.5
+        ]
+      ],
+      "material": "gri beton kilit taşı, bordüre paralel krem şerit",
+      "note": "KALDIRIM: Doğan Avcıoğlu kuzey kaldırımı, köşegen yol ağzından otoparka; otopark girişinde büyük ağaç"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          36,
+          -170.8
+        ],
+        [
+          60,
+          -170.6
+        ],
+        [
+          83,
+          -170.6
+        ],
+        [
+          83.2,
+          -179.1
+        ],
+        [
+          82.3,
+          -179.1
+        ],
+        [
+          72,
+          -179
+        ],
+        [
+          65,
+          -179.4
+        ],
+        [
+          58.8,
+          -179.8
+        ],
+        [
+          36,
+          -179.8
+        ]
+      ],
+      "material": "gri beton kilit taşı (araç yolu tipi), kuzey kenarda gri beton bordür",
+      "note": "Park önü otopark şeridi (OSM parking_aisle): araçlar kuzey bordüre dik park ediyor; güneyde doğrudan Doğan Avcıoğlu şeridi. Park çizgisi yok."
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          72.4,
+          -196.9
+        ],
+        [
+          73.5,
+          -198.6
+        ],
+        [
+          74.5,
+          -200.5
+        ],
+        [
+          78,
+          -201.5
+        ],
+        [
+          83.5,
+          -200.5
+        ],
+        [
+          84.5,
+          -196
+        ],
+        [
+          86.5,
+          -184.2
+        ],
+        [
+          85,
+          -179.1
+        ],
+        [
+          83.2,
+          -179.1
+        ],
+        [
+          82.4,
+          -181.5
+        ],
+        [
+          80.8,
+          -185.5
+        ],
+        [
+          79.2,
+          -189
+        ],
+        [
+          77.3,
+          -192.8
+        ],
+        [
+          74.8,
+          -196.6
+        ]
+      ],
+      "material": "gri beton kilit taşı",
+      "note": "KD köşe: kaldırımın bittiği küçük meydan ve doğudaki yaşam sokağına (OSM living_street) bağlantı; x>82 park sınırı dışında, ±1 m"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          1.2,
+          -171.8
+        ],
+        [
+          9.6,
+          -171.8
+        ],
+        [
+          9.6,
+          -166.6
+        ],
+        [
+          1.2,
+          -166.6
+        ]
+      ],
+      "material": "beton ped",
+      "note": "geri dönüşüm konteynerleri pedi (kaldırım kenarı)"
+    },
+    {
+      "kind": "lawn",
+      "poly": [
+        [
+          -73,
+          -34.2
+        ],
+        [
+          -73.4,
+          -23.8
+        ],
+        [
+          -73.6,
+          -18.4
+        ],
+        [
+          -66.9,
+          -18.4
+        ],
+        [
+          -63.7,
+          -21
+        ],
+        [
+          -20,
+          -19.8
+        ],
+        [
+          -14.6,
+          -16.6
+        ],
+        [
+          -4,
+          -16.5
+        ],
+        [
+          -4.2,
+          -32.9
+        ],
+        [
+          -12.7,
+          -33.3
+        ],
+        [
+          -16.1,
+          -30.2
+        ],
+        [
+          -61.1,
+          -31.8
+        ],
+        [
+          -62.9,
+          -34.1
+        ]
+      ],
+      "material": "çim, canlı yeşil (sulanıyor); kenarlarda yer yer sarımsı",
+      "note": "Nato Parkı batı: iki park cebi arasında uzun çim şerit; doğu ucunda (x>−15) sık genç ağaç korusu"
+    },
+    {
+      "kind": "gravel",
+      "poly": [
+        [
+          -73.3,
+          -23.6
+        ],
+        [
+          -68,
+          -23.8
+        ],
+        [
+          -60.1,
+          -23.7
+        ],
+        [
+          -54.1,
+          -23
+        ],
+        [
+          -46.1,
+          -22.5
+        ],
+        [
+          -39.9,
+          -22.3
+        ],
+        [
+          -33.9,
+          -23.7
+        ],
+        [
+          -29.1,
+          -23.6
+        ],
+        [
+          -24.2,
+          -22.6
+        ],
+        [
+          -16.1,
+          -22
+        ],
+        [
+          -10.2,
+          -21.2
+        ],
+        [
+          -4.3,
+          -20.3
+        ],
+        [
+          -3.9,
+          -22.7
+        ],
+        [
+          -9.8,
+          -23.6
+        ],
+        [
+          -15.9,
+          -24.4
+        ],
+        [
+          -23.8,
+          -25
+        ],
+        [
+          -28.9,
+          -26
+        ],
+        [
+          -34.1,
+          -26.1
+        ],
+        [
+          -40.1,
+          -24.7
+        ],
+        [
+          -45.9,
+          -24.9
+        ],
+        [
+          -53.9,
+          -25.4
+        ],
+        [
+          -59.9,
+          -26.1
+        ],
+        [
+          -68,
+          -26.2
+        ],
+        [
+          -73.3,
+          -26
+        ]
+      ],
+      "material": "bej-gri stabilize ince çakıl (OSM fine_gravel), sıkıştırılmış",
+      "note": "Nato Parkı koşu yolu (x −73…−4); kenarlarda gömme kenar taşı yok, çimle doğrudan birleşiyor. 502. Sk. geçidine (z≈−21.5) bağlanır. Merkez hattı hava fotoğrafından ±0.7 m (ağaç gölgeleri altında interpolasyon)"
+    },
+    {
+      "kind": "bed",
+      "poly": [
+        [
+          -62.8,
+          -21.1
+        ],
+        [
+          -40,
+          -20.5
+        ],
+        [
+          -21,
+          -20
+        ],
+        [
+          -21,
+          -20.8
+        ],
+        [
+          -40,
+          -21.3
+        ],
+        [
+          -62.8,
+          -21.9
+        ]
+      ],
+      "material": "malç/toprak üzerinde alçak çalı sırası (spiraea tipi, h≈0.6)",
+      "note": "güney park cebi bordürü boyunca çalı sırası (SV 6eolm, S66M); kesintili"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          -66.9,
+          -18.4
+        ],
+        [
+          -14.6,
+          -16.6
+        ],
+        [
+          -20,
+          -19.8
+        ],
+        [
+          -63.7,
+          -21
+        ]
+      ],
+      "material": "kiremit-kırmızı kilit taşı park cebi, gri beton bordür",
+      "note": "OSM 1430799825 park cebi (güney, yol kenarı); araçlar yola dik değil paralel/açılı park ediyor"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          -62.9,
+          -34.1
+        ],
+        [
+          -61.1,
+          -31.8
+        ],
+        [
+          -17.3,
+          -30.7
+        ],
+        [
+          -15.8,
+          -33.2
+        ]
+      ],
+      "material": "kiremit-kırmızı kilit taşı park cebi, gri beton bordür",
+      "note": "OSM 1430799828 park cebi (kuzey, Mertkent önü tek yön yol kenarı)"
+    },
+    {
+      "kind": "lawn",
+      "poly": [
+        [
+          6.3,
+          -11.3
+        ],
+        [
+          6.7,
+          -32.3
+        ],
+        [
+          7.9,
+          -32.2
+        ],
+        [
+          10.1,
+          -29.3
+        ],
+        [
+          33.8,
+          -28.1
+        ],
+        [
+          36.1,
+          -30.6
+        ],
+        [
+          40.3,
+          -30.2
+        ],
+        [
+          54.4,
+          -37.2
+        ],
+        [
+          57.4,
+          -34.4
+        ],
+        [
+          62,
+          -34.2
+        ],
+        [
+          62,
+          -9.1
+        ],
+        [
+          8.1,
+          -11.2
+        ]
+      ],
+      "material": "çim, canlı yeşil; güney kenarda seyrek",
+      "note": "Park şeridi doğu (502. Sk. doğusu), x>62 kapsam dışı"
+    },
+    {
+      "kind": "gravel",
+      "poly": [
+        [
+          6.2,
+          -20.4
+        ],
+        [
+          20,
+          -20.4
+        ],
+        [
+          30,
+          -20.1
+        ],
+        [
+          38,
+          -20.3
+        ],
+        [
+          46,
+          -20.5
+        ],
+        [
+          62,
+          -21
+        ],
+        [
+          62,
+          -22.6
+        ],
+        [
+          46,
+          -22.1
+        ],
+        [
+          38,
+          -21.9
+        ],
+        [
+          30,
+          -21.9
+        ],
+        [
+          20,
+          -22.2
+        ],
+        [
+          6.2,
+          -22.2
+        ]
+      ],
+      "material": "bej-gri stabilize ince çakıl",
+      "note": "Nato Parkı koşu yolu doğu devamı (OSM 1430799820)"
+    },
+    {
+      "kind": "gravel",
+      "poly": [
+        [
+          38,
+          -20.9
+        ],
+        [
+          44.5,
+          -25.6
+        ],
+        [
+          49.7,
+          -29.4
+        ],
+        [
+          56,
+          -29.1
+        ],
+        [
+          62,
+          -29
+        ],
+        [
+          62,
+          -30.6
+        ],
+        [
+          56,
+          -30.7
+        ],
+        [
+          49.3,
+          -31
+        ],
+        [
+          43.5,
+          -26.8
+        ],
+        [
+          37,
+          -22.1
+        ]
+      ],
+      "material": "bej-gri stabilize ince çakıl",
+      "note": "koşu yolu güney kolu (OSM 1430799821) park cebine paralel"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          9,
+          -32.2
+        ],
+        [
+          11.3,
+          -29.6
+        ],
+        [
+          32.6,
+          -27.8
+        ],
+        [
+          35.6,
+          -30.7
+        ]
+      ],
+      "material": "kiremit-kırmızı kilit taşı park cebi",
+      "note": "OSM 1430799829 park cebi"
+    },
+    {
+      "kind": "paving",
+      "poly": [
+        [
+          55.6,
+          -37.7
+        ],
+        [
+          56.9,
+          -34.7
+        ],
+        [
+          62,
+          -34.4
+        ],
+        [
+          62,
+          -37.4
+        ]
+      ],
+      "material": "kiremit-kırmızı kilit taşı park cebi",
+      "note": "OSM 1430799830 park cebi (batı ucu)"
+    },
+    {
+      "id": "d4-um-n-parking",
+      "kind": "paving",
+      "noKerb": true,
+      "poly": [
+        [
+          700,
+          -302.8
+        ],
+        [
+          705,
+          -302.6
+        ],
+        [
+          722,
+          -301.8
+        ],
+        [
+          745,
+          -300.7
+        ],
+        [
+          765,
+          -299.8
+        ],
+        [
+          771,
+          -299.5
+        ],
+        [
+          771,
+          -296.6
+        ],
+        [
+          765,
+          -296.9
+        ],
+        [
+          745,
+          -297.4
+        ],
+        [
+          722,
+          -298.3
+        ],
+        [
+          705,
+          -299
+        ],
+        [
+          700,
+          -299.2
+        ]
+      ],
+      "material": "gri beton kilit taşı (yol kotunda paralel park şeridi; gölgede #7c7c70)",
+      "note": "2026-09-30 D4 (d4a #3): Uğur Mumcu doğu kolu kuzey bordürü önünde yol kotunda kilit taşı park şeridi — SV 2tZdYrGD_0_-50 (park etmiş aracın altında kilit taşı), aerial-n1 profillerinde bordürün güneyinde ≈3–3.5 m koyu/pembemsi şerit (x 705: −302.4…−299.0, 722: −301.4…−298.2, 745: −300.2…−297.0, 765: −299.2…−296.2). Güney kenarı asfaltla aynı kot (bordür yok). Park yeri çizgisi görülmedi. ±0.5."
+    },
+    {
+      "id": "d4-split-w-band",
+      "kind": "paving",
+      "level": 0.15,
+      "noKerb": true,
+      "poly": [
+        [
+          580.1,
+          -303
+        ],
+        [
+          584.3,
+          -304.9
+        ],
+        [
+          584.2,
+          -292.7
+        ],
+        [
+          580.1,
+          -294
+        ]
+      ],
+      "material": "kiremit-kırmızı beton kilit taşı yaya bandı (ada üstünde, ada kotunda)",
+      "note": "2026-09-30 D4 (d4a #27): batı ayrım adasını (d4-rb2-split-w) K–G kesen kırmızı yaya bandı ≈4.2 m, SV jCbeBkoS_180_0 (2025-09) + hava fotoğrafında x 580–584.5 kırmızımsı şerit; OSM yaya yolu 1456526957 (581.9,−303.9)→(582.3,−293.2) bandın ekseni. Ortasında sarı kılavuz şerit (d4-split-w-tactile). ±0.5."
+    }
+  ],
+  "lines": [
+    {
+      "kind": "path-edge",
+      "pts": [
+        [
+          -66.6,
+          -201.2
+        ],
+        [
+          -52.1,
+          -200.6
+        ],
+        [
+          -28.1,
+          -199
+        ],
+        [
+          -12.1,
+          -198.1
+        ],
+        [
+          -2.1,
+          -197.5
+        ],
+        [
+          2.2,
+          -196.8
+        ],
+        [
+          5.3,
+          -195.6
+        ],
+        [
+          7.7,
+          -194.1
+        ],
+        [
+          9.2,
+          -192.7
+        ],
+        [
+          14.2,
+          -185.1
+        ],
+        [
+          19.2,
+          -177.1
+        ],
+        [
+          21.6,
+          -173.4
+        ]
+      ],
+      "h": 0.03,
+      "w": 0.1,
+      "note": "ana yol güney/batı kenar taşı"
+    },
+    {
+      "kind": "path-edge",
+      "pts": [
+        [
+          -66.6,
+          -203.2
+        ],
+        [
+          -51.9,
+          -202.6
+        ],
+        [
+          -27.9,
+          -200.9
+        ],
+        [
+          -11.9,
+          -200
+        ],
+        [
+          -1.9,
+          -199.5
+        ],
+        [
+          2.8,
+          -198.8
+        ],
+        [
+          6.3,
+          -197.4
+        ],
+        [
+          8.9,
+          -195.7
+        ],
+        [
+          10.8,
+          -193.9
+        ],
+        [
+          15.8,
+          -186.1
+        ],
+        [
+          20.8,
+          -178.1
+        ],
+        [
+          23.2,
+          -174.4
+        ]
+      ],
+      "h": 0.03,
+      "w": 0.1,
+      "note": "ana yol kuzey/doğu kenar taşı"
+    },
+    {
+      "id": "d4-split-w-tactile",
+      "kind": "tactile",
+      "pts": [
+        [
+          582.2,
+          -304
+        ],
+        [
+          582.2,
+          -293.3
+        ]
+      ],
+      "w": 0.4,
+      "note": "2026-09-30 D4: kırmızı yaya bandı ekseninde sarı kılavuz karo şeridi (jCbeBkoS_180_0). Genişlik ≈0.4 (karo), ±0.3."
+    },
+    {
+      "id": "d4-ozd-hedge-s",
+      "kind": "hedge",
+      "pts": [
+        [
+          604.9,
+          -212.5
+        ],
+        [
+          604.9,
+          -225.3
+        ]
+      ],
+      "h": 1.2,
+      "w": 0.9,
+      "note": "2026-09-30 D4 (d4a #8): Özdemiroğlu bahçesi kaldırım kenarı budanmış çit (şimşir tipi, sık küçük yapraklı), z -212.5…-225.3. SV 8lJUsB-6_240_0 / 7owiuJwI_240_0 / OHftRqTt_300_0 (2025-09); renk gölgede #0f250a–#122b09, güneşli üst #2f5529. Boy ≈1.2 m (7owiuJwI karesinde çöp kovası ≈1.0 m ile oranlandı), derinlik ≈0.9 oransal. Hat: d4-sw-w2 kaldırımının batı kenarı (x≈605.35) arkası. Güney ucu servis yolu ağzı; totem (d4-ozd-totem) çitin önünde kaldırımda. ±0.5."
+    },
+    {
+      "id": "d4-ozd-hedge-m",
+      "kind": "hedge",
+      "pts": [
+        [
+          604.9,
+          -229.8
+        ],
+        [
+          604.9,
+          -241.7
+        ]
+      ],
+      "h": 1.2,
+      "w": 0.9,
+      "note": "2026-09-30 D4 (d4a #8): Özdemiroğlu bahçesi kaldırım kenarı budanmış çit (şimşir tipi, sık küçük yapraklı), z -229.8…-241.7. SV 8lJUsB-6_240_0 / 7owiuJwI_240_0 / OHftRqTt_300_0 (2025-09); renk gölgede #0f250a–#122b09, güneşli üst #2f5529. Boy ≈1.2 m (7owiuJwI karesinde çöp kovası ≈1.0 m ile oranlandı), derinlik ≈0.9 oransal. Hat: d4-sw-w2 kaldırımının batı kenarı (x≈605.35) arkası. Güneyinde ≈4.5 m giriş yolu açıklığı (kerterizler 8lJUsB z −226.7 / OHftRq z −230.1 → ≈−228.4, ±2); bayrak direkleri çit hattının içinden yükseliyor. ±0.5."
+    },
+    {
+      "id": "d4-ozd-hedge-n",
+      "kind": "hedge",
+      "pts": [
+        [
+          604.9,
+          -243.3
+        ],
+        [
+          604.9,
+          -252
+        ]
+      ],
+      "h": 1.2,
+      "w": 0.9,
+      "note": "2026-09-30 D4 (d4a #8): Özdemiroğlu bahçesi kaldırım kenarı budanmış çit (şimşir tipi, sık küçük yapraklı), z -243.3…-252. SV 8lJUsB-6_240_0 / 7owiuJwI_240_0 / OHftRqTt_300_0 (2025-09); renk gölgede #0f250a–#122b09, güneşli üst #2f5529. Boy ≈1.2 m (7owiuJwI karesinde çöp kovası ≈1.0 m ile oranlandı), derinlik ≈0.9 oransal. Hat: d4-sw-w2 kaldırımının batı kenarı (x≈605.35) arkası. Güneyindeki ≈1.6 m açıklıkta yeşil çerçeveli ayaklı pano (7owiuJwI_240_0 u 330–345; kerteriz kesişimi (605.0,−242.5)); kuzey ucu kavşak köşesi (−252 ötesi görülmedi). ±0.5."
+    }
+  ],
+  "points": [
+    {
+      "kind": "tree",
+      "x": -68.2,
+      "z": -167.6,
+      "r": 7.5,
+      "h": 15,
+      "species": "deciduous",
+      "note": "GB köşedeki büyük geniş taçlı yaprak döken ağaç (karaağaç/dişbudak tipi), 5 SV panosundan üçgenlendi ±0.7 m; kaldırım ile çim sınırında",
+      "id": "BIG_SW"
+    },
+    {
+      "kind": "tree",
+      "x": -61.3,
+      "z": -213.2,
+      "r": 3.8,
+      "h": 9.5,
+      "species": "deciduous",
+      "note": "KB köşe, Uğur Mumcu kaldırımı–çim sınırında büyük ağaç (SV 6YG0 gövde)",
+      "id": "BIG_NW"
+    },
+    {
+      "kind": "tree",
+      "x": 73,
+      "z": -202,
+      "r": 3.8,
+      "h": 8,
+      "species": "deciduous",
+      "note": "KD köşe kaldırımında yuvarlak taçlı büyük ağaç; taban ±1.5 m",
+      "id": "BIG_NE"
+    },
+    {
+      "kind": "tree",
+      "x": 41.7,
+      "z": -170.3,
+      "r": 2.8,
+      "h": 10,
+      "species": "deciduous",
+      "note": "otopark girişinde yol kenarında büyük ağaç (SV TRTBVU+4VcmT üçgenleme) | 2026-09: TRTB_60_0 (78.5°) × 4Vcm_300_0 (288.2°) → gövde (41.73,−170.27) — konum doğrulandı; street-plan'daki kopya (da1-tree-lot) silindi. 4Vcm_300_0 (7.2 m): ilk dallar ≈3.9 m (crownBase — kod), taç seyrek, eni 264.8–306.4° → ≈5.5 m (r 2.8; eski r 4 fazla), tepe karenin üstünde (≥8.4 m).",
+      "id": "BIG_PARK",
+      "crownBase": 3.9
+    },
+    {
+      "kind": "tree",
+      "x": -19.5,
+      "z": -171.9,
+      "r": 4,
+      "h": 8,
+      "species": "koelreuteria",
+      "note": "orta kümede mor/kızıl yapraklı büyük ağaç (kan erik/akçaağaç tipi); taban ±1.5 m. TÜR (docs/TREES.md): sabun ağacı — 7xGS_0_0 (x237), 2ydcI_300_0 (x436), 4RYu_60_0 (x158) kerterizleri bu noktada ±0.1 m kesişiyor; 2025-09 karelerinde yapraklar YEŞİL, tacın üstündeki kırmızı-kahve renk Koelreuteria'nın kâğıt kapsül salkımları (mor yapraklı erik değil).",
+      "id": "PURPLE"
+    },
+    {
+      "kind": "tree",
+      "x": -12.6,
+      "z": -171.2,
+      "r": 3,
+      "h": 7,
+      "species": "pine",
+      "note": "orta kümede mavi-yeşil iğne yapraklı ağaç (ladin/sedir tipi); ±1.5 m",
+      "id": "BLUE"
+    },
+    {
+      "kind": "tree",
+      "x": 1.7,
+      "z": -211.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n10S"
+    },
+    {
+      "kind": "tree",
+      "x": -56.1,
+      "z": -209.3,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n12Y"
+    },
+    {
+      "kind": "tree",
+      "x": -40.3,
+      "z": -208.3,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n13Y"
+    },
+    {
+      "kind": "tree",
+      "x": -50.8,
+      "z": -208.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n14Y"
+    },
+    {
+      "kind": "tree",
+      "x": -59,
+      "z": -208.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n15S"
+    },
+    {
+      "kind": "tree",
+      "x": -15.8,
+      "z": -208.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n16S"
+    },
+    {
+      "kind": "tree",
+      "x": -21.4,
+      "z": -207.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n17Y"
+    },
+    {
+      "kind": "tree",
+      "x": 21.1,
+      "z": -205.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n24S"
+    },
+    {
+      "kind": "tree",
+      "x": -57.8,
+      "z": -205,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n27S"
+    },
+    {
+      "kind": "tree",
+      "x": 26.8,
+      "z": -203.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n30Y"
+    },
+    {
+      "kind": "tree",
+      "x": 33.1,
+      "z": -203.6,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n35S"
+    },
+    {
+      "kind": "tree",
+      "x": 2.1,
+      "z": -203.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n38S"
+    },
+    {
+      "kind": "tree",
+      "x": -30.3,
+      "z": -202.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n40Y"
+    },
+    {
+      "kind": "tree",
+      "x": -45.5,
+      "z": -203,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n42S"
+    },
+    {
+      "kind": "tree",
+      "x": -35.1,
+      "z": -202,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
+      "id": "n44Y"
+    },
+    {
+      "kind": "tree",
+      "x": -14.6,
+      "z": -200.8,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç; yol kenarına hizalandı",
+      "id": "n45L"
+    },
+    {
+      "kind": "tree",
+      "x": -40.1,
+      "z": -202.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan; yol kenarına hizalandı",
+      "id": "n46S"
+    },
+    {
+      "kind": "tree",
+      "x": -25,
+      "z": -201.7,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n48S"
+    },
+    {
+      "kind": "tree",
+      "x": -20.3,
+      "z": -201.7,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n49S"
+    },
+    {
+      "kind": "tree",
+      "x": -9.5,
+      "z": -200.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
+      "id": "n51Y"
+    },
+    {
+      "kind": "tree",
+      "x": 45.3,
+      "z": -200.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n52S"
+    },
+    {
+      "kind": "tree",
+      "x": -4.6,
+      "z": -200.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
+      "id": "n53Y"
+    },
+    {
+      "kind": "tree",
+      "x": 33.4,
+      "z": -199.3,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n55Y"
+    },
+    {
+      "kind": "tree",
+      "x": -2,
+      "z": -200.1,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan; yol kenarına hizalandı",
+      "id": "n57S"
+    },
+    {
+      "kind": "tree",
+      "x": 1.1,
+      "z": -199.6,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç); yol kenarına hizalandı",
+      "id": "n59Y"
+    },
+    {
+      "kind": "tree",
+      "x": 63.4,
+      "z": -198.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n60Y"
+    },
+    {
+      "kind": "tree",
+      "x": 5.6,
+      "z": -198.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n61S"
+    },
+    {
+      "kind": "tree",
+      "x": 40.6,
+      "z": -197.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n63Y"
+    },
+    {
+      "kind": "tree",
+      "x": -54.6,
+      "z": -197.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n64Y"
+    },
+    {
+      "kind": "tree",
+      "x": 3.1,
+      "z": -199.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan; yol kenarına hizalandı",
+      "id": "n65S"
+    },
+    {
+      "kind": "tree",
+      "x": -48.8,
+      "z": -196.6,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n66Y"
+    },
+    {
+      "kind": "tree",
+      "x": 10.1,
+      "z": -196.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n67Y"
+    },
+    {
+      "kind": "tree",
+      "x": -43.8,
+      "z": -196.1,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n68Y"
+    },
+    {
+      "kind": "tree",
+      "x": -38.8,
+      "z": -196.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n69Y"
+    },
+    {
+      "kind": "tree",
+      "x": -26.6,
+      "z": -197.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n70S"
+    },
+    {
+      "kind": "tree",
+      "x": -33.9,
+      "z": -197,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n72S"
+    },
+    {
+      "kind": "tree",
+      "x": 34.3,
+      "z": -196.7,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n73S"
+    },
+    {
+      "kind": "tree",
+      "x": 71.7,
+      "z": -193.5,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n75M"
+    },
+    {
+      "kind": "tree",
+      "x": 28,
+      "z": -195.1,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n77Y"
+    },
+    {
+      "kind": "tree",
+      "x": 47.7,
+      "z": -195.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n78S"
+    },
+    {
+      "kind": "tree",
+      "x": -17.7,
+      "z": -194.1,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n79L"
+    },
+    {
+      "kind": "tree",
+      "x": -54.9,
+      "z": -192.3,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n81M"
+    },
+    {
+      "kind": "tree",
+      "x": -64.5,
+      "z": -195.2,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n82S"
+    },
+    {
+      "kind": "tree",
+      "x": -7.2,
+      "z": -194.6,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n85S"
+    },
+    {
+      "kind": "tree",
+      "x": -2.4,
+      "z": -193.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n86Y"
+    },
+    {
+      "kind": "tree",
+      "x": 17.9,
+      "z": -193.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n87Y"
+    },
+    {
+      "kind": "tree",
+      "x": 42.3,
+      "z": -193.6,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n88Y"
+    },
+    {
+      "kind": "tree",
+      "x": -43.8,
+      "z": -191.1,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n89M"
+    },
+    {
+      "kind": "tree",
+      "x": 21.5,
+      "z": -194.2,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n90S"
+    },
+    {
+      "kind": "tree",
+      "x": -36.6,
+      "z": -190.9,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n91M"
+    },
+    {
+      "kind": "tree",
+      "x": 64.6,
+      "z": -193,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n93Y"
+    },
+    {
+      "kind": "tree",
+      "x": -59.7,
+      "z": -191.1,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n94M"
+    },
+    {
+      "kind": "tree",
+      "x": -29.9,
+      "z": -190.3,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n95M"
+    },
+    {
+      "kind": "tree",
+      "x": 12.7,
+      "z": -192.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n97Y"
+    },
+    {
+      "kind": "tree",
+      "x": -5.2,
+      "z": -188.4,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n98M"
+    },
+    {
+      "kind": "tree",
+      "x": 1.1,
+      "z": -188.2,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n99M"
+    },
+    {
+      "kind": "tree",
+      "x": 7.7,
+      "z": -191.1,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n100S"
+    },
+    {
+      "kind": "tree",
+      "x": -47.1,
+      "z": -188.6,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n102L"
+    },
+    {
+      "kind": "tree",
+      "x": 58.8,
+      "z": -190.5,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n103S"
+    },
+    {
+      "kind": "tree",
+      "x": 29.3,
+      "z": -189.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n104Y"
+    },
+    {
+      "kind": "tree",
+      "x": -33.9,
+      "z": -186.9,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n105M"
+    },
+    {
+      "kind": "tree",
+      "x": 45.4,
+      "z": -189.7,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n108S"
+    },
+    {
+      "kind": "tree",
+      "x": -54,
+      "z": -189.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n109S"
+    },
+    {
+      "kind": "tree",
+      "x": 23.1,
+      "z": -189.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n110S"
+    },
+    {
+      "kind": "tree",
+      "x": -43.1,
+      "z": -187.3,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n112L"
+    },
+    {
+      "kind": "tree",
+      "x": 15.7,
+      "z": -187.9,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n113Y"
+    },
+    {
+      "kind": "tree",
+      "x": -40.5,
+      "z": -188.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n117S"
+    },
+    {
+      "kind": "tree",
+      "x": 10.9,
+      "z": -185.7,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n120L"
+    },
+    {
+      "kind": "tree",
+      "x": -37.5,
+      "z": -184.8,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n121L"
+    },
+    {
+      "kind": "tree",
+      "x": -59.3,
+      "z": -186.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n122S"
+    },
+    {
+      "kind": "tree",
+      "x": 33.4,
+      "z": -185.3,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n123Y"
+    },
+    {
+      "kind": "tree",
+      "x": -50.2,
+      "z": -185.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n124S"
+    },
+    {
+      "kind": "tree",
+      "x": 3.5,
+      "z": -184.9,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n127Y"
+    },
+    {
+      "kind": "tree",
+      "x": -2.7,
+      "z": -184.8,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n128Y"
+    },
+    {
+      "kind": "tree",
+      "x": -30.9,
+      "z": -183.8,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n129L"
+    },
+    {
+      "kind": "tree",
+      "x": -18.8,
+      "z": -184,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n133Y"
+    },
+    {
+      "kind": "tree",
+      "x": -10.4,
+      "z": -184.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n134S"
+    },
+    {
+      "kind": "tree",
+      "x": -11.1,
+      "z": -183,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n135L"
+    },
+    {
+      "kind": "tree",
+      "x": -41.7,
+      "z": -182.7,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n137L"
+    },
+    {
+      "kind": "tree",
+      "x": 7,
+      "z": -181.1,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n138M"
+    },
+    {
+      "kind": "tree",
+      "x": 8,
+      "z": -183.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n139Y"
+    },
+    {
+      "kind": "tree",
+      "x": -50.6,
+      "z": -182.3,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n140L"
+    },
+    {
+      "kind": "tree",
+      "x": 24.9,
+      "z": -183.3,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n141Y"
+    },
+    {
+      "kind": "tree",
+      "x": 28.8,
+      "z": -183.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n142S"
+    },
+    {
+      "kind": "tree",
+      "x": -54.5,
+      "z": -183.5,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n143S"
+    },
+    {
+      "kind": "tree",
+      "x": -27.8,
+      "z": -180.3,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n144M"
+    },
+    {
+      "kind": "tree",
+      "x": -47.1,
+      "z": -182.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n145Y"
+    },
+    {
+      "kind": "tree",
+      "x": -44.1,
+      "z": -182.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n146S"
+    },
+    {
+      "kind": "tree",
+      "x": -11.1,
+      "z": -181.2,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n147L"
+    },
+    {
+      "kind": "tree",
+      "x": -35.3,
+      "z": -182.6,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n148S"
+    },
+    {
+      "kind": "tree",
+      "x": -16.2,
+      "z": -181.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n150S"
+    },
+    {
+      "kind": "tree",
+      "x": 31.1,
+      "z": -178.5,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n151M"
+    },
+    {
+      "kind": "tree",
+      "x": -52.8,
+      "z": -180.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n153Y"
+    },
+    {
+      "kind": "tree",
+      "x": -34.6,
+      "z": -181.1,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n155S"
+    },
+    {
+      "kind": "tree",
+      "x": -56.9,
+      "z": -180.1,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n156Y"
+    },
+    {
+      "kind": "tree",
+      "x": -37.1,
+      "z": -178.3,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n157L"
+    },
+    {
+      "kind": "tree",
+      "x": -25.6,
+      "z": -178.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n160Y"
+    },
+    {
+      "kind": "tree",
+      "x": -16.5,
+      "z": -176.9,
+      "r": 2,
+      "h": 6,
+      "species": "koelreuteria",
+      "note": "orta boy ağaç. TÜR (docs/TREES.md): sabun ağacı tipi — turuncu-kahve kapsül salkımlı açık taç; 2ydcI_300_0 (x500, zemin teması 1.3 m).",
+      "id": "n162L"
+    },
+    {
+      "kind": "tree",
+      "x": -41.5,
+      "z": -177.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n163Y"
+    },
+    {
+      "kind": "tree",
+      "x": 6.1,
+      "z": -174.8,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n165M"
+    },
+    {
+      "kind": "tree",
+      "x": -28.8,
+      "z": -176.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n172S"
+    },
+    {
+      "kind": "tree",
+      "x": -6,
+      "z": -172.6,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n179L"
+    },
+    {
+      "kind": "tree",
+      "x": -38.7,
+      "z": -174.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n181S"
+    },
+    {
+      "kind": "tree",
+      "x": -56.3,
+      "z": -171.1,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n182M"
+    },
+    {
+      "kind": "tree",
+      "x": 17.3,
+      "z": -173.5,
+      "r": 0.65,
+      "h": 2.9,
+      "species": "picea-pungens",
+      "note": "genç ağaç (ince gövde, küçük taç). TÜR/KONUM (docs/TREES.md): parktaki TEK mavi ladin — d_xiN_0_0 (x315, kerteriz -0.9°), TRTBV_300_0 (x305, 297.3°), gnXjE_300_0 (x217, 282.2°) üç kerteriz (17.2, -172.6) ±1 m'de kesişiyor; boy iki kareden 2.8–2.9 m, taç Ø≈1.3 m. Eski n164Y (16, -177.2) ve street-plan da1-tree-park-1 (12.7, -173.4) aynı ağacın yanlış konumlu kopyalarıydı (d_xiN'de o noktalarda ağaç yok) → silindi.",
+      "id": "n183Y"
+    },
+    {
+      "kind": "tree",
+      "x": 4.7,
+      "z": -172.1,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n187L"
+    },
+    {
+      "kind": "tree",
+      "x": 3.6,
+      "z": -170.1,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n194M"
+    },
+    {
+      "kind": "tree",
+      "x": -8.1,
+      "z": -172.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n195S"
+    },
+    {
+      "kind": "tree",
+      "x": -35.8,
+      "z": -170.8,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n203Y"
+    },
+    {
+      "kind": "tree",
+      "x": -29,
+      "z": -170.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n207S"
+    },
+    {
+      "kind": "tree",
+      "x": -56,
+      "z": -166.5,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n210M"
+    },
+    {
+      "kind": "tree",
+      "x": -32.8,
+      "z": -168.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n212Y"
+    },
+    {
+      "kind": "tree",
+      "x": -12.9,
+      "z": -165.8,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "koelreuteria",
+      "note": "orta boy ağaç. TÜR (docs/TREES.md): sabun ağacı tipi — açık, düzensiz taç, tüysü yaprak, tepede turuncu-kahve kapsül salkımları (Eylül); 7xGS_0_0 (x362, zemin teması 1.6 m).",
+      "id": "n215M"
+    },
+    {
+      "kind": "tree",
+      "x": -50.7,
+      "z": -167.4,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n216L"
+    },
+    {
+      "kind": "tree",
+      "x": -42.3,
+      "z": -168,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n218Y"
+    },
+    {
+      "kind": "tree",
+      "x": -49.1,
+      "z": -168,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n219Y"
+    },
+    {
+      "kind": "tree",
+      "x": -41.8,
+      "z": -165.2,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n221M"
+    },
+    {
+      "kind": "tree",
+      "x": -21.5,
+      "z": -163.6,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "robinia-globe",
+      "note": "orta boy ağaç. TÜR (docs/TREES.md): top akasya — ~2 m temiz gövde üstünde sık küre taç, ince tüysü yaprak; 7xGS_0_0 (x179, zemin teması 1.8 m) ve 2ydcI_300_0 (x295, 2.4 m) eşleşmesi.",
+      "id": "n226M"
+    },
+    {
+      "kind": "tree",
+      "x": -48.9,
+      "z": -161.4,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n228M"
+    },
+    {
+      "kind": "tree",
+      "x": -35.7,
+      "z": -165.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n229Y"
+    },
+    {
+      "kind": "tree",
+      "x": -53.9,
+      "z": -165.1,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n231Y"
+    },
+    {
+      "kind": "tree",
+      "x": -44,
+      "z": -162.2,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n238L"
+    },
+    {
+      "kind": "tree",
+      "x": -55.7,
+      "z": -163.5,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n239S"
+    },
+    {
+      "kind": "tree",
+      "x": -32.8,
+      "z": -162.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n241Y"
+    },
+    {
+      "kind": "tree",
+      "x": -39.7,
+      "z": -162.3,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n243Y"
+    },
+    {
+      "kind": "tree",
+      "x": -16.8,
+      "z": -158.9,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "orta boy ağaç",
+      "id": "n246M"
+    },
+    {
+      "kind": "tree",
+      "x": -13.3,
+      "z": -161.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n247Y"
+    },
+    {
+      "kind": "tree",
+      "x": -29.8,
+      "z": -160.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç ağaç (ince gövde, küçük taç)",
+      "id": "n248Y"
+    },
+    {
+      "kind": "tree",
+      "x": -42.8,
+      "z": -161,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n249S"
+    },
+    {
+      "kind": "tree",
+      "x": -22.6,
+      "z": -159.2,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n260S"
+    },
+    {
+      "kind": "tree",
+      "x": -50.5,
+      "z": -159.1,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "n262S"
+    },
+    {
+      "kind": "bench",
+      "x": -57.1,
+      "z": -203.6,
+      "rot": 180,
+      "note": "ahşap çıtalı bank, KB yolun kuzey kenarı, güneye (yola) bakar (SV _-ulFF + 9-_mzy)"
+    },
+    {
+      "kind": "bench",
+      "x": -34.8,
+      "z": -202,
+      "rot": 180,
+      "note": "bank, yol kuzey kenarı (hava foto açık dikdörtgen) ±1 m"
+    },
+    {
+      "kind": "bench",
+      "x": -29,
+      "z": -201.5,
+      "rot": 180,
+      "note": "bank, yol kuzey kenarı ±1.5 m"
+    },
+    {
+      "kind": "bench",
+      "x": -2.5,
+      "z": -200.2,
+      "rot": 200,
+      "note": "bank, yol kıvrımının kuzey kenarı ±1.5 m"
+    },
+    {
+      "kind": "bin",
+      "x": -52.8,
+      "z": -203.4,
+      "note": "yeşil belediye çöp kutusu, yol kuzey kenarı (SV)"
+    },
+    {
+      "kind": "sign",
+      "x": -61.2,
+      "z": -205.2,
+      "h": 2,
+      "note": "paslı corten bilgi panosu (~1×2 m), yolun kuzeyi (SV + hava foto)"
+    },
+    {
+      "kind": "sign",
+      "x": -61.8,
+      "z": -198.3,
+      "h": 1.3,
+      "note": "HEYKEL: beyaz taş oturan figür heykeli, ~1.2 m kare beyaz beton kaide üzerinde (kaide hava fotoğrafında (−62.2,−197.5) beyaz kare)"
+    },
+    {
+      "kind": "bin",
+      "x": -68.7,
+      "z": -164.3,
+      "h": 1.8,
+      "note": "mavi giysi kumbarası \"49\" (~1×1×1.8 m), GB köşe kaldırımı (SV üçgenleme) | 2026-09 (eleştirmen V16): joaQ_120_0: beyaz boyalı görünen kutu kumbara, alt yarısında mavi baskı (insan figürleri; güneşli ≈#7ca7d6, gölge ≈#6289ab). Gövde bu karede tümüyle gölgede ≈#6f7a80 (shade) — güneşli gövde tonu ölçülmedi. \"49\" yazısı bu karede okunmadı. style clothes = kutu (w × d × h), color2 baskı.",
+      "style": "clothes",
+      "w": 1,
+      "d": 1,
+      "color2": "#7ca7d6",
+      "shade": "#6f7a80"
+    },
+    {
+      "kind": "bin",
+      "x": -59.4,
+      "z": -164.3,
+      "h": 1.3,
+      "note": "beyaz cam kumbarası (yuvarlak ağızlı kutu, ~1.2×1×1.3 m) beton kaide üzerinde, güney kaldırım kenarı | 2026-09: EbG_60_0: açık gri-beyaz kutu (güneşli yüz ≈#dceee3), üstte kapak, altında beton kaide (≈#988573, güneşli). style glass = kutu kumbara, base {h, color} kaide.",
+      "style": "glass",
+      "w": 1.2,
+      "d": 1,
+      "color": "#dceee3",
+      "base": {
+        "h": 0.25,
+        "color": "#988573"
+      }
+    },
+    {
+      "kind": "bin",
+      "x": 3.3,
+      "z": -170.6,
+      "h": 1.5,
+      "note": "geri dönüşüm konteyneri (OSM waste_disposal), beton ped üzerinde"
+    },
+    {
+      "kind": "bin",
+      "x": 5.3,
+      "z": -169.6,
+      "h": 1.5,
+      "note": "geri dönüşüm konteyneri"
+    },
+    {
+      "kind": "bin",
+      "x": 7.8,
+      "z": -170,
+      "h": 1.5,
+      "note": "geri dönüşüm konteyneri"
+    },
+    {
+      "kind": "bin",
+      "x": 6.4,
+      "z": -167.8,
+      "h": 1.3,
+      "note": "beyaz cam kumbarası"
+    },
+    {
+      "kind": "lamp",
+      "x": -69.5,
+      "z": -172.7,
+      "h": 9,
+      "note": "galvaniz sokak lambası direği, Cavit Orhan doğu kaldırımı (SV üçgenleme) | 2026-09 (eleştirmen V16): galvaniz AÇIK GRİ konik direk (sokak lambası tipi, street-plan lamp-post ile aynı malzeme); EbG_60_0 karesinde gövde gölgede ≈#546264 (gölge; güneşli yüz ölçülemedi), dipte küçük sarı etiket. Kol/baş bu karede ağaç içinde — görülmedi. style \"street\" = sokak lambası çizimi (bahçe lambası değil).",
+      "style": "street"
+    },
+    {
+      "kind": "lamp",
+      "x": -34.6,
+      "z": -156.8,
+      "h": 9,
+      "note": "galvaniz sokak lambası, Doğan Avcıoğlu kuzey kaldırımı ±1 m"
+    },
+    {
+      "kind": "lamp",
+      "x": -2.8,
+      "z": -206.8,
+      "h": 12,
+      "note": "Uğur Mumcu kaldırımında yüksek aydınlatma direği (yalnızca hava fotoğrafındaki uzun eğik izden; ±2 m, doğrulanmadı)"
+    },
+    {
+      "kind": "shrub",
+      "x": -62,
+      "z": -21.5,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -60.3,
+      "z": -21.4,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -58.6,
+      "z": -21.4,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -56.9,
+      "z": -21.3,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -55.2,
+      "z": -21.3,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -53.5,
+      "z": -21.3,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -51.8,
+      "z": -21.2,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -50.1,
+      "z": -21.2,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -48.4,
+      "z": -21.1,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -46.7,
+      "z": -21.1,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -45,
+      "z": -21,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -43.3,
+      "z": -21,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -41.6,
+      "z": -20.9,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -39.9,
+      "z": -20.9,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -38.2,
+      "z": -20.9,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -36.5,
+      "z": -20.8,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -34.8,
+      "z": -20.8,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -33.1,
+      "z": -20.7,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -31.4,
+      "z": -20.7,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -29.7,
+      "z": -20.6,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -28,
+      "z": -20.6,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -26.3,
+      "z": -20.5,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -24.6,
+      "z": -20.5,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "shrub",
+      "x": -22.9,
+      "z": -20.4,
+      "r": 0.55,
+      "h": 0.6,
+      "note": "alçak çalı (spiraea/berberis)"
+    },
+    {
+      "kind": "tree",
+      "x": 55.6,
+      "z": -33.6,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t19Y"
+    },
+    {
+      "kind": "tree",
+      "x": -70.8,
+      "z": -34.8,
+      "r": 1.2,
+      "h": 5.5,
+      "species": "sapling",
+      "note": "Genç ince gövdeli ağaç, seyrek küçük bronz-kahve/kızıl yapraklar (Eylül 2025; tür seçilemedi — kan erik olabilir, görülmedi). Güney tek yön sokak kenarı çim şeridinde, 'Girilmez' levhasının arkasında. SV gPUM_90_-5_40 (104.4°, 7.9 m) + gPUM_120_0 (106°), boy ≈5.5 m (tepe +22°). Eski konum (−71.5,−32.6) 2.2 m kuzeydeydi (eleştirmen V11).",
+      "id": "t23S"
+    },
+    {
+      "kind": "tree",
+      "x": -62.1,
+      "z": -30,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t39S"
+    },
+    {
+      "kind": "tree",
+      "x": -37.3,
+      "z": -29.5,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t42S"
+    },
+    {
+      "kind": "tree",
+      "x": -22.2,
+      "z": -28.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t48S"
+    },
+    {
+      "kind": "tree",
+      "x": 11.8,
+      "z": -27.6,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t49Y"
+    },
+    {
+      "kind": "tree",
+      "x": -14.5,
+      "z": -27.1,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t56S"
+    },
+    {
+      "kind": "tree",
+      "x": -71.4,
+      "z": -25.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t64S"
+    },
+    {
+      "kind": "tree",
+      "x": 41.9,
+      "z": -22.7,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t67L"
+    },
+    {
+      "kind": "tree",
+      "x": -45.8,
+      "z": -22.9,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t71Y"
+    },
+    {
+      "kind": "tree",
+      "x": -25.4,
+      "z": -22.1,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t72Y"
+    },
+    {
+      "kind": "tree",
+      "x": 46,
+      "z": -22.9,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t73Y"
+    },
+    {
+      "kind": "tree",
+      "x": -31.7,
+      "z": -23.1,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t75S"
+    },
+    {
+      "kind": "tree",
+      "x": -65.8,
+      "z": -23,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t76S"
+    },
+    {
+      "kind": "tree",
+      "x": -63.2,
+      "z": -22.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t77Y"
+    },
+    {
+      "kind": "tree",
+      "x": 53.2,
+      "z": -22.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t78S"
+    },
+    {
+      "kind": "tree",
+      "x": -19.5,
+      "z": -21.1,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t79M"
+    },
+    {
+      "kind": "tree",
+      "x": -22.1,
+      "z": -21.5,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t81S"
+    },
+    {
+      "kind": "tree",
+      "x": -66.6,
+      "z": -20,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t82L"
+    },
+    {
+      "kind": "tree",
+      "x": -8.9,
+      "z": -19.9,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t83L"
+    },
+    {
+      "kind": "tree",
+      "x": -57.2,
+      "z": -21.2,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t84S"
+    },
+    {
+      "kind": "tree",
+      "x": -52.1,
+      "z": -21.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t85S"
+    },
+    {
+      "kind": "tree",
+      "x": 24.7,
+      "z": -21.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t87S"
+    },
+    {
+      "kind": "tree",
+      "x": -41.6,
+      "z": -20.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t89S"
+    },
+    {
+      "kind": "tree",
+      "x": -16.4,
+      "z": -20.9,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t90S"
+    },
+    {
+      "kind": "tree",
+      "x": -36.3,
+      "z": -20.6,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t91S"
+    },
+    {
+      "kind": "tree",
+      "x": -16.7,
+      "z": -19.4,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t94Y"
+    },
+    {
+      "kind": "tree",
+      "x": -4.9,
+      "z": -19.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t95Y"
+    },
+    {
+      "kind": "tree",
+      "x": -11.9,
+      "z": -18.5,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t96L"
+    },
+    {
+      "kind": "tree",
+      "x": -11.4,
+      "z": -20,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t98S"
+    },
+    {
+      "kind": "tree",
+      "x": -70.7,
+      "z": -18.8,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t99Y"
+    },
+    {
+      "kind": "tree",
+      "x": -6.5,
+      "z": -19.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t100S"
+    },
+    {
+      "kind": "tree",
+      "x": -7,
+      "z": -18.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t103Y"
+    },
+    {
+      "kind": "tree",
+      "x": -8.5,
+      "z": -18.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t104Y"
+    },
+    {
+      "kind": "tree",
+      "x": -12.6,
+      "z": -16.8,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t107L"
+    },
+    {
+      "kind": "tree",
+      "x": 18.6,
+      "z": -14.2,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t114M"
+    },
+    {
+      "kind": "tree",
+      "x": 19.1,
+      "z": -16.7,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t116S"
+    },
+    {
+      "kind": "tree",
+      "x": 23.2,
+      "z": -16.2,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t117S"
+    },
+    {
+      "kind": "tree",
+      "x": 43.5,
+      "z": -13.3,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t118M"
+    },
+    {
+      "kind": "tree",
+      "x": 23.2,
+      "z": -13.2,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t119M"
+    },
+    {
+      "kind": "tree",
+      "x": 28.5,
+      "z": -14.3,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t121L"
+    },
+    {
+      "kind": "tree",
+      "x": 13.2,
+      "z": -14.4,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t122L"
+    },
+    {
+      "kind": "tree",
+      "x": 33.9,
+      "z": -14,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t123L"
+    },
+    {
+      "kind": "tree",
+      "x": 53.1,
+      "z": -13.9,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t124L"
+    },
+    {
+      "kind": "tree",
+      "x": 57.7,
+      "z": -15.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t126S"
+    },
+    {
+      "kind": "tree",
+      "x": 38.4,
+      "z": -13.8,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t127L"
+    },
+    {
+      "kind": "tree",
+      "x": 58.2,
+      "z": -12.6,
+      "r": 2.7,
+      "h": 7.5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t128M"
+    },
+    {
+      "kind": "tree",
+      "x": 48.3,
+      "z": -14.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t133Y"
+    },
+    {
+      "kind": "tree",
+      "x": 26.1,
+      "z": -13.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t139S"
+    },
+    {
+      "kind": "tree",
+      "x": 19.8,
+      "z": -12.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t141Y"
+    },
+    {
+      "kind": "tree",
+      "x": 31.8,
+      "z": -12.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t142Y"
+    },
+    {
+      "kind": "tree",
+      "x": 49.8,
+      "z": -11.7,
+      "r": 2,
+      "h": 6,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t144L"
+    },
+    {
+      "kind": "tree",
+      "x": 16.4,
+      "z": -12.7,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t146S"
+    },
+    {
+      "kind": "tree",
+      "x": 29.8,
+      "z": -12.1,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t147Y"
+    },
+    {
+      "kind": "tree",
+      "x": 39.5,
+      "z": -11.7,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t148Y"
+    },
+    {
+      "kind": "tree",
+      "x": 12.5,
+      "z": -12.4,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t149S"
+    },
+    {
+      "kind": "tree",
+      "x": 10.8,
+      "z": -12.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t151S"
+    },
+    {
+      "kind": "tree",
+      "x": 14.6,
+      "z": -12.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t152S"
+    },
+    {
+      "kind": "tree",
+      "x": 28.2,
+      "z": -11.5,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t154Y"
+    },
+    {
+      "kind": "tree",
+      "x": 33.1,
+      "z": -12.1,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t155S"
+    },
+    {
+      "kind": "tree",
+      "x": 43.2,
+      "z": -11.1,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t156Y"
+    },
+    {
+      "kind": "tree",
+      "x": 8.7,
+      "z": -11.2,
+      "r": 1.4,
+      "h": 5,
+      "species": "deciduous",
+      "note": "genç/orta boy yaprak döken ağaç (SV: sarımsı-yeşil taçlı, ince gövde, h 5–7)",
+      "id": "t157Y"
+    },
+    {
+      "kind": "tree",
+      "x": 45.2,
+      "z": -11.8,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t159S"
+    },
+    {
+      "kind": "tree",
+      "x": 47.5,
+      "z": -11.3,
+      "r": 0.9,
+      "h": 3.8,
+      "species": "deciduous",
+      "note": "fidan",
+      "id": "t160S"
+    },
+    {
+      "kind": "tree",
+      "x": -9.8,
+      "z": -28.3,
+      "r": 7,
+      "h": 14,
+      "species": "deciduous",
+      "note": "Nato Parkı KD: tek büyük olgun yaprak döken ağaç (loblu yaprak, meşe benzeri — kütüphanede meşe yok → genel yaprak döken), kalın tek gövde. OSM natural=tree ile aynı ağaç (1.6 m). Gövde 4 SV karesinden: MUMV_180_0 (200.6°, 6.5 m), I52t5_240_0 (227.3°, 15 m), UKQg_0_0 (346.8°, 15 m), Wi7U_0_0 (27.6°, 16.7 m) → (−9.8,−28.3) ±0.7. Boy ≈13–15 m (UKQg tepe +39°), taç hava fotoğrafında x −19…−2.5, z −35…−16 (eğik çekim) → r≈7. Eleştirmen (V0/V15) + 2026-09 düzeltme: bu taç altındaki hava-fotoğrafı lekesinden konmuş 'genç ağaç' noktaları (17 adet) SV'de gövdesi görülmediği için silindi.",
+      "id": "NATO_NE_BIG"
+    },
+    {
+      "kind": "bench",
+      "x": -65.6,
+      "z": -26.9,
+      "rot": 180,
+      "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
+    },
+    {
+      "kind": "bench",
+      "x": -61,
+      "z": -26.8,
+      "rot": 180,
+      "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
+    },
+    {
+      "kind": "bench",
+      "x": -33.7,
+      "z": -26.8,
+      "rot": 180,
+      "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
+    },
+    {
+      "kind": "bench",
+      "x": -29.6,
+      "z": -26.7,
+      "rot": 180,
+      "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
+    },
+    {
+      "kind": "bench",
+      "x": 31.2,
+      "z": -22.9,
+      "rot": 0,
+      "note": "OSM amenity=bench; ahşap çıtalı siyah ayaklı bank, koşu yoluna bakar (SV 6eolm/7Az9)"
+    },
+    {
+      "kind": "lamp",
+      "x": -70.8,
+      "z": -24.9,
+      "h": 4.5,
+      "note": "yeşil boyalı park lambası (SV 7Az9), koşu yolu batı ucu; ±1.5 m"
+    },
+    {
+      "kind": "bin",
+      "x": -71.8,
+      "z": -25.6,
+      "note": "yeşil çöp kutusu (SV 7Az9) ±1.5 m"
+    },
+    {
+      "kind": "tree",
+      "x": -65.5,
+      "z": -34.85,
+      "h": 3.8,
+      "r": 1,
+      "species": "prunus-purple",
+      "id": "NATO_SW_PURPLE",
+      "note": "Genç mor/bordo yapraklı ağaç (kan erik görünüşü), ince tek gövde, sokak kenarı çim şeridinde. SV gPUM_90_-5_40 (98.2°, 13 m) ve gPUM_60_0 / 120_0 aynı kerteriz → (−65.5,−34.85) ±1; boy ≈3.7–4.2 m."
+    }
+  ],
+  "notes": [
+    "Çerçeve: yerel metre, +x doğu, +z güney. Kuzey park (OSM 824640259) + Nato Parkı batı (OSM 1550820727) + park şeridi doğu (OSM 1550820726, x 6…62). Alanlar Google z21 hava fotoğrafı renk profillerinden (0.1 m adımlı kesitler) ve OSM’den; kaldırım/bordür kenarları ±0.5 m.",
+    "ZEMİN RENGİ: Kuzey park çimi Eylül 2025 SV’de canlı yeşil ve biçilmiş (sulanıyor), yer yer yabani ot öbekleri; Doğan Avcıoğlu kaldırımı dibinde 0.3–0.6 m yıpranmış sarımsı-kahve toprak şerit; doğu üçgen ve GD yamuk çimde sarımsı kuru yamalar. Nato Parkı çimi canlı yeşil, kenarlar sarımsı. Hava fotoğrafında (farklı tarih) çim koyu mavimsi-yeşil görünüyor — boyarken SV tonunu (açık, sarımsı-yeşil) esas alın.",
+    "AĞAÇLAR: kuzey park ÇOĞUNLUKLA AÇIK ÇİM; ~8–12 yaşında ince gövdeli genç ağaçlar (h 4–7, taç r 1–2.5) seyrek/yarı düzenli dizili (mor-kızıl, sarı-yeşil yapraklılar karışık), birkaç büyük ağaç: GB köşe (−68.2,−167.6, h≈15, r≈7.5), KB köşe, KD köşe, otopark girişi. Konumlar hava fotoğrafı taç gölgesi lekelerinden + eğiklik düzeltmesi (taç tabana göre ~0.2–0.3 m/m batıya, 0.3–0.8 m/m kuzeye kayık); 8 ağaç SV çoklu pano üçgenlemesiyle doğrulandı; tipik hata ±1–1.5 m. Boy/taç sınıfları leke boyutundan (S fidan h3.8 r0.9, Y h5 r1.4, L h6 r2, M h7.5 r2.7) — tek tek ölçülmedi.",
+    "Yapılar (bu dosyada şema anahtarı yok, not olarak): kuzey park GD’de gri/beyaz grafitili konteyner/büfe kabini ~6.5×4.8 m h≈2.6, köşeler (51.0,−184.6)…(57.6,−179.8); Cavit Orhan kaldırımında (−68.5,−204.2) ~14 m telekom direği (antenler + dibinde gri kabin); (−68.8,−185.8) gri elektrik panosu ~1.4 m.",
+    "Kuzey park ana yolu: gri kilit taşı, 2.0 m, kenarında sarı hissedilebilir şerit; batıda Cavit Orhan kaldırımına, GD’de Doğan Avcıoğlu kaldırımına bağlanır (OSM 1540372781 ile ±1 m uyumlu). Yol boyunca kuzeyde bank/çöp kutusu/corten pano; ağaç dizileri yolun iki yanında.",
+    "Nato Parkı koşu yolu stabilize (bej ince çakıl), kırmızı tartan DEĞİL. 502. Sk. geçidi (x −4…6, z≈−21.5) street-plan’da. Banklar OSM konumlarında; lamba/çöp kutusu yalnızca SV’de görülen batı ucunda — diğer park lambaları doğrulanamadı.",
+    "Belirsizlikler: kuzey park orta kümesi (x −25…−10, z −182…−168) iki büyük taç olarak basitleştirildi; banklar (kuzey kenar) hava fotoğrafı açık lekelerinden ±1.5 m; Uğur Mumcu yüksek direği doğrulanmadı; Nato ağaçları hava fotoğrafı lekelerinden, koruda (x −15…−4) taçlar birleşik olduğundan sayı ±30%.",
+    "2026-09: Cavit Orhan doğu (L3) ve Doğan Avcıoğlu kuzey (L2) bordür çizgileri kaldırıldı — bordür + kırmızı/gri bantlar artık street-plan kaldırımlarında (park-cv-west, park-da-north; aynı hat). Alan 8 (paving) altta kalır. Nato Parkı KD: tek büyük olgun ağaç (NATO_NE_BIG) 4 SV karesinden; taç altındaki 17 hava-fotoğrafı 'genç ağaç' noktası gövdesi görülmediği için silindi (t56S tek karede örtülü → bırakıldı)."
+  ]
 }

@@ -603,7 +603,8 @@ export function buildRoads(
     const cl: Pt[] = mk?.shift ? dense.map((p) => [p[0] + mk.shift![0], p[1] + mk.shift![1]] as Pt) : dense;
     // Tek yönlü çok şeritli yol (OSM `lanes` ya da ölçülmüş `lanes`): şerit ayırıcıları kesikli (Street View: Özlüce
     // Blv. 3 şerit / 2 kesikli çizgi, Uğur Mumcu 2 şerit / 1 kesikli). Ölçülmüş `centre` verilmişse o kazanır.
-    const lanes = r.vehicular && r.oneway !== 0 && !mk?.centre ? laneDividerOffsets(r.width, mk?.lanes ?? r.lanes) : [];
+    const lanes =
+      r.vehicular && r.oneway !== 0 && !mk?.centre ? laneDividerOffsets(r.width, mk?.lanes ?? r.lanes) : [];
     if (mk?.centre === 'dashed') dashes(geo, cl, 3, 5, 0.12, Y_MARK, skip);
     else if (mk?.centre === 'solid') dashes(geo, cl, 1e6, 0, 0.12, Y_MARK, skip);
     else if (mk?.centre === 'none') {

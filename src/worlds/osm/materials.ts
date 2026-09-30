@@ -99,6 +99,14 @@ export const groundHoles = {
   value: [0, 1, 2, 3].map(() => new THREE.Vector4(1, 1, 0, 0)),
 };
 export const groundHalf = { value: 1300 };
+/**
+ * v8 ölçülmüş zemin maskesi (world.setSurveyGround): kaldırım / ada / sokak alanı çokgenleri, dünya dikdörtgeni
+ * `surveyRect` (x0, z0, x1, z1) üzerinde R kanalı. Maske içinde hava fotoğrafının koyu gölgesi çime çevrilmez, çim /
+ * toprak foto detayı yok, renk nötre çekilir (critic d4a #2/#12: kule gölgesi yeşil çim, şerit arası bej toprak).
+ * Dikdörtgen boşsa (x1 ≤ x0) etkisiz → ölçülmemiş yerde arazi aynı.
+ */
+export const surveyMask = { value: null as THREE.Texture | null };
+export const surveyRect = { value: new THREE.Vector4(0, 0, 0, 0) };
 
 export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE_URL): OsmMaterials {
   // Gerçek foto-taramalı dokular (CC0). Düşük kalitede yalnızca renk dokusu (bellek).
@@ -191,6 +199,13 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
   ground.onBeforeCompile = (sh) => {
     sh.uniforms.groundHoles = groundHoles;
     sh.uniforms.groundHalf = groundHalf;
+    if (!surveyMask.value) {
+      const t = new THREE.DataTexture(new Uint8Array([0, 0, 0, 255]), 1, 1);
+      t.needsUpdate = true;
+      surveyMask.value = t;
+    }
+    sh.uniforms.surveyMask = surveyMask;
+    sh.uniforms.surveyRect = surveyRect;
     sh.uniforms.detailMap = { value: detailTex };
     sh.uniforms.grassMap = { value: grassT.map };
     sh.uniforms.dirtMap = { value: dirtT.map };
@@ -199,7 +214,7 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
     sh.fragmentShader = sh.fragmentShader
       .replace(
         '#include <common>',
-        '#include <common>\nuniform vec4 groundHoles[4];\nuniform float groundHalf;\nuniform sampler2D detailMap;\nuniform sampler2D grassMap;\nuniform sampler2D dirtMap;\nuniform vec3 grassAvg;\nuniform vec3 dirtAvg;',
+        '#include <common>\nuniform vec4 groundHoles[4];\nuniform float groundHalf;\nuniform sampler2D detailMap;\nuniform sampler2D grassMap;\nuniform sampler2D dirtMap;\nuniform vec3 grassAvg;\nuniform vec3 dirtAvg;\nuniform sampler2D surveyMask;\nuniform vec4 surveyRect;',
       )
       .replace(
         '#include <map_fragment>',
@@ -216,11 +231,18 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
   vec2 wm = vMapUv * 2600.0;
   // Hava fotoğrafındaki ağaç taçları/gölgeleri (neredeyse siyah yeşil) zemin değil: 3B ağaçlar ve gölgeleri
   // zaten var → koyu yeşilimsi pikseller çim tonuna çekilir (Street View'da ağaç altı aydınlık çim/toprak)
+  // Ölçülmüş zemin maskesi (kaldırım / ada / sokak alanı): gölge → çim dönüşümü ve çim dokusu yok, renk nötr
+  float sm = 0.0;
+  if (surveyRect.z > surveyRect.x) {
+    vec2 su = (wxz - surveyRect.xy) / (surveyRect.zw - surveyRect.xy);
+    if (su.x > 0.0 && su.x < 1.0 && su.y > 0.0 && su.y < 1.0) sm = texture2D(surveyMask, su).r;
+  }
   float lum0 = dot(diffuseColor.rgb, vec3(0.2126, 0.7152, 0.0722));
-  float canopy = (1.0 - smoothstep(0.025, 0.07, lum0)) * step(diffuseColor.r, diffuseColor.g * 1.15);
+  diffuseColor.rgb = mix(diffuseColor.rgb, vec3(lum0) * vec3(1.0, 0.99, 0.965), sm * 0.75);
+  float canopy = (1.0 - smoothstep(0.025, 0.07, lum0)) * step(diffuseColor.r, diffuseColor.g * 1.15) * (1.0 - sm);
   diffuseColor.rgb = mix(diffuseColor.rgb, vec3(0.13, 0.19, 0.06), canopy * 0.85);
   vec3 base = diffuseColor.rgb;
-  float green = clamp((base.g - max(base.r, base.b)) * 12.0, 0.0, 1.0);
+  float green = clamp((base.g - max(base.r, base.b)) * 12.0, 0.0, 1.0) * (1.0 - sm);
   vec3 gT = texture2D(grassMap, wm / 3.0).rgb / max(grassAvg, vec3(0.02));
   vec3 dT = texture2D(dirtMap, wm / 1.3).rgb / max(dirtAvg, vec3(0.02));
   // Yalnızca parlaklık detayı (renk alan dokusundan gelir) — fotoğraftaki renk sapmaları lekelenme yapmasın
@@ -231,7 +253,7 @@ export function createOsmMaterials(quality: Quality, base = import.meta.env.BASE
 #endif`,
       );
   };
-  ground.customProgramCacheKey = () => 'ground-detail-v5';
+  ground.customProgramCacheKey = () => 'ground-detail-v6';
   const trees = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: 0.9, flatShading: true });
   const roadFill = detailMaterial(asphalt, { key: 'roadFill', polygonOffset: -5, normalScale: 0.8 });
   roadFill.vertexColors = false;

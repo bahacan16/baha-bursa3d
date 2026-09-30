@@ -28,6 +28,7 @@ export const SPECIES = [
   'sapling', // 18 genç, kazıklı fidan
   'boxwood', // 19 budanmış şimşir topu (Buxus)
   'pinea', // 20 fıstık çamı (Pinus pinea): şemsiye taç, çıplak gövde
+  'sapling-purple', // 21 v8 mor yapraklı genç, kazıklı fidan (refüj kan erik fidanları, critic d4b #18)
 ] as const;
 
 export type SpeciesKey = (typeof SPECIES)[number];
@@ -78,6 +79,7 @@ export const SPECIES_SIZE: Record<SpeciesKey, SpeciesSize> = {
   sapling: { h: 3.2, w: 1.6, trunk: 0.04 },
   boxwood: { h: 1, w: 1, trunk: 0.05, solid: true },
   pinea: { h: 8, w: 7, trunk: 0.2, conifer: true },
+  'sapling-purple': { h: 3.2, w: 1.6, trunk: 0.04 },
 };
 
 /**
@@ -101,6 +103,7 @@ export const SPECIES_SIZE: Record<SpeciesKey, SpeciesSize> = {
  * - fruit ............ meyve ağacı (kiraz, erik, elma, dut, ayva… tür belirsizse)
  * - glossy ........... alev ağacı (Photinia), kurtbağrı (Ligustrum), taflan, parlak yapraklı
  * - sapling .......... fidan, genç ağaç, kazıklı
+ * - sapling-purple ... mor yapraklı fidan / genç kan erik (kazıklı, seyrek taç)
  * - boxwood .......... şimşir, Buxus, top çalı
  * - pinea ............ fıstık çamı, Pinus pinea, umbrella / stone pine (şemsiye taç)
  * - conifer .......... çam, pine, iğne yapraklı (tür belirsiz)
@@ -119,6 +122,10 @@ const RULES: [RegExp, SpeciesKey][] = [
   [/şimşir|buxus|boxwood|top çalı|budanmış top/, 'boxwood'],
   [/umbraculifera|top akasya|globe|küre taç|top taç/, 'robinia-globe'],
   [/koelreuteria|sabun ağac|golden ?rain/, 'koelreuteria'],
+  [
+    /(fidan|sapling|genç)[^.;]{0,40}(kan erik|mor yaprak|purple)|(kan erik|mor yaprak|purple)[^.;]{0,40}(fidan|sapling|genç)/,
+    'sapling-purple',
+  ],
   [/pissardii|cerasifera|kan erik|mor yaprak|kızıl yaprak|purple/, 'prunus-purple'],
   [/yenidünya|eriobotrya|loquat|malta eri/, 'eriobotrya'],
   [/photinia|alev ağac|ligustrum|kurtbağrı|taflan|laurocerasus|defne|laurus|parlak yaprak|glossy/, 'glossy'],

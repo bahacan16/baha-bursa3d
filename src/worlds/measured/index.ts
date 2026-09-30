@@ -1483,11 +1483,26 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   const bevel = o.quality === 'high' ? 0.015 : 0;
   // Ölçülen özel renkler (kat kat balkon alını, korkuluk metali, çıkma, tente) ve tabela yüzleri → dinamik malzeme
   const colorKey = (
-    kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3' | 'paint',
+    kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3' | 'paint' | 'encglass' | 'interior',
     hex: string,
   ): string => {
     const wearL = kind.startsWith('wear') ? Number(kind.slice(4)) : 0;
     const k = `cc_${kind}_${hex.toLowerCase()}`;
+    if (!extraMats[k] && kind === 'encglass')
+      // v8 kış bahçesi camı (critic d4c #5): saydam; ölçülen görünen ton (yansıma + koyu iç) koyu iç yüzlerle birlikte
+      // oluşur → ince renk + düşük opaklık, parlak yüzey
+      extraMats[k] = new THREE.MeshStandardMaterial({
+        color: hex,
+        roughness: 0.06,
+        metalness: 0,
+        transparent: true,
+        opacity: 0.38,
+        side: THREE.DoubleSide,
+        depthWrite: false,
+      });
+    else if (!extraMats[k] && kind === 'interior')
+      // Kış bahçesi / pavyon içi: koyu mat, yalnız ön yüz (içe bakan yüzler dışarıdan görünmez)
+      extraMats[k] = new THREE.MeshStandardMaterial({ color: hex, roughness: 0.95, metalness: 0 });
     if (!extraMats[k])
       extraMats[k] =
         kind === 'paint'
@@ -1758,6 +1773,11 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     const pp = buildSitePlan(b, PARK_PLAN, o.H, o.collide, colorKey, street?.coverPolys);
     holes.push(...pp.holes);
     cars.push(...pp.cars);
+  }
+  if (STREET_PLAN.areas?.length) {
+    // v8: sokak planı zemin alanları (döşeme / çakıl / asfalt — site planı alan şeması, kaldırımlardan kırpılır)
+    const sa = buildSitePlan(b, { areas: STREET_PLAN.areas }, o.H, o.collide, colorKey, street?.coverPolys);
+    holes.push(...sa.holes);
   }
   // ── Salusvizyon ──
   const salusSite = ringOf(o.simple, SALUS_SITE);

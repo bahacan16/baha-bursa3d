@@ -103,3 +103,55 @@ export function drawGroundTexture(d: OsmWorldData, size: number, half: number): 
   }
   return c;
 }
+
+/** Ölçülmüş zemin maskesinin dünya dikdörtgeni [x0, z0, x1, z1] (çokgenlerin sınır kutusu + pad); çokgen yoksa null */
+export function surveyMaskRect(
+  polys: [number, number][][],
+  pad = 8,
+): [number, number, number, number] | null {
+  let x0 = Infinity;
+  let z0 = Infinity;
+  let x1 = -Infinity;
+  let z1 = -Infinity;
+  for (const r of polys)
+    for (const p of r) {
+      x0 = Math.min(x0, p[0]);
+      z0 = Math.min(z0, p[1]);
+      x1 = Math.max(x1, p[0]);
+      z1 = Math.max(z1, p[1]);
+    }
+  if (!(x1 > x0) || !(z1 > z0)) return null;
+  return [x0 - pad, z0 - pad, x1 + pad, z1 + pad];
+}
+
+/**
+ * v8 ölçülmüş zemin maskesi (materials.ts surveyMask): çokgenler beyaz, geri kalan siyah. Uzun kenar `maxSize`
+ * piksel (dikdörtgen en-boy oranı korunur). Doku v = 0 → z0 (flipY kapalı kullanılır).
+ */
+export function drawSurveyMask(
+  polys: [number, number][][],
+  rect: [number, number, number, number],
+  maxSize: number,
+): HTMLCanvasElement {
+  const [x0, z0, x1, z1] = rect;
+  const k = maxSize / Math.max(x1 - x0, z1 - z0);
+  const c = document.createElement('canvas');
+  c.width = Math.max(1, Math.round((x1 - x0) * k));
+  c.height = Math.max(1, Math.round((z1 - z0) * k));
+  const ctx = c.getContext('2d')!;
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, c.width, c.height);
+  ctx.fillStyle = '#fff';
+  for (const r of polys) {
+    if (r.length < 3) continue;
+    ctx.beginPath();
+    path(
+      ctx,
+      r,
+      (x) => (x - x0) * k,
+      (z) => (z - z0) * k,
+    );
+    ctx.fill();
+  }
+  return c;
+}

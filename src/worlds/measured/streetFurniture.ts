@@ -36,7 +36,7 @@ export interface FurnCtx {
   H: (x: number, z: number) => number;
   /** Yürüme yüzeyi kotu (arazinin üstünde m) — kaldırım bandı / ada / base */
   walk: (x: number, z: number) => number;
-  colorKey?: (kind: CK, hex: string) => string;
+  colorKey?: (kind: CK | 'encglass' | 'interior', hex: string) => string;
   signFace?: (s: SignSpec) => string;
   collide?: Collide;
   /** v8: noktadan en yakın yol eksenine birim yön (yön ölçülmemiş eşyanın bakışı); yol yoksa null */
@@ -47,7 +47,7 @@ const HEX = /^#[0-9a-f]{6}$/i;
 /** Renk ölçülmemişse nötr gri (örnek rengi zorunlu; görülen renk yazılmalı) */
 const NEUTRAL = '#c8c8c8';
 const colOf = (v: unknown) => (typeof v === 'string' && HEX.test(v) ? v : NEUTRAL);
-const ckOf = (c: FurnCtx, kind: CK, hex: unknown, dflt: string) =>
+const ckOf = (c: FurnCtx, kind: CK | 'encglass' | 'interior', hex: unknown, dflt: string) =>
   typeof hex === 'string' && HEX.test(hex) && c.colorKey ? c.colorKey(kind, hex) : dflt;
 const num = (v: unknown, d: number) => (typeof v === 'number' && Number.isFinite(v) ? v : d);
 
@@ -484,6 +484,78 @@ function b3(b: Builder, key: string, a: V2, e: V2, y0: number, y1: number, th: n
   b.box(key, [(a[0] + e[0]) / 2, (y0 + y1) / 2, (a[1] + e[1]) / 2], [L, y1 - y0, th], yaw);
 }
 
+/** Kış bahçesi alın yazısı: kenar indeksi, kenar boyunca u0..u1 (m, kenar başından), yazı ve renkler */
+export interface FasciaSign {
+  edge: number;
+  u0?: number;
+  u1?: number;
+  text: string;
+  fg?: string;
+  bg?: string;
+  font?: string;
+}
+
+/**
+ * v8 (critic d4c #5): kış bahçesi / pavyon alın yazıları. `fasciaSigns` [{edge, u0, u1, text, fg, bg, font}] ya da
+ * kısayol `fasciaText` (+ `fasciaFg`, `fasciaEdge`): verilmezse dolu olmayan en uzun kenar. Yalnız görülen yazı
+ * (ölçüm notundaki okunan metin) yazılır; renkler geçersizse yok sayılır.
+ */
+export function fasciaSigns(
+  s: StreetItem,
+  poly: V2[],
+  solid: Set<number>,
+  /** Noktadan en yakın yol eksenine birim yön (FurnCtx.toRoad): varsayılan kenar yola bakan kenar */
+  toRoad?: (x: number, z: number) => V2 | null,
+): FasciaSign[] {
+  const hex = (v: unknown) => (typeof v === 'string' && HEX.test(v) ? v : undefined);
+  const out: FasciaSign[] = [];
+  const L = poly.length;
+  const lenOf = (j: number) => {
+    const a = poly[j];
+    const e = poly[(j + 1) % L];
+    return Math.hypot(e[0] - a[0], e[1] - a[1]);
+  };
+  if (Array.isArray(s.fasciaSigns))
+    for (const q of s.fasciaSigns as Partial<FasciaSign>[]) {
+      if (!q || typeof q.text !== 'string' || !q.text.trim()) continue;
+      const edge = typeof q.edge === 'number' ? Math.round(q.edge) : -1;
+      if (edge < 0 || edge >= L || solid.has(edge)) continue;
+      out.push({
+        edge,
+        ...(typeof q.u0 === 'number' ? { u0: q.u0 } : {}),
+        ...(typeof q.u1 === 'number' ? { u1: q.u1 } : {}),
+        text: q.text,
+        ...(hex(q.fg) ? { fg: hex(q.fg) } : {}),
+        ...(hex(q.bg) ? { bg: hex(q.bg) } : {}),
+        ...(typeof q.font === 'string' ? { font: q.font } : {}),
+      });
+    }
+  else if (typeof s.fasciaText === 'string' && s.fasciaText.trim()) {
+    let edge = typeof s.fasciaEdge === 'number' ? Math.round(s.fasciaEdge) : -1;
+    if (edge < 0 || edge >= L || solid.has(edge)) {
+      // Yola bakan kenar (boy × dış normalin yol yönüyle kosinüsü); yol bilinmiyorsa en uzun kenar
+      const cx = poly.reduce((q, p) => q + p[0], 0) / L;
+      const cz = poly.reduce((q, p) => q + p[1], 0) / L;
+      const score = (j: number) => {
+        const a = poly[j];
+        const e = poly[(j + 1) % L];
+        const len = lenOf(j);
+        const m: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
+        const r = toRoad?.(m[0], m[1]);
+        if (!r || len < 1e-3) return len;
+        let n: V2 = [-(e[1] - a[1]) / len, (e[0] - a[0]) / len];
+        if ((cx - m[0]) * n[0] + (cz - m[1]) * n[1] > 0) n = [-n[0], -n[1]];
+        return len * (1e-3 + Math.max(0, n[0] * r[0] + n[1] * r[1]));
+      };
+      edge = -1;
+      for (let j = 0; j < L; j++) if (!solid.has(j) && (edge < 0 || score(j) > score(edge))) edge = j;
+    }
+    if (edge >= 0)
+      out.push({ edge, text: s.fasciaText, ...(hex(s.fasciaFg) ? { fg: hex(s.fasciaFg) } : {}) });
+  }
+  return out;
+}
+
 /**
  * Kış bahçesi kapatması (kaldırımda camlı teras): taban çokgeni poly (dünya), yükseklik h (ön kenar) ve h2 (arka,
  * eğik çatı; yoksa düz), cam (glass) + doğrama (frame) + dikme aralığı mullion, kapılar doors [{edge, u0, u1}],
@@ -496,7 +568,12 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
   const g0 = Math.min(...poly.map((p) => c.H(p[0], p[1]) + c.walk(p[0], p[1])));
   const h = num(s.h, 2.4);
   const h2 = num(s.h2, h);
-  const gk = ckOf(c, 'glass', s.glass, 'mkRailGlass');
+  // v8 (critic d4c #5): kış bahçesi camı saydam (ölçülen görünen cam tonu = yansıma + karanlık iç), içi koyu:
+  // önceden korkuluk camı malzemesiyle (opaklık 0.86) gri kutu görünüyordu. İç yüzler yalnız içe bakar →
+  // dışarıdan yalnız karşı duvarın içi, taban ve tavan görünür. KARAR: iç ton ölçülmedi (`interiorC` ile verilir) →
+  // koyu nötr #262420 (critic vitrin içi ölçümleri #121512–#353121 aralığı).
+  const gk = ckOf(c, 'encglass', s.glass ?? '#6a7478', ckOf(c, 'glass', s.glass, 'mkRailGlass'));
+  const ik = ckOf(c, 'interior', s.interiorC ?? '#262420', 'darkMetal');
   const fk = ckOf(c, 'frame', s.frame, 'darkMetal');
   const rk = ckOf(c, 'fascia', s.roofC, fk);
   const wk = ckOf(c, 'plaster', s.wallC, 'kamSlab');
@@ -535,6 +612,20 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
       face(wk, 0, len, g0);
       continue;
     }
+    // İç yüz (yalnız içe bakan, camın 4 cm içinde): tabandan tavana koyu iç
+    {
+      const n: V2 = [-t[1], t[0]];
+      const m: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
+      const cxy = poly.reduce((q, p) => [q[0] + p[0] / L, q[1] + p[1] / L], [0, 0] as V2);
+      const nIn: V2 = (cxy[0] - m[0]) * n[0] + (cxy[1] - m[1]) * n[1] > 0 ? n : [-n[0], -n[1]];
+      const A: V2 = [a[0] + nIn[0] * 0.04, a[1] + nIn[1] * 0.04];
+      const B: V2 = [e[0] + nIn[0] * 0.04, e[1] + nIn[1] * 0.04];
+      // Builder.quad(A alt, B alt, B üst, A üst) = wall(A, B): ön yüz (−t.z, t.x) = n yönüne bakar
+      const yb = g0 + 0.02;
+      if (nIn === n)
+        c.b.quad(ik, [A[0], yb, A[1]], [B[0], yb, B[1]], [B[0], ye - 0.02, B[1]], [A[0], ya - 0.02, A[1]]);
+      else c.b.quad(ik, [B[0], yb, B[1]], [A[0], yb, A[1]], [A[0], ya - 0.02, A[1]], [B[0], ye - 0.02, B[1]]);
+    }
     if (ph > 0.02) b3(c.b, pk, a, e, g0, g0 + ph, 0.08, yaw);
     // Cam + kapı boşlukları (kapıda cam kanat doğramalı, eşik yok)
     face(gk, 0, len, g0 + ph);
@@ -568,7 +659,7 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
     g.setAttribute(
       'position',
       new THREE.Float32BufferAttribute(
-        poly.flatMap((p) => [p[0], topAt(p) + (sg > 0 ? 0.02 : 0), p[1]]),
+        poly.flatMap((p) => [p[0], topAt(p) + (sg > 0 ? 0.02 : -0.03), p[1]]),
         3,
       ),
     );
@@ -585,11 +676,44 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
       g.setIndex(tris.flatMap((tr) => [tr[0], tr[2], tr[1]]));
       g.computeVertexNormals();
     }
-    c.b.geometry(rk, g);
+    c.b.geometry(sg > 0 ? rk : ik, g);
+  }
+  // İç taban (koyu)
+  {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute(
+      'position',
+      new THREE.Float32BufferAttribute(
+        poly.flatMap((p) => [p[0], g0 + 0.015, p[1]]),
+        3,
+      ),
+    );
+    g.setAttribute(
+      'uv',
+      new THREE.Float32BufferAttribute(
+        poly.flatMap((p) => [p[0], p[1]]),
+        2,
+      ),
+    );
+    g.setIndex(tris.flatMap((tr) => [tr[0], tr[1], tr[2]]));
+    g.computeVertexNormals();
+    if (g.attributes.normal.getY(0) < 0) {
+      g.setIndex(tris.flatMap((tr) => [tr[0], tr[2], tr[1]]));
+      g.computeVertexNormals();
+    }
+    c.b.geometry(ik, g);
   }
   // v8: alın bandı (`fasciaC`, `fasciaH` — ör. Özdemiroğlu kuzey kış bahçesi yeşil alın #253837): dolu olmayan
   // kenarların üst kısmında dışta 6 cm taşan bant. KARAR: yükseklik ölçülmemişse 0.35 m
-  const fc = typeof s.fasciaC === 'string' && HEX.test(s.fasciaC) ? s.fasciaC : null;
+  const fsigns = fasciaSigns(s, poly, solid, c.toRoad);
+  const fc =
+    typeof s.fasciaC === 'string' && HEX.test(s.fasciaC)
+      ? s.fasciaC
+      : fsigns.length && typeof s.frame === 'string' && HEX.test(s.frame)
+        ? s.frame
+        : fsigns.length
+          ? '#2a2c2e'
+          : null;
   if (fc) {
     const fh = Math.max(0.05, num(s.fasciaH, 0.35));
     const fk2 = ckOf(c, 'fascia', fc, fk);
@@ -616,6 +740,32 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
         0.06,
         Math.atan2(-t[1], t[0]),
       );
+      // v8: alın yazısı (`fasciaText` / `fasciaSigns`): tabela atlası yüzü bandın dış yüzünde (6.5 cm)
+      if (c.signFace)
+        for (const sg of fsigns) {
+          if (sg.edge !== j) continue;
+          const u0 = Math.max(0, Math.min(len, sg.u0 ?? 0.1));
+          const u1 = Math.max(u0 + 0.1, Math.min(len, sg.u1 ?? len - 0.1));
+          const key = c.signFace({
+            text: sg.text,
+            lines: null,
+            bg: sg.bg ?? fc,
+            fg: sg.fg ?? '#ffffff',
+            border: null,
+            font: sg.font ?? 'sans',
+            bold: true,
+            lit: false,
+            style: 'panel',
+            w: u1 - u0,
+            h: fh,
+          });
+          const o = 0.065;
+          const P = (u: number): V2 => [a[0] + t[0] * u + nO[0] * o, a[1] + t[1] * u + nO[1] * o];
+          // wall(A, B) (−t.z, t.x)'e bakar: dışa (nO) bakacak sırayla
+          const out = -t[1] * nO[0] + t[0] * nO[1] > 0;
+          if (out) c.b.wall(key, P(u0), P(u1), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
+          else c.b.wall(key, P(u1), P(u0), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
+        }
     }
   }
   // v8: çatı mertekleri (`rafters` {every, color, w} ya da not "≈3.4 m aralıklı koyu mertekler"): kenar 0'a (bina

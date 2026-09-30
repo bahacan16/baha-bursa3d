@@ -754,9 +754,11 @@ function roundaboutIsland(
 /** Ayrım adası (ölçüm: da3-island-*): çokgen, bordürlü, yüzey nottan (çim / beton) */
 function splitterIsland(
   b: Builder,
-  s: { poly?: V2[]; h?: number; material?: string; note?: string; kerbPaint?: unknown },
+  s: { id?: string; poly?: V2[]; h?: number; material?: string; note?: string; kerbPaint?: unknown },
   H: (x: number, z: number) => number,
   paintKey?: (hex: string) => string,
+  /** Noktadan en yakın OSM araç şeridi kenarına uzaklık (m; StreetExt.roadEdge) — refüj çevresi asfalt dolgusu */
+  roadEdge?: (x: number, z: number) => number,
 ): Raised[] {
   const r = (s.poly ?? []).map((p) => [p[0], p[1]] as V2);
   if (r.length > 3 && r[0][0] === r[r.length - 1][0] && r[0][1] === r[r.length - 1][1]) r.pop();
@@ -797,6 +799,38 @@ function splitterIsland(
         ? 'spConcrete'
         : layerKey(t);
   b.drape(key, inset, [], H, h, key === 'lawn' ? 0.5 : 1, 2);
+  // v8 (D4 refüjleri): bordürle OSM şeridi arasına asfalt dolgu — OSM kaldırımı refüj kenarında kaldırılınca
+  // (roads[] sidewalk none / ada bölgesi) aradaki şeritte hava fotoğrafı (açık gri-bej) görünüyordu. Yalnız refüj /
+  // ayrım adası (meydan içi tarhlar değil); dolgu OSM yolunun altında (0.027 < 0.04), en çok 6 m.
+  const tag = `${s.id ?? ''} ${s.material ?? ''}`.toLowerCase();
+  if (roadEdge && /refüj|ayrım|ayırıcı|median|split/.test(tag))
+    for (let i = 0; i < n; i++) {
+      const a = r[i];
+      const e = r[(i + 1) % n];
+      const L = Math.hypot(e[0] - a[0], e[1] - a[1]);
+      if (L < 0.2) continue;
+      const out: V2 = [-nor[i][0], -nor[i][1]];
+      const m: V2 = [(a[0] + e[0]) / 2 + out[0] * 0.3, (a[1] + e[1]) / 2 + out[1] * 0.3];
+      const g = roadEdge(m[0], m[1]);
+      if (!(g <= 6)) continue;
+      const w = Math.min(6, Math.max(0.3, g + 0.6));
+      const t: V2 = [(e[0] - a[0]) / L, (e[1] - a[1]) / L];
+      const A: V2 = [a[0] - t[0] * 0.3, a[1] - t[1] * 0.3];
+      const E: V2 = [e[0] + t[0] * 0.3, e[1] + t[1] * 0.3];
+      try {
+        b.drape(
+          'roadFill',
+          [A, E, [E[0] + out[0] * w, E[1] + out[1] * w], [A[0] + out[0] * w, A[1] + out[1] * w]],
+          [],
+          H,
+          0.027,
+          1,
+          2,
+        );
+      } catch {
+        /* dejenere */
+      }
+    }
   return [{ poly: r, h }];
 }
 
@@ -1519,7 +1553,10 @@ export interface StreetExt {
   /** Tabela yüzü (index.ts tabela atlası) */
   signFace?: (sg: SignSpec) => string;
   /** `paint`: v8 bordür boyası (polygonOffset'li düz boya, yüzün 2 mm önünde) */
-  colorKey?: (kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3' | 'paint', hex: string) => string;
+  colorKey?: (
+    kind: CK | 'asphalt' | 'tar' | 'wear1' | 'wear2' | 'wear3' | 'paint' | 'encglass' | 'interior',
+    hex: string,
+  ) => string;
   /** Yüksek/Ultra kalite: bordür taşı üst kenar pahı (m, 0 = yok) */
   bevel?: number;
   /** Çarpışma halkası (x/z çokgen, alt–üst kot) */
@@ -1714,7 +1751,7 @@ function buildStreet(
       isl.push(...r.raised);
       rbs.push(r.geo);
     } else if (s.kind === 'island')
-      isl.push(...splitterIsland(b, s as unknown as { poly?: V2[] }, H, paintKey));
+      isl.push(...splitterIsland(b, s as unknown as { poly?: V2[] }, H, paintKey, ext.roadEdge));
   }
   /** Noktadaki ada kotu (en yüksek), yoksa kaldırım kotu */
   const walkAt = (x: number, z: number) => {
@@ -1781,7 +1818,7 @@ function buildStreet(
     b,
     H,
     walk: (x: number, z: number) => walkH(x, z),
-    colorKey: ext.colorKey as ((kind: CK, hex: string) => string) | undefined,
+    colorKey: ext.colorKey as ((kind: CK | 'encglass' | 'interior', hex: string) => string) | undefined,
     signFace: ext.signFace,
     collide: ext.collide,
     toRoad: (x: number, z: number) => towardRoad(roadCentre, x, z),

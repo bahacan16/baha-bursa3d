@@ -65,14 +65,14 @@
      "u1": 11.07,
      "y0": 3.91,
      "y1": 6.82,
-     "color": "#202629",
+     "color": "#242a28",
      "proud": 0.08,
      "clad": {
       "dir": "grid",
       "every": 0.55,
       "every2": 0.55,
       "w": 0.02,
-      "color": "#3c4146"
+      "color": "#373b3c"
      }
     },
     {
@@ -120,6 +120,20 @@
     },
     {
      "t": "sign",
+     "u0": 9.02,
+     "u1": 9.2,
+     "y0": 5.9,
+     "y1": 6.08,
+     "d": 0.02,
+     "style": "letters",
+     "text": "®",
+     "fg": "#c42f38",
+     "font": "sans",
+     "bold": false,
+     "logo": "tleK 0_40 karesinde \"u\" harfinin sağ üstünde"
+    },
+    {
+     "t": "sign",
      "u0": 9.2,
      "u1": 10.27,
      "y0": 5.05,
@@ -130,7 +144,7 @@
      "fg": "#d0d0d0",
      "font": "sans",
      "bold": false,
-     "logo": "solunda küçük ®"
+     "logo": "gri rakamlar; ® \"Ayanoğlu\" yazısının sağ üstünde (ayrı öğe)"
     },
     {
      "t": "pipe",
@@ -564,14 +578,14 @@
      "u1": 36.8,
      "y0": 4.78,
      "y1": 9.1,
-     "color": "#202629",
+     "color": "#242a28",
      "proud": 0.08,
      "clad": {
       "dir": "grid",
       "every": 0.55,
       "every2": 0.55,
       "w": 0.02,
-      "color": "#3c4146"
+      "color": "#373b3c"
      }
     },
     {
@@ -582,13 +596,27 @@
      "y1": 8.2,
      "d": 0.1,
      "style": "letters",
-     "text": "Aya…noğlu",
+     "text": "Ayanoğlu",
      "fg": "#c42f38",
      "border": "#ffffff",
      "font": "script",
      "bold": true,
      "capH": 2.3,
-     "logo": "kırmızı el yazısı, ince beyaz kontur; \"Aya\" (n3Ef) + \"…noğlu\" (9nQa; güney yüzde tam okunuyor: \"Ayanoğlu\"); sağında \"®\" ve gri \"1927\"; iki panonun kayması yüzünden yazının güney ucu ±1.5 m"
+     "logo": "kırmızı el yazısı, ince beyaz kontur. Yazı iki panodan birleştirildi: baş \"Aya\" n3Ef _f22, son \"…noğlu\" 9nQa ortofotosunda (orta kısım ağaç arkasında); tam yazı güney yüzde (tleK) \"Ayanoğlu\" okunuyor. Sağında \"®\" (ayrı öğe) ve gri \"1927\"; iki panonun kayması yüzünden yazının güney ucu ±1.5 m"
+    },
+    {
+     "t": "sign",
+     "u0": 35.2,
+     "u1": 35.45,
+     "y0": 7.35,
+     "y1": 7.65,
+     "d": 0.02,
+     "style": "letters",
+     "text": "®",
+     "fg": "#c42f38",
+     "font": "sans",
+     "bold": false,
+     "logo": "\"u\" harfinin sağ üstünde küçük tescil işareti (9nQa, n3Ef koordinatına −1.6 m kaydırıldı ±0.5)"
     },
     {
      "t": "sign",
@@ -646,6 +674,14 @@
    "glass": "#9fb3c4",
    "frame": "#e8e8e6",
    "note": "derinlik görülmedi"
+  },
+  {
+   "what": "Ayanoğlu desenli siyah panoların motifi",
+   "edges": [
+    0,
+    3
+   ],
+   "note": "panolar (kenar 0 u 0–11.07 y 3.91–6.82, kenar 3 u 15.48–36.8 y 4.78–9.1) düz #242a28 değil: gri (#373b3c) ince çizgili geometrik yıldız/geçme (8 kollu yıldız ağı) deseni, tekrar ≈0.55 m (n3Ef _f22). Şimdilik clad grid 0.55 ile yaklaşık; üreticide panel için desen (damask/geçme) desteği gerekli."
   }
  ]
 }

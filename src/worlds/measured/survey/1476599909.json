@@ -29,9 +29,336 @@
   {
    "edge": 0,
    "len": 25.43,
-   "seen": "none",
-   "items": [],
-   "note": "B duvar: 900000203 podyumuna bitişik; podyum üstünde kalan kısım (≈7 m üstü) yalnız uzaktan (ZLY2w/EHfaO karelerinde, kuleler arası) görüldü — ortofoto yok, ölçülmedi."
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     25.43
+    ],
+    "head": [
+     [
+      1,
+      9.39
+     ],
+     [
+      7,
+      27.62
+     ]
+    ]
+   },
+   "note": "D4-A düzeltme (2026-09-30): B yüz (bulvara bakan, podyum 900000203 üstü) ölçüldü — ortofoto bu çalışmada sswNcGS2 panosundan (extra 17_7/24/41 40° + sv-main 0_0) üretildi (scratch ortho2.mjs, sv-extra girdisi yok). Tv5er 60_0 bu yüzü GÖRMÜYOR (önünde 910 kulesi; eleştirmenin kastettiği yüz 910’dur). Bakış ≈60–75° yalayan (13.2 m): yatay konumlar kamera hata modeliyle (K köşe + G köşe + kat adımı; yön −3.75°, 1.5 m yakın, ayak +1) → u GERÇEK m, y kenar 1 çerçevesinde. Belirsizlik u ±1 m (K uçta ±1.5), derinlik görülmedi (d 1.0 yazıldı, hava fotoğrafında çatı başlığı u 10.7–14.0’te taban izi hattında, ±1). Görülen (K’dan G’ye): A yığını (u 0.3–4.8, cam korkuluk; K3, K4, K6 koyu cam balkon, K5 beyaz perdeli cam balkon, K7 açık, K2 görülmedi → açık çizildi), düz sıva u 4.8–8.9, B yığını iki balkon (u 8.9–13.4: K2, K4, K5, K6 cam balkon, K3, K7 açık; u 13.4–18.0: K2, K4 (koyu), K5 cam balkon, K3, K6, K7 açık), derzli pencere sütunu (u 18.8–20.5, 2 bölmeli, perdeler kat kat), düz sıva u 20.5–25.43. K0–K1 podyum arkasında GÖRÜLMEDİ.",
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0.3,
+     "u1": 4.8,
+     "s": [
+      2,
+      7
+     ],
+     "d": 1.0,
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      3,
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K3": "dark",
+      "K4": "dark",
+      "K5": "blinds",
+      "K6": "dark"
+     },
+     "fasciaC": {
+      "*": "#b8a894"
+     },
+     "railC": "#dfe1de",
+     "glassC": {
+      "*": "#a9b6b1"
+     },
+     "beam": {
+      "*": 0.3
+     },
+     "postEvery": 0.7,
+     "frameC": {
+      "*": "#e6e6e3"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 8.9,
+     "u1": 13.4,
+     "s": [
+      2,
+      7
+     ],
+     "d": 1.0,
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      2,
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K2": "clear",
+      "K4": "clear",
+      "K5": "clear",
+      "K6": "clear"
+     },
+     "glazeEvery": 0.7,
+     "fasciaC": {
+      "*": "#b8a894"
+     },
+     "railC": "#dfe1de",
+     "glassC": {
+      "*": "#a9b6b1"
+     },
+     "beam": {
+      "*": 0.3
+     },
+     "postEvery": 0.7,
+     "frameC": {
+      "*": "#e6e6e3"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 13.4,
+     "u1": 18.0,
+     "s": [
+      2,
+      7
+     ],
+     "d": 1.0,
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      2,
+      4,
+      5
+     ],
+     "tint": {
+      "K2": "clear",
+      "K4": "dark",
+      "K5": "clear"
+     },
+     "glazeEvery": 0.7,
+     "fasciaC": {
+      "*": "#b8a894"
+     },
+     "railC": "#dfe1de",
+     "glassC": {
+      "*": "#a9b6b1"
+     },
+     "beam": {
+      "*": 0.3
+     },
+     "postEvery": 0.7,
+     "frameC": {
+      "*": "#e6e6e3"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 18.8,
+     "u1": 20.5,
+     "y0": 26.34,
+     "y1": 27.52,
+     "k": 7,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b2c27",
+     "surround": {
+      "w": 0.15,
+      "d": 0.04,
+      "color": "#cbbaa2"
+     },
+     "curt": {
+      "K7": "karanlik",
+      "K6": "tul-yan",
+      "K5": "karanlik",
+      "K4": "tul-yan",
+      "K3": "karanlik",
+      "K2": "tul-yan"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 25.89,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 25.54,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 25.19,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 22.82,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 22.47,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 22.12,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 19.74,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 19.39,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 19.04,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 16.7,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 16.35,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 16.0,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 13.76,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 13.41,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 13.06,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 10.69,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 10.34,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 18.6,
+     "u1": 20.7,
+     "y": 9.99,
+     "w": 0.025,
+     "color": "#6e5646"
+    }
+   ]
   },
   {
    "edge": 1,

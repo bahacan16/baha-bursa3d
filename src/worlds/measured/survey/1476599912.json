@@ -28,9 +28,295 @@
   {
    "edge": 0,
    "len": 25.43,
-   "seen": "none",
-   "items": [],
-   "note": "B duvar: 900000201 tek katlı podyuma bitişik; üst katları yalnız eğik/uzaktan görüldü (ClwC9, 2tZdY), ölçülmedi."
+   "seen": "partial",
+   "cal": {
+    "u": [
+     0,
+     25.43
+    ],
+    "head": [
+     [
+      1,
+      9.37
+     ],
+     [
+      7,
+      27.58
+     ]
+    ]
+   },
+   "note": "D4-A düzeltme (2026-09-30): B yüz (podyum 900000201 üstü) ölçüldü — ortofotolar bu çalışmada ClwC9NKO (extra 8/34 × 1/28/55 40° + sv-main 0_0/300_40) ve 2tZdYrGD (sv-main 0_0/0_40) panolarından üretildi (scratch ortho2.mjs, sv-extra girdisi yok). Bakış yüze ≈60° (ClwC, 12.8 m) — çok yalayan: pano konum/yön hatası yatayda doğrusal değil. Yatay konumlar kamera hata modeliyle çözüldü (iki köşe + kat adımı: pano 2.1 m yakın, yön −4.2°, ayak +1 m; 909 B yüzünde bağımsız çözüm benzer: −3.8°, 1.5 m) → u GERÇEK m (cal.u 0–25.43), y kenar 1 çerçevesinde (cal.head kenar 1 ile aynı). Belirsizlik: u ±1 m, balkon derinlikleri ±0.5. Görülen düzen (K’dan G’ye): KB köşe yığını + A yığını (u 0–5.4; cam korkuluklu, K5 camla kapalı mavi-koyu cam, diğer katlar açık/koyu iç), düz sıva u 5.4–9.4, B yığını (u 9.4–17.0; K2–K7 hepsi cam balkon, beyaz doğrama, K3’te beyaz perde; hava fotoğrafında çatı hizasında bu yığının başlığı u ≈10.9–13.1’de duvardan ≈1.3 m taşıyor → d 1.2), derzli pencere sütunu (u 17.6–19.4, 2 bölmeli, altlarında 3 derz; perdeler kat kat), düz sıva u 19.4–25.43 (G köşedeki yığın kenar 1’in sol köşe yığınıdır). K0–K1 podyum 900000201 arkasında GÖRÜLMEDİ. A yığını derinliği görülmedi (1.0 yazıldı, ±0.5).",
+   "items": [
+    {
+     "t": "bal",
+     "u0": 0.0,
+     "u1": 5.4,
+     "s": [
+      2,
+      7
+     ],
+     "d": 1.0,
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      5
+     ],
+     "tint": {
+      "K5": "dark"
+     },
+     "fasciaC": {
+      "*": "#b8a894"
+     },
+     "railC": "#dfe1de",
+     "glassC": {
+      "*": "#a9b6b1"
+     },
+     "beam": {
+      "*": 0.3
+     },
+     "postEvery": 0.7,
+     "frameC": {
+      "*": "#e6e6e3"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 9.4,
+     "u1": 17.0,
+     "s": [
+      2,
+      7
+     ],
+     "d": 1.2,
+     "sides": "open",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glazed": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+     ],
+     "tint": {
+      "K2": "dark",
+      "K3": "blinds",
+      "K4": "dark",
+      "K5": "dark",
+      "K6": "dark",
+      "K7": "dark"
+     },
+     "glazeEvery": 0.7,
+     "fasciaC": {
+      "*": "#b8a894"
+     },
+     "railC": "#dfe1de",
+     "glassC": {
+      "*": "#a9b6b1"
+     },
+     "beam": {
+      "*": 0.3
+     },
+     "postEvery": 0.7,
+     "frameC": {
+      "*": "#e6e6e3"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 17.6,
+     "u1": 19.4,
+     "y0": 26.23,
+     "y1": 27.48,
+     "k": 7,
+     "s": [
+      2,
+      7
+     ],
+     "kind": "std",
+     "split": 2,
+     "frameC": "#3b2c27",
+     "surround": {
+      "w": 0.15,
+      "d": 0.04,
+      "color": "#cbbaa2"
+     },
+     "curt": {
+      "K7": "tul-yan",
+      "K6": "tul-yan",
+      "K5": "tul-yan",
+      "K4": "tul",
+      "K3": "tul-yan",
+      "K2": "tul"
+     }
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 25.78,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 25.43,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 25.08,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 22.74,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 22.39,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 22.04,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 19.67,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 19.32,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 18.97,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 16.68,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 16.33,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 15.98,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 13.64,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 13.29,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 12.94,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 10.6,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 10.25,
+     "w": 0.025,
+     "color": "#6e5646"
+    },
+    {
+     "t": "groove",
+     "dir": "h",
+     "u0": 17.4,
+     "u1": 19.6,
+     "y": 9.9,
+     "w": 0.025,
+     "color": "#6e5646"
+    }
+   ]
   },
   {
    "edge": 1,
@@ -1841,6 +2127,19 @@
     23
    ],
    "note": "C yığını K5’te beyaz uzun kutu (dolap/buzdolabı?) — derinlik görülmedi"
+  },
+  {
+   "type": "balcony-scaffold",
+   "edge": 0,
+   "storey": [
+    2,
+    3
+   ],
+   "u": [
+    8.5,
+    11
+   ],
+   "note": "B yığını K2–K3 önünde paslı kahve metal çerçeveler (eski tente/iskelet kolları, ≈1 m dışarı) — ClwC 34_28; ölçüsü çıkarılamadı, çizilmedi"
   }
  ]
 }

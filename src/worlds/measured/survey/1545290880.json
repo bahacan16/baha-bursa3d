@@ -614,7 +614,7 @@
      ]
     ]
    },
-   "note": "Özlüce Bulvarı (batı) cephesi, hdpFBuat _f22 (güneşli, öğleden sonra; 27 m’den). İkinci pano 8Th6vVrO ile cephe düzlemindeki öğeler ±0.6 m uyumlu (8Th6 → hdpF: u − 0.55); bulvardan görülen yüksek blok (\"WORLDZONE\", tepede \"ÖNDÜL ELITE OFFICES ÇALIŞMANIN LÜKSÜ\") iki pano paralaksına göre cepheden ≈26–30 m geride = doğudaki komşu bina → burada çizilmedi (bu binanın uç duvarlarında aynı ELITE OFFICES yazıları var). Kesit (görünen = gerçek): K0 çift yükseklikli dükkân (vitrin 1.3–4.3, üst bant/tabela 4.6–7.6), kahverengi döşeme bandı 7.6–8.25, K1 ofis bant pencereleri (fransız korkuluklu) 8.25–10.94, kahverengi bant 10.94–11.67, üstünde cam korkuluklu teras (11.67–12.4) ve geri çekik açık gri K3 bandı (12.4–13.8, volumes). Kuzey ≈16 m (u 0–16) ağaçlarla kapalı (yalnız Peynirci Baba tentesi/flamaları görülüyor). Güney uç (u 72.7–80) 5 katlı uç kütle (massing), batı yüzü okunamadı. | ÖĞE NOTLARI: [win u 16.55–28.4 K2–2] AKURA bölümü ve BOSCH üstü ; [awning u 9.05–19.35] koyu yeşil sabit tente; önünde üçgen flama dizisi (sarı/beyaz/yeşil) — street-plan ; [win u 14.85–20.8 K0–0] şarküteri vitrini; tezgâhlar kaldırıma taşmış ; [panel u 36–42.46] bronz desenli (geçme) kaplama pano ; [win u 36–42.4 K0–0] vitrinde altın rengi ürünler",
+   "note": "Özlüce Bulvarı (batı) cephesi, hdpFBuat _f22 (güneşli, öğleden sonra; 27 m’den). İkinci pano 8Th6vVrO ile cephe düzlemindeki öğeler ±0.6 m uyumlu (8Th6 → hdpF: u − 0.55); bulvardan görülen yüksek blok (\"WORLDZONE\", tepede \"ÖNDÜL ELITE OFFICES ÇALIŞMANIN LÜKSÜ\") iki pano paralaksına göre cepheden ≈26–30 m geride = doğudaki komşu bina → burada çizilmedi (bu binanın uç duvarlarında aynı ELITE OFFICES yazıları var). Kesit (görünen = gerçek): K0 çift yükseklikli dükkân (vitrin 1.3–4.3, üst bant/tabela 4.6–7.6), kahverengi döşeme bandı 7.6–8.25, K1 ofis bant pencereleri (fransız korkuluklu) 8.25–10.94, kahverengi bant 10.94–11.67, üstünde cam korkuluklu teras (11.67–12.4) ve geri çekik açık gri K3 bandı (12.4–13.8, volumes). Kuzey ≈16 m (u 0–16) ağaçlarla kapalı (yalnız Peynirci Baba tentesi/flamaları görülüyor). Güney uç (u 72.7–80) 5 katlı uç kütle (massing), batı yüzü okunamadı. | ÖĞE NOTLARI: [win u 16.55–28.4 K2–2] AKURA bölümü ve BOSCH üstü ; [awning u 9.05–19.35] koyu yeşil sabit tente; önünde üçgen flama dizisi (sarı/beyaz/yeşil) — street-plan ; [win u 14.85–20.8 K0–0] şarküteri vitrini; tezgâhlar kaldırıma taşmış ; [panel u 36–42.46] bronz desenli (geçme) kaplama pano ; [win u 36–42.4 K0–0] vitrinde altın rengi ürünler | D4-C düzeltme (2026-09-30): dükkân tabelalarının altında sürekli kahverengi-bordo alın bandı (4.75–5.33, #6b3f33 — ölçülen #4f301f/#553b32 güneşli, 7.6 döşeme bandıyla aynı malzeme) u 20.8–28.1 ve 42.5–63.8 (net-tech 28.1–35.4 kendi bandında, DİAGEN bronz panosu banda kadar iner, kuzey u 0–20.8 ağaç/tente arkasında görülmedi); vodafone üstü K1 camı (iPhone / NİK SER / iPad folyoları bu camın üstünde) u 42.6–49.5, 6.38–7.6.",
    "items": [
     {
      "t": "band",
@@ -1293,6 +1293,39 @@
      "font": "sans",
      "bold": true,
      "logo": "beyaz yuvarlak levha, üstte amblem, altta küçük satır"
+    },
+    {
+     "t": "band",
+     "u0": 20.8,
+     "u1": 28.1,
+     "y0": 4.75,
+     "y1": 5.33,
+     "color": "#6b3f33",
+     "proud": 0.1
+    },
+    {
+     "t": "band",
+     "u0": 42.5,
+     "u1": 63.8,
+     "y0": 4.75,
+     "y1": 5.33,
+     "color": "#6b3f33",
+     "proud": 0.1
+    },
+    {
+     "t": "win",
+     "u0": 42.6,
+     "u1": 49.5,
+     "y0": 6.38,
+     "y1": 7.6,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 6,
+     "frameC": "#1e1e1e",
+     "tint": "#1b2226"
     }
    ]
   }
@@ -1300,7 +1333,7 @@
  "notes": [
   "v8: teras cam korkuluğu (parapet) yalnız orta gövdenin (massing rest) bulvar kenarında: parça halkasında kenar 6 (splitMassing çıktısıyla doğrulandı; blok halkasının kenar 3’ü).",
   "KÜTLE: uzun alçak orta gövde (K0 çift yükseklikli dükkân + K1 ofis, üstü 11.67 cam korkuluklu teras, geri çekik K3 bandı) + iki uçta penceresiz taş kaplı yüksek uç kütleler (güney üst 17.88, kuzey 15.75; ELITE OFFICES / ÖNDÜL tabelalı). Uç kütlelerin kuzey–güney derinliği: güneyde bulvar ortofotosunda u 72.7–80 (7.3 m); kuzeyde ağaçlar yüzünden görülmedi → güneyle aynı 7.3 m alındı (VARSAYIM, notta). v8: uç kütlelerin batı yüzü geri çekik çizildi: güneyde 2.9 m (kenar 0 ortofotosunda kütle görünen u 2.88’de başlıyor), kuzeyde 3.5 m (kenar 2’de kütle batı ucu u 21.2 → 3.5 m); önündeki alçak K0–K2 kısmı (rest) bulvar hattına kadar.",
-  "FOOTPRINT: bulvardan görünen yüksek blok (WORLDZONE \"HAZIR PAYLAŞIMLI OFİSLER\", tepede \"ÖNDÜL ELITE OFFICES ÇALIŞMANIN LÜKSÜ\" çatı tabelası) iki pano paralaksına göre cepheden ≈26–30 m geride → doğudaki komşu bina; çizilmedi.",
+  "FOOTPRINT: bulvardan görünen yüksek blok (WORQZONE \"HAZIR & PAYLAŞIMLI OFİSLER\", tepede ÖNDÜL / ELITE OFFICES / \"ÇALIŞMANIN LÜKSÜ\" çatı panosu) cepheden ≈25 m geride → doğudaki komşu bina OSM 1477364959; D4-C turunda AYRI ölçüm dosyası (survey/1477364959.json) + taban izi olarak eklendi. (Eski okuma \"WORLDZONE\" yanlış: tleK / hdpF _f22'de \"WOR\" + kırmızı Q + \"ZONE\".)",
   "KAT: floorH 3.3 + groundRaise 1.3 → K0 1.3 (kaldırım görünen ≈1.2), K1 4.6 (dükkân üst bandı / asma kat: tabela bantları 4.6–7.6), K2 7.9 (ofis: kahverengi döşeme bandı 7.6–8.25, bant pencere 8.25–10.94), duvar üstü 11.67; uç kütleler K3 11.2, K4 14.5.",
   "RENKLER (bulvar güneşli): kahverengi döşeme bantları #6b3f33, K1 pencere camı #6f8d99 (gökyüzü yansıması), doğrama açık gri #d8d8d6, teras camı #8fb2b8, uç duvar taşı #c9c3b6 (bulutlu), yarıklar #6b4a3e.",
   "GÖRÜLMEYENLER: bulvar cephesinin kuzey ≈16 m’si (ağaçlar; yalnız Peynirci Baba tentesi, flamalar), güney uç kütlenin batı yüzü (pencereli, pembe afiş; ölçülemedi), doğu cephe, teras üstü."
