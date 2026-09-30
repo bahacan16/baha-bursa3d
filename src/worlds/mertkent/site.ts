@@ -669,8 +669,8 @@ function pillarExtras(b: Builder, g: PlanGate, y0: number, ctx: GateCtx): void {
       ]
     : edges;
   for (const p of pick) {
-    if (hexOk(ps.cap?.color))
-      b.box(ctx.colorKey('fascia', ps.cap!.color!), [p[0], y0 + 1.36, p[1]], [0.47, 0.08, 0.47], yaw);
+    // KARAR: başlık rengi (cap.color) burada çizilmez — kapı kenarı kolonu çit üreticisinden (fence2) gelir; ayrı
+    // başlık kutusu kolonun olmadığı kenarda havada kalıyordu (render kontrolü m2-12). Veri: çit kolonu başlık rengi
     const fb = ps.footBox;
     if (fb) {
       const fw = fb.w ?? 0.35;

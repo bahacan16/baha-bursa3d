@@ -2160,7 +2160,7 @@
      "u1": 24.37,
      "y0": 10.3,
      "y1": 10.95,
-     "text": "SEYHAN GAYRİMENK",
+     "text": "SEYHAN GAYRİM",
      "fg": "#f2f2f2",
      "style": "letters",
      "d": 0.03,
@@ -2672,7 +2672,7 @@
      "u1": 2.6,
      "y0": 10.4,
      "y1": 11.1,
-     "text": "ULÜ",
+     "text": "ENKUL",
      "fg": "#f2f2f2",
      "style": "letters",
      "d": 0.03,
@@ -3287,7 +3287,7 @@
     {
      "t": "win",
      "u0": 20.7,
-     "u1": 24.44,
+     "u1": 22.9,
      "y0": 2.0,
      "y1": 4.9,
      "k": 0,
@@ -3297,11 +3297,84 @@
      ],
      "kind": "shop",
      "stair": true,
-     "split": 3,
+     "split": 2,
      "frameC": "#cfd3d4",
      "curt": {
       "K0": "karanlik"
      }
+    },
+    {
+     "t": "sign",
+     "u0": 23.25,
+     "u1": 24.44,
+     "y0": 10.55,
+     "y1": 11.5,
+     "text": "",
+     "bg": "#1c5c42",
+     "fg": "#c9a44a",
+     "border": "#f2f2f0",
+     "shape": "round",
+     "style": "box",
+     "d": 0.08,
+     "logo": "KuveytTürk amblemi (yeşil daire + altın palmiye, beyaz halka) — podyum köşesi, 5FS/AElA karelerinden"
+    },
+    {
+     "t": "vinyl",
+     "u0": 22.2,
+     "u1": 24.44,
+     "y0": 9.1,
+     "y1": 10.3,
+     "text": "",
+     "lines": [
+      {
+       "text": "Herhangi bir has…",
+       "size": 1.0,
+       "y": 0.83
+      },
+      {
+       "text": "işletim masrafı ö…",
+       "size": 1.0,
+       "y": 0.5
+      },
+      {
+       "text": "her zaman kazan…",
+       "size": 1.0,
+       "y": 0.17
+      }
+     ],
+     "fg": "#1f3f6e",
+     "font": "sans",
+     "bold": true,
+     "align": "left",
+     "off": 0.01,
+     "logo": "kaplama üstü lacivert baskı; kenar 5'te devam eder"
+    },
+    {
+     "t": "win",
+     "u0": 22.9,
+     "u1": 24.44,
+     "y0": 2.0,
+     "y1": 4.9,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "door",
+     "split": 2,
+     "frameC": "#d9dcdc"
+    },
+    {
+     "t": "vinyl",
+     "u0": 22.9,
+     "u1": 24.44,
+     "y0": 6.25,
+     "y1": 7.0,
+     "text": "5 taksit.",
+     "fg": "#1f3f6e",
+     "bg": "#cfe0ea",
+     "font": "sans",
+     "bold": true
     },
     {
      "t": "pipe",
@@ -3789,21 +3862,6 @@
      "frameC": "#3a3d40"
     },
     {
-     "t": "sign",
-     "u0": -1.25,
-     "u1": 0.0,
-     "y0": 10.62,
-     "y1": 11.59,
-     "text": "",
-     "bg": "#1c5c42",
-     "fg": "#c9a44a",
-     "border": "#f2f2f0",
-     "shape": "round",
-     "style": "box",
-     "d": 0.08,
-     "logo": "KuveytTürk amblemi: beyaz halkalı koyu yeşil daire içinde altın rengi palmiye (kenar 4/5 köşesinde)"
-    },
-    {
      "t": "vinyl",
      "u0": 0.0,
      "u1": 1.9,
@@ -3812,17 +3870,17 @@
      "text": "",
      "lines": [
       {
-       "text": "Herhangi bir hesabınız için",
+       "text": "…gi bir hesabınız için",
        "size": 1.0,
        "y": 0.83
       },
       {
-       "text": "işletim masrafı ödemeyin,",
+       "text": "…masrafı ödemeyin,",
        "size": 1.0,
        "y": 0.5
       },
       {
-       "text": "her zaman … kazanın!",
+       "text": "…dan kazanın!",
        "size": 1.0,
        "y": 0.17
       }
@@ -3836,7 +3894,7 @@
     },
     {
      "t": "win",
-     "u0": -1.5,
+     "u0": 0.0,
      "u1": 5.1,
      "y0": 6.1,
      "y1": 7.05,
@@ -3849,19 +3907,6 @@
      "split": 4,
      "tint": "#3d6a8a",
      "frameC": "#d9dcdc"
-    },
-    {
-     "t": "vinyl",
-     "u0": -1.5,
-     "u1": 0.0,
-     "y0": 6.1,
-     "y1": 7.05,
-     "text": "5 taksit.",
-     "fg": "#1f3f6e",
-     "bg": "#cfe0ea",
-     "font": "sans",
-     "bold": true,
-     "logo": "KuveytTürk kampanya folyosu (cam üstü): 'Eğitim ve sağlık harcamalarına vade farksız 5 taksit.' (kenar 6'da tam)"
     },
     {
      "t": "vinyl",
@@ -3904,16 +3949,16 @@
      "t": "band",
      "u0": 0.0,
      "u1": 5.63,
-     "y0": 5.1,
-     "y1": 6.0,
+     "y0": 4.85,
+     "y1": 5.75,
      "color": "#1f6a4c"
     },
     {
      "t": "sign",
      "u0": 4.25,
      "u1": 5.1,
-     "y0": 5.3,
-     "y1": 5.62,
+     "y0": 5.1,
+     "y1": 5.45,
      "text": "ÖZLÜCE",
      "fg": "#f2f2f2",
      "style": "letters",
@@ -4024,21 +4069,6 @@
      "d": 0.35,
      "drop": 0.08,
      "color": "#d9dcdc"
-    },
-    {
-     "t": "win",
-     "u0": -1.5,
-     "u1": 0.05,
-     "y0": 2.0,
-     "y1": 4.9,
-     "k": 0,
-     "s": [
-      0,
-      0
-     ],
-     "kind": "door",
-     "split": 2,
-     "frameC": "#d9dcdc"
     },
     {
      "t": "win",
@@ -6544,11 +6574,11 @@
     "head": [
      [
       3,
-      8.8
+      9.2
      ],
      [
       8,
-      23.1
+      23.3
      ]
     ]
    },
@@ -7077,8 +7107,8 @@
      "t": "win",
      "u0": -0.15,
      "u1": 1.05,
-     "y0": 12.9,
-     "y1": 14.6,
+     "y0": 10.9,
+     "y1": 12.6,
      "k": 4,
      "s": [
       3,
@@ -7516,8 +7546,8 @@
     },
     {
      "t": "win",
-     "u0": 0.3,
-     "u1": 1.1,
+     "u0": 0.65,
+     "u1": 1.45,
      "y0": 21.6,
      "y1": 22.4,
      "k": 8,
@@ -7718,8 +7748,8 @@
     },
     {
      "t": "win",
-     "u0": 4.6,
-     "u1": 6.1,
+     "u0": 5.2,
+     "u1": 6.7,
      "y0": 22.6,
      "y1": 24.5,
      "k": 8,
@@ -7749,8 +7779,8 @@
     },
     {
      "t": "win",
-     "u0": 4.6,
-     "u1": 6.1,
+     "u0": 5.2,
+     "u1": 6.7,
      "y0": 7.6,
      "y1": 8.6,
      "k": 2,
@@ -8000,7 +8030,7 @@
     {
      "t": "sign",
      "u0": -0.5,
-     "u1": 4.5,
+     "u1": 2.3,
      "y0": 8.6,
      "y1": 9.6,
      "text": "Banu Ünal",
@@ -8015,8 +8045,8 @@
     },
     {
      "t": "win",
-     "u0": 0.0,
-     "u1": 1.0,
+     "u0": -0.6,
+     "u1": 0.8,
      "y0": 9.9,
      "y1": 11.4,
      "k": 2,
@@ -8037,8 +8067,8 @@
     },
     {
      "t": "win",
-     "u0": 3.6,
-     "u1": 5.8,
+     "u0": 2.3,
+     "u1": 3.8,
      "y0": 9.9,
      "y1": 11.4,
      "k": 2,
@@ -8059,8 +8089,8 @@
     },
     {
      "t": "win",
-     "u0": 7.6,
-     "u1": 8.6,
+     "u0": 6.9,
+     "u1": 8.5,
      "y0": 9.9,
      "y1": 11.4,
      "k": 2,
@@ -8081,8 +8111,8 @@
     },
     {
      "t": "win",
-     "u0": 11.1,
-     "u1": 12.3,
+     "u0": 10.8,
+     "u1": 12.2,
      "y0": 9.9,
      "y1": 11.4,
      "k": 2,
@@ -8103,8 +8133,8 @@
     },
     {
      "t": "win",
-     "u0": 16.5,
-     "u1": 17.6,
+     "u0": 15.05,
+     "u1": 16.8,
      "y0": 9.9,
      "y1": 11.4,
      "k": 2,
@@ -8125,7 +8155,7 @@
     },
     {
      "t": "ac",
-     "u": 11.2,
+     "u": 10.0,
      "s": 2,
      "y": 9.6
     },

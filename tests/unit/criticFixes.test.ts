@@ -437,7 +437,7 @@ describe('follow-up renderer fields', () => {
     expect(bk.has('gold')).toBe(true);
     expect(bk.has('gf_welded_#a0a195')).toBe(true);
     expect(bk.has('cc_metal_#ac977e')).toBe(true);
-    expect(bk.has('cc_fascia_#adaaa8')).toBe(true);
+    expect(bk.has('cc_fascia_#ecd8ab')).toBe(true);
     expect(bk.has('meshGrey')).toBe(true);
   });
 });
