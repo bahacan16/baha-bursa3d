@@ -192,6 +192,12 @@ export const glassDiffUniform = { value: qnum('glassdiff', 0.4) };
  * `?winroom=` dener.
  */
 export const windowEnvUniform = { value: qnum('winenv', 45) };
+/**
+ * Cam balkon: ×5 gök + ×0.2 iç mekânda doygun koyu mavi (#2d62ae → #1c4475) çıktı (render w5-cmp3 / w5-cmp5) —
+ * pencere camının ölçümü cam balkona uymuyor. KARAR: cam balkon eski çarpanda (9), yalnız sahte gök tonu ufuk mavisine
+ * çekildi; ölçülmüş cam balkon yaması gelince ayarlanır. `?camenv=` dener.
+ */
+export const camEnvUniform = { value: qnum('camenv', 9) };
 export const windowRoomUniform = { value: qnum('winroom', 0.2) };
 
 /** Cam malzemesine gök yansıması çarpanını ekler (mevcut onBeforeCompile zincirlenir) */
@@ -200,7 +206,8 @@ export function withGlassEnv<M extends THREE.Material>(m: M, tag = 'g'): M {
   const prevKey = m.customProgramCacheKey;
   m.onBeforeCompile = function (sh, r) {
     prev.call(this, sh, r);
-    sh.uniforms.uGlassEnv = tag === 'win' || tag === 'cam' ? windowEnvUniform : glassEnvUniform;
+    sh.uniforms.uGlassEnv =
+      tag === 'win' ? windowEnvUniform : tag === 'cam' ? camEnvUniform : glassEnvUniform;
     sh.fragmentShader = sh.fragmentShader
       .replace('#include <common>', '#include <common>\nuniform float uGlassEnv;')
       .replace(
@@ -433,10 +440,7 @@ if (vAux.z > 0.5) {
   float dfo = 0.72 + 0.28 * (0.5 + 0.5 * sin(x * 24.0 + sin(x * 3.0) * 1.3));
   inside = mix(inside, dc * dfo * 0.85, min(side, 1.0) * smoothstep(0.02, 0.08, y));
 }
-// v8: gündüz balkon içi / tül payı (pencere camıyla aynı uWinRoom), sahte gök tonu ufuk mavisine (önceden nötr
-// gri-mavi #0f1318 oranı; ölçülen cam #7f91a4) — asıl yansıma ortam haritasından (windowEnvUniform)
-float roomK = mix(uWinRoom, 1.0, uNight);
-inside *= roomK;
+// v8: sahte gök tonu ufuk mavisine (önceden nötr gri-mavi #0f1318 oranı; ölçülen pencere camı #7f91a4)
 // Gökyüzü yansıması (yukarı doğru güçlenen, yumuşak)
 inside += vec3(0.045, 0.068, 0.105) * (0.55 + 0.45 * y) * (1.0 - uNight * 0.7);
 vec3 frameCol = vec3(${glsl(fc.r)}, ${glsl(fc.g)}, ${glsl(fc.b)});
@@ -448,7 +452,7 @@ glassMask = 1.0 - fr;`,
       .replace(
         '#include <emissivemap_fragment>',
         `#include <emissivemap_fragment>
-totalEmissiveRadiance += mix(inside, frameCol, fr) * (0.12 + (1.0 - uNight) * (1.0 - uGlassDiff) * 0.3 * (1.0 - fr) * uWinRoom + uNight * step(0.5, h1(seed * 13.7)) * 0.55);
+totalEmissiveRadiance += mix(inside, frameCol, fr) * (0.12 + (1.0 - uNight) * (1.0 - uGlassDiff) * 0.3 * (1.0 - fr) + uNight * step(0.5, h1(seed * 13.7)) * 0.55);
 // v7: koyu camda gök yansıması / odadan sızan ışık cephe yönünden bağımsız (gölgeli cephede siyah kalmasın)
 if (tint > 1.5 && tint < 2.5) totalEmissiveRadiance += (1.0 - uNight * 0.8) * vec3(0.03, 0.036, 0.046) * (0.6 + 0.4 * y) * (1.0 - max(joint, prof));`,
       );

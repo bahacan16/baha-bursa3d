@@ -811,10 +811,10 @@
 - **(Gündüz güneşi 135° / 40°)** — Gündüz hazır ayarı az 165° / 48° → 135° / 40° (≈10:45; gerçek 20 Eylül 10:30 =
   130° / 38°, 502. Sk. karelerinde doğu cepheler güneşte). Dosya: `src/env/daylight.ts`. **Blender:** Dünya → güneş
   yönü az 135°, yükseklik 40° (Sun lamp döndür); pişirme yalnız dolaylı ışık olduğu için AO yeniden pişirmek gerekmez.
-- **(commit edilmedi — kod turu w5, malzeme)** — Gün ışığı kalibrasyonu malzeme düzeltmeleri: pencere + cam balkon
-  camında gök yansıması ×5 (`windowEnvUniform` 45; vitrin/giydirme `tint` camı eski 9), gündüz oda/tül payı ×0.2
-  (`windowRoomUniform`), cam balkon sahte gök tonu ufuk mavisi; Mertkent prekast duvar (`mkWave`) normal 0.25→0.12 ve
+- **(commit edilmedi — kod turu w5, malzeme)** — Gün ışığı kalibrasyonu malzeme düzeltmeleri: pencere
+  camında gök yansıması ×5 (`windowEnvUniform` 45), cam balkon eski çarpanda (×5 / ×2 doygun koyu mavi çıktı; yalnız sahte gök tonu mavileşti), vitrin/giydirme `tint` camı eski 9, gündüz oda/tül payı ×0.2
+  (`windowRoomUniform`, yalnız pencere); Mertkent prekast duvar (`mkWave`) normal 0.25→0.12 ve
   dokunun fotoğraf gölgelemesi duvar rengine %50 karışımla yumuşatıldı; leylandi çit (`mkHedge`, `mkHedgeTop`) doğrusal
-  ×(0.8, 0.88, 3.0) (daha az doygun / sarı). Dosyalar: `facadeMats.ts`, `index.ts`. **Blender:** `materials.py` →
+  ×(0.82, 0.9, 1.8) (daha az doygun / sarı). Dosyalar: `facadeMats.ts`, `index.ts`. **Blender:** `materials.py` →
   `mkGlass`/cam balkon (Glass/Principled: iç renk koyu, yansıma baskın), `mkWave` (bump yarıya, albedo açık),
   `mkHedge` renk çarpanı.

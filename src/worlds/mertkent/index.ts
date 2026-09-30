@@ -35,7 +35,7 @@ const USE_PLAN =
 
 /** Ölçülmüş sokak planı (street-plan.json, ajan ölçümü) — yoksa OSM site sınırından çit */
 /** v8: leylandi çit rengi düzeltmesi (doğrusal çarpan; mkHedge / mkHedgeTop) */
-const HEDGE_FIX = new THREE.Color().setRGB(0.8, 0.88, 3.0);
+const HEDGE_FIX = new THREE.Color().setRGB(0.82, 0.9, 1.8);
 const STREET_PLAN = STREET_PLAN0 as Omit<StreetPlan, 'fence'> & { fence?: FenceSpec[] };
 import { buildBrickFence, buildSalusGate, type BrickSeg } from './salus';
 import {
@@ -939,7 +939,8 @@ function materials(base: string): Record<string, THREE.Material> {
       const map = T.leylandiiTexture();
       map.anisotropy = 8;
       // v8 (gün ışığı kalibrasyonu): fazla doygun / sarı. Ölçüm gölge #1e3121 (oyun #2f4411), güneş #566e3e (oyun
-      // #495c1f) → iki yamanın doğrusal oranlarının geometrik ortası ×(0.8, 0.88, 3.0) (mavi eksikti)
+      // #495c1f) → doğrusal oranların geometrik ortası ×(0.8, 0.88, 3.0); mavi ×3 yeni (soğuk) gölge tonuyla camgöbeği
+      // çıktı (render w5-cmp3) → mavi ×1.8
       return std({ map, color: HEDGE_FIX, roughness: 0.92, side: DS });
     })(),
     // Leylandi tepesi (düz üst + filiz tutamları): taze sürgünler gövdeden açık sarı-yeşil. Street View güneşli saçak

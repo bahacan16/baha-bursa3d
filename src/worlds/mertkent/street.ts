@@ -1002,6 +1002,55 @@ function poleFlag(
   }
 }
 
+/**
+ * Yazıyı cols × rows hücreye döker (kalın sans, hücre ızgarasını dolduracak kadar uzatılmış); satır başına dolu hücre
+ * koşuları [c0, c1). DOM yoksa null.
+ */
+export function rasterText(
+  text: string,
+  cols: number,
+  rows: number,
+): { cols: number; rows: number; runs: [number, number][][] } | null {
+  if (typeof document === 'undefined') return null;
+  const cv = document.createElement('canvas');
+  const SC = 4;
+  cv.width = cols * SC;
+  cv.height = rows * SC;
+  const g = cv.getContext('2d');
+  if (!g) return null;
+  const F = 100;
+  g.font = `bold ${F}px Arial, sans-serif`;
+  const tw = Math.max(1, g.measureText(text).width);
+  g.fillStyle = '#fff';
+  g.textBaseline = 'alphabetic';
+  g.save();
+  g.scale((cv.width * 0.96) / tw, (cv.height * 0.96) / (F * 0.72));
+  g.fillText(text, (tw * 0.02) / 0.96, F * 0.72 * 1.0);
+  g.restore();
+  const img = g.getImageData(0, 0, cv.width, cv.height).data;
+  const runs: [number, number][][] = [];
+  for (let r = 0; r < rows; r++) {
+    const row: [number, number][] = [];
+    let start = -1;
+    for (let c = 0; c <= cols; c++) {
+      let on = false;
+      if (c < cols) {
+        let a = 0;
+        for (let yy = 0; yy < SC; yy++)
+          for (let xx = 0; xx < SC; xx++) a += img[((r * SC + yy) * cv.width + c * SC + xx) * 4 + 3];
+        on = a / (SC * SC) > 110;
+      }
+      if (on && start < 0) start = c;
+      if (!on && start >= 0) {
+        row.push([start, c]);
+        start = -1;
+      }
+    }
+    runs.push(row);
+  }
+  return runs.some((r) => r.length) ? { cols, rows, runs } : null;
+}
+
 /** v8: yola boyalı işaret (street-plan `road-symbol`) */
 interface RoadSymbol {
   x: number;
@@ -1116,6 +1165,30 @@ function roadSymbol(
       return;
     }
     case 'text': {
+      // Okunan yazı: yol boyasıyla (aşınma kademeli) — harfler tuvalde çizilip hücre ızgarasına dökülür, sürüş
+      // yönünde uzatılmış (D boyunca), her satır dolu hücre koşusu bir boya dörtgeni. KARAR: tabela atlası (saydam
+      // harf yüzü) yol düzleminde görünmüyordu (render w5-pick3: yüz yerinde, doku boş) → boya geometrisi; DOM yoksa
+      // (birim test / worker) atlas yüzü.
+      const cells = s.text ? rasterText(s.text, 24, 64) : null;
+      if (cells) {
+        const cw = W / cells.cols;
+        const ch = D / cells.rows;
+        for (let r = 0; r < cells.rows; r++)
+          for (const [c0, c1] of cells.runs[r]) {
+            const e1 = D / 2 - r * ch;
+            poly(
+              paint,
+              [
+                [-W / 2 + c0 * cw, e1 - ch],
+                [-W / 2 + c1 * cw, e1 - ch],
+                [-W / 2 + c1 * cw, e1],
+                [-W / 2 + c0 * cw, e1],
+              ],
+              0.054,
+            );
+          }
+        return;
+      }
       if (s.text && signFace) {
         const key = signFace({
           text: s.text,
