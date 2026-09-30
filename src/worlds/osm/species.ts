@@ -63,7 +63,9 @@ export const SPECIES_SIZE: Record<SpeciesKey, SpeciesSize> = {
   goldcrest: { h: 3, w: 1.3, trunk: 0.06, conifer: true, solid: true },
   cupressus: { h: 8, w: 1.4, trunk: 0.12, conifer: true, solid: true },
   thuja: { h: 1.6, w: 1.1, trunk: 0.05, conifer: true, solid: true },
-  trachycarpus: { h: 3.6, w: 2.8, trunk: 0.11 },
+  // KARAR: w = modelin görünen yelpaze açıklığı (treelib buildPalm, tekdüze ölçek; kütüphane ölçümü 4.8 m) —
+  // önceden 2.8 idi → ölçülen r ile ölçeklenen palmiye 1.7 kat geniş çiziliyordu (taç genişliği r'ye uymalı)
+  trachycarpus: { h: 3.6, w: 4.8, trunk: 0.11 },
   tilia: { h: 8, w: 5.6, trunk: 0.17 },
   ulmus: { h: 13, w: 13, trunk: 0.3 },
   robinia: { h: 9, w: 6.5, trunk: 0.18 },
