@@ -16,24 +16,71 @@
  "massing": {
   "towers": [
    {
-    "x": [
-     85,
-     127.85
+    "poly": [
+     [
+      85,
+      -160
+     ],
+     [
+      127.85,
+      -160
+     ],
+     [
+      127.85,
+      -183.41
+     ],
+     [
+      131.6,
+      -183.41
+     ],
+     [
+      131.6,
+      -200
+     ],
+     [
+      85,
+      -200
+     ]
     ]
    },
    {
-    "x": [
-     139.73,
-     185
+    "poly": [
+     [
+      139.73,
+      -160
+     ],
+     [
+      190,
+      -160
+     ],
+     [
+      190,
+      -200
+     ],
+     [
+      138.37,
+      -200
+     ],
+     [
+      138.37,
+      -182.92
+     ],
+     [
+      139.73,
+      -182.92
+     ]
     ]
+   },
+   {
+    "rest": true,
+    "storeys": 1,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.02
+    }
    }
-  ],
-  "gap": {
-   "x": [
-    127.85,
-    139.73
-   ]
-  }
+  ]
  },
  "roof": {
   "kind": "flat",
@@ -381,7 +428,10 @@
      "color": "#33393b",
      "u0": 5,
      "u1": 8.9,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "Batı cephe orta (çıkıntılı) kısım: pencere sütunu 1.3 m (K1–K8), iki yüksek turuncu pano (sol K3–K8, sağ K1–K8), sağ uçta K1–K2 turuncu. Zemin kat komşu saçak arkasında, güney ucunda MİA mağaza camı."
@@ -558,7 +608,10 @@
      "color": "#33393b",
      "u0": 0.83,
      "u1": 3.6,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     },
     {
      "t": "sign",
@@ -781,7 +834,10 @@
      "color": "#33393b",
      "u0": -2.65,
      "u1": 3.6,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "GB köşe balkon yığını (batı cephe kenar 4 ile köşeyi sarar). K5 yalnız doğu yarısı camlı; K6 açık. Zemin: MİA mağaza camı."
@@ -976,7 +1032,10 @@
      "color": "#33393b",
      "u0": -1.81,
      "u1": 2.75,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "Çıkma pencere kulesi (gri paye + ortada 3 kanatlı boy pencere); turuncu panolar K1,K2,K4,K7 iki payede."
@@ -1179,7 +1238,8 @@
      "box": true,
      "shut": {
       "K1": 1
-     }
+     },
+     "shutC": "#262d31"
     },
     {
      "t": "win",
@@ -1197,7 +1257,8 @@
      "box": true,
      "shut": {
       "K1": 1
-     }
+     },
+     "shutC": "#262d31"
     },
     {
      "t": "win",
@@ -1215,7 +1276,8 @@
      "box": true,
      "shut": {
       "K1": 0.85
-     }
+     },
+     "shutC": "#262d31"
     },
     {
      "t": "win",
@@ -1233,7 +1295,8 @@
      "box": true,
      "shut": {
       "K1": 1
-     }
+     },
+     "shutC": "#262d31"
     },
     {
      "t": "win",
@@ -1382,7 +1445,10 @@
      "color": "#33393b",
      "u0": -2.24,
      "u1": 12,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     },
     {
      "t": "entrance",
@@ -1395,30 +1461,32 @@
     },
     {
      "t": "sign",
-     "u0": -0.35,
-     "u1": 1.65,
-     "y0": 4,
-     "y1": 4.82,
+     "u0": 0.28,
+     "u1": 2.48,
+     "y0": 3.975,
+     "y1": 5.075,
      "text": "MiA",
      "fg": "#f1f1ee",
      "d": 0.05,
      "style": "letters",
      "font": "sans",
      "bold": true,
-     "logo": "kalın yuvarlatılmış logo harfleri, i noktalı küçük harf (MiA)"
+     "logo": "kalın yuvarlatılmış logo harfleri, i noktalı küçük harf (MiA)",
+     "capH": 0.77
     },
     {
      "t": "sign",
-     "u0": 1.75,
-     "u1": 8.45,
-     "y0": 4.2,
-     "y1": 4.55,
+     "u0": 2.5,
+     "u1": 9.1,
+     "y0": 4.06,
+     "y1": 4.59,
      "text": "YÖNETİM VE GAYRİMENKUL",
      "fg": "#eeeeeb",
      "d": 0.04,
      "style": "letters",
      "font": "sans",
-     "bold": false
+     "bold": false,
+     "capH": 0.37
     }
    ],
    "note": "Batı kule ana balkon bandı (iki pencere kulesi arası). Camlı katlar K2,K4,K6,K7(+K8 varsayım); K1/K3/K5 açık cam korkuluklu. K1 arka duvarda 4 siyah panjur (kepenkli kapı). Klima K1/K3/K5 arka duvarda (loca içinde, korkuluk arkasında). Zemin: \"MİA YÖNETİM VE GAYRİMENKUL\" beyaz harfli tabela siyah lamel bant üstünde (u −0.3…8.4)."
@@ -1581,7 +1649,10 @@
      "color": "#33393b",
      "u0": -1.9,
      "u1": 2.62,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "Pencere kulesi; turuncu panolar yalnız K1 ve K5 (iki payede)."
@@ -1772,7 +1843,10 @@
      "color": "#33393b",
      "u0": -1.69,
      "u1": 4.2,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "Batı kulenin GD köşe balkon yığını (doğu ucu = kule köşesi; doğu yan cephe boşluğa bakar, taban izinde yok)."
@@ -1877,7 +1951,10 @@
      "color": "#33393b",
      "u0": -0.03,
      "u1": 6.85,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     },
     {
      "t": "sign",
@@ -1961,7 +2038,10 @@
      "color": "#33393b",
      "u0": -0.67,
      "u1": 6.19,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "Boşluk (podyum) — üstü açık; doğu kule GB köşe payesi bu fotoğrafta u≈2.95 (x≈137–138), taban izinde doğu kule 139.7’den başlıyor → kule öğeleri kenar 18’e yazıldı."
@@ -2072,7 +2152,10 @@
      "color": "#33393b",
      "u0": -2.85,
      "u1": 4.05,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     },
     {
      "t": "entrance",
@@ -2292,7 +2375,10 @@
      "color": "#33393b",
      "u0": -2.74,
      "u1": 1.95,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "Pencere kulesi C (batı kule A’nın eşi): turuncu K1,K2,K4 (+K7 A’dan varsayım)."
@@ -2635,14 +2721,17 @@
      "color": "#33393b",
      "u0": -4,
      "u1": 11.1,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     },
     {
      "t": "sign",
-     "u0": 0,
-     "u1": 0.85,
-     "y0": 4.72,
-     "y1": 5.74,
+     "u0": -0.15,
+     "u1": 0.65,
+     "y0": 4.86,
+     "y1": 5.65,
      "text": "EV\nREN\nSEL",
      "fg": "#8b7fb8",
      "d": 0.08,
@@ -2650,28 +2739,62 @@
      "style": "box",
      "font": "sans",
      "bold": true,
-     "logo": "beyaz kare logo kutusu, üç satır leylak/mor harf"
+     "logo": "beyaz kare logo kutusu, üç satır leylak/mor harf",
+     "off": 0.235
     },
     {
      "t": "sign",
-     "u0": 0.95,
-     "u1": 8.5,
-     "y0": 4.67,
-     "y1": 5.79,
-     "text": "EVRENSEL KİTAP",
+     "u0": -0.25,
+     "u1": 8.2,
+     "y0": 4.7,
+     "y1": 5.75,
+     "text": "",
      "fg": "#c7c9cb",
      "d": 0.1,
      "bg": "#1c1e20",
      "style": "box",
      "font": "sans",
      "bold": true,
-     "logo": "siyah kutu üstünde krom/gümüş kabartma harfler; \"KİTAP\" daha küçük"
+     "logo": "siyah kutu (harfler ayrı letters öğeleri)"
+    },
+    {
+     "t": "sign",
+     "u0": 1.35,
+     "u1": 5.55,
+     "y0": 4.75,
+     "y1": 5.93,
+     "text": "EVRENSEL",
+     "fg": "#c7c9cb",
+     "d": 0.03,
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.59,
+     "off": 0.235,
+     "logo": "krom/gümüş kabartma harf (RW5 ortosu)"
+    },
+    {
+     "t": "sign",
+     "u0": 5.45,
+     "u1": 8.1,
+     "y0": 4.75,
+     "y1": 5.73,
+     "text": "KİTAP",
+     "fg": "#c7c9cb",
+     "d": 0.03,
+     "style": "letters",
+     "font": "sans",
+     "bold": true,
+     "capH": 0.4,
+     "off": 0.235,
+     "align": "left",
+     "logo": "krom harf, EVRENSEL ile aynı taban çizgisi"
     },
     {
      "t": "ac",
-     "u": 10.1,
+     "u": 10.4,
      "s": 0,
-     "y": 2.33
+     "y": 2.04
     },
     {
      "t": "proj",
@@ -2843,7 +2966,10 @@
      "color": "#33393b",
      "u0": -1.88,
      "u1": 2.8,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     },
     {
      "t": "sign",
@@ -3064,7 +3190,10 @@
      "color": "#33393b",
      "u0": -3.17,
      "u1": 4.3,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     }
    ],
    "note": "Doğu kule GD köşe balkon yığını (doğu cephe kenar 27 ile köşeyi sarar), tüm katlar camlı. Zemin: Saç Perisi bayan kuaförü: beyaz el yazısı harfler + altın kanat, BAYAN KUAFÖRÜ levhası, kapı üstünde Hoşgeldiniz levhası, buzlu camlar."
@@ -3191,7 +3320,10 @@
      "color": "#33393b",
      "u0": 2.95,
      "u1": 8.37,
-     "proud": 0.12
+     "proud": 0.12,
+     "style": "louvre",
+     "slats": 7,
+     "shade": "#15181a"
     },
     {
      "t": "sign",
@@ -4851,12 +4983,12 @@
     ],
     "head": [
      [
-      1,
-      8.12
+      3,
+      10.8
      ],
      [
-      8,
-      27.22
+      7,
+      24.45
      ]
     ]
    },
@@ -4865,22 +4997,22 @@
      "t": "panel",
      "u0": 1.9,
      "u1": 5.73,
-     "y0": 14.32,
-     "y1": 19.35,
+     "y0": 11.63,
+     "y1": 17.88,
      "color": "strip"
     },
     {
      "t": "panel",
      "u0": 1.9,
      "u1": 5.73,
-     "y0": 25.24,
-     "y1": 27.56,
+     "y0": 25.32,
+     "y1": 27.95,
      "color": "strip"
     },
     {
      "t": "band",
-     "y0": 8.46,
-     "y1": 8.86,
+     "y0": 24.63,
+     "y1": 25.32,
      "u0": 0.81,
      "u1": 5.73,
      "color": "fascia",
@@ -4888,8 +5020,8 @@
     },
     {
      "t": "band",
-     "y0": 11.19,
-     "y1": 11.59,
+     "y0": 17.88,
+     "y1": 18.48,
      "u0": 0.81,
      "u1": 5.73,
      "color": "fascia",
@@ -4897,51 +5029,15 @@
     },
     {
      "t": "band",
-     "y0": 13.92,
-     "y1": 14.32,
-     "u0": 0.81,
-     "u1": 5.73,
-     "color": "fascia",
-     "proud": 0.04
-    },
-    {
-     "t": "band",
-     "y0": 16.65,
-     "y1": 17.05,
-     "u0": 0.81,
-     "u1": 5.73,
-     "color": "fascia",
-     "proud": 0.04
-    },
-    {
-     "t": "band",
-     "y0": 19.38,
-     "y1": 19.78,
-     "u0": 0.81,
-     "u1": 5.73,
-     "color": "fascia",
-     "proud": 0.04
-    },
-    {
-     "t": "band",
-     "y0": 22.1,
-     "y1": 22.51,
-     "u0": 0.81,
-     "u1": 5.73,
-     "color": "fascia",
-     "proud": 0.04
-    },
-    {
-     "t": "band",
-     "y0": 24.83,
-     "y1": 25.24,
+     "y0": 10.97,
+     "y1": 11.63,
      "u0": 0.81,
      "u1": 5.73,
      "color": "fascia",
      "proud": 0.04
     }
    ],
-   "note": "Doğu kulenin batı yan cephesi (boşluğa bakar), uzaktan: sağır gri duvar + büyük turuncu panolar (K4–K5, K8). Üst katlarda gerçek cephe bu hattan kuzeye uzanır."
+   "note": "Doğu kulenin batı yan cephesi (avluya bakar), YTAXEyzL ortosunda yeniden ölçüldü (critic-fix 2026-09-30): eski öğeler/cal.head (kat aralığı 2.73) bu ortoya oturmuyordu — ortodaki döşeme bantları 3.4 görünen aralıklı (en üst bant K8 döşemesi). Sağır gri sıva; turuncu pano K4–K5 (11.63–17.88) ve K8 (25.32–27.95); koyu gri döşeme bantları yalnız K4, K6, K8 hizasında (K5/K7 bandı görülmedi). u 0.81–1.9 koyu şerit kuzey köşe cam balkonunun yan ucu olabilir → çizilmedi. K0–K2 çit/çalı arkasında görülmedi."
   },
   {
    "edge": 46,
@@ -4954,25 +5050,117 @@
    "edge": 47,
    "len": 6.07,
    "seen": "partial",
-   "ref": "1550826982_47_c85sxN_N.jpg",
+   "ref": "1550826982_47_YTAXEyzL.jpg",
    "cal": {
     "u": [
-     0.7,
-     6.74
+     -0.37,
+     6.34
     ],
     "head": [
      [
-      1,
-      8.12
+      3,
+      10.85
      ],
      [
-      8,
-      27.22
+      7,
+      24.35
      ]
     ]
    },
-   "items": [],
-   "note": "massing kesimi x=139.73 → bu kenar podyum parçasında kalır (üstü 1 kat); öğeler kaldırıldı. Gerçekte: doğu kule batı yan cephesi (güney kısmı): sağır gri duvar, alt katlarda (K1–K2) turuncu pano, güney ucunda dar pencere sütunu. Uzaktan (28 m) kısmen."
+   "items": [
+    {
+     "t": "win",
+     "u0": 2.88,
+     "u1": 4.55,
+     "y0": 15.1,
+     "y1": 17.6,
+     "k": 5,
+     "s": [
+      3,
+      8
+     ],
+     "split": 2
+    },
+    {
+     "t": "band",
+     "y0": 24.45,
+     "y1": 25.15,
+     "u0": -0.37,
+     "u1": 6.34,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 10.95,
+     "y1": 11.6,
+     "u0": -0.37,
+     "u1": 6.34,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 21.1,
+     "y1": 21.85,
+     "u0": 2.88,
+     "u1": 4.55,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 17.85,
+     "y1": 18.5,
+     "u0": 2.88,
+     "u1": 4.55,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 14.5,
+     "y1": 15.1,
+     "u0": 2.88,
+     "u1": 4.55,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 7.85,
+     "y1": 8.5,
+     "u0": 2.88,
+     "u1": 4.55,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "panel",
+     "u0": 4.55,
+     "u1": 6.34,
+     "y0": 11.6,
+     "y1": 24.45,
+     "color": "strip"
+    },
+    {
+     "t": "panel",
+     "u0": 4.55,
+     "u1": 6.34,
+     "y0": 25.15,
+     "y1": 29.3,
+     "color": "strip"
+    },
+    {
+     "t": "panel",
+     "u0": -0.37,
+     "u1": 2.88,
+     "y0": 7.1,
+     "y1": 10.95,
+     "color": "strip"
+    }
+   ],
+   "note": "Doğu kulenin batı yan cephesi (avlu tarafı, podyumun kuzeyi), YTAXEyzL ortosunda ölçüldü (critic-fix 2026-09-30; eski ref c85sxN_N). massing artık bu kenarı doğu kuleye veriyor (önceden x=139.73 kesimiyle 1 katlı podyumdaydı). Ortada tek dar pencere sütunu (2 kanat, her katta koyu gri ara bant), sağında (güney) K4–K8 boyu turuncu pano (K8 bandıyla bölünür, güneyde podyum üstündeki kule yüzüne devam eder — o kısım kesim duvarı, pending), solunda gri sıva, K3 hizasında (K4 bandı altı) turuncu pano. Görünen üst: K8. K0–K2 çit/çalı arkasında görülmedi (pencere s [3,8]; alt turuncu pano görünen alt kenarı 7.1 = çalı üstü). cal.u güney ucu görünen ölçek ≈1.1 (kat aralığı 3.37/3.05) ile tahmin."
   },
   {
    "edge": 48,
@@ -4993,17 +5181,26 @@
     ],
     "head": [
      [
-      1,
-      8.12
+      2,
+      10.5
      ],
      [
-      8,
-      27.22
+      7,
+      23.9
      ]
     ]
    },
-   "items": [],
-   "note": "massing kesimi x=127.85 → podyum parçasında (öğeler kaldırıldı). Gerçekte: batı kulenin doğu yan cephesi (boşluğa bakar): K1–K5 yüksek turuncu pano (pencere sütunu kenarın kuzey ucunun ötesinde → kenar 52); uzaktan (33 m) kısmen."
+   "items": [
+    {
+     "t": "panel",
+     "u0": 1.2,
+     "u1": 2.77,
+     "y0": 10.7,
+     "y1": 22.8,
+     "color": "strip"
+    }
+   ],
+   "note": "Batı kulenin doğu yan cephesi (avlu tarafı, güney parça), -LI8S0A5 ortosunda ölçüldü (critic-fix 2026-09-30): massing artık bu kenarı batı kuleye veriyor. Görülen: kuzey ucunda turuncu pano (görünen u 1.2–2.77, 10.7–22.8), köşede gri paye; ortodaki pencere sütunu kenarın kuzey ucunun ötesinde (kenar 52). u < 1.2 kısmı önündeki balkon uçları/açı yüzünden seçilemedi (görülmedi). cal.head bu ortodaki kat aralığından (2.7 görünen; en üst sıra K8)."
   },
   {
    "edge": 50,
@@ -5031,17 +5228,127 @@
     ],
     "head": [
      [
-      1,
-      8.12
+      2,
+      10.9
      ],
      [
-      8,
-      27.22
+      7,
+      25.4
      ]
     ]
    },
-   "items": [],
-   "note": "massing kesimi x=127.85 → podyum parçasında (öğeler kaldırıldı). Gerçekte: batı kule doğu yan cephesi (kuzey kısmı): dar pencere sütunu, turuncu panolar K1–K3 ve K8; KD köşe balkonlarının yan uçları kuzey köşede."
+   "items": [
+    {
+     "t": "win",
+     "u0": 0.25,
+     "u1": 1.875,
+     "y0": 17.35,
+     "y1": 19.6,
+     "k": 5,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2
+    },
+    {
+     "t": "band",
+     "y0": 25.43,
+     "y1": 26,
+     "u0": 0.25,
+     "u1": 1.875,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 22.5,
+     "y1": 23.14,
+     "u0": 0.25,
+     "u1": 1.875,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 19.7,
+     "y1": 20.2,
+     "u0": 0.25,
+     "u1": 1.875,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 16.8,
+     "y1": 17.3,
+     "u0": 0.25,
+     "u1": 1.875,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 13.85,
+     "y1": 14.4,
+     "u0": 0.25,
+     "u1": 1.875,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 10.93,
+     "y1": 11.5,
+     "u0": 0.25,
+     "u1": 1.875,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 22.6,
+     "y1": 22.97,
+     "u0": -1.5,
+     "u1": 3.25,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "band",
+     "y0": 11,
+     "y1": 11.4,
+     "u0": -1.5,
+     "u1": 3.25,
+     "color": "fascia",
+     "proud": 0.04
+    },
+    {
+     "t": "panel",
+     "u0": -1.5,
+     "u1": 0.25,
+     "y0": 11.4,
+     "y1": 22.6,
+     "color": "strip"
+    },
+    {
+     "t": "panel",
+     "u0": -1.5,
+     "u1": 0.25,
+     "y0": 22.97,
+     "y1": 28,
+     "color": "strip"
+    },
+    {
+     "t": "panel",
+     "u0": 1.875,
+     "u1": 3.25,
+     "y0": 11.4,
+     "y1": 22.6,
+     "color": "strip"
+    }
+   ],
+   "note": "Batı kulenin doğu yan cephesi (kuzey parça), -LI8S0A5 ortosunda ölçüldü (critic-fix 2026-09-30): massing artık bu kenarı batı kuleye veriyor. Dar pencere sütunu (2 kanat, her katta koyu gri ara kutu), iki yanında turuncu panolar K2 bandından (11.4) K7 bandına (22.6); bandın üstünde sol (güney) şerit K8 dahil turuncu, sağ (kuzey) gri; K2 bandının altı gri. K0–K1 çit/çalı arkasında görülmedi (pencere s [2,8]). u −2.39…−1.5 ortonun dışında (görülmedi). cal.head bu ortodaki kat aralığından (≈2.9 görünen)."
   },
   {
    "edge": 53,
@@ -6243,13 +6550,44 @@
   "TABELALAR (sign öğeleri, hepsi siyah lamel bant 3.7–4.65 m üstünde): kenar 9 \"MiA\" (beyaz kalın logo harf, i küçük/noktalı) + \"YÖNETİM VE GAYRİMENKUL\" (beyaz ince harf); kenar 4 aynı tabelanın GB köşe kopyası; kenar 15 sarı yuvarlak dik bayrak tabela (dil okulu, okunamadı); kenar 18 \"phenomenon / KİTAP\" (koyu turuncu kutu #9c714b, siyah harf, siyah köşebentler); kenar 22 \"EV/REN/SEL\" beyaz logo kutusu + \"EVRENSEL KİTAP\" (siyah kutu, gümüş kabartma harf); kenar 24 \"sacperisi.özlüce\" Instagram levhası; kenar 26 ve 27 \"Saç Perisi\" (beyaz el yazısı + altın kanatlar) + \"BAYAN KUAFÖRÜ\" levhası, kapı üstü \"Hoşgeldiniz\"; buzlu cam folyolarında gri \"Saç Perisi\"; kenar 27 vitrin arkasında büyük L’ORÉAL PROFESSIONNEL afişi. Dükkânlarda kepenk/tente YOK (tüm vitrinler açık cam); site girişinde siyah, beyaz nervürlü düz metal saçak (awning). Dükkân arası siyah kaplamalı kolonlar proj (d 0.15).",
   "SOKAK PLANI İÇİN: \"ONAL 51 özlüce\" yazısı binada değil; blok batısındaki komşu/site girişi yapısında (turuncu kaplamalı büyük saçak + gri kolonlar, alt kısmında \"ONA|151 özlüce\" beyaz harf) — taban izi dışında, bu dosyada yok.",
   "KORKULUK (her kat ayrı incelendi): fotoğraflı tüm katlarda (güney K1–K7, kuzey K2–K8, köşe yığınları) balkon önü aynı: ~0.35 m gri döşeme alnı (#8e9798) + döşemeden çerçevesiz füme cam korkuluk (glassFull, cam #66747e, ince alüminyum üst profil #b9bec1); cam balkonlu katlarda katlanır camın altında da aynı cam. Boru/çubuk/dolu parapet hiçbir katta görülmedi. K8 (güney) ve K1 (kuzey, çit arkası) görülmedi → aynı kabul edildi.",
-  "KÜTLE (önemli): bina iki ayrı 9 katlı kuleden oluşur (batı x≈95.7–127.9, doğu x≈139.7–173); aradaki ~9–12 m boşlukta yalnız ~4.9 m yüksek tek katlı podyum (dükkân + site girişi) var, üstü açık — güneyden (XO-B02gS, TRtaimPV) ve kuzeyden (c85sxN_N kenar 48) boşluktan gökyüzü/uzak binalar görünüyor. Taban izi zemin kat izidir; `massing` ile bölünür: batı kule x≤127.85, doğu kule x≥139.73, arası 1 katlı podyum (K0 üstü ≈4.77 m). Düz kesim nedeniyle 47/49/52 (kule yan cepheleri, gerçekte x≈128–131 ve ≈138.4) podyum parçasına düşer → öğeleri kaldırıldı; kulelerin boşluğa bakan yüzleri kesim düzleminde düz sıva olarak çıkar (gerçekte turuncu panolu, dar pencere sütunlu). Kulelerin boşluğa bakan yan cepheleri (batı kule doğu yüzü x≈127.9→130, doğu kule batı yüzü x≈139.7→141) taban izinde yalnız kuzey uçlarda (45/47, 49/52) var; güney kısımları için kenar yok.",
+  "KÜTLE (önemli): bina iki ayrı 9 katlı kuleden oluşur (batı x≈95.7–127.9, doğu x≈139.7–173); aradaki ~9–12 m boşlukta yalnız ~4.9 m yüksek tek katlı podyum (dükkân + site girişi) var, üstü açık — güneyden (XO-B02gS, TRtaimPV) ve kuzeyden (c85sxN_N kenar 48) boşluktan gökyüzü/uzak binalar görünüyor. Taban izi zemin kat izidir; `massing` ile bölünür: batı kule x≤127.85, doğu kule x≥139.73, arası 1 katlı podyum (K0 üstü ≈4.77 m). Düz kesim nedeniyle 47/49/52 (kule yan cepheleri, gerçekte x≈128–131 ve ≈138.4) podyum parçasına düşer → öğeleri kaldırıldı; kulelerin boşluğa bakan yüzleri kesim düzleminde düz sıva olarak çıkar (gerçekte turuncu panolu, dar pencere sütunlu). Kulelerin boşluğa bakan yan cepheleri (batı kule doğu yüzü x≈127.9→130, doğu kule batı yüzü x≈139.7→141) taban izinde yalnız kuzey uçlarda (45/47, 49/52) var; güney kısımları için kenar yok. | critic-fix 2026-09-30: massing x-aralığı + gap yerine dünya çokgenleri: batı kule x≤127.85 (podyum kuzey hattı z −183.41’in kuzeyinde x≤131.6), doğu kule x≥139.73 (z −182.92’nin kuzeyinde x≥138.37), kalan (rest) 1 katlı podyum. Böylece 45/47/49/52 (kulelerin avluya bakan yan cepheleri, fotoğraflarda tam boy, turuncu pano + dar pencere sütunu) kulelere düşer ve öğeleri çizilir; podyum üstündeki kule yan yüzleri (z −176…−183) kesim duvarı olarak düz kalır (pending).",
   "KAT: 9 kat = K0 dükkân katı + K1–K8 konut. floorH 3.05 (ortofoto görünen kat aralıkları × yatay ölçek 2.9–3.2; güney 3.08, doğu 3.12, kuzey ~3.0–3.3 → 3.05). K1 döşemesi sokaktan ≈4.65 m (lamel bandın üstü). groundRaise=1.6 SANALDIR: K1–K8 ve çatı (≈29.05 + 0.6 parapet ≈29.7 m; OSM height=26) doğru kotta olsun diye K0 döşemesi 1.6’da tanımlandı. Gerçek zemin kat 0.15–4.65 m arası yüksek dükkân katıdır (bkz. groundFloor). Bu yüzden K0 \"shop\" pencerelerinin sill değeri NEGATİF (≈ −1.45 = sokaktan 0.15 m; üretici artık 0.1−groundRaise’e kadar izin veriyor).",
   "ZEMİN KAT (güney, sokak): kesintisiz siyah doğramalı boy vitrin (sokaktan ≈0.15–3.5 m), üstünde tüm cephe boyunca siyah yatay lamelli bant (3.7–4.65 m, ~0.12 m çıkıntılı; band #2e3233) — tabelalar bu bandın üstünde: batı kule \"MİA YÖNETİM VE GAYRİMENKUL\" (beyaz harf, u 9’da), boşlukta site girişi (siyah kanopi, çift cam kapı, iki saksı; köşede sarı yuvarlak dil okulu logosu — OSM: Wimbledon Language Academy), doğu kule \"phenomenon KİTAP\" (turuncu kutu harf), \"EVRENSEL KİTAP\" (gümüş harf + beyaz logo kutusu), \"Saç Perisi\" kadın kuaförü (beyaz el yazısı + altın kanat, buzlu cam, GD köşeyi sarar; doğu yüzde büyük LOREAL afişi). OSM düğümleri de aynı dükkânları veriyor.",
   "CEPHE DİLİ (her iki kule aynı, doğu kule batı kulenin ötelenmiş kopyası): açık gri sıvalı \"pencere kuleleri\" (≈4 m genişlik: ~1 m gri paye + 2.2–2.4 m boy pencere, 3 kanatlı, alt sabit bölmeli + ~1 m gri paye), aralarında sürekli balkon bantları (koyu gri döşeme alnı + koyu füme cam korkuluk; birçok katta katlanır cam balkon). Her kat hizasında pencere kulelerinde koyu gri döşeme bandı (~0.45 m). Turuncu kompozit panolar payelerde, kat kat değişen düzenle: güneyde kule A/C K1,K2,K4,K7; B/D K1,K5; kuzeyde E/G/H K1,K4,K8, F K5; köşe payeleri K1–K4.",
   "BALKONLAR: güneyde loca gibi (arka duvar pencere kulesi ön yüzünün ~1.5–2 m gerisinde, döşeme önü paye yüzüne yakın); taban izinde kuleler ~0.2–0.8 m çıkıntı yaptığı için d=0.8 çıkma olarak yazıldı (ön yüz ≈ paye hizası). Açık katlarda tavan spotları, arka duvarda beyaz sıva, K1’de siyah kepenkli kapılar. Loca içindeki klimalar arka duvara (taban izi hattına) yazıldı — korkuluğun arkasında kalmalı. Köşe balkon yığınları (GB, GD, KD, KB her iki kulede) köşeyi sarar; yan uçlar cam.",
   "Kenar–fotoğraf eşleme: taban izindeki küçük kıvrımlar (0.2–0.9 m) OSM’den; pencere kuleleri güneyde taban izi çıkıntılarına (7, 11, 20, 24) oturtuldu (hava fotoğrafıyla ~0.5–1 m tutarlı). Kuzeyde öğeler dünya x’inden kenarlara bölündü (kıvrımlar gerçek kulelerle çakışmıyor). Pano GPS/yön hataları: güney cephe stereo ile taban izinin ~1–1.4 m güneyinde çıkıyor; yan görünüşlerde güney köşeler taban izi köşelerinden 2.6–3.8 m kuzeyde görünüyor; kuzeybatı kule ölçümü ~1.6 m kaydırıldı. Taban izi DEĞİŞTİRİLMEDİ; köşeler görünen köşelere eşlendi.",
   "BATI CEPHE: alt 3–4 kat komşu parselin büyük turuncu kaplamalı saçak/kapı yapısı (\"ONAL 51 Özlüce\" totemi) arkasında; üst kısım ölçüldü. Doğu cephe (kenar 27–31): sağır gri duvar + büyük turuncu panolar, iki pencere sütunu; zemin katta Saç Perisi köşe vitrini, kuzeyinde çitli çocuk oyun alanı.",
-  "Belirsizlikler: K8 (en üst) çoğu cephede ortofotonun üstünde kaldı → cam balkon ve turuncu düzen komşu katlardan varsayıldı; kuzey K1 çitin arkasında; boşluk yan cepheleri uzaktan (28–39 m); site girişi adı (\"ONAL 51\") sokak totemindeki yazıdan, levhada okunmadı; çatı düz, üstünde teknik hacim/güneş paneli görülmedi (hava fotoğrafında kırma çatı gibi görünen gri yüzeyler — renk tile)."
+  "Belirsizlikler: K8 (en üst) çoğu cephede ortofotonun üstünde kaldı → cam balkon ve turuncu düzen komşu katlardan varsayıldı; kuzey K1 çitin arkasında; boşluk yan cepheleri uzaktan (28–39 m); site girişi adı (\"ONAL 51\") sokak totemindeki yazıdan, levhada okunmadı; çatı düz, üstünde teknik hacim/güneş paneli görülmedi (hava fotoğrafında kırma çatı gibi görünen gri yüzeyler — renk tile).",
+  "critic-fix 2026-09-30 (DA eleştirmeni): MiA / YÖNETİM VE GAYRİMENKUL harf boyu 9_4bB2dOuu ortosunda ölçüldü (MiA büyük harf 0.77, YÖNETİM 0.37 görünen; capH); K1 kepenkleri siyah (#262d31, 4bB2dOuu 4_1 yakın plan, lamel ışıklı yama #21292d, duvar #92999c → ×1.15 kuralı); zemin kat siyah lamelli bant `louvre` dokusu (7 lamel; derinlik pending); EVRENSEL KİTAP: siyah kutu + ayrı krom harfler (EVRENSEL 0.59, KİTAP 0.40 görünen, RW5 ortosu), EV/REN/SEL logosu kutunun sol ucunda; Saç Perisi yanındaki klima yerde duruyor (y 2.04 = görünen kaldırım 1.6 üstü)."
+ ],
+ "pending": [
+  {
+   "what": "Zemin kat siyah lamelli saçak bandının derinliği + lamelli alt yüzü",
+   "edges": [
+    2,
+    4,
+    5,
+    7,
+    9,
+    11,
+    13,
+    15,
+    16,
+    18,
+    20,
+    22,
+    24,
+    26,
+    27
+   ],
+   "ref": "streetview-src/extra/XO-B02gSOtLZwabEwogM0w_330_0_40.jpg",
+   "desc": "Bant, dükkân camlarının hemen üstünde dikmesiz konsol lamelli kutu: ön yüzde ≈7 yatay lamel + ≈1 m arayla düşey kanatlar (#33393b, aralar #15181a), altında da lamelli tavan (eğik bakışta ≈20 px). Siyah \"dikmeler\" kule önlerinde vitrin doğramasıdır (4bB2dOuu 4_1, XO-B02gS 330_0): bandın önünde ayrı dikme YOK — eleştirmenin \"1.5 m, siyah dikmeli kanopi\" iddiası doğrulanmadı; boşluk podyumunda da dikmeler podyum cam cephesinin kayıtları. Derinlik tek eğik kareden ≈1.0–2.5 m arası çıkıyor (ölçülemedi) → proud 0.12 korundu; louvre dokusu yazıldı.",
+   "reason": "derinlik ikinci açıdan ölçülmeli; band louvre alt yüz (lamelli tavan) çizmiyor"
+  },
+  {
+   "what": "Podyum üstündeki kule yan yüzleri (kesim duvarları)",
+   "desc": "Batı kule doğu yüzü x=127.85 ve doğu kule batı yüzü x=139.73, z −176…−183 (podyum üstü, K1–K8): XO-B02gS 0_40 ve n1yUK8yy 60_40 / 4hcOHERG 300_40 (güneşli) karelerinde doğu kule batı yüzü: turuncu boy pano + dar pencere sütunu (kenar 47 düzeninin güneye devamı), batı kule doğu yüzü: gri + alt katlarda turuncu. Taban izinde bu yüzlerin kenarı yok (massing kesimi) → öğe yazılamıyor, düz sıva.",
+   "reason": "kesim kenarlarına öğe verilemiyor (şema)"
+  }
  ]
 }
