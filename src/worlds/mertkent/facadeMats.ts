@@ -191,14 +191,17 @@ export const glassDiffUniform = { value: qnum('glassdiff', 0.4) };
  * gök ×≈5, oda ×≈0.2 → #8290a3. KARAR: vitrin / giydirme camı (`tint`) eski çarpanda (ölçülmedi). `?winenv=`,
  * `?winroom=` dener.
  */
-export const windowEnvUniform = { value: qnum('winenv', 45) };
+// v8b (2026-09-30): ×45 / oda ×0.2 D4 ve DA karelerinde doygun mavi verdi (oyun #3e619c / #335185, fotoğraf tül
+// arkası #98a4a3 / #8c969a; critic d4a #15, d4c #17). 9 / 1.0 (eski), 20 / 0.5 ve 14 / 0.7 aynı dört karede
+// denendi (sbNX 300, y1o1 300, GY1l 0, 502 Sk 42 blok): 14 / 0.7 fotoğraflara en yakın (gri-mavi, tül okunur).
+export const windowEnvUniform = { value: qnum('winenv', 14) };
 /**
  * Cam balkon: ×5 gök + ×0.2 iç mekânda doygun koyu mavi (#2d62ae → #1c4475) çıktı (render w5-cmp3 / w5-cmp5) —
  * pencere camının ölçümü cam balkona uymuyor. KARAR: cam balkon eski çarpanda (9), yalnız sahte gök tonu ufuk mavisine
  * çekildi; ölçülmüş cam balkon yaması gelince ayarlanır. `?camenv=` dener.
  */
 export const camEnvUniform = { value: qnum('camenv', 9) };
-export const windowRoomUniform = { value: qnum('winroom', 0.2) };
+export const windowRoomUniform = { value: qnum('winroom', 0.7) };
 /**
  * Vitrin camı (pencere türü 7) pencere camının gök çarpanını almaz: ×45 ile D4 / DA vitrinleri bembeyaz çıktı
  * (fotoğraf #121512–#353121, oyun #dadbde–#f0f0f2; critic d4a #15, d4b #2, d4c #1). KARAR: eski cam çarpanı
@@ -629,7 +632,7 @@ export function paverTextures(
 let tactileCache: { map: THREE.Texture; normalMap: THREE.Texture } | null = null;
 
 /**
- * Hissedilebilir kılavuz karo (Nilüfer kaldırımları, kullanıcı fotoğrafları): 40 × 40 cm sarı-hardal beton karo,
+ * Hissedilebilir kılavuz karo (Nilüfer kaldırımları, yer fotoğrafları): 40 × 40 cm sarı-hardal beton karo,
  * yürüme yönünde (u) 6 uzun kabartma çubuk, karo derzleri. 1 doku = 1 karo (UV metre × 2.5).
  */
 export function tactileTextures(): { map: THREE.Texture; normalMap: THREE.Texture } {
@@ -694,7 +697,7 @@ export function tactileTextures(): { map: THREE.Texture; normalMap: THREE.Textur
 const boneCache = new Map<string, { map: THREE.Texture; normalMap: THREE.Texture }>();
 
 /**
- * Site içi "kemik" kilit taşı (kullanıcı fotoğrafları): 20 × 16.5 cm taşlar, sıra içinde birbirine geçen çıkıntılı
+ * Site içi "kemik" kilit taşı (yer fotoğrafları): 20 × 16.5 cm taşlar, sıra içinde birbirine geçen çıkıntılı
  * yan kenarlar, sıralar yarım taş kaydırılmış → dalgalı derz. 1 doku = 2 m × 0.99 m (10 taş × 6 sıra).
  * palette: taş renkleri; redRows: bu sıra indeksleri (0..5) kırmızı paletle (bant) — boşsa hepsi palette.
  */

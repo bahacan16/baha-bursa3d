@@ -841,3 +841,7 @@
   (`public/textures/real/`) değişmedi. `scripts/real-textures.mjs` fotoğrafları `streetview-src/private/`'tan okur.
   **Blender:** yerel kopyanda `streetview-src/user/` görsel referansı artık yok (git pull sonrası silinir); gerekirse
   kendi kopyanı `streetview-src/private/` altına koy.
+- **(Cam düzeltmesi)** — Vitrin camı (pencere türü 7) artık pencere camının gök çarpanını almıyor (`shopEnvUniform`
+  9): D4/DA vitrinleri bembeyaz çıkıyordu. Konut pencere camı ×45 / oda ×0.2 → ×14 / ×0.7 (doygun maviydi; 4 karede
+  denendi). Dosya: `src/worlds/mertkent/facadeMats.ts`. **Blender:** `materials.py` pencere camı: yansıma daha zayıf,
+  tül/oda daha görünür; vitrin camı koyu.
