@@ -701,8 +701,8 @@ function roundaboutIsland(
   const grassKey = !gt || /çim|grass|lawn/.test(gt) ? 'lawn' : layerKey(gt);
   const md = s.meadow;
   if (md) {
-    // v9: biçilmiş kenar şeridi (rim, ton rimC) + biçilmemiş kuru çayır iç kısım (ton c, boy h): çim dokusu ölçülen
-    // tonla (index.ts lawn@ çeşidi); çayır boyu seyrek ot öbekleriyle (örneklenmiş tek geometri, bir çizim çağrısı)
+    // v9: biçilmiş kenar şeridi (rim, ton rimC: çim dokusu ölçülen tonla, index.ts lawn@ çeşidi) + biçilmemiş kuru
+    // çayır iç kısım (ton c)
     const rim = Math.max(0.3, midOf(md.rim, 3));
     const rimT = toneOf(md.rimC);
     const inT = toneOf(md.c);
@@ -722,42 +722,10 @@ function roundaboutIsland(
       0.5,
       2.5,
     );
-    const inK = inT ? `lawn@${inT}` : grassKey;
+    // Kuru çayır: ölçülen tonda mat yüzey (çim dokusunun ton çarpanı yeşil dokuda pembe kayma veriyordu → düz ton).
+    // KARAR: çayır boyu (h) çizilmez — öbek biçimi / sıklığı görülmedi; koni öbekler yapay görünüyordu
+    const inK = inT && matKey ? matKey(inT) : inT ? `lawn@${inT}` : grassKey;
     b.drape(inK, ring(inner), [], H, top + 0.004, 0.5, 2.5);
-    const mh = Math.max(0.05, midOf(md.h, 0.5));
-    if (inT && mh > 0.1 && matKey) {
-      const tuftK = matKey(inT);
-      // KARAR: öbek aralığı / biçimi ölçülmedi → ≈0.9 m ızgara, tohumlu kaydırma; öbek = 3 ince koni (ölçülen boy)
-      const iRX = Math.max(0.5, GX - rim - 0.3);
-      const iRZ = Math.max(0.5, GZ - rim - 0.3);
-      let sd = 51407;
-      const rnd = () => (sd = (sd * 16807) % 2147483647) / 2147483647;
-      const proto = (pb: Builder) => {
-        for (const [dx, dz, sc] of [
-          [0, 0, 1],
-          [0.12, 0.07, 0.8],
-          [-0.1, 0.09, 0.9],
-        ] as [number, number, number][]) {
-          const g = new THREE.ConeGeometry(0.09, sc, 5, 1, true);
-          g.translate(dx, sc / 2, dz);
-          pb.geometry(tuftK, g);
-        }
-      };
-      const m = new THREE.Matrix4();
-      for (let gx = -iRX; gx <= iRX; gx += 0.9)
-        for (let gz = -iRZ; gz <= iRZ; gz += 0.9) {
-          const px = gx + (rnd() - 0.5) * 0.7;
-          const pz = gz + (rnd() - 0.5) * 0.7;
-          if ((px / iRX) ** 2 + (pz / iRZ) ** 2 > 1) continue;
-          const wx = c[0] + px;
-          const wz = c[1] + pz;
-          const sc = mh * (0.8 + rnd() * 0.4);
-          m.makeRotationY(rnd() * Math.PI * 2);
-          m.scale(new THREE.Vector3(1, sc, 1));
-          m.setPosition(wx, H(wx, wz) + top, wz);
-          b.instance(`meadow_${inT}`, proto, m);
-        }
-    }
   } else
     b.drape(
       grassKey,

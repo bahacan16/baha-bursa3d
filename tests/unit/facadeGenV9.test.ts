@@ -525,7 +525,7 @@ describe('v9 — sokak türleri', () => {
     expect(toneOf(['#708f40', '#809a47'])).toBe('#789544');
     expect(toneOf('yeşil' as never)).toBeNull();
   });
-  it('kavşak adası çayırı: biçilmiş kenar + kuru çayır tonu + öbekler', () => {
+  it('kavşak adası çayırı: biçilmiş kenar + kuru çayır tonu', () => {
     const b = street([
       {
         kind: 'roundabout-island',
@@ -541,9 +541,8 @@ describe('v9 — sokak türleri', () => {
     ]);
     const bk = buckets(b);
     expect(bk.get('lawn@#789544')).toBeDefined();
-    expect(bk.get('lawn@#b09a65')).toBeDefined();
+    expect(bk.get('cc_interior_#b09a65')).toBeDefined();
     expect(bk.get('lawn')).toBeUndefined();
-    expect(b.instanceCounts()['meadow_#b09a65']).toBeGreaterThan(300);
   });
   it('refüj çim tonu (grassC)', () => {
     const bk = buckets(
