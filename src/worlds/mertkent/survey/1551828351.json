@@ -324,43 +324,11 @@
       -578.23
      ],
      [
-      591.97,
+      592.6,
       -578.08
      ],
      [
-      592,
-      -580.78
-     ],
-     [
-      592.72,
-      -580.86
-     ],
-     [
-      592.8,
-      -585.32
-     ],
-     [
-      593.7,
-      -585.32
-     ],
-     [
-      594,
-      -591.85
-     ],
-     [
-      593.28,
-      -591.88
-     ],
-     [
-      593.48,
-      -596.2
-     ],
-     [
-      592.72,
-      -596.2
-     ],
-     [
-      592.91,
+      592.6,
       -598.98
      ],
      [
@@ -406,11 +374,11 @@
    {
     "poly": [
      [
-      593.7,
-      -585.32
+      592.6,
+      -578.08
      ],
      [
-      592.95,
+      592.6,
       -570.66
      ],
      [
@@ -448,22 +416,6 @@
      [
       585.37,
       -578.23
-     ],
-     [
-      591.97,
-      -578.08
-     ],
-     [
-      592,
-      -580.78
-     ],
-     [
-      592.72,
-      -580.86
-     ],
-     [
-      592.8,
-      -585.32
      ]
     ],
     "storeys": 2,
@@ -482,6 +434,41 @@
       "rail": "tube",
       "railC": "#8d9296",
       "railH": 0.55
+     }
+    }
+   },
+   {
+    "poly": [
+     [
+      592.6,
+      -583
+     ],
+     [
+      593.9,
+      -583
+     ],
+     [
+      593.9,
+      -600.5
+     ],
+     [
+      592.6,
+      -600.5
+     ]
+    ],
+    "storeys": 2,
+    "floorHs": [
+     5,
+     5.05
+    ],
+    "wallTop": 10.3,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.1,
+     "parapet": {
+      "h": 0.1,
+      "color": "#3f4347"
      }
     }
    },
@@ -3222,171 +3209,10 @@
  "notes": [
   "KÜTLE (OSM building:part + ölçüm): batı blok 7 kat (K0 4.0, K1 3.55, konut 3.06; parapet üstü ≈24.3; OSM 30 m yanlış), orta parça 2 kat, doğu kule 9 kat (2 podyum ≈5.0+5.05, 7 konut ×3.05; parapet 32.0, loca sütunu 32.65; 6DCZ/3nkZ paralaksı kule doğu yüzünü x=592.6’da doğruladı), PABLO kutusu 2 kat (≈10.3, güney yüzü z≈−570.7 → önünde tek katlı şerit), kalan her yer tek kat (≈5.0: PABLO cam salonu, MADO cam salonu, kuzey dükkânları, Montea).",
   "Renkler: doğu/kuzey cepheler öğleden sonra gölgede çekilmiş (6DCZ/3nkZ/NtURh); beyaz sıva gölgede #a4a399…#afb0ab, güneyde #aaa79a; palet güneşli tahmin (#e2e1da) — notu düşülerek. Kırmızı tente güneşte #d25251, gölgede #ac3e40; MADO mavi #2f4ea6 (örnek #4f5886 beyaz konturla karışık).",
-  "Pano konum hataları: servis yolu (kuzey) ve Montea (batı) yakın panoları 2–4 m kayık; bu kenarlarda u gerçek metreye elle çevrildi (kenar notları). Kesim cepheleri (kule yüzleri, PABLO kutusu, MADO 1. kat) şemada öğe taşıyamadığı için pending’de gerçek ölçülerle."
+  "Pano konum hataları: servis yolu (kuzey) ve Montea (batı) yakın panoları 2–4 m kayık; bu kenarlarda u gerçek metreye elle çevrildi (kenar notları). Kesim cepheleri (kule yüzleri, PABLO kutusu, MADO 1. kat) şemada öğe taşıyamadığı için pending’de gerçek ölçülerle.",
+  "v8 (anket ajanı): cutEdges tamamlandı — kule doğu yüzü (pano sütunları, loca sütunu 2×7 loca), MADO 1. kat (yeni parça 4: 4 kubbe tente + pencereler + fenerler), PABLO harfleri + beyaz yüz (kule parçası), PABLO güney yüzü, kule güney yüzü, batı blok batı yüzü. Massing: kule doğu yüzü x=592.6 düz; PABLO parçası doğu yüzü z −570.66…−578.08 (şerit −585.32 kaldırıldı); MADO 1. kat şeridi ayrı parça."
  ],
  "pending": [
-  {
-   "what": "cutFace-E (PABLO 2 katlı kutu + doğu kule + MADO 1. kat) — bulvara bakan geri çekik yüzler",
-   "why": "v8 cutEdges ile ölçülenler dönüştürüldü; kalanlar: kahverengi pano sütunları (her kattaki pano kotları verilmedi), loca sütunu (kat kat cam / açık dağılımı var ama derinlik, K2 ve K8 durumu yok), MADO tenteleri (taşma d görülmedi), tente altı pencereler (u genişlikleri verilmedi). massing kesim kenarları öğe taşımıyor; bu yüzler bulvardan en çok görülen kısımlar. Koordinatlar GERÇEK m: u = yüz boyunca a noktasından, y = blok tabanından (kendi düzlemimde üretilen ortofoto: 6DCZ/3nkZ, düzlem x=592.6, iki panodan tutarlı ±0.3).",
-   "face": {
-    "a": [
-     592.6,
-     -577.5
-    ],
-    "e": [
-     592.6,
-     -600.5
-    ],
-    "normal": "+x"
-   },
-   "tower": {
-    "u": [
-     1.47,
-     22.3
-    ],
-    "top": 32,
-    "loggiaTop": 32.65,
-    "storeyHeads": {
-     "K2": 12.2,
-     "K3": 15.3,
-     "K4": 18.35,
-     "K5": 21.4,
-     "K6": 24.45,
-     "K7": 27.5,
-     "K8": 30.5
-    },
-    "columns": [
-     {
-      "u": [
-       1.9,
-       3
-      ],
-      "what": "kahverengi pano/panjur sütunu (her katta ≈2.1 m boy kahverengi dolu pano, pencere yok gibi)",
-      "color": "#6b5a4a"
-     },
-     {
-      "u": [
-       8.42,
-       15.03
-      ],
-      "what": "koyu kahve çerçeveli loca sütunu (kattan kata), ortada beyaz dikme u≈11.75; her katta iki loca: cam balkon/cam korkuluk karışık: K3 ve K6 kuzey yarım cam balkon, K4 ikisi açık cam korkuluk, K5/K7 kısmi cam; tavanlarda spot",
-      "color": "#6f6a66"
-     },
-     {
-      "u": [
-       19.4,
-       20.6
-      ],
-      "what": "kahverengi pano sütunu"
-     }
-    ],
-    "plaster": "#e2e1da (gölgede #88929a)",
-    "converted": "pencere sütunları u 3.95–5.95 ve 16.4–18.4 → cutEdges[0] (v8)"
-   },
-   "pablo": {
-    "u": [
-     -6.8,
-     5.5
-    ],
-    "y": [
-     0,
-     10.3
-    ],
-    "color": "#dcdcd6",
-    "rail": {
-     "y": [
-      10.3,
-      10.9
-     ],
-     "kind": "tube"
-    },
-    "below": "y < 5.0 önündeki tek katlı cam salonun çatısı arkasında",
-    "converted": "PABLO harfleri → cutEdges[2] (v8); rail = massing parapet korkuluğu"
-   },
-   "madoK1": {
-    "plane": "x≈593.9 (kulenin 1.3 m önü)",
-    "u": [
-     5.4,
-     22.3
-    ],
-    "y": [
-     5.3,
-     10.3
-    ],
-    "awnings": {
-     "kind": "kırmızı Hollanda (kubbe) tente, pencere başına",
-     "us": [
-      10,
-      13.05,
-      18,
-      20.4
-     ],
-     "w": 1.45,
-     "y": [
-      7.3,
-      8.3
-     ],
-     "color": "#b02b36"
-    },
-    "windows": "tente altlarında koyu kasalı pencereler (y≈6.6–7.4), aralarında fener aplikler",
-    "converted": "duvar, mozaik bantlar, üst bant, MADO harfleri → cutEdges[1] (v8)"
-   }
-  },
-  {
-   "what": "cutFace-S (PABLO kutusu güney yüzü z≈−570.7 + doğu kule güney yüzü z≈−578.8)",
-   "face": {
-    "a": [
-     573.3,
-     -570.7
-    ],
-    "e": [
-     592.95,
-     -570.66
-    ],
-    "normal": "+z"
-   },
-   "pablo": {
-    "y": [
-     4,
-     9.8
-    ],
-    "x": "573.3–592.4 (e16 ortosunda u −0.3…19.2)",
-    "color": "#d6d4cc",
-    "joint": "u 5.4’te düşey derz; doğu parça (u 6.0–19) içinde çerçeveli büyük pano y 5.6–9.1, altında iki dikdörtgen pano y 4.2–5.5",
-    "letters": {
-     "text": "PABLO",
-     "u": [
-      8.9,
-      14.8
-     ],
-     "y": [
-      6.7,
-      8.1
-     ],
-     "fg": "#c9433f",
-     "note": "e16 ortosunda görünen u (düzlem 2.4 m geride, ölçek ≈0.93)"
-    },
-    "rail": {
-     "y": [
-      10,
-      10.4
-     ],
-     "kind": "tube"
-    },
-    "vrf": "şerit çatısında (önünde) 3 VRF + 1 split klima: u 1.5–4.2, y 4.1–5.9"
-   },
-   "tower": {
-    "x": [
-     576.5,
-     592
-    ],
-    "y": [
-     10.3,
-     32
-    ],
-    "desc": "batıda kahverengi dikey bant, kahverengi pano sütunu içinde dar pencere sütunu (x≈580.6–581.9), beyaz, doğuda açık locaların (cam korkuluk, beyaz döşeme alınları) sütunu x≈587–591"
-   }
-  },
   {
    "what": "cutFace-N (MADO 1. kat kuzey yüzü z≈−601.8, doğu kule kuzey yüzü z≈−599.8, batı blok kuzey yüzü z≈−601.8…−602.7)",
    "madoK1": {
@@ -3405,10 +3231,6 @@
    "note": "servis yolu panoları çok yakın ve konumları hatalı → ölçü verilmedi; yalnız düzen."
   },
   {
-   "what": "cutFace-W (batı blok batı yüzü x≈532.6–534.6)",
-   "desc": "L2Ld (26.8 m, önünde ağaç): 7 kat, üst ≈24.5; iki kahverengi dış çerçeveli + kiremit-kahve iç panolu kule (e8 ile aynı dil) ve aralarında beyaz dikmeli cam balkonlu orta girinti; 3 kanatlı pencereler beyaz tüllü. oOYe konumu hatalı (yükseklik ölçeği ×1.3) → ölçü verilmedi."
-  },
-  {
    "what": "kentpark-canopy",
    "desc": "GB köşe Kent Park yaya/araç girişi üstünde büyük çelik lamel pergola kanopi: y≈6.0–7.4, koyu gri çelik kiriş + ince lameller (≈0.25 m aralık), e1–e7 önünde ve e0 güney ucunda; plan boyutu görülmedi (hava fotoğrafında x≈527–537, z≈−585…−579 gölgeli alan)."
   },
@@ -3423,6 +3245,14 @@
   {
    "what": "mado-terrace-fence",
    "desc": "MADO salonunun doğusunda (e17 u 18–36) cam önünde alçak siyah metal çit ≈0.9 m + saksı/çit bitkileri — cephe hattında mı sokakta mı ayrılamadı; sokak katmanına raporlandı."
+  },
+  {
+   "what": "cutFace-N (v8 sonrası kalan)",
+   "desc": "MADO 1. katın kuzeye dönen yüzü (≈7 kırmızı Hollanda tente, mavi mozaik, fenerler, MADO harfleri x≈590.5–588.5), doğu kule kuzey yüzü (ortada kahverengi pano kulesi + tek pencere sütunu, batıda loca sütunu), batı blok kuzey yüzü (kahverengi-kiremit pano kuleleri, mavi cam balkonlu çıkmalar). Servis yolu panoları 2–4 m konum hatalı ve çok yakın (NtURh 8.5 m) → güvenilir u ölçüsü yok; ölçülemedi."
+  },
+  {
+   "what": "south-strip-VRF",
+   "desc": "PABLO güney şeridi çatısında 3 VRF dış ünitesi + 1 split (e16 u 1.5–4.2 görünen ≈ x 573.5–576.4, y 4.1–5.9); çatı üstü öğe türü yok (roofobj yalnız baca/anten/çanak/vent/direk)."
   }
  ],
  "cutEdges": [
@@ -3438,7 +3268,7 @@
    ],
    "seen": "photo",
    "ref": "6DCZ / 3nkZ kendi düzlem ortofotosu (x = 592.6, iki panodan tutarlı ±0.3)",
-   "note": "Doğu kule (9 kat) bulvara bakan yüzü, K2–K8. u = a'dan kuzeye (−z), y blok tabanından GERÇEK m. Pencere sütunları: her katta lento (storeyHeads K2 12.2 … K8 30.5), boy 2.15 (sütun u 3.95–5.95'te ölçülen; u 16.4–18.4 sütunu aynı yüzün lento ızgarasında, boyu ayrıca yazılmamıştı). K2 referans: lento kattan 1.85 (K3–K7 1.90, K8 1.85 — ±0.05 tek öğede). Kahverengi pano sütunları (u 1.9–3.0, 19.4–20.6), loca sütunu (u 8.42–15.03) pending'de. Massing kule çokgeninin doğu yüzü (OSM building:part) x 592.0–594.0 arasında kırıklı; ölçülen düzlem x = 592.6 düz → öğeler kırıklı kenarlara düşer (u 16.4–18.4 sütunu x≈593.4 kenarında, düzlemin 0.8 m önünde).",
+   "note": "Doğu kule (9 kat) bulvara bakan yüzü, K2–K8. u = a'dan kuzeye (−z), y blok tabanından GERÇEK m. Pencere sütunları: her katta lento (storeyHeads K2 12.2 … K8 30.5), boy 2.15 (sütun u 3.95–5.95'te ölçülen; u 16.4–18.4 sütunu aynı yüzün lento ızgarasında, boyu ayrıca yazılmamıştı). K2 referans: lento kattan 1.85 (K3–K7 1.90, K8 1.85 — ±0.05 tek öğede). v8 (anket ajanı): kahverengi pano sütunları kat kat pano (her katta lento−2.15…lento), loca sütunu = koyu çerçeve panosu + iki gömük loca/kat (u 8.7–11.65 / 11.85–14.8, orta beyaz dikme); cam balkon katları towE_6DCZ düzlem ortosundan kat kat okundu (K8 ikisi camlı, K7 güney açık/kuzey kısmi cam, K6 açık, K5 ikisi camlı, K4 güney camlı/kuzey açık, K3 açık, K2 açık); açık locaların korkuluğu koyu mavi cam (#3e5b7e). Loca derinliği görülmedi → 1.2 tahmini. Massing doğu yüzü artık x=592.6 düz (kırık kaldırıldı).",
    "items": [
     {
      "t": "win",
@@ -3483,11 +3313,207 @@
       "K7": "tul",
       "K8": "tul"
      }
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 3,
+     "y0": 10.05,
+     "y1": 12.2,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 3,
+     "y0": 13.15,
+     "y1": 15.3,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 3,
+     "y0": 16.2,
+     "y1": 18.35,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 3,
+     "y0": 19.25,
+     "y1": 21.4,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 3,
+     "y0": 22.3,
+     "y1": 24.45,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 3,
+     "y0": 25.35,
+     "y1": 27.5,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 3,
+     "y0": 28.35,
+     "y1": 30.5,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 20.6,
+     "y0": 10.05,
+     "y1": 12.2,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 20.6,
+     "y0": 13.15,
+     "y1": 15.3,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 20.6,
+     "y0": 16.2,
+     "y1": 18.35,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 20.6,
+     "y0": 19.25,
+     "y1": 21.4,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 20.6,
+     "y0": 22.3,
+     "y1": 24.45,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 20.6,
+     "y0": 25.35,
+     "y1": 27.5,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 19.4,
+     "u1": 20.6,
+     "y0": 28.35,
+     "y1": 30.5,
+     "color": "#6b5a4a",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 8.42,
+     "u1": 15.03,
+     "y0": 10.3,
+     "y1": 32.65,
+     "color": "#6f6a66",
+     "proud": 0.04
+    },
+    {
+     "t": "pilaster",
+     "u0": 11.65,
+     "u1": 11.85,
+     "y0": 10.3,
+     "y1": 31.4,
+     "d": 0.02,
+     "color": "#e2e1da"
+    },
+    {
+     "t": "bal",
+     "u0": 8.7,
+     "u1": 11.65,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "glazed": [
+      4,
+      5,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#3e5b7e"
+     },
+     "frameC": {
+      "*": "#d9dcdc"
+     },
+     "sides": "wall"
+    },
+    {
+     "t": "bal",
+     "u0": 11.85,
+     "u1": 14.8,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "glazed": [
+      5,
+      7,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#3e5b7e"
+     },
+     "frameC": {
+      "*": "#d9dcdc"
+     },
+     "sides": "wall"
     }
    ]
   },
   {
-   "part": 2,
+   "part": 4,
    "a": [
     593.9,
     -577.5
@@ -3498,7 +3524,7 @@
    ],
    "seen": "photo",
    "ref": "6DCZ / 3nkZ kendi düzlem ortofotosu (MADO 1. kat düzlemi x ≈ 593.9)",
-   "note": "MADO 1. kat (kule K1, y 5.3–10.3) bulvar yüzü; u aynı a'dan (z −577.5). Koyu duvar #3f4347, mavi mozaik bantlar, çizgili krem üst bant, MADO harfleri. proud 0.02: yalnız üst üste binen panoların ayrımı için (derinlik görülmedi). Tenteler (Hollanda kubbe, taşma görülmedi) ve tente altı pencereler (genişlik verilmedi) pending'de. Massing: PABLO kutusunun 0.9 m şeridi z −585.32'ye kadar uzanıyor (ölçüde PABLO u 5.5'te = z −583.0'te biter) → u 5.4–7.8 arası kule yüzünde PABLO kutusunun arkasında kalır.",
+   "note": "MADO 1. kat (kule K1, y 5.3–10.3) bulvar yüzü; u aynı a'dan (z −577.5). Koyu duvar #3f4347, mavi mozaik bantlar, çizgili krem üst bant, MADO harfleri. proud 0.02: yalnız üst üste binen panoların ayrımı için (derinlik görülmedi). v8: yeni 2 katlı massing parçası 4 (x 592.6–593.9, z −583.0…−600.5; önceden PABLO şeridi z −585.32’ye uzanıyordu). Tenteler: 4 kırmızı Hollanda (kubbe) tente, merkezler towE ortosunda; taşma yandan (VJjs 240_0) ≈0.6 tahmini; altlarında beyaz parmaklık görünümlü koyu 3 kanatlı pencereler (y 6.95–7.9), aralarda fener aplikler. Kuzeye dönen yüz (7 tente) ayrı ölçülemedi → pending.",
    "items": [
     {
      "t": "panel",
@@ -3546,11 +3572,159 @@
      "fg": "#2f4ea6",
      "border": "#ffffff",
      "logo": "mavi harf, beyaz kontur; d görülmedi (harf varsayılanı), gece görülmedi"
+    },
+    {
+     "t": "awning",
+     "u0": 9.28,
+     "u1": 10.72,
+     "y": 8.85,
+     "d": 0.6,
+     "drop": 0.9,
+     "color": "#b02b36",
+     "style": "dutch"
+    },
+    {
+     "t": "win",
+     "u0": 9.4,
+     "u1": 10.6,
+     "y0": 6.95,
+     "y1": 7.9,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#1f2124",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 12.33,
+     "u1": 13.77,
+     "y": 8.85,
+     "d": 0.6,
+     "drop": 0.9,
+     "color": "#b02b36",
+     "style": "dutch"
+    },
+    {
+     "t": "win",
+     "u0": 12.45,
+     "u1": 13.65,
+     "y0": 6.95,
+     "y1": 7.9,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#1f2124",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 17.28,
+     "u1": 18.72,
+     "y": 8.85,
+     "d": 0.6,
+     "drop": 0.9,
+     "color": "#b02b36",
+     "style": "dutch"
+    },
+    {
+     "t": "win",
+     "u0": 17.4,
+     "u1": 18.6,
+     "y0": 6.95,
+     "y1": 7.9,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#1f2124",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "awning",
+     "u0": 19.68,
+     "u1": 21.12,
+     "y": 8.85,
+     "d": 0.6,
+     "drop": 0.9,
+     "color": "#b02b36",
+     "style": "dutch"
+    },
+    {
+     "t": "win",
+     "u0": 19.8,
+     "u1": 21,
+     "y0": 6.95,
+     "y1": 7.9,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 3,
+     "frameC": "#1f2124",
+     "curt": {
+      "K1": "karanlik"
+     }
+    },
+    {
+     "t": "lamp",
+     "u": 8.2,
+     "y": 7.9,
+     "style": "lantern",
+     "color": "#1b1b1b",
+     "tip": "#efe2b8"
+    },
+    {
+     "t": "lamp",
+     "u": 11.55,
+     "y": 7.9,
+     "style": "lantern",
+     "color": "#1b1b1b",
+     "tip": "#efe2b8"
+    },
+    {
+     "t": "lamp",
+     "u": 15.4,
+     "y": 7.9,
+     "style": "lantern",
+     "color": "#1b1b1b",
+     "tip": "#efe2b8"
+    },
+    {
+     "t": "lamp",
+     "u": 19.2,
+     "y": 7.9,
+     "style": "lantern",
+     "color": "#1b1b1b",
+     "tip": "#efe2b8"
+    },
+    {
+     "t": "lamp",
+     "u": 21.6,
+     "y": 7.9,
+     "style": "lantern",
+     "color": "#1b1b1b",
+     "tip": "#efe2b8"
     }
    ]
   },
   {
-   "part": 3,
+   "part": 2,
    "a": [
     592.6,
     -577.5
@@ -3561,7 +3735,7 @@
    ],
    "seen": "partial",
    "ref": "6DCZ / 3nkZ kendi düzlem ortofotosu (x = 592.6)",
-   "note": "PABLO 2 katlı kutunun doğu yüzü (y < 5.0 önündeki tek katlı cam salonun arkasında). u a'dan (negatif = a'nın güneyi). Kutu rengi #dcdcd6 bloğun sıvasına (#e2e1da) çok yakın → ayrı pano yazılmadı.",
+   "note": "PABLO 2 katlı kutunun doğu yüzü (y < 5.0 önündeki tek katlı cam salonun arkasında). u a'dan (negatif = a'nın güneyi). Kutu rengi #dcdcd6 bloğun sıvasına (#e2e1da) çok yakın → ayrı pano yazılmadı. v8: harflerin ortası z −578.7’de → kule (parça 2) kesim yüzüne verildi; kule K0–K1’in bu yüzü PABLO kutusunun beyaz yüzü (panel #dcdcd6, u −0.6…5.5). Parça 3 (PABLO) doğu yüzü artık z −570.66…−578.08.",
    "items": [
     {
      "t": "sign",
@@ -3574,6 +3748,227 @@
      "text": "PABLO",
      "fg": "#c9433f",
      "logo": "kalın geniş kırmızı harf, düz levha/boya (kabartma görülmedi → d 0.02)"
+    },
+    {
+     "t": "panel",
+     "u0": -0.6,
+     "u1": 5.5,
+     "y0": 5,
+     "y1": 10.3,
+     "color": "#dcdcd6"
+    }
+   ]
+  },
+  {
+   "part": 3,
+   "a": [
+    573.3,
+    -570.9
+   ],
+   "e": [
+    592.6,
+    -570.66
+   ],
+   "tol": 1,
+   "seen": "photo",
+   "ref": "0lpk / 0tbf (e16 ortosundan düzlem ölçeği 0.93 ile çevrildi; kamera u_c 15.9)",
+   "note": "PABLO 2 katlı kutusunun güney yüzü (z≈−570.7, önünde tek katlı şerit). u a’dan doğuya GERÇEK m, y tabandan. Ölçek dönüşümü: gerçek u = 15.9 + (u_e16 − 16.1)/0.93, y = 2.5 + (y_e16 − 2.5)/0.93 (üst 10.35 ✓). Düşey derz u 5.2; doğu bölümde çerçeveli büyük pano, altında iki pano; kırmızı PABLO harfleri düz (boya/levha). VRF üniteleri şerit çatısında → pending.",
+   "items": [
+    {
+     "t": "groove",
+     "dir": "v",
+     "u": 5.2,
+     "y0": 4.3,
+     "y1": 10.3,
+     "w": 0.03,
+     "color": "#a9a79f"
+    },
+    {
+     "t": "panel",
+     "u0": 5,
+     "u1": 19,
+     "y0": 5.8,
+     "y1": 9.6,
+     "color": "#d8d6ce",
+     "proud": 0.03
+    },
+    {
+     "t": "panel",
+     "u0": 5,
+     "u1": 9.9,
+     "y0": 4.3,
+     "y1": 5.7,
+     "color": "#d8d6ce",
+     "proud": 0.02
+    },
+    {
+     "t": "panel",
+     "u0": 10.7,
+     "u1": 15.5,
+     "y0": 4.3,
+     "y1": 5.7,
+     "color": "#d8d6ce",
+     "proud": 0.02
+    },
+    {
+     "t": "sign",
+     "u0": 8.2,
+     "u1": 14.5,
+     "y0": 7,
+     "y1": 8.5,
+     "style": "letters",
+     "d": 0.02,
+     "text": "PABLO",
+     "fg": "#c9433f",
+     "font": "sans",
+     "bold": true,
+     "logo": "kalın geniş kırmızı harf, düz (kabartma görülmedi); gece görülmedi"
+    }
+   ]
+  },
+  {
+   "part": 2,
+   "a": [
+    576.5,
+    -578.5
+   ],
+   "e": [
+    592.6,
+    -578.1
+   ],
+   "tol": 1,
+   "seen": "photo",
+   "ref": "0lpk / 0tbf kendi düzlem ortofotosu (z = −578.8, iki panoda ±0.4)",
+   "note": "Doğu kulenin güney yüzü K2–K8 (PABLO kutusunun üstünde). u a’dan doğuya, gerçek m. Batı ucunda kahverengi dikey bant, kahverengi pano kulesi içinde dar pencere sütunu (u 4.1–5.4), doğuda açık locaların sütunu (cam korkuluk, beyaz döşeme alınları). Pencere perdeleri seçilmedi.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0,
+     "u1": 0.6,
+     "y0": 10.3,
+     "y1": 31.4,
+     "color": "#6b5a4a"
+    },
+    {
+     "t": "panel",
+     "u0": 2.5,
+     "u1": 7.5,
+     "y0": 10.3,
+     "y1": 31.4,
+     "color": "#6b5a4a",
+     "proud": 0.03
+    },
+    {
+     "t": "win",
+     "u0": 4.1,
+     "u1": 5.4,
+     "y0": 10.05,
+     "y1": 12.2,
+     "k": 2,
+     "s": [
+      2,
+      8
+     ],
+     "split": 2
+    },
+    {
+     "t": "bal",
+     "u0": 10.5,
+     "u1": 14.5,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      2,
+      8
+     ],
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#5d6d78"
+     },
+     "fasciaC": {
+      "*": "#e2e1da"
+     },
+     "sides": "wall"
+    }
+   ]
+  },
+  {
+   "part": 0,
+   "a": [
+    534.3,
+    -603
+   ],
+   "e": [
+    533.2,
+    -583.5
+   ],
+   "tol": 1.5,
+   "seen": "partial",
+   "ref": "L2Ld kendi düzlem ortofotosu (x ≈ 533.3–534.3; önünde ağaç)",
+   "note": "Batı blok batı yüzü (Montea şeridinin üstü, K2–K6). u a’dan güneye. Büyük kahverengi dış çerçeve (u 0.9–18.9, y 7.7–24.5) içinde iki kiremit-kahve pano (u 1.9–4.8, 15.1–17.8), aralarında iki pencere sütunu (u 6.1–7.5, 12.4–13.7; yalnız ağaç arasından K2 ve K6 seçildi → s [2,6] sütun ızgarası e8 ile aynı dil), iki uçta beyaz loca/balkon kısımları (u −0.8…0.8, 18.9–20.2; ayrıntı görülmedi, yazılmadı). oOYe konumu hatalı → kullanılmadı.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 0.9,
+     "u1": 18.9,
+     "y0": 7.7,
+     "y1": 24.5,
+     "color": "#6f6352",
+     "proud": 0.06
+    },
+    {
+     "t": "panel",
+     "u0": 1.9,
+     "u1": 4.8,
+     "y0": 8.5,
+     "y1": 24,
+     "color": "#6f4f40",
+     "proud": 0.1
+    },
+    {
+     "t": "panel",
+     "u0": 15.1,
+     "u1": 17.8,
+     "y0": 8.5,
+     "y1": 24,
+     "color": "#6f4f40",
+     "proud": 0.1
+    },
+    {
+     "t": "win",
+     "u0": 6.1,
+     "u1": 7.5,
+     "y0": 7.9,
+     "y1": 10.1,
+     "k": 2,
+     "s": [
+      2,
+      6
+     ],
+     "split": 2,
+     "curt": {
+      "K2": "tul",
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 12.4,
+     "u1": 13.7,
+     "y0": 7.9,
+     "y1": 10.1,
+     "k": 2,
+     "s": [
+      2,
+      6
+     ],
+     "split": 2,
+     "curt": {
+      "K2": "tul",
+      "K6": "tul"
+     }
     }
    ]
   }
