@@ -302,11 +302,45 @@ export function generateEzTree(o: EzTreeOptions): EzTreeGeometry {
  * Ağacı hedef boya/tepe genişliğine ölçekle; yaprak normallerini tepe merkezinden dışa doğru ayarla
  * (düz kartlar yerine hacimli tepe gölgelemesi — oyunlarda yaygın hile). `bias`: normallerin yukarı eğilimi.
  */
+/**
+ * Görünen taç genişliği (m): gövde ekseninden yatay uzaklıkların 10 boy diliminde %95'liği, en geniş dilim × 2.
+ * Sınır kutusu tek bir uzun dalın ucuyla belirleniyordu → sık taç başvuru genişliğinin ~%80'i kalıyordu (critic
+ * rb/b-05: sedir ölçülen r'den dar). Yaprak köşesi azsa sınır kutusu.
+ */
+export function crownWidth(leaves: THREE.BufferGeometry): number {
+  const p = leaves.attributes.position;
+  if (!p || p.count === 0) return 0;
+  let y0 = Infinity;
+  let y1 = -Infinity;
+  for (let i = 0; i < p.count; i++) {
+    y0 = Math.min(y0, p.getY(i));
+    y1 = Math.max(y1, p.getY(i));
+  }
+  const NS = 10;
+  const sl: number[][] = Array.from({ length: NS }, () => []);
+  const span = Math.max(1e-3, y1 - y0);
+  for (let i = 0; i < p.count; i++) {
+    const k = Math.min(NS - 1, Math.max(0, Math.floor(((p.getY(i) - y0) / span) * NS)));
+    sl[k].push(Math.hypot(p.getX(i), p.getZ(i)));
+  }
+  const minN = Math.max(8, Math.floor(p.count / (NS * 8)));
+  let best = 0;
+  for (const s of sl) {
+    if (s.length < minN) continue;
+    s.sort((a, b) => a - b);
+    best = Math.max(best, s[Math.floor(0.95 * (s.length - 1))]);
+  }
+  if (best > 0) return 2 * best;
+  const box = new THREE.Box3().setFromBufferAttribute(p as THREE.BufferAttribute);
+  return Math.max(box.max.x - box.min.x, box.max.z - box.min.z);
+}
+
 export function fitTree(t: EzTreeGeometry, height: number, width: number, bias = 0.35): EzTreeGeometry {
   const box = new THREE.Box3().setFromBufferAttribute(t.leaves.attributes.position as THREE.BufferAttribute);
   box.union(new THREE.Box3().setFromBufferAttribute(t.branches.attributes.position as THREE.BufferAttribute));
   const sy = height / Math.max(1e-3, box.max.y);
-  const w = Math.max(box.max.x - box.min.x, box.max.z - box.min.z);
+  // Ölçülen / başvuru taç genişliği görünen (sık) taç genişliğine uyar (sınır kutusuna değil)
+  const w = crownWidth(t.leaves);
   const sxz = width / Math.max(1e-3, w);
   // KARAR: gövde dibi (0,0,0) yerinde kalır (ölçülen konum gövdedir; çarpışma kutusu da orada) — eski sürüm
   // asimetrik tepeyi ortalıyor, gövdeyi kaydırıyordu

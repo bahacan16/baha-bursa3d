@@ -28,56 +28,20 @@
    {
     "poly": [
      [
-      650,
-      -620
-     ],
-     [
-      673.5,
-      -620
-     ],
-     [
-      673.5,
-      -593.8
-     ],
-     [
-      650,
-      -593.8
-     ]
-    ],
-    "storeys": 4,
-    "roof": {
-     "kind": "flat",
-     "eave": 0.05,
-     "fasciaH": 0.1,
-     "fasciaC": "#a2a49e"
-    },
-    "wallTop": 11.9
-   },
-   {
-    "poly": [
-     [
-      650,
-      -593.8
-     ],
-     [
-      673.5,
-      -593.8
-     ],
-     [
-      673.5,
-      -620
+      673.28,
+      -593.6
      ],
      [
       696,
-      -620
+      -593.6
      ],
      [
       696,
-      -550
+      -560
      ],
      [
-      650,
-      -550
+      671.61,
+      -560
      ]
     ],
     "storeys": 7
@@ -85,52 +49,12 @@
    {
     "poly": [
      [
-      696,
-      -620
-     ],
-     [
       699.4,
-      -620
+      -592.8
      ],
      [
-      699.4,
-      -550
-     ],
-     [
-      696,
-      -550
-     ]
-    ],
-    "storeys": 4,
-    "roof": {
-     "kind": "flat",
-     "eave": 0.05,
-     "fasciaH": 0.1,
-     "fasciaC": "#a2a49e"
-    },
-    "wallTop": 11.35
-   },
-   {
-    "poly": [
-     [
-      699.4,
-      -620
-     ],
-     [
-      718.3,
-      -620
-     ],
-     [
-      718.3,
-      -581.189
-     ],
-     [
-      717.87,
-      -581.21
-     ],
-     [
-      717.86,
-      -580.84
+      717.61,
+      -592.8
      ],
      [
       717.61,
@@ -142,11 +66,11 @@
      ],
      [
       717.28,
-      -550
+      -560
      ],
      [
       699.4,
-      -550
+      -560
      ]
     ],
     "storeys": 7
@@ -182,9 +106,793 @@
      "fasciaC": "#b6b5ad"
     },
     "wallTop": 7.6
+   },
+   {
+    "rest": true,
+    "storeys": 4,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.05,
+     "fasciaH": 0.1,
+     "fasciaC": "#a2a49e"
+    },
+    "wallTop": 11.9
    }
   ]
  },
+ "cutEdges": [
+  {
+   "part": 0,
+   "a": [
+    673.28,
+    -593.6
+   ],
+   "e": [
+    671.97,
+    -567.26
+   ],
+   "seen": "photo",
+   "ref": "1552093106_0_7zxiB5de_f22.jpg",
+   "cal": {
+    "u": [
+     1.47,
+     25.33
+    ],
+    "head": [
+     [
+      4,
+      15.38
+     ],
+     [
+      6,
+      21.18
+     ]
+    ]
+   },
+   "note": "Batı kule bulvar yüzü (podyum cephesinden ≈2.5 m geride; OSM 1552093107 + çatı kenarı). Görünen koordinatlar 7zxiB5de ortofotosunda (eski kenar 0 ölçüleri); cal.u = kule KB (görünen 1.47) ve GB (25.33) köşeleri → kule ölçeği ≈0.905 otomatik. Öğeler: sol kanat locaları (K4/K6 camlı, K5 açık), fransız pencere sütunu, orta merdiven çekirdeği girintisi (+3 m) ve cam şeridi, sağ kanat açık locaları, loca arka duvarı kapıları, K4 korkuluk brandası, klima, aplik.",
+   "items": [
+    {
+     "t": "bal",
+     "u0": 1.71,
+     "u1": 7.69,
+     "d": 0,
+     "inset": 2,
+     "s": [
+      4,
+      4
+     ],
+     "glazed": [
+      4
+     ],
+     "tint": {
+      "K4": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "K4": "glassFull"
+     },
+     "glassC": {
+      "K4": "#315566"
+     },
+     "railH": {
+      "K4": 0.84
+     },
+     "glazeEvery": 0.54,
+     "frameC": {
+      "K4": "#e8e8e4"
+     }
+    },
+    {
+     "t": "ac",
+     "u": 5.2,
+     "s": 4,
+     "y": 14.75,
+     "side": false
+    },
+    {
+     "t": "bal",
+     "u0": 1.71,
+     "u1": 7.69,
+     "d": 0,
+     "inset": 2,
+     "s": [
+      5,
+      5
+     ],
+     "sides": "wall",
+     "rail": {
+      "K5": "glassFull"
+     },
+     "glassC": {
+      "K5": "#466973"
+     },
+     "railH": {
+      "K5": 0.75
+     },
+     "spots": {
+      "n": 1
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 1.71,
+     "u1": 7.69,
+     "d": 0,
+     "inset": 2,
+     "s": [
+      6,
+      6
+     ],
+     "glazed": [
+      6
+     ],
+     "tint": {
+      "K6": "green"
+     },
+     "sides": "wall",
+     "rail": {
+      "K6": "glassFull"
+     },
+     "glassC": {
+      "K6": "#264b5b"
+     },
+     "railH": {
+      "K6": 0.74
+     },
+     "glazeEvery": 0.54,
+     "frameC": {
+      "K6": "#e8e8e4"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 3.35,
+     "u1": 4.94,
+     "y0": 15.23,
+     "y1": 17.26,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "kind": "door",
+     "split": 2,
+     "behind": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 5.96,
+     "u1": 7.57,
+     "y0": 15.23,
+     "y1": 17.26,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "kind": "door",
+     "split": 2,
+     "behind": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K5": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 8.11,
+     "u1": 9.79,
+     "y0": 13.13,
+     "y1": 14.99,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#ecece8",
+     "curt": {
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 8.11,
+     "u1": 9.79,
+     "y0": 16.03,
+     "y1": 17.89,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#ecece8",
+     "curt": {
+      "K5": "zebra"
+     },
+     "curtC": {
+      "K5": "#e6e6e2"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 8.11,
+     "u1": 9.79,
+     "y0": 18.99,
+     "y1": 20.85,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#ecece8",
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "recess",
+     "u0": 11.08,
+     "u1": 15.97,
+     "y0": 12,
+     "y1": 22.82,
+     "depth": 3,
+     "back": "#3c3937",
+     "side": "plaster",
+     "ceil": "plaster"
+    },
+    {
+     "t": "win",
+     "u0": 12.5,
+     "u1": 14.94,
+     "y0": 12.5,
+     "y1": 22.87,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "stair": true,
+     "split": 2,
+     "behind": 3,
+     "frameC": "#2a2c2c",
+     "tint": "#26454e",
+     "hbars": [
+      13.6,
+      15,
+      16.35,
+      17.72,
+      19.1,
+      20.47,
+      21.85
+     ]
+    },
+    {
+     "t": "win",
+     "u0": 17.5,
+     "u1": 18.63,
+     "y0": 13.13,
+     "y1": 15.05,
+     "k": 4,
+     "s": [
+      4,
+      6
+     ],
+     "kind": "french",
+     "rail": true,
+     "split": 2,
+     "frameC": "#ecece8"
+    },
+    {
+     "t": "bal",
+     "u0": 19.05,
+     "u1": 25.15,
+     "d": 0,
+     "inset": 2,
+     "s": [
+      4,
+      6
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#4a6673"
+     },
+     "railH": {
+      "*": 0.74
+     },
+     "spots": {
+      "n": 1
+     }
+    },
+    {
+     "t": "win",
+     "u0": 19.46,
+     "u1": 21.02,
+     "y0": 17.95,
+     "y1": 20.07,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "kind": "door",
+     "split": 2,
+     "behind": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K6": "karanlik"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 22.1,
+     "u1": 23.65,
+     "y0": 17.95,
+     "y1": 20.07,
+     "k": 6,
+     "s": [
+      6,
+      6
+     ],
+     "kind": "door",
+     "split": 2,
+     "behind": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K6": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 22.16,
+     "u1": 23.65,
+     "y0": 15.23,
+     "y1": 17.33,
+     "k": 5,
+     "s": [
+      5,
+      5
+     ],
+     "kind": "door",
+     "split": 2,
+     "behind": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K5": "tul"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 22.16,
+     "u1": 23.65,
+     "y0": 12.51,
+     "y1": 14.72,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "kind": "door",
+     "split": 2,
+     "behind": 2,
+     "frameC": "#e8e8e4",
+     "curt": {
+      "K4": "tul"
+     }
+    },
+    {
+     "t": "banner",
+     "u0": 21.56,
+     "u1": 23.53,
+     "y0": 13.17,
+     "y1": 13.89,
+     "d": 0.05,
+     "style": "print",
+     "bg": "#161a2e",
+     "fg": "#ffffff",
+     "lines": [
+      {
+       "text": "…eslek Hizmet Birimi",
+       "fg": "#ffffff",
+       "size": 0.8,
+       "bold": true,
+       "y": 0.86
+      },
+      {
+       "text": "…onuşma Terapisti",
+       "fg": "#ffffff",
+       "size": 0.8,
+       "bold": true,
+       "y": 0.62
+      },
+      {
+       "text": "…e SERT ALLIŞ",
+       "fg": "#ffffff",
+       "size": 0.9,
+       "bold": true,
+       "y": 0.38
+      },
+      {
+       "text": "0 541 585 96 99",
+       "fg": "#ffffff",
+       "size": 0.9,
+       "bold": true,
+       "y": 0.12
+      }
+     ]
+    },
+    {
+     "t": "lamp",
+     "u": 24.3,
+     "y": 19.95,
+     "style": "box",
+     "d": 0.1,
+     "h": 0.12,
+     "color": "#d0d0cc"
+    }
+   ]
+  },
+  {
+   "part": 0,
+   "a": [
+    696,
+    -593.6
+   ],
+   "e": [
+    673.28,
+    -593.6
+   ],
+   "seen": "photo",
+   "ref": "325. Sk. ortofotoları 7Pj5V3it / o207isLZ (benzerlik modelleriyle gerçek ölçüye çevrildi)",
+   "note": "Batı kule kuzey yüzü (podyumdan 0.8–1.7 m geride). u = x 696.0’dan batıya gerçek m, y blok tabanından gerçek m. Taşan loca bloğu x ≈678.2–686.5 (+ batı ucu x 677.7–679.4) iki bölmeli: K4 iki bölme camlı; K5 sol camlı, sağ açık; K6 sol açık, sağ camlı. Ortada ve KB köşede beyaz PVC iniş boruları.",
+   "items": [
+    {
+     "t": "bal",
+     "u0": 9.53,
+     "u1": 13.56,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      4,
+      5
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     },
+     "glazed": [
+      4,
+      5
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 9.53,
+     "u1": 13.56,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      6,
+      6
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     },
+     "spots": {
+      "n": 1
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 13.69,
+     "u1": 16.62,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      4,
+      4
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     },
+     "glazed": [
+      4
+     ],
+     "tint": {
+      "K4": "green"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 13.69,
+     "u1": 16.62,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      5,
+      5
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     },
+     "spots": {
+      "n": 1
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 13.69,
+     "u1": 16.62,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      6,
+      6
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     },
+     "glazed": [
+      6
+     ],
+     "tint": {
+      "K6": "green"
+     }
+    },
+    {
+     "t": "bal",
+     "u0": 16.61,
+     "u1": 18.34,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      4,
+      6
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     },
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green",
+      "K6": "green"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 13.63,
+     "y0": 11.5,
+     "y1": 22.22,
+     "color": "#d9d9d6",
+     "r": 0.045
+    },
+    {
+     "t": "pipe",
+     "u": 22.33,
+     "y0": 11.52,
+     "y1": 21.23,
+     "color": "#e2e2e0",
+     "r": 0.04
+    },
+    {
+     "t": "pipe",
+     "u": 5.05,
+     "y0": 11.6,
+     "y1": 22.77,
+     "color": "#e2e2e0",
+     "r": 0.04
+    }
+   ]
+  },
+  {
+   "part": 1,
+   "a": [
+    717.61,
+    -592.8
+   ],
+   "e": [
+    699.4,
+    -592.8
+   ],
+   "tol": 1.5,
+   "seen": "photo",
+   "ref": "325. Sk. ortofotoları 4JhpvS4z / WifkBXIN (gerçek ölçüye çevrildi)",
+   "note": "Doğu kule kuzey yüzü. Taşan loca bloğu x ≈702.3–710.3 (iki bölme, ortada beyaz iniş borusu, K4–K6 cam balkon, yer yer açık kanat); doğusunda düz sıva ve iniş borusu (x≈714.8).",
+   "items": [
+    {
+     "t": "bal",
+     "u0": 7.36,
+     "u1": 15.12,
+     "d": 0,
+     "inset": 1.2,
+     "s": [
+      4,
+      6
+     ],
+     "sides": "wall",
+     "rail": {
+      "*": "glassFull"
+     },
+     "glassC": {
+      "*": "#8aa3a3"
+     },
+     "railH": {
+      "*": 0.7
+     },
+     "glazeEvery": 0.62,
+     "frameC": {
+      "*": "#c9ccc8"
+     },
+     "glazed": [
+      4,
+      5,
+      6
+     ],
+     "tint": {
+      "K4": "green",
+      "K5": "green",
+      "K6": "green"
+     }
+    },
+    {
+     "t": "pipe",
+     "u": 10.67,
+     "y0": 12.43,
+     "y1": 22.9,
+     "color": "#d9d9d6",
+     "r": 0.045
+    },
+    {
+     "t": "pipe",
+     "u": 2.81,
+     "y0": 11.38,
+     "y1": 21.02,
+     "color": "#e2e2e0",
+     "r": 0.04
+    }
+   ]
+  },
+  {
+   "part": 1,
+   "a": [
+    717.3,
+    -567.44
+   ],
+   "e": [
+    717.61,
+    -592.8
+   ],
+   "tol": 1.5,
+   "seen": "partial",
+   "ref": "1552093106_12_AvflKtAH.jpg (gerçek ölçüye çevrildi: görünen y = −1.41 + 0.888·gerçek, uF 1.68)",
+   "note": "Doğu kule doğu yüzü (x≈717.3–717.6; GD ekin ve doğu podyum şeridinin gerisinde). Yalnız eski kenar 12 karesinde görülen yeşil cam merdiven şeridi (kahverengi çerçeve) çizildi; diğer pencereler / localar (_YCGz 10 ortofotosunda uzaktan) ölçülmedi.",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 9.9,
+     "u1": 13.41,
+     "y0": 11.9,
+     "y1": 21.8,
+     "color": "#3c3431",
+     "proud": 0.04
+    },
+    {
+     "t": "win",
+     "u0": 10.56,
+     "u1": 12.78,
+     "y0": 11.9,
+     "y1": 22.25,
+     "k": 4,
+     "s": [
+      4,
+      4
+     ],
+     "stair": true,
+     "split": 2,
+     "frameC": "#3c3431",
+     "tint": "#3f6f63",
+     "hbars": [
+      13.02,
+      14.31,
+      15.61,
+      16.9,
+      18.2,
+      19.49,
+      20.79
+     ]
+    }
+   ]
+  }
+ ],
  "edges": [
   {
    "edge": 0,
@@ -207,7 +915,7 @@
      ]
     ]
    },
-   "note": "Özlüce Bulvarı (batı) cephesi. Ölçü 7zxiB5de _f22 ortofotosunda (aynı u/y), teyit 7gxX9ooH + 7zxi 22° kareleri (70/83/96/110/113). Cephe gölgede (öğleden sonra batı yüzü güneş almıyor; renkler gölge örnekleri). KB köşe (kahverengi köşe kolonu + QNB duvarı) ortofotoda u≈−1.9’da (7zxi 70_0 karesinde köşe yönü 62.6° → z≈−597.3): taban izi kuzey ucu ≈2 m kısa → cal.u başlangıcı görünen köşe (−1.9). Güney uç u 28.0 kahverengi köşe kolonunun dış kenarı. Kule katları (K4–K6) podyumla hemen hemen aynı düzlemde (alt yüzde 0.3 m saçak görünüyor); orta merdiven çekirdeği K4 üstünde kanat yüzlerinden ≈3 m geride (yan yüz 0.42 m görünüyor, ±1 m) → recess. Kanat locaları arka duvarı ≈2.0 m içeride (arka duvar kapı lentoları görünen 17.33/20.07 → D/(D+δ) 0.938). | ÖĞE NOTLARI: [panel u -1.9–0.88] QNB beyaz duvar (KB köşe) ; [panel u 18.87–19.9] TEB solunda bej taş kaplı paye ; [panel u 25.39–28.03] GB köşe kahverengi (gölgede siyaha yakın) kompozit kolon ; [win u 0.94–3 K0–0] QNB sabit cam ; [win u 7.25–9.25 K0–0] QNB ATM bölmesi: koyu lacivert, iki ATM ; [win u 10.73–13.8 K0–0] apartman girişi: siyah doğramalı cam kapılar, camın arkasında ferforje desen ; [win u 17.23–18.87 K0–0] TEB ATM bölmesi (yeşil panel, kuş motifli) ; [win u 0.88–9.34 K2–2] K2 bant cam (yansımalı yeşil-mavi) ; [win u 19.86–25.3 K2–2] u 21.4–22.6 bölmesinde koyu lacivert stor inik ; [win u 10.69–15.56 K1–1] çekirdek alt giydirme cam (K1–K2 boyu) ; [panel u 11.9–13.2] camın arkasında koyu kutu/pano ; [proj u 10.6–15.65] giriş üstü ince saçak plağı (bej); derinlik yandan görülmedi ; [sign u 19.53–23.49] altın 3B harfler siyah pano üstünde ; [sign u 20.1–22.4] el yazısı altın harfler panonun altından taşar ; [sign u 22.55–23.45] küçük \"randevu\" satırı + telefon, okunamadı ; [sign u 15.59–16.38] kahverengi payede beyaz bina adı harfleri; ilk sözcüğün son harfi S/Ş (çengel seçilemedi), PARK sonrasında küçük yaprak işareti ; [box u 16.22–16.66 K0] kahverengi payede yeşil kemer tepeli kutu (TEB ATM zarfı/dilek kutusu?) — derinlik tahmini değil yandan ~0.3 (ZN5m 60_0) ; [camera u 27.7 K0] GB köşe kolonunda beyaz CCTV ; [panel u 27.1–27.9] köşe kolonu önünde gri elektrik/sayaç kutuları + boru ; [bal u 1.71–7.69 K4–4] K4 cam balkon (katlanır cam, beyaz ince dikmeler ≈0.54 m); içinde klima dış ünitesi ; [bal u 1.71–7.69 K5–5] K5 açık loca, mavi-yeşil cam korkuluk; tavanda tek spot (u 4.9) ; [win u 12.5–14.94 K4–4] çekirdek üst cam şeridi, koyu kahve çerçeve içinde ; [win u 17.5–18.63 K4–6] ağaç arkasında kısmen görüldü (K6 üst kısmı, K5/K4 dar şeritler); perde görülmedi ; [bal u 19.05–25.15 K4–6] sağ kanat açık localar K4–K6 (camsız) ; [banner u 21.56–23.53] K4 sağ loca cam korkuluğuna asılı lacivert branda; sol kısmı ağaç arkasında (baş harfler görülmedi) ; [lamp u 24.3] K6 loca arka duvarında küçük aplik",
+   "note": "Özlüce Bulvarı (batı) cephesi. Ölçü 7zxiB5de _f22 ortofotosunda (aynı u/y), teyit 7gxX9ooH + 7zxi 22° kareleri (70/83/96/110/113). Cephe gölgede (öğleden sonra batı yüzü güneş almıyor; renkler gölge örnekleri). KB köşe (kahverengi köşe kolonu + QNB duvarı) ortofotoda u≈−1.9’da (7zxi 70_0 karesinde köşe yönü 62.6° → z≈−597.3): taban izi kuzey ucu ≈2 m kısa → cal.u başlangıcı görünen köşe (−1.9). Güney uç u 28.0 kahverengi köşe kolonunun dış kenarı. v8: kule katları (K4–K6) batı kulesinin ≈2.5 m geri çekik yüzünde (cutEdges[0]); bu kenarda yalnız podyum (K0–K3). Kanat locaları arka duvarı ≈2.0 m içeride (arka duvar kapı lentoları görünen 17.33/20.07 → D/(D+δ) 0.938). | ÖĞE NOTLARI: [panel u -1.9–0.88] QNB beyaz duvar (KB köşe) ; [panel u 18.87–19.9] TEB solunda bej taş kaplı paye ; [panel u 25.39–28.03] GB köşe kahverengi (gölgede siyaha yakın) kompozit kolon ; [win u 0.94–3 K0–0] QNB sabit cam ; [win u 7.25–9.25 K0–0] QNB ATM bölmesi: koyu lacivert, iki ATM ; [win u 10.73–13.8 K0–0] apartman girişi: siyah doğramalı cam kapılar, camın arkasında ferforje desen ; [win u 17.23–18.87 K0–0] TEB ATM bölmesi (yeşil panel, kuş motifli) ; [win u 0.88–9.34 K2–2] K2 bant cam (yansımalı yeşil-mavi) ; [win u 19.86–25.3 K2–2] u 21.4–22.6 bölmesinde koyu lacivert stor inik ; [win u 10.69–15.56 K1–1] çekirdek alt giydirme cam (K1–K2 boyu) ; [panel u 11.9–13.2] camın arkasında koyu kutu/pano ; [proj u 10.6–15.65] giriş üstü ince saçak plağı (bej); derinlik yandan görülmedi ; [sign u 19.53–23.49] altın 3B harfler siyah pano üstünde ; [sign u 20.1–22.4] el yazısı altın harfler panonun altından taşar ; [sign u 22.55–23.45] küçük \"randevu\" satırı + telefon, okunamadı ; [sign u 15.59–16.38] kahverengi payede beyaz bina adı harfleri; ilk sözcüğün son harfi S/Ş (çengel seçilemedi), PARK sonrasında küçük yaprak işareti ; [box u 16.22–16.66 K0] kahverengi payede yeşil kemer tepeli kutu (TEB ATM zarfı/dilek kutusu?) — derinlik tahmini değil yandan ~0.3 (ZN5m 60_0) ; [camera u 27.7 K0] GB köşe kolonunda beyaz CCTV ; [panel u 27.1–27.9] köşe kolonu önünde gri elektrik/sayaç kutuları + boru",
    "items": [
     {
      "t": "panel",
@@ -1119,400 +1827,6 @@
      "color": "#3a3a38",
      "r": 0.04,
      "brackets": false
-    },
-    {
-     "t": "bal",
-     "u0": 1.71,
-     "u1": 7.69,
-     "d": 0,
-     "inset": 2,
-     "s": [
-      4,
-      4
-     ],
-     "glazed": [
-      4
-     ],
-     "tint": {
-      "K4": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "K4": "glassFull"
-     },
-     "glassC": {
-      "K4": "#315566"
-     },
-     "railH": {
-      "K4": 0.84
-     },
-     "glazeEvery": 0.54,
-     "frameC": {
-      "K4": "#e8e8e4"
-     }
-    },
-    {
-     "t": "ac",
-     "u": 5.2,
-     "s": 4,
-     "y": 14.75,
-     "side": false
-    },
-    {
-     "t": "bal",
-     "u0": 1.71,
-     "u1": 7.69,
-     "d": 0,
-     "inset": 2,
-     "s": [
-      5,
-      5
-     ],
-     "sides": "wall",
-     "rail": {
-      "K5": "glassFull"
-     },
-     "glassC": {
-      "K5": "#466973"
-     },
-     "railH": {
-      "K5": 0.75
-     },
-     "spots": {
-      "n": 1
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 1.71,
-     "u1": 7.69,
-     "d": 0,
-     "inset": 2,
-     "s": [
-      6,
-      6
-     ],
-     "glazed": [
-      6
-     ],
-     "tint": {
-      "K6": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "K6": "glassFull"
-     },
-     "glassC": {
-      "K6": "#264b5b"
-     },
-     "railH": {
-      "K6": 0.74
-     },
-     "glazeEvery": 0.54,
-     "frameC": {
-      "K6": "#e8e8e4"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 3.35,
-     "u1": 4.94,
-     "y0": 15.23,
-     "y1": 17.26,
-     "k": 5,
-     "s": [
-      5,
-      5
-     ],
-     "kind": "door",
-     "split": 2,
-     "behind": 2,
-     "frameC": "#e8e8e4",
-     "curt": {
-      "K5": "tul"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 5.96,
-     "u1": 7.57,
-     "y0": 15.23,
-     "y1": 17.26,
-     "k": 5,
-     "s": [
-      5,
-      5
-     ],
-     "kind": "door",
-     "split": 2,
-     "behind": 2,
-     "frameC": "#e8e8e4",
-     "curt": {
-      "K5": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 8.11,
-     "u1": 9.79,
-     "y0": 13.13,
-     "y1": 14.99,
-     "k": 4,
-     "s": [
-      4,
-      4
-     ],
-     "kind": "french",
-     "rail": true,
-     "split": 2,
-     "frameC": "#ecece8",
-     "curt": {
-      "K4": "tul"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 8.11,
-     "u1": 9.79,
-     "y0": 16.03,
-     "y1": 17.89,
-     "k": 5,
-     "s": [
-      5,
-      5
-     ],
-     "kind": "french",
-     "rail": true,
-     "split": 2,
-     "frameC": "#ecece8",
-     "curt": {
-      "K5": "zebra"
-     },
-     "curtC": {
-      "K5": "#e6e6e2"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 8.11,
-     "u1": 9.79,
-     "y0": 18.99,
-     "y1": 20.85,
-     "k": 6,
-     "s": [
-      6,
-      6
-     ],
-     "kind": "french",
-     "rail": true,
-     "split": 2,
-     "frameC": "#ecece8",
-     "curt": {
-      "K6": "tul"
-     }
-    },
-    {
-     "t": "recess",
-     "u0": 11.08,
-     "u1": 15.97,
-     "y0": 12,
-     "y1": 22.82,
-     "depth": 3,
-     "back": "#3c3937",
-     "side": "plaster",
-     "ceil": "plaster"
-    },
-    {
-     "t": "win",
-     "u0": 12.5,
-     "u1": 14.94,
-     "y0": 12.5,
-     "y1": 22.87,
-     "k": 4,
-     "s": [
-      4,
-      4
-     ],
-     "stair": true,
-     "split": 2,
-     "behind": 3,
-     "frameC": "#2a2c2c",
-     "tint": "#26454e",
-     "hbars": [
-      13.6,
-      15,
-      16.35,
-      17.72,
-      19.1,
-      20.47,
-      21.85
-     ]
-    },
-    {
-     "t": "win",
-     "u0": 17.5,
-     "u1": 18.63,
-     "y0": 13.13,
-     "y1": 15.05,
-     "k": 4,
-     "s": [
-      4,
-      6
-     ],
-     "kind": "french",
-     "rail": true,
-     "split": 2,
-     "frameC": "#ecece8"
-    },
-    {
-     "t": "bal",
-     "u0": 19.05,
-     "u1": 25.15,
-     "d": 0,
-     "inset": 2,
-     "s": [
-      4,
-      6
-     ],
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#4a6673"
-     },
-     "railH": {
-      "*": 0.74
-     },
-     "spots": {
-      "n": 1
-     }
-    },
-    {
-     "t": "win",
-     "u0": 19.46,
-     "u1": 21.02,
-     "y0": 17.95,
-     "y1": 20.07,
-     "k": 6,
-     "s": [
-      6,
-      6
-     ],
-     "kind": "door",
-     "split": 2,
-     "behind": 2,
-     "frameC": "#e8e8e4",
-     "curt": {
-      "K6": "karanlik"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 22.1,
-     "u1": 23.65,
-     "y0": 17.95,
-     "y1": 20.07,
-     "k": 6,
-     "s": [
-      6,
-      6
-     ],
-     "kind": "door",
-     "split": 2,
-     "behind": 2,
-     "frameC": "#e8e8e4",
-     "curt": {
-      "K6": "tul"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 22.16,
-     "u1": 23.65,
-     "y0": 15.23,
-     "y1": 17.33,
-     "k": 5,
-     "s": [
-      5,
-      5
-     ],
-     "kind": "door",
-     "split": 2,
-     "behind": 2,
-     "frameC": "#e8e8e4",
-     "curt": {
-      "K5": "tul"
-     }
-    },
-    {
-     "t": "win",
-     "u0": 22.16,
-     "u1": 23.65,
-     "y0": 12.51,
-     "y1": 14.72,
-     "k": 4,
-     "s": [
-      4,
-      4
-     ],
-     "kind": "door",
-     "split": 2,
-     "behind": 2,
-     "frameC": "#e8e8e4",
-     "curt": {
-      "K4": "tul"
-     }
-    },
-    {
-     "t": "banner",
-     "u0": 21.56,
-     "u1": 23.53,
-     "y0": 13.17,
-     "y1": 13.89,
-     "d": 0.05,
-     "style": "print",
-     "bg": "#161a2e",
-     "fg": "#ffffff",
-     "lines": [
-      {
-       "text": "…eslek Hizmet Birimi",
-       "fg": "#ffffff",
-       "size": 0.8,
-       "bold": true,
-       "y": 0.86
-      },
-      {
-       "text": "…onuşma Terapisti",
-       "fg": "#ffffff",
-       "size": 0.8,
-       "bold": true,
-       "y": 0.62
-      },
-      {
-       "text": "…e SERT ALLIŞ",
-       "fg": "#ffffff",
-       "size": 0.9,
-       "bold": true,
-       "y": 0.38
-      },
-      {
-       "text": "0 541 585 96 99",
-       "fg": "#ffffff",
-       "size": 0.9,
-       "bold": true,
-       "y": 0.12
-      }
-     ]
-    },
-    {
-     "t": "lamp",
-     "u": 24.3,
-     "y": 19.95,
-     "style": "box",
-     "d": 0.1,
-     "h": 0.12,
-     "color": "#d0d0cc"
     }
    ]
   },
@@ -1892,7 +2206,7 @@
      ]
     ]
    },
-   "note": "Doğu kule yüzü (x≈717.6), kuzey–güney girinti içinde. Ortofoto ölçeği 0.888 (kule pencere lentoları 12.25/14.8/17.4 görünen; uF 1.68). Yeşil cam merdiven çekirdeği kahverengi çerçeve içinde; zemin önü ağaçlarla kapalı (siyah ferforje apartman giriş kapısı + posta kutuları görünen u 1.8–2.5, alt 1.2–2.1; üstü ağaç arkasında — çizilmedi). | ÖĞE NOTLARI: [panel u 0.188–4.664] podyum üst bandı (GD ek çatı hizası) ; [win u 2.13–4.1 K4–4] yeşil cam merdiven şeridi",
+   "note": "Doğu kule yüzü (x≈717.6), kuzey–güney girinti içinde. Ortofoto ölçeği 0.888 (kule pencere lentoları 12.25/14.8/17.4 görünen; uF 1.68). Yeşil cam merdiven çekirdeği kahverengi çerçeve içinde; zemin önü ağaçlarla kapalı (siyah ferforje apartman giriş kapısı + posta kutuları görünen u 1.8–2.5, alt 1.2–2.1; üstü ağaç arkasında — çizilmedi). v8: yeşil cam merdiven şeridi doğu kule kesim yüzünde (cutEdges[3]); bu kenarda podyum üst bandı. | ÖĞE NOTLARI: [panel u 0.188–4.664] podyum üst bandı (GD ek çatı hizası)",
    "items": [
     {
      "t": "panel",
@@ -1901,40 +2215,6 @@
      "y0": 8.1,
      "y1": 9,
      "color": "#b6b5ad"
-    },
-    {
-     "t": "panel",
-     "u0": 1.55,
-     "u1": 4.664,
-     "y0": 9,
-     "y1": 19.3,
-     "color": "#3c3431",
-     "proud": 0.04
-    },
-    {
-     "t": "win",
-     "u0": 2.13,
-     "u1": 4.1,
-     "y0": 9,
-     "y1": 18.35,
-     "k": 4,
-     "s": [
-      4,
-      4
-     ],
-     "stair": true,
-     "split": 2,
-     "frameC": "#3c3431",
-     "tint": "#3f6f63",
-     "hbars": [
-      10.15,
-      11.3,
-      12.45,
-      13.6,
-      14.75,
-      15.9,
-      17.05
-     ]
     }
    ]
   },
@@ -1947,44 +2227,129 @@
   },
   {
    "edge": 14,
-   "len": 3.93,
+   "len": 0.43,
    "seen": "none",
    "items": [],
    "note": "Ortofoto çok yatık / komşu yüzleri gösteriyor; cephe okunamadı → düz."
   },
   {
    "edge": 15,
-   "len": 14.29,
+   "len": 11.73,
    "seen": "photo",
    "ref": "1552093106_15__XtPil5H.jpg",
    "cal": {
     "u": [
-     0,
-     14.29
+     1.3,
+     10.35
     ],
     "head": [
      [
       4,
-      15.38
+      10.57
      ],
      [
       6,
-      21.18
+      14.57
      ]
     ]
    },
-   "items": [],
-   "note": "KD terasın doğu kenarı: bina değil (nöww kafe terası + tente; bina doğu yüzü ≈3.7 m geride x≈718.3, massing kesimi → düz). Doğu yüz öğeleri pending’de."
+   "note": "D4-v8: yeni taban izi kenarı (x 718.3, doğu podyum yüzü; önünde nöww terası). Ortofoto eski kenar 15 düzleminde (x≈722) üretildi → cephe ≈3.7 m geride: yatay ölçek 0.80 (uF 5.83; KD köşe kolonu dış kenarı görünen 10.35 = z −592.9), düşey model görünen = −0.04 + 0.69·gerçek (kaldırım ≈1.0 ve podyum üstü 7.8 görünen). Kule doğu yüzü (x≈717.6) ölçülmedi. | ÖĞE NOTLARI: [win u 1.3–8.3 K2–2] K2 koyu cam bant; u 1.4–2.2 üstten asılı kanat açık ; [win u 3.05–8.55 K1–1] kafe tentesi üstündeki cam ; [panel u 8.64–10.35] KD kahverengi köşe kolonu (dik \"nöww\" tabelası kuzey yüzde, kenar 16)",
+   "items": [
+    {
+     "t": "panel",
+     "u0": 1.3,
+     "u1": 8.64,
+     "y0": 4.41,
+     "y1": 7.8,
+     "color": "#a2a49e",
+     "clad": {
+      "dir": "grid",
+      "every": 0.94,
+      "every2": 0.58,
+      "w": 0.012,
+      "color": "#86887f"
+     }
+    },
+    {
+     "t": "win",
+     "u0": 1.3,
+     "u1": 8.3,
+     "y0": 5.49,
+     "y1": 6.18,
+     "k": 2,
+     "s": [
+      2,
+      2
+     ],
+     "split": 6,
+     "frameC": "#3a3d3d",
+     "tint": "#3f4a4c"
+    },
+    {
+     "t": "vinyl",
+     "u0": 3.74,
+     "u1": 7,
+     "y0": 5.66,
+     "y1": 6.27,
+     "text": "ZUHAL BAŞ\nBEAUTY & PERMANENT MAKEUP",
+     "fg": "#ffffff",
+     "bold": false,
+     "font": "serif",
+     "lines": [
+      {
+       "text": "ZUHAL BAŞ",
+       "size": 1,
+       "y": 0.62
+      },
+      {
+       "text": "BEAUTY & PERMANENT MAKEUP",
+       "size": 0.3,
+       "y": 0.18
+      }
+     ],
+     "logo": "camda beyaz folyo; solda el yazısı \"zh\" monogramı"
+    },
+    {
+     "t": "win",
+     "u0": 3.05,
+     "u1": 8.55,
+     "y0": 3.26,
+     "y1": 4.41,
+     "k": 1,
+     "s": [
+      1,
+      1
+     ],
+     "split": 4,
+     "frameC": "#3a3d3d",
+     "tint": "#5c6f77"
+    },
+    {
+     "t": "panel",
+     "u0": 8.64,
+     "u1": 10.35,
+     "y0": 0.4,
+     "y1": 7.8,
+     "color": "#483d3b",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.37,
+      "w": 0.01,
+      "color": "#3a302e"
+     }
+    }
+   ]
   },
   {
    "edge": 16,
-   "len": 14.13,
+   "len": 10.99,
    "seen": "partial",
    "ref": "1552093106_16_4JhpvS4z.jpg",
    "cal": {
     "u": [
-     11.495,
-     16.92
+     13.107,
+     17.324
     ],
     "head": [
      [
@@ -1997,7 +2362,7 @@
      ]
     ]
    },
-   "note": "KD uç (325. Sk.). Taban izinin x 718.3–722.5 kısmı bina değil, nöww kafenin açık terası (massing dışında bırakıldı; bkz. taban izi düzeltmesi). Bu ortofoto kötü ölçekli (≈0.38: pano 4JhpvS4z konumu / cephe gerçekte ≈2.4 m geride, z≈−593.5) — ölçek yükseklik çizgilerinden (podyum üstü, kule saçağı), KD köşe (kahverengi L çerçeve dış kenarı) görünen 13.11 = x 718.3 (hava fotoğrafı kule KD köşesi ile aynı). ZUHAL BAŞ bölmesi x ≈708.4–714.9, batı ucu kenar 19 ortofotosundan (görünen >15.63 dışarıda). Görünen u 13.11–13.65 × 3.56–5.63 arası açık (arkası görünüyor; köşe altı boşluk/giriş) — çizilemedi. | ÖĞE NOTLARI: [panel u 13.12–14.43] KD köşe kahverengi L çerçeve üst bandı ; [panel u 13.65–14.43] L çerçeve düşey bacağı ; [win u 14.47–16.92 K1–1] kafe tentesi üstündeki cam (ZUHAL BAŞ alt katı) ; [bal u 16.2–16.92 K4–6] doğu kule loca bloğunun doğu ucu (x 708.4–710.3; kenar 20 ortofotosundan)",
+   "note": "D4-v8: yeni taban izi kenarı (x 718.3 → 707.32, z −592.9…−593.5; eski kenar 16/17/18 yerine — kafe terası çıkarıldı). Ölçüler eski kenar 16 ortofotosunda (düzlem z −596); cal.u yeni köşelerin bu ortofotodaki görünen yeri. Bu ortofoto kötü ölçekli (≈0.38: pano 4JhpvS4z konumu / cephe gerçekte ≈2.4 m geride, z≈−593.5) — ölçek yükseklik çizgilerinden (podyum üstü, kule saçağı), KD köşe (kahverengi L çerçeve dış kenarı) görünen 13.11 = x 718.3 (hava fotoğrafı kule KD köşesi ile aynı). ZUHAL BAŞ bölmesi x ≈708.4–714.9, batı ucu kenar 19 ortofotosundan (görünen >15.63 dışarıda). Görünen u 13.11–13.65 × 3.56–5.63 arası açık (arkası görünüyor; köşe altı boşluk/giriş) — çizilemedi. | ÖĞE NOTLARI: [panel u 13.12–14.43] KD köşe kahverengi L çerçeve üst bandı ; [panel u 13.65–14.43] L çerçeve düşey bacağı ; [win u 14.47–16.92 K1–1] kafe tentesi üstündeki cam (ZUHAL BAŞ alt katı) ; [panel u 16.91–17.32] ZUHAL BAŞ–GENTAŞ arası kahverengi payenin doğu ucu (x 708.4–707.3)",
    "items": [
     {
      "t": "panel",
@@ -2130,167 +2495,24 @@
      "logo": "üstte kruvasan simgesi; siyah çerçeveli beyaz yüz; ilk sözcük \"nöww\" (ö noktaları seçiliyor); yüz B görülmedi"
     },
     {
-     "t": "bal",
-     "u0": 16.2,
-     "u1": 16.92,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      4,
-      6
-     ],
-     "glazed": [
-      4,
-      5,
-      6
-     ],
-     "tint": {
-      "K4": "green",
-      "K5": "green",
-      "K6": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
+     "t": "panel",
+     "u0": 16.91,
+     "u1": 17.32,
+     "y0": 2.58,
+     "y1": 6.29,
+     "color": "#483d3b",
+     "proud": 0.05,
+     "clad": {
+      "dir": "h",
+      "every": 0.37,
+      "w": 0.01,
+      "color": "#3a302e"
      }
-    },
-    {
-     "t": "pipe",
-     "u": 14.45,
-     "y0": 6.3,
-     "y1": 10,
-     "color": "#e2e2e0",
-     "r": 0.04
     }
    ]
   },
   {
    "edge": 17,
-   "len": 0.94,
-   "seen": "partial",
-   "ref": "1552093106_18_WifkBXIN.jpg",
-   "cal": {
-    "u": [
-     0,
-     0.94
-    ],
-    "head": [
-     [
-      4,
-      15.38
-     ],
-     [
-      6,
-      21.18
-     ]
-    ]
-   },
-   "note": "0.94 m; kendi ortofotosu yok → gerçek koordinatla yazıldı (ref başka kenar: derinlik düzeltmesi yok). ZUHAL BAŞ – GENTAŞ arası kahverengi paye + doğu kule loca bloğu.",
-   "items": [
-    {
-     "t": "panel",
-     "u0": 0,
-     "u1": 0.94,
-     "y0": 1.7,
-     "y1": 11.35,
-     "color": "#483d3b",
-     "proud": 0.05,
-     "clad": {
-      "dir": "h",
-      "every": 0.52,
-      "w": 0.01,
-      "color": "#3a302e"
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 0,
-     "u1": 0.94,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      4,
-      6
-     ],
-     "glazed": [
-      4,
-      5,
-      6
-     ],
-     "tint": {
-      "K4": "green",
-      "K5": "green",
-      "K6": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
-     }
-    }
-   ]
-  },
-  {
-   "edge": 18,
-   "len": 2.56,
-   "seen": "partial",
-   "ref": "1552093106_19_4JhpvS4z.jpg",
-   "cal": {
-    "u": [
-     0,
-     2.56
-    ],
-    "head": [
-     [
-      4,
-      15.38
-     ],
-     [
-      6,
-      21.18
-     ]
-    ]
-   },
-   "note": "Taban izindeki 2.56 m kuzey–güney çıkıntı yüzü (batıya bakar). Fotoğraflarda ZUHAL BAŞ ve GENTAŞ bölmeleri aynı düzlemde görünüyor → bu çıkıntı büyük olasılıkla yok (taban izi düzeltmesi). Gerçek koordinatla: kahverengi paye kaplaması podyum boyu, üstü düz sıva.",
-   "items": [
-    {
-     "t": "panel",
-     "u0": 0,
-     "u1": 2.56,
-     "y0": 1.7,
-     "y1": 11.35,
-     "color": "#483d3b",
-     "proud": 0.02,
-     "clad": {
-      "dir": "h",
-      "every": 0.52,
-      "w": 0.01,
-      "color": "#3a302e"
-     }
-    }
-   ]
-  },
-  {
-   "edge": 19,
    "len": 3.61,
    "seen": "photo",
    "ref": "1552093106_19_4JhpvS4z.jpg",
@@ -2310,7 +2532,7 @@
      ]
     ]
    },
-   "note": "325. Sk. cephesi (4JhpvS4z, bulutlu). Ortofoto ölçeği ≈0.62 (görünen y = 1.283 + 0.621·gerçek; uF 3.60). GENTAŞ bölmesinin batı ucu ve AVUKAT levhası kenar 20 ortofotosundan dönüştürüldü (WifkBXIN → 4JhpvS4z, benzerlik modelleri; kahverengi paye iki karede ±0.13 uyumlu). | ÖĞE NOTLARI: [panel u 1.365–2.45] ZUHAL BAŞ ile GENTAŞ arasındaki kahverengi paye (doğusu kenar 18/17) ; [bal u 1.365–3.606 K4–6] doğu kule taşan loca bloğu (iki bölme, ortada iniş borusu); K4–K6 cam balkon, yer yer açık kanat ; [pipe u 1.6] loca bloğu ortasında beyaz iniş borusu, her katta dallı ek",
+   "note": "325. Sk. cephesi (4JhpvS4z, bulutlu). Ortofoto ölçeği ≈0.62 (görünen y = 1.283 + 0.621·gerçek; uF 3.60). GENTAŞ bölmesinin batı ucu ve AVUKAT levhası kenar 20 ortofotosundan dönüştürüldü (WifkBXIN → 4JhpvS4z, benzerlik modelleri; kahverengi paye iki karede ±0.13 uyumlu). v8: kule öğeleri (loca blokları, iniş boruları) geri çekik kule kuzey yüzüne (cutEdges) taşındı; bu kenarda yalnız podyum. | ÖĞE NOTLARI: [panel u 1.365–2.45] ZUHAL BAŞ ile GENTAŞ arasındaki kahverengi paye (doğusu kenar 18/17)",
    "items": [
     {
      "t": "panel",
@@ -2477,54 +2699,11 @@
      "y": 4.142,
      "style": "bullet",
      "color": "#e8e8e8"
-    },
-    {
-     "t": "bal",
-     "u0": 1.365,
-     "u1": 3.606,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      4,
-      6
-     ],
-     "glazed": [
-      4,
-      5,
-      6
-     ],
-     "tint": {
-      "K4": "green",
-      "K5": "green",
-      "K6": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
-     }
-    },
-    {
-     "t": "pipe",
-     "u": 1.6,
-     "y0": 9,
-     "y1": 15.5,
-     "color": "#d9d9d6",
-     "r": 0.045
     }
    ]
   },
   {
-   "edge": 20,
+   "edge": 18,
    "len": 15.7,
    "seen": "photo",
    "ref": "1552093106_20_WifkBXIN.jpg",
@@ -2544,7 +2723,7 @@
      ]
     ]
    },
-   "note": "325. Sokak (kuzey) cephesi, WifkBXIN (bulutlu, dağınık ışık; renkler gölgesiz). Bu ortofoto gerçek cepheye göre ≈0.71 ölçekli (pano konumu/kamera kotu hatası): görünen y = 0.894 + 0.707·gerçek, u merkez uF 11.01 — cal.u / cal.head bu benzerlikten hesaplandı (kule loca korkulukları K4–K6 ve podyum üstü ile uyum ±0.1). Kule katları podyum cephesinden ~1.5–2.5 m geride (OSM building:part + görüntü) ama düz cephede çizildi (bkz. pending). Kuleler arası boşluk (görünen u 6.2–7.9 ≈ x 697.1–699.5, gökyüzü) massing GAP parçası. | ÖĞE NOTLARI: [panel u 6.11–7.76] kahverengi kompozit paye ; [win u 3.58–4.8 K0–0] GENTAŞ cam giriş kapısı ; [win u 3.61–4.83 K1–1] stor yalnız üst %45; altta 2×2 kayıtlı pencere ; [panel u 7.85–11.79] zemin katta beyaz dikey çubuklu parmaklık arkasında çok sayıda klima dış ünitesi (kafes) ; [win u 7.85–11.79 K0–0] klima kafesi: beyaz çubuklu kapak, arkada koyu ; [bal u 3.224–4.09 K4–6] doğu kule loca bloğunun batı ucu (blok x ≈702.3–710.3, taşan kutu; alt yüzü görünüyor). K6 u 3.75–4.09 kanat açık ; [pipe u 12.25] batı kulenin doğu ucunda beyaz PVC iniş borusu",
+   "note": "325. Sokak (kuzey) cephesi, WifkBXIN (bulutlu, dağınık ışık; renkler gölgesiz). Bu ortofoto gerçek cepheye göre ≈0.71 ölçekli (pano konumu/kamera kotu hatası): görünen y = 0.894 + 0.707·gerçek, u merkez uF 11.01 — cal.u / cal.head bu benzerlikten hesaplandı (kule loca korkulukları K4–K6 ve podyum üstü ile uyum ±0.1). Kule katları podyum cephesinden ~1.5–2.5 m geride (OSM building:part + görüntü) ama düz cephede çizildi (bkz. pending). Kuleler arası boşluk (görünen u 6.2–7.9 ≈ x 697.1–699.5, gökyüzü) massing GAP parçası. v8: kule öğeleri (loca blokları, iniş boruları) geri çekik kule kuzey yüzüne (cutEdges) taşındı; bu kenarda yalnız podyum. | ÖĞE NOTLARI: [panel u 6.11–7.76] kahverengi kompozit paye ; [win u 3.58–4.8 K0–0] GENTAŞ cam giriş kapısı ; [win u 3.61–4.83 K1–1] stor yalnız üst %45; altta 2×2 kayıtlı pencere ; [panel u 7.85–11.79] zemin katta beyaz dikey çubuklu parmaklık arkasında çok sayıda klima dış ünitesi (kafes) ; [win u 7.85–11.79 K0–0] klima kafesi: beyaz çubuklu kapak, arkada koyu",
    "items": [
     {
      "t": "panel",
@@ -3050,54 +3229,11 @@
       }
      ],
      "logo": "üstte çatı (üçgen) simgesi; beyaz zemin siyah çerçeve"
-    },
-    {
-     "t": "bal",
-     "u0": 3.224,
-     "u1": 4.09,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      4,
-      6
-     ],
-     "glazed": [
-      4,
-      5,
-      6
-     ],
-     "tint": {
-      "K4": "green",
-      "K5": "green",
-      "K6": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
-     }
-    },
-    {
-     "t": "pipe",
-     "u": 12.25,
-     "y0": 9.1,
-     "y1": 17,
-     "color": "#e2e2e0",
-     "r": 0.04
     }
    ]
   },
   {
-   "edge": 21,
+   "edge": 19,
    "len": 8.65,
    "seen": "photo",
    "ref": "1552093106_21_7Pj5V3it.jpg",
@@ -3117,7 +3253,7 @@
      ]
     ]
    },
-   "note": "325. Sk. cephesi (7Pj5V3it, bulutlu). Ortofoto ölçeği ≈0.74 (görünen y = 1.429 + 0.741·gerçek; uF 6.79). Batı kulenin kuzey yüzü: düz sıva + taşan loca bloğu (görünen u 2.91–9.06, alt kutusu 9.95–10.96). | ÖĞE NOTLARI: [win u 1.757–4.26 K0–0] vitrin (içeride aydınlatma / mobilya) ; [panel u 6.82–8.169] beyaz alın bandı ; [bal u 2.91–5.9 K6–6] K6 sol bölme açık loca (tavan spotu) ; [bal u 6–8.169 K5–5] K5 sağ bölme açık loca ; [pipe u 5.95] loca bloğu ortasında beyaz iniş borusu",
+   "note": "325. Sk. cephesi (7Pj5V3it, bulutlu). Ortofoto ölçeği ≈0.74 (görünen y = 1.429 + 0.741·gerçek; uF 6.79). Batı kulenin kuzey yüzü: düz sıva + taşan loca bloğu (görünen u 2.91–9.06, alt kutusu 9.95–10.96). v8: kule öğeleri (loca blokları, iniş boruları) geri çekik kule kuzey yüzüne (cutEdges) taşındı; bu kenarda yalnız podyum. | ÖĞE NOTLARI: [win u 1.757–4.26 K0–0] vitrin (içeride aydınlatma / mobilya) ; [panel u 6.82–8.169] beyaz alın bandı",
    "items": [
     {
      "t": "panel",
@@ -3326,162 +3462,11 @@
      "bg": "#3b5c9b",
      "fg": "#ffffff",
      "logo": "ikinci \"M\"+\"m\" monogram levhası"
-    },
-    {
-     "t": "bal",
-     "u0": 2.91,
-     "u1": 5.9,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      4,
-      5
-     ],
-     "glazed": [
-      4,
-      5
-     ],
-     "tint": {
-      "K4": "green",
-      "K5": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 2.91,
-     "u1": 5.9,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      6,
-      6
-     ],
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "spots": {
-      "n": 1
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 6,
-     "u1": 8.169,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      4,
-      4
-     ],
-     "glazed": [
-      4
-     ],
-     "tint": {
-      "K4": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 6,
-     "u1": 8.169,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      5,
-      5
-     ],
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "spots": {
-      "n": 1
-     }
-    },
-    {
-     "t": "bal",
-     "u0": 6,
-     "u1": 8.169,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      6,
-      6
-     ],
-     "glazed": [
-      6
-     ],
-     "tint": {
-      "K6": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
-     }
-    },
-    {
-     "t": "pipe",
-     "u": 5.95,
-     "y0": 9.95,
-     "y1": 17.9,
-     "color": "#d9d9d6",
-     "r": 0.045
     }
    ]
   },
   {
-   "edge": 22,
+   "edge": 20,
    "len": 1.73,
    "seen": "photo",
    "ref": "1552093106_23_o207isLZ.jpg",
@@ -3501,7 +3486,7 @@
      ]
     ]
    },
-   "note": "Kenar 22 (1.73 m) ortofotosu yok; kenar 23 ortofotosunda (o207isLZ) okundu, aynı benzerlik modeli (görünen y = 0.953 + 0.803·gerçek). | ÖĞE NOTLARI: [bal u -0.042–1.347 K4–6] batı kule loca bloğunun batı ucu",
+   "note": "Kenar 22 (1.73 m) ortofotosu yok; kenar 23 ortofotosunda (o207isLZ) okundu, aynı benzerlik modeli (görünen y = 0.953 + 0.803·gerçek). v8: kule öğeleri (loca blokları, iniş boruları) geri çekik kule kuzey yüzüne (cutEdges) taşındı; bu kenarda yalnız podyum.",
    "items": [
     {
      "t": "panel",
@@ -3596,46 +3581,11 @@
        "y": 0.3
       }
      ]
-    },
-    {
-     "t": "bal",
-     "u0": -0.042,
-     "u1": 1.347,
-     "d": 0,
-     "inset": 1.2,
-     "s": [
-      4,
-      6
-     ],
-     "glazed": [
-      4,
-      5,
-      6
-     ],
-     "tint": {
-      "K4": "green",
-      "K5": "green",
-      "K6": "green"
-     },
-     "sides": "wall",
-     "rail": {
-      "*": "glassFull"
-     },
-     "glassC": {
-      "*": "#8aa3a3"
-     },
-     "railH": {
-      "*": 0.7
-     },
-     "glazeEvery": 0.62,
-     "frameC": {
-      "*": "#c9ccc8"
-     }
     }
    ]
   },
   {
-   "edge": 23,
+   "edge": 21,
    "len": 6.81,
    "seen": "photo",
    "ref": "1552093106_23_o207isLZ.jpg",
@@ -3655,7 +3605,7 @@
      ]
     ]
    },
-   "note": "325. Sk. cephesinin batı ucu (o207isLZ, bulutlu). Ortofoto ölçeği ≈0.80 (görünen y = 0.953 + 0.803·gerçek; uF 6.83). KB köşe kolonu görünen 7.7’de, taban izi köşesinin (görünen 6.81) ≈1.1 m batısında → cal.u sonu görünen köşe. Kulenin KB köşesi görünen 4.7 (x≈673.5): batısı yalnız podyum (massing KB parçası, 4 kat). | ÖĞE NOTLARI: [panel u 6.2–7.7] köşede beyaz duvar (QNB) ; [panel u 6.27–7.72] KB köşe kahverengi kolon ; [win u 1.347–6.27 K2–2] üç üstten asılı kanat açık (yeşilimsi) ; [ac u 3.74 K2] Samsung beyaz klima ; [pipe u 4.55] kule KB köşesinde beyaz PVC iniş borusu",
+   "note": "325. Sk. cephesinin batı ucu (o207isLZ, bulutlu). Ortofoto ölçeği ≈0.80 (görünen y = 0.953 + 0.803·gerçek; uF 6.83). KB köşe kolonu görünen 7.7’de, taban izi köşesinin (görünen 6.81) ≈1.1 m batısında → cal.u sonu görünen köşe. Kulenin KB köşesi görünen 4.7 (x≈673.5): batısı yalnız podyum (massing KB parçası, 4 kat). v8: kule öğeleri (loca blokları, iniş boruları) geri çekik kule kuzey yüzüne (cutEdges) taşındı; bu kenarda yalnız podyum. | ÖĞE NOTLARI: [panel u 6.2–7.7] köşede beyaz duvar (QNB) ; [panel u 6.27–7.72] KB köşe kahverengi kolon ; [win u 1.347–6.27 K2–2] üç üstten asılı kanat açık (yeşilimsi) ; [ac u 3.74 K2] Samsung beyaz klima",
    "items": [
     {
      "t": "panel",
@@ -3892,22 +3842,14 @@
      "capH": 0.14,
      "align": "right",
      "logo": "kırmızı zemin, solda beyaz daire içinde kırmızı kuş"
-    },
-    {
-     "t": "pipe",
-     "u": 4.55,
-     "y0": 10.2,
-     "y1": 18,
-     "color": "#e2e2e0",
-     "r": 0.04
     }
    ]
   }
  ],
  "notes": [
   "BİNA: Özlüce Bulvarı doğusu, 325. Sokak güneyi. Zemin + asma kat + ofis katı + teknik bant (K0–K3, \"podyum\", üstü ≈11.9 bulvarda / ≈11.35 325. Sk.) üstünde iki konut kulesi (K4–K6, kat 2.9 m, saçak 21.8–22.8, koyu kahve saçak alnı; doğu cephesinde geri çekik camlı çatı katı görüldü (görünen 14.9–16.1, _YCGz 10 ortofotosu) — çizilmedi, pending). floorH 2.9 + groundRaise 1.53: bulvar ortofotosunda kule döşemeleri 13.13/16.03/18.93, podyum çizgileri K1 4.43 (QNB/TEB alın bandı üstü), K2 7.33 (TK/Sultan Sarsıcı panosu altı), K3 10.23 (işstur panosu) ile tutarlı.",
-  "MASSING (dünya): KB köşe yalnız podyum (x<673.5, z<−593.8; 4 kat — bulvarda kule KB köşesi görünen u 1.47, 325. Sk.’ta görünen 4.7 = x≈673.5); batı kule x<696.0 (7 kat); kuleler arası boşluk x 696.0–699.4 (4 kat; kuzeyde gökyüzü görünüyor, WifkBXIN görünen 6.2–7.9; güney yarısında camlı çekirdek olabilir, görülmedi); doğu kule x 699.4–718.3 (7 kat); GD ek (SANREMO / SAFARİ, x>717.3, z>−575.8; 2 kat, üst 7.6). KD taban izi parçası (x>718.3, z<−581.2) BİNA DEĞİL: nöww kafenin tenteli açık terası → hiçbir parçaya verilmedi (boş).",
-  "KULE GERİ ÇEKİLMELERİ (çizilemedi, düz cephede): OSM building:part 1552093107/08 ve görüntüye göre kuleler podyum cephesinden batıda ≈2.5 m (x 672.2–673.5), kuzeyde ≈0–1.7 m (loca blokları taşar), doğuda ≈4 m (x≈717.6–718.3) geride. Kule öğeleri kendi ortofotolarındaki ölçekle podyum düzleminde yazıldı. Kule çatıları kuzey–güney eksenli basık tonoz görünümlü (kuzey yüzde kavisli saçak alnı: kenar 20/21/23 ortofotolarında uçlarda 17.0 → ortada 18.7 görünen) — üretici düz çatı çiziyor (pending).",
+  "v8 MASSING (dünya): batı kule x 671.6/673.3 (bulvar podyumundan ≈2.5 m geri) … 696.0, kuzey z −593.6 (podyumdan 0.8–1.7 m geri); doğu kule x 699.4–717.61 (doğu podyum yüzü x 718.3 / GD ek 722’den ≈0.7–4.4 m geri), kuzey z −592.8; GD ek 2 kat (üst 7.6); geri kalan her şey (bulvar ve kuzey şeritleri, kuleler arası boşluk x 696.0–699.4, doğu şerit) 4 katlı podyum (üst 11.9). Kule yüzleri kesim kenarı → öğeler `cutEdges` ile (0: batı kule bulvar yüzü, 1: batı kule kuzey yüzü, 2: doğu kule kuzey yüzü, 3: doğu kule doğu yüzü). ESKİ (v7): KB köşe yalnız podyum (x<673.5, z<−593.8; 4 kat — bulvarda kule KB köşesi görünen u 1.47, 325. Sk.’ta görünen 4.7 = x≈673.5); batı kule x<696.0 (7 kat); kuleler arası boşluk x 696.0–699.4 (4 kat; kuzeyde gökyüzü görünüyor, WifkBXIN görünen 6.2–7.9; güney yarısında camlı çekirdek olabilir, görülmedi); doğu kule x 699.4–718.3 (7 kat); GD ek (SANREMO / SAFARİ, x>717.3, z>−575.8; 2 kat, üst 7.6). KD taban izi parçası (x>718.3, z<−581.2) BİNA DEĞİL: nöww kafenin tenteli açık terası → D4-v8’de taban izinden çıkarıldı (footprints.json; kenar numaraları 15’ten itibaren: eski 19–23 → 17–21).",
+  "KULE GERİ ÇEKİLMELERİ (v8’de massing + cutEdges ile çizildi; aşağıdaki v7 notu tarihçe): OSM building:part 1552093107/08 ve görüntüye göre kuleler podyum cephesinden batıda ≈2.5 m (x 672.2–673.5), kuzeyde ≈0–1.7 m (loca blokları taşar), doğuda ≈4 m (x≈717.6–718.3) geride. Kule öğeleri kendi ortofotolarındaki ölçekle podyum düzleminde yazıldı. Kule çatıları kuzey–güney eksenli basık tonoz görünümlü (kuzey yüzde kavisli saçak alnı: kenar 20/21/23 ortofotolarında uçlarda 17.0 → ortada 18.7 görünen) — üretici düz çatı çiziyor (pending).",
   "KUZEY ORTOFOTOLARI: 325. Sk. panolarının (WifkBXIN, 7Pj5V3it, o207isLZ, 4JhpvS4z) ortofotoları gerçek cepheye göre 0.62–0.80 ölçekli (kamera konum/kot hatası). Her kenarda kule loca korkulukları (K4–K6) + podyum üstü + GENTAŞ alın bandı ile doğrusal model (görünen = a + s·gerçek, yatay merkez uF) kuruldu, cal.u/cal.head bundan; komşu kenarlar arası öğe dönüşümü aynı modellerle (kahverengi payeler iki karede ±0.2–0.4 m uyumlu).",
   "RENKLER: bulvar (batı) cephesi fotoğrafta gölgede → sıcak koyu örnekler (#86857c kule sıvası); kule sıvası güneşli örnek #bcbbb6 (ZN5m 2025-11, güney yüz) palete alındı. Podyum gri kompozit panel #a2a49e (kuzey, bulutlu) / #82817b (batı, gölge), kahverengi kompozit kolon/paye #483d3b (kuzey) / #2f2422 (batı gölge), koyu saçak alnı #2f2826, cam korkuluk mavi-yeşil #466973 (batı) / buzlu açık yeşil #8aa3a3 (kuzey).",
   "TABELA ÖZETİ: bulvar — QNB (ışıklı kutu + dik tabela), TURKISH AIRLINES + Emirates/Lufthansa/…/QATAR rozetleri, PEGASUS, işstur / VİZE İŞLEMLERİ / EJDER TURİZM, TEB (+ Türk Ekonomi Bankası), SULTAN SARSICI Güzellik Salonu (+ 0532 … tel.), ALTUNTAS PARK bina adı, çekirdekte KİRALIK 0530 968 81 10 (?) kartonu, K4 loca korkuluğunda \"…eslek Hizmet Birimi / …onuşma Terapisti / …e SERT ALLIŞ / 0 541 585 96 99\" brandası. 325. Sk. — GENTAŞ (alın + iki küçük levha), çeltaş İNŞAAT A.Ş., AY & AR … AVUKAT Yaş… DEMİR, SMMM Onur DEMİR / İlkay TURHAN, \"M\" monogram levhaları ×2, SERBEST MUHASEBECİ MALİ MÜŞAVİR (…/SEZGİN ERDEM), SARDES (Av. Büşra F…Z), QNB (kuzey), PEGASUS, TURKISH AIRLINES (kuzey köşe), ZUHAL BAŞ + BEAUTY & PERMANENT MAKEUP, nöww Croissants & Coffee (dik tabela). Doğu — SANREMO (+ GELATO/COFFEE/PASTA/COLD DRINKS, DONDURMA/KAHVE/MAKARNA/SOĞUK İÇECEKLER), SAFARİ SÜRÜCÜ KURSU, SM HUKUK & DANIŞMANLIK.",
@@ -3916,25 +3858,19 @@
  ],
  "pending": [
   {
-   "what": "kule geri çekilmesi (setback) — üretici podyum üstündeki kuleyi taban izi kenarından içeride çizemiyor (massing kesim kenarları öğesiz)",
-   "where": "batı: kule yüzü x≈672.2–673.5 (podyum 669.5–670.9); kuzey: loca blokları z≈−593.5, düz duvar ≈−592.5…−593.6; doğu: x≈717.6–718.3 (podyum/teras 722)",
-   "storeys": "K4–K6",
-   "note": "öğeler şimdilik podyum düzleminde"
-  },
-  {
    "what": "kule tonoz çatısı / kavisli saçak alnı",
    "edges": [
+    17,
+    18,
     19,
-    20,
-    21,
-    23
+    21
    ],
-   "shape": "kuzey yüzde saçak alnı uçlarda aşağı kıvrılır: görünen (kenar 21) u −0.78…2.6 arası 17.0→17.9, düz 2.6–9.35 17.9–18.7; batı cephede (kenar 0) düz 21.77–22.82",
+   "shape": "kuzey yüzde saçak alnı uçlarda aşağı kıvrılır: görünen (kenar 19) u −0.78…2.6 arası 17.0→17.9, düz 2.6–9.35 17.9–18.7; batı cephede (cutEdges 0) düz 21.77–22.82",
    "color": "#6a6d74"
   },
   {
    "what": "çekirdek başlığı (merdiven kulesi tepesi) duvar üstünün üstünde",
-   "edge": 0,
+   "cutEdge": 0,
    "u": [
     11.2,
     15.97
@@ -3952,11 +3888,8 @@
    "note": "_YCGz 10 ortofotosunda görünen u 1.9–7.0, y 14.9–16.1, koyu çerçeveli cam; konum/derinlik ölçülemedi"
   },
   {
-   "what": "doğu podyum yüzü x≈718.3 (KD teras arkası, massing kesimi → öğesiz)",
-   "edge": 15,
-   "ref": "1552093106_15__XtPil5H.jpg",
-   "scale": "görünen ≈0.80 (uF 5.83)",
-   "items": "K1 koyu cam bant görünen 5.49–6.18 (u −1.5…8.3, açık kanat u 1.4–2.2); üstünde beyaz folyo \"zh\" + \"ZUHAL BAŞ\" + \"BEAUTY & PERMANENT MAKEUP\" (u 3.74–7.0, y 5.66–6.27); zemin kat cam u 3.05–8.55 y 3.26–4.41; siyah ferforje apartman kapısı u 0.05–0.73 y 1.37–2.66; KD kahverengi köşe kolonu u 8.64–10.3 (0.4–7.8) üstünde \"nöww\" dik tabelası (u 10.24–10.73, y 3.86–4.72); kule doğu yüzü (pencereler, yeşil cam çekirdek) görünen 0–8 × 8–19"
+   "what": "doğu kule doğu yüzü pencere / locaları (GD ek üstü ve teras arkası)",
+   "note": "_YCGz-R0 10 ortofotosunda uzaktan (kule ≈4.4 m geride, ölçek ≈0.64): sol loca yığını (K4 camlı, K5 açık, K6 camlı) + fransız pencere sütunu + yeşil cam çekirdek; ölçek belirsiz → cutEdges[3]’e yalnız çekirdek yazıldı"
   },
   {
    "what": "KD köşe altı boşluk (açık geçit?)",
@@ -3970,6 +3903,11 @@
     5.63
    ],
    "note": "kahverengi L çerçevenin altında arkası görünüyor; derinlik görülmedi"
+  },
+  {
+   "what": "doğu podyum yüzündeki siyah ferforje apartman kapısı",
+   "edge": 15,
+   "note": "_XtPil5H görünen u 0.05–0.73, y 1.37–2.66 — yeni kenar 15’in güney ucunun ötesinde (z ≈ −580.5, taban izi girintisi içinde); kenara düşmüyor"
   }
  ]
 }

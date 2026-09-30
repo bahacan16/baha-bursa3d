@@ -1,5 +1,12 @@
 import * as THREE from 'three';
-import { generateEzTree, fitTree, crownAttributes, windTime, type EzTreeOptions } from './eztree';
+import {
+  generateEzTree,
+  fitTree,
+  crownAttributes,
+  crownWidth,
+  windTime,
+  type EzTreeOptions,
+} from './eztree';
 import { leafAtlas, barkTexture, disposeLeafAtlas, tileUV, TILE } from './leafcards';
 import { SPECIES_SIZE, type SpeciesKey } from './species';
 import { farTreeGeometry, type FarShape } from './treemesh';
@@ -990,10 +997,13 @@ function buildShell(key: SpeciesKey, def: SpeciesDef, gen: ShellGen): { near: Mo
     idx.push(b0, b0 + 1, b0 + 2, b0, b0 + 2, b0 + 3);
   }
   leaves.setIndex(idx);
+  // Görünen taç genişliği başvuru genişliğine (ölçülen r ile ölçeklenir): kart uçları zarfı aşıyordu (%6–19 geniş)
+  const fw = size.w / Math.max(1e-3, crownWidth(leaves));
+  if (Math.abs(fw - 1) > 0.02) leaves.scale(fw, 1, fw);
   crownAttributes(leaves, 0.25);
   finishLeaves(leaves, def, gen.cards, false);
   // Çekirdek (koyu iç kütle) + görünen kısa gövde
-  const core = lathe(gen.profile, H, R, Math.max(0.01, gen.base), 0.78);
+  const core = lathe(gen.profile, H, R * fw, Math.max(0.01, gen.base), 0.78);
   colorAll(core, gen.core, 0.75, 1.1);
   const trunkH = Math.max(0.15, gen.base * H + 0.25);
   const trunk = new THREE.CylinderGeometry(size.trunk * 0.7, size.trunk, trunkH, 6, 1, true).translate(
