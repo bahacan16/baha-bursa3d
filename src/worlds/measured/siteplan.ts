@@ -32,6 +32,8 @@ export interface SiteLine {
   pts: V2[];
   h?: number;
   w?: number;
+  /** hedge: ölçülen yaprak tonu (#hex, güneşli yüz) → `hedge@` / `hedgeLeaf@` çeşidi; verilmezse sabit çit malzemesi */
+  color?: string;
   note?: string;
 }
 export interface SiteStructure {
@@ -135,6 +137,11 @@ export interface StreetPlan {
      * (ör. 502. Sk. z −100'de OSM x≈6.4, gerçek x≈5.2–5.8 → [-0.9, 0]). Kenar çizgileri etkilenmez.
      */
     centreShift?: [number, number];
+    /**
+     * v10: kesikli çizgi (şerit ayırıcı / kesikli orta çizgi) çizilmeyen kesimler: { z: [a, b] } / { x: [a, b] } dünya
+     * aralığı (ikisi birlikte = dikdörtgen) ya da { poly: [[x, z], …] } (+ isteğe bağlı x / z). Düz çizgiler kalır.
+     */
+    noDash?: { x?: [number, number]; z?: [number, number]; poly?: V2[] }[];
     note?: string;
   }[];
   /**
@@ -161,7 +168,8 @@ export interface StreetPlan {
  * - menu-stand: h (1.25), w (tablet eni 0.4), color
  * - windscreen: pts (dünya hattı), h (1.5), glass, frame, every (dikme aralığı 1.2), base {h, color} dolu alt bant
  * - enclosure (kış bahçesi kapatması): poly (dünya), h (poly kenar 0 tarafı), h2 (karşı taraf; eğik çatı), glass,
- *   frame, mullion (1.0), doors [{edge, u0, u1}], solid [kenar] (dolu kenarlar, wallC), plinth {h, color}, roofC
+ *   frame, mullion (1.0), doors [{edge, u0, u1}], solid [kenar] (dolu kenarlar, wallC), plinth {h, color}, roofC,
+ *   open [kenar | {edge, u0, u1}] (açık cephe: camsız, ara dikmesiz; iç ve çatı kalır)
  * - pergola: poly, h (üst), h2 (eğim: slopeEdge karşısı), color, cover, slat, slatEdge, postEdges / posts, beams
  *   {edge, over, capC}, every, post, beam (facade pergola ile aynı)
  * - speed-bump: pts (yolu enine), w (yol boyunca derinlik 0.5), h (0.05), color, module (modül boyu → 1 cm derz),
@@ -536,9 +544,31 @@ export function roadMarksOf(plan: StreetPlan): Record<string, RoadMark> {
       ...(r.centreShift && r.centreShift.length === 2 && r.centreShift.every(Number.isFinite)
         ? { shift: [r.centreShift[0], r.centreShift[1]] as [number, number] }
         : {}),
+      ...(noDashOf(r.noDash) ? { noDash: noDashOf(r.noDash)! } : {}),
     };
   }
   return roadMarks;
+}
+
+/** roads[].noDash doğrulama: geçerli aralık / çokgen bölgeleri (yoksa null) */
+function noDashOf(v: unknown): { x?: [number, number]; z?: [number, number]; poly?: V2[] }[] | null {
+  if (!Array.isArray(v)) return null;
+  const rng = (r: unknown): [number, number] | undefined =>
+    Array.isArray(r) && r.length === 2 && r.every((q) => typeof q === 'number' && Number.isFinite(q))
+      ? [r[0] as number, r[1] as number]
+      : undefined;
+  const out: { x?: [number, number]; z?: [number, number]; poly?: V2[] }[] = [];
+  for (const q of v as { x?: unknown; z?: unknown; poly?: unknown }[]) {
+    if (!q || typeof q !== 'object') continue;
+    const x = rng(q.x);
+    const z = rng(q.z);
+    const poly =
+      Array.isArray(q.poly) && q.poly.length >= 3 && q.poly.every((p) => rng(p))
+        ? (q.poly as V2[]).map((p) => [p[0], p[1]] as V2)
+        : undefined;
+    if (x || z || poly) out.push({ ...(x ? { x } : {}), ...(z ? { z } : {}), ...(poly ? { poly } : {}) });
+  }
+  return out.length ? out : null;
 }
 
 /** OSM yol çizgisi düzeltmesi (roads.ts): orta / kenar çizgisi türü, orta çizgi dünya kayması */
@@ -550,6 +580,8 @@ export interface RoadMark {
   sidewalk?: string;
   /** v8: şerit sayısı (tek yönlü yol şerit çizgileri) */
   lanes?: number;
+  /** v10: kesikli çizgisiz bölgeler (roads.ts NoDashZone) */
+  noDash?: { x?: [number, number]; z?: [number, number]; poly?: V2[] }[];
 }
 
 /** Ölçülmüş çit hatları (tampon 2.5 m) ve kaldırım bordür hatları (tampon w + 2 m) — eski çit kabuğu atlama testi */
@@ -675,6 +707,19 @@ export function lawnTint(hex: string, avg = GRASS_TEX_AVG): THREE.Color {
     Math.min(10, tgt.g / Math.max(0.01, a.g)),
     Math.min(10, tgt.b / Math.max(0.01, a.b)),
   );
+}
+
+/**
+ * Ölçülen tonlu çit (`hedge@#hex` / `hedgeLeaf@#hex`) için malzeme rengi: doku × çarpan ≈ ölçülen ton (lawnTint ile
+ * aynı yol). Doku ortalamaları (doğrusal → sRGB): textures.ts hedgeTexture() tuvali #88b44a (başsız Chromium'da
+ * tuval çizilip ölçüldü, tohum 5 / 9 farkı < %1), public/textures/trees/pine_color.png opak pikselleri #60752f (sharp).
+ * KARAR: ölçülen ton Street View'da güneşli yüzden örneklenir (gölgede ton aynı albedo × gölge ışığı; oyun ışığı
+ * Street View pozlamasına kalibre olduğundan güneşli piksel ≈ malzeme tonu).
+ */
+export const HEDGE_TEX_AVG = '#88b44a';
+export const HEDGE_LEAF_TEX_AVG = '#60752f';
+export function hedgeTint(hex: string, leaf = false): THREE.Color {
+  return lawnTint(hex, leaf ? HEDGE_LEAF_TEX_AVG : HEDGE_TEX_AVG);
 }
 
 export function toneOf(v: string | [string, string] | undefined | null): string | null {
@@ -950,12 +995,20 @@ export function buildSitePlan(
         case 'hedge': {
           const h = l.h ?? 1.2;
           const w = l.w ?? 0.8;
-          b.box('hedge', [m[0], y + h / 2, m[1]], [L + w * 0.3, h, w], yaw, 0.7, 0b111111 & ~0b100000);
+          const hc = hexOk(l.color) ? l.color.toLowerCase() : null;
+          b.box(
+            hc ? `hedge@${hc}` : 'hedge',
+            [m[0], y + h / 2, m[1]],
+            [L + w * 0.3, h, w],
+            yaw,
+            0.7,
+            0b111111 & ~0b100000,
+          );
           const n: V2 = [-t[1], t[0]];
           for (const s of [1, -1] as const)
             leafFringe(
               b,
-              'hedgeLeaf',
+              hc ? `hedgeLeaf@${hc}` : 'hedgeLeaf',
               [p[0] + n[0] * (w / 2) * s, p[1] + n[1] * (w / 2) * s],
               [q[0] + n[0] * (w / 2) * s, q[1] + n[1] * (w / 2) * s],
               y + 0.15,

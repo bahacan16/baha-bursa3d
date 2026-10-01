@@ -533,7 +533,15 @@ export interface FasciaSign {
    * (kenar başından m) taşıyabilir — uzun kapatmada (d4-tarzi-wg 26 m) "Pide" Ayanoğlu bölümünün altına yayılıyordu
    * (critic d4c #1); verilen parça orada, verilmeyenler kalan sırayla oranlı.
    */
-  parts?: { text: string; fg?: string; u0?: number; u1?: number }[];
+  parts?: { text: string; fg?: string; u0?: number; u1?: number; font?: string; bold?: boolean }[];
+}
+
+/**
+ * v10: alın yazısı kalınlığı. KARAR: el yazısı (`script`) varsayılan ince (paketlenmiş Courgette tek ağırlık; yapay
+ * kalınlaştırma "Mandıra" harflerinden kalın çıkıyordu), diğerleri eskisi gibi kalın.
+ */
+export function fasciaBold(font: string | undefined): boolean {
+  return font !== 'script';
 }
 
 /**
@@ -642,9 +650,17 @@ export function fasciaSigns(
               ...(hex(q.fg) ? { fg: hex(q.fg) } : {}),
               ...(typeof (q as { u0?: unknown }).u0 === 'number' ? { u0: (q as { u0: number }).u0 } : {}),
               ...(typeof (q as { u1?: unknown }).u1 === 'number' ? { u1: (q as { u1: number }).u1 } : {}),
+              // v10: parça başına yazı tipi (ör. "script" el yazısı) ve kalınlık
+              ...(typeof (q as { font?: unknown }).font === 'string'
+                ? { font: (q as { font: string }).font }
+                : {}),
+              ...(typeof (q as { bold?: unknown }).bold === 'boolean'
+                ? { bold: (q as { bold: boolean }).bold }
+                : {}),
             }))
         : [];
       out.push({
+        ...(typeof s.fasciaFont === 'string' ? { font: s.fasciaFont } : {}),
         edge,
         // v9b: kısayolda yazı aralığı (`fasciaU0` / `fasciaU1`, kenar başından m); yoksa kenar boyu
         ...(typeof s.fasciaU0 === 'number' ? { u0: s.fasciaU0 } : {}),
@@ -660,9 +676,37 @@ export function fasciaSigns(
 }
 
 /**
+ * v10: açık cephe aralıkları (`open`): kenar indeksi (tüm kenar) ya da {edge, u0, u1} (kenar başından m). Kenarın
+ * kapalı (camlı) aralıklarını döndürür, sıralı. Açık aralıkta cam, ara dikme, iç yüz ve taban bandı yok; iç taban,
+ * diğer kenarların iç yüzleri, üst kayıt ve çatı kalır (açık teras: fotoğrafta koyu iç, masalar görünür).
+ */
+export function enclosureClosedSpans(open: unknown, edge: number, len: number): [number, number][] {
+  const op: [number, number][] = [];
+  for (const o of Array.isArray(open) ? open : []) {
+    if (o === edge) op.push([0, len]);
+    else if (o && typeof o === 'object' && (o as { edge?: unknown }).edge === edge) {
+      const q = o as { u0?: number; u1?: number };
+      const a = Math.max(0, Math.min(len, num(q.u0, 0)));
+      const b = Math.max(0, Math.min(len, num(q.u1, len)));
+      if (b > a + 0.01) op.push([a, b]);
+    }
+  }
+  op.sort((x, y) => x[0] - y[0]);
+  const out: [number, number][] = [];
+  let u = 0;
+  for (const [a, b] of op) {
+    if (a > u + 0.01) out.push([u, a]);
+    u = Math.max(u, b);
+  }
+  if (len > u + 0.01) out.push([u, len]);
+  return out;
+}
+
+/**
  * Kış bahçesi kapatması (kaldırımda camlı teras): taban çokgeni poly (dünya), yükseklik h (ön kenar) ve h2 (arka,
  * eğik çatı; yoksa düz), cam (glass) + doğrama (frame) + dikme aralığı mullion, kapılar doors [{edge, u0, u1}],
- * dolu kenarlar solid (kenar indeksleri, wallC), taban bandı plinth {h, color}, çatı rengi roofC.
+ * dolu kenarlar solid (kenar indeksleri, wallC), taban bandı plinth {h, color}, çatı rengi roofC, açık cephe open
+ * [kenar | {edge, u0, u1}] (camsız, ara dikmesiz).
  */
 function enclosure(c: FurnCtx, s: StreetItem): void {
   const poly = (s.poly as V2[] | undefined) ?? [];
@@ -720,38 +764,70 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
     const cxy = poly.reduce((q, p) => [q[0] + p[0] / L, q[1] + p[1] / L], [0, 0] as V2);
     /** Kenarın iç normali (quad(A, B, B↑, A↑) nE'ye bakar) */
     const inIsN = (cxy[0] - mE[0]) * nE[0] + (cxy[1] - mE[1]) * nE[1] > 0;
-    // İç yüz (yalnız içe bakan, camın 4 cm içinde): tabandan tavana koyu iç
-    {
-      const n = nE;
-      const nIn: V2 = inIsN ? n : [-n[0], -n[1]];
-      const A: V2 = [a[0] + nIn[0] * 0.04, a[1] + nIn[1] * 0.04];
-      const B: V2 = [e[0] + nIn[0] * 0.04, e[1] + nIn[1] * 0.04];
-      // Builder.quad(A alt, B alt, B üst, A üst) = wall(A, B): ön yüz (−t.z, t.x) = n yönüne bakar
-      const yb = g0 + 0.02;
-      if (nIn === n)
-        c.b.quad(ik, [A[0], yb, A[1]], [B[0], yb, B[1]], [B[0], ye - 0.02, B[1]], [A[0], ya - 0.02, A[1]]);
-      else c.b.quad(ik, [B[0], yb, B[1]], [A[0], yb, A[1]], [A[0], ya - 0.02, A[1]], [B[0], ye - 0.02, B[1]]);
-    }
-    if (ph > 0.02) b3(c.b, pk, a, e, g0, g0 + ph, 0.08, yaw);
-    // Cam + kapı boşlukları (kapıda cam kanat doğramalı, eşik yok)
-    // v9b (critic d4a #3, d4c #8/#12): cam tek katman, yalnız DIŞA bakan yüz (malzeme FrontSide). Önceden iki yönlü
-    // iki quad × DoubleSide → ön cam 2, arka cam 2 katman: %38 opaklık 4 kez üst üste ≈ %85 örtü → "opak gri duvar"
-    // (#566166). Şimdi dışarıdan tek cam + arkasında karşı duvarın koyu iç yüzü.
-    {
-      const A = at(0);
-      const B = at(len);
-      const yb = g0 + ph;
-      if (inIsN)
-        c.b.quad(gk, [B[0], yb, B[1]], [A[0], yb, A[1]], [A[0], yAt(0), A[1]], [B[0], yAt(len), B[1]]);
-      else c.b.quad(gk, [A[0], yb, A[1]], [B[0], yb, B[1]], [B[0], yAt(len), B[1]], [A[0], yAt(0), A[1]]);
+    // v10: açık cephe (`open`) aralıkları dışında kalan kapalı aralıklar; `open` yoksa tek aralık [0, len]
+    const closed = enclosureClosedSpans(s.open, j, len);
+    const isOpen = (u: number) => !closed.some(([u0, u1]) => u >= u0 - 0.01 && u <= u1 + 0.01);
+    for (const [cu0, cu1] of closed) {
+      // İç yüz (yalnız içe bakan, camın 4 cm içinde): tabandan tavana koyu iç
+      {
+        const n = nE;
+        const nIn: V2 = inIsN ? n : [-n[0], -n[1]];
+        const a1 = at(cu0);
+        const e1 = at(cu1);
+        const A: V2 = [a1[0] + nIn[0] * 0.04, a1[1] + nIn[1] * 0.04];
+        const B: V2 = [e1[0] + nIn[0] * 0.04, e1[1] + nIn[1] * 0.04];
+        const ya1 = yAt(cu0);
+        const ye1 = yAt(cu1);
+        // Builder.quad(A alt, B alt, B üst, A üst) = wall(A, B): ön yüz (−t.z, t.x) = n yönüne bakar
+        const yb = g0 + 0.02;
+        if (nIn === n)
+          c.b.quad(
+            ik,
+            [A[0], yb, A[1]],
+            [B[0], yb, B[1]],
+            [B[0], ye1 - 0.02, B[1]],
+            [A[0], ya1 - 0.02, A[1]],
+          );
+        else
+          c.b.quad(
+            ik,
+            [B[0], yb, B[1]],
+            [A[0], yb, A[1]],
+            [A[0], ya1 - 0.02, A[1]],
+            [B[0], ye1 - 0.02, B[1]],
+          );
+      }
+      if (ph > 0.02) b3(c.b, pk, at(cu0), at(cu1), g0, g0 + ph, 0.08, yaw);
+      // Cam + kapı boşlukları (kapıda cam kanat doğramalı, eşik yok)
+      // v9b (critic d4a #3, d4c #8/#12): cam tek katman, yalnız DIŞA bakan yüz (malzeme FrontSide). Önceden iki yönlü
+      // iki quad × DoubleSide → ön cam 2, arka cam 2 katman: %38 opaklık 4 kez üst üste ≈ %85 örtü → "opak gri duvar"
+      // (#566166). Şimdi dışarıdan tek cam + arkasında karşı duvarın koyu iç yüzü.
+      {
+        const A = at(cu0);
+        const B = at(cu1);
+        const yb = g0 + ph;
+        if (inIsN)
+          c.b.quad(gk, [B[0], yb, B[1]], [A[0], yb, A[1]], [A[0], yAt(cu0), A[1]], [B[0], yAt(cu1), B[1]]);
+        else c.b.quad(gk, [A[0], yb, A[1]], [B[0], yb, B[1]], [B[0], yAt(cu1), B[1]], [A[0], yAt(cu0), A[1]]);
+      }
     }
     const dr = doors.filter((q) => q.edge === j);
     const n = Math.max(1, Math.round(len / mul));
-    for (let k = 0; k <= n; k++) {
-      const u = (len * k) / n;
+    const post = (u: number) => {
       const p = at(u);
       const yt = yAt(u);
       c.b.box(fk, [p[0], (g0 + yt) / 2, p[1]], [0.05, yt - g0, 0.06], yaw);
+    };
+    for (let k = 0; k <= n; k++) {
+      const u = (len * k) / n;
+      // Açık aralığın içindeki ara dikmeler çizilmez (köşe dikmeleri kalır)
+      if (k > 0 && k < n && isOpen(u)) continue;
+      post(u);
+    }
+    // KARAR: açık aralığın kenar içindeki uçlarına (cam bitişi) birer dikme; aradaki taşıyıcı kolonlar ölçülmedi
+    for (const [cu0, cu1] of closed) {
+      if (cu0 > 0.01) post(cu0);
+      if (cu1 < len - 0.01) post(cu1);
     }
     for (const q of dr) {
       for (const u of [q.u0, q.u1]) {
@@ -871,7 +947,7 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
             if (out) c.b.wall(key, P(ua), P(ub), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
             else c.b.wall(key, P(ub), P(ua), yt - fh + 0.02, yt + 0.02, [0, 0, 1, 1]);
           };
-          const spec = (text: string, fg: string | undefined, w: number) =>
+          const spec = (text: string, fg: string | undefined, w: number, font?: string, bold?: boolean) =>
             c.signFace!({
               text,
               lines: sg.lines?.length
@@ -880,8 +956,8 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
               bg: sg.bg ?? fc,
               fg: fg ?? sg.fg ?? '#ffffff',
               border: null,
-              font: sg.font ?? 'sans',
-              bold: true,
+              font: font ?? sg.font ?? 'sans',
+              bold: bold ?? fasciaBold(font ?? sg.font),
               lit: false,
               style: 'panel',
               w,
@@ -889,7 +965,7 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
             });
           if (sg.parts?.length) {
             for (const [pp, ua, ub] of fasciaPartSpans(sg.parts, u0, u1, out, len))
-              put(spec(pp.text, pp.fg, ub - ua), ua, ub);
+              put(spec(pp.text, pp.fg, ub - ua, pp.font, pp.bold), ua, ub);
           } else put(spec(sg.text, sg.fg, u1 - u0), u0, u1);
         }
     }

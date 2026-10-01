@@ -20,6 +20,7 @@ import { buildGenericFence, buildWroughtGate, type GenericFence } from './fenceG
 import {
   buildSitePlan,
   lawnTint,
+  hedgeTint,
   nearPlanLine,
   planLines,
   PARK_PLAN,
@@ -1546,6 +1547,8 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
   /** Yürüme yüksekliği için yükseltilmiş alanlar (ölçülmüş kaldırımlar) */
   raised: { poly: [number, number][]; h: number }[];
 }> {
+  // v10: paketlenmiş tabela yazı tipleri (el yazısı `font: "script"`) atlas çizilmeden önce
+  await T.loadSignFonts(o.base);
   const group = new THREE.Group();
   group.name = 'mertkent (el modeli)';
   const b = new Builder();
@@ -2119,6 +2122,15 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
       m.color.copy(lawnTint(k.slice(5)));
       mats[k] = m;
     }
+  // Ölçülen tonlu çit (park/site-plan hedge çizgisi `color`): çit gövdesi + yaprak saçağı × tona göre çarpan
+  for (const k of b.keys()) {
+    const leaf = k.startsWith('hedgeLeaf@');
+    const src = leaf ? mats.hedgeLeaf : k.startsWith('hedge@') ? mats.hedge : null;
+    if (!src || mats[k]) continue;
+    const m = (src as THREE.MeshStandardMaterial).clone();
+    m.color.copy(hedgeTint(k.slice(k.indexOf('@') + 1), leaf));
+    mats[k] = m;
+  }
   // v9: ölçülen tonlu çakıl (sokak / site alanı `color`): düz çakıl malzemesi o tonda
   for (const k of b.keys())
     if (k.startsWith('spGravel@') && !mats[k] && mats.spGravel) {

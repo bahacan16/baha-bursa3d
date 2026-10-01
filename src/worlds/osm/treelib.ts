@@ -26,6 +26,11 @@ interface EzGen {
   normalBias?: number;
   /** Bu boy oranının altındaki yaprak kartları atılır (temiz gövdeli budanmış taç) */
   leafMinY?: number;
+  /**
+   * v10: taç sıklığı — yakın modelde tutulan yaprak kartı oranı (0..1, deterministik; kartlar büyütülmez, orta LOD
+   * bundan seyreltilir). Verilmezse 1 (eski çıktı).
+   */
+  leafKeep?: number;
 }
 interface ShellGen {
   kind: 'shell';
@@ -78,6 +83,9 @@ const ellipsoid =
  * karşılaştırılarak ayarlandı (docs/TREES.md). KARAR: her tür için tek model; örnekler döndürme, ölçek ve renk
  * sapmasıyla çeşitlenir.
  */
+/** KARAR: mor fidan taç sıklığı — fotoğraf / oyun karşılaştırmasıyla seçildi (d4code2 sayfası) */
+const LEAF_KEEP_SAPLING_PURPLE = 0.6;
+
 export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
   deciduous: {
     gen: {
@@ -645,6 +653,8 @@ export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
     gen: {
       kind: 'ez',
       cardSize: 0.7,
+      // v10: taç sıklığı (H7s4cksD_0_0 refüj fidanları d4-median-m4-tree-4/5: taç arkasından gök / bina görünür)
+      leafKeep: LEAF_KEEP_SAPLING_PURPLE,
       opts: {
         seed: 3017,
         type: 'deciduous',
@@ -805,6 +815,17 @@ function decimateLeaves(
   return selectCards(g, quadsPerCard, () => r() < keep, Math.min(2.2, 1 / Math.sqrt(keep)));
 }
 
+/** v10: taç sıklığı — kartların `keep` oranı tutulur (tohumlu, boyutları aynı) */
+export function thinCards(
+  g: THREE.BufferGeometry,
+  quadsPerCard: number,
+  keep: number,
+  seed: number,
+): THREE.BufferGeometry {
+  const r = rng(seed);
+  return selectCards(g, quadsPerCard, () => r() < Math.max(0, keep), 1);
+}
+
 /** Kart seçimi: `keep(kart merkezi y)` doğru olan kartlar kalır, merkezleri etrafında `s` kadar büyütülür */
 function selectCards(
   g: THREE.BufferGeometry,
@@ -906,6 +927,11 @@ function buildEz(key: SpeciesKey, def: SpeciesDef, gen: EzGen): { near: ModelPar
     const minY = gen.leafMinY * size.h;
     const old = t.leaves;
     t.leaves = selectCards(old, t.quadsPerLeaf, (cy) => cy >= minY, 1);
+    old.dispose();
+  }
+  if (gen.leafKeep != null && gen.leafKeep < 0.999) {
+    const old = t.leaves;
+    t.leaves = thinCards(old, t.quadsPerLeaf, gen.leafKeep, gen.opts.seed + 7);
     old.dispose();
   }
   finishLeaves(t.leaves, def, gen.opts.seed);

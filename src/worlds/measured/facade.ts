@@ -1140,13 +1140,26 @@ export function projWinKind(wn: {
   curt?: string | null;
   y0: number;
   y1: number;
+  u0?: number;
+  u1?: number;
 }): number {
   if (wn.curt != null) return CURT[wn.curt] ?? 0;
   if (wn.kind === 'small') return 4;
   if (wn.kind === 'shop') return 7;
   if (wn.y0 < 1 && (wn.kind === 'door' || wn.y1 - wn.y0 >= 2.2)) return 7;
+  if (wn.u0 != null && wn.u1 != null && wn.u1 - wn.u0 >= PROJ_BAND_W && wn.kind !== 'glassband')
+    return PROJ_BAND_KIND;
   return 0;
 }
+
+/**
+ * v10: üst kat perdesiz çıkma penceresi şerit cam (podyum asma katı ofis bandı) eşiği. KARAR: ölçülmüş tüm çıkma
+ * pencerelerinde konut / dükkân camı ≤ 3.4 m (900000101), ≥ 6 m tek parça şerit yalnız podyum K1 bantlarında
+ * (1477364957 31.8 m, 900000261 36.7 m; qo16 180 / sd8u 180: koyu yansıtıcı ofis camı #6b7163–#75796c, tül yok) →
+ * tül yerine karanlık oda (perdesiz, iç görünmez; yansıma pencere camı çarpanıyla). Perde ölçülmüşse ölçüm kazanır.
+ */
+export const PROJ_BAND_W = 6;
+export const PROJ_BAND_KIND = 4;
 
 function hash(n: number): number {
   const s = Math.sin(n * 12.9898) * 43758.5453;

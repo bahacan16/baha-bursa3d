@@ -14441,7 +14441,7 @@
       "glass": "#1b1b15",
       "frame": "#2a2c2e",
       "roofC": "#3a3d3f",
-      "note": "Kırmıkıl doğu pavyonları x 613.8–623, z −851…−822 (Radyo, Cocktail & Dinner — yeşil oluklu kaplama, Pizza Hut, CRASH); tek hacim olarak yazıldı (bölmeler/renkler çizilmez). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): c0UCoLv9_300_0 (2025-09): bulvara bakan doğu yüzde (kenar 1) yeşil-gri oluklu saç alın (gölgede #353d3d; eleştirmen #43544e), sarı-hardal harfler #c49761 \"Cocktail & Dinner\" ve \"radyo gastro pub\". u aralıkları kerterizden (u 215–350 → z −825.0…−828.2; u 10–110 → −823…−825) ±1. Pizza Hut / CRASH bölmeleri bu karede görülmedi. 2026-10-01 D4 sokak r2: cam #6a7478 → #1b1b15 (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 1 (bulvar yüzü) y 1.0–2.3: c0UCoLv9_300_0 #1b1b15. Gerçekte bu yüz camsız açık teras (koyu iç, masalar, ışık zinciri) — açık cephe üreticide yok; görünen ton iç karanlığı (kod gerekir).",
+      "note": "Kırmıkıl doğu pavyonları x 613.8–623, z −851…−822 (Radyo, Cocktail & Dinner — yeşil oluklu kaplama, Pizza Hut, CRASH); tek hacim olarak yazıldı (bölmeler/renkler çizilmez). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): c0UCoLv9_300_0 (2025-09): bulvara bakan doğu yüzde (kenar 1) yeşil-gri oluklu saç alın (gölgede #353d3d; eleştirmen #43544e), sarı-hardal harfler #c49761 \"Cocktail & Dinner\" ve \"radyo gastro pub\". u aralıkları kerterizden (u 215–350 → z −825.0…−828.2; u 10–110 → −823…−825) ±1. Pizza Hut / CRASH bölmeleri bu karede görülmedi. 2026-10-01 D4 sokak r2: cam #6a7478 → #1b1b15 (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 1 (bulvar yüzü) y 1.0–2.3: c0UCoLv9_300_0 #1b1b15. Gerçekte bu yüz camsız açık teras (koyu iç, masalar, ışık zinciri) — açık cephe üreticide yok; görünen ton iç karanlığı (kod gerekir). 2026-10-01 D4 kod r2: açık cephe `open` kenar 1 u 8.4–27.5 (z −842.6…−823.5): c0UCoLv9_300_0 (2025-09) piksel kerterizi (pano 629.42,−823.72; x 623 düzlemi): u 120 px (z −823.5) camlı radyo bölmesinin bittiği kolon, sağa doğru u ≈600 px (z −842.6) kadar camsız açık teras (koyu iç, masalar, ışık zinciri, alçak siyah korkuluk — korkuluk çizilmedi). z −842.6’nın güneyi (Pizza Hut / CRASH) görülmedi → camlı kalır. ±1.",
       "x": 618.4,
       "z": -836.5,
       "fasciaC": "#353d3d",
@@ -14460,6 +14460,13 @@
           "u1": 28.8,
           "text": "radyo gastro pub",
           "fg": "#c49761"
+        }
+      ],
+      "open": [
+        {
+          "edge": 1,
+          "u0": 8.4,
+          "u1": 27.5
         }
       ]
     },
@@ -14997,7 +15004,7 @@
       "glass": "#22241e",
       "frame": "#1f2022",
       "roofC": "#7a7c7c",
-      "note": "Siyah çerçeveli cam kış bahçesi, oluklu çatı (\"Tarz-ı Pide\", \"Tarz-ı Tost\", \"Mandı…\" yazıları çizilmez); 9nQa3LQ8_120_0’da \"Tarz-ı Pide\" görüldü. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): 9nQa3LQ8_120_0 (2025-09): koyu alın #1c1f26 üzerinde el yazısı \"Tarz-ı Pide\" — \"Tarz-ı\" kırmızı-pembe (harf ince, 1 px örnek #511a20 güvenilmez), \"Pide\" açık gri #9c9fa7; v9: iki renkli satır `fasciaParts` — \"Tarz-ı\" #9b4f59 (9nQa3LQ8_134_6_40 yakın karesinde harf pikselleri medyanı, gölgede), \"Pide\" #9c9fa7. \"Tarz-ı Tost\", \"Mandı…\" yazıları bu karede okunmadı (görülmedi). 2026-10-01 D4 sokak r2: fasciaParts aralıkları (d4c r2 #1). Kenar 3 (bulvar yüzü x 661.5), u = kenar başından (z −712.3) kuzeye m. Kerterizler x 661.5 düzlemine: y2QCdhl2_60_0 (2025-09) Hançer / Tarz-ı sınırı z −738.85 (kapatma kuzey ucu −738.3 → pano +0.55 düzeltmesi), \"Tarz-ı Pide\" yazısı −738.1…−734.9, bölme sonu −733.5, \"Mandıra\" −720.8…−718.1; 9nQa3LQ8_120_0 bölme başı −735.56 (→ −738.3 için −2.8 düzeltme), yazı −732.7…−729.4. İki karenin düzeltilmiş ortalaması: Tarz-ı Pide bölmesi z −738.3…−732.3 (u 20–26), yazı u 21.0–24.4 (\"Tarz-ı\" kuzeyde, \"Pide\" güneyde: doğuya bakan okur için soldan sağa); \"Mandıra\" (Ayanoğlu bölmesi, beyaz el yazısı) u 5.2–8.0, harf pikselleri #a8acae (alın saçak gölgesinde, y2QCdhl2_60_0 u 482–554). \"Mandıra\"nın sağındaki \"Un…\" yazısı okunmadı → yazılmadı. Yazı biçimi (el yazısı) üreticide yok. 2026-10-01 D4 sokak r2: cam #6a7478 → #22241e (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 3 (bulvar yüzü) y 0.9–2.0: y2QCdhl2_60_0 #22241e (kenar 1 #21231d ile aynı).",
+      "note": "Siyah çerçeveli cam kış bahçesi, oluklu çatı (\"Tarz-ı Pide\", \"Tarz-ı Tost\", \"Mandı…\" yazıları çizilmez); 9nQa3LQ8_120_0’da \"Tarz-ı Pide\" görüldü. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): 9nQa3LQ8_120_0 (2025-09): koyu alın #1c1f26 üzerinde el yazısı \"Tarz-ı Pide\" — \"Tarz-ı\" kırmızı-pembe (harf ince, 1 px örnek #511a20 güvenilmez), \"Pide\" açık gri #9c9fa7; v9: iki renkli satır `fasciaParts` — \"Tarz-ı\" #9b4f59 (9nQa3LQ8_134_6_40 yakın karesinde harf pikselleri medyanı, gölgede), \"Pide\" #9c9fa7. \"Tarz-ı Tost\", \"Mandı…\" yazıları bu karede okunmadı (görülmedi). 2026-10-01 D4 sokak r2: fasciaParts aralıkları (d4c r2 #1). Kenar 3 (bulvar yüzü x 661.5), u = kenar başından (z −712.3) kuzeye m. Kerterizler x 661.5 düzlemine: y2QCdhl2_60_0 (2025-09) Hançer / Tarz-ı sınırı z −738.85 (kapatma kuzey ucu −738.3 → pano +0.55 düzeltmesi), \"Tarz-ı Pide\" yazısı −738.1…−734.9, bölme sonu −733.5, \"Mandıra\" −720.8…−718.1; 9nQa3LQ8_120_0 bölme başı −735.56 (→ −738.3 için −2.8 düzeltme), yazı −732.7…−729.4. İki karenin düzeltilmiş ortalaması: Tarz-ı Pide bölmesi z −738.3…−732.3 (u 20–26), yazı u 21.0–24.4 (\"Tarz-ı\" kuzeyde, \"Pide\" güneyde: doğuya bakan okur için soldan sağa); \"Mandıra\" (Ayanoğlu bölmesi, beyaz el yazısı) u 5.2–8.0, harf pikselleri #a8acae (alın saçak gölgesinde, y2QCdhl2_60_0 u 482–554). \"Mandıra\"nın sağındaki \"Un…\" yazısı okunmadı → yazılmadı. Yazı biçimi (el yazısı) üreticide yok. 2026-10-01 D4 sokak r2: cam #6a7478 → #22241e (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 3 (bulvar yüzü) y 0.9–2.0: y2QCdhl2_60_0 #22241e (kenar 1 #21231d ile aynı). 2026-10-01 D4 kod r2: \"Mandıra\" parçası `font: \"script\"` (eğik el yazısı, ince; y2QCdhl2_60_0 kırpımıyla karşılaştırıldı → paketlenmiş Courgette).",
       "x": 664.05,
       "z": -725.3,
       "fasciaText": "Tarz-ı Pide Mandıra",
@@ -15021,7 +15028,8 @@
           "text": "Mandıra",
           "fg": "#a8acae",
           "u0": 5.2,
-          "u1": 8
+          "u1": 8,
+          "font": "script"
         }
       ]
     },
@@ -23157,13 +23165,29 @@
       "id": 303430966,
       "sidewalk": "none",
       "edges": "none",
-      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4b #1/#16, d4c #8): Özlüce Bulvarı doğu (kuzeye giden) tek yönlü kolu (OSM 303430966, z −320…−800). OSM kaldırımı kapalı — dış yakada ölçülmüş kaldırımlar (d4-sw-w*/e*, park şeritleri d4-pk-*) var, refüj yakasında kaldırım yok (SV H7s4cksD_0_0, 47_2kHSe_0_0, X0NY1chl_270_-50: araç yolu → boyalı refüj bordürü → çim); aradaki boşluklar yan sokak ağızları. OSM kenar çizgileri kapalı: refüj yakasındaki çizgi refüj çiminin üstüne düşüyordu — yerine ölçülmüş kenar çizgileri (d4-edge-*: refüj bordüründen ≈0.45 m; H7s4cksD_270_-50 / X0NY1chl_270_-50 zemin karelerinde bordürden ≈0.4–0.5 m sürekli beyaz çizgi). Şerit sayısı OSM 3 ile uyumlu (H7s4cksD_0_0 doğu kolda iki kesikli ayırıcı; 47_2kHSe_0_0 batı kolda da iki kesikli ayırıcı → \"lanes 2\" UYGULANMADI). Dış yakadaki kenar çizgisi (park şeridi sınırı) yalnız z −431…−524 doğuda eklendi; diğer kesimlerde görülmedi/ölçülmedi."
+      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4b #1/#16, d4c #8): Özlüce Bulvarı doğu (kuzeye giden) tek yönlü kolu (OSM 303430966, z −320…−800). OSM kaldırımı kapalı — dış yakada ölçülmüş kaldırımlar (d4-sw-w*/e*, park şeritleri d4-pk-*) var, refüj yakasında kaldırım yok (SV H7s4cksD_0_0, 47_2kHSe_0_0, X0NY1chl_270_-50: araç yolu → boyalı refüj bordürü → çim); aradaki boşluklar yan sokak ağızları. OSM kenar çizgileri kapalı: refüj yakasındaki çizgi refüj çiminin üstüne düşüyordu — yerine ölçülmüş kenar çizgileri (d4-edge-*: refüj bordüründen ≈0.45 m; H7s4cksD_270_-50 / X0NY1chl_270_-50 zemin karelerinde bordürden ≈0.4–0.5 m sürekli beyaz çizgi). Şerit sayısı OSM 3 ile uyumlu (H7s4cksD_0_0 doğu kolda iki kesikli ayırıcı; 47_2kHSe_0_0 batı kolda da iki kesikli ayırıcı → \"lanes 2\" UYGULANMADI). Dış yakadaki kenar çizgisi (park şeridi sınırı) yalnız z −431…−524 doğuda eklendi; diğer kesimlerde görülmedi/ölçülmedi. 2026-10-01 D4 kod r2: `noDash` z −445…−392 (koordinatör: MAQEIAqI_0_0 (2025-09) bu kesimde şerit ayırıcı kesikli çizgi yok; H7s4cksD_0_0 / 47_2kHSe_0_0 z ≈−510 civarında kesikli çizgiler var → orada kalır).",
+      "noDash": [
+        {
+          "z": [
+            -445,
+            -392
+          ]
+        }
+      ]
     },
     {
       "id": 306909263,
       "sidewalk": "none",
       "edges": "none",
-      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4b #1/#16, d4c #8): Özlüce Bulvarı batı (güneye giden) tek yönlü kolu (OSM 306909263, z −320…−800). OSM kaldırımı kapalı — dış yakada ölçülmüş kaldırımlar (d4-sw-w*/e*, park şeritleri d4-pk-*) var, refüj yakasında kaldırım yok (SV H7s4cksD_0_0, 47_2kHSe_0_0, X0NY1chl_270_-50: araç yolu → boyalı refüj bordürü → çim); aradaki boşluklar yan sokak ağızları. OSM kenar çizgileri kapalı: refüj yakasındaki çizgi refüj çiminin üstüne düşüyordu — yerine ölçülmüş kenar çizgileri (d4-edge-*: refüj bordüründen ≈0.45 m; H7s4cksD_270_-50 / X0NY1chl_270_-50 zemin karelerinde bordürden ≈0.4–0.5 m sürekli beyaz çizgi). Şerit sayısı OSM 3 ile uyumlu (H7s4cksD_0_0 doğu kolda iki kesikli ayırıcı; 47_2kHSe_0_0 batı kolda da iki kesikli ayırıcı → \"lanes 2\" UYGULANMADI). Dış yakadaki kenar çizgisi (park şeridi sınırı) yalnız z −431…−524 doğuda eklendi; diğer kesimlerde görülmedi/ölçülmedi."
+      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4b #1/#16, d4c #8): Özlüce Bulvarı batı (güneye giden) tek yönlü kolu (OSM 306909263, z −320…−800). OSM kaldırımı kapalı — dış yakada ölçülmüş kaldırımlar (d4-sw-w*/e*, park şeritleri d4-pk-*) var, refüj yakasında kaldırım yok (SV H7s4cksD_0_0, 47_2kHSe_0_0, X0NY1chl_270_-50: araç yolu → boyalı refüj bordürü → çim); aradaki boşluklar yan sokak ağızları. OSM kenar çizgileri kapalı: refüj yakasındaki çizgi refüj çiminin üstüne düşüyordu — yerine ölçülmüş kenar çizgileri (d4-edge-*: refüj bordüründen ≈0.45 m; H7s4cksD_270_-50 / X0NY1chl_270_-50 zemin karelerinde bordürden ≈0.4–0.5 m sürekli beyaz çizgi). Şerit sayısı OSM 3 ile uyumlu (H7s4cksD_0_0 doğu kolda iki kesikli ayırıcı; 47_2kHSe_0_0 batı kolda da iki kesikli ayırıcı → \"lanes 2\" UYGULANMADI). Dış yakadaki kenar çizgisi (park şeridi sınırı) yalnız z −431…−524 doğuda eklendi; diğer kesimlerde görülmedi/ölçülmedi. 2026-10-01 D4 kod r2: `noDash` z −445…−392 (koordinatör: MAQEIAqI_0_0 (2025-09) bu kesimde şerit ayırıcı kesikli çizgi yok; H7s4cksD_0_0 / 47_2kHSe_0_0 z ≈−510 civarında kesikli çizgiler var → orada kalır).",
+      "noDash": [
+        {
+          "z": [
+            -445,
+            -392
+          ]
+        }
+      ]
     }
   ],
   "areas": [

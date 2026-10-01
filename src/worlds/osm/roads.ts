@@ -498,6 +498,36 @@ export interface RoadMarkSpec {
   sidewalk?: string;
   /** v8: şerit sayısı (OSM `lanes` yerine; ≤ 1 → şerit çizgisi yok) */
   lanes?: number;
+  /** v10: kesikli çizgisiz bölgeler (dünya x / z aralığı ve / veya çokgen); düz çizgiler etkilenmez */
+  noDash?: NoDashZone[];
+}
+
+/** v10: yolun bir kesiminde kesikli çizgi bastırma bölgesi: x ve z aralıkları (verilenler birlikte) ya da çokgen */
+export interface NoDashZone {
+  x?: [number, number];
+  z?: [number, number];
+  poly?: Pt[];
+}
+
+/** (x, z) herhangi bir bastırma bölgesinin içinde mi */
+export function inNoDash(zones: NoDashZone[] | undefined, x: number, z: number): boolean {
+  if (!zones) return false;
+  const inR = (v: number, r?: [number, number]) =>
+    !r || (v >= Math.min(r[0], r[1]) && v <= Math.max(r[0], r[1]));
+  for (const q of zones) {
+    if (q.poly && q.poly.length >= 3) {
+      let c = false;
+      const P = q.poly;
+      for (let i = 0, j = P.length - 1; i < P.length; j = i++)
+        if (
+          P[i][1] > z !== P[j][1] > z &&
+          x < ((P[j][0] - P[i][0]) * (z - P[i][1])) / (P[j][1] - P[i][1]) + P[i][0]
+        )
+          c = !c;
+      if (c && inR(x, q.x) && inR(z, q.z)) return true;
+    } else if ((q.x || q.z) && inR(x, q.x) && inR(z, q.z)) return true;
+  }
+  return false;
 }
 
 /**
@@ -614,18 +644,24 @@ export function buildRoads(
     // Blv. 3 şerit / 2 kesikli çizgi, Uğur Mumcu 2 şerit / 1 kesikli). Ölçülmüş `centre` verilmişse o kazanır.
     const lanes =
       r.vehicular && r.oneway !== 0 && !mk?.centre ? laneDividerOffsets(r.width, mk?.lanes ?? r.lanes) : [];
-    if (mk?.centre === 'dashed') dashes(geo, cl, 3, 5, 0.12, Y_MARK, skip);
+    // v10: ölçülmüş kesikli çizgisiz kesim (roads[].noDash) yalnız kesikli çizgilere uygulanır.
+    // KARAR: düz orta / kenar çizgileri bastırılmaz (ölçümler yalnız kesik şerit ayırıcıların yokluğunu gösterdi).
+    const nd = mk?.noDash;
+    const dskip: MarkSkip | undefined = nd?.length
+      ? (x, z, ux, uz) => inNoDash(nd, x, z) || !!skip?.(x, z, ux, uz)
+      : skip;
+    if (mk?.centre === 'dashed') dashes(geo, cl, 3, 5, 0.12, Y_MARK, dskip);
     else if (mk?.centre === 'solid') dashes(geo, cl, 1e6, 0, 0.12, Y_MARK, skip);
     else if (mk?.centre === 'none') {
       /* ölçüm: orta çizgi yok */
     } else if (lanes.length) {
       // KARAR: çizgi 3 m / boşluk 6 m, 12 cm (ana yol kesikli çizgisiyle aynı ritim; ölçülmedi)
-      for (const o of lanes) dashes(geo, o === 0 ? cl : offsetPts(cl, o), 3, 6, 0.12, Y_MARK, skip);
+      for (const o of lanes) dashes(geo, o === 0 ? cl : offsetPts(cl, o), 3, 6, 0.12, Y_MARK, dskip);
     } else if (r.vehicular && r.oneway !== 0 && mk?.lanes !== undefined && mk.lanes <= 1) {
       /* ölçüm: tek şerit — çizgi yok */
-    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, cl, 3, 6, 0.15, Y_MARK, skip);
+    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, cl, 3, 6, 0.15, Y_MARK, dskip);
     else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
-      dashes(geo, cl, 3, 5, 0.12, Y_MARK, skip);
+      dashes(geo, cl, 3, 5, 0.12, Y_MARK, dskip);
     if (mk?.edges === 'solid' || (mk?.edges !== 'none' && /^(secondary|tertiary)$/.test(r.kind)))
       for (const sd of [-1, 1]) dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK, skip);
   }
