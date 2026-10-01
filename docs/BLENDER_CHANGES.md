@@ -914,3 +914,14 @@
   `poles: 0` desteği `street.ts`), Kent Park güney yüzünde 3.1 m koyu ibreli çit. **Blender:** `NW/Measured/Facades`
   → 1476599910, 1544934686, 1546358573, 1550614219, 1551814323, 1551828351; `NW/Measured/Street` → d4-mak-gulbas-fascia(-2),
   d4-kentpark-s-hedge.
+- **(D4 eleştirmen 2. tur, kod)** — Dükkân camı (vitrin, kind 7) gök yansıması ×9 → ×0.4, iç ışık ×0.5 (`shopRoomUniform`);
+  ölçülmemiş perdeli izdüşüm yüzü pencereleri artık zemin katta (≥2.2 m cam, alt <1 m ya da `shop`) vitrin sayılır
+  (`projWinKind`) → Biaport / AVM / Juan Valdez–ROSSMANN camı #7b–#ba → #27–#2d. Kış bahçesi camı tek dışa bakan yüz
+  (dört kat %38 cam opak gri duvar gibi görünüyordu). Ölçülmüş çim tonu doku ortalamasıyla bölünüyordu (yanlış
+  varsayılan #7a9a3c → gerçek #73622f) → çimler kahverengi kalıyordu. Zemin seviyesi bantlar asfalt dolgu şeridinin
+  üstünde (`AT_GRADE_TOP` 0.045; park cepleri görünür). Ölçülmüş zemin alanlarında şerit/orta/kenar çizgisi çizilmez
+  (`noMarkZones`); yol seviyesindeki alanlar OSM kaldırımını kaldırır. Yaprak kartları gövde uzatmada bütün taşınır
+  (salkım söğüt görünümü gitti). `fasciaParts` parça başı `u0/u1`. Dosyalar: `facade.ts`, `facadeMats.ts`, `index.ts`,
+  `siteplan.ts`, `street.ts`, `streetFurniture.ts`, `osm/roads.ts`, `osm/treelib.ts`, `osm/build.ts`, `osm/world.ts`.
+  **Blender:** `materials.py` vitrin camı (yansıma düşük, iç koyu), kış bahçesi camı tek yüz; `NW/Measured/Street`
+  çim tonları; `NW/Roads` ölçülmüş alanlarda çizgi yok; `NW/Trees` yeniden üretilir.
