@@ -24,6 +24,29 @@ const median = (a) => {
 };
 const r2 = (v) => Math.round(v * 100) / 100;
 
+/**
+ * v11: aynı katta çakışan pencere / kapı / dükkân camı uyarısı. Üretici (facade.resolveOpenings) dükkân camının içindeki
+ * açıklığı korur (cam çevresinde bölünür); kısmi çakışmada sonraki açıklık çizilmez → burada uyarılır (ölçüm hatası).
+ */
+function warnOpeningOverlaps(id, edges) {
+  edges.forEach((e, ei) => {
+    const ops = [];
+    for (const it of e.items ?? [])
+      if (it.t === 'win') for (const k of it.storeys ?? []) ops.push({ k, y0: it.sill, y1: it.head, u0: it.u0, u1: it.u1, kind: it.kind });
+    for (let a = 0; a < ops.length; a++)
+      for (let b = a + 1; b < ops.length; b++) {
+        const p = ops[a];
+        const q = ops[b];
+        if (p.k !== q.k || !(p.u1 > q.u0 + 0.02 && p.u0 < q.u1 - 0.02 && p.y1 > q.y0 + 0.02 && p.y0 < q.y1 - 0.02)) continue;
+        const ins = (x, y) => x.u0 >= y.u0 - 0.02 && x.u1 <= y.u1 + 0.02 && x.y0 >= y.y0 - 0.02 && x.y1 <= y.y1 + 0.02;
+        if ((p.kind === 'shop' && q.kind !== 'shop' && ins(q, p)) || (q.kind === 'shop' && p.kind !== 'shop' && ins(p, q))) continue;
+        console.warn(
+          `⚠ ${id} e${ei} K${p.k}: çakışan açıklıklar ${p.kind} u ${p.u0}–${p.u1} / ${q.kind} u ${q.u0}–${q.u1} — biri çizilmez`,
+        );
+      }
+  });
+}
+
 async function main() {
   const sdir = join(root, 'src', 'worlds', 'measured', 'survey');
   const ids = process.argv[2]
@@ -641,6 +664,7 @@ async function main() {
               bold: it.bold !== false,
               lit: !!it.lit,
               ...(it.outline ? { outline: it.outline } : {}),
+              ...(it.outline && it.outlineW > 0 ? { outlineW: r2(it.outlineW * c.sY * c.depthK(so ?? 0) * 1000) / 1000 } : {}),
               ...(it.shape ? { shape: it.shape } : {}),
               ...(it.icon ? { icon: it.icon, iconC: it.iconC ?? null } : {}),
               ...(it.glyphs ? { glyphs: it.glyphs, join: it.join ?? null } : {}),
@@ -650,6 +674,7 @@ async function main() {
               ...(it.back ? { back: it.back } : {}),
               ...(it.capH ? { capH: r2(it.capH * c.sY * c.depthK(so ?? 0)) } : {}),
               ...(it.align ? { align: it.align } : {}),
+              ...(it.stretch ? { stretch: true } : {}),
             });
             break;
           }
@@ -1163,6 +1188,7 @@ async function main() {
       ...(sv.baseH != null || sv.startK != null ? { baseH: baseHOf() } : {}),
       notes: sv.notes ?? [],
     };
+    warnOpeningOverlaps(id, out[id].edges);
     console.log(
       `${id}: ${edges.length} kenar, kat ${sv.storeys} × ${FH.toFixed(2)} m (örnekler ${fhs.map((q) => q.fh.toFixed(2)).join(' ')}), zemin kat +${gR.toFixed(2)} m (örnekler ${gRs.map((v) => v.toFixed(2)).join(' ')})`,
     );

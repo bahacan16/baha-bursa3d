@@ -527,6 +527,10 @@ export interface CSign {
   bold: boolean;
   lit: boolean;
   outline?: string | null;
+  /** v11: ölçülen harf konturu kalınlığı (m, görünen dış kenar; verilmezse harf boyunun %6'sı) */
+  outlineW?: number | null;
+  /** v11: yazı ölçülen genişliği doldurur (capH ile birlikte; yatay genişletme ≤ 1.6, sıkıştırma ≥ 0.5) */
+  stretch?: boolean | null;
   shape?: string | null;
   icon?: string | null;
   iconC?: string | null;
@@ -1188,6 +1192,10 @@ export interface SignSpec {
   h: number;
   lines?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[] | null;
   outline?: string | null;
+  /** v11: harf konturu kalınlığı (m) */
+  outlineW?: number | null;
+  /** v11: yazı ölçülen genişliği doldurur (capH ile birlikte; yatay genişletme ≤ 1.6, sıkıştırma ≥ 0.5) */
+  stretch?: boolean | null;
   shape?: string | null;
   icon?: string | null;
   iconC?: string | null;
@@ -1858,17 +1866,9 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       voidOps.get(v.id)!.push({ ...op, edge: i });
     }
     openings[i] = openings[i].filter((op) => !inVoid(i, (op.u0 + op.u1) / 2, op.k));
-    // Çakışan açıklıkları ayıkla (ölçüm hatası)
-    openings[i].sort((p, q) => p.y0 - q.y0 || p.u0 - q.u0);
-    const keep: Opening[] = [];
-    for (const op of openings[i])
-      if (
-        !keep.some(
-          (q) => q.u1 > op.u0 + 0.02 && q.u0 < op.u1 - 0.02 && q.y1 > op.y0 + 0.02 && q.y0 < op.y1 - 0.02,
-        )
-      )
-        keep.push(op);
-    openings[i] = keep;
+    // Çakışan açıklıkları ayıkla (ölçüm hatası). v11: dükkân camının İÇİNDEKİ açıklık (vitrin içi kapı) atılmaz —
+    // cam kapının çevresinde parçalanır (splitAround); kısmi çakışma eskisi gibi atılır (survey-compile uyarır)
+    openings[i] = resolveOpenings(openings[i]);
   }
 
   // ── Duvar girintileri (çok katlı loca, girintili dükkân hattı, merdiven kovası, kapı yuvası) ──
@@ -7818,4 +7818,63 @@ export function pillGeometry(w: number, h: number, d: number, yaw: number, c: V2
   g.rotateY(yaw);
   g.translate(c[0], yc, c[1]);
   return g;
+}
+
+/** Açıklık b, a'nın içinde mi (2 cm pay) */
+function openingInside(b: Opening, a: Opening): boolean {
+  return b.u0 >= a.u0 - 0.02 && b.u1 <= a.u1 + 0.02 && b.y0 >= a.y0 - 0.02 && b.y1 <= a.y1 + 0.02;
+}
+
+/**
+ * v11 (survey-b): çakışan açıklıkları çöz. Önceden (y0, u0) sırasıyla ilk gelen kalıyor, çakışan sonraki sessizce
+ * atılıyordu: aynı denizlikli vitrinin içindeki kapı kayboluyordu (1550614219 e6 / e9, 1551814316 e4 / e8,
+ * 1551828351 e18). Şimdi: dükkân camı (kind shop) içindeki açıklık korunur, cam onun çevresinde parçalara bölünür
+ * (sol / sağ tam boy, üstte / altta kapı genişliğinde cam — 10 cm'den dar parça çizilmez); kalan (kısmi) çakışmalar
+ * eskisi gibi atılır (ölçüm hatası; survey-compile uyarı verir). Çakışmayan açıklıklar aynen kalır.
+ */
+export function resolveOpenings(list: Opening[]): Opening[] {
+  const ops = list.slice().sort((p, q) => p.y0 - q.y0 || p.u0 - q.u0);
+  const over = (q: Opening, op: Opening) =>
+    q.u1 > op.u0 + 0.02 && q.u0 < op.u1 - 0.02 && q.y1 > op.y0 + 0.02 && q.y0 < op.y1 - 0.02;
+  let keep: Opening[] = [];
+  for (const op of ops) {
+    const hits = keep.filter((q) => over(q, op));
+    if (!hits.length) {
+      keep.push(op);
+      continue;
+    }
+    // Tek dükkân camının içinde (ya da op dükkân camı ve çakışanların hepsi onun içinde): böl
+    if (hits.length === 1 && hits[0].win.kind === 'shop' && op.win.kind !== 'shop' && openingInside(op, hits[0])) {
+      keep = keep.filter((q) => q !== hits[0]).concat(splitAround(hits[0], [op]), [op]);
+      continue;
+    }
+    if (op.win.kind === 'shop' && hits.every((q) => q.win.kind !== 'shop' && openingInside(q, op))) {
+      keep.push(...splitAround(op, hits));
+      continue;
+    }
+  }
+  return keep;
+}
+
+/** Dükkân camını (a) içindeki açıklıkların (holes, a'nın içinde) çevresinde dikdörtgen parçalara böl */
+function splitAround(a: Opening, holes: Opening[]): Opening[] {
+  const MIN = 0.1;
+  const hs = holes.slice().sort((p, q) => p.u0 - q.u0);
+  const out: Opening[] = [];
+  // Kat döşemesi kotu parçalarda korunur (yatay kayıtlar / kemer üzengisi açıklığın alt kenarından türetiliyor)
+  const fy = a.fy ?? a.y0 - Math.max(0.02, a.win.sill);
+  const piece = (u0: number, u1: number, y0: number, y1: number) => {
+    if (u1 - u0 >= MIN && y1 - y0 >= MIN) out.push({ ...a, u0, u1, y0, y1, fy });
+  };
+  let u = a.u0;
+  for (const h of hs) {
+    piece(u, Math.max(u, h.u0), a.y0, a.y1);
+    const hu0 = Math.max(a.u0, h.u0);
+    const hu1 = Math.min(a.u1, h.u1);
+    piece(hu0, hu1, Math.min(a.y1, h.y1), a.y1);
+    piece(hu0, hu1, a.y0, Math.max(a.y0, h.y0));
+    u = Math.max(u, hu1);
+  }
+  piece(u, a.u1, a.y0, a.y1);
+  return out;
 }

@@ -1433,6 +1433,30 @@ function drawIcon(
     g.arc(-s * 0.05, -s * 0.04, s * 0.045, 0, Math.PI * 2);
     g.arc(s * 0.05, -s * 0.03, s * 0.045, 0, Math.PI * 2);
     g.fill();
+  } else if (kind === 'wheat') {
+    // v11: başak (Ziraat Bankası amblemi, stilize): düşey sap + 5 çift yukarı açılı tane + tepe tanesi.
+    // KARAR: tane sayısı / açısı amblemin genel görünüşünden (çözünürlükte tek tek sayılamadı)
+    g.lineCap = 'round';
+    g.lineWidth = s * 0.05;
+    g.beginPath();
+    g.moveTo(0, s * 0.46);
+    g.lineTo(0, -s * 0.3);
+    g.stroke();
+    const grain = (x: number, y: number, a: number) => {
+      g.save();
+      g.translate(x, y);
+      g.rotate(a);
+      g.beginPath();
+      g.ellipse(0, -s * 0.07, s * 0.045, s * 0.1, 0, 0, Math.PI * 2);
+      g.fill();
+      g.restore();
+    };
+    for (let k = 0; k < 5; k++) {
+      const y = s * 0.22 - k * s * 0.13;
+      grain(-s * 0.02, y, -0.55);
+      grain(s * 0.02, y, 0.55);
+    }
+    grain(0, -s * 0.36, 0);
   } else if (kind === 'star') {
     g.beginPath();
     for (let k = 0; k < 10; k++) {
@@ -1461,6 +1485,13 @@ export interface SignDraw {
   style?: string;
   /** Harf konturu (ör. mavi harf + beyaz kontur) */
   outline?: string | null;
+  /** v11: harf konturu kalınlığı (m, harfin dışında görünen); verilmezse harf boyunun %6'sı (eski) */
+  outlineW?: number | null;
+  /**
+   * v11: yazı tabela genişliğini doldurur (ölçülen capH ile; yatay genişletme en çok SIGN_STRETCH_MAX): geniş
+   * yazı tipli tabelalar (BURGER KING en / boy 8.6, Arial kalın 7.6)
+   */
+  stretch?: boolean | null;
   /** 'round': yuvarlak rozet (zemin daire) */
   shape?: string | null;
   /** Basit simge (metnin solunda): fish | tooth | star; renk icC */
@@ -1486,30 +1517,36 @@ export interface SignDraw {
  * başsız Chromium'da hiç yok (cursive → düz sans). Türkçe ı/ğ/ş latin-ext alt kümesinde.
  */
 export const SCRIPT_FONT = 'Courgette';
+/**
+ * v11: dar tabela yazı tipi (`font: "condensed"`). KARAR: paketlenmiş Roboto Condensed 400 / 700 (OFL 1.1,
+ * public/fonts/) — "Arial Narrow" yalnız Windows / Office'te var; başsız Chromium'da DejaVu Sans'a (Arial'dan geniş)
+ * düşüyordu, ölçülen harf boyu sığmayınca küçülüyordu (HASKÖYÜM / BOĞA / ARMILLA, IDAS / MOT).
+ */
+export const CONDENSED_FONT = 'Roboto Condensed';
 let fontsReady: Promise<void> | null = null;
 /** Tabela atlası çizilmeden önce paketlenmiş yazı tiplerini yükle (tarayıcı dışında / hata olursa sessizce geç) */
 export function loadSignFonts(base: string): Promise<void> {
   if (typeof document === 'undefined' || typeof FontFace === 'undefined' || !document.fonts)
     return Promise.resolve();
+  const RANGES: Record<string, string> = {
+    latin:
+      'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
+    'latin-ext':
+      'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
+  };
+  const faces: [string, string, string, string][] = [];
+  for (const sub of ['latin', 'latin-ext']) {
+    faces.push([SCRIPT_FONT, `courgette-${sub}-400.woff2`, RANGES[sub], '400']);
+    for (const w of ['400', '700'])
+      faces.push([CONDENSED_FONT, `roboto-condensed-${sub}-${w}.woff2`, RANGES[sub], w]);
+  }
   fontsReady ??= Promise.all(
-    [
-      [
-        'latin',
-        'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
-      ],
-      [
-        'latin-ext',
-        'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
-      ],
-    ].map(async ([sub, range]) => {
+    faces.map(async ([family, file, range, weight]) => {
       try {
-        const f = new FontFace(SCRIPT_FONT, `url(${base}fonts/courgette-${sub}-400.woff2)`, {
-          unicodeRange: range,
-          weight: '400',
-        });
+        const f = new FontFace(family, `url(${base}fonts/${file})`, { unicodeRange: range, weight });
         document.fonts.add(await f.load());
       } catch {
-        /* yazı tipi yüklenemedi → sistem el yazısı yedeği */
+        /* yazı tipi yüklenemedi → sistem yedeği */
       }
     }),
   ).then(() => undefined);
@@ -1522,6 +1559,8 @@ export function loadSignFonts(base: string): Promise<void> {
  * aralığı hatası → yazı küçülür.
  */
 export const SIGN_SQUEEZE_MIN = 0.5;
+/** v11: `stretch` tabelalarda en geniş yatay genişletme (KARAR: geniş yazı tipleri ≈ 1.3; üstü ölçüm hatası) */
+export const SIGN_STRETCH_MAX = 1.6;
 
 /** Tabela yazı ailesi (canvas font listesi) */
 export const famOf = (font: string) =>
@@ -1530,7 +1569,7 @@ export const famOf = (font: string) =>
     : font === 'script'
       ? `"${SCRIPT_FONT}", "Brush Script MT", "Segoe Script", cursive`
       : font === 'condensed'
-        ? '"Arial Narrow", "Roboto Condensed", Arial, sans-serif'
+        ? `"${CONDENSED_FONT}", "Arial Narrow", Arial, sans-serif`
         : 'Arial, Helvetica, sans-serif';
 
 /** Renk blokları (0..1 oranında, alt sol köşe 0,0) */
@@ -1694,6 +1733,7 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
     if (capPx) {
       const wd = widest();
       if (wd > avail) sx = Math.max(SIGN_SQUEEZE_MIN, avail / wd);
+      else if (o.stretch && wd > 1) sx = Math.min(SIGN_STRETCH_MAX, avail / wd);
     }
     while (widest() * sx > avail && unit > 4) unit *= 0.92;
     let y = H / 2 - (unit * sumRel * 1.15) / 2 + (round && o.icon ? H * 0.1 : 0);
@@ -1711,7 +1751,9 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
         // Harf konturu (fotoğraftaki beyaz/koyu kenar)
         g.strokeStyle = o.outline;
         g.lineJoin = 'round';
-        g.lineWidth = Math.max(2, unit * rel[k] * 0.12);
+        // Kontur ortalı çizilir, iç yarısını dolgu örter → görünen kalınlık lineWidth / 2
+        const ow = o.outlineW != null && o.outlineW > 0 && o.h > 0.01 ? ((2 * o.outlineW) / o.h) * H : null;
+        g.lineWidth = ow != null ? Math.max(2, ow) : Math.max(2, unit * rel[k] * 0.12);
         g.strokeText(r.text, 0, yc);
       }
       g.fillStyle = r.fg ?? o.fg;

@@ -1216,6 +1216,15 @@ export interface Sign {
   style?: 'box' | 'letters' | 'panel' | 'lightbox';
   font?: 'sans' | 'serif' | 'script' | 'condensed';
   bold?: boolean;
+  /** Harf konturu rengi (harf çevresindeki ince kenar) */
+  outline?: string;
+  /** v11: harf konturu kalınlığı (görünen, m; ör. Cadı'nın Evi ≈0.04); verilmezse harf boyunun %6'sı */
+  outlineW?: number;
+  /**
+   * v11: yazı u0..u1 genişliğini doldurur (capH ile; yatay genişletme ≤ 1.6). capH verilip yazı sığmıyorsa üretici her
+   * zaman önce yatay sıkıştırır (≥ 0.5), sonra küçültür.
+   */
+  stretch?: boolean;
   /** Işıklı (gece parlar) */
   lit?: boolean;
   /** Yazı dışında görülen logo/şekil tarifi (çizilemiyorsa not) */

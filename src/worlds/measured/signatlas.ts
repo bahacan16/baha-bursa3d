@@ -56,6 +56,7 @@ function regionKey(sg: SignSpec): string {
     sg.style,
     Math.round((sg.w / Math.max(0.01, sg.h)) * 10),
     sg.outline ?? null,
+    sg.outlineW != null ? Math.round((sg.outlineW / Math.max(0.01, sg.h)) * 200) : null,
     sg.shape ?? null,
     sg.icon ?? null,
     sg.iconC ?? null,
@@ -63,6 +64,7 @@ function regionKey(sg: SignSpec): string {
     sg.glyphs?.length ? [sg.glyphs, sg.join ?? null] : null,
     sg.capH != null ? Math.round((sg.capH / Math.max(0.01, sg.h)) * 50) : null,
     sg.align ?? null,
+    sg.stretch ? 1 : null,
     sg.halo && (sg.haloPad ?? 0) > 0
       ? [sg.halo, Math.round(((sg.haloPad ?? 0) / Math.max(0.01, sg.h)) * 50)]
       : null,
