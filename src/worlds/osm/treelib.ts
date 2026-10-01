@@ -1283,6 +1283,12 @@ export function remapCrownBase(
    * boyunca sarkan şeritler (salkım söğüt görünümü) oluşuyordu (critic d4a #17, d4c #15).
    */
   rigidCards = false,
+  /**
+   * v11 (critic d4a r3 #10, d4b r3 N14): kartların ALT kenarı eşlenir ve hiçbir kart `yt`nin altına inmez. Ölçülen taç
+   * tabanı görünen en alt yaprağın kotu; merkez eşlemede kart yarı boyu + %3'lük alt dilim tabanın 0.6–1.1 m altına
+   * sarkıyordu (d4-st-e-04 cb 3.3 → en alt yaprak 1.96 m). `yc` bu kipte kart alt kenarlarının dağılımındandır.
+   */
+  cardBottoms = false,
 ): THREE.BufferGeometry {
   const out = g.clone();
   const p = out.attributes.position;
@@ -1291,9 +1297,16 @@ export function remapCrownBase(
   const f = (y: number) => (y <= a ? (y * yt) / a : yt + ((y - a) * (top - yt)) / (top - a));
   if (rigidCards && p.count % 4 === 0) {
     for (let i = 0; i < p.count; i += 4) {
-      const yc4 = (p.getY(i) + p.getY(i + 1) + p.getY(i + 2) + p.getY(i + 3)) / 4;
-      const dy = f(yc4) - yc4;
-      for (let k = 0; k < 4; k++) p.setY(i + k, p.getY(i + k) + dy);
+      const y4 = [p.getY(i), p.getY(i + 1), p.getY(i + 2), p.getY(i + 3)];
+      let dy: number;
+      if (cardBottoms) {
+        const lo = Math.min(...y4);
+        dy = Math.max(f(lo), yt) - lo;
+      } else {
+        const yc4 = (y4[0] + y4[1] + y4[2] + y4[3]) / 4;
+        dy = f(yc4) - yc4;
+      }
+      for (let k = 0; k < 4; k++) p.setY(i + k, y4[k] + dy);
     }
   } else for (let i = 0; i < p.count; i++) p.setY(i, f(p.getY(i)));
   p.needsUpdate = true;
@@ -1301,11 +1314,19 @@ export function remapCrownBase(
   return out;
 }
 
-/** Yaprak kartlarının alt sınırı (taç tabanı, %3'lük: sarkan tek kart sayılmaz) */
-function leafBaseY(leaves: THREE.BufferGeometry): number {
+/**
+ * Yaprak kartlarının alt sınırı (taç tabanı, %3'lük: sarkan tek kart sayılmaz). v11: `bottoms` → kartın en alt köşesi
+ * (görünen alt kenar), yoksa ilk köşe (eski).
+ */
+export function leafBaseY(leaves: THREE.BufferGeometry, bottoms = false): number {
   const p = leaves.attributes.position;
   const ys: number[] = [];
-  for (let i = 0; i < p.count; i += 4) ys.push(p.getY(i));
+  for (let i = 0; i < p.count; i += 4)
+    ys.push(
+      bottoms && i + 3 < p.count
+        ? Math.min(p.getY(i), p.getY(i + 1), p.getY(i + 2), p.getY(i + 3))
+        : p.getY(i),
+    );
   ys.sort((x, y) => x - y);
   return ys.length ? ys[Math.floor(0.03 * (ys.length - 1))] : 0;
 }
@@ -1325,11 +1346,15 @@ export function speciesModelCb(key: SpeciesKey, cb: number): SpeciesModel {
   const base = speciesModel(key);
   const H = SPECIES_SIZE[key].h;
   const yt = cb * H;
-  const yn = leafBaseY(base.near.leaves);
+  // v11: ölçülen taban = görünen en alt yaprak → kart alt kenarları eşlenir, tabanın altına kart inmez (dallar da aynı
+  // eşlemeyle: taban altındaki çıplak dal uçları gövde bölgesine sıkışır)
+  // KARAR: palmiyede yapraklar (yelpaze / sarkan yaprak sapları) tepe altına doğal olarak sarkar → eski merkez eşlemesi
+  const bottoms = base.def.gen.kind !== 'palm';
+  const yn = leafBaseY(base.near.leaves, bottoms);
   const map = new Map<THREE.BufferGeometry, THREE.BufferGeometry>();
   const R = (g: THREE.BufferGeometry, yc: number, cards = false) => {
     let r = map.get(g);
-    if (!r) map.set(g, (r = remapCrownBase(g, yc, yt, H, cards)));
+    if (!r) map.set(g, (r = remapCrownBase(g, yc, yt, H, cards, cards && bottoms)));
     return r;
   };
   const far = R(base.far, base.def.far.crownBase * H);

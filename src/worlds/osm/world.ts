@@ -361,8 +361,11 @@ export class OsmWorld implements IWorld {
     this.collision.ground = (x, z) => H(x, z) + ground2.height(x, z);
 
     this.findSpawn();
-    this.peds = new Pedestrians(data.roads, quality, pedSurvey);
-    this.traffic = new Traffic(data.roads, quality);
+    // v11: eleştirmen / karşılaştırma görüntüleri için hareketli araçlar (`?notraffic`) ve yayalar (`?nopeds`) kapatılabilir
+    // (geçici öğeler: karede kameranın önüne araç / yaya giriyordu, critic d4b r3). Park etmiş araçlar ölçülmüş veri, kalır.
+    const qs = typeof location === 'undefined' ? null : new URLSearchParams(location.search);
+    this.peds = new Pedestrians(qs?.has('nopeds') ? [] : data.roads, quality, pedSurvey);
+    this.traffic = new Traffic(qs?.has('notraffic') ? [] : data.roads, quality);
     this.object.add(this.peds.group, this.traffic.group);
   }
 

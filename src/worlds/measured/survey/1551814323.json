@@ -294,7 +294,7 @@
     {
      "t": "win",
      "u0": 20.9,
-     "u1": 31.9,
+     "u1": 31.35,
      "y0": 0.9,
      "y1": 3.9,
      "k": 0,
@@ -307,7 +307,8 @@
      "frameC": "#1f2528",
      "curt": {
       "K0": "vitrin"
-     }
+     },
+     "note": "D4 r3 (2026-10-01): 0tbf ortofotosu (40 px/m): Queen camı u 31.35’te biter (Ohannes camıyla 0.3 m çakışıyordu → üretici çakışan Ohannes camını atıyor, altına beyaz sıva çiziliyordu)."
     },
     {
      "t": "band",
@@ -327,7 +328,7 @@
     {
      "t": "band",
      "u0": 26.9,
-     "u1": 32.0,
+     "u1": 31.45,
      "y0": 4.05,
      "y1": 5.0,
      "color": "#30373e",
@@ -378,7 +379,7 @@
     },
     {
      "t": "win",
-     "u0": 31.6,
+     "u0": 31.5,
      "u1": 37.2,
      "y0": 0.9,
      "y1": 3.9,
@@ -392,16 +393,18 @@
      "frameC": "#1f2528",
      "curt": {
       "K0": "vitrin"
-     }
+     },
+     "note": "D4 r3 (2026-10-01): 0tbf ortofotosu (40 px/m): Ohannes koyu doğramalı cam cephe u 31.46–37.2, alın bandının hemen altına kadar."
     },
     {
      "t": "band",
      "u0": 31.5,
      "u1": 37.25,
-     "y0": 4.05,
+     "y0": 3.9,
      "y1": 5.0,
      "color": "#30414a",
-     "proud": 0.2
+     "proud": 0.2,
+     "note": "D4 r3 (2026-10-01): 0tbf ortofotosu (40 px/m): Ohannes alın bandı alt kenarı 3.9 (cam üst kenarı) — önceki 4.05 arada beyaz şerit bırakıyordu."
     },
     {
      "t": "sign",
@@ -486,16 +489,17 @@
      "t": "band",
      "u0": 37.3,
      "u1": 48.0,
-     "y0": 4.0,
+     "y0": 3.82,
      "y1": 5.0,
-     "color": "#a09d8c",
+     "color": "#878471",
      "proud": 0.15,
      "clad": {
       "dir": "h",
       "every": 0.065,
       "w": 0.02,
       "color": "#5f5e54"
-     }
+     },
+     "note": "D4 r3 (2026-10-01): 0tbf ortofotosu (40 px/m): Cadı’nın Evi alnı: yatay derzli gri-kahve karo/lamel kaplama, alt kenar 3.85 (beyaz cam doğramasının hemen üstü; önceki 4.0 arada 0.2 m beyaz sıva bırakıyordu). Renk 6S8o 180_0 (kuzey yüz, kalıcı gölge) #878471; 0tbf f22 bulutlu #565a50. Önceki #a09d8c fazla açık (haki)."
     },
     {
      "t": "neon",
@@ -532,14 +536,15 @@
      "y0": 4.25,
      "y1": 4.8,
      "text": "Cadı'nın Evi",
-     "fg": "#4b3a33",
+     "fg": "#cbc1be",
      "style": "letters",
      "d": 0.04,
      "font": "serif",
      "bold": false,
      "capH": 0.4,
      "lit": true,
-     "logo": "koyu kahve harfler, ince beyaz kontur (kontur çizilmez); alın krem-bej yatay lamelli (6S8o 180/151 karesi, gölgede lamel #a8a594 / ortalama #888677)"
+     "logo": "harf yüzleri açık pembe-krem (#cbc1be, gölgede), kalın koyu bordo-kahve kontur / harf yanları #33282a (kontur çizilmez — needs code); solda koyu mor cadı şapkası + turuncu bant",
+     "note": "D4 r3 (2026-10-01): 6S8o 180_0 + 0tbf f22 piksel örneği: harf yüzü #cbc1be, kontur #33282a. Önceki \"koyu kahve harf, beyaz kontur\" ters okunmuştu."
     },
     {
      "t": "win",
@@ -1455,15 +1460,15 @@
      "split": 10,
      "frameC": "#3a3e40",
      "curt": {
-      "K1": "stor"
+      "K1": "jaluzi"
      },
      "curtC": {
-      "K1": "#979a88"
+      "K1": "#a4a290"
      },
      "curtF": {
       "K1": 0.95
      },
-     "note": "D4 r2 (2026-09-30): PROe f22: uzun pencerelerin hemen hepsi bej stor perdeyle kapalı (gölgede #939683–#9ea497; yansıtıcı mavi cam değil), koyu doğrama; altında tam boy koyu yeşil lamelli saçak bandı (öğe 1) zaten var."
+     "note": "D4 r2 (2026-09-30): PROe f22: uzun pencerelerin hemen hepsi bej stor perdeyle kapalı (gölgede #939683–#9ea497; yansıtıcı mavi cam değil), koyu doğrama; altında tam boy koyu yeşil lamelli saçak bandı (öğe 1) zaten var. | D4 r3 (2026-10-01): PROe ortofotosu: camların arkası bej DİKEY lamelli jaluzi (stor değil), neredeyse kapalı; renk X0NY 300_0 güneşli #abab9c / #98937c, PROe bulutlu #949782 → #a4a290; dikmeler koyu #3a3e40."
     },
     {
      "t": "band",
@@ -1589,7 +1594,7 @@
     },
     {
      "t": "pilaster",
-     "u0": 6.8,
+     "u0": 7.14,
      "u1": 7.6,
      "y0": 7.9,
      "y1": 29.0,
@@ -1598,7 +1603,7 @@
     },
     {
      "t": "pilaster",
-     "u0": 12.8,
+     "u0": 13.14,
      "u1": 13.6,
      "y0": 7.9,
      "y1": 29.0,
@@ -1608,20 +1613,22 @@
     {
      "t": "pilaster",
      "u0": 6.76,
-     "u1": 6.8,
+     "u1": 7.14,
      "y0": 7.9,
      "y1": 29.0,
      "d": 1.2,
-     "color": "#8b7154"
+     "color": "#b49c7f",
+     "note": "D4 r3 (2026-10-01): PROe 261_28_22 yakın planı + e9 ortofotosu: payenin ön yüzü iki renkli — güney (−u) ≈%45 aşı boyası/kum rengi (yatay ince dokulu kaplama), kuzey ≈%55 koyu antrasit. Renk X0NY 300_0 güneşli #b49c7f (PROe bulutlu #958470). Önceki 4 cm şerit fotoğrafla çelişiyordu."
     },
     {
      "t": "pilaster",
      "u0": 12.76,
-     "u1": 12.8,
+     "u1": 13.14,
      "y0": 7.9,
      "y1": 29.0,
      "d": 1.2,
-     "color": "#8b7154"
+     "color": "#b49c7f",
+     "note": "D4 r3 (2026-10-01): PROe 261_28_22 yakın planı + e9 ortofotosu: payenin ön yüzü iki renkli — güney (−u) ≈%45 aşı boyası/kum rengi (yatay ince dokulu kaplama), kuzey ≈%55 koyu antrasit. Renk X0NY 300_0 güneşli #b49c7f (PROe bulutlu #958470). Önceki 4 cm şerit fotoğrafla çelişiyordu."
     },
     {
      "t": "panel",

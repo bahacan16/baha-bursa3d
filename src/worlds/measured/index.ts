@@ -767,6 +767,18 @@ function materials(base: string): Record<string, THREE.Material> {
       side: DS,
       depthWrite: false,
     }),
+    // v11: otobüs durağı camı — berrak (arkası görünür), hafif yeşilimsi; korkuluk camı (mkRailGlass, süt beyazı
+    // %72 opak) durakta sütlü camgöbeği görünüyordu, fotoğrafta arka plan camın ardından okunuyor (critic d4a r3 #17,
+    // d4b r3 #20). KARAR: ton / opaklık ölçülmedi (arka plan geçirgenliği) → yaygın 6 mm temperli cam görünümü
+    mkShelterGlass: std({
+      color: 0xc4d2cf,
+      transparent: true,
+      opacity: 0.2,
+      roughness: 0.06,
+      metalness: 0,
+      side: DS,
+      depthWrite: false,
+    }),
     mkRail: std({ color: 0xd3d6d8, roughness: 0.25, metalness: 0.9 }),
     mkPipe: std({ color: 0x55585b, roughness: 0.5, metalness: 0.3 }),
     mkAc: std({ color: 0xeceeec, roughness: 0.5 }),
@@ -1221,6 +1233,20 @@ function materials(base: string): Record<string, THREE.Material> {
     signArrowPlate: std({ map: T.roadSignTexture('arrowPlate'), alphaTest: 0.5, roughness: 0.4 }),
     signArrowPlateBack: std({
       map: T.roadSignTexture('arrowPlate'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signNoParking: std({ map: T.roadSignTexture('noparking'), alphaTest: 0.5, roughness: 0.4 }),
+    signNoParkingBack: std({
+      map: T.roadSignTexture('noparking'),
+      color: 0x000000,
+      emissive: 0x7d8286,
+      alphaTest: 0.5,
+    }),
+    signNoStopping: std({ map: T.roadSignTexture('nostopping'), alphaTest: 0.5, roughness: 0.4 }),
+    signNoStoppingBack: std({
+      map: T.roadSignTexture('nostopping'),
       color: 0x000000,
       emissive: 0x7d8286,
       alphaTest: 0.5,

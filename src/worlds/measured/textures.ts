@@ -1103,7 +1103,9 @@ export function roadSignTexture(
     | 'noleft'
     | 'stop'
     | 'notruck'
-    | 'arrowPlate',
+    | 'arrowPlate'
+    | 'noparking'
+    | 'nostopping',
 ): THREE.Texture {
   const S = 256;
   const [c, g] = canvas(S, S);
@@ -1123,6 +1125,34 @@ export function roadSignTexture(
     g.lineTo(S - 92, S / 2 - 32);
     g.lineTo(S - 92, S / 2 + 32);
     g.fill();
+    return tex(c, false);
+  }
+  if (kind === 'noparking' || kind === 'nostopping') {
+    // Park etmek yasaktır (TT-36): mavi disk, kırmızı çember, sol üstten sağ alta kırmızı çapraz; "duraklamak ve park
+    // etmek yasaktır": iki çapraz (X). KARAR: çizim oranı TS standardından (çember ≈ çapın %10'u, çapraz ≈ %10)
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#1f4ea8';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 30, 0, Math.PI * 2);
+    g.fill();
+    g.save();
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 20, 0, Math.PI * 2);
+    g.clip();
+    g.strokeStyle = '#c8102e';
+    g.lineWidth = 26;
+    g.beginPath();
+    g.moveTo(S * 0.15, S * 0.15);
+    g.lineTo(S * 0.85, S * 0.85);
+    if (kind === 'nostopping') {
+      g.moveTo(S * 0.85, S * 0.15);
+      g.lineTo(S * 0.15, S * 0.85);
+    }
+    g.stroke();
+    g.restore();
     return tex(c, false);
   }
   if (kind === 'notruck') {

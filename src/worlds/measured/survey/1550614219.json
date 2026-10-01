@@ -5459,7 +5459,25 @@
      "frameC": "#b9bfc2",
      "curt": {
       "K0": "karanlik"
-     }
+     },
+     "tint": "#465a40",
+     "note": "2026-10-01 D4 r3 (survey-a): d4a r3 #1 — K0 giydirme camı fotoğrafta koyu yeşil yansımalı (R5TxF8t_0_0, güneşli G yüz, cam ortalaması #50624a; koyu iç #1f291c, açık yansıma #5a6b49) → tint #465a40 (renkli cam gölgelendiricisi ×0.8 + gök yansıması; oyunda eski room-shader camı #b3b4b7 soluk görünüyordu). Yatay beyaz boru korkuluk ayrı öğe (rod)."
+    },
+    {
+     "t": "rod",
+     "a": [
+      1.45,
+      3.37,
+      0.06
+     ],
+     "e": [
+      12.18,
+      3.37,
+      0.06
+     ],
+     "r": 0.025,
+     "color": "#c7d3c4",
+     "note": "2026-10-01 D4 r3 (survey-a): d4a r3 #1 — vitrin önünde yatay beyaz/gümüş boru (korkuluk/çarpma borusu): R5TxF8t_0_0 v 354 (2 px), cam alt kenarı (2.18) ile yeşil bant (4.85) arasında orana göre y 3.37 (±0.1); GB köşe dikmesinden (u 1.45) camın doğu ucuna (12.18) kesintisiz. Renk güneşte #c7d3c4 (camın yeşil yansıması karışık). Taşıyıcı dikmeleri görülmedi."
     },
     {
      "t": "band",
@@ -5482,11 +5500,12 @@
      "d": 0.2,
      "font": "sans",
      "bold": true,
-     "shape": "oval",
+     "shape": "pill",
      "capH": 0.36,
      "align": "right",
      "lit": true,
-     "logo": "köşeden 0.6 m taşan beyaz hap biçimli ışıklı kutu; solda yeşil daire içinde altın palmiye amblemi (u 1.1–1.9); gece görülmedi | D4-A: amblem ayrı öğe (yeşil daire u 1.09–1.9); altın palmiye çizilmedi (pending kuveytPalm)"
+     "logo": "köşeden 0.6 m taşan beyaz hap biçimli ışıklı kutu; solda yeşil daire içinde altın palmiye amblemi (u 1.1–1.9); gece görülmedi | D4-A: amblem ayrı öğe (yeşil daire u 1.09–1.9); altın palmiye çizilmedi (pending kuveytPalm)",
+     "note": "2026-10-01 D4 r3 (survey-a): d4a r3 #16 — fotoğrafta (R5TxF8t_0_0) elips değil hap (yuvarlatılmış uçlu dikdörtgen, uç yarıçapı ≈ yükseklik/2). Üretici \"pill\" biçimini henüz bilmiyor → düz kutu çizer (elipsten daha yakın); pill üreticiye eklenince uçlar yuvarlanır (needs code)."
     },
     {
      "t": "sign",

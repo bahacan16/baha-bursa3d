@@ -131,7 +131,7 @@ function busShelter(c: FurnCtx, s: StreetItem, y: number): void {
   const h = num(s.h, 2.5);
   const F = frameOf(c, s);
   const fk = ck(c, 'metal', s.color, 'steel');
-  const gk = ck(c, 'glass', s.glass, 'mkRailGlass');
+  const gk = ck(c, 'glass', s.glass, 'mkShelterGlass');
   const P = (lx: number, lz: number, yy: number): V3 => {
     const q = at(s, F, lx, lz);
     return [q[0], yy, q[1]];
