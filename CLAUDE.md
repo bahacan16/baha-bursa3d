@@ -391,6 +391,13 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
   tabelalar, el yazısı varsayılan kalın değil; tür başına `leafKeep` (sapling-purple 0.4); perdesi ölçülmemiş ≥6 m
   izdüşüm pencere bandı "ofis" camı (kind 9, yansıma ×6); renkli cam yansıması ×9 → ×5, vitrin ×0.4.
 - Gündüz güneşi 165° / 48° (2026-10-01, 4 açı × 10 görünüm karşılaştırması; 135° / 40° fotoğrafta olmayan gölgeler).
+- **Üretici v11 (D4 3. tur, 2026-10-01):** tabelada ölçülen `capH` kazanır (tek satırda kutu boyunun 0.97'sine kadar;
+  sığmazsa önce yana sıkıştırma `SIGN_SQUEEZE_MIN` 0.5, sonra küçültme); `stretch`, `italic`, `outlineW`, `shape: "pill"`,
+  `icon: "wheat"`; Roboto Condensed (OFL) paketli; `roofsign frame.under`; `colors.shingle` (mat kiremit); bal
+  `tint: "light"`; bayrak `w/h/tilt/off` (y üst kenar); karo `bond: "running"`; dükkân camı içindeki kapı camı keser
+  (kısmi çakışma derleyicide uyarı). Ağaçta ölçülen tepe tabanı yaprak kartlarının altı. Sokak: `fade`, ölçülmüş geçitte
+  OSM zebrası yok, `poleD`, park/durma yasağı levhaları, `elev`, çalı sıraları, hap çit malzemesi, durak camı saydam.
+  Karşılaştırma renderları `?notraffic&nopeds` (compare.tmp.mjs varsayılan).
 - Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer).
 - Etiketsiz araç yollarına iki yanlı kaldırım; zemin katında dükkan varsa +0.9 m.
 - Yol köprüleri yükseltilmez (rampa/çarpışma karmaşası); ray köprüleri 7 m + 140 m rampa.

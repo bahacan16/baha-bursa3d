@@ -945,3 +945,18 @@
   `streetFurniture.ts`, `textures.ts`, `osm/roads.ts`, `osm/treelib.ts`, `park-plan.json`, `street-plan.json`.
   **Blender:** `materials.py` çit malzemesi renk varyantları, ofis camı (koyu oda, orta yansıma), renkli cam yansıması
   düşük; `NW/Measured/Facades` el yazısı tabelalar (Courgette); `NW/Roads` 306909263 / 303430966; `NW/Trees` refüj fidanları.
+- **(D4 eleştirmen 3. tur)** — Cephe (survey-a/b/c): KuveytTürk zemin camı yeşil, Biaport K1 koyu cam, ARMILLA harfleri
+  ayrı tabela, PTT saçağı düz sarı, TAŞYAKAN 2.5 m, mion bandı; AVM kafe camı + addax 0.8 m, Ceylan sütun iki renk,
+  Cadı'nın Evi / Ohannes camları, 1552093106 merdiven kulesi camı, Kent Park loca okr panelleri, OYUN tenteleri; Destan
+  teras hacmi + ahşap alın, 1477364957 kule güney yüzü ≈5 m geri + STARBUCKS şeridi, Kırmıkıl tuğla #6d5c4b, Mariza oval
+  logo, Ayanoğlu vitrin + pergola, pencere içi küçük bayrak (0.6 × 0.45) ve eğik flama. Sokak: doğu bulvar bordürü 32
+  zemin karesinden yeniden ölçüldü (1–3.8 m kaymıştı), parke park şeritleri + çim burunlar, eksik ağaçlar, gerçek boy
+  çitler, BIGCHEFS saksıları, Coffeemania çim adası. Kod: ağaç tepesi ölçülen tepe tabanının altına inmez, tabela ölçülen
+  harf boyu kazanır (önce yana sıkıştırma; 78 tabela büyüdü), Roboto Condensed (OFL) paketlendi, hap tabela, buğday
+  ikonu, `stretch`/`italic`/`outlineW`, ölçülmüş yaya geçitlerinde OSM zebra çizilmez, `fade` (aşınmış çizgi), saydam
+  durak camı, park yasağı levhası, hap çit malzemesi, dükkân camındaki kapı artık düşmüyor (cam kapının etrafında
+  kesilir), `?notraffic` / `?nopeds`. **Blender:** `NW/Measured/Facades` 1476599912, 1544329664, 1544934686,
+  1544934694, 1546358573, 1546358593, 1550614219, 1551814316, 1551814323, 1551828351, 1551828357, 1552093099,
+  1552093106, 1552992538, 1477364957, 900000201/202/203/261; `NW/Measured/Street` + `Parks` (doğu bulvar kaldırımı,
+  park şeritleri, ağaçlar, çitler); `NW/Roads` (zebra); `NW/Trees` (tepe tabanı); `materials.py` durak camı, kiremit
+  `shingle`, yazı tipleri (Roboto Condensed, Courgette).
