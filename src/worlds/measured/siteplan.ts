@@ -142,6 +142,11 @@ export interface StreetPlan {
      * aralığı (ikisi birlikte = dikdörtgen) ya da { poly: [[x, z], …] } (+ isteğe bağlı x / z). Düz çizgiler kalır.
      */
     noDash?: { x?: [number, number]; z?: [number, number]; poly?: V2[] }[];
+    /**
+     * v11: solmuş / kirli çizgi boyası 0..1 (kesikli + düz çizgiler, yol tonuna karışım; pul pul aşınma değil). Ölçüm:
+     * aynı karede güneşli çizgi / asfalt oranı (ör. 1.29 → 0.6; street.ts fadePaint).
+     */
+    fade?: number;
     note?: string;
   }[];
   /**
@@ -545,6 +550,7 @@ export function roadMarksOf(plan: StreetPlan): Record<string, RoadMark> {
         ? { shift: [r.centreShift[0], r.centreShift[1]] as [number, number] }
         : {}),
       ...(noDashOf(r.noDash) ? { noDash: noDashOf(r.noDash)! } : {}),
+      ...(typeof r.fade === 'number' && r.fade > 0 && r.fade <= 1 ? { fade: r.fade } : {}),
     };
   }
   return roadMarks;
@@ -582,6 +588,8 @@ export interface RoadMark {
   lanes?: number;
   /** v10: kesikli çizgisiz bölgeler (roads.ts NoDashZone) */
   noDash?: { x?: [number, number]; z?: [number, number]; poly?: V2[] }[];
+  /** v11: solmuş çizgi boyası 0..1 */
+  fade?: number;
 }
 
 /** Ölçülmüş çit hatları (tampon 2.5 m) ve kaldırım bordür hatları (tampon w + 2 m) — eski çit kabuğu atlama testi */

@@ -1220,8 +1220,11 @@ export interface Sign {
   lit?: boolean;
   /** Yazı dışında görülen logo/şekil tarifi (çizilemiyorsa not) */
   logo?: string;
-  /** round: yuvarlak rozet, oval: elips tabela (ör. 900000106 3.0 × 1.3 m "LINENS") */
-  shape?: 'round' | 'oval';
+  /**
+   * round: yuvarlak rozet, oval: elips tabela (ör. 900000106 3.0 × 1.3 m "LINENS"), v11 pill: hap / stadyum (uç
+   * yarıçapı yükseklik / 2; ör. 1550614219 KUVEYTTÜRK)
+   */
+  shape?: 'round' | 'oval' | 'pill';
   /**
    * Monogram / glif (text yerine): yan yana harfler, mirror: true → ayna simetrik (ör. KUDRET ayna K + R),
    * join bindirme oranı (0..0.8, 0.25). Yazı tipi font (serif …), renk fg.
@@ -1455,7 +1458,7 @@ export interface SignTextSpec {
   font?: 'sans' | 'serif' | 'script' | 'condensed';
   bold?: boolean;
   lit?: boolean;
-  shape?: 'round' | 'oval';
+  shape?: 'round' | 'oval' | 'pill';
   glyphs?: { ch: string; mirror?: boolean }[];
   join?: number;
   /** Görünen büyük harf yüksekliği (m) */
@@ -1565,7 +1568,8 @@ export interface RoofSign extends SignTextSpec {
   y1: number;
   setback?: number;
   d?: number;
-  frame?: { color?: string; h?: number; posts?: number };
+  /** v11: `under: true` → iskelet yalnız harf altında (dikmeler harf alt kotunda biter) */
+  frame?: { color?: string; h?: number; posts?: number; under?: boolean };
 }
 
 /**

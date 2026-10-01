@@ -1516,6 +1516,13 @@ export function loadSignFonts(base: string): Promise<void> {
   return fontsReady;
 }
 
+/**
+ * v11: ölçülen harf boyu (capH) korunurken izin verilen en dar yatay sıkıştırma. KARAR: 0.5 — dar tabela yazı
+ * tiplerinin (Roboto Condensed / Arial Narrow ≈ 0.82, ultra dar ≈ 0.6) altı; daha dar ölçüm büyük olasılıkla u
+ * aralığı hatası → yazı küçülür.
+ */
+export const SIGN_SQUEEZE_MIN = 0.5;
+
 /** Tabela yazı ailesi (canvas font listesi) */
 export const famOf = (font: string) =>
   font === 'serif'
@@ -1571,7 +1578,27 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
   }
   const oval = o.shape === 'oval';
   const round = o.shape === 'round' || oval;
-  if (round) {
+  // v11: hap / stadyum biçimi (uç yarıçapı yükseklik / 2): zemin + kenar biçimde, köşeler saydam
+  const pill = o.shape === 'pill';
+  if (pill) {
+    const lw = o.border ? Math.max(4, Math.min(W, H) * 0.06) : 0;
+    const r = Math.min(W, H) / 2 - 2 - lw / 2;
+    g.beginPath();
+    g.roundRect(2 + lw / 2, 2 + lw / 2, W - 4 - lw, H - 4 - lw, r);
+    if (o.bg) {
+      g.fillStyle = o.bg;
+      g.fill();
+    }
+    g.save();
+    g.clip();
+    drawBlocks(g, W, H, o.blocks);
+    g.restore();
+    if (o.border) {
+      g.strokeStyle = o.border;
+      g.lineWidth = lw;
+      g.stroke();
+    }
+  } else if (round) {
     // Yuvarlak rozet / oval (elips) tabela: zemin (+ kenar), köşeler saydam
     const r = Math.min(W, H) / 2 - 2;
     g.beginPath();
@@ -1657,25 +1684,39 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
           return g.measureText(r.text).width;
         }),
       );
-    const avail = (round ? W * 0.72 : W - x0) - pad * 2;
-    while (widest() > avail && unit > 4) unit *= 0.92;
+    // v11: hap biçiminde uç yarım dairelerinin yarısı yazı alanı dışında
+    const cap = pill ? Math.min(W, H) * 0.25 : 0;
+    const avail = (round ? W * 0.72 : W - x0 - 2 * cap) - pad * 2;
+    // v11: ölçülen harf boyu (capH) varsa yazı önce yatay sıkıştırılır (dar yazı tipi; harf boyu korunur), en çok
+    // SIGN_SQUEEZE_MIN'e kadar; daha da sığmıyorsa eskisi gibi küçülür. Önceden yalnız küçülüyordu: dar tabela
+    // harfleri (Ohannes "BURGER" 1.1 m / capH 0.28, HASKÖYÜM, IDAS) ölçülenin %55–65'ine iniyordu (critic d4b r3 N5).
+    let sx = 1;
+    if (capPx) {
+      const wd = widest();
+      if (wd > avail) sx = Math.max(SIGN_SQUEEZE_MIN, avail / wd);
+    }
+    while (widest() * sx > avail && unit > 4) unit *= 0.92;
     let y = H / 2 - (unit * sumRel * 1.15) / 2 + (round && o.icon ? H * 0.1 : 0);
-    const cx = al === 'left' ? x0 + pad : al === 'right' ? W - pad : x0 + (W - x0) / 2;
+    const cx = al === 'left' ? x0 + pad + cap : al === 'right' ? W - pad - cap : x0 + (W - x0) / 2;
     rows.forEach((r, k) => {
       const lh = unit * rel[k] * 1.15;
       g.font = fontOf(k);
       // v7: satır merkezi ölçülmüşse (y: alttan 0..1) orada
       const ly = (r as { y?: number }).y;
       const yc = ly != null && ly >= 0 && ly <= 1 ? (1 - ly) * H : y + lh / 2;
+      g.save();
+      g.translate(cx, 0);
+      if (sx < 1) g.scale(sx, 1);
       if (o.outline) {
         // Harf konturu (fotoğraftaki beyaz/koyu kenar)
         g.strokeStyle = o.outline;
         g.lineJoin = 'round';
         g.lineWidth = Math.max(2, unit * rel[k] * 0.12);
-        g.strokeText(r.text, cx, yc);
+        g.strokeText(r.text, 0, yc);
       }
       g.fillStyle = r.fg ?? o.fg;
-      g.fillText(r.text, cx, yc);
+      g.fillText(r.text, 0, yc);
+      g.restore();
       y += lh;
     });
   }

@@ -38,7 +38,8 @@ function variantOf(sg: SignSpec): Variant {
   if (sg.halo && (sg.haloPad ?? 0) > 0) return 'ha';
   if (sg.banner) return sg.mesh ? 'bm' : 'bn';
   if (sg.style === 'screen') return 'sc';
-  const transparent = !sg.bg || sg.style === 'letters' || sg.shape === 'round' || sg.shape === 'oval';
+  const transparent =
+    !sg.bg || sg.style === 'letters' || sg.shape === 'round' || sg.shape === 'oval' || sg.shape === 'pill';
   return transparent ? 'al' : 'op';
 }
 

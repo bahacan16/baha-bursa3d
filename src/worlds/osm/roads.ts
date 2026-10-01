@@ -336,6 +336,7 @@ function dashes(
   w: number,
   y: number,
   skip?: MarkSkip,
+  col: Rgb = WHITE,
 ): void {
   let phase = 0;
   for (let i = 0; i + 1 < pts.length; i++) {
@@ -370,10 +371,10 @@ function dashes(
         const nz = ux * (w / 2);
         const ya = y + H(ax, az);
         const yb = y + H(bx, bz);
-        const i0 = b.v(ax + nx, ya, az + nz, 0, 1, 0, 0, 0, WHITE);
-        const i1 = b.v(ax - nx, ya, az - nz, 0, 1, 0, 1, 0, WHITE);
-        const i2 = b.v(bx - nx, yb, bz - nz, 0, 1, 0, 1, 1, WHITE);
-        const i3 = b.v(bx + nx, yb, bz + nz, 0, 1, 0, 0, 1, WHITE);
+        const i0 = b.v(ax + nx, ya, az + nz, 0, 1, 0, 0, 0, col);
+        const i1 = b.v(ax - nx, ya, az - nz, 0, 1, 0, 1, 0, col);
+        const i2 = b.v(bx - nx, yb, bz - nz, 0, 1, 0, 1, 1, col);
+        const i3 = b.v(bx + nx, yb, bz + nz, 0, 1, 0, 0, 1, col);
         upQuad(b, i0, i1, i2, i3);
       }
       s += on + off;
@@ -500,6 +501,16 @@ export interface RoadMarkSpec {
   lanes?: number;
   /** v10: kesikli çizgisiz bölgeler (dünya x / z aralığı ve / veya çokgen); düz çizgiler etkilenmez */
   noDash?: NoDashZone[];
+  /** v11: solmuş çizgi boyası 0..1 — köşe rengi yol tonuna karışır (düşük kontrast; critic d4a r3 #18) */
+  fade?: number;
+}
+
+
+/** v11: solmuş çizgi köşe rengi (asfalt köşe rengine doğrusal karışım; fade 0 → WHITE) */
+export function fadedMark(fade: number | undefined): Rgb {
+  const f = Math.max(0, Math.min(1, fade ?? 0));
+  const m = (k: 0 | 1 | 2) => WHITE[k] * (1 - f) + ASPHALT[k] * f;
+  return f > 0 ? [m(0), m(1), m(2)] : WHITE;
 }
 
 /** v10: yolun bir kesiminde kesikli çizgi bastırma bölgesi: x ve z aralıkları (verilenler birlikte) ya da çokgen */
@@ -650,20 +661,22 @@ export function buildRoads(
     const dskip: MarkSkip | undefined = nd?.length
       ? (x, z, ux, uz) => inNoDash(nd, x, z) || !!skip?.(x, z, ux, uz)
       : skip;
-    if (mk?.centre === 'dashed') dashes(geo, cl, 3, 5, 0.12, Y_MARK, dskip);
-    else if (mk?.centre === 'solid') dashes(geo, cl, 1e6, 0, 0.12, Y_MARK, skip);
+    const mc = fadedMark(mk?.fade);
+    if (mk?.centre === 'dashed') dashes(geo, cl, 3, 5, 0.12, Y_MARK, dskip, mc);
+    else if (mk?.centre === 'solid') dashes(geo, cl, 1e6, 0, 0.12, Y_MARK, skip, mc);
     else if (mk?.centre === 'none') {
       /* ölçüm: orta çizgi yok */
     } else if (lanes.length) {
       // KARAR: çizgi 3 m / boşluk 6 m, 12 cm (ana yol kesikli çizgisiyle aynı ritim; ölçülmedi)
-      for (const o of lanes) dashes(geo, o === 0 ? cl : offsetPts(cl, o), 3, 6, 0.12, Y_MARK, dskip);
+      for (const o of lanes) dashes(geo, o === 0 ? cl : offsetPts(cl, o), 3, 6, 0.12, Y_MARK, dskip, mc);
     } else if (r.vehicular && r.oneway !== 0 && mk?.lanes !== undefined && mk.lanes <= 1) {
       /* ölçüm: tek şerit — çizgi yok */
-    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, cl, 3, 6, 0.15, Y_MARK, dskip);
+    } else if (/^(motorway|trunk|primary)$/.test(r.kind)) dashes(geo, cl, 3, 6, 0.15, Y_MARK, dskip, mc);
     else if (/^(secondary|tertiary|residential|unclassified)$/.test(r.kind) && !r.oneway && r.width >= 6)
-      dashes(geo, cl, 3, 5, 0.12, Y_MARK, dskip);
+      dashes(geo, cl, 3, 5, 0.12, Y_MARK, dskip, mc);
     if (mk?.edges === 'solid' || (mk?.edges !== 'none' && /^(secondary|tertiary)$/.test(r.kind)))
-      for (const sd of [-1, 1]) dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK, skip);
+      for (const sd of [-1, 1])
+        dashes(geo, offsetPts(dense, sd * (half - 0.35)), 1e6, 0, 0.12, Y_MARK, skip, mc);
   }
 
   // Kaldırımlar: kavşak düğümlerinde parçalara böl ve kırp

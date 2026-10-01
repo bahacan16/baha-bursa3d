@@ -755,7 +755,12 @@ export interface CRoofSign extends SignText {
   y1: number;
   setback: number;
   d: number;
-  frame?: { color?: string | null; h?: number; posts?: number } | null;
+  /**
+   * v11: `under: true` — iskelet yalnız harflerin ALTINDA (dikmeler harf alt kotunda biter, harf arkası kuşak yok);
+   * fotoğrafta dikmeler harflerin arasından görünmüyorsa (900000203 TAŞYAKAN, sswNcGS2_0_0). Verilmezse eski iskelet
+   * (dikmeler harf üstüne kadar, harf arkasında kuşaklar).
+   */
+  frame?: { color?: string | null; h?: number; posts?: number; under?: boolean } | null;
 }
 /** v7: LED ekran (gece parlak): u0..u1 × y0..y1, kutu derinliği d, çerçeve rengi, görülen içerik rengi / yazısı */
 export interface CScreen extends SignText {
@@ -4206,6 +4211,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           g.rotateY(E[i].yaw);
           g.translate(c[0], base + (it.y0 + it.y1) / 2, c[1]);
           b.geometry(ck('fascia', it.border ?? it.bg, 'mkRail'), g);
+        } else if (it.shape === 'pill' && !letters) {
+          // v11: hap (stadyum) kutu: uç yarıçapı yükseklik / 2, kalınlık d (yan yüz kenar / zemin rengi)
+          const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
+          b.geometry(ck('fascia', it.border ?? it.bg, 'mkRail'), pillGeometry(w, h, d, E[i].yaw, c, base + (it.y0 + it.y1) / 2));
         } else if (!letters) {
           const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
           const side = ck('fascia', it.border ?? it.bg, 'mkRail');
@@ -7784,4 +7793,29 @@ function hippedRoof(b: Builder, r: V2[], y: number, eave: number, pitchDeg: numb
       Math.atan2(-(r1[1] - r0[1]), r1[0] - r0[0]),
     );
   return ry;
+}
+
+/**
+ * v11: hap (stadyum) biçimli tabela kutusu: w × h, uç yarıçapı min(w, h) / 2, kalınlık d; yerel x kenar boyunca, z
+ * duvar normali (b.box ile aynı çerçeve), merkez c (dünya x / z) ve yc kotunda.
+ */
+export function pillGeometry(w: number, h: number, d: number, yaw: number, c: V2, yc: number): THREE.BufferGeometry {
+  const r = Math.min(w, h) / 2;
+  const hx = w / 2 - r;
+  const hy = h / 2 - r;
+  const sh = new THREE.Shape();
+  sh.moveTo(-hx, -h / 2);
+  sh.lineTo(hx, -h / 2);
+  sh.absarc(hx, hy > 0 ? -hy : 0, r, -Math.PI / 2, 0, false);
+  if (hy > 0) sh.lineTo(w / 2, hy);
+  sh.absarc(hx, hy > 0 ? hy : 0, r, 0, Math.PI / 2, false);
+  sh.lineTo(-hx, h / 2);
+  sh.absarc(-hx, hy > 0 ? hy : 0, r, Math.PI / 2, Math.PI, false);
+  if (hy > 0) sh.lineTo(-w / 2, -hy);
+  sh.absarc(-hx, hy > 0 ? -hy : 0, r, Math.PI, (3 * Math.PI) / 2, false);
+  const g = new THREE.ExtrudeGeometry(sh, { depth: d, bevelEnabled: false, curveSegments: 10 });
+  g.translate(0, 0, -d / 2);
+  g.rotateY(yaw);
+  g.translate(c[0], yc, c[1]);
+  return g;
 }
