@@ -540,8 +540,14 @@ export function buildRoads(
   marks: Record<string, RoadMarkSpec> = {},
   /** Yalnız araç yolu kenarı kaldırımı için ek bölgeler (ölçülmüş park döşemesi) */
   noCurb: number[][] = [],
+  /**
+   * v9: yol çizgisi çizilmeyecek alanlar (ölçülmüş döşeme / park / çakıl alanları). Önceden OSM `lanes` etiketinden
+   * gelen şerit çizgileri Biaport dik park alanının (d4-bia-parking) üstünden geçiyordu (critic d4a #1).
+   */
+  noMark: number[][] = [],
 ): RoadBuildResult {
   const skipWalk = (x: number, z: number) => noSidewalk.some((r) => inFlatRing(r, x, z));
+  const inNoMark = (x: number, z: number) => noMark.some((r) => inFlatRing(r, x, z));
   const skipCurb = (x: number, z: number) => skipWalk(x, z) || noCurb.some((r) => inFlatRing(r, x, z));
   const strips: RaisedStrip[] = [];
   const carriageways: Carriageway[] = [];
@@ -598,7 +604,10 @@ export function buildRoads(
     const mk = marks[r.id];
     // Kavşak / üst üste binen şeritlerde (tek yönlü kollar + göbek) çizgi yok: Street View'da orada yalnız aşınmış
     // kılavuz çizgi, dur çizgisi ve yaya geçidi var (Özlüce kavşağı da3-01/05)
-    const skip = r.vehicular ? markSkipFor(r) : undefined;
+    const skip0 = r.vehicular ? markSkipFor(r) : undefined;
+    const skip: MarkSkip | undefined = noMark.length
+      ? (x, z, ux, uz) => inNoMark(x, z) || !!skip0?.(x, z, ux, uz)
+      : skip0;
     // Ölçülmüş orta çizgi kayması (street-plan roads[].centreShift): gerçek çizgi OSM ekseninden farklı
     const cl: Pt[] = mk?.shift ? dense.map((p) => [p[0] + mk.shift![0], p[1] + mk.shift![1]] as Pt) : dense;
     // Tek yönlü çok şeritli yol (OSM `lanes` ya da ölçülmüş `lanes`): şerit ayırıcıları kesikli (Street View: Özlüce

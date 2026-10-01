@@ -1128,6 +1128,26 @@ const CURT: Record<string, number> = {
   fon: 8,
 };
 
+/**
+ * Çıkma (`proj`) yüzündeki pencerenin oda gölgelendirici türü. Ölçülen perde > küçük pencere (karanlık) > vitrin.
+ * Önceden perdesiz her çıkma penceresi tül (0) alıyordu → zemin kattaki dükkân camları (1477364957 Juan Valdez /
+ * ROSSMANN / BIGCHEFS, y 0.21–4.62) bembeyaz tül göründü (oyun #c2c3c5, fotoğraf #363727; critic d4c #7).
+ * KARAR: addWindow kuralıyla aynı — `shop` her yerde, zemin kotundan başlayan (y0 < 1 m) kapı ya da ≥ 2.2 m boyunda
+ * cam (vitrin / giriş) koyu vitrin (7); üst kat perdesiz camlar eskisi gibi tül.
+ */
+export function projWinKind(wn: {
+  kind?: string | null;
+  curt?: string | null;
+  y0: number;
+  y1: number;
+}): number {
+  if (wn.curt != null) return CURT[wn.curt] ?? 0;
+  if (wn.kind === 'small') return 4;
+  if (wn.kind === 'shop') return 7;
+  if (wn.y0 < 1 && (wn.kind === 'door' || wn.y1 - wn.y0 >= 2.2)) return 7;
+  return 0;
+}
+
 function hash(n: number): number {
   const s = Math.sin(n * 12.9898) * 43758.5453;
   return s - Math.floor(s);
@@ -4075,7 +4095,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           const y0 = base + wn.y0;
           const y1 = base + wn.y1;
           const off = it.d + 0.012;
-          const kind = wn.curt != null ? (CURT[wn.curt] ?? 0) : wn.kind === 'small' ? 4 : 0;
+          const kind = projWinKind(wn);
           const a0 = Pj(i, wn.u0, off);
           const a1 = Pj(i, wn.u1, off);
           b.quad(

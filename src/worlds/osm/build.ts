@@ -26,6 +26,8 @@ export interface BuildOptions {
   noSidewalkZones?: number[][];
   /** Yalnız araç yolu kenarı OSM kaldırımının çizilmeyeceği alanlar (yaya/bisiklet yolları kalır) */
   noCurbZones?: number[][];
+  /** v9: yol çizgisi (şerit / orta / kenar) çizilmeyecek alanlar (ölçülmüş döşeme / park alanları) */
+  noMarkZones?: number[][];
   /** v7: ölçülmüş yol çizgisi düzeltmeleri (OSM yol kimliği → orta / kenar çizgisi: none | dashed | solid) */
   roadMarks?: Record<string, RoadMarkSpec>;
   /** Ölçülmüş bölge: yordamsal lamba / park etmiş araç üretilmez (props.ts) */
@@ -70,7 +72,15 @@ export function buildWorld(
     if (i % 250 === 0) progress(0.05 + 0.45 * (i / Math.max(1, n)), `Binalar (${i}/${n})`);
   }
   progress(0.5, 'Yollar');
-  const roads = buildRoads(geo, d.roads, d.crossings, opts.noSidewalkZones, opts.roadMarks, opts.noCurbZones);
+  const roads = buildRoads(
+    geo,
+    d.roads,
+    d.crossings,
+    opts.noSidewalkZones,
+    opts.roadMarks,
+    opts.noCurbZones,
+    opts.noMarkZones,
+  );
   progress(0.65, 'Alanlar');
   if (opts.landuseMeshes) buildAreas(geo, d.areas);
   buildBarriers(geo, d.barriers);

@@ -1251,15 +1251,25 @@ export function remapCrownBase(
   yc: number,
   yt: number,
   H: number,
+  /**
+   * v9b: yaprak kartları (4 köşe / kart) bütün olarak taşınır — kart merkezinin kotu eşlenir, kart biçimi korunur.
+   * Köşe köşe eşlemede taç tabanının (yaprak tabanı %3'lüğü) altındaki kartlar yt / yc kadar dikine uzuyor, gövde
+   * boyunca sarkan şeritler (salkım söğüt görünümü) oluşuyordu (critic d4a #17, d4c #15).
+   */
+  rigidCards = false,
 ): THREE.BufferGeometry {
   const out = g.clone();
   const p = out.attributes.position;
   const a = Math.max(1e-3, yc);
   const top = Math.max(a + 1e-3, H);
-  for (let i = 0; i < p.count; i++) {
-    const y = p.getY(i);
-    p.setY(i, y <= a ? (y * yt) / a : yt + ((y - a) * (top - yt)) / (top - a));
-  }
+  const f = (y: number) => (y <= a ? (y * yt) / a : yt + ((y - a) * (top - yt)) / (top - a));
+  if (rigidCards && p.count % 4 === 0) {
+    for (let i = 0; i < p.count; i += 4) {
+      const yc4 = (p.getY(i) + p.getY(i + 1) + p.getY(i + 2) + p.getY(i + 3)) / 4;
+      const dy = f(yc4) - yc4;
+      for (let k = 0; k < 4; k++) p.setY(i + k, p.getY(i + k) + dy);
+    }
+  } else for (let i = 0; i < p.count; i++) p.setY(i, f(p.getY(i)));
   p.needsUpdate = true;
   out.computeBoundingSphere();
   return out;
@@ -1291,16 +1301,16 @@ export function speciesModelCb(key: SpeciesKey, cb: number): SpeciesModel {
   const yt = cb * H;
   const yn = leafBaseY(base.near.leaves);
   const map = new Map<THREE.BufferGeometry, THREE.BufferGeometry>();
-  const R = (g: THREE.BufferGeometry, yc: number) => {
+  const R = (g: THREE.BufferGeometry, yc: number, cards = false) => {
     let r = map.get(g);
-    if (!r) map.set(g, (r = remapCrownBase(g, yc, yt, H)));
+    if (!r) map.set(g, (r = remapCrownBase(g, yc, yt, H, cards)));
     return r;
   };
   const far = R(base.far, base.def.far.crownBase * H);
   m = {
     ...base,
-    near: { branches: R(base.near.branches, yn), leaves: R(base.near.leaves, yn) },
-    mid: { branches: R(base.mid.branches, yn), leaves: R(base.mid.leaves, yn) },
+    near: { branches: R(base.near.branches, yn), leaves: R(base.near.leaves, yn, true) },
+    mid: { branches: R(base.mid.branches, yn), leaves: R(base.mid.leaves, yn, true) },
     far,
   };
   variantCache.set(vk, m);

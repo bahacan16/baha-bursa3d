@@ -1562,15 +1562,19 @@ export async function buildMertkent(o: MertkentOptions): Promise<{
     if (!extraMats[k] && kind === 'encglass')
       // v8 kış bahçesi camı (critic d4c #5): saydam; ölçülen görünen ton (yansıma + koyu iç) koyu iç yüzlerle birlikte
       // oluşur → ince renk + düşük opaklık, parlak yüzey
-      extraMats[k] = new THREE.MeshStandardMaterial({
-        color: hex,
-        roughness: 0.06,
-        metalness: 0,
-        transparent: true,
-        opacity: 0.38,
-        side: THREE.DoubleSide,
-        depthWrite: false,
-      });
+      // v9b: yalnız dışa bakan tek cam katmanı (streetFurniture enclosure) → FrontSide; gök yansıması vitrin çarpanıyla
+      extraMats[k] = withGlassEnv(
+        new THREE.MeshStandardMaterial({
+          color: hex,
+          roughness: 0.06,
+          metalness: 0,
+          transparent: true,
+          opacity: 0.38,
+          side: THREE.FrontSide,
+          depthWrite: false,
+        }),
+        'shop',
+      );
     else if (!extraMats[k] && kind === 'interior')
       // Kış bahçesi / pavyon içi: koyu mat, yalnız ön yüz (içe bakan yüzler dışarıdan görünmez)
       extraMats[k] = new THREE.MeshStandardMaterial({ color: hex, roughness: 0.95, metalness: 0 });

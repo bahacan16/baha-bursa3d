@@ -200,6 +200,14 @@ export function handFootprints(): V2[][] {
  * Bölge testi `some(inFlat)` ile birleşim olarak kullanılır (tampon). KARAR: gönye yerine uzatılmış bant — köşede
  * küçük çentik kalır, d ≤ 2 m için önemsiz.
  */
+/**
+ * Sokak planı alanı yol kotunda mı (park cebi / şerit dolgusu asfaltı, kotsuz ya da ≤ 6 cm döşeme / çakıl): OSM
+ * kaldırımı bastırması ROAD_SIDE tamponlu olur. Yükseltilmiş ön alanlar (level 0.15) kendi çokgenleriyle kalır.
+ */
+export function areaAtGrade(a: { kind?: string; level?: number }): boolean {
+  return a.kind === 'asphalt' || !(typeof a.level === 'number' && a.level > 0.06);
+}
+
 export function bufferedRings(poly: V2[], d: number): number[][] {
   const out: number[][] = [flat(poly)];
   if (!(d > 0)) return out;
@@ -289,6 +297,8 @@ export function surveyVegetation(): {
   noPropZones: { p: number[]; r: number; closed?: boolean }[];
   /** Yalnız araç yolu kenarındaki genel OSM kaldırımının çizilmeyeceği alanlar (park döşemesi) */
   noCurbZones: number[][];
+  /** v9: OSM yol çizgilerinin çizilmeyeceği alanlar (döşeme / park / çakıl; şerit dolgusu asfalt hariç) */
+  noMarkZones: number[][];
 } {
   const fixedTrees: number[] = [];
   // v8: ölçülen taç tabanı `crownBase` (m, ilk dalların kotu) örnek başına (FIXED_STRIDE 6)
@@ -425,14 +435,23 @@ export function surveyVegetation(): {
   // kaldırımı sarı kılavuzlu bant olarak refüjün üstünde / yanında kalıyordu). 1.5 m tampon: OSM ekseni kaymışsa
   // bant ortası refüj kenarının dışına düşüyordu; refüjün iki yanı araç yolu olduğundan gerçek kaldırımı silmez.
   for (const r of islands) noSidewalkZones.push(...bufferedRings(r, 1.5));
-  // v8: sokak planı zemin alanları: OSM kaldırımı yerine ölçülmüş döşeme
-  for (const a of STREET_PLAN.areas ?? []) if (a.poly?.length >= 3) noSidewalkZones.push(flat(a.poly));
+  // v8: sokak planı zemin alanları: OSM kaldırımı yerine ölçülmüş döşeme. v9 (critic d4c #4): yol kotundaki alanlar
+  // (park cebi, şerit dolgusu, kotsuz döşeme) ROAD_SIDE tamponlu — OSM ekseni kaymışsa OSM kaldırımı alanın hemen
+  // yol tarafında (Muammer Aksoy d4-ma-se-bay kuzeyi, z −805…−800) asfaltın ortasında kalıyordu
+  const noMarkZones: number[][] = [];
+  for (const a of STREET_PLAN.areas ?? []) {
+    if (!(a.poly?.length >= 3)) continue;
+    noSidewalkZones.push(...(areaAtGrade(a) ? bufferedRings(a.poly, ROAD_SIDE) : [flat(a.poly)]));
+    if (!/carriageway|şerit dolgusu/i.test(`${(a as { id?: string }).id ?? ''} ${a.material ?? ''}`))
+      noMarkZones.push(flat(a.poly));
+  }
   const roadMarks = roadMarksOf(STREET_PLAN);
   return {
     fixedTrees,
     excludeZones,
     noSidewalkZones,
     noCurbZones,
+    noMarkZones,
     roadMarks,
     noPropZones: surveyedPropZones(),
   };

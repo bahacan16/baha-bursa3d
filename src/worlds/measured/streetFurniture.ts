@@ -528,8 +528,44 @@ export interface FasciaSign {
   font?: string;
   /** v9: alt alta satırlar (boy oranı size, renk fg) — iki boyutlu alın yazısı */
   lines?: { text: string; fg?: string; size?: number }[];
-  /** v9: aynı satırda farklı renkli parçalar (u aralığı harf sayısıyla paylaşılır) */
-  parts?: { text: string; fg?: string }[];
+  /**
+   * v9: aynı satırda farklı renkli parçalar (u aralığı harf sayısıyla paylaşılır). v9b: parça kendi `u0` / `u1`'ini
+   * (kenar başından m) taşıyabilir — uzun kapatmada (d4-tarzi-wg 26 m) "Pide" Ayanoğlu bölümünün altına yayılıyordu
+   * (critic d4c #1); verilen parça orada, verilmeyenler kalan sırayla oranlı.
+   */
+  parts?: { text: string; fg?: string; u0?: number; u1?: number }[];
+}
+
+/**
+ * v9b: alın yazısı parçalarının kenar boyunca aralıkları [parça, ua, ub] (ua < ub, kenar başından m). Ölçülen u0 / u1
+ * taşıyan parça oraya (kenara kırpılır); kalanlar [u0, u1] aralığında okuma sırasıyla harf sayısı oranında (boşluk
+ * payı dahil) — önceden yalnız oranlıydı. `out` false: kenar dışarıdan ters yönde okunur (u azalan).
+ */
+export function fasciaPartSpans<P extends { text: string; u0?: number; u1?: number }>(
+  parts: P[],
+  u0: number,
+  u1: number,
+  out: boolean,
+  len: number,
+): [P, number, number][] {
+  const res: [P, number, number][] = [];
+  const free = parts.filter((p) => !(typeof p.u0 === 'number' && typeof p.u1 === 'number'));
+  const tot = free.reduce((q, pp) => q + pp.text.length + 1, 0);
+  let acc = 0;
+  for (const pp of parts) {
+    if (typeof pp.u0 === 'number' && typeof pp.u1 === 'number') {
+      const a = Math.max(0, Math.min(len, Math.min(pp.u0, pp.u1)));
+      const b = Math.max(0, Math.min(len, Math.max(pp.u0, pp.u1)));
+      if (b - a > 0.05) res.push([pp, a, b]);
+      continue;
+    }
+    const f0 = acc / tot;
+    acc += pp.text.length + 1;
+    const f1 = acc / tot;
+    const W = u1 - u0;
+    res.push(out ? [pp, u0 + W * f0, u0 + W * f1] : [pp, u1 - W * f1, u1 - W * f0]);
+  }
+  return res;
 }
 
 /**
@@ -601,10 +637,18 @@ export function fasciaSigns(
       const pt = Array.isArray(s.fasciaParts)
         ? (s.fasciaParts as { text?: unknown; fg?: unknown }[])
             .filter((q) => q && typeof q.text === 'string' && q.text.trim())
-            .map((q) => ({ text: q.text as string, ...(hex(q.fg) ? { fg: hex(q.fg) } : {}) }))
+            .map((q) => ({
+              text: q.text as string,
+              ...(hex(q.fg) ? { fg: hex(q.fg) } : {}),
+              ...(typeof (q as { u0?: unknown }).u0 === 'number' ? { u0: (q as { u0: number }).u0 } : {}),
+              ...(typeof (q as { u1?: unknown }).u1 === 'number' ? { u1: (q as { u1: number }).u1 } : {}),
+            }))
         : [];
       out.push({
         edge,
+        // v9b: kısayolda yazı aralığı (`fasciaU0` / `fasciaU1`, kenar başından m); yoksa kenar boyu
+        ...(typeof s.fasciaU0 === 'number' ? { u0: s.fasciaU0 } : {}),
+        ...(typeof s.fasciaU1 === 'number' ? { u1: s.fasciaU1 } : {}),
         text: s.fasciaText,
         ...(hex(s.fasciaFg) ? { fg: hex(s.fasciaFg) } : {}),
         ...(ln.length ? { lines: ln } : {}),
@@ -671,12 +715,15 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
       face(wk, 0, len, g0);
       continue;
     }
+    const nE: V2 = [-t[1], t[0]];
+    const mE: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
+    const cxy = poly.reduce((q, p) => [q[0] + p[0] / L, q[1] + p[1] / L], [0, 0] as V2);
+    /** Kenarın iç normali (quad(A, B, B↑, A↑) nE'ye bakar) */
+    const inIsN = (cxy[0] - mE[0]) * nE[0] + (cxy[1] - mE[1]) * nE[1] > 0;
     // İç yüz (yalnız içe bakan, camın 4 cm içinde): tabandan tavana koyu iç
     {
-      const n: V2 = [-t[1], t[0]];
-      const m: V2 = [(a[0] + e[0]) / 2, (a[1] + e[1]) / 2];
-      const cxy = poly.reduce((q, p) => [q[0] + p[0] / L, q[1] + p[1] / L], [0, 0] as V2);
-      const nIn: V2 = (cxy[0] - m[0]) * n[0] + (cxy[1] - m[1]) * n[1] > 0 ? n : [-n[0], -n[1]];
+      const n = nE;
+      const nIn: V2 = inIsN ? n : [-n[0], -n[1]];
       const A: V2 = [a[0] + nIn[0] * 0.04, a[1] + nIn[1] * 0.04];
       const B: V2 = [e[0] + nIn[0] * 0.04, e[1] + nIn[1] * 0.04];
       // Builder.quad(A alt, B alt, B üst, A üst) = wall(A, B): ön yüz (−t.z, t.x) = n yönüne bakar
@@ -687,7 +734,17 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
     }
     if (ph > 0.02) b3(c.b, pk, a, e, g0, g0 + ph, 0.08, yaw);
     // Cam + kapı boşlukları (kapıda cam kanat doğramalı, eşik yok)
-    face(gk, 0, len, g0 + ph);
+    // v9b (critic d4a #3, d4c #8/#12): cam tek katman, yalnız DIŞA bakan yüz (malzeme FrontSide). Önceden iki yönlü
+    // iki quad × DoubleSide → ön cam 2, arka cam 2 katman: %38 opaklık 4 kez üst üste ≈ %85 örtü → "opak gri duvar"
+    // (#566166). Şimdi dışarıdan tek cam + arkasında karşı duvarın koyu iç yüzü.
+    {
+      const A = at(0);
+      const B = at(len);
+      const yb = g0 + ph;
+      if (inIsN)
+        c.b.quad(gk, [B[0], yb, B[1]], [A[0], yb, A[1]], [A[0], yAt(0), A[1]], [B[0], yAt(len), B[1]]);
+      else c.b.quad(gk, [A[0], yb, A[1]], [B[0], yb, B[1]], [B[0], yAt(len), B[1]], [A[0], yAt(0), A[1]]);
+    }
     const dr = doors.filter((q) => q.edge === j);
     const n = Math.max(1, Math.round(len / mul));
     for (let k = 0; k <= n; k++) {
@@ -831,17 +888,8 @@ function enclosure(c: FurnCtx, s: StreetItem): void {
               h: fh,
             });
           if (sg.parts?.length) {
-            // v9: iki renkli satır: parçalar okuma sırasıyla, harf sayısı oranında (boşluk payı dahil)
-            const tot = sg.parts.reduce((q, pp) => q + pp.text.length + 1, 0);
-            let acc = 0;
-            for (const pp of sg.parts) {
-              const f0 = acc / tot;
-              acc += pp.text.length + 1;
-              const f1 = acc / tot;
-              const W = u1 - u0;
-              const [ua, ub] = out ? [u0 + W * f0, u0 + W * f1] : [u1 - W * f1, u1 - W * f0];
+            for (const [pp, ua, ub] of fasciaPartSpans(sg.parts, u0, u1, out, len))
               put(spec(pp.text, pp.fg, ub - ua), ua, ub);
-            }
           } else put(spec(sg.text, sg.fg, u1 - u0), u0, u1);
         }
     }

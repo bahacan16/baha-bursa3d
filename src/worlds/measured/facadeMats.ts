@@ -207,7 +207,13 @@ export const windowRoomUniform = { value: qnum('winroom', 0.7) };
  * (fotoğraf #121512–#353121, oyun #dadbde–#f0f0f2; critic d4a #15, d4b #2, d4c #1). KARAR: eski cam çarpanı
  * (glassEnvUniform, 9). `?shopenv=` dener.
  */
-export const shopEnvUniform = { value: qnum('shopenv', 9) };
+// v9 (2026-10-01): 9 ile vitrinler hâlâ opak orta gri (#8c8d91 AVM, #7b7d82 Biaport; fotoğraf #131817 / #26302d,
+// critic d4b #2, d4a #8). Neden: ortam haritası açık gök (örtülmesiz) — gerçekte vitrin saçak / karşı cephe / cadde
+// yansıtır. Aynı karelerde 9 / 3 / 1.5 / 0.7 / 0 denendi (dbg tune1): yalnız iç ışıma #2d–#30, 0.7 #34–#3a. KARAR:
+// 0.4 + vitrin içi ×0.5 (shopRoomUniform) → #24–#2c, eğik bakışta Fresnel yansıması kalır.
+export const shopEnvUniform = { value: qnum('shopenv', 0.4) };
+/** Vitrin (tür 7) iç mekân parlaklık çarpanı (gündüz loş dükkân içi; perde ve oda türlerine dokunmaz). `?shoproom=` */
+export const shopRoomUniform = { value: qnum('shoproom', 0.5) };
 
 /** Cam malzemesine gök yansıması çarpanını ekler (mevcut onBeforeCompile zincirlenir) */
 export function withGlassEnv<M extends THREE.Material>(m: M, tag = 'g'): M {
@@ -216,7 +222,13 @@ export function withGlassEnv<M extends THREE.Material>(m: M, tag = 'g'): M {
   m.onBeforeCompile = function (sh, r) {
     prev.call(this, sh, r);
     sh.uniforms.uGlassEnv =
-      tag === 'win' ? windowEnvUniform : tag === 'cam' ? camEnvUniform : glassEnvUniform;
+      tag === 'win'
+        ? windowEnvUniform
+        : tag === 'cam'
+          ? camEnvUniform
+          : tag === 'shop'
+            ? shopEnvUniform
+            : glassEnvUniform;
     sh.fragmentShader = sh.fragmentShader
       .replace('#include <common>', '#include <common>\nuniform float uGlassEnv;')
       .replace(
@@ -346,6 +358,7 @@ if (kind > 9.5) {
   cc = pow(vec3(floor(code / 4096.0), mod(floor(code / 64.0), 64.0), mod(code, 64.0)) / 63.0, vec3(2.2));
 }
 vec3 rc = roomColor(seed, kind, vWUv, max(vAux.z, 0.3), max(vAux.w, 0.3), cc, cf);
+if (kind > 6.5 && kind < 7.5) rc *= uShopRoom;
 // Vitrin (tür 7): gök çarpanı pencereninki değil, vitrininki (uGlassEnv × glassMask = uShopEnv)
 float glassMask = (kind > 6.5 && kind < 7.5) ? uShopEnv / max(uGlassEnv, 1e-3) : 1.0;
 // Oda camın ARKASINDA: güneş cepheye vursa da odanın yalnız bir kısmını aydınlatır (önceden tamamı boyalı yüzey
@@ -364,12 +377,13 @@ totalEmissiveRadiance += rc * (0.12 * roomK + (1.0 - uNight) * (1.0 - uGlassDiff
     sh.uniforms.uGlassDiff = glassDiffUniform;
     sh.uniforms.uWinRoom = windowRoomUniform;
     sh.uniforms.uShopEnv = shopEnvUniform;
+    sh.uniforms.uShopRoom = shopRoomUniform;
     sh.fragmentShader = sh.fragmentShader.replace(
       'uniform float uNight;',
-      'uniform float uNight;\nuniform float uGlassDiff;\nuniform float uWinRoom;\nuniform float uShopEnv;',
+      'uniform float uNight;\nuniform float uGlassDiff;\nuniform float uWinRoom;\nuniform float uShopEnv;\nuniform float uShopRoom;',
     );
   };
-  m.customProgramCacheKey = () => 'mk-winglass-v8';
+  m.customProgramCacheKey = () => 'mk-winglass-v9';
   withGlassEnv(m, 'win');
   m.userData.noReceive = true;
   m.userData.noCast = true;
