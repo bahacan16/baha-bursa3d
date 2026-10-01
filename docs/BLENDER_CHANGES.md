@@ -934,3 +934,7 @@
   (yeniden örnekleme). Dosyalar: `street-plan.json`, `park-plan.json`, `street.ts`. **Blender:** `NW/Measured/Street`
   (değişen öğeler `scratchpad` listesinde değil, commit diff'inde), `NW/Measured/Parks` çitler, `NW/Roads` 303447162,
   `materials.py` bordür boyası.
+- **(Gündüz güneşi 165° / 48°)** — 135° / 40° → 165° / 48° (Mertkent kuzey gölge ölçümü). 10 görünümlük karşılaştırmada
+  (Mertkent-2, Doğan Avcıoğlu, D4; 135/40, 150/45, 165/48, 180/50) 135 ve 150 bulvara fotoğraflarda olmayan büyük
+  gölgeler düşürüyordu. Dosya: `src/env/daylight.ts`. **Blender:** güneş lambası az 165°, yükseklik 48° (pişirilmiş
+  dolaylı ışık güneşten bağımsız, yeniden pişirme gerekmez).
