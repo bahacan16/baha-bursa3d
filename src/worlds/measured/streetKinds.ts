@@ -131,7 +131,7 @@ function busShelter(c: FurnCtx, s: StreetItem, y: number): void {
   const h = num(s.h, 2.5);
   const F = frameOf(c, s);
   const fk = ck(c, 'metal', s.color, 'steel');
-  const gk = ck(c, 'glass', s.glass, 'mkRailGlass');
+  const gk = ck(c, 'glass', s.glass, 'mkShelterGlass');
   const P = (lx: number, lz: number, yy: number): V3 => {
     const q = at(s, F, lx, lz);
     return [q[0], yy, q[1]];
@@ -521,7 +521,7 @@ function acCage(c: FurnCtx, s: StreetItem): void {
   if (poly.length < 3) return;
   const h = num(s.h, 1.8);
   const y0 = Math.min(...poly.map((p) => c.H(p[0], p[1]) + c.walk(p[0], p[1])));
-  const cage = c.colorKey && hexOf(s.color) ? c.colorKey('cage:0.05', hexOf(s.color)!) : 'mkMesh';
+  const cage = c.colorKey && hexOf(s.color) ? c.colorKey('cage:0.05:veil', hexOf(s.color)!) : 'mkMesh';
   const cx = poly.reduce((a, p) => a + p[0], 0) / poly.length;
   const cz = poly.reduce((a, p) => a + p[1], 0) / poly.length;
   for (let i = 0; i < poly.length; i++) {

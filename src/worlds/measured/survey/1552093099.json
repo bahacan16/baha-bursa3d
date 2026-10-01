@@ -1860,7 +1860,7 @@
      "u1": 3.2,
      "y": 4.7,
      "d": 1.4,
-     "drop": 0.45,
+     "drop": 1.05,
      "color": "#1f4a3f",
      "style": "retract",
      "texts": [
@@ -1871,7 +1871,8 @@
        "fg": "#f2f2ef",
        "bold": true
       }
-     ]
+     ],
+     "note": "D4 r3 (2026-10-01): c6nV ortofotosu (40 px/m): tente duvarda 4.67, ön saçak (valans) alt kenarı görünen 3.38 → d 1.4 düzleminde ≈3.3 → toplam düşüş ≈1.4 (valans ≈0.3) → drop 0.45 → 1.05. 1IQY 60_0’da iki derin eğik koyu yeşil tente."
     },
     {
      "t": "awning",
@@ -1879,7 +1880,7 @@
      "u1": 6.4,
      "y": 4.7,
      "d": 1.4,
-     "drop": 0.45,
+     "drop": 1.05,
      "color": "#1f4a3f",
      "style": "retract",
      "texts": [
@@ -1890,7 +1891,8 @@
        "fg": "#f2f2ef",
        "bold": true
       }
-     ]
+     ],
+     "note": "D4 r3 (2026-10-01): c6nV ortofotosu (40 px/m): tente duvarda 4.67, ön saçak (valans) alt kenarı görünen 3.38 → d 1.4 düzleminde ≈3.3 → toplam düşüş ≈1.4 (valans ≈0.3) → drop 0.45 → 1.05. 1IQY 60_0’da iki derin eğik koyu yeşil tente."
     },
     {
      "t": "win",
@@ -2145,7 +2147,8 @@
      "y0": 5,
      "y1": 5.25,
      "color": "#ecebe6",
-     "proud": 0.9
+     "proud": 1.8,
+     "note": "D4 r3 (2026-10-01): beyaz saçak (kanopi) cepheden ≈1.8 m taşar: aerial-n2 z21 karesinde ön şeridin batı kenarı x ≈653.9 (cephe hattı x ≈655.6–656.6), z −549…−532 (u ≈14.5–31) — eğik çekim kayması bilinmiyor, ±1 m. KFus 53_5_40 / 60_0: saçak ön kenarında beyaz kare kolonlar (pending)."
     },
     {
      "t": "panel",
@@ -2464,6 +2467,11 @@
   {
    "what": "massing-heights",
    "desc": "OSM yükseklikleri (26/24/6/3) ölçümle uyuşmuyor: batı kule K0 ≈6.5 (çift yükseklik dükkân arkası), taş kat 4.25, 6 konut ×3.12 (v8 düzlem ortosu), saçak ≈29.8 (+alınlık 32.9); doğu kule K0 4.35, taş asma kat 2.0, 6 konut ×2.95, saçak ≈24.2 + alınlık katı. Ön şerit 1 kat ≈5.2 (tabela panosu 7.3’e çıkar)."
+  },
+  {
+   "what": "Cigerci hamza / cam salon saçağı ön kolonları",
+   "edge": 23,
+   "desc": "KFus 53_5_40 ve 60_0_0: beyaz saçağın (band u 14.6–34, y 5.0–5.25, proud 1.8) ÖN kenarında serbest duran beyaz kare kolonlar (≈0.25 × 0.25, zeminden saçak altına ≈5.0), cam hattındaki beyaz dikmelerden (pilaster) ayrı; görülen 4–5 adet, aralık ≈2.5–3 m. Kolonların u konumları eğik açıdan güvenilir okunamadı → çizilmedi (serbest kolon öğesi yok: volumes ile dünya konumu gerekir; saçak derinliği ±1 m)."
   }
  ],
  "cutEdges": [
@@ -2906,6 +2914,38 @@
      "y1": 12.55,
      "color": "#e8e8e6",
      "proud": 0.3
+    },
+    {
+     "t": "sign",
+     "u0": 19.35,
+     "u1": 20.6,
+     "y0": 9.65,
+     "y1": 10.8,
+     "d": 0.04,
+     "style": "panel",
+     "text": "",
+     "bg": "#f2f2f0",
+     "fg": "#c8282e",
+     "font": "sans",
+     "bold": true,
+     "lines": [
+      {
+       "text": "Estetik A",
+       "fg": "#c8282e",
+       "size": 1.3,
+       "bold": true,
+       "y": 0.66
+      },
+      {
+       "text": "… Ağız ve Diş Sağlığı Poli…",
+       "fg": "#3a3a3a",
+       "size": 0.45,
+       "bold": false,
+       "y": 0.25
+      }
+     ],
+     "logo": "solda küçük kırmızı amblem; alt satırlar 640 px karede okunamadı (metin cutEdges[1] notundan)",
+     "note": "D4 r3 (2026-10-01): KFus 60_0_0: diş kutusunun (u 19.7–20.9, y 10.9–12.6) hemen altında beyaz pano, kırmızı \"Estetik A\"; boy diş kutusuna göre (90 px ↔ 1.7 m) ≈1.15 m, sol ucu diş kutusundan ≈0.4 m solda, sağ ucu köşede (güney yüzde cutEdges[1] devamı). Önceden bulvar yüzünde yoktu."
     }
    ]
   },

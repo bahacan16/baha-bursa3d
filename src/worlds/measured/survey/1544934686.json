@@ -2621,14 +2621,17 @@
      "u1": 37.35,
      "y0": 3.8,
      "y1": 6.65,
-     "color": "#8f735f",
+     "color": "#4a3d31",
      "proud": 0.04,
      "style": "tiles",
-     "tile": 0.22,
+     "tile": 0.11,
      "colors": [
-      "#a5836f",
-      "#8c6f5c",
-      "#b3947c"
+      "#755a45",
+      "#523a22",
+      "#7f7168",
+      "#998675",
+      "#6a5848",
+      "#81705c"
      ]
     },
     {
@@ -2637,7 +2640,7 @@
      "u1": 41.5,
      "y0": 5.3,
      "y1": 6.65,
-     "color": "#8f735f",
+     "color": "#6d5c4b",
      "proud": 0.04
     },
     {
@@ -2646,7 +2649,7 @@
      "u1": 44.8,
      "y0": 5.3,
      "y1": 6.65,
-     "color": "#8f735f",
+     "color": "#6d5c4b",
      "proud": 0.04
     },
     {
@@ -2731,7 +2734,7 @@
      }
     }
    ],
-   "note": "Ölçüler DELTA=4.5 ortofotosunda (CORRECTED=1 SURVEY_TOP=38 DELTA=\"1544934686:5=4.5\"; docs/survey/c’ye kopyalandı). v2 (pano düzeltmesi, ma_offsets.json): XQtj gerçek konumu index’in 4.3 m kuzeyinde (dz −4.3) → düzeltilmiş kameradan taban izi cephesine (−822.8) uzaklık 12.2 ≈ cal.dist 11.94: yani güney cephe TABAN İZİ ÇİZGİSİNDE, önceki \"4.5 m güneyde\" yorumu pano hatasıydı (taban izi düzeltmesi GEREKMEZ). δ=4.5 ortofoto, hatalı pano konumuyla gerçek cephe düzlemine denk geldiği için ölçüler geçerli. Cam kutu dükkânlar (trend, Pastadan, gülbaşoğulları, Eczane Yonca…) bu düzlemin ≈4.4 m önünde (kaldırım katmanı). Çerçeve kirişleri doğuya doğru görünende ≈0.8 m yükseliyor (cephe halkaya göre ≈1.3° dönük / doğu ucu kameraya yakın): batı-orta ve doğu bantları ayrı kotlarla yazıldı. K2–K4 localar (çerçeve–duvar ≈0.9 m, yan yüzlerden) tahmini derinlik ±0.3. Loca arka duvarındaki pencereler çoğunlukla tabela/kutu arkasında: üretici otomatik kapı+pencere çizer (arka duvar tek tek ölçülmedi). Sarı kutuların ön yüzü çerçeve önünde ≈1.1 m (paralaks), K2 sırası kesintisiz kutu bandı. Çelik çerçeve dikmelerinden duvara giden çapraz konsol payandaları pending."
+   "note": "Ölçüler DELTA=4.5 ortofotosunda (CORRECTED=1 SURVEY_TOP=38 DELTA=\"1544934686:5=4.5\"; docs/survey/c’ye kopyalandı). v2 (pano düzeltmesi, ma_offsets.json): XQtj gerçek konumu index’in 4.3 m kuzeyinde (dz −4.3) → düzeltilmiş kameradan taban izi cephesine (−822.8) uzaklık 12.2 ≈ cal.dist 11.94: yani güney cephe TABAN İZİ ÇİZGİSİNDE, önceki \"4.5 m güneyde\" yorumu pano hatasıydı (taban izi düzeltmesi GEREKMEZ). δ=4.5 ortofoto, hatalı pano konumuyla gerçek cephe düzlemine denk geldiği için ölçüler geçerli. Cam kutu dükkânlar (trend, Pastadan, gülbaşoğulları, Eczane Yonca…) bu düzlemin ≈4.4 m önünde (kaldırım katmanı). Çerçeve kirişleri doğuya doğru görünende ≈0.8 m yükseliyor (cephe halkaya göre ≈1.3° dönük / doğu ucu kameraya yakın): batı-orta ve doğu bantları ayrı kotlarla yazıldı. K2–K4 localar (çerçeve–duvar ≈0.9 m, yan yüzlerden) tahmini derinlik ±0.3. Loca arka duvarındaki pencereler çoğunlukla tabela/kutu arkasında: üretici otomatik kapı+pencere çizer (arka duvar tek tek ölçülmedi). Sarı kutuların ön yüzü çerçeve önünde ≈1.1 m (paralaks), K2 sırası kesintisiz kutu bandı. Çelik çerçeve dikmelerinden duvara giden çapraz konsol payandaları pending. | D4-r3 (survey-c): tuğla pano (u 32.55–37.35 ve 40.3–41.5 / 43.5–44.8) XQtj 33_12_22 yakın karesinden yeniden örneklendi: düzensiz rustik tuğla, medyan #6d5c4b (koyu kırmızı-kahve #523a22, orta #755a45, açık bej-gri #998675), derz koyu #4a3d31 (K1 döşemesinin altında, yarı gölge). Önceki #a5836f… paleti 1.5× açıktı. Üreticide tuğla örgüsü (koşu bağı 0.25×0.10) yok → 0.11 m kare karo yaklaşımı."
   }
  ],
  "notes": [
@@ -2816,7 +2819,7 @@
     ],
     [
      610.3,
-     -822.0
+     -822
     ],
     [
      610.3,

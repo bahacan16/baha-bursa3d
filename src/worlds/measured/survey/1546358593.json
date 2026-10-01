@@ -310,7 +310,7 @@
      ]
     ]
    },
-   "note": "Özlüce Bulvarı (batı) podyum cephesi; ölçü n3EfAhk3 _f22 ortofotosunda (güneşli, öğleden sonra). İki panonun (n3EfAhk3 / 9nQa3LQ8) ortofotoları arasında 2–7 m kayma var (kaldırımdaki kış bahçesi 3–4 m önde → farklı büyütme; cephe düzleminde de ≈2.3 m); cal.u üstteki konut kulesinin görünen uçlarından (görünen 1.2 / 33.1 ↔ taban izi u 2.0 / 35.11, ölçek 0.963) → podyum köşeleri görünen −0.73 / 36.8. Kat çizgileri (kule ile ortak): K0 1.59, K1 4.67 (görünen = gerçek). Podyum üstü ≈9.1, önünde ince çelik korkuluk (9.26). Önündeki cam kış bahçesi (Tarz-ı Pide / Ayanoğlu, u 12.9→güney uca) kaldırım öğesi (street-plan). | ÖĞE NOTLARI: [panel u -0.73–9.8] bej traverten kaplı alan (ŞOK üstü, DİŞ HEKİMİ panosu çevresi) ; [win u -0.53–9.34 K0–0] ŞOK kırmızı doğramalı vitrin ; [sign u 9.9–14.2] bej taş bant üstünde koyu gri harfler (9nQa karesinden) ; [win u 10.3–14 K0–0] kuyumcu cam cephe + ortada çift cam kapı ; [panel u 15.48–36.8] Ayanoğlu: siyah zemin üstüne koyu gri Osmanlı yıldız/geçme desenli kaplama (desen yaklaşık kare ızgara ile)",
+   "note": "Özlüce Bulvarı (batı) podyum cephesi; ölçü n3EfAhk3 _f22 ortofotosunda (güneşli, öğleden sonra). İki panonun (n3EfAhk3 / 9nQa3LQ8) ortofotoları arasında 2–7 m kayma var (kaldırımdaki kış bahçesi 3–4 m önde → farklı büyütme; cephe düzleminde de ≈2.3 m); cal.u üstteki konut kulesinin görünen uçlarından (görünen 1.2 / 33.1 ↔ taban izi u 2.0 / 35.11, ölçek 0.963) → podyum köşeleri görünen −0.73 / 36.8. Kat çizgileri (kule ile ortak): K0 1.59, K1 4.67 (görünen = gerçek). Podyum üstü ≈9.1, önünde ince çelik korkuluk (9.26). Önündeki cam kış bahçesi (Tarz-ı Pide / Ayanoğlu, u 12.9→güney uca) kaldırım öğesi (street-plan). | ÖĞE NOTLARI: [panel u -0.73–9.8] bej traverten kaplı alan (ŞOK üstü, DİŞ HEKİMİ panosu çevresi) ; [win u -0.53–9.34 K0–0] ŞOK kırmızı doğramalı vitrin ; [sign u 9.9–14.2] bej taş bant üstünde koyu gri harfler (9nQa karesinden) ; [win u 10.3–14 K0–0] kuyumcu cam cephe + ortada çift cam kapı ; [panel u 15.48–36.8] Ayanoğlu: siyah zemin üstüne koyu gri Osmanlı yıldız/geçme desenli kaplama (desen yaklaşık kare ızgara ile) | D4-r3 (survey-c): Ayanoğlu / Tarz-ı Pide K0 vitrini (u 15.6–36.6) eklendi — önceden kış bahçesinin arkasında düz açık sıva kalıyor, cam arkasından zeytin/ten rengi görünüyordu; fotoğrafta cam arkası koyu dükkân içi (y2QC 60 yakın kırpık #23231d). Duvar düzleminin kendisi kış bahçesi arkasında (görülmedi) → koyu vitrin camı olarak.",
    "items": [
     {
      "t": "panel",
@@ -643,6 +643,24 @@
      "bg": "#1a1a1a",
      "fg": "#ffffff",
      "logo": "kış bahçesi arkasında koyu alın, okunamadı"
+    },
+    {
+     "t": "win",
+     "u0": 15.6,
+     "u1": 36.6,
+     "y0": 1,
+     "y1": 4.6,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 8,
+     "frameC": "#1e1f1d",
+     "curt": {
+      "K0": "vitrin"
+     }
     }
    ]
   }
@@ -654,14 +672,10 @@
   "KALDIRIM: bulvar önünde Tarz-ı Pide / Ayanoğlu / Mandı… siyah doğramalı cam kış bahçesi (oluklu metal çatı, görünen 4.05–4.7), 163. Sk. önünde kış bahçesi + gri yivli kolonlu ahşap pergola; bunlar raporda street-plan için.",
   "GÖRÜLMEYENLER: doğu ve kuzey podyum yüzleri (yalnız uzaktan/yatık), podyum çatısı (hava fotoğrafında kule çevresinde düz kahverengi-gri teras, SW köşede ahşap pergola).",
   "v9 (pending → veri): ŞOK tenteleri (kenar 3) kırmızı-beyaz çizgili — stripeW 0.15 (kırmızı ≈0.15 + beyaz ≈0.15, dönem ≈0.3 m; 9nQa 120_0 + n3Ef _f22), çizgiler duvara dik, valans da çizgili.",
-  "v9 (pending → veri): Ayanoğlu siyah panoları (kenar 0 u 0–11.07, kenar 3 u 15.48–36.8) clad \"star\": gri (#373b3c) ince çizgili 8 kollu yıldız ağı / geçme deseni, tekrar ≈0.55 m (n3Ef _f22). Motif yaklaşık (iki kare yıldız + geçme bağları); çizgi kalınlığı 0.02."
+  "v9 (pending → veri): Ayanoğlu siyah panoları (kenar 0 u 0–11.07, kenar 3 u 15.48–36.8) clad \"star\": gri (#373b3c) ince çizgili 8 kollu yıldız ağı / geçme deseni, tekrar ≈0.55 m (n3Ef _f22). Motif yaklaşık (iki kare yıldız + geçme bağları); çizgi kalınlığı 0.02.",
+  "D4-r3 (survey-c): podyum çatısı GB köşe terası pergolası (pergolas[0–1]): koyu kahve ahşap (#4a3220), örtü altı #432e16 (y2QC 60 yakın kırpık, güneşli), yükseklik ≈2.3 m (9nQa 134_25_40: K2 pencere sırası aralığı 80 px = 3.08 m ↔ pergola ≈65 px). Konum: güney yüz u 0.6–22.3 + batı yüz u 35.3–39.5 (pending ölçüsü), kuzey kenarı kulenin güney / GB çentik duvarı. Derinlik / dikme yerleri görülmedi (varsayılan 2.7 m aralık)."
  ],
  "pending": [
-  {
-   "what": "podyum çatısı terası pergolası (ahşap/kahverengi, dikmeli)",
-   "where": "güney yüz (kenar 0) üstünde u 0.6–22.3 (görünen), batı yüzde u 35.3–39.5 (9nQa) — yükseklik podyum üstü 9.1 → ≈+1.5–2 m; dünya çokgeni hava fotoğrafında seçilemedi (kule gölgesi)",
-   "color": "#6a4a33"
-  },
   {
    "what": "K2 teras cam kutusu (podyum çatısında, kulenin batı yüzü önünde)",
    "edge": 3,
@@ -676,6 +690,64 @@
    "glass": "#9fb3c4",
    "frame": "#e8e8e6",
    "note": "derinlik görülmedi"
+  }
+ ],
+ "pergolas": [
+  {
+   "poly": [
+    [
+     670.5,
+     -714.3
+    ],
+    [
+     670.4,
+     -712.2
+    ],
+    [
+     688.2,
+     -711.3
+    ],
+    [
+     688.3,
+     -713.45
+    ]
+   ],
+   "y0": 9.1,
+   "y1": 11.4,
+   "color": "#4a3220",
+   "post": 0.12,
+   "every": 2.7,
+   "beam": 0.18,
+   "slat": 0.35,
+   "cover": "#432e16"
+  },
+  {
+   "poly": [
+    [
+     666.15,
+     -716.2
+    ],
+    [
+     666.05,
+     -712.45
+    ],
+    [
+     670.4,
+     -712.2
+    ],
+    [
+     670.6,
+     -716
+    ]
+   ],
+   "y0": 9.1,
+   "y1": 11.4,
+   "color": "#4a3220",
+   "post": 0.12,
+   "every": 2.7,
+   "beam": 0.18,
+   "slat": 0.35,
+   "cover": "#432e16"
   }
  ]
 }

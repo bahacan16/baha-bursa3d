@@ -313,6 +313,8 @@ export interface Palette {
   frame: string;
   /** Kiremit */
   tile: string;
+  /** v11: asfalt şingıl çatı rengi (verilirse kiremit yerine mat, az yansımalı şingıl malzemesi) */
+  shingle?: string;
   /** Subasman (zemin kat altı) */
   plinth: string;
 }
@@ -943,8 +945,11 @@ export interface Bal {
   s: Storeys;
   /** Cam balkon (katlanır cam) olan katlar */
   glazed?: number[];
-  /** Cam balkon görünümü (kat → tür): clear, green (yeşil yansıma), dark, blinds (zebra/stor perde), frosted (buzlu) */
-  tint?: Record<string, 'clear' | 'green' | 'dark' | 'blinds' | 'frosted'>;
+  /**
+   * Cam balkon görünümü (kat → tür): clear, green (yeşil yansıma), dark, blinds (zebra/stor perde), frosted (buzlu),
+   * v11 light (camın ardı açık gri / beyaz iç, nötr yansıma — clear oyunda koyu mavi görünüyorsa)
+   */
+  tint?: Record<string, 'clear' | 'green' | 'dark' | 'blinds' | 'frosted' | 'light'>;
   /** En üst katın üstünde büyük düz saçak plağı (koyu gri alınlı "şapka") */
   cap?: boolean;
   /** Yan kapanış: open (iki yan açık), wall (iki yanda duvar/girinti), start-wall / end-wall (tek yan) */
@@ -1216,12 +1221,26 @@ export interface Sign {
   style?: 'box' | 'letters' | 'panel' | 'lightbox';
   font?: 'sans' | 'serif' | 'script' | 'condensed';
   bold?: boolean;
+  /** Harf konturu rengi (harf çevresindeki ince kenar) */
+  outline?: string;
+  /** v11: harf konturu kalınlığı (görünen, m; ör. Cadı'nın Evi ≈0.04); verilmezse harf boyunun %6'sı */
+  outlineW?: number;
+  /**
+   * v11: yazı u0..u1 genişliğini doldurur (capH ile; yatay genişletme ≤ 1.6). capH verilip yazı sığmıyorsa üretici her
+   * zaman önce yatay sıkıştırır (≥ 0.5), sonra küçültür.
+   */
+  stretch?: boolean;
+  /** v11: eğik (italik) yazı (ör. 1551828357 Mariza) */
+  italic?: boolean;
   /** Işıklı (gece parlar) */
   lit?: boolean;
   /** Yazı dışında görülen logo/şekil tarifi (çizilemiyorsa not) */
   logo?: string;
-  /** round: yuvarlak rozet, oval: elips tabela (ör. 900000106 3.0 × 1.3 m "LINENS") */
-  shape?: 'round' | 'oval';
+  /**
+   * round: yuvarlak rozet, oval: elips tabela (ör. 900000106 3.0 × 1.3 m "LINENS"), v11 pill: hap / stadyum (uç
+   * yarıçapı yükseklik / 2; ör. 1550614219 KUVEYTTÜRK)
+   */
+  shape?: 'round' | 'oval' | 'pill';
   /**
    * Monogram / glif (text yerine): yan yana harfler, mirror: true → ayna simetrik (ör. KUDRET ayna K + R),
    * join bindirme oranı (0..0.8, 0.25). Yazı tipi font (serif …), renk fg.
@@ -1370,6 +1389,14 @@ export interface Unit {
   side?: boolean;
   /** v7 kamera bakış yönü (derece): 0 = duvardan dışarı, +90 = cephe boyunca +u, −90 = −u (1480041300 e12) */
   yaw?: number;
+  /**
+   * v11 bayrak: gerçek en / boy (m; verilmezse 1.1 × 1.3), cephe düzleminde eğim `tilt` (derece, + → u1 ucu aşağı,
+   * sol üst köşe etrafında). `off` bayrakta da geçerli (duvardan uzaklık; pencere içi bayrak için negatif, ör. −0.12).
+   * `y` bayrağın ÜST kenarı (kat döşemesinden).
+   */
+  w?: number;
+  h?: number;
+  tilt?: number;
 }
 
 /** Yatay bant (görünen): subasman, kat silmesi vb. */
@@ -1401,6 +1428,12 @@ export interface Band {
   seq?: number[];
   /** v7: yüzey bitişi acp (kompozit panel) | matte */
   finish?: 'acp' | 'matte';
+  /**
+   * v11 (style tiles): `bond: "running"` → tuğla örgüsü (yarım kaydırmalı sıralar; tuğla `tile` en × `tileH` boy,
+   * ör. 0.25 × 0.10), mat. Verilmezse kare karo (eski).
+   */
+  bond?: 'running';
+  tileH?: number;
 }
 
 /** Farklı renkli sıva alanı (görünen) */
@@ -1421,6 +1454,12 @@ export interface Panel {
   colors?: string[];
   seq?: number[];
   finish?: 'acp' | 'matte';
+  /**
+   * v11 (style tiles): `bond: "running"` → tuğla örgüsü (yarım kaydırmalı sıralar; tuğla `tile` en × `tileH` boy,
+   * ör. 0.25 × 0.10), mat. Verilmezse kare karo (eski).
+   */
+  bond?: 'running';
+  tileH?: number;
   /**
    * v9: çokgen pano — GÖRÜNEN [u, y] köşeleri (saat yönü tersine): köşegen bölünmüş kaplama (ör. 1551814323 kule
    * kanatları: köşegenin üstü koyu gri, altı kum rengi). u0..y1 yine sınır kutusu olarak yazılır. Düz yüz; açıklıklar
@@ -1455,7 +1494,7 @@ export interface SignTextSpec {
   font?: 'sans' | 'serif' | 'script' | 'condensed';
   bold?: boolean;
   lit?: boolean;
-  shape?: 'round' | 'oval';
+  shape?: 'round' | 'oval' | 'pill';
   glyphs?: { ch: string; mirror?: boolean }[];
   join?: number;
   /** Görünen büyük harf yüksekliği (m) */
@@ -1565,7 +1604,8 @@ export interface RoofSign extends SignTextSpec {
   y1: number;
   setback?: number;
   d?: number;
-  frame?: { color?: string; h?: number; posts?: number };
+  /** v11: `under: true` → iskelet yalnız harf altında (dikmeler harf alt kotunda biter) */
+  frame?: { color?: string; h?: number; posts?: number; under?: boolean };
 }
 
 /**

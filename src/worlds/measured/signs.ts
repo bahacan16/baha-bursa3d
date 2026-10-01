@@ -58,6 +58,7 @@ function specOf(it: SignText, w: number, h: number, style: string, extra: Partia
     ...(it.glyphs?.length ? { glyphs: it.glyphs, join: it.join ?? null } : {}),
     ...(it.capH != null ? { capH: it.capH } : {}),
     ...(it.align ? { align: it.align } : {}),
+    ...(it.italic ? { italic: true } : {}),
     ...extra,
   };
 }
@@ -186,15 +187,18 @@ function roofSign(c: SignCtx, it: CRoofSign): void {
   const yRoof = (u: number) => c.roofH(P(i, u, offF)) ?? c.wallTop;
   const np = Math.max(2, Math.min(40, fr?.posts ?? Math.round(W / 2) + 1));
   const fh = Math.max(0, fr?.h ?? 0);
-  // Dikmeler: çatı yüzeyinden harflerin üst kısmına (harflerin arkasında)
+  // Dikmeler: çatı yüzeyinden harflerin üst kısmına (harflerin arkasında); v11 `under`: harf alt kotuna kadar
+  const under = !!fr?.under;
+  const yTop = under ? y0 - 0.03 : y1 - 0.05 * h;
   for (let k = 0; k < np; k++) {
     const u = u0 + 0.1 + ((W - 0.2) * k) / (np - 1);
     const p = P(i, u, offF);
     const yb = Math.min(yRoof(u), y0 - fh) - 0.05;
-    b.box(fk, [p[0], (yb + y1 - 0.05 * h) / 2, p[1]], [0.06, y1 - 0.05 * h - yb, 0.06], E.yaw);
+    if (yTop - yb < 0.02) continue;
+    b.box(fk, [p[0], (yb + yTop) / 2, p[1]], [0.06, yTop - yb, 0.06], E.yaw);
   }
-  // Yatay kuşaklar (harf arkası) + harf altı kafes (frame.h)
-  const rails = [y0 + 0.2 * h, y0 + 0.8 * h];
+  // Yatay kuşaklar (harf arkası; `under` ise yok) + harf altı kafes (frame.h)
+  const rails = under ? [] : [y0 + 0.2 * h, y0 + 0.8 * h];
   if (fh > 0.05) rails.push(y0 - 0.03, y0 - fh);
   const rc = P(i, (u0 + u1) / 2, offF + 0.02);
   for (const yy of rails) b.box(fk, [rc[0], yy, rc[1]], [W, 0.05, 0.05], E.yaw);

@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import type { Builder, V2, V3 } from './builder';
+import { leafFringe, type Builder, type V2, type V3 } from './builder';
 import type { CK, CPergola, SignSpec } from './facade';
 import { buildPergola } from './facade';
 import { buildStreetKind } from './streetKinds';
@@ -263,9 +263,59 @@ function planter(c: FurnCtx, s: StreetItem, y: number): void {
       const g = new THREE.ConeGeometry(Math.min(w, d) * 0.4, ph, 10);
       g.translate(s.x, y + h + ph / 2 - 0.05, s.z);
       c.b.geometry(plK, g);
-    } else if (pl.shape === 'hedge')
-      c.b.box(plK, [s.x, y + h + ph / 2 - 0.05, s.z], [w - 0.04, ph, d - 0.04], yaw);
-    else {
+    } else if (pl.shape === 'hedge') {
+      // v11: çit planı (site / park hedge) ile aynı yapraklı çit malzemesi (`hedge@#ton`) + iki uzun yüzde yaprak
+      // saçağı; önceden düz renkli kutuydu (street r3). Renk verilmezse sabit çit malzemesi.
+      const hc =
+        typeof pl.color === 'string' && /^#[0-9a-f]{6}$/i.test(pl.color) ? pl.color.toLowerCase() : null;
+      const W = w - 0.04;
+      const D = d - 0.04;
+      const y0 = y + h - 0.05;
+      c.b.box(
+        hc ? `hedge@${hc}` : 'hedge',
+        [s.x, y0 + ph / 2, s.z],
+        [W, ph, D],
+        yaw,
+        0.7,
+        0b111111 & ~0b100000,
+      );
+      const co = Math.cos(yaw);
+      const si = Math.sin(yaw);
+      const W2 = (lx: number, lz: number): V2 => [s.x + co * lx + si * lz, s.z - si * lx + co * lz];
+      for (const sg of [1, -1] as const) {
+        const nz = sg * (D / 2);
+        leafFringe(
+          c.b,
+          hc ? `hedgeLeaf@${hc}` : 'hedgeLeaf',
+          W2(-W / 2, nz),
+          W2(W / 2, nz),
+          y0 + 0.1,
+          y0 + ph,
+          D,
+          [si * sg, co * sg],
+          3,
+          Math.floor(s.x * 13 + s.z * 7 + sg * 101),
+          0.35,
+        );
+      }
+    } else if (s.shape !== 'round' && w > 2.5 * d) {
+      // v11: uzun saksı kutusunda çalı sırası — kutu boyunca tek gerilmiş elipsoit yandan düz yeşil şerit gibi
+      // görünüyordu (critic d4b r3 #4, BK saksıları 20 m × 0.6 m). KARAR: çalı aralığı ölçülmedi → kutu derinliği
+      // × 1.2 (en az 0.5 m), komşu çalılar %15 bindirmeli; boy ölçülen plant.h, deterministik ±%12 boy farkı.
+      const n = Math.max(2, Math.round(w / Math.max(0.5, d * 1.2)));
+      const step = w / n;
+      const co = Math.cos(yaw);
+      const si = Math.sin(yaw);
+      for (let k = 0; k < n; k++) {
+        const lx = -w / 2 + step * (k + 0.5);
+        const hk = ph * (0.88 + 0.24 * (((k * 2654435761) >>> 0) / 4294967296));
+        const g = new THREE.SphereGeometry(0.5, 9, 6);
+        g.scale(step * 1.15, hk, d * 0.9);
+        g.rotateY(yaw);
+        g.translate(s.x + co * lx, y + h + hk / 2 - 0.08, s.z - si * lx);
+        c.b.geometry(plK, g);
+      }
+    } else {
       const g = new THREE.SphereGeometry(0.5, 10, 7);
       g.scale(w * 0.9, ph, d * 0.9);
       g.rotateY(yaw);
@@ -1194,7 +1244,9 @@ function bikeRack(c: FurnCtx, s: StreetItem, y: number): void {
 
 /** v7 türleri; işlenmediyse false */
 export function buildStreetFurniture(c: FurnCtx, s: StreetItem): boolean {
-  const y = c.H(s.x, s.z) + c.walk(s.x, s.z);
+  // v11: `elev` (m, araziden) verilirse eşya o kotta (ör. podyum çatısı terası 10.3 m saksıları); yoksa yürüme kotu
+  const bz = (s as { elev?: unknown }).elev;
+  const y = c.H(s.x, s.z) + (typeof bz === 'number' && bz > -2 && bz < 60 ? bz : c.walk(s.x, s.z));
   switch (s.kind) {
     case 'table':
       cafeSet(c, s, y);

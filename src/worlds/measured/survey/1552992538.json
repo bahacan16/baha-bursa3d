@@ -571,7 +571,11 @@
      "t": "flag",
      "u": 37.4,
      "s": 0,
-     "y": 3
+     "y": 2.6,
+     "w": 1.0,
+     "h": 0.45,
+     "tilt": 20,
+     "note": "2026-10-01 D4 r3: B1R SİMİT alnının altında kısa direkli eğik kırmızı flama ≈1.0 × 0.45 m, ≈20° aşağı (1cWb…_210_-6_22); y üst kenar."
     },
     {
      "t": "sign",
@@ -1144,10 +1148,10 @@
     },
     {
      "t": "band",
-     "u0": 9,
+     "u0": 8.1,
      "u1": 16.2,
-     "y0": 5.65,
-     "y1": 6.25,
+     "y0": 5.56,
+     "y1": 6.05,
      "color": "#6b5846",
      "proud": 0.15,
      "clad": {
@@ -1161,68 +1165,132 @@
      "t": "awning",
      "u0": 7,
      "u1": 15,
-     "y": 7.25,
-     "d": 0.6,
-     "drop": 0.25,
+     "y": 6.88,
+     "d": 0.45,
+     "drop": 0.18,
      "color": "#8a2a2a"
     },
     {
-     "t": "roofsign",
+     "t": "sign",
      "u0": 6.2,
      "u1": 7.8,
-     "y0": 7.35,
-     "y1": 7.95,
-     "setback": 0.2,
-     "d": 0.05,
+     "y0": 7.02,
+     "y1": 7.54,
+     "off": 0.06,
+     "style": "letters",
+     "d": 0.03,
      "fg": "#b9b6ae",
      "font": "condensed",
      "bold": false,
      "text": "destan",
-     "frame": {
-      "color": "#4a3c30",
-      "h": 0.1,
-      "posts": 2
-     }
+     "lit": false
     },
     {
-     "t": "roofsign",
+     "t": "sign",
      "u0": 9.7,
      "u1": 12,
-     "y0": 7.35,
-     "y1": 7.8,
-     "setback": 0.2,
+     "y0": 7.06,
+     "y1": 7.43,
+     "off": 0.06,
+     "style": "letters",
      "d": 0.03,
      "fg": "#e8e4da",
      "font": "script",
      "bold": true,
      "text": "Roof… Lounge",
-     "frame": {
-      "color": "#4a3c30",
-      "h": 0.1,
-      "posts": 2
-     },
+     "lit": false,
      "logo": "el yazısı, ilk kelimenin son harfleri net okunamadı (Roof…)"
     },
     {
-     "t": "roofsign",
+     "t": "sign",
      "u0": 14.3,
      "u1": 16,
-     "y0": 7.5,
-     "y1": 8,
-     "setback": 0.2,
-     "d": 0.05,
+     "y0": 7.02,
+     "y1": 7.54,
+     "off": 0.06,
+     "style": "letters",
+     "d": 0.03,
      "fg": "#b9b6ae",
      "font": "condensed",
      "bold": false,
      "text": "destan",
-     "frame": {
-      "color": "#4a3c30",
-      "h": 0.1,
-      "posts": 2
+     "lit": false
+    },
+    {
+     "t": "panel",
+     "u0": 2.2,
+     "u1": 24.12,
+     "y0": 4.82,
+     "y1": 5.6,
+     "color": "#8d908c",
+     "proud": 0.02
+    },
+    {
+     "t": "band",
+     "u0": 4.6,
+     "u1": 16.2,
+     "y0": 6.88,
+     "y1": 7.45,
+     "color": "#735f4b",
+     "proud": 0.04,
+     "clad": {
+      "dir": "h",
+      "every": 0.12,
+      "w": 0.012,
+      "color": "#4a3c30"
      }
+    },
+    {
+     "t": "win",
+     "u0": 11.35,
+     "u1": 24.05,
+     "y0": 0.1,
+     "y1": 3.99,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 6,
+     "frameC": "#2b2d2f",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 11.17,
+     "u1": 24.12,
+     "y0": 3.99,
+     "y1": 4.82,
+     "color": "#2e312c",
+     "proud": 0.25,
+     "clad": {
+      "dir": "star",
+      "every": 0.42,
+      "w": 0.03,
+      "color": "#4a4e47"
+     }
+    },
+    {
+     "t": "sign",
+     "u0": 19.5,
+     "u1": 21.3,
+     "y0": 4.17,
+     "y1": 4.71,
+     "off": 0.29,
+     "style": "letters",
+     "d": 0.03,
+     "fg": "#ecece4",
+     "font": "sans",
+     "bold": false,
+     "text": "MINTY",
+     "lit": false,
+     "logo": "solunda yeşil yaprak logosu (u 18.6–19.2), sağ altında küçük yeşil el yazısı (okunamadı) — çizilmedi"
     }
    ],
-   "note": "dZQ2 f22. Güney yarı: köşeyi saran Öncü döner restoranı (siyah fasya, iki yuvarlak ışıklı logo, köşe direğinde yuvarlak bayrak tabela, asılı \"TAVUK DÜRÜM 159₺\" afişi, flama dizisi kaldırım süsü). Üstte ahşap kaplı podyum alnı ve çatıda kırmızı tenteli \"destan\" teras restoranı (iki \"destan\" + \"Roof… Lounge\" harf tabelası; teras derinliği görülmedi → pending). Kuzey yarı (u 12–24) MINTY kış bahçesi arkasında: bina duvarı görülmedi (kaldırım katmanı raporda). En güneyde (u −0.9…2.3) \"TIME ÖZLÜC…\" yazılı ahşap direkli site giriş saçağı: kaldırım/giriş öğesi (rapor). Kulenin doğu yüzü (CEYLAN GRUP çatı tabelası, TIME, RAIDER TATTOO, Serap…, nesibe çalışkan…) pending."
+   "note": "dZQ2 f22. Güney yarı: köşeyi saran Öncü döner restoranı (siyah fasya, iki yuvarlak ışıklı logo, köşe direğinde yuvarlak bayrak tabela, asılı \"TAVUK DÜRÜM 159₺\" afişi, flama dizisi kaldırım süsü). Üstte ahşap kaplı podyum alnı ve çatıda kırmızı tenteli \"destan\" teras restoranı (iki \"destan\" + \"Roof… Lounge\" harf tabelası; teras derinliği görülmedi → pending). Kuzey yarı (u 12–24) MINTY kış bahçesi arkasında: bina duvarı görülmedi (kaldırım katmanı raporda). En güneyde (u −0.9…2.3) \"TIME ÖZLÜC…\" yazılı ahşap direkli site giriş saçağı: kaldırım/giriş öğesi (rapor). Kulenin doğu yüzü (CEYLAN GRUP çatı tabelası, TIME, RAIDER TATTOO, Serap…, nesibe çalışkan…) pending. | D4-r3 (2026-10-01, survey-c, dZQ2 f22 yakın kırpık): destan terası podyum çatısında kapalı hacim (volumes[0]: koyu iç mekân 6.05–6.88, ahşap lamelli alın 6.88–7.45, kırmızı katlanır tente valansı 6.70–6.88, alt ahşap korkuluk 5.56–6.05); destan / Roof… Lounge harfleri alnın üstünde 7.02–7.54 (önceki çatı tabelası 0.35 m yüksekti). u 11.17–24.12: MINTY kış bahçesinin DOĞU yüzü (kuzeyden sarıyor): siyah kafes desenli alın 3.99–4.82, koyu cam + ≈2 m dikmeler, \"MINTY\" beyaz harfler; kış bahçesi duvarın ne kadar önünde görülmedi → duvar düzleminde çizildi (sokak planı doğu yüzü ayrıca çizmemeli). Alın üstü podyum duvarı gri #8d908c (güneşli; kule kremi aynı karede #d2cbbd)."
   },
   {
    "edge": 14,
@@ -1242,11 +1310,6 @@
    "what": "TIME dış merdivenleri",
    "edge": 2,
    "desc": "podyum çatısına çıkan iki açık çelik merdiven: doğuda u 6.5→12.4 (zeminden görünen 6.2’ye), batıda u 48.9→53.5; koyu antrasit lazer kesim geometrik desenli yan korkuluk (≈1.1 m), merdiven genişliği ≈1.5 m, pylonlara (TIME kuleleri) bağlanıyor. Pylon yüzleri çapraz koyu/açık gri şeritli (≈0.45 m şerit, 35°) — üreticide çapraz şerit dokusu yok (şimdilik düz #6d7074)."
-  },
-  {
-   "what": "destan çatı teras restoranı",
-   "edge": 13,
-   "desc": "doğu bölüm çatısında (görünen u 5–16, kenar 13) kırmızı-bordo tenteli teras: tente saçağı görünen 6.95–7.2, üstte ahşap kaplı çerçeve 7.2–7.95; derinliği ve arka sınırı görülmedi (hava fotoğrafında x≈614–623, z≈−785…−762 aralığında olabilir)."
   },
   {
    "what": "kule / doğu kanat doğu yüzü massing düzeltmesi",
@@ -2402,7 +2465,11 @@
      "t": "flag",
      "u": 46,
      "s": 4,
-     "y": 14.75
+     "y": 14.75,
+     "w": 0.6,
+     "h": 0.45,
+     "off": -0.12,
+     "note": "2026-10-01 D4 r3: pencere camının arkasında küçük Türk bayrağı (1cWb…_210_27_22, _210_11_22) ≈0.6 × 0.45 m."
     },
     {
      "t": "roofobj",
@@ -2769,7 +2836,7 @@
     },
     {
      "t": "panel",
-     "u0": 15.0,
+     "u0": 15,
      "u1": 16.1,
      "y0": 11.97,
      "y1": 21.6,
@@ -2881,7 +2948,7 @@
     {
      "t": "sign",
      "u0": 12.05,
-     "u1": 14.0,
+     "u1": 14,
      "y0": 13.48,
      "y1": 13.72,
      "d": 0.01,
@@ -3026,7 +3093,7 @@
      "kind": "std",
      "split": 2,
      "hbars": [
-      26.0
+      26
      ],
      "frameC": "#2f3438"
     },
@@ -3062,7 +3129,7 @@
      "kind": "std",
      "split": 2,
      "hbars": [
-      26.0
+      26
      ],
      "frameC": "#2f3438"
     },
@@ -3096,7 +3163,7 @@
      "fg": "#e8e6e2",
      "font": "sans",
      "bold": false,
-     "capH": 1.0,
+     "capH": 1,
      "logo": "ince metal/beyaz 3B harfler, M'nin yerinde Λ biçimli çapraz çizgi (kırmızı-beyaz vurgulu); İ noktası görülmedi; duvara gölge düşürüyor"
     },
     {
@@ -3115,7 +3182,7 @@
     },
     {
      "t": "sign",
-     "u0": 8.0,
+     "u0": 8,
      "u1": 12.8,
      "y0": 29.83,
      "y1": 30.47,
@@ -3130,6 +3197,43 @@
      "logo": "parapet önünde beyaz 3B harfler; solunda (u 4.6–7.75, 29.63–30.8) beyaz zikzak dağ/çizgi logosu (çizilmedi)"
     }
    ]
+  }
+ ],
+ "volumes": [
+  {
+   "poly": [
+    [
+     623.66,
+     -765.5
+    ],
+    [
+     624.28,
+     -777.08
+    ],
+    [
+     614.28,
+     -777.6
+    ],
+    [
+     613.66,
+     -766
+    ]
+   ],
+   "y0": 5.7,
+   "y1": 7.45,
+   "color": "#2b2724",
+   "roofC": "#86878c",
+   "glazing": {
+    "edges": [
+     0
+    ],
+    "from": 6.05,
+    "to": 6.88,
+    "glass": "#0b0c0e",
+    "frame": "#2a2b2d",
+    "mullion": 2.05
+   },
+   "note": "D4-r3: destan çatı teras restoranı (kenar 13 u 4.6–16.2, dZQ2 f22). Doğu yüzü görüldü: koyu iç mekân + dikmeler (~2.05 m). Kuzey ucu ağaç arkasında (u 16.2 sonrası görülmedi); derinlik ≈10 m hava fotoğrafındaki koyu çatıdan (x≈613.5–623.5, kesin değil); diğer yüzler görülmedi (koyu)."
   }
  ]
 }

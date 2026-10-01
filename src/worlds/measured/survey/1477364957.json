@@ -203,17 +203,17 @@
      "t": "sign",
      "u0": 13.31,
      "u1": 19.81,
-     "y0": 5,
-     "y1": 5.87,
+     "y0": 4.82,
+     "y1": 6.05,
      "off": 1.02,
      "style": "letters",
      "d": 0.06,
      "fg": "#d23a3a",
      "font": "sans",
-     "bold": false,
+     "bold": true,
      "text": "ROSSMANN",
      "lit": true,
-     "logo": "O harfi kırmızı daire içinde beyaz stilize at-adam (kentaur) logosu (çizilmez; daire içi beyaz)",
+     "logo": "O harfi kırmızı daire içinde beyaz stilize at-adam (kentaur) logosu (çizilmez; daire içi beyaz) | D4-r3: harf kalınlığı fotoğrafta orta-kalın (qo16 180 yakın kırpık, gölgede #ac5953); kutu y capH 0.87 sığsın diye 1.23 m (üretici harfi kutu boyunun ≈%71’ine sınırlıyor)",
      "capH": 0.87
     },
     {
@@ -785,7 +785,7 @@
      "t": "sign",
      "u0": 0.2,
      "u1": 4.8,
-     "y0": 6.0,
+     "y0": 6,
      "y1": 7.4,
      "style": "letters",
      "d": 0.06,
@@ -964,10 +964,10 @@
     },
     {
      "t": "sign",
-     "u0": 23.8,
-     "u1": 28.2,
-     "y0": 7.2,
-     "y1": 7.8,
+     "u0": 30.8,
+     "u1": 36.8,
+     "y0": 5.27,
+     "y1": 6.26,
      "style": "letters",
      "d": 0.05,
      "fg": "#f0f0ee",
@@ -975,7 +975,7 @@
      "bold": true,
      "text": "STARBUCKS",
      "lit": true,
-     "logo": "rxGw karesinde yanında yeşil-beyaz yuvarlak siren logosu (Ø≈0.8 gerçek) görülüyor, konumu bu düzlemde kesinleşmedi → çizilmedi"
+     "logo": "rxGw karesinde yanında yeşil-beyaz yuvarlak siren logosu (Ø≈0.8 gerçek) görülüyor, konumu bu düzlemde kesinleşmedi → çizilmedi | D4-r3: harfler 2 katlı podyumun GÜNEYİNDEKİ tek katlı bölümün koyu alnında (rxGw 139_10_40 yakın kare: alın gerçek 4.49–5.95, harf merkezi ≈4.9, boy ≈0.55; gerçek u ≈18.2–21.6, kamera konumuna bağlı ±1.5)"
     },
     {
      "t": "sign",
@@ -1015,15 +1015,43 @@
      "split": 6,
      "frameC": "#3a3935",
      "tint": "#3c4448"
+    },
+    {
+     "t": "win",
+     "u0": 29.1,
+     "u1": 37.5,
+     "y0": 0.1,
+     "y1": 5.07,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 4,
+     "frameC": "#2e2c2a",
+     "curt": {
+      "K0": "vitrin"
+     }
+    },
+    {
+     "t": "panel",
+     "u0": 28.85,
+     "u1": 37.7,
+     "y0": 5.07,
+     "y1": 7.7,
+     "color": "#3f3e3f",
+     "proud": 0.08
     }
    ],
-   "note": "v8: batı podyum yüzü (taban izi e0 x≈671.4’e taşındı). Görünen koordinatlar dZQ2 ortofotosunda (eski düzlem x 679.8); podyum düzleminin gerçek kamera uzaklığı 16.8 (stereo, düzeltilmiş kamera x≈654.6) → büyütme 1.795; cal.u ve cal.head bu büyütmeden türetildi (sanal groundRaise 4.02: K0 lento 6.27, K1 9.19 gerçek). Dükkân camı, asma kat camı, lamelli saçak, koyu alın, BIGCHEFS / STARBUCKS kanal harfleri, çatı korkuluğunda ALTAY pankartı. Önündeki kırmızı BIGCHEFS şemsiyeleri, Starbucks tenteli teras çiti ve elektrik panosu kaldırım katmanında. | D4-C (2026-09-30): K1 asma kat camı kuzey ucta da sürüyor (u −1.5…7.9, üstü lamel saçak arkasında 12.4'e kadar görülüyor; yer yer dışa açılır vasistas kanatları) — eklendi. Fotoğrafta ayrı 'bronz' cam yok: koyu yansımalı cam (#3c4448), doğrama koyu."
+   "note": "v8: batı podyum yüzü (taban izi e0 x≈671.4’e taşındı). Görünen koordinatlar dZQ2 ortofotosunda (eski düzlem x 679.8); podyum düzleminin gerçek kamera uzaklığı 16.8 (stereo, düzeltilmiş kamera x≈654.6) → büyütme 1.795; cal.u ve cal.head bu büyütmeden türetildi (sanal groundRaise 4.02: K0 lento 6.27, K1 9.19 gerçek). Dükkân camı, asma kat camı, lamelli saçak, koyu alın, BIGCHEFS / STARBUCKS kanal harfleri, çatı korkuluğunda ALTAY pankartı. Önündeki kırmızı BIGCHEFS şemsiyeleri, Starbucks tenteli teras çiti ve elektrik panosu kaldırım katmanında. | D4-C (2026-09-30): K1 asma kat camı kuzey ucta da sürüyor (u −1.5…7.9, üstü lamel saçak arkasında 12.4'e kadar görülüyor; yer yer dışa açılır vasistas kanatları) — eklendi. Fotoğrafta ayrı 'bronz' cam yok: koyu yansımalı cam (#3c4448), doğrama koyu. | D4-r3 (2026-10-01, survey-c): rxGw 139_10_40 yakın karesinde 2 katlı podyum (K1 camı, lamel saçak, ALTAY pankartı) gerçek u≈17.1’de (z≈−761.9) bitiyor — kule güney yüzüyle aynı hat (hava fotoğrafı: kule çatı güney kenarı görüntü z −770.6, eğim düzeltmesi +8.6 → −762.0; cutEdges[0] notu ‘gerçek ≈22.8’ ile uyumlu). Güneyindeki şerit (z −761.9…−757) TEK katlı: koyu alın (#3f3e3f, gerçek 4.49–5.95) üstünde STARBUCKS harfleri, altında şemsiyeler + koyu cam. massing.towers[1] eklendi (duvar üstü 6.0, çatı açık bej #dbcfc0 hava fotoğrafı). Şeridin doğu kısmı (x>700) görülmedi."
   }
  ],
  "notes": [
   "KAT SAYISI DÜZELTMESİ: zemin (dükkân) + asma kat + 7 konut katı (K2–K8) = 9 kat, çatı plağı üstü ≈30.5 m + PV rafları (kuzey ve batı cephe tutarlı; batıda görünen büyüklük kamera ≈5.5 m daha yakın olduğu için). Taban izi notundaki \"≈12 kat / çatı ≈42 m\" görülmedi.",
   "Renkler bulutsuz güneşli-yarı gölge cephede: krem taş #b3b5b5 (gökyüzü yansımalı), tuğla pano #694838, balkon alnı koyu gri #62656b, saçak altı/balkon tavanı ahşap görünümlü kahve #654731 (tavanlarda dikdörtgen spotlar), cam korkuluk #657c93.",
-  "v8 (D4-v8): taban izi batıya podyum yüzüne (x≈671.4) genişletildi; massing: [0] kule (eski dikdörtgen, 9 kat), [1] batı podyum şeridi (2 kat, duvar üstü 10.3, parapet 0.7). Kule batı yüzü cutEdges[0]. KUZEY ÇEKİRDEK KONUMU (belirsiz, taban izi değiştirilmedi): önceki \"çekirdek 1.0 m geride\" sonucu pano index konumuyla hesaplanmıştı; qo16 dz −5.8 düzeltmesiyle aynı stereo çekirdeği ≈4 m KUZEYDE verir, hava fotoğrafı (düzeltilmiş kule yüksekliği 30.5 → eğim (−2.4,−8.6)) ≈1.3 m kuzeyde verir; iki kaynak ±3 m çelişiyor → kuzey kenar olduğu gibi bırakıldı."
+  "v8 (D4-v8): taban izi batıya podyum yüzüne (x≈671.4) genişletildi; massing: [0] kule (eski dikdörtgen, 9 kat), [1] batı podyum şeridi (2 kat, duvar üstü 10.3, parapet 0.7). Kule batı yüzü cutEdges[0]. KUZEY ÇEKİRDEK KONUMU (belirsiz, taban izi değiştirilmedi): önceki \"çekirdek 1.0 m geride\" sonucu pano index konumuyla hesaplanmıştı; qo16 dz −5.8 düzeltmesiyle aynı stereo çekirdeği ≈4 m KUZEYDE verir, hava fotoğrafı (düzeltilmiş kule yüksekliği 30.5 → eğim (−2.4,−8.6)) ≈1.3 m kuzeyde verir; iki kaynak ±3 m çelişiyor → kuzey kenar olduğu gibi bırakıldı.",
+  "D4-r3 (survey-c): kule güney yüzü taban izinin ≈4.9 m kuzeyine alındı (massing.towers[0] güney kenarı (678.79,−761.92)→(721.87,−759.95)); önceki dikdörtgen güneyde 9 katlı boş sıva şerit çiziyordu (v10 ‘açık gri levha’). Güney şerit tek katlı (towers[1]). Kule güney yüzü kesim duvarı öğesiz (hava fotoğrafında balkon şeritleri var, SV karesi yok → görülmedi)."
  ],
  "pending": [
   {
@@ -1290,12 +1318,12 @@
       -784.47
      ],
      [
-      678.56,
-      -756.92
+      678.79,
+      -761.92
      ],
      [
-      721.64,
-      -754.95
+      721.87,
+      -759.95
      ],
      [
       722.9,
@@ -1303,6 +1331,46 @@
      ]
     ],
     "storeys": 9
+   },
+   {
+    "poly": [
+     [
+      669,
+      -762.368
+     ],
+     [
+      669,
+      -750
+     ],
+     [
+      724,
+      -750
+     ],
+     [
+      724,
+      -759.853
+     ],
+     [
+      721.87,
+      -759.95
+     ],
+     [
+      678.79,
+      -761.92
+     ]
+    ],
+    "storeys": 1,
+    "wallTop": 6,
+    "roof": {
+     "kind": "flat",
+     "eave": 0.02,
+     "fasciaH": 0.05,
+     "parapet": {
+      "h": 0.1,
+      "color": "#3f3e3f"
+     },
+     "flatC": "#dbcfc0"
+    }
    },
    {
     "rest": true,

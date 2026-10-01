@@ -527,6 +527,12 @@ export interface CSign {
   bold: boolean;
   lit: boolean;
   outline?: string | null;
+  /** v11: ölçülen harf konturu kalınlığı (m, görünen dış kenar; verilmezse harf boyunun %6'sı) */
+  outlineW?: number | null;
+  /** v11: yazı ölçülen genişliği doldurur (capH ile birlikte; yatay genişletme ≤ 1.6, sıkıştırma ≥ 0.5) */
+  stretch?: boolean | null;
+  /** v11: eğik (italik) yazı */
+  italic?: boolean | null;
   shape?: string | null;
   icon?: string | null;
   iconC?: string | null;
@@ -621,6 +627,10 @@ export interface CUnit {
   side?: boolean;
   /** v7: kamera bakış yönü (derece): 0 = duvardan dışarı, +90 = cephe boyunca u1 yönüne, −90 = u0 yönüne */
   yaw?: number | null;
+  /** v11 (flag): ölçülen en / boy (m; verilmezse 1.1 × 1.3) ve cephe düzlemindeki eğim (derece, + → u1 ucu aşağı) */
+  w?: number | null;
+  h?: number | null;
+  tilt?: number | null;
 }
 export interface CPanel {
   t: 'band' | 'panel';
@@ -642,6 +652,9 @@ export interface CPanel {
   tile?: number | null;
   colors?: string[] | null;
   seq?: number[] | null;
+  /** v11: tuğla örgüsü (running: yarım kaydırmalı sıralar; tile en × tileH boy) */
+  bond?: string | null;
+  tileH?: number | null;
   /** v7: yüzey bitişi: acp (parlak kompozit panel), matte */
   finish?: string | null;
   /**
@@ -714,6 +727,8 @@ export interface SignText {
   join?: number | null;
   capH?: number | null;
   align?: string | null;
+  /** v11: eğik yazı */
+  italic?: boolean | null;
 }
 /**
  * v7: bayrak (cepheye dik, çift yüzlü) tabela: duvardaki u, y0..y1, pano duvardan gap'ten gap + w'ye, kalınlık d;
@@ -755,7 +770,12 @@ export interface CRoofSign extends SignText {
   y1: number;
   setback: number;
   d: number;
-  frame?: { color?: string | null; h?: number; posts?: number } | null;
+  /**
+   * v11: `under: true` — iskelet yalnız harflerin ALTINDA (dikmeler harf alt kotunda biter, harf arkası kuşak yok);
+   * fotoğrafta dikmeler harflerin arasından görünmüyorsa (900000203 TAŞYAKAN, sswNcGS2_0_0). Verilmezse eski iskelet
+   * (dikmeler harf üstüne kadar, harf arkasında kuşaklar).
+   */
+  frame?: { color?: string | null; h?: number; posts?: number; under?: boolean } | null;
 }
 /** v7: LED ekran (gece parlak): u0..u1 × y0..y1, kutu derinliği d, çerçeve rengi, görülen içerik rengi / yazısı */
 export interface CScreen extends SignText {
@@ -1183,6 +1203,12 @@ export interface SignSpec {
   h: number;
   lines?: { text: string; fg?: string; size?: number; bold?: boolean; y?: number }[] | null;
   outline?: string | null;
+  /** v11: harf konturu kalınlığı (m) */
+  outlineW?: number | null;
+  /** v11: yazı ölçülen genişliği doldurur (capH ile birlikte; yatay genişletme ≤ 1.6, sıkıştırma ≥ 0.5) */
+  stretch?: boolean | null;
+  /** v11: eğik (italik) yazı */
+  italic?: boolean | null;
   shape?: string | null;
   icon?: string | null;
   iconC?: string | null;
@@ -1853,17 +1879,9 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
       voidOps.get(v.id)!.push({ ...op, edge: i });
     }
     openings[i] = openings[i].filter((op) => !inVoid(i, (op.u0 + op.u1) / 2, op.k));
-    // Çakışan açıklıkları ayıkla (ölçüm hatası)
-    openings[i].sort((p, q) => p.y0 - q.y0 || p.u0 - q.u0);
-    const keep: Opening[] = [];
-    for (const op of openings[i])
-      if (
-        !keep.some(
-          (q) => q.u1 > op.u0 + 0.02 && q.u0 < op.u1 - 0.02 && q.y1 > op.y0 + 0.02 && q.y0 < op.y1 - 0.02,
-        )
-      )
-        keep.push(op);
-    openings[i] = keep;
+    // Çakışan açıklıkları ayıkla (ölçüm hatası). v11: dükkân camının İÇİNDEKİ açıklık (vitrin içi kapı) atılmaz —
+    // cam kapının çevresinde parçalanır (splitAround); kısmi çakışma eskisi gibi atılır (survey-compile uyarır)
+    openings[i] = resolveOpenings(openings[i]);
   }
 
   // ── Duvar girintileri (çok katlı loca, girintili dükkân hattı, merdiven kovası, kapı yuvası) ──
@@ -2711,7 +2729,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         }
         if (v.it.glazed.includes(k)) {
           const tint = v.it.tint[kk];
-          const tn = tint === 'green' ? 1 : tint === 'dark' ? 2 : tint === 'blinds' ? 3 : 0;
+          const tn = tintCode(tint);
           const [pp0, qq0] = [po0, qo0];
           const { y0: gy0, inset } = camGlassSpan(rs, y);
           const [pp, qq] = insetSeg(pp0, qq0, inset);
@@ -2819,7 +2837,11 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
               `tiles:${Math.round(Math.max(0.03, it.tile ?? 0.2) * 1000) / 1000}:${it.colors
                 .filter((c) => /^#[0-9a-f]{6}$/i.test(c))
                 .map((c) => c.toLowerCase())
-                .join(',')}:${(it.seq ?? []).join('.')}`,
+                .join(',')}:${(it.seq ?? []).join('.')}${
+                it.bond === 'running'
+                  ? `:running:${Math.round(Math.max(0.02, it.tileH ?? 0.1) * 1000) / 1000}`
+                  : ''
+              }`,
               /^#[0-9a-f]{6}$/i.test(it.color) ? it.color : '#e8e6e0',
               dflt0,
             )
@@ -3168,7 +3190,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         balByStorey.get(k)!.push({
           poly: rect(0),
           glazed: it.glazed.includes(k),
-          tint: tint === 'green' ? 1 : tint === 'dark' ? 2 : tint === 'blinds' ? 3 : 0,
+          tint: tintCode(tint),
           edge: i,
           rail: railSpecOf(it, k),
           fk: ck('frame', it.frameC?.[String(k)] ?? it.frameC?.['*'], 'mkRail'),
@@ -4206,6 +4228,13 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
           g.rotateY(E[i].yaw);
           g.translate(c[0], base + (it.y0 + it.y1) / 2, c[1]);
           b.geometry(ck('fascia', it.border ?? it.bg, 'mkRail'), g);
+        } else if (it.shape === 'pill' && !letters) {
+          // v11: hap (stadyum) kutu: uç yarıçapı yükseklik / 2, kalınlık d (yan yüz kenar / zemin rengi)
+          const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
+          b.geometry(
+            ck('fascia', it.border ?? it.bg, 'mkRail'),
+            pillGeometry(w, h, d, E[i].yaw, c, base + (it.y0 + it.y1) / 2),
+          );
         } else if (!letters) {
           const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
           const side = ck('fascia', it.border ?? it.bg, 'mkRail');
@@ -7489,12 +7518,30 @@ function unit(b: Builder, E: Edge, P: PFn, i: number, it: CUnit, yFloor: number,
       );
     }
   } else if (it.t === 'flag') {
-    const off = it.onBal ? 1.45 : 0.1;
-    const c0 = P(i, it.u - 0.55, off);
-    const c1 = P(i, it.u + 0.55, off);
+    const off = it.off != null ? it.off : it.onBal ? 1.45 : 0.1;
     const y = yFloor + (it.y ?? 1.0);
-    b.wall('mkFlag', c0, c1, y - 1.3, y, [0, 0, 1, 1]);
-    b.wall('mkFlag', c1, c0, y - 1.3, y, [1, 0, 0, 1]);
+    if (it.w == null && it.h == null && !it.tilt) {
+      const c0 = P(i, it.u - 0.55, off);
+      const c1 = P(i, it.u + 0.55, off);
+      b.wall('mkFlag', c0, c1, y - 1.3, y, [0, 0, 1, 1]);
+      b.wall('mkFlag', c1, c0, y - 1.3, y, [1, 0, 0, 1]);
+    } else {
+      // v11: ölçülen boy (w × h, m) ve eğim (tilt°, + → u1 ucu aşağı; sol üst köşe etrafında, cephe düzleminde):
+      // pencere içi küçük bayrak / eğik flama (survey-c 1552992538). Verilmeyen boy eski 1.1 × 1.3.
+      const W = Math.max(0.1, it.w ?? 1.1);
+      const Hh = Math.max(0.1, it.h ?? 1.3);
+      const t = ((it.tilt ?? 0) * Math.PI) / 180;
+      const uL = it.u - W / 2;
+      const pt = (du: number, dv: number): V3 => {
+        const ru = du * Math.cos(t) + dv * Math.sin(t);
+        const rv = -du * Math.sin(t) + dv * Math.cos(t);
+        const q = P(i, uL + ru, off);
+        return [q[0], y + rv, q[1]];
+      };
+      const [p0, p1, p2, p3] = [pt(0, -Hh), pt(W, -Hh), pt(W, 0), pt(0, 0)];
+      b.quad('mkFlag', p0, p1, p2, p3, [0, 0, 1, 1]);
+      b.quad('mkFlag', p1, p0, p3, p2, [1, 0, 0, 1]);
+    }
     void seed;
   }
 }
@@ -7784,4 +7831,109 @@ function hippedRoof(b: Builder, r: V2[], y: number, eave: number, pitchDeg: numb
       Math.atan2(-(r1[1] - r0[1]), r1[0] - r0[0]),
     );
   return ry;
+}
+
+/**
+ * v11: hap (stadyum) biçimli tabela kutusu: w × h, uç yarıçapı min(w, h) / 2, kalınlık d; yerel x kenar boyunca, z
+ * duvar normali (b.box ile aynı çerçeve), merkez c (dünya x / z) ve yc kotunda.
+ */
+export function pillGeometry(
+  w: number,
+  h: number,
+  d: number,
+  yaw: number,
+  c: V2,
+  yc: number,
+): THREE.BufferGeometry {
+  const r = Math.min(w, h) / 2;
+  const hx = w / 2 - r;
+  const hy = h / 2 - r;
+  const sh = new THREE.Shape();
+  sh.moveTo(-hx, -h / 2);
+  sh.lineTo(hx, -h / 2);
+  sh.absarc(hx, hy > 0 ? -hy : 0, r, -Math.PI / 2, 0, false);
+  if (hy > 0) sh.lineTo(w / 2, hy);
+  sh.absarc(hx, hy > 0 ? hy : 0, r, 0, Math.PI / 2, false);
+  sh.lineTo(-hx, h / 2);
+  sh.absarc(-hx, hy > 0 ? hy : 0, r, Math.PI / 2, Math.PI, false);
+  if (hy > 0) sh.lineTo(-w / 2, -hy);
+  sh.absarc(-hx, hy > 0 ? -hy : 0, r, Math.PI, (3 * Math.PI) / 2, false);
+  const g = new THREE.ExtrudeGeometry(sh, { depth: d, bevelEnabled: false, curveSegments: 10 });
+  g.translate(0, 0, -d / 2);
+  g.rotateY(yaw);
+  g.translate(c[0], yc, c[1]);
+  return g;
+}
+
+/** Açıklık b, a'nın içinde mi (2 cm pay) */
+function openingInside(b: Opening, a: Opening): boolean {
+  return b.u0 >= a.u0 - 0.02 && b.u1 <= a.u1 + 0.02 && b.y0 >= a.y0 - 0.02 && b.y1 <= a.y1 + 0.02;
+}
+
+/**
+ * v11 (survey-b): çakışan açıklıkları çöz. Önceden (y0, u0) sırasıyla ilk gelen kalıyor, çakışan sonraki sessizce
+ * atılıyordu: aynı denizlikli vitrinin içindeki kapı kayboluyordu (1550614219 e6 / e9, 1551814316 e4 / e8,
+ * 1551828351 e18). Şimdi: dükkân camı (kind shop) içindeki açıklık korunur, cam onun çevresinde parçalara bölünür
+ * (sol / sağ tam boy, üstte / altta kapı genişliğinde cam — 10 cm'den dar parça çizilmez); kalan (kısmi) çakışmalar
+ * eskisi gibi atılır (ölçüm hatası; survey-compile uyarı verir). Çakışmayan açıklıklar aynen kalır.
+ */
+export function resolveOpenings(list: Opening[]): Opening[] {
+  const ops = list.slice().sort((p, q) => p.y0 - q.y0 || p.u0 - q.u0);
+  const over = (q: Opening, op: Opening) =>
+    q.u1 > op.u0 + 0.02 && q.u0 < op.u1 - 0.02 && q.y1 > op.y0 + 0.02 && q.y0 < op.y1 - 0.02;
+  let keep: Opening[] = [];
+  for (const op of ops) {
+    const hits = keep.filter((q) => over(q, op));
+    if (!hits.length) {
+      keep.push(op);
+      continue;
+    }
+    // Tek dükkân camının içinde (ya da op dükkân camı ve çakışanların hepsi onun içinde): böl
+    if (
+      hits.length === 1 &&
+      hits[0].win.kind === 'shop' &&
+      op.win.kind !== 'shop' &&
+      openingInside(op, hits[0])
+    ) {
+      keep = keep.filter((q) => q !== hits[0]).concat(splitAround(hits[0], [op]), [op]);
+      continue;
+    }
+    if (op.win.kind === 'shop' && hits.every((q) => q.win.kind !== 'shop' && openingInside(q, op))) {
+      keep.push(...splitAround(op, hits));
+      continue;
+    }
+  }
+  return keep;
+}
+
+/** Dükkân camını (a) içindeki açıklıkların (holes, a'nın içinde) çevresinde dikdörtgen parçalara böl */
+function splitAround(a: Opening, holes: Opening[]): Opening[] {
+  const MIN = 0.1;
+  const hs = holes.slice().sort((p, q) => p.u0 - q.u0);
+  const out: Opening[] = [];
+  // Kat döşemesi kotu parçalarda korunur (yatay kayıtlar / kemer üzengisi açıklığın alt kenarından türetiliyor)
+  const fy = a.fy ?? a.y0 - Math.max(0.02, a.win.sill);
+  const piece = (u0: number, u1: number, y0: number, y1: number) => {
+    if (u1 - u0 >= MIN && y1 - y0 >= MIN) out.push({ ...a, u0, u1, y0, y1, fy });
+  };
+  let u = a.u0;
+  for (const h of hs) {
+    piece(u, Math.max(u, h.u0), a.y0, a.y1);
+    const hu0 = Math.max(a.u0, h.u0);
+    const hu1 = Math.min(a.u1, h.u1);
+    piece(hu0, hu1, Math.min(a.y1, h.y1), a.y1);
+    piece(hu0, hu1, a.y0, Math.max(a.y0, h.y0));
+    u = Math.max(u, hu1);
+  }
+  piece(u, a.u1, a.y0, a.y1);
+  return out;
+}
+
+/**
+ * Cam balkon görünüm kodu (camGlass gölgelendiricisi aux.y): 0 clear (koyu iç + mavi gök), 1 green, 2 dark, 3 blinds,
+ * v11 4 light — açık renk iç / nötr gri yansıma (fotoğrafta camın ardı açık gri görünen kapalı balkon; GY1l
+ * 1544934694 K3 #a4aaa8, varsayılan clear oyunda #8693a8 mavi).
+ */
+export function tintCode(t: string | undefined): number {
+  return t === 'green' ? 1 : t === 'dark' ? 2 : t === 'blinds' ? 3 : t === 'light' ? 4 : 0;
 }

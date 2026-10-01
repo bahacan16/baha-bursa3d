@@ -826,16 +826,17 @@
      "t": "sign",
      "u0": 10.9,
      "u1": 16.3,
-     "y0": 3.9,
-     "y1": 4.5,
+     "y0": 3.92,
+     "y1": 4.56,
      "text": "BURGER KING",
      "fg": "#e2e4e0",
      "style": "letters",
      "d": 0.1,
      "font": "sans",
      "bold": true,
-     "capH": 0.55,
-     "lit": true
+     "capH": 0.62,
+     "lit": true,
+     "note": "D4 r3 (2026-10-01): NkuAAQDM ortofotosu (40 px/m): harfler u 10.9–16.3, alt 3.93, üst 4.55 → büyük harf 0.62 (önceki 0.55). Gerçek yazı tipi geniş (genişlik/boy 8.6); sans kalın yazı 0.62 boyda ≈4.7 m tutar — u0..u1 genişliğine yayma üreticide yok (needs code)."
     },
     {
      "t": "sign",
@@ -1154,7 +1155,26 @@
     },
     {
      "t": "win",
-     "u0": 21.4,
+     "u0": 21.8,
+     "u1": 26.8,
+     "y0": 1.4,
+     "y1": 3.3,
+     "k": 0,
+     "s": [
+      0,
+      0
+     ],
+     "kind": "shop",
+     "split": 7,
+     "frameC": "#2b2b2a",
+     "curt": {
+      "K0": "vitrin"
+     },
+     "note": "D4 r3 (2026-10-01): kafe camı 21.4 → 21.8 (addax camıyla 0.3 m çakışıyordu → üretici çakışan açıklığı atıyor, kafe cephesi beyaz duvar çiziliyordu) ve kapının iki yanına bölündü (kapıyla da çakışıyordu). 1Re88 ortofotosu: cam addax gümüş dikmesinden sonra başlar."
+    },
+    {
+     "t": "win",
+     "u0": 27.7,
      "u1": 32.1,
      "y0": 1.4,
      "y1": 3.3,
@@ -1168,7 +1188,8 @@
      "frameC": "#2b2b2a",
      "curt": {
       "K0": "vitrin"
-     }
+     },
+     "note": "D4 r3: kafe camı kapının kuzeyi (bkz. üstteki not)"
     },
     {
      "t": "panel",
@@ -1257,16 +1278,17 @@
      "t": "sign",
      "u0": 16.4,
      "u1": 19.6,
-     "y0": 3.8,
-     "y1": 4.5,
+     "y0": 3.83,
+     "y1": 4.66,
      "text": "addax",
      "fg": "#eceeec",
      "style": "letters",
      "d": 0.08,
      "font": "sans",
      "bold": false,
-     "capH": 0.5,
-     "lit": true
+     "capH": 0.8,
+     "lit": true,
+     "note": "D4 r3 (2026-10-01): 1Re88 ortofotosu (40 px/m, ön düzlem): harfler u 16.44–19.6, alt 3.83, d/x üst (çıkıntı) 4.66 → harf boyu 0.83 (x-yüksekliği 0.56); önceki capH 0.5 harfleri %60 küçük çiziyordu. Harfler teras korkuluğunun (koyu çubuklar) önünde."
     },
     {
      "t": "sign",
@@ -1283,6 +1305,15 @@
      "bold": false,
      "lit": true,
      "logo": "kahve ahşap lamelli pano üstünde altın el yazısı; okunan harfler N-a-c ve o, l-u; 4. ve 6. harf seçilemedi"
+    },
+    {
+     "t": "band",
+     "u0": 3.1,
+     "u1": 32.1,
+     "y0": 3.75,
+     "y1": 4.0,
+     "color": "#3c403e",
+     "note": "D4 r3 (2026-10-01): 1Re88 ortofotosu: dükkân alın bantlarının üstü (3.75) doğrudan teras korkuluğunun koyu çubukları + 9 m gerideki gri ACP (çubuk #252629, ara #56615c, bulutlu; ortalama #3c403e). Podyum parçasının duvar üstü 4.0 olduğundan 3.75–4.0 arası beyaz sıva kalıyordu (eleştirmen: addax altında beyaz bölge). Doğu podyumunun gerçek teras kotu ≈3.8 (güneyde 3.95) — kütle kotu tüm kenarlarda ortak olduğundan yalnız bu kenarda bant."
     }
    ],
    "note": "DOĞU cephe kuzey kısmı (bulvar), 2025-09, 1Re88 (D 16.2) + lc7D. Zemin kat: giriş saçağı (u 0–3.1, bkz. volumes), Vivaldi kış bahçesi (ahşap alt pano, ışık zinciri), addax (vitrin, gümüş doğrama), kafe \"Nac…o…lu\" (kara tahta alt panolar, üstte ahşap lamelli teras korkuluğu), KD köşede beyaz duvar + siyah ferforje korkuluk (geçit). Üst kutu terasın 9.0 m gerisinde (−9 m arka düzlem); dama hücreleri örneklendi (? = ağaç arkası). u ±2 m."

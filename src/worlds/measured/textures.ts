@@ -1103,7 +1103,9 @@ export function roadSignTexture(
     | 'noleft'
     | 'stop'
     | 'notruck'
-    | 'arrowPlate',
+    | 'arrowPlate'
+    | 'noparking'
+    | 'nostopping',
 ): THREE.Texture {
   const S = 256;
   const [c, g] = canvas(S, S);
@@ -1123,6 +1125,34 @@ export function roadSignTexture(
     g.lineTo(S - 92, S / 2 - 32);
     g.lineTo(S - 92, S / 2 + 32);
     g.fill();
+    return tex(c, false);
+  }
+  if (kind === 'noparking' || kind === 'nostopping') {
+    // Park etmek yasaktır (TT-36): mavi disk, kırmızı çember, sol üstten sağ alta kırmızı çapraz; "duraklamak ve park
+    // etmek yasaktır": iki çapraz (X). KARAR: çizim oranı TS standardından (çember ≈ çapın %10'u, çapraz ≈ %10)
+    g.fillStyle = '#c8102e';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 6, 0, Math.PI * 2);
+    g.fill();
+    g.fillStyle = '#1f4ea8';
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 30, 0, Math.PI * 2);
+    g.fill();
+    g.save();
+    g.beginPath();
+    g.arc(S / 2, S / 2, S / 2 - 20, 0, Math.PI * 2);
+    g.clip();
+    g.strokeStyle = '#c8102e';
+    g.lineWidth = 26;
+    g.beginPath();
+    g.moveTo(S * 0.15, S * 0.15);
+    g.lineTo(S * 0.85, S * 0.85);
+    if (kind === 'nostopping') {
+      g.moveTo(S * 0.85, S * 0.15);
+      g.lineTo(S * 0.15, S * 0.85);
+    }
+    g.stroke();
+    g.restore();
     return tex(c, false);
   }
   if (kind === 'notruck') {
@@ -1403,6 +1433,30 @@ function drawIcon(
     g.arc(-s * 0.05, -s * 0.04, s * 0.045, 0, Math.PI * 2);
     g.arc(s * 0.05, -s * 0.03, s * 0.045, 0, Math.PI * 2);
     g.fill();
+  } else if (kind === 'wheat') {
+    // v11: başak (Ziraat Bankası amblemi, stilize): düşey sap + 5 çift yukarı açılı tane + tepe tanesi.
+    // KARAR: tane sayısı / açısı amblemin genel görünüşünden (çözünürlükte tek tek sayılamadı)
+    g.lineCap = 'round';
+    g.lineWidth = s * 0.05;
+    g.beginPath();
+    g.moveTo(0, s * 0.46);
+    g.lineTo(0, -s * 0.3);
+    g.stroke();
+    const grain = (x: number, y: number, a: number) => {
+      g.save();
+      g.translate(x, y);
+      g.rotate(a);
+      g.beginPath();
+      g.ellipse(0, -s * 0.07, s * 0.045, s * 0.1, 0, 0, Math.PI * 2);
+      g.fill();
+      g.restore();
+    };
+    for (let k = 0; k < 5; k++) {
+      const y = s * 0.22 - k * s * 0.13;
+      grain(-s * 0.02, y, -0.55);
+      grain(s * 0.02, y, 0.55);
+    }
+    grain(0, -s * 0.36, 0);
   } else if (kind === 'star') {
     g.beginPath();
     for (let k = 0; k < 10; k++) {
@@ -1431,6 +1485,15 @@ export interface SignDraw {
   style?: string;
   /** Harf konturu (ör. mavi harf + beyaz kontur) */
   outline?: string | null;
+  /** v11: harf konturu kalınlığı (m, harfin dışında görünen); verilmezse harf boyunun %6'sı (eski) */
+  outlineW?: number | null;
+  /**
+   * v11: yazı tabela genişliğini doldurur (ölçülen capH ile; yatay genişletme en çok SIGN_STRETCH_MAX): geniş
+   * yazı tipli tabelalar (BURGER KING en / boy 8.6, Arial kalın 7.6)
+   */
+  stretch?: boolean | null;
+  /** v11: eğik (italik) yazı (ör. Mariza) */
+  italic?: boolean | null;
   /** 'round': yuvarlak rozet (zemin daire) */
   shape?: string | null;
   /** Basit simge (metnin solunda): fish | tooth | star; renk icC */
@@ -1456,35 +1519,50 @@ export interface SignDraw {
  * başsız Chromium'da hiç yok (cursive → düz sans). Türkçe ı/ğ/ş latin-ext alt kümesinde.
  */
 export const SCRIPT_FONT = 'Courgette';
+/**
+ * v11: dar tabela yazı tipi (`font: "condensed"`). KARAR: paketlenmiş Roboto Condensed 400 / 700 (OFL 1.1,
+ * public/fonts/) — "Arial Narrow" yalnız Windows / Office'te var; başsız Chromium'da DejaVu Sans'a (Arial'dan geniş)
+ * düşüyordu, ölçülen harf boyu sığmayınca küçülüyordu (HASKÖYÜM / BOĞA / ARMILLA, IDAS / MOT).
+ */
+export const CONDENSED_FONT = 'Roboto Condensed';
 let fontsReady: Promise<void> | null = null;
 /** Tabela atlası çizilmeden önce paketlenmiş yazı tiplerini yükle (tarayıcı dışında / hata olursa sessizce geç) */
 export function loadSignFonts(base: string): Promise<void> {
   if (typeof document === 'undefined' || typeof FontFace === 'undefined' || !document.fonts)
     return Promise.resolve();
+  const RANGES: Record<string, string> = {
+    latin:
+      'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
+    'latin-ext':
+      'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
+  };
+  const faces: [string, string, string, string][] = [];
+  for (const sub of ['latin', 'latin-ext']) {
+    faces.push([SCRIPT_FONT, `courgette-${sub}-400.woff2`, RANGES[sub], '400']);
+    for (const w of ['400', '700'])
+      faces.push([CONDENSED_FONT, `roboto-condensed-${sub}-${w}.woff2`, RANGES[sub], w]);
+  }
   fontsReady ??= Promise.all(
-    [
-      [
-        'latin',
-        'U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD',
-      ],
-      [
-        'latin-ext',
-        'U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF',
-      ],
-    ].map(async ([sub, range]) => {
+    faces.map(async ([family, file, range, weight]) => {
       try {
-        const f = new FontFace(SCRIPT_FONT, `url(${base}fonts/courgette-${sub}-400.woff2)`, {
-          unicodeRange: range,
-          weight: '400',
-        });
+        const f = new FontFace(family, `url(${base}fonts/${file})`, { unicodeRange: range, weight });
         document.fonts.add(await f.load());
       } catch {
-        /* yazı tipi yüklenemedi → sistem el yazısı yedeği */
+        /* yazı tipi yüklenemedi → sistem yedeği */
       }
     }),
   ).then(() => undefined);
   return fontsReady;
 }
+
+/**
+ * v11: ölçülen harf boyu (capH) korunurken izin verilen en dar yatay sıkıştırma. KARAR: 0.5 — dar tabela yazı
+ * tiplerinin (Roboto Condensed / Arial Narrow ≈ 0.82, ultra dar ≈ 0.6) altı; daha dar ölçüm büyük olasılıkla u
+ * aralığı hatası → yazı küçülür.
+ */
+export const SIGN_SQUEEZE_MIN = 0.5;
+/** v11: `stretch` tabelalarda en geniş yatay genişletme (KARAR: geniş yazı tipleri ≈ 1.3; üstü ölçüm hatası) */
+export const SIGN_STRETCH_MAX = 1.6;
 
 /** Tabela yazı ailesi (canvas font listesi) */
 export const famOf = (font: string) =>
@@ -1493,7 +1571,7 @@ export const famOf = (font: string) =>
     : font === 'script'
       ? `"${SCRIPT_FONT}", "Brush Script MT", "Segoe Script", cursive`
       : font === 'condensed'
-        ? '"Arial Narrow", "Roboto Condensed", Arial, sans-serif'
+        ? `"${CONDENSED_FONT}", "Arial Narrow", Arial, sans-serif`
         : 'Arial, Helvetica, sans-serif';
 
 /** Renk blokları (0..1 oranında, alt sol köşe 0,0) */
@@ -1541,7 +1619,27 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
   }
   const oval = o.shape === 'oval';
   const round = o.shape === 'round' || oval;
-  if (round) {
+  // v11: hap / stadyum biçimi (uç yarıçapı yükseklik / 2): zemin + kenar biçimde, köşeler saydam
+  const pill = o.shape === 'pill';
+  if (pill) {
+    const lw = o.border ? Math.max(4, Math.min(W, H) * 0.06) : 0;
+    const r = Math.min(W, H) / 2 - 2 - lw / 2;
+    g.beginPath();
+    g.roundRect(2 + lw / 2, 2 + lw / 2, W - 4 - lw, H - 4 - lw, r);
+    if (o.bg) {
+      g.fillStyle = o.bg;
+      g.fill();
+    }
+    g.save();
+    g.clip();
+    drawBlocks(g, W, H, o.blocks);
+    g.restore();
+    if (o.border) {
+      g.strokeStyle = o.border;
+      g.lineWidth = lw;
+      g.stroke();
+    }
+  } else if (round) {
     // Yuvarlak rozet / oval (elips) tabela: zemin (+ kenar), köşeler saydam
     const r = Math.min(W, H) / 2 - 2;
     g.beginPath();
@@ -1584,7 +1682,7 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
   if (o.glyphs?.length) {
     // Monogram: harfler yan yana, `join` oranında bindirilir; ayna harfler yatay çevrilir
     const fs = capPx ?? H * 0.78;
-    g.font = `${o.bold ? 'bold ' : ''}${fs}px ${fam}`;
+    g.font = `${o.italic ? 'italic ' : ''}${o.bold ? 'bold ' : ''}${fs}px ${fam}`;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
     g.fillStyle = o.fg;
@@ -1615,11 +1713,15 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
     const sumRel = rel.reduce((a, v) => a + v, 0);
     let unit = (H - pad * 2) / sumRel / 1.15;
     // v7: ölçülen harf boyu (sığmıyorsa bölge yüksekliğine kadar)
-    if (capPx) unit = Math.min(capPx, H / sumRel / 1.02);
+    // v11 (survey-c): tek satırda ölçülen harf boyu kazanır — büyük harfler bölge yüksekliğini doldurabilir (em ≤
+    // H / 0.74 → büyük harf ≤ 0.97 H); önceden em ≤ H / 1.02 sınırı capH = kutu boyu olan tabelaları ölçünün
+    // ≈%71'ine indiriyordu (MONS, ROSSMANN, BIGCHEFS, Juan Valdez). Çok satırlıda satır aralığı için eski sınır.
+    if (capPx) unit = Math.min(capPx, rows.length === 1 ? H / sumRel / 0.74 : H / sumRel / 1.02);
     const al = o.align === 'left' || o.align === 'right' ? o.align : 'center';
     g.textAlign = al;
     g.textBaseline = 'middle';
-    const fontOf = (k: number) => `${(rows[k].bold ?? o.bold) ? 'bold ' : ''}${unit * rel[k]}px ${fam}`;
+    const fontOf = (k: number) =>
+      `${o.italic ? 'italic ' : ''}${(rows[k].bold ?? o.bold) ? 'bold ' : ''}${unit * rel[k]}px ${fam}`;
     const widest = () =>
       Math.max(
         ...rows.map((r, k) => {
@@ -1627,25 +1729,42 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
           return g.measureText(r.text).width;
         }),
       );
-    const avail = (round ? W * 0.72 : W - x0) - pad * 2;
-    while (widest() > avail && unit > 4) unit *= 0.92;
+    // v11: hap biçiminde uç yarım dairelerinin yarısı yazı alanı dışında
+    const cap = pill ? Math.min(W, H) * 0.25 : 0;
+    const avail = (round ? W * 0.72 : W - x0 - 2 * cap) - pad * 2;
+    // v11: ölçülen harf boyu (capH) varsa yazı önce yatay sıkıştırılır (dar yazı tipi; harf boyu korunur), en çok
+    // SIGN_SQUEEZE_MIN'e kadar; daha da sığmıyorsa eskisi gibi küçülür. Önceden yalnız küçülüyordu: dar tabela
+    // harfleri (Ohannes "BURGER" 1.1 m / capH 0.28, HASKÖYÜM, IDAS) ölçülenin %55–65'ine iniyordu (critic d4b r3 N5).
+    let sx = 1;
+    if (capPx) {
+      const wd = widest();
+      if (wd > avail) sx = Math.max(SIGN_SQUEEZE_MIN, avail / wd);
+      else if (o.stretch && wd > 1) sx = Math.min(SIGN_STRETCH_MAX, avail / wd);
+    }
+    while (widest() * sx > avail && unit > 4) unit *= 0.92;
     let y = H / 2 - (unit * sumRel * 1.15) / 2 + (round && o.icon ? H * 0.1 : 0);
-    const cx = al === 'left' ? x0 + pad : al === 'right' ? W - pad : x0 + (W - x0) / 2;
+    const cx = al === 'left' ? x0 + pad + cap : al === 'right' ? W - pad - cap : x0 + (W - x0) / 2;
     rows.forEach((r, k) => {
       const lh = unit * rel[k] * 1.15;
       g.font = fontOf(k);
       // v7: satır merkezi ölçülmüşse (y: alttan 0..1) orada
       const ly = (r as { y?: number }).y;
       const yc = ly != null && ly >= 0 && ly <= 1 ? (1 - ly) * H : y + lh / 2;
+      g.save();
+      g.translate(cx, 0);
+      if (sx !== 1) g.scale(sx, 1);
       if (o.outline) {
         // Harf konturu (fotoğraftaki beyaz/koyu kenar)
         g.strokeStyle = o.outline;
         g.lineJoin = 'round';
-        g.lineWidth = Math.max(2, unit * rel[k] * 0.12);
-        g.strokeText(r.text, cx, yc);
+        // Kontur ortalı çizilir, iç yarısını dolgu örter → görünen kalınlık lineWidth / 2
+        const ow = o.outlineW != null && o.outlineW > 0 && o.h > 0.01 ? ((2 * o.outlineW) / o.h) * H : null;
+        g.lineWidth = ow != null ? Math.max(2, ow) : Math.max(2, unit * rel[k] * 0.12);
+        g.strokeText(r.text, 0, yc);
       }
       g.fillStyle = r.fg ?? o.fg;
-      g.fillText(r.text, cx, yc);
+      g.fillText(r.text, 0, yc);
+      g.restore();
       y += lh;
     });
   }

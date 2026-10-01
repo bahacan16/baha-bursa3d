@@ -107,5 +107,6 @@ cami konumlarından, Diyanet yöntemiyle hesaplanan vakitlerde ezan (Esc → Ses
 - Sesler: Freesound ve BigSoundBank kayıtları, **CC0 / CC BY** — başlık, yazar, lisans ve bağlantılar
   `public/sounds/ATTRIBUTION.md`'de (oyunda Esc → Ses düzeyi → "kaynaklar").
 - Tabela el yazısı yazı tipi: **Courgette** (Sorkin Type Co), SIL Open Font License 1.1 — `public/fonts/Courgette-OFL.txt`.
+- Tabela dar yazı tipi: **Roboto Condensed** (Google), SIL Open Font License 1.1 — `public/fonts/RobotoCondensed-OFL.txt`.
 - Ortam gölgelemesi: [N8AO](https://github.com/N8python/n8ao) (MIT).
 - Draco çözücü: Google, Apache-2.0 (three.js ile gelir).

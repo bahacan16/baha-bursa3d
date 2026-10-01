@@ -1491,8 +1491,8 @@
      "t": "band",
      "u0": 3.35,
      "u1": 19.25,
-     "y0": 3.3,
-     "y1": 3.62,
+     "y0": 3.62,
+     "y1": 3.8,
      "color": "#3f423e",
      "proud": 0.1
     },
@@ -1500,10 +1500,11 @@
      "t": "band",
      "u0": 3.35,
      "u1": 19.25,
-     "y0": 3.62,
-     "y1": 4.2,
+     "y0": 3.8,
+     "y1": 4.4,
      "color": "#e6e3da",
-     "proud": 0.08
+     "proud": 0.08,
+     "note": "D4 r3 (2026-10-01): e16 ortofotosu: pergola örtüsü (beyaz panel #d9d4d2) 3.8–4.4, altında koyu çerçeve 3.67–3.8; dikmeler u 3.8 / 7.8 / 11.6 / 15.3 / 19.0. Önünde 0.4–3.4 sık koyu yeşil çit (sokak katmanı)."
     },
     {
      "t": "pilaster",
@@ -3797,7 +3798,8 @@
      "font": "sans",
      "bold": true,
      "logo": "kalın geniş kırmızı harf, düz (kabartma görülmedi); gece görülmedi; D4 düzeltmesi: harf boyu 0lpk e16 f22 ortofotosundan ölçüldü (görünen u 8.46–14.28, y 6.64–8.06 → gerçek u 7.7–13.95, y 6.95–8.48): harfler kutuyu doldurur → capH 1.53 (önceden üretici harfleri kutu içinde ≈%60 küçük çiziyordu)",
-     "capH": 1.53
+     "capH": 1.4,
+     "note": "D4 r3 (2026-10-01): e16 ortofotosu (40 px/m, e16 düzlemi; bu yüz 0.93 ölçekli): harf boyu görünen 1.3 → gerçek 1.4, genişlik 5.8 → 6.25 m. capH yazılmamıştı → harfler kutu içinde ≈%60 boyda çiziliyordu. Harfler çok kalın (siyah ağırlık) — kalınlık üretici (needs code)."
     }
    ]
   },
@@ -3840,7 +3842,7 @@
     },
     {
      "t": "bal",
-     "u0": 8.1,
+     "u0": 10.0,
      "u1": 12.1,
      "d": 0,
      "inset": 1.2,
@@ -3857,7 +3859,72 @@
      "fasciaC": {
       "*": "#e2e1da"
      },
-     "sides": "wall"
+     "sides": "wall",
+     "note": "D4 r3 (2026-10-01): 0lpk 6_27_22 yakın planı: loca sütunu iki parçalı — solda (u 8.1–10.0) cephe düzleminde aşı/kum rengi DOLU pano, sağda (u 10.0–12.1) gömük loca (koyu iç, cam korkuluk); genişlik oranı 60:57 px. Önceden locanın tamamı 4 m sayılıyor, arka duvara beyaz sıva + otomatik kapı çiziliyordu."
+    },
+    {
+     "t": "panel",
+     "u0": 8.1,
+     "u1": 10.0,
+     "y0": 10.0,
+     "y1": 12.68,
+     "color": "#a88a5e",
+     "proud": 0.01,
+     "note": "D4 r3 (2026-10-01): loca yanındaki aşı/kum rengi pano, her katta beyaz döşeme alınları arasında (0lpk 6_27_22; 0lpk 0_0 gölgeli örnek #856b4a, güneşli tahmin #a88a5e). Kat kotları parça 2 ızgarası (K2 9.95 + 3.05 k); bant kalınlığı ≈0.35 yakın plandan."
+    },
+    {
+     "t": "panel",
+     "u0": 8.1,
+     "u1": 10.0,
+     "y0": 13.05,
+     "y1": 15.73,
+     "color": "#a88a5e",
+     "proud": 0.01
+    },
+    {
+     "t": "panel",
+     "u0": 8.1,
+     "u1": 10.0,
+     "y0": 16.1,
+     "y1": 18.78,
+     "color": "#a88a5e",
+     "proud": 0.01
+    },
+    {
+     "t": "panel",
+     "u0": 8.1,
+     "u1": 10.0,
+     "y0": 19.15,
+     "y1": 21.83,
+     "color": "#a88a5e",
+     "proud": 0.01
+    },
+    {
+     "t": "panel",
+     "u0": 8.1,
+     "u1": 10.0,
+     "y0": 22.2,
+     "y1": 24.88,
+     "color": "#a88a5e",
+     "proud": 0.01
+    },
+    {
+     "t": "panel",
+     "u0": 8.1,
+     "u1": 10.0,
+     "y0": 25.25,
+     "y1": 27.93,
+     "color": "#a88a5e",
+     "proud": 0.01
+    },
+    {
+     "t": "panel",
+     "u0": 8.1,
+     "u1": 10.0,
+     "y0": 28.3,
+     "y1": 31.0,
+     "color": "#a88a5e",
+     "proud": 0.01
     }
    ]
   },

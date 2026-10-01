@@ -392,7 +392,11 @@ export function signKeysOf(t: string): string[] {
   if (/kamyon giremez|no truck|no lorr/.test(t)) keys.push('signNoTruck');
   // "Mecburi bisiklet yolu sonu": kırmızı çapraz bantlı
   if (/bisiklet|bike|cycle/.test(t)) keys.push(/\bsonu\b|\bend\b/.test(t) ? 'signBikeEnd' : 'signBike');
-  if (/park/.test(t)) keys.push('signP');
+  // v11: "park etmek yasaktır" (mavi disk, kırmızı çember + tek çapraz) — önceden /park/ mavi P karesi çiziyordu
+  // (critic d4b r3 N8, d4-kp-noparking). "Duraklamak ve park etmek yasaktır" çift çapraz (X).
+  if (/park (etmek )?yasak|park edilmez|no parking|duraklamak ve park/.test(t))
+    keys.push(/duraklamak ve park|no stopping/.test(t) ? 'signNoStopping' : 'signNoParking');
+  else if (/park/.test(t)) keys.push('signP');
   if (/girilmez|no entry/.test(t)) keys.push('signNoEntry');
   if (/sola dönülmez|no left/.test(t)) keys.push('signNoLeft');
   if (/\bdur\b|\bstop\b/.test(t)) keys.push('signStop');
@@ -435,6 +439,21 @@ export const ROAD_FLUSH_BIKE = 0.092;
 
 /** Yol tonu varsayılanı (OSM roadFill ortalaması, sRGB) */
 const ROAD_TONE = '#8a8b88';
+/** Varsayılan yol boyası (spPaint, sRGB) */
+const PAINT_WHITE = '#eeeeea';
+
+/**
+ * v11: solmuş yol boyası — sRGB'de yol tonuna (ROAD_TONE) `fade` (0..1) oranında karışım. Ölçüm: aynı karede güneşli
+ * boya / asfalt oranı; oyunda asfalt ≈ ROAD_TONE olduğundan oran korunur (SkO2cvAJ_0_-50: #d8d4c8 / #a7a498 = 1.29 →
+ * fade ≈ 0.6).
+ */
+export function fadePaint(hex: string, fade: number): string {
+  const f = Math.max(0, Math.min(1, fade));
+  const a = parseInt(hex.slice(1), 16);
+  const b = parseInt(ROAD_TONE.slice(1), 16);
+  const ch = (sh: number) => Math.round(((a >> sh) & 255) * (1 - f) + ((b >> sh) & 255) * f);
+  return `#${((ch(16) << 16) | (ch(8) << 8) | ch(0)).toString(16).padStart(6, '0')}`;
+}
 
 function roadDetail(
   b: Builder,
@@ -1883,10 +1902,14 @@ function buildStreet(
       b.geometry('spConcrete', g);
     }
   };
-  /** Yol boyası: renk (verilmezse beyaz spPaint) + aşınma 0..1 (gürültü alfa, kademe 1–3) */
-  const paintKeyOf = (hex: string | undefined, wear: number | undefined) => {
+  /**
+   * Yol boyası: renk (verilmezse beyaz spPaint) + aşınma 0..1 (gürültü alfa, kademe 1–3). v11: `fade` 0..1 — solmuş /
+   * kirlenmiş boya: renk yol tonuna doğru karışır (pul pul kopma değil, düşük kontrast; critic d4c r3 #13)
+   */
+  const paintKeyOf = (hex: string | undefined, wear: number | undefined, fade?: number) => {
     const wl = Math.min(3, Math.round(Math.max(0, Math.min(1, wear ?? 0)) * 4));
-    const col = hex && /^#[0-9a-f]{6}$/i.test(hex) ? hex : null;
+    const col0 = hex && /^#[0-9a-f]{6}$/i.test(hex) ? hex : null;
+    const col = fade != null && fade > 0 && ext.colorKey ? fadePaint(col0 ?? PAINT_WHITE, fade) : col0;
     if (!col || !ext.colorKey) return wl > 0 ? `spPaintWear${wl}` : 'spPaint';
     // colorKey `wear<k>` alfa eşiği [0.62, 0.5, 0.38] (k = örtülen pay); boyanın `wear` kadarı eksik → k = 4 − wl
     return wl > 0 ? ext.colorKey(`wear${4 - wl}` as 'wear1', col) : ext.colorKey('asphalt', col);
@@ -2005,11 +2028,14 @@ function buildStreet(
         const si = Math.sin(yaw);
         const small = h < 1.5;
         const hw = small ? 0.16 : 0.33;
-        if (!small) b.cylinder('pole', [s.x, y - 0.05, s.z], 0.035, h, 8);
+        // v11: ölçülen direk çapı `poleD` (m; ör. kalın galvaniz direk d4-kp-noparking ≈0.2); yoksa 7 cm
+        const poleD = (s as { poleD?: number }).poleD;
+        const pr = typeof poleD === 'number' && poleD > 0.02 && poleD < 0.6 ? poleD / 2 : 0.035;
+        if (!small) b.cylinder('pole', [s.x, y - 0.05, s.z], pr, h, pr > 0.05 ? 16 : 8);
         let top = small ? y + h + 0.2 : y + h - 0.04;
         // Levha direğin ÖNÜNDE (yüz normali (sin, cos) yönünde direk yarıçapı + 1.5 cm): önceden levha direk ekseninde
         // çiziliyordu → direk levha yüzünün önünden geçiyordu (critic M2 #5, KD ada bisiklet levhası)
-        const fo = small ? 0 : 0.05;
+        const fo = small ? 0 : Math.max(0.05, pr + 0.015);
         const fx = si * fo;
         const fz = co * fo;
         const plateH = (key: string) =>
@@ -2692,13 +2718,14 @@ function buildStreet(
           dash?: [number, number];
           color?: string;
           wear?: number;
+          fade?: number;
         };
         const pts = rl.pts ?? [];
         if (pts.length < 2) break;
         const w = Math.max(0.05, Math.min(1, rl.w ?? (rl.style === 'giveway' ? 0.4 : 0.3)));
         const [on, off] =
           rl.dash ?? (rl.style === 'giveway' ? [0.5, 0.5] : rl.style === 'dashed' ? [3, 5] : [1e6, 0]);
-        const key = paintKeyOf(rl.color, rl.wear);
+        const key = paintKeyOf(rl.color, rl.wear, rl.fade);
         let phase = 0;
         for (let i = 0; i + 1 < pts.length; i++) {
           const a = pts[i];
@@ -2766,6 +2793,8 @@ function buildStreet(
           w?: number;
           stripes?: string;
           wear?: number;
+          /** v11: solmuş boya 0..1 (yol tonuna karışım) */
+          fade?: number;
           /** Şerit rengi (#hex) ya da dönüşümlü renkler (ör. sarı-beyaz: ["#d9b53a", "#e8e8e4"]) */
           color?: string | string[];
           /** Şeritlerin altında boyalı zemin (ör. kırmızı: Özlüce kuzey kolu) */
@@ -2773,7 +2802,7 @@ function buildStreet(
         };
         // Aşınmış boya (ölçülmüşse 0..1): gürültü alfa eşiğiyle boyanın o kadarı eksik
         const cols = Array.isArray(cr.color) ? cr.color : cr.color ? [cr.color] : [undefined];
-        const paintKs = cols.map((c) => paintKeyOf(c, cr.wear));
+        const paintKs = cols.map((c) => paintKeyOf(c, cr.wear, cr.fade));
         // v8: bağlı aşınma kaydı (d4r-wear-*: `crossing` = bu geçidin id'si, `amount`) → şerit başına tekerlek izi
         // aşınması. KARAR: şerit düzeni ölçülmedi → geçidin başından 3.25 m şeritler, izler şerit ortasının ±0.85 m'si
         // (0.45 m yarı genişlik); izdeki şerit amount × 1.8, izin dışındaki amount × 0.4 (deterministik)
@@ -2785,7 +2814,7 @@ function buildStreet(
           const local = (((o + len0 / 2) % 3.25) + 3.25) % 3.25;
           const inTrack = Math.min(Math.abs(local - 0.775), Math.abs(local - 2.475)) < 0.45;
           const wk = Math.max(cr.wear ?? 0, Math.min(1, inTrack ? wa * 1.8 : wa * 0.4));
-          return paintKeyOf(cols[k % cols.length], wk);
+          return paintKeyOf(cols[k % cols.length], wk, cr.fade);
         };
         const len = cr.len ?? 4;
         const w = cr.w ?? 3;
