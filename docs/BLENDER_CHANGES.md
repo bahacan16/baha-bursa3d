@@ -938,3 +938,10 @@
   (Mertkent-2, Doğan Avcıoğlu, D4; 135/40, 150/45, 165/48, 180/50) 135 ve 150 bulvara fotoğraflarda olmayan büyük
   gölgeler düşürüyordu. Dosya: `src/env/daylight.ts`. **Blender:** güneş lambası az 165°, yükseklik 48° (pişirilmiş
   dolaylı ışık güneşten bağımsız, yeniden pişirme gerekmez).
+- **(D4 2. tur, üretici özellikleri)** — Çit rengi (Özdemiroğlu #2f5529, GY1l #849246), Kırmıkıl doğu pavyonu önü açık
+  (`open`), Özlüce Blv. z −445…−392 kesikli şerit yok (`noDash`), "Mandıra" ve tüm el yazısı tabelalar Courgette yazı
+  tipiyle (`public/fonts/`, OFL), refüj mor fidanları seyrek (`leafKeep` 0.4), 1477364957 / 900000261 K1 ofis cam bandı
+  koyu cam (beyaz tül değil), renkli cam yansıması ×5. Dosyalar: `facade.ts`, `facadeMats.ts`, `index.ts`, `siteplan.ts`,
+  `streetFurniture.ts`, `textures.ts`, `osm/roads.ts`, `osm/treelib.ts`, `park-plan.json`, `street-plan.json`.
+  **Blender:** `materials.py` çit malzemesi renk varyantları, ofis camı (koyu oda, orta yansıma), renkli cam yansıması
+  düşük; `NW/Measured/Facades` el yazısı tabelalar (Courgette); `NW/Roads` 306909263 / 303430966; `NW/Trees` refüj fidanları.

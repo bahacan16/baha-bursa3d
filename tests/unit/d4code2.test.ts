@@ -10,6 +10,14 @@ import { buildRoads, inNoDash } from '../../src/worlds/osm/roads';
 import type { Road } from '../../src/worlds/osm/parse';
 import { ChunkedGeometry } from '../../src/worlds/osm/chunks';
 import { SPECIES_DEFS, thinCards } from '../../src/worlds/osm/treelib';
+import {
+  glassEnvUniform,
+  OFFICE_ENV,
+  officeEnvUniform,
+  tintEnvUniform,
+  windowGlassMaterial,
+  withGlassEnv,
+} from '../../src/worlds/measured/facadeMats';
 
 type Bucket = { pos: number[]; idx: number[] };
 const buckets = (b: Builder) => (b as unknown as { buckets: Map<string, Bucket> }).buckets;
@@ -252,7 +260,35 @@ describe('D4 kod r2 #6: üst kat perdesiz çıkma şerit camı', () => {
     expect(projWinKind({ kind: 'glassband', curt: null, y0: 5.9, y1: 20.35, u0: 0, u1: 12 })).toBe(0);
     // zemin vitrini kuralı önce
     expect(projWinKind({ kind: 'std', curt: null, y0: 0.21, y1: 4.62, u0: 0.18, u1: 8.92 })).toBe(7);
+    expect(PROJ_BAND_KIND).toBe(9);
+    // açık perde adı (survey düzeyi seçenek) aynı türü verir
+    expect(projWinKind({ kind: 'std', curt: 'ofis', y0: 6, y1: 8, u0: 0, u1: 2 })).toBe(9);
     // u verilmeyen eski çağrı
     expect(projWinKind({ kind: 'std', curt: null, y0: 6, y1: 8 })).toBe(0);
+  });
+});
+
+describe('D4 kod r2 #6/#7: ofis şerit camı ve renkli cam yansıma çarpanları', () => {
+  const fake = () => ({
+    uniforms: {} as Record<string, unknown>,
+    vertexShader: '#include <common>\n#include <uv_vertex>',
+    fragmentShader:
+      'void main() {\n#include <common>\n#include <color_fragment>\n#include <aomap_fragment>\n#include <emissivemap_fragment>',
+  });
+  it('pencere camı: tür 9 kendi çarpanıyla (ofis), diğer türler değişmez', () => {
+    expect(officeEnvUniform.value).toBe(OFFICE_ENV);
+    const sh = fake();
+    windowGlassMaterial().onBeforeCompile(sh as never, {} as never);
+    expect(sh.uniforms.uOfficeEnv).toBe(officeEnvUniform);
+    expect(sh.fragmentShader).toContain('kind > 8.5 && kind < 9.5) ? uOfficeEnv');
+  });
+  it('tint camı tintEnvUniform alır (×9 değil), varsayılan etiket eski çarpanda', () => {
+    expect(tintEnvUniform.value).toBeLessThan(glassEnvUniform.value);
+    const sh = fake();
+    withGlassEnv(new THREE.MeshStandardMaterial(), 'tint').onBeforeCompile(sh as never, {} as never);
+    expect(sh.uniforms.uGlassEnv).toBe(tintEnvUniform);
+    const sh2 = fake();
+    withGlassEnv(new THREE.MeshStandardMaterial()).onBeforeCompile(sh2 as never, {} as never);
+    expect(sh2.uniforms.uGlassEnv).toBe(glassEnvUniform);
   });
 });

@@ -84,7 +84,7 @@ const ellipsoid =
  * sapmasıyla çeşitlenir.
  */
 /** KARAR: mor fidan taç sıklığı — fotoğraf / oyun karşılaştırmasıyla seçildi (d4code2 sayfası) */
-const LEAF_KEEP_SAPLING_PURPLE = 0.6;
+const LEAF_KEEP_SAPLING_PURPLE = 0.4;
 
 export const SPECIES_DEFS: Record<SpeciesKey, SpeciesDef> = {
   deciduous: {

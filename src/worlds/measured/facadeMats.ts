@@ -182,13 +182,23 @@ const qnum = (k: string, d: number) => {
  * KARAR: 9 → 43 e8 / DA 556 camları Street View gök tonuna en yakın (compare.tmp.mjs, docs/BLENDER_CHANGES.md).
  */
 export const glassEnvUniform = { value: qnum('glassenv', 9) };
+/**
+ * v10: renkli / giydirme camı (`tint`, index.ts colorKey 'tint') gök yansıması çarpanı; önceden glassEnvUniform (9).
+ * Ölçüm (D4, güneşli 2025-09 kareleri, q=high; oyun ×9 / ×0 render farkıyla cam pikselleri ayrıldı):
+ * Tv5e 60 1476599910 K1 camı fotoğraf #73817a–#7b887c, oyun ×9 #a5aca8, ×0 #616f68; 7gxX 120 1552093106 zemin cam
+ * kutusu #608171–#658478, ×9 #84888b, ×0 #172124 → ikisi de ×9'da parlak (Tv5e doğrusal ≈2 kat). Yansımanın az
+ * pay aldığı bantlar (hdpF 60 Elite #666d64 / ×9 #29455d / ×0 #274049; 7gxX kule şeridi #385967 / ×9 #1f3b5b)
+ * çarpandan bağımsız koyu (gövde tonu sorunu, çarpan düzeltmez). KARAR: 5 — iki parlak yüzeyin doğrusal
+ * kestiriminin ortası (Tv5e ≈2.2, 7gxX ≈7 ister); `?tintenv=` dener.
+ */
+export const tintEnvUniform = { value: qnum('tintenv', 5) };
 /** Camın arkasındaki odanın (tül/perde) güneşle aydınlanan payı — kalanı sabit ışıma (cephe yönünden bağımsız) */
 export const glassDiffUniform = { value: qnum('glassdiff', 0.4) };
 /**
  * v8 (gün ışığı kalibrasyonu, güneşli 2025-09 Street View): pencere / cam balkon camı gök yansıması çarpanı ve
  * gündüz oda (perde / tül) payı. Ölçüm: cam #7f91a4 / #778799, oyun #8f9296 / #65686d (b* +15…+23 sıcak/nötr) —
  * normal bakışta oda rengi baskın, gök yansıması kayıptı. Doğrusal ayrıştırma (oyun = oda + gök, gök ≈ ufuk mavisi):
- * gök ×≈5, oda ×≈0.2 → #8290a3. KARAR: vitrin / giydirme camı (`tint`) eski çarpanda (ölçülmedi). `?winenv=`,
+ * gök ×≈5, oda ×≈0.2 → #8290a3. KARAR: vitrin camı eski çarpanda; giydirme camı (`tint`) v10 tintEnvUniform. `?winenv=`,
  * `?winroom=` dener.
  */
 // v8b (2026-09-30): ×45 / oda ×0.2 D4 ve DA karelerinde doygun mavi verdi (oyun #3e619c / #335185, fotoğraf tül
@@ -212,6 +222,15 @@ export const windowRoomUniform = { value: qnum('winroom', 0.7) };
 // yansıtır. Aynı karelerde 9 / 3 / 1.5 / 0.7 / 0 denendi (dbg tune1): yalnız iç ışıma #2d–#30, 0.7 #34–#3a. KARAR:
 // 0.4 + vitrin içi ×0.5 (shopRoomUniform) → #24–#2c, eğik bakışta Fresnel yansıması kalır.
 export const shopEnvUniform = { value: qnum('shopenv', 0.4) };
+/** Ofis şerit camı gök yansıması çarpanı (officeEnvUniform varsayılanı) */
+export const OFFICE_ENV = 6;
+/**
+ * v10: perdesiz ofis şerit camı (pencere türü 9; podyum asma katı, facade.ts PROJ_BAND_KIND): iç karanlık, gök
+ * yansıması kendi çarpanında. Fotoğrafta bant karşı cepheyi yansıtır (qo16 180 #747a6b, sd8u 180 #6b7163); ortam
+ * haritası açık gök → pencere çarpanıyla (×14) #aaabae, tül (eski) #c6c7c9. KARAR: çarpan karşılaştırma
+ * render'larıyla seçildi (d4code2 sayfası). `?officeenv=` dener.
+ */
+export const officeEnvUniform = { value: qnum('officeenv', OFFICE_ENV) };
 /** Vitrin (tür 7) iç mekân parlaklık çarpanı (gündüz loş dükkân içi; perde ve oda türlerine dokunmaz). `?shoproom=` */
 export const shopRoomUniform = { value: qnum('shoproom', 0.5) };
 
@@ -228,7 +247,9 @@ export function withGlassEnv<M extends THREE.Material>(m: M, tag = 'g'): M {
           ? camEnvUniform
           : tag === 'shop'
             ? shopEnvUniform
-            : glassEnvUniform;
+            : tag === 'tint'
+              ? tintEnvUniform
+              : glassEnvUniform;
     sh.fragmentShader = sh.fragmentShader
       .replace('#include <common>', '#include <common>\nuniform float uGlassEnv;')
       .replace(
@@ -323,6 +344,9 @@ vec3 roomColor(float seed, float kind, vec2 uv, float W, float Hh, vec3 cc, floa
     col = mix(mix(room, zc * 0.96, 0.55), zc, band);
   } else if (kind < 6.5) {
     col = room * 0.6;
+  } else if (kind > 8.5) {
+    // v10 ofis şerit camı (perdesiz, iç karanlık; görünen ton çoğunlukla yansıma)
+    col = room * 0.8;
   } else if (kind > 7.5) {
     // Fon perde (kalın): iki yandan kapanır (cf, varsayılan tamamen kapalı), dikey kıvrımlı; arada loş oda + tül
     float f = cf >= 0.0 ? cf : 1.0;
@@ -360,7 +384,7 @@ if (kind > 9.5) {
 vec3 rc = roomColor(seed, kind, vWUv, max(vAux.z, 0.3), max(vAux.w, 0.3), cc, cf);
 if (kind > 6.5 && kind < 7.5) rc *= uShopRoom;
 // Vitrin (tür 7): gök çarpanı pencereninki değil, vitrininki (uGlassEnv × glassMask = uShopEnv)
-float glassMask = (kind > 6.5 && kind < 7.5) ? uShopEnv / max(uGlassEnv, 1e-3) : 1.0;
+float glassMask = (kind > 6.5 && kind < 7.5) ? uShopEnv / max(uGlassEnv, 1e-3) : (kind > 8.5 && kind < 9.5) ? uOfficeEnv / max(uGlassEnv, 1e-3) : 1.0;
 // Oda camın ARKASINDA: güneş cepheye vursa da odanın yalnız bir kısmını aydınlatır (önceden tamamı boyalı yüzey
 // gibi güneşle aydınlanıyor, tül beyaz-gri görünüyordu) → aydınlanan pay uGlassDiff, kalanı sabit ışıma
 // v8: gündüz oda payı (uWinRoom) — gece yanan odalar tam
@@ -378,12 +402,13 @@ totalEmissiveRadiance += rc * (0.12 * roomK + (1.0 - uNight) * (1.0 - uGlassDiff
     sh.uniforms.uWinRoom = windowRoomUniform;
     sh.uniforms.uShopEnv = shopEnvUniform;
     sh.uniforms.uShopRoom = shopRoomUniform;
+    sh.uniforms.uOfficeEnv = officeEnvUniform;
     sh.fragmentShader = sh.fragmentShader.replace(
       'uniform float uNight;',
-      'uniform float uNight;\nuniform float uGlassDiff;\nuniform float uWinRoom;\nuniform float uShopEnv;\nuniform float uShopRoom;',
+      'uniform float uNight;\nuniform float uGlassDiff;\nuniform float uWinRoom;\nuniform float uShopEnv;\nuniform float uShopRoom;\nuniform float uOfficeEnv;',
     );
   };
-  m.customProgramCacheKey = () => 'mk-winglass-v9';
+  m.customProgramCacheKey = () => 'mk-winglass-v10';
   withGlassEnv(m, 'win');
   m.userData.noReceive = true;
   m.userData.noCast = true;

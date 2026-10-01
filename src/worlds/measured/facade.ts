@@ -1126,6 +1126,8 @@ const CURT: Record<string, number> = {
   vitrin: 7,
   /** Kalın fon perde (renk curtC, kapanma curtF; varsayılan tamamen kapalı) */
   fon: 8,
+  /** v10: perdesiz ofis camı (iç karanlık, yansıma ofis çarpanında — facadeMats officeEnvUniform) */
+  ofis: 9,
 };
 
 /**
@@ -1156,10 +1158,11 @@ export function projWinKind(wn: {
  * v10: üst kat perdesiz çıkma penceresi şerit cam (podyum asma katı ofis bandı) eşiği. KARAR: ölçülmüş tüm çıkma
  * pencerelerinde konut / dükkân camı ≤ 3.4 m (900000101), ≥ 6 m tek parça şerit yalnız podyum K1 bantlarında
  * (1477364957 31.8 m, 900000261 36.7 m; qo16 180 / sd8u 180: koyu yansıtıcı ofis camı #6b7163–#75796c, tül yok) →
- * tül yerine karanlık oda (perdesiz, iç görünmez; yansıma pencere camı çarpanıyla). Perde ölçülmüşse ölçüm kazanır.
+ * tül yerine ofis camı (tür 9 `ofis`: iç karanlık, gök yansıması ofis çarpanında — pencere çarpanı ×14 ile #aaabae
+ * kalıyordu). Perde ölçülmüşse ölçüm kazanır.
  */
 export const PROJ_BAND_W = 6;
-export const PROJ_BAND_KIND = 4;
+export const PROJ_BAND_KIND = 9;
 
 function hash(n: number): number {
   const s = Math.sin(n * 12.9898) * 43758.5453;

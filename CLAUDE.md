@@ -385,6 +385,12 @@ Tiles kurulumu, anahtar yönetimi, BVH çarpışma, spawn/dondurma, kapsam kontr
   gereksiz kare çekilmez (hedef bina/cephe başına planlanır). D4 Özlüce Bulvarı kuzeyi (→ Muammer Aksoy Cd. kavşağı,
   z ≈ −805): bbox 530,-850,760,-60; hava paftaları `streetview-src/aerial-n1`, `aerial-n2`.
 
+- **Üretici D4 2. tur (2026-10-01):** park/site çit hatlarında `color` (doku ortalamasına bölünen çarpan; güneşli ton
+  albedo sayılır); kış bahçesinde `open: [kenar | {edge,u0,u1}]` (cam/ara dikme yok, iç ve çatı kalır); `roads[].noDash`
+  (yalnız kesikli çizgiler, z/x aralığı ya da poligon); `font: "script"` paketlenmiş Courgette (OFL) ile — tüm el yazısı
+  tabelalar, el yazısı varsayılan kalın değil; tür başına `leafKeep` (sapling-purple 0.4); perdesi ölçülmemiş ≥6 m
+  izdüşüm pencere bandı "ofis" camı (kind 9, yansıma ×6); renkli cam yansıması ×9 → ×5, vitrin ×0.4.
+- Gündüz güneşi 165° / 48° (2026-10-01, 4 açı × 10 görünüm karşılaştırması; 135° / 40° fotoğrafta olmayan gölgeler).
 - Geometri doğrudan malzeme kovalarında biriktirilir (mergeGeometries'e eşdeğer).
 - Etiketsiz araç yollarına iki yanlı kaldırım; zemin katında dükkan varsa +0.9 m.
 - Yol köprüleri yükseltilmez (rampa/çarpışma karmaşası); ray köprüleri 7 m + 140 m rampa.
