@@ -531,6 +531,8 @@ export interface CSign {
   outlineW?: number | null;
   /** v11: yazı ölçülen genişliği doldurur (capH ile birlikte; yatay genişletme ≤ 1.6, sıkıştırma ≥ 0.5) */
   stretch?: boolean | null;
+  /** v11: eğik (italik) yazı */
+  italic?: boolean | null;
   shape?: string | null;
   icon?: string | null;
   iconC?: string | null;
@@ -625,6 +627,10 @@ export interface CUnit {
   side?: boolean;
   /** v7: kamera bakış yönü (derece): 0 = duvardan dışarı, +90 = cephe boyunca u1 yönüne, −90 = u0 yönüne */
   yaw?: number | null;
+  /** v11 (flag): ölçülen en / boy (m; verilmezse 1.1 × 1.3) ve cephe düzlemindeki eğim (derece, + → u1 ucu aşağı) */
+  w?: number | null;
+  h?: number | null;
+  tilt?: number | null;
 }
 export interface CPanel {
   t: 'band' | 'panel';
@@ -646,6 +652,9 @@ export interface CPanel {
   tile?: number | null;
   colors?: string[] | null;
   seq?: number[] | null;
+  /** v11: tuğla örgüsü (running: yarım kaydırmalı sıralar; tile en × tileH boy) */
+  bond?: string | null;
+  tileH?: number | null;
   /** v7: yüzey bitişi: acp (parlak kompozit panel), matte */
   finish?: string | null;
   /**
@@ -718,6 +727,8 @@ export interface SignText {
   join?: number | null;
   capH?: number | null;
   align?: string | null;
+  /** v11: eğik yazı */
+  italic?: boolean | null;
 }
 /**
  * v7: bayrak (cepheye dik, çift yüzlü) tabela: duvardaki u, y0..y1, pano duvardan gap'ten gap + w'ye, kalınlık d;
@@ -1196,6 +1207,8 @@ export interface SignSpec {
   outlineW?: number | null;
   /** v11: yazı ölçülen genişliği doldurur (capH ile birlikte; yatay genişletme ≤ 1.6, sıkıştırma ≥ 0.5) */
   stretch?: boolean | null;
+  /** v11: eğik (italik) yazı */
+  italic?: boolean | null;
   shape?: string | null;
   icon?: string | null;
   iconC?: string | null;
@@ -2716,7 +2729,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         }
         if (v.it.glazed.includes(k)) {
           const tint = v.it.tint[kk];
-          const tn = tint === 'green' ? 1 : tint === 'dark' ? 2 : tint === 'blinds' ? 3 : 0;
+          const tn = tintCode(tint);
           const [pp0, qq0] = [po0, qo0];
           const { y0: gy0, inset } = camGlassSpan(rs, y);
           const [pp, qq] = insetSeg(pp0, qq0, inset);
@@ -2824,7 +2837,11 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
               `tiles:${Math.round(Math.max(0.03, it.tile ?? 0.2) * 1000) / 1000}:${it.colors
                 .filter((c) => /^#[0-9a-f]{6}$/i.test(c))
                 .map((c) => c.toLowerCase())
-                .join(',')}:${(it.seq ?? []).join('.')}`,
+                .join(',')}:${(it.seq ?? []).join('.')}${
+                it.bond === 'running'
+                  ? `:running:${Math.round(Math.max(0.02, it.tileH ?? 0.1) * 1000) / 1000}`
+                  : ''
+              }`,
               /^#[0-9a-f]{6}$/i.test(it.color) ? it.color : '#e8e6e0',
               dflt0,
             )
@@ -3173,7 +3190,7 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         balByStorey.get(k)!.push({
           poly: rect(0),
           glazed: it.glazed.includes(k),
-          tint: tint === 'green' ? 1 : tint === 'dark' ? 2 : tint === 'blinds' ? 3 : 0,
+          tint: tintCode(tint),
           edge: i,
           rail: railSpecOf(it, k),
           fk: ck('frame', it.frameC?.[String(k)] ?? it.frameC?.['*'], 'mkRail'),
@@ -7501,12 +7518,30 @@ function unit(b: Builder, E: Edge, P: PFn, i: number, it: CUnit, yFloor: number,
       );
     }
   } else if (it.t === 'flag') {
-    const off = it.onBal ? 1.45 : 0.1;
-    const c0 = P(i, it.u - 0.55, off);
-    const c1 = P(i, it.u + 0.55, off);
+    const off = it.off != null ? it.off : it.onBal ? 1.45 : 0.1;
     const y = yFloor + (it.y ?? 1.0);
-    b.wall('mkFlag', c0, c1, y - 1.3, y, [0, 0, 1, 1]);
-    b.wall('mkFlag', c1, c0, y - 1.3, y, [1, 0, 0, 1]);
+    if (it.w == null && it.h == null && !it.tilt) {
+      const c0 = P(i, it.u - 0.55, off);
+      const c1 = P(i, it.u + 0.55, off);
+      b.wall('mkFlag', c0, c1, y - 1.3, y, [0, 0, 1, 1]);
+      b.wall('mkFlag', c1, c0, y - 1.3, y, [1, 0, 0, 1]);
+    } else {
+      // v11: ölçülen boy (w × h, m) ve eğim (tilt°, + → u1 ucu aşağı; sol üst köşe etrafında, cephe düzleminde):
+      // pencere içi küçük bayrak / eğik flama (survey-c 1552992538). Verilmeyen boy eski 1.1 × 1.3.
+      const W = Math.max(0.1, it.w ?? 1.1);
+      const Hh = Math.max(0.1, it.h ?? 1.3);
+      const t = ((it.tilt ?? 0) * Math.PI) / 180;
+      const uL = it.u - W / 2;
+      const pt = (du: number, dv: number): V3 => {
+        const ru = du * Math.cos(t) + dv * Math.sin(t);
+        const rv = -du * Math.sin(t) + dv * Math.cos(t);
+        const q = P(i, uL + ru, off);
+        return [q[0], y + rv, q[1]];
+      };
+      const [p0, p1, p2, p3] = [pt(0, -Hh), pt(W, -Hh), pt(W, 0), pt(0, 0)];
+      b.quad('mkFlag', p0, p1, p2, p3, [0, 0, 1, 1]);
+      b.quad('mkFlag', p1, p0, p3, p2, [1, 0, 0, 1]);
+    }
     void seed;
   }
 }
@@ -7892,4 +7927,13 @@ function splitAround(a: Opening, holes: Opening[]): Opening[] {
   }
   piece(u, a.u1, a.y0, a.y1);
   return out;
+}
+
+/**
+ * Cam balkon görünüm kodu (camGlass gölgelendiricisi aux.y): 0 clear (koyu iç + mavi gök), 1 green, 2 dark, 3 blinds,
+ * v11 4 light — açık renk iç / nötr gri yansıma (fotoğrafta camın ardı açık gri görünen kapalı balkon; GY1l
+ * 1544934694 K3 #a4aaa8, varsayılan clear oyunda #8693a8 mavi).
+ */
+export function tintCode(t: string | undefined): number {
+  return t === 'green' ? 1 : t === 'dark' ? 2 : t === 'blinds' ? 3 : t === 'light' ? 4 : 0;
 }

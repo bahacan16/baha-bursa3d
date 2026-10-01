@@ -65,6 +65,7 @@ function regionKey(sg: SignSpec): string {
     sg.capH != null ? Math.round((sg.capH / Math.max(0.01, sg.h)) * 50) : null,
     sg.align ?? null,
     sg.stretch ? 1 : null,
+    sg.italic ? 1 : null,
     sg.halo && (sg.haloPad ?? 0) > 0
       ? [sg.halo, Math.round(((sg.haloPad ?? 0) / Math.max(0.01, sg.h)) * 50)]
       : null,

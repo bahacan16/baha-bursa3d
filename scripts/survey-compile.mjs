@@ -200,6 +200,7 @@ async function main() {
         ...(it.glyphs ? { glyphs: it.glyphs, join: it.join ?? null } : {}),
         ...(it.capH ? { capH: r2(it.capH * c.sY * c.depthK(d)) } : {}),
         ...(it.align ? { align: it.align } : {}),
+        ...(it.italic ? { italic: true } : {}),
       });
       const items = [];
       for (const it of s.items ?? []) {
@@ -688,6 +689,7 @@ async function main() {
               ...(it.capH ? { capH: r2(it.capH * c.sY * c.depthK(so ?? 0)) } : {}),
               ...(it.align ? { align: it.align } : {}),
               ...(it.stretch ? { stretch: true } : {}),
+              ...(it.italic ? { italic: true } : {}),
             });
             break;
           }
@@ -792,6 +794,10 @@ async function main() {
               ...(it.pair ? { pair: true } : {}),
               ...(it.side ? { side: true } : {}),
               ...(it.yaw != null ? { yaw: it.yaw } : {}),
+              // v11: bayrak / flama boyu ve eğimi (gerçek m, derece)
+              ...(it.t === 'flag' && it.w > 0 ? { w: it.w } : {}),
+              ...(it.t === 'flag' && it.h > 0 ? { h: it.h } : {}),
+              ...(it.t === 'flag' && it.tilt ? { tilt: it.tilt } : {}),
             });
             break;
           case 'band':
@@ -812,6 +818,9 @@ async function main() {
               ...(it.tile ? { tile: it.tile } : {}),
               ...(it.colors?.length ? { colors: it.colors } : {}),
               ...(it.seq?.length ? { seq: it.seq } : {}),
+              ...(it.bond === 'running'
+                ? { bond: 'running', ...(it.tileH > 0 ? { tileH: it.tileH } : {}) }
+                : {}),
               ...(it.finish ? { finish: it.finish } : {}),
               // v9: çokgen pano (görünen [u, y] → gerçek)
               ...(it.poly?.length >= 3 ? { poly: it.poly.map(([u, y]) => [r2(c.U(u)), r2(absY(y))]) } : {}),

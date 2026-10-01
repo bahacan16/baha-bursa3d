@@ -265,7 +265,24 @@ function planter(c: FurnCtx, s: StreetItem, y: number): void {
       c.b.geometry(plK, g);
     } else if (pl.shape === 'hedge')
       c.b.box(plK, [s.x, y + h + ph / 2 - 0.05, s.z], [w - 0.04, ph, d - 0.04], yaw);
-    else {
+    else if (s.shape !== 'round' && w > 2.5 * d) {
+      // v11: uzun saksı kutusunda çalı sırası — kutu boyunca tek gerilmiş elipsoit yandan düz yeşil şerit gibi
+      // görünüyordu (critic d4b r3 #4, BK saksıları 20 m × 0.6 m). KARAR: çalı aralığı ölçülmedi → kutu derinliği
+      // × 1.2 (en az 0.5 m), komşu çalılar %15 bindirmeli; boy ölçülen plant.h, deterministik ±%12 boy farkı.
+      const n = Math.max(2, Math.round(w / Math.max(0.5, d * 1.2)));
+      const step = w / n;
+      const co = Math.cos(yaw);
+      const si = Math.sin(yaw);
+      for (let k = 0; k < n; k++) {
+        const lx = -w / 2 + step * (k + 0.5);
+        const hk = ph * (0.88 + 0.24 * (((k * 2654435761) >>> 0) / 4294967296));
+        const g = new THREE.SphereGeometry(0.5, 9, 6);
+        g.scale(step * 1.15, hk, d * 0.9);
+        g.rotateY(yaw);
+        g.translate(s.x + co * lx, y + h + hk / 2 - 0.08, s.z - si * lx);
+        c.b.geometry(plK, g);
+      }
+    } else {
       const g = new THREE.SphereGeometry(0.5, 10, 7);
       g.scale(w * 0.9, ph, d * 0.9);
       g.rotateY(yaw);
@@ -1194,7 +1211,9 @@ function bikeRack(c: FurnCtx, s: StreetItem, y: number): void {
 
 /** v7 türleri; işlenmediyse false */
 export function buildStreetFurniture(c: FurnCtx, s: StreetItem): boolean {
-  const y = c.H(s.x, s.z) + c.walk(s.x, s.z);
+  // v11: `elev` (m, araziden) verilirse eşya o kotta (ör. podyum çatısı terası 10.3 m saksıları); yoksa yürüme kotu
+  const bz = (s as { elev?: unknown }).elev;
+  const y = c.H(s.x, s.z) + (typeof bz === 'number' && bz > -2 && bz < 60 ? bz : c.walk(s.x, s.z));
   switch (s.kind) {
     case 'table':
       cafeSet(c, s, y);

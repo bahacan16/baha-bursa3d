@@ -45,6 +45,15 @@
  *    (p_all, 7 görüş): zemin çifti 0.221 → 0.197 durak, |L| 0.204 → 0.186, açık cephe mutlak +0.03 → +0.02, nötr
  *    ΔE 3.21 → 2.81, b* +1.91 → +0.65; güneşli koyu gölge yüzeyleri ortalama −2.2 → −0.5 durak.
  *
+ * 4. 2026-10-01 (D4 eleştirmen r3 #4: Biaport gölgeli zemin #414b5d, fotoğraf #898884): o fotoğraf (7ip2 180)
+ *    güneşsiz/bulutlu bir kare (hiçbir döküm gölgesi yok, Street View pozlaması yükseltmiş) → mutlak karşılaştırma
+ *    geçersiz. Aynı karede güneşli/gölgeli aynı zemin çiftleri (scratchpad/d4r3fix/shade): açık gölge (direk, lamba
+ *    kolu, seyrek ağaç; D4 + Mertkent, 5 çift) −2.25 … −2.42 durak, duvar/çit dibi (Mertkent, 2 çift) −2.66 / −3.11;
+ *    gölge renk kayması (gölge − güneş b*) fotoğrafta −13 … −16, oyunda −12.7 (ton doğru). Oyunda açık gölge −2.74 …
+ *    −2.85 (0.45 durak koyu), duvar dibi −2.23 / −2.61 (0.45 durak açık): sınıflar arasında fark yok, çünkü dolaylı
+ *    ışık hiç örtülmüyor. Sabitler değişmedi; yatay yüzeylere gök görüşü örtünmesi eklendi (`env/skyvis.ts`, k 1.5):
+ *    açık gölge −2.41 / −2.44, duvar dibi −2.25 / −2.54, güneşli zemin +0.09 durak, cepheler değişmez.
+ *
  * KARAR: `baked` env/yarım küre/pozlama `live` ile aynı — tahmini bir telafi uydurulmadı; pişirme ajanı yeniden
  * oturtunca değerler buraya yazılır. Deneme: canlı `?env= ?hemi= ?lexp= ?ao= ?aor=`, pişirilmiş `?benv= ?bhemi=
  * ?bexp= ?bssao= ?bssaor=` (mutlak değerler).

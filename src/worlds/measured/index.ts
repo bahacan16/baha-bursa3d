@@ -516,9 +516,10 @@ function neonMaterial(hex: string): THREE.Material {
  * palet indeksleri (u boyunca döngü), yoksa tohumlu; satırlar birer kaydırmalı. UV = metre.
  */
 function tilesMaterial(kind: string, hex: string): THREE.Material {
-  const [, ts, cs, sq] = kind.split(':');
+  const [, ts, cs, sq, bond, bh] = kind.split(':');
   const tile = Math.max(0.03, Number(ts) || 0.2);
   const cols = (cs ?? '').split(',').filter((c) => /^#[0-9a-f]{6}$/i.test(c));
+  if (bond === 'running') return brickBondMaterial(tile, Math.max(0.02, Number(bh) || 0.1), cols, hex);
   if (typeof document === 'undefined' || !cols.length)
     return new THREE.MeshStandardMaterial({ color: cols[0] ?? hex, roughness: 0.3 });
   const seq = (sq ?? '')
@@ -551,6 +552,48 @@ function tilesMaterial(kind: string, hex: string): THREE.Material {
   map.repeat.set(1 / (NX * tile), 1 / (NY * tile));
   map.anisotropy = 8;
   return new THREE.MeshStandardMaterial({ map, roughness: 0.22, metalness: 0.05 });
+}
+
+/**
+ * v11: tuğla örgüsü (`tiles:<en>:<renkler>:<sıra>:running:<boy>`, hex = derz rengi): yarım kaydırmalı sıralar, tuğla
+ * başına paletten tohumlu renk, ≈1 cm derz, mat (Kırmıkıl 1544934686 tuğla duvarı). KARAR: derz kalınlığı ölçülmedi
+ * → yaygın 10 mm.
+ */
+function brickBondMaterial(l: number, h: number, cols: string[], hex: string): THREE.Material {
+  if (typeof document === 'undefined' || !cols.length)
+    return new THREE.MeshStandardMaterial({ color: cols[0] ?? hex, roughness: 0.85 });
+  const NX = 8;
+  const NY = 8;
+  const PX = 64;
+  const PY = Math.max(8, Math.round((PX * h) / l));
+  const jx = Math.max(1, Math.round((0.01 / l) * PX));
+  const jy = Math.max(1, Math.round((0.01 / h) * PY));
+  const cv = document.createElement('canvas');
+  cv.width = NX * PX;
+  cv.height = NY * PY;
+  const g = cv.getContext('2d')!;
+  g.fillStyle = hex;
+  g.fillRect(0, 0, cv.width, cv.height);
+  let s0 = 11;
+  const rnd = () => {
+    s0 = (s0 * 16807) % 2147483647;
+    return s0 / 2147483647;
+  };
+  for (let yy = 0; yy < NY; yy++) {
+    const sh = yy % 2 ? PX / 2 : 0;
+    // Dikişsiz: kaydırılmış sırada soldaki yarım tuğla sağdaki yarımın devamı (aynı renk)
+    const row = Array.from({ length: NX }, () => cols[Math.floor(rnd() * cols.length)]);
+    for (let xx = sh ? -1 : 0; xx < NX; xx++) {
+      g.fillStyle = row[(xx + NX) % NX];
+      g.fillRect(xx * PX + sh + jx / 2, yy * PY + jy / 2, PX - jx, PY - jy);
+    }
+  }
+  const map = new THREE.CanvasTexture(cv);
+  map.colorSpace = THREE.SRGBColorSpace;
+  map.wrapS = map.wrapT = THREE.RepeatWrapping;
+  map.repeat.set(1 / (NX * l), 1 / (NY * h));
+  map.anisotropy = 8;
+  return new THREE.MeshStandardMaterial({ map, roughness: 0.88, metalness: 0 });
 }
 
 /** v7: kare güvenlik kafesi (`cage:<göz m>`, hex = tel rengi): alfa testli ızgara, iki yüz; UV = metre */
@@ -672,6 +715,15 @@ function paletteKeys(
       1,
       (c) =>
         new THREE.MeshStandardMaterial({ map: T.roofTileTexture(c), side: THREE.DoubleSide, roughness: 0.8 }),
+    ],
+    [
+      // v11: asfalt şingıl çatı (ör. 1544329664 çiçekçi, fotoğrafta koyu antrasit): mat granül, düşük gök yansıması —
+      // kiremit malzemesi (pürüzlülük 0.8) yatık bakışta gökyüzünü yansıtıp açık gri görünüyordu (critic d4a r3 #11).
+      // KARAR: envMapIntensity 0.3 (şingıl granülü mat; ölçülmedi). `colors.shingle` verilince mkTile yerine geçer.
+      'shingle',
+      'mkTile',
+      1,
+      (c) => granularMaterial(c, 9, { roughness: 1, envMapIntensity: 0.3, side: THREE.DoubleSide }),
     ],
     [
       'soffit',

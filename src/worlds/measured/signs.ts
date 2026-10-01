@@ -58,6 +58,7 @@ function specOf(it: SignText, w: number, h: number, style: string, extra: Partia
     ...(it.glyphs?.length ? { glyphs: it.glyphs, join: it.join ?? null } : {}),
     ...(it.capH != null ? { capH: it.capH } : {}),
     ...(it.align ? { align: it.align } : {}),
+    ...(it.italic ? { italic: true } : {}),
     ...extra,
   };
 }

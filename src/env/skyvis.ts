@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { nightUniform } from './night';
 
 /**
  * Zemin gök görüşü (yatay yüzeylerde dolaylı ışığın gökyüzü örtünmesi).
@@ -49,6 +50,8 @@ export const skyVisUniforms = {
   uSkyRect: { value: new THREE.Vector4(0, 0, 1, 0) },
   /** k, kapalı v, açık (varsayılan) v, - */
   uSkyK: { value: new THREE.Vector4(1, 0.45, 0.9, 0) },
+  /** Haritadaki yükseklikler bu kota göre (yarım kayan noktada 100 m kotta 6 cm basamak olmasın) */
+  uSkyY: { value: 0 },
 };
 
 /**
@@ -89,8 +92,10 @@ const FRAG_PARS = /* glsl */ `
 uniform sampler2D uSkyH;
 uniform vec4 uSkyRect;
 uniform vec4 uSkyK;
+uniform float uSkyY;
 varying vec3 vSkyWp;
-float skyVisAt( vec3 p ) {
+float skyVisAt( vec3 wp ) {
+  vec3 p = vec3( wp.x, wp.y - uSkyY, wp.z );
   // doku: x → doğu, v → kuzey (yukarıdan bakan kameranın ekran üstü kuzey)
   vec2 uv0 = vec2( p.x - uSkyRect.x, uSkyRect.y - p.z ) * uSkyRect.z;
   vec2 e = min( uv0, 1.0 - uv0 );
@@ -121,11 +126,15 @@ function fragCode(baked: boolean): string {
     vec3 skyN = inverseTransformDirection( normal, viewMatrix );
     float skyW = smoothstep( 0.5, 0.9, skyN.y );
     if ( skyW > 0.0 ) {
-      ${baked ? 'float skyV = uSkyK.z;' : `#ifdef USE_AOMAP
+      ${
+        baked
+          ? 'float skyV = uSkyK.z;'
+          : `#ifdef USE_AOMAP
       float skyV = uSkyK.z;
       #else
       float skyV = skyVisAt( vSkyWp );
-      #endif`}
+      #endif`
+      }
       float skyF = mix( 1.0, uSkyK.x * skyV, skyW );
       reflectedLight.indirectDiffuse *= skyF;
       reflectedLight.indirectSpecular *= skyF;
@@ -189,6 +198,7 @@ const heightMat = new THREE.ShaderMaterial({
   vertexShader: /* glsl */ `
     #include <common>
     #include <batching_pars_vertex>
+    uniform float uRefY;
     varying float vY;
     void main() {
       #include <batching_vertex>
@@ -201,12 +211,13 @@ const heightMat = new THREE.ShaderMaterial({
         wp = instanceMatrix * wp;
       #endif
       wp = modelMatrix * wp;
-      vY = wp.y;
+      vY = wp.y - uRefY;
       gl_Position = projectionMatrix * viewMatrix * wp;
     }`,
   fragmentShader: /* glsl */ `
     varying float vY;
     void main() { gl_FragColor = vec4( vY, 0.0, 0.0, 1.0 ); }`,
+  uniforms: { uRefY: { value: 0 } },
   side: THREE.DoubleSide,
 });
 
@@ -227,6 +238,7 @@ export class SkyVisibility {
   private center = new THREE.Vector2(Infinity, Infinity);
   private scanTimer = 0;
   private dirty = true;
+  private params = skyVisParams();
 
   constructor(
     private renderer: THREE.WebGLRenderer,
@@ -234,11 +246,12 @@ export class SkyVisibility {
     enabled: boolean,
   ) {
     this.enabled = enabled && q().get('skyvis') !== '0';
-    const p = skyVisParams();
+    const p = this.params;
     skyVisUniforms.uSkyK.value.set(p.k, p.covered, p.open, q().has('svdbg') ? 1 : 0);
     if (!this.enabled) return;
     this.rt = new THREE.WebGLRenderTarget(RES, RES, {
-      type: THREE.HalfFloatType,
+      // 32 bit yazılabiliyorsa (WebGL2 + EXT_color_buffer_float) tam kayan nokta
+      type: renderer.extensions.has('EXT_color_buffer_float') ? THREE.FloatType : THREE.HalfFloatType,
       format: THREE.RGBAFormat,
       minFilter: THREE.NearestFilter,
       magFilter: THREE.NearestFilter,
@@ -268,6 +281,9 @@ export class SkyVisibility {
   /** Her kare: kamera 20 m'den fazla kaydıysa / dünya değiştiyse yükseklik haritasını yeniden çiz. */
   update(at: THREE.Vector3, dt: number): void {
     if (!this.enabled || !this.rt) return;
+    // k gündüz kalibrasyonu; gece açık zemin değişmesin (k → 1/açık), örtünme farkı kalsın
+    const p = this.params;
+    skyVisUniforms.uSkyK.value.x = THREE.MathUtils.lerp(p.k, 1 / p.open, nightUniform.value);
     this.scanTimer -= dt;
     if (this.dirty || this.scanTimer <= 0) {
       this.scan();
@@ -279,6 +295,8 @@ export class SkyVisibility {
     const cx = Math.round(at.x / 3) * 3;
     const cz = Math.round(at.z / 3) * 3;
     this.center.set(cx, cz);
+    const refY = Math.round(at.y);
+    heightMat.uniforms.uRefY.value = refY;
     this.cam.position.set(cx, 1500, cz);
     this.cam.lookAt(cx, 0, cz);
     this.cam.updateMatrixWorld();
@@ -319,5 +337,6 @@ export class SkyVisibility {
     }
     // kamera yukarı vektörü −Z: ekran sağı doğu, üstü kuzey → doku v = (güney z − z) / boyut
     skyVisUniforms.uSkyRect.value.set(cx - SKYVIS_HALF, cz + SKYVIS_HALF, 1 / (2 * SKYVIS_HALF), 1);
+    skyVisUniforms.uSkyY.value = refY;
   }
 }

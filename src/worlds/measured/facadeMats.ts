@@ -452,7 +452,7 @@ float h1(float n) { return fract(sin(n * 127.1) * 43758.5453); }
         '#include <color_fragment>',
         `#include <color_fragment>
 float seed = vAux.x;
-float tint = vAux.y; // 0 açık, 1 yeşil, 2 koyu, 3 perdeli
+float tint = vAux.y; // 0 açık, 1 yeşil, 2 koyu, 3 perdeli, 4 açık iç (light)
 float x = vWUv.x;
 float y = vWUv.y;
 float panel = floor(x / ${glsl(pitch)});
@@ -464,7 +464,10 @@ float prof = step(y, 0.035) + step(0.965, y);
 vec3 inside = mix(vec3(0.03, 0.036, 0.045), vec3(0.075, 0.085, 0.1), smoothstep(0.0, 1.0, y));
 float fold = 0.5 + 0.5 * sin(x * 21.0 + sin(x * 3.1 + seed) * 1.7);
 vec3 tul = vec3(0.5, 0.51, 0.52) * (0.93 + 0.07 * fold);
-if (tint > 2.5) {
+if (tint > 3.5) {
+  // v11 "light": açık renk iç (beyaz duvar / tül) camın hemen ardında — nötr açık gri, perde kıvrımı yok
+  inside = vec3(0.3, 0.31, 0.31) * (0.9 + 0.1 * y);
+} else if (tint > 2.5) {
   // "blinds": tül/stor daha yoğun ve açık (şerit değil)
   inside = mix(inside, tul * 1.08, 0.82);
 } else if (tint > 0.5 && tint < 1.5) {
@@ -493,7 +496,7 @@ if (vAux.z > 0.5) {
 }
 // v8: sahte gök tonu ufuk mavisine (önceden nötr gri-mavi #0f1318 oranı; ölçülen pencere camı #7f91a4)
 // Gökyüzü yansıması (yukarı doğru güçlenen, yumuşak)
-inside += vec3(0.045, 0.068, 0.105) * (0.55 + 0.45 * y) * (1.0 - uNight * 0.7);
+inside += (tint > 3.5 ? vec3(0.06, 0.063, 0.065) : vec3(0.045, 0.068, 0.105)) * (0.55 + 0.45 * y) * (1.0 - uNight * 0.7);
 vec3 frameCol = vec3(${glsl(fc.r)}, ${glsl(fc.g)}, ${glsl(fc.b)});
 float fr = max(joint, prof);
 // Cam pikselinde iç mekân yalnız kısmen güneşle aydınlanır (camın arkasında); profil boyalı alüminyum

@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import * as THREE from 'three';
 import { Builder } from '../../src/worlds/measured/builder';
 import { buildStreetPlan, fadePaint, signKeysOf } from '../../src/worlds/measured/street';
-import { pillGeometry, resolveOpenings } from '../../src/worlds/measured/facade';
+import { pillGeometry, resolveOpenings, tintCode } from '../../src/worlds/measured/facade';
 import { drawSignItem, type SignCtx } from '../../src/worlds/measured/signs';
 import {
   drawShopSign,
@@ -230,8 +230,8 @@ describe('D4 r3: ölçülen harf boyu korunur — önce yatay sıkıştırma (Oh
     expect(sx).toBeGreaterThanOrEqual(SIGN_SQUEEZE_MIN);
     const fill = calls.find((c) => c.op === 'fillText')!;
     const px = Number(/([0-9.]+)px/.exec(fill.font)![1]);
-    // capH 0.28 / 0.72 em (51 px = 0.32 m), bölge yüksekliğiyle sınırlı (H / 1.02) — küçültme döngüsüne girmez
-    expect(px).toBeCloseTo(Math.min(((0.28 / 0.72) * 51) / 0.32, 51 / 1.02), 1);
+    // capH 0.28 / 0.72 em (51 px = 0.32 m): tek satırda ölçülen harf boyu (≤ H / 0.74)
+    expect(px).toBeCloseTo(((0.28 / 0.72) * 51) / 0.32, 1);
     expect(fill.font.startsWith('bold ')).toBe(true);
   });
   it('capH yoksa eskisi gibi küçülür (sıkıştırma yok)', () => {
@@ -241,7 +241,7 @@ describe('D4 r3: ölçülen harf boyu korunur — önce yatay sıkıştırma (Oh
   });
   it('stretch: kısa yazı genişliği doldurur (≤ SIGN_STRETCH_MAX)', () => {
     const { g, calls } = fakeCtx();
-    drawShopSign(g, 864, 100, sign({ text: 'BURGER KING', w: 5.4, h: 0.625, capH: 0.62, stretch: true }));
+    drawShopSign(g, 864, 100, sign({ text: 'BURGER', w: 5.4, h: 0.625, capH: 0.62, stretch: true }));
     const sx = calls.find((c) => c.op === 'scale')!.args[0] as number;
     expect(sx).toBeGreaterThan(1);
     expect(sx).toBeLessThanOrEqual(SIGN_STRETCH_MAX);
@@ -349,5 +349,102 @@ describe('D4 r3: çatı harf tabelası iskeleti yalnız harf altında (900000203
   it('under: iskelet harf alt kotunda biter; verilmezse eski (harf üstüne kadar)', () => {
     expect(run(true)).toBeLessThanOrEqual(8.3 + 1e-6);
     expect(run()).toBeGreaterThan(10);
+  });
+});
+
+describe('D4 r3: survey-c üretici seçenekleri', () => {
+  it('capH = kutu boyu: tek satırda ölçülen harf boyu kazanır (≤ 0.97 H), çok satırda eski sınır', () => {
+    const { g, calls } = fakeCtx();
+    drawShopSign(g, 800, 100, sign({ text: 'MONS', w: 8, h: 1.0, capH: 1.0 }));
+    const px = Number(/([0-9.]+)px/.exec(calls.find((c) => c.op === 'fillText')!.font)![1]);
+    expect(px * 0.72).toBeGreaterThan(95);
+    expect(px).toBeLessThanOrEqual(100 / 0.74 + 1e-6);
+    const m = fakeCtx();
+    drawShopSign(m.g, 800, 100, sign({ text: 'A\nB', w: 8, h: 1.0, capH: 1.0 }));
+    const px2 = Number(/([0-9.]+)px/.exec(m.calls.find((c) => c.op === 'fillText')!.font)![1]);
+    expect(px2).toBeLessThanOrEqual(100 / 2 / 1.02 + 1e-6);
+  });
+  it('italic yazı tipi dizgesinde', () => {
+    const { g, calls } = fakeCtx();
+    drawShopSign(g, 400, 100, sign({ text: 'Mariza', w: 2, h: 0.5, italic: true }));
+    expect(calls.find((c) => c.op === 'fillText')!.font.startsWith('italic bold ')).toBe(true);
+  });
+  it('başak simgesi çizilir (sap + taneler)', () => {
+    const { g, calls } = fakeCtx();
+    drawShopSign(
+      g,
+      100,
+      100,
+      sign({ text: '', shape: 'round', bg: '#ffffff', icon: 'wheat', iconC: '#c8252a', w: 1, h: 1 }),
+    );
+    expect(calls.filter((c) => c.op === 'ellipse').length).toBe(11);
+  });
+  it('cam balkon light kodu 4; diğerleri aynı', () => {
+    expect([undefined, 'clear', 'green', 'dark', 'blinds', 'light'].map(tintCode)).toEqual([
+      0, 0, 1, 2, 3, 4,
+    ]);
+  });
+  it('sokak eşyası elev: verilen kotta (yürüme kotu yerine)', () => {
+    const run = (elev?: number) => {
+      const b = new Builder();
+      buildStreetPlan(
+        b,
+        {
+          street: [
+            {
+              kind: 'planter',
+              x: 0,
+              z: 0,
+              w: 1,
+              d: 1,
+              h: 0.5,
+              color: '#7a5a3a',
+              ...(elev != null ? { elev } : {}),
+            },
+          ],
+        } as never,
+        () => 0,
+        () => 5,
+        { colorKey: ck },
+      );
+      const bk = buckets(b).get('cc_plaster_#7a5a3a')!;
+      let lo = Infinity;
+      for (let i = 1; i < bk.pos.length; i += 3) lo = Math.min(lo, bk.pos[i]);
+      return lo;
+    };
+    expect(run()).toBeLessThan(0.5);
+    expect(run(10.3)).toBeCloseTo(10.3, 3);
+  });
+});
+
+describe('D4 r3: uzun saksıda çalı sırası (d4b r3 #4)', () => {
+  it('kutu boyunca ayrı çalılar; kısa saksıda tek çalı (eski)', () => {
+    const run = (w: number) => {
+      const b = new Builder();
+      buildStreetPlan(
+        b,
+        {
+          street: [
+            {
+              kind: 'planter',
+              x: 0,
+              z: 0,
+              w,
+              d: 0.6,
+              h: 0.6,
+              color: '#7a5a3a',
+              plant: { h: 0.6, color: '#3f5a2e', shape: 'shrub' },
+            },
+          ],
+        } as never,
+        () => 0,
+        () => 5,
+        { colorKey: ck },
+      );
+      return buckets(b).get('cc_fascia_#3f5a2e')!.pos.length / 3;
+    };
+    // 6 m / max(0.5, 0.6 × 1.2) → 8 çalı × (10 × 7 köşe); 1 m kutu eski tek elipsoit (11 × 8)
+    expect(run(6)).toBe(8 * 10 * 7);
+    expect(run(1)).toBe(11 * 8);
   });
 });

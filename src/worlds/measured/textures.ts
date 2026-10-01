@@ -1492,6 +1492,8 @@ export interface SignDraw {
    * yazı tipli tabelalar (BURGER KING en / boy 8.6, Arial kalın 7.6)
    */
   stretch?: boolean | null;
+  /** v11: eğik (italik) yazı (ör. Mariza) */
+  italic?: boolean | null;
   /** 'round': yuvarlak rozet (zemin daire) */
   shape?: string | null;
   /** Basit simge (metnin solunda): fish | tooth | star; renk icC */
@@ -1680,7 +1682,7 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
   if (o.glyphs?.length) {
     // Monogram: harfler yan yana, `join` oranında bindirilir; ayna harfler yatay çevrilir
     const fs = capPx ?? H * 0.78;
-    g.font = `${o.bold ? 'bold ' : ''}${fs}px ${fam}`;
+    g.font = `${o.italic ? 'italic ' : ''}${o.bold ? 'bold ' : ''}${fs}px ${fam}`;
     g.textAlign = 'center';
     g.textBaseline = 'middle';
     g.fillStyle = o.fg;
@@ -1711,11 +1713,15 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
     const sumRel = rel.reduce((a, v) => a + v, 0);
     let unit = (H - pad * 2) / sumRel / 1.15;
     // v7: ölçülen harf boyu (sığmıyorsa bölge yüksekliğine kadar)
-    if (capPx) unit = Math.min(capPx, H / sumRel / 1.02);
+    // v11 (survey-c): tek satırda ölçülen harf boyu kazanır — büyük harfler bölge yüksekliğini doldurabilir (em ≤
+    // H / 0.74 → büyük harf ≤ 0.97 H); önceden em ≤ H / 1.02 sınırı capH = kutu boyu olan tabelaları ölçünün
+    // ≈%71'ine indiriyordu (MONS, ROSSMANN, BIGCHEFS, Juan Valdez). Çok satırlıda satır aralığı için eski sınır.
+    if (capPx) unit = Math.min(capPx, rows.length === 1 ? H / sumRel / 0.74 : H / sumRel / 1.02);
     const al = o.align === 'left' || o.align === 'right' ? o.align : 'center';
     g.textAlign = al;
     g.textBaseline = 'middle';
-    const fontOf = (k: number) => `${(rows[k].bold ?? o.bold) ? 'bold ' : ''}${unit * rel[k]}px ${fam}`;
+    const fontOf = (k: number) =>
+      `${o.italic ? 'italic ' : ''}${(rows[k].bold ?? o.bold) ? 'bold ' : ''}${unit * rel[k]}px ${fam}`;
     const widest = () =>
       Math.max(
         ...rows.map((r, k) => {
