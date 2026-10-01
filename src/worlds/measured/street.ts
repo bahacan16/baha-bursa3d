@@ -201,11 +201,13 @@ export interface KerbPaint {
   face: boolean;
 }
 /**
- * KARAR: renk ölçülmemiş yeşil/beyaz boyalı bordürler bulvar boyunca aynı boya sayılır → d4-sw-w1 ölçümü (güneşli
- * yeşil #8e948e, beyaz #a6a49f); grup ≈3 taş (aynı ölçüm).
+ * KARAR: renk ölçülmemiş yeşil/beyaz boyalı bordürler bulvar boyunca aynı boya sayılır; grup ≈3 taş (d4-sw-w1).
+ * Renk (2026-10-01 yeniden örnekleme; eski d4-sw-w1 değeri #8e948e / #a6a49f fazla soluk ve nötrdü): yeşil yola bakan
+ * yüz güneşte #496661 (lOTv 300_0), bulutlu/gölgede #54664f (9unh 180_0) → #4f6658; beyaz üst yüz güneşte #8a8b87,
+ * yola bakan yüz #7f7e7b, bulutlu #7f7a75 → #878682.
  */
-const D4_GREEN = '#8e948e';
-const D4_WHITE = '#a6a49f';
+const D4_GREEN = '#4f6658';
+const D4_WHITE = '#878682';
 /**
  * Bordür boyası: açık alan (`kerbPaint` "green-white" / {colors, group, face}) ya da malzeme metni
  * ("… dönüşümlü yeşil (#8e948e …) ve beyaz (#a6a49f) boyalı (≈3 taş yeşil + 3 taş beyaz)"; "yola bakan yüzü …" →

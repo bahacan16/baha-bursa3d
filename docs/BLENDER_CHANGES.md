@@ -925,3 +925,12 @@
   `siteplan.ts`, `street.ts`, `streetFurniture.ts`, `osm/roads.ts`, `osm/treelib.ts`, `osm/build.ts`, `osm/world.ts`.
   **Blender:** `materials.py` vitrin camı (yansıma düşük, iç koyu), kış bahçesi camı tek yüz; `NW/Measured/Street`
   çim tonları; `NW/Roads` ölçülmüş alanlarda çizgi yok; `NW/Trees` yeniden üretilir.
+- **(D4 eleştirmen 2. tur, sokak verisi)** — Kaldırılmış gerçek ağaç geri (d4-st-e-15, 648.7/−592.7, h 7.8), Kırmıkıl
+  terası + 13 saksı + doğu yürüyüş yolu + ağaç, Özdemiroğlu bayrak boyları 6.7/7.1/6.6 m, Uğur Mumcu durağı x 730–734.7,
+  kuzey park cebi x 689'a, çiçekçi tarafında kaldırım yok (yol 303447162 `sidewalk` sol), z −563…−566 kaldırım boşluğu
+  kapandı, GY1l kaldırımı (yeşil bordür + 2.1 m kahve bant + krem kenar + gri taş, duvar 0.4, çit 1.7), Muammer Aksoy
+  şerit dolgusu, Tarz-ı Pide / Mandıra alın yazısı konumları, 7 kış bahçesi cam tonu fotoğraftan (#1a2312…#39423e),
+  Özdemiroğlu çitleri 1.1 m. Orta refüj bordür boyası `D4_GREEN` #8e948e → #4f6658, `D4_WHITE` #a6a49f → #878682
+  (yeniden örnekleme). Dosyalar: `street-plan.json`, `park-plan.json`, `street.ts`. **Blender:** `NW/Measured/Street`
+  (değişen öğeler `scratchpad` listesinde değil, commit diff'inde), `NW/Measured/Parks` çitler, `NW/Roads` 303447162,
+  `materials.py` bordür boyası.
