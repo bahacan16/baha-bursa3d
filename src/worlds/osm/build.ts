@@ -28,6 +28,8 @@ export interface BuildOptions {
   noCurbZones?: number[][];
   /** v9: yol çizgisi (şerit / orta / kenar) çizilmeyecek alanlar (ölçülmüş döşeme / park alanları) */
   noMarkZones?: number[][];
+  /** v11: OSM yaya geçidi (crossing düğümü) zebrası çizilmeyecek alanlar — ölçülmüş geçitler (street-plan crossing) */
+  noZebraZones?: number[][];
   /** v7: ölçülmüş yol çizgisi düzeltmeleri (OSM yol kimliği → orta / kenar çizgisi: none | dashed | solid) */
   roadMarks?: Record<string, RoadMarkSpec>;
   /** Ölçülmüş bölge: yordamsal lamba / park etmiş araç üretilmez (props.ts) */
@@ -80,6 +82,7 @@ export function buildWorld(
     opts.roadMarks,
     opts.noCurbZones,
     opts.noMarkZones,
+    opts.noZebraZones,
   );
   progress(0.65, 'Alanlar');
   if (opts.landuseMeshes) buildAreas(geo, d.areas);

@@ -585,6 +585,11 @@ export function buildRoads(
    * gelen şerit çizgileri Biaport dik park alanının (d4-bia-parking) üstünden geçiyordu (critic d4a #1).
    */
   noMark: number[][] = [],
+  /**
+   * v11: OSM geçit düğümü zebrası çizilmeyecek alanlar (ölçülmüş geçit). Önceden ölçülmüş solmuş zebranın üstünde
+   * OSM'in parlak beyaz 3 m zebrası da çiziliyordu (Muammer Aksoy kavşağı, d4c r3 #13).
+   */
+  noZebra: number[][] = [],
 ): RoadBuildResult {
   const skipWalk = (x: number, z: number) => noSidewalk.some((r) => inFlatRing(r, x, z));
   const inNoMark = (x: number, z: number) => noMark.some((r) => inFlatRing(r, x, z));
@@ -711,6 +716,7 @@ export function buildRoads(
 
   // Yaya geçitleri
   for (const c of crossings) {
+    if (noZebra.some((r) => inFlatRing(r, c[0], c[1]))) continue;
     const k = keyOf(c);
     const on = (nodeRoads.get(k) ?? []).find((r) => r.vehicular);
     if (!on) continue;

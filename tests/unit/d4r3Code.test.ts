@@ -15,6 +15,7 @@ import { ChunkedGeometry } from '../../src/worlds/osm/chunks';
 import { buildRoads, fadedMark } from '../../src/worlds/osm/roads';
 import type { Road } from '../../src/worlds/osm/parse';
 import { leafBaseY, speciesModel, speciesModelCb } from '../../src/worlds/osm/treelib';
+import { crossingZones } from '../../src/worlds/measured/siteplan';
 import { SPECIES_SIZE } from '../../src/worlds/osm/species';
 
 type Bucket = { pos: number[]; idx: number[] };
@@ -446,5 +447,89 @@ describe('D4 r3: uzun saksıda çalı sırası (d4b r3 #4)', () => {
     // 6 m / max(0.5, 0.6 × 1.2) → 8 çalı × (10 × 7 köşe); 1 m kutu eski tek elipsoit (11 × 8)
     expect(run(6)).toBe(8 * 10 * 7);
     expect(run(1)).toBe(11 * 8);
+  });
+});
+
+describe('D4 r3: ölçülmüş geçitte OSM zebrası yok; yapraklı saksı çiti; tel kafes tülü (street r3)', () => {
+  const road = {
+    id: 'w1',
+    kind: 'residential',
+    name: '',
+    pts: [
+      [0, 0],
+      [0, -40],
+      [0, -80],
+    ],
+    width: 7,
+    layer: 0,
+    bridge: false,
+    tunnel: false,
+    area: false,
+    vehicular: true,
+    oneway: 1,
+  } as unknown as Road;
+  const marks = (zones: number[][]) => {
+    const g = new ChunkedGeometry();
+    buildRoads(g, [road], [[0, -40]], [], { w1: { edges: 'none', centre: 'none' } }, [], [], zones);
+    let n = 0;
+    for (const c of g.toPayload()) if (c.mat === 'marking') n += c.position.length;
+    return n;
+  };
+  it('crossingZones dikdörtgeni OSM geçit düğümünü örter → zebra çizilmez', () => {
+    const z = crossingZones({ street: [{ kind: 'crossing', x: 0, z: -40, rot: 90, len: 7, w: 3 }] } as never);
+    expect(z).toHaveLength(1);
+    expect(marks([])).toBeGreaterThan(0);
+    expect(marks(z)).toBe(0);
+  });
+  it('hedge biçimli saksı bitkisi hedge@ton + yaprak saçağı', () => {
+    const b = new Builder();
+    buildStreetPlan(
+      b,
+      {
+        street: [
+          {
+            kind: 'planter',
+            x: 0,
+            z: 0,
+            w: 4,
+            d: 0.6,
+            h: 0.5,
+            plant: { h: 1, color: '#556b2f', shape: 'hedge' },
+          },
+        ],
+      } as never,
+      () => 0,
+      () => 5,
+      { colorKey: ck },
+    );
+    expect(b.keys()).toContain('hedge@#556b2f');
+    expect(b.keys()).toContain('hedgeLeaf@#556b2f');
+  });
+  it('klima kafesi ince tel tülü (veil)', () => {
+    const b = new Builder();
+    buildStreetPlan(
+      b,
+      {
+        street: [
+          {
+            kind: 'ac-cage',
+            x: 1,
+            z: 1,
+            poly: [
+              [0, 0],
+              [2, 0],
+              [2, 1],
+              [0, 1],
+            ],
+            h: 1.8,
+            color: '#9a9c9a',
+          },
+        ],
+      } as never,
+      () => 0,
+      () => 5,
+      { colorKey: ck },
+    );
+    expect(b.keys()).toContain('cc_cage:0.05:veil_#9a9c9a');
   });
 });

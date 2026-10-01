@@ -599,6 +599,9 @@ function brickBondMaterial(l: number, h: number, cols: string[], hex: string): T
 /** v7: kare güvenlik kafesi (`cage:<göz m>`, hex = tel rengi): alfa testli ızgara, iki yüz; UV = metre */
 function cageMaterial(kind: string, hex: string): THREE.Material {
   const ev = Math.max(0.03, Number(kind.split(':')[1]) || 0.15);
+  // v11 `cage:<göz>:veil`: ince tel örgü — alfa testi yerine harmanlama: mip seviyelerinde tel kaplaması (≈%20)
+  // yarı saydam gri tül olarak kalır; alfa testli kafes birkaç metreden sonra tamamen kayboluyordu (d4-kt-accage)
+  const veil = kind.split(':')[2] === 'veil';
   if (typeof document === 'undefined')
     return new THREE.MeshStandardMaterial({ color: hex, side: THREE.DoubleSide });
   const N = 32;
@@ -612,6 +615,16 @@ function cageMaterial(kind: string, hex: string): THREE.Material {
   const map = new THREE.CanvasTexture(cv);
   map.wrapS = map.wrapT = THREE.RepeatWrapping;
   map.repeat.set(1 / ev, 1 / ev);
+  if (veil)
+    return new THREE.MeshStandardMaterial({
+      map,
+      color: hex,
+      transparent: true,
+      alphaTest: 0.02,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+      roughness: 0.5,
+    });
   return new THREE.MeshStandardMaterial({
     map,
     color: hex,
