@@ -19,7 +19,7 @@ import { nightUniform } from './night';
  * v = kapalı değeri. Yalnız dolaylı ışık (yarım küre + ortam) `k · v` ile çarpılır, güneş değişmez. Düşey yüzeyler
  * (cepheler) etkilenmez — onların kalibrasyonu (açık cephe gölgesi, ±0.3 durak) ayrı ve korunur.
  * Pişirilmiş AO taşıyan malzemelerde (aoMap / zemin AO dokusu) örtünme zaten pişirilmiş: yalnız k · açık değer.
- * Yüksek + Ultra kalitede; Düşük/Orta değişmez. `?skyvis=0` kapatır, `?svk=` k, `?svc=` kapalı değeri.
+ * Yüksek + Ultra kalitede, şimdilik yalnız `?skyvis=1` ile (varsayılan kapalı); Düşük/Orta değişmez. `?svk=` k, `?svc=` kapalı değeri.
  */
 
 const q = () => new URLSearchParams(typeof location !== 'undefined' ? location.search : '');
@@ -245,7 +245,9 @@ export class SkyVisibility {
     private scene: THREE.Scene,
     enabled: boolean,
   ) {
-    this.enabled = enabled && q().get('skyvis') !== '0';
+    // KARAR (2026-10-01): varsayılan kapalı, `?skyvis=1` açar — Ultra gerçek GPU'da ölçülmedi (ek sahne render'ı +
+    // piksel başı 56 doku okuması); kapalıyken hiçbir malzeme yamalanmaz (görüntü önceki kalibrasyonla aynı).
+    this.enabled = enabled && q().get('skyvis') === '1';
     const p = this.params;
     skyVisUniforms.uSkyK.value.set(p.k, p.covered, p.open, q().has('svdbg') ? 1 : 0);
     if (!this.enabled) return;

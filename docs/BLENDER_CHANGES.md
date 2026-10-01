@@ -960,3 +960,6 @@
   1552093106, 1552992538, 1477364957, 900000201/202/203/261; `NW/Measured/Street` + `Parks` (doğu bulvar kaldırımı,
   park şeritleri, ağaçlar, çitler); `NW/Roads` (zebra); `NW/Trees` (tepe tabanı); `materials.py` durak camı, kiremit
   `shingle`, yazı tipleri (Roboto Condensed, Courgette).
+- **(Zemin gök görüşü, deneysel)** — `src/env/skyvis.ts`: yatay yüzeylerde dolaylı ışık bina/duvar örtünmesiyle
+  azaltılır (açık gölge fotoğrafa göre 0.45 durak koyuydu → −2.41, foto −2.32). **Varsayılan kapalı**, `?skyvis=1` ile
+  denenir (Ultra gerçek GPU'da ölçülmedi). Yalnız çalışma zamanı. **Blender:** —

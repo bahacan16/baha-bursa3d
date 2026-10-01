@@ -188,7 +188,7 @@ export class Game {
     if (this.ultra && probeQ !== null && probeQ !== '0') this.probe = new ReflectionProbe(r, this.pmrem);
     // Ultra: el modeli gölge vekilleri yalnız gölge haritasında görünür (worlds/measured/batch.ts)
     if (this.ultra) installShadowOnly(r);
-    // Zemin gök görüşü: yatay yüzeylerde dolaylı ışık bina / duvar örtünmesiyle (env/skyvis.ts) — Yüksek + Ultra
+    // Zemin gök görüşü: yatay yüzeylerde dolaylı ışık bina / duvar örtünmesiyle (env/skyvis.ts) — Yüksek + Ultra, yalnız ?skyvis=1
     this.skyVis = new SkyVisibility(r, this.scene, settings.quality === 'high');
     // Ultra: fotoğraf gökyüzü (HDRI, varsa) varsayılan; ?sky=proc prosedürel gök (bulutlar + tutarlı bulut gölgesi)
     if (this.ultra && new URLSearchParams(location.search).get('sky') !== 'proc') void this.loadHdri();

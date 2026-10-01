@@ -53,6 +53,7 @@
  *    −2.85 (0.45 durak koyu), duvar dibi −2.23 / −2.61 (0.45 durak açık): sınıflar arasında fark yok, çünkü dolaylı
  *    ışık hiç örtülmüyor. Sabitler değişmedi; yatay yüzeylere gök görüşü örtünmesi eklendi (`env/skyvis.ts`, k 1.5):
  *    açık gölge −2.41 / −2.44, duvar dibi −2.25 / −2.54, güneşli zemin +0.09 durak, cepheler değişmez.
+ *    Varsayılan kapalı (`?skyvis=1` açar): Ultra gerçek GPU'da performans/görüntü ölçülmedi.
  *
  * KARAR: `baked` env/yarım küre/pozlama `live` ile aynı — tahmini bir telafi uydurulmadı; pişirme ajanı yeniden
  * oturtunca değerler buraya yazılır. Deneme: canlı `?env= ?hemi= ?lexp= ?ao= ?aor=`, pişirilmiş `?benv= ?bhemi=
