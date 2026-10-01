@@ -7014,6 +7014,10 @@
         [
           647.8,
           -563
+        ],
+        [
+          647.9,
+          -566
         ]
       ],
       "w": 9,
@@ -7032,7 +7036,7 @@
         }
       ],
       "material": "gri beton bordür, yola bakan yüzü gruplar hâlinde yeşil/beyaz dönüşümlü boyalı (bulvar boyunca SV karelerinde); gri beton kilit taşı kaldırım.",
-      "note": "SV c6nV0RgW 90_-50 (bordür önü paralel park + sarı işaretler, arkada saksılı kaldırım), ozFGTGt7_60_0. Arka kenar taban izi. pts = kaldırım bordürü. 2. tur: bordür, hava fotoğrafında bordür önünde park etmiş araç sırasının kaldırım tarafı kenarından (+0.2) sıkılaştırıldı (bu kesimde elle noktalar); ilk tur: hava fotoğrafı sokak ağacı sırasından (gövdeler OSM şerit ekseninden ≈+10.2 m, bordür ağaç çukuru bandının 1.1 m önünde) OSM ekseni + eOff (+9.1…+12.0 m); z −476 ve −598 geçitlerinde bordür, geçit uçlarıyla ±0.8 uyumlu. Bordür önündeki park şeridi (yol kotu, asfalt/sarı park işaretli) ayrı kaydedilmedi (asfalt dolgu). w = bordürden bina ön çizgisine (taban izi) en geniş mesafe (dar yerde bant binanın altında kalır). ±0.8 m."
+      "note": "SV c6nV0RgW 90_-50 (bordür önü paralel park + sarı işaretler, arkada saksılı kaldırım), ozFGTGt7_60_0. Arka kenar taban izi. pts = kaldırım bordürü. 2. tur: bordür, hava fotoğrafında bordür önünde park etmiş araç sırasının kaldırım tarafı kenarından (+0.2) sıkılaştırıldı (bu kesimde elle noktalar); ilk tur: hava fotoğrafı sokak ağacı sırasından (gövdeler OSM şerit ekseninden ≈+10.2 m, bordür ağaç çukuru bandının 1.1 m önünde) OSM ekseni + eOff (+9.1…+12.0 m); z −476 ve −598 geçitlerinde bordür, geçit uçlarıyla ±0.8 uyumlu. Bordür önündeki park şeridi (yol kotu, asfalt/sarı park işaretli) ayrı kaydedilmedi (asfalt dolgu). w = bordürden bina ön çizgisine (taban izi) en geniş mesafe (dar yerde bant binanın altında kalır). ±0.8 m. 2026-10-01 D4 sokak r2: son nokta (647.8,−563) → (647.9,−566) eklendi (d4b r2 / koordinatör #10): d4-sw-e5 ile d4-sw-e5b / d4-b106-forecourt arasındaki 3 m’lik boşlukta arazi (koyu yeşil) görünüyordu. 1IQYX3s2_60_0 (2025-09): kaldırım bu kesimde kesintisiz gri kilit taşı (yan sokak / araç girişi yok); ZN5m7C0H_270_-50 / _0_-50 (2025-11): bordür arkasında gri kilit taşı, x≈652.7’de çit tarhı bordürü (z −565.8…−570.9) ve güneyinde (z ≈ −565.7) kırmızı-kahve basamaklar + benekli taş platform (1552093099 ön alanı; basamak kotu ölçülmedi, çizilmedi). ±0.5."
     },
     {
       "id": "d4-sw-e5b",
@@ -7631,38 +7635,48 @@
       "pts": [
         [
           672,
-          -815.9
+          -813.9
         ],
         [
           680,
-          -815.6
+          -813.5
         ],
         [
           690,
-          -815
+          -812.2
         ],
         [
           700,
-          -814.6
+          -811.5
         ],
         [
           708,
-          -814.3
+          -811.1
         ]
       ],
-      "w": 1.6,
+      "w": 5.3,
       "side": "left",
       "kerbH": 0.15,
-      "kerbPaint": "white",
+      "kerbPaint": "green-white",
       "layers": [
         {
-          "w": 1.45,
+          "w": 2.1,
+          "material": "kahverengi-kırmızı beton kilit taşı bant (kaldırım kotunda)",
+          "h": 0.15
+        },
+        {
+          "w": 0.75,
+          "material": "krem-beyaz kenar taşı sırası (iki sıra dikdörtgen)",
+          "h": 0.15
+        },
+        {
+          "w": 2.3,
           "material": "gri beton kilit taşı",
           "h": 0.15
         }
       ],
-      "material": "beyaz boyalı beton bordür; gri kilit taşı kaldırım.",
-      "note": "2026-09-30 D4 (d4c #12): GY1l09Ni_0_0: beyaz boyalı bordür → ≈1.5 m gri kaldırım → alçak beton duvar dibi + çit (park-plan d4-gy1l-wall / -hedge). Bordür aerial-n2 parlak çizgi (680 −815.6, 690 −815.0, 700 −814.6). ±0.4."
+      "material": "gri beton bordür, yola bakan yüzü yeşil boyalı gruplar (GY1l09Ni_270_-50: yeşil ve gri taşlar; beyaz gruplar soluk); kahverengi bant + krem kenar taşı sırası + gri kilit taşı kaldırım.",
+      "note": "2026-09-30 D4 (d4c #12): GY1l09Ni_0_0: beyaz boyalı bordür → ≈1.5 m gri kaldırım → alçak beton duvar dibi + çit (park-plan d4-gy1l-wall / -hedge). Bordür aerial-n2 parlak çizgi (680 −815.6, 690 −815.0, 700 −814.6). ±0.4. 2026-10-01 D4 sokak r2: Düzen yeniden (d4c r2 #14). GY1l09Ni_0_-50 / _270_-50 (2025-09, kamera 2.35): yol → boyalı bordür (yeşil gruplar) → ≈1.5–2.3 m kahverengi-kırmızı kilit taşı bant (KALDIRIM KOTUNDA; önceki kayıtta yol kotunda ve bordürün yol tarafındaydı) → ≈0.75 m krem/beyaz dikdörtgen kenar taşı sırası (önceki \"beyaz bordür\" bu sıraydı) → ≈2.3 m gri kilit taşı → ≈0.4 m beton duvar → çit. x 684’te kare ölçüleri (pano z’si ≈7.6 m kayık, kenar taşı sırası hava fotoğrafı parlak çizgisine oturtuldu): bordür −813.5, kenar taşı −815.4…−816.1, duvar −818.4. Bordür hattı hava fotoğrafı kahverengi bandın güney kenarından (672 −813.9, 680 −813.5, 690 −812.2, 700 −811.5, 708 −811.1; x 684’te kareyle 0.5 m uyumlu). Bant eni hava fotoğrafında 2.4–3.1, karede 1.5 (x 677) – 2.3 (x 673) → 2.1. Bordür boyasının beyaz grupları seçilemedi (green-white genel deseni). ±0.5."
     }
   ],
   "street": [
@@ -13902,10 +13916,10 @@
         ]
       ],
       "h": 3,
-      "glass": "#6a7478",
+      "glass": "#39423e",
       "frame": "#2f6b3a",
       "roofC": "#2f6b3a",
-      "note": "ZEUGMA KÜNEFE kapalı terası: yeşil çerçeve, üstte \"GAZİANTEP ZEUGMA KÜNEFE / KATMER-DONDURMA\" yazısı ve Z madalyon (yazı çizilmez). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): D9ITSrc7_105_7_40 (2025-09): \"ZEUGMA KÜNEFE\" krem-altın harfler (#ae9f7d) kış bahçesi çatısının ÜSTÜNDE siyah çerçeveye takılı (alında değil), üstte küçük \"GAZİANTEP\", sağda yeşil rozet \"KATMER-DONDURMA\", solda yeşil \"Z\" madalyon; alın bandı koyu yeşil #12302c. v9: harfler `roofSign` ile çatının üstünde çerçevede (alın bandı yazısız, #12302c). Boy D9ITSrc7_105_7_40 karesinde kış bahçesi boyuna (3 m) oranla: çerçeve ≈1.0 m, ZEUGMA KÜNEFE harfleri ≈0.65 m, üstte küçük GAZİANTEP; çerçeve siyah (örneklenmedi → wordTone siyah). Sağdaki yeşil KATMER-DONDURMA rozeti ve soldaki Z madalyon çizilmedi (glif yok).",
+      "note": "ZEUGMA KÜNEFE kapalı terası: yeşil çerçeve, üstte \"GAZİANTEP ZEUGMA KÜNEFE / KATMER-DONDURMA\" yazısı ve Z madalyon (yazı çizilmez). Kaynak: cephe ajanı (1550614219) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): D9ITSrc7_105_7_40 (2025-09): \"ZEUGMA KÜNEFE\" krem-altın harfler (#ae9f7d) kış bahçesi çatısının ÜSTÜNDE siyah çerçeveye takılı (alında değil), üstte küçük \"GAZİANTEP\", sağda yeşil rozet \"KATMER-DONDURMA\", solda yeşil \"Z\" madalyon; alın bandı koyu yeşil #12302c. v9: harfler `roofSign` ile çatının üstünde çerçevede (alın bandı yazısız, #12302c). Boy D9ITSrc7_105_7_40 karesinde kış bahçesi boyuna (3 m) oranla: çerçeve ≈1.0 m, ZEUGMA KÜNEFE harfleri ≈0.65 m, üstte küçük GAZİANTEP; çerçeve siyah (örneklenmedi → wordTone siyah). Sağdaki yeşil KATMER-DONDURMA rozeti ve soldaki Z madalyon çizilmedi (glif yok). 2026-10-01 D4 sokak r2: cam #6a7478 → #39423e (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 2 (bulvar yüzü) y 0.9–2.0: D9ITSrc7_105_7_40 #39423e (gök ve araç yansımaları dahil; koyu bölmeler #111e18).",
       "x": 651.38,
       "z": -443.25,
       "fasciaC": "#12302c",
@@ -14345,10 +14359,10 @@
         ]
       ],
       "h": 3.2,
-      "glass": "#6a7478",
+      "glass": "#262b23",
       "frame": "#2a2c2e",
       "roofC": "#3a3d3f",
-      "note": "Kırmıkıl İş Merkezi güney cephesi cam kutu dükkân sırası (Eczane Yonca, trend, Pastadan, gülbaşoğulları börek-pasta), ön ≈(575,−818.2)→(611,−817.5), derinlik ≈4.5 (kuzeye). Muammer Aksoy panolarının GPS’i ≈5 m kuzeyde olabilir — konum cephe ajanının bordüre oturtmasına dayanır. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 D4 eleştirmen düzeltmesi (d4c #3): poligon düzeltildi — ön yüz (yol tarafı) z≈−819, arka (bina cephesi) ≈−822.8; önceki poligon yola (güneye) uzanıyordu. XQtjS3fI_0_0 (2025-09; eleştirmen görünüm kalibrasyonu dz −4.3): bordür −815.6, cam kutu önü −819.0; cam kutular x 575–592 (gülbaşoğulları kutusu SV x 585.6–591.6), x≈592–597 giriş girintisi (Kırmıkıl İş Merkezi levhası + banklar), x 597.5–611 beton duvar + üstü yeşil oluklu saç (arkasında tuğla kaplama; ayrı kaydedilmedi — boyu ölçülmedi). Hava fotoğrafında cam kutu çatıları x≈600’e kadar uzanıyor gibi (±2).",
+      "note": "Kırmıkıl İş Merkezi güney cephesi cam kutu dükkân sırası (Eczane Yonca, trend, Pastadan, gülbaşoğulları börek-pasta), ön ≈(575,−818.2)→(611,−817.5), derinlik ≈4.5 (kuzeye). Muammer Aksoy panolarının GPS’i ≈5 m kuzeyde olabilir — konum cephe ajanının bordüre oturtmasına dayanır. Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 D4 eleştirmen düzeltmesi (d4c #3): poligon düzeltildi — ön yüz (yol tarafı) z≈−819, arka (bina cephesi) ≈−822.8; önceki poligon yola (güneye) uzanıyordu. XQtjS3fI_0_0 (2025-09; eleştirmen görünüm kalibrasyonu dz −4.3): bordür −815.6, cam kutu önü −819.0; cam kutular x 575–592 (gülbaşoğulları kutusu SV x 585.6–591.6), x≈592–597 giriş girintisi (Kırmıkıl İş Merkezi levhası + banklar), x 597.5–611 beton duvar + üstü yeşil oluklu saç (arkasında tuğla kaplama; ayrı kaydedilmedi — boyu ölçülmedi). Hava fotoğrafında cam kutu çatıları x≈600’e kadar uzanıyor gibi (±2). 2026-10-01 D4 sokak r2: cam #6a7478 → #262b23 (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 0 (yol yüzü) cam bölmeleri u %30–75, y 1.2–2.0: XQtjS3fI_0_0 (dz −4.3, güneşli) #262b23 (koyu iç + yansıma; afişler hariç değil).",
       "x": 583.5,
       "z": -820.8
     },
@@ -14424,10 +14438,10 @@
         ]
       ],
       "h": 3.5,
-      "glass": "#6a7478",
+      "glass": "#1b1b15",
       "frame": "#2a2c2e",
       "roofC": "#3a3d3f",
-      "note": "Kırmıkıl doğu pavyonları x 613.8–623, z −851…−822 (Radyo, Cocktail & Dinner — yeşil oluklu kaplama, Pizza Hut, CRASH); tek hacim olarak yazıldı (bölmeler/renkler çizilmez). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): c0UCoLv9_300_0 (2025-09): bulvara bakan doğu yüzde (kenar 1) yeşil-gri oluklu saç alın (gölgede #353d3d; eleştirmen #43544e), sarı-hardal harfler #c49761 \"Cocktail & Dinner\" ve \"radyo gastro pub\". u aralıkları kerterizden (u 215–350 → z −825.0…−828.2; u 10–110 → −823…−825) ±1. Pizza Hut / CRASH bölmeleri bu karede görülmedi.",
+      "note": "Kırmıkıl doğu pavyonları x 613.8–623, z −851…−822 (Radyo, Cocktail & Dinner — yeşil oluklu kaplama, Pizza Hut, CRASH); tek hacim olarak yazıldı (bölmeler/renkler çizilmez). Kaynak: cephe ajanı (1544934686 / 1552992538 / 1477364957 / 900000261) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): c0UCoLv9_300_0 (2025-09): bulvara bakan doğu yüzde (kenar 1) yeşil-gri oluklu saç alın (gölgede #353d3d; eleştirmen #43544e), sarı-hardal harfler #c49761 \"Cocktail & Dinner\" ve \"radyo gastro pub\". u aralıkları kerterizden (u 215–350 → z −825.0…−828.2; u 10–110 → −823…−825) ±1. Pizza Hut / CRASH bölmeleri bu karede görülmedi. 2026-10-01 D4 sokak r2: cam #6a7478 → #1b1b15 (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 1 (bulvar yüzü) y 1.0–2.3: c0UCoLv9_300_0 #1b1b15. Gerçekte bu yüz camsız açık teras (koyu iç, masalar, ışık zinciri) — açık cephe üreticide yok; görünen ton iç karanlığı (kod gerekir).",
       "x": 618.4,
       "z": -836.5,
       "fasciaC": "#353d3d",
@@ -14980,24 +14994,34 @@
         ]
       ],
       "h": 3,
-      "glass": "#6a7478",
+      "glass": "#22241e",
       "frame": "#1f2022",
       "roofC": "#7a7c7c",
-      "note": "Siyah çerçeveli cam kış bahçesi, oluklu çatı (\"Tarz-ı Pide\", \"Tarz-ı Tost\", \"Mandı…\" yazıları çizilmez); 9nQa3LQ8_120_0’da \"Tarz-ı Pide\" görüldü. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): 9nQa3LQ8_120_0 (2025-09): koyu alın #1c1f26 üzerinde el yazısı \"Tarz-ı Pide\" — \"Tarz-ı\" kırmızı-pembe (harf ince, 1 px örnek #511a20 güvenilmez), \"Pide\" açık gri #9c9fa7; v9: iki renkli satır `fasciaParts` — \"Tarz-ı\" #9b4f59 (9nQa3LQ8_134_6_40 yakın karesinde harf pikselleri medyanı, gölgede), \"Pide\" #9c9fa7. \"Tarz-ı Tost\", \"Mandı…\" yazıları bu karede okunmadı (görülmedi).",
+      "note": "Siyah çerçeveli cam kış bahçesi, oluklu çatı (\"Tarz-ı Pide\", \"Tarz-ı Tost\", \"Mandı…\" yazıları çizilmez); 9nQa3LQ8_120_0’da \"Tarz-ı Pide\" görüldü. Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): 9nQa3LQ8_120_0 (2025-09): koyu alın #1c1f26 üzerinde el yazısı \"Tarz-ı Pide\" — \"Tarz-ı\" kırmızı-pembe (harf ince, 1 px örnek #511a20 güvenilmez), \"Pide\" açık gri #9c9fa7; v9: iki renkli satır `fasciaParts` — \"Tarz-ı\" #9b4f59 (9nQa3LQ8_134_6_40 yakın karesinde harf pikselleri medyanı, gölgede), \"Pide\" #9c9fa7. \"Tarz-ı Tost\", \"Mandı…\" yazıları bu karede okunmadı (görülmedi). 2026-10-01 D4 sokak r2: fasciaParts aralıkları (d4c r2 #1). Kenar 3 (bulvar yüzü x 661.5), u = kenar başından (z −712.3) kuzeye m. Kerterizler x 661.5 düzlemine: y2QCdhl2_60_0 (2025-09) Hançer / Tarz-ı sınırı z −738.85 (kapatma kuzey ucu −738.3 → pano +0.55 düzeltmesi), \"Tarz-ı Pide\" yazısı −738.1…−734.9, bölme sonu −733.5, \"Mandıra\" −720.8…−718.1; 9nQa3LQ8_120_0 bölme başı −735.56 (→ −738.3 için −2.8 düzeltme), yazı −732.7…−729.4. İki karenin düzeltilmiş ortalaması: Tarz-ı Pide bölmesi z −738.3…−732.3 (u 20–26), yazı u 21.0–24.4 (\"Tarz-ı\" kuzeyde, \"Pide\" güneyde: doğuya bakan okur için soldan sağa); \"Mandıra\" (Ayanoğlu bölmesi, beyaz el yazısı) u 5.2–8.0, harf pikselleri #a8acae (alın saçak gölgesinde, y2QCdhl2_60_0 u 482–554). \"Mandıra\"nın sağındaki \"Un…\" yazısı okunmadı → yazılmadı. Yazı biçimi (el yazısı) üreticide yok. 2026-10-01 D4 sokak r2: cam #6a7478 → #22241e (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 3 (bulvar yüzü) y 0.9–2.0: y2QCdhl2_60_0 #22241e (kenar 1 #21231d ile aynı).",
       "x": 664.05,
       "z": -725.3,
-      "fasciaText": "Tarz-ı Pide",
+      "fasciaText": "Tarz-ı Pide Mandıra",
       "fasciaFg": "#9c9fa7",
       "fasciaC": "#1c1f26",
       "fasciaH": 0.45,
       "fasciaParts": [
         {
           "text": "Tarz-ı",
-          "fg": "#9b4f59"
+          "fg": "#9b4f59",
+          "u0": 22.6,
+          "u1": 24.4
         },
         {
           "text": "Pide",
-          "fg": "#9c9fa7"
+          "fg": "#9c9fa7",
+          "u0": 21,
+          "u1": 22.4
+        },
+        {
+          "text": "Mandıra",
+          "fg": "#a8acae",
+          "u0": 5.2,
+          "u1": 8
         }
       ]
     },
@@ -15213,10 +15237,10 @@
         ]
       ],
       "h": 3,
-      "glass": "#6a7478",
+      "glass": "#33332e",
       "frame": "#3a3a38",
       "roofC": "#3a3a38",
-      "note": "Atmosfer kış bahçesi 163. Sk. yüzü (cam, çocuk afişleri; kz_7-s2L_120_0’da \"ATMOSFER KEBAP·DÖNER·FIRIN\" alın bandı görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): kz_7-s2L_120_0 (2025-09): koyu kahve alın bandı #231603 üzerinde altın-hardal serifli büyük harfler #a6895e; solda kırmızı \"Atmosfer\" logosu (çizilmedi).",
+      "note": "Atmosfer kış bahçesi 163. Sk. yüzü (cam, çocuk afişleri; kz_7-s2L_120_0’da \"ATMOSFER KEBAP·DÖNER·FIRIN\" alın bandı görüldü). Kaynak: cephe ajanı (1552093106 / 1546358593 / 1545290880) konumu ±1 m; sokak ajanı genel görünümü SV 2025-09 karelerinde gördü, konumu tek tek yeniden ölçmedi. 2026-09-30 (d4c #5 / koordinatör): kz_7-s2L_120_0 (2025-09): koyu kahve alın bandı #231603 üzerinde altın-hardal serifli büyük harfler #a6895e; solda kırmızı \"Atmosfer\" logosu (çizilmedi). 2026-10-01 D4 sokak r2: cam #6a7478 → #33332e (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 2 (163. Sk. yüzü) y 0.9–2.0: kz_7-s2L_120_0 #33332e (araç yansımaları dahil; batı ucu #1d221a).",
       "x": 679.05,
       "z": -699.55,
       "fasciaText": "ATMOSFER KEBAP · DÖNER · FIRIN",
@@ -17861,20 +17885,22 @@
       "kind": "tree",
       "x": 629.92,
       "z": -522.7,
-      "h": 3.5,
-      "r": 0.9,
+      "h": 4.6,
+      "r": 1,
       "species": "sapling-purple",
-      "note": "Orta refüjde çift ahşap kazıklı genç ağaç (kazık). Tür: 2025-09 SV 60_0/120_0 karelerinde bu refüjdeki ağaçların çoğu mor yapraklı (kan erik görünümlü); bu ağaç tek tek doğrulanmadı. Konum: hava fotoğrafı taç gölgesi (z -524) + 1.3 m (mevcut da3-median-n ağaçlarıyla kalibre), x refüj ekseni. Boy ≈3–4 m (karelerde yayaya göre oransal). ±1.5. 2026-09-30 (d4b #18): tür prunus-purple → sapling-purple (A5O5IcBz_120_0, X0NY1chl_300_0, H7s4cksD_240_0: çift kazıklı genç fidanlar, seyrek taç Ø≈1.2–1.5, boy 3–4 m; çoğu mor yapraklı, aralarda yeşil yapraklı olanlar tek tek ayrılmadı)."
+      "note": "Orta refüjde çift ahşap kazıklı genç ağaç (kazık). Tür: 2025-09 SV 60_0/120_0 karelerinde bu refüjdeki ağaçların çoğu mor yapraklı (kan erik görünümlü); bu ağaç tek tek doğrulanmadı. Konum: hava fotoğrafı taç gölgesi (z -524) + 1.3 m (mevcut da3-median-n ağaçlarıyla kalibre), x refüj ekseni. Boy ≈3–4 m (karelerde yayaya göre oransal). ±1.5. 2026-09-30 (d4b #18): tür prunus-purple → sapling-purple (A5O5IcBz_120_0, X0NY1chl_300_0, H7s4cksD_240_0: çift kazıklı genç fidanlar, seyrek taç Ø≈1.2–1.5, boy 3–4 m; çoğu mor yapraklı, aralarda yeşil yapraklı olanlar tek tek ayrılmadı). 2026-10-01 D4 sokak r2: H7s4cksD_0_0 (2025-09): gövde dibi u 158 v 366 (refüj +0.15, zf 15.3), tepe v 272 → 4.6 m (refüjden ≈4.5), taç tabanı v ≈310 → 2.7, taç eni 41 px → Ø≈2.0. Mor yapraklı, taç orta sıklıkta; tek ahşap kazık görülüyor (ikincisi gövdenin arkasında). ±0.5.",
+      "crownBase": 2.7
     },
     {
       "id": "d4-median-m4-tree-5",
       "kind": "tree",
       "x": 630.36,
       "z": -529.5,
-      "h": 3.5,
-      "r": 0.9,
+      "h": 4.9,
+      "r": 0.95,
       "species": "sapling-purple",
-      "note": "Orta refüjde çift ahşap kazıklı genç ağaç (kazık). Tür: 2025-09 SV 60_0/120_0 karelerinde bu refüjdeki ağaçların çoğu mor yapraklı (kan erik görünümlü); bu ağaç tek tek doğrulanmadı. Konum: hava fotoğrafı taç gölgesi (z -530.8) + 1.3 m (mevcut da3-median-n ağaçlarıyla kalibre), x refüj ekseni. Boy ≈3–4 m (karelerde yayaya göre oransal). ±1.5. 2026-09-30 (d4b #18): tür prunus-purple → sapling-purple (A5O5IcBz_120_0, X0NY1chl_300_0, H7s4cksD_240_0: çift kazıklı genç fidanlar, seyrek taç Ø≈1.2–1.5, boy 3–4 m; çoğu mor yapraklı, aralarda yeşil yapraklı olanlar tek tek ayrılmadı)."
+      "note": "Orta refüjde çift ahşap kazıklı genç ağaç (kazık). Tür: 2025-09 SV 60_0/120_0 karelerinde bu refüjdeki ağaçların çoğu mor yapraklı (kan erik görünümlü); bu ağaç tek tek doğrulanmadı. Konum: hava fotoğrafı taç gölgesi (z -530.8) + 1.3 m (mevcut da3-median-n ağaçlarıyla kalibre), x refüj ekseni. Boy ≈3–4 m (karelerde yayaya göre oransal). ±1.5. 2026-09-30 (d4b #18): tür prunus-purple → sapling-purple (A5O5IcBz_120_0, X0NY1chl_300_0, H7s4cksD_240_0: çift kazıklı genç fidanlar, seyrek taç Ø≈1.2–1.5, boy 3–4 m; çoğu mor yapraklı, aralarda yeşil yapraklı olanlar tek tek ayrılmadı). 2026-10-01 D4 sokak r2: H7s4cksD_0_0: ikinci mor fidan u ≈220 (veri konumuyla zf 19.8), tepe v 277 → ≈4.9, taç Ø≈1.9, taç tabanı ≈2.4. ±0.7. Refüjün diğer fidanları bu karede ayrı seçilemedi — değiştirilmedi.",
+      "crownBase": 2.4
     },
     {
       "id": "d4-median-m4-tree-6",
@@ -18997,7 +19023,7 @@
         ]
       ],
       "h": 4.1,
-      "glass": "#5f6a6c",
+      "glass": "#1a2312",
       "frame": "#3a3d3f",
       "mullion": 1,
       "roofC": "#b8ae9f",
@@ -19008,11 +19034,12 @@
           "u1": 13.7
         }
       ],
-      "note": "Özdemiroğlu restoran (1546358563) doğu cephesi önünde kış bahçesi. Cephe ajanı ölçümü (±1) + aerial-n1 doğrulaması: hava fotoğrafında açık renk panelli çatı x 587.3–593.6, z −236.5…−214 (≈4 m kot için eğiklik (−0.35,−1.2) düzeltilince poly ile uyumlu), çatıda ≈3.4 m aralıklı koyu mertekler (z −232/−228.3/−224.8/−221.2/−217.7). Çatı: bej açılır-kapanır branda (gölgede #a19f93, hava fotoğrafında #d0c5b9 → roofC ortalama), koyu gri mertekler (2026-09-30: aerial-n1 çatıda 5 koyu çizgi, satır 4166/4208/4249/4289/4330 → aralık 3.41 m; renk OHftRqTt_264_10_40 kolların gölgeli yan yüzü #3c3f3a. Üretici mertekleri kenar 0 başından every/2’de başlatıyor, gerçek ilk mertek ≈3.3 m’de — yarım aralık kayık), koyu cam çerçeveler. h = duvar tarafı ≈4.1 m (cephe ajanı); brandanın dış kenara eğimi ölçülmedi → düz alındı.3 varsayım DEĞİL — eğimli branda için yalnız görünüm; ±0.5). Kapı doğu kenarında z −225.8…−227.7, üstünde küçük gri saçak (saçak çizilmez). Kenar 0 = bina duvarı (batı), kenar 2 = doğu (z −214 → −235.3; kapı u0/u1 = kenar başından m).",
+      "note": "Özdemiroğlu restoran (1546358563) doğu cephesi önünde kış bahçesi. Cephe ajanı ölçümü (±1) + aerial-n1 doğrulaması: hava fotoğrafında açık renk panelli çatı x 587.3–593.6, z −236.5…−214 (≈4 m kot için eğiklik (−0.35,−1.2) düzeltilince poly ile uyumlu), çatıda ≈3.4 m aralıklı koyu mertekler (z −232/−228.3/−224.8/−221.2/−217.7). Çatı: bej açılır-kapanır branda (gölgede #a19f93, hava fotoğrafında #d0c5b9 → roofC ortalama), koyu gri mertekler (2026-09-30: aerial-n1 çatıda 5 koyu çizgi, satır 4166/4208/4249/4289/4330 → aralık 3.41 m; renk OHftRqTt_264_10_40 kolların gölgeli yan yüzü #3c3f3a. Üretici mertekleri kenar 0 başından every/2’de başlatıyor, gerçek ilk mertek ≈3.3 m’de — yarım aralık kayık), koyu cam çerçeveler. h = duvar tarafı ≈4.1 m (cephe ajanı); brandanın dış kenara eğimi ölçülmedi → düz alındı.3 varsayım DEĞİL — eğimli branda için yalnız görünüm; ±0.5). Kapı doğu kenarında z −225.8…−227.7, üstünde küçük gri saçak (saçak çizilmez). Kenar 0 = bina duvarı (batı), kenar 2 = doğu (z −214 → −235.3; kapı u0/u1 = kenar başından m). 2026-10-01 D4 sokak r2: cam #5f6a6c → #1a2312 (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 2 (bulvar yüzü) y 1.9–2.8 tente gölgesinde: OHftRqTt_300_0 #151e10, lOTvhRji_300_0 (dx −1.8) #1e2815 → #1a2312 (eleştirmen #253221; alt kısım çalıların arkasında). h2 3.2: tente ön alt kenarı OHftRqTt_300_0 u 94 v 304 → x 594.1 düzleminde 3.19 m; cephe tarafı (kenar 0) h 4.1 korundu (aynı karede 4.2–4.5 ölçüldü, pano kayması ±0.3) → eğik tente çatısı.",
       "rafters": {
         "every": 3.4,
         "color": "#3c3f3a"
-      }
+      },
+      "h2": 3.2
     },
     {
       "id": "d4-ozd-wg-se",
@@ -19148,21 +19175,21 @@
       "kind": "pole",
       "x": 604.98,
       "z": -230,
-      "h": 8,
-      "note": "Özdemiroğlu doğu çiminde bayraksız bayrak direği (üç direğin güneydeki; kumaş yok); 2026-09-30 düzeltme: OHftRqTt_300_0, 8lJUsB-6_240_0, 7owiuJwI_240_0 (2025-09) karelerinde bu direkte bayrak yok, Türk bayrağı ortadaki direkte (d4-ozd-flag-tr). Eski not: SV OHftRqTt_240_0, 8lJUsB-6_240_0, 7owiuJwI_240_0: iki direk görülmüştü. Konum cephe ajanı (x 595–600) ±1.5 — üç karenin kerteriz kesişimi bu direği (604.98,−230.0)’a koyuyor (artık < 0.05 m; bkz. d4-ozd-flag-tr), konum düzeltmesi bekliyor. Boy ≈8 (oransal). | Konum 3 karenin kerteriz kesişiminden (OHftRqTt_300_0, 8lJUsB-6_240_0, 7owiuJwI_240_0; ±0.1): eski x 597.5 cephe ajanının ±1.5 tahminiydi."
+      "h": 6.7,
+      "note": "Özdemiroğlu doğu çiminde bayraksız bayrak direği (üç direğin güneydeki; kumaş yok); 2026-09-30 düzeltme: OHftRqTt_300_0, 8lJUsB-6_240_0, 7owiuJwI_240_0 (2025-09) karelerinde bu direkte bayrak yok, Türk bayrağı ortadaki direkte (d4-ozd-flag-tr). Eski not: SV OHftRqTt_240_0, 8lJUsB-6_240_0, 7owiuJwI_240_0: iki direk görülmüştü. Konum cephe ajanı (x 595–600) ±1.5 — üç karenin kerteriz kesişimi bu direği (604.98,−230.0)’a koyuyor (artık < 0.05 m; bkz. d4-ozd-flag-tr), konum düzeltmesi bekliyor. Boy ≈8 (oransal). | Konum 3 karenin kerteriz kesişiminden (OHftRqTt_300_0, 8lJUsB-6_240_0, 7owiuJwI_240_0; ±0.1): eski x 597.5 cephe ajanının ±1.5 tahminiydi. 2026-10-01 D4 sokak r2: boy 8 → 6.7 (d4a r2 #14). Tepe pikselleri iki 2025-09 karesinde, direk konumu (kerteriz) ile uzaklık: OHftRqTt_300_0 v 158 (zf 9.0) → 6.9, 8lJUsB-6_240_0 v 193 (zf 11.4) → 6.9 (yol kotundan; çim ≈+0.15–0.3) → çimden ≈6.7. Eleştirmenin 6.0 değeri göz kararıydı; lOTvhRji_300_0 karesinde pano konumu ≈1–2 m kayık (direkler 22 px sapıyor) → kullanılmadı. ±0.4."
     },
     {
       "id": "d4-ozd-flag-tr",
       "kind": "pole",
       "x": 604.94,
       "z": -231.41,
-      "h": 6.2,
+      "h": 7.1,
       "rot": 180,
       "flag": {
         "type": "tr",
         "w": 1.7
       },
-      "note": "Özdemiroğlu doğu çiminde ortadaki bayrak direği, Türk bayrağı (2026-09-30). Kerteriz (üç 2025-09 karesi, aynı sürüş): OHftRqTt_300_0 285.9°, 8lJUsB-6_240_0 234.6°, 7owiuJwI_240_0 207.1° → (604.94,−231.41), ışın artıkları 0.03/0.07/0.06 m. Aynı karelerle güney bayraksız direk (604.98,−230.0), kuzey beyaz bayraklı direk (604.95,−232.74) — direk aralığı ≈1.35 m; d4-ozd-flag-1/2’nin kayıtlı konumu (x 597.5, z −231.6/−236.1) bu kesişimlerden ≈7.5 m batıda (cephe ajanı ±1.5; ortak pano kayması olsa üçü birlikte kayar). Boy: tepe yol kotundan ≈7.35 (7.38/7.29/7.36), görünen dip ≈1.1–1.4 m (çim yükseltisi, çit arkası) → direk ≈6.2 (±0.5). Bayrak sarkık/yarı dalgalı, üç karede de direğin güneyine doğru (rot 180, ±40); asılı boyu ≈1.7 m (OHftRqTt 57 px @10 m, 8lJUsB 50 px @10.7 m) → flag.w 1.7.",
+      "note": "Özdemiroğlu doğu çiminde ortadaki bayrak direği, Türk bayrağı (2026-09-30). Kerteriz (üç 2025-09 karesi, aynı sürüş): OHftRqTt_300_0 285.9°, 8lJUsB-6_240_0 234.6°, 7owiuJwI_240_0 207.1° → (604.94,−231.41), ışın artıkları 0.03/0.07/0.06 m. Aynı karelerle güney bayraksız direk (604.98,−230.0), kuzey beyaz bayraklı direk (604.95,−232.74) — direk aralığı ≈1.35 m; d4-ozd-flag-1/2’nin kayıtlı konumu (x 597.5, z −231.6/−236.1) bu kesişimlerden ≈7.5 m batıda (cephe ajanı ±1.5; ortak pano kayması olsa üçü birlikte kayar). Boy: tepe yol kotundan ≈7.35 (7.38/7.29/7.36), görünen dip ≈1.1–1.4 m (çim yükseltisi, çit arkası) → direk ≈6.2 (±0.5). Bayrak sarkık/yarı dalgalı, üç karede de direğin güneyine doğru (rot 180, ±40); asılı boyu ≈1.7 m (OHftRqTt 57 px @10 m, 8lJUsB 50 px @10.7 m) → flag.w 1.7. 2026-10-01 D4 sokak r2: boy 6.2 → 7.1: OHftRqTt_300_0 v 155 (zf 9.7) → 7.35, 8lJUsB-6_240_0 v 171 (zf 10.7) → 7.33 yol kotundan → çimden ≈7.1 (üçünün en uzunu, fotoğrafla aynı sıra). ±0.4.",
       "evidence": [
         "OHftRqTtnHJfpCfMYaopvw_300_0.jpg",
         "8lJUsB-6hIYL2QNS95UhDQ_240_0.jpg",
@@ -19174,8 +19201,8 @@
       "kind": "pole",
       "x": 604.95,
       "z": -232.74,
-      "h": 8,
-      "note": "İkinci bayrak direği (kuzeydeki). 2026-09-30: OHftRqTt_300_0 ve 8lJUsB-6_240_0’da (2025-09) kumaş gönderde sarkık, açık gri-beyaz (karşı ışıkta #9ea5a9–#adb2bb, kenarda mavimsi #6d7b8d); desen/logo görülmedi → flag verilmedi (düz renk bayrak desensizliği iddia ederdi). Aynı karelerde üç direk seçiliyor: güneyde bayraksız, ortada Türk bayrağı, kuzeyde bu beyaz bayrak (kerteriz sırası iki panoda aynı); d4-ozd-flag-1 (z −231.6) kerteriz açısıyla güneydeki bayraksız direğe düşüyor — üçüncü direk kaydı yok. ±1.5. | Konum 3 karenin kerteriz kesişiminden (aynı kareler; ±0.1)."
+      "h": 6.6,
+      "note": "İkinci bayrak direği (kuzeydeki). 2026-09-30: OHftRqTt_300_0 ve 8lJUsB-6_240_0’da (2025-09) kumaş gönderde sarkık, açık gri-beyaz (karşı ışıkta #9ea5a9–#adb2bb, kenarda mavimsi #6d7b8d); desen/logo görülmedi → flag verilmedi (düz renk bayrak desensizliği iddia ederdi). Aynı karelerde üç direk seçiliyor: güneyde bayraksız, ortada Türk bayrağı, kuzeyde bu beyaz bayrak (kerteriz sırası iki panoda aynı); d4-ozd-flag-1 (z −231.6) kerteriz açısıyla güneydeki bayraksız direğe düşüyor — üçüncü direk kaydı yok. ±1.5. | Konum 3 karenin kerteriz kesişiminden (aynı kareler; ±0.1). 2026-10-01 D4 sokak r2: boy 8 → 6.6: OHftRqTt_300_0 v 183 (zf 10.4) → 6.80, 8lJUsB-6_240_0 v 180 (zf 10.0) → 6.73 yol kotundan → çimden ≈6.6. Kumaş: OHftRqTt_300_0 yakın kırpımında gönderde sarkık, açık gri; desen/logo yine görülmedi → flag verilmedi (önceki karar korundu). ±0.4."
     },
     {
       "id": "d4-ozd-palm",
@@ -19332,14 +19359,14 @@
     {
       "id": "d4-um-shelter-1",
       "kind": "bus-shelter",
-      "x": 730.75,
+      "x": 732.35,
       "z": -301.3,
-      "w": 6.5,
+      "w": 4.7,
       "d": 1.5,
       "h": 2.6,
       "rot": 180,
       "color": "#8c9295",
-      "note": "Otobüs durağı sığınağı (x 727.5–734, z≈−304; cephe ajanı + SV ClwC9NKO_0_0): gri alüminyum çerçeve, cam arka panel, arka camda üç siyah dikdörtgen pano (ClwC9NKO_0_0 / _300_0 / _343_1_40; üretici arka cam panosu çizmiyor), düz çatı, oturak. 2026-09-30: BATI ucunda (rot 180 → start = batı) çerçeveli reklam kutusu, doğuya bakan yüzünde gri-beyaz saat afişi (ClwC9NKO_300_0, çatı gölgesinde #6a6e6c); DOĞU ucu cam (ClwC9NKO_0_0). Batı panonun batı yüzü görülmedi; ışıklı olup olmadığı görülmedi. 2026-09-30 (d4a #16): z −304 → −301.3. ClwC9NKO_0_0 (2025-09): ön dikmeler bordür hattının ≈0.6 m yol tarafında (durak önünde kaldırım ≈1.5 m çıkıntı yapıyor, v≈520’ye kadar kilit taşı), arka dikmeler ≈0.8 m kaldırım tarafında → merkez bordür hattında (hava fotoğrafı bordürü x 731’de −301.4). Eleştirmenin −299…−300.5 değeri SV GPS’indendi (bu kolda SV ≈1 m güneye kayık). Çıkıntının (bulb-out) biçimi ölçülmedi, çizilmedi. ±0.5.",
+      "note": "Otobüs durağı sığınağı (x 727.5–734, z≈−304; cephe ajanı + SV ClwC9NKO_0_0): gri alüminyum çerçeve, cam arka panel, arka camda üç siyah dikdörtgen pano (ClwC9NKO_0_0 / _300_0 / _343_1_40; üretici arka cam panosu çizmiyor), düz çatı, oturak. 2026-09-30: BATI ucunda (rot 180 → start = batı) çerçeveli reklam kutusu, doğuya bakan yüzünde gri-beyaz saat afişi (ClwC9NKO_300_0, çatı gölgesinde #6a6e6c); DOĞU ucu cam (ClwC9NKO_0_0). Batı panonun batı yüzü görülmedi; ışıklı olup olmadığı görülmedi. 2026-09-30 (d4a #16): z −304 → −301.3. ClwC9NKO_0_0 (2025-09): ön dikmeler bordür hattının ≈0.6 m yol tarafında (durak önünde kaldırım ≈1.5 m çıkıntı yapıyor, v≈520’ye kadar kilit taşı), arka dikmeler ≈0.8 m kaldırım tarafında → merkez bordür hattında (hava fotoğrafı bordürü x 731’de −301.4). Eleştirmenin −299…−300.5 değeri SV GPS’indendi (bu kolda SV ≈1 m güneye kayık). Çıkıntının (bulb-out) biçimi ölçülmedi, çizilmedi. ±0.5. 2026-10-01 D4 sokak r2: x 730.75 / w 6.5 → x 732.35 / w 4.7 (d4a r2 #15). ClwC9NKO_300_0 batı ucu reklam kutusu tabanı u 342 v 420 → (729.96, −298.55), u 398 v 410 → (729.99, −300.17); ClwC9NKO_0_0 doğu ucu dikmesi u 245 v 478 → (734.77, −299.07) → x 730.0–734.7. Doğrulama: 2tZdYrGD_0_0’da (2025-09) MOT önünde sığınak yok — karenin sağ kenar ışını (45°) sığınağın arka çizgisinde x≈730.5’e düşüyor (batı ucu ≥ 730.5 ile uyumlu, ±0.5). z değiştirilmedi (ClwC karesinin z’si bordürle 1.3 m kayık; çıkıntı (bulb-out) çizilmediği için ön dikmeleri yola taşımamak için −301.3 korundu). ±0.4.",
       "ads": [
         {
           "end": "start",
@@ -19544,11 +19571,11 @@
         ]
       ],
       "h": 2.9,
-      "glass": "#6a7478",
+      "glass": "#262a28",
       "frame": "#51534f",
       "mullion": 1.3,
       "roofC": "#b9b09f",
-      "note": "Caffe Napoli kış bahçesi, tek katlı dükkân şeridinin (1551828357) KD köşesi, bulvar yüzü. SV lIHJ8SFu_240_0 / y4xcvLXl_120_0 / _180_0 (2025-09): antrasit alüminyum çerçeve (#51534f difüz), boydan sürgülü cam paneller, üstte açık bej düz/az eğimli çatı panelleri (açılır tavan?) + koyu çerçeve; köşede taş kaplı ayak; içeride pembe-kırmızı örtülü masalar, ahşap sandalyeler. Kış bahçesi 404. Sk. boyunca kuzey yüzde devam ediyor — o kısım taban izi içinde (cephe ajanı), burada yalnız bulvara taşan ≈2.5 m derin kısım (hava fotoğrafı x 616.9–619.4, z −718.3…−711.8, ±0.5). Kapı konumu görülmedi. Yükseklik oransal ≈2.9 ±0.3; kenar 0 = dükkân cephesi."
+      "note": "Caffe Napoli kış bahçesi, tek katlı dükkân şeridinin (1551828357) KD köşesi, bulvar yüzü. SV lIHJ8SFu_240_0 / y4xcvLXl_120_0 / _180_0 (2025-09): antrasit alüminyum çerçeve (#51534f difüz), boydan sürgülü cam paneller, üstte açık bej düz/az eğimli çatı panelleri (açılır tavan?) + koyu çerçeve; köşede taş kaplı ayak; içeride pembe-kırmızı örtülü masalar, ahşap sandalyeler. Kış bahçesi 404. Sk. boyunca kuzey yüzde devam ediyor — o kısım taban izi içinde (cephe ajanı), burada yalnız bulvara taşan ≈2.5 m derin kısım (hava fotoğrafı x 616.9–619.4, z −718.3…−711.8, ±0.5). Kapı konumu görülmedi. Yükseklik oransal ≈2.9 ±0.3; kenar 0 = dükkân cephesi. 2026-10-01 D4 sokak r2: cam #6a7478 → #262a28 (koordinatör #15, d4a r2 #3 / d4c r2 #7): kenar 2 (bulvar yüzü x 619.4) y 0.9–2.0: lIHJ8SFu_240_0 #262a28 (bulutlu/gölgede)."
     },
     {
       "id": "d4-ozhamur-pergola",
@@ -19790,8 +19817,8 @@
       "z": -776.8,
       "h": 1.6,
       "rot": 90,
-      "note": "Köşe çiminde beton kaide üzerinde 3 beyaz-gri elektrik/telekom dolabı (≈0.6×0.4×1.6, en büyüğü ≈0.8×0.5×1.9; #7b817d gölgede), üzerlerinde yapıştırmalar (dZQ2YFC-_60_0). Tek kayıt; konum dZQ2 kerteriz ±1.5. 2026-09-30 (d4c #28): dolaplar açık gri / beyaz (rxGw6Z1I_120_0); oyunda koyu yeşil — v9: `color` (gölgede #7b817d) ile çizilir.",
-      "color": "#7b817d"
+      "note": "Köşe çiminde beton kaide üzerinde 3 beyaz-gri elektrik/telekom dolabı (≈0.6×0.4×1.6, en büyüğü ≈0.8×0.5×1.9; #7b817d gölgede), üzerlerinde yapıştırmalar (dZQ2YFC-_60_0). Tek kayıt; konum dZQ2 kerteriz ±1.5. 2026-09-30 (d4c #28): dolaplar açık gri / beyaz (rxGw6Z1I_120_0); oyunda koyu yeşil — v9: `color` (gölgede #7b817d) ile çizilir. 2026-10-01 D4 sokak r2: renk #7b817d → #848482 (d4c #28): rxGw6Z1I_120_0 (2025-09) dolap yüzleri yapıştırmasız alanlar u 352/393/410/372 → #81807d, #676c72, #838481, #909495 (yüzler gölgede, kameraya bakan KB yüzü) → nötr açık gri #848482 (yeşil ton yok).",
+      "color": "#848482"
     },
     {
       "id": "d4-e8-container-1",
@@ -22554,6 +22581,262 @@
       },
       "rot": 0,
       "note": "Kent Park (1551828351) güney yüzü, pergola önünün hemen güneyinde sık koyu yeşil ibreli çit (x 575.5–592.4, z −568.9…−568.1, üst ≈3.1 m); arkasındaki grafiti panolar çitin içinde kalır. Renk #2b2c17 / #282a14 (gölgede örneklendi). Derinlik görülmedi (0.8 = konum aralığı). Kaynak: D4 r2 cephe ajanı (SV 2025-09)."
+    },
+    {
+      "id": "d4-st-e-15",
+      "kind": "tree",
+      "x": 648.7,
+      "z": -592.7,
+      "h": 7.8,
+      "r": 3,
+      "crownBase": 3.1,
+      "species": "deciduous",
+      "note": "2026-10-01 D4 sokak r2 (d4b r2 #2): Özlüce Blv. doğu kaldırımı ağaç çukurunda yuvarlak taçlı, açık yeşil yapraklı yaprak döken ağaç, düz gövde ≈3 m'ye kadar açık. Konum iki karenin gövde dibi ışınlarından: 7gxX9ooH_60_0 u 458 v 402 → (648.79, −592.73), 7gxX9ooH_120_0 u 80 v 415 → (648.70, −592.75) (2025-09, kamera 2.35, kaldırım +0.15). Tepe 7gxX9ooH_60_0 v 118 / _120_0 v 85 → ≈7.8 m; taç yarıçapı sol kenar 3.0 (60_0) / sağ kenar 3.5 (120_0, yakın yapraklar) → 3.0; taç tabanı ≈3.1. Tür seçilemedi (genel yaprak döken). treeExclude d4-b106-front çokgeni değiştirilmedi: hava fotoğrafı tacı yerine bu ölçülmüş kayıt (ölçülmüş ağaçlar dışlamadan etkilenmez; çokgen daraltılsaydı aynı ağaç hava tacıyla ikinci kez çizilirdi). ±0.8."
+    },
+    {
+      "id": "d4-mak-pot-1",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -828.2,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.6,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.5,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-2",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -828.82,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.62,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.5,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-3",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -829.43,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.63,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.5,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-4",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -830.05,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.65,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.5,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-5",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -830.67,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.67,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.5,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-6",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -831.28,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.68,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.75,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-7",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -831.9,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.7,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.75,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-8",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -832.52,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.72,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 1.1,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-9",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -833.13,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.73,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 1.1,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-10",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -833.75,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.75,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 1.1,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-11",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -834.37,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.77,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 1.1,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-12",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -834.98,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.78,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.75,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-pot-13",
+      "kind": "planter",
+      "x": 624.3,
+      "z": -835.6,
+      "shape": "round",
+      "w": 0.5,
+      "d": 0.5,
+      "h": 0.8,
+      "color": "#7f563d",
+      "base": 0.25,
+      "plant": {
+        "h": 0.75,
+        "color": "#2a3a18",
+        "shape": "shrub"
+      },
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo terası doğu kenarında terakota saksı sırası (13 saksı, c0UCoLv9_300_0 + c0UCoLv9_0_-50, 2025-09). Sıra hattı x≈624.3 (0_-50 saksı dipleri (624.05,−830.0) … (623.98,−835.74); 300_0 (624.61,−828.18) … (624.30,−835.56)), saksılar eşit aralıklı yazıldı (tek tek konum ±0.3). Saksı boyu güneyde ≈0.6 → kuzeyde ≈0.8, çapı ≈0.5 (oransal). Renk 300_0 saksı gövdeleri medyanı #7f563d (gölgede / bulutlu), bitki #2a3a18 (gölgede). Bitki boyları kırpımdan gruplar hâlinde (0.5 alçak çalı / 0.75 ince sütun / 1.1 topiari) — tür ve tek tek biçim çizilmedi. Terasın içindeki iri zeytin ağaçları ve ikinci sıra saksılar eklenmedi (masaların arkasında, sayılamadı)."
+    },
+    {
+      "id": "d4-mak-tree-e",
+      "kind": "tree",
+      "x": 628.9,
+      "z": -840.6,
+      "h": 11.3,
+      "r": 4.2,
+      "crownBase": 4.4,
+      "species": "deciduous",
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Kırmıkıl doğu pavyonları önünde toprak şeritte büyük yaprak döken ağaç (geniş yuvarlak taç, koyu yeşil). Gövde dibi V5dBMBsg_300_0 u 488 v 405 → (628.76, −840.72); 2VL_N822_300_0 sağ ağaç u 555 v 378 → (631.68, −839.85) (bu pano ≈2–3 m doğuya kayık: aynı karede saksılar 626.5 yerine 624.4’te) → (628.9, −840.6). Tepe 2VL_N822_300_0 v 85 (zf 12.1) → ≈11.3; taç yarıçapı ≈4.1–4.4 (iki kare), taç tabanı ≈4.2–4.8. c0UCoLv9_300_0’da sağ üstte sarkan taç bu ağacın. Tür seçilemedi. 2VL_N822_300_0 solundaki ikinci büyük ağaç ve servi benzeri konik ağaç: konumları karelerde tutarsız (pano kayması) → eklenmedi (görülen ama ölçülemeyen). ±1.5."
     }
   ],
   "notes": [
@@ -22867,8 +23150,8 @@
     },
     {
       "id": 303447162,
-      "sidewalk": "right",
-      "note": "2026-09-30 D4 (d4a #18): 331. Sokak — yol yönü batıya; SOL (güney) yakada çiçekçi bahçesinin ahşap çıtalı çiti doğrudan asfalta dayanıyor, kaldırım YOK (Viv4rOz2_120_0 / _180_0). Sağ (kuzey) yakada KuveytTürk ön alanı (d4-kt-forecourt). x > 668 güney yakası (park) görülmedi — OSM kaldırımı orada da kapanıyor."
+      "sidewalk": "left",
+      "note": "2026-09-30 D4 (d4a #18): 331. Sokak — yol yönü batıya; SOL (güney) yakada çiçekçi bahçesinin ahşap çıtalı çiti doğrudan asfalta dayanıyor, kaldırım YOK (Viv4rOz2_120_0 / _180_0). Sağ (kuzey) yakada KuveytTürk ön alanı (d4-kt-forecourt). x > 668 güney yakası (park) görülmedi — OSM kaldırımı orada da kapanıyor. 2026-10-01 D4 sokak r2: sidewalk \"right\" → \"left\" (d4a r2 #16): roads.ts kaldırım yanı offsetPolyline normali (−dz, dx) ile — batıya çizilen bu yolda left = kuzey (KuveytTürk), right = güney (çiçekçi). Eski değer tam tersini (çiçekçi çitinin içine sarı kılavuzlu OSM kaldırımı) bırakıyordu; oyun karesi (a15 Viv4 120) bunu gösteriyor. Kuzey yakada x 655–675 OSM kaldırımı yine d4-kt-forecourt alanıyla bastırılır; x > 675 kuzey yakası görülmedi (OSM kaldırımı kalır)."
     },
     {
       "id": 303430966,
@@ -22889,6 +23172,14 @@
       "kind": "paving",
       "noKerb": true,
       "poly": [
+        [
+          689,
+          -303.5
+        ],
+        [
+          697,
+          -302.9
+        ],
         [
           700,
           -302.8
@@ -22936,10 +23227,14 @@
         [
           700,
           -299.2
+        ],
+        [
+          689,
+          -299.6
         ]
       ],
       "material": "gri beton kilit taşı (yol kotunda paralel park şeridi; gölgede #7c7c70)",
-      "note": "2026-09-30 D4 (d4a #3): Uğur Mumcu doğu kolu kuzey bordürü önünde yol kotunda kilit taşı park şeridi — SV 2tZdYrGD_0_-50 (park etmiş aracın altında kilit taşı), aerial-n1 profillerinde bordürün güneyinde ≈3–3.5 m koyu/pembemsi şerit (x 705: −302.4…−299.0, 722: −301.4…−298.2, 745: −300.2…−297.0, 765: −299.2…−296.2). Güney kenarı asfaltla aynı kot (bordür yok). Park yeri çizgisi görülmedi. ±0.5."
+      "note": "2026-09-30 D4 (d4a #3): Uğur Mumcu doğu kolu kuzey bordürü önünde yol kotunda kilit taşı park şeridi — SV 2tZdYrGD_0_-50 (park etmiş aracın altında kilit taşı), aerial-n1 profillerinde bordürün güneyinde ≈3–3.5 m koyu/pembemsi şerit (x 705: −302.4…−299.0, 722: −301.4…−298.2, 745: −300.2…−297.0, 765: −299.2…−296.2). Güney kenarı asfaltla aynı kot (bordür yok). Park yeri çizgisi görülmedi. ±0.5. 2026-10-01 D4 sokak r2: batı ucu x 700 → 689 (d4a r2 #7). 8x2jWhmk_300_0 (2025-09): scooterlar yol kotundaki kilit taşı şeridinde; kaldırım bordürü batıda yola kavisle iniyor, köşe ucu u 220 v 372 → (688.9, −299.1); Ax7s0cnI_0_-50: bordür önünde x 689.6–693.5 kilit taşı (yol kotu) görülüyor; 8x2jWhmk_0_-50: x 702 −298.8’e kadar kilit taşı. Kenarlar mevcut hatlardan: kuzey d4-sw-um-n bordürü, güney d4-um-n-carriageway kuzey kenarı. Ax7s0cnI_0_-50’deki krem kenar taşı kavisi (x 689.5 −300.8 → 696 −302.5: bordür köşe kavisi) ölçüldü ama çizilmedi (çokgen bordürün yol tarafında kalıyor). ±0.6."
     },
     {
       "id": "d4-split-w-band",
@@ -23284,53 +23579,130 @@
       "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4c #9): Muammer Aksoy Cd. güney yakası doğu kesim x 680–772 (1477364957 / 900000261 önü) dik park cebi — önceden çim/toprak görünüyordu. SV qo16GPO9_180_0 / sd8u9ONE_180_0 (2025-09): yol → dik park eden araçlar (yol kotunda, asfalt) → alçak bordür → gri kilit taşı kaldırım → dükkânlar. Kenarlar aerial-n2 enine profillerinden (araç sırası koyu şerit, kaldırım açık şerit, bina/saçak başlangıcı). ±0.6."
     },
     {
-      "id": "d4-ma-ne-brown",
+      "id": "d4-mak-terrace",
       "kind": "paving",
-      "noKerb": true,
+      "level": 0.25,
       "poly": [
         [
-          672,
-          -813.9
+          623,
+          -827.6
         ],
         [
-          680,
-          -813.5
+          625,
+          -827.6
         ],
         [
-          690,
-          -812.2
+          625,
+          -836.3
         ],
         [
-          700,
-          -811.5
-        ],
-        [
-          708,
-          -811.1
-        ],
-        [
-          708,
-          -814.3
-        ],
-        [
-          700,
-          -814.6
-        ],
-        [
-          690,
-          -815
-        ],
-        [
-          680,
-          -815.6
-        ],
-        [
-          672,
-          -815.9
+          623,
+          -836.3
         ]
       ],
-      "material": "kahverengi-kırmızı beton kilit taşı şerit (yol kotunda)",
-      "note": "2026-09-30 D4 eleştirmen düzeltmesi (d4c #12): GY1l09Ni_0_0 (2025-09): yol asfaltıyla beyaz bordür arasında ≈2.2 m kahverengi-kırmızı kilit taşı şerit (park/bekleme şeridi; araç görülmedi). Kenarlar aerial-n2 profilleri x 680/690/700 (pembemsi-kahve #a3928b şerit). ±0.4."
+      "material": "gri beton döşeme teras (yüzey saksı ve masaların arkasında, ayrıntısı görülmedi); kenarı koyu gri ≈0.1 m alçak bordür (#767266 gölgede)",
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8): Radyo / Cocktail & Dinner pavyonunun (d4-mak-east-pav) doğu önündeki yükseltilmiş teras. c0UCoLv9_300_0 teras kenarı u 470 v 425 → (625.18, −829.79); c0UCoLv9_0_-50 kenar u 60 v 140 → (625.0, −829.6), u 150 v 60 → (624.6, −835.1). Kuzey/güney uçları saksı sırasının uçlarından (−828.2 / −835.6) ±0.4 genişletildi. Kot kaldırımdan ≈0.1 yüksek (kenar 3–4 px). Pavyonun altındaki açık teras (masalar) pavyon kapatmasının içinde — açık cephe üreticide yok (kod gerekir). ±0.4."
+    },
+    {
+      "id": "d4-mak-east-walk",
+      "kind": "paving",
+      "level": 0.15,
+      "poly": [
+        [
+          623,
+          -822.6
+        ],
+        [
+          629.5,
+          -822.6
+        ],
+        [
+          629.5,
+          -828
+        ],
+        [
+          627.2,
+          -831
+        ],
+        [
+          626.4,
+          -836
+        ],
+        [
+          625.8,
+          -842
+        ],
+        [
+          626.8,
+          -849
+        ],
+        [
+          623,
+          -849
+        ],
+        [
+          623,
+          -836.3
+        ],
+        [
+          625,
+          -836.3
+        ],
+        [
+          625,
+          -827.6
+        ],
+        [
+          623,
+          -827.6
+        ]
+      ],
+      "material": "gri beton kilit taşı kaldırım (gölgede #88847a, güneşte #9f9c91)",
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #8: \"terasın yerinde çim/toprak\"): Kırmıkıl doğu pavyonları önü kaldırım (önceden kayıt yoktu, arazi çimi görünüyordu). c0UCoLv9_300_0 (2025-09): saksı sırasının doğusunda kilit taşı u 600 v 445 → (627.0, −830.8), u 630 v 405 → (626.3, −834.8); c0UCoLv9_0_-50 pano kilit taşı üzerinde (629.4, −823.7). V5dBMBsg_300_0: Pizza Hut önünde kaldırım u 300 v 383 → (623.7, −837.8), kaldırım / toprak şerit sınırı u 427 v 382 → (625.8, −841.8), u 560 v 370 → (626.9, −849.0); doğusunda toprak/çim şerit (güneşte #aa9d89, büyük ağaç ve çalılar). Renk: c0UCoLv9_300_0 u 360–420 v 455–480 (ağaç gölgesi) #88847a, V5dBMBsg_300_0 güneşli #9f9c91. Kuzey ucu d4-sw-ma-nw köşesine kadar; z −849’un kuzeyi görülmedi. ±0.6."
+    },
+    {
+      "id": "d4-ma-e-carriageway",
+      "kind": "asphalt",
+      "poly": [
+        [
+          676,
+          -800
+        ],
+        [
+          690,
+          -799.8
+        ],
+        [
+          710,
+          -799
+        ],
+        [
+          745,
+          -797
+        ],
+        [
+          745,
+          -803
+        ],
+        [
+          743.1,
+          -803
+        ],
+        [
+          699.8,
+          -806.3
+        ],
+        [
+          682.1,
+          -807.1
+        ],
+        [
+          676,
+          -807.3
+        ]
+      ],
+      "material": "asfalt (şerit dolgusu)",
+      "note": "2026-10-01 D4 sokak r2 (d4c r2 #4 kalan parça, görünüm c14 qo16 180 sol kenar): Muammer Aksoy Cd. doğu kesim iki tek yönlü kolu (OSM 699375119 doğuya, 302892646 batıya) arası — qo16GPO9_180_0 (2025-09): kameradan dik park cebine (d4-ma-se-bay) kadar kesintisiz asfalt, refüj / kaldırım yok. 699375119’un kuzey yakası OSM kaldırımı (≈−802.7…−804.7) d4-ma-se-bay tamponunun (4.5 m) dışında kalıyordu (uzun OSM parçasının orta noktası tamponda değil). Güney kenar d4-ma-se-bay kuzey kenarı, kuzey kenar 302892646 ekseni (bu alan yalnız şerit dolgusu; yol çizgileri korunur). x 745’in doğusu bu karede görülmedi. ±0.5."
     }
   ],
   "parking": [
