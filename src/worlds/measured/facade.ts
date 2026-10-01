@@ -4214,7 +4214,10 @@ function buildBlock(b: Builder, blk: CompiledBlock, base: number, o: FacadeOptio
         } else if (it.shape === 'pill' && !letters) {
           // v11: hap (stadyum) kutu: uç yarıçapı yükseklik / 2, kalınlık d (yan yüz kenar / zemin rengi)
           const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
-          b.geometry(ck('fascia', it.border ?? it.bg, 'mkRail'), pillGeometry(w, h, d, E[i].yaw, c, base + (it.y0 + it.y1) / 2));
+          b.geometry(
+            ck('fascia', it.border ?? it.bg, 'mkRail'),
+            pillGeometry(w, h, d, E[i].yaw, c, base + (it.y0 + it.y1) / 2),
+          );
         } else if (!letters) {
           const c = P(i, (it.u0 + it.u1) / 2, mount + d / 2 + 0.01);
           const side = ck('fascia', it.border ?? it.bg, 'mkRail');
@@ -7799,7 +7802,14 @@ function hippedRoof(b: Builder, r: V2[], y: number, eave: number, pitchDeg: numb
  * v11: hap (stadyum) biçimli tabela kutusu: w × h, uç yarıçapı min(w, h) / 2, kalınlık d; yerel x kenar boyunca, z
  * duvar normali (b.box ile aynı çerçeve), merkez c (dünya x / z) ve yc kotunda.
  */
-export function pillGeometry(w: number, h: number, d: number, yaw: number, c: V2, yc: number): THREE.BufferGeometry {
+export function pillGeometry(
+  w: number,
+  h: number,
+  d: number,
+  yaw: number,
+  c: V2,
+  yc: number,
+): THREE.BufferGeometry {
   const r = Math.min(w, h) / 2;
   const hx = w / 2 - r;
   const hy = h / 2 - r;
@@ -7844,7 +7854,12 @@ export function resolveOpenings(list: Opening[]): Opening[] {
       continue;
     }
     // Tek dükkân camının içinde (ya da op dükkân camı ve çakışanların hepsi onun içinde): böl
-    if (hits.length === 1 && hits[0].win.kind === 'shop' && op.win.kind !== 'shop' && openingInside(op, hits[0])) {
+    if (
+      hits.length === 1 &&
+      hits[0].win.kind === 'shop' &&
+      op.win.kind !== 'shop' &&
+      openingInside(op, hits[0])
+    ) {
       keep = keep.filter((q) => q !== hits[0]).concat(splitAround(hits[0], [op]), [op]);
       continue;
     }

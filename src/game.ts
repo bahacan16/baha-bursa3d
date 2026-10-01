@@ -19,6 +19,7 @@ import {
   weakGpu,
 } from './env/ultra';
 import { ReflectionProbe } from './env/probe';
+import { SkyVisibility } from './env/skyvis';
 import { loadHdriSky, measureSky, type HdriSky } from './env/hdrisky';
 import { facadeSky } from './worlds/osm/facades';
 import { CharacterController } from './player/controller';
@@ -101,6 +102,7 @@ export class Game {
   /** Ultra gerçekçilik paketi etkin mi (ayar + güçlü GPU; ?q=ultra zorlar). */
   readonly ultra: boolean;
   private probe: ReflectionProbe | null = null;
+  private skyVis: SkyVisibility | null = null;
   /** Ultra + ?sky=hdri: fotoğraf gökyüzü (arka plan + yansıma) */
   private hdri: HdriSky | null = null;
   private time = 0;
@@ -186,6 +188,8 @@ export class Game {
     if (this.ultra && probeQ !== null && probeQ !== '0') this.probe = new ReflectionProbe(r, this.pmrem);
     // Ultra: el modeli gölge vekilleri yalnız gölge haritasında görünür (worlds/measured/batch.ts)
     if (this.ultra) installShadowOnly(r);
+    // Zemin gök görüşü: yatay yüzeylerde dolaylı ışık bina / duvar örtünmesiyle (env/skyvis.ts) — Yüksek + Ultra
+    this.skyVis = new SkyVisibility(r, this.scene, settings.quality === 'high');
     // Ultra: fotoğraf gökyüzü (HDRI, varsa) varsayılan; ?sky=proc prosedürel gök (bulutlar + tutarlı bulut gölgesi)
     if (this.ultra && new URLSearchParams(location.search).get('sky') !== 'proc') void this.loadHdri();
     this.desktop = new DesktopInput(this.input, r.domElement);
@@ -401,6 +405,7 @@ export class Game {
     this.camera.updateProjectionMatrix();
     // pişirilmiş dolaylı ışık etkinse ekran uzayı AO azaltılır (çifte karartma olmasın) + ayrı ışık kalibrasyonu
     this.post?.setBaked(bakedLighting.active);
+    this.skyVis?.reset();
     this.applyTimeOfDay();
     if (this.ultra) this.maxAnisotropy(world.object);
     this.teleport(world.spawn.x, world.spawn.y, world.spawn.z);
@@ -608,6 +613,7 @@ export class Game {
       this.camera.updateMatrixWorld();
       taa.jitter(sz.x, sz.y, [bc]);
     }
+    this.skyVis?.update(this.camera.position, dt);
     r.autoClear = false;
     r.info.autoReset = false;
     r.info.reset();

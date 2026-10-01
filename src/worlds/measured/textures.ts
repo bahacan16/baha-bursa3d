@@ -1746,7 +1746,7 @@ export function drawShopSign(g: CanvasRenderingContext2D, W: number, H: number, 
       const yc = ly != null && ly >= 0 && ly <= 1 ? (1 - ly) * H : y + lh / 2;
       g.save();
       g.translate(cx, 0);
-      if (sx < 1) g.scale(sx, 1);
+      if (sx !== 1) g.scale(sx, 1);
       if (o.outline) {
         // Harf konturu (fotoğraftaki beyaz/koyu kenar)
         g.strokeStyle = o.outline;

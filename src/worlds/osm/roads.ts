@@ -505,7 +505,6 @@ export interface RoadMarkSpec {
   fade?: number;
 }
 
-
 /** v11: solmuş çizgi köşe rengi (asfalt köşe rengine doğrusal karışım; fade 0 → WHITE) */
 export function fadedMark(fade: number | undefined): Rgb {
   const f = Math.max(0, Math.min(1, fade ?? 0));
